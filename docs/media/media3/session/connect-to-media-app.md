@@ -96,7 +96,7 @@ command to its underlying `Player`.
 > **Tip:** A media controller implements the `Player` interface, and as such you can use it within your UI as a `Player`.
 
 You can add a `Player.Listener` to the controller to listen for changes in the
-`Player` state. Refer to the [Player events](https://developer.android.com/media/media3/exoplayer/players#listening-to-player-events) guide for more details on using a
+`Player` state. Refer to the [Player events](https://developer.android.com/media/media3/exoplayer/listening-to-player-events#listening-to-player-events) guide for more details on using a
 `Player.Listener`.
 
 The `MediaController.Listener` interface defines additional callbacks for events

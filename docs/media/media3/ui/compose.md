@@ -26,12 +26,12 @@ We highly encourage you to develop your app in a Compose-first fashion or
 
 ## Fully Compose demo app
 
-While the `media3-ui-compose` library does not include out-of-the-box
-Composables (such as buttons, indicators, images or dialogs), you can find a
-[demo app written fully in Compose](https://github.com/androidx/media/tree/release/demos/compose) that avoids any interoperability
-solutions like wrapping [`PlayerView`](https://developer.android.com/reference/androidx/media3/ui/PlayerView) in [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)). The demo app
-utilises the UI state holder classes from `media3-ui-compose` module and makes
-use of the [Compose Material3](https://developer.android.com/develop/ui/compose/designsystems/material3) library.
+While the `media3-ui-compose` library doesn't include out-of-the-box composables
+(such as buttons, indicators, images, or dialogs), you can find a [demo app
+written fully in Compose](https://github.com/androidx/media/tree/release/demos/compose) that avoids any interoperability solutions like
+wrapping [`PlayerView`](https://developer.android.com/reference/androidx/media3/ui/PlayerView) in [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)). The demo app uses the UI state
+holder classes from the `media3-ui-compose` module and the
+[Compose Material3](https://developer.android.com/develop/ui/compose/designsystems/material3) library.
 
 ## Which library do I need?
 
@@ -42,9 +42,9 @@ the [UI state production pipeline](https://developer.android.com/topic/architect
 **Use `media3-ui-compose` for full control over your UI components.**
 
 This library provides the `Business logic → UI logic` connection. It contains
-foundational components like [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) and [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)), along with
-state holder classes (e.g., [`PlayPauseButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlayPauseButtonState#PlayPauseButtonState(androidx.media3.common.Player))) that convert `Player`
-state into UI state.
+foundational components like [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable) and [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable), along with
+state holder classes (e.g., [`PlayPauseButtonState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlayPauseButtonState), [`CurrentMediaItemState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/CurrentMediaItemState),
+[`PlaylistState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlaylistState), [`ErrorState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/ErrorState)) that convert `Player` state into UI state.
 
 This library does **not** provide ready-to-use Material Design components. You
 are responsible for building your own UI components and styling them. It gives
@@ -55,18 +55,21 @@ custom design system.
 Design.**
 
 This library provides the final `UI` part of the pipeline. It depends on
-`media3-ui-compose` and includes prebuilt Composable functions that are styled
-with [Material3 components](https://m3.material.io/components), including the [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) Composable, which
-offers a comprehensive media playback experience with video, controls and
-progress bar. It eliminates the need for you to build your own buttons and other
-UI elements from scratch. You can still customize the theme, colors, and icons
-of these components, but the core implementation is provided for you.
+`media3-ui-compose` and includes prebuilt composable functions that are styled
+with [Material3 components](https://m3.material.io/components), including the [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) and [`MiniController`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/MiniController.composable)
+composables. The [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) composable offers a comprehensive media playback
+experience with video, controls, and progress bar, which you can further
+customize using [`PlayerDefaults`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults). The [`MiniController`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/MiniController.composable) composable provides a
+compact affordance to control the player while displaying information about the
+current media item. It eliminates the need for you to build your own buttons and
+other UI elements from scratch. You can still customize the theme, colors, and
+icons of these components, but the core implementation is provided for you.
 
 ## At a glance
 
 | Feature | `media3-ui-compose` | `media3-ui-compose-material3` |
 |---|---|---|
-| **UI Components** | Foundational elements like `PlayerSurface` and `ContentFrame`, but **no** pre-styled buttons or controls. | Provides the [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) Composable and a full set of prebuilt, Material3-styled Composables like `PlayPauseButton`, `SeekBackButton`, `PositionAndDurationText`, etc. |
+| **UI Components** | Foundational elements like `PlayerSurface` and `ContentFrame`, but **no** pre-styled buttons or controls. | Provides the [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) and [`MiniController`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/MiniController.composable) composables and a full set of prebuilt, Material3-styled composables like `PlayPauseButton`, `SeekBackButton`, `PositionAndDurationText`, [`ErrorText`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/ErrorText.composable), etc. |
 | **State Management** | Provides `remember...State` holders to manage the logic. | Manages state internally, but you can still access the state holders if you need to. |
 | **Dependencies** | `androidx.compose.foundation` | `media3-ui-compose`, `androidx.compose.material3`, `com.google.android.material` |
 | **Primary Use Case** | Building a player UI with a custom design system. Full control over the look and feel. | Quickly building a player UI that follows Material Design 3 guidelines. |

@@ -26,34 +26,39 @@ can be exposed from the `LatestNewsViewModel` so that the `View` can
 listen for UI state updates and inherently make the screen state survive
 configuration changes.
 
-    class LatestNewsViewModel(
-        private val newsRepository: NewsRepository
-    ) : ViewModel() {
 
-        // Backing property to avoid state updates from other classes
-        private val _uiState = MutableStateFlow(LatestNewsUiState.Success(emptyList()))
-        // The UI collects from this StateFlow to get its state updates
-        val uiState: StateFlow<LatestNewsUiState> = _uiState
+```kotlin
+class LatestNewsViewModel(
+    private val newsRepository: NewsRepository
+) : ViewModel() {
 
-        init {
-            viewModelScope.launch {
-                newsRepository.favoriteLatestNews
-                    // Update View with the latest favorite news
-                    // Writes to the value property of MutableStateFlow,
-                    // adding a new element to the flow and updating all
-                    // of its collectors
-                    .collect { favoriteNews ->
-                        _uiState.value = LatestNewsUiState.Success(favoriteNews)
-                    }
-            }
+    // Backing property to avoid state updates from other classes
+    private val _uiState = MutableStateFlow(LatestNewsUiState.Success(emptyList()))
+    // The UI collects from this StateFlow to get its state updates
+    val uiState: StateFlow<LatestNewsUiState> = _uiState
+
+    init {
+        viewModelScope.launch {
+            newsRepository.favoriteLatestNews
+                // Update UI with the latest favorite news
+                // Writes to the value property of MutableStateFlow,
+                // adding a new element to the flow and updating all
+                // of its collectors
+                .collect { favoriteNews ->
+                    _uiState.value = LatestNewsUiState.Success(favoriteNews)
+                }
         }
     }
+}
 
-    // Represents different states for the LatestNews screen
-    sealed class LatestNewsUiState {
-        data class Success(val news: List<ArticleHeadline>): LatestNewsUiState()
-        data class Error(val exception: Throwable): LatestNewsUiState()
-    }
+// Represents different states for the LatestNews screen
+sealed class LatestNewsUiState {
+    data class Success(val news: List<ArticleHeadline>) : LatestNewsUiState()
+    data class Error(val exception: Throwable) : LatestNewsUiState()
+}
+```
+
+<br />
 
 The class responsible for updating a `MutableStateFlow` is the producer,
 and all classes collecting from the `StateFlow` are the consumers. Unlike
@@ -70,30 +75,35 @@ in other observable classes like
 
 The `View` listens for `StateFlow` as with any other flow:
 
-    class LatestNewsActivity : AppCompatActivity() {
-        private val latestNewsViewModel = // getViewModel()
 
-        override fun onCreate(savedInstanceState: Bundle?) {
-            ...
-            // Start a coroutine in the lifecycle scope
-            lifecycleScope.launch {
-                // repeatOnLifecycle launches the block in a new coroutine every time the
-                // lifecycle is in the STARTED state (or above) and cancels it when it's STOPPED.
-                repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    // Trigger the flow and start listening for values.
-                    // Note that this happens when lifecycle is STARTED and stops
-                    // collecting when the lifecycle is STOPPED
-                    latestNewsViewModel.uiState.collect { uiState ->
-                        // New value received
-                        when (uiState) {
-                            is LatestNewsUiState.Success -> showFavoriteNews(uiState.news)
-                            is LatestNewsUiState.Error -> showError(uiState.exception)
-                        }
+```kotlin
+class LatestNewsActivity : ComponentActivity() {
+    private val latestNewsViewModel: LatestNewsViewModel = TODO() // getViewModel()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        // ...
+        // Start a coroutine in the lifecycle scope
+        lifecycleScope.launch {
+            // repeatOnLifecycle launches the block in a new coroutine every time the
+            // lifecycle is in the STARTED state (or above) and cancels it when it's STOPPED.
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                // Trigger the flow and start listening for values.
+                // Note that this happens when lifecycle is STARTED and stops
+                // collecting when the lifecycle is STOPPED
+                latestNewsViewModel.uiState.collect { uiState ->
+                    // New value received
+                    when (uiState) {
+                        is LatestNewsUiState.Success -> showFavoriteNews(uiState.news)
+                        is LatestNewsUiState.Error -> showError(uiState.exception)
                     }
                 }
             }
         }
     }
+}
+```
+
+<br />
 
 > [!WARNING]
 > **Warning:** Never collect a flow from the UI directly from
@@ -141,17 +151,22 @@ You need to pass in the following:
 - The number of items to replay to each new collector.
 - The start behavior policy.
 
-    class NewsRemoteDataSource(...,
-        private val externalScope: CoroutineScope,
-    ) {
-        val latestNews: Flow<List<ArticleHeadline>> = flow {
-            ...
-        }.shareIn(
-            externalScope,
-            replay = 1,
-            started = SharingStarted.WhileSubscribed()
-        )
-    }
+
+```kotlin
+class NewsRemoteDataSource(
+    private val externalScope: CoroutineScope
+) {
+    val latestNews: Flow<List<ArticleHeadline>> = flow {
+        // ...
+    }.shareIn(
+        externalScope,
+        replay = 1,
+        started = SharingStarted.WhileSubscribed()
+    )
+}
+```
+
+<br />
 
 In this example, the `latestNews` flow replays the last emitted item
 to a new collector and remains active as long as `externalScope` is
@@ -181,42 +196,52 @@ classes know when to refresh its content. As with `StateFlow`, use a
 backing property of type `MutableSharedFlow` in a class to send items
 to the flow:
 
-    // Class that centralizes when the content of the app needs to be refreshed
-    class TickHandler(
-        private val externalScope: CoroutineScope,
-        private val tickIntervalMs: Long = 5000
-    ) {
-        // Backing property to avoid flow emissions from other classes
-        private val _tickFlow = MutableSharedFlow<Unit>(replay = 0)
-        val tickFlow: SharedFlow<Unit> = _tickFlow
 
-        init {
-            externalScope.launch {
-                while(true) {
-                    _tickFlow.emit(Unit)
-                    delay(tickIntervalMs)
-                }
+```kotlin
+// Class that centralizes when the content of the app needs to be refreshed
+class TickHandler(
+    private val externalScope: CoroutineScope,
+    private val tickIntervalMs: Long = 5000
+) {
+    // Backing property to avoid flow emissions from other classes
+    private val _tickFlow = MutableSharedFlow<Unit>(replay = 0)
+    val tickFlow: SharedFlow<Unit> = _tickFlow
+
+    init {
+        externalScope.launch {
+            while (true) {
+                _tickFlow.emit(Unit)
+                delay(tickIntervalMs)
+            }
+        }
+    }
+}
+```
+
+<br />
+
+
+```kotlin
+class NewsRepository(
+    // ...
+    private val tickHandler: TickHandler,
+    private val externalScope: CoroutineScope
+) {
+    init {
+        externalScope.launch {
+            // Listen for tick updates
+            tickHandler.tickFlow.collect {
+                refreshLatestNews()
             }
         }
     }
 
-    class NewsRepository(
-        ...,
-        private val tickHandler: TickHandler,
-        private val externalScope: CoroutineScope
-    ) {
-        init {
-            externalScope.launch {
-                // Listen for tick updates
-                tickHandler.tickFlow.collect {
-                    refreshLatestNews()
-                }
-            }
-        }
+    suspend fun refreshLatestNews() { /* ... */ }
+    // ...
+}
+```
 
-        suspend fun refreshLatestNews() { ... }
-        ...
-    }
+<br />
 
 You can customize the `SharedFlow` behavior in the following ways:
 

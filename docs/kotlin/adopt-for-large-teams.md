@@ -108,7 +108,12 @@ For example, assume the following snippet of Java:
 
 You can replace the Java class with a single line of Kotlin, as shown here:
 
-    data class Person(var firstName: String?, var lastName : String?)
+
+```kotlin
+data class Person(var firstName: String?, var lastName: String?)
+```
+
+<br />
 
 This code can then be unit tested against your current test suite. The idea here
 is to start small with one model at a time and transition classes that are
@@ -216,10 +221,12 @@ conventions that match each language.
 ### Kotlin
 
 ```kotlin
-...
-val myString: String = ...
+// ...
+
+val myString: String = "hello"
 val fooString = myString.foo()
-...
+
+// ...
 ```
 
 ### Java
@@ -294,14 +301,19 @@ and [lambdas](https://kotlinlang.org/docs/reference/lambdas.html).
 Here's a very common trap that newer Kotlin developers encounter. Assume the
 following Kotlin code:
 
-    val nullableFoo: Foo? = ...
 
-    // This lambda executes only if nullableFoo is not null
-    // and `foo` is of the non-nullable Foo type
-    nullableFoo?.let { foo ->
-       foo.baz()
-       foo.zap()
-    }
+```kotlin
+val nullableFoo: Foo? = Foo()
+
+// This lambda executes only if nullableFoo is not null
+// and `foo` is of the non-nullable Foo type
+nullableFoo?.let { foo ->
+    foo.baz()
+    foo.zap()
+}
+```
+
+<br />
 
 The intent in this example is to execute `foo.baz()` and `foo.zap()` if
 `nullableFoo` is not null, thus avoiding a `NullPointerException`. While this
@@ -309,11 +321,16 @@ code works as expected, it's less intuitive to read than a simple null check and
 [smart cast](https://kotlinlang.org/docs/reference/typecasts.html#smart-casts),
 as shown in the following example:
 
-    val nullableFoo: Foo? = null
-    if (nullableFoo != null) {
-        nullableFoo.baz() // Using !! or ?. isn't required; the Kotlin compiler infers non-nullability
-        nullableFoo.zap() // from guard condition; smart casts nullableFoo to Foo inside this block
-    }
+
+```kotlin
+val nullableFoo: Foo? = null
+if (nullableFoo != null) {
+    nullableFoo.baz() // Using !! or ?. isn't required; the Kotlin compiler infers non-nullability
+    nullableFoo.zap() // from guard condition; smart casts nullableFoo to Foo inside this block
+}
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** Smart casting works only for read-only class properties (like those declared as a `val`) and local function variables, as the Kotlin compiler can't otherwise guarantee the variable reference wasn't set back to `null` between the `if` guard and the variable's usage.

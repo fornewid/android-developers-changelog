@@ -79,7 +79,13 @@ targets for users to quickly mark items as done.
 
 Provide intuitive control grouping with action lists, where visual on/off
 states offer immediate feedback on item statuses.
-![](https://developer.android.com/static/images/design/ui/mobile/widgets/03_Action_List.jpg)
+![](https://developer.android.com/static/images/design/ui/mobile/widgets/03_Action_List.jpg) **Full bleed image**
+
+
+Ideal for showcasing immersive, full-bleed images on Android 17 and
+higher, this layout uses snap scrolling to ensure each child element
+perfectly aligns with the height of the widget container.
+![](https://developer.android.com/static/images/design/ui/mobile/widgets/04_Full_Bleed.png)
 
 ## Grid
 
@@ -107,10 +113,11 @@ Glance implementation in the [Android Platform Samples GitHub repository](https:
 |---|---|---|
 | **Text only** | Text | [LongTextAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/text/LongTextAppWidget.kt) |
 | **Text and image** | Text | [TextWithImageAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/text/TextWithImageAppWidget.kt) |
-| **Search Toolbar** | Toolbars | [SearchToolBarAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/SearchToolBarAppWidget.kt) |
+| **Search toolbar** | Toolbars | [SearchToolBarAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/SearchToolBarAppWidget.kt) |
 | **Toolbar** (Standard) | Toolbars | [ToolBarAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/toolbars/ToolBarAppWidget.kt) |
 | **Text and image list** | Lists | [ImageTextListAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/ImageTextListAppWidget.kt) |
 | **Checklist** | Lists | [CheckListAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/CheckListAppWidget.kt) |
 | **Action list** | Lists | [ActionListAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/ActionListAppWidget.kt) |
+| **Full bleed snap scroll** | Lists | [FullBleedImageAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/text/FullBleedImageAppWidget.kt) |
 | **Image only** | Grid | [ImageGridAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/ImageGridAppWidget.kt) |
 | **Image and text** | Grid | [ImageGridAppWidget.kt](https://github.com/android/platform-samples/blob/main/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/collections/ImageGridAppWidget.kt) |

@@ -15,18 +15,23 @@ your app more scalable and testable when using coroutines.
 Don't hardcode `Dispatchers` when creating new coroutines or calling
 `withContext`.
 
-    // DO inject Dispatchers
-    class NewsRepository(
-        private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default
-    ) {
-        suspend fun loadNews() = withContext(defaultDispatcher) { /* ... */ }
-    }
 
-    // DO NOT hardcode Dispatchers
-    class NewsRepository {
-        // DO NOT use Dispatchers.Default directly, inject it instead
-        suspend fun loadNews() = withContext(Dispatchers.Default) { /* ... */ }
-    }
+```kotlin
+// DO inject Dispatchers
+class NewsRepository(
+    private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default
+) {
+    suspend fun loadNews() = withContext(defaultDispatcher) { /* ... */ }
+}
+
+// DO NOT hardcode Dispatchers
+class NewsRepository {
+    // DO NOT use Dispatchers.Default directly, inject it instead
+    suspend fun loadNews() = withContext(Dispatchers.Default) { /* ... */ }
+}
+```
+
+<br />
 
 This dependency injection pattern makes testing easier as you can replace those
 dispatchers in unit and instrumentation tests with a
@@ -47,36 +52,41 @@ coroutine, it's in charge of moving the execution off the main thread using
 `withContext`. This applies to all classes in your app, regardless of the part
 of the architecture the class is in.
 
-    class NewsRepository(private val ioDispatcher: CoroutineDispatcher) {
 
-        // As this operation is manually retrieving the news from the server
-        // using a blocking HttpURLConnection, it needs to move the execution
-        // to an IO dispatcher to make it main-safe
-        suspend fun fetchLatestNews(): List<Article> {
-            withContext(ioDispatcher) { /* ... implementation ... */ }
-        }
+```kotlin
+class NewsRepository(private val ioDispatcher: CoroutineDispatcher) {
+
+    // As this operation is manually retrieving the news from the server
+    // using a blocking HttpURLConnection, it needs to move the execution
+    // to an IO dispatcher to make it main-safe
+    suspend fun fetchLatestNews(): List<Article> {
+        withContext(ioDispatcher) { /* ... implementation ... */ }
     }
+}
 
-    // This use case fetches the latest news and the associated author.
-    class GetLatestNewsWithAuthorsUseCase(
-        private val newsRepository: NewsRepository,
-        private val authorsRepository: AuthorsRepository
-    ) {
-        // This method doesn't need to worry about moving the execution of the
-        // coroutine to a different thread as newsRepository is main-safe.
-        // The work done in the coroutine is lightweight as it only creates
-        // a list and add elements to it
-        suspend operator fun invoke(): List<ArticleWithAuthor> {
-            val news = newsRepository.fetchLatestNews()
+// This use case fetches the latest news and the associated author.
+class GetLatestNewsWithAuthorsUseCase(
+    private val newsRepository: NewsRepository,
+    private val authorsRepository: AuthorsRepository
+) {
+    // This method doesn't need to worry about moving the execution of the
+    // coroutine to a different thread as newsRepository is main-safe.
+    // The work done in the coroutine is lightweight as it only creates
+    // a list and add elements to it
+    suspend operator fun invoke(): Result<List<ArticleWithAuthor>> {
+        val news = newsRepository.fetchLatestNews()
 
-            val response: List<ArticleWithAuthor> = mutableEmptyList()
-            for (article in news) {
-                val author = authorsRepository.getAuthor(article.author)
-                response.add(ArticleWithAuthor(article, author))
-            }
-            return Result.Success(response)
+        val response = mutableListOf<ArticleWithAuthor>()
+        for (article in news) {
+            val author = authorsRepository.getAuthor(article.author)
+            response.add(ArticleWithAuthor(article, author))
         }
+        return Result.Success(response)
     }
+}
+```
+
+<br />
 
 This pattern makes your app more scalable, as classes calling suspend functions
 don't have to worry about what `Dispatcher` to use for what type of work. This
@@ -89,31 +99,41 @@ creating coroutines instead of exposing suspend functions to perform business
 logic. Suspend functions in the `ViewModel` can be useful if instead of
 exposing state using a stream of data, only a single value needs to be emitted.
 
-    // DO create coroutines in the ViewModel
-    class LatestNewsViewModel(
-        private val getLatestNewsWithAuthors: GetLatestNewsWithAuthorsUseCase
-    ) : ViewModel() {
 
-        private val _uiState = MutableStateFlow<LatestNewsUiState>(LatestNewsUiState.Loading)
-        val uiState: StateFlow<LatestNewsUiState> = _uiState
+```kotlin
+// DO create coroutines in the ViewModel
+class LatestNewsViewModel(
+    private val getLatestNewsWithAuthors: GetLatestNewsWithAuthorsUseCase
+) : ViewModel() {
 
-        fun loadNews() {
-            viewModelScope.launch {
-                val latestNewsWithAuthors = getLatestNewsWithAuthors()
-                _uiState.value = LatestNewsUiState.Success(latestNewsWithAuthors)
-            }
+    private val _uiState = MutableStateFlow<LatestNewsUiState>(LatestNewsUiState.Loading)
+    val uiState: StateFlow<LatestNewsUiState> = _uiState
+
+    fun loadNews() {
+        viewModelScope.launch {
+            val latestNewsWithAuthors = getLatestNewsWithAuthors()
+            _uiState.value = LatestNewsUiState.Success(latestNewsWithAuthors)
         }
     }
+}
+```
 
-    // Prefer observable state rather than suspend functions from the ViewModel
-    class LatestNewsViewModel(
-        private val getLatestNewsWithAuthors: GetLatestNewsWithAuthorsUseCase
-    ) : ViewModel() {
-        // DO NOT do this. News would probably need to be refreshed as well.
-        // Instead of exposing a single value with a suspend function, news should
-        // be exposed using a stream of data as in the code snippet above.
-        suspend fun loadNews() = getLatestNewsWithAuthors()
-    }
+<br />
+
+
+```kotlin
+// Prefer observable state rather than suspend functions from the ViewModel
+class LatestNewsViewModel(
+    private val getLatestNewsWithAuthors: GetLatestNewsWithAuthorsUseCase
+) : ViewModel() {
+    // DO NOT do this. News would probably need to be refreshed as well.
+    // Instead of exposing a single value with a suspend function, news should
+    // be exposed using a stream of data as in the code snippet above.
+    suspend fun loadNews() = getLatestNewsWithAuthors()
+}
+```
+
+<br />
 
 Views shouldn't directly trigger any coroutines to perform business logic.
 Instead, defer that responsibility to the `ViewModel`. This makes your business
@@ -135,22 +155,32 @@ Prefer exposing immutable types to other classes. In this way, all changes to
 the mutable type is centralized in one class making it easier to debug when
 something goes wrong.
 
-    // DO expose immutable types
-    class LatestNewsViewModel : ViewModel() {
 
-        private val _uiState = MutableStateFlow(LatestNewsUiState.Loading)
-        val uiState: StateFlow<LatestNewsUiState> = _uiState
+```kotlin
+// DO expose immutable types
+class LatestNewsViewModel : ViewModel() {
 
-        /* ... */
-    }
+    private val _uiState = MutableStateFlow(LatestNewsUiState.Loading)
+    val uiState: StateFlow<LatestNewsUiState> = _uiState
 
-    class LatestNewsViewModel : ViewModel() {
+    /* ... */
+}
+```
 
-        // DO NOT expose mutable types
-        val uiState = MutableStateFlow(LatestNewsUiState.Loading)
+<br />
 
-        /* ... */
-    }
+
+```kotlin
+class LatestNewsViewModel : ViewModel() {
+
+    // DO NOT expose mutable types
+    val uiState = MutableStateFlow(LatestNewsUiState.Loading)
+
+    /* ... */
+}
+```
+
+<br />
 
 ## The data and business layer should expose suspend functions and Flows
 
@@ -159,13 +189,20 @@ one-shot calls or to be notified of data changes over time. Classes in those
 layers should expose **suspend functions for one-shot calls** and **Flow to
 notify about data changes**.
 
-    // Classes in the data and business layer expose
-    // either suspend functions or Flows
-    class ExampleRepository {
-        suspend fun makeNetworkRequest() { /* ... */ }
 
-        fun getExamples(): Flow<Example> { /* ... */ }
+```kotlin
+// Classes in the data and business layer expose
+// either suspend functions or Flows
+class ExampleRepository {
+    suspend fun makeNetworkRequest() { /* ... */ }
+
+    fun getExamples(): Flow<Example> {
+        /* ... */
     }
+}
+```
+
+<br />
 
 This best practice makes the caller, generally the presentation layer, able to
 control the execution and lifecycle of the work happening in those layers, and
@@ -184,38 +221,48 @@ user navigates away from the screen and the ViewModel is cleared. In this case,
 or [`supervisorScope`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/supervisor-scope.html)
 should be used.
 
-    class GetAllBooksAndAuthorsUseCase(
-        private val booksRepository: BooksRepository,
-        private val authorsRepository: AuthorsRepository,
-    ) {
-        suspend fun getBookAndAuthors(): BookAndAuthors {
-            // In parallel, fetch books and authors and return when both requests
-            // complete and the data is ready
-            return coroutineScope {
-                val books = async { booksRepository.getAllBooks() }
-                val authors = async { authorsRepository.getAllAuthors() }
-                BookAndAuthors(books.await(), authors.await())
-            }
+
+```kotlin
+class GetAllBooksAndAuthorsUseCase(
+    private val booksRepository: BooksRepository,
+    private val authorsRepository: AuthorsRepository,
+) {
+    suspend fun getBookAndAuthors(): BookAndAuthors {
+        // In parallel, fetch books and authors and return when both requests
+        // complete and the data is ready
+        return coroutineScope {
+            val books = async { booksRepository.getAllBooks() }
+            val authors = async { authorsRepository.getAllAuthors() }
+            BookAndAuthors(books.await(), authors.await())
         }
     }
+}
+```
+
+<br />
 
 If the work to be done is relevant as long as the app is opened, and the work is
 not bound to a particular screen, then the work should outlive the caller's
 lifecycle. For this scenario, an external `CoroutineScope` should be used as
 explained in the [Coroutines \& Patterns for work that shouldn't be cancelled blog post](https://medium.com/androiddevelopers/coroutines-patterns-for-work-that-shouldnt-be-cancelled-e26c40f142ad).
 
-    class ArticlesRepository(
-        private val articlesDataSource: ArticlesDataSource,
-        private val externalScope: CoroutineScope,
-    ) {
-        // As we want to complete bookmarking the article even if the user moves
-        // away from the screen, the work is done creating a new coroutine
-        // from an external scope
-        suspend fun bookmarkArticle(article: Article) {
-            externalScope.launch { articlesDataSource.bookmarkArticle(article) }
-                .join() // Wait for the coroutine to complete
-        }
+
+```kotlin
+class ArticlesRepository(
+    private val articlesDataSource: ArticlesDataSource,
+    private val externalScope: CoroutineScope,
+) {
+    // As we want to complete bookmarking the article even if the user moves
+    // away from the screen, the work is done creating a new coroutine
+    // from an external scope
+    suspend fun bookmarkArticle(article: Article) {
+        externalScope.launch { articlesDataSource.bookmarkArticle(article) }
+            .join() // Wait for the coroutine to complete
     }
+}
+```
+
+<br />
 
 `externalScope` should be created and managed by a class that lives longer than
 the current screen, it could be managed by the `Application` class or a
@@ -249,24 +296,29 @@ coroutine builder. `runTest` uses a
 to skip delays in tests and to allow you to control virtual time. You can also
 use this scheduler to create additional test dispatchers as needed.
 
-    class ArticlesRepositoryTest {
 
-        @Test
-        fun testBookmarkArticle() = runTest {
-            // Pass the testScheduler provided by runTest's coroutine scope to
-            // the test dispatcher
-            val testDispatcher = UnconfinedTestDispatcher(testScheduler)
+```kotlin
+class ArticlesRepositoryTest {
 
-            val articlesDataSource = FakeArticlesDataSource()
-            val repository = ArticlesRepository(
-                articlesDataSource,
-                testDispatcher
-            )
-            val article = Article()
-            repository.bookmarkArticle(article)
-            assertThat(articlesDataSource.isBookmarked(article)).isTrue()
-        }
+    @Test
+    fun testBookmarkArticle() = runTest {
+        // Pass the testScheduler provided by runTest's coroutine scope to
+        // the test dispatcher
+        val testDispatcher = UnconfinedTestDispatcher(testScheduler)
+
+        val articlesDataSource = FakeArticlesDataSource()
+        val repository = ArticlesRepository(
+            articlesDataSource,
+            defaultDispatcher = testDispatcher
+        )
+        val article = Article()
+        repository.bookmarkArticle(article)
+        assertThat(articlesDataSource.isBookmarked(article)).isTrue()
     }
+}
+```
+
+<br />
 
 All `TestDispatchers` should share the same scheduler. This allows you to
 run all your coroutine code on the single test thread to make your tests
@@ -300,37 +352,47 @@ the current scope. Check out the
 [Creating coroutines in the business and data layer section](https://developer.android.com/kotlin/coroutines/coroutines-best-practices#create-coroutines-data-layer)
 to learn more about this topic.
 
-    // DO inject an external scope instead of using GlobalScope.
-    // GlobalScope can be used indirectly. Here as a default parameter makes sense.
-    class ArticlesRepository(
-        private val articlesDataSource: ArticlesDataSource,
-        private val externalScope: CoroutineScope = GlobalScope,
-        private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default
-    ) {
-        // As we want to complete bookmarking the article even if the user moves
-        // away from the screen, the work is done creating a new coroutine
-        // from an external scope
-        suspend fun bookmarkArticle(article: Article) {
-            externalScope.launch(defaultDispatcher) {
-                articlesDataSource.bookmarkArticle(article)
-            }
-                .join() // Wait for the coroutine to complete
-        }
-    }
 
-    // DO NOT use GlobalScope directly
-    class ArticlesRepository(
-        private val articlesDataSource: ArticlesDataSource,
-    ) {
-        // As we want to complete bookmarking the article even if the user moves away
-        // from the screen, the work is done creating a new coroutine with GlobalScope
-        suspend fun bookmarkArticle(article: Article) {
-            GlobalScope.launch {
-                articlesDataSource.bookmarkArticle(article)
-            }
-                .join() // Wait for the coroutine to complete
+```kotlin
+// DO inject an external scope instead of using GlobalScope.
+// GlobalScope can be used indirectly. Here as a default parameter makes sense.
+class ArticlesRepository(
+    private val articlesDataSource: ArticlesDataSource,
+    private val externalScope: CoroutineScope = GlobalScope,
+    private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default
+) {
+    // As we want to complete bookmarking the article even if the user moves
+    // away from the screen, the work is done creating a new coroutine
+    // from an external scope
+    suspend fun bookmarkArticle(article: Article) {
+        externalScope.launch(defaultDispatcher) {
+            articlesDataSource.bookmarkArticle(article)
         }
+            .join() // Wait for the coroutine to complete
     }
+}
+```
+
+<br />
+
+
+```kotlin
+// DO NOT use GlobalScope directly
+class ArticlesRepository(
+    private val articlesDataSource: ArticlesDataSource,
+) {
+    // As we want to complete bookmarking the article even if the user moves away
+    // from the screen, the work is done creating a new coroutine with GlobalScope
+    suspend fun bookmarkArticle(article: Article) {
+        GlobalScope.launch {
+            articlesDataSource.bookmarkArticle(article)
+        }
+            .join() // Wait for the coroutine to complete
+    }
+}
+```
+
+<br />
 
 Learn more about `GlobalScope` and its alternatives in the
 [Coroutines \& Patterns for work that shouldn't be cancelled blog post](https://medium.com/androiddevelopers/coroutines-patterns-for-work-that-shouldnt-be-cancelled-e26c40f142ad).
@@ -348,12 +410,17 @@ check for cancellation is by calling the
 [`ensureActive`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/ensure-active.html)
 function.
 
-    someScope.launch {
-        for(file in files) {
-            ensureActive() // Check for cancellation
-            readFile(file)
-        }
+
+```kotlin
+someScope.launch {
+    for (file in files) {
+        ensureActive() // Check for cancellation
+        readFile(file)
     }
+}
+```
+
+<br />
 
 All suspend functions from `kotlinx.coroutines` such as `withContext` and
 `delay` are cancellable. If your coroutine calls them, you shouldn't need to do
@@ -368,21 +435,26 @@ Unhandled exceptions thrown in coroutines can make your app crash. If exceptions
 are likely to happen, catch them in the body of any coroutines created with
 `viewModelScope` or `lifecycleScope`.
 
-    class LoginViewModel(
-        private val loginRepository: LoginRepository
-    ) : ViewModel() {
 
-        fun login(username: String, token: String) {
-            viewModelScope.launch {
-                try {
-                    loginRepository.login(username, token)
-                    // Notify view user logged in successfully
-                } catch (exception: IOException) {
-                    // Notify view login attempt failed
-                }
+```kotlin
+class LoginViewModel(
+    private val loginRepository: LoginRepository
+) : ViewModel() {
+
+    fun login(username: String, token: String) {
+        viewModelScope.launch {
+            try {
+                loginRepository.login(username, token)
+                // Update UI, user logged in successfully
+            } catch (exception: IOException) {
+                // Update UI, login attempt failed
             }
         }
     }
+}
+```
+
+<br />
 
 > [!CAUTION]
 > **Caution:** To enable coroutine cancellation, don't consume exceptions of type `CancellationException` (don't catch them, or always rethrow them if caught). Prefer catching specific exception types like `IOException` over generic types like `Exception` or `Throwable`.

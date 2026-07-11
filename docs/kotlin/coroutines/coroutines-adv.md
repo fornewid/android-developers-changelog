@@ -28,12 +28,18 @@ by using a coroutine builder such as `launch` to start a new coroutine.
 The following example shows a simple coroutine implementation for a
 hypothetical long-running task:
 
-    suspend fun fetchDocs() {                             // Dispatchers.Main
-        val result = get("https://developer.android.com") // Dispatchers.IO for `get`
-        show(result)                                      // Dispatchers.Main
-    }
 
-    suspend fun get(url: String) = withContext(Dispatchers.IO) { /* ... */ }
+```kotlin
+suspend fun fetchDocs() { // Dispatchers.Main
+    val result = get("https://developer.android.com") // Dispatchers.IO for `get`
+    show(result) // Dispatchers.Main
+}
+
+suspend fun get(url: String) = withContext(Dispatchers.IO) {
+}
+```
+
+<br />
 
 In this example, `get()` still runs on the main thread, but it suspends the
 coroutine before it starts the network request. When the network request
@@ -70,16 +76,20 @@ create a block that runs on the IO thread pool. Any code you put inside that
 block always executes via the `IO` dispatcher. Since `withContext` is itself a
 suspend function, the function `get` is also a suspend function.
 
-    suspend fun fetchDocs() {                      // Dispatchers.Main
-        val result = get("developer.android.com")  // Dispatchers.Main
-        show(result)                               // Dispatchers.Main
-    }
 
-    suspend fun get(url: String) =                 // Dispatchers.Main
-        withContext(Dispatchers.IO) {              // Dispatchers.IO (main-safety block)
-            /* perform network IO here */          // Dispatchers.IO (main-safety block)
-        }                                          // Dispatchers.Main
-    }
+```kotlin
+suspend fun fetchDocs() { // Dispatchers.Main
+    val result = get("developer.android.com") // Dispatchers.Main
+    show(result) // Dispatchers.Main
+}
+
+suspend fun get(url: String) = // Dispatchers.Main
+    withContext(Dispatchers.IO) { // Dispatchers.IO (main-safety block)
+        /* perform network IO here */ // Dispatchers.IO (main-safety block)
+    } // Dispatchers.Main
+```
+
+<br />
 
 With coroutines, you can dispatch threads with fine-grained control. Because
 `withContext()` lets you control the thread pool of any line of code without
@@ -142,24 +152,34 @@ As an example, let's define a `coroutineScope` that fetches two documents
 asynchronously. By calling `await()` on each deferred reference, we guarantee
 that both `async` operations finish before returning a value:
 
-    suspend fun fetchTwoDocs() =
-        coroutineScope {
-            val deferredOne = async { fetchDoc(1) }
-            val deferredTwo = async { fetchDoc(2) }
-            deferredOne.await()
-            deferredTwo.await()
-        }
+
+```kotlin
+suspend fun fetchTwoDocs() =
+    coroutineScope {
+        val deferredOne = async { fetchDoc(1) }
+        val deferredTwo = async { fetchDoc(2) }
+        deferredOne.await()
+        deferredTwo.await()
+    }
+```
+
+<br />
 
 You can also use `awaitAll()` on collections, as shown in the following example:
 
-    suspend fun fetchTwoDocs() =        // called on any Dispatcher (any thread, possibly Main)
-        coroutineScope {
-            val deferreds = listOf(     // fetch two docs at the same time
-                async { fetchDoc(1) },  // async returns a result for the first doc
-                async { fetchDoc(2) }   // async returns a result for the second doc
-            )
-            deferreds.awaitAll()        // use awaitAll to wait for both network requests
-        }
+
+```kotlin
+suspend fun fetchTwoDocs() = // called on any Dispatcher (any thread, possibly Main)
+    coroutineScope {
+        val deferreds = listOf( // fetch two docs at the same time
+            async { fetchDoc(1) }, // async returns a result for the first doc
+            async { fetchDoc(2) } // async returns a result for the second doc
+        )
+        deferreds.awaitAll() // use awaitAll to wait for both network requests
+    }
+```
+
+<br />
 
 Even though `fetchTwoDocs()` launches new coroutines with `async`, the function
 uses `awaitAll()` to wait for those launched coroutines to finish before
@@ -196,25 +216,30 @@ However, if you need to create your own `CoroutineScope` to control the
 lifecycle of coroutines in a particular layer of your app, you can create one
 as follows:
 
-    class ExampleClass {
 
-        // Job and Dispatcher are combined into a CoroutineContext which
-        // will be discussed shortly
-        val scope = CoroutineScope(Job() + Dispatchers.Main)
+```kotlin
+class ExampleClass {
 
-        fun exampleMethod() {
-            // Starts a new coroutine within the scope
-            scope.launch {
-                // New coroutine that can call suspend functions
-                fetchDocs()
-            }
-        }
+    // Job and Dispatcher are combined into a CoroutineContext which
+    // will be discussed shortly
+    val scope = CoroutineScope(Job() + Dispatchers.Main)
 
-        fun cleanUp() {
-            // Cancel the scope to cancel ongoing coroutines work
-            scope.cancel()
+    fun exampleMethod() {
+        // Starts a new coroutine within the scope
+        scope.launch {
+            // New coroutine that can call suspend functions
+            fetchDocs()
         }
     }
+
+    fun cleanUp() {
+        // Cancel the scope to cancel ongoing coroutines work
+        scope.cancel()
+    }
+}
+```
+
+<br />
 
 A cancelled scope cannot create more coroutines. Therefore, you should
 call `scope.cancel()` only when the class that controls its lifecycle
@@ -231,21 +256,26 @@ coroutine and manages its lifecycle. You can also pass a `Job` to a
 `CoroutineScope` to further manage its lifecycle, as shown in the following
 example:
 
-    class ExampleClass {
-        ...
-        fun exampleMethod() {
-            // Handle to the coroutine, you can control its lifecycle
-            val job = scope.launch {
-                // New coroutine
-            }
 
-            if (...) {
-                // Cancel the coroutine started above, this doesn't affect the scope
-                // this coroutine was launched in
-                job.cancel()
-            }
+```kotlin
+class ExampleClass {
+    // ...
+    fun exampleMethod() {
+        // Handle to the coroutine, you can control its lifecycle
+        val job = scope.launch {
+            // New coroutine
+        }
+
+        if (condition) {
+            // Cancel the coroutine started above, this doesn't affect the scope
+            // this coroutine was launched in
+            job.cancel()
         }
     }
+}
+```
+
+<br />
 
 ### CoroutineContext
 
@@ -264,21 +294,26 @@ elements by passing a new `CoroutineContext` to the `launch` or `async`
 function. Note that passing a `Job` to `launch` or `async` has no effect,
 as a new instance of `Job` is always assigned to a new coroutine.
 
-    class ExampleClass {
-        val scope = CoroutineScope(Job() + Dispatchers.Main)
 
-        fun exampleMethod() {
-            // Starts a new coroutine on Dispatchers.Main as it's the scope's default
-            val job1 = scope.launch {
-                // New coroutine with CoroutineName = "coroutine" (default)
-            }
+```kotlin
+class ExampleClass {
+    val scope = CoroutineScope(Job() + Dispatchers.Main)
 
-            // Starts a new coroutine on Dispatchers.Default
-            val job2 = scope.launch(Dispatchers.Default + CoroutineName("BackgroundCoroutine")) {
-                // New coroutine with CoroutineName = "BackgroundCoroutine" (overridden)
-            }
+    fun exampleMethod() {
+        // Starts a new coroutine on Dispatchers.Main as it's the scope's default
+        val job1 = scope.launch {
+            // New coroutine with CoroutineName = "coroutine" (default)
+        }
+
+        // Starts a new coroutine on Dispatchers.Default
+        val job2 = scope.launch(Dispatchers.Default + CoroutineName("BackgroundCoroutine")) {
+            // New coroutine with CoroutineName = "BackgroundCoroutine" (overridden)
         }
     }
+}
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** For more information about [`CoroutineExceptionHandler`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-exception-handler/index.html), see [exceptions in coroutines blog post](https://medium.com/androiddevelopers/exceptions-in-coroutines-ce8da1ec060c).

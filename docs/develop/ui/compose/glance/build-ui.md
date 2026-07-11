@@ -21,7 +21,7 @@ Glance has three main composable layouts:
 
 Glance supports [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/components/Scaffold.composable#Scaffold(androidx.glance.GlanceModifier,kotlin.Function0,androidx.glance.unit.ColorProvider,androidx.compose.ui.unit.Dp,kotlin.Function0)) objects. Place your `Column`, `Row`, and
 `Box` composables within a given `Scaffold` object.
-![Image of a column, row, and box layout.](https://developer.android.com/static/develop/ui/compose/images/column_row_box.png) **Figure 1.** Examples of layouts with Column, Row, and Box.
+![A column, row, and box layout.](https://developer.android.com/static/develop/ui/compose/images/column_row_box.png) **Figure 1.** Examples of layouts with Column, Row, and Box.
 
 > [!IMPORTANT]
 > **Key Point:** Glance provides a modern approach to build app widgets using Compose, but is restricted by the limitations of `AppWidgets` and `RemoteViews`. Therefore, Glance uses different *composables* from the Jetpack Compose UI.
@@ -147,7 +147,79 @@ items(items = peopleList, itemId = { person -> person.id.hashCode().toLong() }) 
 <br />
 
 > [!NOTE]
-> **Note:** Glance translates a `LazyColumn` into an actual `ListView` with the translation of the provided items. Thus, the same limitations and restrictions of `RemoteViews` collections apply.
+> **Note:** Glance translates a `LazyColumn` into a `ListView` with the translation of the provided items. Thus, the same limitations and restrictions of `RemoteViews` collections apply. These limitations don't apply if you use Snap Scrolling, which uses Remote Compose instead of `RemoteViews`.
+
+## Snap Scrolling
+
+Snap scrolling is an animation that allows scrollable content to snap to the top
+of the widget container.
+Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/develop/ui/compose/images/snapscrolling.mp4) and watch it with a video player. **Video 1.** The left shows a list item that doesn't snap into place while scrolling, the right snaps into place.
+
+<br />
+
+To implement snap scrolling, make sure you meet the following conditions:
+
+- Update your Glance [dependency](https://developer.android.com/jetpack/androidx/releases/glance#1.3.0-alpha01) to 1.3.0-alpha02 or higher.
+- Set your `compileSdk` to 37 or higher, as snap scrolling is supported on devices running Android 17 and higher.
+- Configure your `LazyColumn` with `VerticalScrollMode`. If the device supports snap scrolling, use `SnapScrollMatchHeight`. Otherwise, use `Normal`.
+
+> [!NOTE]
+> **Note:** `SnapScrollMatchHeight` is designed for when each child element matches the height of the parent container, such as in full bleed images. To ensure that the height passed from `LocalSize.current` into `SnapScrollMatchHeight` accurately reflects the space available on the user's home screen, use `SizeMode.Exact` otherwise `LocalSize.current` will use the minimum dimensions defined in your AppWidget metadata XML. For more information, see [Define the
+> SizeMode](https://developer.android.com/develop/ui/compose/glance/build-ui#define-sizemode).
+
+If you are using snap scrolling with images, see the [full bleed
+image](https://github.com/android/platform-samples/blob/snapscroll/samples/user-interface/appwidgets/src/main/java/com/example/platform/ui/appwidgets/glance/layout/text/FullBleedImageAppWidget.kt) Canonical Layout.
+
+
+```kotlin
+@Composable
+fun SnapScrollLayout() {
+    val height = LocalSize.current.height
+    val items = listOf(
+        ColorItem(Color.Red, "Red"),
+        ColorItem(Color.Yellow, "Yellow"),
+        ColorItem(Color.Blue, "Blue")
+    )
+
+    if (Build.VERSION.SDK_INT >= 36 && isSnapScrollSupported) {
+        LazyColumn(
+            verticalScrollMode = VerticalScrollMode.SnapScrollMatchHeight(height)
+        ) {
+            items(items) { item ->
+                ColorCard(item, height)
+            }
+        }
+    } else {
+        LazyColumn {
+            items(items) { item ->
+                ColorCard(item, height)
+            }
+        }
+    }
+}
+
+@Composable
+private fun ColorCard(item: ColorItem, height: Dp) {
+    Box(
+        modifier = GlanceModifier
+            .background(item.color)
+            .fillMaxWidth()
+            .height(height),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = item.name,
+            modifier = GlanceModifier.background(Color.White)
+        )
+    }
+}
+
+val isSnapScrollSupported: Boolean
+    get() = Build.VERSION.SDK_INT >= 36 &&
+            Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.BAKLAVA_1
+```
+
+<br />
 
 ## Define the `SizeMode`
 
@@ -286,7 +358,7 @@ the `AppWidget` available size:
 | `SizeMode.Single` | 110 x 110 | 110 x 110 | 110 x 110 | 110 x 110 |
 | `SizeMode.Exact` | 105 x 110 | 203 x 112 | 72 x 72 | 203 x 150 |
 | `SizeMode.Responsive` | 80 x 100 | 80 x 100 | 80 x 100 | 150 x 120 |
-| \* The exact values are just for demo purposes. |   |   |   |
+| \* The exact values are just for demo purposes. |   |   |   |   |
 
 ### `SizeMode.Exact`
 

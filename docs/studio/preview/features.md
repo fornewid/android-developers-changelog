@@ -77,21 +77,6 @@ The following are new features in Android Studio Quail 3.
 To see what's been fixed in this version of Android Studio, see the [closed
 issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.1.2).
 
-### More agent skills
-
-Android Studio supports [agent skills](https://developer.android.com/tools/agents/android-skills), which are modular
-instruction sets that ground the agent in specialized workflows and domain-specific
-knowledge. By adding skills to your project, you can teach the agent to
-follow specific best practices, architecture patterns, and workflows.
-This enables more accurate, context-aware code generation and automated skill
-activation when you perform a relevant task.
-
-You can create your own custom skills or use [Android CLI](https://developer.android.com/studio/preview/features#android-cli)
-to install our official [Android skills](https://github.com/android/skills). Android skills
-cover common workflows, such as XML to Compose migration, edge-to-edge
-support, Navigation 3, and more.
-![The agent showing available and active skills in the chat interface.](https://developer.android.com/static/studio/images/more-agent-skills.png) The agent showing available and active skills in the chat interface.
-
 ### Parallel conversations
 
 You can run multiple conversations in Agent Mode in parallel, enabling you to

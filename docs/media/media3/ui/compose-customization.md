@@ -71,6 +71,49 @@ your app:
 | [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) | A surface for displaying media content that handles aspect ratio management, resizing, and a shutter |
 | [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) | Raw surface which wraps `SurfaceView` and `TextureView` in `AndroidView`. |
 
+### Customize the `Player` composable
+
+When using the `media3-ui-compose-material3` library, the
+[`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) composable provides a complete media playback
+experience. You can customize its layout by providing your own composables to
+its content slots, or you can leverage the [`PlayerDefaults`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults) object to
+customize specific parts of the UI, such as [`TopControls`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults#TopControls(androidx.media3.common.Player,kotlin.Boolean,androidx.compose.ui.Modifier,kotlin.Function2)), [`CenterControls`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults#CenterControls(androidx.media3.common.Player,kotlin.Boolean,androidx.compose.ui.Modifier,androidx.compose.foundation.layout.Arrangement.Horizontal,androidx.compose.ui.Alignment.Vertical,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1)),
+[`BottomControls`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults#BottomControls(androidx.media3.common.Player,kotlin.Boolean,androidx.compose.ui.Modifier,kotlin.Function2,kotlin.Function1,kotlin.Function1,kotlin.Function2,kotlin.Function1)), and [`ErrorOverlay`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults#ErrorOverlay(androidx.media3.common.Player,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,kotlin.CharSequence,androidx.media3.common.ErrorMessageProvider)).
+
+For example, you can use `PlayerDefaults.CenterControls` to override just the
+central play/pause button while leaving the rest of the center controls intact.
+You can also pass a fully custom composable for a parameter like `topControls`,
+and completely omit others like `bottomControls` to leave them at their default.
+
+
+```kotlin
+@Composable
+fun CustomPlayerSlots(player: Player, modifier: Modifier = Modifier) {
+  Player(
+    player = player,
+    modifier = modifier,
+    topControls = { p, visible ->
+      // Fully custom top controls
+      AnimatedVisibility(visible) { Text("My custom title") }
+    },
+    centerControls = { p, visible ->
+      // Use default CenterControls but override the central button
+      PlayerDefaults.CenterControls(
+        player = p,
+        visible = visible,
+        central = {
+          // A custom play/pause button
+          Material3PlayPauseButton(it, modifier = Modifier.size(64.dp))
+        },
+      )
+    },
+    // bottomControls are left as default
+  )
+}
+```
+
+<br />
+
 ## UI state holders
 
 If none of the scaffolding components meet your needs, you can also use the
@@ -78,12 +121,12 @@ state objects directly. It's generally advisable to use the corresponding
 `remember` methods to preserve your UI look between recompositions.
 
 To better understand how you can use the flexibility of UI state holders versus
-Composables, read about how Compose [manages State](https://developer.android.com/develop/ui/compose/state).
+composables, read about how Compose [manages State](https://developer.android.com/develop/ui/compose/state).
 
 ### Button state holders
 
 For some UI states, the library makes the assumption that they will most likely
-be consumed by button-like Composables.
+be consumed by button-like composables.
 
 | State | remember\*State | Type |
 |---|---|---|
@@ -114,9 +157,17 @@ IconButton(onClick = state::onClick, modifier = modifier, enabled = state.isEnab
 
 ### Visual output state holders
 
+[`CurrentMediaItemState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/CurrentMediaItemState) provides information about the currently playing
+`MediaItem`, while [`PlaylistState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PlaylistState) exposes information about the `MediaItems`
+set on the player. These are useful for displaying metadata information in your
+custom UI.
+
+[`ErrorState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/ErrorState) provides information about the current error state of the player,
+which can be used to display an error overlay.
+
 [`PresentationState`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/state/PresentationState) holds to information for when the video output in a
 [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) can be shown or should be covered by a placeholder UI element.
-[`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) Composable combines the aspect ratio handling with taking care
+[`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) composable combines the aspect ratio handling with taking care
 of showing the shutter over a surface that is not ready yet.
 
 
@@ -148,13 +199,17 @@ fun ContentFrame(
 
 <br />
 
-Here, we can use both `presentationState.videoSizeDp` to scale the Surface to
-the chosen aspect ratio (see [ContentScale docs](https://developer.android.com/develop/ui/compose/graphics/images/customize#content-scale) for more types) and
+Here, we can use both `presentationState.videoAspectRatio` to scale the Surface
+to the chosen aspect ratio (see [Content scale](https://developer.android.com/develop/ui/compose/graphics/images/customize#content-scale) for more types) and
 `presentationState.coverSurface` to know when the timing is not right to be
 showing the Surface. In this case, you can position an opaque shutter on top of
-the surface, which will disappear when the surface becomes ready. `ContentFrame`
-lets you customize the shutter as a trailing lambda, but by default it will be a
-black `@Composable Box` filling the size of the parent container.
+the surface, which will disappear when the surface becomes ready.
+[`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) lets you customize the shutter as a trailing lambda, but by
+default it will be a black `@Composable Box` filling the size of the parent
+container.
+
+> [!NOTE]
+> **Note:** These composables form a hierarchy of convenience: the [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) composable consists of a [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) plus UI control slots, and [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) consists of a [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) plus resizing and shutter logic. You don't need to use the lower-level composables when a higher-level one fits your needs.
 
 ## Where are Flows?
 
@@ -180,12 +235,12 @@ You can add custom UI states if the existing ones don't fulfill your needs.
 Check out the source code of the existing state to copy the pattern. A typical
 UI state holder class does the following:
 
-1. Takes in a [`Player`](https://developer.android.com/reference/androidx/media3/common/Player).
+1. Takes in a [`Player`](https://developer.android.com/reference/androidx/media3/common/Player) object.
 2. Subscribes to the `Player` using coroutines. See [`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listen(kotlin.Function2)) for more details.
 3. Responds to particular [`Player.Events`](https://developer.android.com/reference/androidx/media3/common/Player.Events) by updating its internal state.
 4. Accepts business-logic commands that will be transformed into an appropriate `Player` update.
 5. Can be created in multiple places across the UI tree and will always maintain a consistent view of Player's state.
-6. Exposes Compose `State` fields that can be consumed by a Composable to dynamically respond to changes.
+6. Exposes Compose `State` fields that can be consumed by a composable to dynamically respond to changes.
 7. Comes with a `remember*State` function for remembering the instance between compositions.
 
 What happens behind the scenes:

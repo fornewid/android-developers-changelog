@@ -49,11 +49,10 @@ specific to the app, not ones that might relate to overall system issues.
 
 |   | Macrobenchmark | Microbenchmark |
 |---|---|---|
-| API version | 23 and later | 14 and later |
 | Function | Measure high-level entry points or interactions, such as activity launch or scrolling a list. | Measure individual functions. |
 | Scope | Out-of-process test of full app. | In-process test of CPU work. |
 | Speed | Medium iteration speed. It can exceed a minute. | Fast iteration speed. Often less than 10 seconds. |
-| Tracing | Results come with profiling traces. | Optional method sampling and tracing. |
+| Tracing | Results come with system traces. | Results come with a minimal system trace and a method trace by default. |
 
 ## Recommended for you
 

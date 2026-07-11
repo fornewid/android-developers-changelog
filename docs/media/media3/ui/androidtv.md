@@ -73,3 +73,17 @@ AndroidView(
 ```
 
 <br />
+
+### Use the `Player` composable
+
+If you use the [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) composable from the `media3-ui-compose-material3`
+library, D-pad navigation is supported by default. The `Player` and
+[`PlayerDefaults`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults) components have an automatic [`FocusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester) instance that
+traverses the components with the D-pad, so you don't need additional code or
+[`Modifier.focusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary#(androidx.compose.ui.Modifier).focusRequester(androidx.compose.ui.focus.FocusRequester)) to handle focus and key events:
+
+The [`PlayerDefaults`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults) are arranged in top, center, and bottom slots so the
+D-pad navigation feels intuitive. For any customizations and overrides to those
+slots, ensure you provide a well-navigable component. Note that most Compose
+components, such as `Slider` or `Row` containing buttons, manage focus
+out-of-the-box.

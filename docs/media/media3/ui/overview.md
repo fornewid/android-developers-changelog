@@ -18,7 +18,7 @@ To use the [Views-based UI module](https://developer.android.com/media/media3/ui
 
     implementation "androidx.media3:media3-ui:1.10.1"
 
-To depend on the [Jetpack Compose-based UI module](https://developer.android.com/media/media3/ui/compose/material3), add the following
+To depend on the [Jetpack Compose-based UI module](https://developer.android.com/media/media3/ui/compose-material3), add the following
 dependency:
 
 ### Kotlin
@@ -29,7 +29,7 @@ dependency:
 
     implementation "androidx.media3:media3-ui-compose:1.10.1"
 
-To depend on the [Jetpack Compose-based UI module with Material3](https://developer.android.com/media/media3/ui/compose/customization), add the
+To depend on the [Jetpack Compose-based UI module with Material3](https://developer.android.com/media/media3/ui/compose-customization), add the
 following dependency:
 
 ### Kotlin

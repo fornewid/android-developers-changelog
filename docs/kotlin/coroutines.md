@@ -75,30 +75,35 @@ experience, let's run this operation on a background thread.
 First, let's take a look at our `Repository` class and see how it's
 making the network request:
 
-    sealed class Result<out R> {
-        data class Success<out T>(val data: T) : Result<T>()
-        data class Error(val exception: Exception) : Result<Nothing>()
-    }
 
-    class LoginRepository(private val responseParser: LoginResponseParser) {
-        private const val loginUrl = "https://example.com/login"
+```kotlin
+sealed class Result<out R> {
+    data class Success<out T>(val data: T) : Result<T>()
+    data class Error(val exception: Exception) : Result<Nothing>()
+}
 
-        // Function that makes the network request, blocking the current thread
-        fun makeLoginRequest(
-            jsonBody: String
-        ): Result<LoginResponse> {
-            val url = URL(loginUrl)
-            (url.openConnection() as? HttpURLConnection)?.run {
-                requestMethod = "POST"
-                setRequestProperty("Content-Type", "application/json; utf-8")
-                setRequestProperty("Accept", "application/json")
-                doOutput = true
-                outputStream.write(jsonBody.toByteArray())
-                return Result.Success(responseParser.parse(inputStream))
-            }
-            return Result.Error(Exception("Cannot open HttpURLConnection"))
+private const val loginUrl = "https://example.com/login"
+
+class LoginRepository(private val responseParser: LoginResponseParser) {
+    // Function that makes the network request, blocking the current thread
+    fun makeLoginRequest(
+        jsonBody: String
+    ): Result<LoginResponse> {
+        val url = URL(loginUrl)
+        (url.openConnection() as? HttpURLConnection)?.run {
+            requestMethod = "POST"
+            setRequestProperty("Content-Type", "application/json; utf-8")
+            setRequestProperty("Accept", "application/json")
+            doOutput = true
+            outputStream.write(jsonBody.toByteArray())
+            return Result.Success(responseParser.parse(inputStream))
         }
+        return Result.Error(Exception("Cannot open HttpURLConnection"))
     }
+}
+```
+
+<br />
 
 `makeLoginRequest` is synchronous and blocks the calling thread. To model
 the response of the network request, we have our own `Result` class.
@@ -106,33 +111,43 @@ the response of the network request, we have our own `Result` class.
 The `ViewModel` triggers the network request when the user clicks, for
 example, on a button:
 
-    class LoginViewModel(
-        private val loginRepository: LoginRepository
-    ): ViewModel() {
 
-        fun login(username: String, token: String) {
-            val jsonBody = "{ username: \"$username\", token: \"$token\"}"
-            loginRepository.makeLoginRequest(jsonBody)
-        }
+```kotlin
+class LoginViewModel(
+    private val loginRepository: LoginRepository
+) : ViewModel() {
+
+    fun login(username: String, token: String) {
+        val jsonBody = "{ username: \"$username\", token: \"$token\"}"
+        loginRepository.makeLoginRequest(jsonBody)
     }
+}
+```
+
+<br />
 
 With the previous code, `LoginViewModel` is blocking the UI thread when
 making the network request. The simplest solution to move the execution
 off the main thread is to create a new coroutine and execute the network
 request on an I/O thread:
 
-    class LoginViewModel(
-        private val loginRepository: LoginRepository
-    ): ViewModel() {
 
-        fun login(username: String, token: String) {
-            // Create a new coroutine to move the execution off the UI thread
-            viewModelScope.launch(Dispatchers.IO) {
-                val jsonBody = "{ username: \"$username\", token: \"$token\"}"
-                loginRepository.makeLoginRequest(jsonBody)
-            }
+```kotlin
+class LoginViewModel(
+    private val loginRepository: LoginRepository
+) : ViewModel() {
+
+    fun login(username: String, token: String) {
+        // Create a new coroutine to move the execution off the UI thread
+        viewModelScope.launch(Dispatchers.IO) {
+            val jsonBody = "{ username: \"$username\", token: \"$token\"}"
+            loginRepository.makeLoginRequest(jsonBody)
         }
     }
+}
+```
+
+<br />
 
 Let's dissect the coroutines code in the `login` function:
 
@@ -164,18 +179,25 @@ main thread. The `makeLoginRequest` function is not main-safe, as calling
 `withContext()` function from the coroutines library to move the execution
 of a coroutine to a different thread:
 
-    class LoginRepository(...) {
-        ...
-        suspend fun makeLoginRequest(
-            jsonBody: String
-        ): Result<LoginResponse> {
 
-            // Move the execution of the coroutine to the I/O dispatcher
-            return withContext(Dispatchers.IO) {
-                // Blocking network request code
-            }
+```kotlin
+class LoginRepository(
+    // ...
+) {
+    // ...
+    suspend fun makeLoginRequest(
+        jsonBody: String
+    ): Result<LoginResponse> {
+
+        // Move the execution of the coroutine to the I/O dispatcher
+        return withContext(Dispatchers.IO) {
+            // Blocking network request code
         }
     }
+}
+```
+
+<br />
 
 `withContext(Dispatchers.IO)` moves the execution of the coroutine to an
 I/O thread, making our calling function main-safe and enabling the UI to
@@ -191,27 +213,32 @@ In the following example, the coroutine is created in the `LoginViewModel`.
 As `makeLoginRequest` moves the execution off the main thread, the coroutine
 in the `login` function can be now executed in the main thread:
 
-    class LoginViewModel(
-        private val loginRepository: LoginRepository
-    ): ViewModel() {
 
-        fun login(username: String, token: String) {
+```kotlin
+class LoginViewModel(
+    private val loginRepository: LoginRepository
+) : ViewModel() {
 
-            // Create a new coroutine on the UI thread
-            viewModelScope.launch {
-                val jsonBody = "{ username: \"$username\", token: \"$token\"}"
+    fun login(username: String, token: String) {
 
-                // Make the network call and suspend execution until it finishes
-                val result = loginRepository.makeLoginRequest(jsonBody)
+        // Create a new coroutine on the UI thread
+        viewModelScope.launch {
+            val jsonBody = "{ username: \"$username\", token: \"$token\"}"
 
-                // Display result of the network request to the user
-                when (result) {
-                    is Result.Success<LoginResponse> -> // Happy path
-                    else -> // Show error in UI
-                }
+            // Make the network call and suspend execution until it finishes
+            val result = loginRepository.makeLoginRequest(jsonBody)
+
+            // Display result of the network request to the user
+            when (result) {
+                is Result.Success<LoginResponse> -> { /* Happy path */ }
+                else -> { /* Show error in UI */ }
             }
         }
     }
+}
+```
+
+<br />
 
 Note that the coroutine is still needed here, since `makeLoginRequest` is
 a `suspend` function, and all `suspend` functions must be executed in
@@ -238,25 +265,30 @@ To handle exceptions that the `Repository` layer can throw, use Kotlin's
 [built-in support for exceptions](https://kotlinlang.org/docs/reference/exceptions.html).
 In the following example, we use a `try-catch` block:
 
-    class LoginViewModel(
-        private val loginRepository: LoginRepository
-    ): ViewModel() {
 
-        fun login(username: String, token: String) {
-            viewModelScope.launch {
-                val jsonBody = "{ username: \"$username\", token: \"$token\"}"
-                val result = try {
-                    loginRepository.makeLoginRequest(jsonBody)
-                } catch(e: Exception) {
-                    Result.Error(Exception("Network request failed"))
-                }
-                when (result) {
-                    is Result.Success<LoginResponse> -> // Happy path
-                    else -> // Show error in UI
-                }
+```kotlin
+class LoginViewModel(
+    private val loginRepository: LoginRepository
+) : ViewModel() {
+
+    fun login(username: String, token: String) {
+        viewModelScope.launch {
+            val jsonBody = "{ username: \"$username\", token: \"$token\"}"
+            val result = try {
+                loginRepository.makeLoginRequest(jsonBody)
+            } catch (e: Exception) {
+                Result.Error(Exception("Network request failed"))
+            }
+            when (result) {
+                is Result.Success<LoginResponse> -> { /* Happy path */ }
+                else -> { /* Show error in UI */ }
             }
         }
     }
+}
+```
+
+<br />
 
 In this example, any unexpected exception thrown by the `makeLoginRequest()`
 call is handled as an error in the UI.
