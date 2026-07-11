@@ -1,0 +1,26 @@
+diff --git a/docs/media/media3/ui/androidtv.md b/docs/media/media3/ui/androidtv.md
+index a31b6120..a2592c39 100644
+--- a/docs/media/media3/ui/androidtv.md
++++ b/docs/media/media3/ui/androidtv.md
+@@ -72,4 +72,18 @@ AndroidView(
+ )
+ ```
+ 
+-<br />
+\ No newline at end of file
++<br />
++
++### Use the `Player` composable
++
++If you use the [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) composable from the `media3-ui-compose-material3`
++library, D-pad navigation is supported by default. The `Player` and
++[`PlayerDefaults`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults) components have an automatic [`FocusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusRequester) instance that
++traverses the components with the D-pad, so you don't need additional code or
++[`Modifier.focusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary#(androidx.compose.ui.Modifier).focusRequester(androidx.compose.ui.focus.FocusRequester)) to handle focus and key events:
++
++The [`PlayerDefaults`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/PlayerDefaults) are arranged in top, center, and bottom slots so the
++D-pad navigation feels intuitive. For any customizations and overrides to those
++slots, ensure you provide a well-navigable component. Note that most Compose
++components, such as `Slider` or `Row` containing buttons, manage focus
++out-of-the-box.
+\ No newline at end of file
