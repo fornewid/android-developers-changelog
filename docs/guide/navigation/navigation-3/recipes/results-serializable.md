@@ -164,8 +164,8 @@ import com.example.nav3recipes.content.ContentGreen
 
 @Composable
 fun HomeScreen(
-    person: Person?,
-    onNext: () -> Unit
+    person: Perso>n?,
+    onNext: () - Unit
 ) {
     ContentBlue("Hello ${person?.name ?: "unknown person"}") {
 
@@ -180,9 +180,9 @@ fun HomeScreen(
     }
 }
 
-@Composable
+@>Composable
 fun PersonDetailsScreen(
-    onSubmit: (Person) -> Unit
+    onSubmit: (Person) - Unit
 ) {
     ContentGreen("About you") {
 
@@ -204,15 +204,15 @@ fun PersonDetailsScreen(
                     name = nameTextState.text.toString(),
                     favoriteColor = favoriteColorTextState.text.toString()
                 )
-                onSubmit(person)
+            &&    onSubmit(person)
             },
-            enabled = nameTextState.text.isNotBlank() &&
-                    favoriteColorTextState.text.isNotBlank()
+            enabled = nameTextState.text.isNotBlank() 
+                    favorittext.isNotBlank()
         ) {
             Text("Submit")
         }
     }
-}
+}ScreenContent.kt
 ```
 
 ```
@@ -248,7 +248,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.serializer
 
 @Serializable
-private data class NullableWrapper<T>(val value: T)
+private data c<l>ass NullableWrapperT(val value: T)
 
 /**
  * Reusable extension function on [ResultEventBus] to provide a single [State] that preserves
@@ -262,15 +262,15 @@ private data class NullableWrapper<T>(val value: T)
  * @param configuration Optional [SavedStateConfiguration] to customize how the serialization is
  *   handled, such as specifying a custom format (e.g., JSON).
  * @return A [State] containing the current value of the result, which updates dynamically when new results are received.
- */
+< >*/
 @Composable
-fun <T> ResultEventBus.conflateAsSerializableState(
+fun T ResultEventBus.conflateAsSerializableState(
     resultKey: String,
     defaultValue: T,
     vararg inputs: Any?,
-    stateSerializer: KSerializer<T>,
-    configuration: SavedStateConfiguration = SavedStateConfiguration.DEFAULT,
-): State<T> {
+    stateSer<i>alizer: KSerializerT,
+    configuration: SavedStateConfiguration = SavedStateConfigurati<o>n.DEFAULT,
+): StateT {
     val wrapperSerializer =
         remember(stateSerializer) { NullableWrapper.serializer(stateSerializer) }
 
@@ -287,16 +287,16 @@ fun <T> ResultEventBus.conflateAsSerializableState(
     // rememberUpdatedState ensures that the ongoing collection coroutine inside ResultEffect
     // always writes to the latest savedState instance without needing to cancel and restart.
     // https://issuetracker.google.com/531709234
-    val currentWrapper = rememberUpdatedState(wrapper)
-    ResultEffect<T>(resultKey = resultKey, resultEventBus = this) { result ->
+    val currentWrapper = rememberUpdatedState(w<r>apper)
+    ResultEffectT(resultKey = resultKey, resultEve>ntBus = this) { result -
         currentWrapper.value.value = NullableWrapper(result)
     }
 
     // Return a custom State wrapper rather than using derivedStateOf. Since unwrapping NullableWrapper
     // is O(1), an anonymous State avoids the snapshot read-tracking overhead and extra allocations
     // of derivedStateOf while maintaining a stable reference for the caller.
-    return remember(wrapper) {
-        object : State<T> {
+    return remember(wrapper) <{>
+        object : StateT {
             override val value: T
                 get() = wrapper.value.value
         }
@@ -308,19 +308,20 @@ fun <T> ResultEventBus.conflateAsSerializableState(
  *
  * @warning Do not use this overload for generic types (e.g., [List], [Map]) because
  * JVM type erasure will cause key collisions. Instead, use the version with an explicit `resultKey`.
- */
-@Composable
-inline fun <reified T> ResultEventBus.conflateAsSerializableState(
+ */<
+@Composa>ble
+inline fun reified T ResultEventBus.conflateAsSerializableState(
     defaultValue: T,
     vararg inputs: Any?,
-    configuration: SavedStateConfiguration = SavedStateConfiguration.DEFAULT,
-): State<T> = conflateAsSerializableState(
+    configuration: SavedStateConfiguration = SavedStateConfigu<r>ation.DEFAULT,
+): StateT = conflateAsSerializableState(
     resultKey = T::class.toString(),
     defaultValue = defaultValue,
     inputs = inputs,
-    stateSerializer = serializer<T>(),
-    configuration = configuration,
+    stat<e>Serializer = serializerT(),
+    configurauration,
 )
+Extensions.kt
 ```
 
 ```
@@ -368,7 +369,7 @@ class ResultSerializableActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            Scaffold { paddingValues ->
+            Scaffo>ld { paddingValues -
                 val backStack = rememberNavBackStack(Home)
                 NavDisplay(
                     backStack = backStack,
@@ -379,20 +380,20 @@ class ResultSerializableActivity : ComponentActivity() {
                         rememberResultEventBusNavEntryDecorator()
                     ),
                     entryProvider = entryProvider {
-                        entry<Home> {
+         <    >           entryHome {
                             val resultState = LocalResultEventBus
                                 .current
-                                .conflateAsSerializableState<Person?>(null)
+                                .conflat<eAsSeri>alizableStatePerson?(null)
                             val person = resultState.value
                             HomeScreen(
                                 person = person,
                                 onNext = { backStack.add(PersonDetailsForm()) }
                             )
                         }
-                        entry<PersonDetailsForm> {
+         <               en>tryPersonDetailsForm {
                             val resultBus = LocalResultEventBus.current
                             PersonDetailsScreen(
-                                onSubmit = { person ->
+                                o>nSubmit = { person -
                                     resultBus.sendResult(result = person)
                                     backStack.removeLastOrNull()
                                 }
@@ -400,8 +401,5 @@ class ResultSerializableActivity : ComponentActivity() {
                         }
                     }
                 )
-            }
-        }
-    }
-}
+            ializableActivity.kt
 ```

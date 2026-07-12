@@ -34,14 +34,14 @@ assist chip that nudges the user in a particular direction. One distinguishing
 feature is its `leadingIcon` parameter that lets you display an icon on the left
 side of the chip, as shown in figure 1. The following example demonstrates how
 you can implement it:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_07296ab167eadb58b4bea998c79a8ad725268453ffd459b11296bf10398e3062.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe> ![A simple assist chip.](https://developer.android.com/static/develop/ui/compose/images/components/chip-assist.png) **Figure 1.** Assist chip.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_52cba3586fccf0d6b0acbe6970843fea868037bb85476405513213541ead97ab.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe> ![A simple assist chip.](https://developer.android.com/static/develop/ui/compose/images/components/chip-assist.png) **Figure 1.** Assist chip.
 
 ## Create a filter chip
 
 The [`FilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilterChip.composable) composable requires you to track whether or not the chip
 is selected. The following example demonstrates how you can show a leading
 checked icon only when the user has selected the chip:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_6d001edd2279aba8937e54fa9808e9002b8720dbfb37a86ab6a0ebfadd8704c5.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_ef551879144472ec3c721ff7d4240fd85d6ca2790d13b73dc1ed3e6820b0068d.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -60,7 +60,7 @@ state. The user dismisses the chip when they press it.
 > [!NOTE]
 > **Note:** Consider how you might use a chip like this in the preceding email use case, with a name passed in for the `text` parameter, and a function that performs the necessary network calls for `onDismiss`.
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_bc83944080df1fef450a350c7fca9e0cb6254692ecb119cc42c9a5702c600410.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_4004e476093fd2389fe83662e9200df3cef7db6ade5e588510e061dff0516062.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -75,7 +75,7 @@ might use suggestion chips to present possible responses to the most recent
 message.
 
 Consider this implementation of `SuggestionChip`:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_e6984aa59eeac098d2550f511488d6a27403cc047350c33df88f56ed127562cc.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_07155d3e6696ff65352af3a5c420a0efd6b2ff9253bca0d75b5a774658a32096.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 

@@ -103,7 +103,7 @@ To begin, create a layout that contains a `ViewPager2` object:
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/pager"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:>layout_height="match_parent" /
 ```
 
 Create an activity that does the following:

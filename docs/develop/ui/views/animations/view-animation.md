@@ -42,38 +42,38 @@ The following XML from one of the ApiDemos is used to stretch, then simultaneous
 rotate a View object.
 
 ```xml
-<set android:shareInterpolator="false">
-    <scale
+<set android:shareInterpolator="f>alse&<quot;
+    scale
         android:interpolator="@android:anim/accelerate_decelerate_interpolator"
         android:fromXScale="1.0"
         android:toXScale="1.4"
         android:fromYScale="1.0"
         android:toYScale="0.6"
         android:pivotX="50%"
-        android:pivotY="50%"
+        android:pivotY=&q>uot;5<0%"
         android:fillAfter="false"
-        android:duration="700" />
-    <set android:interpolator="@android:anim/decelerate_interpolator">
-        <scale
+        and>roid:dura<tion="700" /
+    set android:interpolator="@android:anim/decelerate_interpolator"
+        scale
            android:fromXScale="1.4"
            android:toXScale="0.0"
            android:fromYScale="0.6"
            android:toYScale="0.0"
-           android:pivotX="50%"
+           android:pivot>X="5<0%"
            android:pivotY="50%"
            android:startOffset="700"
            android:duration="400"
-           android:fillBefore="false" />
-        <rotate
-           android:fromDegrees="0"
-           android:toDegrees="-45"
+           android:fillBefore="false" /
+        rotate
+           android:fromDegrees="0&q>uot;
+<    > <    >  android:toDegrees="-45"
            android:toYScale="0.0"
            android:pivotX="50%"
            android:pivotY="50%"
            android:startOffset="700"
-           android:duration="400" />
-    </set>
-</set>
+           android:duration="400" /
+    /set
+/set
 ```
 
 Screen coordinates (not used in this example) are (0,0) at the upper left hand corner, and

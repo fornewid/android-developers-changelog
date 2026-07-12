@@ -117,13 +117,13 @@ activity. If that is not the case, you can skip most of them.
    ```
 2. Create a full screen app theme in the `res\values\themes.xml` file:
 
-       <resources xmlns:tools="http://schemas.android.com/tools">
-           <!-- Base application theme. -->
-           <style name="Application.Fullscreen" parent="Theme.AppCompat.Light.NoActionBar">
-               <item name="android:windowFullscreen">true</item>
-               <item name="android:windowContentOverlay">@null</item>"
-           </style>
-       </resources>
+       <resources xmlns:tools="http://schemas.android.com/t>ools&<quot;
+           !-- Base application> them<e. --
+           style name="Application.Fullscreen" parent="Theme.App>Compat.Li<ght.NoActionBar"
+               item n>ame=<">;android:<windowFullscreen"true/item
+               >item <name=>"<androi>d<:windowCon>tentOverlay"@null/item"
+           /style
+       /resources
 
 3. Apply the theme to the application in the `AndroidManifest.xml` file:
 
@@ -146,7 +146,7 @@ locations:
 - `AndroidManifest.xml`:
 
       <meta-data android:name="android.app.lib_name"
-              android:value="AndroidGame" />
+              android:value=">;AndroidGame" /
 
 - Inside the C/C++ build script file, for example `CMakeLists.txt`:
 

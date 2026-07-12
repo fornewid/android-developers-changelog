@@ -181,19 +181,17 @@ fun SnapScrollLayout() {
         ColorItem(Color.Blue, "Blue")
     )
 
-    if (Build.VERSION.SDK_INT >= 36 && isSnapScrollSupported) {
-        LazyColumn(
-            verticalScrollMode = VerticalScrollMode.SnapScrollMatchHeight(height)
-        ) {
-            items(items) { item ->
-                ColorCard(item, height)
-            }
-        }
+    val scrollMode = if (Build.VERSION.SDK_INT >= 37) {
+        VerticalScrollMode.SnapScrollMatchHeight(height)
     } else {
-        LazyColumn {
-            items(items) { item ->
-                ColorCard(item, height)
-            }
+        VerticalScrollMode.Normal
+    }
+
+    LazyColumn(
+        verticalScrollMode = scrollMode
+    ) {
+        items(items) { item ->
+            ColorCard(item, height)
         }
     }
 }
@@ -213,10 +211,6 @@ private fun ColorCard(item: ColorItem, height: Dp) {
         )
     }
 }
-
-val isSnapScrollSupported: Boolean
-    get() = Build.VERSION.SDK_INT >= 36 &&
-            Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.BAKLAVA_1
 ```
 
 <br />

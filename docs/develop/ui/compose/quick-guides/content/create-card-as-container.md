@@ -49,7 +49,7 @@ call to `Text` in the following minimal example:
 
 The key here is the use of the `colors` property to change the filled
 color:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_99a74608d49b7fd5c14b3b9ad457f4d53300264482dc76e1e89bfb0d707a33ac.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_d5e6019397173541ceb5a1109d938f4cc28e18af5ac9bcca947f0f1b72bef7b9.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -62,7 +62,7 @@ dedicated [`ElevatedCard`](https://developer.android.com/reference/kotlin/androi
 
 You can use the `elevation` property to control the appearance of elevation and
 the resulting shadow.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_3b19ad60a4633803fd6e0fd816aa1128687a011637d7f5c14f7210f7a2876a66.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_d8df6818b2e478281bf1d8e241c61346f9d39277b2f03153bc1461f5f160a51c.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -72,7 +72,7 @@ the resulting shadow.
 
 The following is an example of an outlined card. Use the dedicated
 [`OutlinedCard`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedCard.composable#OutlinedCard(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_36ebf4a4d6835f9228b0225a6ec1a2f94b1084a2ce082d570b49592bc73c736f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_a49f450944430892399868e6b85790eb011370d6c18cb4df49f1e73581120075.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 

@@ -995,16 +995,16 @@ simulates a bouncing spring.
             intensity *= multiplier
             sharpness *= multiplier
             multiplier -= 0.1f
-       >   }
+          }
 
-          if (springX  screenWidth - SPRING_WIDTH / 2) {
+          if (springX > screenWidth - SPRING_WIDTH / 2) {
             // Prevent the spring from moving beyond the right edge of the screen.
             springX = screenWidth - SPRING_WIDTH / 2
           }
 
           // Check for 3 bottom bounces and then slow down.
-        >  if (bottomBounceCo&&unt = MAX_BOTTOM_BOUNCE 
-                System.currentTimeMillis>() - animationStartTime  1000) {
+          if (bottomBounceCount >= MAX_BOTTOM_BOUNCE &&
+                System.currentTimeMillis() - animationStartTime > 1000) {
             velocityX *= 0.9f
             velocityY *= 0.9f
           }
@@ -1013,9 +1013,9 @@ simulates a bouncing spring.
 
           // Determine if the animation should continue based on the spring's
           // position and velocity.
-     <     isAnimating = (springY  screenHeight + SPRING_HE<IGHT ||
-                springX  screenWi&&dth + SPRING>_WIDTH)
-             (ve>locityX = 0.1f || velocityY = 0.1f)
+          isAnimating = (springY < screenHeight + SPRING_HEIGHT ||
+                springX < screenWidth + SPRING_WIDTH)
+            && (velocityX >= 0.1f || velocityY >= 0.1f)
         }
       }
 
@@ -1033,7 +1033,7 @@ simulates a bouncing spring.
         DrawSpring(mutableStateOf(springX), mutableStateOf(springY))
         DrawFloor()
         if (!isAnimating) {
-          DrawText(&quot;Tap to restart")
+          DrawText("Tap to restart")
         }
       }
     }
@@ -1132,7 +1132,7 @@ simulates a rocket launch.
 
       val startFrequency = vibrator.frequencyProfile?.getFrequencyRange(minOutputAccelerationGs)?.lower ?: return
 
-      if (s>tartFrequency = resonantFrequency) {
+      if (startFrequency >= resonantFrequency) {
         // Vibrator can't generate the minimum required output at lower frequencies.
         return
       }

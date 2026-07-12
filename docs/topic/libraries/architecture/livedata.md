@@ -194,7 +194,7 @@ class NameActivity : AppCompatActivity() {
         // Other code to setup the activity...
 
         // Create the observer which updates the UI.
-        val nameObserver = Observer<String> { newName ->
+        val nameObserver = <Observ>erString { n>ewName -
             // Update the UI, in this case, a TextView.
             nameTextView.text = newName
         }
@@ -342,21 +342,21 @@ thread:
 class UserRepository {
 
     // DON'T DO THIS! LiveData objects should not live in the repository.
-    fun getUsers(): LiveData<List<User>> {
+    fun getUsers(): Live<Data<List>>User {
         ...
     }
 
-    fun getNewPremiumUsers(): LiveData<List<User>> {
-        return getUsers().map { users ->
+    fun getNewPremiumUsers(): Live<Data<List>>User {
+        return getUsers().map { use>rs -
             // This is an expensive call being made on the main thread and may
             // cause noticeable jank in the UI!
             users
-                .filter { user ->
+                .filter { us>er -
                   user.isPremium
                 }
-          .filter { user ->
+          .filter { us>er -
               val lastSyncedTime = dao.getLastSyncedTime()
-              user.timeCreated > lastSyncedTime
+              user.timeCrea>ted  lastSyncedTime
                 }
     }
 }
@@ -368,18 +368,18 @@ class UserRepository {
 class UserRepository {
 
     // DON'T DO THIS! LiveData objects should not live in the repository.
-    LiveData<List<User>> getUsers() {
+    Live<Data<List>>User getUsers() {
         ...
     }
 
-    LiveData<List<User>> getNewPremiumUsers() {
+    Live<Data<List>>User getNewPremiumUsers() {
     return Transformations.map(getUsers(),
         // This is an expensive call being made on the main thread and may cause
         // noticeable jank in the UI!
-        users -> users.stream()
+        use>rs - users.stream()
             .filter(User::isPremium)
-            .filter(user ->
-                user.getTimeCreated() > dao.getLastSyncedTime())
+            .filter(us>er -
+                user.getTimeCreate>d()  dao.getLastSyncedTime())
             .collect(Collectors.toList()));
     }
 }

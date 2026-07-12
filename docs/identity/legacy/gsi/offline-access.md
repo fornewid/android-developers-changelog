@@ -4,21 +4,22 @@ url: https://developer.android.com/identity/legacy/gsi/offline-access
 source: md.txt
 ---
 
-| **Warning:**
-|
-| **The Google Sign-In for Android API is outdated and no longer supported.**
-| To ensure the continued security and usability of your app, [migrate your Sign in with
-| Google implementation to Credential Manager](https://developer.android.com/identity/sign-in/credential-manager-siwg) today. Credential Manager
-| supports passkey, password, and federated identity authentication (such as
-| Sign-in with Google), stronger security, and a more consistent user
-| experience.
-|
-| **For Wear developers:** Credential Manager is supported in Wear OS
-| 5.1 and later on selected watches. Developers actively supporting Wear OS 3, 4
-| and 5.0 devices with Sign in with Google should continue using Google Sign-in
-| for Android for your Wear applications. Sign in with Google support will be
-| available on Credential Manager APIs for these versions of WearOS at a later
-| date.
+> [!WARNING]
+> **Warning:**
+>
+> **The Google Sign-In for Android API is outdated and no longer supported.**
+> To ensure the continued security and usability of your app, [migrate your Sign in with
+> Google implementation to Credential Manager](https://developer.android.com/identity/sign-in/credential-manager-siwg) today. Credential Manager
+> supports passkey, password, and federated identity authentication (such as
+> Sign-in with Google), stronger security, and a more consistent user
+> experience.
+>
+> **For Wear developers:** Credential Manager is supported in Wear OS
+> 5.1 and later on selected watches. Developers actively supporting Wear OS 3, 4
+> and 5.0 devices with Sign in with Google should continue using Google Sign-in
+> for Android for your Wear applications. Sign in with Google support will be
+> available on Credential Manager APIs for these versions of WearOS at a later
+> date.
 
 With the earlier [Add Sign-In](https://developer.android.com/identity/legacy/gsi/legacy-sign-in#add_the_google_sign-in_button_to_your_app)
 procedure, your app authenticates the user on the client side only; in that case,
@@ -43,7 +44,7 @@ token.
 
    Pass your server's client ID to the `requestServerAuthCode` method.
 
-   ```scilab
+   ```
    // Configure sign-in to request offline access to the user's ID, basic
    // profile, and Google Drive. The first time you request a code you will
    // be able to exchange it for an access token and refresh token, which
@@ -61,7 +62,7 @@ token.
 2. After the user [successfully signs in](https://developer.android.com/identity/legacy/gsi/legacy-sign-in#start_the_sign-in_flow),
    get an auth code for the user with [`getServerAuthCode`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/signin/GoogleSignInAccount.html#getServerAuthCode()):
 
-   ```text
+   ```
    Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
    try {
        GoogleSignInAccount account = task.getResult(ApiException.class);
@@ -80,8 +81,8 @@ token.
 
        HttpPost httpPost = new HttpPost("https://yourbackend.example.com/authcode");
 
-       try {
-           List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
+       try <{
+           ListNam>eValuePair nameValuePairs = new< ArrayListNam>eValuePair(1);
            nameValuePairs.add(new BasicNameValuePair("authCode", authCode));
            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 

@@ -226,9 +226,9 @@ feature by creating the following tag in the manifest's
     <application>
     ...
     <meta-data android:name="android.webkit.WebView.MetricsOptOut"
-               android:valu>e=&qu<ot;true">;< /
-    /a>pplication
-/manifest
+               android:value="true" />
+    </application>
+</manifest>
 ```
 
 Data is only uploaded from an app if the user consents **and**
@@ -269,7 +269,7 @@ inner class MyRendererTrackingWebViewClient : WebViewClient() {
             Log.e("MY_APP_TAG", ("System killed the WebView rendering process " +
                 "to reclaim memory. Recreating..."))
 
-        >    mWebView?.also { webView -
+            mWebView?.also { webView ->
                 val webViewContainer: ViewGroup = findViewById(R.id.my_web_view_container)
                 webViewContainer.removeView(webView)
                 webView.destroy()
