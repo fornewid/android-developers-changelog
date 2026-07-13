@@ -169,13 +169,15 @@ Uses the standard framework method.
 
 **With Jetpack WebKit**
 
-Uses WebViewCompat and a feature check for setting the client.
+Uses `WebViewCompat` and a feature check for setting the client.
 
     if (WebViewFeature.isFeatureSupported(WebViewFeature.WEB_VIEW_RENDERER_CLIENT_BASIC_USAGE)) {
       WebViewCompat.setWebViewRenderProcessClient(webView, myClient)
     }
 
-For more information, see [`androidx.webkit` reference documentation](https://developer.android.com/reference/kotlin/androidx/webkit/package-summary).
+For guidance about implementing crash recovery strategies, see [Handle WebView
+termination](https://developer.android.com/develop/ui/views/layout/webapps/handle-termination). For API details, see [`androidx.webkit`
+reference documentation](https://developer.android.com/reference/kotlin/androidx/webkit/package-summary).
 
 ## Integrate Jetpack Webkit into your code
 

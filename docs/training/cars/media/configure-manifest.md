@@ -4,9 +4,6 @@ url: https://developer.android.com/training/cars/media/configure-manifest
 source: md.txt
 ---
 
-.
-keywords_public: Android Auto, Android Automotive OS, AAOS, Manifest, Media Browser Service, App Icons, Car UI, Manifest Configuration, Media App, Car Development
-
 Configure your app's manifest files to integrate with Android Auto and Android
 Automotive OS (AAOS). To enable discovery and connection by these platforms,
 declare your media browser service in the manifest. Specify the required app

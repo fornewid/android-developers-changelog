@@ -11,13 +11,17 @@ source: md.txt
 
 ## Overview
 
-Condensed items are compact visual components that allow for more content to be visible on the screen. Due to their size, the components only display the most critical information for an item and allow drivers to browse quickly without feeling overwhelmed.
+Condensed items are compact visual components that let more content be
+visible on the screen. Because of their size, these components display only the
+most critical information for an item, which lets drivers browse without
+feeling overwhelmed.
 
 *** ** * ** ***
 
 ## Composition
 
-The condensed item is designed for high glanceability and includes 4 primary components. **You must include at least 1 element:**
+The condensed item is designed for high glanceability and includes four
+primary components. **You must include at least one element:**
 
 - **Leading image or icon** (optional)
 - **Texts:** title and subtexts should be restricted to 1 line.
@@ -33,7 +37,8 @@ The condensed item is designed for high glanceability and includes 4 primary com
 
 ## UX requirements
 
-To ensure a safe and consistent experience across all apps, follow these design requirements:
+To ensure a safe and consistent experience across all apps, follow these design
+requirements:
 
 | Requirement level | Content |
 |---|---|

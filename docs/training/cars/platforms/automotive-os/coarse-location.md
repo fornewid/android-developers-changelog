@@ -45,10 +45,9 @@ satellite system (GNSS) is usually on, no penalties are incurred due to
 increased power and battery usage. As a result, IVI uptime is not compromised.
 We strive to minimize data exchanged with our servers.
 
-A lot of apps therefore use FLP from the Play API instead of `LocationManager`
-directly as FLP automatically does the *smart thing* by using the location
-provider best able to satisfy location request criteria/policies (namely power
-and accuracy).
+Many apps use FLP from the Play API instead of `LocationManager` directly
+because FLP automatically selects the best location provider to satisfy your
+request's criteria or policies, such as power and accuracy.
 
 Unlike mobile devices, vehicles rarely appear to *jump* from one place to
 another. Vehicle position is known under the hood most of the time.
@@ -61,13 +60,11 @@ usage, no additional functional implementation of NLP is provided.
 
 #### Fused location provider
 
-The mobile FLP, in addition to smartly using network and GPS providers as
-appropriate, fuses information from other sensors to further enhance the
-quality of locations. The current implementation of Automotive's FLP on the
-other hand takes advantage of the aforementioned assumptions and uses the
-`GPS_PROVIDER` as an underlying source all the time. It fudges the positions
-from GNSS, adding some errors to be more inaccurate when needed. For example,
-when coarse locations are provided to a client.
+The mobile FLP fuses information from other sensors to enhance location
+quality, in addition to using network and GPS providers. Conversely, the
+Automotive FLP uses `GPS_PROVIDER` as its underlying source. It adjusts the GNSS
+positions, adding intentional error to degrade accuracy when a client requests
+coarse locations.
 
 As such, in a very few instances, there can be a longer than usual time for the
 first position to be available. For example, the very first time a vehicle or,

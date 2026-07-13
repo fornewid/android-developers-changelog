@@ -268,11 +268,18 @@ using the `startUpWebView` API instead. The `startUpWebView` API works on all
 versions of Android and WebView that are supported by the Jetpack Webkit
 library.
 
+### Ensure app resilience and stability
+
 Using the Jetpack Webkit implementation helps ensure consistent behavior across
 the entire Android ecosystem. A key advantage of this API is its resilience: on
 legacy devices where newer optimizations aren't available, the API maintains
 performance parity with manual workarounds. This lets you adopt modern startup
 benefits on newer devices without incurring a performance penalty on older ones.
+
+While optimizing WebView startup reduces the risk of ANR errors during app
+launch, you should also protect your app against runtime renderer crashes and
+system memory reclamation. To maintain comprehensive app stability once your
+WebView is running, see [Handle WebView termination](https://developer.android.com/develop/ui/views/layout/webapps/handle-termination).
 
 If you encounter issues or have feedback about the `startUpWebView` API, file a
 bug on the [public issue tracker](https://issuetracker.google.com/issues/new?component=460423).

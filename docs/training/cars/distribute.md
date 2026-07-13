@@ -104,7 +104,7 @@ in the Google Play Console:
 3. Complete the requirements for Android Automotive OS:
    - Upload Android Automotive OS screenshots for all store listings.
      - This includes both the [main store listing](https://play.google.com/console/developers/app/main-store-listing) and any [custom store listings](https://play.google.com/console/developers/app/custom-store-listings).
-     - To take screenshots of the required resolutions, you can use the *Automotive (1024p landscape)* and *Automotive Portrait* [hardware profiles](https://developer.android.com/training/cars/testing/emulator#bundled-profiles). Your screenshots should not reference any Original Equipment Manufacturer (OEM) in particular.
+     - To take screenshots of the required resolutions, you can use the *Automotive (1024p landscape)* and *Automotive Portrait* [hardware profiles](https://developer.android.com/training/cars/testing/emulator#bundled-profiles). Your screenshots shouldn't reference any Original Equipment Manufacturer (OEM) in particular.
    - Release an Android Automotive OS app bundle or APK to a testing track.
    - Agree to the review policy to ensure your app follows Android Automotive OS quality guidelines.
      - Select the type of track you'll use to distribute your app to Android Automotive OS devices. **Important:** The default set by the Google Play Console is to use the same tracks as for mobile devices. However, the mobile track is not permitted for some categories of apps on Android Automotive OS. See [Choose a track for Android Automotive OS](https://developer.android.com/training/cars/distribute#choose-track-aaos) for more information.

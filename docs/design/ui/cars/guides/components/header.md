@@ -26,7 +26,8 @@ This example shows different types of headers you can create.
 > [!NOTE]
 > **Note:** Expanded header is only supported in Sectioned Item template.
 
-Expanded headers (Sectioned Item template) support rich layouts beyond basic title bars. Use expanded headers to:
+Expanded headers on Sectioned Item templates support rich layouts beyond basic
+title bars. Use expanded headers to:
 
 - Add images that collapse on scroll
 - Display secondary actions

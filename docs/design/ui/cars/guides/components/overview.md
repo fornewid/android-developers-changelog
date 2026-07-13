@@ -5,12 +5,12 @@ source: md.txt
 ---
 
 > [!NOTE]
-> **Note:** Start building with the new Car App Library version 1.9 components to create more differentiated and expressive in-car experiences.
+> **Note:** Start building with Car App Library version 1.9 components to create more differentiated and expressive in-car experiences.
 
-With the [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app#version_19_2) release of the Car App Library (CAL), we're bringing features
-to help you build more differentiated, expressive experiences across Android
-Auto and cars with Google built-in. Here, you'll find guidance on what the
-component is and how to apply it.
+The [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app#version_19_2) release of the Car App Library (CAL) lets you build
+more differentiated, expressive experiences across Android Auto and cars with
+Google built-in. This page provides guidance on what each component is and how
+to apply it.
 
 ## New components (1.9)
 

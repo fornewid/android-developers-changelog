@@ -337,7 +337,7 @@ The DHU supports emulating an instrument cluster. This cluster is usually behind
 the steering wheel, and it shows basic information during navigation about the
 next turn---such as the next road name or a turn arrow---distance, or
 time. It also displays information about ongoing phone calls.
-![The DHU's instrument cluster window showing both navigation and call state information.](https://developer.android.com/static/images/training/cars/dhu_instrument_cluster.png) The DHU's instrument cluster window showing both navigation and call state information.
+![The Desktop Head Unit's instrument cluster showing both navigation and call state information.](https://developer.android.com/static/images/training/cars/dhu_instrument_cluster.png) The DHU's instrument cluster window showing both navigation and call state information.
 
 This can be enabled using the `instrumentcluster` entry in the `[general]`
 section of the configuration file, or by the `navcluster` or `phonecluster`
@@ -384,7 +384,7 @@ files, later definitions of a given value override earlier ones.
 
 The DHU supports an additional information display to show media playback
 status, such as what track is playing.
-![The DHU's media playback status window showing playback information.](https://developer.android.com/static/images/training/cars/dhu_media_playback_status.png) The DHU's media playback status window showing playback information.
+![The Desktop Head Unit's media playback status window showing playback information.](https://developer.android.com/static/images/training/cars/dhu_media_playback_status.png) The DHU's media playback status window showing playback information.
 
 This can be enabled using the `playbackstatus` entry in the `[general]` section.
 

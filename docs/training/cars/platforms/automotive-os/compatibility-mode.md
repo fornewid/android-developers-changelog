@@ -4,9 +4,9 @@ url: https://developer.android.com/training/cars/platforms/automotive-os/compati
 source: md.txt
 ---
 
-To simplify the process of bringing mobile apps to Android Automotive OS devices,
-certain cars come with a compatibility mode that addresses common issues
-faced when bringing existing mobile apps into cars.
+To simplify the process of bringing mobile apps to Android Automotive OS
+devices, certain cars come with a compatibility mode that addresses common
+issues faced when bringing existing mobile apps into cars.
 
 While this compatibility mode is used by the [Car ready mobile apps](https://developer.android.com/training/cars/car-ready-mobile-apps) program,
 apps that are not part of that program can also run in it.

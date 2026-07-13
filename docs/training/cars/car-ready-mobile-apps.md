@@ -5,8 +5,8 @@ source: md.txt
 ---
 
 The *Car ready mobile apps* program distributes eligible mobile apps in the
-[video](https://developer.android.com/training/cars#video), [games](https://developer.android.com/training/cars#games), and
-[browsers](https://developer.android.com/training/cars#browser) categories to cars with little to no
+[video](https://developer.android.com/training/cars#video), [games](https://developer.android.com/training/cars#games), and [browsers](https://developer.android.com/training/cars#browser)
+categories to cars with little to no
 additional development work. Starting in February 2025, eligible apps will be
 available for download from the Google Play Store in cars that run
 Android Automotive OS with Google built-in.
@@ -18,8 +18,8 @@ Android Automotive OS with Google built-in.
 
 To be eligible for distribution through this program, your app must meet all of
 the [Car ready](https://developer.android.com/docs/quality-guidelines/car-app-quality#car-quality-tiers)
-quality guidelines for your app's category. If your app does not already meet
-some of these guidelines -- [`AN-1`](https://developer.android.com/docs/quality-guidelines/car-app-quality#AN-1),
+quality guidelines for your app's category. If your app doesn't already meet
+some of these guidelines---[AN-1](https://developer.android.com/docs/quality-guidelines/car-app-quality#AN-1),
 for example -- they might still be met when run in the [compatibility
 mode](https://developer.android.com/training/cars/platforms/automotive-os/compatibility-mode) used to run apps
 distributed through the program.
@@ -37,7 +37,7 @@ built-in, it must [meet Google Play feature requirements](https://developer.andr
 
 #### Dependency on an unavailable Google Play service
 
-If your app has a breaking dependency on a Google Play services API that is not
+If your app has a breaking dependency on a Google Play services API that isn't
 available for [cars with Google built-in](https://developer.android.com/training/cars/platforms/automotive-os/google-play/google-services),
 you'll need to implement an alternative or remove the dependency.
 
@@ -56,15 +56,17 @@ test with other system images, your app's behavior may differ.
 Participation in the program is by invite only. You can nominate your app for
 consideration by submitting the [interest form](https://forms.gle/uBF9nyFdABnLh7wQ7).
 
-If your app is not accepted into the program, you can still bring your app to
+If your app isn't accepted into the program, you can still bring your app to
 cars. See [Build parked apps](https://developer.android.com/training/cars/parked) for more details.
 
 ### How will I know if my app has been selected for the program?
 
-If your app is selected for the program, you will receive a message in your
+If your app is selected for the program, you'll receive a message in your
 [Play Console Inbox](https://play.google.com/console/developers/inbox) as well
 as an email to the [contact email address](https://support.google.com/googleplay/android-developer/answer/10840893)
-associated with your Google Play account. After a period of time specified in
+associated with your Google Play account.
+
+After a period of time specified in
 these notifications, your app is automatically opted in to the program unless
 you choose to opt out.
 
@@ -112,7 +114,7 @@ new and existing devices in the coming months and years.
 
 See the [Test your app](https://developer.android.com/training/cars/car-ready-mobile-apps#test) section of this page.
 
-### If I choose to participate, what happens if I want to opt-out at a later date?
+### If I choose to participate, what happens if I want to opt out at a later date?
 
 Your app remains installed on any devices it has been installed on, but it
 doesn't receive updates on those devices and isn't discoverable for installation

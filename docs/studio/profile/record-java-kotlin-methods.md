@@ -12,27 +12,19 @@ callstack including native call frames, use the
 [callstack sample](https://developer.android.com/studio/profile/sample-callstack)
 profiling task.
 
-When you record Java/Kotlin methods using the Android Studio profiler, you can
-choose the recording type:
+When recording Java or Kotlin methods, the Android Studio Profiler uses
+runtime instrumentation to inject
 
-- Tracing: Instruments your app at runtime to record a timestamp at the
-  beginning and end of each method call. Timestamps are collected and compared
-  to generate method tracing data, including timing information. You should use
-  tracing when you care about the exact methods being called. Because tracing is
-  an intensive process, if you're using this option it's best to keep your
-  recording around five seconds or less.
-
-  > [!NOTE]
-  > **Note:** The timing information from tracing might deviate from production due to the overhead introduced by the instrumentation itself.
-
-- Sampling (legacy): Captures your app's call stack at frequent intervals during
-  your app's Java- or Kotlin-based code execution. The profiler compares sets of
-  captured data to derive timing and resource usage information about your app's
-  Java- or Kotlin-based code execution. You should use sampling if you care more
-  about timing than the exact methods being called.
+When recording Java or Kotlin methods, the Android Studio Profiler uses
+runtime instrumentation to inject timestamps at the entry and exit points of
+each method call. The profiler then aggregates and analyzes these timestamps
+to generate precise method tracing data and execution timings. Use tracing when
+you need exact visibility into specific method invocations. Because runtime
+instrumentation introduces significant overhead, we recommend that you limit
+recording sessions to no more than five seconds.
 
 > [!NOTE]
-> **Note:** If you're interested in tracing methods with lifecycles so short that they're likely to begin and end in between a sampling interval, and thus get missed by the profiler, you should try tracing instead.
+> **Note:** The timing information from tracing might deviate from production due to the overhead introduced by the instrumentation itself.
 
 ## Java/Kotlin methods overview
 

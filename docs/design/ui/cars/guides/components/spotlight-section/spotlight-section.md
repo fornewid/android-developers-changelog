@@ -11,7 +11,11 @@ source: md.txt
 
 ## Overview
 
-The spotlight section is a high visibility, visual layout block within the sectioned item template, designed to showcase featured content collections or editorial recommendations. By pairing a prominent hero image with adjacent condensed items, the section creates dynamic browsing structures that enhance brand expression.
+The spotlight section is a high-visibility, visual layout block within the
+sectioned item template, designed to showcase featured content collections or
+editorial recommendations. By pairing a prominent hero image with adjacent
+condensed items, the section creates dynamic browsing structures that enhance
+brand expression.
 
 *** ** * ** ***
 
@@ -30,7 +34,8 @@ The spotlight section consists of 2 primary layout components:
 
 ## UX requirements
 
-To ensure a safe and consistent experience across all apps, follow these design requirements:
+To ensure a safe and consistent experience across all apps, follow these design
+requirements:
 
 | Requirement level | Content |
 |---|---|

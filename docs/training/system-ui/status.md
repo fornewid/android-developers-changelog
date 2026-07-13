@@ -33,9 +33,9 @@ theme if you wanted to). For example:
 ```xml
 <application
     ...
-    android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" >
+    android:theme="@android:style/Theme.Holo.NoActionBar.Fullscr>een"< 
     ...
-</application>
+/a>pplication
 ```
 
 The advantages of using an activity theme are as follows:

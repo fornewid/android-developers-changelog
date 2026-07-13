@@ -21,7 +21,7 @@ Sections can include:
 - Spotlight sections
 
 > [!NOTE]
-> **Note:** In Sectioned Item template, you can use Expanded Headers to support rich layouts.
+> **Note:** In the Sectioned Item template, you can use Expanded Headers to support rich layouts.
 
 ![Image representing a sectioned item](https://developer.android.com/static/images/design/ui/cars/templates/media-sectioned-item.png) This sample shows a list and a grid used together in the Sectioned Item template.
 

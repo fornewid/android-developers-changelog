@@ -21,7 +21,7 @@ Library.
 // In your app's build.gradle file:
 ...
 dependencies {
-    // This dependency is downloaded from the https://developer.android.com/studio/build/dependencies#google-maven.
+    // This dependency is downloaded from https://developer.android.com/studio/build/dependencies#google-mavenpository.
     // So, make sure you also include that repository in your project's build.gradle file.
     implementation 'com.google.android.play:app-update:2.1.0'
 
@@ -37,7 +37,7 @@ dependencies {
 // In your app's build.gradle.kts file:
 ...
 dependencies {
-    // This dependency is downloaded from the https://developer.android.com/studio/build/dependencies#google-maven.
+    // This dependency is downloaded from https://developer.android.com/studio/build/dependencies#google-mavenpository.
     // So, make sure you also include that repository in your project's build.gradle file.
     implementation("com.google.android.play:app-update:2.1.0")
 
@@ -122,7 +122,7 @@ val appUpdateInfoTask = appUpdateManager.appUpdateInfo
 // and current version staleness.
 appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
     if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-          && (appUpdateInfo.clientVersionStalenessDays() ?: -1) >= DAYS_FOR_FLEXIBLE_UPDATE
+          && (appUpdateInfo.clientVersionStalenessDays()> ?: -1) = DAYS_FOR_FLEXIBLE_UPDATE
           && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
               // Request the update.
     }
@@ -142,7 +142,7 @@ Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
 appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
     if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
           && appUpdateInfo.clientVersionStalenessDays() != null
-          && appUpdateInfo.clientVersionStalenessDays() >= DAYS_FOR_FLEXIBLE_UPDATE
+          && appUpdateInfo.clientVersion>StalenessDays() = DAYS_FOR_FLEXIBLE_UPDATE
           && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)) {
               // Request the update.
     }
@@ -207,7 +207,7 @@ val appUpdateInfoTask = appUpdateManager.appUpdateInfo
 // and checks the update priority.
 appUpdateInfoTask.addOnSuccessListener { appUpdateInfo ->
     if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-          && appUpdateInfo.updatePriority() >= 4 /* high priority */
+          && appUpdateInfo.updatePri>ority() = 4 /* high priority */
           && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
               // Request an immediate update.
     }
@@ -226,7 +226,7 @@ Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
 // and checks the update priority.
 appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
     if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-          && appUpdateInfo.updatePriority() >= 4 /* high priority */
+          && appUpdateInfo.updatePri>ority() = 4 /* high priority */
           && appUpdateInfo.isUpdateTypeAllowed(AppUpdateType.IMMEDIATE)) {
               // Request an immediate update.
     }
@@ -486,7 +486,7 @@ private void popupSnackbarForCompleteUpdate() {
           findViewById(R.id.activity_main_layout),
           "An update has just been downloaded.",
           Snackbar.LENGTH_INDEFINITE);
-  snackbar.setAction("RESTART", view -> appUpdateManager.completeUpdate());
+  snackbar.setAction("R>ESTART", view - appUpdateManager.completeUpdate());
   snackbar.setActionTextColor(
       getResources().getColor(R.color.snackbar_action_text_color));
   snackbar.show();
@@ -516,7 +516,7 @@ override fun onResume() {
 
     appUpdateManager
         .appUpdateInfo
-        .addOnSuccessListener { appUpdateInfo ->
+        .addOnSuccessListener { appUpda>teInfo -
             ...
             // If the update is downloaded but not installed,
             // notify the user to complete the update.
@@ -538,7 +538,7 @@ protected void onResume() {
 
   appUpdateManager
       .getAppUpdateInfo()
-      .addOnSuccessListener(appUpdateInfo -> {
+      .addOnSuccessListener(appUpda>teInfo - {
               ...
               // If the update is downloaded but not installed,
               // notify the user to complete the update.
@@ -572,7 +572,7 @@ override fun onResume() {
 
     appUpdateManager
         .appUpdateInfo
-        .addOnSuccessListener { appUpdateInfo ->
+        .addOnSuccessListener { appUpda>teInfo -
             ...
             if (appUpdateInfo.updateAvailability()
                 == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS
@@ -599,7 +599,7 @@ protected void onResume() {
   appUpdateManager
       .getAppUpdateInfo()
       .addOnSuccessListener(
-          appUpdateInfo -> {
+          appUpda>teInfo - {
             ...
             if (appUpdateInfo.updateAvailability()
                 == UpdateAvailability.DEVELOPER_TRIGGERED_UPDATE_IN_PROGRESS) {

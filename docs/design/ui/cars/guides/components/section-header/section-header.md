@@ -5,13 +5,18 @@ source: md.txt
 ---
 
 > [!NOTE]
-> **Note:** Section headers are supported exclusively within the Sectioned Item template.
+> **Note:** Section headers are supported exclusively within the sectioned item template.
 
 ![hero](https://developer.android.com/static/design/ui/cars/guides/components/section-header/section-header-assets/image-161-23713.png)
 
 ## Overview
 
-Section headers define the titles, actions, and visual indicators for individual content groups within the sectioned item template. Because headers are fully interactive, they support inline navigation shortcuts, settings triggers, and custom brand icons. Making the header directly tappable allows drivers to navigate to deeper content, trigger sorting options, or consolidate long lists without excessive scrolling.
+Section headers define the titles, actions, and visual indicators for individual
+content groups within the sectioned item template. Because headers are fully
+interactive, they support inline navigation shortcuts, settings triggers, and
+custom brand icons. Making the header directly tappable allows drivers to
+navigate to deeper content, trigger sorting options, or consolidate long lists
+without excessive scrolling.
 
 *** ** * ** ***
 

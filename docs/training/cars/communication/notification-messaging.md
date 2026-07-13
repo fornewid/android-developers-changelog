@@ -4,7 +4,7 @@ url: https://developer.android.com/training/cars/communication/notification-mess
 source: md.txt
 ---
 
-description: This guide explains how to extend messaging apps to display notifications, handle replies, and mark messages as read within Android Auto using the MessagingStyle API and NotificationCompat.Action objects for a consistent, low-distraction user experience. keywords_public: Android Auto,messaging notifications,MessagingStyle,NotificationCompat.Action,communication apps,car development,IntentService,RemoteInput,PendingIntent
+description: Extend messaging notifications to Android Auto using the MessagingStyle API. keywords_public: Android Auto,messaging notifications,MessagingStyle,NotificationCompat.Action,communication apps,car development,IntentService,RemoteInput,PendingIntent
 
 <br />
 
@@ -424,9 +424,10 @@ requirements:
         return markAsReadAction
     }
 
-When you generate the pending intents, you use two methods: `createReplyId()` and `createMarkAsReadId()`. These methods serve as the request codes for each
+When you generate the pending intents, you use two methods: `createReplyId` and
+`createMarkAsReadId`. These methods serve as the request codes for each
 `PendingIntent`, which are used by Android to control existing pending intents.
-The `create()` methods *must* return unique IDs for each conversation, but
+The `create` methods *must* return unique IDs for each conversation, but
 repeated calls for the same conversation must return the unique ID already
 generated.
 

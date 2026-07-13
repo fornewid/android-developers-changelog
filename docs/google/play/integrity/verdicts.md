@@ -22,16 +22,17 @@ The general payload structure is as follows:
 ```json
 {
   "requestDetails": { ... },
+  "accountDetails": { ... },
   "appIntegrity": { ... },
   "deviceIntegrity": { ... },
-  "accountDetails": { ... },
   "environmentDetails": { ... }
 }
 ```
 
-You must first check that the values in the `requestDetails` field match those
-of the original request before checking each integrity verdict. The following
-sections describe each field in more detail.
+The order of the fields in the JSON payload is not guaranteed. You must first
+check that the values in the `requestDetails` field match those of the original
+request before checking each integrity verdict. The following sections describe
+each field in more detail.
 
 ### Request details field
 
@@ -138,7 +139,7 @@ if (!requestPackageName.equals(expectedPackageName)
         // section of the doc on how to store/compute the expected nonce.
     || !nonce.equals(expectedNonce)
         // Ensure the freshness of the token.
-    || currentTimestampMillis - timestampMillis > ALLOWED_WINDOW_MILLIS) {
+>    || currentTimestampMillis - timestampMillis  ALLOWED_WINDOW_MILLIS) {
         // The token is invalid! See below for further checks.
         ...
 }
@@ -160,9 +161,74 @@ if (!requestPackageName.equals(expectedPackageName)
         // section of the doc on how to store/compute the expected nonce.
     || !nonce.equals(expectedNonce)
         // Ensure the freshness of the token.
-    || currentTimestampMillis - timestampMillis > ALLOWED_WINDOW_MILLIS) {
+>    || currentTimestampMillis - timestampMillis  ALLOWED_WINDOW_MILLIS) {
         // The token is invalid! See below for further checks.
         ...
+}
+```
+
+### Account details field
+
+The `accountDetails` field contains a single value, `appLicensingVerdict`, that
+represents the app's Google Play licensing status for the user account that's
+signed in on the device. If the user account has the Play license for the app,
+that means they downloaded it or bought it from Google Play.
+
+```json
+"accountDetails": {
+  // This field can be LICENSED, UNLICENSED, or UNEVALUATED.
+  "appLicensingVerdict": "LICENSED"
+}
+```
+
+`appLicensingVerdict` can have one of the following values:
+
+`LICENSED`
+:   The user has an app entitlement. In other words, the user installed
+    or updated your app from Google Play on their device.
+
+> [!NOTE]
+> **Note:** On some older devices the user keeps the app entitlement after uninstalling the app, so the user account will still be licensed if the user later obtains the same app another way.
+
+`UNLICENSED`
+:   The user doesn't have an app entitlement. This happens when, for
+    example, the user sideloads your app or doesn't acquire it from Google Play.
+    You can show the [GET_LICENSED](https://developer.android.com/google/play/integrity/remediation#get-licensed-dialog) dialog to users to remedy this.
+
+`UNEVALUATED`
+
+:   Licensing details were not evaluated because a necessary
+    requirement was missed.
+
+    This could happen for several reasons, including the following:
+
+    - The device is not trustworthy enough.
+    - The version of your app installed on the device is unknown to Google Play.
+    - The user is not signed in to Google Play.
+
+To check that the user has an app entitlement for your app, verify that the
+`appLicensingVerdict` is as expected, as shown in the following code snippet:
+
+### Kotlin
+
+```kotlin
+val accountDetails = JSONObject(payload).getJSONObject("accountDetails")
+val appLicensingVerdict = accountDetails.getString("appLicensingVerdict")
+
+if (appLicensingVerdict == "LICENSED") {
+    // Looks good!
+}
+```
+
+### Java
+
+```java
+JSONObject accountDetails =
+    new JSONObject(payload).getJSONObject("accountDetails");
+String appLicensingVerdict = accountDetails.getString("appLicensingVerdict");
+
+if (appLicensingVerdict.equals("LICENSED")) {
+    // Looks good!
 }
 ```
 
@@ -457,75 +523,10 @@ value will be empty:
     "deviceIntegrity": {
       "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
       "deviceRecall": {
-        "values": {},
+        &quot;values": {},
         "writeDates": {}
       }
     }
-
-### Account details field
-
-The `accountDetails` field contains a single value, `appLicensingVerdict`, that
-represents app's Google Play licensing status for the user account that's
-signed in on the device. If the user account has the Play license for the app,
-that means they downloaded it or bought it from Google Play.
-
-```json
-"accountDetails": {
-  // This field can be LICENSED, UNLICENSED, or UNEVALUATED.
-  "appLicensingVerdict": "LICENSED"
-}
-```
-
-`appLicensingVerdict` can have one of the following values:
-
-`LICENSED`
-:   The user has an app entitlement. In other words, the user installed
-    or updated your app from Google Play on their device.
-
-> [!NOTE]
-> **Note:** On some older devices the user keeps the app entitlement after uninstalling the app, so the user account will still be licensed if the user later obtains the same app another way.
-
-`UNLICENSED`
-:   The user doesn't have an app entitlement. This happens when, for
-    example, the user sideloads your app or doesn't acquire it from Google Play.
-    You can show the [GET_LICENSED](https://developer.android.com/google/play/integrity/remediation#get-licensed-dialog) dialog to users to remedy this.
-
-`UNEVALUATED`
-
-:   Licensing details were not evaluated because a necessary
-    requirement was missed.
-
-    This could happen for several reasons, including the following:
-
-    - The device is not trustworthy enough.
-    - The version of your app installed on the device is unknown to Google Play.
-    - The user is not signed in to Google Play.
-
-To check that the user has an app entitlement for your app, verify that the
-`appLicensingVerdict` is as expected, as shown in the following code snippet:
-
-### Kotlin
-
-```kotlin
-val accountDetails = JSONObject(payload).getJSONObject("accountDetails")
-val appLicensingVerdict = accountDetails.getString("appLicensingVerdict")
-
-if (appLicensingVerdict == "LICENSED") {
-    // Looks good!
-}
-```
-
-### Java
-
-```java
-JSONObject accountDetails =
-    new JSONObject(payload).getJSONObject("accountDetails");
-String appLicensingVerdict = accountDetails.getString("appLicensingVerdict");
-
-if (appLicensingVerdict.equals("LICENSED")) {
-    // Looks good!
-}
-```
 
 ### Environment details field
 
@@ -554,7 +555,7 @@ the new app access risk verdict.
       "environmentDetails": {
           "appAccessRiskVerdict": {
               // This field contains one or more responses, for example the following.
-              "appsDetected": ["KNOWN_INSTALLED", "UNKNOWN_INSTALLED", "UNKNOWN_CAPTURING"]
+              "appsDetected": [&quot;KNOWN_INSTALLED", "UNKNOWN_INSTALLED", "UNKNOWN_CAPTURING"]
           }
      }
     }
@@ -689,7 +690,7 @@ payload](https://developer.android.com/google/play/integrity/verdict#returned-pa
 the Play Protect verdict:
 
     "environmentDetails": {
-      "playProtectVerdict": "NO_ISSUES"
+      "playProtectVerdict&quot;: "NO_ISSUES"
     }
 
 `playProtectVerdict` can have one of the following values:

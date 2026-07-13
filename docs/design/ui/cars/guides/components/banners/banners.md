@@ -5,19 +5,23 @@ source: md.txt
 ---
 
 > [!NOTE]
-> **Note:** Banners are only supported in sectioned item template in Car App Library v1.9.
+> **Note:** Banners are only supported in the sectioned item template in Car App Library v1.9.
 
 ![hero](https://developer.android.com/static/design/ui/cars/guides/components/banners/banners-assets/image-161-22620.png)
 
 ## Overview
 
-Banners can help showcase special app experiences, new features, or important messages. While functionally similar to standard rows, banners add distinct visual prominence through customizable background fills and will always be visually separated from surrounding content.
+Banners can help showcase special app experiences, new features, or important
+messages. While functionally similar to standard rows, banners add distinct
+visual prominence through customizable background fills and will always be
+visually separated from surrounding content.
 
 *** ** * ** ***
 
 ## Composition
 
-If a banner is dismissible, the host automatically renders the final item in the trailing elements list as a standardized, close icon button.
+If a banner is dismissible, the host automatically renders the final item in the
+trailing elements list as a standardized, close icon button.
 ![hero](https://developer.android.com/static/design/ui/cars/guides/components/banners/banners-assets/image-161-22628.png) *1.* *Leading image*
 
 *2.* *Primary text*
@@ -30,7 +34,8 @@ If a banner is dismissible, the host automatically renders the final item in the
 
 ## UX requirements
 
-To ensure a safe and consistent experience across all apps, follow these design requirements:
+To ensure a safe and consistent experience across all apps, follow these design
+requirements:
 
 | Requirement level | Content |
 |---|---|

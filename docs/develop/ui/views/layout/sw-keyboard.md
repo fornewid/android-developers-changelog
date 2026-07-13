@@ -23,6 +23,94 @@ your app to [display edge-to-edge](https://developer.android.com/training/gestur
 it handle [system window insets](https://developer.android.com/develop/ui/views/layout/insets) such as the
 system bars and the on-screen keyboard.
 
+## Default synchronized insets animation
+
+> [!NOTE]
+> **Note:** No action is required for Jetpack Compose developers; Compose handles software keyboard animations and layout passes automatically.
+
+From API level 37.2 and higher, applications that use the default window layout
+adjustments (such as `SOFT_INPUT_ADJUST_RESIZE` or `SOFT_INPUT_ADJUST_PAN` when
+showing the IME using `WindowInsetsController.show(WindowInsets.Type.ime())`)
+without implementing a custom `WindowInsetsAnimationCompat.Callback` can benefit
+from system-level synchronized frame-by-frame animations. When enabled, this
+feature automatically applies the insets on every frame and triggers a layout
+pass, creating a smooth transition as the keyboard moves.
+
+To enable this behavior, add the following `<property>` tag to your activity or
+application in the `AndroidManifest.xml` file:
+
+    <property
+        android:name="android.window.PROPERTY_COMPAT_ALLOW_SYNCHRONIZED_INSETS_ANIMATION"
+        android:value="true" />
+
+> [!NOTE]
+> **Note:** If this feature causes layout issues or stutter (due to the increased frequency of relayouts on complex hierarchies), you can disable it by setting the property value to `false`.
+
+## Perform insets animations off the main thread
+
+> [!NOTE]
+> **Note:** No action is required for Jetpack Compose developers; Compose handles window insets and keyboard animations off the main thread automatically.
+
+By default, registering a
+[`WindowInsetsAnimationCompat.Callback`](https://developer.android.com/reference/androidx/core/view/WindowInsetsAnimationCompat.Callback) enforces that the
+window inset animation runs on the app's main thread. This is necessary if your
+app is continuously updating and synchronizing its view layout
+during the animation (such as in the `onProgress` method). However, if your app
+only needs to listen to lifecycle transitions (such as when the IME starts or
+ends animating) and doesn't need to update views frame-by-frame, running on the
+main thread can cause unnecessary overhead and animation stutter---especially if
+the main thread is otherwise busy.
+
+From API level 37.2 and higher, you can use
+[`ViewTreeObserver.WindowInsetsAnimationListener`](https://developer.android.com/reference/android/view/ViewTreeObserver.WindowInsetsAnimationListener)
+to observe these transitions instead. Because this listener doesn't receive
+frame-by-frame progress updates (no `onProgress` callback), the system can run
+the inset animation on a dedicated animation thread rather than the main thread,
+resulting in a smoother transition.
+
+### Kotlin
+
+```kotlin
+val listener = object : ViewTreeObserver.WindowInsetsAnimationListener {
+  override fun onPrepare(animation: WindowInsetsAnimation) {
+    // Handle preparation before animation starts
+  }
+
+  override fun onEnd(animation: WindowInsetsAnimation) {
+    // Clean up temporary changes
+  }
+}
+
+// Add the listener
+view.viewTreeObserver.addWindowInsetsAnimationListener(listener)
+
+// Remove the listener when no longer needed
+view.viewTreeObserver.removeWindowInsetsAnimationListener(listener)
+```
+
+### Java
+
+```java
+ViewTreeObserver.WindowInsetsAnimationListener listener =
+    new ViewTreeObserver.WindowInsetsAnimationListener() {
+      @Override
+      public void onPrepare(@NonNull WindowInsetsAnimation animation) {
+        // Handle preparation before animation starts
+      }
+
+      @Override
+      public void onEnd(@NonNull WindowInsetsAnimation animation) {
+        // Clean up temporary changes
+      }
+    };
+
+// Add the listener
+view.getViewTreeObserver().addWindowInsetsAnimationListener(listener);
+
+// Remove the listener when no longer needed
+view.getViewTreeObserver().removeWindowInsetsAnimationListener(listener);
+```
+
 ## Check keyboard software visibility
 
 Use [`WindowInsets`](https://developer.android.com/reference/android/view/WindowInsets) to check the software
