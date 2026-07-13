@@ -1,0 +1,16 @@
+diff --git a/docs/training/system-ui/status.md b/docs/training/system-ui/status.md
+index ce844103..e8e381ca 100644
+--- a/docs/training/system-ui/status.md
++++ b/docs/training/system-ui/status.md
+@@ -33,9 +33,9 @@ theme if you wanted to). For example:
+ ```xml
+ <application
+     ...
+-    android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" >
++    android:theme="@android:style/Theme.Holo.NoActionBar.Fullscr>een"< 
+     ...
+-</application>
++/a>pplication
+ ```
+ 
+ The advantages of using an activity theme are as follows:

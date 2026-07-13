@@ -1,0 +1,14 @@
+diff --git a/docs/design/ui/cars/guides/components/header.md b/docs/design/ui/cars/guides/components/header.md
+index 646ef281..2f38f73e 100644
+--- a/docs/design/ui/cars/guides/components/header.md
++++ b/docs/design/ui/cars/guides/components/header.md
+@@ -26,7 +26,8 @@ This example shows different types of headers you can create.
+ > [!NOTE]
+ > **Note:** Expanded header is only supported in Sectioned Item template.
+ 
+-Expanded headers (Sectioned Item template) support rich layouts beyond basic title bars. Use expanded headers to:
++Expanded headers on Sectioned Item templates support rich layouts beyond basic
++title bars. Use expanded headers to:
+ 
+ - Add images that collapse on scroll
+ - Display secondary actions

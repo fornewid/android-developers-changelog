@@ -1,0 +1,100 @@
+diff --git a/docs/develop/ui/compose/glance/user-interaction.md b/docs/develop/ui/compose/glance/user-interaction.md
+index 9ed4ac4d..2f46d67a 100644
+--- a/docs/develop/ui/compose/glance/user-interaction.md
++++ b/docs/develop/ui/compose/glance/user-interaction.md
+@@ -46,9 +46,7 @@ fun MyContent() {
+     // ..
+     Button(
+         text = "Go Home",
+-        onClick = actionStartActivity<MyActivity>()
+-    )
+-}
++        onClick = actionSta<rtActivity>MyActivitynippets.kt
+ ```
+ 
+ <br />
+@@ -71,11 +69,9 @@ fun MyButton() {
+     // ..
+     Button(
+         text = "Sync",
+-        onClick = actionStartService<SyncService>(
++        onClick = actionSt<artServiceS>yncService(
+             isForegroundService = true // define how the service is launched
+-        )
+-    )
+-}
++       nippets.kt
+ ```
+ 
+ <br />
+@@ -99,9 +95,7 @@ fun MyButton() {
+     // ..
+     Button(
+         text = "Send",
+-        onClick = actionSendBroadcast<MyReceiver>()
+-    )
+-}
++        onClick = actionSen<dBroadcast>MyReceivernippets.kt
+ ```
+ 
+ <br />
+@@ -127,9 +121,7 @@ modifier:
+ Text(
+     text = "Submit",
+     modifier = GlanceModifier.clickable {
+-        submitData()
+-    }
+-)
++        submitDatanippets.kt
+ ```
+ 
+ <br />
+@@ -141,9 +133,7 @@ Or, pass it to the `onClick` parameter on composables that support it:
+ Button(
+     text = "Submit",
+     onClick = {
+-        submitData()
+-    }
+-)
++        submitDatanippets.kt
+ ```
+ 
+ <br />
+@@ -174,9 +164,7 @@ class RefreshAction : ActionCallback {
+         glanceId: GlanceId,
+         parameters: ActionParameters
+     ) {
+-        // TODO implement
+-    }
+-}
++        // TODO implemenippets.kt
+ ```
+ 
+ <br />
+@@ -229,22 +217,22 @@ class MyAppWidget : GlanceAppWidget() {
+         // ..
+         Button(
+             text = "Home",
+-            onClick = actionStartActivity<NavigationActivity>(
++            onClick = actionSta<rtActivityNavigati>onActivity(
+                 actionParametersOf(destinationKey to "home")
+             )
+         )
+         Button(
+             text = "Work",
+-            onClick = actionStartActivity<NavigationActivity>(
++           < onClick = actionS>tartActivityNavigationActivity(
+                 actionParametersOf(destinationKey to "work")
+             )
+         )
+     }
+ 
+     override suspend fun provideGlance(context: Context, id: GlanceId) {
+-        provideContent { MyContent() }
++      { MyContent() }
+     }
+-}
++}GlanceSnippets.kt
+ ```
+ 
+ <br />
