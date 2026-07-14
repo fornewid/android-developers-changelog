@@ -1,0 +1,13 @@
+diff --git a/docs/studio/releases/emulator.md b/docs/studio/releases/emulator.md
+index 9298198b..3dd9e013 100644
+--- a/docs/studio/releases/emulator.md
++++ b/docs/studio/releases/emulator.md
+@@ -20,7 +20,7 @@ For release notes for Emulator versions prior to 25.3.0, see the
+ 
+ To see what issues have been fixed in the most recent versions of Android
+ Emulator, see the
+-[closed issues](https://developer.android.com/studio/releases/fixed-bugs/emulator/36).
++[closed issues](https://developer.android.com/studio/releases/fixed-bugs/emulator/37).
+ 
+ For known issues and troubleshooting, please see [Emulator Troubleshooting](https://developer.android.com/studio/run/emulator-troubleshooting).
+ 
