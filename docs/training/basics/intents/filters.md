@@ -73,14 +73,14 @@ element.
 For example, here's an activity with an intent filter that handles the `https://developer.android.com/reference/android/content/Intent#ACTION_SEND` intent when the data type is either text or an image:
 
 ```xml
-<activity android:name="ShareActivity&q<uot;>
-    intent-fil<ter>
-        action android:name="android.intent.ac<tion.SEND"/>
-        category android:name="android.i<ntent.category.DEFAULT"/>
-        dat<a android:mimeType="text/plain&qu<ot;/>
-       < data android:mimeType="image/*"/>
-    /intent-filter>
-/activity>
+<activity android:name="ShareActivity">
+    <intent-filter>
+        <action android:name="android.intent.action.SEND"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:mimeType="text/plain"/>
+        <data android:mimeType="image/*"/>
+    </intent-filter>
+</activity>
 ```
 
 **Tip:** If you want the icon in the chooser dialog to be different
@@ -100,22 +100,22 @@ intent filters for the two actions, because an `ACTION_SENDTO` intent must use t
 the recipient's address using the `send` or `sendto` URI scheme. This is shown in the following example:
 
 ```xml
-<activity android:name="ShareActivity&q<uot;>
-    !-- Filter for sending text; accepts SENDTO action with sms URI sch<emes -->
-    intent-<filter>
-        action android:name="android.intent.a<ction.SENDTO"/>
-        category android:name="androi<d.intent.category.DEFAULT"/>
-<        data android:scheme="s<ms" />
-     <   data android:scheme="smsto" />
-    /intent-filter>
-    !-- Filter for s<ending text or images; <accepts SEND action and text or image data -->
-    inten<t-filter>
-        action android:name="android.intent.acti<on.SEND"/>
-        category androi<d:name="android.intent.category.DEFA<ULT"/>
- <       data android:mimeType="image/*"/>
-        data android:mimeType="text/plain"/>
-    /intent-filter>
-/activity>
+<activity android:name="ShareActivity">
+    <!-- Filter for sending text; accepts SENDTO action with sms URI schemes -->
+    <intent-filter>
+        <action android:name="android.intent.action.SENDTO"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:scheme="sms" />
+        <data android:scheme="smsto" />
+    </intent-filter>
+    <!-- Filter for sending text or images; accepts SEND action and text or image data -->
+    <intent-filter>
+        <action android:name="android.intent.action.SEND"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <data android:mimeType="image/*"/>
+        <data android:mimeType="text/plain"/>
+    </intent-filter>
+</activity>
 ```
 
 **Note:** To receive implicit intents, you must include the
@@ -192,7 +192,7 @@ close and destroy your activity. This is shown in the following example:
 
 ```kotlin
 // Create intent to deliver some kind of result data
-Intent("com.example.RESULT_ACTION", Uri.parse("content://result_uri&quo>t;)).also { result -
+Intent("com.example.RESULT_ACTION", Uri.parse("content://result_uri")).also { result ->
     setResult(Activity.RESULT_OK, result)
 }
 finish()

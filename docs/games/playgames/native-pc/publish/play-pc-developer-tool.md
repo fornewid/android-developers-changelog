@@ -41,11 +41,27 @@ lists.
 
 To interact with the local Google PC SDK, early-access workstations must have a
 validated partner ID under appropriate system registry paths.
+> **Note:** To enable the GUID during your development build, you need to
+> request your Play partners to allowlist the GUID. For more details, refer to
+> the [Guide](https://developer.android.com/games/playgames/native-pc/setup/developer_mode#prerequisites).
 
-- **Registry check on load and target path** : On startup, the onboarding screen queries the system registry to search for an existing registered Early Access Partner GUID. The targeted registry key path is `HKEY_LOCAL_MACHINE\Software\Google\Play
-  Games Services` (utilizing the `EarlyAccessPartnerGuid` value). This specific path is vital as the local PC SDK reads from it directly to authorize early access integrations. If found, the interface automatically displays the current ID and locks the inputs.
-- **Secure elevation handlers**: The system needs administrative rights to write to machine registry paths. When you save or remove this setting, the tool handles administrative elevation context automatically so that standard users can configure settings securely without needing to run the entire interface with admin privileges.
-- **Deregistration control** : Clicking **Deregister** cleans up workstation registration states securely.
+- **Registry check on load and target path**: On startup, the onboarding
+  screen queries the system registry to search for an existing registered
+  Early Access Partner GUID.
+
+  The targeted registry key path is `HKEY_LOCAL_MACHINE\Software\Google\Play
+  Games Services` (utilizing the `EarlyAccessPartnerGuid` value). This
+  specific path is vital as the local PC SDK reads from it directly to
+  authorize early access integrations. If found, the interface automatically
+  displays the current ID and locks the inputs.
+- **Secure elevation handlers**: The system needs administrative rights to
+  write to machine registry paths. When you save or remove this setting, the
+  tool handles administrative elevation context automatically so that standard
+  users can configure settings securely without needing to run the entire
+  interface with admin privileges.
+
+- **Deregistration control** : Clicking **Deregister** cleans up workstation
+  registration states securely.
 
 ### Interactive country code selector
 

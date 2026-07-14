@@ -191,6 +191,24 @@ tools directly:
    you'll need to [update the packaging for those libraries](https://developer.android.com/guide/practices/page-sizes#update-packaging), then
    [recompile your app](https://developer.android.com/guide/practices/page-sizes#compile-16-kb-alignment) and retest by following the steps in this section.
 
+### Check the RELRO security flag
+
+To mitigate security exploits, modern linkers use the
+[Relocation Read-Only (RELRO)](https://www.redhat.com/en/blog/hardening-elf-binaries-using-relocation-read-only-relro) flag to make relocation
+sections of the shared object file read-only after loading.
+Combining a RELRO-enabled section with a non-RELRO-enabled
+section (from another object file) on the same page crashes an app.
+
+Run the following command on each shared object file (Linux or macOS):
+
+    SDK_ROOT_LOCATION/Android/sdk/ndk/NDK_VERSION/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-readelf -l SHARED_OBJECT_FILE.so | grep RELRO
+
+Check the command output to ensure that the `GNU_RELRO` string is printed, which
+confirms that the `.so` file is RELRO-enabled.
+
+> [!NOTE]
+> **Note:** You must run this test for all `.so` files in the APK.
+
 ## Build your app with support for 16 KB devices
 
 If your app uses native code, then complete the steps that are outlined in the

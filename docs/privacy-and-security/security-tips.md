@@ -396,8 +396,8 @@ credential requests in your Android apps more secure.
 ### Practice secure account management
 
 - Connect to services that are accessible to multiple applications using [`AccountManager`](https://developer.android.com/reference/android/accounts/AccountManager). Use the `AccountManager` class to invoke a cloud-based service, and don't store passwords on the device.
-- After using `AccountManager` to retrieve an [`Account`](https://developer.android.com/reference/android/accounts/Account), use [`CREATOR`](https://developer.android.com/reference/android/accounts/Account#CREATOR) before passing in any credentials so that you don't inadvertently pass credentials to the wrong application.
-- If credentials are used only by applications that you create, you can verify the application that accesses the `AccountManager` using [`checkSignatures`](https://developer.android.com/reference/android/content/pm/PackageManager#checkSignatures(int,%20int))(). Alternatively, if only one application uses the credential, you might use a [`KeyStore`](https://developer.android.com/reference/java/security/KeyStore) for storage.
+- Before passing credentials to an [`Account`](https://developer.android.com/reference/android/accounts/Account) retrieved with `AccountManager`, verify the signing identity of the calling application so that you don't inadvertently pass credentials to a malicious or unauthorized app.
+- If credentials are used only by applications that you create, you can verify the application that accesses the `AccountManager` using [`checkSignatures`](https://developer.android.com/reference/android/content/pm/PackageManager#checkSignatures(int,%20int))() or signature-based permission checks. Alternatively, if only one application uses the credential, you might use a [`KeyStore`](https://developer.android.com/reference/java/security/KeyStore) for storage.
 
 ### Stay vigilant
 

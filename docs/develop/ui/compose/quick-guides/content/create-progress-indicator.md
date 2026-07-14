@@ -50,7 +50,7 @@ progress indicator to iterate up in turn.
 > [!NOTE]
 > **Note:** The following example uses a coroutine to do the work of iterating the `progress` value because it would otherwise block the UI thread.
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_4b51ea8d2206d529d5c634d7b6ab80fdcf2fe3173b8e685c099229723a64f2e0.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_270f7e3c9c2b394f4f026362a36ece1e9227a274006eac919a35869dc8e19303.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -73,7 +73,7 @@ indeterminate indicator with a button press.
 > [!NOTE]
 > **Note:** This example also demonstrates how you can pass values for the `color` and `trackColor` parameters to customize the appearance of the indicator.
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_8e8053e73dba080ef5e699ce3a83bca73871793c2a3adc5c0f4c3fdc809d20c1.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_55f46f7b022d3272cd7a2498d73c852a9437c581a82d25bcd4c58b0ada051dbc.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 

@@ -24,6 +24,23 @@ Here is other compatibility info:
 
 <br />
 
+## Standalone R8 Configuration Analyzer Gradle task
+
+Android Gradle plugin 9.3 introduces a dedicated Gradle task for running the [R8
+Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer) in isolation. The R8 Configuration Analyzer helps
+you optimize your app's code shrinking and obfuscation rules.
+
+    ./gradlew :app:analyzeReleaseR8Config
+
+The `:app:analyzeReleaseR8Config` task generates the report without completing
+the APK or Bundle compilation pipeline. This provides a shorter feedback loop,
+which speeds up developer iteration when refining keep rules. Alternatively,
+you can generate the report automatically by running an R8 release build (such
+as `assembleRelease` or `bundleRelease`).
+
+For more information, see [Run the standalone Gradle task for generating
+report](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer#run-standalone-task).
+
 ## Fixed issues
 
 
@@ -114,5 +131,11 @@ Here is other compatibility info:
 |---|---|
 | **Android Gradle Plugin** | |---| | [Issue #497456771](https://issuetracker.google.com/issues/497456771) Isuue with auto generated version codes | | [Issue #495889752](https://issuetracker.google.com/issues/495889752) AGP: Migrate away from Project as dependency notation | |
 | **Lint** | |---| | [Issue #492246721](https://issuetracker.google.com/issues/492246721) Lint false positive with UseKtx | |
+
+### Android Gradle plugin 9.3.0
+
+| Fixed Issues ||
+|---|---|
+| No public issues were marked as fixed in AGP 9.3.0 ||
 
 <br />

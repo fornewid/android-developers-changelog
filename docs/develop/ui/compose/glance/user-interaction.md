@@ -46,7 +46,9 @@ fun MyContent() {
     // ..
     Button(
         text = "Go Home",
-        onClick = actionSta<rtActivity>MyActivitynippets.kt
+        onClick = actionStartActivity<MyActivity>()
+    )
+}
 ```
 
 <br />
@@ -69,9 +71,11 @@ fun MyButton() {
     // ..
     Button(
         text = "Sync",
-        onClick = actionSt<artServiceS>yncService(
+        onClick = actionStartService<SyncService>(
             isForegroundService = true // define how the service is launched
-       nippets.kt
+        )
+    )
+}
 ```
 
 <br />
@@ -95,7 +99,9 @@ fun MyButton() {
     // ..
     Button(
         text = "Send",
-        onClick = actionSen<dBroadcast>MyReceivernippets.kt
+        onClick = actionSendBroadcast<MyReceiver>()
+    )
+}
 ```
 
 <br />
@@ -121,7 +127,9 @@ modifier:
 Text(
     text = "Submit",
     modifier = GlanceModifier.clickable {
-        submitDatanippets.kt
+        submitData()
+    }
+)
 ```
 
 <br />
@@ -133,7 +141,9 @@ Or, pass it to the `onClick` parameter on composables that support it:
 Button(
     text = "Submit",
     onClick = {
-        submitDatanippets.kt
+        submitData()
+    }
+)
 ```
 
 <br />
@@ -164,7 +174,9 @@ class RefreshAction : ActionCallback {
         glanceId: GlanceId,
         parameters: ActionParameters
     ) {
-        // TODO implemenippets.kt
+        // TODO implement
+    }
+}
 ```
 
 <br />
@@ -217,22 +229,22 @@ class MyAppWidget : GlanceAppWidget() {
         // ..
         Button(
             text = "Home",
-            onClick = actionSta<rtActivityNavigati>onActivity(
+            onClick = actionStartActivity<NavigationActivity>(
                 actionParametersOf(destinationKey to "home")
             )
         )
         Button(
             text = "Work",
-           < onClick = actionS>tartActivityNavigationActivity(
+            onClick = actionStartActivity<NavigationActivity>(
                 actionParametersOf(destinationKey to "work")
             )
         )
     }
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
-      { MyContent() }
+        provideContent { MyContent() }
     }
-}GlanceSnippets.kt
+}
 ```
 
 <br />

@@ -96,6 +96,9 @@ Use the following pickers based on your use case:
 This path is required for complex use cases like home automation or IoT device
 management that need broad, persistent access to the local network.
 
+> [!NOTE]
+> **Note:** The ACCESS_LOCAL_NETWORK permission is required only if your app targets Android 17 (SDK 37) or higher. If your app targets SDK 36 or lower, local network access is implicitly granted using the INTERNET permission. For these lower target SDKs, don't add ACCESS_LOCAL_NETWORK to your manifest or request it at runtime.
+
 - **Declare the permission in the manifest:** Explicitly declare [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network) in the `AndroidManifest.xml`.
 
 - **Request Permission at Runtime:** Before attempting any local network access,
@@ -131,7 +134,7 @@ handle new and legacy applications differently, based on their target SDK
 | Category | Target SDK level | Local network access behavior | Required developer action |
 |---|---|---|---|
 | New Apps / Updated Apps | \>= 37 (Android 17) | Blocked By Default | Declare and request `ACCESS_LOCAL_NETWORK` runtime permission |
-| Legacy Apps | \< 37 | Apps with INTERNET permission receive an implicit permission grant for `ACCESS_LOCAL_NETWORK`, allowing them to retain access. This is temporary and will be blocked by default once app bumps target SDK to 37 | No immediate code change needed |
+| Legacy Apps | \< 37 | Apps with INTERNET permission receive an implicit permission grant for `ACCESS_LOCAL_NETWORK`, allowing them to retain access. This is temporary and will be blocked by default once app bumps target SDK to 37 | No immediate code change needed. Don't request `ACCESS_LOCAL_NETWORK` at runtime prior to targeting SDK 37. |
 
 <br />
 
@@ -156,12 +159,12 @@ handle new and legacy applications differently, based on their target SDK
   IP addresses. Connections to IP addresses obtained this way don't require the
   [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network) permission.
 
-For applications that require direct local network communication and cannot
+For applications that require direct local network communication and can't
 use system-mediated pickers, the suggested approach is to use the permission
-reset counter strategy. If the [`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network) permission is revoked
-by the user, this mechanism provides additional opportunities for the app to
-re-request the permission, allowing developers to present a clearer rationale
-for the user.
+reset counter strategy when targeting Android 17 (SDK 37) or higher. If the
+[`ACCESS_LOCAL_NETWORK`](https://developer.android.com/reference/kotlin/android/Manifest.permission#access_local_network) permission is revoked by the user, this mechanism
+provides additional opportunities for the app to re-request the permission,
+allowing developers to present a clearer rationale for the user.
 
 ## Android 16 Guidance
 

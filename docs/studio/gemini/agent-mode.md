@@ -24,6 +24,15 @@ To get started in Agent Mode in Android Studio, follow these steps:
 3. Review and approve any changes as the agent works to accomplish the task.
 
    ![Agent Mode waits for you to accept or reject a change.](https://developer.android.com/static/studio/images/agent-accept-changes.png) **Figure 2:** Agent Mode waits for you to accept or reject a change.
+4. Optional: To run multiple conversations in parallel, click **New Chat**
+   ![The New Chat plus sign.](https://developer.android.com/static/studio/gemini/images/new-chat.png)
+   in the Agent pane to start a new conversation thread. This lets you run
+   multiple tasks at the same time (for example, generating tests in one
+   conversation while planning a new feature in another). You can switch
+   between active conversations and monitor their progress using the **Recent
+   Chats** panel.
+
+   ![Android Studio showing multiple active chat threads in the tool window.](https://developer.android.com/static/studio/images/parallel-conversations.png) **Figure 3:** Multiple active chat threads in the tool window.
 
 ## Use cases
 

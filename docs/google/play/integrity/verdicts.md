@@ -139,7 +139,7 @@ if (!requestPackageName.equals(expectedPackageName)
         // section of the doc on how to store/compute the expected nonce.
     || !nonce.equals(expectedNonce)
         // Ensure the freshness of the token.
->    || currentTimestampMillis - timestampMillis  ALLOWED_WINDOW_MILLIS) {
+    || currentTimestampMillis - timestampMillis > ALLOWED_WINDOW_MILLIS) {
         // The token is invalid! See below for further checks.
         ...
 }
@@ -161,7 +161,7 @@ if (!requestPackageName.equals(expectedPackageName)
         // section of the doc on how to store/compute the expected nonce.
     || !nonce.equals(expectedNonce)
         // Ensure the freshness of the token.
->    || currentTimestampMillis - timestampMillis  ALLOWED_WINDOW_MILLIS) {
+    || currentTimestampMillis - timestampMillis > ALLOWED_WINDOW_MILLIS) {
         // The token is invalid! See below for further checks.
         ...
 }
@@ -523,7 +523,7 @@ value will be empty:
     "deviceIntegrity": {
       "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
       "deviceRecall": {
-        &quot;values": {},
+        "values": {},
         "writeDates": {}
       }
     }
@@ -555,7 +555,7 @@ the new app access risk verdict.
       "environmentDetails": {
           "appAccessRiskVerdict": {
               // This field contains one or more responses, for example the following.
-              "appsDetected": [&quot;KNOWN_INSTALLED", "UNKNOWN_INSTALLED", "UNKNOWN_CAPTURING"]
+              "appsDetected": ["KNOWN_INSTALLED", "UNKNOWN_INSTALLED", "UNKNOWN_CAPTURING"]
           }
      }
     }
@@ -690,7 +690,7 @@ payload](https://developer.android.com/google/play/integrity/verdict#returned-pa
 the Play Protect verdict:
 
     "environmentDetails": {
-      "playProtectVerdict&quot;: "NO_ISSUES"
+      "playProtectVerdict": "NO_ISSUES"
     }
 
 `playProtectVerdict` can have one of the following values:

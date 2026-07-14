@@ -49,11 +49,12 @@ game.
 Google Play Games on PC works with Android games built using either the ARM or
 x86-64 ABI. Whenever possible, game developers should ship x86-64 binaries for
 Google Play Games on PC but ARM games will still receive certification if they
-meet the performance and reliability requirements.
+meet the performance and stability requirements.
 
 #### ARM binaries
 
-Google has partnered with Intel to bring ARM based games to both Intel- and AMD-based PCs using Intel Bridge Technology. This means that once your mobile game
+Google has partnered with Intel to bring ARM based games to both Intel- and AMD-
+based PCs using Intel Bridge Technology. This means that once your mobile game
 meets the playability requirements, it can be distributed on
 Google Play Games on PC to most x86 based PCs.
 

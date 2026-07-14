@@ -19,12 +19,32 @@ fields, and methods as possible.
 
 ## Generate the report
 
-From **AGP 9.3.0-alpha05 and later** , the report is automatically generated in
-`build/outputs/mapping/release/configanalyzer.html` when running an R8 build. To
-disable the automatic generation of the outputs, set the following Gradle
-property:
+With AGP 9.3.0 and higher, you can generate the R8 Configuration Analyzer report
+using a dedicated standalone Gradle task or automatically during an R8 build.
+
+### Run the standalone Gradle task (Recommended for local use)
+
+When actively iterating on keep rules, use the standalone Gradle task to quickly
+evaluate the impact of your changes without fully building the APK or Bundle:
+
+    ./gradlew :app:analyzeReleaseR8Config
+
+Because this task skips APK or Bundle generation, it provides a much shorter
+feedback loop. This lets you rapidly analyze how your keep rules affect
+shrinking, optimization, and obfuscation scores and immediately refine them. The
+HTML report is generated at
+`app/build/reports/r8/r8-config-analyzer-release.html`.
+
+### Generate automatically during regular builds
+
+When running a full R8 release build (such as `assembleRelease`), the report is
+automatically generated at `build/outputs/mapping/release/configanalyzer.html`.
+To disable the automatic generation of the outputs during regular builds, set
+the following Gradle property:
 
     android.experimental.r8.enableR8ConfigurationAnalyzer=false
+
+### For AGP 9.2 and earlier
 
 For **AGP 9.2 and earlier** , set the
 `com.android.tools.r8.dumpkeepradiushtmltodirectory` system property when
@@ -113,6 +133,8 @@ third-party library, you can identify and trace the specific third-party
 libraries that prevent a high amount of optimization in your app.
 
 ### How to optimize libraries
+
+To address keep rules introduced by third-party libraries, do the following:
 
 - If a library includes an overly broad rule, we recommend contacting the maintainer of the library with the data from your report to demonstrate how their current rules impact your app's optimization scores. If it's an external library, look for existing bugs in the library before filing issues.
 - If necessary, you can test potential improvements [by filtering out rules

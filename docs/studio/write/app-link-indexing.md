@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 > [!NOTE]
-> **Note:** Apps Links Assistant Web Checks is only available in the latest stable channel version of Android Studio and major versions (including their patches) released in the previous 10 months. Currently, the oldest supported version is **Narwhal 4 Feature Drop** . If you are using an older version of Android Studio, you will need to update to access Cloud services. For more information, see [Android Studio and Cloud services compatibility](https://developer.android.com/studio/releases#service-compat).
+> **Note:** Apps Links Assistant Web Checks is only available in the latest stable channel version of Android Studio and major versions (including their patches) released in the previous 10 months. Currently, the oldest supported version is **Otter** . If you are using an older version of Android Studio, you will need to update to access Cloud services. For more information, see [Android Studio and Cloud services compatibility](https://developer.android.com/studio/releases#service-compat).
 
 Android App Links are HTTP URLs that bring users directly to specific
 content in your Android app. Android App Links can drive more traffic to

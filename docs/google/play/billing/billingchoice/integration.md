@@ -23,7 +23,7 @@ The following illustration elaborates the billing choice flow for each of these
 scenarios:
 ![The billing choice flow showing the sequence of API calls and user interactions for the four integration scenarios.](https://developer.android.com/static/images/google/play/billing/billingchoice/billing-choice-3.png) **Figure 1.** Billing choice integration scenarios
 
-![](https://developer.android.com/static/images/google/play/billing/billingchoice/billing-choice-2.png)
+![](https://developer.android.com/static/images/google/play/billing/billingchoice/billing-choice-3.png)
 
 ## PBL integration scenarios
 
