@@ -1,0 +1,13 @@
+diff --git a/docs/agents/skills/play/engage-sdk-integration/references/schemas/travel.md b/docs/agents/skills/play/engage-sdk-integration/references/schemas/travel.md
+index 7b3f659d..9d67b673 100644
+--- a/docs/agents/skills/play/engage-sdk-integration/references/schemas/travel.md
++++ b/docs/agents/skills/play/engage-sdk-integration/references/schemas/travel.md
+@@ -867,7 +867,7 @@ This file defines the schema for the TRAVEL vertical in the Engage SDK.
+         }
+       },
+       "methods": {
+-        "isServiceAvailable": null,
++        "isServiceAvailable": "ServiceAvailabilityRequest",
+         "publishRecommendationClusters": "PublishRecommendationClustersRequest",
+         "publishFeaturedCluster": "PublishFeaturedClusterRequest",
+         "publishUserAccountManagementRequest": "PublishUserAccountManagementRequest",

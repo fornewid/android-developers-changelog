@@ -1,0 +1,23 @@
+diff --git a/docs/agents/skills/play/engage-sdk-integration/references/requests.md b/docs/agents/skills/play/engage-sdk-integration/references/requests.md
+index 3296820c..c683ddcc 100644
+--- a/docs/agents/skills/play/engage-sdk-integration/references/requests.md
++++ b/docs/agents/skills/play/engage-sdk-integration/references/requests.md
+@@ -233,5 +233,17 @@ the Engage SDK.
+             "getter": "getReservationCluster()"
+           }
+         }
++      },
++      "ServiceAvailabilityRequest": {
++        "package": "com.google.android.engage.service.ServiceAvailabilityRequest",
++        "fields": {
++          "intendedClusterTypes": {
++            "type": "List<Integer>",
++            "requirement": "Required",
++            "adder": "addIntendedClusterType(@ClusterType int)",
++            "adderAll": "addAllIntendedClusterTypes(List<Integer>)",
++            "getter": "getIntendedClusterTypes()"
++          }
++        }
+       }
+     }
+\ No newline at end of file

@@ -1,0 +1,13 @@
+diff --git a/docs/agents/skills/play/engage-sdk-integration/references/schemas/food.md b/docs/agents/skills/play/engage-sdk-integration/references/schemas/food.md
+index 66c63b9f..deefc093 100644
+--- a/docs/agents/skills/play/engage-sdk-integration/references/schemas/food.md
++++ b/docs/agents/skills/play/engage-sdk-integration/references/schemas/food.md
+@@ -325,7 +325,7 @@ This file defines the schema for the FOOD vertical in the Engage SDK.
+         }
+       },
+       "methods": {
+-        "isServiceAvailable": null,
++        "isServiceAvailable": "ServiceAvailabilityRequest",
+         "publishRecommendationClusters": "PublishRecommendationClustersRequest",
+         "publishFeaturedCluster": "PublishFeaturedClusterRequest",
+         "publishFoodShoppingCarts": "PublishFoodShoppingCartsRequest",

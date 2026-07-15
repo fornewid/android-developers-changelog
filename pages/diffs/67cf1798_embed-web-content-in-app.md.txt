@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/views/layout/webapps/embed-web-content-in-app.md b/docs/develop/ui/views/layout/webapps/embed-web-content-in-app.md
+index 8e8a381d..cce29023 100644
+--- a/docs/develop/ui/views/layout/webapps/embed-web-content-in-app.md
++++ b/docs/develop/ui/views/layout/webapps/embed-web-content-in-app.md
+@@ -86,4 +86,5 @@ Custom Tabs, see the following documents:
+ - [Best practices for web apps](https://developer.android.com/guide/webapps/best-practices)
+ - [Opt-in to `WebView` Beta](https://play.google.com/apps/testing/com.google.android.webview)
+ - [In-app browsing using embedded web](https://developer.android.com/develop/ui/views/layout/webapps/in-app-browsing-embedded-web)
+-- [Overview of Android Custom Tabs](https://developer.android.com/develop/ui/views/layout/webapps/overview-of-android-custom-tabs)
+\ No newline at end of file
++- [Overview of Android Custom Tabs](https://developer.android.com/develop/ui/views/layout/webapps/overview-of-android-custom-tabs)
++- [Speculative loading in WebView](https://developer.android.com/develop/ui/views/layout/webapps/speculative-loading)
+\ No newline at end of file
