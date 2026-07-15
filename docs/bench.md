@@ -45,6 +45,11 @@ View [**archived leaderboards**](https://developer.android.com/bench/archive) an
 ### [Latest Updates](http://developer.android.com/bench/changelog)
 
 Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. Stay updated with our routine methodology updates and release logs. [View all updates](http://developer.android.com/bench/changelog)
+- [New updates • Jul 13th ![](https://developer.android.com/static/images/bench/icons/github.png) **Share results on the community repository**](https://github.com/android-bench/community-results)
+- [New updates • Jul 13th ![](https://developer.android.com/static/images/bench/icons/github.png) **Contribute new tasks to our community dataset on GitHub**](https://github.com/android-bench/community-dataset)
+
+<!-- -->
+
 - [New updates • Jul 8th ![](https://developer.android.com/static/images/bench/icons/external.png) **Dataset available on Harbor**](https://hub.harborframework.com/datasets/android-bench/android-bench/latest)
 - New models • Jul 8th ![](https://developer.android.com/static/images/bench/icons/anthropic.png) **Claude Fable 5, Claude Sonnet 5, Claude Opus 4.8**
 - New models • Jul 8th ![](https://developer.android.com/static/images/bench/icons/qwen.png) **Qwen 3.7 Max, Qwen 3.7 Plus**
@@ -64,11 +69,6 @@ Track the latest AI model benchmarks, newly introduced agent architectures, and 
 - Archived models • Jun 9th ![](https://developer.android.com/static/images/bench/icons/openai.png) **GPT 5.3 Codex, GPT 5.2 Codex**
 - Archived models • Jun 9th :gemini: **Gemini 3 Pro Preview, Gemini 2.5 Pro, Gemini 2.5 Flash**
 - [New updates • Jun 9th ![](https://developer.android.com/static/images/bench/icons/news.png) **See our new Archive page**](https://developer.android.com/bench/archive)
-
-<!-- -->
-
-- [New updates • May 18th ![](https://developer.android.com/static/images/bench/icons/news.png) **New leaderboard dimensions: latency, tokens, and cost**](https://developer.android.com/bench/methodology#new-leaderboard-dimensions)
-- [New updates • May 18th ![](https://developer.android.com/static/images/bench/icons/news.png) **We added benchmarks for open-weight models**](https://developer.android.com/bench/methodology#benchmarking-open-weight-models)
 ![](http://developer.android.com/static/images/picto-icons/badge.svg)
 
 ## Learn more about Android Bench

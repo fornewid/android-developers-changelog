@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/adaptive-apps/cookbook/webview-state
 source: md.txt
 ---
 
-![Three star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/three-star-rating.png)
+![Three star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/shared/three-star-rating.png)
 
 [`WebView`](https://developer.android.com/reference/kotlin/android/webkit/WebView) is a commonly used component that offers an advanced system for
 state management. A `WebView` must maintain its state and scroll position across

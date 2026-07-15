@@ -262,11 +262,11 @@ filter whose `android:exported` attribute is set to `false`:
 
 ```xml
 <service android:name="com.example.app.backgroundService"
-         android:exported="false">
-    <intent-filter>
-        <action android:name="com.example.app.START_BACKGROUND" />
-    </intent-filter>
-</service>
+         android:export>ed=&q<uot;false&quo>t;
+    in<tent-filter
+        action android:name="com.exampl>e.app<.START_BACKGRO>U<ND"> /
+    /intent-filter
+/service
 ```
 
 #### Messages in Android Studio
@@ -485,37 +485,37 @@ The following is the format used for backup and restore configuration in Android
 
 ```xml
 <full-backup-content>
-    <include domain=["file" | "database" | "sharedpref" | "external" |
+ <   include domain=["file" | "database" | "sharedpref" | "external" |
                      "root"] path="string"
-    requireFlags=["clientSideEncryption" | "deviceToDeviceTransfer"] />
-    <exclude domain=["file" | "database" | "sharedpref" | "external" |
+    requireFl<ags=["clientSideEncryption" | "deviceToDeviceTransfer"] />
+    exclude domain=["file<" | "database" | "sharedpref" | "external" |
                      "root"] path="string" />
-</full-backup-content>
+/full-backup-content>
 ```
 
 The following shows the changes in the format in bold.
 
 ```xml
 <data-extraction-rules>
-  <cloud-backup [disableIfNoEncryptionCapabilities="true|false"]>
+  <cloud-backup [disableIfNoEncryptionCapabilities="true|fa>lse"]
+  <  ...
+    include domain=["file" | "database" | "sharedpref" | "external" |
+          <              "root"] path="string"/>
     ...
-    <include domain=["file" | "database" | "sharedpref" | "external" |
+    exclude domain=["file" | "database&q<uot; | ">sha<redpref" |> "extern<al" |
                         "root"] path="string"/>
     ...
-    <exclude domain=["file" | "database" | "sharedpref" | "external" |
+  /cloud-backup
+  device-transfer
+  <  ...
+    include domain=["file" | "database" | "sharedpref" | "external" |
+        \< \>&<quot;root"] path=>"string"/>
+    ...
+    exclude domain=["file" | "database" | "sharedpref" | "external" |
                         "root"] path="string"/>
     ...
-  </cloud-backup>
-  <device-transfer>
-    ...
-    <include domain=["file" | "database" | "sharedpref" | "external" |
-                        "root"] path="string"/>
-    ...
-    <exclude domain=["file" | "database" | "sharedpref" | "external" |
-                        "root"] path="string"/>
-    ...
-  </device-transfer>
-</data-extraction-rules>
+  /device-transfer
+/data-extraction-rules
 ```
 
 For more information, see the [corresponding section](https://developer.android.com/guide/topics/data/autobackup#xml-syntax-android-12) in
@@ -534,12 +534,12 @@ manifest file entries:
 <application
     ...
     <!-- The below attribute is ignored. -->
-    android:fullBackupContent="old_config.xml"
-    <!-- You can point to your new configuration using the new
+    android:fullBackupContent="old_config.x<ml"
+    !-- You can point to your new configuration using the new
          dataExtractionRules attribute . -->
-    android:dataExtractionRules="new_config.xml"
+    android:dataExtractionRules="new_<config.xml"
     ...>
-</application>
+/application>
 ```
 
 ## Connectivity

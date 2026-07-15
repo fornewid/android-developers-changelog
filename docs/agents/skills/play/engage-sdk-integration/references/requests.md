@@ -233,5 +233,17 @@ the Engage SDK.
             "getter": "getReservationCluster()"
           }
         }
+      },
+      "ServiceAvailabilityRequest": {
+        "package": "com.google.android.engage.service.ServiceAvailabilityRequest",
+        "fields": {
+          "intendedClusterTypes": {
+            "type": "List<Integer>",
+            "requirement": "Required",
+            "adder": "addIntendedClusterType(@ClusterType int)",
+            "adderAll": "addAllIntendedClusterTypes(List<Integer>)",
+            "getter": "getIntendedClusterTypes()"
+          }
+        }
       }
     }

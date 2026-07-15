@@ -87,3 +87,4 @@ Custom Tabs, see the following documents:
 - [Opt-in to `WebView` Beta](https://play.google.com/apps/testing/com.google.android.webview)
 - [In-app browsing using embedded web](https://developer.android.com/develop/ui/views/layout/webapps/in-app-browsing-embedded-web)
 - [Overview of Android Custom Tabs](https://developer.android.com/develop/ui/views/layout/webapps/overview-of-android-custom-tabs)
+- [Speculative loading in WebView](https://developer.android.com/develop/ui/views/layout/webapps/speculative-loading)

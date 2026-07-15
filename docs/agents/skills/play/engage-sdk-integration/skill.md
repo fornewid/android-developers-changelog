@@ -53,7 +53,7 @@ Follow these steps to assist the developer:
    - For TV apps, use the TV-specific sections in [patterns.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns).
    - Provide the necessary `implementation` dependencies for `build.gradle` or `build.gradle.kts` from [patterns.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/patterns).
    - Provide the `<receiver>` and `<service>` declarations for `AndroidManifest.xml`.
-   - Note: There's no separate import according to vertical except TV. For each vertical other than TV 'com.google.android.engage:engage-core:1.5.12' is enough.
+   - Note: There's no separate import according to vertical except TV. For each vertical other than TV 'com.google.android.engage:engage-core:1.6.0' is enough.
 6. **Debugging:**
 
    - Perform a Gradle sync.

@@ -28,7 +28,10 @@ testing for stability at each stage.
 
 ## Prerequisites
 
-Using R8 with `packageScope` requires Android Gradle Plugin 9.0 or later.
+Using R8 with `packageScope` requires:
+
+- Android Gradle Plugin 9.0 or later.
+- R8 in [full mode](https://developer.android.com/topic/performance/app-optimization/full-mode), and not compatibility mode.
 
 ## Configure the optimization
 
@@ -55,35 +58,29 @@ In your module-level `build.gradle.kts` (or `build.gradle`) file, add an
 
 ### Kotlin
 
-```kotlin
-android {
-  buildTypes {
-    release {
-      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),"proguard-rules.pro")
-      optimization {
-        enable = true
-        packageScope = setOf("androidx.**","kotlin.**", "kotlinx.**")
-      }
+    android {
+        buildTypes {
+            release {
+                optimization {
+                    enable = true
+                    packageScope = setOf("androidx.**","kotlin.**", "kotlinx.**")
+                }
+            }
+        }
     }
-  }
-}
-```
 
 ### Groovy
 
-```groovy
-android {
-  buildTypes {
-    release {
-      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-      optimization {
-        enable = true
-        packageScope = ["androidx.**", "kotlin.**", "kotlinx.**"]
-      }
+    android {
+        buildTypes {
+            release {
+                optimization {
+                    enable = true
+                    packageScope = ["androidx.**", "kotlin.**", "kotlinx.**"]
+                }
+            }
+        }
     }
-  }
-}
-```
 
 ### Test the optimization
 
@@ -101,7 +98,10 @@ incrementally expanding your optimization coverage:
 2. **Incrementally add packages** . Gradually add new package prefixes to the `packageScope`:
    1. **Assess dependencies** . Review your app's libraries. Good candidates to add to the `packageScope` list include official Google libraries (for example, `com.google.**`) and other robust libraries like `OkHttp` (for example, `okhttp3.**` and `okio.**`). Prioritize libraries that don't involve heavy reflection, serialization, or native code calls (JNI).
    2. **Prioritize based on package size** . Use **Android Studio's APK
-      Analyzer** to identify the biggest contributors to your app size. 1. Build a release AAB or APK with R8 turned off. 1. Open it in the Analyzer and inspect the `dex` files. 1. Sort packages by size. The largest packages offer the highest return on investment (ROI) for optimization. Targeting these first gives you the most significant size reduction early in the process, as long as these libraries don't have overly broad keep rules. See [Choose libraries wisely](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely) for more information.
+      Analyzer** to identify the biggest contributors to your app size.
+      1. Build a release AAB or APK with R8 turned off.
+      2. Open it in the Analyzer and inspect the `dex` files.
+      3. Sort packages by size. The largest packages offer the highest return on investment (ROI) for optimization. Targeting these first gives you the most significant size reduction early in the process, as long as these libraries don't have overly broad keep rules. See [Choose libraries wisely](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely) for more information.
 3. **Verify behavior changes** . After adding each new package prefix, conduct comprehensive [testing](https://developer.android.com/topic/performance/app-optimization/test-the-optimization) to detect and resolve any regressions or unexpected behaviors.
 4. **Add app packages last** . If your app packages don't use a lot of reflection, include the app packages in `packageScope` and add keep rules incrementally as needed. If your app packages use a lot of reflection, include the packages in `packageScope` and add package-wide keep rules for the required packages. Iterate over the keep rules to refine them.
 5. **Move to using R8 in your entire app** . After the majority of your app's dependencies are included in the `packageScope` declaration and your app is stable, remove the `packageScope` to optimize your entire app in full mode.
