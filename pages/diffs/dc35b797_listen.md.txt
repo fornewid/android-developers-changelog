@@ -1,0 +1,13 @@
+diff --git a/docs/agents/skills/play/engage-sdk-integration/references/schemas/listen.md b/docs/agents/skills/play/engage-sdk-integration/references/schemas/listen.md
+index 6a7e49ac..545f05ab 100644
+--- a/docs/agents/skills/play/engage-sdk-integration/references/schemas/listen.md
++++ b/docs/agents/skills/play/engage-sdk-integration/references/schemas/listen.md
+@@ -831,7 +831,7 @@ This file defines the schema for the LISTEN vertical in the Engage SDK.
+         }
+       },
+       "methods": {
+-        "isServiceAvailable": null,
++        "isServiceAvailable": "ServiceAvailabilityRequest",
+         "publishRecommendationClusters": "PublishRecommendationClustersRequest",
+         "publishFeaturedCluster": "PublishFeaturedClusterRequest",
+         "publishContinuationCluster": "PublishContinuationClusterRequest",

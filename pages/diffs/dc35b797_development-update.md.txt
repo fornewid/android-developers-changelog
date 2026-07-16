@@ -1,0 +1,13 @@
+diff --git a/docs/games/playgames/development-update.md b/docs/games/playgames/development-update.md
+index 59e8e5bf..51032cf4 100644
+--- a/docs/games/playgames/development-update.md
++++ b/docs/games/playgames/development-update.md
+@@ -37,7 +37,7 @@ update.
+ 
+ ### Mobile checklist
+ 
+-- [Evaluate your game against the continuity requirements](https://developer.android.com/games/playgames/continuity-expected-behaviors).
++- [Evaluate your game against the continuity requirements](https://developer.android.com/games/guidelines#cloud-save).
+ 
+ ### Google Play Games on PC checklist
+ 

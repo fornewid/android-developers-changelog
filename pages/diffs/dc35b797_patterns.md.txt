@@ -1,0 +1,121 @@
+diff --git a/docs/agents/skills/play/engage-sdk-integration/references/patterns.md b/docs/agents/skills/play/engage-sdk-integration/references/patterns.md
+index f9addcc8..0c63752d 100644
+--- a/docs/agents/skills/play/engage-sdk-integration/references/patterns.md
++++ b/docs/agents/skills/play/engage-sdk-integration/references/patterns.md
+@@ -8,10 +8,10 @@ source: md.txt
+ 
+ Setting up the `BroadcastReceiver` correctly requires **both** static and
+ dynamic registration. Static registration allows the app to receive broadcasts
+-even when it is not running, while dynamic registration is required on newer
++even when it isn't running, while dynamic registration is required on newer
+ Android versions to safely receive broadcasts when the app is live in memory.
+ 
+-### BroadcastReceiver Implementation
++### BroadcastReceiver implementation
+ 
+ 
+ ```kotlin
+@@ -75,13 +75,13 @@ class EngageBroadcastReceiver : BroadcastReceiver() {
+ 
+ <br />
+ 
+-### Static Registration (AndroidManifest.xml)
++### Static registration in AndroidManifest.xml
+ 
+ Add the `<receiver>` tag inside the `<application>` block in
+ `AndroidManifest.xml`
+ 
+ 
+-```kotlin
++```xml
+ <!--    Add the `<receiver>` tag inside the `<application>` block in `AndroidManifest.xml`:-->
+ <receiver
+     android:name="com.example.snippets.engage.EngageBroadcastReceiver"
+@@ -429,16 +429,22 @@ object ItemToEntityConverter {
+ 
+ <br />
+ 
+-## Dependency Specifications (libs.versions.toml)
++> **Strict image aspect ratio requirement** : Play Engage has strict
++> requirements for image aspect ratios depending on the vertical and entity type
++> (e.g., 16:9 for landscape, 1:1 for square, 2:3 for portrait). Ensure your
++> `ItemToEntityConverter` maps images that conform to these strict requirements
++> to avoid cropping or content rejection by Play.
++
++## Dependency specifications (libs.versions.toml)
+ 
+-This skill specifies all dependencies following in `libs.versions.toml` format.
++This skill specifies all dependencies using the `libs.versions.toml` format.
+ Adapt these definitions to other formats (such as standard Groovy `build.gradle`
+ or Kotlin DSL `build.gradle.kts` implementation lines) as required by the
+ project.
+ 
+     [versions]
+-    engage-core = "1.5.12"
+-    engage-tv = "1.0.6"
++    engage-core = "1.6.0"
++    engage-tv = "1.1.0"
+     playServicesOssLicenses = "17.5.1"
+     workManager = "2.11.2"
+     coroutines = "1.10.2"
+@@ -453,22 +459,47 @@ project.
+     kotlinx-coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-play-services", version.ref = "coroutines" }
+     kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
+ 
+-## TV Integrations
++## Dual content rating fields for Watch and TV
++
++For Watch and TV integrations, you must populate both the new `contentRatings`
++(which uses `RatingSystem`) and the legacy `contentRatingsLegacies` (which uses
++`String` lists) to ensure compatibility across all Google Play surfaces.
++
++
++```kotlin
++fun convertMovie(movie: MovieData): MovieEntity {
++    val ratingSystem = RatingSystem.Builder()
++        .setAgencyName("MPAA")
++        .setRating("PG-13")
++        .build()
++    return MovieEntity.Builder()
++        .setEntityId(movie.id)
++        .setName(movie.title)
++        // ... other fields
++        .addContentRating(ratingSystem) // Recommended API
++        .addContentRatingsLegacy(listOf("MPAA:PG-13")) // Legacy API for backward compatibility
++        .build()
++}
++```
++
++<br />
++
++## TV integrations
+ 
+ The following patterns and configurations are specific to Android TV
+ integrations.
+ 
+-### AndroidManifest.xml (TV)
++### AndroidManifest.xml for TV
+ 
+ 
+-```kotlin
++```xml
+ <!-- Mandatory for TV integrations -->
+ <uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DATA" />
+ ```
+ 
+ <br />
+ 
+-### PlatformSpecificUri Example
++### PlatformSpecificUri example
+ 
+ 
+ ```kotlin
+@@ -486,7 +517,7 @@ val platformSpecificPlaybackUris = listOf(
+ 
+ <br />
+ 
+-### AccountProfile Example
++### AccountProfile example
+ 
+ 
+ ```kotlin

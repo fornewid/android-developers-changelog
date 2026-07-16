@@ -1,0 +1,16 @@
+diff --git a/docs/games/services/management/api/scores/resetMultipleForAllPlayers.md b/docs/games/services/management/api/scores/resetMultipleForAllPlayers.md
+index 5c1ff2c3..7348886f 100644
+--- a/docs/games/services/management/api/scores/resetMultipleForAllPlayers.md
++++ b/docs/games/services/management/api/scores/resetMultipleForAllPlayers.md
+@@ -31,9 +31,10 @@ In the request body, supply data with the following structure:
+ ```
+ {
+   "kind": "gamesManagement#scoresResetMultipleForAllRequest",
+-  ";leaderboar}d_ids": [
++  "leaderboard_ids": [
+     string
+   ]
++}
+ ```
+ 
+ | Property name | Value | Description | Notes |

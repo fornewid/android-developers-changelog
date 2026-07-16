@@ -1,0 +1,13 @@
+diff --git a/docs/media/camera/camera-deprecated/cameradirect.md b/docs/media/camera/camera-deprecated/cameradirect.md
+index f1e1767e..6652fb07 100644
+--- a/docs/media/camera/camera-deprecated/cameradirect.md
++++ b/docs/media/camera/camera-deprecated/cameradirect.md
+@@ -53,7 +53,7 @@ private fun safeCameraOpen(id: Int): Boolean {
+ 
+ private fun releaseCameraAndPreview() {
+     preview?.setCamera(null)
+-    mCamera?.also { camera ->
++    mCamera?.also >{ camera -
+         camera.release()
+         mCamera = null
+     }
