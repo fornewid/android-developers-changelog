@@ -190,7 +190,7 @@ Here's an example of how you might do this.
 if (LocalSpatialCapabilities.current.isSpatialUiEnabled) {
     Subspace {
         SpatialPanel(
-            modifier = SubspaceModifier.transformingMovable().transformingResizable(),
+            modifier = SubspaceModifier.movable().resizable(),
         ) {
             AppContent()
         }

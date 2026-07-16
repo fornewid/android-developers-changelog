@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | - | - | - | [1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-alpha16) |
+| July 15, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-beta01) | - |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.scenecore:scenecore:1.0.0-alpha16"
+    implementation "androidx.xr.scenecore:scenecore:1.0.0-beta01"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-alpha16"
+    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-beta01"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.scenecore:scenecore:1.0.0-alpha16")
+    implementation("androidx.xr.scenecore:scenecore:1.0.0-beta01")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-alpha16")
+    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-beta01")
 }
 ```
 
@@ -59,6 +59,24 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-beta01
+
+July 15, 2026
+
+`androidx.xr.scenecore:scenecore-*:1.0.0-beta01` is released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/fc052f5a502bd14589b077e9b2ac185512f8cf5f..488730ed565c7b9ac4839ff66aa93313d1e662e6/xr/scenecore).
+
+**API Changes**
+
+- `GltfAnimation` and `SpatialGltfModelAnimation` APIs have been marked as experimental. Some properties were turned into getters. ([I8d689](https://android-review.googlesource.com/#/q/I8d689ae01daec91cf15291fa37dcf279bb5555c7), [b/524771027](https://issuetracker.google.com/issues/524771027))
+- Removed the public `MovableComponent.createTrackingMovable` factory method. ([I00912](https://android-review.googlesource.com/#/q/I00912cf98f347c26d764e04df2d44cf507c55625), [b/477169015](https://issuetracker.google.com/issues/477169015))
+- Converted Session.create to a suspend function. ([I5d27f](https://android-review.googlesource.com/#/q/I5d27fd6399fc5fe35f28ddf9c0c488a12eb23115))
+- `ActivitySpace` and `AnchorSpace` now extend a common `SpaceEntity` class which contains common behavior for entities whose positions are controlled by the system ([I506ec](https://android-review.googlesource.com/#/q/I506ecb36b6d73440b9f44845812e8b042fb6e270), [b/513619219](https://issuetracker.google.com/issues/513619219))
+- Updated `AnchorEntity` to be called `AnchorSpace` ([Ifa95e](https://android-review.googlesource.com/#/q/Ifa95ebf5c1da2b4413723835db4c0e5f9a2e52fb), [b/513619219](https://issuetracker.google.com/issues/513619219))
+- Provides public test API `SoundEffectPoolComponentTester`. ([I87df7](https://android-review.googlesource.com/#/q/I87df71d5e551cc1dd93b7c8ca87280d36e3b9bfd), [b/498104417](https://issuetracker.google.com/issues/498104417))
+- Added an optional `cornerRadius` parameter to the `SurfaceEntity.Shape.Quad` constructor and made the `cornerRadius` property public. Developers can now specify a corner radius when creating a Quad shape to render `SurfaceEntity` canvases with rounded corners, and query the radius of existing Quads. ([Ia7809](https://android-review.googlesource.com/#/q/Ia78090bcf03c94d84f60c0cbdf51c8bd3f5368fe), [b/474681085](https://issuetracker.google.com/issues/474681085))
+- Provides public test API `SpatialAudioTrackBuilderTester`, `SpatialAudioTrackTester` and `SceneCoreTestRule.getTester` overloads. ([I378c6](https://android-review.googlesource.com/#/q/I378c6953233b2400ada20260442c7a866c6c205d), [b/496333938](https://issuetracker.google.com/issues/496333938))
+- Add specialized overrides of `toString()` for a number of ARCore types. These types are intended to provide additional information to developers for debugging purposes and are not intended to be used in production or shipped applications.
 
 ### Version 1.0.0-alpha16
 

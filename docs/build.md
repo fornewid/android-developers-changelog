@@ -287,8 +287,8 @@ plugins {
      * see https://docs.gradle.org/current/userguide/plugins.html#sec:subprojects_plugins_dsl.
      */
 
-    id("com.android.application") version "9.2.0" apply false
-    id("com.android.library") version "9.2.0" apply false
+    id("com.android.application") version "9.3.0" apply false
+    id("com.android.library") version "9.3.0" apply false
     id("org.jetbrains.kotlin.android") version "2.3.21" apply false
 }
 ```
@@ -305,8 +305,8 @@ plugins {
      * see https://docs.gradle.org/current/userguide/plugins.html#sec:subprojects_plugins_dsl.
      */
 
-    id 'com.android.application' version '9.2.0' apply false
-    id 'com.android.library' version '9.2.0' apply false
+    id 'com.android.application' version '9.3.0' apply false
+    id 'com.android.library' version '9.3.0' apply false
     id 'org.jetbrains.kotlin.android' version '2.3.21' apply false
 }
 ```

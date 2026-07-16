@@ -54,15 +54,15 @@ any issues it discovers.
 - **How to address test failures:** make sure your game supports [the minimum
   OpenGL ES or Vulkan versions](https://developer.android.com/games/playgames/graphics#opengles-version) for Google Play Games on PC and update your `AndroidManifest.xml` accordingly.
 
-### Play Games Services v2 SDK integration test
+### Play Games Services v2 SDK integration test (Optional)
 
 - **What it tests:** if the Play Games Services SDK v2 SDK can be found in the `AndroidManifest.xml`.
-- **How to address test failures:** [read about the continuity requirements](https://developer.android.com/games/playgames/identity#game-identity) and make sure you've integrated the latest Play Games Services SDK.
+- **How to address test failures:** If you are using Play Games Services (PGS) for cloud save or achievements, [read about the continuity requirements](https://developer.android.com/games/playgames/identity#game-identity) and make sure you've integrated the latest Play Games Services SDK. If you are using a custom cloud save solution and do not use PGS, you can ignore this failure.
 
-### Play Games Services v2 SDK sign-in test
+### Play Games Services v2 SDK sign-in test (Optional)
 
 - **What it tests:** whether the player was signed in with the Play Games Services SDK v2 SDK.
-- **How to address test failures** [read about the continuity requirements](https://developer.android.com/games/playgames/identity#game-identity) and ensure that you're signing in the player at launch.
+- **How to address test failures** If you are using PGS, [read about the continuity requirements](https://developer.android.com/games/playgames/identity#game-identity) and ensure that you're signing in the player at launch. If you are using a custom cloud save solution, you can ignore this failure.
 
 ### Input SDK test
 

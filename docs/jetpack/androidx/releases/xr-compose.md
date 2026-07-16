@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha15) |
+| July 15, 2026 | - | - | - | [1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha16) |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.compose:compose:1.0.0-alpha15"
+    implementation "androidx.xr.compose:compose:1.0.0-alpha16"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha15"
+    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha16"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.compose:compose:1.0.0-alpha15")
+    implementation("androidx.xr.compose:compose:1.0.0-alpha16")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha15")
+    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha16")
 }
 ```
 
@@ -59,6 +59,45 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha16
+
+July 15, 2026
+
+`androidx.xr.compose:compose:1.0.0-alpha16` and `androidx.xr.compose:compose-testing:1.0.0-alpha16` are released. Version 1.0.0-alpha16 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6843009ab4a83565ff22c97fa2b27471b6c5c5d7..427389dd0c83c185068abb457041c78de4699495/xr/compose).
+
+**API Changes**
+
+- Remove `ComponentOverride` APIs ([I820c4](https://android-review.googlesource.com/#/q/I820c4aec6fad21ed544189b2dfbaeb6d6a6a6964))
+- `GltfAnimation` and `SpatialGltfModelAnimation` APIs have been marked as experimental. Some properties were turned into getters. ([I8d689](https://android-review.googlesource.com/#/q/I8d689ae01daec91cf15291fa37dcf279bb5555c7), [b/524771027](https://issuetracker.google.com/issues/524771027))
+- Fixed overall density behavior by establishing the conversion between Meter and pixels to be constant. Deprecated Meter.kt, `Session.scene.virtualPixelDensity` can now be used as an alternative. ([I122ff](https://android-review.googlesource.com/#/q/I122ff0865850ecd7ec33282f77f3e8e0bf75f22c), [b/430097855](https://issuetracker.google.com/issues/430097855), [b/474168798](https://issuetracker.google.com/issues/474168798))
+- Update resizable modifier to use a `ResizePolicy` instead of two modifiers ([I7fb0f](https://android-review.googlesource.com/#/q/I7fb0fff7c7abe5ab3cffe2a118fec42cf61f4684), [b/496257436](https://issuetracker.google.com/issues/496257436), [b/519672992](https://issuetracker.google.com/issues/519672992))
+- Added a tolerance: `Dp = Dp(0.5f)` parameter to all public floating-point dimension and position equality assertions in `SubspaceAssertions.kt`. The default tolerance behavior (`0.5.dp`) is fully documented. ([I266cb](https://android-review.googlesource.com/#/q/I266cbf4d1cc817e2159490f05d1995285fde3709), [b/521491915](https://issuetracker.google.com/issues/521491915))
+- Added movable overload with `movePolicy` param and deprecate `transformingMovable` and `movable` ([Ic88c1](https://android-review.googlesource.com/#/q/Ic88c1d6acf919b741f6f50bca3f61da958caab70), [b/481781189](https://issuetracker.google.com/issues/481781189))
+- Added new non-interactive variants of standard list item and segmented list item which follow Material Expressive specifications. The non-expressive version has been deprecated. ([Ide4de](https://android-review.googlesource.com/#/q/Ide4de27c32c25243b6b0a7d38cabce1a582bc56f), [b/491994186](https://issuetracker.google.com/issues/491994186))
+- For Subspace, the `allowUnboundedSubspace` parameter is now deprecated and hidden. Unbounded behavior should now be achieved by using `SubspaceModifier.requiredSizeIn`(`maxWidth` = `Dp.Infinity`, `maxHeight` = `Dp.Infinity`, `maxDepth` = `Dp.Infinity`) on the Subspace modifier. The `allowUnboundedSubspace` parameter has been removed from `FollowingSubspace`. ([Ia72ae](https://android-review.googlesource.com/#/q/Ia72aee259147a9aa88fbe7e251b02d4dc1d214aa), [b/433624021](https://issuetracker.google.com/issues/433624021))
+- Converted `Session.create` to a suspend function. ([I5d27f](https://android-review.googlesource.com/#/q/I5d27fd6399fc5fe35f28ddf9c0c488a12eb23115))
+- Added `SubspaceModifier.spatializedAudioOutput` which allows spatializing audio playback through `ExoPlayer` or through a `SoundEffectPlayer` ([I46697](https://android-review.googlesource.com/#/q/I46697a674a84645a44d1bf6b148e68f99ca6c149), [b/489421980](https://issuetracker.google.com/issues/489421980), [b/497867019](https://issuetracker.google.com/issues/497867019))
+- Updated `ComponentActivity.requestHomeSpace()` and `requestFullSpace()` to return `SpaceRequestResult` for status verification. ([If1672](https://android-review.googlesource.com/#/q/If167217054f3aba0b37533a427c7e5a9aa6a7944))
+- Updated `AnchorEntity` to be called `AnchorSpace` ([Ifa95e](https://android-review.googlesource.com/#/q/Ifa95ebf5c1da2b4413723835db4c0e5f9a2e52fb), [b/513619219](https://issuetracker.google.com/issues/513619219))
+- Unrestricted `fromResource` method from `SpatialGltfModelSource` ([I1f5a1](https://android-review.googlesource.com/#/q/I1f5a134ee2e9c0b9a271bb255f4792c463f410e1), [b/503047416](https://issuetracker.google.com/issues/503047416))
+- `SubspaceSemanticsMatcher` members are public: the `description` property, companion factory methods (`expectValue`, `keyIsDefined`, `keyNotDefined`), member functions (`matches`, `matchesAny`), and operators (`and`, `or`, `not`). ([I972a4](https://android-review.googlesource.com/#/q/I972a4c5e7bd2142fd1d0de379517d4c15f40cf3f), [b/460427288](https://issuetracker.google.com/issues/460427288))
+- Updated `SubspaceModifier.semantics`, `SubspaceModifier.testTag`, `SubspaceSemanticsInfo`, `SubspaceSemanticsModifierNode` to use curated spatial semantics types. ([I80dea](https://android-review.googlesource.com/#/q/I80dea0efd484aeeca0564b423c771ed7633aaffe), [b/460427288](https://issuetracker.google.com/issues/460427288))
+- Renamed `position` to `align` in `SpatialAlignment` and removed individual directional offset methods in favor of a unified `align` API. ([I9bdb2](https://android-review.googlesource.com/#/q/I9bdb2a69f416f28ad2390151a97e5ff7fee97c0a), [b/479805937](https://issuetracker.google.com/issues/479805937))
+- Removed Deprecated Space Mode APIs from `SpatialConfiguration`. ([I1ef5c](https://android-review.googlesource.com/#/q/I1ef5cb8200ee2450136d5347b5f07a79bfb0c55e), [b/458712461](https://issuetracker.google.com/issues/458712461))
+- Introduced `SubspaceSemanticsConfiguration`. This is a configuration of semantics properties for a Spatial node. This class safely exposes query methods for 3D semantics without leaking foundational 2D semantic capabilities to external consumers. ([Id025e](https://android-review.googlesource.com/#/q/Id025e31885a84d762a1b2d6c493c2892cf2138d6), [b/460427288](https://issuetracker.google.com/issues/460427288))
+- Introduced `SubspaceSemanticsPropertyReceiver`: a dedicated wrapper that limits 3D layout container properties to valid fields (initially `testTag` and `contentDescription`). ([I5cf5c](https://android-review.googlesource.com/#/q/I5cf5cbf8dd1ca4a2d25b8c4e1fbf2b3a2bad8973), [b/460427288](https://issuetracker.google.com/issues/460427288))
+
+**Bug Fixes**
+
+- Updated the Semantic modifier's `hasContentDescription` to default to substring matching. ([I08214](https://android-review.googlesource.com/#/q/I082143ce42e8ae505e08216d5e9013cbd5a0abd6))
+- Added restricted `FollowBehavior.ExponentialDecay()` which provides a soft follow behavior guided by elastic physics. ([I7449c](https://android-review.googlesource.com/#/q/I7449c781d97e7438f01561ce7f7bbfceec769e80), [b/485639909](https://issuetracker.google.com/issues/485639909), [b/500493335](https://issuetracker.google.com/issues/500493335))
+
+Most APIs will be affected by this. Specifically, the `LocalSession` `CompositionLocal` and all `CompositionLocals` that are dependent on `LocalSession` (e.g. `LocalSpatialConfiguration`, `LocalSpatialCapabilities`, etc.) will now resolve to `null` or its non-XR versions before the `Session` is initialized.
+
+Once the `Session` is available, recomposition will be triggered with the correct state. ([I0cfa4](https://android-review.googlesource.com/#/q/I0cfa4a85834c911ef3d8fb76d5074c45fdefb0ca), [b/514712835](https://issuetracker.google.com/issues/514712835), [b/514712835](https://issuetracker.google.com/issues/514712835))
+
+- Clarified documentation for `ComponentActivity.requestHomeSpace` and `ComponentActivity.requestFullSpace` regarding suspend behavior, cancellation, and concurrency. Updated tests to verify `CancellationException` propagation. ([I22f75](https://android-review.googlesource.com/#/q/I22f75c130494bb346e29bec67b1e23c63fffe3ac), [b/493289528](https://issuetracker.google.com/issues/493289528))
 
 ### Version 1.0.0-alpha15
 

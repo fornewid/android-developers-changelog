@@ -4,7 +4,7 @@ url: https://developer.android.com/agents/skills/play/engage-sdk-integration/ref
 source: md.txt
 ---
 
-This file defines the request structures for publishing various data models in
+Defines the request structures for publishing various data models in
 the Engage SDK.
 
     {
@@ -21,7 +21,8 @@ the Engage SDK.
             "type": "@NonNull AccountProfile",
             "requirement": "Optional",
             "setter": "setAccountProfile(@NonNull AccountProfile)",
-            "getter": "getAccountProfile()"
+            "getter": "getAccountProfile()",
+            "description": "Required for personalization and cross-device syncing of recommendations."
           },
           "syncAcrossDevices": {
             "type": "Boolean",

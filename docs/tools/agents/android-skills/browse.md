@@ -27,8 +27,8 @@ Integrate the Play Engage SDK into your app to publish content clusters and enga
 Build responsive UIs that adapt to different Android devices, handling varying window sizes and input methods.](https://github.com/android/skills/tree/main/jetpack-compose/adaptive) [![](https://developer.android.com/static/images/picto-icons/app-quality.svg)
 ### Make app edge-to-edge
 Modernize your app UI by implementing edge-to-edge layout support.](https://github.com/android/skills/tree/main/system/edge-to-edge) [![](https://developer.android.com/static/images/picto-icons/tools-3.svg)
-### Migrate to CameraX
-Migrate legacy Android camera implementations (Camera1 or raw Camera2 APIs) to CameraX.](https://github.com/android/skills/tree/main/camera/camera1-to-camerax) [![](https://developer.android.com/static/images/picto-icons/design.svg)
+### CameraX
+Best practices for common camera features from advanced use cases, like low light and ML integrations, to camera-specific guidance around concepts like testing. This skill also includes guidance on migrating legacy Android camera implementations, such as Camera1 or raw Camera2 APIs, to CameraX.](https://github.com/android/skills/tree/main/camera/camerax) [![](https://developer.android.com/static/images/picto-icons/design.svg)
 ### Migrate to Compose
 Instructions to help you migrate your view-based UI to Jetpack Compose.](https://github.com/android/skills/tree/main/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose) [![](https://developer.android.com/static/images/picto-icons/mail.svg)
 ### Retrieve verified email

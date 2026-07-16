@@ -13,7 +13,7 @@ Bring digital content into the real world with perception capabilities.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-alpha15) |
+| July 15, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-beta01) | - |
 
 
 ## Declaring dependencies
@@ -30,7 +30,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.arcore:arcore:1.0.0-alpha15"
+    implementation "androidx.xr.arcore:arcore:1.0.0-beta01"
 }
 ```
 
@@ -38,7 +38,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.arcore:arcore:1.0.0-alpha15")
+    implementation("androidx.xr.arcore:arcore:1.0.0-beta01")
 }
 ```
 
@@ -58,6 +58,21 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-beta01
+
+July 15, 2026
+
+`androidx.xr.arcore:arcore-*:1.0.0-beta01` is released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1790799be76c86764f97a92871414dfdd08154a2..ad7cd7099fdef1e27d4e7c957a7cbf7b8690d425/xr/arcore).
+
+**API Changes**
+
+- Updated resizable modifier to use a `ResizePolicy` instead of two modifiers ([I7fb0f](https://android-review.googlesource.com/#/q/I7fb0fff7c7abe5ab3cffe2a118fec42cf61f4684), [b/496257436](https://issuetracker.google.com/issues/496257436), [b/519672992](https://issuetracker.google.com/issues/519672992))
+- Added movable overload with `movePolicy` param and deprecate `transformingMovable` and `movable` ([Ic88c1](https://android-review.googlesource.com/#/q/Ic88c1d6acf919b741f6f50bca3f61da958caab70), [b/481781189](https://issuetracker.google.com/issues/481781189))
+- Removed `TrackingState`.TRACKING_DEGRADED from public API surface and map runtime degraded states to PAUSED instead. Update `TrackingState` to use enums instead of int values for string conversion and runtime conversion. ([I3eb5b](https://android-review.googlesource.com/#/q/I3eb5b4b57f9d9bd029f0b08a9841d54b4ebf128e), [b/524326338](https://issuetracker.google.com/issues/524326338))
+- Converted Session.create to a suspend function. ([I5d27f](https://android-review.googlesource.com/#/q/I5d27fd6399fc5fe35f28ddf9c0c488a12eb23115))
+- Deprecated the `ProjectedPermissionsResultContract` ([I141d5](https://android-review.googlesource.com/#/q/I141d5713b3a0c26606f85815111fa7af88f63269), [b/515699436](https://issuetracker.google.com/issues/515699436))
+- Updated `AnchorEntity` to be called `AnchorSpace` ([Ifa95e](https://android-review.googlesource.com/#/q/Ifa95ebf5c1da2b4413723835db4c0e5f9a2e52fb), [b/513619219](https://issuetracker.google.com/issues/513619219))
 
 ### Version 1.0.0-alpha15
 

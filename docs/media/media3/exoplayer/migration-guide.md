@@ -134,7 +134,7 @@ resources of an Android gradle project written in Java or Kotlin.
      # list files selected for migration when excluding paths
      ./media3-migration.sh -l -x "app/src/test/" -x "service/" /path/to/project/root
      # migrate the selected files
-     ./media3-migration.sh -m -x "app/src/test/" -x "service/" /path/to/project/root
+     ./media3-migration.sh -m -x "app/src/test/" -x &quot;service/" /path/to/project/root
 
 Complete these manual steps after running the script with the `-m` option:
 
@@ -274,12 +274,12 @@ using a `MediaLibraryService` or a legacy `MediaBrowserServiceCompat`.
    interfaces** with your service in the `AndroidManifest.xml`. This way a
    client finds your service by the required service interface:
 
-       <service android:name=".MusicService" android:exported="true">
-           <intent-filter>
-               <action android:name="androidx.media3.session.MediaLibraryService"/>
-               <action android:name="android.media.browse.MediaBrowserService" />
-           </intent-filter>
-       </service>
+       <service android:name=".MusicService" android:expor>ted=&<quot;true&quo>t;
+           in<tent-filter
+               action android:name="androidx.media3.sess>ion.Media<LibraryService"/
+               action android:name="android.>media<.browse.MediaB>r<owserSer>vice" /
+           /intent-filter
+       /service
 
 2. In the `build.gradle` file where you maintain your dependencies, add **an
    implementation dependency to the [AndroidX Media3 session module](https://github.com/androidx/media/tree/release/libraries/session)** and
@@ -393,8 +393,7 @@ scope.launch {
     MediaBrowser.Builder(context, sessionToken)
       .setListener(BrowserListener())
       .buildAsync()
-      .await()
-}
+      onGuide.kt
 ```
 
 ### Java
@@ -402,10 +401,10 @@ scope.launch {
 ```java
 SessionToken sessionToken =
     new SessionToken(context, new ComponentName(context, "MusicService"));
-ListenableFuture<MediaBrowser> browserFuture =
+Listen<ableFutureMe>diaBrowser browserFuture =
     new MediaBrowser.Builder(context, sessionToken)
         .setListener(new BrowserListener())
-        .buildAsync();
+        .buiGuide.java
 ```
 
 <br />

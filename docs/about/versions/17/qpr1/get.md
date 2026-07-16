@@ -67,7 +67,7 @@ Android 17 QPR 1 OTAs and downloads are available for the following Pixel device
 ### Flash or manually install a system image
 
 Alternatively, if you'd rather flash your device, we recommend using the [Android Flash
-Tool](https://flash.android.com/preview/cinnamonbun-qpr1-beta6). If you need to flash your device manually for some other reason, you can get an Android 17 QPR 1 system image for your device on the [Pixel downloads page](https://developer.android.com/about/versions/17/qpr1/download). See the general instructions on the downloads page for how to flash a system image to your device. This approach can be useful when you need more control over testing, such as for automated testing or regression testing. Android 17 QPR 1 Beta images are available for [supported Pixel devices](https://developer.android.com/about/versions/17/qpr1/get#google-pixel-devices).
+Tool](https://flash.android.com/preview/cinnamonbun-qpr1-beta7). If you need to flash your device manually for some other reason, you can get an Android 17 QPR 1 system image for your device on the [Pixel downloads page](https://developer.android.com/about/versions/17/qpr1/download). See the general instructions on the downloads page for how to flash a system image to your device. This approach can be useful when you need more control over testing, such as for automated testing or regression testing. Android 17 QPR 1 Beta images are available for [supported Pixel devices](https://developer.android.com/about/versions/17/qpr1/get#google-pixel-devices).
 
 <br />
 

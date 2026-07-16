@@ -59,7 +59,7 @@ not the animation should loop using [`SpatialGltfModelAnimation`](https://develo
 
 
 ```kotlin
-val animation = modelState.animations.find { it.name == "Walk" }
+val animation = modelState.getAnimations().find { it.name == "Walk" }
 
 animation?.animationState?.let { state ->
     LaunchedEffect(state) {

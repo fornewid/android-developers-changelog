@@ -14,8 +14,8 @@ higher, Google Play services (GMS) core version 24220000 or higher, and version
 
 ## Prerequisites
 
-Set up a [relying party server](https://developer.android.com/identity/credential-manager#authentication-terminology) similar to the server for [passkeys](https://developer.android.com/identity/passkeys).
-If you already have a [server](https://developers.google.com/identity/passkeys/developer-guides/server-introduction) set up to handle authentication with passkeys,
+Set up a [relying party server](https://developer.android.com/identity/credential-manager#authentication-terminology) similar to the server for [passkeys](https://developer.android.com/identity/passkeys). If
+you already have a [server](https://developers.google.com/identity/passkeys/developer-guides/server-introduction) set up to handle authentication with passkeys,
 use the same server-side implementation for restore keys.
 
 > [!NOTE]
@@ -147,14 +147,10 @@ authentication guide](https://developers.google.com/identity/passkeys/developer-
 To get the restore key on the new device, call the `getCredential()` method on
 the `CredentialManager` object.
 
-You can fetch the restore key in the following scenarios:
+It is recommended to fetch the restore key in both of the following scenarios:
 
-- (**Recommended** ) Immediately after the app data is restored. Use [`BackupAgent`](https://developer.android.com/reference/android/app/backup/BackupAgent) to configure your app's backup and complete the `getCredential` functionality within the [`onRestore`](https://developer.android.com/reference/android/app/backup/BackupAgent#onRestore(android.app.backup.BackupDataInput,%20int,%20android.os.ParcelFileDescriptor)) callback to ensure the app's credentials are restored immediately after the app data is restored. This avoids potential delays when users open their new device for the first time and lets users interact without waiting for them to open your app.
-- On the first launch of the app on the device.
-
-To send a user notifications before they open the app for the first time on a
-new device, fetch the restore key within `BackupAgent`'s `onRestore` callback.
-This is particularly relevant for messaging or communications apps.
+- On the first launch of the app on the device. Credential restoration in this scenario is independent of restoration of the app data.
+- If app data backup and restore is enabled, get the restore key immediately after the app data is restored. Use [`BackupAgent`](https://developer.android.com/reference/android/app/backup/BackupAgent) to configure your app's backup and complete the `getCredential` functionality within the [`onRestore`](https://developer.android.com/reference/android/app/backup/BackupAgent#onRestore(android.app.backup.BackupDataInput,%20int,%20android.os.ParcelFileDescriptor)) callback to ensure the app's credentials are restored. This avoids potential delays when users open their new device for the first time and lets users interact with the app without waiting for them to open your app. For example, this lets your app send the user notifications before they open the app for the first time on the new device, which is particularly relevant for messaging or communications apps.
 
     // Fetch the options required to get the restore key
     val authenticationJson = fetchAuthenticationJson()

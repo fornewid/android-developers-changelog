@@ -17,10 +17,10 @@ This table lists all the artifacts in the `androidx.wear` group.
 | wear-input | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-input-1.2.0) | - | - | - |
 | wear-input-testing | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-input-testing-1.2.0) | - | - | - |
 | wear-ongoing | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-ongoing-1.1.0) | - | - | - |
-| wear-phone-interactions | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-phone-interactions-1.1.0) | - | - | - |
+| wear-phone-interactions | [1.1.1](https://developer.android.com/jetpack/androidx/releases/wear#wear-phone-interactions-1.1.1) | - | - | - |
 | wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.2.0) | - | - | [1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.3.0-alpha01) |
 
-This library was last updated on: June 03, 2026
+This library was last updated on: July 15, 2026
 
 ## Declaring dependencies
 
@@ -45,7 +45,7 @@ dependencies {
     implementation "androidx.wear:wear-ongoing:1.1.0"
 
     // Use to implement support for interactions from the Wearables to Phones
-    implementation "androidx.wear:wear-phone-interactions:1.1.0"
+    implementation "androidx.wear:wear-phone-interactions:1.1.1"
     // Use to implement support for interactions between the Wearables and Phones
     implementation "androidx.wear:wear-remote-interactions:1.2.0"
 }
@@ -65,7 +65,7 @@ dependencies {
     implementation("androidx.wear:wear-ongoing:1.1.0")
 
     // Use to implement support for interactions from the Wearables to Phones
-    implementation("androidx.wear:wear-phone-interactions:1.1.0")
+    implementation("androidx.wear:wear-phone-interactions:1.1.1")
     // Use to implement support for interactions between the Wearables and Phones
     implementation("androidx.wear:wear-remote-interactions:1.2.0")
 }
@@ -1097,6 +1097,16 @@ May 5, 2021
 ## Wear-Phone-Interactions
 
 ### Version 1.1
+
+#### Version 1.1.1
+
+July 15, 2026
+
+`androidx.wear:wear-phone-interactions:1.1.1` is released. Version 1.1.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/76ea36d68e54cfab01f698cd2f5de4dd4950ba3e..f7c11850362170040fd4f364d8393a1d64845413/wear/wear-phone-interactions).
+
+**Vulnerability \& Security Fixes**
+
+- We have added validation of the `redirect_uri` package parameter in the `RemoteAuthService`. This ensures that the package segment of the `redirect_uri` query parameter in the requerst URL matches the verified calling package name, when sending an auth request to the phone, and when receiving the token back. ([I19da5](https://android-review.googlesource.com/#/q/I19da5d19acb8dfd18511da36ae10339540ac9e1c), [b/510833682](https://issuetracker.google.com/issues/510833682))
 
 #### Version 1.1.0
 

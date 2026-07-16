@@ -101,6 +101,24 @@ verification.
   their apps. However, you should still prepare to complete your verification
   ahead of the global rollout in 2027. *Last updated: June 18, 2026*
 
+- **What happens starting September 30, 2026 if I sideload my app or
+  distribute it through another store that isn't included in the list of
+  participating stores?** The September 30, 2026 deadline only applies to the
+  [specific participating stores](https://developer.android.com/developer-verification/guides#locations). If you distribute your app through
+  other stores, or if users sideload your app directly, these new verification
+  requirements won't apply to your app yet. While your users' install
+  experiences won't change in September, we still recommend that you plan to
+  complete your verification before the global rollout begins in 2027. Last
+  updated: July 15, 2026
+
+- **Which Android form factors are subject to the September 30, 2026 developer
+  verification requirement?** If a developer distributes apps on Google Play,
+  their apps across all form factors must be registered. For distribution
+  outside of Google Play, it is recommended to register all apps across form
+  factors to future-proof your apps availability, though enforcement will only
+  apply to mobile and tablet form factors in the selected regions. Last
+  updated: July 15, 2026
+
 ## Identity and accounts
 
 - **What is a D-U-N-S number and how do I get one?** A D-U-N-S number is a unique nine-digit identifier for businesses provided by Dun \& Bradstreet. It is required if you are registering as an **organization** . If your organization does not have one, you can [get one for free](https://www.dnb.com/en-us/smb/duns/get-a-duns.html) from the Dun \& Bradstreet website. The process can take up to 28 days so you should make preparations to obtain a D-U-N-S number. *Last updated: Sept 3,
@@ -195,7 +213,7 @@ verification.
   *Last updated: March 23, 2026*
 
 - **If I enable the advanced flow on my current Android device, do I have to
-  enable it again on my new device?** No, users only need to completely this
+  enable it again on my new device?** No, users only need to complete this
   once per account and it will be carried through your new device. You won't
   have to complete this flow every time you get a new device or for every app
   you install. *Last updated: June 8, 2026*

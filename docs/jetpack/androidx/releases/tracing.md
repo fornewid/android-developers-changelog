@@ -10,7 +10,7 @@ Write trace events to the system trace buffer.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 23, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | - | [2.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-alpha09) |
+| July 15, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | [2.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-beta01) | - |
 
 ## Feedback
 
@@ -28,6 +28,22 @@ for more information.
 ## Tracing
 
 ### Version 2.0
+
+#### Version 2.0.0-beta01
+
+July 15, 2026
+
+`androidx.tracing:tracing-*:2.0.0-beta01` is released. Version 2.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/65732fbdb79496ec54ef16ed4ce396304774e8d0..d2af89d7a7227b15513bfb94cc8e7371f1ae82af/tracing).
+
+**API Changes**
+
+- `PerfettoCapture` and `PerfettoTraceRule` can now capture in-process traces and merge them for a target package. ([I9a00b](https://android-review.googlesource.com/#/q/I9a00b092f44ccab23ef23ad4371ebd758f629dcb), [b/497959820](https://issuetracker.google.com/issues/497959820))
+- `androidx.benchmark` now has a `minSdk` of 24. ([Ic2a85](https://android-review.googlesource.com/#/q/Ic2a8500af8a2bf092fcc1b27d9a599aa5f3b81d7))
+
+**Bug Fixes**
+
+- Tracing 2.0-beta01 release. ([I1b162](https://android-review.googlesource.com/#/q/I1b162aad06c024da2736441f101beeae1e80966f))
+- Use platform specific thread identifiers when generating track information. ([I6ba64](https://android-review.googlesource.com/#/q/I6ba6404a9f6c4ca27315db89e5107078e7d09fb5))
 
 #### Version 2.0.0-alpha09
 

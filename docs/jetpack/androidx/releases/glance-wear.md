@@ -10,7 +10,7 @@ Glance Wear is a library for building Widgets for Wear OS
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha13) |
+| July 15, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha14) |
 
 ## Declaring dependencies
 
@@ -25,9 +25,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.wear:wear:1.0.0-alpha13"
+    implementation "androidx.glance.wear:wear:1.0.0-alpha14"
 
-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha13"
+    implementation "androidx.glance.wear:wear-core:1.0.0-alpha14"
 }
 ```
 
@@ -35,9 +35,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.wear:wear:1.0.0-alpha13")
+    implementation("androidx.glance.wear:wear:1.0.0-alpha14")
 
-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha13")
+    implementation("androidx.glance.wear:wear-core:1.0.0-alpha14")
 }
 ```
 
@@ -57,6 +57,22 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Glance Wear Version 1.0
+
+### Version 1.0.0-alpha14
+
+July 15, 2026
+
+`androidx.glance.wear:wear:1.0.0-alpha14`, `androidx.glance.wear:wear-core:1.0.0-alpha14`, and `androidx.glance.wear:wear-tooling-preview:1.0.0-alpha14` are released. Version 1.0.0-alpha14 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ba3014c143b9c9782fe30bc766c5dced55e13453..d69490a714532fe8324db40750cd9169294c445f/glance/wear).
+
+**API Changes**
+
+- We have added `RoundAllWidgetPreviewParams`, `RoundSmallWidgetPreviewParams`, and `RoundLargeWidgetPreviewParams` preview parameter providers for fully rounded Glance Wear widgets. ([If5336](https://android-review.googlesource.com/#/q/If5336d9d33778b72e1db0728e10c973adb42349e), [b/512405233](https://issuetracker.google.com/issues/512405233))
+
+**New features**
+
+- We have set up and added Linter library for Glance Wear widgets.([If4218](https://android-review.googlesource.com/#/q/If421854c5ccfcf1639916028c7e33a5d055627af), [b/527402079](https://issuetracker.google.com/issues/527402079))
+  - Added a lint check to ensure that subclasses of `GlanceWearWidgetService` explicitly declare their associated widget class using the `@AssociateWithGlanceWearWidget` annotation. ([Idc575](https://android-review.googlesource.com/#/q/Idc575b0e4bc0f8ee90363c8a4fd78f5a45c6173c), [b/477024153](https://issuetracker.google.com/issues/477024153))
+- We have improved backwards compatiblity for widgets running on older Hosts by propagating supported operations via `WearWidgetParams` and adding filtering the profile of allowed operations to those. ([Ib0a1b](https://android-review.googlesource.com/#/q/Ib0a1b193a65263dfa68d8cd768f71d39a4d55c3e), [I83cb1](https://android-review.googlesource.com/#/q/I83cb1ee32af7466fb31bb560a167fc081a57c96e), \[b/526716195\])
 
 ### Version 1.0.0-alpha13
 

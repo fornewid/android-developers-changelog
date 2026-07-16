@@ -10,7 +10,7 @@ The Navigation Event library provides a KMP-first API for handling system back a
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | [1.1.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.2) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha01) |
+| July 15, 2026 | [1.1.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.2) | - | - | [1.2.0-alpha02](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigationevent:navigationevent:1.2.0-alpha01"
+    implementation "androidx.navigationevent:navigationevent:1.2.0-alpha02"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigationevent:navigationevent:1.2.0-alpha01")
+    implementation("androidx.navigationevent:navigationevent:1.2.0-alpha02")
 }
 ```
 
@@ -53,6 +53,20 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.2
+
+### Version 1.2.0-alpha02
+
+July 15, 2026
+
+`androidx.navigationevent:navigationevent-*:1.2.0-alpha02` is released. Version 1.2.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ba3014c143b9c9782fe30bc766c5dced55e13453..e37cf4eae99bdc35def1209921d658612e2edbc3/navigationevent).
+
+**API Changes**
+
+- Add `hasEnabledHandlers` property to `NavigationEventInput` to allow developers to query the current handler state directly without relying on callbacks. ([I8ecec](https://android-review.googlesource.com/#/q/I8ececaf0b399958ece50003fc9351d95f75d105d))
+
+**Bug Fixes**
+
+- Fix fallback propagation in `NavigationEventDispatcher`. ([I015f8](https://android-review.googlesource.com/#/q/I015f8db51db79abb72040e57366a40002d939c89), [b/531988076](https://issuetracker.google.com/issues/531988076))
 
 ### Version 1.2.0-alpha01
 

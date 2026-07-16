@@ -9,6 +9,9 @@ experiment, and build for fun. If you are a developer who doesn't distribute
 apps widely, we recognize that your needs may be different from commercial
 developers and have provided an account type for you.
 
+> [!NOTE]
+> **Note:** Signing up for early access is closed. We are offering early access to the experience to a small number of developers and will share more information in August 2026.
+
 ## What can a limited distribution account do?
 
 1. Register apps
@@ -33,9 +36,3 @@ The following are common use cases for a limited distribution account:
 | Hobbyist | Share with family and friends, or for personal use. My apps have no commercial intent. |
 | Individual learner | Experiment with Android development, often for a personal portfolio. I build numerous prototype apps on personal devices to share with peers. |
 | Classroom learner | Share with classmates and teachers. My apps are for school projects, and I share often for project-based coursework. |
-
-## Sign up for early access
-
-We're offering an early preview of the experience to a small number of
-developers. You can [sign up](https://google.qualtrics.com/jfe/form/SV_4N7NGE06NjJJdl4) for early access to a limited distribution
-account. We expect early access to begin in July 2026.

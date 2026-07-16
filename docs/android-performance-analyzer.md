@@ -8,7 +8,7 @@ source: md.txt
 
 ### [Android Performance Analyzer (APA)](http://developer.android.com/android-performance-analyzer/quickstart)
 
-Optimize your app or game with Android's new profiler and performance analysis tool for the Android ecosystem. [Quickstart](http://developer.android.com/android-performance-analyzer/quickstart) [Download](http://developer.android.com/android-performance-analyzer#downloads) [Video](https://www.youtube.com/watch?v=peplbYt0Ohg) ![](http://developer.android.com/static/android-performance-analyzer/images/vulkan-debug-markers.png) Featured
+Optimize your game with Android's new profiler and performance analysis tool for the Android ecosystem. [Quickstart](http://developer.android.com/android-performance-analyzer/quickstart) [Download](http://developer.android.com/android-performance-analyzer#downloads) [Video](https://www.youtube.com/watch?v=peplbYt0Ohg) ![](http://developer.android.com/static/android-performance-analyzer/images/vulkan-debug-markers.png) Featured
 
 ### Vulkan debug markers
 

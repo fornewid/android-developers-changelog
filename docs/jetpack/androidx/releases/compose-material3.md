@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha23](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha23) |
+| July 15, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha24](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha24) |
 
 > [!NOTE]
 > **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
@@ -48,7 +48,7 @@ your app or module:
 dependencies {
     implementation "androidx.compose.material3:material3:1.4.0"
     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha23"
+    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha24"
 }
 
 android {
@@ -72,7 +72,7 @@ android {
 dependencies {
     implementation("androidx.compose.material3:material3:1.4.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha23")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha24")
 }
 
 android {
@@ -317,6 +317,38 @@ Material3 adaptive pane scaffold APIs:
   - [AnimatedPane](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#(androidx.compose.material3.adaptive.ThreePaneScaffoldScope).AnimatedPane(androidx.compose.ui.Modifier,kotlin.Function2))
 
 ## Compose Material3 Version 1.5
+
+### Version 1.5.0-alpha24
+
+July 15, 2026
+
+`androidx.compose.material3:material3-*:1.5.0-alpha24` is released. Version 1.5.0-alpha24 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ba3014c143b9c9782fe30bc766c5dced55e13453..0680abb04eba98b757faf2814527dcc637581b9d/compose/material3).
+
+**Features**
+
+- Add new scroll variant for expressive `TimePicker` ([I46f6b](https://android-review.googlesource.com/#/q/I46f6b6acc6888933b7561e5f52d31e2714f5b83f))
+- Added a new `material3-ripple` library ([I1b3a3](https://android-review.git.corp.google.com/q/I1b3a3e310538661ae4f1bc36bcbd6dd88f044f28)), which adds support for drawing ripples that visually display focus using inset focus rings instead of an opacity layer. This new library acts as a replacement for `material-ripple`, and expected usage is similar:
+  - If you are using `material3` itself, use the built-in `material3` ripple configuration that integrates with the theme and uses `material3-ripple` internally as an implementation detail.
+  - If you were using `material-ripple` directly or want to support inset focus rings without depending on `material3`, use the new `material3-ripple` library directly.
+
+**API Changes**
+
+- Changed scrollbar `ScrollIndicatorState` parameter to be non-nullable. ([Iab7c7](https://android-review.googlesource.com/#/q/Iab7c76f3a910583b1e828acfbf8f55ddf878842b), [b/529445739](https://issuetracker.google.com/issues/529445739))
+- Re-add `@ExperimentalMaterial3Api` annotation to `AppBarWithSearch` APIs. ([I0b61a](https://android-review.googlesource.com/#/q/I0b61a5782183b9df5ef88c56a958b9d49aad4821))
+- Promoted `SearchBarState` and slot-based `SearchBar` APIs to stable. Deprecated older `SearchBar` APIs using expanded/`onExpandedChange`. ([Ia3793](https://android-review.googlesource.com/#/q/Ia3793ca2a54aba1de5897d33518875e457466e8e))
+
+**Bug Fixes**
+
+- Fixed a rendering delay issue where the `RichTooltip` and `PlainTooltip` carets would appear late during the entrance animation. ([I874b6](https://android-review.googlesource.com/#/q/I874b60d7587cfc8d44e44912b1966329656c4f09), [b/395753083](https://issuetracker.google.com/issues/395753083))
+- Update margin values for Input/Scroll variant of `TimePicker`. ([I83f00](https://android-review.googlesource.com/#/q/I83f00833fdd7175fcf8fc33760e3095868180caa))
+- `SplitButton` measure trailing button first to guarantee space. ([Id3a1e](https://android-review.googlesource.com/#/q/Id3a1e039f1ec86cc4cd1dbf3b2b45671923b44fb))
+- Fixed an accessibility issue where Switch Access users could not activate editable text fields inside `ExposedDropdownMenuBox`. ([I0ea17](https://android-review.googlesource.com/#/q/I0ea17b51fb634b59552c7b7bb2dfbc7b615d7a40))
+- Fixed talkback announcement order in `TextField` and `OutlinedTextField` when a prefix or suffix is present. ([Ie79e7](https://android-review.googlesource.com/#/q/Ie79e7451927370e8e6f811b2aa7c4213ff4f698b))
+- Update `TimePicker` margins and colon placement ([I6bfeb](https://android-review.googlesource.com/#/q/I6bfeb3f6decf71c49edf96f545c704e698c5ad62))
+- Fix focus order in Talkback for `ScrollField`. ([I4ca9f](https://android-review.googlesource.com/#/q/I4ca9fd55e485e60cd1e776c1d35688f82555621a), [b/526870141](https://issuetracker.google.com/issues/526870141))
+- Updated Compose dependencies in Material 3 to 1.12.0-beta01. ([Ie9417](https://android-review.googlesource.com/#/q/Ie941729c323cb8f05884a3a38253fb7de1578273))
+- Tooltips are now clamped to the window boundaries to prevent them from being cut off on small screens or under large font configurations. ([I421ff](https://android-review.googlesource.com/#/q/I421ff39c3f5cc3f84992f2102ebe5bac8ad008f9))
+- Update `ScrollField` with more expressive number transitions and adjust sizing/typography ([Ic1614](https://android-review.googlesource.com/#/q/Ic16146879fbcd9fa024198afcecd374bfd2a18c3))
 
 ### Version 1.5.0-alpha23
 

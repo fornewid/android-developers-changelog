@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | [1.16.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0) | - | - | [1.17.0-alpha03](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0-alpha03) |
+| July 15, 2026 | [1.16.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0) | - | - | [1.17.0-alpha04](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -53,6 +53,17 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Webkit Version 1.17
+
+### Version 1.17.0-alpha04
+
+July 15, 2026
+
+`androidx.webkit:webkit:1.17.0-alpha04` is released. Version 1.17.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ba3014c143b9c9782fe30bc766c5dced55e13453..903140ec0e76f2d1c0d1ab18afeeb326f8fc5706/webkit/webkit).
+
+**API Changes**
+
+- Added `Profile#enqueuePreconnect` API to enqueue preconnection requests without triggering immediate `WebView` startup. ([Id7e4a](https://android-review.googlesource.com/#/q/Id7e4a0206746df4fa155fd78c33946afd3ed9025), [b/511156405](https://issuetracker.google.com/issues/511156405))
+- Added `WebSettingsCompat#setDownloadFaviconsEnabled` and `WebSettingsCompat#getDownloadFaviconsEnabled` which allows developers to set or get whether a Favicon will be downloaded upon a navigation, by disabling the downloading of Favicons there will be a decrease in memory and bandwidth. ([I9f87e](https://android-review.googlesource.com/#/q/I9f87e3ba0ceaad2af5d7e60e86fb9d7ee48de49a), [b/510229667](https://issuetracker.google.com/issues/510229667))
 
 ### Version 1.17.0-alpha03
 

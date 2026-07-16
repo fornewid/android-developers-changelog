@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/adaptive-apps/cookbook/chromebook-cam
 source: md.txt
 ---
 
-![Three star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/three-star-rating.png)
+![Three star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/shared/three-star-rating.png)
 
 Get noticed on Google Play by Chromebook users.
 

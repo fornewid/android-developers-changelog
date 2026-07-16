@@ -29,7 +29,7 @@ Add the Firebase AI Logic library and App Check dependencies to your app-level
 
     dependencies {
       // Import the Firebase BoM
-      implementation(platform("com.google.firebase:firebase-bom:34.15.0"))
+      implementation(platform("com.google.firebase:firebase-bom:34.16.0"))
 
       // Add the dependencies for the Firebase AI Logic and App Check libraries
       // When using the BoM, you don't specify versions in Firebase library dependencies

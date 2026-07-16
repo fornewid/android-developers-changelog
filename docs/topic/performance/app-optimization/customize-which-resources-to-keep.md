@@ -4,16 +4,52 @@ url: https://developer.android.com/topic/performance/app-optimization/customize-
 source: md.txt
 ---
 
-When you [enable app optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization), the `isShrinkResources = true` setting
-instructs the optimizer to remove resources that are unused, which helps reduce
-the size of your app. Resource shrinking works only in conjunction with code
-shrinking, so if you're optimizing resources, also set `isMinifyEnabled = true`,
-for example:
+When you [enable app optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization), the default behavior of the optimizer is
+different for different versions of R8.
+
+- With the updated DSL that is available from **AGP 9.3 and later**, resource shrinking is enabled by default when optimization is enabled. Note that the legacy DSL, which requires code and resource optimization to be distinctly enabled, is still supported.
+- For versions **prior to AGP 9.3** , the `isShrinkResources = true` setting
+  instructs the optimizer to remove resources that are unused, which helps
+  reduce the size of your app. Resource shrinking works only in conjunction
+  with code shrinking, so if you're optimizing resources, also set
+  `isMinifyEnabled = true`.
+
+### AGP 9.3+ (Kotlin)
+
+    buildTypes {
+        release {
+            optimization {
+                enable = true // Enables code and resource optimizations.
+            }
+        }
+    }
+
+### AGP 9.3+ (Groovy)
+
+    buildTypes {
+        release {
+            optimization {
+                enable = true // Enables code and resource optimizations.
+            }
+        }
+    }
+
+### Legacy DSL (Kotlin)
 
     buildTypes {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
+            ...
+        }
+    }
+
+### Legacy DSL (Groovy)
+
+    buildTypes {
+        release {
+            minifyEnabled = true
+            shrinkResources = true
             ...
         }
     }
@@ -142,7 +178,7 @@ display detailed text output from Gradle.) For example:
     :android:validateDebugSigning
 
 Gradle also creates a diagnostic file named `resources.txt` in
-`<module-name>/build/outputs/mapping/release/` (the same folder as ProGuard's
+`<module-name>/build/outputs/mapping/release/` (the same folder as ProGuard
 output files). The file includes details such as which resources reference other
 resources and which resources are used or removed.
 

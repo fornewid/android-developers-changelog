@@ -13,10 +13,10 @@ This table lists all the artifacts in the `androidx.annotation` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| annotation | [1.10.0](https://developer.android.com/jetpack/androidx/releases/annotation#1.10.0) | - | - | - |
+| annotation | [1.10.0](https://developer.android.com/jetpack/androidx/releases/annotation#1.10.0) | - | - | [1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0-alpha01) |
 | annotation-experimental | [1.6.0](https://developer.android.com/jetpack/androidx/releases/annotation#annotation-experimental-1.6.0) | - | - | - |
 
-This library was last updated on: April 08, 2026
+This library was last updated on: July 15, 2026
 
 ## Declaring dependencies
 
@@ -63,6 +63,22 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Annotation
+
+### Version 1.11
+
+#### Version 1.11.0-alpha01
+
+July 15, 2026
+
+`androidx.annotation:annotation-*:1.11.0-alpha01` is released. Version 1.11.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/8975ffa5b6e4e1dbd6e79a89d5779d4e4e553103..e37cf4eae99bdc35def1209921d658612e2edbc3/annotation/annotation).
+
+**API Changes**
+
+- Allow `@DoNotInline` to be applied to fields. ([I99120](https://android-review.googlesource.com/#/q/I99120a1351e1e07c7f446764bf20c59492759bad), [b/521434897](https://issuetracker.google.com/issues/521434897))
+
+**Bug Fixes**
+
+- Add `allowshrinking` to `@DoNotInline` so that annotated methods can be removed if the function isn't reachable. ([Id2c8c](https://android-review.googlesource.com/#/q/Id2c8c353815ce7d38e716e2b1b3323d53698e526))
 
 ### Version 1.10
 

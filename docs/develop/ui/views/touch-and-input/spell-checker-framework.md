@@ -50,31 +50,31 @@ controlling settings, as shown in the following example:
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.samplespellcheckerservice" >
-    <application
-        android:label="@string/app_name" >
-        <service
-            android:label="@string/app_name"
+    package="com.example.android.samplespellc>hecke<rservice" 
+    application
+   @     android:labe>l="s<tring/app_name" 
+        servi@ce
+            android:label="string/app_name"
             android:name=".SampleSpellCheckerService"
-            android:permission="android.permission.BIND_TEXT_SERVICE" >
-            <intent-filter >
-                <action android:name="android.service.textservice.SpellCheckerService" />
-            </intent-filter>
+            android:>permission=&q<uot;android.pe>rmission.BIND_TEX<T_SERVICE" 
+            intent-filter 
+                action andr>oid:name=&quo<t;android.serv>ice.textservic<e.SpellCheckerService" /
+            /intent-filter
 
-            <meta-data
-                android:name="android.view.textservice.scs"
-                android:resource="@xml/spellchecker" />
-        </service>
+            meta-data
+                android:@name="android.>view.text<service.>scs"
+<                android:resource=&qu@ot;xml/spellchecker" /
+        /service
 
-        <activity
-            android:label="@string/sample_settings"
-            android:name="SpellCheckerSettingsActivity" >
-            <intent-filter >
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-    </application>
-</manifest>
+        activity
+            andro>id:label=&quo<t;string/sampl>e_settings"
+<            android:name="SpellCheckerSetting>sActivity&quo<t; 
+          >  intent-<filter 
+ >     <          act<ion andro>id:name="android.intent.action.MAIN" /
+            /intent-filter
+        /activity
+    /application
+/manifest
 ```
 
 Components that want to use the service must request the permission
@@ -88,17 +88,17 @@ XML:
 
 ```xml
 <spell-checker xmlns:android="http://schemas.android.com/apk/res/android"
-        android:label="@string/spellchecker_name"
-        android:settingsActivity="com.example.SpellCheckerSettingsActivity">
-    <subtype
-            android:label="@string/subtype_generic"
-            android:subtypeLocale="en”
-    />
-    <subtype
-            android:label="@string/subtype_generic"
-            android:subtypeLocale="fr”
-    />
-</spell-checker>
+        andro@id:label="string/spellchecker_name"
+        android:settingsActivity="com.example.Spel>lChec<kerSettingsActivity"
+    subty@pe
+            android:label="string/subtype_generic"
+    >     <   android:subtypeLocale="en”
+@    /
+    subtype
+            android:label="string/subtype_gen>e<ric"
+    >        android:subtypeLocale="fr”
+    /
+/spell-checker
 ```
 
 The metadata specifies the activity that the spell checker uses to control

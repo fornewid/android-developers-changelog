@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/adaptive-apps/cookbook/media-playback
 source: md.txt
 ---
 
-![Four star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/four-star-rating.png)
+![Four star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/shared/four-star-rating.png)
 
 Large screen optimization includes the ability to handle external keyboard
 inputs, like reacting to the <kbd>Spacebar</kbd> being pressed to pause or

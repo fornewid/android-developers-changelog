@@ -8,7 +8,11 @@ source: md.txt
 
 ## Changelog
 
-Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. **July 8th, 2026**
+Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. **July 13th, 2026**
+
+- [New updates • Jul 13th ![](https://developer.android.com/static/images/bench/icons/github.png) **Share results on the community repository**](https://github.com/android-bench/community-results)
+- [New updates • Jul 13th ![](https://developer.android.com/static/images/bench/icons/github.png) **Contribute new tasks to our community dataset on GitHub**](https://github.com/android-bench/community-dataset)
+**July 8th, 2026**
 
 - [New updates • Jul 8th ![](https://developer.android.com/static/images/bench/icons/external.png) **Dataset available on Harbor**](https://hub.harborframework.com/datasets/android-bench/android-bench/latest)
 - New models • Jul 8th ![](https://developer.android.com/static/images/bench/icons/anthropic.png) **Claude Fable 5, Claude Sonnet 5, Claude Opus 4.8**

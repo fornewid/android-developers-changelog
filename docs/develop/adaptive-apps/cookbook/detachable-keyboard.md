@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/adaptive-apps/cookbook/detachable-key
 source: md.txt
 ---
 
-![Three star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/three-star-rating.png)
+![Three star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/shared/three-star-rating.png)
 
 Support for detachable keyboards helps maximize user productivity on large
 screen devices. Android triggers a configuration change every time a keyboard is

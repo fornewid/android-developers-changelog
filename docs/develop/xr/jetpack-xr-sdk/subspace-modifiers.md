@@ -73,37 +73,21 @@ subspaces, and spatial layout components (like `SpatialRow` or `SpatialColumn`).
 
 ### Move elements
 
-Movable modifiers let users grab and reposition subspace elements.
+When the [`movable()`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).movable(kotlin.Boolean,androidx.xr.compose.subspace.layout.MovePolicy)) modifier is present and enabled, draggable UI controls will
+be shown that allow the user to move the element in 3D space. The specific
+behavior of this movement is defined by the provided `movePolicy`:
 
-- [`transformingMovable`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).transformingMovable(kotlin.Boolean,kotlin.Boolean,kotlin.Function1)): Use this modifier
-  for standard movement. This modifier configures the element to be interactive
-  and movable by the user. The system automatically calculates and applies the new
-  pose and scale based on user input.
-
-- [`movable`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).movable(kotlin.Boolean,kotlin.Boolean,kotlin.Function1)): Use this modifier to define custom movement behavior.
-  While the system supplies the move affordance, you must use the
-  required `onMove` event and apply the result. This is useful for restricting
-  movement or creating custom movement in your app.
-
-> [!NOTE]
-> **Note:** Don't use `movable` and `transformingMovable` together.
+- `MovePolicy.default()`: The system handles the movement entirely and automatically calculates and applies the new pose and scale based on user input.
+- `MovePolicy.custom()`: The system calculates the target Pose based on input, but does not automatically apply it to the associated element. This is useful for restricting movement or creating custom movement in your app.
 
 ### Resize elements
 
-Resizable modifiers let users grab and resize subspace elements.
+When the [`resizable()`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).resizable(kotlin.Boolean,androidx.xr.compose.unit.DpVolumeSize,androidx.xr.compose.unit.DpVolumeSize,kotlin.Boolean,androidx.xr.compose.subspace.layout.ResizePolicy)) modifier is present and enabled, UI controls
+will be shown that allow the user to resize the element in 3D space. The
+specific behavior of the resize is defined by the provided `resizePolicy`:
 
-- [`transformingResizable`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).transformingResizable(kotlin.Boolean,androidx.xr.compose.unit.DpVolumeSize,androidx.xr.compose.unit.DpVolumeSize,kotlin.Boolean,kotlin.Function1)): Use this modifier for
-  system-managed resizing. This modifier automatically handles the resize gesture
-  and applies the new dimensions that the user specifies.
-
-- [`resizable`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).resizable(androidx.xr.compose.unit.DpVolumeSize,androidx.xr.compose.unit.DpVolumeSize,kotlin.Boolean,kotlin.Function1)): Use this modifier for custom resizing logic. While
-  the system provides the resize affordance, you must use the
-  `onResize` event and apply the result. This modifier is useful for complex
-  scenarios, such as maintaining a specific aspect ratio or readjusting the
-  overall layout of other components after a resize ends.
-
-> [!NOTE]
-> **Note:** Don't use `resizable` and `transformingResizable` together.
+- `ResizePolicy.default()`: The system automatically handles the resize gesture and applies the new dimensions to the content.
+- `ResizePolicy.custom()`: The system provides a [`SpatialResizeEvent`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SpatialResizeEvent) and does not automatically apply the result of the resize to the associated element.
 
 ## Change the appearance of composables
 

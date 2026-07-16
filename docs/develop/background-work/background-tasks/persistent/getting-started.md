@@ -13,7 +13,7 @@ Add the following dependencies to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    def work_version = "2.11.1"
+    def work_version = "2.11.2"
 
     // (Java only)
     implementation "androidx.work:work-runtime:$work_version"
@@ -39,7 +39,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val work_version = "2.11.1"
+    val work_version = "2.11.2"
 
     // (Java only)
     implementation("androidx.work:work-runtime:$work_version")

@@ -16,6 +16,21 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## July 15, 2026
+
+- [Annotation Version 1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0-alpha01)
+- [Compose Material 3 Version 1.5.0-alpha24](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha24)
+- [Compose Remote Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha15)
+- [Ink Version 1.1.0-alpha05](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha05)
+- [Navigation3 Version 1.2.0-alpha06](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha06)
+- [Navigationevent Version 1.2.0-alpha02](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha02)
+- [Wear Compose Version 1.7.0-alpha06](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha06)
+- [Wear Wear-core Wear-tooling-preview Version 1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha14)
+- [Webkit Version 1.17.0-alpha04](https://developer.android.com/jetpack/androidx/releases/webkit#webkit-1.17.0-alpha04)
+- [WorkManager Version 2.12.0-alpha01](https://developer.android.com/jetpack/androidx/releases/work#2.12.0-alpha01)
+- [Xr Compose Version 1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha16)
+- [Xr Projected Version 1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha10)
+
 ## July 01, 2026
 
 - [Appfunctions Version 1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha10)

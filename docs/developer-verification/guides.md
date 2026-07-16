@@ -4,11 +4,10 @@ url: https://developer.android.com/developer-verification/guides
 source: md.txt
 ---
 
-Android developer verification is designed to link real-world entities
-(individuals and organizations) with their Android applications. Android will
-require all apps to be registered by verified developers in order to be
-installed by users on certified [Android devices](https://www.android.com/certified/partners/). This guide
-explains what you need to do.
+Android developer verification links real-world entities (individuals and
+organizations) with their Android applications. Android requires all apps to be
+registered by verified developers for users to install them on certified
+[Android devices](https://www.android.com/certified/partners/). This guide explains what you need to do.
 
 ## Why these changes are happening
 
@@ -25,15 +24,13 @@ A safer, more trusted ecosystem benefits the entire developer community.
 
 ## Where changes are in effect
 
-Starting September 30, 2026, these new developer verification protections will
-go live for users in Brazil, Indonesia, Singapore, and Thailand. This rollout is
-a collective effort across the mobile industry to make the ecosystem a safe
-place where users can confidently download apps and developers' business can
-thrive. We've worked closely with consumers and developers to design this
-experience and have partnered with Android ecosystem leaders to refine the
-process. To support the introduction of the developer verification in these four
-countries, the system will start by verifying app installations from the
-following app stores:
+Starting September 30, 2026, these new developer verification protections go
+live for users in Brazil, Indonesia, Singapore, and Thailand. This rollout is a
+collective effort across the mobile industry to make the ecosystem a safe place
+where users can confidently download apps and developers' business can thrive.
+
+To support the introduction of the developer verification in these four
+countries, the system verifies app installations from the following app stores:
 
 - Google (Google Play)
 - Honor (HONOR App Market)
@@ -43,10 +40,9 @@ following app stores:
 - vivo (V-Appstore)
 - Xiaomi (GetApps)
 
-Following this initial phase with our partners, we will expand these
-protections globally for all apps on certified Android devices in 2027. The
-verification capability will soon be expanded to all third-party Android app
-stores.
+Following this initial phase with our partners, we will expand these protections
+globally for all apps on certified Android devices in 2027. The verification
+capability will soon be expanded to all third-party Android app stores.
 
 ## What you need to do
 
@@ -80,17 +76,17 @@ rollout and limited distribution early access; July 2026 Status API global
 launch, Console API and limited distribution early access; August 2026
 global Console API, limited distribution, and advanced flow; September 30,
 2026 regional enforcement in Brazil, Indonesia, Singapore, and Thailand;
-2027 and beyond global rollout.](https://developer.android.com/static/developer-verification/assets/adv-timeline.svg) **Figure 1:** Android developer verification rollout timeline and key milestones.
+2027 and beyond global rollout.](https://developer.android.com/static/developer-verification/assets/advtimeline071526.png) **Figure 1:** Android developer verification rollout timeline and key milestones.
 
 ## Key concepts
 
 Before you start, review these key terms:
 
-- **Android Developer Console (ADC)**: A console for developers who distribute apps only outside of Google Play.
+- **Android Developer Console**: A console for developers who distribute apps only outside of Google Play.
 - **App signing key** : The certificate used to [sign your APK](https://developer.android.com/studio/publish/app-signing).
 - **Certified Android devices** : Google enforces Android developer verification requirements on these devices. If your app runs on a [certified
   device](https://www.android.com/certified/), these requirements apply to you, regardless of your app's download source.
-- **Google Play Console (PDC)**: The console for developers who distribute apps on Google Play. If you have a Play Console account, use it to complete the verification requirements.
+- **Google Play Console**: The console for developers who distribute apps on Google Play. If you have a Play Console account, use it to complete the verification requirements.
 - **Identity verification**: The process of providing information and official documentation to verify your identity as an individual or organization.
 - **Package name registration**: The process of creating a formal, verifiable link between your app's unique package name and signing keys.
 - **Search Console**: Organizations need to provide their organization's website. This will need to be verified using Google Search Console.

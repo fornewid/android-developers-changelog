@@ -31,6 +31,27 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
 
 These Jetpack libraries have been recently updated.
 
+## July 15, 2026
+
+- [Annotation Version 1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0-alpha01)
+- [Compose Material 3 Version 1.5.0-alpha24](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha24)
+- [Compose Remote Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha15)
+- [Ink Version 1.1.0-alpha05](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha05)
+- [Loader Version 1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/loader#1.2.0-rc01)
+- [Navigation3 Version 1.2.0-alpha06](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha06)
+- [Navigationevent Version 1.2.0-alpha02](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha02)
+- [Tracing Version 2.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-beta01)
+- [Wear Compose Version 1.7.0-alpha06](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha06)
+- [Wear Wear-core Wear-tooling-preview Version 1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha14)
+- [Wear-phone-interactions Version 1.1.1](https://developer.android.com/jetpack/androidx/releases/wear#wear-phone-interactions-1.1.1)
+- [Webkit Version 1.17.0-alpha04](https://developer.android.com/jetpack/androidx/releases/webkit#webkit-1.17.0-alpha04)
+- [WorkManager Version 2.12.0-alpha01](https://developer.android.com/jetpack/androidx/releases/work#2.12.0-alpha01)
+- [Xr Arcore Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-beta01)
+- [Xr Compose Version 1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha16)
+- [Xr Projected Version 1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha10)
+- [Xr Runtime Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-beta01)
+- [Xr Scenecore Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-beta01)
+
 ### July 07, 2026
 
 - [Media3 Version 1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-beta01)

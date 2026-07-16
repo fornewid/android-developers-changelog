@@ -37,7 +37,7 @@ update.
 
 ### Mobile checklist
 
-- [Evaluate your game against the continuity requirements](https://developer.android.com/games/playgames/continuity-expected-behaviors).
+- [Evaluate your game against the continuity requirements](https://developer.android.com/games/guidelines#cloud-save).
 
 ### Google Play Games on PC checklist
 

@@ -76,8 +76,8 @@ Subspace {
         SubspaceModifier
             .height(824.dp)
             .width(1400.dp)
-            .transformingMovable()
-            .transformingResizable(),
+            .movable()
+            .resizable(),
     ) {
         SpatialPanelContent()
     }
@@ -146,8 +146,8 @@ Subspace {
         SubspaceModifier
             .height(824.dp)
             .width(1400.dp)
-            .transformingResizable()
-            .transformingMovable(),
+            .resizable()
+            .movable(),
     ) {
         SpatialPanelContent()
         OrbiterExample()
@@ -317,7 +317,8 @@ position, reparent, add children, and apply modifiers to those entities.
 
 
 ```kotlin
-val density = LocalDensity.current
+val virtualPixelDensity = session.scene.virtualPixelDensity
+
 Subspace {
     SceneCoreEntity(
         modifier = SubspaceModifier.offset(x = 50.dp),
@@ -339,8 +340,8 @@ Subspace {
                     size: IntVolumeSize
                 ) {
                     val extents = FloatSize2d(
-                        Meter.fromPixel(size.width.toFloat(), density).toM(),
-                        Meter.fromPixel(size.height.toFloat(), density).toM(),
+                        size.width.toFloat(),
+                        size.height.toFloat()
                     )
                     entity.shape = SurfaceEntity.Shape.Quad(extents)
                 }

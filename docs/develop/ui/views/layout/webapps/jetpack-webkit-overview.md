@@ -32,9 +32,11 @@ functionality:
   using the [`WebSettingsCompat.setWebAuthenticationSupport()`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#setWebAuthenticationSupport(android.webkit.WebSettings,int)) method, which
   you can use to configure the level of support your app requires.
 
-- **Improves performance** : Fine-tune WebView's performance for your app's use
-  cases using APIs such as [`prefetchUrlAsync`](https://developer.android.com/reference/androidx/webkit/Profile#prefetchUrlAsync(java.lang.String,android.os.CancellationSignal,java.util.concurrent.Executor,androidx.core.os.OutcomeReceiverCompat%3Cjava.lang.Void,androidx.webkit.PrefetchException%3E)), [`prerenderUrlAsync`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#prerenderUrlAsync(android.webkit.WebView,java.lang.String,android.os.CancellationSignal,java.util.concurrent.Executor,androidx.webkit.PrerenderOperationCallback)),
-  and the [`setBackForwardCacheEnabled`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#setBackForwardCacheEnabled(android.webkit.WebSettings,boolean)).
+- **Improves performance** : Fine-tune WebView's performance using APIs such
+  as [`setBackForwardCacheEnabled`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#setBackForwardCacheEnabled(android.webkit.WebSettings,boolean)), or reduce navigation latency using
+  speculative loading APIs such as [`prefetchUrlAsync`](https://developer.android.com/reference/androidx/webkit/Profile#prefetchUrlAsync(java.lang.String,android.os.CancellationSignal,java.util.concurrent.Executor,androidx.core.os.OutcomeReceiverCompat%3Cjava.lang.Void,androidx.webkit.PrefetchException%3E)) and
+  [`prerenderUrlAsync`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#prerenderUrlAsync(android.webkit.WebView,java.lang.String,android.os.CancellationSignal,java.util.concurrent.Executor,androidx.webkit.PrerenderOperationCallback)). For more information, see [Speculative loading in
+  WebView](https://developer.android.com/develop/ui/views/layout/webapps/speculative-loading).
 
 - **Increases stability** : Recover stalled or unresponsive renderer processes
   without crashing. For more information, see

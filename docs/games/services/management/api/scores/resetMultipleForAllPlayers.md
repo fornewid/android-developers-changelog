@@ -31,9 +31,10 @@ In the request body, supply data with the following structure:
 ```
 {
   "kind": "gamesManagement#scoresResetMultipleForAllRequest",
-  ";leaderboar}d_ids": [
+  "leaderboard_ids": [
     string
   ]
+}
 ```
 
 | Property name | Value | Description | Notes |

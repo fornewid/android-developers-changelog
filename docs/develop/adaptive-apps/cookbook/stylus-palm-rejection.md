@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/adaptive-apps/cookbook/stylus-palm-re
 source: md.txt
 ---
 
-![Five star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/five-star-rating.png)
+![Five star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/shared/five-star-rating.png)
 
 A stylus can be an exceptionally productive and creative tool. But when users
 draw, write, or interact with an app using a stylus, they sometimes touch the

@@ -10,7 +10,7 @@ Navigation 3 is a new navigation library designed to work with Compose.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | [1.1.4](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.4) | - | - | [1.2.0-alpha05](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha05) |
+| July 15, 2026 | [1.1.4](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.4) | - | - | [1.2.0-alpha06](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha06) |
 
 ## Declaring dependencies
 
@@ -25,8 +25,8 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation3:navigation3-runtime:1.2.0-alpha05"
-    implementation "androidx.navigation3:navigation3-ui:1.2.0-alpha05"
+    implementation "androidx.navigation3:navigation3-runtime:1.2.0-alpha06"
+    implementation "androidx.navigation3:navigation3-ui:1.2.0-alpha06"
 }
 ```
 
@@ -34,8 +34,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation3:navigation3-runtime:1.2.0-alpha05")
-    implementation("androidx.navigation3:navigation3-ui:1.2.0-alpha05")
+    implementation("androidx.navigation3:navigation3-runtime:1.2.0-alpha06")
+    implementation("androidx.navigation3:navigation3-ui:1.2.0-alpha06")
 }
 ```
 
@@ -57,6 +57,17 @@ for more information.
 There are no release notes for this artifact.
 
 ## Navigation3 Version 1.2
+
+### Version 1.2.0-alpha06
+
+July 15, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0-alpha06` is released. Version 1.2.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/98641569d70837298aa655adb1e99af419b8702a..083bec4c4e0404ace62367346eec383b0a460a7d/navigation3).
+
+**Bug Fixes**
+
+- Fixed `UriDeepLinkMatcher` documentation on uri fragments to clarify that fragments with wildcards will match any input but the input does not get extracted as arguments. ([I5ad9b](https://android-review.googlesource.com/#/q/I5ad9bd2e6ac24be88f9274c8803a2fe8067c86df), [b/524677091](https://issuetracker.google.com/issues/524677091))
+- Fixed `UriDeepLinkMatcher` failing to match with a request if the uri pattern does not contain a scheme or does not start with double slash. For example, `www.example.com/home` will now match with `http://www.example.com/home`. ([Ia6b65](https://android-review.googlesource.com/#/q/Ia6b6533f33b430a691508affbcc466d8ef28ff68), [b/522791926](https://issuetracker.google.com/issues/522791926))
 
 ### Version 1.2.0-alpha05
 

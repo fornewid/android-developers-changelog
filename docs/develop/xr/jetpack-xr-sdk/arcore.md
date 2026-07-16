@@ -44,18 +44,25 @@ that you're enhancing with perception features:
 
 To access a session from Jetpack XR Runtime, you'll create it:
 
-To create a session, pass an activity to the [`create()`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session#create(android.app.Activity,kotlin.coroutines.CoroutineContext))
-method, as shown in the following example:
+To create a session, pass a \[`Context`\] to the [`create()`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session#create(android.content.Context,kotlin.coroutines.CoroutineContext,androidx.lifecycle.LifecycleOwner))
+method. This `Context` can be an `Activity` on Immersive XR devices or
+mobile devices, or a [projected context](https://developer.android.com/develop/xr/jetpack-xr-sdk/access-hardware-projected-context).
+
+Creating an ARCore session can be an expensive task, and should be
+[processed in the background](https://developer.android.com/develop/background-work/background-tasks/asynchronous), as shown in
+the following example:
 
 
 ```kotlin
-when (val result = Session.create(context)) {
-    is SessionCreateSuccess -> {
-        val xrSession = result.session
-        // ...
+lifecycleScope.launch {
+    when (val result = Session.create(context)) {
+        is SessionCreateSuccess -> {
+            val xrSession = result.session
+            // ...
+        }
+        else ->
+            TODO(/* A different unhandled exception was thrown. */)
     }
-    else ->
-        TODO(/* A different unhandled exception was thrown. */)
 }
 ```
 

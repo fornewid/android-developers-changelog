@@ -9,15 +9,21 @@ support for the English language.
 
 We'll gradually expand to more countries and territories in a way that is
 consistent with local regulations and our
-[AI principles](https://ai.google/principles/).
+[AI principles](https://ai.google/principles/). Availability in
+some locations depends on your version of Android Studio. For the widest
+geographic availability, make sure you're using the [latest version](https://developer.android.com/studio).
 
 **Gemini in Android Studio is available in the following countries and
 territories:**
 
+- Åland Islands
+- Albania
 - Algeria
 - American Samoa
+- Andorra
 - Angola
 - Anguilla
+- Antarctica
 - Antigua and Barbuda
 - Argentina
 - Armenia
@@ -34,6 +40,7 @@ territories:**
 - Bermuda
 - Bhutan
 - Bolivia
+- Bosnia and Herzegovina
 - Botswana
 - Brazil
 - British Indian Ocean Territory
@@ -76,16 +83,22 @@ territories:**
 - Eswatini
 - Ethiopia
 - Falkland Islands (Islas Malvinas)
+- Faroe Islands
 - Fiji
 - Finland
 - France
+- French Guiana
+- French Polynesia
+- French Southern Territories
 - Gabon
 - Georgia
 - Germany
 - Ghana
 - Gibraltar
 - Greece
+- Greenland
 - Grenada
+- Guadeloupe
 - Guam
 - Guatemala
 - Guernsey
@@ -111,6 +124,7 @@ territories:**
 - Kazakhstan
 - Kenya
 - Kiribati
+- Kosovo
 - Kuwait
 - Kyrgyzstan
 - Laos
@@ -129,14 +143,20 @@ territories:**
 - Mali
 - Malta
 - Marshall Islands
+- Martinique
 - Mauritania
 - Mauritius
+- Mayotte
 - Mexico
 - Micronesia
+- Moldova
+- Monaco
 - Mongolia
+- Montenegro
 - Montserrat
 - Morocco
 - Mozambique
+- Myanmar (Burma)
 - Namibia
 - Nauru
 - Nepal
@@ -148,6 +168,7 @@ territories:**
 - Nigeria
 - Niue
 - Norfolk Island
+- North Macedonia
 - Northern Mariana Islands
 - Norway
 - Oman
@@ -165,21 +186,26 @@ territories:**
 - Puerto Rico
 - Qatar
 - Republic of the Congo
+- Réunion
 - Romania
 - Rwanda
 - Saint Barthélemy
 - Saint Helena, Ascension and Tristan da Cunha
 - Saint Kitts and Nevis
 - Saint Lucia
+- Saint Martin
 - Saint Pierre and Miquelon
 - Saint Vincent and the Grenadines
 - Samoa
+- San Marino
 - São Tomé and Príncipe
 - Saudi Arabia
 - Senegal
+- Serbia
 - Seychelles
 - Sierra Leone
 - Singapore
+- Sint Maarten
 - Slovakia
 - Slovenia
 - Solomon Islands
@@ -192,6 +218,7 @@ territories:**
 - Sri Lanka
 - Sudan
 - Suriname
+- Svalbard and Jan Mayen
 - Sweden
 - Switzerland
 - Taiwan
@@ -212,6 +239,7 @@ territories:**
 - Tuvalu
 - US Virgin Islands
 - Uganda
+- Ukraine
 - United Arab Emirates
 - United Kingdom
 - United States
@@ -219,6 +247,7 @@ territories:**
 - Uruguay
 - Uzbekistans
 - Vanuatu
+- Vatican City
 - Venezuela
 - Vietnam
 - Wallis and Futuna

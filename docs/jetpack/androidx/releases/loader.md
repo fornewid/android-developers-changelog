@@ -13,7 +13,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/loader#1.1.0) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/loader#1.2.0-alpha01) |
+| July 15, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/loader#1.1.0) | [1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/loader#1.2.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -56,6 +56,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.2
+
+### Version 1.2.0-rc01
+
+July 15, 2026
+
+`androidx.loader:loader:1.2.0-rc01` is released. Version 1.2.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f9158f48961e6c6fcc619334eb9790561a5d9cdb..7308ad68d2572be8ec5b7f1abb514312af9e1f86/loader/loader).
 
 ### Version 1.2.0-alpha01
 

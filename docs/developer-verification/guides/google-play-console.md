@@ -5,8 +5,9 @@ source: md.txt
 ---
 
 If you distribute your apps on Google Play, you must use the Play Console to
-manage your Play package names. You'll also be able to register any apps your
-distribute outside of Play within this same console.
+manage your Play package names. You can also use the Play Console to register
+apps you distribute outside of Google Play to ensure they remain installable on
+certified Android devices.
 
 ### Identity verification
 
@@ -19,14 +20,22 @@ You can confirm your current account information under Developer Account on the
 
 ### Package name registration
 
-A key part of this process is for developers to register their app package
-names, which may include proving ownership of the private signing keys used for
-those packages. Most Play developers have already shared their app ownership
-information, so Play can automatically register most of your package names using
-information that you've provided.
+To meet Android developer verification and
+[updated Play Console Requirements](https://support.google.com/googleplay/android-developer/answer/10788890), Play developers must register their app
+package names, which may include proving ownership of the private signing keys
+used for those packages.
 
-- **For new Play apps**: When you create a new app in the Google Play Console, Play will automatically register the package name and link it to your account. However, If that name is already used by another developer you will be prompted to pick another name. If you have been using this name off Play you will still be able to use it on Play too.
-- **For existing Play apps**: Google Play will automatically register all Play apps using information developers have already shared. We expect to automatically register 99% of all Play apps. The remaining 1% will require developers to manually register these apps. Developers can see their apps' auto-registration results displayed above the app list in Play Console.
+While 99% of apps on Play have been registered automatically using information
+you have already provided, you should check your [Play Console Home page](https://play.google.com/console/u/0/developers/5700313618786177705/android-developer-verification). By
+September 30, 2026, register any remaining apps you want to continue
+distributing to avoid global removal from Google Play and ensure a seamless user
+installation experience.
+
+For new apps, when you create an app in the Google Play Console, Google Play
+automatically registers the package name and links it to your account. If
+another developer is already using that name, the Play Console prompts you to
+choose a different name. If you have been using the name outside of Google Play,
+you can still use it on Google Play.
 
 ### Review
 

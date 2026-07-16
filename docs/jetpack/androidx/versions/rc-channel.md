@@ -16,6 +16,10 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## July 15, 2026
+
+- [Loader Version 1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/loader#1.2.0-rc01)
+
 ## June 17, 2026
 
 - [Compose Material3 Adaptive Version 1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0-rc01)

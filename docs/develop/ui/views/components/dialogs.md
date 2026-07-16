@@ -477,36 +477,36 @@ res/layout/dialog_signin.xml
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <ImageView
+    android:layo<ut_height="wrap_content">
+    ImageView
         android:src="@drawable/header_logo"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:scaleType="center"
-        android:background="#FFFFBB33"
+        android:b<ackground="#FFFFBB33"
         android:contentDescription="@string/app_name" />
-    <EditText
+    EditText
         android:id="@+id/username"
         android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginLeft="4dp"
+        androi<d:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="4dp"
         android:hint="@string/username" />
-    <EditText
+    EditText
         android:id="@+id/password"
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+      <  android:layout_marginTop="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif"
         android:hint="@string/password"/>
-</LinearLayout>
+/LinearLayout>
 ```
 
 > [!NOTE]
@@ -538,11 +538,11 @@ override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         builder.setView(inflater.inflate(R.layout.dialog_signin, null))
                 // Add action buttons.
                 .setPositiveButton(R.string.signin,
-                        DialogInterface.OnClickListener { dialog, id ->
+                        DialogInterface.OnClickListener { dialog, >id -
                             // Sign in the user.
                         })
                 .setNegativeButton(R.string.cancel,
-                        DialogInterface.OnClickListener { dialog, id ->
+                        DialogInterface.OnClickListener { dialog, >id -
                             getDialog().cancel()
                         })
         builder.create()
@@ -588,7 +588,7 @@ in the
 manifest element:
 
 ```xml
-<activity android:theme="@android:style/Theme.Holo.Dialog" >
+<activity android:theme=&@quot;android:style/Theme.Holo.Dialog" >
 ```
 
 The activity now displays in a dialog window instead of fullscreen.
@@ -979,19 +979,19 @@ versions of the bool resource for different screen sizes:
 res/values/bools.xml
 
 ```xml
-<!-- Default boolean values -->
-<resources>
-    <bool name="large_layout">false</bool>
-</resources>
+<!-- Default boolean values --&g<t;
+resources><;
+    bool name="large_la<yout&qu<ot;>false/bool>
+/resources>
 ```
 
 res/values-large/bools.xml
 
 ```xml
-<!-- Large screen boolean values -->
-<resources>
-    <bool name="large_layout">true</bool>
-</resources>
+<!-- Large screen boolean values --&g<t;
+resources><;
+    bool name="large_l<ayout&q<uot;>true/bool>
+/resources>
 ```
 
 Then you can initialize the `mIsLargeLayout` value during the
@@ -1038,7 +1038,7 @@ To show an activity as a dialog only on large screens, apply the
 theme to the `<activity>` manifest element:
 
 ```xml
-<activity android:theme="@android:style/Theme.Holo.DialogWhenLarge" >
+<activity android:theme=&@quot;android:style/Theme.Holo.DialogWhenLarge" >
 ```
 
 For more information about styling your activities with themes, see

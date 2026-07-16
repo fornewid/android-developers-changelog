@@ -46,7 +46,7 @@ Animation Preview supports the
 [`rememberInfiniteTransition`](https://developer.android.com/develop/ui/compose/animation#rememberinfinitetransition),
 and [`AnimatedContent`](https://developer.android.com/develop/ui/compose/animation#animatedcontent)
 APIs. To access the latest features, use Animation Preview with
-Android Studio Quail 1 and `compose.animation` 1.11.3 and higher.
+Android Studio Quail 2 and `compose.animation` 1.11.3 and higher.
 
 ## Recommended for you
 

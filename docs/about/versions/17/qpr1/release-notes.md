@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr1/release-notes
 source: md.txt
 ---
 
+### Beta 7
+
+|---|---|
+| **Release date** | July 15, 2026 |
+| **Builds** | CP31.260623.005 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-07-05 |
+| **Google Play services** | 26.20.31 |
+
 ### Beta 6
 
 |---|---|
@@ -58,7 +67,7 @@ source: md.txt
 | **Security patch level** | 2026-04-05 |
 | **Google Play services** | 26.11.36 |
 
-### Android 17 QPR 1 Beta 6 (July 2026)
+### Android 17 QPR 1 Beta 7 (July 2026)
 
 Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
 update the platform with fixes and improvements that are then rolled out to
@@ -74,10 +83,16 @@ user experience of your app).
 Unlike developer previews and betas for unreleased, major versions of Android,
 these builds are suitable for general use.
 
-Android 17 QPR1 has reached Platform Stability as of Beta 6. The API surface is
+Android 17 QPR1 reached Platform Stability as of Beta 6. The API surface is
 locked, the [API diff report](https://developer.android.com/sdk/api_diff/37.1/changes) reflects the final
 changes, and you can now incorporate new Android 17 QPR1 capabilities
 into your apps.
+
+### Top Issues fixed in Beta 7 (July 2026)
+
+- *Battery Share from Quick Settings failed to start charging or repeatedly displayed the charging animation. ([**Issue #476443126**](https://issuetracker.google.com/issues/476443126), [**Issue #477627747**](https://issuetracker.google.com/issues/477627747), [**Issue #480701245**](https://issuetracker.google.com/issues/480701245), [**Issue #484322291**](https://issuetracker.google.com/issues/484322291), [**Issue #488473799**](https://issuetracker.google.com/issues/488473799), [**Issue #501729379**](https://issuetracker.google.com/issues/501729379), [**Issue #500638463**](https://issuetracker.google.com/issues/500638463))*
+- *Turning off Wi-Fi created an empty gap between the battery and mobile data icons in the Quick Settings status bar. ([**Issue #517178332**](https://issuetracker.google.com/issues/517178332))*
+- *A crash in the Quick Settings font size controller that prevented users from adjusting their text size from the quick access panel. ([**Issue #531915405**](https://issuetracker.google.com/issues/531915405), [**Issue #530312544**](https://issuetracker.google.com/issues/530312544))*
 
 ### Top Issues fixed in Beta 6 (July 2026)
 

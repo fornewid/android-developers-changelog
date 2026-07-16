@@ -6,16 +6,14 @@ source: md.txt
 
 # WorkManager
 
-[User Guide](https://developer.android.com/topic/libraries/architecture/workmanager) [Code Sample](https://github.com/android/architecture-components-samples/tree/main/WorkManagerSample) [Codelab](https://codelabs.developers.google.com/codelabs/android-workmanager/#0)  
-API Reference  
-[androidx.work](https://developer.android.com/reference/kotlin/androidx/work/package-summary)  
-[androidx.work.testing](https://developer.android.com/reference/kotlin/androidx/work/testing/package-summary)  
-The WorkManager API makes it easy to schedule deferrable, asynchronous tasks that must be run reliably. These APIs let you create a task and hand it off to WorkManager to run when the work constraints are met.  
-| **Note:** WorkManager requires `compileSdk` version 33 or higher.
+[User Guide](https://developer.android.com/topic/libraries/architecture/workmanager) [Code Sample](https://github.com/android/architecture-components-samples/tree/main/WorkManagerSample) [Codelab](https://codelabs.developers.google.com/codelabs/android-workmanager/#0) The WorkManager API makes it easy to schedule deferrable, asynchronous tasks that must be run reliably. These APIs let you create a task and hand it off to WorkManager to run when the work constraints are met.
+
+> [!NOTE]
+> **Note:** WorkManager requires `compileSdk` version 33 or higher.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| January 28, 2026 | [2.11.1](https://developer.android.com/jetpack/androidx/releases/work#2.11.1) | - | - | - |
+| July 15, 2026 | [2.11.2](https://developer.android.com/jetpack/androidx/releases/work#2.11.2) | - | - | [2.12.0-alpha01](https://developer.android.com/jetpack/androidx/releases/work#2.12.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -23,13 +21,13 @@ To add a dependency on WorkManager, you must add the [Google Maven repository](h
 project:
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
-your app or module:  
+your app or module:
 
 ### Groovy
 
 ```groovy
 dependencies {
-    def work_version = "2.11.1"
+    def work_version = "2.11.2"
 
     // (Java only)
     implementation "androidx.work:work-runtime:$work_version"
@@ -55,7 +53,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val work_version = "2.11.1"
+    val work_version = "2.11.2"
 
     // (Java only)
     implementation("androidx.work:work-runtime:$work_version")
@@ -94,7 +92,63 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
+## Version 2.12
+
+### Version 2.12.0-alpha01
+
+July 15, 2026
+
+`androidx.work:work-*:2.12.0-alpha01` is released. Version 2.12.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ca9838b48d87bc75d30b12a4b187c2f6da47308f..d8b87d55dbba210659e3477c5fedc17e51f9dd5b/work).
+
+**API Changes**
+
+- Added `WorkMetricsQuery` API to filter metric info ([I132b4](https://android-review.googlesource.com/#/q/I132b407c5358f981fd698888ed11ec7e85fe6356), [b/522338412](https://issuetracker.google.com/issues/522338412))
+- Implement `workerDurationMillis` and `totalRuntimeMillis` in `WorkMetricsInfo` to track worker execution duration and total cumulative runtime. ([I57f65](https://android-review.googlesource.com/#/q/I57f658f4b7613741af3991c7c7dc046768b16ab3), [b/507212208](https://issuetracker.google.com/issues/507212208))
+- Added `retentionDuration` (Duration, API 26+) and `retentionTime`/`retentionTimeUnit` (API 23+) constructors to `WorkMetricsInfoRepository` to allow pruning old metrics, defaulting to 7 days. ([Ifdf2e](https://android-review.googlesource.com/#/q/Ifdf2ec626b62f8d67c748e3b3999c1406d629e9d), [b/522338412](https://issuetracker.google.com/issues/522338412))
+- Add flow API for finished `WorkMetricsInfo` ([I11ec2](https://android-review.googlesource.com/#/q/I11ec240ad486d5ee2c7add20b32377ef0a67169a), [b/507212999](https://issuetracker.google.com/issues/507212999))
+- Add missing experimental annotation to `work-analytics` classes ([I1a055](https://android-review.googlesource.com/#/q/I1a055fdedaa767b16343223db2edc303416ca003), [b/528112001](https://issuetracker.google.com/issues/528112001))
+- `androidx.benchmark` now has a `minSdk` of 24. ([Ic2a85](https://android-review.googlesource.com/#/q/Ic2a8500af8a2bf092fcc1b27d9a599aa5f3b81d7))
+- Implement `stopReasonCounts`, `explicitRetryCount`, and `runAttemptCount` in `WorkMetricsInfo`. ([I95498](https://android-review.googlesource.com/#/q/I95498759c69cdc9c8a5051fec64b01ea45fcf15d), [b/507212225](https://issuetracker.google.com/issues/507212225))
+- Implement `WorkMetricsInfo` APIs and database schema to track work execution history, including enqueue, unblock, first start and finish timestamps. ([I163e9](https://android-review.googlesource.com/#/q/I163e95c561a2118144c26b97d2ab645892664e23), [b/479123623](https://issuetracker.google.com/issues/479123623), [b/507212482](https://issuetracker.google.com/issues/507212482))
+- Add experimental API to disable in-process opportunistic scheduling ([I1062d](https://android-review.googlesource.com/#/q/I1062d8f5b8741840891c7a8a27ed113e854925bc), [b/513299442](https://issuetracker.google.com/issues/513299442))
+- Add experimental API to listen to `WorkManager` scheduling events ([I14487](https://android-review.googlesource.com/#/q/I14487d29457fb3e0045b8242d3683562e1aeb9ee), [b/448485695](https://issuetracker.google.com/issues/448485695))
+- Add worker class name to `WorkInfo` ([I57da1](https://android-review.googlesource.com/#/q/I57da1d5e8bf9edbf4d7b8077989a8f4eaa7264f4), [b/448485695](https://issuetracker.google.com/issues/448485695))
+- Add more granular annotation to experimental event listener API ([Icaa8e](https://android-review.googlesource.com/#/q/Icaa8e2aa210f95dd762d80157155237ea9ac7fbb), [b/448485695](https://issuetracker.google.com/issues/448485695))
+- Add a new API that allows retrieving nullable string arrays from instances of `Data` class ([I78bc3](https://android-review.googlesource.com/#/q/I78bc3ed262fe129754d753d37c447e57af540e0b), [b/383071402](https://issuetracker.google.com/issues/383071402))
+- Create `work-analytics` artifact ([Idc7c2](https://android-review.googlesource.com/#/q/Idc7c2633bd7ebe774d414340448fdfb1a9f47b7c), [b/465357612](https://issuetracker.google.com/issues/465357612))
+- Add experimental API to set a listener for worker execution events ([I06b38](https://android-review.googlesource.com/#/q/I06b3830ebc4782eee6f3fe0557c9ee65e58de560), [b/448485695](https://issuetracker.google.com/issues/448485695))
+
+**Bug Fixes**
+
+- Use `Dispatchers.Default` instead of custom thread pool for the default WM configuration ([Ic2c42](https://android-review.googlesource.com/#/q/Ic2c428cbb13c290a594e88957fa02a7ef2b2fee7), [b/506239869](https://issuetracker.google.com/issues/506239869))
+- Improve and add tests to manage bad workers ([I500f3](https://android-review.googlesource.com/#/q/I500f355fe22088c9140e8bd9e60379410767ef62), [b/506239869](https://issuetracker.google.com/issues/506239869))
+- Fixed a `ConcurrentModificationException` in `WorkManager's` execution listener dispatch. ([I4cc18](https://android-review.googlesource.com/#/q/I4cc187c9b71c2cfaebcc3eef4302242ddb473135), [b/506239869](https://issuetracker.google.com/issues/506239869))
+- Fixed process crashes in `WorkManager` when registering network constraint callbacks due to missing `ACCESS_NETWORK_STATE` permissions. ([I7045a](https://android-review.googlesource.com/#/q/I7045a22600d6b29624c67ffd13539fa27eb95520), [b/446013734](https://issuetracker.google.com/issues/446013734))
+- Improve log detail when DEBUG logs are enabled ([Id9e5f](https://android-review.googlesource.com/#/q/Id9e5f8c9ade4ebfd4811cc91cfa3fe0899ebfff2), [b/491209738](https://issuetracker.google.com/issues/491209738))
+- Fix bug with retried work failing to schedule with the OS ([I452fc](https://android-review.googlesource.com/#/q/I452fcda5509083ec0dd8eb6bc1ddb1b1315a6aa6), [b/504085166](https://issuetracker.google.com/issues/504085166), [b/517339607](https://issuetracker.google.com/issues/517339607))
+- Fixed `Configuration.Provider` reference doc link ([Ieedb7](https://android-review.googlesource.com/#/q/Ieedb73c99122368c5c089bde42ec6eb6ae6f929a), [b/340913210](https://issuetracker.google.com/issues/340913210))
+- Made event hooks not blocking for operations ([I27cd8](https://android-review.googlesource.com/#/q/I27cd8697069d433e4d432023baa57926fbf62caa), [b/448485695](https://issuetracker.google.com/issues/448485695))
+- `WorkManager` now retries initialization on generic `SQLiteException`. ([I98436](https://android-review.googlesource.com/#/q/I98436771ee136147e493c824ff1b7e3fff13bd66), [b/485368721](https://issuetracker.google.com/issues/485368721))
+- Fixed an issue where developers could receive a nonexistent stop reason code of 0 by mapping it to `WorkInfo.STOP_REASON_UNKNOWN`. ([I0b175](https://android-review.googlesource.com/#/q/I0b1751c5741e216013335d11d73d4d90ef8c0aa8), [b/479314734](https://issuetracker.google.com/issues/479314734))
+- Fix additional issues with network calls failing from background even when network constraint are met ([Ic7f73](https://android-review.googlesource.com/#/q/Ic7f73c833cc7c984e49aa09d8466fd0f222d3dab), [b/445324855](https://issuetracker.google.com/issues/445324855))
+- Handle security exception in `NetworkStateTracker`. ([I4b7ca](https://android-review.googlesource.com/#/q/I4b7ca9a97566b4fa836c335ef18e37ed310ac471), [b/480123154](https://issuetracker.google.com/issues/480123154))
+- Ensure execution hooks get an accurate `WorkInfo` snapshot ([I25ebb](https://android-review.googlesource.com/#/q/I25ebb17c06123a44faca51ffc8b1efed3ec75717), [b/448485695](https://issuetracker.google.com/issues/448485695))
+- Fixed an issue where background network requests could fail on Android 15. ([I60f24](https://android-review.googlesource.com/#/q/I60f241226361660db8513575fd4f8095b340069e), [I8a0a2](https://android-review.googlesource.com/#/q/I8a0a2c029957335892d12a2df33a23ae0b77ab3e), [b/452081708](https://issuetracker.google.com/issues/452081708)) ([I5abb7](https://android-review.googlesource.com/#/q/I5abb7f65b095a0feefa8e2645baa742f48049cae), [b/465016918](https://issuetracker.google.com/issues/465016918))
+- Fixed an issue where periodic `WorkRequest`s that fail due to an uncaught exception would not be rescheduled. ([Ia6b92](https://android-review.googlesource.com/#/q/Ia6b9216b669b67441f0d429112059faf8fa806c9), [b/443879071](https://issuetracker.google.com/issues/443879071))
+
 ## Version 2.11
+
+### Version 2.11.2
+
+March 25, 2026
+
+`androidx.work:work-*:2.11.2` is released. Version 2.11.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5a3057b3fba2ecd31580689419aff5f082f9efdc..ca9838b48d87bc75d30b12a4b187c2f6da47308f/work).
+
+**Bug Fixes**
+
+- Fix additional issues with network calls failing from background even when network constraint are met ([Ic7f73](https://android-review.googlesource.com/#/q/Ic7f73c833cc7c984e49aa09d8466fd0f222d3dab), [b/445324855](https://issuetracker.google.com/issues/445324855))
+- Handle security exception in `NetworkStateTracker`. ([I4b7ca](https://android-review.googlesource.com/#/q/I4b7ca9a97566b4fa836c335ef18e37ed310ac471), [b/480123154](https://issuetracker.google.com/issues/480123154))
+- Fixed an issue where periodic `WorkRequest`s that fail due to an uncaught exception would not be rescheduled. ([Ia6b92](https://android-review.googlesource.com/#/q/Ia6b9216b669b67441f0d429112059faf8fa806c9), [b/443879071](https://issuetracker.google.com/issues/443879071))
 
 ### Version 2.11.1
 
@@ -542,7 +596,8 @@ January 12, 2022
 
 ## Version 2.7
 
-| **Note:** WorkManager Version `2.7.0` is required for apps targeting Android 12 (S).
+> [!NOTE]
+> **Note:** WorkManager Version `2.7.0` is required for apps targeting Android 12 (S).
 
 ### Version 2.7.1
 
@@ -622,7 +677,9 @@ This release also contains the changes from the [2.6.0-beta01](https://developer
 ### Version 2.7.0-alpha03
 
 April 21, 2021
-| **Note:** WorkManager Version 2.7.0-alpha03 is **only compatible** with the Android 12 Developer Preview 3 SDK.
+
+> [!NOTE]
+> **Note:** WorkManager Version 2.7.0-alpha03 is **only compatible** with the Android 12 Developer Preview 3 SDK.
 
 `androidx.work:work-*:2.7.0-alpha03` is released. [Version 2.7.0-alpha03 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/23e58206a34ee2ac5a0e6ac8bf8d6e4f1e070efb..d31c94c58e59b87051a5ba2f8ba791cbdb421748/work)
 
@@ -643,7 +700,9 @@ April 21, 2021
 March 10, 2021
 
 `androidx.work:work-*:2.7.0-alpha02` is released. [Version 2.7.0-alpha02 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/51b9293137916801ce8564a523a6ae77398694c1..23e58206a34ee2ac5a0e6ac8bf8d6e4f1e070efb/work)
-| **Note:** WorkManager Version 2.7.0-alpha02 is **only compatible** with the Android 12 Developer Preview 1 SDK.
+
+> [!NOTE]
+> **Note:** WorkManager Version 2.7.0-alpha02 is **only compatible** with the Android 12 Developer Preview 1 SDK.
 
 **Bug Fixes**
 
@@ -654,7 +713,9 @@ March 10, 2021
 February 18, 2021
 
 `androidx.work:work-*:2.7.0-alpha01` is released. [Version 2.7.0-alpha01 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/b32e1d4efc3b6976da585fb8783f913e92108428..51b9293137916801ce8564a523a6ae77398694c1/work)
-| **Note:** WorkManager Version 2.7.0-alpha01 is **only compatible** with the Android 12 Developer Preview 1 SDK.
+
+> [!NOTE]
+> **Note:** WorkManager Version 2.7.0-alpha01 is **only compatible** with the Android 12 Developer Preview 1 SDK.
 
 **New Features**
 
@@ -677,7 +738,9 @@ February 18, 2021
 September 1, 2021
 
 `androidx.work:work-*:2.6.0` is released. [Version 2.6.0 contains these commits.](https://android.googlesource.com/platform/frameworks/support/+log/fb4befebd5dfb03c14a0593799f68f1567993e6b..554afbcb0b3fba9fd022029713d72b2f376411b6/work)
-| **Note:** WorkManager Version `2.6.0` is not compatible for apps targeting Android 12 (S). You should be using version `2.7.0` instead.
+
+> [!NOTE]
+> **Note:** WorkManager Version `2.6.0` is not compatible for apps targeting Android 12 (S). You should be using version `2.7.0` instead.
 
 **Important changes since 2.5.0**
 
@@ -764,7 +827,7 @@ March 24, 2021
   Previously, this was being done by `androidx.work.impl.WorkManagerInitializer`. ([aosp/1608813](https://android-review.googlesource.com/c/platform/frameworks/support/+/1608813))
 
   If you used `tools:node="remove"` the `ContentProvider` being used to initialize
-  process lifecycle in the past, then you need to do the following instead.  
+  process lifecycle in the past, then you need to do the following instead.
 
        <provider
           android:name="androidx.startup.InitializationProvider"
@@ -778,7 +841,7 @@ March 24, 2021
               tools:node="remove" />
        </provider>
 
-  (or)  
+  (or)
 
        <!-- If you want to disable android.startup completely. -->
        <provider
@@ -797,7 +860,8 @@ March 24, 2021
 
 ## Version 2.5.0
 
-| **Note:** WorkManager Version 2.5.0 is **not compatible** with apps targeting Android 12 (S)
+> [!NOTE]
+> **Note:** WorkManager Version 2.5.0 is **not compatible** with apps targeting Android 12 (S)
 
 ### Version 2.5.0
 
@@ -1274,7 +1338,9 @@ July 19, 2019
 July 17, 2019
 
 `androidx.work:work-*:2.2.0-beta01` is released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/41741982b76f2249a5fc71f2b2fa86aed5e6b6df..32988b2236646245cde4cd158dedbf8c6b2fd0c2/work).
-| **Caution:** This version contains an unintentional dependency on `org.jacoco:org.jacoco.agent:0.8.3`, which can cause a build failure. Please update to the latest version, in which this dependency has been removed.
+
+> [!CAUTION]
+> **Caution:** This version contains an unintentional dependency on `org.jacoco:org.jacoco.agent:0.8.3`, which can cause a build failure. Please update to the latest version, in which this dependency has been removed.
 
 **New features**
 
@@ -1325,7 +1391,9 @@ June 27, 2019
 June 20, 2019
 
 `androidx.work:work-*:2.1.0-beta02` is released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/3aa279901a440d8a3a16c07c7e49361991097939..eae198ee097b359f70989d2c5c0f5ff6f6b72ead/work).
-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+
+> [!NOTE]
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 **Bug fixes**
 
@@ -1337,7 +1405,9 @@ June 20, 2019
 June 13, 2019
 
 `androidx.work:work-*:2.1.0-beta01` is released. The commits included in this version can be found [here](https://android.googlesource.com/platform/frameworks/support/+log/5243b462794554b6dcc3f51793c5ef22531bb6ec..3aa279901a440d8a3a16c07c7e49361991097939/work).
-| **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
+
+> [!NOTE]
+> **Note:** This version is dependent on the Java 8 programming language. Please read [Use Java 8 language features](https://developer.android.com/studio/write/java8-support) to learn how to use it in your project.
 
 **Bug fixes**
 
@@ -1453,7 +1523,7 @@ bug fixes. All active development will target 2.x.
 ## Pre-AndroidX Dependencies
 
 For information on using Kotlin extensions, see the [KTX documentation](https://developer.android.com/kotlin/ktx).  
-Reference docs: [Java](https://developer.android.com/reference/androidx/work/package-summary)  
+Reference docs: [Java](https://developer.android.com/reference/androidx/work/package-summary)
 
 ### Groovy
 
@@ -1493,7 +1563,9 @@ dependencies {
     androidTestImplementation("android.arch.work:work-testing:$work_version")
 }
 ```
-| **Note:** WorkManager classes are already in the androidx.work package, but currently depend on non-AndroidX dependencies including the Support Library 27.1 and associated Arch component versions. A version of WorkManager with AndroidX dependencies will be released in the future.
+
+> [!NOTE]
+> **Note:** WorkManager classes are already in the androidx.work package, but currently depend on non-AndroidX dependencies including the Support Library 27.1 and associated Arch component versions. A version of WorkManager with AndroidX dependencies will be released in the future.
 
 ## Version 1.0.1
 
@@ -1759,7 +1831,7 @@ September 19, 2018
 
 **Known Issue**
 
-If you run into the following issue: "More than one file was found with OS independent path 'META-INF/proguard/androidx-annotations.pro'", please put the following in your gradle file as a temporary workaround while we fix the issue in alpha10:  
+If you run into the following issue: "More than one file was found with OS independent path 'META-INF/proguard/androidx-annotations.pro'", please put the following in your gradle file as a temporary workaround while we fix the issue in alpha10:
 
 ### Groovy
 

@@ -79,11 +79,11 @@ val anchor = Anchor.create(session, pose)
 ### Attach an entity to an anchor
 
 To render a model at this location, [create a `GltfModel`](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models#place-3d) and set its
-parent to an `AnchorEntity`.
+parent to an [`AnchorSpace`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/AnchorSpace).
 
 
 ```kotlin
-AnchorEntity.create(session, anchor).apply {
+AnchorSpace.create(session, anchor).apply {
     parent = session.scene.activitySpace
     addChild(entity)
 }

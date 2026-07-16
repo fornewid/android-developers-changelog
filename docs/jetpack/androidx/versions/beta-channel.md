@@ -16,6 +16,13 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## July 15, 2026
+
+- [Tracing Version 2.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-beta01)
+- [Xr Arcore Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-beta01)
+- [Xr Runtime Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-beta01)
+- [Xr Scenecore Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-beta01)
+
 ### July 07, 2026
 
 - [Media3 Version 1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-beta01)

@@ -139,3 +139,25 @@ report](https://developer.android.com/topic/performance/app-optimization/r8-conf
 | No public issues were marked as fixed in AGP 9.3.0 ||
 
 <br />
+
+## Updated optimization DSL to configure R8 keep rules
+
+Introduces an [updated optimization DSL](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#optimization-dsl) to configure keep rules for R8
+optimization, supported by app modules and library module tests. To configure
+optimization with the updated DSL, use the new `optimization` block. For apps,
+configure the `optimization` block within a build type (such as `release` or
+`debug`) in the app-level build script. The updated optimization DSL makes R8
+configuration simpler:
+
+- Turning on optimization enables both code optimization and optimized resource shrinking.
+- You no longer need to specify the default Android keep rules file.
+
+Note that the [legacy DSL](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#legacy-optimization-dsl) continues to be supported.
+
+## Introduction of source sets to define keep rules
+
+Place keep rules in the `src/<variant>/keepRules/` source set, with the
+file-suffix `.keep`. Source sets for keep rules are supported by the updated
+optimization DSL and the legacy DSL. Using source sets for keep rules is
+supported in app modules, library modules, and as a way to define consumer rules
+in Kotlin Multiplatform (KMP) modules.

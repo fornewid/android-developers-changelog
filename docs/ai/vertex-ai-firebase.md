@@ -30,7 +30,7 @@ Add the following Gradle dependencies to your app module:
       // ... other androidx dependencies
 
       // Import the BoM for the Firebase platform
-      implementation(platform("com.google.firebase:firebase-bom:34.15.0"))
+      implementation(platform("com.google.firebase:firebase-bom:34.16.0"))
 
       // Add the dependencies for the Firebase AI Logic and App Check libraries
       // When using the BoM, you don't specify versions in Firebase library dependencies
@@ -42,7 +42,7 @@ Add the following Gradle dependencies to your app module:
 
     dependencies {
       // Import the BoM for the Firebase platform
-      implementation(platform("com.google.firebase:34.15.0"))
+      implementation(platform("com.google.firebase:34.16.0"))
 
       // Add the dependencies for the Firebase AI Logic and App Check libraries
       // When using the BoM, you don't specify versions in Firebase library dependencies

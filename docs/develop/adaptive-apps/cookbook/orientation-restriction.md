@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/adaptive-apps/cookbook/orientation-re
 source: md.txt
 ---
 
-![Two star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/two-star-rating.png)
+![Two star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/shared/two-star-rating.png)
 
 Your app works great on phones in portrait orientation, so you've restricted the
 app to portrait only. But you see an opportunity to do more on large screens in

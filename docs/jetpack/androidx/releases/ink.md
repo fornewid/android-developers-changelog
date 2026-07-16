@@ -10,7 +10,7 @@ Inspire best-in-class pen apps. Lower the developer barrier to entry for high pe
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha04](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha04) |
+| July 15, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha05](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha05) |
 
 ## Declaring dependencies
 
@@ -26,16 +26,16 @@ your app or module:
 ```groovy
 dependencies {
   
-    implementation "androidx.ink:ink-authoring:1.1.0-alpha04"
-    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha04"
-    implementation "androidx.ink:ink-brush:1.1.0-alpha04"
-    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha04"
-    implementation "androidx.ink:ink-geometry:1.1.0-alpha04"
-    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha04"
-    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha04"
-    implementation "androidx.ink:ink-rendering:1.1.0-alpha04"
-    implementation "androidx.ink:ink-storage:1.1.0-alpha04"
-    implementation "androidx.ink:ink-strokes:1.1.0-alpha04"
+    implementation "androidx.ink:ink-authoring:1.1.0-alpha05"
+    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha05"
+    implementation "androidx.ink:ink-brush:1.1.0-alpha05"
+    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha05"
+    implementation "androidx.ink:ink-geometry:1.1.0-alpha05"
+    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha05"
+    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha05"
+    implementation "androidx.ink:ink-rendering:1.1.0-alpha05"
+    implementation "androidx.ink:ink-storage:1.1.0-alpha05"
+    implementation "androidx.ink:ink-strokes:1.1.0-alpha05"
     
 }
 ```
@@ -46,16 +46,16 @@ dependencies {
 dependencies {
 
 
-    implementation("androidx.ink:ink-authoring:1.1.0-alpha04")
-    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha04")
-    implementation("androidx.ink:ink-brush:1.1.0-alpha04")
-    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha04")
-    implementation("androidx.ink:ink-geometry:1.1.0-alpha04")
-    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha04")
-    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha04")
-    implementation("androidx.ink:ink-rendering:1.1.0-alpha04")
-    implementation("androidx.ink:ink-storage:1.1.0-alpha04")
-    implementation("androidx.ink:ink-strokes:1.1.0-alpha04")
+    implementation("androidx.ink:ink-authoring:1.1.0-alpha05")
+    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha05")
+    implementation("androidx.ink:ink-brush:1.1.0-alpha05")
+    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha05")
+    implementation("androidx.ink:ink-geometry:1.1.0-alpha05")
+    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha05")
+    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha05")
+    implementation("androidx.ink:ink-rendering:1.1.0-alpha05")
+    implementation("androidx.ink:ink-storage:1.1.0-alpha05")
+    implementation("androidx.ink:ink-strokes:1.1.0-alpha05")
 }
 ```
 
@@ -75,6 +75,23 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Ink Version 1.1
+
+### Version 1.1.0-alpha05
+
+July 15, 2026
+
+`androidx.ink:ink-*:1.1.0-alpha05` is released. Version 1.1.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/54300995fb997ea31a64ab9de0daf6580692612d..e37cf4eae99bdc35def1209921d658612e2edbc3/ink).
+
+**API Changes**
+
+- Experimental release of new eraser type, known as "partial stroke", "mesh editing", or "pixel" eraser, that edits stroke geometry and splits strokes rather than deleting entire strokes or masking them with the background color. Known issues include a lack of anti-aliasing on the cut edges, and no serialization APIs to save the erased `PartitionedMesh` results, which will both come in future releases.
+- Add missing Throws annotation to `StrokeInputBatchSerialization.decode`, requiring update from Java consumers of that method. ([I83473](https://android-review.googlesource.com/#/q/I83473b1537aafad235707c9c69b2525e08edeb99), [b/522256938](https://issuetracker.google.com/issues/522256938))
+
+**Bug Fixes**
+
+- Fix native crash from numerical precision issue ([I2e1f0](https://android-review.googlesource.com/#/q/I2e1f0cdab93b829f755580d00d811f953201009b), [6618e69](https://github.com/google/ink/commit/6618e6957ebb7ef764ac58a746671f176f08549d), [b/523190724](https://issuetracker.google.com/issues/523190724))
+- Discard degenerate extrusions in `BrushTipExtruder` ([469b629](https://github.com/google/ink/commit/469b629913e2828aa8ac123e90d3a90a6eb0941b))
+- Fix `RejectedExecutionException` in `InProgressStrokesView` ([b/526696762](https://issuetracker.google.com/526696762))
 
 ### Version 1.1.0-alpha04
 

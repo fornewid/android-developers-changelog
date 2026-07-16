@@ -28,7 +28,7 @@ file:
 
 ```kotlin
 dependencies {
-    testImplementation("androidx.xr.arcore:arcore-testing:1.0.0-alpha15")
+    testImplementation("androidx.xr.arcore:arcore-testing:1.0.0-beta01")
 }
 ```
 
@@ -36,7 +36,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    testImplementation "androidx.xr.arcore:arcore-testing:1.0.0-alpha15"
+    testImplementation "androidx.xr.arcore:arcore-testing:1.0.0-beta01"
 }
 ```
 
@@ -47,7 +47,7 @@ If your app depends on [XR SceneCore](https://developer.android.com/jetpack/andr
 
 ```kotlin
 dependencies {
-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-alpha16")
+    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-beta01")
 }
 ```
 
@@ -55,7 +55,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-alpha16"
+    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-beta01"
 }
 ```
 
@@ -85,8 +85,10 @@ fun setUp() {
 
     activityController.create().start().resume()
 
-    val sessionCreateResult = Session.create(context = activity, coroutineContext = testDispatcher)
-    session = (sessionCreateResult as SessionCreateSuccess).session
+    runBlocking {
+        val sessionCreateResult = Session.create(context = activity, coroutineContext = testDispatcher)
+        session = (sessionCreateResult as SessionCreateSuccess).session
+    }
 
     // Configure the session.
     session.configure(Config.Builder(session.config).setHandTracking(HandTrackingMode.BOTH).build())

@@ -5,43 +5,99 @@ source: md.txt
 ---
 
 If you have different versions of your app based on different build variants,
-create custom [keep rules](https://developer.android.com/topic/performance/app-optimization/add-keep-rules) for each variant. For example, if you have a free
-tier and a paid tier of your app with different features and dependencies, each
-tier should have its own keep rules.
+create custom [keep rules](https://developer.android.com/topic/performance/app-optimization/add-keep-rules) for each variant. For example, if you
+have a free tier and a paid tier of your app with different features and
+dependencies, each tier should have its own keep rules.
 
 ## Create keep rules
 
-To create keep rules that are specific to a build variant, add the
-`proguardFiles` property in the corresponding *flavor* block under
-`productFlavors`. For example, the following build script adds the rules file
-`flavor2‑rules.pro` to the `flavor2` product flavor:
+**For AGP 9.3+:**
 
-### Kotlin
+To maintain specific keep rules for different flavors of your app, place the
+keep rules for each flavor in the relevant keep rules source set . For example,
+for `flavor1`, write keep rules in
+`app/src/flavor1/keepRules/flavor1-rules.keep`.
+
+### AGP 9.3+ (Kotlin)
 
     android {
-    ...
-    buildTypes {
-        getByName("release") {
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+        buildTypes {
+            release {
+                optimization {
+                    enable = true // Enables code and resource optimizations.
+                }
+            }
         }
+        flavorDimensions.add("version")
+            productFlavors {
+                create("flavor1") {
+                    ...
+                    // Place your keep rules in app/src/flavor1/keepRules/ with the file suffix .keep
+                }
+                create("flavor2") {
+                    ...
+                    // Place your keep rules in app/src/flavor2/keepRules/ with the file suffix .keep
+                }
+            }
     }
-    flavorDimensions.add("version")
+
+### AGP 9.3+ (Groovy)
+
+    android {
+        buildTypes {
+            release {
+                optimization {
+                    enable = true // Enables code and resource optimizations.
+                }
+            }
+        }
+        flavorDimensions "version"
         productFlavors {
-            create("flavor1") {
+            flavor1 {
                 ...
             }
-            create("flavor2") {
-                proguardFile("flavor2-rules.pro")
+            flavor2 {
+                ...
+                // Place your keep rules in app/src/flavor2/keepRules/ with the file suffix .keep
             }
         }
     }
 
-### Groovy
+**For AGP versions earlier than 9.3:**
+
+To create keep rules that are specific to a build variant, add the
+`proguardFiles` property in the corresponding *flavor* block under
+`productFlavors`.
+
+Consider the following build script that adds the rules file
+`flavor2‑rules.pro` to the `flavor2` product flavor:
+
+### Legacy DSL (Kotlin)
+
+    android {
+        ...
+        buildTypes {
+            getByName("release") {
+                isMinifyEnabled = true
+                isShrinkResources = true
+                proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+                )
+            }
+        }
+        flavorDimensions.add("version")
+            productFlavors {
+                create("flavor1") {
+                    ...
+                }
+                create("flavor2") {
+                    proguardFile("flavor2-rules.pro")
+                }
+            }
+    }
+
+### Legacy DSL (Groovy)
 
     android {
         ...
@@ -49,9 +105,10 @@ To create keep rules that are specific to a build variant, add the
             release {
                 minifyEnabled = true
                 shrinkResources = true
-                proguardFiles
+                proguardFiles(
                     getDefaultProguardFile('proguard-android-optimize.txt'),
                     'proguard-rules.pro'
+                )
             }
         }
         flavorDimensions "version"

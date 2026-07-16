@@ -13,7 +13,7 @@ Start your custom AR or 3D session with our native runtime.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| June 17, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-alpha15) |
+| July 15, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-beta01) | - |
 
 
 ## Declaring dependencies
@@ -30,10 +30,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.runtime:runtime:1.0.0-alpha15"
+    implementation "androidx.xr.runtime:runtime:1.0.0-beta01"
 
     // Use in environments that do not support OpenXR
-    testImplementation "androidx.xr.runtime:runtime-testing:1.0.0-alpha15"
+    testImplementation "androidx.xr.runtime:runtime-testing:1.0.0-beta01"
 }
 ```
 
@@ -41,10 +41,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.runtime:runtime:1.0.0-alpha15")
+    implementation("androidx.xr.runtime:runtime:1.0.0-beta01")
 
     // Use in environments that do not support OpenXR
-    testImplementation("androidx.xr.runtime:runtime-testing:1.0.0-alpha15")
+    testImplementation("androidx.xr.runtime:runtime-testing:1.0.0-beta01")
 }
 ```
 
@@ -64,6 +64,24 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+#### Version 1.0.0-beta01
+
+July 15, 2026
+
+`androidx.xr.runtime:runtime-*:1.0.0-beta01` is released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a3db25aa1e59086c8e0c4d2eb2f2e9186211080b..504b2b04fe6292c47f04ecf1bd55f84634e669b6/xr/runtime).
+
+**API Changes**
+
+- Added `SessionTestRule` to runtime-testing. This API ([I672bc](https://android-review.googlesource.com/#/q/I672bcc6df88df4552c7dc8c361dc3fe06a6a6964), [b/516876144](https://issuetracker.google.com/issues/516876144))
+- Converted Session.create to a suspend function. ([I5d27f](https://android-review.googlesource.com/#/q/I5d27fd6399fc5fe35f28ddf9c0c488a12eb23115))
+- Added support for the lifecycle to the `XrDeviceTestRule` ([I2319c](https://android-review.googlesource.com/#/q/I2319cc1221cfd829ff654bf8b56f89019b7f4b63), [b/512140272](https://issuetracker.google.com/issues/512140272))
+- Removed unused `ExperimentalXrDeviceLifecycleApi` experimental opt-in annotation. ([I46d95](https://android-review.googlesource.com/#/q/I46d957c80e875d3491e1aac92946ceb3a88c121f))
+- Add specialized overrides of `toString()` for a number of runtime types. These types are intended to provide additional information to developers for debugging purposes and are not intended to be used in production or shipped applications.
+
+**Bug Fixes**
+
+- Fixed Pose.`fromLookAt` forward direction alignment, corrected scale extraction in Matrix3, and prevented numerical `NaNs` in normalization, axis-angle conversion, and `angleBetween` calculations. ([I7a3b5](https://android-review.googlesource.com/#/q/I7a3b54467df0110d16f98b0cad6d2e6c9a6edb68), [b/367780918](https://issuetracker.google.com/issues/367780918))
 
 #### Version 1.0.0-alpha15
 

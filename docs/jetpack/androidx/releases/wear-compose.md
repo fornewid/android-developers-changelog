@@ -12,7 +12,7 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | - | - | [1.7.0-alpha05](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha05) |
+| July 15, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | - | - | [1.7.0-alpha06](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha06) |
 
 > [!NOTE]
 > **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
@@ -90,6 +90,27 @@ for more information.
 <br />
 
 ## Version 1.7
+
+### Version 1.7.0-alpha06
+
+July 15, 2026
+
+`androidx.wear.compose:compose-*:1.7.0-alpha06` is released. Version 1.7.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ba3014c143b9c9782fe30bc766c5dced55e13453..f0448c3c760549b58cec3a154536649d03078780/wear/compose).
+
+**API Changes**
+
+- Move `ButtonContent`, `AppCardContent` and `TitleCardContent` composables for Material3 into `ButtonDefaults` and `CardDefaults` objects respectively. ([I8d589](https://android-review.googlesource.com/#/q/I8d589304d2af298a0ebbb86d8bd346b5d32efd12), [b/527889640](https://issuetracker.google.com/issues/527889640))
+- Remove default value from `Modifier.oneHandedGesture` `gestureLabel` parameter ([Ica100](https://android-review.googlesource.com/#/q/Ica100638b932aa61419cdfb71b02fa80c4255b1d), [b/527068051](https://issuetracker.google.com/issues/527068051))
+- Rename `gestureLabel` to `onGestureLabel` in `Modifier.oneHandedGesture` and make it nullable, for consistency with other `contentDescription` parameters ([I952a8](https://android-review.googlesource.com/#/q/I952a8af7a5344b1d322e130e18be84f4068b3341), [b/527068051](https://issuetracker.google.com/issues/527068051))
+- Introduce `OneHandedGestureIndicatorState` to coordinate visibility and animation between `Modifier.oneHandedGesture()` and gesture indicators. Replace `InteractionSource` with this state-driven approach for improved lifecycle control. Add `wrapAround` parameter to `OneHandedGestureDefaults.scrollToNextPage` for consistency with other default gesture scroll functions. ([I9e1e3](https://android-review.googlesource.com/#/q/I9e1e3ea538da7af52047a82415c5964b1a0e0b49), [b/522761843](https://issuetracker.google.com/issues/522761843))
+
+**Bug Fixes**
+
+- Clarify `interactionSource` documentation for `Modifier.oneHandedGesture` to state which interactions are emitted ([I2dc8d](https://android-review.googlesource.com/#/q/I2dc8da17849ae01bd456539ee07608eed93c1893))
+- Support for one-handed gestures in `AlertDialog` by default has been removed temporarily, due to issues with the dependency on the Wear SDK in consumers that are otherwise not using the Wear SDK or one-handed gestures. ([Ib19e0](https://android-review.googlesource.com/#/q/Ib19e0bc4f208dafb97a9acc21a037928cc313b5b), [b/503841738](https://issuetracker.google.com/issues/503841738))
+- Enhanced `TransformingLazyColumn` to support placement animations for items moving out of the viewport, allowing them to slide off-screen instead of fading out. Also fixed a visual snapping issue where dynamically scaled items would instantly snap to their target height during placement animations ([I89d84](https://android-review.googlesource.com/#/q/I89d847676e315b7a4b2b0f6ec9e93fe8a08a3ccf), [b/525071281](https://issuetracker.google.com/issues/525071281))
+- Use index-based `ItemInfo` in `firstVisibleItemLayoutItemInfo`. ([I256e3](https://android-review.googlesource.com/#/q/I256e3f53fc129e4e83cf060ae57e210ff7e3253d), [b/527881678](https://issuetracker.google.com/issues/527881678))
+- Fixed `TimePicker` animation behavior when Reduce Motion is enabled. ([Ic9150](https://android-review.googlesource.com/#/q/Ic9150cba0d88eb04d5c4b1a28bf2995f24091eba), [b/467288916](https://issuetracker.google.com/issues/467288916))
 
 ### Version 1.7.0-alpha05
 

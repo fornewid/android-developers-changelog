@@ -752,7 +752,7 @@ billingClient.consumeAsync(consumeParams, listener);
 <br />
 
 > [!NOTE]
-> **Note:** Purchases made using [Play Points](https://developer.android.com/guide/playpoints) are auto-acknowledged, and you don't need to acknowledge such purchases using the acknowledge flow. As consumption requests can occasionally fail, you must check your secure backend server to verify that each purchase token hasn't been used so your app doesn't grant entitlement multiple times for the same purchase. Alternatively, your app can wait until you receive a successful consumption response from Google Play before granting entitlement. If you choose to withhold purchases from the user until Google Play sends a successful consumption response, you must be very careful not to lose track of the purchases for which you have sent a consumption request.
+> **Note:** As consumption requests can occasionally fail, you must check your secure backend server to verify that each purchase token hasn't been used so your app doesn't grant entitlement multiple times for the same purchase. Alternatively, your app can wait until you receive a successful consumption response from Google Play before granting entitlement. If you choose to withhold purchases from the user until Google Play sends a successful consumption response, you must be very careful not to lose track of the purchases for which you have sent a consumption request.
 
 #### Non-consumable products
 

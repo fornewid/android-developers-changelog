@@ -37,7 +37,7 @@ glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk#augm
 ### Groovy
 
     dependencies {
-        implementation "androidx.xr.runtime:runtime:1.0.0-alpha15"
+        implementation "androidx.xr.runtime:runtime:1.0.0-beta01"
         implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha13"
         implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha13"
         implementation "androidx.xr.projected:projected:1.0.0-alpha08"
@@ -47,7 +47,7 @@ glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk#augm
 ### Kotlin
 
     dependencies {
-        implementation("androidx.xr.runtime:runtime:1.0.0-alpha15")
+        implementation("androidx.xr.runtime:runtime:1.0.0-beta01")
         implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha13")
         implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha13")
         implementation("androidx.xr.projected:projected:1.0.0-alpha08")
@@ -102,6 +102,8 @@ class ProjectedMainActivity : ComponentActivity() {
     private var areVisualsOn by mutableStateOf(true)
     private var isPermissionDenied by mutableStateOf(false)
 
+    @Suppress("DEPRECATION")
+    // TODO: Remove suppression once Android Emulator supports ProjectedActivityCompat.requestPermissions()
     // Register the permissions launcher using the ProjectedPermissionsResultContract.
     private val requestPermissionLauncher: ActivityResultLauncher<List<ProjectedPermissionsRequestParams>> =
         registerForActivityResult(ProjectedPermissionsResultContract()) { results ->
@@ -211,7 +213,7 @@ fun HomeScreen(
         contentAlignment = Alignment.Center
     ) {
         if (isPermissionDenied) {
-            Card(
+            ActionCard(
                 title = { Text("Permission Required") },
                 action = { Button(onClick = onClose) { Text("Exit") } }
             ) {
@@ -219,7 +221,7 @@ fun HomeScreen(
                 Button(onClick = onRetryPermission) { Text("Retry") }
             }
         } else if (isVisualUiSupported) {
-            Card(
+            ActionCard(
                 title = { Text("Android XR") },
                 action = {
                     Button(onClick = onClose) {

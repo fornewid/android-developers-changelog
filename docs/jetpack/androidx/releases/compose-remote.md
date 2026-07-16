@@ -10,7 +10,7 @@ Remote Compose is a framework to create UI for remote surfaces
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha14) |
+| July 15, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha15) |
 
 ## Declaring dependencies
 
@@ -26,20 +26,20 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.remote:remote-core:1.0.0-alpha14"
+    implementation "androidx.compose.remote:remote-core:1.0.0-alpha15"
 
     // Use to create Remote Compose documents
-    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha14"
-    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha14"
-    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha14"
-    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha14"
-    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha14"
+    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha15"
+    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha15"
+    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha15"
+    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha15"
+    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha15"
 
     // Use to render a Remote Compose document
-    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha14"
-    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha14"
+    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha15"
+    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha15"
 
-    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha14"
+    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha15"
 }
 ```
 
@@ -47,20 +47,20 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.remote:remote-core:1.0.0-alpha14")
+    implementation("androidx.compose.remote:remote-core:1.0.0-alpha15")
 
     // Use to create Remote Compose documents
-    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha14")
-    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha14")
-    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha14")
-    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha14")
-    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha14")
+    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha15")
+    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha15")
+    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha15")
+    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha15")
+    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha15")
 
     // Use to render a Remote Compose document
-    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha14")
-    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha14")
+    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha15")
+    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha15")
 
-    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha14")
+    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha15")
 }
 ```
 
@@ -81,6 +81,21 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha15
+
+July 15, 2026
+
+`androidx.compose.remote:remote-*:1.0.0-alpha15` is released. Version 1.0.0-alpha15 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ba3014c143b9c9782fe30bc766c5dced55e13453..e37cf4eae99bdc35def1209921d658612e2edbc3/compose/remote).
+
+**API Changes**
+
+- Added `rememberRemoteImageBitmap(url)` and exposed `rememberMutableRemoteImageBitmap` publicly to support non-named remote bitmaps. ([I7b960](https://android-review.googlesource.com/#/q/I7b960be38b55e565d4762072a1357a8ed5512269))
+- Exposed `RemoteStateScope.remotePath` and `RemotePathScope` APIs for building paths via DSL. ([I9e2fe](https://android-review.googlesource.com/#/q/I9e2fe31b1a482e8671e0713f253b92417a83999b), [b/513228889](https://issuetracker.google.com/issues/513228889))
+
+**Bug Fixes**
+
+- Removed restricted LIBRARY_GROUP overload of `rememberRemoteDocument`. ([Ifd9b4](https://android-review.googlesource.com/#/q/Ifd9b4c8ed344f5339dd6ed079d3632267ee73c16), [b/532022244](https://issuetracker.google.com/issues/532022244), [b/532022244](https://issuetracker.google.com/issues/532022244))
 
 ### Version 1.0.0-alpha14
 
