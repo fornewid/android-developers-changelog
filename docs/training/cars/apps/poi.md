@@ -104,9 +104,9 @@ refreshing templates. As long as the next template returned by `onGetTemplate`
 is of the same type, it is counted as a refresh and does not count toward the
 template quota.
 
-## Integrate with Google Assistant using App Actions
+## Integrate with Gemini or Google Assistant using App Actions
 
-Voice-enable your POI app using Assistant to allow users to search for points of
+Voice-enable your POI app using Gemini or Google Assistant to let users search for points of
 interest by asking things like, *"Hey Google, find nearby charging stations on
 ExampleApp"* . For detailed instructions, see [App Actions for Cars](https://developer.android.com/develop/devices/assistant/cars).
 

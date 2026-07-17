@@ -12,7 +12,7 @@ source: md.txt
 
 Voice control enables drivers perform to tasks without taking their hands off
 the wheel or their eyes off the road. With App Actions for car apps, drivers can
-use Google Assistant to control Android apps on their infotainment system by
+use Gemini or Google Assistant to control Android apps on their infotainment system by
 saying things like, *"Hey Google, find street parking on ExampleApp"*.
 
 App Actions works with [point of interest (POI)](https://developer.android.com/training/cars/apps/poi) car apps. This guide covers the
@@ -21,21 +21,21 @@ app.
 
 ## How it works
 
-App Actions extend your in-app functionality to Assistant, enabling users to
+App Actions extend your in-app functionality to Gemini or Google Assistant, enabling users to
 access app features by using their voice. When a user invokes an App Action,
-Assistant matches the query to a built-in intent ([BII](https://developer.android.com/guide/app-actions/intents)) declared in your app's
+Gemini or Google Assistant matches the query to a built-in intent ([BII](https://developer.android.com/guide/app-actions/intents)) declared in your app's
 `shortcuts.xml` resource, and launches your app at the requested screen.
 
 You declare support for BIIs in your app using Android [`capability`](https://developer.android.com/guide/topics/ui/shortcuts/adding-capabilities#define_capabilities_in_shortcutsxml) elements.
 When you upload your app using the Google Play console, Google registers the
 capabilities declared in your app and makes them available for users to access
-from Assistant.
+from Gemini or Google Assistant.
 
-![Chart showing car fulfillment.](https://developer.android.com/static/guide/app-actions/images/app-actions-car.png)
+![Chart showing car fulfillment.](https://developer.android.com/static/develop/devices/assistant/images/app-actions-cars-digital-assistant.png)
 
-1. A user triggers Assistant and makes a voice request for a specific app.
-2. Assistant matches the request to a pre-trained model (BII), and extracts any parameters supported by the BII.
-3. In this example, Assistant matches the query to the [`GET_CHARGING_STATION`](https://developer.android.com/reference/app-actions/built-in-intents/travel/get-charging-station) BII, extracts the location parameter "SFO", and translates the location to its geo coordinates.
+1. A user triggers Gemini or Google Assistant and makes a voice request for a specific app.
+2. Gemini or Google Assistant matches the request to a pre-trained model (BII), and extracts any parameters supported by the BII.
+3. In this example, Gemini or Google Assistant matches the query to the [`GET_CHARGING_STATION`](https://developer.android.com/reference/app-actions/built-in-intents/travel/get-charging-station) BII, extracts the location parameter "SFO", and translates the location to its geo coordinates.
 4. The app is triggered via its fulfillment definition for this BII.
 5. The app processes the fulfillment, displaying charging station options in the driver's infotainment system.
 
@@ -72,7 +72,7 @@ fulfillment for each intent to specify how your app should satisfy the request.
 
   App Actions provides pre-trained voice models, called built-in intents (BII),
   which can understand and interpret a user's voice commands when they say,
-  *"Hey Google"* . To respond to voice requests, you simply declare to Assistant
+  *"Hey Google"* . To respond to voice requests, you simply declare to Gemini or Google Assistant
   the BIIs that your app supports. For example, if you want your app to assist
   in finding a parking facility, you implement the [`GET_PARKING_FACILITY`](https://developer.android.com/reference/app-actions/built-in-intents/travel/get-parking-facility)
   BII. Or, implement[`GET_CHARGING_STATION`](https://developer.android.com/reference/app-actions/built-in-intents/travel/get-charging-station) BII to help users find electric
@@ -89,7 +89,7 @@ After determining your fulfillment strategy, follow these steps to voice enable
 your car app:
 
 1. Open your main activity `AndroidManifest.xml` and declare support for Android
-   shortcuts. You use `capability` shortcut elements to declare to Assistant
+   shortcuts. You use `capability` shortcut elements to declare to Gemini or Google Assistant
    the BIIs that your app supports. For more information, see
    [Add capabilities](https://developer.android.com/develop/ui/views/launch/shortcuts/adding-capabilities).
 
@@ -99,13 +99,13 @@ your car app:
             android:resource="@xml/shortcuts" />
 
 2. Next, add an [`<intent-filter>`](https://developer.android.com/guide/topics/manifest/intent-filter-element) element to `AndroidManifest.xml`. This
-   enables Assistant to use deep links to connect to your app's content.
+   enables Gemini or Google Assistant to use deep links to connect to your app's content.
 
    - For Android Auto fulfillment, the [`<intent-filter>`](https://developer.android.com/guide/topics/manifest/intent-filter-element) is the same as your
      mobile app.
 
    - For Android Automotive OS, your app's [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService) session triggers
-     Assistant. To allow a session to trigger your deep link, specify an
+     Gemini or Google Assistant. To allow a session to trigger your deep link, specify an
      [`<intent-filter>`](https://developer.android.com/guide/topics/manifest/intent-filter-element) in the [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element) element of `AndroidManifest.xml`.
 
        <!-- AndroidManifest.xml -->

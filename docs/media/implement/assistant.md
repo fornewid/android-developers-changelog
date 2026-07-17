@@ -14,8 +14,13 @@ session](https://developer.android.com/guide/topics/media-apps/working-with-a-me
 [intents](https://developer.android.com/media/implement/assistant#playback-with-an-intent) or [services](https://developer.android.com/media/implement/assistant#playback-from-service) to
 launch your app and start playback. For the best results, your app should
 implement all the features described on this page.
-| **Note:** This guide explains how to create a media app so that the Assistant can help a user control their media. To learn how Android apps use the Assist API to improve the assistant user experience, see [Optimizing Content for the
-| Assistant](https://developer.android.com/training/articles/assistant)
+
+> [!NOTE]
+> **Note:** This guide explains how to create a media app so that the Assistant can help a user control their media. To learn how Android apps use the Assist API to improve the assistant user experience, see [Optimizing Content for the
+> Assistant](https://developer.android.com/training/articles/assistant)
+
+> [!NOTE]
+> **Note:** Gemini is now available for cars with Android Automotive OS and Android Auto. The guidance on this page applies to Gemini too, if you've set it as your default assistant.
 
 ## Use a media session
 
@@ -48,8 +53,10 @@ session.setFlags(
 session.setFlags(MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS |
     MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
 ```
-| **Note:** The Google Assistant can send commands to an existing media session. In order for the Google Assistant to create your media session, see [Playback from
-| a service](https://developer.android.com/media/implement/assistant#playback-from-service).
+
+> [!NOTE]
+> **Note:** The Google Assistant can send commands to an existing media session. In order for the Google Assistant to create your media session, see [Playback from
+> a service](https://developer.android.com/media/implement/assistant#playback-from-service).
 
 Your app's media session must declare the actions it supports, and implement the
 corresponding media session callbacks. Declare your supported actions in
@@ -100,7 +107,8 @@ steps:
 2. Build a playback queue based on these results.
 3. Play the most relevant media item from the results.
 
-| **Note:** If you support `ACTION_PREPARE_FROM_URI` and `ACTION_PLAY_FROM_URI`, you must also support `ACTION_PREPARE_FROM_SEARCH` and `ACTION_PLAY_FROM_SEARCH`. The Google Assistant will use the search query if a URI is not available.
+> [!NOTE]
+> **Note:** If you support `ACTION_PREPARE_FROM_URI` and `ACTION_PLAY_FROM_URI`, you must also support `ACTION_PREPARE_FROM_SEARCH` and `ACTION_PLAY_FROM_SEARCH`. The Google Assistant will use the search query if a URI is not available.
 
 The [`onPlayFromSearch()`](https://developer.android.com/reference/android/media/session/MediaSession.Callback#onPlayFromSearch(java.lang.String,%20android.os.Bundle))
 method takes an extras parameter with more detailed information from the voice
@@ -216,7 +224,9 @@ public void onPlayFromSearch(String query, Bundle extras) {
     }
 }
 ```
-| **Note:** Your app should start playback in the [`onPlayFromSearch()`](https://developer.android.com/reference/android/media/session/MediaSession.Callback#onPlayFromSearch(java.lang.String,%20android.os.Bundle)) method as soon as you have generated a playback queue based on the user's search.
+
+> [!NOTE]
+> **Note:** Your app should start playback in the [`onPlayFromSearch()`](https://developer.android.com/reference/android/media/session/MediaSession.Callback#onPlayFromSearch(java.lang.String,%20android.os.Bundle)) method as soon as you have generated a playback queue based on the user's search.
 
 For a more detailed example on how to implement voice search to play audio
 content in your app, see the [Universal Android Music Player](https://github.com/android/uamp)
@@ -358,7 +368,9 @@ The intent and its deep link can come from different sources:
 The Assistant adds the extra `https://developer.android.com/reference/androidx/core/content/IntentCompat#EXTRA_START_PLAYBACK` with value `true`
 to the intent it sends to your app. Your app should start playback when it
 receives an intent with `EXTRA_START_PLAYBACK`.
-| **Note:** The Assistant might cache the query results from your on-device content provider for up to seven days, and send the cached intent rather than running a new query if the user repeats a request. This means your app could receive a request to play content that is no longer available. Your app should handle this situation gracefully: Display an error message and let the user return to your landing activity (or perhaps another relevant activity).
+
+> [!NOTE]
+> **Note:** The Assistant might cache the query results from your on-device content provider for up to seven days, and send the cached intent rather than running a new query if the user repeats a request. This means your app could receive a request to play content that is no longer available. Your app should handle this situation gracefully: Display an error message and let the user return to your landing activity (or perhaps another relevant activity).
 
 ### Handling intents while active
 
@@ -393,7 +405,9 @@ the Assistant can start the app by communicating with the service's
 The media browser service should never launch an Activity.
 The Assistant will launch your Activity based on the `PendingIntent` you define
 with [setSessionActivity()](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.html#setSessionActivity(android.app.PendingIntent)).
-| **Note:** Currently, the Assistant does not use services to start video apps (it starts them with an intent). However, for future compatibility, we highly recommend including a media browser service in video apps.
+
+> [!NOTE]
+> **Note:** Currently, the Assistant does not use services to start video apps (it starts them with an intent). However, for future compatibility, we highly recommend including a media browser service in video apps.
 
 Be sure to set the MediaSession.Token when you
 [initialize the media browser service](https://developer.android.com/guide/topics/media-apps/audio-app/building-a-mediabrowserservice#init-session).
@@ -428,7 +442,8 @@ method. There are two ways to handle requests:
 - Accept all connection requests
 - Accept connection requests from the Assistant app only
 
-| **Note:** The `onGetRoot()` method should quickly return a non-null value. User authentication and other slow processes should not run in `onGetRoot()`. Most business logic should be handled in the `onLoadChildren()` method.
+> [!NOTE]
+> **Note:** The `onGetRoot()` method should quickly return a non-null value. User authentication and other slow processes should not run in `onGetRoot()`. Most business logic should be handled in the `onLoadChildren()` method.
 
 #### Accept all connection requests
 

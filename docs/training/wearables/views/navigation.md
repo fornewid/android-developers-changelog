@@ -21,10 +21,7 @@ Keep your app's hierarchy shallow and linear, as called out in the [app design g
 To start, your app's launcher should open the most common user journey. Design each user journey
 with the most important content at the top. For vertical containers, use the bottom to link to
 other, less-common user journeys and the settings.
-![](https://developer.android.com/static/wear/images/screen_opts_2.png)
-
-
-**Figure 1.** Keep the most important content at the top of vertical containers.
+![Top content is the current activity, or the most important summary statistic](https://developer.android.com/static/wear/images/screen_opts_2.png) **Figure 1.** Keep the most important content at the top of vertical containers.
 
 When users enter one of your screens, make sure they can use the swipe-to-dismiss gesture
 to navigate down the [back stack](https://developer.android.com/guide/components/tasks-and-back-stack).

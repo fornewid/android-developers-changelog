@@ -71,13 +71,13 @@ following resources contain additional guidance relating to implementation:
 - Your app can launch navigation in Google Maps built-in through
   [Google Maps for Automotive intents](https://developer.android.com/training/cars/platforms/automotive-os/android-intents-automotive).
 
-- Navigation apps can achieve interoperability with Google Assistant
+- Navigation apps can achieve interoperability with Gemini or Google Assistant
   through three different formats of intents. See [Implement navigation app
   intents](https://developer.android.com/develop/devices/assistant/intents-assistant-nav-app). To learn more about implementing turn-by-turn navigation apps
   compatible with Android Automotive OS and Android Auto, see
   [Build a Navigation app](https://developer.android.com/training/cars/apps/navigation#support-navigation-intents).
 
-- Google Assistant can launch any app that is installed in the vehicle with
+- Gemini or Google Assistant can launch any app that is installed in the vehicle with
   voice commands like *"Hey Google, open Example app."*
 
 - The [`PackageManager`](https://developer.android.com/reference/android/content/pm/PackageManager#getInstalledPackages(android.content.pm.PackageManager.PackageInfoFlags)) class lets you retrieve information

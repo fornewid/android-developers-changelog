@@ -40,7 +40,7 @@ Automatic play and mute buttons for messaging notifications
 :   Android Automotive OS automatically adds **Play** and **Mute** buttons to
     all [car-compatible messaging notifications](https://developer.android.com/training/cars/platforms/automotive-os/notifications#messaging-requirements).
 
-    - **Play:** reads the notification to the driver using the user's default digital assistant, such as the Google Assistant, or the vehicle's default text-to-speech system.
+    - **Play:** reads the notification to the driver using the user's default digital assistant, such as Gemini or Google Assistant, or the vehicle's default text-to-speech system.
     - **Mute:** prevents heads-up notifications from appearing for any future
       messages in the conversation for the remainder of the drive. Message
       notifications from a muted conversation still appear in the Notification
@@ -240,5 +240,5 @@ Table 3 describes the API changes and restrictions in the
 | Public methods | Effect | Description |
 |---|---|---|
 | Public constructors | Behavior changed | Icons specified in public constructors are ignored. |
-| `addRemoteInput` | Behavior changed | To minimize driver distraction, a digital assistant, such as the Google Assistant, inserts the response to a message for the user. Users can't type messages. |
+| `addRemoteInput` | Behavior changed | To minimize driver distraction, a digital assistant, such as Gemini or Google Assistant, inserts the response to a message for the user. Users can't type messages. |
 | `setAllowGeneratedReplies` | No-op | Smart Reply is not supported. |

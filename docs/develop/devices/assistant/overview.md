@@ -50,7 +50,6 @@ You can use App Actions to provide voice-forward control on device surfaces
 beyond mobile. For example, with BIIs optimized for Auto use cases, drivers
 can perform the following tasks using their voice:
 
-- [Navigate to the nearest restaurant on their driving route](https://developer.android.com/reference/app-actions/built-in-intents/travel/get-local-business)
 - [Find the closest parking garage](https://developer.android.com/reference/app-actions/built-in-intents/travel/get-parking-facility)
 - [Locate nearby EV charging stations](https://developer.android.com/reference/app-actions/built-in-intents/travel/get-charging-station)
 

@@ -11,7 +11,7 @@ Auto and Android Automotive OS:
 - See [Test your app using the Android Automotive OS emulator](https://developer.android.com/training/cars/testing/emulator) for details on how to install and run Android Automotive OS images.
 - See [Test using Android Automotive OS on Pixel Tablet](https://developer.android.com/training/cars/testing/aaos-on-pixel) for details on how to install Android Automotive OS on a Pixel Tablet. Certain images also support use as an Android Auto receiver.
 - See [Access Android Automotive OS devices through Firebase Test Lab](https://developer.android.com/training/cars/testing/firebase) for details on how to test on real car hardware using Firebase Test Lab.
-- See [Test interoperability with Google Services](https://developer.android.com/training/cars/testing/gas-intents) on how to test the interoperability of Google Assistant and Google Maps with custom apps on Android Automotive OS.
+- See [Test interoperability with Google Services](https://developer.android.com/training/cars/testing/gas-intents) on how to test the interoperability of Gemini or Google Assistant and Google Maps with custom apps on Android Automotive OS.
 
 > [!IMPORTANT]
 > **Important:** Before submitting your app to Google Play for review, test its user experience. Also, check that your app meets all the criteria for its category listed on the [Android app quality for cars](https://developer.android.com/docs/quality-guidelines/car-app-quality) page.

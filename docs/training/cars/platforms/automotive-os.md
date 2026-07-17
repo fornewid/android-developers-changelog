@@ -9,7 +9,7 @@ source: md.txt
 Android Automotive OS is a version of Android optimized for in-car use that
 extends upon the core Android platform. [Cars with Google built-in](https://built-in.google/cars/) run
 Android Automotive OS and come with Google apps and services including Google
-Play, Google Assistant, and Google Maps.
+Play, Gemini, Google Assistant, and Google Maps.
 
 > [!NOTE]
 > **Note:** Android Automotive OS and [Android Auto](https://developer.android.com/training/cars/platforms/android-auto) are not exclusive. That is, a car can run Android Automotive OS and also support Android Auto.
