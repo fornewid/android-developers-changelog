@@ -53,7 +53,7 @@ private fun safeCameraOpen(id: Int): Boolean {
 
 private fun releaseCameraAndPreview() {
     preview?.setCamera(null)
-    mCamera?.also >{ camera -
+    mCamera?.also { camera ->
         camera.release()
         mCamera = null
     }

@@ -62,7 +62,7 @@ creates a client:
 
 ### Key points about this code
 
-- The [`LowLightBoost`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoost) class provides the static method [`getClient`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoost#getClient(android.content.Context))%7B:.external%7D(), which returns an instance of `LowLightBoostClient`.
+- The [`LowLightBoost`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoost) class provides the static method [`getClient`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoost#getClient(android.content.Context)), which returns an instance of `LowLightBoostClient`.
 
 ## Check if low light boost is supported
 

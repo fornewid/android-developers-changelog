@@ -22,4 +22,4 @@ CLI to deploy Journeys in your CI/CD.
 
 ![Writing a journey with Android CLI](https://developer.android.com/static/tools/agents/images/android-cli-write-journey.png)
 
-If you're using Android Studio, see [Journeys for Android Studio](https://developer.android.com/tools/agents/studio/journeys).
+If you're using Android Studio, see [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys).

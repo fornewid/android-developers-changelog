@@ -236,9 +236,9 @@ If your app only cares about data-layer events when the user is interacting with
 the app, it may not need a long-running service to handle every data change. In
 such a case, you can listen for events in an activity.
 
-To recommend a cleaner and safer approach, use a **Lifecycle Observer** . By
-using a Lifecycle Observer, you move the registration logic out of the
-Activity's [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()) and into a separate, reusable class that
+For a cleaner and safer approach, use a **lifecycle observer** . By using a
+lifecycle observer, you move the registration logic out of the activity's
+[`LifecycleResumeEvent`](https://developer.android.com/reference/android/app/Activity#onResume()) and into a separate, reusable class that
 implements `DefaultLifecycleObserver`.
 
 This approach keeps your Activity lean and prevents common bugs like forgetting
@@ -278,8 +278,9 @@ class WearDataLayerObserver(
 
 #### 2. Usage in your Activity
 
-Now, your Activity doesn't need to override [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()) or
-[`onPause()`](https://developer.android.com/reference/android/app/Activity#onPause()) for the Wear API. You add the observer once in `onCreate()`.
+Now, your activity doesn't need to use [`LifecycleResumeEvent`](https://developer.android.com/reference/android/app/Activity#onResume()) or
+[`onPause`](https://developer.android.com/reference/android/app/Activity#onPause()) for the Wear API. You register the observer once in
+`LaunchedEvent` (or `onCreate`).
 
 <br />
 
@@ -310,7 +311,7 @@ class DataLayerLifecycleActivity : ComponentActivity() {
 
 - **Cleaner Activity:** You remove boilerplate from the Activity lifecycle methods.
 - **Safety:** `DefaultLifecycleObserver` helps verify that the listener is removed even if the Activity is destroyed unexpectedly, preventing memory leaks.
-- **Reusability:** You can plug this `WearDataLayerObserver` into any Activity or Fragment without rewriting the registration logic.
+- **Reusability:** You can plug this `WearDataLayerObserver` into any Activity or Composable without rewriting the registration logic.
 - **Decoupling:** The logic for when to listen is separated from the logic of what to do with the data.
 
 > [!TIP]
@@ -327,6 +328,6 @@ when registering a live listener through the [Wearable API](https://developers.g
 apply to both API-based live listeners and manifest-based listeners.
 
 A common pattern is to [register a listener with a specific path or path prefix
-using a `LifecycleObserver`](https://developer.android.com/training/wearables/data/events#use-live-listener). By implementing listeners in this fashion,
-your app can more selectively receive events, improving its design and
+using `collectAsStateWithLifecycle()`](https://developer.android.com/training/wearables/data/events#use-live-listener). By implementing listeners in this
+way, your app can more selectively receive events, improving its design and
 efficiency.

@@ -86,7 +86,7 @@ To know if an ANR is happening on the Unity engine side of things, check for
 following steps:
 
 - First, search the community channels ([Unity Forums](https://forum.unity.com/), [Unity
-  Discussions](https://discussions.unity.com/), [Stackoverflow](https://stackoverflow.com/questions/tagged/unity-game-engine?tab=Newest)%7B:.external%7D)).
+  Discussions](https://discussions.unity.com/), [Stackoverflow](https://stackoverflow.com/questions/tagged/unity-game-engine?tab=Newest)).
 - If you do not find anything, [file a bug](https://unity.com/releases/editor/qa/bug-reporting) to resolve the problem. Provide a symbolicated stack trace so the engine's engineers can better understand and solve the error.
 - Check whether the latest [Unity
   LTS](https://unity.com/releases/editor/qa/lts-releases) has made improvements related to your issues. If so, upgrade your game to use that version. (This solution may be possible only for some developers.)

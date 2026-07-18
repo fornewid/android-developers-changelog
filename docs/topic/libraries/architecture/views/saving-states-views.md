@@ -399,7 +399,7 @@ To learn more about saving UI states, see the following resources.
 ### Blogs
 
 - [ViewModels: A simple example](https://medium.com/androiddevelopers/viewmodels-a-simple-example-ed5ac416317e)
-- [ViewModels: Persistence](https://medium.com/androiddevelopers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090), [`onSaveInstanceState`](https://medium.com/androiddevelopers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090)%7B:.external%7D(), [Restoring UI State and Loaders](https://medium.com/androiddevelopers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090)
+- [ViewModels: Persistence](https://medium.com/androiddevelopers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090), [`onSaveInstanceState`](https://medium.com/androiddevelopers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090), [Restoring UI State and Loaders](https://medium.com/androiddevelopers/viewmodels-persistence-onsaveinstancestate-restoring-ui-state-and-loaders-fc7cc4a6c090)
 
 ### Codelabs
 

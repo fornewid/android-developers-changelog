@@ -349,10 +349,11 @@ This doc shows you how to implement a variable font in your Compose app.
 
 ### Load a variable font
 
-1. Download the variable font you want to use (for example [Roboto Flex](https://fonts.google.com/specimen/Roboto+Flex)%7B:.external%7D)) and
-   place it in the `app/res/font` folder in your app. Make sure that the .`ttf`
-   file you add is the *variable font version* of the font, and that the name of
-   your font file is all lowercase and doesn't contain any special characters.
+1. Download the variable font you want to use (for example
+   [Roboto Flex](https://fonts.google.com/specimen/Roboto+Flex)) and place it in the `app/res/font` folder in
+   your app. Make sure that the .`ttf` file you add is the
+   *variable font version* of the font, and that the name of your font file is
+   all lowercase and doesn't contain any special characters.
 
    > [!NOTE]
    > **Note:** Variable fonts are not currently supported via downloadable fonts. See the latest updates in [this bug](https://issuetracker.google.com/issues/223262013).

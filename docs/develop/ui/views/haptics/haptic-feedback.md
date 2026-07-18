@@ -189,7 +189,7 @@ The app needs to have the
 to vibrate the device using this service. The permission can be added to the
 application manifest file:
 
-    <uses-permission android:name="android.permission.VIBR>ATE"/
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
 ### Play a predefined `VibrationEffect`
 

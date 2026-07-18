@@ -160,7 +160,7 @@ layer provides a few different functions, such as:
 
 - Isolation for its drawing instructions (similar to [`RenderNode`](https://developer.android.com/reference/android/graphics/RenderNode)). Drawing instructions captured as part of a layer can be re-issued efficiently by the rendering pipeline without re-executing application code.
 - Transformations that apply to all the drawing instructions contained within a layer.
-- Rasterization for composition capabilities. When a layer is rasterized, its drawing instructions are executed and the output is captured into an offscreen buffer. [Compositing](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers#heading=%7B:compositing-strategy%7D) such a buffer for subsequent frames is faster than executing the individual instructions, but it will behave as a bitmap when transforms like scaling or rotation are applied.
+- Rasterization for composition capabilities. When a layer is rasterized, its drawing instructions are executed and the output is captured into an offscreen buffer. [Compositing](https://developer.android.com/develop/ui/compose/graphics/draw/modifiers#compositing-strategy) such a buffer for subsequent frames is faster than executing the individual instructions, but it will behave as a bitmap when transforms like scaling or rotation are applied.
 
 #### Transformations
 

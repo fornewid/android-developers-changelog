@@ -85,7 +85,7 @@ Your app must fulfill the [core app quality](https://developer.android.com/docs/
 
 Your app should also adhere to all applicable [accessibility guidelines](https://developer.android.com/guide/topics/ui/accessibility) for
 other form factors such as phones and tablets (for example, [color
-contrast](https://support.google.com/accessibility/android/answer/7158390)%7B:.external%7D)).
+contrast](https://support.google.com/accessibility/android/answer/7158390)).
 
 ### Android XR compatible large screen app
 

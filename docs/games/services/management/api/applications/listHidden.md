@@ -45,43 +45,42 @@ If successful, this method returns a response body with the following structure:
 ```
 {
   "kind": "gamesManagement#hiddenPlayerList",
-  "nextPageToken": string,
+  &quot;nextPageToken&qu{ot;: string,
   "items": [
-    {
-      "kind": "gamesManagement#hiddenPlayer",
-      "player": {
-        "kind": "gamesManagement#player",
-        "playerId": string,
+    
+      "kind"{: "gamesManagement#hiddenPlayer",
+      "player&quot;: 
+        "kind";: &quot;gamesManagement#player&quot;,
+        "playerId":{ string,
         "displayName": string,
-        "avatarImageUrl": string,
-        "lastPlayedWith": {
-          "timeMillis": long,
-          "autoMatched": boolean
-        },
-        "name": {
+        ";avatarIm}ageUrl": stri{ng,
+        "lastPlayedWith": 
+          ";timeMillis&quo}t;: long,
+          "au{toMatched": boolean
+        ,
+        "name": 
           "familyName": string,
-          "givenName": string
-        },
-        "experienceInfo": {
-          "currentExperiencePoints": long,
-          "lastLevelUpTimestampMillis": long,
-          "currentLevel": {
+          &q{uot;givenName": string
+        ,
+        "experienceInfo&quot;: 
+          "currentExperiencePoints": }long,
+          "las{tLevelUpTimestampMillis": long,
+          "currentLevel&quot;: 
+            "level": integer,
+        }    "};minExperiencePoints";: long},
+            "maxExperiencePoin}ts&qu}ot;: long
+          ,
+          "nextLevel": 
             "level": integer,
             "minExperiencePoints": long,
             "maxExperiencePoints": long
-          },
-          "nextLevel": {
-            "level": integer,
-            "minExperiencePoints": long,
-            "maxExperiencePoints": long
-          }
-        },
+          
+        ,
         "title": string
-      },
+      ,
       "hiddenTimeMillis": long
-    }
+    
   ]
-}
 ```
 
 | Property name | Value | Description | Notes |

@@ -292,7 +292,7 @@ closures, string concatenations, and improper management of pooled objects:
 - To get started, see [Find memory leaks](https://docs.unity3d.com/Packages/com.unity.memoryprofiler@1.1/manual/find-memory-leaks.html) to compare Unity memory snapshots properly.
 - Check for event subscriptions and memory leaks. If objects subscribe to events (for example, by delegates or UnityEvents) but do not properly unsubscribe before being destroyed, the event manager or publisher may retain references to those objects. This prevents those objects from being garbage collected, leading to memory leaks.
 - Monitor global or singleton class events that aren't unregistered on object destruction. For example, unsubscribe or unhook delegates in object destructors.
-- Ensure destruction of pooled objects fully nullifies references to [text mesh components](https://docs.unity3d.com/Packages/com.unity.ugui@3.0/manual/TextMeshPro/index.html)%7B:.external%7D), textures, and parent GameObjects.
+- Ensure destruction of pooled objects fully nullifies references to [text mesh components](https://docs.unity3d.com/Packages/com.unity.ugui@3.0/manual/TextMeshPro/index.html), textures, and parent GameObjects.
 - Keep in mind that when comparing Unity Memory Profiler snapshots and observing a [difference in memory consumption without a clear reason](https://discussions.unity.com/t/unable-to-determine-cause-of-memory-leak-in-unity-when-using-addressables-can-anyone-give-suggestions-on-what-the-cause-might-be/1591429/3), the difference may be caused by the graphics driver or the operating system itself.
 
 ### Memory fragmentation
@@ -312,8 +312,8 @@ should be made together, early in the application's lifecycle.
 
 #### Observers and event managers
 
-- In addition to the problem mentioned in the (Memory Leaks)[77](https://developer.android.com/games/engines/unity/%7B:#memory-leaks%7D) section, over time, memory leaks can contribute to fragmentation by leaving unused memory allocated to objects that are no longer in use.
-- Ensure destruction of pooled objects fully nullifies references to [text mesh components](https://docs.unity3d.com/Packages/com.unity.ugui@3.0/manual/TextMeshPro/index.html)%7B:.external%7D), textures, and parent `GameObjects`.
+- In addition to the problem mentioned in the [Memory Leaks](https://developer.android.com/games/engines/unity/unity-lmks#memory-leaks) section, over time, memory leaks can contribute to fragmentation by leaving unused memory allocated to objects that are no longer in use.
+- Ensure destruction of pooled objects fully nullifies references to [text mesh components](https://docs.unity3d.com/Packages/com.unity.ugui@3.0/manual/TextMeshPro/index.html), textures, and parent `GameObjects`.
 - Event managers often create and store lists or dictionaries to manage event subscriptions. If these grow and shrink dynamically during runtime, they can contribute to memory fragmentation due to frequent allocations and deallocations.
 
 #### Code

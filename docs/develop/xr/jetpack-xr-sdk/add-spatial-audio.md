@@ -180,7 +180,7 @@ if (session.scene.spatialCapabilities.contains(SpatialCapability.SPATIAL_AUDIO)
     val soundEffect = appContext.assets.openFd("sounds/tiger_16db.mp3")
     val pointSoundId = soundPool.load(soundEffect, lowPriority)
 
-    soundPool.setOnLoadCompleteListener { soundPool, sampleId>, status -
+    soundPool.setOnLoadCompleteListener { soundPool, sampleId, status ->
         // wait for the sound file to be loaded into the soundPool
         if (status == 0) {
             SpatialSoundPool.play(
@@ -197,7 +197,8 @@ if (session.scene.spatialCapabilities.contains(SpatialCapability.SPATIAL_AUDIO)
         }
     }
 } else {
-    // The session does not have spatial audio capaalAudio.kt
+    // The session does not have spatial audio capabilities
+}
 ```
 
 <br />
@@ -283,7 +284,8 @@ if (session.scene.spatialCapabilities.contains(SpatialCapability.SPATIAL_AUDIO))
     mediaPlayer.prepare()
     mediaPlayer.start()
 } else {
-    // The session does not have spatial audio capaalAudio.kt
+    // The session does not have spatial audio capabilities
+}
 ```
 
 <br />
@@ -336,7 +338,8 @@ if (session.scene.spatialCapabilities.contains(SpatialCapability.SPATIAL_AUDIO))
     mediaPlayer.prepare()
     mediaPlayer.start()
 } else {
-    // The session does not have spatial audio capaalAudio.kt
+    // The session does not have spatial audio capabilities
+}
 ```
 
 <br />

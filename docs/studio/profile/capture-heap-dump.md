@@ -93,7 +93,7 @@ the following:
 - **Depth**: The shortest number of hops from any GC root to the selected instance.
 - **Native Size**: Size of this instance in native memory. This column is visible only for Android 7.0 and higher.
 - **Shallow Size**: Size of this instance in Java memory.
-- **Retained Size** : Size of memory that this instance dominates (as per the [dominator tree](https://en.wikipedia.org/wiki/Dominator_(graph_theory))%7B:.external%7D))).
+- **Retained Size** : Size of memory that this instance dominates (as per the [dominator tree](https://en.wikipedia.org/wiki/Dominator_(graph_theory))).
 
 Click an instance to show the **Instance Details** , including its **Fields**
 and **References** . Common field and reference types are structured types

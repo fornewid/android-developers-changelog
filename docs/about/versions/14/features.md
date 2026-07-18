@@ -242,9 +242,9 @@ supports multiple sign-in methods, including username and password, passkeys,
 and federated sign-in solutions (such as Sign-in with Google) in a single API.
 
 [Passkeys](https://developer.android.com/design/ui/mobile/guides/patterns/passkeys) provide many advantages. For example, passkeys
-are [built on industry standards](https://fidoalliance.org/passkeys/)%7B:.external%7D), can work across
-different operating systems and browser ecosystems, and can be used with both
-websites and apps.
+are [built on industry standards](https://fidoalliance.org/passkeys/), can work
+across different operating systems and browser ecosystems, and can be used with
+both websites and apps.
 
 For more information, see the
 [Credential Manager and passkeys documentation](https://developer.android.com/training/sign-in/passkeys) and the

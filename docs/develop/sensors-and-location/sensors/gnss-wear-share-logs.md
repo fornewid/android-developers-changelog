@@ -48,7 +48,7 @@ Within Android Studio Device Explorer, check out the path
 `/sdcard/Android/data/com.google.android.apps.location.gps.gnsslogger/files/gnss_log`
 to find the log files (.txt file for the
 [GnssLogger log format](https://github.com/google/gps-measurement-tools/blob/master/LOGGING_FORMAT.md)), and the .24o file for
-[RINEX](https://files.igs.org/pub/data/format/rinex_4.01.pdf)%7B:.external%7D):
+[RINEX](https://files.igs.org/pub/data/format/rinex_4.01.pdf):
 ![Android Studio Device Explorer showing log files](https://developer.android.com/static/images/sensors/gnss-share6.png)**Figure 7.** Android Studio Device Explorer
 
 You can select the files, right-click, and then select "Save To..." to save them
