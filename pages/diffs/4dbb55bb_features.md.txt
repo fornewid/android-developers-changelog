@@ -1,0 +1,23 @@
+diff --git a/docs/about/versions/17/features.md b/docs/about/versions/17/features.md
+index 40ca90f7..1c75e80e 100644
+--- a/docs/about/versions/17/features.md
++++ b/docs/about/versions/17/features.md
+@@ -300,7 +300,7 @@ Downlink Time Difference of Arrival (DL-TDoA) ranging lets a device determine it
+ > permissions](https://developer.android.com/develop/sensors-and-location/location/permissions).
+ 
+ The following snippet demonstrates how to initialize the
+-\[Ranging Manager\]\[ranging-manager-ref\], verify device capabilities, and start a
++[Ranging Manager](https://developer.android.com/reference/android/ranging/RangingManager), verify device capabilities, and start a
+ DL-TDoA session:
+ 
+ ### Kotlin
+@@ -482,6 +482,4 @@ use these parameters in place of
+         .setSlotDuration(UwbRangingParams.DURATION_2_MS)
+         .setSlotsPerRangingRound(20)
+         .setRangingRoundIndexes(new byte[]{0x01, 0x05})
+-        .build();
+-
+-\[ranging-manager-ref\]: /reference/android/ranging/RangingManager
+\ No newline at end of file
++        .build();
+\ No newline at end of file

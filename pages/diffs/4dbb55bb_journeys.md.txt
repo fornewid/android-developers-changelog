@@ -1,0 +1,12 @@
+diff --git a/docs/tools/agents/android-cli/journeys.md b/docs/tools/agents/android-cli/journeys.md
+index 3e34d2cd..dbb4c396 100644
+--- a/docs/tools/agents/android-cli/journeys.md
++++ b/docs/tools/agents/android-cli/journeys.md
+@@ -22,4 +22,4 @@ CLI to deploy Journeys in your CI/CD.
+ 
+ ![Writing a journey with Android CLI](https://developer.android.com/static/tools/agents/images/android-cli-write-journey.png)
+ 
+-If you're using Android Studio, see [Journeys for Android Studio](https://developer.android.com/tools/agents/studio/journeys).
+\ No newline at end of file
++If you're using Android Studio, see [Journeys for Android Studio](https://developer.android.com/studio/gemini/journeys).
+\ No newline at end of file
