@@ -17,9 +17,9 @@ For a basic setup that uses the default Cast receiver application, add the
       ...
       <meta-data
         android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
-        android:value="androidx.media3.cast.DefaultCastOpt>ionsPro<vider" >/
+        android:value="androidx.media3.cast.DefaultCastOptionsProvider" />
       ...
-    /application
+    </application>
 
 ## Create a custom options provider
 
@@ -35,9 +35,9 @@ the fully qualified class name.
       ...
       <meta-data
         android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME"
-        android:value="path.to.your.class.MyCustomCastOpt>ionsPro<vider" >/
+        android:value="path.to.your.class.MyCustomCastOptionsProvider" />
       ...
-    /application
+    </application>
 
 ### 2. Implement the OptionsProvider interface
 
@@ -67,7 +67,9 @@ class MyCustomCastOptionsProvider : OptionsProvider {
 
   companion object {
     // Add your receiver app ID in <APP_ID>.
-    private const val APP_ID = &<quot;A>PP_ID&qOptions.kt
+    private const val APP_ID = "<APP_ID>"
+  }
+}
 ```
 
 ### Java
@@ -76,7 +78,7 @@ class MyCustomCastOptionsProvider : OptionsProvider {
 public static final class MyCustomCastOptionsProvider implements OptionsProvider {
 
   // Add your receiver app ID in <APP_ID>.
-  public static final String APP_ID = &<quot;A>PP_ID";
+  public static final String APP_ID = "<APP_ID>";
 
   @Override
   public CastOptions getCastOptions(Context context) {
@@ -88,8 +90,10 @@ public static final class MyCustomCastOptionsProvider implements OptionsProvider
 
   @Override
   @Nullable
-  p<ublic ListSessi>onProvider getAdditionalSessionProviders(Context context) {
-    return ntions.java
+  public List<SessionProvider> getAdditionalSessionProviders(Context context) {
+    return null;
+  }
+}
 ```
 
 <br />

@@ -47,7 +47,7 @@ A constant integer representing the maximum payload length for unreliable messag
 ### InitializationCallback
 
 ```c#
-Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/nearby#namespace_google_play_games_1_1_basic_api_1_1_nearby_1ac4f721f70ef2577c62ecce26a87807ac InitializationStatus > GooglePlayGames::BasicApi::Nearby::NearbyConnectionConfiguration::InitializationCallback
+Action< InitializationStatus > GooglePlayGames::BasicApi::Nearby::NearbyConnectionConfiguration::InitializationCallback
 ```
 Gets the callback to be invoked upon the completion of initialization.
 
@@ -64,7 +64,7 @@ Gets the unique identifier for the local client.
 
 ```c#
  GooglePlayGames::BasicApi::Nearby::NearbyConnectionConfiguration::NearbyConnectionConfiguration(
-  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/nearby#namespace_google_play_games_1_1_basic_api_1_1_nearby_1ac4f721f70ef2577c62ecce26a87807ac InitializationStatus > callback,
+  Action< InitializationStatus > callback,
   long localClientId
 )
 ```

@@ -36,7 +36,7 @@ dependencies {
 // In your app's build.gradle.kts file:
 ...
 dependencies {
-    // This dependency is downloaded from https://developer.android.com/studio/build/dependencies#google-mavenpository.
+    // This dependency is downloaded from the https://developer.android.com/studio/build/dependencies#google-maven.
     // So, make sure you also include that repository in your project's build.gradle file.
     implementation("com.google.android.play:review:2.0.2")
 

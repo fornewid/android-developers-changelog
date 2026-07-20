@@ -115,7 +115,7 @@ querying legacy variants to lazily configuring variants using
 
     // Lazy, Configuration Cache compatible Variant API
     androidComponents {
-        onVariants(selector().withBuildType("release")) {> variant -
+        onVariants(selector().withBuildType("release")) { variant ->
             // Safely and lazily configures properties
         }
     }
