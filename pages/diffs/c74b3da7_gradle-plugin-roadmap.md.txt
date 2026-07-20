@@ -1,0 +1,13 @@
+diff --git a/docs/build/releases/gradle-plugin-roadmap.md b/docs/build/releases/gradle-plugin-roadmap.md
+index e5c48d12..75378fc6 100644
+--- a/docs/build/releases/gradle-plugin-roadmap.md
++++ b/docs/build/releases/gradle-plugin-roadmap.md
+@@ -115,7 +115,7 @@ querying legacy variants to lazily configuring variants using
+ 
+     // Lazy, Configuration Cache compatible Variant API
+     androidComponents {
+-        onVariants(selector().withBuildType("release")) {> variant -
++        onVariants(selector().withBuildType("release")) { variant ->
+             // Safely and lazily configures properties
+         }
+     }
