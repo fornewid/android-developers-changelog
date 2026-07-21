@@ -7,6 +7,22 @@ source: md.txt
 # The Latest
 
 Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
+- [![View Wei Wang's profile](https://developer.android.com/static/blog/assets/weiwa_web_6a7b6f6114_Z1kCd5W.webp)](https://developer.android.com/blog/authors/wei-wang) 20 Jul 2026 20 Jul 2026 ![](https://developer.android.com/static/blog/assets/Upcoming_Changes_to_the_Nearby_Connections_API_Strapi_11b1de50e2_K0lSy.webp) [Documentation](https://developer.android.com/blog/categories/documentation)
+
+  ## [Upcoming Changes to the Nearby Connections API](https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api)
+
+  [arrow_forward](https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api) User privacy and transparency are core to the Android experience. To better align with these principles, we are updating the default behavior of the Nearby Connections API regarding how it interacts with device radios.
+  [Wei Wang](https://developer.android.com/blog/authors/wei-wang) • 1 min read
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_ZzldHB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent) Android Studio Quail 2 is now stable and ready for you to use in production, bringing a shift to your IDE with concurrent agentic workflows, natively integrated memory leak profiling, and context-aware crash remediation.
+  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 3 min read
+  - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
+  - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  - +1 ↩
 - [![View Zoe Lopez-Latorre 's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_07_07_at_1_15_58_PM_eb87f2f61a_Z1QyLll.webp)](https://developer.android.com/blog/authors/zoe-lopez-latorre) 08 Jul 2026 08 Jul 2026 ![](https://developer.android.com/static/blog/assets/Bench_July_releas_V01_Strapi_6ee24bdb6b_1NrCN7.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Evolving how LLMs are measured for Android: the next era of Android Bench](https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench)
@@ -76,6 +92,16 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - +1 ↩
+- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
+
+  [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
+  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) • 10 min read
+  - [#Memory](https://developer.android.com/blog/topics/memory)
+  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - +1 ↩
 - [![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Building Premium Android Experiences at Google I/O '26](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26)
@@ -88,16 +114,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
   - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
   - +3 ↩
-- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
-
-  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
-
-  [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) • 10 min read
-  - [#Memory](https://developer.android.com/blog/topics/memory)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Performance](https://developer.android.com/blog/topics/performance)
-  - +1 ↩
 - [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26)
@@ -129,60 +145,41 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development)
   - +1 ↩
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_13HwUT.webp)](https://developer.android.com/blog/authors/blog-author) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
+  ## [Introducing Android Performance Analyzer - The Next Evolution in Profiling for Android](https://developer.android.com/blog/posts/introducing-android-performance-analyzer-the-next-evolution-in-profiling-for-android)
 
-  [arrow_forward](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem) With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) • 4 min read
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/introducing-android-performance-analyzer-the-next-evolution-in-profiling-for-android) Android Performance Analyzer (APA) is Android's new profiler and performance analysis tool for the Android mobile ecosystem.
+  APA is intended as a profiling tool for any developer building for Android who needs to make their app or game run better and faster.
+  [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 5 min read
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 8 min read
+  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - +1 ↩
-- [![View Paul Lammertsma's profile](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)](https://developer.android.com/blog/authors/paul-lammertsma) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  - +2 ↩
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Increasing app discovery and engagement on Google TV](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv)
+  ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
 
-  [arrow_forward](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv) We're excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
-  [Paul Lammertsma](https://developer.android.com/blog/authors/paul-lammertsma) • 4 min read
-  - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
+  [arrow_forward](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play) At this year's Google I/O, we talked about our evolving business model that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity.
+
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 6 min read
+  - [#Google Play](https://developer.android.com/blog/topics/google-play)
+  - [#Play Console](https://developer.android.com/blog/topics/play-console)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
-  - +1 ↩
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Updates to the Android XR SDK: Introducing Developer Preview 4](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4)
-
-  [arrow_forward](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4) We're excited to launch Developer Preview 4 of the Android XR SDK, continuing our focus on unifying cross-device development for headsets, wired XR glasses, and intelligent eyewear.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva) • 5 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-  - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
-  - [#Developer Preview](https://developer.android.com/blog/topics/developer-preview)
-  - [#Unity](https://developer.android.com/blog/topics/unity)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - +3 ↩
-- 3 Authors 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [What's new in Android for Cars: Unifying platforms and unlocking premium experiences](https://developer.android.com/blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences)
-
-  [arrow_forward](https://developer.android.com/blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences) We're thrilled to see developers continuing to bring their apps and experiences to Android for Cars! Over the past year, we've continued to see strong growth and momentum in the app ecosystem on Android Auto and cars with Google built-in.
-  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert), [Noam Gefen](https://developer.android.com/blog/authors/noam-gefen), [Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers) • 3 min read
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp)](https://developer.android.com/blog/authors/john-zoeller) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Developer_Blog_2_1_1440x720_6_64da0326e3_Z1M1YEl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [What's New in Wear OS 7](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7)
-
-  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7) We are excited to introduce Wear OS 7, a major update that brings a new era of power efficiency and intelligence to users and developers alike.
-  [John Zoeller](https://developer.android.com/blog/authors/john-zoeller) • 9 min read
-  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
-  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
-  - [#Compose](https://developer.android.com/blog/topics/compose)
-  - +1 ↩
+  - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
+  - +2 ↩
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
 
-###### of 8
+###### of 9
 
 [arrow_forward](https://developer.android.com/blog/latest/2)
 
@@ -196,19 +193,19 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Android XR](https://developer.android.com/blog/topics/android-xr)
 - [#Android 17](https://developer.android.com/blog/topics/android-17)
 - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
-- [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
 - [#R8](https://developer.android.com/blog/topics/r8)
 - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+- [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
 - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
 - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
 - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
 - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
 - [#Google Play](https://developer.android.com/blog/topics/google-play)
 - [#Memory](https://developer.android.com/blog/topics/memory)
-- [#Nav3](https://developer.android.com/blog/topics/nav3)
-- [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
 - [#Idling Resources](https://developer.android.com/blog/topics/idling-resources)
 - [#identity](https://developer.android.com/blog/topics/identity)
+- [#Nav3](https://developer.android.com/blog/topics/nav3)
+- [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
 - [#Android 16](https://developer.android.com/blog/topics/android-16)
 - [#beta](https://developer.android.com/blog/topics/beta)
 - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
@@ -228,6 +225,8 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
 - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
 - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+- [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
+- [# Quail 2](https://developer.android.com/blog/topics/quail-2)
 - [#authentication](https://developer.android.com/blog/topics/authentication)
 - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
 - [#Foldables](https://developer.android.com/blog/topics/foldables)
@@ -235,6 +234,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Large Screens](https://developer.android.com/blog/topics/large-screens)
 - [#Layouts](https://developer.android.com/blog/topics/layouts)
 - [#Window Size Classes](https://developer.android.com/blog/topics/blog-topic)
+- [#coroutines](https://developer.android.com/blog/topics/coroutines)
 Stay in the loop
 
 

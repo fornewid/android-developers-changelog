@@ -48,6 +48,16 @@ Written by:
   [read_more
   View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
 Continue reading
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_ZzldHB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent) Android Studio Quail 2 is now stable and ready for you to use in production, bringing a shift to your IDE with concurrent agentic workflows, natively integrated memory leak profiling, and context-aware crash remediation.
+  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 3 min read
+  - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
+  - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  - +1 ↩
 - [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
@@ -66,13 +76,6 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 8 min read
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 May 2026 12 May 2026 ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Building for the Intelligence System on Android](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android)
-
-  [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
-  - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
 

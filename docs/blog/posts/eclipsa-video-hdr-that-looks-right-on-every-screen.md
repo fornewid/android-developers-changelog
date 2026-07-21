@@ -79,13 +79,12 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [![View Zoe Lopez-Latorre 's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_07_07_at_1_15_58_PM_eb87f2f61a_Z1QyLll.webp)](https://developer.android.com/blog/authors/zoe-lopez-latorre) 08 Jul 2026 08 Jul 2026 ![](https://developer.android.com/static/blog/assets/Bench_July_releas_V01_Strapi_6ee24bdb6b_1NrCN7.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Wei Wang's profile](https://developer.android.com/static/blog/assets/weiwa_web_6a7b6f6114_Z1kCd5W.webp)](https://developer.android.com/blog/authors/wei-wang) 20 Jul 2026 20 Jul 2026 ![](https://developer.android.com/static/blog/assets/Upcoming_Changes_to_the_Nearby_Connections_API_Strapi_11b1de50e2_K0lSy.webp) [Documentation](https://developer.android.com/blog/categories/documentation)
 
-  ## [Evolving how LLMs are measured for Android: the next era of Android Bench](https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench)
+  ## [Upcoming Changes to the Nearby Connections API](https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api)
 
-  [arrow_forward](https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench) Back in March, we introduced Android Bench---our LLM leaderboard for real-world Android development tasks. Since then, we have enhanced the benchmark based on your feedback, including evaluating open-weight models and adding cost and efficiency dimensions to the leaderboard.
-  [Zoe Lopez-Latorre](https://developer.android.com/blog/authors/zoe-lopez-latorre) • 3 min read
-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+  [arrow_forward](https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api) User privacy and transparency are core to the Android experience. To better align with these principles, we are updating the default behavior of the Nearby Connections API regarding how it interacts with device radios.
+  [Wei Wang](https://developer.android.com/blog/authors/wei-wang) • 1 min read
 Stay in the loop
 
 

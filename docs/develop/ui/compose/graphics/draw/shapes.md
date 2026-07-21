@@ -228,8 +228,8 @@ Box(
                 drawPath(morphPath, color = Color.Black)
             }
         }
-        .fillMaxSize()
-)
+    )
+)ShapesSnippets.kt
 ```
 
 <br />
@@ -294,9 +294,7 @@ Box(
     Text(
         "Hello Compose",
         color = MaterialTheme.colorScheme.onSecondary,
-        modifier = Modifier.align(Alignment.Center)
-    )
-}
+        modifier = Modifier.align(Alignment.Centenippets.kt
 ```
 
 <br />
@@ -335,10 +333,7 @@ Box(
                 this.ambientShadowColor = Color.Black
                 this.spotShadowColor = Color.Black
             }
-            .size(200.dp)
-
-    )
-}
+            .size(200.dpnippets.kt
 ```
 
 <br />
@@ -373,8 +368,7 @@ class MorphPolygonShape(
         val path = morph.toPath(progress = percentage).asComposePath()
         path.transform(matrix)
         return Outline.Generic(path)
-    }
-}
+ppets.kt
 ```
 
 <br />
@@ -420,8 +414,8 @@ Box(
         .clickable(interactionSource = interactionSource, indication = null) {
         }
 ) {
-    Text("Hello", modifier = Modifier.align(Alignment.Center))
-}
+    Text("Hello", modifier = Modifier.align()
+}ShapesSnippets.kt
 ```
 
 <br />
@@ -516,11 +510,10 @@ private fun RotatingScallopedProfilePic() {
                         animatedProgress.value,
                         animatedRotation.value
                     )
-                )
-                .size(200.dp)
+                ).size(200.dp)
         )
     }
-}
+}ShapesSnippets.kt
 ```
 
 <br />

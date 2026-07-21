@@ -22,6 +22,22 @@ Tools and resources to help you build faster and easier.
 
 ## The Latest
 
+- [![View Wei Wang's profile](https://developer.android.com/static/blog/assets/weiwa_web_6a7b6f6114_Z1kCd5W.webp)](https://developer.android.com/blog/authors/wei-wang) 20 Jul 2026 20 Jul 2026 ![](https://developer.android.com/static/blog/assets/Upcoming_Changes_to_the_Nearby_Connections_API_Strapi_11b1de50e2_K0lSy.webp) [Documentation](https://developer.android.com/blog/categories/documentation)
+
+  ## [Upcoming Changes to the Nearby Connections API](https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api)
+
+  User privacy and transparency are core to the Android experience. To better align with these principles, we are updating the default behavior of the Nearby Connections API regarding how it interacts with device radios.
+  [Wei Wang](https://developer.android.com/blog/authors/wei-wang) • 1 min read
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_ZzldHB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
+
+  Android Studio Quail 2 is now stable and ready for you to use in production, bringing a shift to your IDE with concurrent agentic workflows, natively integrated memory leak profiling, and context-aware crash remediation.
+  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 3 min read
+  - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
+  - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  - +1 ↩
 - [![View Zoe Lopez-Latorre 's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_07_07_at_1_15_58_PM_eb87f2f61a_Z1QyLll.webp)](https://developer.android.com/blog/authors/zoe-lopez-latorre) 08 Jul 2026 08 Jul 2026 ![](https://developer.android.com/static/blog/assets/Bench_July_releas_V01_Strapi_6ee24bdb6b_1NrCN7.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Evolving how LLMs are measured for Android: the next era of Android Bench](https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench)
@@ -48,18 +64,6 @@ Tools and resources to help you build faster and easier.
 
   At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
   [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
-- 3 Authors 22 Jun 2026 22 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Geospatial_V02_Strapi_5c55395a9c_UkzvN.webp)
-
-  ## [Building a Mixed-Reality Tour Guide with Android XR, the Geospatial API, and Gemini](https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini)
-
-  At this year's Google I/O, we announced an update for spatial experiences: the Geospatial API is now available as a preview in ARCore for Jetpack XR.
-  [Coco Fatus](https://developer.android.com/blog/authors/coco-fatus), [Alon Hetzroni](https://developer.android.com/blog/authors/alon-hetzroni), [Azin Mehrnoosh](https://developer.android.com/blog/authors/blog-author-1) • 7 min read
-- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
-
-  Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
-  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
 [arrow_forward
 See all latest posts](https://developer.android.com/blog/latest) ![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_Z1EpVf1.webp)
 

@@ -6,6 +6,16 @@ source: md.txt
 
 # #Android Studio
 
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_ZzldHB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent) Android Studio Quail 2 is now stable and ready for you to use in production, bringing a shift to your IDE with concurrent agentic workflows, natively integrated memory leak profiling, and context-aware crash remediation.
+  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 3 min read
+  - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
+  - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  - +1 ↩
 - [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
@@ -49,14 +59,13 @@ source: md.txt
   - [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
   - [#Compose](https://developer.android.com/blog/topics/compose)
   - +2 ↩
-- [![View Paris Hsu's profile](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_Z2izffS.webp)](https://developer.android.com/blog/authors/paris-hsu) 09 Oct 2025 09 Oct 2025 ![](https://developer.android.com/static/blog/assets/as_Narwhal_7bf25b6657_Zl5Grc.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+<button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
-  ## [Android Studio Narwhal 4 Feature Drop: watch face support and improved stability](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability)
+#### Page 1
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability) Android Studio Narwhal 4 Feature Drop is now stable and ready for you to use!
-  [Paris Hsu](https://developer.android.com/blog/authors/paris-hsu) • 5 min read
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-Stay in the loop
+###### of 2
+
+[arrow_forward](https://developer.android.com/blog/topics/android-studio/2) Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

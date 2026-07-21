@@ -140,16 +140,17 @@ Continue reading
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development)
   - +1 ↩
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
+  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
 
-  [arrow_forward](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem) With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) • 4 min read
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
+  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 8 min read
+  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - +1 ↩
+  - [#Android](https://developer.android.com/blog/topics/android)
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  - +2 ↩
 Stay in the loop
 
 

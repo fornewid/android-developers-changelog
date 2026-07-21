@@ -54,7 +54,7 @@ val exoPlayer = ExoPlayer.Builder(this).build()
 exoPlayer.setVideoSurface(stereoSurfaceEntity.getSurface())
 exoPlayer.setMediaItem(mediaItem)
 exoPlayer.prepare()
-exoPlayer.play()
+exoPlaalVideo.kt
 ```
 
 <br />
@@ -93,7 +93,7 @@ val exoPlayer = ExoPlayer.Builder(this).build()
 exoPlayer.setVideoSurface(stereoSurfaceEntity.getSurface())
 exoPlayer.setMediaItem(mediaItem)
 exoPlayer.prepare()
-exoPlayer.play()
+exoPlaalVideo.kt
 ```
 
 <br />
@@ -152,8 +152,8 @@ exoPlayer.setVideoSurface(protectedSurfaceEntity.getSurface())
 
 // Set the media item and start playback.
 exoPlayer.setMediaItem(mediaItem)
-exoPlayer.prepare()
-exoPlayer.play()
+exoPlayer.prepareay()
+SpatialVideo.kt
 ```
 
 <br />
@@ -267,8 +267,8 @@ activity.lifecycleScope.launch {
     surfaceEntity.primaryAlphaMaskTexture = alphaMaskTexture
 
     // To remove the mask, set the property to null.
-    surfaceEntity.primaryAlphaMaskTexture = null
-}
+    surfaceEntity.primaryAlphaull
+}SpatialVideo.kt
 ```
 
 <br />

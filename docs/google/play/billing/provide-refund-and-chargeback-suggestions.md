@@ -28,4 +28,5 @@ For more information, see [Google Play Developer API Getting Started guide](http
 ## ReviewRefund API reference
 
 For detailed specifications of the request and response body, see
-[ReviewRefund API Reference](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/reviewrefund).
+[ReviewRefund API Reference](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/reviewrefund). To test your integration with a test purchase,
+see [Test user-initiated chargebacks](https://developer.android.com/google/play/billing/test#chargebacks).

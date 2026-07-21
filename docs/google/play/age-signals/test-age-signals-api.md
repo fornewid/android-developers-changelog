@@ -4,325 +4,210 @@ url: https://developer.android.com/google/play/age-signals/test-age-signals-api
 source: md.txt
 ---
 
-To test your Play Age Signals API (beta) integration with your app, use the
-[FakeAgeSignalsManager](https://developer.android.com/google/play/age-signals/reference/com/google/android/play/agesignals/testing/FakeAgeSignalsManager) implementation available in the age signals artifact.
-The `FakeAgeSignalsManager` implementation lets you simulate the API's behavior.
+To verify your app's handling of various age signals and age sharing
+status, use the [FakeAgeSignalsManager](https://developer.android.com/google/play/age-signals/reference/com/google/android/play/agesignals/testing/FakeAgeSignalsManager) provided in the SDK testing artifact.
+`FakeAgeSignalsManager` lets you simulate API responses for unit and integration
+testing by replacing your production AgeSignalsManager instance.
 
-The `FakeAgeSignalsManager` is intended solely for unit or integration tests to
-confirm your app behavior. To test your integration, replace your
-`AgeSignalsManager` instance with a `FakeAgeSignalsManager` instance.
+To simulate different response types using the Play Age Signals API SDK
+version 0.0.4, see the following examples:
 
-The following example simulates the response for a verified adult:
+## Example 1: Request access (user shared age)
 
 ### Kotlin
 
-```kotlin
-val fakeVerifiedUser =
-    AgeSignalsResult.builder()
-        .setUserStatus(AgeSignalsVerificationStatus.VERIFIED)
+    val fakeAccessResult = AgeSignalsAccessResult.builder()
+        .setAgeSignalsStatus(AgeSignalsStatus.SHARED) // or NOT_SHARED
+        .build()
+
+    val manager = FakeAgeSignalsManager()
+    manager.setNextAgeSignalsAccessResult(fakeAccessResult)
+    manager.requestAgeSignalsAccess(
+        AgeSignalsAccessRequest.builder()
+            .setActivity(fakeActivity)
+            .build()
+    )
+        .addOnSuccessListener { /* handle success */ }
+
+### Java
+
+    AgeSignalsAccessResult fakeAccessResult = AgeSignalsAccessResult.builder()
+        .setAgeSignalsStatus(AgeSignalsStatus.SHARED) // or NOT_SHARED
+        .build();
+
+    FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
+    manager.setNextAgeSignalsAccessResult(fakeAccessResult);
+    manager.requestAgeSignalsAccess(
+            AgeSignalsAccessRequest.builder()
+                .setActivity(fakeActivity)
+                .build())
+        .addOnSuccessListener(/* handle success */);
+
+## Example 2: Request access (user didn't share age)
+
+### Kotlin
+
+    val fakeAccessResult = AgeSignalsAccessResult.builder()
+        .setAgeSignalsStatus(AgeSignalsStatus.NOT_SHARED)
+        .build()
+
+    val manager = FakeAgeSignalsManager()
+    manager.setNextAgeSignalsAccessResult(fakeAccessResult)
+    manager.requestAgeSignalsAccess(
+        AgeSignalsAccessRequest.builder()
+            .setActivity(fakeActivity)
+            .build()
+    )
+        .addOnSuccessListener { /* handle success */ }
+
+### Java
+
+    AgeSignalsAccessResult fakeAccessResult = AgeSignalsAccessResult.builder()
+        .setAgeSignalsStatus(AgeSignalsStatus.NOT_SHARED)
+        .build();
+
+    FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
+    manager.setNextAgeSignalsAccessResult(fakeAccessResult);
+    manager.requestAgeSignalsAccess(
+            AgeSignalsAccessRequest.builder()
+                .setActivity(fakeActivity)
+                .build())
+        .addOnSuccessListener(/* handle success */);
+
+## Example 3: Verified adult (18+ years)
+
+### Kotlin
+
+    val fakeVerifiedUser = AgeSignalsResult.builder()
+        .setAgeRangeSource(AgeRangeSource.TIER_D)
         .setAgeLower(18)
         .build()
-val manager = FakeAgeSignalsManager()
-manager.setNextAgeSignalsResult(fakeVerifiedUser)
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener { /* handle success case */ }
-    .addOnFailureListener { /* handle failure case */ }
-```
+
+    val manager = FakeAgeSignalsManager()
+    manager.setNextAgeSignalsResult(fakeVerifiedUser)
+    manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+        .addOnSuccessListener { /* handle success */ }
 
 ### Java
 
-```java
-AgeSignalsResult fakeVerifiedUser =
-    AgeSignalsResult.builder()
-        .setUserStatus(AgeSignalsVerificationStatus.VERIFIED)
+    AgeSignalsResult fakeVerifiedUser = AgeSignalsResult.builder()
+        .setAgeRangeSource(AgeRangeSource.TIER_D)
+        .setAgeLower(18)
         .build();
-FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
-manager.setNextAgeSignalsResult(fakeVerifiedUser);
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener(/* handle success case */)
-    .addOnFailureListener(/* handle failure case */);
-```
 
-The following example simulates the response for a supervised user between 13
-and 17 years old:
+    FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
+    manager.setNextAgeSignalsResult(fakeVerifiedUser);
+    manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+        .addOnSuccessListener(/* handle success */);
+
+## Example 4: Supervised minor (13-15 years old)
 
 ### Kotlin
 
-```kotlin
-val fakeSupervisedUser =
-    AgeSignalsResult.builder()
-        .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED)
-        .setAgeLower(13)
-        .setAgeUpper(17)
-        .setInstallId("fake_install_id")
-        .build()
-val manager = FakeAgeSignalsManager()
-manager.setNextAgeSignalsResult(fakeSupervisedUser)
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener { /* handle success case */ }
-    .addOnFailureListener { /* handle failure case */ }
-```
-
-### Java
-
-```java
-AgeSignalsResult fakeSupervisedUser =
-    AgeSignalsResult.builder()
-        .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED)
-        .setAgeLower(13)
-        .setAgeUpper(17)
-        .setInstallId("fake_install_id")
-        .build();
-FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
-manager.setNextAgeSignalsResult(fakeSupervisedUser);
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener(/* handle success case */)
-    .addOnFailureListener(/* handle failure case */);
-```
-
-The following example simulates the response for a declared user with a custom
-age range of 13 to 15:
-
-### Kotlin
-
-```kotlin
-val fakeDeclaredUserWithCustomAgeRange =
-    AgeSignalsResult.builder()
-        .setUserStatus(AgeSignalsVerificationStatus.DECLARED)
+    val fakeSupervisedUser = AgeSignalsResult.builder()
+        .setAgeRangeSource(AgeRangeSource.TIER_B)
         .setAgeLower(13)
         .setAgeUpper(15)
-        .setInstallId("fake_install_id")
+        .setInstallId("fake_install_id_123")
         .build()
-val manager = FakeAgeSignalsManager()
-manager.setNextAgeSignalsResult(fakeDeclaredUserWithCustomAgeRange)
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener { /* handle success case */ }
-    .addOnFailureListener { /* handle failure case */ }
-```
+
+    val manager = FakeAgeSignalsManager()
+    manager.setNextAgeSignalsResult(fakeSupervisedUser)
+    manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+        .addOnSuccessListener { /* handle success */ }
 
 ### Java
 
-```java
-AgeSignalsResult fakeDeclaredUserWithCustomAgeRange =
-    AgeSignalsResult.builder()
-        .setUserStatus(AgeSignalsVerificationStatus.DECLARED)
+    AgeSignalsResult fakeSupervisedUser = AgeSignalsResult.builder()
+        .setAgeRangeSource(AgeRangeSource.TIER_B)
         .setAgeLower(13)
         .setAgeUpper(15)
-        .setInstallId("fake_install_id")
+        .setInstallId("fake_install_id_123")
         .build();
-FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
-manager.setNextAgeSignalsResult(fakeDeclaredUserWithCustomAgeRange);
-manager
-    .checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener(/* handle success case */)
-    .addOnFailureListener(/* handle failure case */)
-```
 
-The following example simulates the response for a pending significant change
-approval for a supervised user between 13 and 17 years old with no previous
-significant change having been approved:
+    FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
+    manager.setNextAgeSignalsResult(fakeSupervisedUser);
+    manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+        .addOnSuccessListener(/* handle success */);
+
+## Example 5: Supervised minor with pending significant change
 
 ### Kotlin
 
-```kotlin
-val fakeSupervisedApprovalPendingUser =
-    AgeSignalsResult.builder()
-        .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED_APPROVAL_PENDING)
+    val fakePendingChangeUser = AgeSignalsResult.builder()
+        .setAgeRangeSource(AgeRangeSource.TIER_B)
         .setAgeLower(13)
-        .setAgeUpper(17)
-        .setInstallId("fake_install_id")
+        .setAgeUpper(15)
+        .setSignificantChangeStatus(SignificantChangeStatus.PENDING)
+        .setInstallId("fake_install_id_123")
         .build()
-val manager = FakeAgeSignalsManager()
-manager.setNextAgeSignalsResult(fakeSupervisedApprovalPendingUser)
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener { /* handle success case */ }
-    .addOnFailureListener { /* handle failure case */ }
-```
+
+    val manager = FakeAgeSignalsManager()
+    manager.setNextAgeSignalsResult(fakePendingChangeUser)
+    manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+        .addOnSuccessListener { /* handle success */ }
 
 ### Java
 
-```java
-AgeSignalsResult fakeSupervisedApprovalPendingUser =
-    AgeSignalsResult.builder()
-        .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED_APPROVAL_PENDING)
+    AgeSignalsResult fakePendingChangeUser = AgeSignalsResult.builder()
+        .setAgeRangeSource(AgeRangeSource.TIER_B)
         .setAgeLower(13)
-        .setAgeUpper(17)
-        .setInstallId("fake_install_id")
+        .setAgeUpper(15)
+        .setSignificantChangeStatus(SignificantChangeStatus.PENDING)
+        .setInstallId("fake_install_id_123")
         .build();
-FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
-manager.setNextAgeSignalsResult(fakeSupervisedApprovalPendingUser);
-manager
-    .checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener(/* handle success case */)
-    .addOnFailureListener(/* handle failure case */)
-```
 
-The following example simulates the response for a pending significant change
-approval for a supervised user between 13 and 17 years old with all significant
-changes approved up to and including the significant change that was effective
-from 2025-02-01:
+    FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
+    manager.setNextAgeSignalsResult(fakePendingChangeUser);
+    manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+        .addOnSuccessListener(/* handle success */);
+
+## Example 6: Supervised minor with approved significant change
 
 ### Kotlin
 
-```kotlin
-val fakeSupervisedApprovalPendingUser =
-    AgeSignalsResult.builder()
-        .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED_APPROVAL_PENDING)
+    val fakeApprovedChangeUser = AgeSignalsResult.builder()
+        .setAgeRangeSource(AgeRangeSource.TIER_B)
         .setAgeLower(13)
-        .setAgeUpper(17)
-        .setMostRecentApprovalDate(
-          Date.from(LocalDate.of(2025, 2, 1).atStartOfDay(ZoneOffset.UTC).toInstant())
-        )
-        .setInstallId("fake_install_id")
+        .setAgeUpper(15)
+        .setSignificantChangeStatus(SignificantChangeStatus.APPROVED)
+        .setSignificantChangeApprovalDate(Date(1777939200000L)) // e.g., 2026-05-01
+        .setInstallId("fake_install_id_123")
         .build()
-val manager = FakeAgeSignalsManager()
-manager.setNextAgeSignalsResult(fakeSupervisedApprovalPendingUser)
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener { /* handle success case */ }
-    .addOnFailureListener { /* handle failure case */ }
-```
+
+    val manager = FakeAgeSignalsManager()
+    manager.setNextAgeSignalsResult(fakeApprovedChangeUser)
+    manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+        .addOnSuccessListener { /* handle success */ }
 
 ### Java
 
-```java
-AgeSignalsResult fakeSupervisedApprovalPendingUser =
-    AgeSignalsResult.builder()
-        .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED_APPROVAL_PENDING)
+    AgeSignalsResult fakeApprovedChangeUser = AgeSignalsResult.builder()
+        .setAgeRangeSource(AgeRangeSource.TIER_B)
         .setAgeLower(13)
-        .setAgeUpper(17)
-        .setMostRecentApprovalDate(
-          Date.from(LocalDate.of(2025, 2, 1).atStartOfDay(ZoneOffset.UTC).toInstant()))
-        .setInstallId("fake_install_id")
+        .setAgeUpper(15)
+        .setSignificantChangeStatus(SignificantChangeStatus.APPROVED)
+        .setSignificantChangeApprovalDate(new Date(1777939200000L)) // e.g., 2026-05-01
+        .setInstallId("fake_install_id_123")
         .build();
-FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
-manager.setNextAgeSignalsResult(fakeSupervisedApprovalPendingUser);
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener(/* handle success case */)
-    .addOnFailureListener(/* handle failure case */);
-```
 
-The following example simulates a significant change approval denied for a
-supervised user between 13 and 17 years old with all significant changes
-approved up to and including the significant change that was effective from
-2025-02-01:
+    FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
+    manager.setNextAgeSignalsResult(fakeApprovedChangeUser);
+    manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+        .addOnSuccessListener(/* handle success */);
+
+## Example 7: Simulating API exceptions
 
 ### Kotlin
 
-```kotlin
-val fakeSupervisedApprovalDeniedUser =
-    AgeSignalsResult.builder()
-        .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED_APPROVAL_DENIED)
-        .setAgeLower(13)
-        .setAgeUpper(17)
-        .setMostRecentApprovalDate(
-          Date.from(LocalDate.of(2025, 2, 1).atStartOfDay(ZoneOffset.UTC).toInstant())
-        )
-        .setInstallId("fake_install_id")
-        .build()
-val manager = FakeAgeSignalsManager()
-manager.setNextAgeSignalsResult(fakeSupervisedApprovalDeniedUser)
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener { /* handle success case */ }
-    .addOnFailureListener { /* handle failure case */ }
-```
+    val manager = FakeAgeSignalsManager()
+    manager.setNextAgeSignalsException(AgeSignalsException(AgeSignalsErrorCode.NETWORK_ERROR))
+    manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+        .addOnFailureListener { /* handle error */ }
 
 ### Java
 
-```java
-AgeSignalsResult fakeSupervisedApprovalDeniedUser =
-    AgeSignalsResult.builder()
-        .setUserStatus(AgeSignalsVerificationStatus.SUPERVISED_APPROVAL_DENIED)
-        .setAgeLower(13)
-        .setAgeUpper(17)
-        .setMostRecentApprovalDate(
-          Date.from(LocalDate.of(2025, 2, 1).atStartOfDay(ZoneOffset.UTC).toInstant()))
-        .setInstallId("fake_install_id")
-        .build();
-FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
-manager.setNextAgeSignalsResult(fakeSupervisedApprovalDeniedUser);
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener(/* handle success case */)
-    .addOnFailureListener(/* handle failure case */);
-```
-
-The following example simulates the response for an unknown user status:
-
-### Kotlin
-
-```kotlin
-val fakeUnknownUser =
-    AgeSignalsResult.builder().setUserStatus(AgeSignalsVerificationStatus.UNKNOWN).build()
-val manager = FakeAgeSignalsManager()
-manager.setNextAgeSignalsResult(fakeUnknownUser)
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener { /* handle success case */ }
-    .addOnFailureListener { /* handle failure case */ }
-```
-
-### Java
-
-```java
-AgeSignalsResult fakeUnknownUser =
-    AgeSignalsResult.builder().setUserStatus(AgeSignalsVerificationStatus.UNKNOWN).build();
-FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
-manager.setNextAgeSignalsResult(fakeUnknownUser);
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener(/* handle success case */)
-    .addOnFailureListener(/* handle failure case */);
-```
-
-The following example simulates the response for a `null` user status value:
-
-### Kotlin
-
-```kotlin
-val fakeNullUserStatus =
-    AgeSignalsResult.builder()
-        .setUserStatus(null)
-        .build()
-val manager = FakeAgeSignalsManager()
-manager.setNextAgeSignalsResult(fakeNullUserStatus)
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener { /* handle success case */ }
-    .addOnFailureListener { /* handle failure case */ }
-```
-
-### Java
-
-```java
-AgeSignalsResult fakeNullUserStatus =
-    AgeSignalsResult.builder()
-        .setUserStatus(null)
-        .build();
-FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
-manager.setNextAgeSignalsResult(fakeNullUserStatus);
-manager
-    .checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener(/* handle success case */)
-    .addOnFailureListener(/* handle failure case */)
-```
-
-The following example simulates the response with a network error code:
-
-### Kotlin
-
-```kotlin
-val manager = FakeAgeSignalsManager()
-manager.setNextAgeSignalsException(
-  AgeSignalsException(AgeSignalsErrorCode.NETWORK_ERROR)
-)
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener { /* handle success case */ }
-    .addOnFailureListener { /* handle failure case */ }
-```
-
-### Java
-
-```java
-FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
-manager.setNextAgeSignalsException(
-    new AgeSignalsException(AgeSignalsErrorCode.NETWORK_ERROR));
-manager.checkAgeSignals(AgeSignalsRequest.builder().build())
-    .addOnSuccessListener(/* handle success case */)
-    .addOnFailureListener(/* handle failure case */);
-```
+    FakeAgeSignalsManager manager = new FakeAgeSignalsManager();
+    manager.setNextAgeSignalsException(new AgeSignalsException(AgeSignalsErrorCode.NETWORK_ERROR));
+    manager.checkAgeSignals(AgeSignalsRequest.builder().build())
+        .addOnFailureListener(/* handle error */);

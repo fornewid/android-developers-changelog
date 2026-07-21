@@ -89,8 +89,7 @@ val LocalCustomSystem = staticCompositionLocalOf {
         value2 = ""
     )
 }
-
-/* ... */
+nippets.kt
 ```
 
 <br />
@@ -129,9 +128,7 @@ fun Theme(
         LocalTypographySystem provides typographySystem,
         LocalCustomSystem provides customSystem,
         /* ... */
-        content = content
-    )
-}
+        content = contenippets.kt
 ```
 
 <br />

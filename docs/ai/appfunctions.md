@@ -4,8 +4,6 @@ url: https://developer.android.com/ai/appfunctions
 source: md.txt
 ---
 
-<br />
-
 > [!WARNING]
 > **Experimental:** AppFunctions is in an experimental preview as we refine the API surface, and is subject to change. Read our [FAQs](https://developer.android.com/ai/appfunctions#faqs) for more information.
 
@@ -33,7 +31,7 @@ assistants like Gemini.
 AppFunctions is available on devices running Android 16 or higher.
 
 > [!IMPORTANT]
-> **Important:** We released an agent skill for AppFunctions. You can use it to analyzes your app's key workflows to generate the required Kotlin code for the Android intelligence system. It also optimizes your KDocs for AI agents and provides ADB commands for testing and debugging. Try out the skill, located in the [AppFunctions skill repository](https://github.com/android/skills/tree/main/device-ai/appfunctions).
+> **Important:** We released an agent skill for AppFunctions. You can use it to analyze your app's key workflows to generate the required Kotlin code for the Android intelligence system. It also optimizes your KDocs for AI agents and provides ADB commands for testing and debugging. Try out the skill, located in the [AppFunctions skill repository](https://github.com/android/skills/tree/main/device-ai/appfunctions).
 
 ## Example use cases
 
@@ -51,22 +49,25 @@ experiences within a variety of app categories:
     PM*".
   - **AppFunction action**: The caller identifies the relevant task management app and invokes a function to create a task, automatically populating the title, time, and location fields based on the user's prompt.
 
-      /**
-      *   Create a new task or reminder with a title, due time, and location.
-      *
-      *   @param context The execution context provided by the system.
-      *   @param title The descriptive title of the task (e.g., "Pick up my package").
-      *   @param dueDateTime The specific date and time when the task should be completed.
-      *   @param location The physical location associated with the task (e.g., "Work").
-      *   @return The created Task
-      */
-      @AppFunction(isDescribedByKDoc = true)
-      suspend fun createTask(
-          context: AppFunctionContext,
-          title: String,
-          dueDateTime: LocalDateTime? = null,
-          location: String? = null
-      ) : Task
+
+  ```kotlin
+  /**
+   * Create a new task or reminder with a title, due time, and location.
+   *
+   * @param title The descriptive title of the task (e.g., "Pick up my package").
+   * @param dueDateTime The specific date and time when the task should be completed.
+   * @param location The physical location associated with the task (e.g., "Work").
+   * @return The created Task
+   */
+  @AppFunction(isDescribedByKDoc = true)
+  suspend fun createTask(
+      title: String,
+      dueDateTime: LocalDateTime? = null,
+      location: String? = null,
+  ): Task = TODO()
+  ```
+
+  <br />
 
 - **Media and entertainment**
 
@@ -74,18 +75,21 @@ experiences within a variety of app categories:
     this year*".
   - **AppFunction action**: The caller executes a playlist creation function within a music app, passing context like "top jazz albums for 2026" as the query to generate the playlist immediately.
 
-      /**
-      *   Create a new music playlist based on a natural language query.
-      *
-      *   @param context The execution context provided by the system.
-      *   @param query The description used to generate the playlist (e.g., "top jazz albums from 2026").
-      *   @return The final created playlist based on songs.
-      */
-      @AppFunction(isDescribedByKDoc = true)
-      suspend fun createPlaylistFromQuery(
-          context: AppFunctionContext,
-          query: String
-      ): Playlist
+
+  ```kotlin
+  /**
+   * Create a new music playlist based on a natural language query.
+   *
+   * @param query The description used to generate the playlist (e.g., "top jazz albums from 2026").
+   * @return The final created playlist based on songs.
+   */
+  @AppFunction(isDescribedByKDoc = true)
+  suspend fun createPlaylistFromQuery(
+      query: String,
+  ): Playlist = TODO()
+  ```
+
+  <br />
 
 - **Cross-app workflows**
 
@@ -93,31 +97,32 @@ experiences within a variety of app categories:
     ingredients to my shopping list*".
   - **AppFunction action**: This request uses functions from multiple apps. First, the caller uses an email app's search function to retrieve the content. Then, it extracts the relevant ingredients and invokes a shopping list app's function to populate the user's list.
 
-      /**
-      *   Search for emails matching a query or sender name to retrieve content like recipes.
-      *
-      *   @param context The execution context provided by the system.
-      *   @param query The search term or contact name (e.g., "Lisa noodle recipe").
-      *   @return A list of matching email summaries containing the requested information.
-      */
-      @AppFunction(isDescribedByKDoc = true)
-      suspend fun searchEmails(
-          context: AppFunctionContext,
-          query: String
-      ): List<EmailSummary>
 
-      /**
-      *   Add a list of items or ingredients to the user's active shopping list.
-      *
-      *   @param context The execution context provided by the system.
-      *   @param items The names of the ingredients or products to add to the list.
-      *   @return The final shopping list with new items added
-      */
-      @AppFunction(isDescribedByKDoc = true)
-      suspend fun addItemsToShoppingList(
-          context: AppFunctionContext,
-          items: List<String>
-      ): ShoppingList
+  ```kotlin
+  /**
+   * Search for emails matching a query or sender name to retrieve content like recipes.
+   *
+   * @param query The search term or contact name (e.g., "Lisa noodle recipe").
+   * @return A list of matching email summaries containing the requested information.
+   */
+  @AppFunction(isDescribedByKDoc = true)
+  suspend fun searchEmails(
+      query: String,
+  ): List<EmailSummary> = TODO()
+
+  /**
+   * Add a list of items or ingredients to the user's active shopping list.
+   *
+   * @param items The names of the ingredients or products to add to the list.
+   * @return The final shopping list with new items added
+   */
+  @AppFunction(isDescribedByKDoc = true)
+  suspend fun addItemsToShoppingList(
+      items: List<String>,
+  ): ShoppingList = TODO()
+  ```
+
+  <br />
 
 - **Calendar and scheduling**
 
@@ -125,20 +130,23 @@ experiences within a variety of app categories:
     Monday at 6 PM*".
   - **AppFunction action**: The approved agentic app invokes the calendar app's "create event" function, parsing the relevant context like "next Monday" and "6 PM" to create the entry without the user needing to manually open the calendar.
 
-      /**
-      *   Schedule a new event on the user's primary calendar.
-      *
-      *   @param context The execution context provided by the system.
-      *   @param title The name of the calendar event (e.g., "Mom's birthday party").
-      *   @param startDateTime The specific date and time the event is scheduled to begin.
-      *   @return The created Event object.
-      */
-      @AppFunction(isDescribedByKDoc = true)
-      suspend fun createCalendarEvent(
-          context: AppFunctionContext,
-          title: String,
-          startDateTime: LocalDateTime
-      ): Event
+
+  ```kotlin
+  /**
+   * Schedule a new event on the user's primary calendar.
+   *
+   * @param title The name of the calendar event (e.g., "Mom's birthday party").
+   * @param startDateTime The specific date and time the event is scheduled to begin.
+   * @return The created Event object.
+   */
+  @AppFunction(isDescribedByKDoc = true)
+  suspend fun createCalendarEvent(
+      title: String,
+      startDateTime: LocalDateTime,
+  ): Event = TODO()
+  ```
+
+  <br />
 
 ## How AppFunctions work
 
@@ -150,7 +158,7 @@ follows:
 
 - **AppFunction declaration**: The Android app is built to use AppFunctions to make its features available, such as "Create note" or "Send message".
 - **Schema generation**: The AppFunctions Jetpack library generates an XML schema file that lists all the declared AppFunctions in the app. The Android OS uses this file to index the available AppFunctions.
-- **Metadata retrieval**: The agent can retrieve AppFunction metadata by querying it.
+- **Metadata retrieval**: The agent can retrieve AppFunction metadata by querying it. In addition to function-specific KDocs, developers can define app-level operational patterns and constraints in app metadata to guide agent orchestration across multiple tools.
 - **AppFunction selection and execution**: Based on user prompts, the agent selects and executes the appropriate AppFunction with the appropriate parameters.
 
 ![Typical AppFunctions flow from app exposure to agent execution.](https://developer.android.com/static/ai/assets/images/appfunctions.svg) **Figure 1**: The typical flow of how AppFunctions are exposed and subsequently executed by an agent.
@@ -175,77 +183,88 @@ this is automatically handled within the Jetpack library. For example,
 Here's an example of AppFunctions for a note-taking app with capabilities to
 create, edit, and list notes:
 
+
+```kotlin
+@RequiresApi(36)
+@AndroidEntryPoint
+@AppFunctionServiceEntryPoint(
+    serviceName = "TaskAppFunctionService",
+    appFunctionXmlFileName = "task_app_function_service",
+)
+abstract class BaseTaskAppFunctionService : AppFunctionService() {
+    @Inject internal lateinit var taskRepository: TaskRepository
+
     /**
-     *   A note app's [AppFunction]s.
+     * Creates a task based on [createTaskParams].
+     *
+     * @param createTaskParams The parameter to describe how to create the task.
      */
-    class NoteFunctions(
-        private val noteRepository: NoteRepository
-    ) {
-        /**
-         *   Lists all available notes.
-         *
-         *   @param appFunctionContext The context in which the AppFunction is executed.
-         */
-        @AppFunction(isDescribedByKDoc = true)
-        suspend fun listNotes(appFunctionContext: AppFunctionContext): List<Note>? {
-            return noteRepository.appNotes.ifEmpty { null }?.toList()
+    @AppFunction(isDescribedByKDoc = true)
+    suspend fun createTask(
+        createTaskParams: CreateTaskParams,
+    ): Task = withContext(Dispatchers.IO) {
+        // Developers can use predefined exceptions to let the agent know
+        // why it failed.
+        if (createTaskParams.title == null && createTaskParams.content == null) {
+            throw AppFunctionInvalidArgumentException("Title or content should be non-null")
         }
 
-        /**
-         *   Adds a new note to the app.
-         *
-         *   @param appFunctionContext The context in which the AppFunction is executed.
-         *   @param title The title of the note.
-         *   @param content The note's content.
-         */
-        @AppFunction(isDescribedByKDoc = true)
-        suspend fun createNote(
-            appFunctionContext: AppFunctionContext,
-            title: String,
-            content: String
-        ): Note {
-            return noteRepository.createNote(title, content)
-        }
+        val id = taskRepository.createTask(
+            createTaskParams.title,
+            createTaskParams.content
+        )
 
-        /**
-         *   Edits a single note.
-         *
-         *   @param appFunctionContext The context in which the AppFunction is executed.
-         *   @param noteId The target note's ID.
-         *   @param title The note's title if it should be updated.
-         *   @param content The new content if it should be updated.
-         */
-        @AppFunction(isDescribedByKDoc = true)
-        suspend fun editNote(
-            appFunctionContext: AppFunctionContext,
-            noteId: Int,
-            title: String?,
-            content: String?,
-        ): Note? {
-            return noteRepository.updateNote(noteId, title, content)
-        }
+        return@withContext taskRepository
+            .getTask(id)
+            ?.toTask()
+            ?: throw AppFunctionElementNotFoundException("Task not found for ID = $id")
     }
 
-    /**
-     *   A note.
-     */
-    @AppFunctionSerializable(isDescribedByKDoc = true)
-    data class Note(
-        /** The note's identifier */
-        val id: Int,
-        /** The note's title */
-        val title: String,
-        /** The note's content */
-        val content: String
-    )
+    // Maps internal TaskEntity
+    private fun TaskEntity.toTask() = Task(id = id, title = title, content = description)
+}
+```
 
-## Samples, skill, and test agent
+<br />
+
+
+```kotlin
+/** The parameter to create the task. */
+@AppFunctionSerializable(isDescribedByKDoc = true)
+data class CreateTaskParams(
+    /** The title of the task. */
+    val title: String?,
+    /** The content of the task. */
+    val content: String?,
+)
+
+/** The user-created task. */
+@AppFunctionSerializable(isDescribedByKDoc = true)
+data class Task(
+    /** The ID of the task. */
+    val id: String,
+    /** The title of the task. */
+    val title: String,
+    /** The content of the task. */
+    val content: String,
+)
+```
+
+<br />
+
+## Samples, skill, and testing tools
 
 We've made the following available to help you upskill in AppFunctions:
 
 - Explore the [AppFunctions sample](https://github.com/android/appfunctions) to verify and explore how everything works on your devices.
-- The [AppFunctions skill](https://github.com/android/skills/tree/main/device-ai/appfunctions) discovers and recommends features of your app that could be implemented as AppFunctions. It can also implement and refine existing AppFunctions for you.
-- For testing end-to end, use the [sample agent app](https://github.com/android/appfunctions/releases).
+- Use the [AppFunctions agent skill](https://github.com/android/skills/tree/main/device-ai/appfunctions) to accelerate development across the four-step lifecycle:
+  - **Discovery**: Analyze your codebase to identify and recommend high-value features for AI orchestration.
+  - **Implementation \& Configuration**: Generate Kotlin implementations and configure system metadata and build dependencies.
+  - **KDoc Refinement**: Optimize function and property documentation for AI agents and Android MCP.
+  - **Testing \& Debugging**: Provide ADB commands for local evaluation and debugging on-device.
+- For command-line testing and verification, use ADB commands such as `adb
+  shell cmd app_function ...` as a direct, lightweight way to test function registration, inspect metadata descriptions, and execute functions on-device.
+- To experience Android MCP in action and test end-to-end workflows without needing any prompts, install and use the [AppFunctions testing agent](https://github.com/android/appfunctions/releases) Android app on your device.
 
 ## Frequently asked questions (FAQs)
 

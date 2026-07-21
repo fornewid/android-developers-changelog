@@ -4,8 +4,6 @@ url: https://developer.android.com/ai/appfunctions/add-appfunctions
 source: md.txt
 ---
 
-<br />
-
 This guide explains how to integrate the AppFunctions API into your Android app,
 implement the logic for a function, and verify that the integration works
 correctly.
@@ -26,18 +24,11 @@ Add the required library dependencies to your module's `build.gradle.kts` (or
 build.gradle) file, and configure the KSP plugin in your top-level app module as
 shown:
 
-    // Add this to your app module at the top level. For multi module applications,
-    // you only need to specify this once.
-    ksp {
-      arg("appfunctions:aggregateAppFunctions", "true")
-    }
-
     dependencies {
-      implementation("androidx.appfunctions:appfunctions:1.0.0-alpha09")
-      implementation("androidx.appfunctions:appfunctions-service:1.0.0-alpha09")
+      implementation("androidx.appfunctions:appfunctions:1.0.0-alpha10")
       // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
       // See Add the KSP plugin to your project
-      ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha09")
+      ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha10")
     }
 
 ## Implement AppFunctions logic
@@ -51,72 +42,49 @@ The following code shows an example implementation for creating a task in the
 [TODO app](https://github.com/android/architecture-samples), including defining custom parameters and response
 types and the main function logic using a repository.
 
-    package com.example.android.appfunctions
 
+```kotlin
+@RequiresApi(36)
+@AndroidEntryPoint
+@AppFunctionServiceEntryPoint(
+    serviceName = "TaskAppFunctionService",
+    appFunctionXmlFileName = "task_app_function_service",
+)
+abstract class BaseTaskAppFunctionService : AppFunctionService() {
+    @Inject internal lateinit var taskRepository: TaskRepository
 
-    import androidx.appfunctions.AppFunctionSerializable
-    import androidx.appfunctions.AppFunctionContext
-    import androidx.appfunctions.AppFunctionElementNotFoundException
-    import androidx.appfunctions.AppFunctionInvalidArgumentException
-    import androidx.appfunctions.service.AppFunction
-    import javax.inject.Inject
-    ...
-
-    // Developers can provide additional parameters in the constructor if needed.
-    // This requires a custom factory setup in the next step.
-    class TaskFunctions @Inject constructor(
-      private val taskRepository: TaskRepository
-    ) {
-      /** The parameter to create the task. */
-      @AppFunctionSerializable(isDescribedByKDoc = true)
-      data class CreateTaskParams(
-        /** The title of the task. */
-        val title: String,
-        /** The content of the task. */
-         val content: String
-      )
-
-      /** The user-created task. */
-      @AppFunctionSerializable(isDescribedByKDoc = true)
-      data class Task(
-        /** The ID of the task. */
-        val id: String,
-        /** The title of the task. */
-        val title: String,
-        /** The content of the task. */
-        val content: String
-      )
-
-      /**
-       * Creates a task based on [createTaskParams].
-       *
-       * @param createTaskParams The parameter to describe how to create the task.
-       */
-      @AppFunction(isDescribedByKDoc = true)
-      suspend fun createTask(
-        appFunctionContext: AppFunctionContext,
+    /**
+     * Creates a task based on [createTaskParams].
+     *
+     * @param createTaskParams The parameter to describe how to create the task.
+     */
+    @AppFunction(isDescribedByKDoc = true)
+    suspend fun createTask(
         createTaskParams: CreateTaskParams,
-      ): Task = withContext(Dispatchers.IO) {
+    ): Task = withContext(Dispatchers.IO) {
         // Developers can use predefined exceptions to let the agent know
         // why it failed.
         if (createTaskParams.title == null && createTaskParams.content == null) {
-          throw AppFunctionInvalidArgumentException("Title or content should be non-null")
+            throw AppFunctionInvalidArgumentException("Title or content should be non-null")
         }
 
         val id = taskRepository.createTask(
-                 createTaskParams.title,
-                 createTaskParams.content)
+            createTaskParams.title,
+            createTaskParams.content
+        )
 
-        return taskRepository
+        return@withContext taskRepository
             .getTask(id)
             ?.toTask()
             ?: throw AppFunctionElementNotFoundException("Task not found for ID = $id")
-      }
-
-
-      // Maps internal TaskEntity
-      private fun TaskEntity.toTask() = Task(id = id, title = title, content = description)
     }
+
+    // Maps internal TaskEntity
+    private fun TaskEntity.toTask() = Task(id = id, title = title, content = description)
+}
+```
+
+<br />
 
 ### Key points about the code
 
@@ -125,35 +93,37 @@ types and the main function logic using a repository.
   - Switch to a suitable coroutine dispatcher when the operation could block the thread.
 - When `isDescribedByKDoc` is set to `true`, the function description or the serializable description is encoded as part of the `AppFunctionMetadata` to help the agent understand how to use the app's AppFunction.
 
-## Optional: Use Hilt to provide a custom AppFunction factory
+## Declare the AppFunction service in your manifest
 
-If your `AppFunction` implementation class requires dependencies in its
-constructor (like as in `TaskRepository` in the previous example), you need to
-provide a custom factory so the system knows how to instantiate it. This is an
-optional step and only necessary if your function class has constructor
-parameters. This example shows how to create a custom `AppFunctionFactory` and
-configure it within your `Application` class, using Hilt for dependency
-injection.
+Register the KSP-generated service declaration and `app_metadata` property
+inside your module manifest, for example, in `src/main/AndroidManifest.xml`.
+The KSP compiler generates the concrete service class (`TaskAppFunctionService`)
+extending your abstract entry point class, along with the corresponding XML
+schema in your `assets/` directory.
 
-    import android.app.Application
-    import androidx.appfunctions.service.AppFunctionConfiguration
-    import com.example.android.appfunctions.TaskFunctions
-    import dagger.hilt.android.HiltAndroidApp
-    import javax.inject.Inject
 
-    @HiltAndroidApp
-    class TodoApplication : Application(), AppFunctionConfiguration.Provider {
-      @Inject lateinit var taskFunctions: TaskFunctions
-      override fun onCreate() {
-        super.onCreate()
-      }
-      // This shows how AppFunctions works with Hilt.
-      override val appFunctionConfiguration: AppFunctionConfiguration
-        get() =
-          AppFunctionConfiguration.Builder()
-            .addEnclosingClassFactory(TaskFunctions::class.java) { taskFunctions }
-            .build()
-    }
+```xml
+<service
+    android:name="com.example.snippets.ai.TaskAppFunctionService"
+    android:permission="android.permission.BIND_APP_FUNCTION_SERVICE"
+    android:exported="true"
+    tools:targetApi="36">
+    <property
+        android:name="android.app.appfunctions.schema"
+        android:value="app_functions_schema.xsd" />
+    <property
+        android:name="android.app.appfunctions.v2"
+        android:value="task_app_function_service.xml" />
+    <intent-filter>
+        <action android:name="android.app.appfunctions.AppFunctionService" />
+    </intent-filter>
+</service>
+<property
+    android:name="android.app.appfunctions.app_metadata"
+    android:resource="@xml/app_metadata" />
+```
+
+<br />
 
 ## Optional: Toggle AppFunction availability at runtime
 
@@ -172,8 +142,15 @@ To prevent the function from being accessible before your feature flag is
 verified, set the `isEnabled` parameter of your `@AppFunction` annotation to
 `false`.
 
-    @AppFunction(isEnabled = false, isDescribedByKDoc = true)
-    suspend fun createTask(...) { ... }
+
+```kotlin
+@AppFunction(isEnabled = false, isDescribedByKDoc = true)
+suspend fun createTask(
+    createTaskParams: CreateTaskParams,
+): Task = TODO()
+```
+
+<br />
 
 **Step 2. Dynamically enable the function at runtime**
 
@@ -182,29 +159,35 @@ containing function ID constants (using an `Ids` suffix). You can use these
 generated ID constants alongside the `setAppFunctionEnabled` method from
 `AppFunctionManagerCompat` to change a function's enabled state at runtime.
 
-    import androidx.appfunctions.AppFunctionManager
-    // Assuming there is a hook API to observe user state or feature flags
-    suspend fun onFeatureEnabled() {
-        try {
-            AppFunctionManager.getInstance(context)
-                .setAppFunctionEnabled(
-                    // Function ID is generated for developer to get
-                    TaskFunctionsIds.CREATE_TASK_ID,
-                    AppFunctionManagerCompat.APP_FUNCTION_STATE_ENABLED,
-                )
-        } catch (e: Exception) {
-            // Handle exception: AppFunctions indexation may not be fully completed
-            // upon initial app startup.
-        }
-    }
 
-    suspend fun onFeatureDisabled() {
-        AppFunctionManagerCompat.getInstance(context)
-            .setAppFunctionEnabled(
-                TaskFunctionsIds.CREATE_TASK_ID,
-                AppFunctionManagerCompat.APP_FUNCTION_STATE_DISABLED,
+```kotlin
+suspend fun onFeatureEnabled(context: Context) {
+    try {
+        AppFunctionManager.getInstance(context)
+            ?.setAppFunctionEnabled(
+                BaseTaskAppFunctionServiceIds.CREATE_TASK_ID,
+                AppFunctionManager.APP_FUNCTION_STATE_ENABLED,
             )
+    } catch (e: Exception) {
+        // Handle exception: AppFunctions indexation may not be fully completed
+        // upon initial app startup.
     }
+}
+
+suspend fun onFeatureDisabled(context: Context) {
+    try {
+        AppFunctionManager.getInstance(context)
+            ?.setAppFunctionEnabled(
+                BaseTaskAppFunctionServiceIds.CREATE_TASK_ID,
+                AppFunctionManager.APP_FUNCTION_STATE_DISABLED,
+            )
+    } catch (e: Exception) {
+        // Handle exception
+    }
+}
+```
+
+<br />
 
 ## Considerations of types of functionalities to make available
 
@@ -229,9 +212,41 @@ shell cmd app_function`.
 Use `adb shell cmd app_function list-app-functions | grep --after-context 10
 $myPackageName` to see details of the AppFunctions your app provides.
 
-In Gemini in Android Studio, or other agents of your choice, provide a prompt
-such as the following.
+You can also execute an AppFunction directly from the command line using its
+explicit identifier (`"$enclosingClassName#$methodName"`):
+
+    adb shell "cmd app_function execute-app-function \
+      --package com.example.android.appfunctions \
+      --function 'com.example.android.appfunctions.BaseTaskAppFunctionService#createTask' \
+      --parameters '{\"createTaskParams\": {\"title\": \"Buy milk\", \"content\": \"From grocery store\"}}'"
+
+To experience Android MCP in action and verify end-to-end workflows without
+needing any prompts, install and run the [AppFunctions testing
+agent](https://github.com/android/appfunctions) Android app on your device.
+
+If you're verifying your integration using chat-based assistants like Gemini in
+Android Studio, use the AppFunctions development skill, or provide a prompt such
+as the following:
 
     Execute `adb shell cmd app_function` to learn how the tool works, then act as a
     chat agent aiming to invoke AppFunctions to fulfil user prompts for this app.
     Rely on the AppFunction description as instructions.
+
+## Migrate from lower API versions
+
+In version 1.0.0-alpha10, AppFunctions introduced a compile-time
+`@AppFunctionServiceEntryPoint` architecture that consolidates library
+dependencies and replaces legacy configuration providers
+(`AppFunctionConfiguration.Provider`).
+
+If your app currently uses an earlier version of AppFunctions (such as
+1.0.0-alpha09), you can automate your migration using the [AppFunctions agent
+skill](https://github.com/android/skills/tree/main/device-ai/appfunctions) in an AI IDE like Gemini in Android Studio. The skill
+contains dedicated migration rules that guide an agent to consolidate your build
+dependencies, create the required `@AppFunctionServiceEntryPoint` service
+wrapper, decouple context parameters, and update your manifest declarations.
+
+To initiate an automated migration with your AI agent, use a prompt such as the
+following:
+
+    Use the AppFunctions migration skill to upgrade my app's AppFunctions implementation from 1.0.0-alpha09 to the 1.0.0-alpha10 @AppFunctionServiceEntryPoint architecture.

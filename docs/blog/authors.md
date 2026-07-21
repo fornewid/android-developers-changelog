@@ -44,6 +44,15 @@ source: md.txt
   1 post](https://developer.android.com/blog/authors/alon-hetzroni) ![View Alon Hetzroni's profile](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_1Th2rE.webp) ![View Alon Hetzroni's profile](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_1Th2rE.webp)
 -
 
+  ## [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw)
+
+  ###### Product Manager
+
+  [read_more
+  1 post](https://developer.android.com/blog/authors/amman-asfaw) [read_more
+  1 post](https://developer.android.com/blog/authors/amman-asfaw) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)
+-
+
   ## [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev)
 
   ###### Staff Developer Advocate
@@ -78,15 +87,6 @@ source: md.txt
   [read_more
   1 post](https://developer.android.com/blog/authors/arti-arutiunov) [read_more
   1 post](https://developer.android.com/blog/authors/arti-arutiunov) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp)
--
-
-  ## [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe)
-
-  ###### Sr. Android Developer Relations Engineer
-
-  [read_more
-  1 post](https://developer.android.com/blog/authors/ash-nohe) [read_more
-  1 post](https://developer.android.com/blog/authors/ash-nohe) ![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp) ![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1

@@ -138,6 +138,18 @@ after a couple of minutes.
 
 You can find more information at [Handling pending transactions](https://developer.android.com/google/play/billing/integrate#pending).
 
+### Test user-initiated chargebacks
+
+License testers have access to a test instrument that lets them simulate a
+user-initiated chargeback.
+
+1. Make a purchase with the test instrument **Test card, approves then charges
+   back** , as shown in figure 5. Soon afterwards, your system should be made
+   aware of the test purchase being delivered and charged back through
+   applicable surfaces. For example, you should receive a [PendingRefundReviewNotification](https://developer.android.com/google/play/billing/rtdn-reference#pending-refund-review) moments after making the purchase.
+
+   ![test user-initiated chargebacks](https://developer.android.com/static/images/google/play/billing/charge-then-charge-back-test-instrument.png) **Figure 5.** Test a purchase with a test card that approves then charges back.
+
 ## Test subscription-specific features
 
 The purchase flows for one-time products and subscriptions are similar, but
@@ -205,7 +217,7 @@ decline](https://developer.android.com/google/play/billing/subscriptions#payment
 3. Click the **Subscription state** drop-down menu.
 4. Click the target state to update the subscription state.
 
-![subscription state transition](https://developer.android.com/static/images/google/play/billing/play-billing-lab-subscription-state-transition.png) **Figure 5.** Test subscription state transition.
+![subscription state transition](https://developer.android.com/static/images/google/play/billing/play-billing-lab-subscription-state-transition.png) **Figure 6.** Test subscription state transition.
 
 Once you've selected the target subscription state in the drop-down menu, the
 test subscription state will update shortly afterward.
@@ -225,7 +237,7 @@ and use free trial or introductory offers an unlimited number of times by
 checking the **Test free trial or introductory offer** checkbox and applying the
 change. This removes the need to create multiple accounts to test a trial offer
 only available to new subscribers.
-![test trial offers](https://developer.android.com/static/images/google/play/billing/trial-offers-testing.png) **Figure 6.** Test trial offers.
+![test trial offers](https://developer.android.com/static/images/google/play/billing/trial-offers-testing.png) **Figure 7.** Test trial offers.
 
 ### Price changes
 
@@ -239,7 +251,7 @@ steps:
 4. Select or unselect the **User opt-out** checkbox per your test requirement.
 5. Click **Apply**.
 
-![test subscription price change](https://developer.android.com/static/images/google/play/billing/play-billing-lab-price-change.png) **Figure 7.** Test subscription price change.
+![test subscription price change](https://developer.android.com/static/images/google/play/billing/play-billing-lab-price-change.png) **Figure 8.** Test subscription price change.
 
 After applying your changes, the price is updated starting from the next renewal
 only for the tester. Other active subscribers won't be affected. All the license
@@ -457,18 +469,18 @@ have access to two test instruments for delayed forms of payment where the
 payment automatically completes or cancels after a couple of minutes.
 
 1. Make a purchase with a delayed form of payment **Slow test card, declines
-   after a few minutes**, as shown in figure 8. Restart the app, validate that
+   after a few minutes**, as shown in figure 9. Restart the app, validate that
    the purchase has not been granted.
 
-   ![test a purchase with a declined slow test card](https://developer.android.com/static/images/google/play/billing/test-delayed-payment-methods-decline.png) **Figure 8.** Test a purchase with a declined slow test card.
+   ![test a purchase with a declined slow test card](https://developer.android.com/static/images/google/play/billing/test-delayed-payment-methods-decline.png) **Figure 9.** Test a purchase with a declined slow test card.
 
    <br />
 
 2. Make a purchase with a delayed form of payment **Slow test card, approves
-   after a few minutes**, as shown in figure 9. Wait a few minutes, validate
+   after a few minutes**, as shown in figure 10. Wait a few minutes, validate
    that the purchase has been granted.
 
-   ![test a purchase with an approved slow test card](https://developer.android.com/static/images/google/play/billing/test-delayed-payment-methods-approve.png) **Figure 9.** Test a purchase with an approved slow test card.
+   ![test a purchase with an approved slow test card](https://developer.android.com/static/images/google/play/billing/test-delayed-payment-methods-approve.png) **Figure 10.** Test a purchase with an approved slow test card.
 
    <br />
 
@@ -505,7 +517,7 @@ license tester. Use the following steps to test:
 3. Select the required country and apply the change in Play Billing Lab.
 4. Launch the purchase flow in the app under testing.
 
-   ![test purchase experience in different regions](https://developer.android.com/static/images/google/play/billing/play-billing-lab-country.png) **Figure 10.** Test purchase experience in different regions.
+   ![test purchase experience in different regions](https://developer.android.com/static/images/google/play/billing/play-billing-lab-country.png) **Figure 11.** Test purchase experience in different regions.
 
 [Play Billing Lab](https://developer.android.com/google/play/billing/test#play-billing-lab) lets you test offer regional eligibility and the user
 experience in any region, regardless of where you are physically testing.

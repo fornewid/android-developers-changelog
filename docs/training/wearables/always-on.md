@@ -17,7 +17,7 @@ When a Wear OS app is displayed on the full screen, it is in one of two power
 states:
 
 - **Interactive**: A high-power state where the screen is at full brightness, allowing for full user interaction.
-- **Ambient** : A low-power state where the display dims to conserve power. In this state, your app's UI still occupies the full screen, but the system might alter its appearance by blurring it or overlaying content like the time. This is also referred to as **Ambient Mode**.
+- **Ambient** : A low-power state where the display dims to conserve power. In this state, your app's UI still occupies the full screen, but the system might alter its appearance by blurring it or showing overlay content like the time. This is also referred to as **Ambient Mode**.
 
 The operating system controls the transition between these states.
 
@@ -47,81 +47,57 @@ app's configuration:
 
 Regardless of the default system behavior, on all Wear OS versions you can
 customize your app's appearance or behavior while in the *Ambient* state by
-using [`AmbientLifecycleObserver`](https://developer.android.com/reference/androidx/wear/ambient/AmbientLifecycleObserver) to listen for callbacks on state
-transitions. This state is represented by the "Ambiactive Mode" node in [the
-following flowchart](https://developer.android.com/training/wearables/always-on#flowchart).
+using [`LocalAmbientModeManager`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/rememberAmbientModeManager.composable) to observe state transitions in
+Jetpack Compose on Wear OS. This state is represented by the "Ambiactive Mode"
+node in [the following flowchart](https://developer.android.com/training/wearables/always-on#flowchart).
 
-### Use AmbientLifecycleObserver
+### Observe ambient state
 
-To react to ambient mode events, use the [`AmbientLifecycleObserver`](https://developer.android.com/reference/androidx/wear/ambient/AmbientLifecycleObserver) class:
+To react to ambient mode events in Jetpack Compose on Wear OS:
 
-1. Implement the [`AmbientLifecycleObserver.AmbientLifecycleCallback`](https://developer.android.com/reference/androidx/wear/ambient/AmbientLifecycleObserver.AmbientLifecycleCallback)
-   interface. Use the `onEnterAmbient()` method to adjust your UI for the
-   low-power state, and `onExitAmbient()` to restore it to the full interactive
-   display.
-
-
-   ```kotlin
-   val ambientCallback = object : AmbientLifecycleObserver.AmbientLifecycleCallback {
-       override fun onEnterAmbient(ambientDetails: AmbientLifecycleObserver.AmbientDetails) {
-           // ... Called when moving from interactive mode into ambient mode.
-           // Adjust UI for low-power state: dim colors, hide non-essential elements.
-       }
-
-       override fun onExitAmbient() {
-           // ... Called when leaving ambient mode, back into interactive mode.
-           // Restore full UI.
-       }
-
-       override fun onUpdateAmbient() {
-           // ... Called by the system periodically (typically once per minute)
-           // to allow the app to update its display while in ambient mode.
-       }
-   }
-   ```
-
-   <br />
-
-2. Create an `AmbientLifecycleObserver` and register it with the lifecycle of
-   your activity or composable.
+1. Use [`LocalAmbientModeManager`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/rememberAmbientModeManager.composable) to observe changes to the system's
+   ambient mode status, adjusting your composables accordingly. Configure your
+   component to adjust to a lower-power mode in the `AmbientMode.Ambient` state,
+   and restore it to a full interactive display in the `AmbientMode.Interactive`
+   state.
 
 
    ```kotlin
-   private val ambientObserver = AmbientLifecycleObserver(activity, ambientCallback)
+   // In a production application, the AmbientModeManager should be instantiated and provided at
+   // the highest level of the Compose hierarchy (typically in the host Activity's setContent
+   // block) using a CompositionLocalProvider. This ensures proper lifecycle management and
+   // broad accessibility.
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-       super.onCreate(savedInstanceState)
-       lifecycle.addObserver(ambientObserver)
+   // For this self-contained demo, AmbientModeManager is created and provided locally:
+   val activityAmbientModeManager = rememberAmbientModeManager()
+   CompositionLocalProvider(LocalAmbientModeManager provides activityAmbientModeManager) {
+       val ambientModeManager = LocalAmbientModeManager.current
+       val ambientMode = ambientModeManager?.currentAmbientMode
+
+       if (ambientModeManager != null) {
+           ambientModeManager.AmbientTickEffect {
+               // While device is in ambient mode, update properties every minute or so
+               // ...
+           }
+       }
 
        // ...
+           val ambientModeName =
+               when (ambientMode) {
+                   is AmbientMode.Interactive -> "Interactive"
+                   is AmbientMode.Ambient -> "Ambient"
+                   else -> "Unknown"
+               }
+
+           Text(text = "$ambientModeName Mode")
+           // ...
    }
    ```
 
    <br />
 
-3. Call `removeObserver()` to remove the observer in `onDestroy()`.
-
-
-   ```kotlin
-   override fun onDestroy() {
-       super.onDestroy()
-       lifecycle.removeObserver(ambientObserver)
-
-       // ...
-   }
-   ```
-
-   <br />
-
-For developers using Jetpack Compose, the Horologist library provides a helpful
-utility, the [`AmbientAware`](https://google.github.io/horologist/compose-layout/#ambientaware-composable) composable, which simplifies the implementation
-of this pattern.
-
-### Ambient-aware TimeText
-
-As an exception to requiring a custom observer, on Wear OS 6 the [`TimeText`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/TimeText.composable#TimeText(androidx.compose.ui.Modifier,androidx.wear.compose.foundation.CurvedModifier,kotlin.Float,androidx.compose.ui.graphics.Color,androidx.wear.compose.material3.TimeSource,androidx.compose.foundation.layout.PaddingValues,kotlin.Function2))
-widget is ambient-aware. It automatically updates once per minute when the
-device is in the *Ambient* state without any additional code.
+For developers using Jetpack Compose, use [`LocalAmbientModeManager`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/rememberAmbientModeManager.composable), which
+simplifies the implementation of this pattern.
 
 ### Ambient behavior flowchart
 
@@ -200,7 +176,7 @@ val notification = notificationBuilder.build()
 
 In rare cases, you might need to completely prevent the device from entering the
 *Ambient* state. That is, to avoid Timeout #1. To do this, you can use the
-[`FLAG_KEEP_SCREEN_ON`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_KEEP_SCREEN_ON) window flag. This functions as a wake lock, keeping
+[`keepScreenOn`](https://developer.android.com/reference/kotlin/androidx/compose/ui/keepScreenOn.modifier) modifier. This functions as a wake lock, keeping
 the device in the *Interactive* state. Use this with extreme caution as it
 severely impacts battery life.
 
@@ -217,16 +193,16 @@ while simultaneously optimizing display power.
   - Use outlines for large icons or buttons rather than solid fills.
   - Avoid large blocks of solid color and non-functional branding or background images.
 - **Handle stale dynamic data**
-  - The `onUpdateAmbient()` callback is invoked only periodically -- typically once per minute -- to conserve power. Because of this limitation, any data that changes frequently -- such as a stopwatch, heart rate, or workout distance -- becomes stale between updates. To avoid displaying misleading and incorrect information, listen for the `onEnterAmbient` callback, and replace these live values with static placeholder content, such as `--`.
+  - The `AmbientTickEffect` callback is invoked only periodically -- typically once per minute -- to conserve power. Because of this limitation, any data that changes frequently -- such as a stopwatch, heart rate, or workout distance -- becomes stale between updates. To avoid displaying misleading and incorrect information, replace these live values with static placeholder content, such as `--`.
 - **Maintain a consistent layout**
   - Keep elements in the same position across *Interactive* and *Ambient* modes to create a smooth transition.
   - Always show the time.
 - **Be context aware**
   - If the user was on a settings or configuration screen when the device enters ambient mode, consider showing a more relevant screen from your app instead of the settings view.
 - **Handle device-specific requirements**
-  - In the [`AmbientDetails`](https://developer.android.com/reference/androidx/wear/ambient/AmbientLifecycleObserver.AmbientDetails) object passed to `onEnterAmbient()`:
-    - If `deviceHasLowBitAmbient` is `true`, disable anti-aliasing where possible.
-    - If `burnInProtectionRequired` is `true`, periodically shift the UI elements slightly and avoid solid white areas to prevent screen burn-in.
+  - In the [`AmbientMode`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/AmbientMode) object returned from `currentAmbientMode`:
+    - If `isLowBitAmbientSupported` is `true`, disable anti-aliasing where possible.
+    - If `isBurnInProtectionRequired` is `true`, periodically shift the UI elements slightly and avoid solid white areas to prevent screen burn-in.
 
 ## Debugging and testing
 
@@ -248,11 +224,11 @@ duration of their exercise session. The app must remain visible through
 
 To achieve this, the developer should do the following:
 
-1. Implement an `AmbientLifecycleObserver` to handle UI changes between *Interactive* and *Ambient* states, such as dimming the screen and removing non-essential data.
+1. Use `LocalAmbientModeManager` to handle UI changes between *Interactive* and *Ambient* states, such as dimming the screen and removing non-essential data.
 2. Create [a new low-powered layout](https://developer.android.com/training/wearables/always-on#ambient-appearance) for the *Ambient* state that follows the best practices.
 3. Use the [Ongoing Activity API](https://developer.android.com/training/wearables/notifications/ongoing-activity) (or [Live Updates](https://developer.android.com/training/wearables/notifications/live-updates) on Wear OS 7 and higher) for the duration of the workout to prevent the system from returning to the watch face.
 
 For a complete implementation, see the compose-based [Exercise sample](https://github.com/android/health-samples/tree/main/health-services/ExerciseSampleCompose) on
-GitHub. This sample also demonstrates the use of the [`AmbientAware`](https://google.github.io/horologist/compose-layout/#ambientaware-composable)
-composable from the [Horologist](https://github.com/google/horologist) library to simplify ambient mode handling
+GitHub. This sample also demonstrates the use of the
+[`LocalAmbientModeManager`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/rememberAmbientModeManager.composable) composable to simplify ambient mode handling
 in Compose.
