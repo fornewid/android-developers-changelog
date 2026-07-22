@@ -179,7 +179,7 @@ feedback:
 1. **Check existing items:** First, check the [AGP 10.0 Variant API Global
    Tracking Bug](https://issuetracker.google.com/532056644) to see if your migration blocker is already known, and +1 the issue.
 2. **Report missing APIs:** If your use case is unique, [file a new feature
-   request](https://issuetracker.google.com/issues/new?component=192708&template=840533) using our specific Variant API template so we can investigate and assist.
+   request](https://issuetracker.google.com/issues/new?component=192708&template=2357909) using our specific AGP 10.0 template so we can investigate and assist.
 
 ### (Tentative) Access to private internal AGP classes is removed
 

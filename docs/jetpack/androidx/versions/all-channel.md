@@ -31,6 +31,10 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
 
 These Jetpack libraries have been recently updated.
 
+## July 22, 2026
+
+- [Media3 Version 1.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-rc01)
+
 ## July 15, 2026
 
 - [Annotation Version 1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0-alpha01)

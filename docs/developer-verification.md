@@ -67,11 +67,11 @@ Learn more about free, limited distribution accounts. [Learn more](http://develo
 
 ### [For developers who don't want to verify](https://android-developers.googleblog.com/2026/03/android-developer-verification.html)
 
-Preview the advanced flow to see how we'll serve power users who want the ability to download unverified apps. [Learn more](https://android-developers.googleblog.com/2026/03/android-developer-verification.html) Contact us
+Preview the advanced flow to see how we'll serve power users who want the ability to download unverified apps. [Learn more](https://android-developers.googleblog.com/2026/03/android-developer-verification.html) Support
 
-### [Get support and submit feedback](https://docs.google.com/forms/d/e/1FAIpQLSeN8qv6GRTztqsXy6P8P2_Q93BOIIkT2X7sOQKesQD_LCvnKw/viewform)
+### [Visit the Help Centers](https://support.google.com/android-developer-console)
 
-for Android developer verification. [Learn more](https://docs.google.com/forms/d/e/1FAIpQLSeN8qv6GRTztqsXy6P8P2_Q93BOIIkT2X7sOQKesQD_LCvnKw/viewform)
+Visit the Help Centers for additional help with Android developer verification. [Android Developer Console](https://support.google.com/android-developer-console) [Google Play Console](https://support.google.com/googleplay/android-developer)
 
 ## Timeline
 

@@ -16,6 +16,10 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## July 22, 2026
+
+- [Media3 Version 1.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-rc01)
+
 ## July 15, 2026
 
 - [Loader Version 1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/loader#1.2.0-rc01)

@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 7, 2026 | [1.10.1](https://developer.android.com/jetpack/androidx/releases/media3#1.10.1) | - | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-beta01) | [1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-alpha01) |
+| July 22, 2026 | [1.10.1](https://developer.android.com/jetpack/androidx/releases/media3#1.10.1) | [1.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-rc01) | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-beta01) | [1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -204,6 +204,31 @@ Your feedback helps make Jetpack better. You can use the
 to questions, known issues and feature requests, and to file new issues.
 
 ## Version 1.11.0
+
+### 1.11.0-rc01
+
+July 22, 2026
+
+- ExoPlayer:
+  - Fix potential scrubbing mode issue where scrubbing could stall when seeking to 'end of stream'.
+  - Revert: Add support for ads in multi-period content (e.g., DASH) by splitting and offsetting the `AdPlaybackState` for each period.
+- DataSource:
+  - Fix `KtorDataSource` loading the entire HTTP response body into memory when opening a connection ([#3305](https://github.com/androidx/media/issues/3305)).
+- Session:
+  - Fix crash by catching `ForegroundServiceStartNotAllowedException` in `MediaSessionService.stopSelfSafely()` ([#3310](https://github.com/androidx/media/issues/3310)).
+  - Fix unexpected `onMediaItemTransition()` callback on `MediaController` when seeking inside the same media item ([#3248](https://github.com/androidx/media/issues/3248)).
+- Downloads:
+  - Resolve HLS variables in media playlist when fetched for download ([#3258](https://github.com/androidx/media/issues/3258)).
+- HLS extension:
+  - Fix calculation of content resume offset when resolving interstitial asset lists ([#3322](https://github.com/androidx/media/issues/3322)).
+  - Fix unexpected audio track timestamp discontinuity when resuming low latency live playback after a playlist request failure ([#3311](https://github.com/androidx/media/issues/3311)).
+  - Fix bug in `HlsMediaPeriod.getStreamKeys()` where the ID3 track in audio renditions is considered as subtitles ([#3333](https://github.com/androidx/media/issues/3333)).
+- DASH extension:
+  - Fix crash (`IndexOutOfBoundsException`) when opening manifests with an empty `<SegmentTimeline/>` element ([#3326](https://github.com/androidx/media/issues/3326)).
+- Decoder extensions (FFmpeg, VP9, AV1, etc.):
+  - Revert monochrome video support to bundled dav1d JNI.
+- Cast extension:
+  - Fix bug where unconfigured live streams (`liveConfiguration == UNSET`) were queued as `STREAM_TYPE_BUFFERED` ([#3318](https://github.com/androidx/media/issues/3318)).
 
 ### 1.11.0-beta01
 

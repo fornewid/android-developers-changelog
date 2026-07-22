@@ -73,7 +73,7 @@ verification.
   in sanctioned countries will be excluded from Android developer verification
   checks. This allows any developer to continue distributing apps in these
   regions without verification, though users there won't benefit from the
-  enhanced security benefits of the program. Last updated: March 25, 2026
+  enhanced security benefits of the program. *Last updated: March 25, 2026*
 
 - **What Android versions will the developer verification requirements be
   enforced on?** It will apply to all certified Android devices running
@@ -90,7 +90,7 @@ verification.
   Android app stores, direct website downloads, and more. As long as your apps
   are registered, your users' install experience will stay the same. Power
   users can choose to install apps from unverified developers after a one-time
-  advanced flow setup launching August 2026. Last updated: *June 18, 2026*
+  advanced flow setup launching August 2026. *Last updated: June 18, 2026*
 
 - **What happens if I distribute my app through a store that isn't included in
   the intitial September 2026 list?** If you use a store that is not
@@ -108,16 +108,16 @@ verification.
   other stores, or if users sideload your app directly, these new verification
   requirements won't apply to your app yet. While your users' install
   experiences won't change in September, we still recommend that you plan to
-  complete your verification before the global rollout begins in 2027. Last
-  updated: July 15, 2026
+  complete your verification before the global rollout begins in 2027. *Last
+  updated: July 15, 2026*
 
 - **Which Android form factors are subject to the September 30, 2026 developer
   verification requirement?** If a developer distributes apps on Google Play,
   their apps across all form factors must be registered. For distribution
   outside of Google Play, it is recommended to register all apps across form
   factors to future-proof your apps availability, though enforcement will only
-  apply to mobile and tablet form factors in the selected regions. Last
-  updated: July 15, 2026
+  apply to mobile and tablet form factors in the selected regions. *Last
+  updated: July 15, 2026*
 
 ## Identity and accounts
 
@@ -126,7 +126,7 @@ verification.
 - **How is my personal information handled?** We use your personal information to verify your identity, and it is handled in accordance with [Google's
   Privacy Policy](https://policies.google.com/privacy). We are committed to protecting your data. *Last updated: Sept 3, 2025*
 - **How does this impact developers who do not want to verify, preferring to
-  remain anonymous?** While we respect developer privacy, we must balance it with user safety. Adding this security layer better protects all users by default and Google is only using your information to verify your identity and allow you to register which apps belong to you. We will handle your personal information in accordance with our Privacy Policy. Developers who want to remain unverified can use a limited distribution account, which requires no ID verification. Or you can distribute your unregistered app to users who have activated advanced flow. Last updated: *June 18, 2026*
+  remain anonymous?** While we respect developer privacy, we must balance it with user safety. Adding this security layer better protects all users by default and Google is only using your information to verify your identity and allow you to register which apps belong to you. We will handle your personal information in accordance with our Privacy Policy. Developers who want to remain unverified can use a limited distribution account, which requires no ID verification. Or you can distribute your unregistered app to users who have activated advanced flow. *Last updated: June 18, 2026*
 - **Why is there a $25 fee for the ADC? How can I pay?** The $25 fee for the **Full Distribution** account in the ADC helps cover administrative costs and investment in protecting the ecosystem, similar to Play's $25 registration fee. We are actively working to support multiple forms of payment to accommodate developers globally and will have more details when the console launches. We are waiving the fee for developers who qualify for a Limited Distribution account. *Last update: March 25, 2026*
 - **What happens if I cannot provide a government ID?** For developers like students and hobbyists who don't want to provide a government ID, we offer a limited distribution account (launching in August). This lets you share apps with up to 20 specific devices for testing and personal use at no cost and without ID verification. *Last updated: June 18, 2026*
 
@@ -142,7 +142,7 @@ verification.
   it outright. You should consider using a different package name. If this is
   not possible, you can request to register the package name, but this will
   require an additional review, and that package name may also be used by
-  other developers. Last updated: *March 19, 2026*
+  other developers. *Last updated: March 19, 2026*
 
 - **Where can I check the status of my package registration?** You can check
   your package registration status in the following places:
@@ -150,7 +150,7 @@ verification.
   - Google Play Console: Navigate to the Android developer verification page, where the registration status will be shown directly next to each of your apps.
   - Android Developer Console: Navigate to the Package names tab, which displays a list of your packages alongside their current status (such as Registered, Not registered, or Draft).
   - Android Studio: You will see your app's registration status specifically when you generate a signed App Bundle or APK (available in [Android
-    Studio Panda 4](https://developer.android.com/studio/releases/past-releases/as-panda-4-release-notes#dev-verification) and higher). Last updated: *June 18, 2026*
+    Studio Panda 4](https://developer.android.com/studio/releases/past-releases/as-panda-4-release-notes#dev-verification) and higher). *Last updated: June 18, 2026*
 - **Can I use APIs to automate app registration within my existing CI/CD
   pipeline?** Yes, the APIs are specifically designed to streamline
   registration in bulk or directly through continuous integration and
@@ -166,7 +166,7 @@ verification.
 
 - **Can users still sideload apps from unverified developers?** Yes. Android is introducing an advanced flow for power users who want to take educated risks to install apps from unverified developers. It's a **one-time** setup for users to install apps from unverified developers after acknowledging the risks. It's designed to protect user choice while adding in safeguards to protect users from being tricked or coerced into disabling security protections. Preview it in our [video](https://youtube.com/shorts/WcPElxbOeXY) or [blog post](https://goo.gle/advance-flow). *Last updated:
   March 23, 2026*
-- **Can I still use independent app stores?** Yes. You can continue to use any alternative app store. For apps distributed from verified developers, users won't see a change in their download experience at all. For apps distributed from unverified developers, users can enable advanced flow with a one-time setup. Last updated: *June 8, 2026*
+- **Can I still use independent app stores?** Yes. You can continue to use any alternative app store. For apps distributed from verified developers, users won't see a change in their download experience at all. For apps distributed from unverified developers, users can enable advanced flow with a one-time setup. *Last updated: June 8, 2026*
 - **How does the advanced flow work for users?**
 
   - Enable developer mode in system settings: Activating this is

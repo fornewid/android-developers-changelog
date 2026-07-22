@@ -38,9 +38,9 @@ using the guidance on this page.
 Android vitals shares your app's memory usage broken down by the following
 [process states](https://developer.android.com/guide/components/activities/process-lifecycle):
 
-- **Foreground**: The app's process is visible. High P99 here often affects user-perceived performance (jank or OOM crashes) and is heavily driven by unevicted UI components or activities.
-- **Foreground Service** : The app is running a [foreground service](https://developer.android.com/develop/background-work/services/fgs). Because these services are designed for long-running tasks, they're prime candidates for cumulative lifecycle leaks that aggressively inflate the P99 tail over time.
-- **Background**: The app is running a background service, or recently backgrounded, but not yet cached. This is where background processing leaks compound.
+- **Foreground**: The app's process is visible. High P99 here often affects user-perceived performance (jank or OOM crashes) and is heavily driven by retaining UI components or activities that are no longer needed.
+- **Perceptible Service** : The app's process is running in a [perceptible](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo#IMPORTANCE_PERCEPTIBLE) state. This includes [foreground services](https://developer.android.com/develop/background-work/services/fgs), expedited jobs, and [user-initiated data](https://developer.android.com/develop/background-work/background-tasks/uidt) transfer jobs. It can also extend to system-bound services or services bound by other apps. Because these services are designed for long-running tasks, holding onto memory due to leaks or failing to release resources can inflate the P99 tail over time.
+- **Background**: The app is running a background service, or was recently backgrounded, but isn't yet cached. This is where background processing leaks and unreleased resources can compound. Because this process state is less important than foreground or perceptible processes, try to avoid retaining large amounts of memory in this state.
 - **Cached**: The app is in a cached state. This state is highly sensitive to system memory pressure such as LMKs. Because the OS can evict this process state at will, this state is provided only for debug purposes.
 
 To understand how these process states correlate with `onTrimMemory` callbacks,
@@ -91,8 +91,8 @@ dumps across different process states (visible, foreground service, and cached)
 to verify if the app releases memory after being backgrounded.
 
 If you're debugging memory issues using the Android Studio Profiler, you can
-also use the [LeakCanary integration to streamline leak detection and duplicate
-bitmap detection to optimize your image usage](https://developer.android.com/studio/preview/features#leakcanary).
+also use the [LeakCanary integration to streamline leak and duplicate
+bitmap detection to optimize your image usage](https://developer.android.com/studio/releases#leakcanary).
 
 > [!NOTE]
 > **Note:** Android Studio doesn't support viewing a heap dump that was captured with a tool other than the Android Studio Memory Profiler.

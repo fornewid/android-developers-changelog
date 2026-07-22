@@ -52,7 +52,7 @@ You can submit a significant change on the [Age signals](https://play.google.com
 Play Console. To submit a significant change, you will need to provide:
 
 - **Effective from date (required):** A future date when the change takes effect. Changes are effective from 00:00 UTC.
-- **Description (optional):** A short description of the update (up to 500 characters). The description you provide will be shown verbatim to parents. You can provide the description in all languages that your app supports.
+- **Description (optional):** A short description of the update. The description you provide will be shown verbatim to parents. You can provide the description in all languages that your app supports.
 
 You can submit up to 3 significant changes up to 90 days in advance. You can
 view significant changes that you previously submitted in the Play

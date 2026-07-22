@@ -238,7 +238,7 @@ different set of formats.
 ## Standalone subtitle formats
 
 ExoPlayer supports standalone subtitle files in a variety of formats. Subtitle
-files can be side-loaded as described on the [media items page](https://developer.android.com/guide/topics/media/exoplayer/media-items#sideloading-subtitle-tracks).
+files can be side-loaded as described on the [media items page](https://developer.android.com/guide/topics/media/exoplayer/media-items#sideloading-subtitle).
 
 | Container format | Supported | MIME type |
 |---|---|---|
