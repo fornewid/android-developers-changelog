@@ -1,0 +1,12 @@
+diff --git a/docs/kotlin/coroutines/coroutines-adv.md b/docs/kotlin/coroutines/coroutines-adv.md
+index 0d978327..a7c373e3 100644
+--- a/docs/kotlin/coroutines/coroutines-adv.md
++++ b/docs/kotlin/coroutines/coroutines-adv.md
+@@ -36,6 +36,7 @@ suspend fun fetchDocs() { // Dispatchers.Main
+ }
+ 
+ suspend fun get(url: String) = withContext(Dispatchers.IO) {
++    /* ... */
+ }
+ ```
+ 
