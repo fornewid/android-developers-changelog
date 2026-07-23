@@ -196,8 +196,7 @@ It is important to remember the following points:
 
 - During a grace period, the user should retain access to subscription benefits.
 - When a subscription recovers during a grace period, the renewal date does *not* reset.
-- If you increase the grace period---for example, from 7 days to 14 days---users who are in a grace period get extended access to subscription benefits.
-- If you decrease the grace period, users who are far enough into the old grace period to exceed the new grace period have their subscription benefits revoked immediately. For example, if you decrease the grace period from 14 days to 7 days, users who are in days 8-14 of the old grace period have their subscription benefits revoked immediately.
+- If you change the grace period, users who are currently in a grace period won't be impacted. Subscription renewals entering grace period after the change will have the new grace period reflected. For example, if you change the grace period from 7 days to 14 days, users who enter the grace period after the change will have the new 14-day grace period.
 - The subscription remains in an active state and you won't receive a grace period RTDN until the silent grace period ends
 
 ### Silent grace period

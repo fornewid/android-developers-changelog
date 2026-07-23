@@ -76,7 +76,7 @@ which must meet all of the requirements in this tier to be accepted on the
 Google Play Store.
 
 > [!NOTE]
-> **Note:** Through the [Car ready mobile apps program](https://developer.android.com/training/cars/car-ready-mobile-apps), mobile apps meeting the requirements in this tier can be made available for use on Android Auto as well as for download from the Google Play Store on Android Automotive OS vehicles with Google built-in.
+> **Note:** Through the [Car ready mobile apps program](https://developer.android.com/training/cars/car-ready-mobile-apps), mobile apps meeting the requirements in this tier can be made available for download from the Google Play Store on Android Automotive OS vehicles with Google built-in.
 
 ### Tier 2 - Car optimized
 
@@ -99,14 +99,13 @@ seen in many premium cars.
 ### Car ready
 
 | Criteria | ID | Applicable Categories | Description |
-|---|---|---|---|
+|---|---|---|---|---|
 | Permitted Categories | `PC-1` | All | The app must not include features outside the app types intended for cars. See [Supported app categories](https://developer.android.com/training/cars#supported-app-categories). |
 | Expected Performance | `EP-1` | All | The app must work as expected or described in the app's Google Play Store listing. |
 | Expected Performance | `EP-2` | Media, Messaging (templated), Calling, Navigation, POI, IOT, Weather, Video, Games, Browsers | When the app is relaunched from the home screen, the app must restore the app state as closely as possible to the previous state. |
 | Expected Performance | `EP-3` | Games | The app is responsive to input and does not freeze or stutter during gameplay. |
-| Expected Performance | `EP-4` | All | App submission has uploaded at least one unaltered, high resolution screenshot that accurately depicts the current version of the app experience in cars. |
-| Display Orientation | `DO-1` | Video, Games, Browsers | **Android Automotive OS only:** The app can be distributed to devices with fixed screen orientations. See [Required Android Automotive OS features](https://developer.android.com/training/cars/parked/automotive-os#required-features). |
-| Display Orientation | `DO-2` | Games | **Android Auto only:** The app is not significantly pillarboxed when running on landscape displays. See [Support common Android Auto screen sizes](https://developer.android.com/training/cars/parked/auto#support-screen-sizes). |
+| Expected Performance | Display Orientation | `DO-1` | Video, Games, Browsers | **Android Automotive OS only:** The app can be distributed to devices with fixed screen orientations. See [Required Android Automotive OS features](https://developer.android.com/training/cars/parked/automotive-os#required-features). |
+| `DO-2` | Display Orientation | Games | **Android Auto only:** The app is not significantly pillarboxed when running on landscape displays. See [Support common Android Auto screen sizes](https://developer.android.com/training/cars/parked/auto#support-screen-sizes). |
 | App Rendering | `AR-1` | All categories supported by Android Automotive OS | In activities implemented by the app, interactive UI elements must not be obstructed by system bars or display cutouts. See [Work with window insets and display cutouts](https://developer.android.com/training/cars/parked/automotive-os#insets-and-cutouts). |
 | Driver Distraction | `DD-3` | Video, Games, Browsers | The app must not be launchable or usable while driving and must not play any audio. See [Meet driver distraction requirements](https://developer.android.com/training/cars/parked/automotive-os#driver-distraction). Note: If your app plays audio, it must meet the [`DD-2`](https://developer.android.com/docs/quality-guidelines/car-app-quality#DD-2) requirement. |
 | Irrelevant notifications | `IN-2` | Video, Games, Browsers | The app must not post any [heads up notifications](https://developer.android.com/training/cars/platforms/automotive-os/notifications#hun). |
@@ -251,18 +250,6 @@ creating a separate release from the updates to your car app.
 > **Caution:** Due to this restriction, you shouldn't use your production APK for Android Auto support prototyping.
 
 ## Change notes
-
-### June 2026
-
-- Expected Performance
-
-  - Categories affected: All
-  - New criterion:
-    [`EP-4`](https://developer.android.com/docs/quality-guidelines/car-app-quality#EP-4)
-
-    App submission has uploaded at least one unaltered, high resolution
-    screenshot that accurately depicts the current version of the app
-    experience in cars.
 
 ### May 2026
 

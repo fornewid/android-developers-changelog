@@ -32,24 +32,8 @@ depending on whether mandatory age sharing is applicable in a region:
   - If the user's setting is **Never Share** , the in-app prompt is not shown, and the value of `ageSignalsStatus` is `NOT_SHARED`.
   - For supervised users, parents can choose to share the age for their child in Family Link app settings. If the parents choose to share the age the value of `ageSignalsStatus` will be `SHARED` otherwise it will be `NOT_SHARED`.
 
-The following image shows the **Ask before sharing** age range configuration in
-Play settings.
-![Google Play settings menu displaying options for age sharing: Ask before sharing, Always share, and Never share](https://developer.android.com/static/google/play/age-signals/img/play-age-share-settings.png) **Figure 1.** Manage age sharing in Play settings.
-
-![](https://developer.android.com/static/google/play/age-signals/img/play-age-share-settings.png)
-
-The following image shows the in-app age range sharing request shown to users
-when the age is requested through the API and their setting
-is **Ask before sharing**.
-![In-app consent dialog prompting the user to share their age range with the app.](https://developer.android.com/static/google/play/age-signals/img/in-app-age-share-request.png) **Figure 2.** In-app age range sharing request.
-
-![](https://developer.android.com/static/google/play/age-signals/img/in-app-age-share-request.png)
-
-The following image shows how the user can enable or disable age share for a
-specific app.
-![Settings dialog for a specific app showing a toggle switch to enable or disable age range sharing](https://developer.android.com/static/google/play/age-signals/img/app-specific-range-toggle.png) **Figure 3.** Enable or disable age sharing for a specific app.
-
-![](https://developer.android.com/static/google/play/age-signals/img/app-specific-range-toggle.png)
+To understand how age sharing works on Google Play, including the in-app prompt
+and age range sharing settings, see [Age range sharing on Google Play](https://support.google.com/googleplay/answer/17232873).
 
 The following example shows how to request for age signals:
 

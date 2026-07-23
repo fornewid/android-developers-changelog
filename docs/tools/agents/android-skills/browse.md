@@ -16,7 +16,7 @@ Integrate the Jetpack Compose Styles API to set up component themes and make cus
 ### Analyze Perfetto traces
 Analyze Perfetto traces to find the root cause of latency, memory, or jank issues in Android apps.](https://github.com/android/skills/tree/main/profilers/perfetto-trace-analysis) [![](https://developer.android.com/static/images/picto-icons/improve-performance.svg)
 ### Audit R8 configuration
-Optimize your app's performance by auditing your R8 configuration.](https://github.com/android/skills/tree/main/performance/r8-analyzer) [![](https://developer.android.com/static/images/picto-icons/xr.svg)
+Optimize your app's performance by auditing your R8 configuration.](https://github.com/android/skills/tree/main/performance/r8-analyzer) [![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg)
 ### Build for display glasses
 Develop projected Android XR apps for display glasses using the Jetpack Compose Glimmer UI toolkit.](https://github.com/android/skills/tree/main/xr/display-glasses-with-jetpack-compose-glimmer) [![](https://developer.android.com/static/images/picto-icons/code-2.svg)
 ### Implement AppFunctions
