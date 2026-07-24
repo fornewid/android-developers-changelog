@@ -662,15 +662,18 @@ kilobytes.
 When inspecting this information, you should be familiar with the
 following types of allocation:
 
-Private (Clean and Dirty) RAM
-:   This is memory that is being used by only your process. This is the bulk
-    of the RAM that the system can reclaim when your app's process is destroyed.
-    Generally, the most important portion of this is *private dirty* RAM, which
-    is the most expensive because it is used by only your process and because its
-    contents exist only in RAM, so can't be paged to storage, because Android does't
-    use swap. All Dalvik and native heap allocations you make are private dirty
-    RAM. Dalvik and native allocations you share with the Zygote process are shared
-    dirty RAM.
+Private clean and dirty RAM
+:   This is memory that's used by only your process. This is the bulk of the
+    RAM that the system can reclaim when your app's process is destroyed. Generally,
+    the most important portion of this is private dirty RAM, which is the most
+    expensive because it's used by only your process and because its contents exist
+    primarily in active RAM. While Android avoids traditional disk swap files, it
+    uses zRAM (in-memory page compression) to swap dirty pages, and occasionally
+    zRAM Writeback to store idle pages on flash storage. However, because page
+    compression costs CPU cycles and flash writes are strictly throttled to prevent
+    hardware wear, private dirty RAM can't be evicted without cost.
+    All Dalvik and native heap allocations you make are private dirty RAM. Dalvik
+    and native allocations you share with the Zygote process are shared dirty RAM.
 
 Proportional Set Size (PSS)
 :   This is a measurement of your app's RAM use that takes into account sharing
@@ -872,9 +875,9 @@ you should observe:
     prior to your process being destroyed, but `Private Dirty` is only
     released on process destruction.
 
-    Dirty RAM is
-    pages that have been modified and so must stay committed to RAM because there is
-    no swap. Clean RAM is pages that have been mapped from a persistent file, such
+    Dirty RAM is pages that have been modified and are either kept in active RAM,
+    compressed into zRAM, or written back to storage. Clean RAM is pages that have
+    been mapped from a persistent file, such
     as code being executed, and can be paged out if not used for a while.
 
 `ViewRootImpl`

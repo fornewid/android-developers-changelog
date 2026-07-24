@@ -9,17 +9,29 @@ upgrade your app to target Wear OS 7.
 
 ## Set up an emulator
 
-Following the same process as for mobile devices, use the Wear OS 7 emulator to
-test behavior changes and explore new features in Wear OS 7.
+Use the Wear OS 7 emulator to test behavior changes, explore new features, and
+test your app on different screen sizes and watch hardware profiles.
 
-To set up the Wear OS 7 emulator, follow the instructions to
-[Create a Wear OS virtual device](https://developer.android.com/training/wearables/get-started/creating), taking note of the following
-requirements:
+### Download and install the emulator
 
-- Use [Android Studio Canary](https://developer.android.com/studio/preview). Accessing Canary versions of the Wear OS 7 emulator requires an Android Studio release from the Canary channel.
-- Select the **Wear OS 7.0 - Preview** system image when creating the virtual device.
+To set up a virtual device to run Wear OS 7, follow these steps:
 
-![Android Studio showing the Wear OS 7 system image selection](https://developer.android.com/static/training/wearables/versions/7/images/emulator-setup.png) Select the Wear OS 7.0 --- Preview system image in Android Studio.
+1. Download the [latest release of Android Studio](https://developer.android.com/studio).
+2. In Android Studio, click **Tools \> SDK Manager**.
+3. In the **SDK Tools** tab, select the latest version of **Android Emulator** and click **OK** to install the latest version if it isn't already installed.
+4. In Android Studio, open the Device Manager by selecting **Tools \> Device
+   Manager** . Click **Create device**.
+5. In the **Category** pane, select **Wear OS**.
+6. Select a hardware profile (for example, **Wear OS Large Round** or **Wear
+   OS Small Round** ) and click **Next**.
+7. Select a Wear OS 7 system image to download:
+   - In the **SDK Platforms** tab (or recommended tab), select the system image for **Wear OS 7.0** (**API Level 37**).
+   - Ensure to specify the architecture (e.g., `ARM 64 v8a` or `Intel
+     x86_64` depending on the developer's host machine).
+   - If not installed, click **Download** next to the release name.
+8. Once downloaded, select the image, click **Next** , and then **Finish**.
+
+![Android Studio showing the Wear OS 7 system image selection](https://developer.android.com/static/training/wearables/versions/7/images/wear7-emulator-setup.png) Select the Wear OS 7.0 system image in Android Studio.
 
 ### Pre-installed experiences
 

@@ -4,11 +4,18 @@ url: https://developer.android.com/blog/authors/thomas-ezan
 source: md.txt
 ---
 
-6 posts ![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
+7 posts ![](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
 
 # Thomas Ezan
 
 Senior Developer Relations Engineer
+- 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_21AGRW.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Build intelligent Android apps: Cloud and hybrid inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
+  8 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
 - 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
@@ -40,13 +47,13 @@ Senior Developer Relations Engineer
 
   [arrow_forward](https://developer.android.com/blog/posts/red-bus-uses-gemini-flash-via-firebase-ai-logic-to-boost-the-length-of-customer-reviews-by-57) As the world's largest online bus ticketing platform, redBus serves millions of travelers across India, Southeast Asia, and Latin America.
   3 min read
-- 13 Oct 2025 13 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_ZsFAUM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+<button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
-  ## [Boost user engagement with AI Image Generation](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation)
+#### Page 1
 
-  [arrow_forward](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation) Adding custom images to your app can significantly improve and personalize user experience and boost user engagement.
-  5 min read
-Stay in the loop
+###### of 2
+
+[arrow_forward](https://developer.android.com/blog/authors/thomas-ezan/2) Stay in the loop
 
 
 Get the latest Android development insights delivered to your inbox

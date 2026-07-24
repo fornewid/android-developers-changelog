@@ -19,8 +19,8 @@ the key fields.
 | [`getPosterImages()`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/MovieEntity#getPosterImages()) | List\<Image\> | Required | A list of images used for the movie's poster display |
 | [`getPlatformSpecificPlaybackUris()`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/MovieEntity#getPlatformSpecificPlaybackUris()) | List\<PlatformSpecificUri\> | Required | Deep links for playback on specific platforms |
 | [`getDurationMillis()`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/MovieEntity#getDurationMillis()) | Long | Required | The total duration of the movie in milliseconds |
-| `getCallToAction` | String | Required (GTV) | Text displayed to prompt user interaction (e.g., "Watch Now") |
-| `getTags` | List\<String\> | Optional | Keywords used for categorization (e.g., "Action/Thriller") |
+| `getCallToActionText()` | String | Required (GTV) | Text displayed to prompt user interaction (e.g., "Watch Now") |
+| `getTags()` | List\<String\> | Optional | Keywords used for categorization (e.g., "Action/Thriller") |
 
 ## `LiveTvProgramEntity` data model
 
@@ -35,11 +35,11 @@ The `LiveTvProgramEntity` represents a program airing or scheduled to air on a s
 | [`getChannelId()`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/LiveTvProgramEntity#getChannelId()) | String | Required | Unique identifier for the TV channel |
 | [`getChannelName()`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/LiveTvProgramEntity#getChannelName()) | String | Required | Name of the TV channel |
 | [`getChannelLogoImage()`](https://developer.android.com/reference/com/google/android/engage/video/datamodel/LiveTvProgramEntity#getChannelLogoImage()) | Image | Required | Logo image for the TV channel |
-| `getCallToAction()` | String | Required (GTV) | Interaction prompt text |
+| `getCallToActionText()` | String | Required (GTV) | Interaction prompt text |
 | `getTags()` | List\<String\> | Optional | Keywords used for categorization |
 
 > [!NOTE]
-> **Note:** These public methods (e.g., `setCallToAction()`, `addTag()`, `addBadge()`) are also available for other video entities, such as `TvShowEntity`, `TvEpisodeEntity`, and `TvSeasonEntity`.
+> **Note:** These public methods (e.g., `setCallToActionText()`, `addTag()`, `addBadge()`) are also available for other video entities, such as `TvShowEntity`, `TvEpisodeEntity`, and `TvSeasonEntity`.
 
 ## Builder usage examples
 
@@ -58,7 +58,7 @@ See [MovieEntity.Builder](https://developer.android.com/reference/com/google/and
             .setPlatformType(PlatformType.TYPE_TV)
             .build())
         .setDurationMillis(7200000L)
-        .setCallToAction("Watch Now")
+        .setCallToActionText("Watch Now")
         .addTag("Action/Thriller")
         .build();
 
@@ -81,7 +81,7 @@ See [LiveTvProgramEntity.Builder](https://developer.android.com/reference/com/go
         .addPosterImage(new Image.Builder()
             .setImageUri(Uri.parse("https://example.com/v1/assets/image.jpg"))
             .build())
-        .setCallToAction("Watch Now")
+        .setCallToActionText("Watch Now")
         .addTag("News")
         .build();
 
@@ -90,8 +90,13 @@ See [LiveTvProgramEntity.Builder](https://developer.android.com/reference/com/go
 `publishRecommendationClusters()` will be used to send candidate content to the Feature Carousel. Cluster
 type should be set as `RecommendationClusterType.TYPE_PROVIDER_ROW`.
 
+### Item limits and targeting
+
+- **Item Limits:** The Featured Carousel displays a maximum of 3 items.
+- **Targeting:** You can customize the Featured Carousel content for each individual device. Since the content is published from the client app installed on the device, you can populate it with unique, personalized candidate lists per user or device. However, you're responsible for implementing this targeting logic, as the Engage SDK doesn't provide built-in targeting support.
+
 > [!NOTE]
-> **Note:** Make sure that candidate content for the Feature Carousel is sent in every `publishRecommendationClusters()` call or else it will be overwritten.
+> **Note:** Make sure you send your complete candidate list, including all recommendation rows, in every `publishRecommendationClusters` call. Each call fully overwrites the previous set of candidates. If you omit recommendation rows, they'll be removed from the display.
 
 ## Engage SDK version
 

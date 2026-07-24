@@ -4,11 +4,18 @@ url: https://developer.android.com/blog/authors/ben-weiss
 source: md.txt
 ---
 
-7 posts ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
+8 posts ![](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
 
 # Ben Weiss
 
 Developer Relations Engineer
+- 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZbOM76.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
+  6 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
 - 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/monzo_boosts_performance_aff3a37917_6VY99.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Monzo boosts performance metrics by up to 35% with a simple R8 update](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update)
@@ -39,12 +46,6 @@ Developer Relations Engineer
 
   [arrow_forward](https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app) We're kicking things off with the single most impactful, low-effort change you can make to improve your app's performance: enabling the R8 optimizer in full mode.
   5 min read
-- 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/REDDIT_casestudy01_1_f3fc4706f3_ZQQjCi.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
-
-  ## [How Reddit used the R8 optimizer for high impact performance improvements](https://developer.android.com/blog/posts/how-reddit-used-the-r8-optimizer-for-high-impact-performance-improvements)
-
-  [arrow_forward](https://developer.android.com/blog/posts/how-reddit-used-the-r8-optimizer-for-high-impact-performance-improvements) During their work with the Android Developer Relations team, the engineering team at Reddit used the App Performance Score to evaluate their app.
-  4 min read
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1

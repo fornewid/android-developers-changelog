@@ -171,5 +171,5 @@ startForeground(notificationId, notification);
 
 Time-sensitive ongoing notifications can benefit from higher visibility.
 Consider promoting time-sensitive ongoing notifications as
-[Live Updates](https://developer.android.com/develop/ui/views/notifications/live-updates) to display them in various system UI
+[Live Updates](https://developer.android.com/develop/ui/views/notifications/live-update) to display them in various system UI
 surfaces.

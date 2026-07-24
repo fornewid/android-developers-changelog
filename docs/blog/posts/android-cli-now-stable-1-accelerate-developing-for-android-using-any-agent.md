@@ -11,13 +11,13 @@ source: md.txt
 5-min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp) 19 May 2026 [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_ZDTMlF.webp)](https://developer.android.com/blog/authors/simona-milanovic)[![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)](https://developer.android.com/blog/authors/ben-trengrove) [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) \& [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove) As Android developers, you have many choices when it comes to the agents, tools, command-line interfaces (CLI), and LLMs you use for app development. Whether you use Gemini in Android Studio, Antigravity 2.0, Antigravity CLI, or third-party agents like Anthropic's Claude Code or OpenAI'sCodex, our mission remains the same: to ensure that high-quality Android development is possible everywhere.
 [Video](https://www.youtube.com/watch?v=aqmpZocmR8o)
 
-At **Google I/O '26** , we shared the latest leaps forward in agentic development, and showcased some of the newest capabilities of [Android CLI](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/7947913907519760349#)---now stable at version 1.0 and ready for all Android developers to use. From new skills to enabling agent access to powerful Android Studio capabilities, we're giving your agents the right tools to build alongside you.
+At **Google I/O '26** , we shared the latest leaps forward in agentic development, and showcased some of the newest capabilities of [Android CLI](https://developer.android.com/tools/agents/android-cli)---now stable at version 1.0 and ready for all Android developers to use. From new skills to enabling agent access to powerful Android Studio capabilities, we're giving your agents the right tools to build alongside you.
 
 If you're already using Android CLI and want to jump into using all the new features, just run `android update`. Otherwise, read further to learn more about how we're making the agents you choose be better at building for Android.
 
 ### Android development unlocked for Antigravity
 
-[Google Antigravity](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/7947913907519760349#) now includes an optional bundle of Android resources---including the Android CLI and skills---that you can install. You can either install the bundle during onboarding after installation, or later from the **Settings \> Customizations \> Build With Google Plugins** menu.
+[Google Antigravity](https://antigravity.google/) now includes an optional bundle of Android resources---including the Android CLI and skills---that you can install. You can either install the bundle during onboarding after installation, or later from the **Settings \> Customizations \> Build With Google Plugins** menu.
 
 This provides Antigravity with all the powerful tools and knowledge of Android CLI, enabling it to perform the core tasks necessary for Android app development more easily and efficiently---from creating projects to deploying your app on a new Android virtual device.
 ![agy-android-cli.png](https://developer.android.com/static/blog/assets/agy_android_cli_668b5f6f18_Z2niFn9.webp)
@@ -29,7 +29,7 @@ Android CLI provides a lightweight interface for AI Agents to perform tasks and 
 
 The latest version of Android CLI introduces the new `android studio` command. This enables the agent of your choice to leverage the deep, contextual capabilities of Android Studio to better understand and perform actions on an open Android project. By running Android Studio alongside your preferred agent with Android CLI, your agent's tasks can more efficiently navigate the codebase to produce more precise code changes. And, when you use Android CLI to create and iterate on your project, transitioning to Android Studio is much easier, so that you can use the purpose built tools---such as, performance profilers, Compose Previews, and Android Device Streaming---to get that production-grade polish.
 
-When you have a project open in the latest [preview version](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/7947913907519760349#) of Android Studio Quail, you (or your agent) can run the following command to check whether Android CLI has a connection established with your open project:
+When you have a project open in the latest [preview version](https://developer.android.com/studio/preview) of Android Studio Quail, you (or your agent) can run the following command to check whether Android CLI has a connection established with your open project:
 
 ```
 $ android studio check
@@ -66,20 +66,20 @@ To make integrating Android CLI into your environments as seamless as possible, 
 winget install -e --id Google.AndroidCLI
 ```
 
-We've also updated the installation to a user-local directory, by default. You can find the commands for all supported operating systems plus additional download options on the [Android CLI page](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/7947913907519760349#).
+We've also updated the installation to a user-local directory, by default. You can find the commands for all supported operating systems plus additional download options on the [Android CLI page](https://developer.android.com/tools/agents/android-cli/archive).
 
 ### Support for Journeys
 
 ![android-cli-write-journey.png](https://developer.android.com/static/blog/assets/android_cli_write_journey_3dd0275369_1euJck.webp)
 
-We are also introducing support for [Journeys](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/7947913907519760349#). With Journeys tools and skills included with Android CLI, any agent of your choice can now create and run Journeys---which are natural language descriptions of user journeys for your app that are saved directly to your project.
+We are also introducing support for [Journeys](https://developer.android.com/tools/agents/android-cli/journeys). With Journeys tools and skills included with Android CLI, any agent of your choice can now create and run Journeys---which are natural language descriptions of user journeys for your app that are saved directly to your project.
 ![android-cli-journey-run.gif](https://developer.android.com/static/blog/assets/android_cli_journey_run_ff5ebd47bc_Z1N8cuX.webp)
 
 Agents can run these journeys using the Android CLI to navigate your app exactly like a user would. This unlocks entirely new ways to test, validate, or collect data across the critical experiences of your app, all driven by natural language and executed by your agent.
 
 ### Expanding Android skills
 
-To help models better understand and execute specific patterns that follow our best practices, we are continuing to expand our [library of Android skills](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/7947913907519760349#). We're shipping new skills that make Android development everywhere more capable, efficient, and productive:
+To help models better understand and execute specific patterns that follow our best practices, we are continuing to expand our [library of Android skills](https://github.com/android/skills). We're shipping new skills that make Android development everywhere more capable, efficient, and productive:
 
 - **Display Glasses and Jetpack Compose Glimmer for XR:**Provides guidelines for developing projected applications for Android Display Glasses using the Jetpack Compose Glimmer UI toolkit.
 - **Migration to CameraX:** Helps you migrate legacy Android camera implementations (Camera1 or raw Camera2 APIs) to CameraX.
@@ -103,9 +103,9 @@ Once you've found the right skill, install it to your environment by running:
 
 ### Get started today
 
-To download the stable 1.0 release of the Android CLI, explore the new tools, and browse the complete documentation, head over to [d.android.com/tools/agents](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/7947913907519760349#) today! Also, make sure you update to the [latest preview version of Android Studio](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/7947913907519760349#) to unlock the latest features that Android CLI offers. We can't wait to see what you build with Android CLI 1.0 and how these new features supercharge your daily workflows. Join our vibrant community on [LinkedIn](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/7947913907519760349#), [Medium](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/7947913907519760349#), [YouTube](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/7947913907519760349#), or [X](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/7947913907519760349#) and share your feedback.
+To download the stable 1.0 release of the Android CLI, explore the new tools, and browse the complete documentation, head over to [d.android.com/tools/agents](https://developer.android.com/tools/agents) today! Also, make sure you update to the [latest preview version of Android Studio](https://developer.android.com/studio/preview) to unlock the latest features that Android CLI offers. We can't wait to see what you build with Android CLI 1.0 and how these new features supercharge your daily workflows. Join our vibrant community on [LinkedIn](https://www.linkedin.com/showcase/androiddev/posts/?feedView=all), [Medium](https://medium.com/androiddevelopers), [YouTube](https://www.youtube.com/c/AndroidDevelopers/videos), or [X](https://twitter.com/androidstudio) and share your feedback.
 
-Explore this announcement and all Google I/O 2026 updates on [io.google.](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/7947913907519760349#)
+Explore this announcement and all Google I/O 2026 updates on [io.google.](https://io.google/2026/?utm_source=blogpost&utm_medium=pr&utm_campaign=devblogs&utm_content)
 - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
 Written by:
 
