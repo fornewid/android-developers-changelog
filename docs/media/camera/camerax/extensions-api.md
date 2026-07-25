@@ -4,25 +4,39 @@ url: https://developer.android.com/media/camera/camerax/extensions-api
 source: md.txt
 ---
 
-# CameraX Extensions API
+> [!CAUTION]
+> **Caution:** Starting November 1, 2026, CameraX Extensions support will be removed on some devices for apps using **CameraX v1.5 or earlier** . This change is necessary to improve camera performance and reliability. CameraX version 1.6 and later will continue to fully support CameraX Extensions. To ensure uninterrupted functionality for your users, we strongly recommend updating your app to **CameraX v1.6 or higher** as soon as possible.
 
-CameraX provides an Extensions API for accessing[extensions](https://developer.android.com/training/camera/camera-extensions)that device manufacturers have implemented on various Android devices. For a list of supported extension modes, see[Camera extensions](https://developer.android.com/training/camera/camera-extensions).
+CameraX provides an Extensions API for accessing [extensions](https://developer.android.com/training/camera/camera-extensions) that device manufacturers have implemented on various Android devices. For a list of supported extension modes, see [Camera extensions](https://developer.android.com/training/camera/camera-extensions).
 
-For a list of devices that support extensions, see[Supported devices](https://developer.android.com/training/camera/supported-devices).
+For a list of devices that support extensions, see [Supported devices](https://developer.android.com/training/camera/supported-devices).
 
 ## Extensions architecture
 
 The following image shows the camera extensions architecture.
-![](https://developer.android.com/static/images/training/camera/camerax/camerax-camera-extensions-architecture.png)**Figure 1.**Camera Extensions architecture
+![](https://developer.android.com/static/images/training/camera/camerax/camerax-camera-extensions-architecture.png) **Figure 1.**Camera Extensions architecture
 
-A CameraX application can use extensions through the CameraX Extensions API. The CameraX Extensions API manages querying for available extensions, configuring an extension camera session, and communicating with the Camera Extensions OEM library. This allows your application to use capabilities like Night, HDR, Auto, Bokeh, or Face Retouch.
+A CameraX application can use extensions through the CameraX Extensions API. The
+CameraX Extensions API manages querying for available extensions, configuring an
+extension camera session, and communicating with the Camera Extensions OEM
+library. This allows your application to use capabilities like Night, HDR, Auto,
+Bokeh, or Face Retouch.
 
 ## Enable an extension for image capture and preview
 
-Before using the extensions API, retrieve an`ExtensionsManager`instance using the[ExtensionsManager#getInstanceAsync(Context, CameraProvider)](https://developer.android.com/reference/androidx/camera/extensions/ExtensionsManager#getInstanceAsync(android.content.Context,%20androidx.camera.core.CameraProvider))method. This will allow you to query the extension availability information. Then retrieve an extension enabled`CameraSelector`. The extension mode will be applied on the image capture and preview use cases when calling the[bindToLifecycle()](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...))method with the`CameraSelector`extension enabled.
-| **Note:** Enabling extensions on`ImageCapture`and`Preview`may limit the number of cameras that you can select when you use`ImageCapture`and`Preview`as parameters to[`bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...)).`ExtensionsManager#getExtensionEnabledCameraSelector()`will throw an exception if no cameras are found that support the extension.
+Before using the extensions API, retrieve an `ExtensionsManager` instance
+using the [ExtensionsManager#getInstanceAsync(Context, CameraProvider)](https://developer.android.com/reference/androidx/camera/extensions/ExtensionsManager#getInstanceAsync(android.content.Context,%20androidx.camera.core.CameraProvider))
+method. This will allow you to query the extension availability
+information. Then retrieve an extension enabled `CameraSelector`. The
+extension mode will be applied on the image capture and preview use cases when
+calling the [bindToLifecycle()](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...))
+method with the `CameraSelector` extension enabled.
 
-To implement the extension for the image capture and preview use cases, refer to the following code sample:  
+> [!NOTE]
+> **Note:** Enabling extensions on `ImageCapture` and `Preview` may limit the number of cameras that you can select when you use `ImageCapture` and `Preview` as parameters to [`bindToLifecycle()`](https://developer.android.com/reference/androidx/camera/lifecycle/ProcessCameraProvider#bindToLifecycle(androidx.lifecycle.LifecycleOwner,%20androidx.camera.core.CameraSelector,%20androidx.camera.core.UseCase...)). `ExtensionsManager#getExtensionEnabledCameraSelector()` will throw an exception if no cameras are found that support the extension.
+
+To implement the extension for the image capture and preview use cases,
+refer to the following code sample:
 
 ### Kotlin
 
@@ -175,12 +189,18 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ## Disable the extension
 
-To disable vendor extensions, unbind all use cases and rebind the image capture and preview use cases with a normal camera selector. For example, rebind to the back camera using`CameraSelector.DEFAULT_BACK_CAMERA`.
+To disable vendor extensions, unbind all use cases and rebind the image capture
+and preview use cases with a normal camera selector. For example, rebind to the
+back camera using `CameraSelector.DEFAULT_BACK_CAMERA`.
 
 ## Dependencies
 
-The CameraX Extensions API is implemented in the`camera-extensions`library. The extensions depend on the CameraX core modules (`core`,`camera2`,`lifecycle`).
-**Note:** To ensure compatibility, you must use the version of the extensions library that is found in the same[release package](https://developer.android.com/jetpack/androidx/releases/camera)as the corresponding core camera modules. For example, to use`camera-extensions:1.0.0-alpha28`, you must also include version`1.1.0-alpha28`for the`camera-lifecycle`,`camera-core`, and`camera-camera2`, as these modules were all released together.  
+The CameraX Extensions API is implemented in the `camera-extensions` library.
+The extensions depend on the CameraX core modules (`core`, `camera2`,
+`lifecycle`).
+
+> [!NOTE]
+> **Note:** To ensure compatibility, you must use the version of the extensions library that is found in the same [release package](https://developer.android.com/jetpack/androidx/releases/camera) as the corresponding core camera modules. For example, to use `camera-extensions:1.0.0-alpha28`, you must also include version `1.1.0-alpha28` for the `camera-lifecycle`, `camera-core`, and `camera-camera2`, as these modules were all released together.
 
 ### Groovy
 
@@ -212,9 +232,16 @@ dependencies {
 
 ## Legacy API removal
 
-With the new Extensions API released in`1.0.0-alpha26`, the legacy Extensions API released in August 2019 is now deprecated. Starting with version`1.0.0-alpha28`, the legacy Extensions API has been removed from the library. Applications using the new Extensions API must now acquire an extension-enabled[`CameraSelector`](https://developer.android.com/reference/androidx/camera/core/CameraSelector)and use it to bind the use cases.
+With the new Extensions API released in `1.0.0-alpha26`, the legacy
+Extensions API released in August 2019 is now deprecated. Starting with
+version `1.0.0-alpha28`, the legacy Extensions API has been removed from the
+library. Applications using the new Extensions API must now acquire an
+extension-enabled [`CameraSelector`](https://developer.android.com/reference/androidx/camera/core/CameraSelector)
+and use it to bind the use cases.
 
-Applications using the legacy Extensions API should migrate to the new Extensions API to ensure future compatibility with upcoming CameraX releases.
+Applications using the legacy Extensions API should migrate to the new
+Extensions API to ensure future compatibility with upcoming CameraX
+releases.
 
 ## Additional resources
 
@@ -222,7 +249,6 @@ To learn more about CameraX, consult the following additional resources.
 
 ### Codelab
 
-<br />
 
 - [Getting Started with CameraX](https://codelabs.developers.google.com/codelabs/camerax-getting-started)
 

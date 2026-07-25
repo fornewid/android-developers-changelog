@@ -24974,8 +24974,8 @@
     },
     "media/camera/camerax/extensions-api.md": {
       "original_url": "https://developer.android.com/media/camera/camerax/extensions-api",
-      "hash": "69740d2b166854829c859eaa51cabe0b878dd6e4fe480d63217a3fe029f57158",
-      "last_updated": "2026-04-09T17:13:48.265483",
+      "hash": "ddef2afd00bb1414993984d688251c1141b215ba167b67d58b66e4babf6af00f",
+      "last_updated": "2026-07-25T15:25:43.024105",
       "fetch_method": "md.txt"
     },
     "training/wearables/views/lists.md": {
@@ -29180,8 +29180,8 @@
     },
     "develop/better-together/continue-on/setup.md": {
       "original_url": "https://developer.android.com/develop/better-together/continue-on/setup",
-      "hash": "8757f2c46774d805a40b76d09ae30ed8693fa357e0297152b003cb693ef90bb8",
-      "last_updated": "2026-05-15T15:42:43.850438",
+      "hash": "b936fa1005734dc456620f1afa8074e25c75a052ae10b9aa6fbdb2d827346594",
+      "last_updated": "2026-07-25T15:26:54.324587",
       "fetch_method": "md.txt"
     },
     "develop/better-together/continue-on/enable-support.md": {
@@ -31655,7 +31655,13 @@
       "hash": "c102ee39044d70a45380e58e3389e01e0ffbc7debbddfde0a9a3f6ab24ad961d",
       "last_updated": "2026-07-24T15:34:58.055533",
       "fetch_method": "md.txt"
+    },
+    "topic/performance/views/benchmarking/macrobenchmark-control-app-views.md": {
+      "original_url": "https://developer.android.com/topic/performance/views/benchmarking/macrobenchmark-control-app-views",
+      "hash": "c7817157ad91285af2085d7547511e44c68ae7aa652f898a4c186bcd0bb97e20",
+      "last_updated": "2026-07-25T15:26:50.115547",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-07-24T15:35:01.178280"
+  "last_updated": "2026-07-25T15:27:53.772377"
 }

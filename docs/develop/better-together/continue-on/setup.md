@@ -17,12 +17,12 @@ To test Continue On, obtain two Pixel devices (one mobile, one tablet) that are
 - Enroll the devices in the [Android Beta for Pixel program](https://www.google.com/android/beta). Learn more about [Android Beta for developers](https://developer.android.com/about/versions/16/qpr2/overview).
 - Setup both devices with the same Google user account to use [cross-device
   services](https://support.google.com/android/answer/14997291).
-- Enroll in the Cross-Device Services [public Beta](https://play.google.com/apps/testing/com.google.android.ambient.streaming) in Play and install the latest version.
-- Enroll in the Google system services [public Beta](https://play.google.com/apps/testing/com.google.android.gms) in Play and install the latest version. Learn more about the [Google system services public beta
+- Enroll in the Cross-Device Services [public beta](https://play.google.com/apps/testing/com.google.ambient.streaming) in Play and install the latest version.
+- Enroll in the Google system services [public beta](https://play.google.com/apps/testing/com.google.android.gms) in Play and install the latest version. Learn more about the [Google system services public beta
   program](https://developers.google.com/android/guides/beta-program).
 - Network requirements
   - Bluetooth is on
-  - Both devices are on the same wifi network
+  - Both devices are on the same Wi-Fi network
 - Set up cross-device services:
   - Open the Settings app.
   - Go to **Connected devices \> Connection preferences \> Cross-device
