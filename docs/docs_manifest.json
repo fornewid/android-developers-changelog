@@ -2678,8 +2678,8 @@
     },
     "google/play/billing/security.md": {
       "original_url": "https://developer.android.com/google/play/billing/security",
-      "hash": "4effb9b4fabd68e566568e0369117c9eca1e6fcd15ed43df90ff9dd23c2a5bbe",
-      "last_updated": "2026-05-20T10:34:46.134568",
+      "hash": "689dd7e26a328e03663e42f0a2b4f09403ea079c483be48e9fb8e9d21c934fbc",
+      "last_updated": "2026-07-27T15:52:23.921546",
       "fetch_method": "md.txt"
     },
     "develop/ui/views/components/settings/customize-your-settings.md": {
@@ -13880,8 +13880,8 @@
     },
     "studio/nightly.md": {
       "original_url": "https://developer.android.com/studio/nightly",
-      "hash": "46f5a0e38a96e1e97a5eafaf370f7fb2bbdb6d8b25e1eec6a76cbf1ce7cabe03",
-      "last_updated": "2026-07-24T15:30:59.184971",
+      "hash": "e293e6411eed8a94572f1e025e2c68467e02139d50027951930147906c620c37",
+      "last_updated": "2026-07-27T15:52:58.989033",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/arcore/hands.md": {
@@ -18386,8 +18386,8 @@
     },
     "google/play/billing/integrate.md": {
       "original_url": "https://developer.android.com/google/play/billing/integrate",
-      "hash": "ca246de5fa56e7da2b5140bc717e95dea755679588c023f80c40d249886509c3",
-      "last_updated": "2026-07-16T15:36:12.510435",
+      "hash": "9900b1b52fe2f5679fdf2099257f38750b981aa7db72013faef7b1a2c5d69324",
+      "last_updated": "2026-07-27T15:57:08.529866",
       "fetch_method": "md.txt"
     },
     "work/versions/android-9.0.md": {
@@ -28970,8 +28970,8 @@
     },
     "agents/skills/device-ai/appfunctions/skill.md": {
       "original_url": "https://developer.android.com/agents/skills/device-ai/appfunctions/skill",
-      "hash": "52e0026f2cfbb9e4dc7b2a6bff0eef398c090c04d18bfdd63f0fa18829041678",
-      "last_updated": "2026-05-16T15:21:14.453798",
+      "hash": "15da2b5f276ef7f920cf7b388e357a83c8e21aed4595f286915150335291f3b0",
+      "last_updated": "2026-07-27T15:54:31.081493",
       "fetch_method": "md.txt"
     },
     "agents/skills/play/engage-sdk-integration/references/patterns.md": {
@@ -28994,8 +28994,8 @@
     },
     "agents/skills/device-ai/appfunctions/references/kdoc-refinement-optimization.md": {
       "original_url": "https://developer.android.com/agents/skills/device-ai/appfunctions/references/kdoc-refinement-optimization",
-      "hash": "79899e6d7fb1823c1c6cd1fe64946e1798175e4e781af855c5c524129ecee3e5",
-      "last_updated": "2026-05-14T15:46:00.215916",
+      "hash": "a88da568547741d802c01aa643c3d9c352e914140bcbc2073fc044b64a3cd51a",
+      "last_updated": "2026-07-27T15:52:33.564514",
       "fetch_method": "md.txt"
     },
     "agents/skills/play/engage-sdk-integration/references/schemas/watch.md": {
@@ -29048,20 +29048,20 @@
     },
     "agents/skills/device-ai/appfunctions/references/implementation-configuration.md": {
       "original_url": "https://developer.android.com/agents/skills/device-ai/appfunctions/references/implementation-configuration",
-      "hash": "a2d08b876b5ebed7aa1e9007ab64ef0270d8bdb649a32f2c2d7dcd4d99fd1098",
-      "last_updated": "2026-05-14T15:48:06.080888",
+      "hash": "11ae6e0c6aedd780e67c94ca4da33e52be9e5e42f32b1944080a728f79877a38",
+      "last_updated": "2026-07-27T15:55:32.921382",
       "fetch_method": "md.txt"
     },
     "agents/skills/device-ai/appfunctions/references/adb-interaction-testing.md": {
       "original_url": "https://developer.android.com/agents/skills/device-ai/appfunctions/references/adb-interaction-testing",
-      "hash": "721b520a9a35656c900169711cae245d580c7ae9758b8e57293445240c1f75a8",
-      "last_updated": "2026-05-14T15:48:06.665818",
+      "hash": "6496cf16edbf8ef2a60977691005eccad6dddfb0af2ed367f9c0f5e27274d281",
+      "last_updated": "2026-07-27T15:52:30.634850",
       "fetch_method": "md.txt"
     },
     "agents/skills/device-ai/appfunctions/references/feature-discovery-analysis.md": {
       "original_url": "https://developer.android.com/agents/skills/device-ai/appfunctions/references/feature-discovery-analysis",
-      "hash": "dff46d324855634e85e89457cd47fcecabec3420aed53ad55327712826425c27",
-      "last_updated": "2026-05-14T15:48:42.734086",
+      "hash": "4968004b6814c1778ad8a68fef8aa615b9ad57736d4b35903ee19883fcf5d37f",
+      "last_updated": "2026-07-27T15:56:23.698068",
       "fetch_method": "md.txt"
     },
     "blog/authors/11.md": {
@@ -31661,7 +31661,25 @@
       "hash": "c7817157ad91285af2085d7547511e44c68ae7aa652f898a4c186bcd0bb97e20",
       "last_updated": "2026-07-25T15:26:50.115547",
       "fetch_method": "md.txt"
+    },
+    "games/engines/unreal/unreal-mcp-antigravity.md": {
+      "original_url": "https://developer.android.com/games/engines/unreal/unreal-mcp-antigravity",
+      "hash": "46e25bb5c5d263cdc697c8a3df0cd92b4d48c3070b2b8b46458b3555c5cf1a58",
+      "last_updated": "2026-07-27T15:54:22.788974",
+      "fetch_method": "md.txt"
+    },
+    "agents/skills/device-ai/appfunctions/context.md": {
+      "original_url": "https://developer.android.com/agents/skills/device-ai/appfunctions/context",
+      "hash": "8fe8b2faef6ee6817fa05ed819c0f12c3413398b68b1f2a3eb397b7535a7efd3",
+      "last_updated": "2026-07-27T15:55:02.112154",
+      "fetch_method": "md.txt"
+    },
+    "agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point.md": {
+      "original_url": "https://developer.android.com/agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point",
+      "hash": "64dd2964c2244e1563768b044f44686aa31a6918f5f9683f2a78503505161ded",
+      "last_updated": "2026-07-27T15:55:13.574840",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-07-25T15:27:53.772377"
+  "last_updated": "2026-07-27T15:57:10.426819"
 }
