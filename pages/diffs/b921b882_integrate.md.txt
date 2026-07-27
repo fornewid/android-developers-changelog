@@ -1,0 +1,55 @@
+diff --git a/docs/google/play/billing/integrate.md b/docs/google/play/billing/integrate.md
+index ff2dbe49..1a5bd2d1 100644
+--- a/docs/google/play/billing/integrate.md
++++ b/docs/google/play/billing/integrate.md
+@@ -651,10 +651,13 @@ Additional information can be found in [Handling pending transactions](https://d
+ If you have attached user identifiers to the purchase as discussed in [attaching
+ user identifiers](https://developer.android.com/google/play/billing/integrate#user-identifiers) you can [retrieve](https://developer.android.com/reference/com/android/billingclient/api/Purchase#getAccountIdentifiers()) and use them to attribute to the
+ correct user in your system. This technique is useful when reconciling purchases
+-where your app may have lost context about which user a purchase is for. Note,
+-purchases made outside your app won't have these identifiers set. In this case
+-your app can either grant the entitlement to the logged in user, or prompt the
+-user to select a preferred account.
++where your app may have lost context about which user a purchase is for. To
++protect against abuse, Google Play recommends that you verify these identifiers
++on your secure backend before granting entitlements. For more information,
++see [Verify purchases before granting entitlements](https://developer.android.com/google/play/billing/security#verify). Note, purchases made
++outside your app won't have these identifiers set. In this case your app can
++either grant the entitlement to the logged in user, or prompt the user to
++select a preferred account.
+ 
+ For [pre-orders](https://developer.android.com/google/play/billing/one-time-product-multi-purchase-options-offers#pre-order), the purchase is in PENDING state before the release time
+ is reached. The preorder purchase will complete at the release time and change
+@@ -983,29 +986,4 @@ billingClient.getBillingConfigAsync(
+         });
+ ```
+ 
+-<br />
+-
+-## Cart abandonment reminders in Google Play Games home (enabled by default)
+-
+-For Games developers that monetize through one-time products, one way in which
+-stock-keeping units (SKUs) that are active in Google Play Console can be sold
+-outside of your app is the Cart Abandonment Reminder feature, which nudges users
+-to complete their previously abandoned purchases while browsing the Google Play
+-Store. These purchases happen outside of your app, from the Google Play Games
+-home in the Google Play Store.
+-
+-**This feature is enabled by default** to help users pick up where they left off
+-and to help developers maximize sales. However, you can opt your app out of this
+-feature by submitting the [Cart Abandonment Reminder feature opt-out form](https://docs.google.com/forms/d/13p-r8JYivNjWU9VHYC-RKp4VxsKqrp9zfzF3oW3gjio/edit).
+-For best practices on managing SKUs within the Google Play Console, see
+-[Create an in-app product](https://support.google.com/googleplay/android-developer/answer/1153481).
+-
+-The following images show the Cart Abandonment Reminder appearing on the Google
+-Play Store:
+-![the Google Play Store screen shows a
+-purchase prompt for a previously abandoned purchase](https://developer.android.com/static/images/google/play/billing/abandoned-cart-reminder-1.png) **Figure 2.** The Google Play Store screen shows a purchase prompt for a previously abandoned purchase.
+-
+-<br />
+-
+-![the Google Play Store screen shows a
+-purchase prompt for a previously abandoned purchase](https://developer.android.com/static/images/google/play/billing/abandoned-cart-reminder-2.png) **Figure 3.** The Google Play Store screen shows a purchase prompt for a previously abandoned purchase.
+\ No newline at end of file
++<br />
+\ No newline at end of file
