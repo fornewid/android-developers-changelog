@@ -228,7 +228,7 @@ A chain can be configured with different [`ChainStyles`](https://developer.andro
 to deal with the space surrounding a composable, such as:
 
 - `ChainStyle.Spread`: Space is distributed evenly across all the composables, including free space before the first composable and after the last composable.
-- `ChainStyle.SpreadInside`: Space is distributed evenly across the all composables, without any free space before the first composable or after the last composable.
+- `ChainStyle.SpreadInside`: Space is distributed evenly across all the composables, without any free space before the first composable or after the last composable.
 - `ChainStyle.Packed`: Space is distributed before the first and after the last composable, composables are packed together without space in between each other.
 
 > [!WARNING]

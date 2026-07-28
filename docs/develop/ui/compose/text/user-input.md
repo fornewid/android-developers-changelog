@@ -393,8 +393,8 @@ class CustomOutputTransformation : OutputTransformation {
 
 <br />
 
-To format a phone number, add an opening parentheses at index 0, a closing
-parentheses at index 4, and a dash at index 8 to your `OutputTransformation`:
+To format a phone number, add an opening parenthesis at index 0, a closing
+parenthesis at index 4, and a dash at index 8 to your `OutputTransformation`:
 
 
 ```kotlin
@@ -434,7 +434,7 @@ output:
 
 ## Set keyboard options
 
-`TextField` lets you set keyboard configurations options, such as the keyboard
+`TextField` lets you set keyboard configuration options, such as the keyboard
 layout, or enable the autocorrect if it's supported by the keyboard. Some
 options may not be guaranteed if the software keyboard doesn't comply with the
 options provided here. Here is the list of the [supported keyboard

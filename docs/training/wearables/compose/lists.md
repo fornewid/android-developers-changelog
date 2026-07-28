@@ -185,6 +185,61 @@ The following images show the difference between a normal list and a reversed
 list:
 ![A TransformingLazyColumn with normal layout, showing Item 1 at the top and items in ascending order.](https://developer.android.com/static/images/wear/compose-tlc-normal.png) **Figure 1.** A standard list layout where content fills from top to bottom. ![A TransformingLazyColumn with reverse layout, showing Item 1 at the bottom and items in descending order towards the top.](https://developer.android.com/static/images/wear/compose-tlc-reverse.png) **Figure 2.** A reversed list layout where content fills from bottom to top.
 
+## Edge buttons on lists
+
+For Material 3, you can add an `EdgeButton` which is an edge-hugging button at
+the bottom of the lists. However, take care not to add this as an item within
+the `TransformingLazyColumn` but instead to use the `edgeButton` slot in the
+`ScreenScaffold`.
+
+Using the `edgeButton` slot ensures that the button is positioned correctly at
+the bottom of the screen and behaves appropriately when the list is scrolled.
+
+The following code snippet shows how to implement [`EdgeButton`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/EdgeButton.composable):
+
+```kotlin
+val columnState = rememberTransformingLazyColumnState()
+ScreenScaffold(
+    scrollState = columnState,
+    edgeButton = {
+        EdgeButton(
+            onClick = { /* TODO */ },
+            modifier = Modifier.scrollable(
+                columnState,
+                orientation = Orientation.Vertical,
+                reverseDirection = true,
+                // Apply overscroll to the EdgeButton for proper scrolling behavior.
+                overscrollEffect = rememberOverscrollEffect(),
+            )
+        ) {
+            Text("More")
+        }
+    }
+) { contentPadding ->
+    TransformingLazyColumn(
+        contentPadding = contentPadding,
+        state = columnState,
+    ) {
+        // ...
+        // ...
+    }
+}
+```
+
+## SwipeToReveal in Lists
+
+The [`SwipeToReveal`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/SwipeToReveal.composable#SwipeToReveal(kotlin.Function1,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,kotlin.Function1,androidx.wear.compose.material3.RevealState,androidx.wear.compose.material3.RevealDirection,kotlin.Boolean,androidx.wear.compose.foundation.GestureInclusion,androidx.compose.ui.unit.Dp,kotlin.Function0)) component lets you access actions for a list item, such
+as a `Card` or `Chip`, by swiping. Swiping typically reveals one or two action
+buttons (such as "Delete" or "More") from the side.
+
+When using `SwipeToReveal` within a `TransformingLazyColumn`, follow these
+guidelines:
+
+- **Reset on scroll**: When the user scrolls the list, reset any swiped-open items to their covered state.
+- **Consistent heights** : Set the action button heights to match the inner swiped item (whether it's a `Button` or a `Card`) to ensure a consistent look.
+- **Transform the container** : Apply the `transformedHeight` modifier and `transformationSpec` to the `SwipeToReveal` component itself.
+- **Do not double-transform** : Don't apply `transformedHeight` or `transformation` modifiers to the inner swiped item (the card or button inside the `SwipeToReveal` container).
+
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off

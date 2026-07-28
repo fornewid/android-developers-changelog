@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/ui/compose/glance/testing
 source: md.txt
 ---
 
-The Glance unit test API let you test your Glance code without inflating views
+The Glance unit test API lets you test your Glance code without inflating views
 or needing a UI automator. For example, the unit test API lets you verify
 conditions, such as whether elements are in a list or whether boxes have been
 checked, using matchers such as `hasContentDescriptionEqualTo` or `isChecked`.
@@ -77,7 +77,7 @@ If your composable function reads context using the `LocalContext.current()`
 method, you must set a context using `setContext()`. Otherwise, this step is
 optional.
 
-You can use any JVM-based Android unit testing framework, such as Roboletric, to
+You can use any JVM-based Android unit testing framework, such as Robolectric, to
 provide the context.
 
 If your composable function accesses `LocalSize`, set the intended size

@@ -71,6 +71,15 @@ source: md.txt
   1 post](https://developer.android.com/blog/authors/amy-zeppenfeld) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)
 -
 
+  ## [Andrei Shikov](https://developer.android.com/blog/authors/andrei-shikov)
+
+  ###### Senior Software Engineer
+
+  [read_more
+  1 post](https://developer.android.com/blog/authors/andrei-shikov) [read_more
+  1 post](https://developer.android.com/blog/authors/andrei-shikov) ![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_EPI3Y.webp) ![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_EPI3Y.webp)
+-
+
   ## [Andrew Lewis](https://developer.android.com/blog/authors/andrew-lewis)
 
   ###### Software Engineer
@@ -78,20 +87,11 @@ source: md.txt
   [read_more
   1 post](https://developer.android.com/blog/authors/andrew-lewis) [read_more
   1 post](https://developer.android.com/blog/authors/andrew-lewis) ![View Andrew Lewis's profile](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp) ![View Andrew Lewis's profile](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)
--
-
-  ## [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov)
-
-  ###### Product Manager
-
-  [read_more
-  1 post](https://developer.android.com/blog/authors/arti-arutiunov) [read_more
-  1 post](https://developer.android.com/blog/authors/arti-arutiunov) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
 
-###### of 13
+###### of 14
 
 [arrow_forward](https://developer.android.com/blog/authors/2) Stay in the loop
 
