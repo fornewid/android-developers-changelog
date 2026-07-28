@@ -1,0 +1,64 @@
+diff --git a/docs/training/wearables/notifications/ongoing-activity.md b/docs/training/wearables/notifications/ongoing-activity.md
+index fc483695..d4ba1a22 100644
+--- a/docs/training/wearables/notifications/ongoing-activity.md
++++ b/docs/training/wearables/notifications/ongoing-activity.md
+@@ -5,23 +5,42 @@ source: md.txt
+ ---
+ 
+ Wear OS devices are often used for long-running experiences, such as tracking a
+-workout. This presents a user experience challenge: if a user starts a task and
+-then navigates away to the watch face, how do they get back? Returning to the
+-app using the launcher can be difficult, especially while on the move, creating
+-unnecessary friction.
+-
+-The solution is to pair an ongoing notification with an [`OngoingActivity`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity).
+-This allows the device to display information about the long-running activity
+-across the user interface, enabling features like the tappable icon at the
+-bottom of the watch face. This keeps users aware of the background task, and
+-provides a one-tap way to return to the app.
+-
+-An Ongoing Activity also keeps your app visible for longer, preventing the
+-system from returning to the watch face after a period of inactivity. For more
+-information, see [Keep your app visible on Wear](https://developer.android.com/training/wearables/always-on#background).
+-
+-> [!NOTE]
+-> **Note:** You can use a [Live Update](https://developer.android.com/training/wearables/notifications/live-updates) in place of an Ongoing Activity For Wear OS 7 and greater. For backwards compatibility on Wear OS 6 and earlier, use an Ongoing Activity.
++workout. These experiences may also provide important information that the user
++cares about and needs quick access to.
++
++This presents a user experience challenge: if a user starts a task and then
++navigates away to the watch face, they should still be able to do each of the
++following:
++
++- Continue to receive important updates.
++- Navigate back to the task in one tap.
++
++Returning to the app using the launcher can be difficult, especially while on
++the move, creating unnecessary friction.
++
++As of Wear OS 7, the solution is to pair an ongoing notification with an
++[`OngoingActivity`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity), or a [Live Update notification](https://developer.android.com/training/wearables/notifications/live-updates). This lets the
++device display information about the long-running activity across the user
++interface, enabling features like the tappable icon at the bottom of the watch
++face. This indicator keeps users aware of the background task, and it provides a
++one-tap way to return to the app.
++
++An ongoing activity or Live Update also keeps your app visible for longer,
++preventing the system from returning to the watch face after a period of
++inactivity. For more information, see [Keep your app visible on Wear](https://developer.android.com/training/wearables/always-on#background).
++
++Use an ongoing activity or [Live Update](https://developer.android.com/training/wearables/notifications/live-updates) notification for experiences that
++are likely to last longer than one minute, or in cases where the user is likely
++to navigate away from your app before the task is complete.
++
++**Appropriate uses:** tracked workouts; timers; active rideshare tracking;
++longer voice recording, such as a meeting; and shopping lists that need to be
++available while user is in a store
++
++**Inappropriate uses:** recording short voice messages, promotions, the status
++of an updating app, and upcoming calendar events.
++> **Important:** Using an [`OngoingActivity`](https://developer.android.com/reference/androidx/wear/ongoing/OngoingActivity) or [Live Update](https://developer.android.com/training/wearables/notifications/live-updates) in these
++> scenarios is a requirement under [Wear OS App Quality guidelines WO-V4](https://developer.android.com/docs/quality-guidelines/wear-app-quality#ongoing-activity).
+ 
+ For example, in this workout app, the information can appear on the user's watch
+ face as a tappable running icon:

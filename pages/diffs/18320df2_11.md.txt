@@ -1,0 +1,60 @@
+diff --git a/docs/blog/authors/11.md b/docs/blog/authors/11.md
+index a74a1b4b..a27853c9 100644
+--- a/docs/blog/authors/11.md
++++ b/docs/blog/authors/11.md
+@@ -6,6 +6,24 @@ source: md.txt
+ 
+ # Authors
+ 
++-
++
++  ## [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker)
++
++  ###### Product Manager
++
++  [read_more
++  2 posts](https://developer.android.com/blog/authors/roxanna-walker) [read_more
++  2 posts](https://developer.android.com/blog/authors/roxanna-walker) ![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp) ![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)
++-
++
++  ## [Ryan Bartley](https://developer.android.com/blog/authors/ryan-bartley)
++
++  ###### Product Manager
++
++  [read_more
++  1 post](https://developer.android.com/blog/authors/ryan-bartley) [read_more
++  1 post](https://developer.android.com/blog/authors/ryan-bartley) ![View Ryan Bartley's profile](https://developer.android.com/static/blog/assets/Ryan_Bartley_35cf836cd8_ZgTUAO.webp) ![View Ryan Bartley's profile](https://developer.android.com/static/blog/assets/Ryan_Bartley_35cf836cd8_ZgTUAO.webp)
+ -
+ 
+   ## [Sa-ryong Kang](https://developer.android.com/blog/authors/sa-ryong-kang)
+@@ -69,29 +87,11 @@ source: md.txt
+   [read_more
+   1 post](https://developer.android.com/blog/authors/scott-nien) [read_more
+   1 post](https://developer.android.com/blog/authors/scott-nien) ![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_F68BQ.webp) ![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_F68BQ.webp)
+--
+-
+-  ## [Shai Barack](https://developer.android.com/blog/authors/shai-barack)
+-
+-  ###### Android Platform Performance Lead
+-
+-  [read_more
+-  1 post](https://developer.android.com/blog/authors/shai-barack) [read_more
+-  1 post](https://developer.android.com/blog/authors/shai-barack) ![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp) ![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp)
+--
+-
+-  ## [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic)
+-
+-  ###### Developer Relations Engineer
+-
+-  [read_more
+-  2 posts](https://developer.android.com/blog/authors/simona-milanovic) [read_more
+-  2 posts](https://developer.android.com/blog/authors/simona-milanovic) ![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_ZDTMlF.webp) ![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_ZDTMlF.webp)
+ [arrow_back](https://developer.android.com/blog/authors/10)
+ 
+ #### Page 11
+ 
+-###### of 13
++###### of 14
+ 
+ [arrow_forward](https://developer.android.com/blog/authors/12) Stay in the loop
+ 

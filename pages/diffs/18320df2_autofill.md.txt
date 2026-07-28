@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/text/autofill.md b/docs/develop/ui/compose/text/autofill.md
+index b52b17a6..41b05496 100644
+--- a/docs/develop/ui/compose/text/autofill.md
++++ b/docs/develop/ui/compose/text/autofill.md
+@@ -290,7 +290,7 @@ When invoking the "saving" user journey, if you click "Not now" more than once,
+ your credential provider may no longer display the bottom
+ sheet. To re-enable it and have it appear once more, you need to remove specific
+ apps that have blocked the "Remember this password?".
+-![Bottom sheet prompting users to save password.](https://developer.android.com/static/develop/ui/compose/images/text/autofill_image_6.png) **Figure 6.**Bottom sheet prompting users to save password.
++![Bottom sheet prompting users to save password.](https://developer.android.com/static/develop/ui/compose/images/text/autofill_image_6.png) **Figure 6.** Bottom sheet prompting users to save password.
+ 
+ ## Further customize Autofill
+ 

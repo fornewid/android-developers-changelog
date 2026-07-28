@@ -1,0 +1,63 @@
+diff --git a/docs/blog/authors/13.md b/docs/blog/authors/13.md
+index 253a0578..a179dd21 100644
+--- a/docs/blog/authors/13.md
++++ b/docs/blog/authors/13.md
+@@ -6,6 +6,24 @@ source: md.txt
+ 
+ # Authors
+ 
++-
++
++  ## [Tor Norbye](https://developer.android.com/blog/authors/tor-norbye)
++
++  ###### Senior Director of Engineering
++
++  [read_more
++  1 post](https://developer.android.com/blog/authors/tor-norbye) [read_more
++  1 post](https://developer.android.com/blog/authors/tor-norbye) ![View Tor Norbye's profile](https://developer.android.com/static/blog/assets/Tor_Norbye_7b1b17eb31_ZSRUB7.webp) ![View Tor Norbye's profile](https://developer.android.com/static/blog/assets/Tor_Norbye_7b1b17eb31_ZSRUB7.webp)
++-
++
++  ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
++
++  ###### Product Marketing Manager
++
++  [read_more
++  8 posts](https://developer.android.com/blog/authors/tracy-agyemang) [read_more
++  8 posts](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
+ -
+ 
+   ## [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns)
+@@ -69,31 +87,13 @@ source: md.txt
+   [read_more
+   1 post](https://developer.android.com/blog/authors/yabin-cui) [read_more
+   1 post](https://developer.android.com/blog/authors/yabin-cui) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+--
+-
+-  ## [Yacine Rezgui](https://developer.android.com/blog/authors/yacine-rezgui)
+-
+-  ###### Developer Relations Engineer
+-
+-  [read_more
+-  1 post](https://developer.android.com/blog/authors/yacine-rezgui) [read_more
+-  1 post](https://developer.android.com/blog/authors/yacine-rezgui) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+--
+-
+-  ## [Zoe Lopez-Latorre](https://developer.android.com/blog/authors/zoe-lopez-latorre)
+-
+-  ###### Senior Developer Relations Engineer
+-
+-  [read_more
+-  1 post](https://developer.android.com/blog/authors/zoe-lopez-latorre) [read_more
+-  1 post](https://developer.android.com/blog/authors/zoe-lopez-latorre) ![View Zoe Lopez-Latorre 's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_07_07_at_1_15_58_PM_eb87f2f61a_Z1QyLll.webp) ![View Zoe Lopez-Latorre 's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_07_07_at_1_15_58_PM_eb87f2f61a_Z1QyLll.webp)
+ [arrow_back](https://developer.android.com/blog/authors/12)
+ 
+ #### Page 13
+ 
+-###### of 13
++###### of 14
+ 
+-<button class="adb--button adb--standard adb--filled adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_forward </button> Stay in the loop
++[arrow_forward](https://developer.android.com/blog/authors/14) Stay in the loop
+ 
+ 
+ Get the latest Android development insights delivered to your inbox

@@ -1,0 +1,38 @@
+diff --git a/docs/studio/profile/record-java-kotlin-methods.md b/docs/studio/profile/record-java-kotlin-methods.md
+index 0aaca2e1..4ad5bf5c 100644
+--- a/docs/studio/profile/record-java-kotlin-methods.md
++++ b/docs/studio/profile/record-java-kotlin-methods.md
+@@ -4,24 +4,19 @@ url: https://developer.android.com/studio/profile/record-java-kotlin-methods
+ source: md.txt
+ ---
+ 
+-Recording the Java/Kotlin methods called during your app's code execution lets
+-you see the callstack and CPU usage at a given time, filtered to Java/Kotlin
+-methods. This data is useful for identifying sections of code that take a long
+-time or a lot of system resources to execute. If you want a full view of the
+-callstack including native call frames, use the
+-[callstack sample](https://developer.android.com/studio/profile/sample-callstack)
+-profiling task.
+-
+-When recording Java or Kotlin methods, the Android Studio Profiler uses
+-runtime instrumentation to inject
++Recording the Java/Kotlin methods called during your app's code execution
++lets you see the callstack and CPU usage at a given time. This data is
++useful for identifying sections of code that take a long time or a lot of
++system resources to execute. If you want a full view of the callstack including
++native call frames, use the [callstack sample](https://developer.android.com/studio/profile/sample-callstack) profiling task.
+ 
+ When recording Java or Kotlin methods, the Android Studio Profiler uses
+ runtime instrumentation to inject timestamps at the entry and exit points of
+ each method call. The profiler then aggregates and analyzes these timestamps
+-to generate precise method tracing data and execution timings. Use tracing when
+-you need exact visibility into specific method invocations. Because runtime
+-instrumentation introduces significant overhead, we recommend that you limit
+-recording sessions to no more than five seconds.
++to generate precise method tracing data and execution timings. Use method
++recording when you need exact visibility into specific method invocations.
++We recommend limiting recordings to five seconds or less to avoid performance
++overhead from runtime instrumentation.
+ 
+ > [!NOTE]
+ > **Note:** The timing information from tracing might deviate from production due to the overhead introduced by the instrumentation itself.

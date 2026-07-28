@@ -1,0 +1,41 @@
+diff --git a/docs/blog/authors.md b/docs/blog/authors.md
+index 8552eb61..998bce33 100644
+--- a/docs/blog/authors.md
++++ b/docs/blog/authors.md
+@@ -71,27 +71,27 @@ source: md.txt
+   1 post](https://developer.android.com/blog/authors/amy-zeppenfeld) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)
+ -
+ 
+-  ## [Andrew Lewis](https://developer.android.com/blog/authors/andrew-lewis)
++  ## [Andrei Shikov](https://developer.android.com/blog/authors/andrei-shikov)
+ 
+-  ###### Software Engineer
++  ###### Senior Software Engineer
+ 
+   [read_more
+-  1 post](https://developer.android.com/blog/authors/andrew-lewis) [read_more
+-  1 post](https://developer.android.com/blog/authors/andrew-lewis) ![View Andrew Lewis's profile](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp) ![View Andrew Lewis's profile](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)
++  1 post](https://developer.android.com/blog/authors/andrei-shikov) [read_more
++  1 post](https://developer.android.com/blog/authors/andrei-shikov) ![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_EPI3Y.webp) ![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_EPI3Y.webp)
+ -
+ 
+-  ## [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov)
++  ## [Andrew Lewis](https://developer.android.com/blog/authors/andrew-lewis)
+ 
+-  ###### Product Manager
++  ###### Software Engineer
+ 
+   [read_more
+-  1 post](https://developer.android.com/blog/authors/arti-arutiunov) [read_more
+-  1 post](https://developer.android.com/blog/authors/arti-arutiunov) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp)
++  1 post](https://developer.android.com/blog/authors/andrew-lewis) [read_more
++  1 post](https://developer.android.com/blog/authors/andrew-lewis) ![View Andrew Lewis's profile](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp) ![View Andrew Lewis's profile](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)
+ <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
+ 
+ #### Page 1
+ 
+-###### of 13
++###### of 14
+ 
+ [arrow_forward](https://developer.android.com/blog/authors/2) Stay in the loop
+ 
