@@ -1,0 +1,12 @@
+diff --git a/docs/develop/ui/compose/notifications/progress-centric.md b/docs/develop/ui/compose/notifications/progress-centric.md
+index 7326884e..bb5cecf5 100644
+--- a/docs/develop/ui/compose/notifications/progress-centric.md
++++ b/docs/develop/ui/compose/notifications/progress-centric.md
+@@ -75,4 +75,4 @@ used for a rideshare context:
+                 )
+             )
+ 
+-See the \[sample app\]\[8\]{:.external} to experiment with these APIs.
+\ No newline at end of file
++See the [sample app](https://github.com/android/platform-samples/tree/main/samples/user-interface/live-updates) to experiment with these APIs.
+\ No newline at end of file

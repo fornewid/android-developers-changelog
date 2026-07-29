@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/compose/notifications/live-update.md b/docs/develop/ui/compose/notifications/live-update.md
+index 1d390aca..a6280942 100644
+--- a/docs/develop/ui/compose/notifications/live-update.md
++++ b/docs/develop/ui/compose/notifications/live-update.md
+@@ -24,7 +24,7 @@ update:
+ - Must be Standard Style, [`BigTextStyle`](https://developer.android.com/reference/android/app/Notification.BigTextStyle), [`CallStyle`](https://developer.android.com/reference/android/app/Notification.CallStyle), [`ProgressStyle`](https://developer.android.com/reference/android/app/Notification.ProgressStyle), or [`MetricStyle`](https://developer.android.com/reference/android/app/Notification.MetricStyle).
+ - Must request the following non-runtime permission in the android manifest [`android.permission.POST_PROMOTED_NOTIFICATIONS`](https://developer.android.com/reference/android/Manifest.permission#POST_PROMOTED_NOTIFICATIONS).
+ - Must request promotion using [`EXTRA_REQUEST_PROMOTED_ONGOING`](https://developer.android.com/reference/android/app/Notification#EXTRA_REQUEST_PROMOTED_ONGOING) or [`NotificationCompat.Builder#setRequestPromotedOngoing`](https://developer.android.com/reference/android/app/Notification.Builder#setRequestPromotedOngoing(boolean)).
+-- Must be [`ongoing`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean)) (set [`FLAG_ONGOING_EVENT`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean)))).
++- Must be [`ongoing`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean)) (set [`FLAG_ONGOING_EVENT`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean))).
+ - Must have a `contentTitle` set.
+ - Must **NOT** have any [`customContentView`](https://developer.android.com/reference/android/app/Notification.Builder#setCustomContentView(android.widget.RemoteViews)) set (no `RemoteViews`).
+ - Must **NOT** be the summary of a group using [`setGroupSummary`](https://developer.android.com/reference/android/app/Notification.Builder#setGroupSummary(boolean)).
+@@ -113,7 +113,7 @@ indicate the system is working, as shown in the example.
+ 
+ Status chips allow users to keep track of Live Updates when the notification is
+ not in view. Use [`setShortCriticalText`](https://developer.android.com/reference/android/app/Notification.Builder#setShortCriticalText(java.lang.String)) or [`setWhen`](https://developer.android.com/reference/android/app/Notification.Builder#setWhen(long)) to convey
+-important state information regarding your progress centric notification.
++important state information regarding your progress-centric notification.
+ ![status chip with icon](https://developer.android.com/static/images/ui/notifications/status-chip-1.png) **Figure 5.** Indeterminate state displays the small icon, `Notification.Builder#setSmallIcon`. ![status chip with time](https://developer.android.com/static/images/ui/notifications/status-chip-2.png) **Figure 6.** Use `Notification.Builder#setShortCriticalText` to show absolute time. ![status chip with info](https://developer.android.com/static/images/ui/notifications/status-chip-3.png) **Figure 7.** Use `Notification.Builder#setShortCriticalText` to convey critical information.
+ 
+ ### When time

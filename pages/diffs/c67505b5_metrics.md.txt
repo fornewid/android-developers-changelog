@@ -1,0 +1,17 @@
+diff --git a/docs/develop/ui/compose/glance/metrics.md b/docs/develop/ui/compose/glance/metrics.md
+index 1fc2d4ec..8356ecd2 100644
+--- a/docs/develop/ui/compose/glance/metrics.md
++++ b/docs/develop/ui/compose/glance/metrics.md
+@@ -93,9 +93,9 @@ device manufacturers may change the reporting window. For example, on Pixel
+ devices if a user scrolls the same list in your widget 10 times in an hour, only
+ 1 scroll event will be counted for that hour.
+ 
+-For testing, you can set the following attribute to a specified time and restart
+-your test device. In the following example, the report window is set to 0 ms and
+-events are reported immediately.
++For testing, you can set the following attribute to a specified time and
++restart your test device. In the following example, the report window is set
++to 0 ms and events are reported immediately.
+ 
+     adb shell device_config override systemui widget_events_report_interval_ms 0
+ 

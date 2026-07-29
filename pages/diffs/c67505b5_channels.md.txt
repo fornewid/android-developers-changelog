@@ -1,0 +1,21 @@
+diff --git a/docs/develop/ui/compose/notifications/channels.md b/docs/develop/ui/compose/notifications/channels.md
+index c70015e7..a61d580d 100644
+--- a/docs/develop/ui/compose/notifications/channels.md
++++ b/docs/develop/ui/compose/notifications/channels.md
+@@ -207,11 +207,11 @@ notificationManager?.deleteNotificationChannel(channelId)
+ 
+ ## Create a notification channel group
+ 
+-If want to further organize the appearance of your channels in the settings UI,
+-you can create channel groups. This is a good idea when your app supports
+-multiple user accounts because it lets you create a notification channel group
+-for each account. Channel groups help users differentiate and control multiple
+-notification channels that have identical names.
++If you want to further organize the appearance of your channels in the
++settings UI, you can create channel groups. This is a good idea when your app
++supports multiple user accounts because it lets you create a notification
++channel group for each account. Channel groups help users differentiate and
++control multiple notification channels that have identical names.
+ 
+ ![](https://developer.android.com/static/images/ui/notifications/channel-groups_2x.png)
+ 

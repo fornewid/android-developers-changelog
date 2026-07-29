@@ -1,0 +1,32 @@
+diff --git a/docs/blog/latest/3.md b/docs/blog/latest/3.md
+index e0283c60..50ab79ad 100644
+--- a/docs/blog/latest/3.md
++++ b/docs/blog/latest/3.md
+@@ -7,6 +7,13 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Vijaya Kaza's profile](https://developer.android.com/static/blog/assets/Vijaya_Kaza_38a0089092_1sYB49.webp)](https://developer.android.com/blog/authors/vijaya-kaza) 07 May 2026 07 May 2026 ![](https://developer.android.com/static/blog/assets/260429_A_look_ahead_to_2026_Banner_Strapi_2000_x_1000_px_b302a5104a_1L2cA4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [A look ahead: Making it easier and faster to publish safer apps](https://developer.android.com/blog/posts/a-look-ahead-making-it-easier-and-faster-to-publish-safer-apps)
++
++  [arrow_forward](https://developer.android.com/blog/posts/a-look-ahead-making-it-easier-and-faster-to-publish-safer-apps) The mobile ecosystem is always evolving, bringing both new opportunities and new threats. Through these changes, Android and Google Play remain committed to ensuring that billions of users can continue to enjoy their apps with confidence and developer innovation can thrive.
++  [Vijaya Kaza](https://developer.android.com/blog/authors/vijaya-kaza) • 3 min read
++  - [#Android](https://developer.android.com/blog/topics/android)
+ - [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+ 
+   ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
+@@ -127,13 +134,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/contact-picker-privacy-first-contact-sharing) Privacy and user control remain at the heart of the Android experience. Just as the photo picker made media sharing secure and easy to implement, we are now bringing that same level of privacy, simplicity, and great user experience to contact selection.
+   [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) • 4 min read
+-- [![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)](https://developer.android.com/blog/authors/robert-clifford) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/Redefining_Location_5e4a362604_Z1wl0mf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Redefining Location Privacy: New Tools and Improvements for Android 17](https://developer.android.com/blog/posts/redefining-location-privacy-new-tools-and-improvements-for-android-17)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/redefining-location-privacy-new-tools-and-improvements-for-android-17) A pillar of the Android ecosystem is our shared commitment to user trust. As the mobile landscape has evolved, so does our approach to protecting sensitive information.
+-  [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford) • 3 min read
+-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
+ [arrow_back](https://developer.android.com/blog/latest/2)
+ 
+ #### Page 3

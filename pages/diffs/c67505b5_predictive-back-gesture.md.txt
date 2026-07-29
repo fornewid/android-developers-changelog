@@ -1,0 +1,47 @@
+diff --git a/docs/guide/navigation/custom-back/predictive-back-gesture.md b/docs/guide/navigation/custom-back/predictive-back-gesture.md
+index 62ee9db7..72f92262 100644
+--- a/docs/guide/navigation/custom-back/predictive-back-gesture.md
++++ b/docs/guide/navigation/custom-back/predictive-back-gesture.md
+@@ -48,7 +48,7 @@ implementing the AndroidX and platform APIs.
+ ## Handle custom back gestures in Compose
+ 
+ Compose provides the `PredictiveBackHandler` composable to handle custom back
+-gestures. This API allows you to respond to the back gesture and provides a
++gestures. This API lets you respond to the back gesture and provides a
+ `Flow` of `BackEventCompat` objects that you can use to implement custom
+ animations or transitions as the user swipes.
+ 
+@@ -123,10 +123,10 @@ To migrate unsupported APIs to AndroidX APIs:
+    [`OnBackPressedCallback`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback). For detailed guidance, see
+    [Provide custom back navigation](https://developer.android.com/guide/navigation/navigation-custom-back).
+ 
+-2. Disable the `OnBackPressedCallback` when ready to stop intercepting the back
+-   gesture.
++2. Disable the `OnBackPressedCallback` when ready to stop intercepting the
++   back gesture.
+ 
+-3. Stop intercepting back events via `OnBackPressed` or
++3. Stop intercepting back events using `OnBackPressed` or
+    `KeyEvent.KEYCODE_BACK`.
+ 
+ 4. Make sure to upgrade to
+@@ -193,7 +193,7 @@ Keep in mind the following considerations when using the
+ 
+ ## Callback best practices
+ 
+-Here are best practices for using the supported system back callbacks;
++Here are best practices for using the supported system back callbacks:
+ [`PredictiveBackHandler`](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#compose-back) or [`BackHandler`](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#compose-back) (for Compose),
+ [`OnBackPressedCallback`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback), or [`OnBackInvokedCallback`](https://developer.android.com/reference/android/window/OnBackInvokedCallback).
+ 
+@@ -255,8 +255,8 @@ The other callback can include a material component that supports predictive
+ back, an AndroidX transition using the Progress APIs, or another custom
+ callback.
+ 
+-The same stack behavior applies in Compose: the innermost `PredictiveBackHandler`
+-or `BackHandler` takes precedence.
++The same stack behavior applies in Compose: the innermost
++`PredictiveBackHandler` or `BackHandler` takes precedence.
+ 
+ Similarly, a `childFragmentManager`'s callback runs if the above callbacks are
+ disabled and the back stack for this `FragmentManager` isn't empty. In this

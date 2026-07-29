@@ -1,0 +1,32 @@
+diff --git a/docs/blog/latest/6.md b/docs/blog/latest/6.md
+index 7f607a72..88f7859a 100644
+--- a/docs/blog/latest/6.md
++++ b/docs/blog/latest/6.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) [Community](https://developer.android.com/blog/categories/community)
++
++  ## [#WeArePlay: How Matraquina helps non-verbal kids communicate](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate)
++
++  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate) In our latest #WeArePlay film, we meet Adriano, Wagner and Grazyelle. The trio are behind Matraquinha, an app helping thousands of non-verbal children in more than 80 countries communicate.
++  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+ - [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/ron-aquino) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/251210_Header_v01_de706a19ce_ZIQ3n5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Building a safer Android and Google Play, together](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together)
+@@ -123,14 +129,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app) We're kicking things off with the single most impactful, low-effort change you can make to improve your app's performance: enabling the R8 optimizer in full mode.
+   [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 5 min read
+-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_p8Pb2.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+-
+-  ## [Get your app on the fast track with Android Performance Spotlight Week!](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week) When working on new features, app performance often takes a back seat. However, while it's not always top of mind for developers, users can see exactly where your app's performance lags behind.
+-  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 3 min read
+-  - [#Performance](https://developer.android.com/blog/topics/performance)
+-  - [#R8](https://developer.android.com/blog/topics/r8)
+ [arrow_back](https://developer.android.com/blog/latest/5)
+ 
+ #### Page 6
