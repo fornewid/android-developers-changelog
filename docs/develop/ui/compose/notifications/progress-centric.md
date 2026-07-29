@@ -75,4 +75,4 @@ used for a rideshare context:
                 )
             )
 
-See the \[sample app\]\[8\]{:.external} to experiment with these APIs.
+See the [sample app](https://github.com/android/platform-samples/tree/main/samples/user-interface/live-updates) to experiment with these APIs.

@@ -41,6 +41,7 @@ This guide explains the following areas:
   - [Toggle buttons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/toggle-buttons)
   - [Title Chips](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/title-chips)
   - [Vertical stacks](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/vertical-stacks)
+  - [Voice input indicator](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/voice-input-indicator)
 - Theming in Jetpack Compose Glimmer:
   - [Colors](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/colors)
   - [Shapes](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/shapes)

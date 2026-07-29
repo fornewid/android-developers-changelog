@@ -50,6 +50,12 @@ Written by:
   [read_more
   View profile](https://developer.android.com/blog/authors/nick-butcher) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)
 Continue reading
+- 3 Authors 28 Jul 2026 28 Jul 2026 ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z1F9b9M.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
+
+  [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
+  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 5 min read
 - 3 Authors 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [What's new in Android for Cars: Unifying platforms and unlocking premium experiences](https://developer.android.com/blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences)
@@ -63,16 +69,6 @@ Continue reading
 
   [arrow_forward](https://developer.android.com/blog/posts/whats-new-in-the-jetpack-compose-december-release) Today, the Jetpack Compose December '25 release is stable. This contains version 1.10 of the core Compose modules and version 1.4 of Material 3, adding new features and major performance improvements.
   [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 6 min read
-- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_ZzldHB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
-
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent) Android Studio Quail 2 is now stable and ready for you to use in production, bringing a shift to your IDE with concurrent agentic workflows, natively integrated memory leak profiling, and context-aware crash remediation.
-  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 3 min read
-  - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
-  - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-  - +1 ↩
 Stay in the loop
 
 

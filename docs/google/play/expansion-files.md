@@ -28,7 +28,7 @@ when your app starts.
 
 If you'd like to avoid using expansion files and your app's compressed download size is larger
 than 100 MB, you should instead upload your app using [Android App
-Bundles](https://developer.android.com/guide/app-bundle) which allows for up to a 200 MB compressed download size. Additionally, because using
+Bundles](https://developer.android.com/guide/app-bundle) which allows for up to a 500 MB compressed download size. Additionally, because using
 app bundles defers APK generation and signing to Google Play, users download optimized APKs with
 only the code and resources they need to run your app. You don't have to build, sign, and
 manage multiple APKs or expansion files, and users get smaller, more optimized downloads.

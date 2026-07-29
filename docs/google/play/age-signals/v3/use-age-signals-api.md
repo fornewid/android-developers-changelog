@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 > [!CAUTION]
-> **Caution:** You are currently viewing the documentation for Play Age Signals version 0.0.3. Note that version 0.0.3 is no longer supported. To view the active and supported version, refer to [Play Age Signals documentation](https://developer.android.com/google/play/age-signals/use-age-signals-api).
+> **Caution:** You are viewing the documentation for Play Age Signals version 0.0.3. Although this version continues to return responses, it's no longer receiving new updates and will be fully deprecated by October 31, 2026. To view the active and supported version, refer to [Play Age Signals documentation](https://developer.android.com/google/play/age-signals/use-age-signals-api).
 
 By using the Play Age Signals API (beta), you agree to the [terms of service](https://developer.android.com/google/play/age-signals/v3/overview#terms-service)
 and you agree to comply with all [Google Play developer policies](https://play.google/developer-content-policy/). To request

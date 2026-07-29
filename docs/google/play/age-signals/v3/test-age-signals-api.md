@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 > [!CAUTION]
-> **Caution:** You are currently viewing the documentation for Play Age Signals version 0.0.3. Note that version 0.0.3 is no longer supported. To view the active and supported version, refer to [Play Age Signals version documentation](https://developer.android.com/google/play/age-signals/test-age-signals-api).
+> **Caution:** You are viewing the documentation for Play Age Signals version 0.0.3. Although this version continues to return responses, it's no longer receiving new updates and will be fully deprecated by October 31, 2026. To view the active and supported version, refer to [Play Age Signals documentation](https://developer.android.com/google/play/age-signals/test-age-signals-api).
 
 To test your Play Age Signals API (beta) integration with your app, use the
 [FakeAgeSignalsManager](https://developer.android.com/google/play/age-signals/reference/com/google/android/play/agesignals/testing/FakeAgeSignalsManager) implementation available in the age signals artifact.

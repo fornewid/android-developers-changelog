@@ -50,4 +50,4 @@ specified in the `package.xml` file. Specifically, follow these steps:
 
    This is where you should specify the emulator version you downloaded and want to install.
 
-<iframe src="https://android.devsite.google/frame/studio/emulator_archive_ef504dcfa62cf8211f167ff381a4739decb1fa9e7db398290631f050c709797a.frame" class="framebox inherit-locale scroll" allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/studio/emulator_archive_10c33c4e225317a36107fa4672e505a2d5ecf78c793bd923d2e0ab2f1f6cf2c5.frame" class="framebox inherit-locale scroll" allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>

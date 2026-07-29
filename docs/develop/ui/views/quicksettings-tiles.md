@@ -31,7 +31,7 @@ for the same app that would allow users to review their entire workout history.
 To help improve your tile's discoverability and ease of use, we recommend
 avoiding certain practices:
 
-- Avoid using tiles to launch an app. Use an [app shortcut](https://developer.android.com/guide/topics/ui/shortcuts) or a standard
+- Avoid using tiles to launch an app. Use an [app shortcut](https://developer.android.com/develop/ui/compose/system/shortcuts) or a standard
   launcher instead.
 
 - Avoid using tiles for one-time user actions. Use an app shortcut or a
@@ -161,7 +161,7 @@ have to manage its state.
 
 `TileService` is a [bound service](https://developer.android.com/guide/components/bound-services). Your `TileService` is bound when
 requested by your app or if the system needs to communicate with it. A typical
-[bound-service lifecycle](https://developer.android.com/guide/components/bound-services#Lifecycle) contains the following four callback methods:
+[bound-service lifecycle](https://developer.android.com/develop/background-work/services/bound-services#Lifecycle) contains the following four callback methods:
 [`onCreate()`](https://developer.android.com/reference/android/app/Service#onCreate()), [`onBind()`](https://developer.android.com/reference/android/app/Service#onBind(android.content.Intent)), [`onUnbind()`](https://developer.android.com/reference/android/app/Service#onUnbind(android.content.Intent)), and
 [`onDestroy()`](https://developer.android.com/reference/android/app/Service#onDestroy()). These methods are invoked by the system each time the
 service enters a new lifecycle phase.

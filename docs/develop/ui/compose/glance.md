@@ -11,12 +11,12 @@ receive periodic updates.
 ![An information widget from a weather app.](https://developer.android.com/static/develop/ui/compose/images/glance-widget.png) **Figure 1.** An information widget from a weather app.
 
 Glance provides a set of composables to help you build responsive widgets for
-the home screen quickly and with less code. The pages in this doc set describe
+the home screen quickly and with less code. The pages in this documentation set describe
 how to use Glance to build app widgets.
 
 > [!NOTE]
 > **Note:** Jetpack Glance is in active development. File any issues on the [issue
-> tracker](https://b.corp.google.com/issues/new?component=1097239&template=1611667).
+> tracker](https://issuetracker.google.com/issues/new?component=1097239&template=1611667).
 
 ## Additional resources
 

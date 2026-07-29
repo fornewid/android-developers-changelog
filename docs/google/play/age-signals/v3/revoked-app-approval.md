@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 > [!CAUTION]
-> **Caution:** You are currently viewing the documentation for Play Age Signals version 0.0.3. Note that version 0.0.3 is no longer supported. To view the active and supported version, refer to [Play Age Signals version documentation](https://developer.android.com/google/play/age-signals/revoked-app-approval).
+> **Caution:** You are viewing the documentation for Play Age Signals version 0.0.3. Although this version continues to return responses, it's no longer receiving new updates and will be fully deprecated by October 31, 2026. To view the active and supported version, refer to [Play Age Signals documentation](https://developer.android.com/google/play/age-signals/revoked-app-approval).
 
 > [!NOTE]
 > **Note:** Functionality for revoked app approvals is not yet live in Google Play Console.

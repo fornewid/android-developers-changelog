@@ -23,7 +23,7 @@ Column(modifier = GlanceModifier.fillMaxSize()) {
 
 <br />
 
-Create and define the `RemoteViews` as you would without Glance, and simply pass
+Create and define the `RemoteViews` as you would without Glance, and pass
 it as a parameter.
 
 In addition, you can create `RemoteViews` containers for your composables:

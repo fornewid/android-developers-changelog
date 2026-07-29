@@ -195,7 +195,7 @@ replace APK signatures and is not part of the Android platform.
 ### What are Google Play app size limits when using AABs?
 
 The maximum compressed download size for a base module generated from an AAB is
-200 MB. That is, Google Play will first generate the base module, then any
+500 MB. That is, Google Play will first generate the base module, then any
 additional feature modules or asset packs from your AAB. Next, Google Play
 checks that the maximum cumulative total compressed download size that any
 individual device receives is not over 4 GB.
@@ -204,25 +204,27 @@ individual device receives is not over 4 GB.
 
 No, Google Play does not support expansion files for AABs. Expansion
 files (OBBs) are a legacy Google Play-specific solution for publishing
-large apps and games using APKs. There are Google and third party
-alternatives for AABs larger than 200MB.
+large apps and games using APKs. There are Google and third-party
+alternatives for AABs larger than 500 MB.
 
-### How do I publish an app or game larger than 200MB on Google Play?
+### How do I publish an app or game larger than 500 MB on Google Play?
 
 Large apps and games using AABs can either use Play delivery services
 such as Play Asset Delivery or Play Feature Delivery to exceed the
-200MB size limit or they can use third party content delivery networks.
+500 MB size limit or they can use third-party content delivery networks.
 
 ### What benefits does Play Asset Delivery offer over expansion files (OBBs)?
 
 On Google Play, APKs required separate expansion files (OBBs) to serve
 additional resources to users. However, because OBBs were not signed and
 are stored in the app's external storage, they're not very secure. With
-Play Asset Delivery (PAD), games larger than 200MB can replace OBBs by
+Play Asset Delivery (PAD), games larger than 500 MB can replace OBBs by
 publishing the entire game as a single app bundle on the Play Store. In
 addition to offering a smoother publishing process and flexible delivery
 modes, PAD means updates require less device storage. As a result, it
-can drive higher install rates. Finally, with ASTC now supported on \~80%
+can drive higher install rates.
+
+Finally, with ASTC now supported on \~80%
 of devices, PAD's texture compression format targeting feature lets you
 serve ASTC to devices that support it. You can target the widest range
 of devices while making efficient use of the available hardware and

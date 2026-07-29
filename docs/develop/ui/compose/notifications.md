@@ -156,8 +156,8 @@ automatically, including expandable detail and action buttons.
 
 You can enhance the experience by customizing the appearance of your
 notifications on wearables and by providing different actions, including
-suggest replies and voice input replies. For more information, see how to [add
-wearable-specific features to your notification](https://developer.android.com/training/wearables/notifications#add-wearable-features).
+suggested replies and voice input replies. For more information, see how to
+[add wearable-specific features to your notification](https://developer.android.com/training/wearables/notifications#add-wearable-features).
 
 ![](https://developer.android.com/static/images/ui/notifications/wear_2x.png)
 
