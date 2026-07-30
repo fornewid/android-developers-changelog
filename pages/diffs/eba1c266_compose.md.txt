@@ -1,0 +1,25 @@
+diff --git a/docs/training/wearables/compose.md b/docs/training/wearables/compose.md
+index 83bc1b1e..d9901cf8 100644
+--- a/docs/training/wearables/compose.md
++++ b/docs/training/wearables/compose.md
+@@ -25,8 +25,18 @@ general advantages of a declarative UI framework. To learn more about Compose
+ for Wear OS, see the [Compose for Wear OS Pathway](https://developer.android.com/courses/pathways/wear-compose) and the [Wear OS samples
+ repository](https://github.com/android/wear-os-samples/tree/main/ComposeStarter#readme) on GitHub.
+ 
+-> [!IMPORTANT]
+-> **Important:** We released an agent skill to help you build using Jetpack Compose on Wear OS, including migrating from earlier versions of Material to Material3. Try out the skill from the [Android skills repository](https://github.com/android/skills).
++
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/tree/main/wear/wear-compose-m3)
++
++### Wear Compose Material 3
++
++Use an Android skill to help you build using Jetpack Compose on Wear OS, including migrating from earlier versions of Material to Material3. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
++
++    android skills add --skill wear-compose-m3
++
++<br />
+ 
+ ## Material Design in Jetpack Compose on Wear OS
+ 

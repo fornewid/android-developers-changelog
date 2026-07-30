@@ -1,0 +1,13 @@
+diff --git a/docs/guide/components/intents-filters.md b/docs/guide/components/intents-filters.md
+index bb50caed..0f0b9427 100644
+--- a/docs/guide/components/intents-filters.md
++++ b/docs/guide/components/intents-filters.md
+@@ -51,7 +51,7 @@ fundamental use cases:
+ The rest of this page explains how intents work and how to use them.
+ For related information, see
+ [Interacting with Other Apps](https://developer.android.com/training/basics/intents)
+-and [Sharing Content](https://developer.android.com/training/sharing).
++and [Sharing Content](https://developer.android.com/develop/ui/compose/notifications).
+ 
+ ## Intent types
+ 

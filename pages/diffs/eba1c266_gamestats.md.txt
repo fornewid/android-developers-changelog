@@ -1,0 +1,80 @@
+diff --git a/docs/games/pgs/gamestats.md b/docs/games/pgs/gamestats.md
+index 5622f175..62c8db3f 100644
+--- a/docs/games/pgs/gamestats.md
++++ b/docs/games/pgs/gamestats.md
+@@ -256,6 +256,17 @@ authorized with the `https://www.googleapis.com/auth/games` scope.
+ 
+ ##### Flexible Events: Request Body
+ 
++The backend API has strict structural validation limits:
++
++- **Batch size:** A maximum of **30 events** per `BatchRecordEventsRequest`.
++- **Property count:** A maximum of **25 custom properties** per `PlayerGameEvent`.
++- **Length limits:** Event name (max 100 characters), property keys (max 100 characters), and property string values (max 1024 characters).
++- **Event ID:** Must be a valid **36-character UUID string**.
++- **Retry and caching:** Avoid caching or accumulating excessive events locally if the API fails, as batch retries exceeding 30 events will be rejected. Always chunk retries to respect the batch size limit.
++
++> [!IMPORTANT]
++> **Important:** Requests exceeding the limits fail validation.
++
+ **BatchRecordEventsRequest**
+ 
+ ```json
+@@ -282,7 +293,7 @@ authorized with the `https://www.googleapis.com/auth/games` scope.
+        object (PropertyValue)
+     }
+   },
+-  "eventTime": string
++  "eventTime": string // RFC 3339 formatted timestamp string (e.g., "2026-01-01T18:00:00Z").
+ }
+ ```
+ 
+@@ -299,8 +310,6 @@ authorized with the `https://www.googleapis.com/auth/games` scope.
+ "stringValue": "string",
+ // Boolean value (true or false).
+ "boolValue": boolean,
+-// RFC 3339 formatted timestamp string (e.g., "2026-01-01T18:00:00Z").
+-"timestampValue": "string",
+ // Duration in seconds suffixed with 's' (e.g., "240s" or "3.5s").
+ "durationValue": "string"
+ }
+@@ -334,7 +343,7 @@ authorized with the `https://www.googleapis.com/auth/games` scope.
+ // Must have at least one property "currentProgress"  of  type  INT  or  STRING
+     }
+   },
+-  "eventTime": string
++  "eventTime": string // RFC 3339 formatted timestamp string (e.g., "2026-01-01T18:00:00Z")
+ }
+ ```
+ 
+@@ -349,12 +358,12 @@ If successful, returns an HTTP 200 OK status with an empty JSON object.
+ ```json
+ {
+   "packageName": "com.example.awesomegame",//Your package name
+-  "requestTime": "2026-01-01T18:00:00Z",
++  "requestTime": "2026-05-09T00:44:44Z",
+   "events": [
+     {
+-      "eventId": "123e1234-e29b-41d4-a123-446655440000", // UUID for deduplication //and idempotency
++      "eventId": "123e1234-e29b-41d4-a123-446655440000", // UUID for deduplication and idempotency
+       "eventName": "matchCompleted",
+-      "eventTime": "2026-01-01T17:00:00Z",
++      "eventTime": "2026-05-09T01:44:44Z", // RFC 3339 formatted timestamp string (e.g., "2026-05-09T01:44:44Z").
+       "eventProperties": {
+         "matchId": {
+           "stringValue": "Match_A"
+@@ -385,12 +394,12 @@ If successful, returns an HTTP 200 OK status with an empty JSON object.
+ ```json
+ {
+   "packageName": "com.example.awesomegame",//Your package name
+-  "requestTime": "2026-01-01T18:00:00Z",
++  "requestTime": "2026-05-09T00:44:44Z",
+   "events": [
+     {
+       "eventId": "123e1234-e29b-41d4-a123-446655440000", // UUID
+       "eventName": "progressUpdate",
+-      "eventTime": "2026-01-01T17:00:00Z",
++      "eventTime": "2026-05-09T01:44:44Z", // RFC 3339 formatted timestamp string (e.g., "2026-01-01T18:00:00Z").
+       "eventProperties": {
+         "currentProgress": {
+           "intValue": 52

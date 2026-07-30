@@ -1,0 +1,246 @@
+diff --git a/docs/training/data-storage/room/relationships.md b/docs/training/data-storage/room/relationships.md
+index 10f5ff1e..8fccb176 100644
+--- a/docs/training/data-storage/room/relationships.md
++++ b/docs/training/data-storage/room/relationships.md
+@@ -17,7 +17,7 @@ Room supports the following relationship types:
+ - [**One-to-one**](https://developer.android.com/training/data-storage/room/relationships/one-to-one): Represents a relationship where a single entity is related to another single entity.
+ - [**One-to-many**](https://developer.android.com/training/data-storage/room/relationships/one-to-many): Represents a relationship where a single entity can be related to multiple entities of another type.
+ - [**Many-to-many**](https://developer.android.com/training/data-storage/room/relationships/many-to-many): Represents a relationship where multiple entities of one type can be related to multiple entities of another type. This usually requires a junction table.
+-- [**Nested Relationships (using embedded objects)**](https://developer.android.com/training/data-storage/room/relationships/nested): Represents a relationship where an entity contains another entity as a field, and this nested entity can further contain other entities. This uses the `@Embedded` annotation.
++- [**Nested relationships using embedded objects**](https://developer.android.com/training/data-storage/room/relationships/nested): Represents a relationship where an entity contains another entity as a property, and this nested entity can further contain other entities. This uses the `@Embedded` annotation.
+ 
+ ## Choose between two approaches
+ 
+@@ -25,7 +25,7 @@ In Room, there are two ways to define and query a relationship between entities.
+ You can use either:
+ 
+ - An intermediate data class with embedded objects, or
+-- A relational query method with a multimap return type.
++- A relational query function with a multimap return type.
+ 
+ If you don't have a specific reason to use intermediate data classes, we
+ recommend using the multimap return type approach. To learn more about this
+@@ -42,139 +42,112 @@ requires your code to do more work.
+ In the intermediate data class approach, you define a data class that models the
+ relationship between your Room entities. This data class holds the pairings
+ between instances of one entity and instances of another entity as [embedded
+-objects](https://developer.android.com/training/data-storage/room/relationships#nested-objects). Your query methods can then return instances of this data class for
+-use in your app.
++objects](https://developer.android.com/training/data-storage/room/relationships#nested-objects). Your query functions can then return instances of this data class
++for use in your app.
+ 
+ For example, you can define a `UserBook` data class to represent library users
+-with specific books checked out, and define a query method to retrieve a list of
+-`UserBook` instances from the database:
++with specific books checked out, and define a query function to retrieve a list
++of `UserBook` instances from the database:
+ 
+-### Kotlin
+ 
+-    @Dao
+-    interface UserBookDao {
+-        @Query(
+-            "SELECT user.name AS userName, book.name AS bookName " +
+-            "FROM user, book " +
+-            "WHERE user.id = book.user_id"
+-        )
+-        fun loadUserAndBookNames(): LiveData<List<UserBook>>
+-    }
+-
+-    data class UserBook(val userName: String?, val bookName: String?)
+-
+-### Java
+-
+-    @Dao
+-    public interface UserBookDao {
+-       @Query("SELECT user.name AS userName, book.name AS bookName " +
+-              "FROM user, book " +
+-              "WHERE user.id = book.user_id")
+-       public LiveData<List<UserBook>> loadUserAndBookNames();
+-    }
++```kotlin
++@Dao
++interface UserBookDao {
++    @Query(
++        """
++        SELECT user.name AS userName, book.name AS bookName
++        FROM user JOIN book ON user.id = book.user_id
++        """
++    )
++    fun loadUserAndBookNames(): LiveData<List<UserBook>>
++}
+ 
+-    public class UserBook {
+-        public String userName;
+-        public String bookName;
+-    }
++data class UserBook(val userName: String, val bookName: String)
++```
+ 
+-### Use the multimap return types approach
++<br />
+ 
+-> [!NOTE]
+-> **Note:** Room only supports multimap return types in version 2.4 and higher.
++### Use the multimap return type approach
+ 
+ In the multimap return type approach, you don't need to define any additional
+ data classes. Instead, you define a [multimap](https://en.wikipedia.org/wiki/Multimap) return type for
+-your method based on the map structure that you want and define the relationship
+-between your entities directly in your SQL query.
++your function based on the map structure that you want and define the
++relationship between your entities directly in your SQL query.
+ 
+-For example, the following query method returns a mapping of `User` and `Book`
++For example, the following query function returns a mapping of `User` and `Book`
+ instances to represent library users with specific books checked out:
+ 
+-### Kotlin
+-
+-    @Query(
+-        "SELECT * FROM user" +
+-        "JOIN book ON user.id = book.user_id"
+-    )
+-    fun loadUserAndBookNames(): Map<User, List<Book>>
+-
+-### Java
+-
+-    @Query(
+-        "SELECT * FROM user" +
+-        "JOIN book ON user.id = book.user_id"
+-    )
+-    public Map<User, List<Book>> loadUserAndBookNames();
+-
+-## Create embedded objects
+ 
+-Sometimes, you'd like to express an entity or data object as a cohesive whole in
+-your database logic, even if the object contains several fields. In these
+-situations, you can use the [`@Embedded`](https://developer.android.com/reference/androidx/room/Embedded) annotation to represent an object
+-that you'd like to decompose into its subfields within a table. You can then
+-query the embedded fields just as you do for other individual columns.
+-
+-For example, your `User` class can include a field of type `Address` that
+-represents a composition of fields named `street`, `city`, `state`, and
+-`postCode`. To store the composed columns separately in the table, include an
+-`Address` field. This should appear in the `User` class annotated with
+-`@Embedded`. The following code snippet demonstrates this:
+-
+-### Kotlin
+-
+-    data class Address(
+-        val street: String?,
+-        val state: String?,
+-        val city: String?,
+-        @ColumnInfo(name = "post_code") val postCode: Int
+-    )
++```kotlin
++@Query(
++    """
++    SELECT *
++    FROM user JOIN book ON user.id = book.user_id
++    """
++)
++suspend fun loadUserAndBookNames(): Map<User, List<Book>>
++```
+ 
+-    @Entity
+-    data class User(
+-        @PrimaryKey val id: Int,
+-        val firstName: String?,
+-        @Embedded val address: Address?
+-    )
++<br />
+ 
+-### Java
++With multimap return types, you can also query one-to-one relationships that
++don't involve another entity. The following query function returns a mapping of
++`User` and the number of books they have checked out using the
++[`@MapColumn`](https://developer.android.com/reference/kotlin/androidx/room3/MapColumn) annotation:
+ 
+-    public class Address {
+-        public String street;
+-        public String state;
+-        public String city;
+ 
+-        @ColumnInfo(name = "post_code") public int postCode;
+-    }
++```kotlin
++@Query(
++    """
++    SELECT user.*, COUNT(book.id) AS book_count
++    FROM user LEFT JOIN book ON user.id = book.user_id
++    GROUP BY user.id
++    """
++)
++suspend fun loadUserAndBookCount(): Map<User, @MapColumn(columnName = "book_count") Int>
++```
+ 
+-    @Entity
+-    public class User {
+-        @PrimaryKey public int id;
++<br />
+ 
+-        public String firstName;
++## Create embedded objects
+ 
+-        @Embedded public Address address;
+-    }
++Sometimes, you want to express an entity or data object as a cohesive whole in
++your database logic, even if the object contains several properties. In these
++situations, use the [`@Embedded`](https://developer.android.com/reference/kotlin/androidx/room3/Embedded) annotation to decompose an object into
++its subproperties within a table. You can then query the embedded properties
++just as you do for other columns.
++
++For example, your `User` class can include an `Address` property that
++represents a composition of `street`, `city`, `state`, and `postCode`
++properties. To store the composed columns separately in the table, annotate
++the `Address` property in the `User` class with `@Embedded`. The following
++code snippet shows this setup:
++
++
++```kotlin
++data class Address(
++    val street: String?,
++    val state: String?,
++    val city: String?,
++    @ColumnInfo(name = "post_code") val postCode: Int
++)
++
++@Entity
++data class User(
++    @PrimaryKey val id: Int,
++    val firstName: String,
++    @Embedded val address: Address?
++)
++```
++
++<br />
+ 
+ The table representing a `User` object then contains columns with the following
+ names: `id`, `firstName`, `street`, `state`, `city`, and `post_code`.
+ 
+ > [!NOTE]
+-> **Note:** Embedded fields can also include other embedded fields.
+-
+-If an entity has multiple embedded fields of the same type, you can keep each
+-column unique by setting the [`prefix`](https://developer.android.com/reference/androidx/room/Embedded#getPrefix()) property. Room then adds the
+-provided value to the beginning of each column name in the embedded object.
+-
+-## Additional resources
+-
+-To learn more about defining relationships between entities in Room, see the
+-following additional resources.
+-
+-### Videos
+-
+-- [What's New in Room](https://www.youtube.com/watch?v=_aJsh6P00c0) (Android Dev Summit '19)
+-
+-### Blogs
++> **Note:** Embedded properties can also include other embedded properties.
+ 
+-- [Database relations with Room](https://medium.com/androiddevelopers/database-relations-with-room-544ab95e4542)
+\ No newline at end of file
++If an entity has multiple embedded properties of the same type, you can keep
++each column unique by setting the [`prefix`](https://developer.android.com/reference/kotlin/androidx/room3/Embedded#prefix()) property. Room then adds the
++provided value to the beginning of each column name in the embedded object.
+\ No newline at end of file

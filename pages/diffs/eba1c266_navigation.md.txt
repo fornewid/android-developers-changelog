@@ -1,0 +1,30 @@
+diff --git a/docs/jetpack/androidx/releases/navigation.md b/docs/jetpack/androidx/releases/navigation.md
+index c8f36e1d..d495ab1d 100644
+--- a/docs/jetpack/androidx/releases/navigation.md
++++ b/docs/jetpack/androidx/releases/navigation.md
+@@ -13,7 +13,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 01, 2026 | [2.9.8](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8) | - | - | [2.10.0-alpha06](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-alpha06) |
++| July 29, 2026 | [2.9.8](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8) | - | [2.10.0-beta01](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-beta01) | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -177,6 +177,16 @@ for more information.
+ 
+ ## Navigation Version 2.10
+ 
++### Version 2.10.0-beta01
++
++July 29, 2026
++
++`androidx.navigation:navigation-*:2.10.0-beta01` is released. Version 2.10.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ba3014c143b9c9782fe30bc766c5dced55e13453..61ee8cd421d0c0252d8db0253b739de537999371/navigation).
++
++**API Changes**
++
++- Introduce `NavBackStackEntryInfo` to expose back stack snapshots during navigation events. This enables richer custom predictive back animations. ([Icb3b8](https://android-review.googlesource.com/#/q/Icb3b84ad5031332f3c40db10240afb0cb5959eec))
++
+ ### Version 2.10.0-alpha06
+ 
+ July 01, 2026

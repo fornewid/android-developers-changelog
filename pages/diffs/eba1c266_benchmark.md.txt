@@ -1,0 +1,30 @@
+diff --git a/docs/jetpack/androidx/releases/benchmark.md b/docs/jetpack/androidx/releases/benchmark.md
+index 7dea75f4..bb0c2aa2 100644
+--- a/docs/jetpack/androidx/releases/benchmark.md
++++ b/docs/jetpack/androidx/releases/benchmark.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 01, 2026 | [1.4.1](https://developer.android.com/jetpack/androidx/releases/benchmark#1.4.1) | - | - | [1.5.0-alpha07](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-alpha07) |
++| July 29, 2026 | [1.4.1](https://developer.android.com/jetpack/androidx/releases/benchmark#1.4.1) | - | [1.5.0-beta01](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-beta01) | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -138,6 +138,16 @@ for more information.
+ 
+ ## Version 1.5
+ 
++### Version 1.5.0-beta01
++
++July 29, 2026
++
++`androidx.benchmark:benchmark-*:1.5.0-beta01` is released. Version 1.5.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ba3014c143b9c9782fe30bc766c5dced55e13453..61ee8cd421d0c0252d8db0253b739de537999371/benchmark).
++
++**API Changes**
++
++- `PerfettoCapture` and `PerfettoTraceRule` can now capture in-process traces and merge them for a target package. ([I9a00b](https://android-review.googlesource.com/#/q/I9a00b092f44ccab23ef23ad4371ebd758f629dcb), [b/497959820](https://issuetracker.google.com/issues/497959820))
++
+ ### Version 1.5.0-alpha07
+ 
+ July 01, 2026

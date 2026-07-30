@@ -1,0 +1,13 @@
+diff --git a/docs/games/pgs/unity/unity-start.md b/docs/games/pgs/unity/unity-start.md
+index fd836ec2..05bff612 100644
+--- a/docs/games/pgs/unity/unity-start.md
++++ b/docs/games/pgs/unity/unity-start.md
+@@ -426,8 +426,6 @@ To get the server side access code:
+ 
+   - [Save games](https://developer.android.com/games/pgs/unity/saved-games)
+ 
+-  - [Player stats](https://developer.android.com/games/pgs/unity/stats)
+-
+   - [Events](https://developer.android.com/games/pgs/unity/events)
+ 
+ - [Recall API for Unity](https://developer.android.com/games/pgs/recall/recall-setup#unity-sdk)

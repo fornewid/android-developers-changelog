@@ -1,0 +1,31 @@
+diff --git a/docs/jetpack/androidx/releases/work.md b/docs/jetpack/androidx/releases/work.md
+index 06eca152..0b0da04e 100644
+--- a/docs/jetpack/androidx/releases/work.md
++++ b/docs/jetpack/androidx/releases/work.md
+@@ -13,7 +13,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 15, 2026 | [2.11.2](https://developer.android.com/jetpack/androidx/releases/work#2.11.2) | - | - | [2.12.0-alpha01](https://developer.android.com/jetpack/androidx/releases/work#2.12.0-alpha01) |
++| July 29, 2026 | [2.11.2](https://developer.android.com/jetpack/androidx/releases/work#2.11.2) | - | [2.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/work#2.12.0-beta01) | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -94,6 +94,17 @@ for more information.
+ 
+ ## Version 2.12
+ 
++### Version 2.12.0-beta01
++
++July 29, 2026
++
++`androidx.work:work-*:2.12.0-beta01` is released. Version 2.12.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e37cf4eae99bdc35def1209921d658612e2edbc3..62e3578368f1c3075a575002cfbffdb0eefac813/work).
++
++**Bug Fixes**
++
++- Fix memory leak when catching executor exceptions ([I3404e](https://android-review.googlesource.com/#/q/I3404ed8cda5133f9c9c604c38067c02fa9c26b0a), [b/532588487](https://issuetracker.google.com/issues/532588487))
++- Improved cancellation propagation for `RemoteListenableWorker` so that system-initiated worker stops properly cancel remote coroutines and reschedule work, while self-cancelling remote workers correctly mark work as FAILED. Note: This behavior is currently gated behind the library-group restricted flag `Configuration.isRemoteCancellationPropagationFixEnabled` (default false) to allow experimental verification and ensure that reliability metrics remain stable before removing the flag permanently. ([I387f3](https://android-review.googlesource.com/#/q/I387f385d21e94436652924d6479c4d5acbe3df5f), [b/420724435](https://issuetracker.google.com/issues/420724435))
++
+ ### Version 2.12.0-alpha01
+ 
+ July 15, 2026

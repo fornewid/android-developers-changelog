@@ -1,0 +1,26 @@
+diff --git a/docs/identity/digital-credentials/email-verification-common.md b/docs/identity/digital-credentials/email-verification-common.md
+index 6818c6a7..65be1182 100644
+--- a/docs/identity/digital-credentials/email-verification-common.md
++++ b/docs/identity/digital-credentials/email-verification-common.md
+@@ -19,8 +19,8 @@ Manager:
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.credentials:credentials:1.7.0-alpha02")
+-    implementation("androidx.credentials:credentials-play-services-auth:1.7.0-alpha02")
++    implementation("androidx.credentials:credentials:1.7.0-alpha03")
++    implementation("androidx.credentials:credentials-play-services-auth:1.7.0-alpha03")
+ }
+ ```
+ 
+@@ -28,8 +28,8 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.credentials:credentials:1.7.0-alpha02"
+-    implementation "androidx.credentials:credentials-play-services-auth:1.7.0-alpha02"
++    implementation "androidx.credentials:credentials:1.7.0-alpha03"
++    implementation "androidx.credentials:credentials-play-services-auth:1.7.0-alpha03"
+ }
+ ```
+ 

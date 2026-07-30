@@ -1,0 +1,26 @@
+diff --git a/docs/jetpack/androidx/releases/tracing.md b/docs/jetpack/androidx/releases/tracing.md
+index c7bc4d92..4cf37722 100644
+--- a/docs/jetpack/androidx/releases/tracing.md
++++ b/docs/jetpack/androidx/releases/tracing.md
+@@ -10,7 +10,7 @@ Write trace events to the system trace buffer.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 15, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | - | [2.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-beta01) | - |
++| July 29, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | [2.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-rc01) | - | - |
+ 
+ ## Feedback
+ 
+@@ -29,6 +29,12 @@ for more information.
+ 
+ ### Version 2.0
+ 
++#### Version 2.0.0-rc01
++
++July 29, 2026
++
++`androidx.tracing:tracing-*:2.0.0-rc01` is released. Version 2.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e37cf4eae99bdc35def1209921d658612e2edbc3..a273b878d71243d4188eab8438ad51bdc234052a/tracing).
++
+ #### Version 2.0.0-beta01
+ 
+ July 15, 2026

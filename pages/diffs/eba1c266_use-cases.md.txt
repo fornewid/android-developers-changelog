@@ -1,0 +1,13 @@
+diff --git a/docs/training/package-visibility/use-cases.md b/docs/training/package-visibility/use-cases.md
+index 4fe4a468..ab965e82 100644
+--- a/docs/training/package-visibility/use-cases.md
++++ b/docs/training/package-visibility/use-cases.md
+@@ -359,7 +359,7 @@ your manifest:
+ ### Create a custom sharesheet
+ 
+ Whenever possible, use a [system-provided
+-sharesheet](https://developer.android.com/training/sharing/send#why-to-use-system-sharesheet). Alternatively,
++sharesheet](https://developer.android.com/develop/ui/compose/sharing/send#why-to-use-system-sharesheet). Alternatively,
+ include the following `<intent>` element as part of the `<queries>` element in
+ your manifest:
+ 

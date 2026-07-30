@@ -1,0 +1,30 @@
+diff --git a/docs/jetpack/androidx/releases/fragment.md b/docs/jetpack/androidx/releases/fragment.md
+index efe68250..2a78b87c 100644
+--- a/docs/jetpack/androidx/releases/fragment.md
++++ b/docs/jetpack/androidx/releases/fragment.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 01, 2026 | [1.8.9](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.9) | - | - | [1.9.0-alpha02](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0-alpha02) |
++| July 29, 2026 | [1.8.9](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.9) | [1.9.0-rc01](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0-rc01) | - | - |
+ 
+ > [!CAUTION]
+ > **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
+@@ -76,6 +76,16 @@ for more information.
+ 
+ ## Version 1.9
+ 
++### Version 1.9.0-rc01
++
++July 29, 2026
++
++`androidx.fragment:fragment-*:1.9.0-rc01` is released. Version 1.9.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9fc03893cb70909cdef7303e9f1c7dd1fa6d6a63..bede81fcebe81e2903482cd8611baecdc960c627/fragment).
++
++**Bug Fixes**
++
++- When using `FragmentScenario.launchInContainer` the fragment under test will now be inside of a `FragmentContainerView`. ([Ia6273](https://android-review.googlesource.com/#/q/Ia6273c680180b5a3ea90450a2d0abf3e143667fe), [b/531550353](https://issuetracker.google.com/issues/531550353))
++
+ ### Version 1.9.0-alpha02
+ 
+ July 01, 2026

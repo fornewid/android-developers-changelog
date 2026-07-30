@@ -1,0 +1,27 @@
+diff --git a/docs/social-and-messaging/guides/media-sharing.md b/docs/social-and-messaging/guides/media-sharing.md
+index 988127cb..dfaf9bfa 100644
+--- a/docs/social-and-messaging/guides/media-sharing.md
++++ b/docs/social-and-messaging/guides/media-sharing.md
+@@ -32,17 +32,17 @@ Sharing text involves just a few lines of code:
+     val shareIntent = Intent.createChooser(sendIntent, null)
+     startActivity(shareIntent)
+ 
+-The [`createChooser`](https://developer.android.com/reference/android/content/Intent#createChooser(android.content.Intent,%20java.lang.CharSequence,%20android.content.IntentSender)) line displays the [Android Sharesheet](https://developer.android.com/training/sharing/send#why-to-use-system-sharesheet) UI, which
++The [`createChooser`](https://developer.android.com/reference/android/content/Intent#createChooser(android.content.Intent,%20java.lang.CharSequence,%20android.content.IntentSender)) line displays the [Android Sharesheet](https://developer.android.com/develop/ui/compose/sharing/send#why-to-use-system-sharesheet) UI, which
+ lets users share information with people --- including relevant app suggestions ---
+ with a single tap. Other things you can do with the Android Sharesheet include:
+ 
+-- [Find out when your users complete a share and to where](https://developer.android.com/training/sharing/send#share-interaction-data)
+-- [Provide rich text content previews, starting in Android 10 (API level 29)](https://developer.android.com/training/sharing/send#adding-rich-content-previews)
++- [Find out when your users complete a share and to where](https://developer.android.com/develop/ui/compose/sharing/send#share-interaction-data)
++- [Provide rich text content previews, starting in Android 10 (API level 29)](https://developer.android.com/develop/ui/compose/sharing/send#adding-rich-content-previews)
+ 
+-See [Send simple data to other apps](https://developer.android.com/training/sharing/send) for more information about Android
++See [Send simple data to other apps](https://developer.android.com/develop/ui/compose/sharing/send) for more information about Android
+ Sharesheets and how to use them.
+ 
+-[Provide Direct Share targets](https://developer.android.com/training/sharing/direct-share-targets) to make it easier and faster for users of
++[Provide Direct Share targets](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets) to make it easier and faster for users of
+ other apps to share URLs, images, or other kinds of data with your app. [Direct
+ Share](https://developer.android.com/codelabs/android-direct-share) works by presenting contacts from messaging and social apps directly
+ on the Android Sharesheet, without users having to select the app and then

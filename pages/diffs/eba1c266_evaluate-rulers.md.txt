@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/compose/system/evaluate-rulers.md b/docs/develop/ui/compose/system/evaluate-rulers.md
+index 38e007ac..09bb30b7 100644
+--- a/docs/develop/ui/compose/system/evaluate-rulers.md
++++ b/docs/develop/ui/compose/system/evaluate-rulers.md
+@@ -98,7 +98,7 @@ fun FitInsideWithImeDemo(modifier: Modifier) {
+ ### Avoid the status bar and caption bar with Modifier.fitInside
+ 
+ Similarly, to verify top elements avoid the status bar and caption bar together
+-with `Modifier.fitInsider`, pass a `RectRuler` that takes the innermost value of
++with `Modifier.fitInside`, pass a `RectRuler` that takes the innermost value of
+ `StatusBars` and `CaptionBar`.
+ 
+ 
+@@ -126,7 +126,7 @@ You can align content to custom rulers. For example, consider the use case where
+ a parent composable improperly handles insets causing padding issues in a
+ downstream child. While this issue can be solved in other ways, including by
+ using `Modifier.fitInside`, you can also create a custom ruler to precisely
+-align the child composable without having the fix the issue in the parent
++align the child composable without having to fix the issue in the parent
+ upstream as shown in the following example and video:
+ 
+ 

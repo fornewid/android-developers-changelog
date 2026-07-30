@@ -1,0 +1,73 @@
+diff --git a/docs/jetpack/androidx/releases/constraintlayout.md b/docs/jetpack/androidx/releases/constraintlayout.md
+index 4c97f3c3..837ccf71 100644
+--- a/docs/jetpack/androidx/releases/constraintlayout.md
++++ b/docs/jetpack/androidx/releases/constraintlayout.md
+@@ -16,9 +16,9 @@ This table lists all the artifacts in the `androidx.constraintlayout` group.
+ 
+ | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| constraintlayout | [2.2.1](https://developer.android.com/jetpack/androidx/releases/constraintlayout#constraintlayout-2.2.1) | - | - | - |
+-| constraintlayout-compose | [1.1.1](https://developer.android.com/jetpack/androidx/releases/constraintlayout#constraintlayout-compose-1.1.1) | - | - | - |
+-| constraintlayout-core | [1.1.1](https://developer.android.com/jetpack/androidx/releases/constraintlayout#constraintlayout-core-1.1.1) | - | - | - |
++| constraintlayout | [2.2.2](https://developer.android.com/jetpack/androidx/releases/constraintlayout#constraintlayout-2.2.2) | - | - | - |
++| constraintlayout-compose | [1.1.2](https://developer.android.com/jetpack/androidx/releases/constraintlayout#constraintlayout-compose-1.1.2) | - | - | - |
++| constraintlayout-core | [1.1.2](https://developer.android.com/jetpack/androidx/releases/constraintlayout#constraintlayout-core-1.1.2) | - | - | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -33,9 +33,9 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.constraintlayout:constraintlayout:2.2.1"
++    implementation "androidx.constraintlayout:constraintlayout:2.2.2"
+     // To use constraintlayout in compose
+-    implementation "androidx.constraintlayout:constraintlayout-compose:1.1.1"
++    implementation "androidx.constraintlayout:constraintlayout-compose:1.1.2"
+ }
+ ```
+ 
+@@ -43,9 +43,9 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
++    implementation("androidx.constraintlayout:constraintlayout:2.2.2")
+     // To use constraintlayout in compose
+-    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.1")
++    implementation("androidx.constraintlayout:constraintlayout-compose:1.1.2")
+ }
+ ```
+ 
+@@ -64,6 +64,18 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 1.1
++
++### Version 1.1.2
++
++July 29, 2026
++
++`androidx.constraintlayout:constraintlayout-compose:1.1.2`, `androidx.constraintlayout:constraintlayout-compose-android:1.1.2`, and `androidx.constraintlayout:constraintlayout-core:1.1.2` are released. Version 1.1.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a31205d256dd1a1629467c503b3fca269f765ebe..78f8b2a41ed3f58f9addad07e3f694182a8a441c/constraintlayout).
++
++**Bug Fixes**
++
++- Removed a protobuf dependency with a known security vulnerability from constraintlayout-compose's bundled lint check. **Note** : since this protobuf dependency is only present on the developer machine as part of running lint (it is not contained inside the library code / included in the APK), the actual security risk here does not affect Android applications using constraintlayout-compose, the risk is only present on the local developer machine. ([Ia94a8](https://android-review.googlesource.com/#/q/Ia94a8e836b501e0488b0b9fb794a5ad467da88c9), [b/401068466](https://issuetracker.google.com/issues/401068466))
++
+ ## ConstraintLayout-compose, and ConstraintLayout-Core 1.1
+ 
+ ### Version 1.1.1
+@@ -276,6 +288,12 @@ For more information, see what's [New in Compose 1.1.0-alpha01](https://github.c
+ 
+ ## Version 2.2
+ 
++### Version 2.2.2
++
++July 29, 2026
++
++`androidx.constraintlayout:constraintlayout:2.2.2` is released. Version 2.2.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a31205d256dd1a1629467c503b3fca269f765ebe..78f8b2a41ed3f58f9addad07e3f694182a8a441c/constraintlayout/constraintlayout).
++
+ ### Version 2.2.1
+ 
+ February 26, 2025

@@ -1,0 +1,31 @@
+diff --git a/docs/blog/posts/build-native-android-apps-in-google-ai-studio.md b/docs/blog/posts/build-native-android-apps-in-google-ai-studio.md
+index b58d569c..e3c59928 100644
+--- a/docs/blog/posts/build-native-android-apps-in-google-ai-studio.md
++++ b/docs/blog/posts/build-native-android-apps-in-google-ai-studio.md
+@@ -89,6 +89,12 @@ Written by:
+   [read_more
+   View profile](https://developer.android.com/blog/authors/mike-taylor-cai) ![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_Z1VdIJy.webp) ![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_Z1VdIJy.webp)
+ Continue reading
++- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Delivering safer, age-appropriate experiences on Google Play](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play)
++
++  [arrow_forward](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play) Providing a safe online experience and protecting users from harm is a top priority at Google Play.
++  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
+ - 3 Authors 28 Jul 2026 28 Jul 2026 ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z1F9b9M.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
+@@ -105,13 +111,6 @@ Continue reading
+   - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
+   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+   - +1 ↩
+-- [![View Zoe Lopez-Latorre 's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_07_07_at_1_15_58_PM_eb87f2f61a_Z1QyLll.webp)](https://developer.android.com/blog/authors/zoe-lopez-latorre) 08 Jul 2026 08 Jul 2026 ![](https://developer.android.com/static/blog/assets/Bench_July_releas_V01_Strapi_6ee24bdb6b_1NrCN7.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Evolving how LLMs are measured for Android: the next era of Android Bench](https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench) Back in March, we introduced Android Bench---our LLM leaderboard for real-world Android development tasks. Since then, we have enhanced the benchmark based on your feedback, including evaluating open-weight models and adding cost and efficiency dimensions to the leaderboard.
+-  [Zoe Lopez-Latorre](https://developer.android.com/blog/authors/zoe-lopez-latorre) • 3 min read
+-  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ Stay in the loop
+ 
+ 

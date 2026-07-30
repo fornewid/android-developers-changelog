@@ -1,0 +1,13 @@
+diff --git a/docs/social-and-messaging/guides/media-playback/basic-better-best.md b/docs/social-and-messaging/guides/media-playback/basic-better-best.md
+index 600c7b7e..00028935 100644
+--- a/docs/social-and-messaging/guides/media-playback/basic-better-best.md
++++ b/docs/social-and-messaging/guides/media-playback/basic-better-best.md
+@@ -27,7 +27,7 @@ updated platform features, to:
+ 
+ - Implement a [`MediaSession`](https://developer.android.com/guide/topics/media/media3/getting-started/mediasession) --- made easy with [Media3s](https://developer.android.com/guide/topics/media/media3) [ExoPlayer](https://developer.android.com/guide/topics/media/exoplayer) --- to enable playback integration across different apps, system components, and devices.
+ - Use [best practices for sharing video](https://developer.android.com/media/optimize/sharing), [transcoding](https://developer.android.com/media/media3/transformer/transformations#transcode) if necessary.
+-- Support [sharing multiple pieces of content](https://developer.android.com/training/sharing/send#share-multiple-content) at the same time.
++- Support [sharing multiple pieces of content](https://developer.android.com/develop/ui/compose/sharing/send#share-multiple-content) at the same time.
+ - Enable [picture-in-picture](https://developer.android.com/develop/ui/views/picture-in-picture) for video and audio playback so users can multitask.
+ - Enable support for [UltraHDR](https://developer.android.com/media/grow/ultra-hdr-display) images.
+ - Play [HDR](https://developer.android.com/media/grow/hdr-playback) video.

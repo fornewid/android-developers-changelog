@@ -1,0 +1,22 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2026.1.4.md b/docs/studio/releases/fixed-bugs/studio/2026.1.4.md
+index aed77f71..018e2be3 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2026.1.4.md
++++ b/docs/studio/releases/fixed-bugs/studio/2026.1.4.md
+@@ -4,6 +4,17 @@ url: https://developer.android.com/studio/releases/fixed-bugs/studio/2026.1.4
+ source: md.txt
+ ---
+ 
++### Android Studio Quail 4 \| 2026.1.4 Canary 3
++
++**Released together with:**
++
++- Android Gradle Plugin 9.4.0-alpha07
++
++| Fixed Issues ||
++|---|---|
++| **APK Viewer** | |---| | [Issue #534815916](https://issuetracker.google.com/issues/534815916) Bug: IDE fails to parse its own APK, to reach the content of the manifest file | |
++| **Database Inspector** | |---| | [Issue #530704637](https://issuetracker.google.com/issues/530704637) Launching database inspector segfaults in SQLite | |
++
+ ### Android Studio Quail 4 \| 2026.1.4 Canary 2
+ 
+ **Released together with:**

@@ -1,0 +1,28 @@
+diff --git a/docs/develop/ui/views/layout/constraint-layout.md b/docs/develop/ui/views/layout/constraint-layout.md
+index 4c9bc731..4b73075d 100644
+--- a/docs/develop/ui/views/layout/constraint-layout.md
++++ b/docs/develop/ui/views/layout/constraint-layout.md
+@@ -107,9 +107,9 @@ To use `ConstraintLayout` in your project, proceed as follows:
+ 
+    ```groovy
+    dependencies {
+-       implementation "androidx.constraintlayout:constraintlayout:2.2.1"
++       implementation "androidx.constraintlayout:constraintlayout:2.2.2"
+        // To use constraintlayout in compose
+-       implementation "androidx.constraintlayout:constraintlayout-compose:1.1.1"
++       implementation "androidx.constraintlayout:constraintlayout-compose:1.1.2"
+    }
+    ```
+ 
+@@ -117,9 +117,9 @@ To use `ConstraintLayout` in your project, proceed as follows:
+ 
+    ```kotlin
+    dependencies {
+-       implementation("androidx.constraintlayout:constraintlayout:2.2.1")
++       implementation("androidx.constraintlayout:constraintlayout:2.2.2")
+        // To use constraintlayout in compose
+-       implementation("androidx.constraintlayout:constraintlayout-compose:1.1.1")
++       implementation("androidx.constraintlayout:constraintlayout-compose:1.1.2")
+    }
+    ```
+ 3. In the toolbar or sync notification, click **Sync Project with Gradle

@@ -1,0 +1,13 @@
+diff --git a/docs/bench.md b/docs/bench.md
+index 02b81f8f..e227be24 100644
+--- a/docs/bench.md
++++ b/docs/bench.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ ### Android Bench
+ 
+-AI-assisted software engineering has seen the emergence of several benchmarks to measure the capabilities of LLMs. Android developers face specific challenges that aren't covered by existing benchmarks, so we created one that focuses on a north star of high quality Android development. **Notice** : We've updated Android Bench. To learn more about the updates check out our [blog](http://android-developers.googleblog.com/2026/07/android-bench-llm-measurement.html) and [methodology](https://developer.android.com/bench/methodology). All models Open weight models Closed weight models
++AI-assisted software engineering has seen the emergence of several benchmarks to measure the capabilities of LLMs. Android developers face specific challenges that aren't covered by existing benchmarks, so we created one that focuses on a north star of high quality Android development. All models Open weight models Closed weight models
+ 
+ | Model | Score (%) info Average percentage of 100 test cases successfully resolved across 10 runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) | Avg latency (h) info Average time taken to solve 100 tasks across 10 runs | Avg cost ($) info Average cost per full benchmark run |
+ |---|---|---|---|---|

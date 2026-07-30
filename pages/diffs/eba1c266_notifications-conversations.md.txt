@@ -1,0 +1,13 @@
+diff --git a/docs/social-and-messaging/guides/communication/notifications-conversations.md b/docs/social-and-messaging/guides/communication/notifications-conversations.md
+index 6f929371..2cb3c7bb 100644
+--- a/docs/social-and-messaging/guides/communication/notifications-conversations.md
++++ b/docs/social-and-messaging/guides/communication/notifications-conversations.md
+@@ -11,7 +11,7 @@ your app --- particularly while your app isn't running in the foreground.
+ 
+ [Conversations](https://developer.android.com/develop/ui/views/notifications/conversations) are notifications for real-time messaging with people that
+ get a dedicated prioritized section in the notification drawer. Conversations
+-support [bubbles](https://developer.android.com/develop/ui/views/notifications/bubbles) and [share targets](https://developer.android.com/training/sharing/direct-share-targets). They make your messaging app feel
++support [bubbles](https://developer.android.com/develop/ui/views/notifications/bubbles) and [share targets](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets). They make your messaging app feel
+ well-integrated into the Android experience, enhance user engagement, and keep
+ your app top of mind.
+ 

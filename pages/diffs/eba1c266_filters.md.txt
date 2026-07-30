@@ -1,0 +1,16 @@
+diff --git a/docs/training/basics/intents/filters.md b/docs/training/basics/intents/filters.md
+index 6ed9a9be..a83c1c59 100644
+--- a/docs/training/basics/intents/filters.md
++++ b/docs/training/basics/intents/filters.md
+@@ -124,9 +124,9 @@ declared the `CATEGORY_DEFAULT` category. If you don't declare it
+ in your intent filter, no implicit intents resolve to your activity.
+ 
+ For more information about sending and receiving `https://developer.android.com/reference/android/content/Intent#ACTION_SEND`
+-intents that perform social sharing behaviors, see [Receiving simple data from other apps](https://developer.android.com/training/sharing/receive).
++intents that perform social sharing behaviors, see [Receiving simple data from other apps](https://developer.android.com/develop/ui/compose/sharing/receive).
+ You can also find useful information about sharing data in
+-[Sharing simple data](https://developer.android.com/training/sharing) and
++[Sharing simple data](https://developer.android.com/develop/ui/compose/notifications) and
+ [Sharing files](https://developer.android.com/training/secure-file-sharing).
+ 
+ ## Handle the intent in your activity

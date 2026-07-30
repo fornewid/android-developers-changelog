@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/system/icon_design_adaptive.md b/docs/develop/ui/compose/system/icon_design_adaptive.md
+index a76393cf..d5fbdbe9 100644
+--- a/docs/develop/ui/compose/system/icon_design_adaptive.md
++++ b/docs/develop/ui/compose/system/icon_design_adaptive.md
+@@ -53,7 +53,7 @@ cases:
+   In the following scenarios, the home screen doesn't display the themed
+   app icon, and instead displays the adaptive or standard app icon:
+   - If the user doesn't enable themed app icons.
+-  - If your app doesn't provide a monochromatic app icon and the users device runs on an earlier version of Android than Android 16 QPR 2.
++  - If your app doesn't provide a monochromatic app icon and the user's device runs on an earlier version of Android than Android 16 QPR 2.
+   - If the launcher doesn't support themed app icons.
+ 
+ ## Design adaptive icons
