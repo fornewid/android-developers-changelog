@@ -16,6 +16,23 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## July 29, 2026
+
+- [Compose Material 3 Version 1.5.0-alpha25](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha25)
+- [Compose Remote Version 1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha16)
+- [Concurrent Version 1.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/concurrent#1.4.0-alpha01)
+- [Credentials Credentials-play-services-auth Version 1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/credentials#1.7.0-alpha03)
+- [Credentials Registry Version 1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/credentials-registry#1.0.0-alpha05)
+- [Datastore Version 1.3.0-alpha10](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-alpha10)
+- [Glance Wear Version 1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha15)
+- [Glimmer Glimmer-google-fonts Version 1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha16)
+- [Ink Version 1.1.0-alpha06](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha06)
+- [Navigation3 Version 1.2.0-alpha07](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha07)
+- [Navigationevent Version 1.2.0-alpha03](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha03)
+- [Remote-material3 Version 1.0.0-alpha08](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#remote-material3-1.0.0-alpha08)
+- [Text Version 1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/text#1.0.0-alpha06)
+- [Wear Compose Version 1.7.0-alpha07](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha07)
+
 ## July 15, 2026
 
 - [Annotation Version 1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0-alpha01)

@@ -10,7 +10,7 @@ This library allows defining a set of UI layouts and non-UI expressions to be re
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | [1.4.1](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.4.1) | - | - | - |
+| July 29, 2026 | [1.4.2](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.4.2) | - | - | - |
 
 ## Declaring dependencies
 
@@ -26,13 +26,13 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement support for Wear ProtoLayout Expressions
-    implementation "androidx.wear.protolayout:protolayout-expression:1.4.1"
+    implementation "androidx.wear.protolayout:protolayout-expression:1.4.2"
 
     // Use to implement support for Wear ProtoLayout
-    implementation "androidx.wear.protolayout:protolayout:1.4.1"
+    implementation "androidx.wear.protolayout:protolayout:1.4.2"
 
     // Use to utilize components and layouts with Material design in your ProtoLayout
-    implementation "androidx.wear.protolayout:protolayout-material:1.4.1"
+    implementation "androidx.wear.protolayout:protolayout-material:1.4.2"
 }
 ```
 
@@ -41,13 +41,13 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement support for Wear ProtoLayout Expressions
-    implementation("androidx.wear.protolayout:protolayout-expression:1.4.1")
+    implementation("androidx.wear.protolayout:protolayout-expression:1.4.2")
 
     // Use to implement support for Wear ProtoLayout
-    implementation("androidx.wear.protolayout:protolayout:1.4.1")
+    implementation("androidx.wear.protolayout:protolayout:1.4.2")
 
     // Use to utilize components and layouts with Material design in your ProtoLayout
-    implementation("androidx.wear.protolayout:protolayout-material:1.4.1")
+    implementation("androidx.wear.protolayout:protolayout-material:1.4.2")
 }
 ```
 
@@ -67,6 +67,18 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.4
+
+### Version 1.4.2
+
+July 29, 2026
+
+`androidx.wear.protolayout:protolayout-*:1.4.2` is released. Version 1.4.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/81d018cf57252f81bc13a95eb11dc08f2e3bf723..a7c65b8f3ace04dcaca1dd5e12b45c27b2baf8ce/wear/protolayout).
+
+**Vulnerability \& Security Fixes**
+
+- Prevented crashes in the expression pipeline caused by invalid cubic bezier parameters in animations by falling back to a default interpolator.
+
+- Improved `ProtoLayout`'s renderer by wrapping exception handling to prevent crashes by guarding against non-finite values or invalid animations.
 
 ### Version 1.4.1
 

@@ -59,9 +59,9 @@ Follow these steps to start using `MotionLayout` in your project.
 
    ```groovy
    dependencies {
-       implementation "androidx.constraintlayout:constraintlayout:2.2.1"
+       implementation "androidx.constraintlayout:constraintlayout:2.2.2"
        // To use constraintlayout in compose
-       implementation "androidx.constraintlayout:constraintlayout-compose:1.1.1"
+       implementation "androidx.constraintlayout:constraintlayout-compose:1.1.2"
    }
    ```
 
@@ -69,9 +69,9 @@ Follow these steps to start using `MotionLayout` in your project.
 
    ```kotlin
    dependencies {
-       implementation("androidx.constraintlayout:constraintlayout:2.2.1")
+       implementation("androidx.constraintlayout:constraintlayout:2.2.2")
        // To use constraintlayout in compose
-       implementation("androidx.constraintlayout:constraintlayout-compose:1.1.1")
+       implementation("androidx.constraintlayout:constraintlayout-compose:1.1.2")
    }
    ```
 2. **Create a `MotionLayout` file:** `MotionLayout`

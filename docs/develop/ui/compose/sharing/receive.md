@@ -1,0 +1,204 @@
+---
+title: https://developer.android.com/develop/ui/compose/sharing/receive
+url: https://developer.android.com/develop/ui/compose/sharing/receive
+source: md.txt
+---
+
+Just as an app can send data to other apps, it can also receive data from other
+apps as well. Think about how users interact with your application and what data
+types you want to receive from other applications. For example, a social
+networking application might be interested in receiving text content, like an
+interesting web URL, from another app.
+
+In an app using Compose Navigation, receiving data sent by another app is a
+two-step process:
+
+1. Declare an `<intent-filter>` in the manifest: You must still add an intent
+   filter to your Activity in the AndroidManifest.xml file. This tells the
+   Android OS that your application is capable of receiving specific actions
+   (like ACTION_SEND) and MIME types (like text/plain).
+
+2. Define a navDeepLink in your Compose Navigation graph: Instead of manually
+   intercepting and parsing the Intent inside your Activity's onCreate or
+   onNewIntent methods, use Compose Navigation's deep link support. Attach a
+   navDeepLink that matches the action and MIME type directly to the composable
+   destination that should display the content. The NavController will
+   automatically intercept the Intent and route the user directly to that screen.
+
+Direct Share targets are deep links into a specific Activity within your app.
+They often represent a person or a group, and the Android Sharesheet shows them.
+For example, a messaging app can provide a Direct Share target for a person that
+deep links directly into a conversation with that person. See
+[Provide Direct Share targets](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets) for detailed
+instructions.
+
+## Support MIME types
+
+Ideally, an app must be able to receive the widest possible range of MIME types.
+For example, a messaging app designed for sending text, images, and video
+ideally supports receiving `text/*`, `image/*` and `video/*`. Here are a few
+common MIME types for sending and receiving simple data in Android.
+
+| Receivers register for | Senders send |
+|---|---|
+| `text/*` | - `text/plain` - `text/rtf` - `text/html` - `text/json` |
+| `image/*` | - `image/jpg` - `image/png` - `image/gif` |
+| `video/*` | - `video/mp4` - `video/3gp` |
+| Supported file extensions | `application/pdf` |
+
+Refer to the [IANA](https://www.iana.org/assignments/media-types/media-types.xhtml) official registry of MIME media types.
+
+> [!CAUTION]
+> **Caution:** Although you can receive a MIME type of `*/*`, we strongly discourage doing so unless your app is fully capable of handling any type of incoming content.
+
+## Make great share targets
+
+When a user taps on a share target associated with a specific activity they
+should be able to confirm and edit the shared content before using it. This is
+especially important for text data.
+
+## Receive data with an activity
+
+Receiving data with an activity involves updating your manifest, handling the
+incoming content, and ensuring that the user recognizes your app.
+
+### Update your manifest
+
+Intent filters inform the system which intents an app component accepts.
+Similar to how you constructed an intent with an `ACTION_SEND` action in the
+[Sending simple data to other apps](https://developer.android.com/develop/ui/compose/sharing/send)
+lesson, you create intent filters to receive intents with this action. You
+define an intent filter in your manifest using the `<intent-filter>` element.
+For example, if your app handles receiving text content, a manifest that
+includes one or more images of any type would look like the following snippet:
+
+```xml
+<activity android:name=".ui.MyActivity" >
+    <intent-filter>
+        <action android:name="android.intent.action.SEND" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:mimeType="image/*" />
+    </intent-filter>
+    <intent-filter>
+        <action android:name="android.intent.action.SEND" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:mimeType="text/plain" />
+    </intent-filter>
+    <intent-filter>
+        <action android:name="android.intent.action.SEND_MULTIPLE" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <data android:mimeType="image/*" />
+    </intent-filter>
+</activity>
+```
+
+When another app tries to share any of these things by constructing an
+intent and passing it to [`startActivity()`](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)), your application
+is listed as an option in the Android Sharesheet or intent resolver. If the user
+selects your app, this starts the corresponding activity (`.ui.MyActivity` in
+the preceding example). It's then up to you to handle the content appropriately
+within your code and UI.
+
+> [!NOTE]
+> **Note:** For more information about intent filters and intent resolution, read [Intents and Intent Filters](https://developer.android.com/guide/components/intents-filters#ifs).
+
+### Handle the incoming content
+
+To handle the content delivered by an [`Intent`](https://developer.android.com/reference/android/content/Intent), call
+[`getIntent()`](https://developer.android.com/reference/android/content/Intent#getIntent(java.lang.String)) to get the `Intent` object. Once you have the object,
+you can examine its contents to determine what to do next. If this activity can
+be started from other parts of the system (such as the launcher), take this
+into consideration when examining the intent.
+
+Take extra care to check the incoming data, you never know what some other
+application may send you. For example, the wrong MIME type might be set, or the
+image being sent might be extremely large. Also, remember to process binary data
+in a separate thread rather than the main ("UI") thread.
+
+
+```kotlin
+@Composable
+fun SharesheetHandler() {
+    val context = LocalContext.current
+    val intent = (context as? Activity)?.intent
+
+    when (intent?.action) {
+        ACTION_SEND -> {
+            if ("text/plain" == intent.type) {
+                handleSendText(intent) // Handle text being sent.
+            } else if (intent.type?.startsWith("image/") == true) {
+                handleSendImage(intent) // Handle single image being sent
+            }
+        }
+
+        Intent.ACTION_SEND_MULTIPLE -> {
+            if (intent.type?.startsWith("image/") == true) {
+                handleSendMultipleImages(intent) // Handle multiple images being sent
+            }
+        }
+
+        else -> {
+            // Handle other intents, such as being started from the home screen
+        }
+    }
+}
+
+fun handleSendText(intent: Intent) {
+    intent.getStringExtra(Intent.EXTRA_TEXT)?.let {
+        // Update ViewModel state to change state of text being shared
+    }
+}
+
+fun handleSendImage(intent: Intent) {
+    IntentCompat.getParcelableExtra(intent, Intent.EXTRA_STREAM, Uri::class.java).let {
+        // Update ViewModel state to change state of image being shared
+    }
+}
+
+fun handleSendMultipleImages(intent: Intent) {
+    IntentCompat.getParcelableArrayListExtra(intent, Intent.EXTRA_STREAM, Uri::class.java).let {
+        // Update ViewModel state to change state of image(s) being shared
+    }
+}
+```
+
+<br />
+
+Updating the UI after receiving the data can be as simple as populating a
+[`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextField.composable)
+, or it can be more
+complicated like applying an interesting photo filter to an image. It's up to
+your app what happens next.
+
+#### Screenshot URL sharing
+
+When taking a screenshot, you can share the screenshot and any associated URL.
+This provides a richer user experience. When receiving a URL make sure to get
+the `EXTRA_TEXT` field from the intent, as shown in the following example:
+
+
+```kotlin
+IntentCompat.getParcelableExtra(intent, Intent.EXTRA_STREAM, Uri::class.java).let {
+    // Handle the EXTRA_TEXT as well
+    val extraText = intent.getCharSequenceExtra(Intent.EXTRA_TEXT)
+    // Update ViewModel state to change state image being shared and the EXTRA_TEXT
+    // if available
+}
+```
+
+<br />
+
+### Ensure users recognize your app
+
+Your app is represented by its
+[icon](https://developer.android.com/guide/topics/manifest/application-element#icon) and
+[label](https://developer.android.com/guide/topics/manifest/application-element#label) in the Android
+Sharesheet and intent resolver. These are both defined in the manifest. You can
+set activity or intent filter labels to provide more context.
+
+As of Android 10 (API level 29), the Android Sharesheet only uses icons set in
+the manifest on your `application` tag. Android ignores icons set on
+`intent-filter` and `activity` tags.
+
+> [!NOTE]
+> **Note:** Effective share targets don't need a label and icon in the associated activity or intent filter. The receiving app's name and icon alone must be enough for a user to understand what happens when they share.

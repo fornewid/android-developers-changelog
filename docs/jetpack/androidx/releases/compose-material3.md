@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 15, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha24](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha24) |
+| July 29, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha25](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha25) |
 
 > [!NOTE]
 > **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
@@ -48,7 +48,7 @@ your app or module:
 dependencies {
     implementation "androidx.compose.material3:material3:1.4.0"
     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha24"
+    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha25"
 }
 
 android {
@@ -72,7 +72,7 @@ android {
 dependencies {
     implementation("androidx.compose.material3:material3:1.4.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha24")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha25")
 }
 
 android {
@@ -317,6 +317,31 @@ Material3 adaptive pane scaffold APIs:
   - [AnimatedPane](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#(androidx.compose.material3.adaptive.ThreePaneScaffoldScope).AnimatedPane(androidx.compose.ui.Modifier,kotlin.Function2))
 
 ## Compose Material3 Version 1.5
+
+### Version 1.5.0-alpha25
+
+July 29, 2026
+
+`androidx.compose.material3:material3-*:1.5.0-alpha25` is released. Version 1.5.0-alpha25 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/37844e101325a1b2e5782da1a1b8684e55e1a887..719db51c3b4d823ef6e680e62b6dbe272c5ef936/compose/material3).
+
+**API Changes**
+
+- Renamed `trailingIcon` parameter to `trailingContent` in the shape, checked, and selected `DropdownMenuItem` overloads while maintaining binary compatibility. ([I2ecbd](https://android-review.googlesource.com/#/q/I2ecbd7c5812731db0fb72b5ecf4c4c43483d754e))
+- Added new selection and container color properties to `MenuItemColors`, and renamed `trailingIcon` to `trailingContent` in the new colors constructor while maintaining binary compatibility. ([I20b92](https://android-review.googlesource.com/#/q/I20b92bdcddd4a8fb5a90f63e5da97e82f5b7b3df))
+- Improved `ScrollField` accessibility and keyboard navigation support. ([If7477](https://android-review.googlesource.com/#/q/If7477b017aba524c27df6cacb16d8071e40631c5))
+- Remove `ComponentOverride` APIs ([I3784b](https://android-review.googlesource.com/#/q/I3784b34708b1721a9b866f7ae808431a6a6a6964))
+- Deprecated 2-parameter `SliderState.Saver` and `RangeSliderState.Saver` in favor of new overloads taking steps. `SliderState` no longer publicly implements `DraggableState`. ([I7c91b](https://android-review.googlesource.com/#/q/I7c91b322dd0252ca0022ed0a0284b966d8cde953))
+- Graduate `BasicAlertDialog` API from Experimental ([If157c](https://android-review.googlesource.com/#/q/If157c5fd4972a9e9cfdd95bda85389f100b2816c))
+- Changed `ButtonGroupScope` in `ButtonGroup` to a `sealed interface`. Split `Modifier.animateWidth` into two overloads to allow omitting `compressionLimit` and dynamically resolving the layout direction, and changed the `compressionLimit` parameter type from `PaddingValues` to `Dp`. ([I8ef39](https://android-review.googlesource.com/#/q/I8ef3946c7a7e41b6bb6540290c8475720fcbb665))
+- Renamed `TonalToggleButton` to `FilledTonalToggleButton`. Added smooth border stroke animations to `OutlinedToggleButton`. Deprecated `ToggleButtonDefaults.shapes` in favor of `shapesFor`. ([Icb433](https://android-review.googlesource.com/#/q/Icb433de38e52f2ab7aae21e5e9aa177289c12a4f))
+- Promote `LinearTrackStopIndicatorSize`, `LinearIndicatorTrackGapSize`, and `CircularIndicatorTrackGapSize` to stable. ([I794d0](https://android-review.googlesource.com/#/q/I794d0879a74d7ac18ee51d8da5940a4bfdc71cce))
+- Deprecated `SplitButtonLayout` Api to use `SplitButton` instead ([Ic9840](https://android-review.googlesource.com/#/q/Ic984059c127afda448f3981ebb56471f409456f8))
+
+**Bug Fixes**
+
+- Update focus switching in case of error for `TimePickerTextField` input in `TimePicker.kt`. ([Ieceec](https://android-review.googlesource.com/#/q/Ieceec5017cf73f9de1f415bfd9eb307acb90c9f8))
+- Fixed shape of segmented list item when the list only has a single item. ([I2ea1c](https://android-review.googlesource.com/#/q/I2ea1cf9edbb68737ff33b6ea9c4f4793eee22eb0), [b/479721696](https://issuetracker.google.com/issues/479721696))
+- Update KDocs for `TimePickerDialog.kt`. ([Ia5fb8](https://android-review.googlesource.com/#/q/Ia5fb8cf2372325b85f41ee4078beeee8a3f3ec07))
 
 ### Version 1.5.0-alpha24
 

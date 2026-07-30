@@ -36,7 +36,7 @@ The following sections describe the process required on each device:
 ### On the previous device
 
 Generate the restore key after the user authenticates to your app---immediately
-after they sign in, or during a subsequent app launch if they are already signed
+after they sign in, and during a subsequent app launch if they're already signed
 in.
 The Android backup service automatically stores the generated restore key on the
 device, and based on the user's backup settings, also saves it in the cloud.

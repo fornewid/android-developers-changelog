@@ -69,7 +69,7 @@ Android look and feel along with UI consistency across Android versions.
 | ID | Tests | Description |
 |---|---|---|
 | Notification_Quality | [T-Notification_Quality](https://developer.android.com/develop/adaptive-apps/quality-guidelines/core-app-quality#T-Notification_Quality) | [Notifications](https://developer.android.com/design/ui/mobile/guides/home-screen/notifications) provide relevant information related to your app. - Don't use notifications for cross-promotion or advertising of another product, as this is strictly prohibited by the Play Store. - [Notification channels](https://developer.android.com/training/notify-user/channels) are defined according to best practices, rather than serving all notifications from one channel. - Select [the correct notification priority](https://android-developers.googleblog.com/2018/12/notifications-from-twitter-app.html). - Stack multiple notifications into [a single notification group](https://developer.android.com/training/notify-user/group) when possible. - Set [timeouts](https://developer.android.com/reference/kotlin/androidx/core/app/NotificationCompat.Builder#setTimeoutAfter(long)) for notifications where appropriate. - Notifications are persistent only if related to ongoing events, such as music playback or a phone call. For more information, see the [Functionality section](https://developer.android.com/docs/quality-guidelines/core-app-quality#fn). |
-| Conversation_Quality | [T-Notification_Quality](https://developer.android.com/develop/adaptive-apps/quality-guidelines/core-app-quality#T-Notification_Quality) | For messaging apps, social apps and conversations: - Use the [`MessagingStyle`](https://developer.android.com/reference/kotlin/androidx/core/app/NotificationCompat.MessagingStyle) notifications for conversations. - Support the [direct reply action](https://developer.android.com/training/notify-user/build-notification#reply-action). - Support [conversation shortcuts](https://developer.android.com/guide/topics/ui/conversations#shortcuts), and implement best practices for getting the [best direct share ranking](https://developer.android.com/training/sharing/direct-share-targets#get-best-ranking). - Support [bubbles](https://developer.android.com/guide/topics/ui/bubbles). |
+| Conversation_Quality | [T-Notification_Quality](https://developer.android.com/develop/adaptive-apps/quality-guidelines/core-app-quality#T-Notification_Quality) | For messaging apps, social apps and conversations: - Use the [`MessagingStyle`](https://developer.android.com/reference/kotlin/androidx/core/app/NotificationCompat.MessagingStyle) notifications for conversations. - Support the [direct reply action](https://developer.android.com/training/notify-user/build-notification#reply-action). - Support [conversation shortcuts](https://developer.android.com/guide/topics/ui/conversations#shortcuts), and implement best practices for getting the [best direct share ranking](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets#get-best-ranking). - Support [bubbles](https://developer.android.com/guide/topics/ui/bubbles). |
 
 #### Accessibility
 
@@ -106,7 +106,7 @@ Your app should implement the following functional behavior.
 
 | ID | Tests | Description |
 |---|---|---|
-| System_Sharesheet | [T-System_Sharesheet](https://developer.android.com/develop/adaptive-apps/quality-guidelines/core-app-quality#T-System_Sharesheet) | App should use the [Android Sharesheet](https://developer.android.com/training/sharing/send) when sharing content. App can suggest targets that are unavailable to custom solutions. |
+| System_Sharesheet | [T-System_Sharesheet](https://developer.android.com/develop/adaptive-apps/quality-guidelines/core-app-quality#T-System_Sharesheet) | App should use the [Android Sharesheet](https://developer.android.com/develop/ui/compose/sharing/send) when sharing content. App can suggest targets that are unavailable to custom solutions. |
 
 #### Background services
 
@@ -368,7 +368,7 @@ Verify that your app implements the following functional behavior.
 
 | ID | Feature | Description |
 |---|---|---|
-| T-System_Sharesheet | [System_Sharesheet](https://developer.android.com/develop/adaptive-apps/quality-guidelines/core-app-quality#System_Sharesheet) | Create an intent and start an activity by calling [`startActivity()`](https://developer.android.com/reference/kotlin/android/app/Activity#startactivity) with the intent as an argument. See [Use the Android Sharesheet](https://developer.android.com/training/sharing/send#using-android-system-sharesheet). Your app should display the Android Sharesheet. |
+| T-System_Sharesheet | [System_Sharesheet](https://developer.android.com/develop/adaptive-apps/quality-guidelines/core-app-quality#System_Sharesheet) | Create an intent and start an activity by calling [`startActivity()`](https://developer.android.com/reference/kotlin/android/app/Activity#startactivity) with the intent as an argument. See [Use the Android Sharesheet](https://developer.android.com/develop/ui/compose/sharing/send#using-android-system-sharesheet). Your app should display the Android Sharesheet. |
 
 #### Background services
 

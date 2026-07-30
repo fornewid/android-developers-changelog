@@ -63,7 +63,7 @@ gestures. The main types of insets to consider for edge-to-edge display are:
 - **System bars insets:** Represent areas where system bars are displayed. Use these to avoid UI being obscured by system bars.
 - **Display cutout insets:** Represent areas where a physical cutout (like a camera notch) exists on the device screen.
 
-In Compose, You can handle insets using either rulers, padding modifiers or
+In Compose, you can handle insets using either rulers, padding modifiers or
 inset size modifiers. See [About window insets](https://developer.android.com/develop/ui/compose/system/insets) for detailed guidance.
 
 ## Advanced topics

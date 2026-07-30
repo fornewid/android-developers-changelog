@@ -30,11 +30,11 @@ app module's build script:
 dependencies {
     // Use to implement credentials registrys
 
-    implementation "androidx.credentials.registry:registry-digitalcredentials-mdoc:1.0.0-alpha04"
-    implementation "androidx.credentials.registry:registry-digitalcredentials-openid:1.0.0-alpha04"
-    implementation "androidx.credentials.registry:registry-digitalcredentials-sdjwtvc:1.0.0-alpha04"
-    implementation "androidx.credentials.registry:registry-provider:1.0.0-alpha04"
-    implementation "androidx.credentials.registry:registry-provider-play-services:1.0.0-alpha04"
+    implementation "androidx.credentials.registry:registry-digitalcredentials-mdoc:1.0.0-alpha05"
+    implementation "androidx.credentials.registry:registry-digitalcredentials-openid:1.0.0-alpha05"
+    implementation "androidx.credentials.registry:registry-digitalcredentials-sdjwtvc:1.0.0-alpha05"
+    implementation "androidx.credentials.registry:registry-provider:1.0.0-alpha05"
+    implementation "androidx.credentials.registry:registry-provider-play-services:1.0.0-alpha05"
 
 }
 ```
@@ -45,11 +45,11 @@ dependencies {
 dependencies {
     // Use to implement credentials registrys
 
-    implementation("androidx.credentials.registry:registry-digitalcredentials-mdoc:1.0.0-alpha04")
-    implementation("androidx.credentials.registry:registry-digitalcredentials-openid:1.0.0-alpha04")
-    implementation("androidx.credentials.registry:registry-digitalcredentials-sdjwtvc:1.0.0-alpha04")
-    implementation("androidx.credentials.registry:registry-provider:1.0.0-alpha04")
-    implementation("androidx.credentials.registry:registry-provider-play-services:1.0.0-alpha04")
+    implementation("androidx.credentials.registry:registry-digitalcredentials-mdoc:1.0.0-alpha05")
+    implementation("androidx.credentials.registry:registry-digitalcredentials-openid:1.0.0-alpha05")
+    implementation("androidx.credentials.registry:registry-digitalcredentials-sdjwtvc:1.0.0-alpha05")
+    implementation("androidx.credentials.registry:registry-provider:1.0.0-alpha05")
+    implementation("androidx.credentials.registry:registry-provider-play-services:1.0.0-alpha05")
 
 }
 ```

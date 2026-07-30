@@ -12,66 +12,63 @@ our [official samples](https://github.com/android/kotlin-multiplatform-samples/)
 
 ## Set up dependencies
 
-> [!NOTE]
-> **Note:** Room supports KMP from version 2.7.0 or higher.
-
-To setup Room in your KMP project, add the dependencies for the artifacts in the
-`build.gradle.kts` file for your KMP module.
+To set up Room in your KMP project, add the dependencies for the artifacts in
+the `build.gradle.kts` file for your KMP module.
 
 Define the dependencies in the `libs.versions.toml` file:
 
     [versions]
-    room = "2.8.4"
+    room3 = "3.0.1"
     sqlite = "2.7.0"
     ksp = "<kotlinCompatibleKspVersion>"
 
     [libraries]
     androidx-sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
-    androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
-    androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+    androidx-room3-runtime = { module = "androidx.room3:room3-runtime", version.ref = "room3" }
+    androidx-room3-compiler = { module = "androidx.room3:room3-compiler", version.ref = "room3" }
 
-    # Optional SQLite Wrapper available in version 2.8.0 and higher
-    androidx-room-sqlite-wrapper = { module = "androidx.room:room-sqlite-wrapper", version.ref = "room" }
+    # Optional SQLite Wrapper
+    androidx-room3-sqlite-wrapper = { module = "androidx.room3:room3-sqlite-wrapper", version.ref = "room3" }
 
     [plugins]
     ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-    androidx-room = { id = "androidx.room", version.ref = "room" }
+    androidx-room3 = { id = "androidx.room3", version.ref = "room3" }
 
 > [!NOTE]
-> **Note:** To help with migrating from `SupportSQLiteDatabase` to `SQLiteDriver`, use the new artifact `androidx.room:room-sqlite-wrapper` available in Room 2.8.0 and higher. Read more in the [Use Room SQLite Wrapper](https://developer.android.com/kotlin/multiplatform/room#migrate-room-sqlite-wrapper) section.
+> **Note:** To help with migrating from `SupportSQLiteDatabase` to `SQLiteDriver`, use the `androidx.room3:room3-sqlite-wrapper` artifact. For more information, see the [Use Room SQLite Wrapper](https://developer.android.com/kotlin/multiplatform/room#migrate-room-sqlite-wrapper) section.
 
 Add the Room Gradle Plugin to configure Room schemas and the [KSP
 plugin](https://kotlinlang.org/docs/ksp-multiplatform.html).
 
     plugins {
       alias(libs.plugins.ksp)
-      alias(libs.plugins.androidx.room)
+      alias(libs.plugins.androidx.room3)
     }
 
 Add the Room runtime dependency and the bundled SQLite library:
 
     commonMain.dependencies {
-      implementation(libs.androidx.room.runtime)
+      implementation(libs.androidx.room3.runtime)
       implementation(libs.androidx.sqlite.bundled)
     }
 
     // Optional when using Room SQLite Wrapper
     androidMain.dependencies {
-      implementation(libs.androidx.room.sqlite.wrapper)
+      implementation(libs.androidx.room3.sqlite.wrapper)
     }
 
 > [!NOTE]
 > **Note:** You can use the [platform-specific implementation of SQLite](https://developer.android.com/kotlin/multiplatform/room#selecting-sqlitedriver), but we recommend bundling it with your app to prevent any inconsistencies between the platform implementations of SQLite.
 
-Add the KSP dependencies to the **root** `dependencies` block. Note that you
-need to add all the targets your app uses. For more information, check [KSP with
+Add the KSP dependencies to the **root** `dependencies` block. You need to add
+all the targets your app uses. For more information, see [KSP with
 Kotlin Multiplatform](https://kotlinlang.org/docs/ksp-multiplatform.html).
 
     dependencies {
-        add("kspAndroid", libs.androidx.room.compiler)
-        add("kspIosSimulatorArm64", libs.androidx.room.compiler)
-        add("kspIosX64", libs.androidx.room.compiler)
-        add("kspIosArm64", libs.androidx.room.compiler)
+        add("kspAndroid", libs.androidx.room3.compiler)
+        add("kspIosSimulatorArm64", libs.androidx.room3.compiler)
+        add("kspIosX64", libs.androidx.room3.compiler)
+        add("kspIosArm64", libs.androidx.room3.compiler)
         // Add any other platform target you use in your project, for example kspDesktop
     }
 
@@ -85,7 +82,7 @@ location using Room Gradle Plugin](https://developer.android.com/training/data-s
 > [!WARNING]
 > **Warning:** If using Kotlin version 1.9.x, you must add the property `kotlin.native.disableCompilerDaemon = true` to the `gradle.properties` configuration file for Room's KSP processor to function properly. This property is not needed when using Kotlin version 2.0 or higher. For more information, see [KT-65761](https://youtrack.jetbrains.com/issue/KT-65761).
 
-## Define the database classes
+## Define database classes
 
 You need to create a database class annotated with `@Database` along with DAOs
 and entities inside the common source set of your shared KMP module. Placing
@@ -106,8 +103,8 @@ platforms.
         override fun initialize(): AppDatabase
     }
 
-When you declare an `expect` object with the interface
-`RoomDatabaseConstructor`, the Room compiler generates the `actual`
+When you declare an `expect` object with the
+`RoomDatabaseConstructor` interface, the Room compiler generates the `actual`
 implementations. Android Studio might issue the following warning, which you can
 suppress with `@Suppress("KotlinNoActualForExpect")`:
 
@@ -144,17 +141,17 @@ Define or move your [entities](https://developer.android.com/training/data-stora
 > [!NOTE]
 > **Note:** You can optionally use [expect / actual declarations](https://kotlinlang.org/docs/multiplatform-expect-actual.html) to create platform-specific Room implementations. For example, you can add a platform-specific DAO that is defined in common code using `expect` and then specify the `actual` definitions with additional queries in platform-specific source sets.
 
-## Create the platform-specific database builder
+## Create platform-specific database builders
 
-You need to define a database builder to instantiate Room on each platform. This
-is the only part of the API that is required to be in platform-specific source
-sets due to the differences in file system APIs.
+You need to define a database builder to instantiate Room on each platform.
+This is the only part of the API you must define in platform-specific
+source sets, due to differences in file-system APIs.
 
 ### Android
 
-On Android, database location is usually obtained through the
-[`Context.getDatabasePath()`](https://developer.android.com/reference/android/content/Context#getDatabasePath(java.lang.String)) API. To create the database instance, specify a
-[`Context`](https://developer.android.com/reference/android/content/Context) along with the database path.
+On Android, you usually obtain the database location using the
+[`Context.getDatabasePath`](https://developer.android.com/reference/android/content/Context#getDatabasePath(java.lang.String)) API. To create the database instance, specify a
+[`Context`](https://developer.android.com/reference/android/content/Context) and the database path.
 
     // shared/src/androidMain/kotlin/Database.android.kt
 
@@ -192,7 +189,7 @@ To create the database instance on iOS, provide a database path using the
       return requireNotNull(documentDirectory?.path)
     }
 
-### JVM (Desktop)
+### JVM desktop
 
 To create the database instance, provide a database path using Java or Kotlin
 APIs.
@@ -231,7 +228,7 @@ along with the actual database instantiation.
 The previous code snippet calls the `setDriver` builder function to define what
 SQLite driver the Room database should use. These drivers differ based on the
 target platform. The previous code snippets use the [`BundledSQLiteDriver`](https://developer.android.com/reference/kotlin/androidx/sqlite/driver/bundled/BundledSQLiteDriver).
-This is the recommended driver that includes SQLite compiled from source, which
+It's the recommended driver that includes SQLite compiled from source, which
 provides the most consistent and up-to-date version of SQLite across all
 platforms.
 
@@ -263,17 +260,17 @@ that the iOS app dynamically links with the system SQLite.
         }
     }
 
-### Set a Coroutine context (Optional)
+### Set a coroutine context
 
 A `RoomDatabase` object on Android can optionally be configured with shared
-application executors using `RoomDatabase.Builder.setQueryExecutor()` to perform
+application executors using `RoomDatabase.Builder.setQueryExecutor` to perform
 database operations.
 
-Because executors are not KMP compatible, Room's `setQueryExecutor()` API is not
-available in `commonMain`. Instead the `RoomDatabase` object must be configured
-with a `CoroutineContext`, which can be set using
-`RoomDatabase.Builder.setCoroutineContext()`. If no context is set, then the
-`RoomDatabase` object will default to using `Dispatchers.IO`.
+Because executors aren't KMP compatible, Room's `setQueryExecutor` API isn't
+available in `commonMain`. Instead, the `RoomDatabase` object must be
+configured with a `CoroutineContext`, which you can set using
+`RoomDatabase.Builder.setCoroutineContext`. If you don't set a context, the
+`RoomDatabase` object defaults to `Dispatchers.IO`.
 
 ## Minification and obfuscation
 
@@ -281,7 +278,7 @@ If the project is [minified or obfuscated](https://www.jetbrains.com/help/kotlin
 the following ProGuard rule so that Room can find the generated implementation
 of the database definition:
 
-    -keep class * extends androidx.room.RoomDatabase { <init>(); }
+    -keep class * extends androidx.room3.RoomDatabase { <init>(); }
 
 ## Migrate to Kotlin Multiplatform
 
@@ -298,7 +295,7 @@ because the APIs in [`androidx.sqlite.db`](https://developer.android.com/referen
 different package than the KMP package).
 
 > [!NOTE]
-> **Note:** If you're using any low-level SQLite APIs in your codebase, refer to [Migrate SQLite to Kotlin Multiplatform](https://developer.android.com/kotlin/multiplatform/sqlite#migrate).
+> **Note:** If you're using any low-level SQLite APIs in your codebase, see [Migrate SQLite to Kotlin Multiplatform](https://developer.android.com/kotlin/multiplatform/sqlite#migrate).
 
 For backwards compatibility, and as long as the `RoomDatabase` is configured
 with a `SupportSQLiteOpenHelper.Factory` (for example, no `SQLiteDriver` is
@@ -307,20 +304,20 @@ SQLite Driver APIs work as expected. This enables incremental migrations so that
 you don't need to convert all your Support SQLite usages to SQLite Driver in a
 single change.
 
-### Use Room SQLite Wrapper (Optional)
+### Use Room SQLite wrapper
 
-The `androidx.room:room-sqlite-wrapper` artifact provides APIs to bridge between
-`SQLiteDriver` and `SupportSQLiteDatabase` during migration.
+The `androidx.room3:room3-sqlite-wrapper` artifact provides APIs to bridge
+between `SQLiteDriver` and `SupportSQLiteDatabase` during migration.
 
 To get a `SupportSQLiteDatabase` from a `RoomDatabase` configured with a
 `SQLiteDriver`, use the new extension function
-`RoomDatabase.getSupportWrapper()`. This compatibility wrapper helps maintain
-existing usages of `SupportSQLiteDatabase` (often obtained from
-`RoomDatabase.openHelper.writableDatabase`) while adopting `SQLiteDriver`,
+`RoomDatabase.getSupportWrapper`. This compatibility wrapper helps maintain
+existing usages of `SupportSQLiteDatabase`, which you often obtain from
+`RoomDatabase.openHelper.writableDatabase`, while adopting `SQLiteDriver`,
 especially for codebases with extensive `SupportSQLite` API usages that want to
 use `BundledSQLiteDriver`.
 
-#### Convert Migrations Subclasses
+#### Convert migration subclasses
 
 Migrations subclasses need to be migrated to the SQLite driver counterparts:
 
@@ -459,7 +456,7 @@ existing codebase. When using Room for KMP, all DAO functions compiled for
 non-Android platforms need to be `suspend` functions.
 
 > [!NOTE]
-> **Note:** Migrating existing DAO blocking functions to suspend functions can be complicated if the existing codebase does not already incorporate coroutines. Refer to [Coroutines in Android](https://developer.android.com/kotlin/coroutines) to get started on using coroutines and [Flows in Android](https://developer.android.com/kotlin/flow) to get started on using flows in your codebase.
+> **Note:** Migrating existing DAO blocking functions to suspend functions can be complicated if the existing codebase does not already incorporate coroutines. See [Coroutines in Android](https://developer.android.com/kotlin/coroutines) to get started with coroutines and [Flows in Android](https://developer.android.com/kotlin/flow) to get started with flows in your codebase.
 
 ### Kotlin Multiplatform
 
@@ -576,12 +573,12 @@ an exception, as these are considered 'write' operations.
 > **Note:** For more details about SQLite transactions, see the [SQLite
 > documentation](https://www.sqlite.org/lang_transaction.html).
 
-## Not Available in Kotlin Multiplatform
+## Not available in Kotlin Multiplatform
 
 Some of the APIs that were available for Android are not available in Kotlin
 Multiplatform.
 
-### Query Callback
+### Query callback
 
 The following APIs for configuring query callbacks are not available in common
 and are thus unavailable in platforms other than Android.
@@ -596,13 +593,13 @@ The API to configure a `RoomDatabase` with a query callback
 `RoomDatabase.QueryCallback` are not available in common and thus not available
 in other platforms other than Android.
 
-### Auto Closing Database
+### Auto-closing database
 
 The API to enable auto-closing after a timeout,
 `RoomDatabase.Builder.setAutoCloseTimeout`, is only available on Android and is
 not available in other platforms.
 
-### Pre-package Database
+### Pre-packaged database
 
 The following APIs to create a `RoomDatabase` using an existing database (i.e. a
 pre-packaged database) are not available in common and are thus not available in
@@ -615,7 +612,7 @@ other platforms other than Android. These APIs are:
 
 We intend to add support for pre-packaged databases in a future version of Room.
 
-### Multi-Instance Invalidation
+### Multi-instance invalidation
 
 The API to enable multi-instance invalidation,
 `RoomDatabase.Builder.enableMultiInstanceInvalidation` is only available on

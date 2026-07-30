@@ -24,7 +24,7 @@ for users to interact with. Learn how to [send and receive messages
 reliably](https://firebase.google.com/docs/cloud-messaging), as well as how to [level your app up](https://developer.android.com/social-and-messaging/guides/communication/basic-better-best) with [rich
 emoji support](https://developer.android.com/develop/ui/views/text-and-emoji/emoji-picker), stickers and images from [Android's image keyboard and other
 rich text sources](https://developer.android.com/develop/ui/views/receive-rich-content), and
-support for [sharing text and media](https://developer.android.com/training/sharing/send) directly to other apps.
+support for [sharing text and media](https://developer.android.com/develop/ui/compose/sharing/send) directly to other apps.
 
 [Learn More](https://developer.android.com/social-and-messaging/guides/communication) [Level Up](https://developer.android.com/social-and-messaging/guides/communication/basic-better-best)
 
@@ -50,7 +50,7 @@ libraries that simplify integration into your app while helping you support the
 latest device and platform features.
 
 Learn how to [capture photos and videos](https://developer.android.com/media/camera/camerax), [edit videos](https://developer.android.com/media/media3/transformer), [access user
-media libraries](https://developer.android.com/training/data-storage/shared/photopicker), and [share to other apps and services](https://developer.android.com/training/sharing/send#using-android-system-sharesheet). [Level up your
+media libraries](https://developer.android.com/training/data-storage/shared/photopicker), and [share to other apps and services](https://developer.android.com/develop/ui/compose/sharing/send#using-android-system-sharesheet). [Level up your
 app](https://developer.android.com/social-and-messaging/guides/media-creation/basic-better-best) with support for [UltraHDR image capture](https://github.com/android/platform-samples/blob/main/samples/camera/camera2/src/main/java/com/example/platform/camera/imagecapture/Camera2UltraHDRCapture.kt), [HDR
 video](https://developer.android.com/media/camera/camera2/hdr-video-capture), [zero shutter lag](https://developer.android.com/media/camera/camerax/take-photo#zero-shutter-lag), and more.
 

@@ -35,7 +35,7 @@ created and captured in the best possible quality:
 
 - [Media3 Transformer APIs](https://developer.android.com/media/media3/transformer) --- This API lets users edit media with ease. Edit capabilities include converting between formats (transcoding), applying changes like trimming a clip from a longer video, cropping a portion of the video frame, applying custom effects, and other editing operations.
 - [Photo Picker](https://developer.android.com/training/data-storage/shared/photopicker) --- This component provides a safe, built-in way for users to grant your app access to only selected images and videos, instead of their entire media library.
-- [Android Sharesheet](https://developer.android.com/training/sharing/send#using-android-system-sharesheet) --- This component lets users send content from one app to another.
+- [Android Sharesheet](https://developer.android.com/develop/ui/compose/sharing/send#using-android-system-sharesheet) --- This component lets users send content from one app to another.
 - [Ultra HDR Image Format](https://developer.android.com/media/platform/hdr-image-format) --- The JPEG-based file format used to encode images with a logarithmic-range gain map that can render in high dynamic range on compatible displays.
 
 ## Level up your app

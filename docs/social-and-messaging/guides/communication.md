@@ -44,7 +44,7 @@ your app stand out include:
 - Rich emoji support through the [Emoji Picker](https://developer.android.com/develop/ui/views/text-and-emoji/emoji-picker)
 - Support for [rich content](https://developer.android.com/develop/ui/views/receive-rich-content), including stickers and images through Android's Image Keyboard
 - Support for browsing and selecting user photos and videos, either local or in the cloud, using Android's built-in [photo picker](https://developer.android.com/training/data-storage/shared/photopicker)
-- Support for [sharing text and media](https://developer.android.com/training/sharing/send) directly to other apps and contacts
+- Support for [sharing text and media](https://developer.android.com/develop/ui/compose/sharing/send) directly to other apps and contacts
 
 See the [full guide](https://developer.android.com/social-and-messaging/guides/communication/basic-better-best) for features to consider to take your social and
 messaging experience to the next level, to help your app meet and surpass user

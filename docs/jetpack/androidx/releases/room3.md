@@ -10,7 +10,7 @@ The Room persistence library provides an abstraction layer over SQLite to allow 
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | [3.0.0](https://developer.android.com/jetpack/androidx/releases/room3#3.0.0) | - | - | - |
+| July 29, 2026 | [3.0.1](https://developer.android.com/jetpack/androidx/releases/room3#3.0.1) | - | - | - |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```kotlin
 dependencies {
-    val room_version = "3.0.0"
+    val room_version = "3.0.1"
 
     implementation("androidx.room3:room3-runtime:$room_version")
     ksp("androidx.room3:room3-compiler:$room_version")
@@ -36,7 +36,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    def room_version = "3.0.0"
+    def room_version = "3.0.1"
 
     implementation "androidx.room3:room3-runtime:$room_version"
 
@@ -121,6 +121,17 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 3.0
+
+### Version 3.0.1
+
+July 29, 2026
+
+`androidx.room3:room3-*:3.0.1` is released. Version 3.0.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7fac77ef3619a0ad0872dbab2d86247263ebf2ab..4762f876f4d43c4c8853d8887f9b110fe25777e6/room3).
+
+**Bug Fixes**
+
+- Fix an unnecessary `println()` during processing. Thanks to Simon Marquis! ([b/532893031](https://issuetracker.google.com/issues/532893031))
+- Fix an issue regarding other database usages within another database's transaction mixing in leading undefined behaviour. ([b/437068912](https://issuetracker.google.com/issues/437068912))
 
 ### Version 3.0.0
 

@@ -23,7 +23,7 @@ may include doing the following:
 - Support [zoom](https://developer.android.com/reference/androidx/camera/core/ZoomState) and [tap-to-focus](https://developer.android.com/reference/kotlin/androidx/camera/view/CameraController#setTapToFocusEnabled(boolean)).
 - Support hardware [flash](https://developer.android.com/training/camerax/take-photo#set-flash-mode).
 - Handle [multi-window camera access](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode#exclusive_resource_access).
-- Use the [Android Sharesheet](https://developer.android.com/training/sharing/send#why-to-use-system-sharesheet) to share with other apps and targets.
+- Use the [Android Sharesheet](https://developer.android.com/develop/ui/compose/sharing/send#why-to-use-system-sharesheet) to share with other apps and targets.
 
 ## Better media creation
 

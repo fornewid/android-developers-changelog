@@ -19,6 +19,16 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
 
+## July 29, 2026
+
+- [Constraintlayout Version 2.2.2](https://developer.android.com/jetpack/androidx/releases/constraintlayout#constraintlayout-2.2.2)
+- [Constraintlayout-compose Constraintlayout-compose-android Constraintlayout-core Version 1.1.2](https://developer.android.com/jetpack/androidx/releases/constraintlayout#1.1.2)
+- [Loader Version 1.2.0](https://developer.android.com/jetpack/androidx/releases/loader#1.2.0)
+- [Navigation3 Version 1.1.5](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.5)
+- [Room3 Version 3.0.1](https://developer.android.com/jetpack/androidx/releases/room3#3.0.1)
+- [Wear Protolayout Version 1.4.2](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.4.2)
+- [Wear Tiles Version 1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.6.2)
+
 ## July 15, 2026
 
 - [Wear-phone-interactions Version 1.1.1](https://developer.android.com/jetpack/androidx/releases/wear#wear-phone-interactions-1.1.1)

@@ -16,6 +16,12 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## July 29, 2026
+
+- [Benchmark Version 1.5.0-beta01](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-beta01)
+- [Navigation Version 2.10.0-beta01](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-beta01)
+- [WorkManager Version 2.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/work#2.12.0-beta01)
+
 ## July 15, 2026
 
 - [Tracing Version 2.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-beta01)

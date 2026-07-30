@@ -49,7 +49,7 @@ your app:
 A best-in-class health and fitness app builds on the previous recommendations to
 create a seamless multi-device experience for users, which may include:
 
-- Enabling sharing of workouts and accomplishments with [Sharesheet](https://developer.android.com/training/sharing/send)
+- Enabling sharing of workouts and accomplishments with [Sharesheet](https://developer.android.com/develop/ui/compose/sharing/send)
 - Optimizing for foldables by supporting the [`HALF_OPENED`](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/learn-about-foldables#foldable_postures) [state](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/learn-about-foldables#foldable_postures)
 - Testing and refining voice assistant integrations on mobile, such as with [Google Assistant](https://developer.android.com/media/implement/assistant)
 - Supporting [Better Together](https://www.android.com/better-together) use cases, such as [Nearby

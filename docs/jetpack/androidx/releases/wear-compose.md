@@ -12,7 +12,7 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 15, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | - | - | [1.7.0-alpha06](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha06) |
+| July 29, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | - | - | [1.7.0-alpha07](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha07) |
 
 > [!NOTE]
 > **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
@@ -90,6 +90,25 @@ for more information.
 <br />
 
 ## Version 1.7
+
+### Version 1.7.0-alpha07
+
+July 29, 2026
+
+`androidx.wear.compose:compose-*:1.7.0-alpha07` is released. Version 1.7.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e37cf4eae99bdc35def1209921d658612e2edbc3..61ee8cd421d0c0252d8db0253b739de537999371/wear/compose).
+
+**API Changes**
+
+- Refactored `OneHandedGesture` APIs, replacing Boolean indicator state (that required a reset after showing the indicator) with a suspend function to run the animation. Each type of indicator now has its own indicator state class, encapsulating the animation logic for that indicator. Renamed from from `key` to `gestureId` in `GestureConfiguration`. ([I7974f](https://android-review.googlesource.com/#/q/I7974f98ae3a48d8c0a227c93383e1f3b28f37304), [b/522761843](https://issuetracker.google.com/issues/522761843))
+- Add `CompactButton` single-slot content overload ([Idaffc](https://android-review.googlesource.com/#/q/Idaffc82f883572f173e79b15d795db86e18baa2f), [b/527889640](https://issuetracker.google.com/issues/527889640))
+- Add `PinnableContainer` support to `TransformingLazyColumn` ([Id3dc9](https://android-review.googlesource.com/#/q/Id3dc9beac8153789e2dad81c3c50f67f72556f40), [b/492418172](https://issuetracker.google.com/issues/492418172))
+
+**Bug Fixes**
+
+- Added and updated module-level documentation for Wear Compose Foundation, Material 3, and Navigation 3. ([I111d7](https://android-review.googlesource.com/#/q/I111d783450d1151d4136fc95f671aa12b4ca9500), [b/498153783](https://issuetracker.google.com/issues/498153783))
+- Fixed an issue in `ScreenScaffold` where recompositions could cause un-remembered `ScrollInfoProvider` to reset scroll tracking state. ([I8be02](https://android-review.googlesource.com/#/q/I8be022e72c802774951705a52a1422c8b73b3d7b), [b/524620765](https://issuetracker.google.com/issues/524620765))
+- Address `IllegalArgumentException: maxWidth must be >= than minWidth` error caused by large horizontal paddings ([I014e8](https://android-review.googlesource.com/#/q/I014e86730f10f1dfa662e3851d1e69389bbbf339), [b/531192734](https://issuetracker.google.com/issues/531192734))
+- Fix `EdgeButton` animation on fast fling. ([I9657f](https://android-review.googlesource.com/#/q/I9657f75fdd3730e604d716b541e6f39fd778be9c), [b/512700520](https://issuetracker.google.com/issues/512700520))
 
 ### Version 1.7.0-alpha06
 

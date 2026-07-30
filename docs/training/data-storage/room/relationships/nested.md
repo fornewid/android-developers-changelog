@@ -19,91 +19,57 @@ example shows the classes that represent these entities as well as the
 cross-reference table for the many-to-many relationship between playlists and
 songs:
 
-### Kotlin
 
-    @Entity
-    data class User(
-        @PrimaryKey val userId: Long,
-        val name: String,
-        val age: Int
-    )
+```kotlin
+@Entity
+data class User(
+    @PrimaryKey val userId: Long,
+    val name: String,
+    val age: Int
+)
 
-    @Entity
-    data class Playlist(
-        @PrimaryKey val playlistId: Long,
-        val userCreatorId: Long,
-        val playlistName: String
-    )
+@Entity
+data class Playlist(
+    @PrimaryKey val playlistId: Long,
+    val userCreatorId: Long,
+    val playlistName: String
+)
 
-    @Entity
-    data class Song(
-        @PrimaryKey val songId: Long,
-        val songName: String,
-        val artist: String
-    )
+@Entity
+data class Song(
+    @PrimaryKey val songId: Long,
+    val songName: String,
+    val artist: String
+)
 
-    @Entity(primaryKeys = ["playlistId", "songId"])
-    data class PlaylistSongCrossRef(
-        val playlistId: Long,
-        val songId: Long
-    )
+@Entity(primaryKeys = ["playlistId", "songId"], indices = [Index("playlistId", "songId")])
+data class PlaylistSongCrossRef(
+    val playlistId: Long,
+    val songId: Long
+)
+```
 
-### Java
-
-    @Entity
-    public class User {
-        @PrimaryKey public long userId;
-        public String name;
-        public int age;
-    }
-
-    @Entity
-    public class Playlist {
-        @PrimaryKey public long playlistId;
-        public long userCreatorId;
-        public String playlistName;
-    }
-    @Entity
-    public class Song {
-        @PrimaryKey public long songId;
-        public String songName;
-        public String artist;
-    }
-
-    @Entity(primaryKeys = {"playlistId", "songId"})
-    public class PlaylistSongCrossRef {
-        public long playlistId;
-        public long songId;
-    }
+<br />
 
 First, model the relationship between two of the tables in your set as you
-normally do, using a data class and the [`@Relation`](https://developer.android.com/reference/kotlin/androidx/room/Relation) annotation. The
+normally do, using a data class and the [`@Relation`](https://developer.android.com/reference/kotlin/androidx/room3/Relation) annotation. The
 following example shows a `PlaylistWithSongs` class that models a many-to-many
 relationship between the `Playlist` entity class and the `Song` entity class:
 
-### Kotlin
 
-    data class PlaylistWithSongs(
-        @Embedded val playlist: Playlist,
-        @Relation(
-             parentColumn = "playlistId",
-             entityColumn = "songId",
-             associateBy = Junction(PlaylistSongCrossRef::class)
-        )
-        val songs: List<Song>
+```kotlin
+data class PlaylistWithSongs(
+    @Embedded val playlist: Playlist,
+    @Relation(
+        parentColumns = ["playlistId"],
+        entityColumns = ["songId"],
+        associateBy = Junction(PlaylistSongCrossRef::class)
     )
+    val songs: List<Song>
+)
+```
 
-### Java
-
-    public class PlaylistWithSongs {
-        @Embedded public Playlist playlist;
-        @Relation(
-             parentColumn = "playlistId",
-             entityColumn = "songId",
-             associateBy = Junction(PlaylistSongCrossRef.class)
-        )
-        public List<Song> songs;
-    }
+<br />
 
 After you define a data class that represents this relationship, create another
 data class that models the relationship between another table from your set and
@@ -112,29 +78,20 @@ one. The following example shows a `UserWithPlaylistsAndSongs` class that models
 a one-to-many relationship between the `User` entity class and the
 `PlaylistWithSongs` relationship class:
 
-### Kotlin
 
-    data class UserWithPlaylistsAndSongs(
-        @Embedded val user: User
-        @Relation(
-            entity = Playlist::class,
-            parentColumn = "userId",
-            entityColumn = "userCreatorId"
-        )
-        val playlists: List<PlaylistWithSongs>
+```kotlin
+data class UserWithPlaylistsAndSongs(
+    @Embedded val user: User,
+    @Relation(
+        entity = Playlist::class,
+        parentColumns = ["userId"],
+        entityColumns = ["userCreatorId"]
     )
+    val playlists: List<PlaylistWithSongs>
+)
+```
 
-### Java
-
-    public class UserWithPlaylistsAndSongs {
-        @Embedded public User user;
-        @Relation(
-            entity = Playlist.class,
-            parentColumn = "userId",
-            entityColumn = "userCreatorId"
-        )
-        public List<PlaylistWithSongs> playlists;
-    }
+<br />
 
 The `UserWithPlaylistsAndSongs` class indirectly models the relationships
 between all three of the entity classes: `User`, `Playlist`, and `Song`. This is
@@ -143,24 +100,20 @@ illustrated in figure 1.
 PlaylistWithSongs, which in turn models the relationship between Playlist
 and Song.](https://developer.android.com/static/images/training/data-storage/room_nested_relationships.png) **Figure 1.** Diagram of relationship classes in the music streaming app example.
 
-If there are any more tables in your set, create a class to model the
-relationship between each remaining table and the relationship class that models
-the relationships between all previous tables. This creates a chain of nested
-relationships among all the tables that you want to query.
+If your set has more tables, create a class to model the relationship between
+each remaining table and the previous relationship class. This process creates
+a chain of nested relationships among all tables you want to query.
 
-Finally, add a method to the DAO class to expose the query function that your
-app needs. This method requires Room to run multiple queries, so add the
-[`@Transaction`](https://developer.android.com/reference/kotlin/androidx/room/Transaction) annotation so that the whole operation is performed
-atomically:
+Finally, add a function to the data access object (DAO) class to expose the
+query function that your app needs. This function requires Room to run
+multiple queries, so add the [`@Transaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transaction) annotation so that the whole
+operation runs atomically:
 
-### Kotlin
 
-    @Transaction
-    @Query("SELECT * FROM User")
-    fun getUsersWithPlaylistsAndSongs(): List<UserWithPlaylistsAndSongs>
+```kotlin
+@Transaction
+@Query("SELECT * FROM User")
+suspend fun getUsersWithPlaylistsAndSongs(): List<UserWithPlaylistsAndSongs>
+```
 
-### Java
-
-    @Transaction
-    @Query("SELECT * FROM User")
-    public List<UserWithPlaylistsAndSongs> getUsersWithPlaylistsAndSongs();
+<br />

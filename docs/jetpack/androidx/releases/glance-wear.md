@@ -10,7 +10,7 @@ Glance Wear is a library for building Widgets for Wear OS
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 15, 2026 | - | - | - | [1.0.0-alpha14](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha14) |
+| July 29, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha15) |
 
 ## Declaring dependencies
 
@@ -25,9 +25,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.wear:wear:1.0.0-alpha14"
+    implementation "androidx.glance.wear:wear:1.0.0-alpha15"
 
-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha14"
+    implementation "androidx.glance.wear:wear-core:1.0.0-alpha15"
 }
 ```
 
@@ -35,9 +35,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.wear:wear:1.0.0-alpha14")
+    implementation("androidx.glance.wear:wear:1.0.0-alpha15")
 
-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha14")
+    implementation("androidx.glance.wear:wear-core:1.0.0-alpha15")
 }
 ```
 
@@ -57,6 +57,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Glance Wear Version 1.0
+
+### Version 1.0.0-alpha15
+
+July 29, 2026
+
+`androidx.glance.wear:wear:1.0.0-alpha15`, `androidx.glance.wear:wear-core:1.0.0-alpha15`, and `androidx.glance.wear:wear-tooling-preview:1.0.0-alpha15` are released. Version 1.0.0-alpha15 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e37cf4eae99bdc35def1209921d658612e2edbc3..61ee8cd421d0c0252d8db0253b739de537999371/glance/wear).
+
+**New features**
+
+- Added Lint warning when setting empty background to the Wear Widget document. ([Ic6475](https://android-review.googlesource.com/#/q/Ic6475d9ea8ca02015df3ed22f50786200581b9b8), [b/529269573](https://issuetracker.google.com/issues/529269573))
 
 ### Version 1.0.0-alpha14
 

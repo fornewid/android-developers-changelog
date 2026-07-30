@@ -16,6 +16,19 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## July 29, 2026
+
+- [Appcompat Version 1.8.0-rc01](https://developer.android.com/jetpack/androidx/releases/appcompat#1.8.0-rc01)
+- [Compose Animation Version 1.12.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0-rc01)
+- [Compose Foundation Version 1.12.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0-rc01)
+- [Compose Material Version 1.12.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.0-rc01)
+- [Compose Runtime Version 1.12.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0-rc01)
+- [Compose UI Version 1.12.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-rc01)
+- [Fragment Version 1.9.0-rc01](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0-rc01)
+- [RecyclerView Version 1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/recyclerview#recyclerview-selection-1.3.0-rc01)
+- [Tracing Version 2.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-rc01)
+- [Webkit Version 1.17.0-rc01](https://developer.android.com/jetpack/androidx/releases/webkit#webkit-1.17.0-rc01)
+
 ## July 22, 2026
 
 - [Media3 Version 1.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-rc01)

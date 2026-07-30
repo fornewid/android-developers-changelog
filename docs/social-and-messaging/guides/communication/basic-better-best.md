@@ -51,8 +51,8 @@ communications experience, which may include:
 - **Sharing**
 
   - [Use the Android Sharesheet to share data and content with other apps and
-    targets](https://developer.android.com/training/sharing/send#why-to-use-system-sharesheet).
-  - [Support receiving](https://developer.android.com/develop/ui/views/touch-and-input/spell-checker-framework#SpellCheckClient) data and content [from other apps](https://developer.android.com/training/sharing/receive).
+    targets](https://developer.android.com/develop/ui/compose/sharing/send#why-to-use-system-sharesheet).
+  - [Support receiving](https://developer.android.com/develop/ui/views/touch-and-input/spell-checker-framework#SpellCheckClient) data and content [from other apps](https://developer.android.com/develop/ui/compose/sharing/receive).
 
 ## Better messaging app
 
@@ -135,7 +135,7 @@ capabilities, including:
 
 - **Add and edit rich content**   
 
-  Add and edit [rich content](https://developer.android.com/training/sharing/send#adding-rich-content-previews) to text previews when sharing.
+  Add and edit [rich content](https://developer.android.com/develop/ui/compose/sharing/send#adding-rich-content-previews) to text previews when sharing.
 
 - **Synchronization across devices**   
 
@@ -168,7 +168,7 @@ capabilities, including:
 
 - **Direct share targets**   
 
-  Provide [direct share targets](https://developer.android.com/training/sharing/direct-share-targets) to allow your users to share directly with
+  Provide [direct share targets](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets) to allow your users to share directly with
   contacts within your app.
 
 - **Animate the software keyboard**   

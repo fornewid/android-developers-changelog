@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 15, 2026 | [1.16.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0) | - | - | [1.17.0-alpha04](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0-alpha04) |
+| July 29, 2026 | [1.16.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0) | [1.17.0-rc01](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -53,6 +53,14 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Webkit Version 1.17
+
+### Version 1.17.0-rc01
+
+July 29, 2026
+
+`androidx.webkit:webkit:1.17.0-rc01` is released. Version 1.17.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e37cf4eae99bdc35def1209921d658612e2edbc3..678a668bbdc36a8cba0176b1551cb64d90e12427/webkit/webkit).
+
+There are no changes since `androidx.webkit:webkit:1.17.0-alpha04`
 
 ### Version 1.17.0-alpha04
 

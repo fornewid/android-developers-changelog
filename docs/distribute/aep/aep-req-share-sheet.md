@@ -4,7 +4,7 @@ url: https://developer.android.com/distribute/aep/aep-req-share-sheet
 source: md.txt
 ---
 
-Use [Android Sharesheet](https://developer.android.com/training/sharing/send) for any general content-sharing flow to provide a
+Use [Android Sharesheet](https://developer.android.com/develop/ui/compose/sharing/send) for any general content-sharing flow to provide a
 consistent, faster, and more secure experience for users.
 
 ## Required implementation
@@ -36,5 +36,5 @@ The following resources provide implementation guidance and technical details on
 the **Sharesheet** feature. These resources are for your reference only and
 don't contain additional program requirements.
 
-- [Receive simple data from other apps](https://developer.android.com/training/sharing/receive#providing-direct-share-targets)
-- [Sharing simple data](https://developer.android.com/training/sharing)
+- [Receive simple data from other apps](https://developer.android.com/develop/ui/compose/sharing/receive#providing-direct-share-targets)
+- [Sharing simple data](https://developer.android.com/develop/ui/compose/notifications)

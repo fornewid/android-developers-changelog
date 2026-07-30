@@ -359,7 +359,7 @@ your manifest:
 ### Create a custom sharesheet
 
 Whenever possible, use a [system-provided
-sharesheet](https://developer.android.com/training/sharing/send#why-to-use-system-sharesheet). Alternatively,
+sharesheet](https://developer.android.com/develop/ui/compose/sharing/send#why-to-use-system-sharesheet). Alternatively,
 include the following `<intent>` element as part of the `<queries>` element in
 your manifest:
 

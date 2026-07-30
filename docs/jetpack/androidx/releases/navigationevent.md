@@ -10,7 +10,7 @@ The Navigation Event library provides a KMP-first API for handling system back a
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 15, 2026 | [1.1.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.2) | - | - | [1.2.0-alpha02](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha02) |
+| July 29, 2026 | [1.1.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.2) | - | - | [1.2.0-alpha03](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigationevent:navigationevent:1.2.0-alpha02"
+    implementation "androidx.navigationevent:navigationevent:1.2.0-alpha03"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigationevent:navigationevent:1.2.0-alpha02")
+    implementation("androidx.navigationevent:navigationevent:1.2.0-alpha03")
 }
 ```
 
@@ -53,6 +53,22 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.2
+
+### Version 1.2.0-alpha03
+
+July 29, 2026
+
+`androidx.navigationevent:navigationevent-*:1.2.0-alpha03` is released. Version 1.2.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e37cf4eae99bdc35def1209921d658612e2edbc3..61ee8cd421d0c0252d8db0253b739de537999371/navigationevent).
+
+**API Changes**
+
+- Add `title` and `url` to `NavigationEventInfo` to allow customizing the destination title and location URL. ([Ie5619](https://android-review.googlesource.com/#/q/Ie561935048b72ca77b9405f8eac8f7e2c30fc912))
+- Add `NavigationEventDispatcherOwner` factory in navigationevent. ([I740d3](https://android-review.googlesource.com/#/q/I740d39ee0452a5b438c9e1ad8620442061ef2f94))
+- Add ExperimentalNavigationEventApi annotation to allow explicit opt-in for new and unstable APIs. ([Ia5d25](https://android-review.googlesource.com/#/q/Ia5d25fb1adf652a55d3c29740a5f4689b0f0a2de))
+
+**Bug Fixes**
+
+- Make BrowserInput publicly available in wasmJs targets as an experimental API. ([Icc2a8](https://android-review.googlesource.com/#/q/Icc2a8376bd3bb70ff3bb6f8c82068e47b47065e0))
 
 ### Version 1.2.0-alpha02
 

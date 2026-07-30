@@ -9,7 +9,7 @@ content. In previous versions of Android, soft keyboards---also known as
 [input method editors](https://developer.android.com/guide/topics/text/creating-input-method), or
 IMEs---could send only Unicode emoji to apps. For rich content, apps built
 app-specific APIs that couldn't be used in other apps or used workarounds like
-sending images through [simple share action](https://developer.android.com/training/sharing/shareaction)
+sending images through [simple share action](https://developer.android.com/develop/ui/compose/sharing/send)
 or the clipboard.
 ![An image showing a keyboard that support image search](https://developer.android.com/static/images/guide/topics/text/image-keyboard-sample.png) **Figure 1.** Example of image keyboard support.
 

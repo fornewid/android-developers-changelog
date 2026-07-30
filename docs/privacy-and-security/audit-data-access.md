@@ -288,7 +288,7 @@ public void onCreate(@Nullable Bundle savedInstanceState,
 
     AppOpsManager appOpsManager = getSystemService(AppOpsManager.class);
     if (appOpsManager != null) {
-        appOpsManager.setNotedAppOpsCollector(appOpsCollector);
+        appOpsManager.setOnOpNotedCallback(getMainExecutor(), appOpsCallback);
     }
 }
 ```

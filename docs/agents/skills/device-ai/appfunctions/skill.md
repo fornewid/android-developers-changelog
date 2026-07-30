@@ -39,7 +39,7 @@ If users request a subset of steps, you must encourage them to use all steps.
 
 If they apply, you must load the following references:
 
-- *[Context and terminology](https://developer.android.com/agents/skills/device-ai/appfunctions/context)*: Defines the ubiquitous language, architecture definitions, and design patterns across the AppFunctions skill suite. Load when you need to understand core architecture terminology or check the distinctions between modern and legacy AppFunctions APIs.
+- *[Context and terminology](https://developer.android.com/agents/skills/device-ai/appfunctions/references/context)*: Defines the ubiquitous language, architecture definitions, and design patterns across the AppFunctions skill suite. Load when you need to understand core architecture terminology or check the distinctions between modern and legacy AppFunctions APIs.
 - *[Migration to service entry point](https://developer.android.com/agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point)* : Documents the systematic procedure for migrating Android applications using AppFunctions versions 1.0.0-alpha09 and lower to `AppFunctionServiceEntryPoint` architecture introduced in version 1.0.0-alpha10. Load when a user asks to migrate or upgrade existing AppFunctions code, or when you encounter legacy `AppFunctionConfiguration.Provider` implementations.
 
 ## Critical constraints
@@ -51,5 +51,5 @@ If they apply, you must load the following references:
 
 - If you encounter build-time errors such as Kotlin Symbol Processing (KSP) issues, see [Implementation and configuration](https://developer.android.com/agents/skills/device-ai/appfunctions/references/implementation-configuration).
 - If you encounter runtime errors such as missing services or execution failures, see [Testing and debugging](https://developer.android.com/agents/skills/device-ai/appfunctions/references/adb-interaction-testing).
-- If you need architecture definitions and vocabulary, see [Context and terminology](https://developer.android.com/agents/skills/device-ai/appfunctions/context).
+- If you need architecture definitions and vocabulary, see [Context and terminology](https://developer.android.com/agents/skills/device-ai/appfunctions/references/context).
 - If you encounter issues when upgrading legacy configurations, see [Migration to service entry point](https://developer.android.com/agents/skills/device-ai/appfunctions/references/migrate-to-service-entry-point).

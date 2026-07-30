@@ -4,51 +4,73 @@ url: https://developer.android.com/privacy-and-security/advanced-protection-mode
 source: md.txt
 ---
 
-Android Advanced Protection Mode (AAPM) is a new feature aimed at enhancing the
-security of Android devices for at-risk users. It functions as a single setting
-that implements a set of pre-determined configurations designed to bolster
-device protection. AAPM prioritizes security over some potentially diminished
-functionality and usability, meaning some features might be restricted to
-minimize the attack surface.
+Android Advanced Protection Mode (AAPM) is a new feature launched in Android
+16 aimed at enhancing the security of Android devices for at-risk users, such
+as journalists and activists. It functions as a single setting that implements
+a set of pre-determined configurations designed to bolster device protection.
+AAPM prioritizes security over some potentially diminished functionality and
+usability, meaning some features might be restricted to minimize the attack
+surface.
 
 ## Impact
 
-The impact towards developers is described in the following:
+AAPM changes the behavior of certain system services to enhance security. If
+your app caters to security-conscious users, you must adapt to these
+restrictions.
 
-- Functionality: AAPM operates as a single setting that activates a collection of security configurations designed to enhance the protection of at-risk users' devices. It will introduce changes to the behavior of certain services, which app developers will need to address.
-- Signal to Subscribed Apps: Upon a user enabling AAPM, a signal will be transmitted to all subscribed applications. This signal is a notification to these applications to adapt to the altered behavior of the features enabled by AAPM.
-- App Modifications: Developers of subscribed applications are required to modify their apps to comply with the behavioral changes triggered by AAPM. Examples of such modifications include:
-  - Adjusting app logic to accommodate the disabling of 2G and WEP network connections.
-  - Modifying app behavior to align with the prevention of sideloading.
-  - Adapting to the presence of forensic logging.
-  - Adjusting functionalities related to call handling due to the blocking of calls from unknown numbers.
-  - Integrating with or accommodating spam protection mechanisms for links within messaging apps.
-  - Including additional mitigations from app developers to further protect at-risk users.
-- Target Audience: Primarily, AAPM is anticipated to affect apps that incorporate security features tailored for users with heightened security awareness. These apps stand to benefit from automatic activation when a user opts for AAPM.
+- System signals: When a user enables AAPM, the system notifies subscribed apps so they can adapt to the restricted environment.
+- Required app modifications: You must update your app to handle the behavioral changes triggered by AAPM. For example, your app must account for:
+  - Disabled 2G and WEP network connections.
+  - Blocked app sideloading.
+  - Active forensic logging.
+  - Blocked calls from unknown numbers.
+  - Enabled spam protection mechanisms for links in messaging apps.
+  - Additional custom mitigations to protect at-risk users
 
 ## Integrate with AAPM
 
-In order to use the relevant APIs the following permission needs to be declared
+In order to use the relevant APIs the following permission needs to be declared.
+
+### Get permission
 
     <uses-permission android:name="android.permission.QUERY_ADVANCED_PROTECTION_MODE" />
 
-The following APIs are from the newly introduced `AdvancedProtectionManager`
-system service.
+### Check status
 
-    public class AdvancedProtectionManager() {
-      // Check the current status
-      public boolean isAdvancedProtectionEnabled();
+Check that the user has AAPM turned on in the
+device. This is done using the `AdvancedProtectionManager` system service.
 
-      // Be alerted when status changes
-      public void registerAdvancedProtectionCallback(Executor executor, Callback callback);
+    import android.security.advancedprotection.AdvancedProtectionManager
 
-      public void unregisterAdvancedProtectionCallback(Callback callback);
+    // ... inside your Activity or Service
+    val aapmManager = getSystemService(AdvancedProtectionManager::class.java)
+
+    if (aapmManager?.isAdvancedProtectionEnabled) {
+        // 🛡️ User is in Advanced Protection Mode.
+        // Engage shields: Disable risky features, enforce stricter authentication.
+        // TODO: Add Method which implements extra protections
     }
 
-    public class Callback() {
-      // Called when advanced protection state changes
-      void onAdvancedProtectionChanged(boolean enabled);
+### Listen for runtime changes
+
+Users can toggle AAPM on or off while your app is running. Register a Callback
+to receive real-time updates.
+
+    import android.security.advancedprotection.AdvancedProtectionManager
+    import java.util.concurrent.Executor
+
+    // Define the callback
+    val aapmCallback = AdvancedProtectionManager.Callback { isEnabled ->
+        if (isEnabled) {
+            // TODO: User just engaged protections. Lock it down!
+        } else {
+            // TODO: User disabled protections. You may relax restrictions.
+        }
     }
+
+    // Register the callback (for example, in onStart)
+    // Ensure you use the correct executor (for example, mainExecutor for UI updates)
+    aapmManager?.registerAdvancedProtectionCallback(mainExecutor, aapmCallback)
 
 > [!NOTE]
 > **Note:** When an application terminates, its registered callbacks are removed. Because a terminated application cannot resume and receive AAPM status changes, it's best to register callbacks during the app's initialization phase. Additionally, perform an on-demand AAPM status query during initialization to ensure you have the current state.

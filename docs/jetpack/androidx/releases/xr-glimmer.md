@@ -10,7 +10,7 @@ Design language and UI toolkit for building augmented Android XR experiences
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha15) |
+| July 29, 2026 | - | - | - | [1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha16) |
 
 ## Declaring dependencies
 
@@ -27,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha15"
+    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha16"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha15")
+    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha16")
 }
 ```
 
@@ -55,6 +55,17 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha16
+
+July 29, 2026
+
+`androidx.xr.glimmer:glimmer:1.0.0-alpha16` and `androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha16` are released. Version 1.0.0-alpha16 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ba3014c143b9c9782fe30bc766c5dced55e13453..dfb121e34f93d3d85ec4bfdd682e8022b7435a1d/xr/glimmer).
+
+**API Changes**
+
+- Add page indicator API for use with the `GlimmerHorizontalPager`. This component is bundled by default when using the Pager, but may also be used separately as long as it is provided a `GlimmerPagerState` ([I54990](https://android-review.googlesource.com/#/q/I549905a1208c8d2f08d1fefd3822df4ce629e65d), [b/481669397](https://issuetracker.google.com/issues/481669397))
+- Add `ButtonGroup` component ([I26324](https://android-review.googlesource.com/#/q/I263240c6e18f7c196ea59cbc21a7c6246a6a6964), [b/481662773](https://issuetracker.google.com/issues/481662773))
 
 ### Version 1.0.0-alpha15
 

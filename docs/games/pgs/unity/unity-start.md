@@ -426,8 +426,6 @@ To get the server side access code:
 
   - [Save games](https://developer.android.com/games/pgs/unity/saved-games)
 
-  - [Player stats](https://developer.android.com/games/pgs/unity/stats)
-
   - [Events](https://developer.android.com/games/pgs/unity/events)
 
 - [Recall API for Unity](https://developer.android.com/games/pgs/recall/recall-setup#unity-sdk)

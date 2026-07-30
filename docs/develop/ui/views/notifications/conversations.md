@@ -51,7 +51,7 @@ shade.
 
 Shortcuts to conversations appear in the launcher and alongside
 [long-lived](https://developer.android.com/reference/androidx/core/content/pm/ShortcutInfoCompat.Builder#setLongLived(boolean)),
-[sharing shortcuts](https://developer.android.com/training/sharing/direct-share-targets) in the sharesheet.
+[sharing shortcuts](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets) in the sharesheet.
 
 ## API guidelines
 
@@ -64,7 +64,7 @@ In order to participate in this conversation-centric initiative, apps need
 to provide the system with
 [long-lived](https://developer.android.com/reference/androidx/core/content/pm/ShortcutInfoCompat.Builder#setLongLived(boolean))
 shortcuts. We strongly recommend using long-lived
-[sharing shortcuts](https://developer.android.com/training/sharing/direct-share-targets). If
+[sharing shortcuts](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets). If
 necessary, you can use [dynamic
 shortcuts](https://developer.android.com/guide/topics/ui/shortcuts/creating-shortcuts#dynamic) in
 Android 11, but we may remove this option in the future.
@@ -209,8 +209,8 @@ and conversations around your app, we recommend the following best practices.
 - Use the [`Android 12 status`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutInfoCompat.Builder#setIsConversation()) API to make [conversation widgets](https://developer.android.com/develop/ui/views/notifications/conversations#conversation-widgets) more engaging.
 - Adopt the following best practices for [conversation shortcuts](https://developer.android.com/guide/topics/ui/conversations#shortcuts).
   - Publish shortcuts for incoming and outgoing in-app conversations that do not push notifications. Incoming and outgoing messages for the same conversation should have the same shortcut ID. Use [`pushDynamicShortcut()`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat#pushDynamicShortcut(android.content.Context,%20androidx.core.content.pm.ShortcutInfoCompat)) to publish your shortcuts and report usage.
-  - To avoid unintentional clipping of your shortcut avatar, provide an [`AdaptiveIconDrawable`](https://developer.android.com/reference/android/graphics/drawable/AdaptiveIconDrawable) for the shortcut's icon. See [Providing shortcut imagery](https://developer.android.com/training/sharing/receive#providing-shortcut-imagery) for more details.
-  - To help the system promote your shortcut, follow [guidelines for getting the best ranking](https://developer.android.com/training/sharing/direct-share-targets#get-best-ranking). Your shortcut is ranked in different system surfaces, including the Android sharesheet if it's a sharing shortcut.
+  - To avoid unintentional clipping of your shortcut avatar, provide an [`AdaptiveIconDrawable`](https://developer.android.com/reference/android/graphics/drawable/AdaptiveIconDrawable) for the shortcut's icon. See [Providing shortcut imagery](https://developer.android.com/develop/ui/compose/sharing/receive#providing-shortcut-imagery) for more details.
+  - To help the system promote your shortcut, follow [guidelines for getting the best ranking](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets#get-best-ranking). Your shortcut is ranked in different system surfaces, including the Android sharesheet if it's a sharing shortcut.
   - Ensure that conversation shortcuts [`intents`](https://developer.android.com/reference/android/content/pm/ShortcutInfo.Builder#setIntent(android.content.Intent)) launch directly into the applicable conversation.
   - Use the compat libs to conveniently set your shortcuts as [`conversation`](https://developer.android.com/reference/androidx/core/content/pm/ShortcutInfoCompat.Builder#setIsConversation()) related.
 
@@ -230,7 +230,7 @@ the UI shows text stating that the app doesn't support conversation features.
 Be sure to test that the shortcuts take you to the correct place within your
 app.
 
-[Added sharing shortcuts](https://developer.android.com/training/sharing/direct-share-targets)
+[Added sharing shortcuts](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets)
 are shown in the sharesheet's direct share row when sharing content that
 your sharing shortcut can receive.
 

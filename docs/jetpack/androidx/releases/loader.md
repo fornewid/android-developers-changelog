@@ -13,7 +13,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 15, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/loader#1.1.0) | [1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/loader#1.2.0-rc01) | - | - |
+| July 29, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/loader#1.2.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -28,7 +28,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.loader:loader:1.1.0"
+    implementation "androidx.loader:loader:1.2.0"
 }
 ```
 
@@ -36,7 +36,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.loader:loader:1.1.0")
+    implementation("androidx.loader:loader:1.2.0")
 }
 ```
 
@@ -56,6 +56,17 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.2
+
+### Version 1.2.0
+
+July 29, 2026
+
+`androidx.loader:loader:1.2.0` is released. Version 1.2.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7308ad68d2572be8ec5b7f1abb514312af9e1f86..94465bb306685652a581ae32fc580d7e6f71c435/loader/loader).
+
+**Important changes since 1.1.0:**
+
+- Started using jspecify nullability annotations.
+- Added Kotlin extension functions for `LoaderManager` to make the library easier to use from Kotlin.
 
 ### Version 1.2.0-rc01
 

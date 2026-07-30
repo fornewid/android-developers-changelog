@@ -4,11 +4,10 @@ url: https://developer.android.com/training/data-storage/room/async-queries
 source: md.txt
 ---
 
-To prevent queries from blocking the UI, Room does not allow database access on
-the main thread. This restriction means that you must make your [DAO
-queries](https://developer.android.com/training/data-storage/room/accessing-data) asynchronous. The Room
-library includes integrations with several different frameworks to provide
-asynchronous query execution.
+To prevent queries from blocking the UI, Room doesn't support database access
+on the main thread. This restriction means you must make your [DAO queries](https://developer.android.com/training/data-storage/room/accessing-data)
+asynchronous. The Room library includes integrations with several frameworks to
+provide asynchronous query execution.
 
 DAO queries fall into three categories:
 
@@ -22,54 +21,49 @@ Room provides integration support for interoperability with specific language
 features and libraries. The following table shows applicable return types based
 on query type and framework:
 
-| Query type | Kotlin language features | RxJava | Guava | Jetpack Lifecycle |
+| Query type | Kotlin language features (Native) | RxJava | Guava | Jetpack Lifecycle\* |
 |---|---|---|---|---|
 | One-shot write | Coroutines (`suspend`) | `Single<T>`, `Maybe<T>`, `Completable` | `ListenableFuture<T>` | N/A |
 | One-shot read | Coroutines (`suspend`) | `Single<T>`, `Maybe<T>` | `ListenableFuture<T>` | N/A |
 | Observable read | `Flow<T>` | `Flowable<T>`, `Publisher<T>`, `Observable<T>` | N/A | `LiveData<T>` |
 
-This guide demonstrates three possible ways that you can use these integrations
-to implement asynchronous queries in your DAOs.
-
-### Kotlin with Flow and couroutines
-
-Kotlin provides language features that allow you to write asynchronous queries
-without third-party frameworks:
-
-- In Room 2.2 and higher, you can use Kotlin's [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/) functionality to write observable queries.
-- In Room 2.1 and higher, you can use the `suspend` keyword to make your DAO queries asynchronous using [Kotlin coroutines](https://developer.android.com/kotlin/coroutines).
-
 > [!NOTE]
-> **Note:** To use Kotlin Flow and coroutines with Room, you must include the `room-ktx` artifact in your `build.gradle` file. For more information, see [Declaring
-> dependencies](https://developer.android.com/jetpack/androidx/releases/room#declaring_dependencies).
+> **Note:** Room supports RxJava, Guava, and LiveData return types using DAO return type converters. To use them, you must register the respective converter class. For more information, see [Custom DAO return type converters](https://developer.android.com/training/data-storage/room/async-queries#custom-converters).
 
-### Java with RxJava
+This guide demonstrates three ways to use these integrations to implement
+asynchronous queries in your DAOs.
 
-If your app uses the Java programming language, you can use specialized return
-types from the RxJava framework to write asynchronous DAO methods. Room provides
-support for the following RxJava 2 return types:
+### Kotlin with Flow and coroutines
 
-- For one-shot queries, Room 2.1 and higher supports the [`Completable`](http://reactivex.io/RxJava/javadoc/io/reactivex/Completable), [`Single<T>`](http://reactivex.io/RxJava/javadoc/io/reactivex/Single), and [`Maybe<T>`](http://reactivex.io/RxJava/javadoc/io/reactivex/Maybe) return types.
-- For observable queries, Room supports the [`Publisher<T>`](http://www.reactive-streams.org/reactive-streams-1.0.1-javadoc/org/reactivestreams/Publisher), [`Flowable<T>`](http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Flowable), and [`Observable<T>`](http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/Observable) return types.
+Kotlin provides built-in language features that let you write asynchronous
+queries without third-party frameworks:
 
-Additionally, Room 2.3 and higher supports RxJava 3.
+- Room directly supports Kotlin's [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/) to write observable queries.
+- Room requires the `suspend` keyword to make your one-shot DAO queries asynchronous with [Kotlin coroutines](https://developer.android.com/kotlin/coroutines).
 
-> [!NOTE]
-> **Note:** To use RxJava with Room, you must include either the `room-rxjava2` artifact or the `room-rxjava3` artifact in your `build.gradle` file. For more information, see [Declaring
-> dependencies](https://developer.android.com/jetpack/androidx/releases/room#declaring_dependencies).
+Coroutines and Flow support is built directly into the core Room runtime,
+so no additional artifacts are required.
 
-### Java with LiveData and Guava
+### RxJava for Kotlin and Java
 
-If your app uses the Java programming language and you do not want to use the
-RxJava framework, you can use the following alternatives to write asynchronous
-queries:
+Room 3.0 supports RxJava 3 return types. To use RxJava return types, you must
+register the RxJava return type converters in your database or DAO:
 
-- You can use the [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) wrapper class from Jetpack to write asynchronous observable queries.
-- You can use the [`ListenableFuture<T>`](https://guava.dev/releases/21.0/api/docs/com/google/common/util/concurrent/ListenableFuture) wrapper from Guava to write asynchronous one-shot queries.
+1. Include the `androidx.room3:room3-rxjava3` artifact in your build configuration.
+2. Annotate your `@Database` or `@Dao` declaration with `@DaoReturnTypeConverters(RxDaoReturnTypeConverters::class)`.
 
-> [!NOTE]
-> **Note:** To use Guava with Room, you must include the `room-guava` artifact in your `build.gradle` file. For more information, see [Declaring
-> dependencies](https://developer.android.com/jetpack/androidx/releases/room#declaring_dependencies).
+Room supports the following RxJava 3 return types:
+
+- **One-shot queries** : [`Completable`](https://reactivex.io/RxJava/3.x/javadoc/3.1.12/io/reactivex/rxjava3/core/Completable.html), [`Single<T>`](https://reactivex.io/RxJava/3.x/javadoc/3.1.12/io/reactivex/rxjava3/core/Single.html), and [`Maybe<T>`](https://reactivex.io/RxJava/3.x/javadoc/3.1.12/io/reactivex/rxjava3/core/Maybe.html)
+- **Observable queries** : [`Publisher<T>`](http://www.reactive-streams.org/reactive-streams-1.0.1-javadoc/org/reactivestreams/Publisher), [`Flowable<T>`](https://reactivex.io/RxJava/3.x/javadoc/3.1.12/io/reactivex/rxjava3/core/Flowable.html), and [`Observable<T>`](https://reactivex.io/RxJava/3.x/javadoc/3.1.12/io/reactivex/rxjava3/core/Observable.html)
+
+### LiveData and Guava
+
+Room 3.0 supports LiveData and Guava `ListenableFuture` return types using
+converters:
+
+- **LiveData** : Include the `androidx.room3:room3-livedata` artifact and annotate your database or DAO with `@DaoReturnTypeConverters(LiveDataDaoReturnTypeConverter::class)`.
+- **Guava** : Include the `androidx.room3:room3-guava` artifact and annotate your database or DAO with `@DaoReturnTypeConverters(GuavaDaoReturnTypeConverter::class)`.
 
 ## Write asynchronous one-shot queries
 
@@ -77,20 +71,10 @@ One-shot queries are database operations that only run once and grab a snapshot
 of data at the time of execution. Here are some examples of asynchronous
 one-shot queries:
 
-### Kotlin
 
 ```kotlin
 @Dao
 interface UserDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertUsers(vararg users: User)
-
-    @Update
-    suspend fun updateUsers(vararg users: User)
-
-    @Delete
-    suspend fun deleteUsers(vararg users: User)
-
     @Query("SELECT * FROM user WHERE id = :id")
     suspend fun loadUserById(id: Int): User
 
@@ -99,66 +83,19 @@ interface UserDao {
 }
 ```
 
-### Java
-
-```java
-@Dao
-public interface UserDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public Completable insertUsers(List<User> users);
-
-    @Update
-    public Completable updateUsers(List<User> users);
-
-    @Delete
-    public Completable deleteUsers(List<User> users);
-
-    @Query("SELECT * FROM user WHERE id = :id")
-    public Single<User> loadUserById(int id);
-
-    @Query("SELECT * from user WHERE region IN (:regions)")
-    public Single<List<User>> loadUsersByRegion(List<String> regions);
-}
-```
-
-### Java
-
-```java
-@Dao
-public interface UserDao {
-    // Returns the number of users inserted.
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public ListenableFuture<Integer> insertUsers(List<User> users);
-
-    // Returns the number of users updated.
-    @Update
-    public ListenableFuture<Integer> updateUsers(List<User> users);
-
-    // Returns the number of users deleted.
-    @Delete
-    public ListenableFuture<Integer> deleteUsers(List<User> users);
-
-    @Query("SELECT * FROM user WHERE id = :id")
-    public ListenableFuture<User> loadUserById(int id);
-
-    @Query("SELECT * from user WHERE region IN (:regions)")
-    public ListenableFuture<List<User>> loadUsersByRegion(List<String> regions);
-}
-```
+<br />
 
 ## Write observable queries
 
-Observable queries are read operations that emit new values whenever there are
-changes to any of the tables that are referenced by the query. One way you might
-use this is to help you keep a displayed list of items up to date as the items
-in the underlying database are inserted, updated, or removed. Here are some
-examples of observable queries:
+Observable queries are read operations that emit new values whenever the
+referenced tables change. For example, you can use this behavior to keep a
+displayed list of items updated as the database changes. Here are some examples
+of observable queries:
 
-### Kotlin
 
 ```kotlin
 @Dao
-interface UserDao {
+interface ObservableUserDao {
     @Query("SELECT * FROM user WHERE id = :id")
     fun loadUserById(id: Int): Flow<User>
 
@@ -167,40 +104,129 @@ interface UserDao {
 }
 ```
 
-### Java
-
-```java
-@Dao
-public interface UserDao {
-    @Query("SELECT * FROM user WHERE id = :id")
-    public Flowable<User> loadUserById(int id);
-
-    @Query("SELECT * from user WHERE region IN (:regions)")
-    public Flowable<List<User>> loadUsersByRegion(List<String> regions);
-}
-```
-
-### Java
-
-```java
-@Dao
-public interface UserDao {
-    @Query("SELECT * FROM user WHERE id = :id")
-    public LiveData<User> loadUserById(int id);
-
-    @Query("SELECT * from user WHERE region IN (:regions)")
-    public LiveData<List<User>> loadUsersByRegion(List<String> regions);
-}
-```
+<br />
 
 > [!NOTE]
-> **Note:** Observable queries in Room have one important limitation: the query reruns whenever any row in the table is updated, whether or not that row is in the result set. You can ensure that the UI is only notified when the actual query results change by applying the `distinctUntilChanged()` operator from the corresponding library: [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/distinct-until-changed), [RxJava](http://reactivex.io/documentation/operators/distinct), or [LiveData](https://developer.android.com/reference/androidx/lifecycle/Transformations#distinctUntilChanged(androidx.lifecycle.LiveData%3CX%3E)).
+> **Note:** Observable queries in Room have one important limitation: the query reruns whenever any row in the table is updated, regardless of whether that row is in the result set. You can ensure that the UI is only notified when the actual query results change by applying the `distinctUntilChanged` operator from the corresponding library: [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/distinct-until-changed), [RxJava](http://reactivex.io/documentation/operators/distinct), or [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/Transformations#(androidx.lifecycle.LiveData).distinctUntilChanged()).
 
-## Additional resources
+### Track database invalidation manually
 
-To learn more about asynchronous DAO queries, see the following additional
-resources:
+When you need to build observable database operations manually, you can use the
+[`createFlow`](https://developer.android.com/reference/kotlin/androidx/room3/InvalidationTracker#createFlow(kotlin.Array,kotlin.Boolean)) API of [`InvalidationTracker`](https://developer.android.com/reference/kotlin/androidx/room3/InvalidationTracker). This API lets you
+create a `Flow` that tracks modifications to specific tables and emits a
+notification whenever those tables change.
 
-### Blogs
 
-- [Room \& Flow](https://medium.com/androiddevelopers/room-flow-273acffe5b57)
+```kotlin
+fun getArtistTours(db: RoomDatabase, from: Date, to: Date): Flow<Map<Artist, TourState>> {
+    return db.invalidationTracker.createFlow("Artist").map { _ ->
+        val artists = artistsDao.getAllArtists()
+        val tours = tourService.fetchStates(artists.map { it.id })
+        associateTours(artists, tours, from, to)
+    }
+}
+```
+
+<br />
+
+By default, the returned `Flow` emits an initial value containing all the
+registered tables to kick-start the stream. You can disable this behavior by
+setting the `emitInitialState` parameter to `false`.
+
+### Custom DAO return type converters
+
+For types that aren't directly supported by Room or its extension libraries,
+you can define custom DAO return type converters to support additional return
+types. To transform the result of a DAO function into your custom type,
+annotate a converter function with [`@DaoReturnTypeConverter`](https://developer.android.com/reference/kotlin/androidx/room3/DaoReturnTypeConverter).
+
+For example, you can define a converter that uses `androidx.tracing` to add
+trace sections around the execution of a query to monitor performance-sensitive
+queries by wrapping the execution in a custom `TracedQuery` type:
+
+
+```kotlin
+class TracedQuery<T>(val result: T)
+
+object TracingDaoReturnTypeConverter {
+    @DaoReturnTypeConverter([OperationType.READ])
+    suspend fun <T> convert(
+        rawQuery: RoomRawQuery,
+        executeAndConvert: suspend () -> T
+    ): TracedQuery<T> {
+        val result = trace("TracedQuery: ${rawQuery.sql}") {
+            executeAndConvert()
+        }
+        return TracedQuery(result)
+    }
+}
+```
+
+<br />
+
+To use the converter, annotate your database or DAO with
+[`@DaoReturnTypeConverters`](https://developer.android.com/reference/kotlin/androidx/room3/DaoReturnTypeConverters):
+
+
+```kotlin
+@Dao
+@DaoReturnTypeConverters(TracingDaoReturnTypeConverter::class)
+interface MusicDao {
+    @Query("SELECT * FROM Song")
+    suspend fun getAllSongs(): TracedQuery<List<Song>>
+}
+```
+
+<br />
+
+#### Control DAO return type converter initialization
+
+Ordinarily, Room handles instantiation of DAO return type converters.
+However, if you must pass additional dependencies to your converter classes,
+your app must directly control their initialization. If so, annotate your
+converter class with [`@ProvidedDaoReturnTypeConverter`](https://developer.android.com/reference/kotlin/androidx/room3/ProvidedDaoReturnTypeConverter):
+
+
+```kotlin
+@ProvidedDaoReturnTypeConverter
+class TracingDaoReturnTypeConverter(val tracer: Tracer) {
+    @DaoReturnTypeConverter([OperationType.READ])
+    suspend fun <T> convert(
+        rawQuery: RoomRawQuery,
+        executeAndConvert: suspend () -> T
+    ): TracedQuery<T> {
+        val result = tracer.trace("TracedQuery: ${rawQuery.sql}") {
+            executeAndConvert()
+        }
+        return TracedQuery(result)
+    }
+}
+```
+
+<br />
+
+Then, in addition to declaring your converter class in
+`@DaoReturnTypeConverters`, use the
+[`RoomDatabase.Builder.addDaoReturnTypeConverter`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.Builder#addDaoReturnTypeConverter(kotlin.Any)) function to pass an
+instance of your converter class to the `RoomDatabase` builder:
+
+
+```kotlin
+val db = Room.databaseBuilder<MyDatabase>(applicationContext, "database-name")
+    .addDaoReturnTypeConverter(TracingDaoReturnTypeConverter(myLoggerInstance))
+    .build()
+```
+
+<br />
+
+#### Converter function requirements
+
+A `@DaoReturnTypeConverter` function must meet several requirements:
+
+- It must have a functional parameter as its last argument, usually named `executeAndConvert`. This parameter is a `suspend` lambda that Room generates to execute the query and parse the result.
+  - If the converter needs to transform the query, such as Paging, the lambda can take a `RoomRawQuery` parameter.
+- It can optionally accept the following parameters before the lambda:
+  - **`db: RoomDatabase`**: Accesses the database instance, which is useful for obtaining the coroutine scope or performing additional operations.
+  - **`tableNames: Array<String>`** or **`List<String>`**: Provides the names of the tables accessed by the query, which is useful for observable types.
+  - **`rawQuery: RoomRawQuery`**: Provides the runtime instance of the query.
+  - **`inTransaction: Boolean`**: Indicates whether the query is executing within a transaction.

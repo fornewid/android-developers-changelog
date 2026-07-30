@@ -135,9 +135,10 @@ which are listed in order of highest to lowest priority:
 
 1. `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_NDEF_DISCOVERED`: This intent is used to start an Activity when a tag that contains an NDEF payload is scanned and is of a recognized type. This is the highest priority intent, and the tag dispatch system tries to start an Activity with this intent before any other intent, whenever possible.
 
-   **Note:** Starting Android 16, scanning NFC tags that store URL links (i.e URI scheme is "htttps://" or "http://") will trigger the
-   `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW` intent instead of
-   `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_NDEF_DISCOVERED` intent.
+   **Note:** Starting in Android 16, scanning NFC tags that store web links (that is, the URI scheme is "http://" or "https://") triggers the
+   `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW` intent instead of the
+   `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_NDEF_DISCOVERED` intent. Beginning with Android 17, scanning such a tag surfaces an "open link" notification, requiring explicit user interaction to trigger the
+   `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW` intent.
 2. `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_TECH_DISCOVERED`: If no activities register to handle the `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_NDEF_DISCOVERED` intent, the tag dispatch system tries to start an application with this intent. This intent is also directly started (without starting `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_NDEF_DISCOVERED` first) if the tag that is scanned contains NDEF data that cannot be mapped to a MIME type or URI, or if the tag does not contain NDEF data but is of a known tag technology.
 3. `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_TAG_DISCOVERED`: This intent is started if no activities handle the `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_NDEF_DISCOVERED` or `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_TECH_DISCOVERED` intents.
 
@@ -341,7 +342,7 @@ filter:
 
 ### ACTION_VIEW
 
-Starting Android 16, scanning NFC tags that store URL links will trigger the `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW` intent. To filter for `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW`
+Starting in Android 16, scanning NFC tags that store web links (that is, the URI scheme is "http://" or "https://") triggers the `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW` intent instead of the `https://developer.android.com/reference/android/nfc/NfcAdapter#ACTION_NDEF_DISCOVERED` intent. Beginning with Android 17, scanning such a tag surfaces an "open link" notification, requiring explicit user interaction to trigger the `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW` intent. To filter for `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW`,
 refer to `https://developer.android.com/guide/components/intents-common#Browser`. Use `https://developer.android.com/training/app-links#android-app-links` to open your app for the URL.
 
 ### Obtain information from intents

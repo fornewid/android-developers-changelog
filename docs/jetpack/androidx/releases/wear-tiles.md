@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | [1.6.1](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.6.1) | - | - | - |
+| July 29, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-tiles#1.6.2) | - | - | - |
 
 ## Declaring dependencies
 
@@ -26,22 +26,22 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement support for wear tiles
-    implementation "androidx.wear.tiles:tiles:1.6.1"
+    implementation "androidx.wear.tiles:tiles:1.6.2"
 
     // Use to utilize standard components and layouts in your tiles
-    implementation "androidx.wear.protolayout:protolayout:1.4.1"
+    implementation "androidx.wear.protolayout:protolayout:1.4.2"
 
     // Use to utilize components and layouts with Material Design in your tiles
-    implementation "androidx.wear.protolayout:protolayout-material:1.4.1"
+    implementation "androidx.wear.protolayout:protolayout-material:1.4.2"
 
     // Use to include dynamic expressions in your tiles
-    implementation "androidx.wear.protolayout:protolayout-expression:1.4.1"
+    implementation "androidx.wear.protolayout:protolayout-expression:1.4.2"
 
     // Use to preview wear tiles in your own app
-    debugImplementation "androidx.wear.tiles:tiles-renderer:1.6.1"
+    debugImplementation "androidx.wear.tiles:tiles-renderer:1.6.2"
 
     // Use to fetch tiles from a tile provider in your tests
-    testImplementation "androidx.wear.tiles:tiles-testing:1.6.1"
+    testImplementation "androidx.wear.tiles:tiles-testing:1.6.2"
 }
 ```
 
@@ -50,22 +50,22 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement support for wear tiles
-    implementation("androidx.wear.tiles:tiles:1.6.1")
+    implementation("androidx.wear.tiles:tiles:1.6.2")
 
     // Use to utilize standard components and layouts in your tiles
-    implementation("androidx.wear.protolayout:protolayout:1.4.1")
+    implementation("androidx.wear.protolayout:protolayout:1.4.2")
 
     // Use to utilize components and layouts with Material Design in your tiles
-    implementation("androidx.wear.protolayout:protolayout-material:1.4.1")
+    implementation("androidx.wear.protolayout:protolayout-material:1.4.2")
 
     // Use to include dynamic expressions in your tiles
-    implementation("androidx.wear.protolayout:protolayout-expression:1.4.1")
+    implementation("androidx.wear.protolayout:protolayout-expression:1.4.2")
 
     // Use to preview wear tiles in your own app
-    debugImplementation("androidx.wear.tiles:tiles-renderer:1.6.1")
+    debugImplementation("androidx.wear.tiles:tiles-renderer:1.6.2")
 
     // Use to fetch tiles from a tile provider in your tests
-    testImplementation("androidx.wear.tiles:tiles-testing:1.6.1")
+    testImplementation("androidx.wear.tiles:tiles-testing:1.6.2")
 }
 ```
 
@@ -85,6 +85,14 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.6
+
+### Version 1.6.2
+
+July 29, 2026
+
+`androidx.wear.tiles:tiles-*:1.6.2` is released. Version 1.6.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/81d018cf57252f81bc13a95eb11dc08f2e3bf723..a7c65b8f3ace04dcaca1dd5e12b45c27b2baf8ce/wear/tiles).
+
+No changes from 1.6.1. See [`ProtoLayout` release notes](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.3.0-beta01) for relevant changes.
 
 ### Version 1.6.1
 
