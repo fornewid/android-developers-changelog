@@ -1,0 +1,282 @@
+diff --git a/docs/develop/xr/openxr/extensions/XR_ANDROID_spatial_component_subsumed_by.md b/docs/develop/xr/openxr/extensions/XR_ANDROID_spatial_component_subsumed_by.md
+index 74862eda..19b304a2 100644
+--- a/docs/develop/xr/openxr/extensions/XR_ANDROID_spatial_component_subsumed_by.md
++++ b/docs/develop/xr/openxr/extensions/XR_ANDROID_spatial_component_subsumed_by.md
+@@ -56,11 +56,11 @@ Spencer Quin, Google
+ 
+ ## Overview
+ 
+-This extension builds on `XR_EXT_spatial_entity` and provides a new component for `XR_SPATIAL_CAPABILITY_PLANE_TRACKING_EXT` , to expose the subsumed_by property.
++This extension builds on `XR_EXT_spatial_entity` and provides a new component for `XR_SPATIAL_CAPABILITY_PLANE_TRACKING_EXT` to expose the `XrSpatialEntityIdEXT` that subsumes the current entity.
+ 
+-When the runtime has acquired enough environment information to detect 2 tracked planes are actually the same, the subsumed_by component with the ID of one of the planes will be attached to the other.
++When the runtime has acquired enough environment information to detect that 2 tracked planes are actually the same, the `XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID` component with the ID of one of the planes is attached to the other. From then on, the application only needs to process the entity that does not have the `XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID` component.
+ 
+-This extension also introduces a new filter, which the application **can** chain to [XrSpatialDiscoverySnapshotCreateInfoEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialDiscoverySnapshotCreateInfoEXT) to filter out any entities that has subsumed_by component attached to it.
++This extension also introduces a new filter, which the application **can** chain to [XrSpatialDiscoverySnapshotCreateInfoEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialDiscoverySnapshotCreateInfoEXT) to filter out any entities that have the `XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID` component.
+ 
+ ### Permissions
+ 
+@@ -70,9 +70,7 @@ Android applications **must** have the android.permission.SCENE_UNDERSTANDING_CO
+ 
+ ## Runtime Support
+ 
+-If the runtime supports subumed_by, it **must** support plane tracking capability and indicating this by enumerating `XR_SPATIAL_CAPABILITY_PLANE_TRACKING_EXT` in [xrEnumerateSpatialCapabilitiesEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrEnumerateSpatialCapabilitiesEXT) .
+-
+-If the runtime provides subsumed_by, it **must** indicate this by enumerating `XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID` as a supported component for `XR_SPATIAL_CAPABILITY_PLANE_TRACKING_EXT` capability in [xrEnumerateSpatialCapabilityComponentTypesEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrEnumerateSpatialCapabilityComponentTypesEXT) .
++If the runtime is capable of subsuming one plane into another, it **must** indicate this by enumerating `XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID` as a supported component for `XR_SPATIAL_CAPABILITY_PLANE_TRACKING_EXT` capability in [xrEnumerateSpatialCapabilityComponentTypesEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrEnumerateSpatialCapabilityComponentTypesEXT) .
+ 
+ All the component data of the `XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID` attached entity **must** be identical to the entity that subsumes it.
+ 
+@@ -100,7 +98,7 @@ The [XrSpatialComponentSubsumedByListANDROID](https://developer.android.com/deve
+ - `subsumedUniqueIdCount` is a `uint32_t` describing the count of elements in the `subsumedUniqueIds` array.
+ - `subsumedUniqueIds` is an array of `XrSpatialEntityIdEXT` .
+ 
+-The application **can** query the subsumed_by component of the spatial entities in an [XrSpatialSnapshotEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialSnapshotEXT) by adding `XR_TYPE_SPATIAL_COMPONENT_SUBSUMED_BY_LIST_ANDROID` to the next chain of the [XrSpatialComponentDataQueryResultEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialComponentDataQueryResultEXT) .
++The application **can** query the `XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID` component of the spatial entities in an [XrSpatialSnapshotEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialSnapshotEXT) by adding `XR_TYPE_SPATIAL_COMPONENT_SUBSUMED_BY_LIST_ANDROID` to the next chain of the [XrSpatialComponentDataQueryResultEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialComponentDataQueryResultEXT) .
+ 
+ The runtime **must** return `XR_ERROR_VALIDATION_FAILURE` from [xrQuerySpatialComponentDataEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#xrQuerySpatialComponentDataEXT) if `XR_TYPE_SPATIAL_COMPONENT_SUBSUMED_BY_LIST_ANDROID` is in the next chain of [XrSpatialComponentDataQueryResultEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialComponentDataQueryResultEXT) :: `next` but `XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID` is not included in [XrSpatialComponentDataQueryConditionEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialComponentDataQueryConditionEXT) :: `componentTypes` .
+ 
+@@ -132,11 +130,11 @@ The [XrSpatialDiscoveryUniqueEntitiesFilterANDROID](https://developer.android.co
+ - `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+ - `next` is `NULL` or a pointer to the next structure in a structure chain.
+ 
+-The application **can** include [XrSpatialDiscoveryUniqueEntitiesFilterANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_spatial_component_subsumed_by#XrSpatialDiscoveryUniqueEntitiesFilterANDROID) in the next chain of [XrSpatialDiscoverySnapshotCreateInfoEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialDiscoverySnapshotCreateInfoEXT) to get a snapshot with entities that are not subsumed by another entity.
++The application **can** include [XrSpatialDiscoveryUniqueEntitiesFilterANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_spatial_component_subsumed_by#XrSpatialDiscoveryUniqueEntitiesFilterANDROID) in the `next` chain of [XrSpatialDiscoverySnapshotCreateInfoEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialDiscoverySnapshotCreateInfoEXT) to get a snapshot with entities that are not subsumed by another entity.
+ 
+ If applications chain [XrSpatialDiscoveryUniqueEntitiesFilterANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_spatial_component_subsumed_by#XrSpatialDiscoveryUniqueEntitiesFilterANDROID) to [XrSpatialDiscoverySnapshotCreateInfoEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialDiscoverySnapshotCreateInfoEXT) while including `XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID` component in the [XrSpatialDiscoverySnapshotCreateInfoEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialDiscoverySnapshotCreateInfoEXT) :: `componentTypes` , the runtime **must** return `XR_ERROR_VALIDATION_FAILURE` .
+ 
+-If application chains [XrSpatialDiscoveryUniqueEntitiesFilterANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_spatial_component_subsumed_by#XrSpatialDiscoveryUniqueEntitiesFilterANDROID) to [XrSpatialDiscoverySnapshotCreateInfoEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialDiscoverySnapshotCreateInfoEXT) but does not list any components in [XrSpatialDiscoverySnapshotCreateInfoEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialDiscoverySnapshotCreateInfoEXT) :: `componentTypes` , the runtime **must** include all the spatial entities in the snapshot that have the set of components which are enumerated in [XrSpatialCapabilityConfigurationBaseHeaderEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialCapabilityConfigurationBaseHeaderEXT) :: `enabledComponents` for the capabilities configured for spatialContext, except entities that have the `XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID` component.
++If application chains [XrSpatialDiscoveryUniqueEntitiesFilterANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_spatial_component_subsumed_by#XrSpatialDiscoveryUniqueEntitiesFilterANDROID) to [XrSpatialDiscoverySnapshotCreateInfoEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialDiscoverySnapshotCreateInfoEXT) but does not list any components in [XrSpatialDiscoverySnapshotCreateInfoEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialDiscoverySnapshotCreateInfoEXT) :: `componentTypes` , the runtime **must** include all the spatial entities in the snapshot that have the set of components which are enumerated in [XrSpatialCapabilityConfigurationBaseHeaderEXT](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpatialCapabilityConfigurationBaseHeaderEXT) :: `enabledComponents` for the capabilities configured for `spatialContext` , except entities that have the `XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID` component.
+ 
+ ### Valid Usage (Implicit)
+ 
+@@ -148,10 +146,10 @@ If application chains [XrSpatialDiscoveryUniqueEntitiesFilterANDROID](https://de
+ 
+ ### Configure Plane Tracking Capability
+ 
+-The following example code demonstrates how to create a spatial context with `XR_SPATIAL_CAPABILITY_PLANE_TRACKING_EXT` capability that supports subsumed_by.
++The following example code demonstrates how to create a spatial context with `XR_SPATIAL_CAPABILITY_PLANE_TRACKING_EXT` capability that supports `XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID` .
+ 
+     // Check runtime supported capabilities
+-    uint32_t capabilityCount;
++    uint32_t capabilityCount = 0;
+     CHK_XR(xrEnumerateSpatialCapabilitiesEXT(instance, systemId, 0, &capabilityCount, nullptr));
+     std::vector<XrSpatialCapabilityEXT> capabilities(capabilityCount);
+     CHK_XR(xrEnumerateSpatialCapabilitiesEXT(instance, systemId, capabilityCount, &capabilityCount, capabilities.data()));
+@@ -160,12 +158,30 @@ The following example code demonstrates how to create a spatial context with `XR
+       return;
+     }
+ 
++    // Enumerate supported components for plane tracking capability
++    XrSpatialCapabilityComponentTypesEXT planeComponents{
++      .type = XR_TYPE_SPATIAL_CAPABILITY_COMPONENT_TYPES_EXT,
++    };
++    CHK_XR(xrEnumerateSpatialCapabilityComponentTypesEXT(instance, systemId, XR_SPATIAL_CAPABILITY_PLANE_TRACKING_EXT, &planeComponents));
++    std::vector<XrSpatialComponentTypeEXT> planeCapabilityComponents(planeComponents.componentTypeCountOutput);
++    planeComponents.componentTypeCapacityInput = planeCapabilityComponents.size();
++    planeComponents.componentTypes = planeCapabilityComponents.data();
++    CHK_XR(xrEnumerateSpatialCapabilityComponentTypesEXT(instance, systemId, XR_SPATIAL_CAPABILITY_PLANE_TRACKING_EXT, &planeComponents));
++
++    const auto supportsComponent = [&planeCapabilityComponents](XrSpatialComponentTypeEXT component) {
++      return std::find(planeCapabilityComponents.begin(), planeCapabilityComponents.end(), component) != planeCapabilityComponents.end();
++    };
++
++
+     std::vector<XrSpatialComponentTypeEXT> planeTrackingComponents {
+       XR_SPATIAL_COMPONENT_TYPE_BOUNDED_2D_EXT,
+       XR_SPATIAL_COMPONENT_TYPE_PLANE_ALIGNMENT_EXT,
+-      XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID,
+     };
+ 
++    if (supportsComponent(XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID)) {
++      planeTrackingComponents.push_back(XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID);
++    }
++
+     // Create capability config for plane tracking
+     XrSpatialCapabilityConfigurationPlaneTrackingEXT planeTrackingConfig {
+       .type = XR_TYPE_SPATIAL_CAPABILITY_CONFIGURATION_PLANE_TRACKING_EXT,
+@@ -179,7 +195,7 @@ The following example code demonstrates how to create a spatial context with `XR
+     std::vector<const XrSpatialCapabilityConfigurationBaseHeaderEXT*> capabilityConfigs;
+     capabilityConfigs.push_back(reinterpret_cast<const XrSpatialCapabilityConfigurationBaseHeaderEXT*>(&planeTrackingConfig));
+ 
+-    XrSpatialContextCreateInfoEXT contextCreateInfo{
++    XrSpatialContextCreateInfoEXT contextCreateInfo {
+       .type = XR_TYPE_SPATIAL_CONTEXT_CREATE_INFO_EXT,
+       .next = nullptr,
+       .capabilityConfigCount = (uint32_t)capabilityConfigs.size(),
+@@ -196,36 +212,10 @@ The following example code demonstrates how to create a spatial context with `XR
+ 
+ ### Query Component Data
+ 
+-The following example code demonstrates how to query subsumed_by component data from context configured with `XR_SPATIAL_CAPABILITY_PLANE_TRACKING_EXT` .
+-
+-    // Create Discovery Snapshot
+-    XrSpatialDiscoverySnapshotCreateInfoEXT discoverySnapshotCreateInfo {
+-      .type = XR_TYPE_SPATIAL_DISCOVERY_SNAPSHOT_CREATE_INFO_EXT,
+-    };
+-
+-    CHK_XR(xrCreateSpatialDiscoverySnapshotAsyncEXT (
+-    spatialContext, &discoverySnapshotCreateInfo, &future));
+-
+-    // Poll the state till snapshot it's ready.
+-    waitUntilReady(future);
+-
+-    // Complete async operation.
+-    XrCreateSpatialDiscoverySnapshotCompletionInfoEXT
+-      createSnapshotCompletionInfo {
+-        .type   = XR_TYPE_CREATE_SPATIAL_DISCOVERY_SNAPSHOT_COMPLETION_INFO_EXT,
+-        .baseSpace = space,
+-        .time      = updateTime,
+-        .future    = future,
+-      };
++The following example code demonstrates how to query `XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID` component data from context configured with `XR_SPATIAL_CAPABILITY_PLANE_TRACKING_EXT` .
+ 
+-    XrCreateSpatialDiscoverySnapshotCompletionEXT completion {
+-      XR_TYPE_CREATE_SPATIAL_DISCOVERY_SNAPSHOT_COMPLETION_EXT};
+-
+-    CHK_XR(xrCreateSpatialDiscoverySnapshotCompleteEXT(
+-               spatialContext, &createSnapshotCompletionInfo,
+-               &completion));
+-
+-    if(completion.futureResult != XR_SUCCESS) return;
++    // previously created
++    XrSpatialSnapshotEXT snapshot;
+ 
+     // Query subsumed_by components
+     std::array<XrSpatialComponentTypeEXT, 1> enabledComponents = {
+@@ -243,7 +233,7 @@ The following example code demonstrates how to query subsumed_by component data
+     };
+ 
+     CHK_XR(xrQuerySpatialComponentDataEXT(
+-               completion.snapshot, &queryCond, &queryResult));
++               snapshot, &queryCond, &queryResult));
+ 
+     // Query again with allocated memory
+     std::vector<XrSpatialEntityIdEXT> subsumedUniqueIds;
+@@ -256,32 +246,19 @@ The following example code demonstrates how to query subsumed_by component data
+ 
+     queryResult.next = &subsumedByList;
+     CHK_XR(xrQuerySpatialComponentDataEXT(
+-               completion.snapshot, &queryCond, &queryResult));
+-
+-    std::vector<XrSpatialEntityEXT> subsumedEntities;
+-    for(uint32_t i = 0; i < queryResult.entityIdCountOutput; ++i) {
+-        // access planes[i] for merged plane id
+-        XrSpatialEntityIdEXT entityId = queryResult.entityIds[i];
+-        XrSpatialEntityIdEXT subsumedUniqueId = subsumedUniqueIds[i];
+-
+-        // create handle via entityId
+-      XrSpatialEntityFromIdCreateInfoEXT entityCreateInfo {
+-        .type = XR_TYPE_SPATIAL_ENTITY_FROM_ID_CREATE_INFO_EXT,
+-        .entityId = entityId,
+-      };
+-
+-      XrSpatialEntityEXT entity = XR_NULL_HANDLE;
+-      xrCreateSpatialEntityFromIdEXT(spatialContext, &entityCreateInfo, &entity);
++               snapshot, &queryCond, &queryResult));
+ 
+-      subsumedEntities.push_back(entity);
++    for (uint32_t i = 0; i < queryResult.entityIdCountOutput; ++i) {
++      // Plane was subsumed, remove it from processing logic
++      // removeEntityFromProcessingLogic(queryResult.entityIds[i], /*replaceWith=*/ subsumedByList.subsumedUniqueIds[i]);
+     }
+ 
+     // Cleanup
+-    xrDestroySpatialSnapshotEXT(completion.snapshot);
++    xrDestroySpatialSnapshotEXT(snapshot);
+ 
+ ### Filter Out Subsumed Entities
+ 
+-The following example code demonstrates how to filter out entities with subsumed_by component attached from discovery snapshot using the filter, as well as queryc the entity id of the subsuming entities.
++The following example code demonstrates how to filter out entities with `XR_SPATIAL_COMPONENT_TYPE_SUBSUMED_BY_ANDROID` component attached from discovery snapshot using the filter, as well as query the entity id of the subsuming entities.
+ 
+     // Init filter
+     XrSpatialDiscoveryUniqueEntitiesFilterANDROID filter {
+@@ -289,13 +266,16 @@ The following example code demonstrates how to filter out entities with subsumed
+     };
+ 
+     // Chain filter to the snapshot create info
+-    // WARNING: Chain the filter while include subsumed_by component in the
++    // WARNING: Chaining the filter while include subsumed_by component in the
+     // componentTypes is invalid
+     XrSpatialDiscoverySnapshotCreateInfoEXT discoverySnapshotCreateInfo {
+       .type = XR_TYPE_SPATIAL_DISCOVERY_SNAPSHOT_CREATE_INFO_EXT,
+       .next = &filter
+     };
+ 
++    XrFutureEXT future {XR_NULL_FUTURE_EXT};
++    CHK_XR(xrCreateSpatialDiscoverySnapshotAsyncEXT(spatialContext, &discoverySnapshotCreateInfo, &future))
++
+     waitUntilReady(future);
+ 
+     // Complete async operation.
+@@ -308,7 +288,8 @@ The following example code demonstrates how to filter out entities with subsumed
+       };
+ 
+     XrCreateSpatialDiscoverySnapshotCompletionEXT completion {
+-      XR_TYPE_CREATE_SPATIAL_DISCOVERY_SNAPSHOT_COMPLETION_EXT};
++      .type = XR_TYPE_CREATE_SPATIAL_DISCOVERY_SNAPSHOT_COMPLETION_EXT,
++    };
+ 
+     CHK_XR(xrCreateSpatialDiscoverySnapshotCompleteEXT(
+                spatialContext, &createSnapshotCompletionInfo,
+@@ -316,56 +297,8 @@ The following example code demonstrates how to filter out entities with subsumed
+ 
+     if(completion.futureResult != XR_SUCCESS) return;
+ 
+-    // Subsumed entities has already been filtered out in this snapshot,now query
+-    // Bounded2D to render subsuming planes
+-    std::vector<XrSpatialComponentTypeEXT> queryComponents {
+-      XR_SPATIAL_COMPONENT_TYPE_BOUNDED_2D_EXT,
+-    };
+-
+-    XrSpatialComponentDataQueryConditionEXT queryCond {
+-      .type = XR_TYPE_SPATIAL_COMPONENT_DATA_QUERY_CONDITION_EXT,
+-      .componentTypeCount = 1,
+-      .componentTypes     = queryComponents.data(),
+-    };
+-
+-    XrSpatialComponentDataQueryResultEXT queryResult {
+-      .type = XR_TYPE_SPATIAL_COMPONENT_DATA_QUERY_RESULT_EXT,
+-    };
+-
+-    CHK_XR(xrQuerySpatialComponentDataEXT(
+-               completion.snapshot, &queryCond, &queryResult));
+-
+-    // Chain Bounded2D list
+-    std::vector<XrSpatialBounded2DDataEXT> bounded2dData;
+-    bounded2dData.resize(queryResult.entityIdCountOutput);
+-
+-    XrSpatialComponentBounded2DListEXT bounded2dList {
+-      .type = XR_TYPE_SPATIAL_COMPONENT_BOUNDED_2D_LIST_EXT,
+-      .boundCount = static_cast<uint32_t>(bounded2dData.size()),
+-      .bounds = bounded2dData.data(),
+-    };
+-
+-    // Query again
+-    queryResult.next = &bounded2dList;
+-    CHK_XR(xrQuerySpatialComponentDataEXT(
+-               completion.snapshot, &queryCond, &queryResult));
+-
+-    std::vector<XrSpatialEntityEXT> subsumingPlanes;
+-    for(uint32_t i = 0; i < queryResult.entityIdCountOutput; ++i) {
+-      // access planes[i] for merged plane id
+-      XrSpatialEntityIdEXT entityId = queryResult.entityIds[i];
+-
+-      // create handle via entityId.
+-      XrSpatialEntityFromIdCreateInfoEXT entityCreateInfo {
+-        .type = XR_TYPE_SPATIAL_ENTITY_FROM_ID_CREATE_INFO_EXT,
+-        .entityId = entityId,
+-      };
+-
+-      XrSpatialEntityEXT entity = XR_NULL_HANDLE;
+-      xrCreateSpatialEntityFromIdEXT(spatialContext, &entityCreateInfo, &entity);
+-
+-      subsumingPlanes.push_back(entity);
+-    }
++    // Subsumed entities has already been filtered out in this snapshot,
++    // now query the various components of the entities.
+ 
+     // Cleanup
+     xrDestroySpatialSnapshotEXT(completion.snapshot);

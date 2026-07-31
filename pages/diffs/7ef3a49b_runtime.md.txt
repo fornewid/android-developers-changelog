@@ -1,0 +1,68 @@
+diff --git a/docs/develop/sensors-and-location/location/permissions/runtime.md b/docs/develop/sensors-and-location/location/permissions/runtime.md
+index c1ea9148..b6dbb406 100644
+--- a/docs/develop/sensors-and-location/location/permissions/runtime.md
++++ b/docs/develop/sensors-and-location/location/permissions/runtime.md
+@@ -4,12 +4,24 @@ url: https://developer.android.com/develop/sensors-and-location/location/permiss
+ source: md.txt
+ ---
+ 
+-When a feature in your app needs location access, wait until the user interacts
+-with the feature before making the permission request. This workflow follows the
+-best practice of asking for runtime permissions in context, as described in the
+-guide that explains how to [request app permissions](https://developer.android.com/training/permissions/requesting).
++Before you request location access at runtime, review the [options and best
++practices for location access](https://developer.android.com/develop/sensors-and-location/location/permissions) and the [guide on minimizing your permission
++requests](https://developer.android.com/privacy-and-security/minimize-permission-requests). These resources help you decide which permission to request, and
++whether the [location button](https://developer.android.com/guide/topics/permissions/private-alternatives/location-button) is a better alternative for your use case.
+ 
+-Figure 1 shows an example of how to perform this process. The app contains a
++## Guidelines for accessing location permissions
++
++Some general rules to follow when deciding on how to implement location access
++in your app.
++
++### Access location in context
++
++When a feature in your app requires location access, you must wait until the
++user interacts with the feature before making the permission request. This
++follows the best practice of asking for runtime permissions in-context, as
++described in the guide that explains how to [request app permissions](https://developer.android.com/training/permissions/requesting).
++
++Figure 1 demonstrates how to perform this process. The app contains a
+ "share location" feature that requires foreground location access. The app
+ doesn't request the location permission, however, until the user selects the
+ **Share location** button.
+@@ -63,8 +75,8 @@ contains 3 buttons, one above the other](https://developer.android.com/static/im
+ 
+ ### User choice affects permission grants
+ 
+-The following table shows the permissions that the system grants your app,
+-based on the options that the user chooses in the permissions runtime dialog:
++The following table shows the permissions that the system grants your app, based
++on the options that the user chooses in the permissions runtime dialog:
+ 
+ <br />
+ 
+@@ -163,8 +175,8 @@ You can ask the user to upgrade your app's access from approximate location to
+ precise location. Before you ask the user to upgrade your app's access to
+ precise location, however, consider whether your app's use case absolutely
+ requires this level of precision. If your app needs to pair a device with nearby
+-devices over Bluetooth or Wi-Fi, consider using [companion device pairing](https://developer.android.com/guide/topics/connectivity/companion-device-pairing)
+-or [Bluetooth permissions](https://developer.android.com/guide/topics/connectivity/bluetooth/permissions), instead of requesting the `ACCESS_FINE_LOCATION`
++devices over Bluetooth or Wi-Fi, consider using [companion device pairing](https://developer.android.com/guide/topics/connectivity/companion-device-pairing)or
++[Bluetooth permissions](https://developer.android.com/guide/topics/connectivity/bluetooth/permissions), instead of requesting the `ACCESS_FINE_LOCATION`
+ permission.
+ 
+ To request that the user upgrade your app's location access from approximate to
+@@ -208,9 +220,8 @@ The process for performing incremental requests is as follows:
+ 
+    It's recommended that you disable user access to features that require
+    background location access until your app has foreground location access.
+-2. At a later time, when the user explores features that require
+-   background location access, you can [request background
+-   location](https://developer.android.com/develop/sensors-and-location/location/permissions/background) access.
++2. At a later time, when the user explores features that require background
++   location access, you can [request background location](https://developer.android.com/develop/sensors-and-location/location/permissions/background) access.
+ 
+ ## Additional resources
+ 

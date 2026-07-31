@@ -1,0 +1,57 @@
+diff --git a/docs/develop/sensors-and-location/location/permissions.md b/docs/develop/sensors-and-location/location/permissions.md
+index eca0c72b..4bbb887f 100644
+--- a/docs/develop/sensors-and-location/location/permissions.md
++++ b/docs/develop/sensors-and-location/location/permissions.md
+@@ -4,18 +4,14 @@ url: https://developer.android.com/develop/sensors-and-location/location/permiss
+ source: md.txt
+ ---
+ 
+-To protect user privacy, apps that use location services must request location
+-permissions.
++There are multiple ways to request user location information on Android, and
++the best path varies by use case. This guide describes different location access
++scenarios and explains how to request location permissions
++in each case.
+ 
+-Multiple permissions are related to location. Which permissions you request,
+-and how you request them,
+-depend on the location requirements for your app's use case.
+-
+-This page describes the different types of location requirements and explains
+-how to request location permissions in each case.
+-
+-To request location permissions, follow the best practices for all
+-[runtime permissions](https://developer.android.com/training/permissions/requesting).
++To begin, review the best practices for
++all [runtime permissions](https://developer.android.com/training/permissions/requesting) as well as the broader guidance for [minimizing
++permissions requests.](https://developer.android.com/privacy-and-security/minimize-permission-requests)
+ 
+ ## Types of location access
+ 
+@@ -71,6 +67,17 @@ permission, as shown in the following snippet:
+ > [!NOTE]
+ > **Note:** Beginning with Android 12, your app can call [`getLocationPowerSaverMode()`](https://developer.android.com/reference/android/os/PowerManager#getLocationPowerSaveMode()) to check how the device's location features behave when Battery Saver is active. If this returns [`LOCATION_MODE_FOREGROUND_ONLY`](https://developer.android.com/reference/android/os/PowerManager#LOCATION_MODE_FOREGROUND_ONLY), your app will continue to receive location updates while in the foreground or running a foreground service when Battery Saver is on, even if the screen is off.
+ 
++**One-time access** In addition to accessing location data in the foreground,
++some use cases have the additional distinction of only needing to access user
++location at specific points in the app experience, as opposed to consistently
++updating throughout app usage. For these cases, apps should use the [location
++button](https://developer.android.com/guide/topics/permissions/private-alternatives/location-button) to
++request location access for that individual session of app usage. Additionally,
++if your app targets Android 17 (API level 37) or later and only contains
++features that require session-based location access, Google Play policy requires
++you to use the location button. For more details, see the [location button
++policy](https://support.google.com/googleplay/android-developer/answer/16909972).
++
+ ### Background location
+ 
+ An app requires background location access if a feature within the app
+@@ -141,7 +148,7 @@ device location all the time. An example notification appears in figure 8.
+ ## Check for location requirements in your app's SDK dependencies
+ 
+ Check whether your app uses any SDKs that depend on location permissions,
+-especially the `ACCESS_FINE_LOCATION` permission. Read the [Getting to know the
++especially the `ACCESS_FINE_LOCATION` permission. See the [Getting to know the
+ behaviors of your SDK dependencies](https://medium.com/androiddevelopers/getting-to-know-the-behaviors-of-your-sdk-dependencies-f3dfed07a311) blog post on Medium for
+ more.
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/develop/xr/openxr/extensions/XR_ANDROID_spatial_annotation_tracking.md b/docs/develop/xr/openxr/extensions/XR_ANDROID_spatial_annotation_tracking.md
+index 98b5810c..e4aec6e1 100644
+--- a/docs/develop/xr/openxr/extensions/XR_ANDROID_spatial_annotation_tracking.md
++++ b/docs/develop/xr/openxr/extensions/XR_ANDROID_spatial_annotation_tracking.md
+@@ -401,6 +401,7 @@ The application **can** call [xrDestroySpatialReferenceCacheANDROID](https://dev
+ 
+ - `XR_ERROR_FUNCTION_UNSUPPORTED`
+ - `XR_ERROR_HANDLE_INVALID`
++- `XR_ERROR_RUNTIME_FAILURE`
+ 
+ ## Configuration
+ 

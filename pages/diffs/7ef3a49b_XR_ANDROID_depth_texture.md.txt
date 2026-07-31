@@ -1,0 +1,12 @@
+diff --git a/docs/develop/xr/openxr/extensions/XR_ANDROID_depth_texture.md b/docs/develop/xr/openxr/extensions/XR_ANDROID_depth_texture.md
+index 0619ff7c..e537c9ef 100644
+--- a/docs/develop/xr/openxr/extensions/XR_ANDROID_depth_texture.md
++++ b/docs/develop/xr/openxr/extensions/XR_ANDROID_depth_texture.md
+@@ -283,6 +283,7 @@ The [xrDestroyDepthSwapchainANDROID](https://developer.android.com/develop/xr/op
+ 
+ - `XR_ERROR_FUNCTION_UNSUPPORTED`
+ - `XR_ERROR_HANDLE_INVALID`
++- `XR_ERROR_RUNTIME_FAILURE`
+ 
+ ## Access depth textures
+ 

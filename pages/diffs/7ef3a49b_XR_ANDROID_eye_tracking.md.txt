@@ -1,0 +1,32 @@
+diff --git a/docs/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking.md b/docs/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking.md
+index 5327a95c..b092ae12 100644
+--- a/docs/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking.md
++++ b/docs/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking.md
+@@ -201,6 +201,7 @@ The [xrDestroyEyeTrackerANDROID](https://developer.android.com/develop/xr/openxr
+ 
+ - `XR_ERROR_FUNCTION_UNSUPPORTED`
+ - `XR_ERROR_HANDLE_INVALID`
++- `XR_ERROR_RUNTIME_FAILURE`
+ 
+ ## Getting eyes information
+ 
+@@ -314,7 +315,7 @@ At any point of time both the position and direction of the eye pose is tracked
+ - `type` is the [XrStructureType](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrStructureType) of this structure.
+ - `next` is `NULL` or a pointer to the next structure in a structure chain. No such structures are defined in core OpenXR or this extension.
+ - `time` is the `XrTime` at which to evaluate the coordinates relative to the `baseSpace` .
+-- `baseSpace` is the [XrSpace](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpace) the eye poses will be relative to at `time` .
++- `baseSpace` is the [XrSpace](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#XrSpace) in which to return the eye poses.
+ 
+ ### Valid Usage (Implicit)
+ 
+@@ -439,6 +440,10 @@ Indicates that only the left eye is tracking.
+ 
+ Indicates that both the left and right eyes are tracking.
+ 
++    #define XR_EYE_MAX_ANDROID                2
++
++`XR_EYE_MAX_ANDROID` is the maximum number of eyes that the [XrEyeANDROID](https://developer.android.com/develop/xr/openxr/extensions/XR_ANDROID_eye_tracking#XrEyeANDROID) data is reported for.
++
+ ## Example code for eye tracking
+ 
+ The following example code demonstrates how to get eyes information relative to a view space.

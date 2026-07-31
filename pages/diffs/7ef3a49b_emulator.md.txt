@@ -1,0 +1,37 @@
+diff --git a/docs/studio/releases/emulator.md b/docs/studio/releases/emulator.md
+index 3dd9e013..a225d8c2 100644
+--- a/docs/studio/releases/emulator.md
++++ b/docs/studio/releases/emulator.md
+@@ -24,6 +24,32 @@ Emulator, see the
+ 
+ For known issues and troubleshooting, please see [Emulator Troubleshooting](https://developer.android.com/studio/run/emulator-troubleshooting).
+ 
++## 37.1.11 Stable (Jul 30, 2026)
++
++- The Android Emulator hypervisor driver (AEHD) will sunset on
++  December 31, 2026.
++  To assist with the transition, Android Studio now helps Windows users convert
++  from AEHD to the Windows Hypervisor Platform (WHPX). See
++  [Configure VM acceleration using WHPX](https://developer.android.com/studio/run/emulator-acceleration#vm-windows-whpx)
++  for information on configuring VM acceleration using WHPX.
++
++  ![Popup for updating to WHPX](https://developer.android.com/static/studio/images/releases/WHPX.png)
++- Pixel 10a AVD added
++
++- Added support for new Vulkan extensions required for running API 37 system
++  images
++
++- \[Bug Fix\][Issue #324465986](https://issuetracker.google.com/324465986) No
++  out of storage error when taking a snapshot on an emulator with no space
++
++- \[Bug Fix\][Issue #526671872](https://issuetracker.google.com/526671872)
++  Support unit suffixes (e.g., "6G", "32M") for AVD RAM and VM Heap size
++  configurations in config.ini
++
++- \[Bug Fix\][Issue #325814592](https://issuetracker.google.com/325814592)
++  Issue introduced in macOS 14 where the emulator starts to freeze and work
++  very slowly after starting the camera
++
+ ## 36.6.11 Stable (Jun 2, 2026)
+ 
+ - Starting at API 37, the minimum memory (RAM) used by the VM of the AVD has

@@ -1,0 +1,21 @@
+diff --git a/docs/develop/ui/compose/notifications/progress-centric.md b/docs/develop/ui/compose/notifications/progress-centric.md
+index bb5cecf5..49714fac 100644
+--- a/docs/develop/ui/compose/notifications/progress-centric.md
++++ b/docs/develop/ui/compose/notifications/progress-centric.md
+@@ -4,13 +4,13 @@ url: https://developer.android.com/develop/ui/compose/notifications/progress-cen
+ source: md.txt
+ ---
+ 
+-![top shade progress centric notification](https://developer.android.com/static/images/ui/notifications/progress-centric.png) **Figure 1.** A progress centric notification at the top of the shade.
++![top shade progress-centric notification](https://developer.android.com/static/images/ui/notifications/progress-centric.png) **Figure 1.** A progress-centric notification at the top of the shade.
+ 
+ Android 16 introduces a new notification template to help users seamlessly track
+-user initiated start-to-end journeys. These notifications have upgraded
++user-initiated start-to-end journeys. These notifications have upgraded
+ visibility on system surfaces and top ranking in the notification drawer.
+ 
+-Use [`Notification.ProgressStyle`](https://developer.android.com/reference/android/app/Notification.ProgressStyle) to stylize progress centric notifications.
++Use [`Notification.ProgressStyle`](https://developer.android.com/reference/android/app/Notification.ProgressStyle) to stylize progress-centric notifications.
+ Key use cases include rideshare, delivery, and navigation. Within
+ that class, you can denote states and milestones in a user
+ journey using Points and Segments.

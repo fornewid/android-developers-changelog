@@ -1,0 +1,23 @@
+diff --git a/docs/studio/run/emulator-troubleshooting.md b/docs/studio/run/emulator-troubleshooting.md
+index 2c5d1114..14aee071 100644
+--- a/docs/studio/run/emulator-troubleshooting.md
++++ b/docs/studio/run/emulator-troubleshooting.md
+@@ -16,6 +16,18 @@ successfully use a workaround listed here,
+ 
+ *** ** * ** ***
+ 
++## "This device isn't Play Protect certified" failures on API 37 Android Virtual Devices
++
++When running API 37 system images on the Android Emulator,
++you may experience workflow disruptions with Google services and applications.
++As of June 16, 2026, unpatched Android 17 virtual devices may fail to log into
++Google Accounts and experience crashes or authentication blocks when launching
++Google first-party apps or calling GMSCore APIs.
++
++**Workaround** : Update your system image to API 37 revision 5 or higher, or
++update to the latest Canary Preview system image, using the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager).
++![SDK Manager](https://developer.android.com/static/studio/images/sdk-manager-platforms.png) SDK Manager
++
+ ## Google maps not showing in Android Emulator extended controls
+ 
+ Android Emulator versions prior to version 34.2.13 will no longer have a

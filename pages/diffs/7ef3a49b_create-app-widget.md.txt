@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/glance/create-app-widget.md b/docs/develop/ui/compose/glance/create-app-widget.md
+index 0963a5d2..d708fd1f 100644
+--- a/docs/develop/ui/compose/glance/create-app-widget.md
++++ b/docs/develop/ui/compose/glance/create-app-widget.md
+@@ -210,7 +210,7 @@ translating them into Compose lifecycle requests.
+ Declare your `GlanceAppWidgetReceiver` class subclass as a broadcast receiver in
+ your `AndroidManifest.xml` file:
+ 
+-    <receiver android:name="ExampleAppWidgetReceiver"
++    <receiver android:name="MyReceiver"
+               android:exported="false">
+         <intent-filter>
+             <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
