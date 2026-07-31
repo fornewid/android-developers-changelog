@@ -36,7 +36,7 @@ Based on this feedback and our ongoing conversations with the community, **we ar
 
 We're excited to start inviting developers to the early access for developer verification in Android Developer Console for developers that distribute exclusively outside of Play, and will share invites to the Play Console experience soon for Play developers. We are looking forward to your questions and feedback on streamlining the experience for all developers.
 
-Watch our video below for a walkthrough of the new Android Developer Console experience and see our [guides](https://developer.android.com/developer-verification/guides/early-access) for more details and FAQs.
+Watch our video below for a walkthrough of the new Android Developer Console experience and see our [guides](https://developer.android.com/developer-verification/guides) for more details and FAQs.
 
 [Video](https://www.youtube.com/watch?v=jEATR5sF5Lo)
 

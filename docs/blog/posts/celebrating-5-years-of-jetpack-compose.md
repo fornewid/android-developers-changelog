@@ -11,6 +11,7 @@ source: md.txt
 5-min read ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z1F9b9M.webp) 28 Jul 2026 3 Authors [Rebecca Franks,](https://developer.android.com/blog/authors/rebecca-franks) [Nick Butcher,](https://developer.android.com/blog/authors/nick-butcher) [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version [1.0, announced on July 28th, 2021](https://android-developers.googleblog.com/2021/07/jetpack-compose-announcement.html), to our latest [1.11 release](https://android-developers.googleblog.com/2026/04/jetpack-compose-april-2026-updates.html), we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
 
 When we officially announced the 1.0 release, we promised a simpler, faster, and more intuitive way to build native interfaces on Android. Looking back, it's safe to say that Compose didn't just deliver on that promise, but also completely changed the Android ecosystem, with more than 68% of the top 1,000 apps using it in production today.
+[Video](https://www.youtube.com/watch?v=6qyCXugCU6w)
 
 ## History
 

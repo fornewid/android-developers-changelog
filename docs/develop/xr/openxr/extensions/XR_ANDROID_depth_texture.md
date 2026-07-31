@@ -283,6 +283,7 @@ The [xrDestroyDepthSwapchainANDROID](https://developer.android.com/develop/xr/op
 
 - `XR_ERROR_FUNCTION_UNSUPPORTED`
 - `XR_ERROR_HANDLE_INVALID`
+- `XR_ERROR_RUNTIME_FAILURE`
 
 ## Access depth textures
 

@@ -30,9 +30,9 @@ Not ratified
 
 [OpenXR 1.0](https://registry.khronos.org/OpenXR/specs/1.1/html/xrspec.html#versions-1.0)
 
-**Last Modified Date**
-
 **IP Status**
+
+No known IP claims.
 
 **Contributors**
 
@@ -85,7 +85,9 @@ The following example code demonstrates how to listen for recommended resolution
     XrViewConfigurationType viewConfigType;
 
     // Poll events for recommended resolution changes.
-    XrEventDataBuffer event = {XR_TYPE_EVENT_DATA_BUFFER};
+    XrEventDataBuffer event = {
+      .type = XR_TYPE_EVENT_DATA_BUFFER,
+    };
     XrResult result = xrPollEvent(instance, &event);
     if (result == XR_SUCCESS) {
       switch (event.type) {

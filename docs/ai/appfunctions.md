@@ -174,7 +174,7 @@ AppFunctions feature by attempting to retrieve an instance of
 function is enabled within a target app using
 [`isAppFunctionEnabled(packageName,functionId)`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager#isAppFunctionEnabled(kotlin.String)). Querying the status of
 functions in other packages requires the
-[`android.permission.EXECUTE_APP_FUNCTIONSpermission`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager#isAppFunctionEnabled(kotlin.String,kotlin.String)).
+[`android.permission.EXECUTE_APP_FUNCTIONS`](https://developer.android.com/reference/androidx/appfunctions/AppFunctionManager#isAppFunctionEnabled(kotlin.String,kotlin.String)) permission.
 
 Your app is not required to verify whether the AppFunction feature is supported;
 this is automatically handled within the Jetpack library. For example,

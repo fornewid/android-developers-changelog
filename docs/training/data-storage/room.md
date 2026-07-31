@@ -59,7 +59,7 @@ dependencies {
 
 There are three major components in Room:
 
-- The [database class](https://developer.android.com/reference/kotlin/androidx/room/Database) that holds the database and serves as the main access point for the underlying connection to your app's persisted data.
+- The [database class](https://developer.android.com/reference/kotlin/androidx/room3/Database) that holds the database and serves as the main access point for the underlying connection to your app's persisted data.
 - The [data entities](https://developer.android.com/training/data-storage/room/defining-data) that represent tables in your app's database.
 - The [data access objects (DAOs)](https://developer.android.com/training/data-storage/room/accessing-data) that provide functions that your app can use to query, update, insert, and delete data in the database.
 
@@ -140,8 +140,8 @@ The following code defines an `AppDatabase` class to hold the database.
 access point to the persisted data. The database class must satisfy the
 following conditions:
 
-- The class must be annotated with a [`@Database`](https://developer.android.com/reference/kotlin/androidx/room/Database) annotation that includes an [`entities`](https://developer.android.com/reference/kotlin/androidx/room/Database#entities()) array that lists all of the data entities associated with the database.
-- The class must be an abstract class that extends [`RoomDatabase`](https://developer.android.com/reference/kotlin/androidx/room/RoomDatabase).
+- The class must be annotated with a [`@Database`](https://developer.android.com/reference/kotlin/androidx/room3/Database) annotation that includes an [`entities`](https://developer.android.com/reference/kotlin/androidx/room3/Database#entities()) array that lists all of the data entities associated with the database.
+- The class must be an abstract class that extends [`RoomDatabase`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase).
 - For each DAO class associated with the database, the database class must define an abstract function that takes no arguments and returns an instance of the DAO class.
 
 

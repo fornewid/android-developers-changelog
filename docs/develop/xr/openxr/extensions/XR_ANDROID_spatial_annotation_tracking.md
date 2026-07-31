@@ -401,6 +401,7 @@ The application **can** call [xrDestroySpatialReferenceCacheANDROID](https://dev
 
 - `XR_ERROR_FUNCTION_UNSUPPORTED`
 - `XR_ERROR_HANDLE_INVALID`
+- `XR_ERROR_RUNTIME_FAILURE`
 
 ## Configuration
 

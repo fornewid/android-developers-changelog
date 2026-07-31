@@ -210,7 +210,7 @@ translating them into Compose lifecycle requests.
 Declare your `GlanceAppWidgetReceiver` class subclass as a broadcast receiver in
 your `AndroidManifest.xml` file:
 
-    <receiver android:name="ExampleAppWidgetReceiver"
+    <receiver android:name="MyReceiver"
               android:exported="false">
         <intent-filter>
             <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

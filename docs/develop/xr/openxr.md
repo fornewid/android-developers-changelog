@@ -24,6 +24,12 @@ Android XR supports features that allow you to build apps that take full
 advantage of the unique capabilities of XR devices, using OpenXR. These features
 include the following.
 
+Spatial Entity framework
+:   A unified foundation for scene understanding and spatial reasoning. Enables
+    applications to discover, query, and track physical spatial entities in the
+    environment, create spatial anchors attached to entities, perform spatial
+    entity raycasting, and persist spatial entities across application sessions.
+
 Trackables
 :   Supports *plane detection* , which is the ability to identify and
     track flat surfaces within the environment, enabling the placement of
@@ -123,6 +129,10 @@ Space warp
 :   Uses velocity vectors and depth texture information to
     generate tween frames which effectively boosts the frame rate required to
     keep your users immersed in your experiences
+
+Frame synthesis
+:   Uses application-provided motion vectors and frame data to synthesize
+    intermediate frames, improving visual smoothness and frame rates.
 
 Performance metrics
 :   Provides Android XR performance metrics at runtime of

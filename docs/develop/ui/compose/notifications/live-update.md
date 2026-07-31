@@ -124,7 +124,7 @@ when time works in various situations:
 
 - The when time is at least 2 minutes in the future: If the current time is 10:05 am and the when time is set to 10:10 am, then the chip says **5min**.
 - The when time is in the past: The text isn't shown.
-- A timer in the chip can be shown when using Chronometer for when time. See [`setUsesChronometer`](https://developer.android.com/reference/android/app/Notification.Builder#setUsesChronometer(boolean)) and [`setChronometerCountdown`](https://developer.android.com/reference/android/app/Notification.Builder#setChronometerCountDown(boolean)). The Chronometer timer is shown in the chip as long as it is positive.
+- A timer in the chip can be shown when using Chronometer for when time. See [`setUsesChronometer`](https://developer.android.com/reference/android/app/Notification.Builder#setUsesChronometer(boolean)) and [`setChronometerCountDown`](https://developer.android.com/reference/android/app/Notification.Builder#setChronometerCountDown(boolean)). The Chronometer timer is shown in the chip as long as it is positive.
 - You don't want the when time to show on your notification: Use [`setShowWhen`](https://developer.android.com/reference/android/app/Notification.Builder#setShowWhen(boolean)) to `FALSE`.
 
 ### Status chip appearance
