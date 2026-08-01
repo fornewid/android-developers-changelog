@@ -1,0 +1,36 @@
+diff --git a/docs/topic/performance/app-optimization/r8-configuration-analyzer.md b/docs/topic/performance/app-optimization/r8-configuration-analyzer.md
+index c3caa707..cf7e5c53 100644
+--- a/docs/topic/performance/app-optimization/r8-configuration-analyzer.md
++++ b/docs/topic/performance/app-optimization/r8-configuration-analyzer.md
+@@ -4,6 +4,22 @@ url: https://developer.android.com/topic/performance/app-optimization/r8-configu
+ source: md.txt
+ ---
+ 
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/tree/main/performance/r8-analyzer)
++
++### R8 Configuration Analyzer
++
++Use an Android skill to analyze the R8 Configuration in your app To install the skill from the Android CLI, run:
++
++    android skills add --skill r8-analyzer
++
++To activate the skill, try the following prompt:
++
++    Analyze the R8 configuration
++
++<br />
++
+ R8 Configuration Analyzer is a tool designed to help you maximize R8's
+ performance benefits by providing detailed insights into your app's
+ configuration quality. It lets you track and improve R8 optimization by
+@@ -15,7 +31,7 @@ configuration to ensure R8 can effectively optimize as many of your classes,
+ fields, and methods as possible.
+ 
+ > [!NOTE]
+-> **Note:** To use the R8 Configuration Analyzer, you need R8 version 9.3.7-dev or later. This version comes pre-bundled with Android Gradle Plugin (AGP) 9.3.0-alpha05 and later. To update your R8 version without updating AGP follow the steps in [Replacing R8 in AGP](https://r8.googlesource.com/r8/+/refs/heads/main/README.md#replacing-r8-in-agp).
++> **Note:** To use the R8 Configuration Analyzer, you need AGP version 9.3.0 or R8 version 9.3.7-dev or higher. To update your R8 version without updating AGP, follow the steps in [Replacing R8 in AGP](https://r8.googlesource.com/r8/+/refs/heads/main/README.md#replacing-r8-in-agp).
+ 
+ ## Generate the report
+ 

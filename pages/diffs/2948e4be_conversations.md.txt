@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/views/notifications/conversations.md b/docs/develop/ui/views/notifications/conversations.md
+index 707d9b9d..06ddb11a 100644
+--- a/docs/develop/ui/views/notifications/conversations.md
++++ b/docs/develop/ui/views/notifications/conversations.md
+@@ -202,7 +202,7 @@ conversation section if they don't feel it's in the right space.
+ To increase engagement and make it easier for your users to interact with people
+ and conversations around your app, we recommend the following best practices.
+ 
+-- To ensure that missed calls are surfaced in the prioritized conversation shade and appear correctly in the [conversion widget](https://developer.android.com/develop/ui/views/notifications/conversations#conversation-widgets), format missed call notifications as [`conversations`](https://developer.android.com/guide/topics/ui/conversations) with a category set to [`CATEGORY_MISSED_CALL`](https://developer.android.com/reference/android/app/Notification#CATEGORY_MISSED_CALL).
++- To ensure that missed calls are surfaced in the prioritized conversation shade and appear correctly in the [conversation widget](https://developer.android.com/develop/ui/views/notifications/conversations#conversation-widgets), format missed call notifications as [`conversations`](https://developer.android.com/guide/topics/ui/conversations) with a category set to [`CATEGORY_MISSED_CALL`](https://developer.android.com/reference/android/app/Notification#CATEGORY_MISSED_CALL).
+ - Provide high-quality avatars (104dp) for users; otherwise, the system uses the person's initials, which is a less engaging experience.
+ - Don't [`cancel`](https://developer.android.com/reference/android/app/NotificationManager#cancel(int)) a conversation notification before the user has not seen the message. One example of this is canceling a notification when opening the app in a view where the user can't see or address the message. If the user isn't given the opportunity to read or address the message, a canceled notification and its associated bubble are removed, resulting in the loss of conversation context.
+ - Provide a [`data`](https://developer.android.com/reference/android/app/Notification.MessagingStyle.Message#setData(java.lang.String,%20android.net.Uri)) URI for MIME-related metadata associated with messages, which gives you the option of providing a richer experience in notifications.

@@ -1,0 +1,43 @@
+diff --git a/docs/about/versions/17/qpr1/release-notes.md b/docs/about/versions/17/qpr1/release-notes.md
+index 5ab303b3..eaaf9be7 100644
+--- a/docs/about/versions/17/qpr1/release-notes.md
++++ b/docs/about/versions/17/qpr1/release-notes.md
+@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr1/release-notes
+ source: md.txt
+ ---
+ 
++### Beta 8
++
++|---|---|
++| **Release date** | July 31, 2026 |
++| **Builds** | CP31.260623.010 |
++| **Emulator support** | x86 (64-bit), ARM (v8-A) |
++| **Security patch level** | 2026-07-05 |
++| **Google Play services** | 26.22.36 |
++
+ ### Beta 7
+ 
+ |---|---|
+@@ -67,7 +76,7 @@ source: md.txt
+ | **Security patch level** | 2026-04-05 |
+ | **Google Play services** | 26.11.36 |
+ 
+-### Android 17 QPR 1 Beta 7 (July 2026)
++### Android 17 QPR 1 Beta 8 (July 2026)
+ 
+ Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
+ update the platform with fixes and improvements that are then rolled out to
+@@ -88,6 +97,13 @@ locked, the [API diff report](https://developer.android.com/sdk/api_diff/37.1/ch
+ changes, and you can now incorporate new Android 17 QPR1 capabilities
+ into your apps.
+ 
++### Top Issues fixed in Beta 8 (July 2026)
++
++- *An audio framework buffer management issue that caused unexpected, loud audio corruption and static during media playback and notification interactions. ([**Issue #509007703**](https://issuetracker.google.com/issues/509007703), [**Issue #508456570**](https://issuetracker.google.com/issues/508456570), [**Issue #512158576**](https://issuetracker.google.com/issues/512158576), [**Issue #514265107**](https://issuetracker.google.com/issues/514265107), [**Issue #520904833**](https://issuetracker.google.com/issues/520904833), [**Issue #519636478**](https://issuetracker.google.com/issues/519636478), [**Issue #517242741**](https://issuetracker.google.com/issues/517242741), [**Issue #519578674**](https://issuetracker.google.com/issues/519578674), [**Issue #519191172**](https://issuetracker.google.com/issues/519191172), [**Issue #507873728**](https://issuetracker.google.com/issues/507873728), [**Issue #519418933**](https://issuetracker.google.com/issues/519418933), [**Issue #517194839**](https://issuetracker.google.com/issues/517194839), [**Issue #516440003**](https://issuetracker.google.com/issues/516440003), [**Issue #514606256**](https://issuetracker.google.com/issues/514606256), [**Issue #514047990**](https://issuetracker.google.com/issues/514047990), [**Issue #513681197**](https://issuetracker.google.com/issues/513681197), [**Issue #512813456**](https://issuetracker.google.com/issues/512813456), [**Issue #512212036**](https://issuetracker.google.com/issues/512212036), [**Issue #500342049**](https://issuetracker.google.com/issues/500342049), [**Issue #498147587**](https://issuetracker.google.com/issues/498147587), [**Issue #505780177**](https://issuetracker.google.com/issues/505780177), [**Issue #523640480**](https://issuetracker.google.com/issues/523640480), [**Issue #524719397**](https://issuetracker.google.com/issues/524719397), [**Issue #523304213**](https://issuetracker.google.com/issues/523304213), [**Issue #531669961**](https://issuetracker.google.com/issues/531669961), [**Issue #534620345**](https://issuetracker.google.com/issues/534620345), [**Issue #536625907**](https://issuetracker.google.com/issues/536625907), [**Issue #536292570**](https://issuetracker.google.com/issues/536292570), [**Issue #538400224**](https://issuetracker.google.com/issues/538400224), [**Issue #541204384**](https://issuetracker.google.com/issues/541204384), [**Issue #541243460**](https://issuetracker.google.com/issues/541243460), [**Issue #541257484**](https://issuetracker.google.com/issues/541257484))*
++- *An issue where the Pixel Tablet Speaker Dock would frequently go offline or fail to connect when attached. ([**Issue #530716719**](https://issuetracker.google.com/issues/530716719))*
++- *An NFC service regression that causes affected NFC tags to fail to read data or open URLs. ([**Issue #523935317**](https://issuetracker.google.com/issues/523935317))*
++- *An issue where fingerprint authentication is not triggered when attempting to unlock the device. ([**Issue #523276531**](https://issuetracker.google.com/issues/523276531), [**Issue #526923270**](https://issuetracker.google.com/issues/526923270))*
++
+ ### Top Issues fixed in Beta 7 (July 2026)
+ 
+ - *Battery Share from Quick Settings failed to start charging or repeatedly displayed the charging animation. ([**Issue #476443126**](https://issuetracker.google.com/issues/476443126), [**Issue #477627747**](https://issuetracker.google.com/issues/477627747), [**Issue #480701245**](https://issuetracker.google.com/issues/480701245), [**Issue #484322291**](https://issuetracker.google.com/issues/484322291), [**Issue #488473799**](https://issuetracker.google.com/issues/488473799), [**Issue #501729379**](https://issuetracker.google.com/issues/501729379), [**Issue #500638463**](https://issuetracker.google.com/issues/500638463))*
