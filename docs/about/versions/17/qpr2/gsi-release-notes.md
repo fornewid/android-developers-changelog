@@ -73,8 +73,8 @@ Connect your device over USB, then, depending on the type of system image you
 want to flash, navigate to Android Flash Tool using one of the following links
 and follow the onscreen guidance:
 
-- **ARM64 GSI with GMS** : [https://flash.android.com/preview/cinnamonbun-qpr1-beta7-gsi-gms](https://flash.android.com/preview/cinnamonbun-qpr2-beta1-gsi-gms)
-- **ARM64 GSI** : [https://flash.android.com/preview/cinnamonbun-qpr1-beta7-gsi](https://flash.android.com/preview/cinnamonbun-qpr2-beta1-gsi)
+- **ARM64 GSI with GMS** : [https://flash.android.com/preview/cinnamonbun-qpr1-beta8-gsi-gms](https://flash.android.com/preview/cinnamonbun-qpr2-beta1-gsi-gms)
+- **ARM64 GSI** : [https://flash.android.com/preview/cinnamonbun-qpr1-beta8-gsi](https://flash.android.com/preview/cinnamonbun-qpr2-beta1-gsi)
 
 ## Known issues
 

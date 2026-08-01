@@ -264,7 +264,6 @@ We've made the following available to help you upskill in AppFunctions:
   - **Testing \& Debugging**: Provide ADB commands for local evaluation and debugging on-device.
 - For command-line testing and verification, use ADB commands such as `adb
   shell cmd app_function ...` as a direct, lightweight way to test function registration, inspect metadata descriptions, and execute functions on-device.
-- To experience Android MCP in action and test end-to-end workflows without needing any prompts, install and use the [AppFunctions testing agent](https://github.com/android/appfunctions/releases) Android app on your device.
 
 ## Frequently asked questions (FAQs)
 

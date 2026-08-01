@@ -54,9 +54,9 @@ Play Console. To submit a significant change, you will need to provide:
 - **Effective from date (required):** A future date when the change takes effect. Changes are effective from 00:00 UTC.
 - **Description (optional):** A short description of the update. The description you provide will be shown verbatim to parents. You can provide the description in all languages that your app supports.
 
-You can submit up to 3 significant changes up to 90 days in advance. You can
-view significant changes that you previously submitted in the Play
-Console activity log.
+You can submit up to 3 significant changes up to 90 days in advance. Significant
+changes must be more than 2 days apart from each other. You can view significant
+changes that you previously submitted in the Play Console activity log.
 
 > [!TIP]
 > **Tip:** Bookmark the [Age signals](https://play.google.com/console/developers/app/age-signals) page in your Google Play Console to return to it at any time.
@@ -65,13 +65,12 @@ Console activity log.
 
 Google Play will only provide notification of significant changes to users based
 in jurisdictions where such notification is required by law. Google Play will
-start triggering a request for parents to approve the
-significant change for supervised users in applicable regions and change the
-supervised user's approval status in the Play Age Signals API to pending
-approval until the parent either approves or denies the request. If a
-description was provided, parents will see it in the approval request. If
-multiple significant changes are pending approval, parents will see at most the
-10 most recent descriptions.
+start triggering a request for parents to approve the significant change for
+supervised users in applicable regions and change the supervised user's approval
+status in the Play Age Signals API to pending approval until the parent either
+approves or denies the request. If a description was provided, parents will see
+it in the approval request. If multiple significant changes are pending
+approval, parents will see at most the 10 most recent descriptions.
 
 > [!IMPORTANT]
 > **Important:** Significant changes are cumulative. When a parent grants approval, they approve all pending significant changes that have not yet been approved since the last approval in a single action and the most recent `significantChangeApprovalDate` is updated to the *effective from* date of the most recent significant change.

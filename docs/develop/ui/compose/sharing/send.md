@@ -180,7 +180,7 @@ relevant thumbnail using `ClipData`.
 **Note:** The image content URI is provided from a
 `FileProvider`, usually from a configured `<cache-path>`.
 For more information, see [Sharing files](https://developer.android.com/training/secure-file-sharing). Be sure to give
-Sharesheet the right permissions to read any image you want use as a thumbnail. For more information,
+Sharesheet the right permissions to read any image you want to use as a thumbnail. For more information,
 see `https://developer.android.com/reference/android/content/Intent#FLAG_GRANT_READ_URI_PERMISSION`.
 
 Here's an example:
