@@ -13928,8 +13928,8 @@
     },
     "games/services/cpp/v2/api.md": {
       "original_url": "https://developer.android.com/games/services/cpp/v2/api",
-      "hash": "ebad781cc0e8fb02e88e96f2a2032daf763fd43a2130140dc660e596bd87fb90",
-      "last_updated": "2026-05-25T15:57:59.981431",
+      "hash": "2eb804dbd104609536a758be26913e7ee88304442569efda48bd299dfce129dc",
+      "last_updated": "2026-08-02T15:22:42.151313",
       "fetch_method": "md.txt"
     },
     "studio/releases/past-releases/as-0-1-release-notes.md": {
@@ -16724,8 +16724,8 @@
     },
     "games/services/cpp/v2/api/group/play-games.md": {
       "original_url": "https://developer.android.com/games/services/cpp/v2/api/group/play-games",
-      "hash": "ee68591f3796935a8c12e42137447fb32e6cfa14773f6e4671afd089e3d12b04",
-      "last_updated": "2026-05-25T15:59:49.629484",
+      "hash": "9071aa50a4f4b450f7b5f83543a6eb1c6237dfb49331e1241d9abd2a37222f91",
+      "last_updated": "2026-08-02T15:24:26.968022",
       "fetch_method": "md.txt"
     },
     "develop/devices/chromeos/learn/design.md": {
@@ -32225,7 +32225,19 @@
       "hash": "4ab9128f146a797de05063e2689ecdb84f0375a6e0b2380556ebccaf5fec7e43",
       "last_updated": "2026-07-31T15:46:43.376067",
       "fetch_method": "md.txt"
+    },
+    "games/services/cpp/v2/api/group/player-game-event.md": {
+      "original_url": "https://developer.android.com/games/services/cpp/v2/api/group/player-game-event",
+      "hash": "aa8faf69f9f82b5e1be134d96ce22bff85a21ec97024ab7e23b6e3dc4b762d99",
+      "last_updated": "2026-08-02T15:23:18.869726",
+      "fetch_method": "md.txt"
+    },
+    "games/services/cpp/v2/api/group/game-stats.md": {
+      "original_url": "https://developer.android.com/games/services/cpp/v2/api/group/game-stats",
+      "hash": "259ad2c16af6dcdbdff5577ca338767851b8918d4ee810ed2ef13feab0d44824",
+      "last_updated": "2026-08-02T15:26:27.625743",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-08-01T15:27:49.337812"
+  "last_updated": "2026-08-02T15:27:54.190868"
 }
