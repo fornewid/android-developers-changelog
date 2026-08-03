@@ -1,0 +1,49 @@
+diff --git a/docs/games/guidelines.md b/docs/games/guidelines.md
+index 667d6bc4..783cf7b9 100644
+--- a/docs/games/guidelines.md
++++ b/docs/games/guidelines.md
+@@ -132,17 +132,18 @@ best practices, see [Achievements](https://developer.android.com/games/pgs/achie
+ Unlock deeper player engagement and boost your game's visibility across the
+ Google Play Games platform with Game Stats. The Game Stats feature enables
+ users to view their stats in their gamer profile and is used to power additional
+-player engagement features across Play, such as Quests, Social Challenges and
++player engagement features across Play, such as Quests, Social Challenges, and
+ more in the future.
+ 
+-- Submit **at least 5** [repetitive stats](https://developer.android.com/games/pgs/gamestats#repetitive-stats-config-format) to power the Game Stats feature stored against the player's gamer profile. All stats need to represent regularly occurring actions by players in the game.
+-  - At least 1 stat needs to be usable for competitive player engagement features.
+-  - Stats should *not* require a purchase (For example, buy gems).
+-  - Stats should *not* require watching advertisements.
+-  - Stats should *not* be generic use of the game (For example, open the game; use settings).
+-  - Stats should be available to all users (For example, not a team-specific action).
++- Submit **at least 5** repetitive stats to power the Game Stats feature
++  stored against the player's gamer profile. All repetitive stats need to
++  represent regularly occurring actions by players in the game.
++
++  - **At least 1 stat** needs to be usable for competitive player engagement features.
+ - If you have a primary progression mechanic, submit **at least 1 additional
+-  player progression stat** to power the Game Stats feature stored against the player's gamer profile.
++  player progression stat** to power the Game Stats feature stored against the
++  player's gamer profile.
++
+   - Progression level needs to be a metric that represents the player's progress in the game.
+ 
+ Player data for Game Stats should be submitted using Game Stats API through
+@@ -151,6 +152,8 @@ stat needs to be configured in Play provided tools. Raw data schema needs to be
+ declared and mapped to a user facing Game Stats, including display string,
+ unique icon and any aggregation rules.
+ 
++Each stat must follow the requirements described in [Game Stats](https://developer.android.com/games/pgs/gamestats).
++
+ Most games should be able to provide appropriate signals. Examples are available
+ to help you choose the correct data points that will enable the engagement
+ mechanics.
+@@ -161,6 +164,8 @@ The following exemptions apply to this guideline:
+ 
+ - **[Games that primarily target players aged under 13](https://support.google.com/googleplay/android-developer/answer/9867159)** Game Stats is not enabled for players under 13 years of age.
+ - **Games are exempt from providing player states only** if they lack clear progression mechanisms. If your game includes features such as lifetime high scores, levels, XP, completion percentages, or primary item collection, it does not qualify for this exemption as these can be used as a progression mechanism.
++- Titles on [Native PC Early Access Program
++  (EAP)](https://developer.android.com/games/playgames/native-pc), given our SDK does not support this feature yet. (Note: This only applies to the Native PC version of your title).
+ 
+ #### Additional resources
+ 

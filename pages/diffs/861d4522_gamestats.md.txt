@@ -1,0 +1,442 @@
+diff --git a/docs/games/pgs/gamestats.md b/docs/games/pgs/gamestats.md
+index 62c8db3f..cb2a2baf 100644
+--- a/docs/games/pgs/gamestats.md
++++ b/docs/games/pgs/gamestats.md
+@@ -10,6 +10,15 @@ players track lifetime progress, see highlight moments, and compare with other
+ players, and power Google Play features such as Quests, Social Challenges and
+ more in the future.
+ 
++- Not require a purchase (For example, buy gems) that is they should not update as a result of any IAP purchase.
++- Not require watching advertisements that is they should not update as a result of watching an advertisement.
++- Not be generic use of the game (For example, open the game; use settings).
++- Not include Personal and Sensitive User Data, as defined per Play Policy, including user Ids, passwords, precise location or health data, or any offensive, profane, sexually explicit, violent, or hateful content.
++- Be available to all users (For example, not a team-specific action or available only to users of a certain level or limited to time limited liveops etc)
++
++> [!NOTE]
++> **Note:** Only a maximum of 50 stats can be configured for a game.
++
+ ## Integration steps
+ 
+ Send data using Game Stats API as flexible player events for repetitive stats
+@@ -27,22 +36,21 @@ A player event is defined and modeled as follows:
+ 
+ The integration consists of the following steps:
+ 
+-- **Declare the raw data schema:** Define player events using a CSV upload in the Play Console. See [CSV file guidelines](https://developer.android.com/games/pgs/gamestats#csv-guidelines-events).
++- **Declare the raw data schema:** Define player events using a CSV upload in the Play Console. See [Create events](https://developer.android.com/games/pgs/integrate-gamestats#create-events).
+ - **Integrate with Game Stats API:** Send raw player data in the declared format for flexible player events and `progressUpdate` event.
+-  - Send all defined events using client side or server side integration. For more information, see examples for [Flexible Events](https://developer.android.com/games/pgs/gamestats#flexible-events-request-body) and [`progressUpdate` event](https://developer.android.com/games/pgs/gamestats#progressupdate-event).
+-- **Upload a ZIP file:** Provide 3 CSV files and all icon image files that define 5 repetitive stats and 1 player progression level. For more information, see [ZIP file guidelines](https://developer.android.com/games/pgs/gamestats#zip-file-stats-config). Include the following details:
++  - Send all defined events using client side or server side integration. For more information, see examples for [Player Events](https://developer.android.com/games/pgs/integrate-gamestats#flexible-events-request-body) and [`progressUpdate` event](https://developer.android.com/games/pgs/integrate-gamestats#progressupdate-event).
++- **Upload a ZIP file:** Provide 3 CSV files and all icon image files that define 5 repetitive stats and 1 player progression level. For more information, see [ZIP file guidelines](https://developer.android.com/games/pgs/integrate-gamestats#zip-file-stats-config). Include the following details:
+   - **CSV file for repetitive stats:**
+     - A unique ID for the stat.
+     - Specify the event label to be used for stat calculation. You cannot use the `progressUpdate` event label here.
+       - Specify the property label to be used for stat calculation. This must be a property of the specified event.
+       - Specify the aggregation type (SUM, MAX, MIN, or COUNT) to determine how to calculate the stat on the selected property label.
+-      - Specify an optional filter condition to calculate the logic only when the condition is met. Define the property and event label, the operator (=, \<, or \>), and the threshold value.
++      - Specify an optional filter condition to calculate the logic only when the condition is met. Define the property and event label, the operator (=, \<, \<=, \>=, or \>), and the threshold value.
+     - Include a boolean flag to indicate if the stat can be used for competitive features.
+     - If the feature can be used for competitive features then minimum and maximum hourly limits for a genuine player. This will be used for us to identify players who might be misusing when participating in features like leagues and social challenges.
+     - Provide a unique display name for the stat that players see.
+-    - Provide unique text describing the stat. This description should provide details into how the player earns it.
++    - Provide unique text describing the stat. This description should provide details into how the player earns it and will be shown to players in the Gamer Profile UI.
+     - Provide a unique icon representing the stat by entering the exact icon filename in the CSV file.
+-    - Provide a sequence order to specify the order in which a player would see the stats in their Gamer profile
+     - Provide an optional input whether an increasing value or decreasing value is good for the player. This input will be used for celebrating player movements.
+     - Provide an optional unit of measurement for the stat such as km, miles, and seconds.
+   - **CSV file for player progression stat:**
+@@ -58,104 +66,15 @@ The integration consists of the following steps:
+     - Add localization for the display name in the specified language.
+     - Add localization for the stat description in the specified language.
+ 
+-## CSV file guidelines for events
+-
+-You can import events using the `PlayerGameEvent.csv` file.
+-
+-|---|---|
+-| **Filename** | **Required or Optional** |
+-| PlayerGameEvent.csv | Required |
+-
+-#### PlayerGameEvent.csv format
+-
+-The csv contains declared event and its properties as comma separated values in
+-the following order:
+-
+-     Event Name,Property Name,Property Type
+-
+-If you send the `progressUpdate` event for the `progressionStat`, add a row for
+-this event. This event must contain at least a `currentProgress` property of
+-type INT or STRING, plus any other properties you want to send.
+-
+-##### Example table
+-
+-| Event Name | Property Name | Property Type |
+-|---|---|---|
+-| matchCompleted | duration | DOUBLE |
+-| matchCompleted | kills | INT |
+-| matchCompleted | isWinner | BOOLEAN |
+-| matchCompleted | matchType | STRING (UTF-8) |
+-| itemCollected | coinsAmount | INT |
+-| itemCollected | weaponType | STRING (UTF-8) |
+-| progressUpdate | currentProgress | INT |
+-
+-## ZIP file guidelines for stats
+-
+-
+-You can import stats at once using a ZIP file. Refer to the
+-table for the precise filenames to use in your ZIP file:
+-
+-| Filename | Required or Optional | Accepted values |
+-| Filename | Required or Optional | Accepted values |
+-|---|---|---|
+-| [`RepetitiveStatsConfig.csv`](https://developer.android.com/games/pgs/gamestats#repetitive-stats-config-format) | Required | Metadata for many events. |
+-| [`ProgressionStatConfig.csv`](https://developer.android.com/games/pgs/gamestats#progression-stat-config-format) | Required | Declared event and its properties. |
+-| [`StatLocalizations.csv`](https://developer.android.com/games/pgs/gamestats#statlocalizations-csv-format) | Optional | Provides translations for achievement names and descriptions. |
+-| [Icon files](https://developer.android.com/games/pgs/gamestats#icon-files) | Required | Icons in 512 x 512 PNG, JPEG, or JPG format. |
+-
+-### RepetitiveStatsConfig.csv format
+-
+-The csv contains declared event and its properties as comma separated values in
+-the following order:
+-
+-    Stat ID, Event Name,    Property Name,  Aggregation,     Stat Display Name, Stat Description, Filter Property,  Filter Operator,    Filter Value,   Is Competitive, minLimit, maxLimit, Icon File Name, Sequence Number, Good value direction, unit
+-
+-In case you don't want to use the filter condition, keep the cell as blank.
+-
+-##### Example table
+-
+-| Stat ID | Event Name | Property Name | Aggregation | Stat Display Name | Stat Description | Filter Property (optional) | Filter Operator (optional) | Filter Value (optional) | Is Competitive | minLimit | maxLimit | Icon filename | Sequence number | Good value direction | unit |
+-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+-| 1 | matchCompleted | duration | MAX | Longest Match Survival | This denotes the survival time of a player in any match | isWinner | = | TRUE | TRUE | 0 | 50 | stat1.png | 1 | Decreasing | seconds |
+-| 2 | matchCompleted | isWinner | COUNT | Matches Won | This denotes the number of matches a player has won | isWinner | = | TRUE | TRUE | 0 | 50 | stat3.png | 2 | Increasing |   |
+-| 3 | matchCompleted | kills | SUM | 1-on-1 match kills | Number of kills made across 1-on-1 matches | matchType | = | "1-on-1" | FALSE |   |   | stat4.png | 4 | Increasing |   |
+-| 4 | itemCollected | coinsAmount | SUM | Total Gold Collected | Player collects coins while playing in a match | weaponType | = | "sword" | FALSE |   |   | stat2.png | 3 | Increasing |   |
+-
+-### ProgressionStatConfig.csv format
+-
+-The csv contains declared event and its properties as comma separated values in
+-the following order:
+-
+-    Stat ID, Stat Display Name, Stat Description, Icon File Name, Good value direction, unit
+-
+-The progression stat will be shown as the first stat to a player in their Gamer
+-Profile.
+-
+-##### Example table
+-
+-|---|---|---|---|---|
+-| **Stat ID** | **Stat Display Name** | **Stat Description** | **Icon File Name** | **Good value direction** |
+-| 5 | Level | Players accumulate xp by playing matches and level up. | Level.png | increasing |
+-
+-### StatLocalizations.csv format
+-
+-The csv contains declared event and its properties as comma separated values in
+-the following order:
+-
+-    Stat ID, Stat Display Name, Language Code, Localized Stat Name, Localized Stat Description
+-
+-##### Example table
+-
+-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+-| **Stat ID** | **Stat Display Name** | **Language Code** | **Localized Stat Name (UTF-8)** | **Localized Stat Description (UTF-8)** | 1 | Longest Match Survival | es | Supervivencia más larga en partidos | Esto denota el tiempo de supervivencia de una jugadora en cualquier partido. | 1 | Longest Match Survival | fr | Survie du match le plus long | Cela indique la durée de survie d'un joueur dans n'importe quel match. | 4 | Total Gold Collected | es | Oro total recolectado | La jugadora recoge monedas mientras juega en un partido | 4 | Total Gold Collected | fr | Or total collecté | Le joueur collecte des pièces en jouant un match |
+-
+ ## Plan the schema
+ 
+-You can send two types of data using the Game Stats API: flexible player events
+-and a predefined event for player progression stats. The following examples
+-illustrate how flexible events look across various game types.
++You can send two types of data using the Game Stats API: player events
++and a predefined event for player progression stats.
+ 
+-### Flexible Player Events
++The following examples illustrate how player events look across various game
++types:
++
++### Player Events
+ 
+ Player Events are defined by distinct in-game moments, game loop completions, or
+ progression milestones.
+@@ -163,6 +82,7 @@ progression milestones.
+ - **Define events** as specific in-game moments, game loop completions, or progression milestones:
+   - Game loop completions, such as a completed match or run.
+   - Progression milestones, such as saved area exploration progress or a completed level.
++  - Since repetitive stats should truly represent repeatable actions by a player, the defined events should be associated with core gameplay.
+ - **Add properties** to provide context about the event and its outcomes, such as the level number, match type, weapon type, number of weapons, headshots, coins collected, match result, lap time, or car type.
+ - **Send events** within the gameplay session as soon as they occur. For example, send a game loop completion event immediately after the loop completes.
+ 
+@@ -187,11 +107,16 @@ progression milestones.
+ 
+ ### `progressUpdate` Event
+ 
+-If your game has a primary progression mechanic, use this event to send the
+-player's current progress. The event has one predefined property called
+-"currentProgress" of type INT or STRING. Send the value of current progress
+-using this property, as it is the only value that appears in the Gamer Profile's
+-Game Stats UI.
++If your game has a primary progression mechanic, then use this event to send the
++current progress of the player. The event has one predefined property called
++"currentProgress" of type `INT` or `STRING`. You are expected to send the
++current value of player progress in the primary progression mechanic using this
++property. If you use this event, the predefined property "currentProgress" must
++be present and a progression stat must be defined using this property.
++
++You can send current value for other progression systems in your game like
++`lifetime highest score` or `current coin balance` as other properties of this
++event.
+ 
+ Since players could compare their profiles by the current progress within the
+ game, it is important that there is no delay in getting the current progress
+@@ -212,17 +137,63 @@ progress.
+ | Third Person Shooter | Current Level number |
+ | Esports Simulation | Manager Level number, Club Level number |
+ 
++## Configure your stats
++
++You will need to configure your repetitive and progression stats by defining the
++computation logic and display information about each stat. Examples of
++repetitive stats from different Game Genres are included below. Repetitive stats
++are usually stats that update repeatedly for any player across a very few (3-4)
++game sessions and are associated with the core game loop.
++
++| **Game Name** | **Game stat display name** | **Event Property** | **Calculation logic \[aggregation\]** | **Filter** |
++|---|---|---|---|---|
++| 3D Endless Runner | Runs completed | Any property of the event run_completed | Count | All values \[no filter\] |
++| 3D Endless Runner | Coins collected | Coins_collected property of the event run_completed | Sum | NA |
++| 3D Endless Runner | Keys Collected | Keys_collected property of the event run_completed | Sum | N/A |
++| 3D Endless Runner | Highest Run Score | Score property of the event run_completed | Max | N/A |
++| 3D Endless Runner | High coins Runs completed | Coins_collected property of the event run_completed | Count | Value \> 5000 |
++| Linear Progression Puzzle Game | Chapters completed | Any property of the event chapter_completed | Count | All values \[no filter\] |
++| Linear Progression Puzzle Game | Screens completed | Any property of the event screen_completed | Count | All values \[no filter\] |
++| Linear Progression Puzzle Game | Chapters completed in first try | Num_try property of the event chapter_completed | Count | Num_try = 1 |
++| Linear Progression Puzzle Game | Screens completed in first try | Num_try property of the event screen_completed | Count | Num_try = 1 |
++| Open World Action RPG | Quests completed | Any property of the event quest_completed | Count | All values \[no filter\] |
++| Open World Action RPG | Areas Explored | Perc_progress property of area_exploration_progress event | Count | Value = 100 |
++| Open World Action RPG | Swords unlocked | Weapon_type property of the event weapon_unlocked | Count | Value = "sword" |
++| Open World Action RPG | Enemies defeated | Enemies_defeated property of the event area_exploration_progress | Sum | N/A |
++| Open World Action RPG | Health Potions Collected | Enhancement_ores property of the event chest_unlocked | Sum | NA |
++| Casual Puzzle | Levels completed | Any property of the event level_completed | Count | All values \[no filter\] |
++| Casual Puzzle | Levels completed in first try | Num_try property of the event level_completed | Count | Value = 1 |
++| Casual Puzzle | Color Boosters Used | Color_booster_used property of the event level_completed | Sum | NA |
++| Casual Puzzle | Bomb Boosters Used | Bomb_booster_used property of the event level_completed | Sum | NA |
++| Casual Puzzle | Cards collected | Total_cards property of the event cards_collected | Sum | NA |
++| Arcade Racing | Races won | Rank property of the event race_completed | Count | Value = 1 |
++| Arcade Racing | Fastest race | race_time property of the event race_completed | Min | N/A |
++| Arcade Racing | NOS used | NOS_used property of the event race_completed | Sum | NA |
++| Arcade Racing | Races finished with Mustang | Car_type property of the event race_completed | Count | Value = "Mustang" |
++| Arcade Racing | Car upgrades | Any property of the event car_upgraded | Count | All values \[no filter\] |
++| Third person Battle Royale Shooter | Matches Won | Any property of the event match_completed | Count | Match_result = TRUE |
++| Third person Battle Royale Shooter | Total eliminations | Eliminations property of the event match_completed | Sum | N/A |
++| Third person Battle Royale Shooter | Highest survival time | Survival_time property of the event match_completed | Max | N/A |
++| Third person Battle Royale Shooter | Total headshots | Headshots property of the event match_completed | Sum | N/A |
++| Third person Battle Royale Shooter | Total Skill Value | Skill_value property of the event match_completed | Sum | N/A |
++| eSports Management Simulation | Matches Won | Result property of the event match_completed | Count | Result = "Won" |
++| eSports Management Simulation | Total Goals scored | Goals_scored property of the event match_completed | Sum | N/A |
++| eSports Management Simulation | Hard matches won | Result property of the event hard_match_completed | Count | Result = "Won" |
++| eSports Management Simulation | Highest goal difference win | Goal_difference property of the event match_completed | Max | Result = "Won" |
++| eSports Management Simulation | Total training drills | Drills_done property of the event training_completed | Sum | N/A |
++| eSports Management Simulation | Total trainings completed | Any property of the event training_completed | Count | N/A |
++
+ ## Integration details
+ 
+ The API endpoints and SDK are available for early feedback and will be
+-Generally Available (GA) starting July 2026. See [timeline](https://developer.android.com/games/pgs/gamestats#timeline)
++Generally Available (GA) starting August 2026. See [timeline](https://developer.android.com/games/pgs/gamestats#timeline)
+ 
+ This section shows how to construct events and send them in both client side and
+ server side integrations.
+ 
+ ### When should you send data
+ 
+-**Flexible Events** represent in-game actions related to game loop completions
++**Player Events** represent in-game actions related to game loop completions
+ or specific in-game moments. Submit these events as soon as they occur. For
+ example, submit the game loop completion event as soon as the loop completes.
+ 
+@@ -269,6 +240,8 @@ The backend API has strict structural validation limits:
+ 
+ **BatchRecordEventsRequest**
+ 
++See [`BatchRecordEventsRequest`](https://developer.android.com/games/services/web/api/rest/v1/gameStats/batchRecordEvents).
++
+ ```json
+ {
+   "packageName": string,
+@@ -353,7 +326,7 @@ If successful, returns an HTTP 200 OK status with an empty JSON object.
+ 
+ ##### Example Request Body
+ 
+-**Flexible event: PlayerGameEvent**
++**Event: PlayerGameEvent**
+ 
+ ```json
+ {
+@@ -377,9 +350,6 @@ If successful, returns an HTTP 200 OK status with an empty JSON object.
+         "playerElimination": {
+           "intValue": 2
+         },
+-        "survivalTimeSeconds": {
+-          "durationValue": "240s"
+-        },
+         "isWinner": {
+           "boolValue": true
+         }
+@@ -411,148 +381,17 @@ If successful, returns an HTTP 200 OK status with an empty JSON object.
+ }
+ ```
+ 
+-### Client side integration
+-
+-Client side integration will be made available using Unity, Java and C++ SDKs.
+-
+-The client side integration for `PlayerGameEvent` would involve you building the
+-event object in Java or Csharp, depending on the SDK, at the trigger points and
+-sending them using the upload functions provided by the SDK.
+-
+-Similarly, for the `progressUpdate` event, record updated progress using the
+-`currentProgress` property with additional defined properties and send them
+-using upload functions provided by the SDK.
+-
+-##### Events
+-
+-The client side integration for `PlayerGameEvent` are:
+-
+-##### Build Flexible Player Game Event
+-
+-### Java
+-
+-
+-    // Build the PlayerGameEvent
+-    PlayerGameEvent event = new PlayerGameEvent.Builder("matchCompleted")
+-      .addProperty("matchId", "Match_A")
+-      .addProperty("gameMode", "Battle_B")
+-      .addProperty("mapId", "Location_XYZ")
+-      .addProperty("isWinner", true)
+-      .addProperty("survivalTimeSeconds", "240s")
+-      .addProperty("playerElimination", 2)
+-      .build();
+-
+-    List events = new ArrayList<>();
+-    // ... populate list ...
+-
+-### Unity
+-
+-
+-    // Build the PlayerGameEvent
+-    var playerEvent = new PlayerGameEvent.Builder("matchCompleted")
+-       .AddProperty("matchId", "Match_A")
+-       .AddProperty("gameMode", "Battle_B")
+-       .AddProperty("mapId", "Location_XYZ")
+-       .AddProperty("isWinner", true)
+-       .AddProperty("survivalTimeSeconds", "240s")
+-       .AddProperty("playerElimination", 2)
+-       .Build();
+-    var events = new List();
+-    // ... populate list ...
+-
+-### C++
+-
+-
+-    // Build the PlayerGameEvent
+-    PgsPlayerGameEvent* player_event = PgsPlayerGameEvent_create("matchCompleted");
+-    if (player_event != nullptr) {
+-       PgsPlayerGameEvent_putString(player_event, "matchId", "Match_A");
+-       PgsPlayerGameEvent_putString(player_event, "gameMode", "Battle_B");
+-       PgsPlayerGameEvent_putString(player_event, "mapId", "Location_XYZ");
+-       PgsPlayerGameEvent_putBoolean(player_event, "isWinner", true);
+-       PgsPlayerGameEvent_putString(player_event, "survivalTimeSeconds", "240s");
+-       PgsPlayerGameEvent_putLong(player_event, "playerElimination", 2);
+-    }
+-
+-##### Build `progressUpdate` Player Game Event
+-
+-### Java
+-
+-
+-    // Build the PlayerGameEvent
+-    PlayerGameEvent event = new PlayerGameEvent.Builder("progressUpdate")
+-      .addProperty("currentProgress", 52)
+-      // Add other properties if needed
+-      .build();
+-
+-    List events = new ArrayList<>();
+-    // ... populate list ...
+-
+-### Unity
+-
+-
+-    // Build the PlayerGameEvent
+-    var progressEvent = new PlayerGameEvent.Builder("progressUpdate")
+-       .AddProperty("currentProgress", 52)
+-       // Add other properties if needed
+-       .Build();
+-    var events = new List();
+-    // ... populate list ...
+-
+-### C++
+-
+-
+-    PgsPlayerGameEvent* progress_event = PgsPlayerGameEvent_create("progressUpdate");
+-    if (progress_event != nullptr) {
+-       PgsPlayerGameEvent_putLong(progress_event, "currentProgress", 52);
+-    }
+-
+-##### Record Event And Upload
+-
+-### Java
+-
+-
+-    // Buffers the event locally.
+-    client.recordEvent(event);
+-
+-    // Buffers the events locally, (List version)
+-    client.recordEvents(events);
+-
+-    // This submits the events to PGS
+-    client.requestEventsUpload();
+-
+-### Unity
+-
+-
+-    // Buffers the event locally.
+-    PlayGamesPlatform.Instance.RecordEvent(playerEvent);
+-
+-    // Buffers the events locally, (List version)
+-    PlayGamesPlatform.Instance.RecordEvents(events);
+-
+-    // This submits the events to PGS
+-    PlayGamesPlatform.Instance.RequestEventsUpload();
+-
+-### C++
+-
+-
+-    // Record the event
+-    PgsGameStatsClient_recordEvent(client, player_event);
+-
+-    // This submits the events to PGS
+-    PgsGameStatsClient_requestEventsUpload(client);
++### Client implementations
+ 
+-    // Clean up handle to avoid leaks
+-    PgsPlayerGameEvent_destroy(player_event);
++To learn about the Game Stats client implementation for your platform, see the
++following resources:
+ 
+-    // Clean up client handle when PGS operations are finished
+-    PgsGameStatsClient_destroy(client);
++- [Android](https://developer.android.com/games/pgs/android/gamestats)
++- [Unity](https://developer.android.com/games/pgs/unity/gamestats)
++- [C++](https://developer.android.com/games/pgs/cpp/gamestats)
+ 
+-## Timeline
++## Milestones
+ 
+ | **Date** | **Game Stats API Integration** | **Game Stats configuration** |
+ |---|---|---|
+-| June 2026 | - Developers can start planning data models | Not available |
+-| July 2026 | - API is Generally Available (GA) to all developers to start the integration - Incoming data is validated against the provided schema and configuration | - Configuration API for providing event schema and stats configuration |
+-| August 2026 | N/A | - Play Console experience is live with support for CSV uploads |
+-| September 2026 | N/A | - Players start seeing game stats on their Gamer profile |
+\ No newline at end of file
++| September 2026 | N/A | - Players start seeing game stats on their Gamer profile. - Test the draft stats configuration for test accounts. |
+\ No newline at end of file

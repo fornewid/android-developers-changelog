@@ -1,0 +1,58 @@
+diff --git a/docs/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client.md b/docs/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client.md
+index cd257a01..64ab3f90 100644
+--- a/docs/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client.md
++++ b/docs/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client.md
+@@ -44,6 +44,9 @@ Direct Known Subclasses:[GooglePlayGames.BasicApi.DummyClient](https://developer
+ | `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1ac2f86d3ff84fede458823a521d896ae0(string leaderboardId, https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1abccf096f9fcbe7a3e572b64290675d18 start, int rowCount, https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a33fac2add308ad7414106822f66bc681 collection, https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a8d9a7be92fea2b7a31420b073558fbce timeSpan, Action< https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/leaderboard-score-data#class_google_play_games_1_1_basic_api_1_1_leaderboard_score_data > callback)` | `void` Loads the score data for the given leaderboard. |
+ | `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1a6f50cb8475832cb948f414506b0f90a8(string[] userIds, Action< IUserProfile[]> callback)` | `void` Loads the users specified. |
+ | `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1a5e866a2292900a7a27c293edbbb55cdd(Action< https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a7ac5abd21359fbbe3ea826b40143e5c6 > callback)` | `void` Manually requests that your game performs sign in with Play Games Services. |
++| `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1aa7b05f5fbbebf458aaad50187f754992(https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event#class_google_play_games_1_1_basic_api_1_1_player_game_event playerGameEvent)` | `void` Records a single player game event. |
++| `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1a92cd8b520f702f7943f63cfa4c4adc5b(List< https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event#class_google_play_games_1_1_basic_api_1_1_player_game_event > events)` | `void` Records a list of player game events. |
++| `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1a3647ad8e9df40e5830b6af8b180d26d5()` | `void` Requests an immediate upload of any pending player game events. |
+ | `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1ab8b1780c4d07319a6fa40ba312499c81(Action< https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/recall-access#class_google_play_games_1_1_basic_api_1_1_recall_access > callback)` | `void` Requests Recall Access to [Player](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player#class_google_play_games_1_1_basic_api_1_1_player) Games Services for the currently signed in account |
+ | `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1ad528750025ee1125247f1cbea5e67efb(bool forceRefreshToken, Action< string > callback)` | `void` Requests server-side access to [Player](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player#class_google_play_games_1_1_basic_api_1_1_player) Games Services for the currently signed in player. |
+ | `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1a14bd73fe7da28520eb783756c7a79a66(bool forceRefreshToken, List< https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1ab5415b6b4ad0724108f447b203380e44 > scopes, Action< https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/auth-response#class_google_play_games_1_1_basic_api_1_1_auth_response > callback)` | `void` Requests server-side access to Play Games Services for the currently signed in player. |
+@@ -379,6 +382,43 @@ Note that a sign-in attempt will be made automatically when your game's applicat
+ |---|---|
+ | Parameters | |---|---| | `callback` |   | |
+ 
++### RecordEvent
++
++```c#
++void RecordEvent(
++  PlayerGameEvent playerGameEvent
++)
++```
++Records a single player game event.
++
++<br />
++
++| Details ||
++|---|---|
++| Parameters | |---|---| | `playerGameEvent` | The event to record. | |
++
++### RecordEvents
++
++```c#
++void RecordEvents(
++  List< PlayerGameEvent > events
++)
++```
++Records a list of player game events.
++
++<br />
++
++| Details ||
++|---|---|
++| Parameters | |---|---| | `events` | The list of events to record. | |
++
++### RequestEventsUpload
++
++```c#
++void RequestEventsUpload()
++```
++Requests an immediate upload of any pending player game events.
++
+ ### RequestRecallAccessToken
+ 
+ ```c#
