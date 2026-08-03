@@ -68,7 +68,7 @@ versions of the dependencies where possible.
 Your app should cover all cases of a user signing in to ensure active users have
 a restore key created. Create the restore key in the following scenarios:
 
-- If the user is signed in and a restore key isn't already created (such as in the main activity's `onCreate`).
+- If the user is signed in and a restore key isn't already created (such as in the `onCreate` method for the main `Activity`).
 - When the user is signing in or completing a new account registration flow.
 
 To optimize performance and avoid the overhead of creating or checking for a
@@ -162,7 +162,7 @@ It is recommended to fetch the restore key in both of the following scenarios:
 - If app data backup and restore is enabled, get the restore key immediately after the app data is restored. Use [`BackupAgent`](https://developer.android.com/reference/android/app/backup/BackupAgent) to configure your app's backup and ensure you complete the `getCredential` functionality within the [`onRestoreFinished`](https://developer.android.com/reference/android/app/backup/BackupAgent#onRestoreFinished()) callback. Don't use the `onRestore` method, as it is only called for key-value backups, whereas `onRestoreFinished` is reliably called for any kind of backup restore. This avoids potential delays when users open their new device for the first time and lets users interact with the app without waiting for them to open your app. For example, this lets your app send the user notifications before they open the app for the first time on the new device, which is particularly relevant for messaging or communications apps.
 
 > [!IMPORTANT]
-> **Important:** Notifications aren't automatically restored after the restore credentials are retrieved. If you use Firebase to handle notifications, you must have to fetch and send the Firebase Cloud Messaging (FCM) token to the backend to successfully resume background messaging and notifications.
+> **Important:** Notifications aren't automatically restored after the restore credentials are retrieved. If you use Firebase to handle notifications, you must fetch and send the Firebase Cloud Messaging (FCM) token to the backend to successfully resume background messaging and notifications.
 
     // Fetch the options required to get the restore key
     val authenticationJson = fetchAuthenticationJson()
@@ -172,6 +172,9 @@ It is recommended to fetch the restore key in both of the following scenarios:
     val getRequest = GetCredentialRequest(listOf(options))
 
     val response = credentialManager.getCredential(context, getRequest)
+
+    // Type-check and extract the restore credential
+    val credential = response.credential as RestoreCredential
 
 The credential manager APIs return a response of type
 [`GetCredentialResponse`](https://developer.android.com/reference/android/credentials/GetCredentialResponse). The credential contained in this response is

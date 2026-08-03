@@ -23,6 +23,7 @@ For information on setting up and using the plugin, see the get started guide:
 - [Platform authentication](https://developer.android.com/games/pgs/signin)
 - [Friends](https://developer.android.com/games/pgs/friends)
 - [Achievements](https://developer.android.com/games/pgs/achievements)
+- [Game Stats](https://developer.android.com/games/pgs/unity/gamestats)
 - [Leaderboards](https://developer.android.com/games/pgs/leaderboards)
 - [Saved games](https://developer.android.com/games/pgs/signin)
 - [Events](https://developer.android.com/games/pgs/events)

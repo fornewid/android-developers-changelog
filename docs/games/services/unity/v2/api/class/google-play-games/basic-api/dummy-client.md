@@ -40,6 +40,9 @@ Inherits from: [GooglePlayGames.BasicApi.IPlayGamesClient](https://developer.and
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/dummy-client#class_google_play_games_1_1_basic_api_1_1_dummy_client_1a5cc62b6b9c0f21637ec5c3e4a3650125(string leaderboardId, https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1abccf096f9fcbe7a3e572b64290675d18 start, int rowCount, https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a33fac2add308ad7414106822f66bc681 collection, https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a8d9a7be92fea2b7a31420b073558fbce timeSpan, Action< https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/leaderboard-score-data#class_google_play_games_1_1_basic_api_1_1_leaderboard_score_data > callback)` | `void` Loads the leaderboard scores based on the specified parameters. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/dummy-client#class_google_play_games_1_1_basic_api_1_1_dummy_client_1a3fc341874edbc7b8729a9e07ec13a11b(string[] userIds, Action< IUserProfile[]> callback)` | `void` Loads user profiles for the given user IDs. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/dummy-client#class_google_play_games_1_1_basic_api_1_1_dummy_client_1aed5b866564d9b654ccae8b2f4f54f903(Action< https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a7ac5abd21359fbbe3ea826b40143e5c6 > callback)` | `void` Manually authenticates the user. |
+| `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/dummy-client#class_google_play_games_1_1_basic_api_1_1_dummy_client_1a7fc96894eff094517424c5b5835894eb(https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event#class_google_play_games_1_1_basic_api_1_1_player_game_event playerGameEvent)` | `void` Records a single player game event. |
+| `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/dummy-client#class_google_play_games_1_1_basic_api_1_1_dummy_client_1a526893d5c6ec288099848583b79a2b7c(List< https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event#class_google_play_games_1_1_basic_api_1_1_player_game_event > events)` | `void` Records a list of player game events. |
+| `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/dummy-client#class_google_play_games_1_1_basic_api_1_1_dummy_client_1a93abd9e84d2880cfe8c86cc7b8c86db0()` | `void` Requests an immediate upload of any pending player game events. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/dummy-client#class_google_play_games_1_1_basic_api_1_1_dummy_client_1a28f2871ccc27c0fa6131d5fea57ddc56(Action< https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/recall-access#class_google_play_games_1_1_basic_api_1_1_recall_access > callback)` | `void` Requests recall of the access token. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/dummy-client#class_google_play_games_1_1_basic_api_1_1_dummy_client_1a63568dd288681f326cb2440a16e379c2(bool forceRefreshToken, Action< string > callback)` | `void` Requests server-side access with a refresh token. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/dummy-client#class_google_play_games_1_1_basic_api_1_1_dummy_client_1a88400aaed601505223788db9a5ab7f5b(bool forceRefreshToken, List< https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1ab5415b6b4ad0724108f447b203380e44 > scopes, Action< https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/auth-response#class_google_play_games_1_1_basic_api_1_1_auth_response > callback)` | `void` Requests server-side access with specific scopes. |
@@ -379,6 +382,43 @@ Manually authenticates the user.
 | Details ||
 |---|---|
 | Parameters | |---|---| | `callback` | Callback to handle the sign-in status. | |
+
+### RecordEvent
+
+```c#
+void RecordEvent(
+  PlayerGameEvent playerGameEvent
+)
+```
+Records a single player game event.
+
+<br />
+
+| Details ||
+|---|---|
+| Parameters | |---|---| | `playerGameEvent` | The event to record. | |
+
+### RecordEvents
+
+```c#
+void RecordEvents(
+  List< PlayerGameEvent > events
+)
+```
+Records a list of player game events.
+
+<br />
+
+| Details ||
+|---|---|
+| Parameters | |---|---| | `events` | The list of events to record. | |
+
+### RequestEventsUpload
+
+```c#
+void RequestEventsUpload()
+```
+Requests an immediate upload of any pending player game events.
 
 ### RequestRecallAccessToken
 

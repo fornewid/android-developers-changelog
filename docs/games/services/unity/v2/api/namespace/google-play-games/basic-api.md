@@ -33,6 +33,7 @@ source: md.txt
 | [GooglePlayGames.BasicApi.DummyClient](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/dummy-client) | Dummy client used in Editor. |
 | [GooglePlayGames.BasicApi.LeaderboardScoreData](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/leaderboard-score-data) | Leaderboard score data. |
 | [GooglePlayGames.BasicApi.Player](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player) | Represents a player. |
+| [GooglePlayGames.BasicApi.PlayerGameEvent](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event) | Represents a custom game event or discrete player action (e.g., "player killed monster", "level completed", etc.). |
 | [GooglePlayGames.BasicApi.PlayerProfile](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-profile) | Represents a player, a real-world person (tied to a Games account). |
 | [GooglePlayGames.BasicApi.PlayerStats](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-stats) | [Player](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player#class_google_play_games_1_1_basic_api_1_1_player) stats. |
 | [GooglePlayGames.BasicApi.RecallAccess](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/recall-access) | Recall Access data. |

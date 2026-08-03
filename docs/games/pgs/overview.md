@@ -30,7 +30,8 @@ retention and cross-platform continuity.
   - **Achievements and leaderboards:** Recognize accomplishments and foster competition outside the game.
   - **Play Points:** Drives monetization by allowing players to earn and redeem points for in-game purchases.
   - **Social Graph:** Allows players to follow their friends, their activities and build a social gaming community of their own.
-- **Play Games Sidekick (Beta):** Provides an overlay with utilities, real-time Gemini tips, and engagement tools.
+- **Play Games Sidekick:** Provides an overlay with utilities, real-time Gemini tips, and engagement tools.
+- **Game Stats:** cumulative statistics about your game that players can view on their Gamer profile. These stats let players track lifetime progress, see highlight moments, and compare with other players, and power Google Play features such as Quests, Social Challenges and more in the future.
 
 ## Game benefits and program advantages
 

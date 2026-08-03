@@ -25,11 +25,6 @@ Inherits from: ISocialPlatform
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1a8b73a196abc5f5ac682bafb92d8dad9c` | `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/saved-game/i-saved-game-client#interface_google_play_games_1_1_basic_api_1_1_saved_game_1_1_i_saved_game_client` Gets the saved game client object. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1aa3f7c587a65e1fd099bb0bdbfe0014c5` | `ILocalUser` Gets the local user. |
 
-| ### Public static functions ||
-|---|---|
-| `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1afc68980eb29743625ae7ea74c1e99327()` | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform` Activates the Play Games platform as the implementation of Social.Active. |
-| `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1a31a54a14f96b74e06872a320d66e84ee(Action< https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/nearby/i-nearby-connection-client#interface_google_play_games_1_1_basic_api_1_1_nearby_1_1_i_nearby_connection_client > callback)` | `void` Initializes the nearby connection platform. |
-
 | ### Public functions ||
 |---|---|
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1a5f3b14568fa25fb25f2012549540b835(string fromId, string toId)` | `void` Specifies that the ID `fromId` should be implicitly replaced by `toId` on any calls that take a leaderboard or achievement ID. |
@@ -59,9 +54,12 @@ Inherits from: ISocialPlatform
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1a38cef749ebfe965b2df84817be34fb86(ILeaderboard board, Action< bool > callback)` | `void` Loads the leaderboard based on the constraints in the leaderboard object. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1adac2a3fe7f29a08c8077ab5234e4526c(string[] userIds, Action< IUserProfile[]> callback)` | `void` Loads the users. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1aea04653464bdc830efc81882c60e4858(Action< https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a7ac5abd21359fbbe3ea826b40143e5c6 > callback)` | `void` Manually requests that your game performs sign in with Play Games Services. |
+| `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1a0630401f6184ef638135aa5638c5a05a(https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event#class_google_play_games_1_1_basic_api_1_1_player_game_event playerGameEvent)` | `void` Records a single player game event. |
+| `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1adfc5991870304e1e4054425e35f57a06(List< https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event#class_google_play_games_1_1_basic_api_1_1_player_game_event > events)` | `void` Records a list of player game events. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1a64dff72e31b512bdd15169c08852fb6d(string achievementID, double progress, Action< bool > callback)` | `void` Reports the progress of an achievement (reveal, unlock or increment). |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1a9a51e50e3de344ec7c896d89ca600b1d(long score, string board, Action< bool > callback)` | `void` Reports a score to a leaderboard. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1a7188afce9744624359b5891f35ed927e(long score, string board, string metadata, Action< bool > callback)` | `void` Submits the score for the currently signed-in player to the leaderboard associated with a specific id and metadata (such as something the player did to earn the score). |
+| `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1ae9bc9f9348c543e607f64ffa4f1fdb4a()` | `void` Requests an immediate upload of any pending player game events. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1a330264f1e8c58a37bbf65bd3b2207531(Action< https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/recall-access#class_google_play_games_1_1_basic_api_1_1_recall_access > callback)` | `void` Requests access to the recall API. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1aed10805cf9f61c90d9f2a0e290c31fc5(bool forceRefreshToken, Action< string > callback)` | `void` Requests server-side access to Player Games Services for the currently signed in player. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1ad073478e2601d6dab89ffc89f3fe71d8(bool forceRefreshToken, List< https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1ab5415b6b4ad0724108f447b203380e44 > scopes, Action< https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/auth-response#class_google_play_games_1_1_basic_api_1_1_auth_response > callback)` | `void` Requests server-side access to Player Games Services for the currently signed in player. |
@@ -76,6 +74,11 @@ Inherits from: ISocialPlatform
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1a21f38c4dcdbb5881579878e6b43bf191(string leaderboardId, Action< https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1aab0aa7dedba9c8167fff3a0deafaae52 > callback)` | `void` Shows the leaderboard UI and calls the specified callback upon completion. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1ab25ffb2515af8cb190ab0c03e654e01b(string leaderboardId, https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a8d9a7be92fea2b7a31420b073558fbce span, Action< https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1aab0aa7dedba9c8167fff3a0deafaae52 > callback)` | `void` Shows the leaderboard UI and calls the specified callback upon completion. |
 | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1aad8f51e28cd76102410c4b82b0bdc76e(string achievementID, Action< bool > callback)` | `void` Unlocks the achievement with the passed identifier. |
+
+| ### Public static functions ||
+|---|---|
+| `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1afc68980eb29743625ae7ea74c1e99327()` | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform` Activates the Play Games platform as the implementation of Social.Active. |
+| `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1a31a54a14f96b74e06872a320d66e84ee(Action< https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/nearby/i-nearby-connection-client#interface_google_play_games_1_1_basic_api_1_1_nearby_1_1_i_nearby_connection_client > callback)` | `void` Initializes the nearby connection platform. |
 
 ## Properties
 
@@ -148,40 +151,6 @@ Gets the local user.
 | Details ||
 |---|---|
 | **Returns** | The local user. |
-
-## Public static functions
-
-### Activate
-
-```c#
-PlayGamesPlatform Activate()
-```
-Activates the Play Games platform as the implementation of Social.Active.
-
-After calling this method, you can call methods on Social.Active. For example, `Social.Active.Authenticate()`.
-
-<br />
-
-| Details ||
-|---|---|
-| **Returns** | The singleton [PlayGamesPlatform](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform) instance. |
-
-### InitializeNearby
-
-```c#
-void InitializeNearby(
-  Action< INearbyConnectionClient > callback
-)
-```
-Initializes the nearby connection platform.
-
-This call initializes the nearby connection platform. This is independent of the Play Game Services initialization. Multiple calls to this method are ignored.
-
-<br />
-
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | Callback invoked when complete. | |
 
 ## Public functions
 
@@ -611,6 +580,36 @@ Note that a sign-in attempt will be made automatically when your game's applicat
 |---|---|
 | Parameters | |---|---| | `callback` |   | |
 
+### RecordEvent
+
+```c#
+void RecordEvent(
+  PlayerGameEvent playerGameEvent
+)
+```
+Records a single player game event.
+
+<br />
+
+| Details ||
+|---|---|
+| Parameters | |---|---| | `playerGameEvent` | The event to record. | |
+
+### RecordEvents
+
+```c#
+void RecordEvents(
+  List< PlayerGameEvent > events
+)
+```
+Records a list of player game events.
+
+<br />
+
+| Details ||
+|---|---|
+| Parameters | |---|---| | `events` | The list of events to record. | |
+
 ### ReportProgress
 
 ```c#
@@ -664,6 +663,13 @@ Submits the score for the currently signed-in player to the leaderboard associat
 | Details ||
 |---|---|
 | Parameters | |---|---| | `score` | Score to report. | | `board` | leaderboard id. | | `metadata` | metadata about the score. | | `callback` | Callback invoked upon completion. | |
+
+### RequestEventsUpload
+
+```c#
+void RequestEventsUpload()
+```
+Requests an immediate upload of any pending player game events.
 
 ### RequestRecallAccess
 
@@ -893,3 +899,37 @@ If the operation succeeds, the callback will be invoked on the game thread with 
 | Details ||
 |---|---|
 | Parameters | |---|---| | `achievementID` | The ID of the achievement to increment. This can be a raw Google Play Games achievement ID (alphanumeric string), or an alias that was previously configured by a call to [AddIdMapping](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform_1a5f3b14568fa25fb25f2012549540b835). | | `callback` | The callback to call to report the success or failure of the operation. The callback will be called with `true` to indicate success or `false` for failure. | |
+
+## Public static functions
+
+### Activate
+
+```c#
+PlayGamesPlatform Activate()
+```
+Activates the Play Games platform as the implementation of Social.Active.
+
+After calling this method, you can call methods on Social.Active. For example, `Social.Active.Authenticate()`.
+
+<br />
+
+| Details ||
+|---|---|
+| **Returns** | The singleton [PlayGamesPlatform](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform#class_google_play_games_1_1_play_games_platform) instance. |
+
+### InitializeNearby
+
+```c#
+void InitializeNearby(
+  Action< INearbyConnectionClient > callback
+)
+```
+Initializes the nearby connection platform.
+
+This call initializes the nearby connection platform. This is independent of the Play Game Services initialization. Multiple calls to this method are ignored.
+
+<br />
+
+| Details ||
+|---|---|
+| Parameters | |---|---| | `callback` | Callback invoked when complete. | |

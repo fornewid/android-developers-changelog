@@ -14,6 +14,7 @@ Play Games Services with your [backend game server](https://developer.android.co
 The v2 Native SDK (beta) supports the following features:
 
 - [Achievements](https://developer.android.com/games/pgs/cpp/achievements)
+- [Game Stats](https://developer.android.com/games/pgs/cpp/gamestats)
 - [Recall](https://developer.android.com/games/pgs/recall/recall-setup#play-games-services-v2-native-sdk)
 
 ## API reference documentation

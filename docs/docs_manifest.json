@@ -1886,8 +1886,8 @@
     },
     "games/services/unity/v2/api/class/google-play-games/basic-api/dummy-client.md": {
       "original_url": "https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/dummy-client",
-      "hash": "ca63f50e915f845f4a9cf17cdaea653498f95a758827057412c94faef7522543",
-      "last_updated": "2026-04-21T15:27:43.927670",
+      "hash": "40bf2dd47c350ec749cd5704dd3af49ba4b6373f5fd75d73d37c09b2920b3a5a",
+      "last_updated": "2026-08-03T15:53:07.405148",
       "fetch_method": "md.txt"
     },
     "health-and-fitness/health-connect/features/steps.md": {
@@ -3974,8 +3974,8 @@
     },
     "games/pgs/unity/overview.md": {
       "original_url": "https://developer.android.com/games/pgs/unity/overview",
-      "hash": "7de5421dcd35ca4c7204eaf5e5640518393d59cddf0cd25eb914684bc5baa102",
-      "last_updated": "2026-04-09T17:01:01.295701",
+      "hash": "d03fb4efa2d3ed1954507fa8f69290c2991bd098a46afa6d2a320125493c9d33",
+      "last_updated": "2026-08-03T15:52:21.737774",
       "fetch_method": "md.txt"
     },
     "develop/connectivity/telecom/voip-app.md": {
@@ -4964,8 +4964,8 @@
     },
     "games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client.md": {
       "original_url": "https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client",
-      "hash": "ae55a957ca56c7d94fa774957e1283019c3bb5600f7387ab81efea304c6f4e25",
-      "last_updated": "2026-04-17T15:22:43.047151",
+      "hash": "495c953800bcc429d17fd484934e4e0e3f34b9873ac29d022ad083410b134f17",
+      "last_updated": "2026-08-03T15:56:50.053075",
       "fetch_method": "md.txt"
     },
     "design/ui/ai-glasses/guides/components/stack.md": {
@@ -9638,8 +9638,8 @@
     },
     "games/services/unity/v2/api/class/google-play-games/play-games-platform.md": {
       "original_url": "https://developer.android.com/games/services/unity/v2/api/class/google-play-games/play-games-platform",
-      "hash": "abb8fc4e7701f79f6229a2beba6c071966c5ce90d6e6de169d31a595ffd7498e",
-      "last_updated": "2026-05-08T15:32:41.127524",
+      "hash": "f580e76aba11019f13a55971e17e814438d078831e5e8b43e3121255a0848f5e",
+      "last_updated": "2026-08-03T15:52:56.145403",
       "fetch_method": "md.txt"
     },
     "build/releases/agp-8-11-0-release-notes.md": {
@@ -11420,8 +11420,8 @@
     },
     "identity/sign-in/restore-credentials-implementation.md": {
       "original_url": "https://developer.android.com/identity/sign-in/restore-credentials-implementation",
-      "hash": "66131b88be0918a3b36c6d0bbec2dfe82f3e023c3ecd8614be3f4bb806e2371b",
-      "last_updated": "2026-07-30T15:41:26.910451",
+      "hash": "1871930ffcf5b0cf3b6cb9c437b4e6da77a1dc7ac147fd3a500c798f850e1574",
+      "last_updated": "2026-08-03T15:56:31.591989",
       "fetch_method": "md.txt"
     },
     "games/optimize/64-bit.md": {
@@ -11510,8 +11510,8 @@
     },
     "latest-updates.md": {
       "original_url": "https://developer.android.com/latest-updates",
-      "hash": "f81c134f01b034050526609cb658f48f81bc57bc448e8fbceb93acb6f89d06b0",
-      "last_updated": "2026-07-30T15:42:42.644471",
+      "hash": "0f4924ca269a2eddb0abfde3aa1973128c670dffddd68ef824909b86ba1072f7",
+      "last_updated": "2026-08-03T15:57:33.606602",
       "fetch_method": "md.txt"
     },
     "design/ui/cars/guides/templates/map-content-template.md": {
@@ -13880,8 +13880,8 @@
     },
     "studio/nightly.md": {
       "original_url": "https://developer.android.com/studio/nightly",
-      "hash": "b87a1c9b82365cc39a73e7dcde9902caa0370994e094a18f2b53825e37b5c2b0",
-      "last_updated": "2026-07-31T15:42:33.270852",
+      "hash": "6bb90afa19503068bbee687f49051c89bf7258e57887f6c4a1d7bbbc5193eb49",
+      "last_updated": "2026-08-03T15:53:34.565343",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/arcore/hands.md": {
@@ -15494,8 +15494,8 @@
     },
     "games/services/unity/v2/api/namespace/google-play-games/basic-api.md": {
       "original_url": "https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api",
-      "hash": "4516dd79d123acccdbcb7db5a0308bcf737b8f848cdd92997864b9bd95c4465a",
-      "last_updated": "2026-04-10T15:18:33.247234",
+      "hash": "b0cad7f8d405a676cac5aa365fb61cdd0fc1d06ab5d343ddf831dc6c7701195d",
+      "last_updated": "2026-08-03T15:54:17.438763",
       "fetch_method": "md.txt"
     },
     "media/camera/camera2/extensions-api.md": {
@@ -22304,8 +22304,8 @@
     },
     "games/guidelines.md": {
       "original_url": "https://developer.android.com/games/guidelines",
-      "hash": "e676aaf2bd2bdbb766372b162101016a3ce571fc3663e7596dee3761ceddb008",
-      "last_updated": "2026-07-10T15:47:31.487785",
+      "hash": "8a15c4e89728fb0e98ff95695283704facbab65ee44beb6a45f559ff453f308d",
+      "last_updated": "2026-08-03T15:53:40.343655",
       "fetch_method": "md.txt"
     },
     "build/build-analyzer.md": {
@@ -22382,8 +22382,8 @@
     },
     "games/services/unity/v2/api.md": {
       "original_url": "https://developer.android.com/games/services/unity/v2/api",
-      "hash": "bb6eb2f622c8463eb6a3a6bcb23cb927030e69bfda414dd3c0470f9776db7024",
-      "last_updated": "2026-04-10T15:20:29.346308",
+      "hash": "9beaebd9eb6c27f8988093846ba4e2e5708093d230fd4f5b43098496783a2b6b",
+      "last_updated": "2026-08-03T15:52:16.365708",
       "fetch_method": "md.txt"
     },
     "productivity/guides.md": {
@@ -22826,8 +22826,8 @@
     },
     "games/pgs/overview.md": {
       "original_url": "https://developer.android.com/games/pgs/overview",
-      "hash": "3cb3b09e09884299848c6702ee0c93f53abc886721817c5d538e8410a104f393",
-      "last_updated": "2026-06-29T16:22:04.701307",
+      "hash": "a074017c88001a6f4946dcb52467abe07457ca8317eeb11ab7c4ba184b8a3c53",
+      "last_updated": "2026-08-03T15:56:54.634145",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/tooling.md": {
@@ -22850,8 +22850,8 @@
     },
     "games/pgs/cpp/cpp-start.md": {
       "original_url": "https://developer.android.com/games/pgs/cpp/cpp-start",
-      "hash": "4d9f5647a2e7e076ef1aa75ea828094081ae3a257f19713b532b3435f3b3b080",
-      "last_updated": "2026-04-09T17:12:32.715392",
+      "hash": "a054e8398a97fad843b2b0b06e2ba1eb2228080ffa8b6d89b571bc4a134f0af8",
+      "last_updated": "2026-08-03T15:56:58.995327",
       "fetch_method": "md.txt"
     },
     "games/services/management/api/applications.md": {
@@ -23810,8 +23810,8 @@
     },
     "develop/background-work/services/alarms.md": {
       "original_url": "https://developer.android.com/develop/background-work/services/alarms",
-      "hash": "095d916242c15400dec6f9b21c65f78f760b9e633f93d3168f8b43539dddfbb5",
-      "last_updated": "2026-05-19T16:11:30.106501",
+      "hash": "9b169fb2dafb056314f3296e0eed29fa7f2bc37084e82bd03e83a1a04498d80f",
+      "last_updated": "2026-08-03T15:56:56.879652",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/migrate/interoperability-apis/compose-in-views.md": {
@@ -30986,8 +30986,8 @@
     },
     "games/pgs/gamestats.md": {
       "original_url": "https://developer.android.com/games/pgs/gamestats",
-      "hash": "1fe4feed781e242b0ce5f608cf606108bf15286572eb5abd3806d18160911996",
-      "last_updated": "2026-07-30T15:37:29.183205",
+      "hash": "5b2509f0b33657bac60e6081a97e9c3b8c8fde97013e2dee39280ec9d971955a",
+      "last_updated": "2026-08-03T15:52:59.453682",
       "fetch_method": "md.txt"
     },
     "distribute/aep/aep-req-picture-in-picture.md": {
@@ -32237,7 +32237,43 @@
       "hash": "259ad2c16af6dcdbdff5577ca338767851b8918d4ee810ed2ef13feab0d44824",
       "last_updated": "2026-08-02T15:26:27.625743",
       "fetch_method": "md.txt"
+    },
+    "games/pgs/unity/gamestats.md": {
+      "original_url": "https://developer.android.com/games/pgs/unity/gamestats",
+      "hash": "dfa1081993b8557b02223bce73594173c661579068bc18b433387bb103e5d5f9",
+      "last_updated": "2026-08-03T15:52:35.202204",
+      "fetch_method": "md.txt"
+    },
+    "games/pgs/android/gamestats.md": {
+      "original_url": "https://developer.android.com/games/pgs/android/gamestats",
+      "hash": "a92e9edd68296ee62a9f57864810fb60545d4704a80e7c460ecc0d9033a77519",
+      "last_updated": "2026-08-03T15:53:01.511773",
+      "fetch_method": "md.txt"
+    },
+    "games/pgs/cpp/gamestats.md": {
+      "original_url": "https://developer.android.com/games/pgs/cpp/gamestats",
+      "hash": "9efa184e56235375229aabdb175ac79da68df495ae45e9eae00e4327bb6c1b8f",
+      "last_updated": "2026-08-03T15:55:33.035044",
+      "fetch_method": "md.txt"
+    },
+    "games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder.md": {
+      "original_url": "https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder",
+      "hash": "a624f741e17897e10d556f2511f5fec9efa2d164eb872acf6670e2a14aaabcbe",
+      "last_updated": "2026-08-03T15:56:51.510275",
+      "fetch_method": "md.txt"
+    },
+    "games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event.md": {
+      "original_url": "https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event",
+      "hash": "6c3449067c6b33913ce7c95935c7c5ce67248e390a1895578463bf5795921ed1",
+      "last_updated": "2026-08-03T15:56:59.953244",
+      "fetch_method": "md.txt"
+    },
+    "games/pgs/integrate-gamestats.md": {
+      "original_url": "https://developer.android.com/games/pgs/integrate-gamestats",
+      "hash": "fd1abc14d78466bac53f4d2710c064db777276ce3546aced2fe789edeaf86eef",
+      "last_updated": "2026-08-03T15:57:40.059817",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-08-02T15:27:54.190868"
+  "last_updated": "2026-08-03T15:57:47.220937"
 }

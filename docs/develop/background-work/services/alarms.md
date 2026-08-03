@@ -61,8 +61,9 @@ time.
 
 If your app targets Android 12 or higher, the system can delay
 the invocation of a time-windowed inexact alarm by at least 10 minutes. For
-this reason, `windowLengthMillis` parameter values under `600000` are clipped to
-`600000`.
+this reason, `windowLengthMillis` parameter values under `600000` are typically
+clipped to `600000`. The system might accommodate smaller windows, especially if
+the alarm is scheduled to be triggered in the near future.
 
 ### Deliver a repeating alarm at roughly regular intervals
 
