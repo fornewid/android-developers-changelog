@@ -8,7 +8,7 @@ source: md.txt
 
 # #WeArePlay: Meet the founder making breast cancer awareness simple and accessible
 
-3-min read ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_f386d6e667_Z1uDGXR.webp) 16 Oct 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing
+3 min read ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_f386d6e667_Z1uDGXR.webp) 16 Oct 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing
 
 *** ** * ** ***
 

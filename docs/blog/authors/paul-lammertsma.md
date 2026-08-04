@@ -16,7 +16,7 @@ Android
   ## [Increasing app discovery and engagement on Google TV](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv)
 
   [arrow_forward](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv) We're excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
-  4 min read
+  3 min read
   - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)

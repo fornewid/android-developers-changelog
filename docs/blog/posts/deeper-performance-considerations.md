@@ -8,7 +8,7 @@ source: md.txt
 
 # Deeper Performance Considerations
 
-8-min read ![](https://developer.android.com/static/blog/assets/performance_Week11_efe6dd10be_Z1PApe6.webp) 19 Nov 2025 3 Authors [Ben Weiss,](https://developer.android.com/blog/authors/ben-weiss) [Breana Tate,](https://developer.android.com/blog/authors/breana-tate) [Jossi Wolf](https://developer.android.com/blog/authors/jossi-wolf) Compose yourselves and let us guide you through more background on performance.
+8 min read ![](https://developer.android.com/static/blog/assets/performance_Week11_efe6dd10be_Z1PApe6.webp) 19 Nov 2025 3 Authors [Ben Weiss,](https://developer.android.com/blog/authors/ben-weiss) [Breana Tate,](https://developer.android.com/blog/authors/breana-tate) [Jossi Wolf](https://developer.android.com/blog/authors/jossi-wolf) Compose yourselves and let us guide you through more background on performance.
 
 Welcome to day 3 of Performance Spotlight Week. Today we're continuing to share details and guidance on important areas of app performance. We're covering Profile Guided Optimization, Jetpack Compose performance improvements and considerations on working behind the scenes. Let's dive right in.
 
@@ -294,7 +294,7 @@ Written by:
   [read_more
   View profile](https://developer.android.com/blog/authors/jossi-wolf) ![View Jossi Wolf's profile](https://developer.android.com/static/blog/assets/Jossi_Wolf_d703979815_1D5j3e.webp) ![View Jossi Wolf's profile](https://developer.android.com/static/blog/assets/Jossi_Wolf_d703979815_1D5j3e.webp)
 Continue reading
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZbOM76.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZbOM76.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions)
 
@@ -309,12 +309,12 @@ Continue reading
   [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 3 min read
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - [#R8](https://developer.android.com/blog/topics/r8)
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
-  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
+  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
 Stay in the loop
 

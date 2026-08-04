@@ -258,7 +258,8 @@ and call `drawText` with the measurer:
 val textMeasurer = rememberTextMeasurer()
 
 Canvas(modifier = Modifier.fillMaxSize()) {
-    drawText(textMeasurer, "Hellnippets.kt
+    drawText(textMeasurer, "Hello")
+}
 ```
 
 <br />

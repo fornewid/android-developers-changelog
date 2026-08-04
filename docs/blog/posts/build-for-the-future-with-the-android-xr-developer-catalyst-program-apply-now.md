@@ -8,7 +8,7 @@ source: md.txt
 
 # Build for the future with the Android XR Developer Catalyst Program --- Apply now!
 
-1-min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) 19 May 2026 The Android XR ecosystem is expanding, and we're committed to supporting developers who will build its next great experiences. Today, we're opening applications for the [Android XR Developer Catalyst Program](http://developer.android.com/develop/xr/catalyst), a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
+1 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) 19 May 2026 The Android XR ecosystem is expanding, and we're committed to supporting developers who will build its next great experiences. Today, we're opening applications for the [Android XR Developer Catalyst Program](http://developer.android.com/develop/xr/catalyst), a dedicated initiative to accelerate the development of Android XR apps ready to launch within the next year.
 
 This program is designed to provide the resources, hardware, and grants to help you build and scale innovative experiences across [wired XR glasses](https://developer.android.com/develop/xr/devices#xr-glasses), like [XREAL's Project Aura](https://www.xreal.com/us/aura), and [intelligent eyewear](https://developer.android.com/develop/xr/devices#audio-display)(audio and display glasses). We are especially interested in seeing innovative experiences across media, gaming, productivity, and health, but we welcome any unique use case that helps users expand what's possible.
 

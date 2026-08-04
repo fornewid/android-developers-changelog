@@ -4,6 +4,18 @@ url: https://developer.android.com/topic/performance/app-optimization/enable-app
 source: md.txt
 ---
 
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/performance/r8-analyzer)
+
+### R8 Analyzer
+
+Use the R8 Analyzer [Android skill](https://developer.android.com/tools/agents/android-skills) to analyze build files and identify redundant, broad, or subsumed [keep rules](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview). To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add --skill r8-analyzer
+
+<br />
+
 For the best user experience, you should optimize your app to make it as small
 and fast as possible. Our app optimizer, called R8, streamlines your app by
 removing unused code and resources, rewriting code to optimize runtime
@@ -17,9 +29,6 @@ performance, and more. To your users, this means:
 > [!IMPORTANT]
 > **Important:** You should always enable optimization for your app's release build; however, you probably don't want to enable it for tests or libraries. For more information about using R8 with tests, see [Test and troubleshoot the
 > optimization](https://developer.android.com/topic/performance/app-optimization/test-and-troubleshoot-the-optimization). For more information about enabling R8 from libraries, see [Optimization for library authors](https://developer.android.com/topic/performance/app-optimization/library-optimization).
-
-> [!IMPORTANT]
-> **Important:** We released an agent skill that you can use to improve your app performance with R8. Try out the skill from the [Android skills repository](https://github.com/android/skills).
 
 ## R8 optimization overview
 

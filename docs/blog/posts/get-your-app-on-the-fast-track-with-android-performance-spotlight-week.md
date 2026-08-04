@@ -8,7 +8,7 @@ source: md.txt
 
 # Get your app on the fast track with Android Performance Spotlight Week!
 
-3-min read ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_p8Pb2.webp) 17 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) Developer Relations Engineer When working on new features, app performance often takes a back seat. However, while it's not always top of mind for developers, users can see exactly where your app's performance lags behind. When that new feature takes a long time to load or is slow to render, your users can become frustrated. And unhappy users are more likely to abandon the feature you spent so much time on.
+3 min read ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_p8Pb2.webp) 17 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) Developer Relations Engineer When working on new features, app performance often takes a back seat. However, while it's not always top of mind for developers, users can see exactly where your app's performance lags behind. When that new feature takes a long time to load or is slow to render, your users can become frustrated. And unhappy users are more likely to abandon the feature you spent so much time on.
 
 **App performance is a core part of user experience and app quality, and recent studies and research shows that it's highly correlated with increased user satisfaction, higher retention, and better review scores.**
 
@@ -95,7 +95,7 @@ Written by:
   [read_more
   View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
 Continue reading
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZbOM76.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZbOM76.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions)
 

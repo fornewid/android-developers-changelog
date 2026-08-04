@@ -8,7 +8,7 @@ source: md.txt
 
 # Experimental hybrid inference and new Gemini models for Android
 
-3-min read ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_gOJm.webp) 17 Apr 2026 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) Senior Developer Relations Engineer If you are an Android developer looking to implement innovative AI features into your app, we recently launched powerful new updates:
+2 min read ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_gOJm.webp) 17 Apr 2026 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) Senior Developer Relations Engineer If you are an Android developer looking to implement innovative AI features into your app, we recently launched powerful new updates:
 
 - Hybrid inference, a new API for Firebase AI Logic to leverage both on-device and Cloud inference,
 - Support for new Gemini models including latest Nano Banana models for image generation.

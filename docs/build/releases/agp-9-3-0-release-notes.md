@@ -44,6 +44,12 @@ report](https://developer.android.com/topic/performance/app-optimization/r8-conf
 ## Fixed issues
 
 
+### Android Gradle plugin 9.3.1
+
+| Fixed Issues ||
+|---|---|
+| No public issues were marked as fixed in AGP 9.3.1 ||
+
 ### Android Gradle plugin 9.3.0-rc02
 
 | Fixed Issues ||

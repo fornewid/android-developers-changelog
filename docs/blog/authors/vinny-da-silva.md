@@ -16,7 +16,7 @@ Android XR
   ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
 
   [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates) From augmented overlays to fully immersive environments, the Android XR ecosystem is expanding rapidly, with the Samsung Galaxy XR already available today.
-  3 min read
+  2 min read
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
 Stay in the loop

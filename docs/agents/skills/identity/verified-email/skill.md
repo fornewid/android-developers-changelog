@@ -97,6 +97,8 @@ actions:
 - Leave a TODO for developers to handle the app's server-side validation and parsing.
 - Direct users to the home screen after API call success and show a snackbar with user details for reference purpose only.
 
+## Overview
+
 This guide describes how to implement verified email retrieval using the
 [Digital Credentials Verifier API](https://developer.android.com/identity/digital-credentials/credential-verifier) through an [OpenID for Verifiable
 Presentations (OpenID4VP)](https://openid.net/specs/openid-4-verifiable-presentations-1_0.html) request.

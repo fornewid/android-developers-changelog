@@ -82,9 +82,7 @@ private fun CheckableRow() {
         ) {
             Text("Option", Modifier.weight(1f))
             Checkbox(checked = checked, onCheckedChange = null)
-        }
-    }
-}
+       nippets.kt
 ```
 
 <br />
@@ -243,8 +241,7 @@ Row(
         painter = painterResource(R.drawable.ic_logo),
         contentDescription = "Open",
     )
-    Text("Accessibility in Compose")
-}
+    Text("AccessibilityssibilitySnippets.kt
 ```
 
 <br />
@@ -265,8 +262,8 @@ Row(
         painter = painterResource(R.drawable.ic_logo),
         contentDescription = "Open"
     )
-    Text("Accessibility in Compose")
-}
+    Text("Accot;)
+}AccessibilitySnippets.kt
 ```
 
 <br />
@@ -287,9 +284,7 @@ Row(
             onLongClickLabel = "Bookmark this article",
             onLongClick = { addToBookmarks() },
             onClickLabel = "Open this article",
-            onClick = { openArticle() },
-        )
-) {}
+            onClick = { openArticlessibilitySnippets.kt
 ```
 
 <br />
@@ -316,9 +311,7 @@ private fun ArticleList(openArticle: () -> Unit) {
                     true
                 }
             )
-        }
-    )
-}
+       nippets.kt
 ```
 
 <br />

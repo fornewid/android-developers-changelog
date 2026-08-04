@@ -187,6 +187,49 @@ single pane layout. The following recording shows this app running:
 ![`NavDisplay` default behavior with two
 destinations.](https://developer.android.com/static/images/topic/libraries/architecture/nav3.gif) **Figure 2.** `NavDisplay` default behavior with two destinations.
 
+## Destination lifecycle
+
+`NavDisplay` uses [custom `LifecycleOwner`s](https://developer.android.com/topic/libraries/architecture/lifecycle#create-custom-lifecycle-owner) to cap the lifecycle state of a
+`NavEntry` based on both [Scene](https://developer.android.com/guide/navigation/navigation-3/scenes)-level constraints and Entry-level
+constraints.
+
+For more information about lifecycles in Compose, see [Lifecycle in Jetpack
+Compose](https://developer.android.com/topic/libraries/architecture/lifecycle).
+
+### Scene-level lifecycle constraints
+
+`NavDisplay` manages the lifecycle of the active `Scene`s. Scene-level caps are
+determined as follows:
+
+For non-overlay scenes:
+
+- **[`RESUMED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#RESUMED)**: Allowed only when the scene transition has settled and there are no active overlay scenes displaying on top of it.
+- **[`STARTED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#STARTED)** : Capped at `STARTED` while the scene transitions, such as when navigating forward or back, or when it's covered by an overlay.
+
+For [overlay scenes](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/OverlayScene), such as dialogs or bottom sheets:
+
+- **`RESUMED`**: Allowed only for the topmost, currently active overlay scene.
+- **`STARTED`** : Capped at `STARTED` for any underlying overlay scenes that are covered by a newer overlay.
+
+### Entry-level lifecycle state
+
+The library manages the maximum lifecycle state of each individual `NavEntry`
+based on its presence in the back stack:
+
+- **`RESUMED`** : If the entry is present in the current back stack, its lifecycle is allowed to go up to `RESUMED` (subject to the scene-level cap).
+- **[`CREATED`](https://developer.android.com/reference/androidx/lifecycle/Lifecycle.State#CREATED)** : If the entry's **no longer in the back stack** , such as when it was popped but is still being rendered on screen while animating out, the library strictly caps its lifecycle at `CREATED`. This limit ensures that background or exiting entries stop executing active work such as collecting flows or launching coroutines bound to `RESUMED` or `STARTED` states while they finish their exit transitions.
+
+### How they combine
+
+For example, the final lifecycle state of a `NavEntry` is resolved as follows:
+
+| Scenario | Scene-Level Cap | Entry-Level Cap | Effective Cap |
+|---|---|---|---|
+| **Active entry, settled screen** (no transitions or overlays) | `RESUMED` | `RESUMED` | **`RESUMED`** |
+| **Active entry, during transition** (navigating to or from) | `STARTED` | `RESUMED` | **`STARTED`** |
+| **Active entry, covered by an overlay** (for example, a Dialog is open) | `STARTED` | `RESUMED` | **`STARTED`** |
+| **Popped entry, animating out** | `STARTED` or `RESUMED` | `CREATED` | **`CREATED`** |
+
 ## Putting it all together
 
 The following diagram shows how data flows between the various objects in

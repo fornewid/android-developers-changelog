@@ -15,7 +15,7 @@ Developer Relations Engineer
 
   [arrow_forward](https://developer.android.com/blog/posts/material-3-adaptive-1-2-0-is-stable) We're excited to announce that Material 3 Adaptive 1.2.0 is now stable!
   This release continues to build on the foundations of previous versions, expanding support to more breakpoints for window size classes and new strategies to place display panes automatically.
-  2 min read
+  1 min read
 Stay in the loop
 
 

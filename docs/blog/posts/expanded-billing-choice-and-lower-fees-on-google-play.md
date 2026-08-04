@@ -8,7 +8,7 @@ source: md.txt
 
 # Expanded billing choice and lower fees on Google Play
 
-3-min read ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) 24 Jun 2026 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) [Paul Feng](https://developer.android.com/blog/authors/paul-feng) VP, Google Play Eng, Product, UX At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed. Guided by this commitment, [**earlier this year**](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) we announced updates to our business model introducing more billing flexibility, lower fees, and new programs to help your business thrive.
+2 min read ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) 24 Jun 2026 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) [Paul Feng](https://developer.android.com/blog/authors/paul-feng) VP, Google Play Eng, Product, UX At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed. Guided by this commitment, [**earlier this year**](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) we announced updates to our business model introducing more billing flexibility, lower fees, and new programs to help your business thrive.
 
 With some of these changes rolling out soon, the breakdown below outlines what is coming, where to find more information, key dates, and how to get started.
 
@@ -94,7 +94,7 @@ Continue reading
   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
 
   [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 5 min read
+  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
 Stay in the loop
 
 

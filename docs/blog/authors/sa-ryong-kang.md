@@ -14,7 +14,7 @@ Developer Relations Engineer
   ## [Kakao Mobility uses Gemini Nano on-device to reduce costs and boost call conversion by 45%](https://developer.android.com/blog/posts/kakao-mobility-uses-gemini-nano-on-device-to-reduce-costs-and-boost-call-conversion-by-45)
 
   [arrow_forward](https://developer.android.com/blog/posts/kakao-mobility-uses-gemini-nano-on-device-to-reduce-costs-and-boost-call-conversion-by-45) Kakao Mobility is South Korea's leading mobility business, offering a range of transportation and delivery services, including taxi-hailing, navigation, bike and scooter-sharing, parking, and parcel delivery, through its Kakao T app.
-  4 min read
+  3 min read
 Stay in the loop
 
 

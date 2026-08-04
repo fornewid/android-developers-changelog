@@ -22,7 +22,7 @@ Developer Relations Engineer, Android
   [arrow_forward](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) We're excited to announce that Jetpack WindowManager 1.5.0 is now stable!
 
   This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
-  3 min read
+  2 min read
 Stay in the loop
 
 

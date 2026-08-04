@@ -8,7 +8,7 @@ source: md.txt
 
 # How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API
 
-3-min read ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp) 28 Jan 2026 4 Authors [Chetan Tekur,](https://developer.android.com/blog/authors/chetan-tekur) [Chao Zhao,](https://developer.android.com/blog/authors/chao-zhao) [Paul Zhou,](https://developer.android.com/blog/authors/paul-zhou) [Caren Chang](https://developer.android.com/blog/authors/caren-chang)
+3 min read ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp) 28 Jan 2026 4 Authors [Chetan Tekur,](https://developer.android.com/blog/authors/chetan-tekur) [Chao Zhao,](https://developer.android.com/blog/authors/chao-zhao) [Paul Zhou,](https://developer.android.com/blog/authors/paul-zhou) [Caren Chang](https://developer.android.com/blog/authors/caren-chang)
 
 ## **Automated Prompt Optimization (APO)**
 

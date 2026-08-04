@@ -8,7 +8,7 @@ source: md.txt
 
 # Contact Picker: Privacy-First Contact Sharing
 
-4-min read ![](https://developer.android.com/static/blog/assets/contact_Picker_4392c5da87_ZQDO82.webp) 26 Mar 2026 [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](https://developer.android.com/blog/authors/roxanna-walker) [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) Product Manager Privacy and user control remain at the heart of the Android experience. Just as the photo picker made media sharing secure and easy to implement, we are now bringing that same level of privacy, simplicity, and great user experience to contact selection.
+4 min read ![](https://developer.android.com/static/blog/assets/contact_Picker_4392c5da87_ZQDO82.webp) 26 Mar 2026 [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](https://developer.android.com/blog/authors/roxanna-walker) [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) Product Manager Privacy and user control remain at the heart of the Android experience. Just as the photo picker made media sharing secure and easy to implement, we are now bringing that same level of privacy, simplicity, and great user experience to contact selection.
 
 ### A New Standard for Contact Privacy
 
@@ -152,7 +152,7 @@ Continue reading
   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
 
   [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 5 min read
+  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
 Stay in the loop
 
 

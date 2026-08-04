@@ -8,7 +8,7 @@ source: md.txt
 
 # Top AI on Android updates for building intelligent experiences from Google I/O '26
 
-2-min read ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp) 26 May 2026 [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) Staff Developer Relations Engineer At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps. If you missed these updates, check out our quick recap video here:
+2 min read ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp) 26 May 2026 [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) Staff Developer Relations Engineer At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps. If you missed these updates, check out our quick recap video here:
 [Video](https://www.youtube.com/watch?v=TZNu9u9TfN4)
 
 #### 1. **Putting your apps at the center of the intelligence system**

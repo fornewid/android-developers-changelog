@@ -14,5 +14,15 @@ The following pages describe how to integrate Compose with your existing apps:
 - [Interoperability APIs](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis): Learn about Compose's APIs to help you combine Compose with View-based UI.
 - [Other considerations](https://developer.android.com/develop/ui/compose/migrate/other-considerations): Learn other considerations like theming, architecture, and testing while migrating your View-based app to Compose.
 
-> [!IMPORTANT]
-> **Important:** We released an agent skill to help you migrate from legacy XML layouts to modern Jetpack Compose UI. Try out the skill from the [Android skills repository](https://github.com/android/skills).
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/jetpack-compose/migration/migrate-xml-views-to-jetpack-compose)
+
+### Migrate XML Views to Jetpack Compose
+
+Use the Migrate XML Views to Jetpack Compose [Android skill](https://developer.android.com/tools/agents/android-skills) to convert your legacy XML layouts to modern Jetpack Compose UI. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add --skill migrate-xml-views-to-jetpack-compose
+
+<br />

@@ -8,7 +8,7 @@ source: md.txt
 
 # Android devices extend seamlessly to connected displays
 
-7-min read ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_1A0pVS.webp) 03 Mar 2026 [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) Developer Relations Engineer, Android We are excited to announce a major milestone in bringing mobile and desktop computing closer together on Android: connected display support has reached general availability with the [Android 16 QPR3](https://developer.android.com/about/versions/16/qpr3/release-notes) release!  
+7 min read ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_1A0pVS.webp) 03 Mar 2026 [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) Developer Relations Engineer, Android We are excited to announce a major milestone in bringing mobile and desktop computing closer together on Android: connected display support has reached general availability with the [Android 16 QPR3](https://developer.android.com/about/versions/16/qpr3/release-notes) release!  
 
 As shown at [Google I/O 2025](https://www.youtube.com/watch?v=MmeJSLAnB-M), connected displays allow users to connect their Android devices to an external monitor and instantly access a desktop windowing environment. Apps can be used in free-form or maximized windows and users can multitask just like they would on a desktop OS.
 
@@ -214,7 +214,7 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) We're excited to announce that Jetpack WindowManager 1.5.0 is now stable!
 
   This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
-  [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 3 min read
+  [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 2 min read
 - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Delivering safer, age-appropriate experiences on Google Play](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play)
@@ -226,7 +226,7 @@ Continue reading
   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
 
   [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 5 min read
+  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
 Stay in the loop
 
 

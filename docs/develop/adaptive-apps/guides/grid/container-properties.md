@@ -211,7 +211,7 @@ Grid(
     },
     modifier = Modifier.size(width = 170.dp, height = 240.dp)
 ) {
-    Text("Lazy column in a Grid")
+    Text("LazyColumn in a Grid")
     // The LazyColumn is placed in the second row, filling the remaining space.
     LazyColumn(verticalArrangement = Arrangement.spacedBy(4.dp)) {
         items(100) { number ->

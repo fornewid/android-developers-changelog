@@ -8,7 +8,7 @@ source: md.txt
 
 # Level up your development with Planning Mode and Next Edit Prediction in Android Studio Panda 4
 
-5-min read ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) 21 Apr 2026 [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) Senior Product Manager Android Studio Panda 4 is now stable and ready for you to use in production. This release brings Planning Mode, Next Edit Prediction, and more, making it easier than ever to build high-quality Android apps.
+4 min read ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) 21 Apr 2026 [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) Senior Product Manager Android Studio Panda 4 is now stable and ready for you to use in production. This release brings Planning Mode, Next Edit Prediction, and more, making it easier than ever to build high-quality Android apps.
 [Video](https://www.youtube.com/watch?v=ThfXy_Cx4gg)
 
 Here's a deep dive into what's new:

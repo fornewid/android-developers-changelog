@@ -18,8 +18,7 @@ val alpha: Float by animateFloatAsState(
     targetValue = if (enabled) 1f else 0.5f,
     // Configure the animation duration and easing.
     animationSpec = tween(durationMillis = 300, easing = FastOutSlowInEasing),
-    label = "alpha"
-)
+    label = "alpnippets.kt
 ```
 
 <br />
@@ -48,8 +47,7 @@ val value by animateFloatAsState(
         dampingRatio = Spring.DampingRatioHighBouncy,
         stiffness = Spring.StiffnessMedium
     ),
-    label = "spring spec"
-)
+    label = "spring spnippets.kt
 ```
 
 <br />
@@ -82,8 +80,7 @@ val value by animateFloatAsState(
         delayMillis = 50,
         easing = LinearOutSlowInEasing
     ),
-    label = "tween delay"
-)
+    label = "tween delnippets.kt
 ```
 
 <br />
@@ -112,8 +109,7 @@ val value by animateFloatAsState(
         0.4f at 75 // ms
         0.4f at 225 // ms
     },
-    label = "keyframe"
-)
+    label = "keyfranippets.kt
 ```
 
 <br />
@@ -173,8 +169,7 @@ val value by animateFloatAsState(
         animation = tween(durationMillis = 300),
         repeatMode = RepeatMode.Reverse
     ),
-    label = "repeatable spec"
-)
+    label = "repeatable spnippets.kt
 ```
 
 <br />
@@ -192,8 +187,7 @@ val value by animateFloatAsState(
         animation = tween(durationMillis = 300),
         repeatMode = RepeatMode.Reverse
     ),
-    label = "infinite repeatable"
-)
+    label = "infinite repeatabnippets.kt
 ```
 
 <br />
@@ -214,8 +208,7 @@ animation.
 val value by animateFloatAsState(
     targetValue = 1f,
     animationSpec = snap(delayMillis = 50),
-    label = "snap spec"
-)
+    label = "snap spnippets.kt
 ```
 
 <br />
@@ -249,8 +242,7 @@ fun EasingUsage() {
         ),
         label = "custom easing"
     )
-    // ......
-}
+ nippets.kt
 ```
 
 <br />
@@ -318,9 +310,7 @@ fun MyAnimation(targetSize: MySize) {
                 MySize(vector.v1.dp, vector.v2.dp)
             }
         ),
-        label = "size"
-    )
-}
+        label = "size&quonippets.kt
 ```
 
 <br />

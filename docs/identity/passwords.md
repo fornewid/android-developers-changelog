@@ -78,13 +78,15 @@ save these credentials in their password manager.
             CreatePasswordRequest(id = username, password = password)
 
         // Create credential and handle result.
+        // Use an activity-based context to avoid undefined system UI
+        // launching behavior.
+        val context = MutableContextWrapper(activityContext)
         coroutineScope {
             try {
                 val result =
                     credentialManager.createCredential(
-                        // Use an activity based context to avoid undefined
-                        // system UI launching behavior.
-                        activityContext,
+                        // Use MutableContextWrapper to avoid memory leak during configuration changes
+                        context = context,
                         createPasswordRequest
                     )
                 // Handle register password result

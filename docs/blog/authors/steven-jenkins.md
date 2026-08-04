@@ -16,7 +16,7 @@ Android Studio
   ## [Test Multi-Device Interactions with the Android Emulator](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator)
 
   [arrow_forward](https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator) Testing multi-device interactions is now easier than ever with the Android Emulator.
-  2 min read
+  1 min read
 Stay in the loop
 
 

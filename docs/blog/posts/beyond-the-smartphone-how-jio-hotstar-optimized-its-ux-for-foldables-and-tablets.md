@@ -8,7 +8,7 @@ source: md.txt
 
 # Beyond the smartphone: How JioHotstar optimized its UX for foldables and tablets
 
-3-min read ![](https://developer.android.com/static/blog/assets/beyond_Smartphone_e17b5979d9_ZBzwz8.webp) 26 Jan 2026 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/prateek-batra) [Prateek Batra](https://developer.android.com/blog/authors/prateek-batra) Developer Relations Engineer, Android Adaptive Apps
+3 min read ![](https://developer.android.com/static/blog/assets/beyond_Smartphone_e17b5979d9_ZBzwz8.webp) 26 Jan 2026 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/prateek-batra) [Prateek Batra](https://developer.android.com/blog/authors/prateek-batra) Developer Relations Engineer, Android Adaptive Apps
 
 ### **Beyond Phones: How JioHotstar Built an Adaptive UX**
 

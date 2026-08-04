@@ -4,6 +4,18 @@ url: https://developer.android.com/guide/navigation/navigation-3/migration-guide
 source: md.txt
 ---
 
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/navigation/navigation-3)
+
+### Jetpack Navigation 3
+
+Use an Android skill to help you build and migrate to Jetpack Navigation 3. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add --skill navigation-3
+
+<br />
+
 To migrate your app from [Navigation 2](https://developer.android.com/guide/navigation) to Navigation 3, follow these steps:
 
 1. Add the Navigation 3 dependencies.
@@ -13,32 +25,6 @@ To migrate your app from [Navigation 2](https://developer.android.com/guide/navi
 5. Move your destinations from `NavHost`'s `NavGraph` into an `entryProvider`.
 6. Replace `NavHost` with `NavDisplay`.
 7. Remove Navigation 2 dependencies.
-
-> [!IMPORTANT]
-> **Important:** We released an agent skill to help you install and migrate to Jetpack Navigation 3. Try out the skill from the [Android skills repository](https://github.com/android/skills).
-
-<br />
-
-
-## AI Prompt
-
-### Migrate from Navigation 2 to Navigation 3
-
-This prompt will use this guide to migrate to navigation 3.
-
-    Migrate from Navigation 2 to Navigation 3 using the official
-    migration guide.
-
-### Using AI prompts
-
-AI prompts are intended to be used within Gemini in Android Studio.
-
-Learn more about Gemini in Studio here: [https://developer.android.com/studio/gemini/overview](https://developer.android.com/studio/gemini/overview)
-<button class="devsite-dialog-close">Close</button> <button class="button icon-button android-ai-prompt-help-button" data-modal-dialog-id="ai-prompt_help_modal__migrate-from-navigation-2-to-navigation-3"> </button> <button class="button google-feedback" data-p="5207477" data-b="llm-prompts" data-context="migrate-from-navigation-2-to-navigation-3"> Share your thoughts </button>
-
-<br />
-
-If you run into problems [file an issue here](https://issuetracker.google.com/issues/new?component=1750212&template=2102223&title=%5BMigration%5D).
 
 ## Preparation
 
@@ -365,6 +351,33 @@ After:
 Verify that you have removed all references to `NavController`, including
 any imports.
 
+### Step 4.1 Migrate lifecycle-aware logic
+
+In Navigation 2, `NavBackStackEntry` implements `LifecycleOwner`, letting you
+listen to lifecycle events or collect flows in a lifecycle-aware manner using
+`navController.currentBackStackEntry`.
+
+In Navigation 3, `NavDisplay` provides an entry-scoped `LifecycleOwner`
+through `LocalLifecycleOwner.current` to each destination's composable
+content. See [Destination lifecycle](https://developer.android.com/guide/navigation/navigation-3/basics#destination-lifecycle) for more information.
+
+You should perform lifecycle-aware operations directly inside your destination's
+composable content by referencing `LocalLifecycleOwner.current`.
+
+For example, if you collect a flow in a lifecycle-aware manner using the back
+stack entry:
+
+Before:
+
+    // In your destination screen or host
+    val lifecycleOwner = navController.currentBackStackEntry
+    val state by flow.collectAsStateWithLifecycle(lifecycleOwner = lifecycleOwner)
+
+After:
+
+    // Inside the destination composable
+    val state by flow.collectAsStateWithLifecycle()
+
 ## Step 5: Move your destinations from `NavHost`'s `NavGraph` into an `entryProvider`
 
 In Navigation 2, you [define your destinations](https://developer.android.com/guide/navigation/design#compose)
@@ -385,7 +398,7 @@ as follows:
 > [!NOTE]
 > **Note:** If your app needs to navigate from an entry in one stack to another, you need to define the parent-child relationships for the routes and update the navigation logic in `Navigator` to support this.
 
-## Step 5.1: Create an `entryProvider`
+### Step 5.1: Create an `entryProvider`
 
 Create an `entryProvider` [using the DSL](https://developer.android.com/guide/navigation/navigation-3/basics#entry-provider-DSL) at the same scope as the
 `NavigationState`.
@@ -394,7 +407,7 @@ Create an `entryProvider` [using the DSL](https://developer.android.com/guide/na
 
     }
 
-## Step 5.2: Move destinations into the `entryProvider`
+### Step 5.2: Move destinations into the `entryProvider`
 
 For each destination defined inside `NavHost`, do the following based on the
 destination type:

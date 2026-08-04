@@ -8,7 +8,7 @@ source: md.txt
 
 # Elevating media playback: Introducing preloading with Media3 - Part 1
 
-8-min read ![](https://developer.android.com/static/blog/assets/elevating_Media_Playback_16bfc9b0d6_25Uc6u.webp) 05 Sep 2025 [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](https://developer.android.com/blog/authors/mayuri-khabya) [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) Developer Relations Engineer In today's media-centric apps, delivering a smooth, uninterrupted playback experience is key to a delightful user experience. Users expect their videos to start instantly and play seamlessly without pauses.
+8 min read ![](https://developer.android.com/static/blog/assets/elevating_Media_Playback_16bfc9b0d6_25Uc6u.webp) 05 Sep 2025 [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](https://developer.android.com/blog/authors/mayuri-khabya) [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) Developer Relations Engineer In today's media-centric apps, delivering a smooth, uninterrupted playback experience is key to a delightful user experience. Users expect their videos to start instantly and play seamlessly without pauses.
 
 The core challenge is latency. Traditionally, a video player only starts its work---connecting, downloading, parsing, buffering---after the user has chosen an item for playback. This reactive approach is slow for today's short form video context. The solution is to be proactive. We need to anticipate what the user will watch next and get the content ready ahead of time. This is the essence of preloading.
 
@@ -262,7 +262,7 @@ Continue reading
   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
 
   [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 5 min read
+  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
 Stay in the loop
 
 

@@ -8,7 +8,7 @@ source: md.txt
 
 # Grow your app with the Google Play Apps Accelerator - apply now
 
-1-min read ![](https://developer.android.com/static/blog/assets/APPSACC_Website_Android_Devs_Blog_Header_f690f5f7cc_ZQUPd2.webp) 22 Oct 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing At Google Play, we're committed to helping businesses of all sizes reach their full potential. That's why we're excited to open submissions for our new [Google Play Apps Accelerator](https://rsvp.withgoogle.com/events/play-apps-accelerator).
+1 min read ![](https://developer.android.com/static/blog/assets/APPSACC_Website_Android_Devs_Blog_Header_f690f5f7cc_ZQUPd2.webp) 22 Oct 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing At Google Play, we're committed to helping businesses of all sizes reach their full potential. That's why we're excited to open submissions for our new [Google Play Apps Accelerator](https://rsvp.withgoogle.com/events/play-apps-accelerator).
 
 If you're an early-stage app company ready to scale, this program is designed for you.
 

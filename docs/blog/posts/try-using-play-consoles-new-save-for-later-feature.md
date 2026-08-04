@@ -8,7 +8,7 @@ source: md.txt
 
 # Ready to review some changes but not others? Try using Play Console's new Save for later feature
 
-2-min read ![](https://developer.android.com/static/blog/assets/260120_Header_7fdfbedb2d_105hHT.webp) 21 Jan 2026 [![View Georgia Doyle's profile](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp)](https://developer.android.com/blog/authors/georgia-doyle)[![View Kanu Tibrewal's profile](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp)](https://developer.android.com/blog/authors/kanu-tibrewal) [Georgia Doyle](https://developer.android.com/blog/authors/georgia-doyle) \& [Kanu Tibrewal](https://developer.android.com/blog/authors/kanu-tibrewal) We've launched a new Save for later feature on Google Play Console's [Publishing overview](https://play.google.com/console/about/publishingoverview/) to give you more control over when you send changes for review.
+2 min read ![](https://developer.android.com/static/blog/assets/260120_Header_7fdfbedb2d_105hHT.webp) 21 Jan 2026 [![View Georgia Doyle's profile](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp)](https://developer.android.com/blog/authors/georgia-doyle)[![View Kanu Tibrewal's profile](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp)](https://developer.android.com/blog/authors/kanu-tibrewal) [Georgia Doyle](https://developer.android.com/blog/authors/georgia-doyle) \& [Kanu Tibrewal](https://developer.android.com/blog/authors/kanu-tibrewal) We've launched a new Save for later feature on Google Play Console's [Publishing overview](https://play.google.com/console/about/publishingoverview/) to give you more control over when you send changes for review.
 
 In the past, changes to your app were bundled together before being sent for review. This presented challenges if you needed to reprioritize changes, or if the changes were no longer relevant. For example, updates to your test tracks grouped with marketing changes that need to be rescheduled. This lack of flexibility meant that if some changes were ready for review but not others, you could end up delaying urgent fixes, or publishing changes that you weren't quite ready to make.  
 
@@ -67,17 +67,13 @@ Continue reading
   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
 
   [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 5 min read
-- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_ZzldHB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_Z1BKgnT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
+  ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices)
 
-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent) Android Studio Quail 2 is now stable and ready for you to use in production, bringing a shift to your IDE with concurrent agentic workflows, natively integrated memory leak profiling, and context-aware crash remediation.
-  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 3 min read
-  - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
-  - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-  - +1 ↩
+  [arrow_forward](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices) Today at Galaxy Unpacked, Samsung unveiled its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
 Stay in the loop
 
 

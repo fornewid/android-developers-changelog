@@ -37,21 +37,21 @@ Here are excerpts from a sample manifest that includes a provider:
     ...
     <uses-sdk
         android:minSdkVersion="19"
-        android:targetSdkVers>ion="19" /
- <       ....
-        provider
+        android:targetSdkVersion="19" />
+        ....
+        <provider
             android:name="com.example.android.storageprovider.MyCloudProvider"
             android:authorities="com.example.android.storageprovider.documents"
             android:grantUriPermissions="true"
             android:exported="true"
-        >    android:p<ermission=&qu>ot;android.permis<sion.MANAGE_DOCUMENTS"
-            intent-filter
-           >     action a<ndroid:name=&q>uot;andro<id.conten>t.act<ion.DOCUMENT>S_<PROVIDER&>quot; /
-            /intent-filter
-        /provider
-    /application
+            android:permission="android.permission.MANAGE_DOCUMENTS">
+            <intent-filter>
+                <action android:name="android.content.action.DOCUMENTS_PROVIDER" />
+            </intent-filter>
+        </provider>
+    </application>
 
-/manifest
+</manifest>
 ```
 
 ### Supporting devices running Android 4.3 and lower
@@ -75,12 +75,12 @@ running Android version 4.4 or higher:
 1. In your `bool.xml` resources file under `res/values/`, add this line:
 
    ```xml
-   <bool name="atMostJellyBea>nMR2<">;true/bool
+   <bool name="atMostJellyBeanMR2">true</bool>
    ```
 2. In your `bool.xml` resources file under `res/values-v19/`, add this line:
 
    ```xml
-   <bool name="atMostJellyBea>nMR2&<quot;>false/bool
+   <bool name="atMostJellyBeanMR2">false</bool>
    ```
 3. Add an [activity
    alias](https://developer.android.com/guide/topics/manifest/activity-alias-element) to disable the `https://developer.android.com/reference/android/content/Intent#ACTION_GET_CONTENT` intent filter for versions 4.4 (API level 19) and higher. For example:
@@ -91,15 +91,15 @@ running Android version 4.4 or higher:
    <activity-alias android:name="com.android.example.app.MyPicker"
            android:targetActivity="com.android.example.app.MyActivity"
            ...
-           android:enabled=">@bool</atMostJellyB>eanMR2&qu<ot;
-       intent-filter
-           action android:name="a>ndroid.in<tent.action.GET_CONTENT" /
-           category android:n>ame="<;android.intent.category.OPENABLE" /
-           categor>y android<:name="android.intent.catego>ry.DEFAUL<T" /
-           data android:mi>meTyp<e="image/>*<" /
-         >  data android:mimeType="video/*" /
-       /intent-filter
-   /activity-alias
+           android:enabled="@bool/atMostJellyBeanMR2">
+       <intent-filter>
+           <action android:name="android.intent.action.GET_CONTENT" />
+           <category android:name="android.intent.category.OPENABLE" />
+           <category android:name="android.intent.category.DEFAULT" />
+           <data android:mimeType="image/*" />
+           <data android:mimeType="video/*" />
+       </intent-filter>
+   </activity-alias>
    ```
 
 ## Contracts
@@ -695,7 +695,7 @@ public Cursor queryRecentDocuments(String rootId, String[] projection)
 
     // Add the most recent files to the cursor,
     // not exceeding the max number of results.
-    for (int i< = 0; i  Math.min(MAX_LAST_MODIFIED + 1, lastModifiedFiles.size()); i++) {
+    for (int i = 0; i < Math.min(MAX_LAST_MODIFIED + 1, lastModifiedFiles.size()); i++) {
         final File file = lastModifiedFiles.remove();
         includeFile(result, null, file);
     }
@@ -885,9 +885,9 @@ override fun openTypedDocument(
     return try {
         // Determine which supported MIME type the client app requested.
         when(mimeTypeFilter) {
-     >       "image/jpg" - openJpgDocument(documentId)
-            &>quot;image/png", "image/*", &quo>t;*/*" - openPngDocument(documentId)
-            else - throw IllegalArgumentException("Invalid mimeTypeFilter $mimeTypeFilter")
+            "image/jpg" -> openJpgDocument(documentId)
+            "image/png", "image/*", "*/*" -> openPngDocument(documentId)
+            else -> throw IllegalArgumentException("Invalid mimeTypeFilter $mimeTypeFilter")
         }
     } catch (ex: Exception) {
         Log.e(TAG, ex.message)
@@ -895,14 +895,14 @@ override fun openTypedDocument(
     }
 }
 
-override fun get<Docume>ntStreamTypes(documentId: String, mimeTypeFilter: String): Array>String {
+override fun getDocumentStreamTypes(documentId: String, mimeTypeFilter: String): Array<String> {
     return when (mimeTypeFilter) {
-        "*/*", "image/*" - {
+        "*/*", "image/*" -> {
             // Return all supported MIME types if the client app
-            >// passes in '*/*' or 'image/*'.
+            // passes in '*/*' or 'image/*'.
             SUPPORTED_MIME_TYPES
         }
-        else - {
+        else -> {
             // Filter the list of supported mime types to find a match.
             SUPPORTED_MIME_TYPES.filter { it == mimeTypeFilter }.toTypedArray()
         }
@@ -950,14 +950,14 @@ public String[] getDocumentStreamTypes(String documentId, String mimeTypeFilter)
     // Return all supported MIME tyupes if the client app
     // passes in '*/*' or 'image/*'.
     if ("*/*".equals(mimeTypeFilter) ||
-        "image/*".equals(mimeT&ype&Filter)) {
+        "image/*".equals(mimeTypeFilter)) {
         return SUPPORTED_MIME_TYPES;
     }
 
-    ArrayList requestedMimeTypes = new Arra&yListlt;gt;();
+    ArrayList requestedMimeTypes = new ArrayList&lt;&gt;();
 
     // Iterate over the list of supported mime types to find a match.
-    for (int i=0; i lt; SUPPORTED_MIME_TYPES.length; i++) {
+    for (int i=0; i &lt; SUPPORTED_MIME_TYPES.length; i++) {
         if (SUPPORTED_MIME_TYPES[i].equals(mimeTypeFilter)) {
             requestedMimeTypes.add(SUPPORTED_MIME_TYPES[i]);
         }

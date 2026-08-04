@@ -8,7 +8,7 @@ source: md.txt
 
 # Increasing app discovery and engagement on Google TV
 
-4-min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) 19 May 2026 [![View Paul Lammertsma's profile](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)](https://developer.android.com/blog/authors/paul-lammertsma) [Paul Lammertsma](https://developer.android.com/blog/authors/paul-lammertsma) Developer Relations Engineer, Android With over 300 million monthly active devices across Google TV and Android TV, it's clear that the living room is a massive, distinct platform for apps to accelerate growth. Today, we're excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
+3 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) 19 May 2026 [![View Paul Lammertsma's profile](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)](https://developer.android.com/blog/authors/paul-lammertsma) [Paul Lammertsma](https://developer.android.com/blog/authors/paul-lammertsma) Developer Relations Engineer, Android With over 300 million monthly active devices across Google TV and Android TV, it's clear that the living room is a massive, distinct platform for apps to accelerate growth. Today, we're excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
 
 ### Drive discovery and engagement with Gemini
 

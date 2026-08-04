@@ -22,9 +22,18 @@ they do act as a replacement for styling parameters, such as padding and colors.
 We recommend transitioning to using Styles over parameters for increased
 flexibility and performance.
 
-> [!IMPORTANT]
-> **Important:** We released an agent skill to help you use the new Styles API in your apps. Try out the skill from the [Android skills
-> repository](https://github.com/android/skills).
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/jetpack-compose/theming/styles)
+
+### Styles
+
+Use the Styles [Android skill](https://developer.android.com/tools/agents/android-skills) to integrate the Jetpack Compose Styles API into your Android project. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add --skill styles
+
+<br />
 
 ## Benefits of Styles
 

@@ -8,7 +8,7 @@ source: md.txt
 
 # Get ready for Google I/O: Livestream schedule revealed
 
-1-min read ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp) 14 Apr 2026 The Google I/O schedule is here! Tune in **May 19--20** as we unveil Google's biggest updates across AI, Android, Chrome, and Cloud. Discover new tools and features designed to unlock the future of development with agentic coding.
+1 min read ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp) 14 Apr 2026 The Google I/O schedule is here! Tune in **May 19--20** as we unveil Google's biggest updates across AI, Android, Chrome, and Cloud. Discover new tools and features designed to unlock the future of development with agentic coding.
 
 We're kicking things off with the [Google keynote](https://io.google/2026/explore/google-keynote-1?utm_source=blogpost&utm_medium=pr&utm_campaign=schedule&utm_content) at 10:00 am PT on May 19, followed by the [Developer keynote](https://io.google/2026/explore/developer-keynote-1?utm_source=blogpost&utm_medium=pr&utm_campaign=schedule&utm_content) at 1:30 pm PT. Block your calendars for two days of live sessions, straight from Mountain View, full of announcements, live demos, and new professional development sessions.
 

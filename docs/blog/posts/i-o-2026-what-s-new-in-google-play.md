@@ -8,7 +8,7 @@ source: md.txt
 
 # I/O 2026: What's new in Google Play
 
-6-min read ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp) 19 May 2026 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) [Paul Feng](https://developer.android.com/blog/authors/paul-feng) VP, Google Play Eng, Product, UX At Google Play, we're passionate about helping people connect with the experiences they'll love, while empowering developers like you to turn great ideas into lasting business success.
+6 min read ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp) 19 May 2026 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) [Paul Feng](https://developer.android.com/blog/authors/paul-feng) VP, Google Play Eng, Product, UX At Google Play, we're passionate about helping people connect with the experiences they'll love, while empowering developers like you to turn great ideas into lasting business success.
 
 At this year's Google I/O, we talked about our [evolving business model](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity. Watch the keynote video below, or keep reading for the biggest updates from this year's event.
 
@@ -133,7 +133,7 @@ Continue reading
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
 - [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26)

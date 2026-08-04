@@ -8,7 +8,7 @@ source: md.txt
 
 # Meet the class of 2026 for the Google Play Apps Accelerator
 
-1-min read ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp) 25 Mar 2026 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing The wait is over! We are incredibly excited to share the [Google Play Apps Accelerator](https://rsvp.withgoogle.com/events/play-apps-accelerator) class of 2026. We've handpicked a group of high-potential studios from across the globe to embark on a 12-week journey designed to supercharge their success.  
+1 min read ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp) 25 Mar 2026 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing The wait is over! We are incredibly excited to share the [Google Play Apps Accelerator](https://rsvp.withgoogle.com/events/play-apps-accelerator) class of 2026. We've handpicked a group of high-potential studios from across the globe to embark on a 12-week journey designed to supercharge their success.  
 
 Here's what's in store for the program's first ever class:
 

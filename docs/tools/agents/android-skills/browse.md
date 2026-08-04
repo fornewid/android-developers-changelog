@@ -12,7 +12,7 @@ To explore all the available skills, see the
 [Android skills GitHub repository](https://github.com/android/skills).
 [![](https://developer.android.com/static/images/picto-icons/chevron-complex.svg)
 ### Upgrade to AGP 9
-Guidance on upgrading your project to Android Gradle Plugin 9.](https://github.com/android/skills/tree/main/build/agp/agp-9-upgrade) [![](https://developer.android.com/static/images/picto-icons/increased-productivity.svg)
+Guidance on upgrading your project to Android Gradle Plugin 9.](https://github.com/android/skills/tree/main/build-system/agp/agp-9-upgrade) [![](https://developer.android.com/static/images/picto-icons/increased-productivity.svg)
 ### Use Android CLI
 Use Android CLI to create projects, run apps on devices, manage virtual devices, and inspect UI.](https://github.com/android/skills/tree/main/devtools/android-cli) [![](https://developer.android.com/static/images/picto-icons/security.svg)
 ### Android Intent security

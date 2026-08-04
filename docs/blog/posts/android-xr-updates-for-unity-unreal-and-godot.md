@@ -8,7 +8,7 @@ source: md.txt
 
 # Android XR Updates for Unity, Unreal, and Godot
 
-4-min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp) 19 May 2026 [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins)[![View Ryan Bartley's profile](https://developer.android.com/static/blog/assets/Ryan_Bartley_35cf836cd8_ZgTUAO.webp)](https://developer.android.com/blog/authors/ryan-bartley) [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins) \& [Ryan Bartley](https://developer.android.com/blog/authors/ryan-bartley) Today, we are excited to announce that official support for [**Unreal Engine**](https://www.unrealengine.com/) and [**Godot**](https://godotengine.org/) has arrived for Android XR. Alongside these engine expansions, we are also launching new tools designed to boost your productivity and enable new XR capabilities: the **Android XR Engine Hub** and the**Android XR Interaction Framework**.
+4 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp) 19 May 2026 [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins)[![View Ryan Bartley's profile](https://developer.android.com/static/blog/assets/Ryan_Bartley_35cf836cd8_ZgTUAO.webp)](https://developer.android.com/blog/authors/ryan-bartley) [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins) \& [Ryan Bartley](https://developer.android.com/blog/authors/ryan-bartley) Today, we are excited to announce that official support for [**Unreal Engine**](https://www.unrealengine.com/) and [**Godot**](https://godotengine.org/) has arrived for Android XR. Alongside these engine expansions, we are also launching new tools designed to boost your productivity and enable new XR capabilities: the **Android XR Engine Hub** and the**Android XR Interaction Framework**.
 
 ## Android XR Engine Hub
 
@@ -150,7 +150,7 @@ Continue reading
   ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
 
   [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates) From augmented overlays to fully immersive environments, the Android XR ecosystem is expanding rapidly, with the Samsung Galaxy XR already available today.
-  [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 3 min read
+  [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 2 min read
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
 - [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp) [Product News](https://developer.android.com/blog/categories/product-news)

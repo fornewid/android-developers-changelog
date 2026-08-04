@@ -8,7 +8,7 @@ source: md.txt
 
 # Get ready for Google I/O May 19-20
 
-1-min read ![](https://developer.android.com/static/blog/assets/O_SVD_DAC_Banner_1600x476_4x1_1_21e5678d22_Z2feGk6.webp) 17 Feb 2026
+1 min read ![](https://developer.android.com/static/blog/assets/O_SVD_DAC_Banner_1600x476_4x1_1_21e5678d22_Z2feGk6.webp) 17 Feb 2026
 
 ### **Google I/O returns May 19--20**
 

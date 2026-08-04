@@ -122,11 +122,14 @@ Check if the user has an authorized account on the device by calling the
         .addCredentialOption(googleIdOption)
         .build()
 
+    // Use an activity-based context to avoid undefined system UI
+    // launching behavior.
+    val mutableContext = MutableContextWrapper(activityContext)
     coroutineScope {
         try {
             val result = credentialManager.getCredential(
-                request = request,
-                context = activityContext,
+                request = request,            
+                context = mutableContext // Use MutableContextWrapper to avoid memory leak during configuration changes
             )
             handleSignIn(result)
         } catch (e: GetCredentialException) {

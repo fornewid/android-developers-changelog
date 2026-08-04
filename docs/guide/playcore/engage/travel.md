@@ -619,6 +619,23 @@ whether the content can be presented on the device.
 
 ##### For Engage SDK v1.6.0 and higher (Recommended)
 
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/play/engage-sdk-integration)
+
+### Engage SDK integration
+
+To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add --skill engage-sdk-integration
+
+If your team uses AI coding tools (such as Gemini in Android Studio), you can automate this migration by prompting your AI assistant:
+
+    Use the engage-sdk-integration skill to use Engage SDK 1.6.0 and refactor isServiceAvailable to pass ServiceAvailabilityRequest for publishing all cluster types.
+
+<br />
+
 You can check the service availability for every cluster type that you intend to
 publish. The `isServiceAvailable` API accepts a request object,
 `ServiceAvailabilityRequest`, which contains the cluster types for which service

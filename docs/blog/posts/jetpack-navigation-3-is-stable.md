@@ -8,7 +8,7 @@ source: md.txt
 
 # Jetpack Navigation 3 is stable
 
-3-min read ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z1dRNOI.webp) 19 Nov 2025 [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](https://developer.android.com/blog/authors/don-turner) [Don Turner](https://developer.android.com/blog/authors/don-turner) Developer Relations Engineer [Jetpack Navigation 3](https://developer.android.com/guide/navigation/navigation-3) version 1.0 is stable 🎉. Go ahead and use it in your production apps today. JetBrains are [already using it in their KotlinConf app](https://github.com/JetBrains/kotlinconf-app/pull/504).
+3 min read ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z1dRNOI.webp) 19 Nov 2025 [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](https://developer.android.com/blog/authors/don-turner) [Don Turner](https://developer.android.com/blog/authors/don-turner) Developer Relations Engineer [Jetpack Navigation 3](https://developer.android.com/guide/navigation/navigation-3) version 1.0 is stable 🎉. Go ahead and use it in your production apps today. JetBrains are [already using it in their KotlinConf app](https://github.com/JetBrains/kotlinconf-app/pull/504).
 
 Navigation 3 is a new navigation library built from the ground up to embrace Jetpack Compose [state](https://developer.android.com/develop/ui/compose/state#state-in-composables). It gives you full control over your back stack, helps you retain navigation state, and allows you to easily create adaptive layouts (like list-detail). [There's even a cross-platform version from JetBrains](https://kotlinlang.org/docs/multiplatform/whats-new-compose-110.html#support-for-navigation-3).
 
@@ -117,7 +117,7 @@ Continue reading
   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
 
   [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 5 min read
+  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
 Stay in the loop
 
 
