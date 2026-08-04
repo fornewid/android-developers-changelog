@@ -1,0 +1,61 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/voice-input-indicator.md b/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/voice-input-indicator.md
+index 0bf1e96f..17f78886 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/voice-input-indicator.md
++++ b/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/voice-input-indicator.md
+@@ -61,13 +61,18 @@ variable:
+ 
+ 
+ ```kotlin
+-// Example state variables to hold the normalized level
++// Example state variable to hold the normalized level (0.0 to 1.0)
++// that the VoiceInputIndicator component expects.
+ val audioLevel = MutableStateFlow(0f)
++
++// Initialize the Android SpeechRecognizer
+ val speechRecognizer = SpeechRecognizer.createSpeechRecognizer(context)
+ 
++// Listener to capture speech events and audio level changes
+ val listener = object : RecognitionListener {
+     override fun onRmsChanged(rmsdB: Float) {
+-        // Normalize raw dB (~0--10) to 0.0-1.0 for the indicator
++        // Normalize raw dB level to a 0.0-1.0 range.
++        // Android SpeechRecognizer's rmsdB typically ranges from 0 to ~10.
+         audioLevel.value = ((rmsdB - 1f) / 9f).coerceIn(0f, 1f)
+     }
+ 
+@@ -82,12 +87,14 @@ val listener = object : RecognitionListener {
+     override fun onBufferReceived(buffer: ByteArray?) {}
+ }
+ 
+-// Attach the listener and start recognizing speech
++// Attach the listener to the recognizer
+ speechRecognizer.setRecognitionListener(listener)
+ 
++// Create an intent to specify the recognition model and behavior
+ val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
+     putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+ }
++// Begin listening for audio input
+ speechRecognizer.startListening(intent)
+ ```
+ 
+@@ -101,14 +108,15 @@ it directly into the [`VoiceInputIndicator`](https://developer.android.com/refer
+ 
+ ```kotlin
+ @Composable
+-fun VoiceInputExample() {
+-    // Collect the flow as Compose State so the UI reacts to changes
++fun VoiceInputExample(modifier: Modifier) {
++    // Collect the flow as Compose State so the UI reacts to changes in real-time.
+     val currentLevel by audioLevel.collectAsState()
+ 
+     VoiceInputIndicator(
+-        // The component responds to the level provided, showing a visual representation of the audio intensity
++        // The VoiceInputIndicator component provides a visual "pulse" or indicator
++        // that changes based on the 'level' lambda, which returns a Float between 0.0 and 1.0.
+         level = { currentLevel },
+-        modifier = Modifier.size(64.dp)
++        modifier = modifier
+     )
+ }
+ ```

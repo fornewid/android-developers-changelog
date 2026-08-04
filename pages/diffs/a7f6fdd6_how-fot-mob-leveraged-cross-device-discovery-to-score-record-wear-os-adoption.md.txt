@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/how-fot-mob-leveraged-cross-device-discovery-to-score-record-wear-os-adoption.md b/docs/blog/posts/how-fot-mob-leveraged-cross-device-discovery-to-score-record-wear-os-adoption.md
+index 2a64c827..ff883ea3 100644
+--- a/docs/blog/posts/how-fot-mob-leveraged-cross-device-discovery-to-score-record-wear-os-adoption.md
++++ b/docs/blog/posts/how-fot-mob-leveraged-cross-device-discovery-to-score-record-wear-os-adoption.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # How FotMob leveraged cross-device discovery to score record Wear OS adoption
+ 
+-3-min read ![](https://developer.android.com/static/blog/assets/cross_device_discovery_to_score_record_Wear_OS_adoption_Strapi_2f9244f1db_Z23QTbE.webp) 15 May 2026 [![View Garan Jenkin's profile](https://developer.android.com/static/blog/assets/Garan_Jenkin_0529dbfef9_Z2crRat.webp)](https://developer.android.com/blog/authors/garan-jenkin) [Garan Jenkin](https://developer.android.com/blog/authors/garan-jenkin) Developer Relations Engineer FotMob recently experienced its largest single-day increase on Wear OS among its installed audience in 5 years, at 2-3x the daily average. The secret? A simple cross-device installation flow that helps users discover their Wear OS app directly from their phone.
++3 min read ![](https://developer.android.com/static/blog/assets/cross_device_discovery_to_score_record_Wear_OS_adoption_Strapi_2f9244f1db_Z23QTbE.webp) 15 May 2026 [![View Garan Jenkin's profile](https://developer.android.com/static/blog/assets/Garan_Jenkin_0529dbfef9_Z2crRat.webp)](https://developer.android.com/blog/authors/garan-jenkin) [Garan Jenkin](https://developer.android.com/blog/authors/garan-jenkin) Developer Relations Engineer FotMob recently experienced its largest single-day increase on Wear OS among its installed audience in 5 years, at 2-3x the daily average. The secret? A simple cross-device installation flow that helps users discover their Wear OS app directly from their phone.
+ 
+ [FotMob](https://www.fotmob.com/) is one of the world's most popular football (some call it soccer!) platforms, known for its [mobile app](https://play.google.com/store/apps/details?id=com.mobilefootie.wc2010) that provides real-time scores, statistical analysis, and news.
+ ![fotmob-side-by-side.png](https://developer.android.com/static/blog/assets/fotmob_side_by_side_c1332b8f37_2bbOh.webp)

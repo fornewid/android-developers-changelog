@@ -1,0 +1,14 @@
+diff --git a/docs/develop/ui/compose/graphics/draw/overview.md b/docs/develop/ui/compose/graphics/draw/overview.md
+index d2171fa7..8b8558fc 100644
+--- a/docs/develop/ui/compose/graphics/draw/overview.md
++++ b/docs/develop/ui/compose/graphics/draw/overview.md
+@@ -258,7 +258,8 @@ and call `drawText` with the measurer:
+ val textMeasurer = rememberTextMeasurer()
+ 
+ Canvas(modifier = Modifier.fillMaxSize()) {
+-    drawText(textMeasurer, "Hellnippets.kt
++    drawText(textMeasurer, "Hello")
++}
+ ```
+ 
+ <br />

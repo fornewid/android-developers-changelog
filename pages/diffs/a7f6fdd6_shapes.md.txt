@@ -1,0 +1,73 @@
+diff --git a/docs/develop/ui/compose/graphics/draw/shapes.md b/docs/develop/ui/compose/graphics/draw/shapes.md
+index da35bab4..142fa013 100644
+--- a/docs/develop/ui/compose/graphics/draw/shapes.md
++++ b/docs/develop/ui/compose/graphics/draw/shapes.md
+@@ -228,8 +228,8 @@ Box(
+                 drawPath(morphPath, color = Color.Black)
+             }
+         }
+-    )
+-)ShapesSnippets.kt
++        .fillMaxSize()
++)
+ ```
+ 
+ <br />
+@@ -294,7 +294,9 @@ Box(
+     Text(
+         "Hello Compose",
+         color = MaterialTheme.colorScheme.onSecondary,
+-        modifier = Modifier.align(Alignment.Centenippets.kt
++        modifier = Modifier.align(Alignment.Center)
++    )
++}
+ ```
+ 
+ <br />
+@@ -333,7 +335,10 @@ Box(
+                 this.ambientShadowColor = Color.Black
+                 this.spotShadowColor = Color.Black
+             }
+-            .size(200.dpnippets.kt
++            .size(200.dp)
++
++    )
++}
+ ```
+ 
+ <br />
+@@ -368,7 +373,8 @@ class MorphPolygonShape(
+         val path = morph.toPath(progress = percentage).asComposePath()
+         path.transform(matrix)
+         return Outline.Generic(path)
+-ppets.kt
++    }
++}
+ ```
+ 
+ <br />
+@@ -414,8 +420,8 @@ Box(
+         .clickable(interactionSource = interactionSource, indication = null) {
+         }
+ ) {
+-    Text("Hello", modifier = Modifier.align()
+-}ShapesSnippets.kt
++    Text("Hello", modifier = Modifier.align(Alignment.Center))
++}
+ ```
+ 
+ <br />
+@@ -510,10 +516,11 @@ private fun RotatingScallopedProfilePic() {
+                         animatedProgress.value,
+                         animatedRotation.value
+                     )
+-                ).size(200.dp)
++                )
++                .size(200.dp)
+         )
+     }
+-}ShapesSnippets.kt
++}
+ ```
+ 
+ <br />

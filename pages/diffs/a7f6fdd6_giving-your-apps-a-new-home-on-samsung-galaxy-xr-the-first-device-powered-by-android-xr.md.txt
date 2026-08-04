@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr.md b/docs/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr.md
+index e483ee5d..695aeb75 100644
+--- a/docs/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr.md
++++ b/docs/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Giving your apps a new home on Samsung Galaxy XR, the first device powered by Android XR
+ 
+-3-min read ![](https://developer.android.com/static/blog/assets/Galaxy_XR_BLOG_341f1e7643_2mbd4B.webp) 22 Oct 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer The first device powered by [Android XR](https://developer.android.com/xr) is here: engineered by Samsung, [Galaxy XR, is available now](https://blog.google/products/android/samsung-galaxy-xr), putting the possibilities of immersive experiences directly into users' hands. With this launch, the [Android XR platform](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html), built for the era of AI, leverages the helpfulness of Gemini to bring users new ways to use an AI assistant and experience apps and games.
++3 min read ![](https://developer.android.com/static/blog/assets/Galaxy_XR_BLOG_341f1e7643_2mbd4B.webp) 22 Oct 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer The first device powered by [Android XR](https://developer.android.com/xr) is here: engineered by Samsung, [Galaxy XR, is available now](https://blog.google/products/android/samsung-galaxy-xr), putting the possibilities of immersive experiences directly into users' hands. With this launch, the [Android XR platform](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html), built for the era of AI, leverages the helpfulness of Gemini to bring users new ways to use an AI assistant and experience apps and games.
+ 
+ [Video](https://www.youtube.com/watch?v=AGFm8-O9VD4)
+ 

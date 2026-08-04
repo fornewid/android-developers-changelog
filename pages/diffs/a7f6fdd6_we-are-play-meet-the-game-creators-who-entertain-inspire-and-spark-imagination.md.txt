@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/we-are-play-meet-the-game-creators-who-entertain-inspire-and-spark-imagination.md b/docs/blog/posts/we-are-play-meet-the-game-creators-who-entertain-inspire-and-spark-imagination.md
+index 3c5f87b6..22e584f0 100644
+--- a/docs/blog/posts/we-are-play-meet-the-game-creators-who-entertain-inspire-and-spark-imagination.md
++++ b/docs/blog/posts/we-are-play-meet-the-game-creators-who-entertain-inspire-and-spark-imagination.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # #WeArePlay: Meet the game creators who entertain, inspire and spark imagination
+ 
+-2-min read ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) 13 Nov 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) stories, we meet the game creators who entertain, inspire and spark imagination in players around the world on Google Play. From delivering action-packed 3D kart racing to creating a calming, lofi world for plant lovers - here are a few of our favourites:
++2 min read ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) 13 Nov 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) stories, we meet the game creators who entertain, inspire and spark imagination in players around the world on Google Play. From delivering action-packed 3D kart racing to creating a calming, lofi world for plant lovers - here are a few of our favourites:
+ ![01_USA_VECTOR UNIT_FOUNDERS_ MATT SMALL_RALF KNOESEL_edited.png](https://developer.android.com/static/blog/assets/01_USA_VECTOR_UNIT_FOUNDERS_MATT_SMALL_RALF_KNOESEL_edited_3c2395d27f_Z1ll8KG.webp)
+ 
+ *Ralf and Matt, co-founders of Vector Unit \| San Rafael (CA), U.S.*

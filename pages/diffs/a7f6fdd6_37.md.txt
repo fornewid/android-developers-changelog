@@ -1,0 +1,17 @@
+diff --git a/docs/studio/releases/fixed-bugs/emulator/37.md b/docs/studio/releases/fixed-bugs/emulator/37.md
+index 672fefea..5cc0537f 100644
+--- a/docs/studio/releases/fixed-bugs/emulator/37.md
++++ b/docs/studio/releases/fixed-bugs/emulator/37.md
+@@ -4,6 +4,12 @@ url: https://developer.android.com/studio/releases/fixed-bugs/emulator/37
+ source: md.txt
+ ---
+ 
++### Android Emulator 37.2.3 Canary
++
++| Fixed Issues ||
++|---|---|
++| **Emulator** | |---| | [Issue #537802959](https://issuetracker.google.com/issues/537802959) macOS (Apple Silicon): gRPC streamScreenshot with ImageTransport MMAP crashes emulator engine (36.6.11.0) / silently never writes frames (37.2.1.0 canary) | |
++
+ ### Android Emulator 37.1.11 Stable
+ 
+ *This release includes minor fixes and improvements.*

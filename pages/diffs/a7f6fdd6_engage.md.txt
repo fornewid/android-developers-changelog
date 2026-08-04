@@ -1,0 +1,24 @@
+diff --git a/docs/guide/playcore/engage.md b/docs/guide/playcore/engage.md
+index 7e0003dc..9beb0f97 100644
+--- a/docs/guide/playcore/engage.md
++++ b/docs/guide/playcore/engage.md
+@@ -42,5 +42,15 @@ For device entitlement on TV, refer to [Engage SDK Device Entitlements](https://
+ Also, refer to [Engage SDK Recommendations](https://developer.android.com/guide/playcore/engage/recommendations)
+ for information about how to add recommended content to TV.
+ 
+-> [!IMPORTANT]
+-> **Important:** We released an agent skill to help you integrate Engage SDK into your app. Try out the skill from the [Android skills repository](https://github.com/android/skills).
+\ No newline at end of file
++
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/tree/main/play/engage-sdk-integration)
++
++### Integrate Engage SDK
++
++Use the Engage SDK [Android skill](https://developer.android.com/tools/agents/android-skills) to integrate, debug, and resolve implementation issues. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
++
++    android skills add --skill engage-sdk-integration
++
++<br />
+\ No newline at end of file

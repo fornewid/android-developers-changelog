@@ -1,0 +1,40 @@
+diff --git a/docs/about/versions/17/qpr2/release-notes.md b/docs/about/versions/17/qpr2/release-notes.md
+index 78ab6a9d..c2305430 100644
+--- a/docs/about/versions/17/qpr2/release-notes.md
++++ b/docs/about/versions/17/qpr2/release-notes.md
+@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr2/release-notes
+ source: md.txt
+ ---
+ 
++### Beta 2
++
++|---|---|
++| **Release date** | August 3, 2026 |
++| **Builds** | CP41.260717.006 |
++| **Emulator support** | x86 (64-bit), ARM (v8-A) |
++| **Security patch level** | 2026-07-05 |
++| **Google Play services** | 26.23.34 |
++
+ ### Beta 1
+ 
+ |---|---|
+@@ -13,6 +22,19 @@ source: md.txt
+ | **Security patch level** | 2026-07-05 |
+ | **Google Play services** | 26.23.34 |
+ 
++### Android 17 QPR 2 Beta 2 (July 2026)
++
++Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
++update the platform with fixes and improvements that are then rolled out to
++supported devices. These releases happen on a quarterly cadence through
++*Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to
++Google Pixel devices as part of *Feature Drops*.
++
++Although these updates don't include app-impacting API changes, we provide
++images of the latest QPR beta builds so you can test your app with these builds
++as needed (for example, if there are upcoming features that might impact the
++user experience of your app).
++
+ ### Android 17 QPR 2 Beta 1 (July 2026)
+ 
+ Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to

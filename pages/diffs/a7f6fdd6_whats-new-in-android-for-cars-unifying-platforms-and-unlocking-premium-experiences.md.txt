@@ -1,0 +1,22 @@
+diff --git a/docs/blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences.md b/docs/blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences.md
+index e67b1a2f..197f5089 100644
+--- a/docs/blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences.md
++++ b/docs/blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # What's new in Android for Cars: Unifying platforms and unlocking premium experiences
+ 
+-3-min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) 19 May 2026 3 Authors [Jan Kleinert,](https://developer.android.com/blog/authors/jan-kleinert) [Noam Gefen,](https://developer.android.com/blog/authors/noam-gefen) [Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers) We're thrilled to see developers continuing to bring their apps and experiences to Android for Cars! Over the past year, we've continued to see strong growth and momentum in the app ecosystem on Android Auto and cars with Google built-in. This year at Google I/O, we're introducing [updates](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/6014405363386119619#) that benefit both drivers and developers by enabling richer, more differentiated in-car experiences. With new features and templates that allow you to build once to reach users across different infotainment screens and car platforms, it's easier than ever to build for the road.
++3 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) 19 May 2026 3 Authors [Jan Kleinert,](https://developer.android.com/blog/authors/jan-kleinert) [Noam Gefen,](https://developer.android.com/blog/authors/noam-gefen) [Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers) We're thrilled to see developers continuing to bring their apps and experiences to Android for Cars! Over the past year, we've continued to see strong growth and momentum in the app ecosystem on Android Auto and cars with Google built-in. This year at Google I/O, we're introducing [updates](https://draft.blogger.com/u/0/blog/post/edit/6755709643044947179/6014405363386119619#) that benefit both drivers and developers by enabling richer, more differentiated in-car experiences. With new features and templates that allow you to build once to reach users across different infotainment screens and car platforms, it's easier than ever to build for the road.
+ 
+ ### What's new in the Car App Library
+ 
+@@ -101,7 +101,7 @@ Continue reading
+   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
+-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 5 min read
++  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
+ Stay in the loop
+ 
+ 

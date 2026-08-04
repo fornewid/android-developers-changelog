@@ -1,0 +1,22 @@
+diff --git a/docs/blog/latest/6.md b/docs/blog/latest/6.md
+index a74e9b92..ee9ad783 100644
+--- a/docs/blog/latest/6.md
++++ b/docs/blog/latest/6.md
+@@ -30,7 +30,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ## [Build for AI Glasses with the Android XR SDK Developer Preview 3 and unlock new features for immersive experiences](https://developer.android.com/blog/posts/build-for-ai-glasses-with-the-android-xr-sdk-developer-preview-3-and-unlock-new-features-for-immersive-experiences)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/build-for-ai-glasses-with-the-android-xr-sdk-developer-preview-3-and-unlock-new-features-for-immersive-experiences) To support the expanding selection of XR devices, we are announcing Android XR SDK Developer Preview 3!
+-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
++  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
+ - [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/xr_Week4_07a795cac6_Z1lA8nY.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+ 
+   ## [Start building for glasses, new devices for Android XR and more in The Android Show \| XR Edition](https://developer.android.com/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show)
+@@ -90,7 +90,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   ## [Leveling Guide for your Performance Journey](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey) The performance leveling guide features 5 levels. We'll start with level 1, which introduces minimal adoption effort performance tooling, and we'll go up to level 5, ideal for apps that have the resourcing to maintain a bespoke performance framework.
+-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 9 min read
++  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 8 min read
+ - 3 Authors 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week11_efe6dd10be_Z1PApe6.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+   ## [Deeper Performance Considerations](https://developer.android.com/blog/posts/deeper-performance-considerations)

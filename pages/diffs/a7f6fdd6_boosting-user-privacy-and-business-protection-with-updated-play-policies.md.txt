@@ -1,0 +1,22 @@
+diff --git a/docs/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies.md b/docs/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies.md
+index ed2a04ca..443ca4c9 100644
+--- a/docs/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies.md
++++ b/docs/blog/posts/boosting-user-privacy-and-business-protection-with-updated-play-policies.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Boosting user privacy and business protection with updated Play policies
+ 
+-3-min read ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp) 15 Apr 2026 [![View Bennet Manuel's profile](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) Group Product Manager We strive to make Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud. By providing better features for users and easy-to-integrate tools for you, we're making **it simpler to build** **safer apps**so you can focus on creating great experiences.
++3 min read ![](https://developer.android.com/static/blog/assets/260409_Uyo_policy_bundle_Header_dae9a057fb_2u7Yfb.webp) 15 Apr 2026 [![View Bennet Manuel's profile](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel) [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel) Group Product Manager We strive to make Google Play the safest and most trusted experience possible. Today, we're announcing a new set of policy updates and an account transfer feature to boost user privacy and protect your business from fraud. By providing better features for users and easy-to-integrate tools for you, we're making **it simpler to build** **safer apps**so you can focus on creating great experiences.
+ 
+ We're also expanding our features to help you manage new contact and location policy changes, so you have a smoother, more predictable app review experience. By October, Play policy insights in Android Studio can help you proactively identify if your app should use these new features and guide you on the exact steps to take. Additionally, new pre-review checks in the Play Console will be available starting October 27 to flag potential contacts or location permissions policy issues so you can fix them before you submit your app for review.
+ 
+@@ -77,7 +77,7 @@ Continue reading
+   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
+-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 5 min read
++  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
+ Stay in the loop
+ 
+ 

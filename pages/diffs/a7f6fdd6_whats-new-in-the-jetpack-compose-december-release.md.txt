@@ -1,0 +1,22 @@
+diff --git a/docs/blog/posts/whats-new-in-the-jetpack-compose-december-release.md b/docs/blog/posts/whats-new-in-the-jetpack-compose-december-release.md
+index b96598e2..3187825b 100644
+--- a/docs/blog/posts/whats-new-in-the-jetpack-compose-december-release.md
++++ b/docs/blog/posts/whats-new-in-the-jetpack-compose-december-release.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # What's new in the Jetpack Compose December '25 release
+ 
+-6-min read ![](https://developer.android.com/static/blog/assets/jetpack_Compose_99733114d6_Z2c0xrB.webp) 03 Dec 2025 [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) Product Manager Today, the [Jetpack Compose December '25 release](https://developer.android.com/jetpack/androidx/releases/compose) is stable. This contains version 1.10 of the core Compose modules and version 1.4 of Material 3 (see the full [BOM mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping)), adding new features and major performance improvements.
++6 min read ![](https://developer.android.com/static/blog/assets/jetpack_Compose_99733114d6_Z2c0xrB.webp) 03 Dec 2025 [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) Product Manager Today, the [Jetpack Compose December '25 release](https://developer.android.com/jetpack/androidx/releases/compose) is stable. This contains version 1.10 of the core Compose modules and version 1.4 of Material 3 (see the full [BOM mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping)), adding new features and major performance improvements.
+ 
+ To use today's release, upgrade your Compose BOM version to `2025.12.00`:
+ 
+@@ -263,7 +263,7 @@ Continue reading
+   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
+-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 5 min read
++  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
+ - [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_1T1vC6.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Android UI Development is Compose First](https://developer.android.com/blog/posts/android-ui-development-is-compose-first)

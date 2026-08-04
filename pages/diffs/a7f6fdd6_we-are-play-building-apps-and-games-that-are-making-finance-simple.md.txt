@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/we-are-play-building-apps-and-games-that-are-making-finance-simple.md b/docs/blog/posts/we-are-play-building-apps-and-games-that-are-making-finance-simple.md
+index 1b3fc5f3..8aef0d30 100644
+--- a/docs/blog/posts/we-are-play-building-apps-and-games-that-are-making-finance-simple.md
++++ b/docs/blog/posts/we-are-play-building-apps-and-games-that-are-making-finance-simple.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # #WeArePlay: Meet the people building apps and games that are making finance simple for everyone, everywhere
+ 
+-1-min read ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) 09 Oct 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) stories, we meet the founders building apps and games that are making finance simple for everyone, everywhere. From providing first-time loans in Myanmar to digitizing piggy banks for young savers in Nigeria, these founders are breaking down traditional financial barriers.
++1 min read ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) 09 Oct 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) stories, we meet the founders building apps and games that are making finance simple for everyone, everywhere. From providing first-time loans in Myanmar to digitizing piggy banks for young savers in Nigeria, these founders are breaking down traditional financial barriers.
+ 
+ Here are a few of our favorites:
+ ![Yuyuto.png](https://developer.android.com/static/blog/assets/Yuyuto_b736c57a1f_elqyl.webp)

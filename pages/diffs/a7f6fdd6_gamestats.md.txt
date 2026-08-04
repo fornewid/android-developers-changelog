@@ -1,0 +1,40 @@
+diff --git a/docs/games/pgs/gamestats.md b/docs/games/pgs/gamestats.md
+index cb2a2baf..fd14f163 100644
+--- a/docs/games/pgs/gamestats.md
++++ b/docs/games/pgs/gamestats.md
+@@ -10,6 +10,8 @@ players track lifetime progress, see highlight moments, and compare with other
+ players, and power Google Play features such as Quests, Social Challenges and
+ more in the future.
+ 
++Game stats must:
++
+ - Not require a purchase (For example, buy gems) that is they should not update as a result of any IAP purchase.
+ - Not require watching advertisements that is they should not update as a result of watching an advertisement.
+ - Not be generic use of the game (For example, open the game; use settings).
+@@ -21,7 +23,7 @@ more in the future.
+ 
+ ## Integration steps
+ 
+-Send data using Game Stats API as flexible player events for repetitive stats
++Send data using Game Stats API as player events for repetitive stats
+ and a predefined event `progressUpdate` for the progression stat. You will also
+ need to configure the logic for calculating the stats that would appear on Gamer
+ profile and their display information.
+@@ -37,7 +39,7 @@ A player event is defined and modeled as follows:
+ The integration consists of the following steps:
+ 
+ - **Declare the raw data schema:** Define player events using a CSV upload in the Play Console. See [Create events](https://developer.android.com/games/pgs/integrate-gamestats#create-events).
+-- **Integrate with Game Stats API:** Send raw player data in the declared format for flexible player events and `progressUpdate` event.
++- **Integrate with Game Stats API:** Send raw player data in the declared format for player events and `progressUpdate` event.
+   - Send all defined events using client side or server side integration. For more information, see examples for [Player Events](https://developer.android.com/games/pgs/integrate-gamestats#flexible-events-request-body) and [`progressUpdate` event](https://developer.android.com/games/pgs/integrate-gamestats#progressupdate-event).
+ - **Upload a ZIP file:** Provide 3 CSV files and all icon image files that define 5 repetitive stats and 1 player progression level. For more information, see [ZIP file guidelines](https://developer.android.com/games/pgs/integrate-gamestats#zip-file-stats-config). Include the following details:
+   - **CSV file for repetitive stats:**
+@@ -225,7 +227,7 @@ Server-to-server API calls follow standard [Server-side access to Play Games
+ Services](https://developer.android.com/games/pgs/android/server-access) guidelines using OAuth 2.0. Requests must include a Bearer token
+ authorized with the `https://www.googleapis.com/auth/games` scope.
+ 
+-##### Flexible Events: Request Body
++##### Events: Request Body
+ 
+ The backend API has strict structural validation limits:
+ 

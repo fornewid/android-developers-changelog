@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager.md b/docs/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager.md
+index d6777137..74761d49 100644
+--- a/docs/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager.md
++++ b/docs/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Datadog delivers millions of in-depth performance insights with ProfilingManager
+ 
+-4-min read ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp) 08 Jun 2026 3 Authors [Alice Yuan,](https://developer.android.com/blog/authors/alice-yuan) [Arti Arutiunov,](https://developer.android.com/blog/authors/arti-arutiunov) [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers. Although signals like ANR rates indicate *what* issues occur in production, pinpointing the specific line of code that resulted in the performance issue has historically necessitated exhaustive manual reproduction or speculative trial-and-error experimentation.
++4 min read ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp) 08 Jun 2026 3 Authors [Alice Yuan,](https://developer.android.com/blog/authors/alice-yuan) [Arti Arutiunov,](https://developer.android.com/blog/authors/arti-arutiunov) [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers. Although signals like ANR rates indicate *what* issues occur in production, pinpointing the specific line of code that resulted in the performance issue has historically necessitated exhaustive manual reproduction or speculative trial-and-error experimentation.
+ 
+ Datadog collaborated with Google to mitigate this frustration by integrating the ProfilingManager API (available on Android 15+ devices) into its Real User Monitoring (RUM) and Continuous Profiling platforms. This integration transforms the debugging workflow, allowing developers to move beyond surface-level symptoms to being able to detect the *why* behind a performance bottleneck.
+ 

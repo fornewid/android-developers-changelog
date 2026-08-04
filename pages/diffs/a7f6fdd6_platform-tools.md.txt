@@ -1,0 +1,18 @@
+diff --git a/docs/tools/releases/platform-tools.md b/docs/tools/releases/platform-tools.md
+index 11b69f13..870211a6 100644
+--- a/docs/tools/releases/platform-tools.md
++++ b/docs/tools/releases/platform-tools.md
+@@ -43,11 +43,9 @@ of the tools.
+ 
+ ## Revisions
+ 
+-#### 37.0.1
++#### 37.0.1 (July 2026)
+ 
+-**Canary: July 2026**
+-
+-##### adb
++**adb**
+ 
+ - Delete `openscreen` backend. The environment variable `ADB_MDNS_OPENSCREEN` no longer has any effect. The only mDNS backend is `libadbmdns`.
+ - Add trace level. `ADB_TRACE` format now accepts a log level (for example: `usb:v, services:w`).

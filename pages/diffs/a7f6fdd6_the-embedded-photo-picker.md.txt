@@ -1,0 +1,22 @@
+diff --git a/docs/blog/posts/the-embedded-photo-picker.md b/docs/blog/posts/the-embedded-photo-picker.md
+index 02bb4688..0756bc47 100644
+--- a/docs/blog/posts/the-embedded-photo-picker.md
++++ b/docs/blog/posts/the-embedded-photo-picker.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # The Embedded Photo Picker
+ 
+-8-min read ![](https://developer.android.com/static/blog/assets/Android_Photo_Picker_Blogger_60fa0ede59_YTu6Y.webp) 27 Jan 2026 [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](https://developer.android.com/blog/authors/roxanna-walker)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/yacine-rezgui) [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) \& [Yacine Rezgui](https://developer.android.com/blog/authors/yacine-rezgui)
++8 min read ![](https://developer.android.com/static/blog/assets/Android_Photo_Picker_Blogger_60fa0ede59_YTu6Y.webp) 27 Jan 2026 [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](https://developer.android.com/blog/authors/roxanna-walker)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/yacine-rezgui) [Roxanna Aliabadi Walker](https://developer.android.com/blog/authors/roxanna-walker) \& [Yacine Rezgui](https://developer.android.com/blog/authors/yacine-rezgui)
+ 
+ ## **The Embedded Photo Picker: A more seamless way to privately request photos and videos in your app**
+ 
+@@ -268,7 +268,7 @@ Continue reading
+   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
+-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 5 min read
++  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
+ Stay in the loop
+ 
+ 

@@ -1,0 +1,39 @@
+diff --git a/docs/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17.md b/docs/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17.md
+index 631e60dc..5c8d2dda 100644
+--- a/docs/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17.md
++++ b/docs/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Prepare your app for the resizability and orientation changes in Android 17
+ 
+-6-min read ![](https://developer.android.com/static/blog/assets/a17beta_bfff40b895_20Bzrw.webp) 13 Feb 2026 [![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) Developer Relations Engineer With the release of Android 16 in 2025, we shared our vision for a device ecosystem where apps adapt seamlessly to any screen---whether it's a phone, foldable, tablet, desktop, car display, or XR. Users expect their apps to work everywhere. Whether multitasking on a tablet, unfolding a device to read comfortably, or running apps in a desktop windowing environment, users expect the UI to fill the available display space and adapt to the device posture.
++6 min read ![](https://developer.android.com/static/blog/assets/a17beta_bfff40b895_20Bzrw.webp) 13 Feb 2026 [![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) Developer Relations Engineer With the release of Android 16 in 2025, we shared our vision for a device ecosystem where apps adapt seamlessly to any screen---whether it's a phone, foldable, tablet, desktop, car display, or XR. Users expect their apps to work everywhere. Whether multitasking on a tablet, unfolding a device to read comfortably, or running apps in a desktop windowing environment, users expect the UI to fill the available display space and adapt to the device posture.
+ 
+ We [introduced significant changes](https://android-developers.googleblog.com/2025/01/orientation-and-resizability-changes-in-android-16.html) to orientation and resizability APIs to facilitate adaptive behavior, while providing a temporary opt-out to help you make the transition. We've already seen many developers successfully adapt to this transition when targeting API level 36.
+ 
+@@ -170,6 +170,12 @@ Written by:
+   [read_more
+   View profile](https://developer.android.com/blog/authors/miguel-montemayor) ![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp) ![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)
+ Continue reading
++- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_Z1BKgnT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices)
++
++  [arrow_forward](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices) Today at Galaxy Unpacked, Samsung unveiled its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
++  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
+ - [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 03 Sep 2025 03 Sep 2025 ![](https://developer.android.com/static/blog/assets/yt_MBG_2_a56f169e60_ZSoFHF.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Unfold new possibilities with Compose Adaptive Layouts 1.2 beta](https://developer.android.com/blog/posts/unfold-new-possibilities-with-compose-adaptive-layouts)
+@@ -182,12 +188,6 @@ Continue reading
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play) Providing a safe online experience and protecting users from harm is a top priority at Google Play.
+   [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
+-- 3 Authors 28 Jul 2026 28 Jul 2026 ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z1F9b9M.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
+-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 5 min read
+ Stay in the loop
+ 
+ 

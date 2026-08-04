@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety.md b/docs/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety.md
+index 58637893..d82c49d1 100644
+--- a/docs/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety.md
++++ b/docs/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Android developer verification: Balancing openness and choice with safety
+ 
+-2-min read ![](https://developer.android.com/static/blog/assets/android_Verification2_b4044e9b89_1tLhzE.webp) 19 Mar 2026 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) Director, Product Management Android proves you don't have to choose between an open ecosystem and a secure one. Since [announcing](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) updated verification requirements, we've [worked with the community](https://android-developers.googleblog.com/2025/11/android-developer-verification-early.html) to ensure these protections are robust yet respectful of platform freedom. We've heard from power users that they want to take educated risks to install software from unverified developers. Today, we're sharing details on a new advanced flow that provides this option.
++2 min read ![](https://developer.android.com/static/blog/assets/android_Verification2_b4044e9b89_1tLhzE.webp) 19 Mar 2026 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) Director, Product Management Android proves you don't have to choose between an open ecosystem and a secure one. Since [announcing](https://android-developers.googleblog.com/2025/08/elevating-android-security.html) updated verification requirements, we've [worked with the community](https://android-developers.googleblog.com/2025/11/android-developer-verification-early.html) to ensure these protections are robust yet respectful of platform freedom. We've heard from power users that they want to take educated risks to install software from unverified developers. Today, we're sharing details on a new advanced flow that provides this option.
+ ![large_slide_v3.png](https://developer.android.com/static/blog/assets/large_slide_v3_3465838df6_ZHngJX.webp)
+ 
+ #### Advanced flow safeguards against coercion

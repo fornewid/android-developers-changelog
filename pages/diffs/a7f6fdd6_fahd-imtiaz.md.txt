@@ -1,0 +1,22 @@
+diff --git a/docs/blog/authors/fahd-imtiaz.md b/docs/blog/authors/fahd-imtiaz.md
+index e1696d09..f7ef0540 100644
+--- a/docs/blog/authors/fahd-imtiaz.md
++++ b/docs/blog/authors/fahd-imtiaz.md
+@@ -11,7 +11,7 @@ source: md.txt
+ Senior Product Manager
+ 
+ Android Developer Experience
+-- 23 Jul 2026 23 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_Z1BKgnT.webp)
++- 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_Z1BKgnT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices)
+ 
+@@ -22,7 +22,7 @@ Android Developer Experience
+   ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem) With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
+-  4 min read
++  3 min read
+   - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)

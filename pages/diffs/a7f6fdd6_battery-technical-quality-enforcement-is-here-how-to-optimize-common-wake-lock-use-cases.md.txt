@@ -1,0 +1,33 @@
+diff --git a/docs/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases.md b/docs/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases.md
+index 26a7c244..44a739a7 100644
+--- a/docs/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases.md
++++ b/docs/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Battery Technical Quality Enforcement is Here: How to Optimize Common Wake Lock Use Cases
+ 
+-8-min read ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_Z1IAO0P.webp) 04 Mar 2026 [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) Developer Relations Engineer, Android In recognition that excessive battery drain is top of mind for Android users, Google has been taking significant steps to help developers build more power-efficient apps. On **March 1st, 2026** , Google Play Store began rolling out the [wake lock technical quality treatments](https://android-developers.googleblog.com/2025/11/raising-bar-on-battery-performance.html) to improve battery drain. This treatment will roll out gradually to impacted apps over the following weeks. Apps that consistently exceed the "Excessive Partial Wake Lock" threshold in Android vitals may see tangible impacts on their store presence, including **warnings on their store listing** and exclusion from discovery surfaces such as recommendations.
++8 min read ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_Z1IAO0P.webp) 04 Mar 2026 [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) Developer Relations Engineer, Android In recognition that excessive battery drain is top of mind for Android users, Google has been taking significant steps to help developers build more power-efficient apps. On **March 1st, 2026** , Google Play Store began rolling out the [wake lock technical quality treatments](https://android-developers.googleblog.com/2025/11/raising-bar-on-battery-performance.html) to improve battery drain. This treatment will roll out gradually to impacted apps over the following weeks. Apps that consistently exceed the "Excessive Partial Wake Lock" threshold in Android vitals may see tangible impacts on their store presence, including **warnings on their store listing** and exclusion from discovery surfaces such as recommendations.
+ ![appDetails.png](https://developer.android.com/static/blog/assets/app_Details_281748ed83_Z18iW0j.webp)
+ 
+ *Users may see a warning on your store listing if your app exceeds the bad behavior threshold. *
+@@ -199,13 +199,14 @@ Continue reading
+   ## [Leveling Guide for your Performance Journey](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey) The performance leveling guide features 5 levels. We'll start with level 1, which introduces minimal adoption effort performance tooling, and we'll go up to level 5, ideal for apps that have the resourcing to maintain a bespoke performance framework.
+-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 9 min read
+-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 8 min read
++- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+-  ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)
++  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager) Today, we're excited to announce a new verified email credential issued by Google, which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
+-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) • 3 min read
++  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
++  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
++  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ Stay in the loop
+ 
+ 

@@ -1,0 +1,22 @@
+diff --git a/docs/blog/authors/thomas-ezan.md b/docs/blog/authors/thomas-ezan.md
+index 8d8b671a..a67c9ff8 100644
+--- a/docs/blog/authors/thomas-ezan.md
++++ b/docs/blog/authors/thomas-ezan.md
+@@ -9,7 +9,7 @@ source: md.txt
+ # Thomas Ezan
+ 
+ Senior Developer Relations Engineer
+-- 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_21AGRW.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++- 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_21AGRW.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+   ## [Build intelligent Android apps: Cloud and hybrid inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference)
+ 
+@@ -28,7 +28,7 @@ Senior Developer Relations Engineer
+   ## [Experimental hybrid inference and new Gemini models for Android](https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android) If you are an Android developer looking to implement innovative AI features into your app, we recently launched powerful new updates.
+-  3 min read
++  2 min read
+ - 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_O0qYl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Build smarter apps with Gemini 3 Flash](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash)

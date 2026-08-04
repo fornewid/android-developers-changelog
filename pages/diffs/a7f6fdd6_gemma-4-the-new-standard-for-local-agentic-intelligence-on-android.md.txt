@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android.md b/docs/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android.md
+index dbaf9cb9..813a7662 100644
+--- a/docs/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android.md
++++ b/docs/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Gemma 4: The new standard for local agentic intelligence on Android
+ 
+-2-min read ![](https://developer.android.com/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp) 02 Apr 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today, we are enhancing Android development with [**Gemma 4**](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/), our latest state-of-the-art open model designed with complex reasoning and autonomous tool-calling capabilities.
++2 min read ![](https://developer.android.com/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp) 02 Apr 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today, we are enhancing Android development with [**Gemma 4**](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/), our latest state-of-the-art open model designed with complex reasoning and autonomous tool-calling capabilities.
+ 
+ Our vision is to enable local agentic AI on Android across the entire software lifecycle, from development to production. Android supports a range of Gemma 4 models, from the most efficient ones running directly on-device in your apps to more powerful ones running on your development machine to help you build apps. We are bringing Gemma 4 to Android developers through two pillars:
+ 

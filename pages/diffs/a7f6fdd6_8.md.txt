@@ -1,0 +1,13 @@
+diff --git a/docs/blog/latest/8.md b/docs/blog/latest/8.md
+index aace2bd1..4c82e729 100644
+--- a/docs/blog/latest/8.md
++++ b/docs/blog/latest/8.md
+@@ -86,7 +86,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   [arrow_forward](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) We're excited to announce that Jetpack WindowManager 1.5.0 is now stable!
+ 
+   This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
+-  [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 3 min read
++  [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 2 min read
+ - [![View Paris Hsu's profile](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_Z2izffS.webp)](https://developer.android.com/blog/authors/paris-hsu) 09 Oct 2025 09 Oct 2025 ![](https://developer.android.com/static/blog/assets/as_Narwhal_7bf25b6657_Zl5Grc.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Android Studio Narwhal 4 Feature Drop: watch face support and improved stability](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability)

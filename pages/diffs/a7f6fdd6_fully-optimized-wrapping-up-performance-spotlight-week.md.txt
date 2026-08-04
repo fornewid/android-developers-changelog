@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md b/docs/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md
+index a39c7e6c..7f2abfc1 100644
+--- a/docs/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md
++++ b/docs/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Fully Optimized: Wrapping up Performance Spotlight Week
+ 
+-3-min read ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_2b3WAh.webp) 21 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/sara-hamilton) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) \& [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton) We spent the past week diving deep into sharing best practices and guidance that helps to make Android apps faster, smaller, and more stable. From the foundational powers of the **R8 optimizer** and **Profile Guided Optimizations,** to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the *low effort, high impact* tools you need to build a performant app.
++3 min read ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_2b3WAh.webp) 21 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/sara-hamilton) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) \& [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton) We spent the past week diving deep into sharing best practices and guidance that helps to make Android apps faster, smaller, and more stable. From the foundational powers of the **R8 optimizer** and **Profile Guided Optimizations,** to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the *low effort, high impact* tools you need to build a performant app.
+ 
+ This post serves as your index and roadmap to revisit these resources whenever you need to optimize. Here are the five key takeaways from our journey together.
+ 

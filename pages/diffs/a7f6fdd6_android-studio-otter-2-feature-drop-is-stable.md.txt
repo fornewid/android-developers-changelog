@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/android-studio-otter-2-feature-drop-is-stable.md b/docs/blog/posts/android-studio-otter-2-feature-drop-is-stable.md
+index 5c8b9502..40d1cf61 100644
+--- a/docs/blog/posts/android-studio-otter-2-feature-drop-is-stable.md
++++ b/docs/blog/posts/android-studio-otter-2-feature-drop-is-stable.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Android Studio Otter 2 Feature Drop is stable!
+ 
+-3-min read ![](https://developer.android.com/static/blog/assets/as_Otter2_96831eedef_Z19EUHu.webp) 04 Dec 2025 [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan) \& [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) The [**Android Studio Otter 2 Feature Drop**](http://d.android.com/studio) is here to supercharge your productivity.
++3 min read ![](https://developer.android.com/static/blog/assets/as_Otter2_96831eedef_Z19EUHu.webp) 04 Dec 2025 [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan) \& [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) The [**Android Studio Otter 2 Feature Drop**](http://d.android.com/studio) is here to supercharge your productivity.
+ 
+ This final stable release for '25 powers up Agent Mode, equipping it with the new Android Knowledge Base for improved accuracy, and giving you the option to try out the new Gemini 3 model. You'll also be able to take advantage of new settings such as the ability to keep your personalized IDE environment consistent across all of your machines. We've also incorporated all of the latest stability and performance improvements from the IntelliJ IDEA 2025.2 platform, including Kotlin compiler and terminal improvements, making this a significant enhancement for your development workflow.
+ 

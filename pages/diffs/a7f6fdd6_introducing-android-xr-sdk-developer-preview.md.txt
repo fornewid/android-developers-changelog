@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/introducing-android-xr-sdk-developer-preview.md b/docs/blog/posts/introducing-android-xr-sdk-developer-preview.md
+index 946313a1..30776b9e 100644
+--- a/docs/blog/posts/introducing-android-xr-sdk-developer-preview.md
++++ b/docs/blog/posts/introducing-android-xr-sdk-developer-preview.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Introducing Android XR SDK Developer Preview
+ 
+-5-min read ![](https://developer.android.com/static/blog/assets/Android_XR_Unlocked_2a393b1726_2cbGb7.webp) 12 Dec 2024 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today, we're launching the developer preview of the [**Android XR SDK**](http://developer.android.com/xr) - a comprehensive development kit for [Android XR](https://blog.google/products/android/android-xr). It's the newest platform in the Android family built for extended reality (XR) headsets (and glasses in the future!). You'll have endless opportunities to create and develop experiences that blend digital and physical worlds, using familiar Android APIs, tools and open standards created for XR. All of this means: if you build for Android, you're already building for XR! Read on to get started with development for headsets.
++5 min read ![](https://developer.android.com/static/blog/assets/Android_XR_Unlocked_2a393b1726_2cbGb7.webp) 12 Dec 2024 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today, we're launching the developer preview of the [**Android XR SDK**](http://developer.android.com/xr) - a comprehensive development kit for [Android XR](https://blog.google/products/android/android-xr). It's the newest platform in the Android family built for extended reality (XR) headsets (and glasses in the future!). You'll have endless opportunities to create and develop experiences that blend digital and physical worlds, using familiar Android APIs, tools and open standards created for XR. All of this means: if you build for Android, you're already building for XR! Read on to get started with development for headsets.
+ 
+ With the Android XR SDK you can:
+ 

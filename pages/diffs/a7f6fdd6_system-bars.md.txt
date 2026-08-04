@@ -1,0 +1,25 @@
+diff --git a/docs/design/ui/mobile/guides/foundations/system-bars.md b/docs/design/ui/mobile/guides/foundations/system-bars.md
+index f213c200..222d8cd8 100644
+--- a/docs/design/ui/mobile/guides/foundations/system-bars.md
++++ b/docs/design/ui/mobile/guides/foundations/system-bars.md
+@@ -13,8 +13,18 @@ alerts, and provide direct device interaction from anywhere.
+ Always take the presence and prominence of system bars into account, whether
+ you're designing layouts, input methods, or other device capabilities.
+ 
+-> [!IMPORTANT]
+-> **Important:** We released an agent skill to help you migrate your Jetpack Compose app to add adaptive edge-to-edge support. Try out the skill from the [Android skills repository](https://github.com/android/skills).
++
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/tree/main/system/edge-to-edge)
++
++### Add Edge-to-Edge support
++
++Use the Edge-to-Edge [Android skill](https://developer.android.com/tools/agents/android-skills) to add adaptive edge-to-edge support to your Jetpack Compose app. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
++
++    android skills add --skill edge-to-edge
++
++<br />
+ 
+ ![](https://developer.android.com/static/images/design/ui/mobile/system-bars-image-behind.png) **Figure 1.** Images behind system bars.
+ 

@@ -1,0 +1,12 @@
+diff --git a/docs/build/releases/about-agp.md b/docs/build/releases/about-agp.md
+index 4694733f..6486be7a 100644
+--- a/docs/build/releases/about-agp.md
++++ b/docs/build/releases/about-agp.md
+@@ -183,6 +183,7 @@ Android Studio.
+ 
+ | Android Studio version | Required AGP version |
+ |---|---|
++| Quail 3 \| 2026.1.3 | 7.1-9.3 |
+ | Quail 2 \| 2026.1.2 | 7.1-9.3 |
+ | Quail 1 \| 2026.1.1 | 7.1-9.2 |
+ | Panda 4 \| 2025.3.4 | 7.1-9.2 |

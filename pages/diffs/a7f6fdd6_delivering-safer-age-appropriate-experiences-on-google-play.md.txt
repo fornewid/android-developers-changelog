@@ -1,0 +1,31 @@
+diff --git a/docs/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play.md b/docs/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play.md
+index e321353f..b6f41391 100644
+--- a/docs/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play.md
++++ b/docs/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Delivering safer, age-appropriate experiences on Google Play
+ 
+-2-min read ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) 29 Jul 2026 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) [Paul Feng](https://developer.android.com/blog/authors/paul-feng) VP, Google Play Eng, Product, UX Providing a safe online experience and protecting users from harm is a top priority at Google Play. We take this responsibility seriously and have been investing continuously to offer baseline protections on our platform while also empowering parents with the tools they need to make decisions for their families. Importantly, we also want to empower Play developers with the capabilities to deliver age-appropriate experiences based on their app's content.
++2 min read ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) 29 Jul 2026 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) [Paul Feng](https://developer.android.com/blog/authors/paul-feng) VP, Google Play Eng, Product, UX Providing a safe online experience and protecting users from harm is a top priority at Google Play. We take this responsibility seriously and have been investing continuously to offer baseline protections on our platform while also empowering parents with the tools they need to make decisions for their families. Importantly, we also want to empower Play developers with the capabilities to deliver age-appropriate experiences based on their app's content.
+ 
+ To support this, today, we are taking another big step in our ongoing partnership with parents and developers by announcing the expansion of the [Google Play Age Signals API](https://developer.android.com/google/play/age-signals/overview)to all Play developers globally. Building on current availability in Brazil, we will expand this experience first to users in Australia and Canada by mid-August, with a full global rollout to all users later this year.
+ 
+@@ -45,7 +45,7 @@ Continue reading
+   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
+-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
++  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
+ - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
+@@ -63,7 +63,7 @@ Continue reading
+   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
+-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 5 min read
++  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
+ Stay in the loop
+ 
+ 

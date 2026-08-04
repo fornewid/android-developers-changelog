@@ -1,0 +1,25 @@
+diff --git a/docs/develop/ui/compose/designsystems/anatomy.md b/docs/develop/ui/compose/designsystems/anatomy.md
+index 3e6e5cc6..015cbd87 100644
+--- a/docs/develop/ui/compose/designsystems/anatomy.md
++++ b/docs/develop/ui/compose/designsystems/anatomy.md
+@@ -89,7 +89,8 @@ val LocalCustomSystem = staticCompositionLocalOf {
+         value2 = ""
+     )
+ }
+-nippets.kt
++
++/* ... */
+ ```
+ 
+ <br />
+@@ -128,7 +129,9 @@ fun Theme(
+         LocalTypographySystem provides typographySystem,
+         LocalCustomSystem provides customSystem,
+         /* ... */
+-        content = contenippets.kt
++        content = content
++    )
++}
+ ```
+ 
+ <br />

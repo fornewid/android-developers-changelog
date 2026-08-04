@@ -1,0 +1,22 @@
+diff --git a/docs/blog/posts/jetpack-window-manager-1-5-is-stable.md b/docs/blog/posts/jetpack-window-manager-1-5-is-stable.md
+index 255942cb..300d4aeb 100644
+--- a/docs/blog/posts/jetpack-window-manager-1-5-is-stable.md
++++ b/docs/blog/posts/jetpack-window-manager-1-5-is-stable.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Jetpack WindowManager 1.5 is stable
+ 
+-3-min read ![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Z20PMAS.webp) 10 Oct 2025 [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) Developer Relations Engineer, Android We're excited to announce that[Jetpack WindowManager 1.5.0](https://developer.android.com/jetpack/androidx/releases/window#version_15_2) is now stable!
++2 min read ![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Z20PMAS.webp) 10 Oct 2025 [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) Developer Relations Engineer, Android We're excited to announce that[Jetpack WindowManager 1.5.0](https://developer.android.com/jetpack/androidx/releases/window#version_15_2) is now stable!
+ 
+ This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes. As the Android ecosystem continues to grow, users are engaging with apps on a wider variety of devices than ever before: from phones and foldables to tablets, connected displays, Chromebooks, and even car displays in parked mode.
+ 
+@@ -145,7 +145,7 @@ Continue reading
+   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
+-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 5 min read
++  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
+ Stay in the loop
+ 
+ 

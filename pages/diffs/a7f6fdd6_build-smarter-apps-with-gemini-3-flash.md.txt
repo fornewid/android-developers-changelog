@@ -1,0 +1,22 @@
+diff --git a/docs/blog/posts/build-smarter-apps-with-gemini-3-flash.md b/docs/blog/posts/build-smarter-apps-with-gemini-3-flash.md
+index f3f72b90..068a75c2 100644
+--- a/docs/blog/posts/build-smarter-apps-with-gemini-3-flash.md
++++ b/docs/blog/posts/build-smarter-apps-with-gemini-3-flash.md
+@@ -9,7 +9,7 @@ source: md.txt
+ 
+ # Build smarter apps with Gemini 3 Flash
+ 
+-2-min read ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_O0qYl.webp) 17 Dec 2025 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) Senior Developer Relations Engineer Today, we're expanding the Gemini 3 model family with the [release of Gemini 3 Flash](https://blog.google/products/gemini/gemini-3-flash), frontier intelligence built for speed at a fraction of the cost. You can start building with it immediately, as we're officially launching **Gemini 3 Flash** on [Firebase AI Logic](https://firebase.google.com/docs/ai-logic/get-started?platform=android&api=dev). Available globally, you [can securely access the Gemini 3 Flash preview model](https://blog.google/technology/developers/build-with-gemini-3-flash/) directly from your app via the Gemini Developer API or the Vertex AI Gemini API using Firebase AI Logic client SDKs. Gemini 3 Flash's strong performance in reasoning, tool use, and multimodal capabilities is ideal for developers looking to do more complex video analysis, data extraction and visual Q\&A.
++2 min read ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_O0qYl.webp) 17 Dec 2025 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) Senior Developer Relations Engineer Today, we're expanding the Gemini 3 model family with the [release of Gemini 3 Flash](https://blog.google/products/gemini/gemini-3-flash), frontier intelligence built for speed at a fraction of the cost. You can start building with it immediately, as we're officially launching **Gemini 3 Flash** on [Firebase AI Logic](https://firebase.google.com/docs/ai-logic/get-started?platform=android&api=dev). Available globally, you [can securely access the Gemini 3 Flash preview model](https://blog.google/technology/developers/build-with-gemini-3-flash/) directly from your app via the Gemini Developer API or the Vertex AI Gemini API using Firebase AI Logic client SDKs. Gemini 3 Flash's strong performance in reasoning, tool use, and multimodal capabilities is ideal for developers looking to do more complex video analysis, data extraction and visual Q\&A.
+ 
+ ## Gemini 3 optimized for low-latency
+ 
+@@ -124,7 +124,7 @@ Continue reading
+   ## [Experimental hybrid inference and new Gemini models for Android](https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android) If you are an Android developer looking to implement innovative AI features into your app, we recently launched powerful new updates.
+-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) • 3 min read
++  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) • 2 min read
+ - [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)](https://developer.android.com/blog/authors/mozart-louis) 13 Oct 2025 13 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_ZsFAUM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Boost user engagement with AI Image Generation](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation)

@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week.md b/docs/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week.md
+index 2284f3c4..b96a7503 100644
+--- a/docs/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week.md
++++ b/docs/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Learn about our newest Jetpack Navigation library with the Nav3 Spotlight Week
+ 
+-1-min read ![](https://developer.android.com/static/blog/assets/Spotlightweek_Blog_banner_2_77cf3dc16b_Z1N257A.webp) 01 Dec 2025 [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](https://developer.android.com/blog/authors/don-turner) [Don Turner](https://developer.android.com/blog/authors/don-turner) Developer Relations Engineer [Jetpack Navigation 3](https://developer.android.com/guide/navigation/navigation-3) is [now stable](https://android-developers.googleblog.com/2025/11/jetpack-navigation-3-is-stable.html), and using it can help you reduce tech debt, provide better separation of concerns, speed up feature development time, and support new form factors. We're dedicating a whole week to providing content to help you learn about Nav3, and start integrating it into your app.
++1 min read ![](https://developer.android.com/static/blog/assets/Spotlightweek_Blog_banner_2_77cf3dc16b_Z1N257A.webp) 01 Dec 2025 [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](https://developer.android.com/blog/authors/don-turner) [Don Turner](https://developer.android.com/blog/authors/don-turner) Developer Relations Engineer [Jetpack Navigation 3](https://developer.android.com/guide/navigation/navigation-3) is [now stable](https://android-developers.googleblog.com/2025/11/jetpack-navigation-3-is-stable.html), and using it can help you reduce tech debt, provide better separation of concerns, speed up feature development time, and support new form factors. We're dedicating a whole week to providing content to help you learn about Nav3, and start integrating it into your app.
+ 
+ You'll learn about the library in detail, how to modularize your navigation code, and lots of code recipes for common use cases. At the end of the week, tune into the "Ask Me Anything" session so you can have the experts answer anything you like about Nav3. Here's the full schedule:
+ 

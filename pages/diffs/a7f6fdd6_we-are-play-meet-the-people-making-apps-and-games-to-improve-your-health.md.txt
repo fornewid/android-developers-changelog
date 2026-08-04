@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/we-are-play-meet-the-people-making-apps-and-games-to-improve-your-health.md b/docs/blog/posts/we-are-play-meet-the-people-making-apps-and-games-to-improve-your-health.md
+index c44e5f3d..9df11f4e 100644
+--- a/docs/blog/posts/we-are-play-meet-the-people-making-apps-and-games-to-improve-your-health.md
++++ b/docs/blog/posts/we-are-play-meet-the-people-making-apps-and-games-to-improve-your-health.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # #WeArePlay: Meet the people making apps \& games to improve your health
+ 
+-2-min read ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) 06 Nov 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) stories, we meet the founders building apps and games that are making health and wellness fun and easy for everyone on Google Play. From getting heavy sleepers jumping into their mornings, to turning mental wellness into an immersive adventure game.
++2 min read ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) 06 Nov 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) stories, we meet the founders building apps and games that are making health and wellness fun and easy for everyone on Google Play. From getting heavy sleepers jumping into their mornings, to turning mental wellness into an immersive adventure game.
+ 
+ Here are a few of our favorites:
+ ![01_KR_ALARMY_FOUNDER_Jay Shin_edited.png](https://developer.android.com/static/blog/assets/01_KR_ALARMY_FOUNDER_Jay_Shin_edited_770d223e77_2u7FK1.webp)

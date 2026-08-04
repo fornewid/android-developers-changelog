@@ -1,0 +1,25 @@
+diff --git a/docs/develop/ui/compose/system/setup-e2e.md b/docs/develop/ui/compose/system/setup-e2e.md
+index 5205e854..48d7e8fd 100644
+--- a/docs/develop/ui/compose/system/setup-e2e.md
++++ b/docs/develop/ui/compose/system/setup-e2e.md
+@@ -14,8 +14,18 @@ setup steps. Without these steps, your app might draw solid colors behind the
+ system bars or not animate its content synchronously with on-screen keyboard
+ (IME) transitions.
+ 
+-> [!IMPORTANT]
+-> **Important:** We released an agent skill to help you migrate your Jetpack Compose app to add adaptive edge-to-edge support. Try out the skill from the [Android skills repository](https://github.com/android/skills).
++
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/tree/main/system/edge-to-edge)
++
++### Add Edge-to-Edge support
++
++Use the Edge-to-Edge [Android skill](https://developer.android.com/tools/agents/android-skills) to add adaptive edge-to-edge support to your Jetpack Compose app. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
++
++    android skills add --skill edge-to-edge
++
++<br />
+ 
+ ## 1. Enable edge-to-edge display
+ 

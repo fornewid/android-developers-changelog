@@ -1,0 +1,42 @@
+diff --git a/docs/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose.md b/docs/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose.md
+index 9f464978..7cd80072 100644
+--- a/docs/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose.md
++++ b/docs/blog/posts/create-a-spotlight-effect-with-camera-x-and-jetpack-compose.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Create a spotlight effect with CameraX and Jetpack Compose
+ 
+-8-min read ![](https://developer.android.com/static/blog/assets/camera_X_Jetpack_09bc5a0414_Z1DttIl.webp) 23 Jan 2025 [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) Developer Relations Engineer Hey there! Welcome back to our series on CameraX and Jetpack Compose. In the previous posts, we've covered the fundamentals of setting up a camera preview and added tap-to-focus functionality.
++8 min read ![](https://developer.android.com/static/blog/assets/camera_X_Jetpack_09bc5a0414_Z1DttIl.webp) 23 Jan 2025 [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) Developer Relations Engineer Hey there! Welcome back to our series on CameraX and Jetpack Compose. In the previous posts, we've covered the fundamentals of setting up a camera preview and added tap-to-focus functionality.
+ 
+ **🧱** [**Part 1**](https://medium.com/androiddevelopers/getting-started-with-camerax-in-jetpack-compose-781c722ca0c4)**:** Building a basic camera preview using the new camera-compose artifact. We covered permission handling and basic integration.
+ 
+@@ -221,20 +221,20 @@ Continue reading
+   - [#Compose](https://developer.android.com/blog/topics/compose)
+   - [#Idling Resources](https://developer.android.com/blog/topics/idling-resources)
+   - +1 ↩
+-- 3 Authors 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_21AGRW.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+-
+-  ## [Build intelligent Android apps: Cloud and hybrid inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
+-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 8 min read
+-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+   ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
+   [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
+   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
++- 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_21AGRW.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++
++  ## [Build intelligent Android apps: Cloud and hybrid inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference)
++
++  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
++  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 8 min read
++  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ Stay in the loop
+ 
+ 

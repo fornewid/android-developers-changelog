@@ -1,0 +1,13 @@
+diff --git a/docs/blog/authors/alice-yuan.md b/docs/blog/authors/alice-yuan.md
+index 7e4ac51b..50bdb785 100644
+--- a/docs/blog/authors/alice-yuan.md
++++ b/docs/blog/authors/alice-yuan.md
+@@ -42,7 +42,7 @@ Android
+   ## [Leveling Guide for your Performance Journey](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey) The performance leveling guide features 5 levels. We'll start with level 1, which introduces minimal adoption effort performance tooling, and we'll go up to level 5, ideal for apps that have the resourcing to maintain a bespoke performance framework.
+-  9 min read
++  8 min read
+ - 02 Oct 2025 02 Oct 2025 ![](https://developer.android.com/static/blog/assets/6m_Evk_L_Olno_HD_56e1732bf5_2enBUx.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Optimize your app battery using Android vitals wake lock metric](https://developer.android.com/blog/posts/optimize-your-app-battery-using-android-vitals-wake-lock-metric)

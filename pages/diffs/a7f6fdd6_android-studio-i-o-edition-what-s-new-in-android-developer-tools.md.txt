@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md b/docs/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md
+index 5b13adb2..d140fbac 100644
+--- a/docs/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md
++++ b/docs/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Android Studio I/O Edition: What's new in Android Developer tools
+ 
+-8-min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) 19 May 2026 [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) Product Manager This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase. So, whether you are building exclusively with AI or you prefer being the architect of every line of code, our tools will keep you ahead of the curve.
++8 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) 19 May 2026 [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) Product Manager This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase. So, whether you are building exclusively with AI or you prefer being the architect of every line of code, our tools will keep you ahead of the curve.
+ 
+ As we move from "AI-assisted" to "Agentic" development, we're making it easier than ever to turn a spark of an idea into a high-quality production app with significantly less developer effort.
+ [Video](https://www.youtube.com/watch?v=N4GgGBKnHe4)

@@ -1,0 +1,46 @@
+diff --git a/docs/develop/ui/compose/modifiers.md b/docs/develop/ui/compose/modifiers.md
+index 762f3ef5..2ec0f133 100644
+--- a/docs/develop/ui/compose/modifiers.md
++++ b/docs/develop/ui/compose/modifiers.md
+@@ -21,9 +21,7 @@ Modifiers are standard Kotlin objects. Create a modifier by calling one of the
+ private fun Greeting(name: String) {
+     Column(modifier = Modifier.padding(24.dp)) {
+         Text(text = "Hello,")
+-        Text(text = name)
+-    }
+-}
++        Text(text = namnippets.kt
+ ```
+ 
+ <br />
+@@ -42,9 +40,7 @@ private fun Greeting(name: String) {
+             .fillMaxWidth()
+     ) {
+         Text(text = "Hello,")
+-        Text(text = name)
+-    }
+-}
++        Text(text = namnippets.kt
+ ```
+ 
+ <br />
+@@ -446,8 +442,7 @@ fun LoadingWheelAnimation() {
+         // No allocation, as we're just reusing the same instance
+         modifier = reusableModifier,
+         animatedState = animatedState
+-    )
+-}
++   s.kt
+ ```
+ 
+ <br />
+@@ -555,8 +550,7 @@ Column(modifier = Modifier.fillMaxWidth()) {
+             modifier = reusableItemModifier
+             // ...
+         )
+-    }
+-}
++   s.kt
+ ```
+ 
+ <br />

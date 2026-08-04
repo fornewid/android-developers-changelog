@@ -1,0 +1,22 @@
+diff --git a/docs/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17.md b/docs/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17.md
+index 9a9bf0a4..6e5d94ee 100644
+--- a/docs/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17.md
++++ b/docs/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Prioritizing Memory Efficiency: Essential Steps for Android 17
+ 
+-10-min read ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp) 02 Jun 2026 3 Authors [Alice Yuan,](https://developer.android.com/blog/authors/alice-yuan) [Ajesh Pai,](https://developer.android.com/blog/authors/ajesh-pai) [Fung Lam](https://developer.android.com/blog/authors/fung-lam) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever. Not only have we made strides in Android memory optimizations with Android 17, we're providing the tooling and API support to help you stay ahead of stricter memory requirements later this year.
++10 min read ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp) 02 Jun 2026 3 Authors [Alice Yuan,](https://developer.android.com/blog/authors/alice-yuan) [Ajesh Pai,](https://developer.android.com/blog/authors/ajesh-pai) [Fung Lam](https://developer.android.com/blog/authors/fung-lam) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever. Not only have we made strides in Android memory optimizations with Android 17, we're providing the tooling and API support to help you stay ahead of stricter memory requirements later this year.
+ 
+ To ensure device stability, starting in Android 17, the system will begin enforcing app memory limits based on the device's total RAM. If an app exceeds those limits, Android will kill the process with no associated stack trace.
+ 
+@@ -250,7 +250,7 @@ Continue reading
+   ## [Leveling Guide for your Performance Journey](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey) The performance leveling guide features 5 levels. We'll start with level 1, which introduces minimal adoption effort performance tooling, and we'll go up to level 5, ideal for apps that have the resourcing to maintain a bespoke performance framework.
+-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 9 min read
++  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 8 min read
+ - [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_p8Pb2.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+   ## [Get your app on the fast track with Android Performance Spotlight Week!](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week)

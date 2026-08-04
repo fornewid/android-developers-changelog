@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show.md b/docs/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show.md
+index 38f0daff..c41d9f4d 100644
+--- a/docs/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show.md
++++ b/docs/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Start building for glasses, new devices for Android XR and more in The Android Show \| XR Edition
+ 
+-2-min read ![](https://developer.android.com/static/blog/assets/xr_Week4_07a795cac6_Z1lA8nY.webp) 08 Dec 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer [Video](https://www.youtube.com/watch?v=a3-OJxxW810)
++2 min read ![](https://developer.android.com/static/blog/assets/xr_Week4_07a795cac6_Z1lA8nY.webp) 08 Dec 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer [Video](https://www.youtube.com/watch?v=a3-OJxxW810)
+ 
+ Today, during [The Android Show \| XR Edition](https://blog.google/products/android/android-show-xr-edition-updates), we shared a look at the expanding [Android XR platform](http://d.android.com/xr), which is fundamentally evolving to bring a unified developer experience to the entire XR ecosystem. The latest announcements, from [Developer Preview 3](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html) to exciting new form factors, are designed to give you the tools and platform you need to create the next generation of XR experiences. Let's dive into the details!
+ 

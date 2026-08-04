@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/now-in-android-121.md b/docs/blog/posts/now-in-android-121.md
+index c3cd4df7..6f392c86 100644
+--- a/docs/blog/posts/now-in-android-121.md
++++ b/docs/blog/posts/now-in-android-121.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Now in Android #121
+ 
+-9-min read ![](https://developer.android.com/static/blog/assets/Now_In_Android121_f4ff784252_Z2dFDgg.webp) 20 Oct 2025 [![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp)](https://developer.android.com/blog/authors/daniel-galpin) [Daniel Galpin](https://developer.android.com/blog/authors/daniel-galpin) Developer Advocate Welcome to Now in Android, your ongoing guide to what's new and notable in the world of Android development.
++9 min read ![](https://developer.android.com/static/blog/assets/Now_In_Android121_f4ff784252_Z2dFDgg.webp) 20 Oct 2025 [![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp)](https://developer.android.com/blog/authors/daniel-galpin) [Daniel Galpin](https://developer.android.com/blog/authors/daniel-galpin) Developer Advocate Welcome to Now in Android, your ongoing guide to what's new and notable in the world of Android development.
+ 
+ Read on for coverage of [Android 16 QPR2 beta 1](http://android-developers.googleblog.com/2025/08/android-16-qpr2-beta-1-is-here.html), the [Android Studio Narwhal feature drop](http://android-developers.googleblog.com/2025/07/android-studio-narwhal-feature-drop-stable-agent-mode.html), [Jetpack Compose 1.9](http://android-developers.googleblog.com/2025/08/whats-new-in-jetpack-compose-august-25-release.html), [Media 3 1.8](http://android-developers.googleblog.com/2025/08/media3-180-whats-new.html), [Shape Morphing](https://www.youtube.com/watch?v=0moEXBqNDZI) and [Autofill in Compose](https://www.youtube.com/watch?v=Tb6bGiha6xg), and much more.
+ 

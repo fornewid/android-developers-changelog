@@ -1,0 +1,22 @@
+diff --git a/docs/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2.md b/docs/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2.md
+index 3693f67a..f7339d05 100644
+--- a/docs/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2.md
++++ b/docs/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Go from prompt to working prototype with Android Studio Panda 2
+ 
+-3-min read ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) 03 Mar 2026 [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) Senior Product Manager Android Studio Panda 2 is now stable and ready for you to use in production. This release brings new agentic capabilities to Android Studio, enabling the agent to create an entire working application from scratch with the AI-powered New Project flow, and allowing the agent to automate the manual work of dependency updates.
++3 min read ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) 03 Mar 2026 [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) Senior Product Manager Android Studio Panda 2 is now stable and ready for you to use in production. This release brings new agentic capabilities to Android Studio, enabling the agent to create an entire working application from scratch with the AI-powered New Project flow, and allowing the agent to automate the manual work of dependency updates.
+ 
+ Whether you're building your first prototype or maintaining a large, established codebase, these updates bring new efficiency to your workflow by enabling Gemini in Android Studio to help more than ever.
+ 
+@@ -100,7 +100,7 @@ Continue reading
+   ## [Level up your development with Planning Mode and Next Edit Prediction in Android Studio Panda 4](https://developer.android.com/blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4) Android Studio Panda 4 is now stable and ready for you to use in production. This release brings Planning Mode, Next Edit Prediction, and more, making it easier than ever to build high-quality Android apps.
+-  [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) • 5 min read
++  [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) • 4 min read
+ - [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)

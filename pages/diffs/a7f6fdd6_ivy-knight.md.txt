@@ -1,0 +1,13 @@
+diff --git a/docs/blog/authors/ivy-knight.md b/docs/blog/authors/ivy-knight.md
+index 094dcb6c..000f013c 100644
+--- a/docs/blog/authors/ivy-knight.md
++++ b/docs/blog/authors/ivy-knight.md
+@@ -14,7 +14,7 @@ Senior Design Advocate
+   ## [Get inspired and take your apps to desktop](https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop) We're thrilled to announce major updates to our design resources, giving you the comprehensive guidance you need to create polished, adaptive Android apps across all form factors! We now have Desktop Experience guidance and a refreshed Android Design Gallery.
+-  2 min read
++  1 min read
+ - 02 Dec 2025 02 Dec 2025 ![](https://developer.android.com/static/blog/assets/sample_readme_bazel_9348d9f325_Z57CJe.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+   ## [Explore AI on Android with Our Sample Catalog App](https://developer.android.com/blog/posts/explore-ai-on-android-with-our-sample-catalog-app)

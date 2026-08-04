@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/the-first-beta-of-android-17.md b/docs/blog/posts/the-first-beta-of-android-17.md
+index f9bc8a87..cabefe65 100644
+--- a/docs/blog/posts/the-first-beta-of-android-17.md
++++ b/docs/blog/posts/the-first-beta-of-android-17.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # The First Beta of Android 17
+ 
+-7-min read ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp) 13 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today we're releasing the first beta of [Android 17](https://developer.android.com/about/versions), continuing our work to build a platform that prioritizes privacy, security, and refined performance. This build continues our work for more adaptable Android apps, introduces significant enhancements to camera and media capabilities, new tools for optimizing connectivity, and expanded profiles for companion devices. This release also highlights a fundamental shift in the way we're bringing new releases to the developer community, [from the traditional Developer Preview model to the Android Canary program](https://android-developers.googleblog.com/2025/07/android-canary.html)
++7 min read ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp) 13 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today we're releasing the first beta of [Android 17](https://developer.android.com/about/versions), continuing our work to build a platform that prioritizes privacy, security, and refined performance. This build continues our work for more adaptable Android apps, introduces significant enhancements to camera and media capabilities, new tools for optimizing connectivity, and expanded profiles for companion devices. This release also highlights a fundamental shift in the way we're bringing new releases to the developer community, [from the traditional Developer Preview model to the Android Canary program](https://android-developers.googleblog.com/2025/07/android-canary.html)
+ 
+ ## Beyond the Developer Preview
+ 

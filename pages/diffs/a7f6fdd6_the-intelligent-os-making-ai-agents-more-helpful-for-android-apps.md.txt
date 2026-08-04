@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps.md b/docs/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps.md
+index 0895acd4..ffb20bc3 100644
+--- a/docs/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps.md
++++ b/docs/blog/posts/the-intelligent-os-making-ai-agents-more-helpful-for-android-apps.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # The Intelligent OS: Making AI agents more helpful for Android apps
+ 
+-3-min read ![](https://developer.android.com/static/blog/assets/intelligent_OS_215691a288_G81Rr.webp) 25 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer User expectations for AI on their devices are fundamentally shifting how they interact with their apps. Instead of opening apps to do tasks step-by-step, they're asking AI to do the heavy lifting for them. In this new interaction model, success is shifting from getting users to open your app, to successfully fulfilling their tasks and helping them get more done faster.
++3 min read ![](https://developer.android.com/static/blog/assets/intelligent_OS_215691a288_G81Rr.webp) 25 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer User expectations for AI on their devices are fundamentally shifting how they interact with their apps. Instead of opening apps to do tasks step-by-step, they're asking AI to do the heavy lifting for them. In this new interaction model, success is shifting from getting users to open your app, to successfully fulfilling their tasks and helping them get more done faster.
+ 
+ To help you evolve your apps for this agentic future, we're introducing early stage developer capabilities that bridge the gap between your apps and agentic apps and personalized assistants, such as Google Gemini. While we are in the early, beta stages of this journey, we're designing these features with privacy and security at their core as our first step in exploring this paradigm shift as an app ecosystem.
+ 

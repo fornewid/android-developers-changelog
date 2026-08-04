@@ -1,0 +1,13 @@
+diff --git a/docs/about/versions/17/qpr2.md b/docs/about/versions/17/qpr2.md
+index a6e8015d..a188d43c 100644
+--- a/docs/about/versions/17/qpr2.md
++++ b/docs/about/versions/17/qpr2.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ ### [Android 17 QPR2 Beta](http://developer.android.com/about/versions/17/qpr2/get)
+ 
+-The Android 17 QPR2 Beta is now available for development, testing, and feedback! Try it today on select Pixel devices and in the Android Emulator within Android Studio. [Get started](http://developer.android.com/about/versions/17/qpr2/get) [Test your app](http://developer.android.com/about/versions/17/qpr2/get#on_emulator) Beta 1 is now available with the latest features and changes to try with your apps. Here's how to [get the beta.](https://developer.android.com/about/versions/17/qpr2/get) Android 17 QPR2 Beta is available to users as well as developers, so try the new features and share your feedback [through our issue tracker](https://developer.android.com/about/versions/17/qpr2/feedback#issue_tracker).
++The Android 17 QPR2 Beta is now available for development, testing, and feedback! Try it today on select Pixel devices and in the Android Emulator within Android Studio. [Get started](http://developer.android.com/about/versions/17/qpr2/get) [Test your app](http://developer.android.com/about/versions/17/qpr2/get#on_emulator) Beta 2 of QPR2 is now available with the latest features and changes to try with your apps. Here's how to [get the beta.](https://developer.android.com/about/versions/17/qpr2/get) Android 17 QPR2 Beta is available to users as well as developers, so try the new features and share your feedback [through our issue tracker](https://developer.android.com/about/versions/17/qpr2/feedback#issue_tracker).
+ 
+ ## Get started with Android 17
+ 

@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate.md b/docs/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate.md
+index 6ef26cb5..c19df31b 100644
+--- a/docs/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate.md
++++ b/docs/blog/posts/we-are-play-how-matraquina-helps-non-verbal-kids-communicate.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # #WeArePlay: How Matraquina helps non-verbal kids communicate
+ 
+-2-min read ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) 11 Dec 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) film, we meet Adriano, Wagner and Grazyelle. The trio are behind [Matraquinha](https://play.google.com/store/apps/details?id=com.phonegap.matraquinha&gl=US), an app helping thousands of non-verbal children in more than 80 countries communicate. Discover more about their inspiring story and the impact on their own son, Gabriel.
++2 min read ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) 11 Dec 2025 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) film, we meet Adriano, Wagner and Grazyelle. The trio are behind [Matraquinha](https://play.google.com/store/apps/details?id=com.phonegap.matraquinha&gl=US), an app helping thousands of non-verbal children in more than 80 countries communicate. Discover more about their inspiring story and the impact on their own son, Gabriel.
+ [Video](https://www.youtube.com/watch?v=NUR5TtKo9W4)
+ 
+ **Wagner, you developed Matraquinha for a deeply personal reason: your son, Gabriel. Can you tell us what inspired you to create this app for him?**

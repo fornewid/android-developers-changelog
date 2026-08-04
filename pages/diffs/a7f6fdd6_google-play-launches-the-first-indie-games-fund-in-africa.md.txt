@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa.md b/docs/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa.md
+index f0f120f7..a1d996d5 100644
+--- a/docs/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa.md
++++ b/docs/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa.md
+@@ -8,7 +8,7 @@ source: md.txt
+ 
+ # Google Play launches the first Indie Games Fund in Africa
+ 
+-1-min read ![](https://developer.android.com/static/blog/assets/IG_Fund26_Strapi_Header_716b75cbab_1E2Dt5.webp) 06 Jul 2026 [![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_1fkXBh.webp)](https://developer.android.com/blog/authors/steph-pio) [Steph Pio](https://developer.android.com/blog/authors/steph-pio) Strategic Partnerships Manager, Google Play EMEA, Google Play Partnerships Sub-Saharan Africa is home to some of the world's most creative storytelling. To help bring those stories to a global audience, today, we're proud to announce the debut of Google Play's **Indie Games Fund in Africa**.
++1 min read ![](https://developer.android.com/static/blog/assets/IG_Fund26_Strapi_Header_716b75cbab_1E2Dt5.webp) 06 Jul 2026 [![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_1fkXBh.webp)](https://developer.android.com/blog/authors/steph-pio) [Steph Pio](https://developer.android.com/blog/authors/steph-pio) Strategic Partnerships Manager, Google Play EMEA, Google Play Partnerships Sub-Saharan Africa is home to some of the world's most creative storytelling. To help bring those stories to a global audience, today, we're proud to announce the debut of Google Play's **Indie Games Fund in Africa**.
+ 
+ The region's unique creativity has fueled a vibrant game development scene, helping drive what is quickly becoming one of the most exciting, resilient, and fast-growing gaming markets. It's a space defined by immense talent. However, access to capital is a persistent hurdle, and a significant investment gap often holds back incredibly promising local studios.
+ 

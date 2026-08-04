@@ -1,0 +1,25 @@
+diff --git a/docs/about/versions/17/behavior-changes-all.md b/docs/about/versions/17/behavior-changes-all.md
+index a8b23324..a140ca25 100644
+--- a/docs/about/versions/17/behavior-changes-all.md
++++ b/docs/about/versions/17/behavior-changes-all.md
+@@ -26,15 +26,11 @@ expand various core capabilities of the Android system.
+ 
+ Android 17 introduces app memory limits based on the device's total RAM
+ to create a more stable and deterministic environment for your apps and
+-Android users. In Android 17, limits are set conservatively to establish system
+-baselines, targeting extreme memory leaks and other outliers before they trigger
+-system-wide instability resulting in UI stuttering, higher battery drain, and
+-apps being killed. While we anticipate minimal impact on the vast majority of
+-app sessions, we recommend the [following memory best practices](https://developer.android.com/topic/performance/memory),
+-including establishing a baseline for memory.
+-
+-> [!NOTE]
+-> **Note:** Memory limits are only imposed on a subset of Android devices.
++Android users. These limits focus on memory leaks and other outliers before
++they trigger system-wide instability resulting in UI stuttering, higher battery
++drain, and apps being killed. While we anticipate minimal impact on the vast
++majority of app sessions, we recommend the [following memory best
++practices](https://developer.android.com/topic/performance/memory), including establishing a baseline for memory.
+ 
+ You can determine if your app session was impacted by calling
+ [`getDescription`](https://developer.android.com/reference/android/app/ApplicationExitInfo#getDescription%28%29) in [`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo); if your app was
