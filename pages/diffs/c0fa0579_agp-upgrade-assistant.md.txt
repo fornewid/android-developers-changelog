@@ -1,0 +1,27 @@
+diff --git a/docs/build/agp-upgrade-assistant.md b/docs/build/agp-upgrade-assistant.md
+index fce7a37e..b6a622b1 100644
+--- a/docs/build/agp-upgrade-assistant.md
++++ b/docs/build/agp-upgrade-assistant.md
+@@ -7,8 +7,20 @@ source: md.txt
+ The Android Gradle plugin (AGP) Upgrade Assistant is a tool in Android Studio
+ that helps you upgrade the version of AGP used by your project.
+ 
+-> [!IMPORTANT]
+-> **Important:** You can use an agent skill to help you upgrade your project to AGP version 9.x. If your app doesn't use Kotlin Multiplatform (KMP), try the AGP 9 upgrade skill from the [Android skills repository](https://github.com/android/skills). If your app uses KMP, try the skill from [JetBrains](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-agp9-migration).
++
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/tree/main/build-system/agp/agp-9-upgrade)
++
++### AGP 9 Upgrade
++
++Use the AGP 9 Upgrade [Android skill](https://developer.android.com/tools/agents/android-skills) to upgrade your project to AGP version 9.x (non-KMP projects). To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
++
++    android skills add --skill agp-9-upgrade
++
++If your app uses Kotlin Multiplatform (KMP), use the skill from [JetBrains](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-agp9-migration).
++
++<br />
+ 
+ There are frequent releases for AGP changes related to new features for
+ configuring your build, new APIs for use by other Gradle plugins, and

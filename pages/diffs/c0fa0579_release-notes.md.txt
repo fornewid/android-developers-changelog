@@ -1,0 +1,31 @@
+diff --git a/docs/games/docs/release-notes.md b/docs/games/docs/release-notes.md
+index 5469edde..54a98f53 100644
+--- a/docs/games/docs/release-notes.md
++++ b/docs/games/docs/release-notes.md
+@@ -9,6 +9,26 @@ To get the latest product updates delivered to you, add the URL of this page to
+ [feed
+ reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the feed URL directly: `https://developer.android.com/feeds/androidgames-release-notes.xml`.
+ 
++## July 31, 2026
++
++Feature Game Stats API is Generally Available.
++
++Learn more:
++
++- [Game Stats](https://developer.android.com/games/pgs/gamestats)
++
++- [Integrate Game Stats](https://developer.android.com/games/pgs/integrate-gamestats)
++
++- [Google Play Level Up guidelines](https://developer.android.com/games/guidelines#game-stats)
++
++## July 20, 2026
++
++Feature Turn Sidekick on by default for your game.
++
++Learn more:
++
++- [Make Sidekick default on for your game](https://developer.android.com/games/pgs/play-games-sidekick#add-sidekick-game)
++
+ ## March 16, 2026
+ 
+ Feature Play Games Sidekick is Generally Available.

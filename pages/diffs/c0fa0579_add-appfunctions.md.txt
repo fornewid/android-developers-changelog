@@ -1,0 +1,47 @@
+diff --git a/docs/ai/appfunctions/add-appfunctions.md b/docs/ai/appfunctions/add-appfunctions.md
+index 5b5f5b68..2390cef2 100644
+--- a/docs/ai/appfunctions/add-appfunctions.md
++++ b/docs/ai/appfunctions/add-appfunctions.md
+@@ -96,8 +96,8 @@ abstract class BaseTaskAppFunctionService : AppFunctionService() {
+ ## Declare the AppFunction service in your manifest
+ 
+ Register the KSP-generated service declaration and `app_metadata` property
+-inside your module manifest, for example, in `src/main/AndroidManifest.xml`.
+-The KSP compiler generates the concrete service class (`TaskAppFunctionService`)
++inside your module manifest, for example, in `src/main/AndroidManifest.xml`. The
++KSP compiler generates the concrete service class (`TaskAppFunctionService`)
+ extending your abstract entry point class, along with the corresponding XML
+ schema in your `assets/` directory.
+ 
+@@ -241,12 +241,24 @@ dependencies and replaces legacy configuration providers
+ 
+ If your app currently uses an earlier version of AppFunctions (such as
+ 1.0.0-alpha09), you can automate your migration using the [AppFunctions agent
+-skill](https://github.com/android/skills/tree/main/device-ai/appfunctions) in an AI IDE like Gemini in Android Studio. The skill
+-contains dedicated migration rules that guide an agent to consolidate your build
++skill](https://developer.android.com/ai/appfunctions/add-appfunctions#android-skills-card__implement-appfunctions) in an AI IDE like Gemini in Android Studio. The skill contains
++dedicated migration rules that guide an agent to consolidate your build
+ dependencies, create the required `@AppFunctionServiceEntryPoint` service
+ wrapper, decouple context parameters, and update your manifest declarations.
+ 
+-To initiate an automated migration with your AI agent, use a prompt such as the
+-following:
+ 
+-    Use the AppFunctions migration skill to upgrade my app's AppFunctions implementation from 1.0.0-alpha09 to the 1.0.0-alpha10 @AppFunctionServiceEntryPoint architecture.
+\ No newline at end of file
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/tree/main/device-ai/appfunctions)
++
++### Implement AppFunctions
++
++Use the AppFunctions [Android skill](https://developer.android.com/tools/agents/android-skills) to expose key user workflows to the Android system, allowing AI agents to discover and execute them on-device. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
++
++    android skills add --skill appfunctions
++
++To activate the skill, try the following prompt:
++
++    Use the AppFunctions migration skill to upgrade my app's AppFunctions implementation from 1.0.0-alpha09 to the 1.0.0-alpha10 @AppFunctionServiceEntryPoint architecture.
++
++<br />
+\ No newline at end of file

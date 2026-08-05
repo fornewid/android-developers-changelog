@@ -1,0 +1,37 @@
+diff --git a/docs/ai/overview.md b/docs/ai/overview.md
+index 71033940..470f580e 100644
+--- a/docs/ai/overview.md
++++ b/docs/ai/overview.md
+@@ -73,7 +73,7 @@ Gemini models may be necessary.
+ 
+ Android developers can integrate Google's advanced generative AI capabilities,
+ including the powerful Gemini Pro and Gemini Flash models, into their
+-applications using the [Firebase AI Logic SDK](https://developer.android.com/ai/vertex-ai-firebase). This SDK is designed for
++applications using the [Firebase AI Logic SDK](https://developer.android.com/ai/gemini/agent-platform-api). This SDK is designed for
+ larger data needs and provides expanded capabilities and adaptability by
+ enabling access to these high-performing, multimodal AI models.
+ 
+@@ -241,7 +241,7 @@ learned patterns, rather than generating entirely new output.
+   - **→ Use: Cloud-based solutions (e.g.,** [**Google Cloud Natural Language
+     API**](https://cloud.google.com/natural-language), [**Google Cloud Translation
+     API**](https://cloud.google.com/translate), **potentially accessed using a custom backend or
+-    [Vertex AI](https://cloud.google.com/vertex-ai))**. (Lower priority than on-device options if offline or privacy is key).
++    [Gemini Enterprise Agent Platform](https://cloud.google.com/products/gemini-enterprise-agent-platform))**. (Lower priority than on-device options if offline or privacy is key).
+   - *Why*: Cloud solutions offer powerful models and extensive language support, but require connectivity and may incur costs.
+ 
+ *** ** * ** ***
+@@ -302,11 +302,11 @@ of generative task and performance profile do you need?**
+ 
+ - **A) Need a balance of performance and cost, suitable for general text
+   generation, summarization, or chat applications where speed is important?**
+-  - **→ Use: [Firebase AI Logic SDK with Gemini Flash](https://developer.android.com/ai/vertex-ai-firebase)**
+-  - *Why*: Optimized for speed and efficiency within the Vertex AI managed environment.
++  - **→ Use: [Firebase AI Logic SDK with Gemini Flash](https://developer.android.com/ai/gemini/agent-platform-api)**
++  - *Why*: Optimized for speed and efficiency within Google Cloud's managed environment.
+ - **B) Need higher quality and capability for complex text generation,
+   reasoning, advanced NLU, or instruction following?**
+-  - **→ Use: [Firebase AI Logic SDK with Gemini Pro](https://developer.android.com/ai/vertex-ai-firebase)**
++  - **→ Use: [Firebase AI Logic SDK with Gemini Pro](https://developer.android.com/ai/gemini/agent-platform-api)**
+   - *Why*: More powerful text model for demanding tasks, accessed through Firebase.
+ 
+ *** ** * ** ***

@@ -1,0 +1,36 @@
+diff --git a/docs/build/releases/about-agp.md b/docs/build/releases/about-agp.md
+index 6486be7a..1321d810 100644
+--- a/docs/build/releases/about-agp.md
++++ b/docs/build/releases/about-agp.md
+@@ -10,9 +10,6 @@ source: md.txt
+ The Android Studio build system is based on Gradle, and the Android Gradle
+ plugin adds several features that are specific to build Android apps.
+ 
+-> [!IMPORTANT]
+-> **Important:** You can use an agent skill to help you upgrade your project to AGP version 9.x. If your app doesn't use Kotlin Multiplatform (KMP), try the AGP 9 upgrade skill from the [Android skills repository](https://github.com/android/skills). If your app uses KMP, try the skill from [JetBrains](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-agp9-migration).
+-
+ This page explains how to keep your Gradle tools up to date. For release notes
+ on the Android Gradle plugin, see the [release notes page](https://developer.android.com/build/releases/gradle-plugin).
+ 
+@@ -31,6 +28,21 @@ see the following pages:
+ For more information about the Gradle build system, see the
+ [Gradle user guide](https://docs.gradle.org/current/userguide/userguide.html).
+ 
++
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/tree/main/build-system/agp/agp-9-upgrade)
++
++### AGP 9 Upgrade
++
++Use the AGP 9 Upgrade [Android skill](https://developer.android.com/tools/agents/android-skills) to upgrade your project to AGP version 9.x (non-KMP projects). To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
++
++    android skills add --skill agp-9-upgrade
++
++If your app uses Kotlin Multiplatform (KMP), use the skill from [JetBrains](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-agp9-migration).
++
++<br />
++
+ ## Update the Android Gradle plugin
+ 
+ 

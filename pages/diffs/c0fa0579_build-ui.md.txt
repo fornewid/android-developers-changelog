@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/glance/build-ui.md b/docs/develop/ui/compose/glance/build-ui.md
+index faec03aa..d9c6593b 100644
+--- a/docs/develop/ui/compose/glance/build-ui.md
++++ b/docs/develop/ui/compose/glance/build-ui.md
+@@ -498,7 +498,7 @@ RadioButton(
+ <br />
+ 
+ When the state changes, the provided lambda is triggered. You can store the
+-check state, as shown in the following example:
++checked state, as shown in the following example:
+ 
+ 
+ ```kotlin
