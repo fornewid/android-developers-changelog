@@ -5,16 +5,16 @@ source: md.txt
 ---
 
 > [!WARNING]
-> **Warning:** All Imagen models are deprecated and will shut down on June 24, 2026 As a replacement, you can migrate your apps to use [Gemini Image models](https://developer.android.com/ai/gemini/developer-api#generate-images) (the "Nano Banana" models).
+> **Warning:** All Imagen models are deprecated and will shut down as early as June 30, 2026. As a replacement, you can migrate your apps to use [Gemini Image models](https://developer.android.com/ai/gemini/developer-api#generate-images) (the "Nano Banana" models).
 
 Imagen is an image generation model. It can be used to generate
 custom avatars for user profiles or to integrate personalized visual assets into
 existing screen flows to increase user engagement.
 
-You can access [Imagen models](https://firebase.google.com/docs/vertex-ai/models) from your Android app using the
-[Firebase AI Logic SDK.](https://firebase.google.com/docs/vertex-ai/generate-images-imagen?platform=android) Imagen models are available using both
-Firebase AI Logic [API providers](https://developer.android.com/ai/gemini#api-providers): Gemini Developer API (recommended for most
-developers) and Vertex AI.
+You can access [Imagen models](https://firebase.google.com/docs/ai-logic/models) from your Android app using the
+[Firebase AI Logic SDK](https://firebase.google.com/docs/ai-logic/generate-images-imagen). Imagen models are available using either
+of Google's [API providers](https://developer.android.com/ai/gemini#api-providers): Gemini Developer API (recommended for most
+developers) and Agent Platform Gemini API (formerly Vertex AI).
 ![A diagram illustrating a Firebase AI Logic integration architecture
 to access the Gemini Developer API. An Android App utilizes the Firebase
 Android SDK to connect to Firebase. Firebase then interacts with the
@@ -22,7 +22,7 @@ Gemini Developer API, which accesses Gemini Pro & Flash within the
 cloud.](https://developer.android.com/static/ai/assets/images/firebase-ai-logic-imagen.svg) **Figure 1.** Access Imagen models using Firebase AI Logic.
 
 > [!NOTE]
-> **Note:** Firebase AI Logic doesn't yet support all the features available for the server-side integrations of Imagen models. Learn more about the supported capabilities in the [Firebase documentation](https://firebase.google.com/docs/vertex-ai/generate-images-imagen?platform=android#capabilities-features).
+> **Note:** Firebase AI Logic doesn't yet support all the features available for the server-side integrations of Imagen models. Learn more about the supported capabilities in the [Firebase documentation](https://firebase.google.com/docs/ai-logic/generate-images-imagen#supported-features-requirements).
 
 > [!NOTE]
 > **Note:** To build with Gemini 2.5 Flash Nano Banana, read the [Generate images on Android with Nano Banana](https://developer.android.com/ai/gemini/developer-api#generate-images) section of the Gemini Developer API documentation.
@@ -32,7 +32,7 @@ cloud.](https://developer.android.com/static/ai/assets/images/firebase-ai-logic-
 Creating the ideal prompts often takes multiple attempts. You can experiment
 with image prompts in [Google AI Studio](https://aistudio.google.com/gen-media), an IDE for prompt
 design and prototyping. For tips on how to improve your prompts, review the
-[prompt and image attribute guide](https://cloud.google.com/vertex-ai/generative-ai/docs/image/img-gen-prompt-guide).
+[prompt and image attribute guide](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/img-gen-prompt-guide).
 ![A screenshot of the Google AI Studio interface,
 displaying four generated images of a T-Rex with a blue backpack in a
 prehistoric forest.](https://developer.android.com/static/ai/assets/images/t-rex-imagen.png) **Figure 2.** Google AI Studio can help you refine your image generation prompts.
@@ -60,13 +60,13 @@ Add the following dependencies to your `build.gradle` file:
 To generate an image in your Android app, start by instantiating an
 `ImagenModel` with an optional configuration.
 
-You can use the [`generationConfig`](https://firebase.google.com/docs/vertex-ai/model-parameters?platform=android) parameter to define a negative prompt,
+You can use the [`generationConfig`](https://firebase.google.com/docs/ai-logic/model-parameters#imagen) parameter to define a negative prompt,
 the number of images, the output image aspect ratio, the image format and add a
-watermark. You can use the [`safetySettings`](https://firebase.google.com/docs/vertex-ai/safety-settings?platform=android) parameter to configure the
+watermark. You can use the [`safetySettings`](https://firebase.google.com/docs/ai-logic/safety-settings#imagen) parameter to configure the
 safety and person filters.
 
 > [!NOTE]
-> **Note:** Refer to the Firebase documentation for up-to-date information about [available Imagen models](https://firebase.google.com/docs/vertex-ai/models).
+> **Note:** Refer to the Firebase documentation for up-to-date information about [available Imagen models](https://firebase.google.com/docs/ai-logic/models).
 
 
 ### Kotlin
@@ -162,7 +162,7 @@ Imagen model, allowing you to:
 - [**Customize images**](https://developer.android.com/ai/imagen#customization) through the application of specific styles (patterns, textures, or artist styles), by focusing on various subjects (such as products, people, or animals), or by adhering to different controls (such as hand-drawn sketch, a canny edge image, or a face mesh).
 
 > [!NOTE]
-> **Note:** The use of Imagen for image generation using a text prompt is generally available, but the Imagen editing features are in **developer preview**. Imagen editing features are exclusively available through Vertex AI.
+> **Note:** The use of Imagen for image generation using a text prompt is generally available, but the Imagen editing features are in **developer preview**. Imagen editing features are exclusively available through the Agent Platform Gemini API (formerly Vertex AI).
 
 ### Model initialization
 
@@ -597,5 +597,5 @@ suspend fun customizeImageByStyle(model: ImagenModel, referenceVanGoghImage: Bit
 ## Next steps
 
 - Learn more about Firebase AI Logic in the [Firebase
-  documentation](https://firebase.google.com/docs/vertex-ai/).
+  documentation](https://firebase.google.com/docs/ai-logic/).
 - Explore the [Android AI Sample Catalog](https://github.com/android/ai-samples).

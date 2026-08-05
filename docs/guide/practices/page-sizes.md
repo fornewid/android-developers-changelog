@@ -4,8 +4,6 @@ url: https://developer.android.com/guide/practices/page-sizes
 source: md.txt
 ---
 
-16 KB Google Play compatibility requirement Starting November 1st, 2025, all new apps and updates to existing apps submitted to Google Play and targeting Android 15+ devices must support 16 KB page sizes on 64-bit devices. [Read More →](https://android-developers.googleblog.com/2025/05/prepare-play-apps-for-devices-with-16kb-page-size.html) ![](https://developer.android.com/static/distribute/images/heroes/google-play-hero.svg)
-
 Historically, Android has only supported 4 KB memory page sizes, which has
 optimized system memory performance for the average amount of total memory that
 Android devices have typically had. Beginning with Android 15, AOSP supports
@@ -27,6 +25,15 @@ if your app is impacted](https://developer.android.com/guide/practices/page-size
 [rebuild your app](https://developer.android.com/guide/practices/page-sizes#build) (if applicable), and how to [test your app in
 a 16 KB environment](https://developer.android.com/guide/practices/page-sizes#test) using emulators (including Android 15
 system images for the Android Emulator).
+
+## Google Play compatibility requirement
+
+To ensure your app works correctly on the latest versions of Android, all
+apps targeting Android 15 (API level 35) and higher must support 16 KB
+memory page sizes on 64-bit devices on Google Play. Starting February 1, 2027, if
+your app updates don't support 16 KB memory page sizes, you won't be able
+to release these updates.
+![Google Play Console warning that app updates must support 16 KB memory page sizes by February 1, 2027](https://developer.android.com/static/images/guide/practices/play-console-16kb.png) **Figure 1.** Google Play Console compatibility warning.
 
 ## Benefits and performance gains
 
@@ -94,11 +101,21 @@ Android Studio warns you proactively if your prebuilt libraries or APKs aren't
 16 KB compliant. Use the [APK
 Analyzer](https://developer.android.com/guide/practices/page-sizes#identify-native-code) tool to review which libraries need to be
 updated or if any code changes are required.
-![Studio warning notifications about alignment issues in a project](https://developer.android.com/static/images/guide/practices/studio-align-warnings.png)
+
+    <figure>
+      <img src="/images/guide/practices/studio-align-warnings.png"
+           class="no-filter" width="300"
+           alt="Studio warning notifications about alignment issues in a project">
+    </figure>
 
 [Lint in Android Studio](https://developer.android.com/studio/write/lint) also highlights native libraries that
 aren't 16 KB aligned.
-![Studio linter warning about a non-aligned native library](https://developer.android.com/static/images/guide/practices/studio-align-lint.png)
+
+    <figure>
+      <img src="/images/guide/practices/studio-align-lint.png"
+           class="no-filter"
+           alt="Studio linter warning about a non-aligned native library">
+    </figure>
 
 ### Check the alignment of ELF segments for shared libraries
 
@@ -394,7 +411,7 @@ any regressions. To do this, follow these steps:
    - [Set up the Android Emulator with a 16 KB--based, Android 15 system
      image](https://developer.android.com/guide/practices/page-sizes#16kb-emulator)
      - [Use Cuttlefish with 16 KB page size on ARM64](https://source.android.com/docs/core/architecture/16kb-page-size/getting-started-cf-arm64-pgagnostic)
-     - [Simulate Cuttlefish with 16 KB page size on x86-64](https://source.android.com/docs/core/architecture/16kb-page-size/getting-started-cf-x86-64-pgagnostic)
+   - [Simulate Cuttlefish with 16 KB page size on x86-64](https://source.android.com/docs/core/architecture/16kb-page-size/getting-started-cf-x86-64-pgagnostic)
    - [Enable 16 KB mode on a device using developer options](https://developer.android.com/guide/practices/page-sizes#developer-option)
    - [Use Samsung Remote Test Lab](https://developer.samsung.com/remote-test-lab/blog/en/2025/07/07/optimize-your-applications-for-16-kb-page-size-compatibility-using-samsungs-remote-test-lab) on 16 KB [supported devices](https://developer.samsung.com/remotetestlab/devices/129/16kb-page-size)
 3. Start up your test device, then run the following command to verify that
@@ -429,8 +446,7 @@ steps:
    > [!NOTE]
    > **Note:** If you're planning to [emulate a supported Google Pixel device](https://developer.android.com/about/versions/15/get#google-pixel-devices), you will only need the ARM 64 v8a System Image.
 
-   ![Download 16 KB emulator system images using the SDK Manager in
-   Android Studio](https://developer.android.com/static/images/guide/practices/16kb-emulator-images.png)
+   ![Download 16 KB emulator system images using the SDK Manager in Android Studio](https://developer.android.com/static/images/guide/practices/16kb-emulator-images.png)
 3. Click **Apply \> OK** to download whichever system images you selected.
 
 4. Follow the steps to [set up a virtual device for Android 15](https://developer.android.com/about/versions/15/get#on_emulator), and when
@@ -519,14 +535,3 @@ Set the `android:pageSizeCompat` property to enabled or disabled to turn on or
 off backcompat mode for a specific app in its `AndroidManifest.xml`. When this
 property is set, the app won't display backcompat mode warnings when it
 launches.
-
-## Google Play compatibility requirement
-
-As device manufacturers equip devices with more RAM to optimize performance,
-many will adopt larger page sizes like 16 KB. To prepare for the launch of
-these upcoming devices, Google Play is introducing a new compatibility
-requirement: starting November 1st, 2025, all new apps and updates to existing
-apps submitted to Google Play and targeting devices running Android 15 (API
-level 35) and higher must support 16 KB page sizes.
-
-To read more about this compatibility requirement, see this [blog post](https://android-developers.googleblog.com/2025/05/prepare-play-apps-for-devices-with-16kb-page-size.html).

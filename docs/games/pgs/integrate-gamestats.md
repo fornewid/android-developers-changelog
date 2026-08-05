@@ -211,8 +211,12 @@ These fields are described in the following table:
 
 ##### Example table
 
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| **Stat ID** | **Stat Display Name** | **Language Code** | **Localized Stat Name (UTF-8)** | **Localized Stat Description (UTF-8)** | 1 | Longest Match Survival | es | Supervivencia más larga en partidos | Esto denota el tiempo de supervivencia de una jugadora en cualquier partido. | 1 | Longest Match Survival | fr | Survie du match le plus long | Cela indique la durée de survie d'un joueur dans n'importe quel match. | 4 | Total Gold Collected | es | Oro total recolectado | La jugadora recoge monedas mientras juega en un partido | 4 | Total Gold Collected | fr | Or total collecté | Le joueur collecte des pièces en jouant un match |
+| Stat ID | Stat Display Name | Language Code | Localized Stat Name (UTF-8) | Localized Stat Description (UTF-8) |
+|---|---|---|---|---|
+| 1 | Longest Match Survival | es | Supervivencia más larga en partidos | Esto denota el tiempo de supervivencia de una jugadora en cualquier partido. |
+| 1 | Longest Match Survival | fr | Survie du match le plus long | Cela indique la durée de survie d'un joueur dans n'importe quel match. |
+| 4 | Total Gold Collected | es | Oro total recolectado | La jugadora recoge monedas mientras juega en un partido |
+| 4 | Total Gold Collected | fr | Or total collecté | Le joueur collecte des pièces en jouant un match |
 
 ### Icon files
 

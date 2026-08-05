@@ -86,25 +86,6 @@ services. This integration lets you build robust, full-stack Android apps withou
 leaving your IDE.
 ![The agent guiding a user through Firebase Auth and Firestore setup in the IDE.](https://developer.android.com/static/studio/images/build-full-stack-apps-with-firebase-agent-mode.png) The agent guiding a user through Firebase integration in the chat interface.
 
-### More capabilities when creating a new project with AI
-
-The ability to create new projects with AI has evolved into a full-stack
-development tool: it uses a multi-step execution plan and an autonomous
-"generation loop" that can automatically configure dependencies across multiple
-files and self-correct build errors during project setup.
-
-The capability is further enhanced by its integration with Firebase agent skills,
-which lets you build, debug, and deploy complete full-stack apps from
-a single prompt.
-![Creating and configuring a full-stack Firebase app from a single prompt.](https://developer.android.com/static/studio/images/new-project-agent-v2.png) Creating and configuring a full-stack Firebase app from a single prompt.
-
-Additionally, the AI-assisted new project creation workflow supports large
-screen optimizations. You can specify that you want your project scaffolded with
-layouts, navigation, and components optimized for tablets, foldables, and large
-screen devices. The agent in Android Studio can also configure and launch large-screen
-emulators to test your new layout immediately.
-![An app scaffolded for tablets and foldables.](https://developer.android.com/static/studio/images/new-project-agent-large-screen.png) Scaffolding and testing a tablet-optimized project.
-
 ### Build Android apps in Google AI Studio
 
 [Google AI Studio](https://ai.dev/apps?features=build_android_app) supports [full Android app
@@ -191,3 +172,13 @@ release of a brand-new app to a Play Console internal test track. You can
 also use this feature to upload releases of existing apps to other types of
 test tracks. You need to be registered on Google Play Console to take
 advantage of this functionality.
+
+### Gemma 4 integration
+
+You can now run the powerful Gemma 4 model directly within Android Studio for AI
+code assistance without relying on a third-party provider to host it. Powered
+natively by an integrated runtime, this local execution gives you full control
+to design new features, refactor code, and debug issues---all completely
+on-device. To download Gemma models, go to **Settings \> Tools \> AI \> Model
+Providers \> Gemma**.
+![](https://developer.android.com/static/studio/releases/assistant/2026.1.4/gemma-4.png)

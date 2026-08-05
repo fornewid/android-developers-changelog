@@ -555,6 +555,19 @@ the [`android:protectionLevel`](https://developer.android.com/guide/topics/manif
 
 ### Intents
 
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/security/android-intent-security)
+
+### Android Intent security
+
+Use the Intent security [Android skill](https://developer.android.com/tools/agents/android-skills) to secure your components and handle intents safely. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add --skill android-intent-security
+
+<br />
+
 For activities and broadcast receivers, intents are the preferred mechanism for
 asynchronous IPC on Android. Depending on your application requirements, you
 might use [`sendBroadcast`](https://developer.android.com/reference/android/content/Context#sendBroadcast(android.content.Intent))(), [`sendOrderedBroadcast`](https://developer.android.com/reference/android/content/Context#sendOrderedBroadcast(android.content.Intent,%20java.lang.String))(), or an explicit

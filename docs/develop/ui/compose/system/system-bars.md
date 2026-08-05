@@ -79,5 +79,5 @@ private fun StatusBarProtection(
 **Figure 1.** A translucent status bar.
 
 For adaptive apps, insert a custom composable that matches the colors of each
-pane, as seen in the [Edge-to--edge design](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge). To create a translucent
+pane, as seen in the [Edge-to-edge design](https://developer.android.com/design/ui/mobile/guides/layout-and-content/edge-to-edge). To create a translucent
 navigation bar, set [`Window.setNavigationBarContrastEnforced`](https://developer.android.com/reference/android/view/Window#setNavigationBarContrastEnforced(boolean)) to true.

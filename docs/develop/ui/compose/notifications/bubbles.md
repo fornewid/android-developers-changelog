@@ -23,7 +23,7 @@ they've bubbled or modify the settings for the overall app.
 Users can do the following:
 
 - Block all notification bubbles from your app. Notifications aren't blocked, but they never appear as bubbles.
-- Allow selected notification bubbles from your app. Notifications bubble using the bubble button are "selected".
+- Allow selected notification bubbles from your app. Notifications bubbled using the bubble button are "selected".
 - Allow all notification bubbles from your app. All notifications sent with `BubbleMetadata` appear as bubbles.
 
 > [!NOTE]

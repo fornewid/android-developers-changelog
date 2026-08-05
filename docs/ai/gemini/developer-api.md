@@ -10,16 +10,17 @@ conversational chat, image generation (with Nano Banana), and text generation
 based on text, image, audio, and video input.
 
 To access the Gemini Pro and Flash models, you can use the Gemini Developer API
-with Firebase AI Logic. It lets you get started without requiring a credit card,
-and provides a generous free tier. Once you validate your integration with a
-small user base, you can scale by switching to the paid tier.
-![Illustration of an Android App that contains a Firebase Android
-SDK. An arrow points from the SDK to Firebase within a Cloud environment. From
-Firebase, another arrow points to Gemini Developer API, which is connected to
-Gemini Pro & Flash, also within the Cloud.](https://developer.android.com/static/ai/assets/images/firebase-ai-logic-gemini-dev.svg) **Figure 1.** Firebase AI Logic integration architecture to access the Gemini Developer API.
+with Firebase AI Logic. It lets you get started without requiring a payment
+method (like a credit card), and provides a generous free tier. Once you
+validate your integration with a small user base, you can scale by upgrading to
+the paid tier.
+![Illustration that shows an Android app using the Firebase Android SDK
+to send requests to the Firebase backend in the cloud. Requests are
+routed to the Gemini Developer API,
+which can leverage both Gemini Pro and Flash models.](https://developer.android.com/static/ai/assets/images/firebase-ai-logic-gemini-dev.svg) **Figure 1.** Firebase AI Logic integration architecture to access the Gemini Developer API.
 
 > [!NOTE]
-> **Note:** If you have strict [data location](https://firebase.google.com/docs/ai-logic/locations?api=vertex) requirements or are already using Vertex AI, you can look at the support of Vertex AI Gemini API as an API provider for the [Firebase AI Logic SDK](https://developer.android.com/ai/vertex-ai-firebase).
+> **Note:** If you have strict [data location](https://firebase.google.com/docs/ai-logic/locations?api=vertex) requirements or you're already embedded in the Google Cloud ecosystem, you can consider using the Agent Platform Gemini API (formerly Vertex AI) as your API provider for the [Firebase AI Logic SDK](https://developer.android.com/ai/vertex-ai-firebase).
 
 ### Getting started
 
@@ -144,7 +145,7 @@ check out the [official App Check docs](https://firebase.google.com/docs/app-che
 ### Initialize the generative model
 
 > [!NOTE]
-> **Note:** Gemini 3 Flash and Gemini 3.1 Flash-Lite are now generally available. [Learn more about the models supported by Firebase AI Logic](https://firebase.google.com/docs/ai-logic/models).
+> **Note:** The latest Gemini 3.x Flash and Flash-Lite models are now available as stable versions. [Learn more about the models supported by Firebase AI Logic](https://firebase.google.com/docs/ai-logic/models).
 
 Start by instantiating a `GenerativeModel` and specifying the model name:
 
@@ -154,14 +155,14 @@ Start by instantiating a `GenerativeModel` and specifying the model name:
 ```kotlin
 // Start by instantiating a GenerativeModel and specifying the model name:
 val model = Firebase.ai(backend = GenerativeBackend.googleAI())
-    .generativeModel("gemini-2.5-flash")
+    .generativeModel("gemini-3.5-flash")
 ```
 
 ### Java
 
 ```java
 GenerativeModel firebaseAI = FirebaseAI.getInstance(GenerativeBackend.googleAI())
-        .generativeModel("gemini-2.5-flash");
+        .generativeModel("gemini-3.5-flash");
 
 GenerativeModelFutures model = GenerativeModelFutures.from(firebaseAI);
 ```
@@ -463,13 +464,13 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
 ### Generate images on Android with Nano Banana
 
 > [!NOTE]
-> **Note:** Gemini 3.1 Flash Image (`gemini-3.1-flash-image`, Nano Banana 2) and and Gemini 3 Pro Image (`gemini-3-pro-image`, Nano Banana Pro) are now generally available. Learn more about the capabilities of [Gemini 3.1 Flash Image](https://deepmind.google/models/gemini-image/flash/) and [Gemini 3 Pro Image](https://deepmind.google/models/gemini-image/pro/).
+> **Note:** Gemini 3.1 Flash Image (`gemini-3.1-flash-image`, Nano Banana 2), Gemini 3 Pro Image (`gemini-3-pro-image`, Nano Banana Pro), and Gemini 3.1 Flash-Lite Image (`gemini-3.1-flash-lite-image`, Nano Banana 2 Lite) are now available as stable versions. Learn more about the capabilities of [Gemini 3.1 Flash Image](https://deepmind.google/models/gemini-image/flash/), [Gemini 3 Pro Image](https://deepmind.google/models/gemini-image/pro/), and [Gemini 3.1 Flash-Lite Image](https://deepmind.google/models/gemini-image/flash-lite/)
 
-The Gemini 2.5 Flash Image model (a.k.a Nano Banana) can generate and edit
-images leveraging world knowledge and reasoning. It generates contextually
-relevant images, seamlessly blending or interleaving text and image outputs. It
-can also generate accurate visuals with long text sequences and supports
-conversational image editing while maintaining context.
+The Gemini Image models (a.k.a., Nano Banana models) can generate and edit
+images by leveraging world knowledge and reasoning. They generate contextually
+relevant images, seamlessly blending or interleaving text and image outputs.
+They can also generate accurate visuals with long text sequences, and they
+support conversational image editing while maintaining context.
 
 This guide describes how to use the Gemini Image models (the Nano Banana models)
 using the Firebase AI Logic SDK for Android. Find more details about
@@ -481,20 +482,21 @@ using the Firebase AI Logic SDK for Android. Find more details about
 ![Google AI Studio interface showing a text input field
 with the prompt 'A hyper realistic picture of a t-rex with a blue bag pack
 roaming a pre-historic forest.' and a generated image of a t-rex in a forest
-with a blue backpack.](https://developer.android.com/static/ai/assets/images/t-rex-nano-banana.png) **Figure 2.** Use Google AI Studio to refine your Nano Banana image generation prompts for Android
+with a blue backpack.](https://developer.android.com/static/ai/assets/images/t-rex-nano-banana.png) **Figure 2.** Use Google AI Studio to refine your Nano Banana image generation prompts for your Android app
 
 #### Initialize the generative model
 
-Instantiate a `GenerativeModel` and specify the model name
-`gemini-2.5-flash-image-preview`. Verify that you configure `responseModalities`
-to include both `TEXT` and `IMAGE`.
+Instantiate a `GenerativeModel` and specify a Gemini Image model name (like
+`gemini-3.1-flash-image`). Then, configure `responseModalities` to include both
+`TEXT` and `IMAGE` to generate interleaved text and images. If you exclude
+`TEXT`, then the model will only return images.
 
 
 ### Kotlin
 
 ```kotlin
 val model = Firebase.ai(backend = GenerativeBackend.googleAI()).generativeModel(
-    modelName = "gemini-2.5-flash-image-preview",
+    modelName = "gemini-3.5-flash-image-preview",
     // Configure the model to respond with text and images (required)
     generationConfig = generationConfig {
         responseModalities = listOf(
@@ -509,7 +511,7 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).generativeModel(
 
 ```java
 GenerativeModel ai = FirebaseAI.getInstance(GenerativeBackend.googleAI()).generativeModel(
-        "gemini-2.5-flash-image-preview",
+        "gemini-3.5-flash-image-preview",
         // Configure the model to respond with text and images (required)
         new GenerationConfig.Builder()
                 .setResponseModalities(Arrays.asList(ResponseModality.TEXT, ResponseModality.IMAGE))
@@ -737,4 +739,4 @@ After setting up your app, consider the following next steps:
 
 - Review the Android Quickstart Firebase [sample app](https://github.com/firebase/quickstart-android/tree/master/firebase-ai) and the [Android AI Sample Catalog](https://github.com/android/ai-samples) on GitHub.
 - [Prepare your app for production](https://firebase.google.com/docs/ai-logic/production-checklist), including [setting up Firebase App Check](https://firebase.google.com/docs/ai-logic/app-check) to protect the Gemini API from abuse by unauthorized clients.
-- Learn more about Firebase AI Logic in the [Firebase documentation](https://github.com/firebase/quickstart-android/tree/master/firebase-ai).
+- Learn more about Firebase AI Logic in the [Firebase documentation](https://firebase.google.com/docs/ai-logic/get-started?api=dev).

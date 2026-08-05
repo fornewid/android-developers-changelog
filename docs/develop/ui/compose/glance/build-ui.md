@@ -498,7 +498,7 @@ RadioButton(
 <br />
 
 When the state changes, the provided lambda is triggered. You can store the
-check state, as shown in the following example:
+checked state, as shown in the following example:
 
 
 ```kotlin

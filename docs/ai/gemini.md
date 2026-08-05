@@ -25,11 +25,11 @@ simplifying development by eliminating the need for a backend.
 ## API providers
 
 Firebase AI Logic lets you use the following Google Gemini API providers:
-Gemini *Developer API* and Vertex *AI Gemini API*.
+*Gemini Developer API* and *Agent Platform Gemini API* (formerly Vertex AI).
 ![Illustration that shows an Android app using the Firebase Android SDK
-to connect to Firebase in the cloud. From there, AI logic integrates using
-two paths: the Gemini Developer API or Google Cloud Platform's Vertex AI,
-both leveraging Gemini Pro & Flash models.](https://developer.android.com/static/ai/assets/images/firebase-ai-logic.svg) **Figure 1.** Firebase AI Logic integration architecture.
+to send requests to the Firebase backend in the cloud. Requests can be
+routed to either the Gemini Developer API or the Agent Platform Gemini API,
+both leveraging Gemini Pro and Flash models.](https://developer.android.com/static/ai/assets/images/firebase-ai-logic.svg) **Figure 1.** Firebase AI Logic integration architecture.
 
 Here are the primary differences for each API provider:
 
@@ -39,16 +39,15 @@ Here are the primary differences for each API provider:
 - Optionally upgrade to the paid tier of the Gemini Developer API to scale as your user base grows.
 - Iterate and experiment with prompts and even get code snippets using [Google AI Studio](https://aistudio.google.com/).
 
-[**Vertex AI Gemini API**](https://developer.android.com/ai/vertex-ai-firebase):
+[**Agent Platform Gemini API**](https://developer.android.com/ai/gemini/agent-platform-api) (formerly Vertex AI):
 
 - Granular control over [where you access the model](https://firebase.google.com/docs/ai-logic/locations?api=vertex).
-- Ideal for developers already embedded in the Vertex AI/Google Cloud ecosystem.
-- Iterate and experiment with prompts and even get code snippets using [Vertex AI Studio](https://cloud.google.com/vertex-ai/generative-ai/docs/start/quickstarts/quickstart).
+- Ideal for developers already embedded in the Google Cloud ecosystem.
+- Iterate and experiment with prompts and even get code snippets using [Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart).
 
-Selecting the appropriate API provider for your application is based on your
-business and technical constraints, and familiarity with the Vertex AI and
-Google Cloud ecosystem. Most Android developers just getting started with Gemini
-Pro or Gemini Flash integrations should begin with the Gemini Developer API.
+Selecting the appropriate Gemini API provider for your app is based on your
+business and technical constraints. Most Android developers just getting started
+with Gemini Pro and Flash models should begin with the Gemini Developer API.
 Switching between providers is done by changing the parameter in the model
 constructor:
 
@@ -56,9 +55,9 @@ constructor:
 ### Kotlin
 
 ```kotlin
-// For Vertex AI, use `backend = GenerativeBackend.vertexAI()`
+// For the Agent Platform Gemini API, use `backend = GenerativeBackend.agentPlatform()`
 val model = Firebase.ai(backend = GenerativeBackend.googleAI())
-    .generativeModel("gemini-2.5-flash")
+    .generativeModel("gemini-3.5-flash")
 
 val response = model.generateContent("Write a story about a magic backpack")
 val output = response.text
@@ -67,9 +66,9 @@ val output = response.text
 ### Java
 
 ```java
-// For Vertex AI, use `backend = GenerativeBackend.vertexAI()`
+// For the Agent Platform Gemini API, use `backend = GenerativeBackend.agentPlatform()`
 GenerativeModel firebaseAI = FirebaseAI.getInstance(GenerativeBackend.googleAI())
-        .generativeModel("gemini-2.5-flash");
+        .generativeModel("gemini-3.5-flash");
 
 // Use the GenerativeModelFutures Java compatibility layer which offers
 // support for ListenableFuture and Publisher APIs
@@ -112,6 +111,9 @@ ensuring only authorized clients access resources. It integrates with Google
 services (including Firebase and Google Cloud) and custom backends. App Check
 uses [Play Integrity](https://developer.android.com/google/play/integrity) to verify that requests originate from the authentic
 app and an untampered device.
+
+Starting early July 2026, Firebase automatically enforces App Check for
+Firebase AI Logic during the guided setup workflow in the Firebase console.
 
 ### Remote Config
 
