@@ -4,43 +4,21 @@ url: https://developer.android.com/guide/playcore/feature-delivery/on-demand
 source: md.txt
 ---
 
-Feature modules allow you to separate certain features and resources
-from the base module of your app and include them in your app bundle. Through
-Play Feature Delivery, users can, for example, later download and install those
-components on demand after they've already installed the base APK of your app.
+Feature modules allow you to separate certain features and resources from the base module of your app and include them in your app bundle. Through Play Feature Delivery, users can, for example, later download and install those components on demand after they've already installed the base APK of your app.
 
-For example, consider a text messaging app that includes functionality for
-capturing and sending picture messages, but only a small percentage of users
-send picture messages. It may make sense to include picture messaging as a
-downloadable feature module. That way, the initial app download is
-smaller for all users and only those users who send picture messages need to
-download that additional component.
+For example, consider a text messaging app that includes functionality for capturing and sending picture messages, but only a small percentage of users send picture messages. It may make sense to include picture messaging as a downloadable feature module. That way, the initial app download is smaller for all users and only those users who send picture messages need to download that additional component.
 
-Keep in mind, this type of modularization requires more effort and possibly
-refactoring your app's existing code, so consider carefully which of your
-app's features would benefit the most from being available to users on demand.
-To better understand optimal use cases and guidelines for on demand features,
-read [UX best practices for on demand delivery](https://developer.android.com/studio/projects/dynamic-delivery/ux-guidelines).
+Keep in mind, this type of modularization requires more effort and possibly refactoring your app's existing code, so consider carefully which of your app's features would benefit the most from being available to users on demand. To better understand optimal use cases and guidelines for on demand features, read [UX best practices for on demand delivery](https://developer.android.com/studio/projects/dynamic-delivery/ux-guidelines).
 
-If you want to gradually modularize app features over time, without
-enabling advanced delivery options, such as on demand deliver, instead
-[configure install-time delivery](https://developer.android.com/studio/projects/dynamic-delivery/at-install-delivery).
+If you want to gradually modularize app features over time, without enabling advanced delivery options, such as on demand deliver, instead [configure install-time delivery](https://developer.android.com/studio/projects/dynamic-delivery/at-install-delivery).
 
-This page helps you add a feature module to your app project and
-configure it for on demand delivery. Before you begin, make sure you're
-using [Android Studio 3.5](https://developer.android.com/studio) or higher and Android Gradle Plugin 3.5.0
-or higher.
+This page helps you add a feature module to your app project and configure it for on demand delivery. Before you begin, make sure you're using [Android Studio 3.5](https://developer.android.com/studio) or higher and Android Gradle Plugin 3.5.0 or higher.
 
 ## Configure a new module for on demand delivery
 
-The easiest way to create a new feature module is by using
-[Android Studio 3.5](https://developer.android.com/studio) or higher.
-Because feature modules have an
-inherent dependency on the base app module, you can add them only to existing
-app projects.
+The easiest way to create a new feature module is by using [Android Studio 3.5](https://developer.android.com/studio) or higher. Because feature modules have an inherent dependency on the base app module, you can add them only to existing app projects.
 
-To add a feature module to your app project using Android Studio,
-proceed as follows:
+To add a feature module to your app project using Android Studio, proceed as follows:
 
 1. If you haven't already done so, open your app project in the IDE.
 2. Select **File \> New \> New Module** from the menu bar.
@@ -53,14 +31,7 @@ proceed as follows:
 5. Click **Next**.
 6. In the **Module Download Options** section, complete the following:
 
-   1. Specify the **Module title** using up to 50 characters. The platform
-      uses this title to identify the module to users when, for example,
-      confirming whether the user wants to download the module. For this
-      reason, your app's base module must include the module title as a
-      [string resource](https://developer.android.com/guide/topics/resources/string-resource), which you
-      can translate. When creating the module using Android Studio, the IDE
-      adds the string resource to the base module for you and injects the
-      following entry in the feature module's manifest:
+   1. Specify the **Module title** using up to 50 characters. The platform uses this title to identify the module to users when, for example, confirming whether the user wants to download the module. For this reason, your app's base module must include the module title as a [string resource](https://developer.android.com/guide/topics/resources/string-resource), which you can translate. When creating the module using Android Studio, the IDE adds the string resource to the base module for you and injects the following entry in the feature module's manifest:
 
           <dist:module
               ...
@@ -70,9 +41,7 @@ proceed as follows:
       > [!NOTE]
       > **Note:** If you enable resource shrinking, such as for your release builds, the shrinker may remove the module title string resource if code in your base module does not reference it. To make sure the string resource remains in the build output, include the resource in a [custom resource keep file](https://developer.android.com/studio/build/shrink-code#keep-resources).
 
-   2. In the dropdown menu under **Install-time inclusion** , select **Do not
-      include module at install-time**. Android Studio injects the
-      following in the module's manifest to reflect your choice:
+   2. In the dropdown menu under **Install-time inclusion** , select **Do not include module at install-time**. Android Studio injects the following in the module's manifest to reflect your choice:
 
           <dist:module ... >
             <dist:delivery>
@@ -80,12 +49,7 @@ proceed as follows:
             </dist:delivery>
           </dist:module>
 
-   3. Check the box next to **Fusing** if you want this module to be available
-      to devices running Android 4.4 (API level 20) and lower and included in
-      multi-APKs. This means you can enable on demand behavior for this module
-      and disable fusing to omit it from devices that don't support
-      downloading and installing split APKs. Android Studio injects the
-      following in the module's manifest to reflect your choice:
+   3. Check the box next to **Fusing** if you want this module to be available to devices running Android 4.4 (API level 20) and lower and included in multi-APKs. This means you can enable on demand behavior for this module and disable fusing to omit it from devices that don't support downloading and installing split APKs. Android Studio injects the following in the module's manifest to reflect your choice:
 
           <dist:module ...>
               <dist:fusing dist:include="true | false" />
@@ -93,37 +57,19 @@ proceed as follows:
 
 7. Click **Finish**.
 
-After Android Studio finishes creating your module, inspect its contents
-yourself from the **Project** pane (select **View \> Tool Windows \> Project**
-from the menu bar). The default code, resources, and organization should be
-similar to those of the standard app module.
+After Android Studio finishes creating your module, inspect its contents yourself from the **Project** pane (select **View \> Tool Windows \> Project** from the menu bar). The default code, resources, and organization should be similar to those of the standard app module.
 
 Next, you will need to implement the on demand install functionality using the Play Feature Delivery library.
 
 ## Include the Play Feature Delivery Library in your project
 
-Before you can start, you need to first
-[add the Play Feature Delivery Library](https://developer.android.com/guide/playcore#java-kotlin-feature-delivery) to your project.
+Before you can start, you need to first [add the Play Feature Delivery Library](https://developer.android.com/guide/playcore#java-kotlin-feature-delivery) to your project.
 
 ## Request an on demand module
 
-When your app needs to use a feature module, it can request one while
-it's in the foreground through the
-[`SplitInstallManager`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager)
-class. When making a
-request, your app needs to specify the name of the module as defined by the
-`split` element in the target module's manifest. When you
-[create a feature module](https://developer.android.com/guide/app-bundle/play-feature-delivery)
-using Android Studio, the build system uses the **Module name** you provide
-to inject this property into the module's manifest at compile time.
-For more information, read about the
-[feature module manifests](https://developer.android.com/guide/playcore/feature-delivery#feature-module-manifest).
+When your app needs to use a feature module, it can request one while it's in the foreground through the [`SplitInstallManager`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager) class. When making a request, your app needs to specify the name of the module as defined by the `split` element in the target module's manifest. When you [create a feature module](https://developer.android.com/guide/app-bundle/play-feature-delivery) using Android Studio, the build system uses the **Module name** you provide to inject this property into the module's manifest at compile time. For more information, read about the [feature module manifests](https://developer.android.com/guide/playcore/feature-delivery#feature-module-manifest).
 
-For example, consider an app that has an on demand module to capture and send
-picture messages using the device's camera, and this on demand module
-specifies `split="pictureMessages"` in its manifest. The
-following sample uses `SplitInstallManager` to request the `pictureMessages`
-module (along with an additional module for some promotional filters):
+For example, consider an app that has an on demand module to capture and send picture messages using the device's camera, and this on demand module specifies `split="pictureMessages"` in its manifest. The following sample uses `SplitInstallManager` to request the `pictureMessages` module (along with an additional module for some promotional filters):
 
 ### Kotlin
 
@@ -184,39 +130,17 @@ splitInstallManager
     .addOnFailureListener(exception -> { ... });
 ```
 
-When your app requests an on demand module, the Play Feature Delivery Library employs a
-"fire-and-forget" strategy. That is, it sends the request to download the
-module to the platform, but it does not monitor whether the installation
-succeeded. To move the user journey forward after
-installation or gracefully handle errors, make sure you [monitor the request
-state](https://developer.android.com/guide/playcore/feature-delivery/on-demand#monitor_requests).
+When your app requests an on demand module, the Play Feature Delivery Library employs a "fire-and-forget" strategy. That is, it sends the request to download the module to the platform, but it does not monitor whether the installation succeeded. To move the user journey forward after installation or gracefully handle errors, make sure you [monitor the request state](https://developer.android.com/guide/playcore/feature-delivery/on-demand#monitor_requests).
 
+**Note:** It's okay to request a feature module that's already installed on the device. The API instantly considers the request as completed if it detects the module is already installed. Additionally, after a module is installed, Google Play keeps it updated automatically. That is, when you upload a new version of your app bundle, the platform updates all installed APKs that belong to your app. For more information, read [Manage app updates](https://developer.android.com/guide/app-bundle/configure-base#manage_app_updates).
 
-**Note:** It's okay to request a
-feature module that's already installed on the device. The API
-instantly considers the request as completed if it detects the module is already
-installed. Additionally, after a module is installed, Google Play keeps it updated
-automatically. That is, when you upload a new version of your app bundle, the platform
-updates all installed APKs that belong to your app. For more information, read
-[Manage app updates](https://developer.android.com/guide/app-bundle/configure-base#manage_app_updates).
-
-To have access to the module's code and resources, your app needs to
-[enable SplitCompat](https://developer.android.com/guide/playcore/feature-delivery/on-demand#access_downloaded_modules). Note that SplitCompat is not
-required for Android Instant Apps.
+To have access to the module's code and resources, your app needs to [enable SplitCompat](https://developer.android.com/guide/playcore/feature-delivery/on-demand#access_downloaded_modules). Note that SplitCompat is not required for Android Instant Apps.
 
 ### Defer installation of on demand modules
 
-If you do not need your app to immediately download and install an on demand
-module, you can defer installation for when the app is in the background. For
-example, if you want to preload some promotional material for a later launch of
-your app.
+If you do not need your app to immediately download and install an on demand module, you can defer installation for when the app is in the background. For example, if you want to preload some promotional material for a later launch of your app.
 
-You can specify a module to be download later using the
-[`deferredInstall()`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager#deferredinstall)
-method, as shown below. And, unlike
-[`SplitInstallManager.startInstall()`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager#startinstall),
-your app does not need to be in the foreground to initiate a request for a
-deferred installation.
+You can specify a module to be download later using the [`deferredInstall()`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager#deferredinstall) method, as shown below. And, unlike [`SplitInstallManager.startInstall()`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager#startinstall), your app does not need to be in the foreground to initiate a request for a deferred installation.
 
 ### Kotlin
 
@@ -234,21 +158,11 @@ splitInstallManager.deferredInstall(listOf("promotionalFilters"))
 splitInstallManager.deferredInstall(Arrays.asList("promotionalFilters"));
 ```
 
-Requests for deferred installs are best-effort and you cannot track their
-progress. So, before trying to access a module you have specified for deferred
-installation, you should
-[check that the module has been installed](https://developer.android.com/guide/playcore/feature-delivery/on-demand#manage_installed_modules). If you
-need the module to be available immediately, instead use
-`SplitInstallManager.startInstall()` to request it, as shown in the previous
-section.
+Requests for deferred installs are best-effort and you cannot track their progress. So, before trying to access a module you have specified for deferred installation, you should [check that the module has been installed](https://developer.android.com/guide/playcore/feature-delivery/on-demand#manage_installed_modules). If you need the module to be available immediately, instead use `SplitInstallManager.startInstall()` to request it, as shown in the previous section.
 
 ## Monitor the request state
 
-To be able to update a progress bar, fire an intent after
-installation, or gracefully handle a request error, you need to listen for
-state updates from the asynchronous `SplitInstallManager.startInstall()` task.
-Before you can start receiving updates for your install request, register a
-listener and get the session ID for the request, as shown below.
+To be able to update a progress bar, fire an intent after installation, or gracefully handle a request error, you need to listen for state updates from the asynchronous `SplitInstallManager.startInstall()` task. Before you can start receiving updates for your install request, register a listener and get the session ID for the request, as shown below.
 
 ### Kotlin
 
@@ -320,15 +234,9 @@ splitInstallManager.unregisterListener(listener);
 
 ### Handle request errors
 
-Keep in mind that on demand installation of feature modules can sometime fail,
-just like app installation doesn't always succeed. Failure to install can be due
-to issues like low device storage, no network connectivity, or the user not being
-signed in to the Google Play Store. For suggestions on how to handle these situations
-gracefully from the user's perspective, check out our
-[UX guidelines for on demand delivery](https://developer.android.com/guide/playcore/feature-delivery/ux-guidelines).
+Keep in mind that on demand installation of feature modules can sometime fail, just like app installation doesn't always succeed. Failure to install can be due to issues like low device storage, no network connectivity, or the user not being signed in to the Google Play Store. For suggestions on how to handle these situations gracefully from the user's perspective, check out our [UX guidelines for on demand delivery](https://developer.android.com/guide/playcore/feature-delivery/ux-guidelines).
 
-Code-wise, you should handle failures downloading or installing a module
-using `addOnFailureListener()`, as shown below:
+Code-wise, you should handle failures downloading or installing a module using `addOnFailureListener()`, as shown below:
 
 ### Kotlin
 
@@ -415,21 +323,14 @@ The table below describes the error states your app may need to handle:
 | APP_NOT_OWNED | The app has not been installed by Google Play and the feature cannot be downloaded. This error can only occur for deferred installs. | If you want the user to acquire the app on Google Play, use `startInstall()` which can obtain the necessary [user confirmation](https://developer.android.com/guide/playcore/feature-delivery/on-demand#obtain_confirmation). |
 | INTERNAL_ERROR | An internal error occurred within the Play Store. | Retry the request. |
 
-If a user requests downloading an on demand module and an error occurs,
-consider displaying a dialog that provides two options for the user: **Try
-again** (which attempts the request again) and **Cancel** (which abandons the
-request). For additional support, you should also provide **Help** link that
-directs users to the
-[Google Play Help center](https://support.google.com/googleplay/answer/7513003).
+If a user requests downloading an on demand module and an error occurs, consider displaying a dialog that provides two options for the user: **Try again** (which attempts the request again) and **Cancel** (which abandons the request). For additional support, you should also provide **Help** link that directs users to the [Google Play Help center](https://support.google.com/googleplay/answer/7513003).
 
 > [!NOTE]
 > **Note:** When testing your app, if you see `onError(-2)`, it might be because you have not yet uploaded your app to Google Play. To test on demand functionality of your app, you must either [share your app with a URL](https://support.google.com/googleplay/android-developer/answer/9303479) or [set up an open, closed, or internal test](https://support.google.com/googleplay/android-developer/answer/3131213).
 
 ### Handle state updates
 
-After you register a listener and record the session ID for your request,
-use [`StateUpdatedListener.onStateUpdate()`](https://developer.android.com/reference/com/google/android/play/core/listener/StateUpdatedListener#onStateUpdate(StateT))
-to handle state changes, as shown below.
+After you register a listener and record the session ID for your request, use [`StateUpdatedListener.onStateUpdate()`](https://developer.android.com/reference/com/google/android/play/core/listener/StateUpdatedListener#onStateUpdate(StateT)) to handle state changes, as shown below.
 
 ### Kotlin
 
@@ -510,13 +411,7 @@ The possible states for your install request are described in the table below.
 
 ### Obtain user confirmation
 
-In some cases, Google Play may require user confirmation before satisfying a
-download request. For example, if your app has not been installed by Google
-Play or if you are attempting a large download over mobile data. In such cases,
-the status for the request reports `REQUIRES_USER_CONFIRMATION`, and your app
-needs to obtain user confirmation before the device is able to download and
-install the modules in the request. To obtain confirmation, your app should
-prompt the user as follows:
+In some cases, Google Play may require user confirmation before satisfying a download request. For example, if your app has not been installed by Google Play or if you are attempting a large download over mobile data. In such cases, the status for the request reports `REQUIRES_USER_CONFIRMATION`, and your app needs to obtain user confirmation before the device is able to download and install the modules in the request. To obtain confirmation, your app should prompt the user as follows:
 
 ### Kotlin
 
@@ -548,9 +443,7 @@ override fun onSessionStateUpdate(state: SplitInstallSessionState) {
  }
 ```
 
-You can register an activity result launcher using the builtin
-[`ActivityResultContracts.StartIntentSenderForResult`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts.StartIntentSenderForResult)
-contract. See [Activity Result APIs](https://developer.android.com/training/basics/intents/result).
+You can register an activity result launcher using the builtin [`ActivityResultContracts.StartIntentSenderForResult`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts.StartIntentSenderForResult) contract. See [Activity Result APIs](https://developer.android.com/training/basics/intents/result).
 
 The status for the request is updated depending on the user response:
 
@@ -558,8 +451,7 @@ The status for the request is updated depending on the user response:
 - If the user denies the confirmation, the request status changes to `CANCELED`.
 - If the user does not make a selection before the dialog is destroyed, the request status remains as `REQUIRES_USER_CONFIRMATION`. Your app can prompt the user again to complete the request.
 
-To receive a callback with the user's response, you can override the
-ActivityResultCallback as shown below.
+To receive a callback with the user's response, you can override the ActivityResultCallback as shown below.
 
 ### Kotlin
 
@@ -587,8 +479,7 @@ registerForActivityResult(
 
 ### Cancel an install request
 
-If your app needs to cancel a request before it is installed, it can invoke
-the `cancelInstall()` method using the request's session ID, as shown below.
+If your app needs to cancel a request before it is installed, it can invoke the `cancelInstall()` method using the request's session ID, as shown below.
 
 ### Kotlin
 
@@ -608,53 +499,35 @@ splitInstallManager
 
 ## Access modules
 
-To access code and resources from a downloaded module after it is downloaded,
-your app needs to enable the
-[SplitCompat Library](https://developer.android.com/reference/com/google/android/play/core/splitcompat/SplitCompat)
-for both your app and each activity in the feature modules your app
-downloads.
+To access code and resources from a downloaded module after it is downloaded, your app needs to enable the [SplitCompat Library](https://developer.android.com/reference/com/google/android/play/core/splitcompat/SplitCompat) for both your app and each activity in the feature modules your app downloads.
 
-You should note, however, the platform experiences the following
-restrictions to accessing contents of a module, for some time (days, in some
-cases) after downloading the module:
+You should note, however, the platform experiences the following restrictions to accessing contents of a module, for some time (days, in some cases) after downloading the module:
 
 - The platform can not apply any new manifest entries introduced by the module.
 - The platform can not access the module's resources for system UI components, such as notifications. If you need to use such resources immediately, consider including those resource in the base module of your app.
 
 ### Enable SplitCompat
 
-For your app to access code and resources from a downloaded module,
-you need to enable SplitCompat using only one of the methods described in the
-following sections.
+For your app to access code and resources from a downloaded module, you need to enable SplitCompat using only one of the methods described in the following sections.
 
-After you enable SplitCompat for your app, you need to also [enable SplitCompat
-for each activity](https://developer.android.com/guide/playcore/feature-delivery/on-demand#activity_splitcompat) in the feature modules you
-want your app to have access to.
+After you enable SplitCompat for your app, you need to also [enable SplitCompat for each activity](https://developer.android.com/guide/playcore/feature-delivery/on-demand#activity_splitcompat) in the feature modules you want your app to have access to.
 
 #### Declare SplitCompatApplication in the manifest
 
-The simplest way to enable SplitCompat is to declare `SplitCompatApplication`
-as the [`Application`](https://developer.android.com/reference/android/app/Application) subclass in
-your app's manifest, as shown below:
+The simplest way to enable SplitCompat is to declare `SplitCompatApplication` as the [`Application`](https://developer.android.com/reference/android/app/Application) subclass in your app's manifest, as shown below:
 
     <application
         ...
         android:name="com.google.android.play.core.splitcompat.SplitCompatApplication">
     </application>
 
-After the app is installed on a device, you can access code and resources from
-downloaded feature modules automatically.
+After the app is installed on a device, you can access code and resources from downloaded feature modules automatically.
 
 #### Invoke SplitCompat at runtime
 
-You can also enable SplitCompat in specific activities or services at runtime.
-Enabling SplitCompat this way is required to launch activities included in
-feature modules. To do this, override `attachBaseContext` as seen below.
+You can also enable SplitCompat in specific activities or services at runtime. Enabling SplitCompat this way is required to launch activities included in feature modules. To do this, override `attachBaseContext` as seen below.
 
-If you have a custom [Application](https://developer.android.com/reference/android/app/Application) class,
-have it instead extend
-[`SplitCompatApplication`](https://developer.android.com/reference/com/google/android/play/core/splitcompat/SplitCompatApplication)
-in order to enable SplitCompat for your app, as shown below:
+If you have a custom [Application](https://developer.android.com/reference/android/app/Application) class, have it instead extend [`SplitCompatApplication`](https://developer.android.com/reference/com/google/android/play/core/splitcompat/SplitCompatApplication) in order to enable SplitCompat for your app, as shown below:
 
 ### Kotlin
 
@@ -672,11 +545,7 @@ public class MyApplication extends SplitCompatApplication {
 }
 ```
 
-`SplitCompatApplication` simply overrides `ContextWrapper.attachBaseContext()`
-to include `SplitCompat.install(Context applicationContext)`. If you don't
-want your `Application` class to
-extend `SplitCompatApplication`, you can override the `attachBaseContext()`
-method manually, as follows:
+`SplitCompatApplication` simply overrides `ContextWrapper.attachBaseContext()` to include `SplitCompat.install(Context applicationContext)`. If you don't want your `Application` class to extend `SplitCompatApplication`, you can override the `attachBaseContext()` method manually, as follows:
 
 ### Kotlin
 
@@ -699,9 +568,7 @@ protected void attachBaseContext(Context base) {
 }
 ```
 
-If your on demand module is compatible
-with both instant apps and installed apps, you can invoke SplitCompat
-conditionally, as follows:
+If your on demand module is compatible with both instant apps and installed apps, you can invoke SplitCompat conditionally, as follows:
 
 ### Kotlin
 
@@ -728,9 +595,7 @@ protected void attachBaseContext(Context base) {
 
 ### Enable SplitCompat for module activities
 
-After you enable SplitCompat for your base app, you need to enable SplitCompat
-for each activity that your app downloads in a feature module. To do so,
-use the `SplitCompat.installActivity()` method, as follows:
+After you enable SplitCompat for your base app, you need to enable SplitCompat for each activity that your app downloads in a feature module. To do so, use the `SplitCompat.installActivity()` method, as follows:
 
 ### Kotlin
 
@@ -757,9 +622,7 @@ protected void attachBaseContext(Context base) {
 
 ### Start an activity defined in a feature module
 
-You can launch activities defined in feature modules using
-[`startActivity()`](https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent))
-after enabling SplitCompat.
+You can launch activities defined in feature modules using [`startActivity()`](https://developer.android.com/reference/android/app/Activity#startActivity(android.content.Intent)) after enabling SplitCompat.
 
 ### Kotlin
 
@@ -777,17 +640,13 @@ startActivity(new Intent()
   .setFlags(...));
 ```
 
-The first parameter to `setClassName` is the package name of the app and the
-second parameter is the full class name of the activity.
+The first parameter to `setClassName` is the package name of the app and the second parameter is the full class name of the activity.
 
-When you have an activity in a feature module you downloaded on-demand, you must
-[enable SplitCompat in the activity](https://developer.android.com/guide/playcore/feature-delivery/on-demand#activity_splitcompat).
+When you have an activity in a feature module you downloaded on-demand, you must [enable SplitCompat in the activity](https://developer.android.com/guide/playcore/feature-delivery/on-demand#activity_splitcompat).
 
 ### Start a service defined in a feature module
 
-You can launch services defined in feature modules using
-[`startService()`](https://developer.android.com/reference/android/content/Context#startService(android.content.Intent))
-after enabling SplitCompat.
+You can launch services defined in feature modules using [`startService()`](https://developer.android.com/reference/android/content/Context#startService(android.content.Intent)) after enabling SplitCompat.
 
 ### Kotlin
 
@@ -809,53 +668,29 @@ startService(new Intent()
 
 You should not include exported Android components inside optional modules.
 
-The build system merges manifest entries for all modules into the base module;
-if an optional module contained an exported component, it would be accessible
-even before the module is installed and can cause a crash due to missing code
-when invoked from another app.
+The build system merges manifest entries for all modules into the base module; if an optional module contained an exported component, it would be accessible even before the module is installed and can cause a crash due to missing code when invoked from another app.
 
-This is not a problem for internal components; they are accessed only
-by the app, so the app can
-[check that the module is installed](https://developer.android.com/guide/playcore/feature-delivery/on-demand#manage_installed_modules) before accessing
-the component.
+This is not a problem for internal components; they are accessed only by the app, so the app can [check that the module is installed](https://developer.android.com/guide/playcore/feature-delivery/on-demand#manage_installed_modules) before accessing the component.
 
-If you need an exported component, and you want its content to be in an optional
-module, consider implementing a proxy pattern.
-You can do that by adding a proxy exported component in the base;
-when accessed, the proxy component can check for the presence of the module that
-contains the content. If the module is present, the proxy
-component can start the internal component from the module via an `Intent`,
-relaying the intent from the caller app. If the module is not present, the
-component can download the module or return an appropriate error message to the
-caller app.
+If you need an exported component, and you want its content to be in an optional module, consider implementing a proxy pattern. You can do that by adding a proxy exported component in the base; when accessed, the proxy component can check for the presence of the module that contains the content. If the module is present, the proxy component can start the internal component from the module via an `Intent`, relaying the intent from the caller app. If the module is not present, the component can download the module or return an appropriate error message to the caller app.
 
 ## Access code and resources from installed modules
 
-If you [enable SplitCompat](https://developer.android.com/guide/playcore/feature-delivery/on-demand#access_downloaded_modules) for your base
-application context and the activities in your feature module, you can use the
-code and resources from a feature module as if it were a part of the base APK,
-once the optional module is installed.
+If you [enable SplitCompat](https://developer.android.com/guide/playcore/feature-delivery/on-demand#access_downloaded_modules) for your base application context and the activities in your feature module, you can use the code and resources from a feature module as if it were a part of the base APK, once the optional module is installed.
 
 ### Access code from a different module
 
 #### Access base code from a module
 
-Code that is inside your base module can be used directly by other modules.
-You don't need to do anything special; just import and use the classes you need.
+Code that is inside your base module can be used directly by other modules. You don't need to do anything special; just import and use the classes you need.
 
 #### Access module code from another module
 
-An object or class inside a module cannot be statically accessed from another
-module directly, but it can be accessed indirectly, using reflection.
+An object or class inside a module cannot be statically accessed from another module directly, but it can be accessed indirectly, using reflection.
 
-You should be wary of how often this happens, due to the performance costs
-of reflection. For complex use cases, use dependency injection frameworks like
-[Dagger 2](https://dagger.dev/) to guarantee a single reflection call per
-application lifetime.
+You should be wary of how often this happens, due to the performance costs of reflection. For complex use cases, use dependency injection frameworks like [Dagger 2](https://dagger.dev/) to guarantee a single reflection call per application lifetime.
 
-To simplify the interactions with the object after instantiation, it is
-recommended to define an interface in the base module and its implementation in
-the feature module. For instance:
+To simplify the interactions with the object after instantiation, it is recommended to define an interface in the base module and its implementation in the feature module. For instance:
 
 ### Kotlin
 
@@ -898,49 +733,26 @@ String stringFromModule =
 
 ### Access resources and assets from a different module
 
-Once a module is installed, you can access resources and assets within the
-module in the standard way, with two caveats:
+Once a module is installed, you can access resources and assets within the module in the standard way, with two caveats:
 
 - If you are accessing a resource from a different module, the module will not have access to the resource identifier, though the resource can still be accessed by name. Note that the package to use to reference the resource is the package of the module where the resource is defined.
-- If you want to access assets or resources that exist in a newly installed module from a different installed module of your app, you must do so [using the
-  application context](https://developer.android.com/guide/topics/resources/providing-resources#Accessing). The context of the component that's trying to access the resources will not yet be updated. Alternatively, you can recreate that component (for instance calling [Activity.recreate()](https://developer.android.com/reference/android/app/Activity#recreate())) or [reinstall SplitCompat](https://developer.android.com/guide/playcore/feature-delivery/on-demand#activity_splitcompat) on it after the feature module installation.
+- If you want to access assets or resources that exist in a newly installed module from a different installed module of your app, you must do so [using the application context](https://developer.android.com/guide/topics/resources/providing-resources#Accessing). The context of the component that's trying to access the resources will not yet be updated. Alternatively, you can recreate that component (for instance calling [Activity.recreate()](https://developer.android.com/reference/android/app/Activity#recreate())) or [reinstall SplitCompat](https://developer.android.com/guide/playcore/feature-delivery/on-demand#activity_splitcompat) on it after the feature module installation.
 
 ### Load native code in an app using on-demand delivery
 
-We recommend using [ReLinker](https://github.com/KeepSafe/ReLinker) to load all
-your native libraries when using on-demand delivery of feature modules.
-ReLinker fixes an issue in loading native libraries after the installation of a
-feature module. You can learn more about ReLinker in the
-[Android JNI Tips](https://developer.android.com/training/articles/perf-jni#native-libraries).
+We recommend using [ReLinker](https://github.com/KeepSafe/ReLinker) to load all your native libraries when using on-demand delivery of feature modules. ReLinker fixes an issue in loading native libraries after the installation of a feature module. You can learn more about ReLinker in the [Android JNI Tips](https://developer.android.com/training/articles/perf-jni#native-libraries).
 
 ### Load native code from an optional module
 
-Once a split is installed, we recommend loading its native code through
-[ReLinker](https://github.com/KeepSafe/ReLinker).
-For instant apps you should use [this special method](https://developer.android.com/guide/playcore/feature-delivery/on-demand#load_native_libs).
+Once a split is installed, we recommend loading its native code through [ReLinker](https://github.com/KeepSafe/ReLinker). For instant apps you should use [this special method](https://developer.android.com/guide/playcore/feature-delivery/on-demand#load_native_libs).
 
-If you are using `System.loadLibrary()` to load your native code and your native
-library has a dependency on another library in the module, you must manually
-load that other library first.
-If you are using ReLinker, the equivalent operation is
-`Relinker.recursively().loadLibrary()`.
+If you are using `System.loadLibrary()` to load your native code and your native library has a dependency on another library in the module, you must manually load that other library first. If you are using ReLinker, the equivalent operation is `Relinker.recursively().loadLibrary()`.
 
-If you are using `dlopen()` in native code to load a library defined in an
-optional module, it will not work with relative library paths.
-The best solution is to retrieve the absolute path of the library from Java code
-via `ClassLoader.findLibrary()` and then use it in your `dlopen()` call.
-Do this before entering the native code or use a JNI call from your
-native code into Java.
+If you are using `dlopen()` in native code to load a library defined in an optional module, it will not work with relative library paths. The best solution is to retrieve the absolute path of the library from Java code via `ClassLoader.findLibrary()` and then use it in your `dlopen()` call. Do this before entering the native code or use a JNI call from your native code into Java.
 
 ### Access installed Android Instant Apps
 
-After an Android Instant App module reports as `INSTALLED`, you can access its
-code and resources using a refreshed app
-[Context](https://developer.android.com/reference/android/content/Context). A
-context that your app creates *before* installing a module (for example, one
-that's already stored in a variable) does not contain the content of the new
-module. But a fresh context does---this can be obtained, for example, using
-[`createPackageContext`](https://developer.android.com/reference/android/content/Context#createPackageContext(java.lang.String,%20int)).
+After an Android Instant App module reports as `INSTALLED`, you can access its code and resources using a refreshed app [Context](https://developer.android.com/reference/android/content/Context). A context that your app creates *before* installing a module (for example, one that's already stored in a variable) does not contain the content of the new module. But a fresh context does---this can be obtained, for example, using [`createPackageContext`](https://developer.android.com/reference/android/content/Context#createPackageContext(java.lang.String,%20int)).
 
 ### Kotlin
 
@@ -984,14 +796,7 @@ public void onStateUpdate(SplitInstallSessionState state) {
 
 #### Android Instant Apps on Android 8.0 and higher
 
-When requesting an on demand module for an Android Instant App on Android 8.0
-(API level 26) and higher, after an install request reports as `INSTALLED`, you
-need to update the app with the context of the new module through a call to
-[`SplitInstallHelper.updateAppInfo(Context context)`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallHelper#updateAppInfo(android.content.Context)).
-Otherwise, the app is not yet aware of the module's code
-and resources. After updating the app's metadata, you should load the module's
-contents during the next main thread event by invoking a new
-[`Handler`](https://developer.android.com/reference/android/os/Handler), as shown below:
+When requesting an on demand module for an Android Instant App on Android 8.0 (API level 26) and higher, after an install request reports as `INSTALLED`, you need to update the app with the context of the new module through a call to [`SplitInstallHelper.updateAppInfo(Context context)`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallHelper#updateAppInfo(android.content.Context)). Otherwise, the app is not yet aware of the module's code and resources. After updating the app's metadata, you should load the module's contents during the next main thread event by invoking a new [`Handler`](https://developer.android.com/reference/android/os/Handler), as shown below:
 
 ### Kotlin
 
@@ -1049,10 +854,7 @@ public void onStateUpdate(SplitInstallSessionState state) {
 
 #### Load C/C++ libraries
 
-If you want to load C/C++ libraries from a module that the device has already
-downloaded in an Instant App, use
-[`SplitInstallHelper.loadLibrary(Context context, String libName)`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallHelper#loadLibrary(android.content.Context,%20java.lang.String)),
-as shown below:
+If you want to load C/C++ libraries from a module that the device has already downloaded in an Instant App, use [`SplitInstallHelper.loadLibrary(Context context, String libName)`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallHelper#loadLibrary(android.content.Context,%20java.lang.String)), as shown below:
 
 ### Kotlin
 
@@ -1098,11 +900,7 @@ public void onStateUpdate(SplitInstallSessionState state) {
 
 ## Manage installed modules
 
-To check which feature modules are currently installed on the device,
-you can call
-[`SplitInstallManager.getInstalledModules()`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager#getInstalledModules()),
-which returns a `Set<String>` of the names of the installed modules, as shown
-below.
+To check which feature modules are currently installed on the device, you can call [`SplitInstallManager.getInstalledModules()`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager#getInstalledModules()), which returns a `Set<String>` of the names of the installed modules, as shown below.
 
 > [!NOTE]
 > **Note:** If you're developing an Android Instant App, this section does not apply to you.
@@ -1121,9 +919,7 @@ Set<String> installedModules = splitInstallManager.getInstalledModules();
 
 ### Uninstall modules
 
-You can request the device to uninstall modules by invoking
-[`SplitInstallManager.deferredUninstall(List<String> moduleNames)`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager#deferreduninstall),
-as shown below.
+You can request the device to uninstall modules by invoking [`SplitInstallManager.deferredUninstall(List<String> moduleNames)`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager#deferreduninstall), as shown below.
 
 ### Kotlin
 
@@ -1139,24 +935,13 @@ splitInstallManager.deferredUninstall(listOf("pictureMessages", "promotionalFilt
 splitInstallManager.deferredUninstall(Arrays.asList("pictureMessages", "promotionalFilters"));
 ```
 
-Module uninstalls do not occur immediately. That is,
-the device uninstalls them in the background as needed to save storage space.
-You can confirm that the device has
-deleted a module by invoking
-[`SplitInstallManager.getInstalledModules()`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager#getinstalledmodules)
-and inspecting the result, as described in the previous section.
+Module uninstalls do not occur immediately. That is, the device uninstalls them in the background as needed to save storage space. You can confirm that the device has deleted a module by invoking [`SplitInstallManager.getInstalledModules()`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/SplitInstallManager#getinstalledmodules) and inspecting the result, as described in the previous section.
 
 ## Download additional language resources
 
-With app bundles, devices download only the code and resources they
-require to run your app. So, for language resources, a user's device downloads
-only your app's language resources that match the one or more languages currently
-selected in the device's settings.
+With app bundles, devices download only the code and resources they require to run your app. So, for language resources, a user's device downloads only your app's language resources that match the one or more languages currently selected in the device's settings.
 
-If you want your app to have access to additional language resources---for
-example, to implement an in-app language picker, you can use the Play Feature Delivery
-Library to download them on demand. The process is similar to that of
-downloading a feature module, as shown below.
+If you want your app to have access to additional language resources---for example, to implement an in-app language picker, you can use the Play Feature Delivery Library to download them on demand. The process is similar to that of downloading a feature module, as shown below.
 
 ### Kotlin
 
@@ -1201,12 +986,9 @@ SplitInstallRequest request =
 splitInstallManager.startInstall(request);
 ```
 
-The request is handled as if it were a request for a feature module. That is,
-you can [monitor the request state](https://developer.android.com/guide/playcore/feature-delivery/on-demand#monitor_requests) like you normally would.
+The request is handled as if it were a request for a feature module. That is, you can [monitor the request state](https://developer.android.com/guide/playcore/feature-delivery/on-demand#monitor_requests) like you normally would.
 
-If your app doesn't require the additional language resources immediately, you
-can defer the installation for when the app is in the background, as shown
-below.
+If your app doesn't require the additional language resources immediately, you can defer the installation for when the app is in the background, as shown below.
 
 ### Kotlin
 
@@ -1224,9 +1006,7 @@ splitInstallManager.deferredLanguageInstall(
 
 ### Access downloaded language resources
 
-To gain access to downloaded language resources, your app needs to run the
-`SplitCompat.installActivity()` method within the `attachBaseContext()` method
-of each activity that requires access to those resources, as shown below.
+To gain access to downloaded language resources, your app needs to run the `SplitCompat.installActivity()` method within the `attachBaseContext()` method of each activity that requires access to those resources, as shown below.
 
 ### Kotlin
 
@@ -1247,9 +1027,7 @@ protected void attachBaseContext(Context base) {
 }
 ```
 
-For each activity you want to use language resources your app has downloaded,
-update the base context and set a new locale through its
-[`Configuration`](https://developer.android.com/reference/android/content/res/Configuration):
+For each activity you want to use language resources your app has downloaded, update the base context and set a new locale through its [`Configuration`](https://developer.android.com/reference/android/content/res/Configuration):
 
 ### Kotlin
 
@@ -1276,9 +1054,7 @@ protected void attachBaseContext(Context base) {
 }
 ```
 
-In order for these changes to take effect, you have to recreate your activity
-after the new language is installed and ready to use. You can use the
-`Activity#recreate()` method.
+In order for these changes to take effect, you have to recreate your activity after the new language is installed and ready to use. You can use the `Activity#recreate()` method.
 
 ### Kotlin
 
@@ -1307,9 +1083,7 @@ switch (state.status()) {
 
 ### Uninstall additional language resources
 
-Similar to feature modules, you can uninstall additional resources at
-any time. Before requesting an uninstall, you may want to first determine which
-languages are currently installed, as follows.
+Similar to feature modules, you can uninstall additional resources at any time. Before requesting an uninstall, you may want to first determine which languages are currently installed, as follows.
 
 ### Kotlin
 
@@ -1323,8 +1097,7 @@ val installedLanguages: Set<String> = splitInstallManager.installedLanguages
 Set<String> installedLanguages = splitInstallManager.getInstalledLanguages();
 ```
 
-You can then decide which languages to uninstall using the
-`deferredLanguageUninstall()` method, as shown below.
+You can then decide which languages to uninstall using the `deferredLanguageUninstall()` method, as shown below.
 
 ### Kotlin
 
@@ -1342,19 +1115,15 @@ splitInstallManager.deferredLanguageUninstall(
 
 ## Locally test module installs
 
-The Play Feature Delivery Library allows you to locally test your app's ability to do the
-following, without connecting to the Play Store:
+The Play Feature Delivery Library allows you to locally test your app's ability to do the following, without connecting to the Play Store:
 
 - Request and monitor module installs.
 - Handle install errors.
 - Use [`SplitCompat`](https://developer.android.com/reference/com/google/android/play/core/splitcompat/SplitCompat) to [access modules](https://developer.android.com/guide/playcore/dynamic-delivery#access_downloaded_modules).
 
-This page describes how to deploy your app's split APKs to your test device so
-that Play Feature Delivery automatically uses those APKs to simulate requesting, downloading,
-and installing modules from the Play Store.
+This page describes how to deploy your app's split APKs to your test device so that Play Feature Delivery automatically uses those APKs to simulate requesting, downloading, and installing modules from the Play Store.
 
-Although you don't need to make any changes to your app's logic, you need to
-meet the following requirements:
+Although you don't need to make any changes to your app's logic, you need to meet the following requirements:
 
 - Download and install the [latest version of `bundletool`](https://github.com/google/bundletool/releases). You need `bundletool` to build a new set of installable APKs from your app's bundle.
 
@@ -1366,12 +1135,9 @@ meet the following requirements:
 If you haven't already done so, build your app's split APKs, as follows:
 
 1. Build an app bundle for your app using one of the following methods:
-   - Use Android Studio and the Android plugin for Gradle to [build and sign
-     an Android App Bundle](https://developer.android.com/studio/publish/app-signing#sign-apk).
+   - Use Android Studio and the Android plugin for Gradle to [build and sign an Android App Bundle](https://developer.android.com/studio/publish/app-signing#sign-apk).
    - [Build your app bundle from the command line](https://developer.android.com/studio/build/building-cmdline#build_bundle).
-2. Use `bundletool` to [generate a set of
-   APKs](https://developer.android.com/studio/command-line/bundletool#generate_apks) for all device
-   configurations with the following command:
+2. Use `bundletool` to [generate a set of APKs](https://developer.android.com/studio/command-line/bundletool#generate_apks) for all device configurations with the following command:
 
    ```
    bundletool build-apks --local-testing
@@ -1379,42 +1145,23 @@ If you haven't already done so, build your app's split APKs, as follows:
      --output my_app.apks
    ```
 
-The `--local-testing` flag includes meta-data in your APKs' manifests that
-lets the Play Feature Delivery Library know to use the local split APKs to test
-installing feature modules, without connecting to the Play Store.
+The `--local-testing` flag includes meta-data in your APKs' manifests that lets the Play Feature Delivery Library know to use the local split APKs to test installing feature modules, without connecting to the Play Store.
 
 ### Deploy your app to the device
 
-After you [build a set of APKs](https://developer.android.com/guide/playcore/feature-delivery/on-demand#build-apks) using the `--local-testing` flag,
-use `bundletool` to install the base version of your app and transfer additional
-APKs to your device's local storage. You can perform both actions with the
-following command:
+After you [build a set of APKs](https://developer.android.com/guide/playcore/feature-delivery/on-demand#build-apks) using the `--local-testing` flag, use `bundletool` to install the base version of your app and transfer additional APKs to your device's local storage. You can perform both actions with the following command:
 
 ```
 bundletool install-apks --apks my_app.apks
 ```
 
-Now, when you start your app and complete the user flow to download and install
-a feature module, the Play Feature Delivery Library uses the APKs that `bundletool`
-transferred to the device's local storage.
+Now, when you start your app and complete the user flow to download and install a feature module, the Play Feature Delivery Library uses the APKs that `bundletool` transferred to the device's local storage.
 
 ### Simulate a network error
 
-To simulate module installs from the Play Store, the Play Feature Delivery Library uses an
-alternative to the `SplitInstallManager`, called
-[`FakeSplitInstallManager`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/testing/FakeSplitInstallManager),
-to request the module. When you use `bundletool` with the `--local-testing` flag
-to [build a set of APKs](https://developer.android.com/guide/playcore/feature-delivery/on-demand#build-apks) and deploy them to your test device, it
-includes metadata that instructs the Play Feature Delivery Library to automatically switch
-your app's API calls to invoke `FakeSplitInstallManager`, instead of
-`SplitInstallManager`.
+To simulate module installs from the Play Store, the Play Feature Delivery Library uses an alternative to the `SplitInstallManager`, called [`FakeSplitInstallManager`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/testing/FakeSplitInstallManager), to request the module. When you use `bundletool` with the `--local-testing` flag to [build a set of APKs](https://developer.android.com/guide/playcore/feature-delivery/on-demand#build-apks) and deploy them to your test device, it includes metadata that instructs the Play Feature Delivery Library to automatically switch your app's API calls to invoke `FakeSplitInstallManager`, instead of `SplitInstallManager`.
 
-`FakeSplitInstallManager` includes a boolean flag that you can enable to
-simulate a network error the next time your app requests to install a module. To
-access `FakeSplitInstallManager` in your tests, you can get an instance of it
-using the
-[`FakeSplitInstallManagerFactory`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/testing/FakeSplitInstallManagerFactory),
-as shown below:
+`FakeSplitInstallManager` includes a boolean flag that you can enable to simulate a network error the next time your app requests to install a module. To access `FakeSplitInstallManager` in your tests, you can get an instance of it using the [`FakeSplitInstallManagerFactory`](https://developer.android.com/reference/com/google/android/play/core/splitinstall/testing/FakeSplitInstallManagerFactory), as shown below:
 
 ### Kotlin
 

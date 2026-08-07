@@ -4,22 +4,20 @@ url: https://developer.android.com/media/media3/exoplayer/listening-to-player-ev
 source: md.txt
 ---
 
-Changes to the Player's state (such as playback starting, buffering, or errors)
-trigger events that are sent to registered [`Player.Listener`](https://developer.android.com/reference/androidx/media3/common/Player.Listener) instances. These
-events are represented by integer constants and are defined by [`Player.Event`](https://developer.android.com/reference/androidx/media3/common/Player.Event)
-and [`Player.Events`](https://developer.android.com/reference/androidx/media3/common/Player.Events).
+Changes to the Player's state (such as playback starting, buffering, or errors) trigger events that are sent to registered [`Player.Listener`](https://developer.android.com/reference/androidx/media3/common/Player.Listener) instances. These events are represented by integer constants and are defined by [`Player.Event`](https://developer.android.com/reference/androidx/media3/common/Player.Event) and [`Player.Events`](https://developer.android.com/reference/androidx/media3/common/Player.Events).
 
 ## Register a Player.Listener
 
-Player events are reported to registered [`Player.Listener`](https://developer.android.com/reference/androidx/media3/common/Player.Listener) instances. To
-register a listener to receive such events:
+Player events are reported to registered [`Player.Listener`](https://developer.android.com/reference/androidx/media3/common/Player.Listener) instances. To register a listener to receive such events:
 
+<br />
 
 ### Kotlin
 
 ```kotlin
 // Add a listener to receive events from the player.
 player.addListener(listener)
+      
 ```
 
 ### Java
@@ -27,53 +25,39 @@ player.addListener(listener)
 ```java
 // Add a listener to receive events from the player.
 player.addListener(listener);
+      
 ```
 
 <br />
 
-If you are using Kotlin, you can also use the suspending extension functions
-provided by the `media3-common-ktx` module to listen to events using coroutines.
-In that case, you won't need to register or unregister a `Player.Listener`
-explicitly.
+If you are using Kotlin, you can also use the suspending extension functions provided by the `media3-common-ktx` module to listen to events using coroutines. In that case, you won't need to register or unregister a `Player.Listener` explicitly.
 
 ## Listen to playback events using Player.Listener
 
-`Player.Listener` has empty default methods, so you only need to implement the
-methods you're interested in. See the [Javadoc](https://developer.android.com/reference/androidx/media3/common/Player.Listener) for a full description of the
-methods and when they're called. Some of the most important methods are
-described in more detail below.
+`Player.Listener` has empty default methods, so you only need to implement the methods you're interested in. See the [Javadoc](https://developer.android.com/reference/androidx/media3/common/Player.Listener) for a full description of the methods and when they're called. Some of the most important methods are described in more detail below.
 
-Listeners have the choice between implementing individual event callbacks or a
-generic `onEvents` callback that's called after one or more events occur
-together. See [`Individual callbacks vs onEvents`](https://developer.android.com/media/media3/exoplayer/listening-to-player-events#individual-callbacks) for an explanation of which
-should be preferred for different use cases.
+Listeners have the choice between implementing individual event callbacks or a generic `onEvents` callback that's called after one or more events occur together. See [`Individual callbacks vs onEvents`](https://developer.android.com/media/media3/exoplayer/listening-to-player-events#individual-callbacks) for an explanation of which should be preferred for different use cases.
 
 ### Playback state changes
 
-Changes in player state can be received by implementing
-`onPlaybackStateChanged(@State int state)` in a registered `Player.Listener`.
-The player can be in one of four playback states:
+Changes in player state can be received by implementing `onPlaybackStateChanged(@State int state)` in a registered `Player.Listener`. The player can be in one of four playback states:
 
 - `Player.STATE_IDLE`: This is the initial state, the state when the player is stopped, and when playback failed. The player will hold only limited resources in this state.
 - `Player.STATE_BUFFERING`: The player is not able to immediately play from its current position. This mostly happens because more data needs to be loaded.
 - `Player.STATE_READY`: The player is able to immediately play from its current position.
 - `Player.STATE_ENDED`: The player finished playing all media.
 
-In addition to these states, the player has a `playWhenReady` flag to indicate
-the user intention to play. Changes in this flag can be received by implementing
-`onPlayWhenReadyChanged(playWhenReady, @PlayWhenReadyChangeReason int reason)`.
+In addition to these states, the player has a `playWhenReady` flag to indicate the user intention to play. Changes in this flag can be received by implementing `onPlayWhenReadyChanged(playWhenReady, @PlayWhenReadyChangeReason int reason)`.
 
-A player is playing (that is, its position is advancing and media is being
-presented to the user) when all three of the following conditions are met:
+A player is playing (that is, its position is advancing and media is being presented to the user) when all three of the following conditions are met:
 
 - The player is in the `Player.STATE_READY` state
 - `playWhenReady` is `true`
 - Playback is not suppressed for a reason returned by `Player.getPlaybackSuppressionReason`
 
-Rather than having to check these properties individually, `Player.isPlaying`
-can be called. Changes to this state can be received by implementing
-`onIsPlayingChanged(boolean isPlaying)`:
+Rather than having to check these properties individually, `Player.isPlaying` can be called. Changes to this state can be received by implementing `onIsPlayingChanged(boolean isPlaying)`:
 
+<br />
 
 ### Kotlin
 
@@ -92,6 +76,7 @@ player.addListener(
     }
   }
 )
+      
 ```
 
 ### Java
@@ -111,26 +96,20 @@ player.addListener(
         }
       }
     });
+      
 ```
 
 <br />
 
 ### Playback errors
 
-Errors that cause playback to fail can be received by implementing
-`onPlayerError(PlaybackException error)` in a registered `Player.Listener`. When
-a failure occurs, this method will be called immediately before the playback
-state transitions to `Player.STATE_IDLE`. Failed or stopped playbacks can be
-retried by calling `ExoPlayer.prepare`.
+Errors that cause playback to fail can be received by implementing `onPlayerError(PlaybackException error)` in a registered `Player.Listener`. When a failure occurs, this method will be called immediately before the playback state transitions to `Player.STATE_IDLE`. Failed or stopped playbacks can be retried by calling `ExoPlayer.prepare`.
 
-Note that some [`Player`](https://developer.android.com/reference/androidx/media3/common/Player) implementations pass instances of subclasses of
-`PlaybackException` to provide additional information about the failure. For
-example, [`ExoPlayer`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer) passes [`ExoPlaybackException`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlaybackException), which has `type`,
-`rendererIndex`, and other ExoPlayer-specific fields.
+Note that some [`Player`](https://developer.android.com/reference/androidx/media3/common/Player) implementations pass instances of subclasses of `PlaybackException` to provide additional information about the failure. For example, [`ExoPlayer`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer) passes [`ExoPlaybackException`](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlaybackException), which has `type`, `rendererIndex`, and other ExoPlayer-specific fields.
 
-The following example shows how to detect when a playback has failed due to an
-HTTP networking issue:
+The following example shows how to detect when a playback has failed due to an HTTP networking issue:
 
+<br />
 
 ### Kotlin
 
@@ -155,6 +134,7 @@ player.addListener(
     }
   }
 )
+      
 ```
 
 ### Java
@@ -180,45 +160,33 @@ player.addListener(
         }
       }
     });
+      
 ```
 
 <br />
 
 ### Playlist transitions
 
-Whenever the player changes to a new media item in the playlist
-`onMediaItemTransition(MediaItem mediaItem, @MediaItemTransitionReason int
-reason)` is called on registered `Player.Listener` objects. The reason indicates
-whether this was an automatic transition, a seek (for example after calling
-`player.next()`), a repetition of the same item, or caused by a playlist change
-(for example, if the currently playing item is removed).
+Whenever the player changes to a new media item in the playlist `onMediaItemTransition(MediaItem mediaItem, @MediaItemTransitionReason int reason)` is called on registered `Player.Listener` objects. The reason indicates whether this was an automatic transition, a seek (for example after calling `player.next()`), a repetition of the same item, or caused by a playlist change (for example, if the currently playing item is removed).
 
 ### Metadata
 
-Metadata returned from `player.getCurrentMediaMetadata()` can change due to many
-reasons: playlist transitions, in-stream metadata updates or updating the
-current `MediaItem` mid-playback.
+Metadata returned from `player.getCurrentMediaMetadata()` can change due to many reasons: playlist transitions, in-stream metadata updates or updating the current `MediaItem` mid-playback.
 
-If you are interested in metadata changes, for example to update a UI that shows
-the current title, you can listen to `onMediaMetadataChanged`.
+If you are interested in metadata changes, for example to update a UI that shows the current title, you can listen to `onMediaMetadataChanged`.
 
 ### Seeking
 
-Calling `Player.seekTo` methods results in a series of callbacks to registered
-`Player.Listener` instances:
+Calling `Player.seekTo` methods results in a series of callbacks to registered `Player.Listener` instances:
 
 1. `onPositionDiscontinuity` with `reason=DISCONTINUITY_REASON_SEEK`. This is the direct result of calling `Player.seekTo`. The callback has `PositionInfo` fields for the position before and after the seek.
 2. `onPlaybackStateChanged` with any immediate state change related to the seek. Note that there might not be such a change.
 
 ### Individual callbacks versus `onEvents`
 
-Listeners can choose between implementing individual callbacks like
-`onIsPlayingChanged(boolean isPlaying)`, and the generic `onEvents(Player
-player, Events events)` callback. The generic callback provides access to the
-`Player` object and specifies the set of `events` that occurred together. This
-callback is always called after the callbacks that correspond to the individual
-events.
+Listeners can choose between implementing individual callbacks like `onIsPlayingChanged(boolean isPlaying)`, and the generic `onEvents(Player player, Events events)` callback. The generic callback provides access to the `Player` object and specifies the set of `events` that occurred together. This callback is always called after the callbacks that correspond to the individual events.
 
+<br />
 
 ### Kotlin
 
@@ -231,6 +199,7 @@ override fun onEvents(player: Player, events: Player.Events) {
     uiModule.updateUi(player)
   }
 }
+      
 ```
 
 ### Java
@@ -243,6 +212,7 @@ public void onEvents(Player player, Events events) {
     uiModule.updateUi(player);
   }
 }
+      
 ```
 
 <br />
@@ -254,32 +224,24 @@ Individual events should be preferred in the following cases:
 - The listener implementation prefers a clear readable indication of what triggered the event in the method name.
 - The listener reports to an analytics system that needs to know about all individual events and state changes.
 
-The generic `onEvents(Player player, Events events)` should be preferred in the
-following cases:
+The generic `onEvents(Player player, Events events)` should be preferred in the following cases:
 
 - The listener wants to trigger the same logic for multiple events. For example, updating a UI for both `onPlaybackStateChanged` and `onPlayWhenReadyChanged`.
 - The listener needs access the `Player` object to trigger further events, for example seeking after a media item transition.
 - The listener intends to use multiple state values that are reported through separate callbacks together, or in combination with `Player` getter methods. For example, using `Player.getCurrentWindowIndex()` with the `Timeline` provided in `onTimelineChanged` is only safe from within the `onEvents` callback.
 - The listener is interested in whether events logically occurred together. For example, `onPlaybackStateChanged` to `STATE_BUFFERING` because of a media item transition.
 
-In some cases, listeners may need to combine the individual callbacks with the
-generic `onEvents` callback, for example to record media item change reasons
-with `onMediaItemTransition`, but only act once all state changes can be used
-together in `onEvents`.
+In some cases, listeners may need to combine the individual callbacks with the generic `onEvents` callback, for example to record media item change reasons with `onMediaItemTransition`, but only act once all state changes can be used together in `onEvents`.
 
 ## Listen to playback events using coroutines
 
-Alternatively, you can launch a Kotlin coroutine using [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)) and
-specify the relevant [`Player.Event`](https://developer.android.com/reference/androidx/media3/common/Player.Event):
+Alternatively, you can launch a Kotlin coroutine using [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)) and specify the relevant [`Player.Event`](https://developer.android.com/reference/androidx/media3/common/Player.Event):
 
-Note that [`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listen(kotlin.Function2)) and [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)) can be called from any
-thread, while the callback lambda is always invoked on the thread associated
-with [`Player.getApplicationLooper`](https://developer.android.com/reference/androidx/media3/common/Player#getApplicationLooper()). Therefore, it is safe to access `Player`
-methods and state properties inside the callback lambda even if the coroutine
-was launched on a different thread.
+Note that [`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listen(kotlin.Function2)) and [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)) can be called from any thread, while the callback lambda is always invoked on the thread associated with [`Player.getApplicationLooper`](https://developer.android.com/reference/androidx/media3/common/Player#getApplicationLooper()). Therefore, it is safe to access `Player` methods and state properties inside the callback lambda even if the coroutine was launched on a different thread.
 
 ### Playback state changes
 
+<br />
 
 ```kotlin
 coroutineScope.launch {
@@ -292,12 +254,14 @@ coroutineScope.launch {
     }
   }
 }
+   
 ```
 
 <br />
 
 ### Playback errors
 
+<br />
 
 ```kotlin
 coroutineScope.launch {
@@ -314,21 +278,18 @@ coroutineScope.launch {
     }
   }
 }
+   
 ```
 
 <br />
 
 ### Individual callbacks versus `onEvents`
 
-When listening to player events inside a coroutine, you will always be providing
-the implementation for the `onEvents` callback, as opposed to an
-[individual callback](https://developer.android.com/media/media3/exoplayer/listening-to-player-events#individual-callbacks). You may choose
-between [`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listen(kotlin.Function2)) and [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)), depending on which events
-should trigger an invocation of your lambda. But the functions are otherwise
-equivalent:
+When listening to player events inside a coroutine, you will always be providing the implementation for the `onEvents` callback, as opposed to an [individual callback](https://developer.android.com/media/media3/exoplayer/listening-to-player-events#individual-callbacks). You may choose between [`Player.listen`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listen(kotlin.Function2)) and [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)), depending on which events should trigger an invocation of your lambda. But the functions are otherwise equivalent:
 
 ### listen
 
+<br />
 
 ```kotlin
 coroutineScope.launch {
@@ -345,12 +306,14 @@ coroutineScope.launch {
     }
   }
 }
+      
 ```
 
 <br />
 
 ### listenTo
 
+<br />
 
 ```kotlin
 coroutineScope.launch {
@@ -367,15 +330,14 @@ coroutineScope.launch {
     }
   }
 }
+      
 ```
 
 <br />
 
-If you are interested in multiple event types, you can pass a list of events to
-[`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)). Your lambda will be invoked whenever any of those events
-occur, and you can inspect the `Events` parameter to check which events
-actually fired:
+If you are interested in multiple event types, you can pass a list of events to [`Player.listenTo`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#(androidx.media3.common.Player).listenTo(kotlin.Int,kotlin.IntArray,kotlin.Function2)). Your lambda will be invoked whenever any of those events occur, and you can inspect the `Events` parameter to check which events actually fired:
 
+<br />
 
 ```kotlin
 coroutineScope.launch {
@@ -385,41 +347,35 @@ coroutineScope.launch {
     updateUiAndHandleError(playbackState, playerError)
   }
 }
+   
 ```
 
 <br />
 
-Because these functions operate on `onEvents`, they don't provide access to the
-transient arguments passed to individual callbacks, such as the reason in
-`onMediaItemTransition(..., int reason)` or the `oldPosition` in
-`onPositionDiscontinuity(...)`. If your logic relies on these specific arguments
-(and they are not available as *state properties* on the `Player`), you should
-use the standard `Player.Listener` interface instead.
+Because these functions operate on `onEvents`, they don't provide access to the transient arguments passed to individual callbacks, such as the reason in `onMediaItemTransition(..., int reason)` or the `oldPosition` in `onPositionDiscontinuity(...)`. If your logic relies on these specific arguments (and they are not available as *state properties* on the `Player`), you should use the standard `Player.Listener` interface instead.
 
 ## Use `AnalyticsListener`
 
-When using `ExoPlayer`, an `AnalyticsListener` can be registered with the player
-by calling `addAnalyticsListener`. `AnalyticsListener` implementations are able
-to listen to detailed events that may be useful for analytics and logging
-purposes. Please refer to the [analytics page](https://developer.android.com/guide/topics/media/exoplayer/analytics) for more details.
+When using `ExoPlayer`, an `AnalyticsListener` can be registered with the player by calling `addAnalyticsListener`. `AnalyticsListener` implementations are able to listen to detailed events that may be useful for analytics and logging purposes. Please refer to the [analytics page](https://developer.android.com/guide/topics/media/exoplayer/analytics) for more details.
 
 ### Use `EventLogger`
 
-`EventLogger` is an `AnalyticsListener` provided directly by the library for
-logging purposes. Add `EventLogger` to an `ExoPlayer` to enable useful
-additional logging with a single line:
+`EventLogger` is an `AnalyticsListener` provided directly by the library for logging purposes. Add `EventLogger` to an `ExoPlayer` to enable useful additional logging with a single line:
 
+<br />
 
 ### Kotlin
 
 ```kotlin
 player.addAnalyticsListener(EventLogger())
+      
 ```
 
 ### Java
 
 ```java
 player.addAnalyticsListener(new EventLogger());
+      
 ```
 
 <br />
@@ -428,17 +384,9 @@ See the [debug logging page](https://developer.android.com/guide/topics/media/ex
 
 ## Fire events at specified playback positions
 
-Some use cases require firing events at specified playback positions. This is
-supported using `PlayerMessage`. A `PlayerMessage` can be created using
-`ExoPlayer.createMessage`. The playback position at which it should be executed
-can be set using `PlayerMessage.setPosition`. Messages are executed on the
-playback thread by default, but this can be customized using
-`PlayerMessage.setLooper`. `PlayerMessage.setDeleteAfterDelivery` can be used to
-control whether the message will be executed every time the specified playback
-position is encountered (this may happen multiple times due to seeking and
-repeat modes), or just the first time. Once the `PlayerMessage` is configured,
-it can be scheduled using `PlayerMessage.send`.
+Some use cases require firing events at specified playback positions. This is supported using `PlayerMessage`. A `PlayerMessage` can be created using `ExoPlayer.createMessage`. The playback position at which it should be executed can be set using `PlayerMessage.setPosition`. Messages are executed on the playback thread by default, but this can be customized using `PlayerMessage.setLooper`. `PlayerMessage.setDeleteAfterDelivery` can be used to control whether the message will be executed every time the specified playback position is encountered (this may happen multiple times due to seeking and repeat modes), or just the first time. Once the `PlayerMessage` is configured, it can be scheduled using `PlayerMessage.send`.
 
+<br />
 
 ### Kotlin
 
@@ -450,6 +398,7 @@ player
   .setPayload(customPayloadData)
   .setDeleteAfterDelivery(false)
   .send()
+      
 ```
 
 ### Java
@@ -465,6 +414,7 @@ player
     .setPayload(customPayloadData)
     .setDeleteAfterDelivery(false)
     .send();
+      
 ```
 
 <br />

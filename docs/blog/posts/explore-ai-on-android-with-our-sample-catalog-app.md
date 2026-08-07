@@ -16,7 +16,9 @@ We are thrilled to announce the launch of the redesigned [**Android AI Sample Ca
 
 **Discover what's possible with Google AI**   
 
+
 The Android AI Sample Catalog is designed as a one-stop destination to explore the capabilities of Google AI APIs and SDKs. Inside, you'll find a collection of samples demonstrating a wide range of AI use cases that you can test yourself. We really designed this catalog to give you a hands-on feel for what you can build and help you find the right solution and capability for your needs.  
+
 
 Here are some of the samples you can find in the catalog:
 
@@ -26,11 +28,13 @@ Here are some of the samples you can find in the catalog:
 
 Other samples include: image editing via Imagen mask-editing capabilities, a to-do list app controlled via the voice using the Gemini Live API, on-device rewrite assistance powered by Gemini Nano, and more!   
 
+
 The samples using cloud inference are built using the [Firebase AI Logic SDK](https://firebase.google.com/docs/ai-logic/get-started?platform=android), and the [ML Kit GenAI API](https://developers.google.com/ml-kit/genai) is used for the samples running on-device inference. We plan to continue creating new samples and updating the existing ones as new capabilities are added to the models and SDKs.  
 
 **Fully open source and ready to copy**
 
 We believe the best way to learn is by doing. That's why the AI Sample Catalog is not only fully open-source but it's been architectured so the code relevant to the AI features is self-contained and easy to copy and paste, so you can quickly experiment with these code samples in your own project.   
+
 
 When you're exploring a sample in the app and want to see how it's built, you can simply click the **\<\> SOURCE** button to jump directly to the code on GitHub.
 ![imagechat.png](https://developer.android.com/static/blog/assets/imagechat_bafbc9583f_1a9ScM.webp)
@@ -52,16 +56,14 @@ Written by:
 
   ###### Senior Developer Relations Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
 -
 
   ## [Ivy Knight](https://developer.android.com/blog/authors/ivy-knight)
 
   ###### Senior Design Advocate
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/ivy-knight) ![View Ivy Knight's profile](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp) ![View Ivy Knight's profile](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/ivy-knight) ![View Ivy Knight's profile](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp) ![View Ivy Knight's profile](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp)
 Continue reading
 - 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_21AGRW.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
@@ -86,8 +88,5 @@ Continue reading
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

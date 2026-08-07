@@ -4,10 +4,7 @@ url: https://developer.android.com/media/media3/exoplayer/hls
 source: md.txt
 ---
 
-ExoPlayer supports HLS with multiple container formats. The contained audio and
-video sample formats must also be supported (see the [sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats)
-section for details). We strongly encourage HLS content producers to generate
-high quality HLS streams, as described [in this blog post](https://medium.com/google-exoplayer/hls-playback-in-exoplayer-a33959a47be7).
+ExoPlayer supports HLS with multiple container formats. The contained audio and video sample formats must also be supported (see the [sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats) section for details). We strongly encourage HLS content producers to generate high quality HLS streams, as described [in this blog post](https://medium.com/google-exoplayer/hls-playback-in-exoplayer-a33959a47be7).
 
 | Feature | Supported | Comments |
 |---|---|---|
@@ -53,9 +50,9 @@ To play an HLS stream, you need to depend on the HLS module.
 
     implementation "androidx.media3:media3-exoplayer-hls:1.10.1"
 
-You can then create a `MediaItem` for an HLS playlist URI and pass it to the
-player.
+You can then create a `MediaItem` for an HLS playlist URI and pass it to the player.
 
+<br />
 
 ### Kotlin
 
@@ -66,6 +63,7 @@ val player = ExoPlayer.Builder(context).build()
 player.setMediaItem(MediaItem.fromUri(hlsUri))
 // Prepare the player.
 player.prepare()
+      
 ```
 
 ### Java
@@ -77,24 +75,20 @@ ExoPlayer player = new ExoPlayer.Builder(context).build();
 player.setMediaItem(MediaItem.fromUri(hlsUri));
 // Prepare the player.
 player.prepare();
+      
 ```
 
 <br />
 
-If your URI doesn't end with `.m3u8`, you can pass `MimeTypes.APPLICATION_M3U8`
-to `setMimeType` of `MediaItem.Builder` to explicitly indicate the type of the
-content.
+If your URI doesn't end with `.m3u8`, you can pass `MimeTypes.APPLICATION_M3U8` to `setMimeType` of `MediaItem.Builder` to explicitly indicate the type of the content.
 
-The URI of the media item may point to either a media playlist or a multivariant
-playlist. If the URI points to a multivariant playlist that declares multiple
-`#EXT-X-STREAM-INF` tags, then ExoPlayer will automatically adapt between
-variants, taking into account both available bandwidth and device capabilities.
+The URI of the media item may point to either a media playlist or a multivariant playlist. If the URI points to a multivariant playlist that declares multiple `#EXT-X-STREAM-INF` tags, then ExoPlayer will automatically adapt between variants, taking into account both available bandwidth and device capabilities.
 
 ## Using HlsMediaSource
 
-For more customization options, you can create a `HlsMediaSource` and pass it
-directly to the player instead of a `MediaItem`.
+For more customization options, you can create a `HlsMediaSource` and pass it directly to the player instead of a `MediaItem`.
 
+<br />
 
 ### Kotlin
 
@@ -110,6 +104,7 @@ val player = ExoPlayer.Builder(context).build()
 player.setMediaSource(hlsMediaSource)
 // Prepare the player.
 player.prepare()
+      
 ```
 
 ### Java
@@ -126,19 +121,16 @@ ExoPlayer player = new ExoPlayer.Builder(context).build();
 player.setMediaSource(hlsMediaSource);
 // Prepare the player.
 player.prepare();
+      
 ```
 
 <br />
 
 ## Accessing the manifest
 
-You can retrieve the current manifest by calling `Player.getCurrentManifest`.
-For HLS, you should cast the returned object to `HlsManifest`. The
-`onTimelineChanged` callback of `Player.Listener` is also called whenever
-the manifest is loaded. This will happen once for on-demand content and
-possibly many times for live content. The following code snippet shows how an app
-can do something whenever the manifest is loaded.
+You can retrieve the current manifest by calling `Player.getCurrentManifest`. For HLS, you should cast the returned object to `HlsManifest`. The `onTimelineChanged` callback of `Player.Listener` is also called whenever the manifest is loaded. This will happen once for on-demand content and possibly many times for live content. The following code snippet shows how an app can do something whenever the manifest is loaded.
 
+<br />
 
 ### Kotlin
 
@@ -156,6 +148,7 @@ player.addListener(
     }
   }
 )
+      
 ```
 
 ### Java
@@ -173,29 +166,22 @@ player.addListener(
         }
       }
     });
+      
 ```
 
 <br />
 
 ## Play HLS streams with interstitials
 
-The HLS specification defines HLS interstitials which can be used to include
-interstitial information in a media playlist. ExoPlayer by default ignores these
-interstitials. Support can be added by using `HlsInterstitialsAdsLoader`. We
-don't support all features of the spec from the start. If you miss support for
-your stream, let us know by [filing an issue on GitHub](https://github.com/androidx/media/issues/new?template=feature_request.md) and send us your
-stream URI, so we can add support for your stream.
+The HLS specification defines HLS interstitials which can be used to include interstitial information in a media playlist. ExoPlayer by default ignores these interstitials. Support can be added by using `HlsInterstitialsAdsLoader`. We don't support all features of the spec from the start. If you miss support for your stream, let us know by [filing an issue on GitHub](https://github.com/androidx/media/issues/new?template=feature_request.md) and send us your stream URI, so we can add support for your stream.
 
 ### Use a `MediaItem` with the playlist API
 
-The most convenient way to play HLS streams with interstitials is building an
-ExoPlayer instance with a `HlsInterstitialsAdsLoader.AdsMediaSourceFactory`.
-This allows to use the `MediaItem` based [playlist API](https://developer.android.com/media/media3/exoplayer/playlists) of the `Player`
-interface to play HLS interstitials.
+The most convenient way to play HLS streams with interstitials is building an ExoPlayer instance with a `HlsInterstitialsAdsLoader.AdsMediaSourceFactory`. This allows to use the `MediaItem` based [playlist API](https://developer.android.com/media/media3/exoplayer/playlists) of the `Player` interface to play HLS interstitials.
 
-The `MediaSource.Factory` of `ExoPlayer` can be injected into the builder when
-building the player instance:
+The `MediaSource.Factory` of `ExoPlayer` can be injected into the builder when building the player instance:
 
+<br />
 
 ### Kotlin
 
@@ -215,6 +201,7 @@ val player = ExoPlayer.Builder(context).setMediaSourceFactory(hlsMediaSourceFact
 // Set the player on the ads loader.
 hlsInterstitialsAdsLoader.setPlayer(player)
 playerView.setPlayer(player)
+      
 ```
 
 ### Java
@@ -233,13 +220,14 @@ ExoPlayer player =
 // Set the player on the ads loader.
 hlsInterstitialsAdsLoader.setPlayer(player);
 playerView.setPlayer(player);
+      
 ```
 
 <br />
 
-With such a player setup, playing HLS interstitials is just about setting a
-media item with an `AdsConfiguration` on the player:
+With such a player setup, playing HLS interstitials is just about setting a media item with an `AdsConfiguration` on the player:
 
+<br />
 
 ### Kotlin
 
@@ -258,6 +246,7 @@ player.setMediaItem(
 
 player.prepare()
 player.play()
+      
 ```
 
 ### Java
@@ -274,6 +263,7 @@ player.setMediaItem(
         .build());
 player.prepare();
 player.play();
+      
 ```
 
 <br />
@@ -283,12 +273,9 @@ player.play();
 
 ### Use the media source based API
 
-Alternatively, the ExoPlayer instance can be built without overriding the
-default media source factory. To support interstitials, an app can then
-use `HlsInterstitialsAdsLoader.AdsMediaSourceFactory` directly to create a
-`MediaSource` and provide it to ExoPlayer using the media source based playlist
-API:
+Alternatively, the ExoPlayer instance can be built without overriding the default media source factory. To support interstitials, an app can then use `HlsInterstitialsAdsLoader.AdsMediaSourceFactory` directly to create a `MediaSource` and provide it to ExoPlayer using the media source based playlist API:
 
+<br />
 
 ### Kotlin
 
@@ -322,6 +309,7 @@ val mediaSource =
 player.setMediaSource(mediaSource)
 player.prepare()
 player.play()
+      
 ```
 
 ### Java
@@ -351,22 +339,19 @@ MediaSource mediaSource =
 player.setMediaSource(mediaSource);
 player.prepare();
 player.play();
+      
 ```
 
 <br />
 
 ### Listen to ad events
 
-A `Listener` can be added to `HlsInterstitialsAdsLoader` to monitor events
-regarding status changes concerning HLS interstitials playback. This allows an
-app or SDK to track ads played, asset lists being loaded, ad media sources being
-prepared or detect asset list load and ad preparation errors. Further, metadata
-emitted by ad media sources can be received for fine-grained ad playback
-verification or to track ad playback progress.
+A `Listener` can be added to `HlsInterstitialsAdsLoader` to monitor events regarding status changes concerning HLS interstitials playback. This allows an app or SDK to track ads played, asset lists being loaded, ad media sources being prepared or detect asset list load and ad preparation errors. Further, metadata emitted by ad media sources can be received for fine-grained ad playback verification or to track ad playback progress.
 
 > [!NOTE]
 > **Note:** A conventional `Player.Listener` can be used to track (ad) playback in more detail (see [Listening to player events](https://developer.android.com/media/media3/exoplayer/listening-to-player-events)).
 
+<br />
 
 ### Kotlin
 
@@ -402,6 +387,8 @@ class AdsLoaderListener : HlsInterstitialsAdsLoader.Listener {
     // Do something with the resulting ad playback state when stopped.
   }
 }
+
+      
 ```
 
 ### Java
@@ -439,15 +426,17 @@ private static class AdsLoaderListener implements HlsInterstitialsAdsLoader.List
     // Do something with the resulting ad playback state when stopped.
   }
 }
+
+      
 ```
 
 <br />
 
-See the [JavaDoc of `HlsInterstitialsAdsLoader.Listener`](https://developer.android.com/reference/androidx/media3/exoplayer/hls/HlsInterstitialsAdsLoader.Listener) for the detailed
-documentation of all available callbacks.
+See the [JavaDoc of `HlsInterstitialsAdsLoader.Listener`](https://developer.android.com/reference/androidx/media3/exoplayer/hls/HlsInterstitialsAdsLoader.Listener) for the detailed documentation of all available callbacks.
 
 The listener can then be added to the ads loader:
 
+<br />
 
 ### Kotlin
 
@@ -455,6 +444,7 @@ The listener can then be added to the ads loader:
 val listener = AdsLoaderListener()
 // Add the listener to the ads loader to receive ad loader events.
 hlsInterstitialsAdsLoader.addListener(listener)
+      
 ```
 
 ### Java
@@ -463,35 +453,22 @@ hlsInterstitialsAdsLoader.addListener(listener)
 AdsLoaderListener listener = new AdsLoaderListener();
 // Add the listener to the ads loader to receive ad loader events.
 hlsInterstitialsAdsLoader.addListener(listener);
+      
 ```
 
 <br />
 
 ### `HlsInterstitialsAdsLoader` lifecycle
 
-An instance of `HlsInterstitialsAdsLoader` or
-`HlsInterstitialsAdsLoader.AdsMediaSourceFactory` can be reused for multiple
-player instances that create multiple media sources for which ads have to be
-loaded.
+An instance of `HlsInterstitialsAdsLoader` or `HlsInterstitialsAdsLoader.AdsMediaSourceFactory` can be reused for multiple player instances that create multiple media sources for which ads have to be loaded.
 
-An instance can be created for example in the `onCreate` method of an `Activity`
-and then be re-used for multiple player instances. This works as long as it is
-in use by a single player instance at the same time. This is useful for the
-common use case when the app is taken into the background, the player instance
-is destroyed and then a new instance is created when the app is foregrounded
-again.
+An instance can be created for example in the `onCreate` method of an `Activity` and then be re-used for multiple player instances. This works as long as it is in use by a single player instance at the same time. This is useful for the common use case when the app is taken into the background, the player instance is destroyed and then a new instance is created when the app is foregrounded again.
 
 #### Playback resumption with an ad playback state
 
-To avoid users having to re-watch ads, the ad playback state can be saved and
-restored when the player is recreated. This is done by calling
-`getAdsResumptionStates()` when the player is about to be released and storing
-the returned `AdsResumptionState` objects. When the player is recreated, the
-state can be restored by calling `addAdResumptionState()` on the ads loader
-instance. `AdsResumptionState` is bundleable, so it can be stored in an
-`Activity`'s `onSaveInstanceState` bundle. Note that ad resumption is only
-supported for VOD streams
+To avoid users having to re-watch ads, the ad playback state can be saved and restored when the player is recreated. This is done by calling `getAdsResumptionStates()` when the player is about to be released and storing the returned `AdsResumptionState` objects. When the player is recreated, the state can be restored by calling `addAdResumptionState()` on the ads loader instance. `AdsResumptionState` is bundleable, so it can be stored in an `Activity`'s `onSaveInstanceState` bundle. Note that ad resumption is only supported for VOD streams
 
+<br />
 
 ### Kotlin
 
@@ -599,6 +576,7 @@ class HlsInterstitialsActivity : Activity() {
     playerView?.player = null
   }
 }
+      
 ```
 
 ### Java
@@ -731,31 +709,22 @@ public static class HlsInterstitialsActivity extends Activity {
     }
   }
 }
+      
 ```
 
 <br />
 
 ## Customizing playback
 
-ExoPlayer provides multiple ways for you to tailor playback experience to your
-app's needs. See the [Customization page](https://developer.android.com/guide/topics/media/exoplayer/customization) for examples.
+ExoPlayer provides multiple ways for you to tailor playback experience to your app's needs. See the [Customization page](https://developer.android.com/guide/topics/media/exoplayer/customization) for examples.
 
 ### Disabling chunkless preparation
 
-By default, ExoPlayer will use chunkless preparation. This means that ExoPlayer
-will only use the information in the multivariant playlist to prepare the
-stream, which works if the `#EXT-X-STREAM-INF` tags contain the `CODECS`
-attribute.
+By default, ExoPlayer will use chunkless preparation. This means that ExoPlayer will only use the information in the multivariant playlist to prepare the stream, which works if the `#EXT-X-STREAM-INF` tags contain the `CODECS` attribute.
 
-You may need to disable this feature if your media segments contain muxed
-closed-caption tracks that are not declared in the multivariant playlist with a
-`#EXT-X-MEDIA:TYPE=CLOSED-CAPTIONS` tag. Otherwise, these closed-caption tracks
-won't be detected and played. You can disable chunkless preparation in the
-`HlsMediaSource.Factory` as shown in the following snippet. Note that this
-will increase start up time as ExoPlayer needs to download a media segment to
-discover these additional tracks and it is preferable to declare the
-closed-caption tracks in the multivariant playlist instead.
+You may need to disable this feature if your media segments contain muxed closed-caption tracks that are not declared in the multivariant playlist with a `#EXT-X-MEDIA:TYPE=CLOSED-CAPTIONS` tag. Otherwise, these closed-caption tracks won't be detected and played. You can disable chunkless preparation in the `HlsMediaSource.Factory` as shown in the following snippet. Note that this will increase start up time as ExoPlayer needs to download a media segment to discover these additional tracks and it is preferable to declare the closed-caption tracks in the multivariant playlist instead.
 
+<br />
 
 ### Kotlin
 
@@ -764,6 +733,7 @@ val hlsMediaSource =
   HlsMediaSource.Factory(dataSourceFactory)
     .setAllowChunklessPreparation(false)
     .createMediaSource(MediaItem.fromUri(hlsUri))
+      
 ```
 
 ### Java
@@ -773,15 +743,14 @@ HlsMediaSource hlsMediaSource =
     new HlsMediaSource.Factory(dataSourceFactory)
         .setAllowChunklessPreparation(false)
         .createMediaSource(MediaItem.fromUri(hlsUri));
+      
 ```
 
 <br />
 
 ## Creating high quality HLS content
 
-In order to get the most out of ExoPlayer, there are certain guidelines you can
-follow to improve your HLS content. Read our [Medium post about HLS playback in
-ExoPlayer](https://medium.com/google-exoplayer/hls-playback-in-exoplayer-a33959a47be7) for a full explanation. The main points are:
+In order to get the most out of ExoPlayer, there are certain guidelines you can follow to improve your HLS content. Read our [Medium post about HLS playback in ExoPlayer](https://medium.com/google-exoplayer/hls-playback-in-exoplayer-a33959a47be7) for a full explanation. The main points are:
 
 - Use precise segment durations.
 - Use a continuous media stream; avoid changes in the media structure across segments.

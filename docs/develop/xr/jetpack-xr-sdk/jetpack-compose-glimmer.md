@@ -4,6 +4,19 @@ url: https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-gli
 source: md.txt
 ---
 
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/xr/display-glasses-with-jetpack-compose-glimmer)
+
+### Jetpack Compose Glimmer for display glasses
+
+Use an Android skill to build UI for display glasses using the Jetpack Compose Glimmer UI toolkit. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add --skill display-glasses-with-jetpack-compose-glimmer
+
+<br />
+
+
 Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
@@ -13,9 +26,6 @@ XR experiences, optimized for display glasses. Build beautiful, minimal, and
 comfortable UI for devices that are worn all day. Jetpack Compose Glimmer
 optimizes the developer experience by handling many complexities behind the
 scenes.
-
-> [!TIP]
-> **Tip:** We released an agent skill to help you work with Jetpack Compose Glimmer. Try out the skill from the [Android skills repository](https://github.com/android/skills).
 
 Here are the main features of Jetpack Compose Glimmer:
 

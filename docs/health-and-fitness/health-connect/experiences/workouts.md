@@ -11,21 +11,18 @@ source: md.txt
 
 <br />
 
-If you're looking to build a workout experience in your app, you can use Health
-Connect to do things like:
+If you're looking to build a workout experience in your app, you can use Health Connect to do things like:
 
 - Write exercise sessions
 - Write workout routes
 - Write workout metrics such as heart rate, speed, and distance
 - Read workout data from other apps
 
-This guide describes how to build these workout features, covering data types,
-background execution, permissions, recommended workflows, and best practices.
+This guide describes how to build these workout features, covering data types, background execution, permissions, recommended workflows, and best practices.
 
 ## Overview: Building a Comprehensive Workout Tracker
 
-You can build a comprehensive workout tracking experience using Health Connect
-by following these core steps:
+You can build a comprehensive workout tracking experience using Health Connect by following these core steps:
 
 - Correctly implementing permissions based on Health Permissions.
 - Recording sessions using [`ExerciseSessionRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/ExerciseSessionRecord).
@@ -33,8 +30,7 @@ by following these core steps:
 - Managing background execution properly to verify continuous data capture.
 - Reading session data for post-workout summaries and analysis.
 
-This workflow enables interoperability with other Health Connect apps and
-verifies user-controlled data access.
+This workflow enables interoperability with other Health Connect apps and verifies user-controlled data access.
 
 ## Before you begin
 
@@ -47,32 +43,22 @@ Before implementing workout features:
 
 ## Key concepts
 
-Health Connect represents workout data using a few core components. An
-`ExerciseSessionRecord` acts as the central record for a workout,
-containing details like start or end times and exercise type. During a
-session, various data types such as `HeartRateRecord` or `SpeedRecord` can
-be recorded. For outdoor activities, `ExerciseRoute` stores GPS data, which
-is linked to its corresponding session.
+Health Connect represents workout data using a few core components. An `ExerciseSessionRecord` acts as the central record for a workout, containing details like start or end times and exercise type. During a session, various data types such as `HeartRateRecord` or `SpeedRecord` can be recorded. For outdoor activities, `ExerciseRoute` stores GPS data, which is linked to its corresponding session.
 
 ### Exercise sessions
 
-`ExerciseSessionRecord` is the central record for workout data, representing a
-single workout session. Each record stores:
+`ExerciseSessionRecord` is the central record for workout data, representing a single workout session. Each record stores:
 
 - `startTime`
 - `endTime`
 - `exerciseType`
 - Optional session metadata (title, notes)
 
-An `ExerciseSessionRecord` can also contain exercise routes, laps, and
-segments as part of its data. In addition, other data types such as
-`HeartRateRecord` or `SpeedRecord` can be recorded during a session and
-associated with it.
+An `ExerciseSessionRecord` can also contain exercise routes, laps, and segments as part of its data. In addition, other data types such as `HeartRateRecord` or `SpeedRecord` can be recorded during a session and associated with it.
 
 ### Associated data types
 
-Data associated with workout sessions is represented by individual record
-types. Common types include:
+Data associated with workout sessions is represented by individual record types. Common types include:
 
 - [`HeartRateRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord): Represents a series of heart rate measurements.
 - [`SpeedRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/SpeedRecord): Represents a series of speed measurements.
@@ -82,13 +68,11 @@ types. Common types include:
 - [`StepsCadenceRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsCadenceRecord): Represents steps cadence between readings.
 - [`PowerRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/PowerRecord): Represents power output between readings, common in activities like cycling.
 
-For a complete list of data types, see
-[Health Connect data types](https://developer.android.com/health-and-fitness/health-connect/data-types).
+For a complete list of data types, see [Health Connect data types](https://developer.android.com/health-and-fitness/health-connect/data-types).
 
 ### Exercise routes
 
-You can associate a route with outdoor workouts using `ExerciseRoute`. Routes
-consist of sequential `ExerciseRoute.Location` objects each containing:
+You can associate a route with outdoor workouts using `ExerciseRoute`. Routes consist of sequential `ExerciseRoute.Location` objects each containing:
 
 - Latitude and longitude
 - Optional altitude
@@ -98,22 +82,15 @@ consist of sequential `ExerciseRoute.Location` objects each containing:
 
 ### Link session routes
 
-An `ExerciseRoute` contains the sequential location data for an exercise
-session. It isn't treated as an independent record in Health Connect. Instead,
-you provide `ExerciseRoute` data when inserting or updating an
-`ExerciseSessionRecord`.
+An `ExerciseRoute` contains the sequential location data for an exercise session. It isn't treated as an independent record in Health Connect. Instead, you provide `ExerciseRoute` data when inserting or updating an `ExerciseSessionRecord`.
 
 ## Development considerations
 
-Workout tracking apps often need to run for extended periods, frequently
-in the background when the screen is off. When building your workout
-features, it's important to consider how to manage background execution
-and request the necessary permissions for workout data.
+Workout tracking apps often need to run for extended periods, frequently in the background when the screen is off. When building your workout features, it's important to consider how to manage background execution and request the necessary permissions for workout data.
 
 ### Background execution
 
-Workout apps commonly run with the screen off. When in this state, you should
-use:
+Workout apps commonly run with the screen off. When in this state, you should use:
 
 - Foreground services for location and sensor sampling
 - [`WorkManager`](https://developer.android.com/reference/androidx/work/WorkManager) for deferred write or syncing
@@ -123,10 +100,7 @@ Maintain continuity by keeping session ID consistent across all writes.
 
 ### Permissions
 
-Your app must request the relevant Health Connect permissions before reading or
-writing workout data. Common permissions for workouts
-include exercise sessions, exercise routes, and metrics like heart rate or
-speed. This includes the following:
+Your app must request the relevant Health Connect permissions before reading or writing workout data. Common permissions for workouts include exercise sessions, exercise routes, and metrics like heart rate or speed. This includes the following:
 
 - **Exercise sessions:** Read and write permissions for `ExerciseSessionRecord`.
 - **Exercise routes:** Read and write permissions for `ExerciseRoute`.
@@ -139,17 +113,9 @@ speed. This includes the following:
 - **Power:** Read and write permissions for `PowerRecord`.
 - **Steps:** Read and write permissions for `StepsRecord`.
 
-The following shows an example of how to request multiple permissions for a
-workout session that includes route, heart rate, distance, calories, speed,
-and steps data:
+The following shows an example of how to request multiple permissions for a workout session that includes route, heart rate, distance, calories, speed, and steps data:
 
-After creating a client instance, your app needs to request permissions from
-the user. Users must be allowed to grant or deny permissions at any time.
-
-To do so, create a set of permissions for the required data types.
-Make sure that the permissions in the set are declared in your Android
-manifest first.
-
+After creating a client instance, your app needs to request permissions from the user. Users must be allowed to grant or deny permissions at any time. To do so, create a set of permissions for the required data types. Make sure that the permissions in the set are declared in your Android manifest first.
 
 ```kotlin
 val permissions =
@@ -167,6 +133,7 @@ val permissions =
         HealthPermission.getReadPermission(StepsRecord::class),
         HealthPermission.getWritePermission(StepsRecord::class)
     )
+   
 ```
 Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
 
@@ -187,6 +154,7 @@ val requestPermissionsLauncher = rememberLauncherForActivityResult(
         coroutineScope.launch { snackbarHostState.showSnackbar("Permissions denied.") }
     }
 }
+   
 ```
 Because users can grant or revoke permissions at any time, your app needs to check for permissions every time before using them and handle scenarios where permission is lost.
 
@@ -194,6 +162,7 @@ Because users can grant or revoke permissions at any time, your app needs to che
 
 To request permissions, call the `checkPermissionsAndRun` function:
 
+<br />
 
 ```kotlin
 if (!granted.containsAll(permissions)) {
@@ -201,23 +170,21 @@ if (!granted.containsAll(permissions)) {
     return emptySet()
 }
 // Permissions already granted; proceed with inserting or reading data
+    
 ```
 
 <br />
 
-If you only need to request permissions for a single data type, such as heart
-rate, include only that data type in your permissions set:
+If you only need to request permissions for a single data type, such as heart rate, include only that data type in your permissions set:
 
 Access to heart rate is protected by the following permissions:
 
 - `android.permission.health.READ_HEART_RATE`
 - `android.permission.health.WRITE_HEART_RATE`
 
-To add heart rate capability to your app, start by requesting
-permissions for the `HeartRateRecord` data type.
+To add heart rate capability to your app, start by requesting permissions for the `HeartRateRecord` data type.
 
-Here's the permission you need to declare to be able to write
-heart rate:
+Here's the permission you need to declare to be able to write heart rate:
 
     <application>
       <uses-permission
@@ -248,6 +215,7 @@ To create a new workout:
 
 Example:
 
+<br />
 
 ```kotlin
 val sessionClientId = UUID.randomUUID().toString()
@@ -263,6 +231,7 @@ val session =   ExerciseSessionRecord(
 )
 
 healthConnectClient.insertRecords(listOf(session))
+   
 ```
 
 <br />
@@ -271,12 +240,9 @@ healthConnectClient.insertRecords(listOf(session))
 
 To learn more about reading guidance see [Read raw data](https://developer.android.com/health-and-fitness/health-connect/read-data).
 
-When recording an exercise route, you should batch your data. This means instead
-of saving every single GPS point as it happens, you collect a group of points
-and save them all at once in a single call.
+When recording an exercise route, you should batch your data. This means instead of saving every single GPS point as it happens, you collect a group of points and save them all at once in a single call.
 
-This is important because every time your app reads or writes to Health Connect,
-it uses a tiny bit of battery and processing power.
+This is important because every time your app reads or writes to Health Connect, it uses a tiny bit of battery and processing power.
 
 > [!NOTE]
 > **Best Practice:** Data Integrity: Before batching, validate your GPS accuracy. Filter out points with high horizontal accuracy radius to verify a clean route. You can verify this logic using [Unit tests](https://developer.android.com/health-and-fitness/health-connect/test/unit-tests) to simulate "noisy" GPS data.
@@ -323,22 +289,13 @@ After stopping data collection:
 
 ## Reading workout data
 
-Apps can read exercise sessions and their associated data to summarize activity,
-provide health insights, or sync data with an external server. For example, you
-can read an `ExerciseSessionRecord` and then query the `HeartRateRecord` or
-`DistanceRecord` that occurred during that same time interval.
+Apps can read exercise sessions and their associated data to summarize activity, provide health insights, or sync data with an external server. For example, you can read an `ExerciseSessionRecord` and then query the `HeartRateRecord` or `DistanceRecord` that occurred during that same time interval.
 
-If you need to sync workout data with a backend server, or keep your app's
-datastore up-to-date with Health Connect, use ChangeLogs. This lets you retrieve
-a list of inserted, updated, or deleted records since a specific point in time,
-which is more efficient than manually tracking changes or repeatedly reading all
-data. For more information, see [Sync data with Health Connect](https://developer.android.com/health-and-fitness/health-connect/sync-data).
+If you need to sync workout data with a backend server, or keep your app's datastore up-to-date with Health Connect, use ChangeLogs. This lets you retrieve a list of inserted, updated, or deleted records since a specific point in time, which is more efficient than manually tracking changes or repeatedly reading all data. For more information, see [Sync data with Health Connect](https://developer.android.com/health-and-fitness/health-connect/sync-data).
 
 ### Read sessions
 
-To read exercise sessions, use a `ReadRecordsRequest` with
-`ExerciseSessionRecord` as the type. You usually filter this by a specific time
-range.
+To read exercise sessions, use a `ReadRecordsRequest` with `ExerciseSessionRecord` as the type. You usually filter this by a specific time range.
 
     suspend fun readExerciseSessions(
         healthConnectClient: HealthConnectClient,
@@ -361,9 +318,7 @@ range.
 
 ### Read routes
 
-Although `ExerciseRoute` data is written as part of an exercise session, it
-must be read separately. Use the `getExerciseRoute()` method with the session's
-ID to read its route data:
+Although `ExerciseRoute` data is written as part of an exercise session, it must be read separately. Use the `getExerciseRoute()` method with the session's ID to read its route data:
 
     suspend fun readExerciseRoute(
         healthConnectClient: HealthConnectClient,
@@ -392,9 +347,7 @@ ID to read its route data:
 
 ### Read data types
 
-To read specific granular data (like heart rate) that occurred during a session,
-use the session's `startTime` and `endTime` to filter the request for that data
-type.
+To read specific granular data (like heart rate) that occurred during a session, use the session's `startTime` and `endTime` to filter the request for that data type.
 
     suspend fun readHeartRateData(
         healthConnectClient: HealthConnectClient,
@@ -451,9 +404,7 @@ Follow these guidelines to improve data reliability and user experience:
 
 ## Testing
 
-To verify data correctness and a high-quality user experience, follow these
-testing strategies and refer to the official [Test top use cases](https://developer.android.com/health-and-fitness/health-connect/test/test-cases)
-documentation.
+To verify data correctness and a high-quality user experience, follow these testing strategies and refer to the official [Test top use cases](https://developer.android.com/health-and-fitness/health-connect/test/test-cases) documentation.
 
 ### Verification tools
 

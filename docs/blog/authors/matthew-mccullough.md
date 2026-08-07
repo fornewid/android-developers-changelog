@@ -9,7 +9,7 @@ source: md.txt
 # Matthew McCullough
 
 Vice President, Product Management, Android Developer
-- 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp)
+- 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
 
@@ -59,8 +59,5 @@ Vice President, Product Management, Android Developer
 
 [arrow_forward](https://developer.android.com/blog/authors/matthew-mccullough/2) Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

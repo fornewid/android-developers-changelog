@@ -6,14 +6,13 @@ source: md.txt
 
 <br />
 
-Android Gradle plugin 9.4 is a minor release that includes a variety of new
-features and improvements.
+Android Gradle plugin 9.4 is a minor release that includes a variety of new features and improvements.
 
 ## Compatibility
 
-The maximum API level that Android Gradle plugin 9.4 supports is API level 37.
-Here is other compatibility info:
+The maximum API level that Android Gradle plugin 9.4 supports is API level 37. Here is other compatibility info:
 
+<br />
 
 |   | Minimum version | Default version | Notes |
 |---:|:---:|:---:|:---:|
@@ -26,28 +25,17 @@ Here is other compatibility info:
 
 ## Variant API module opt-out
 
-Starting with AGP 10, the new Variant API is mandatory for all projects. To
-support a gradual migration, you can temporarily opt specific modules out of
-this requirement before AGP 10 by applying the following to your
-`gradle.properties` file.
+Starting with AGP 10, the new Variant API is mandatory for all projects. To support a gradual migration, you can temporarily opt specific modules out of this requirement before AGP 10 by applying the following to your `gradle.properties` file.
 
     android.newDsl.optOut=:example-lib1
 
 ## Strict 1:1 variant parity between dynamic feature and android apps
 
-Starting in AGP 9.4, the build system checks for strict 1:1 flavor dimension
-parity between Android app modules and dynamic feature modules,
-reporting any missing, extra, or mismatched dimensions as build warnings.
-To help you prepare for stricter validation without breaking existing
-build pipelines, this check operates in warning mode by default, but can be
-promoted to an execution error by enabling the
-`android.enforceDynamicFeatureVariantMatching=true` Gradle option.
-From AGP 10.0 onwards, strict 1:1 variant parity will become enforced by
-default, turning all dimension mismatches between base apps and their
-dynamic feature modules into fatal build failures.
+Starting in AGP 9.4, the build system checks for strict 1:1 flavor dimension parity between Android app modules and dynamic feature modules, reporting any missing, extra, or mismatched dimensions as build warnings. To help you prepare for stricter validation without breaking existing build pipelines, this check operates in warning mode by default, but can be promoted to an execution error by enabling the `android.enforceDynamicFeatureVariantMatching=true` Gradle option. From AGP 10.0 onwards, strict 1:1 variant parity will become enforced by default, turning all dimension mismatches between base apps and their dynamic feature modules into fatal build failures.
 
 ## Fixed issues
 
+<br />
 
 ### Android Gradle plugin 9.4.0-alpha04
 
@@ -57,20 +45,14 @@ dynamic feature modules into fatal build failures.
 
 ### Android Gradle plugin 9.4.0-alpha03
 
-| Fixed Issues ||
-|---|---|
-| **Shrinker (R8)** | |---| | [Issue #146403477](https://issuetracker.google.com/issues/146403477) L8 obfucation mapping not included in app mapping.txt | |
+Fixed Issues **Shrinker (R8)** [Issue #146403477](https://issuetracker.google.com/issues/146403477) L8 obfucation mapping not included in app mapping.txt
 
 ### Android Gradle plugin 9.4.0-alpha02
 
-| Fixed Issues ||
-|---|---|
-| **Android Gradle Plugin** | |---| | [Issue #499166350](https://issuetracker.google.com/issues/499166350) AGP SigningConfig is too eager | | [Issue #257765153](https://issuetracker.google.com/issues/257765153) "Unable to get provider" (ClassNotFoundException) when running \`./gradlew :app:connectedDebugAndroidTest\` with a provider defined in a dynamic feature module | |
+Fixed Issues **Android Gradle Plugin** [Issue #499166350](https://issuetracker.google.com/issues/499166350) AGP SigningConfig is too eager [Issue #257765153](https://issuetracker.google.com/issues/257765153) "Unable to get provider" (ClassNotFoundException) when running \`./gradlew :app:connectedDebugAndroidTest\` with a provider defined in a dynamic feature module
 
 ### Android Gradle plugin 9.4.0-alpha01
 
-| Fixed Issues ||
-|---|---|
-| **Android Gradle Plugin** | |---| | [Issue #499166350](https://issuetracker.google.com/issues/499166350) AGP SigningConfig is too eager | |
+Fixed Issues **Android Gradle Plugin** [Issue #499166350](https://issuetracker.google.com/issues/499166350) AGP SigningConfig is too eager
 
 <br />

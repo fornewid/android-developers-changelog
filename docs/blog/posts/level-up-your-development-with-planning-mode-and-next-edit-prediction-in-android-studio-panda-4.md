@@ -44,6 +44,7 @@ Instead of manually navigating back and forth, you can accept these multi-locati
 
 Adding powerful AI features to your app just got easier, introducing the Gemini API Starter template for Android Studio!   
 
+
 Integrating generative AI into your Android application used to mean managing complex backend plumbing and worrying about API key security. With the new Gemini API Starter template in Android Studio, developers can now jump straight into building features rather than spending time configuring infrastructure.
 
 **Key benefits include:**
@@ -98,8 +99,7 @@ Written by:
 
   ###### Senior Product Manager
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/matt-dyor) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/matt-dyor) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)
 Continue reading
 - [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -122,8 +122,5 @@ Continue reading
   [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

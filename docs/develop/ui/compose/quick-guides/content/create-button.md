@@ -6,8 +6,7 @@ source: md.txt
 
 <br />
 
-Buttons let the user trigger a defined action. There are five types of
-button:
+Buttons let the user trigger a defined action. There are five types of button:
 
 | Type | Appearance | Purpose |
 |---|---|---|
@@ -19,18 +18,16 @@ button:
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or
-higher.
+This implementation requires that your project minSDK be set to API level 21 or higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-button_90b94f6fc49da5d289b5455639aac6e3fffc24699727c9148b981cb0dd1fe670.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-button_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a filled button
 
-The filled button component uses the basic [`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It is
-filled with a solid color by default.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-button_8c13e3b87bcea099a7fa1e9b5b436038255fb1e7f9021a0dbf77909b10c52e7d.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+The filled button component uses the basic [`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It is filled with a solid color by default.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-button_c3a06f905e10dd552eeb73dc13317f55a1085fc195dccacba9cb8c18b57cb8f9.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -38,9 +35,8 @@ filled with a solid color by default.
 
 ## Create a filled tonal button
 
-The filled tonal button component uses the [`FilledTonalButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledTonalButton.composable#FilledTonalButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable.
-It is filled with a tonal color by default.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-button_19660304cf6424a5eb66113423e7c487a908c05cd50c734b0b85b2859cf6163a.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+The filled tonal button component uses the [`FilledTonalButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledTonalButton.composable#FilledTonalButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It is filled with a tonal color by default.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-button_31c42f7b531293bac438398bfa2c314a386a848c1e46eab474234c3265c8915b.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -48,9 +44,8 @@ It is filled with a tonal color by default.
 
 ## Create an outlined button
 
-The outlined button component uses the [`OutlinedButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedButton.composable#OutlinedButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It
-appears with an outline by default.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-button_363d71f9daa8512d7f6d693f17a2fb5fab0c350f3fe395a6dfb9fadfb94c56c2.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+The outlined button component uses the [`OutlinedButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedButton.composable#OutlinedButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It appears with an outline by default.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-button_5794ebee7feaec452deaa340548c070a25ba805fc127dd7475e43bc47eb310d1.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -58,10 +53,8 @@ appears with an outline by default.
 
 ## Create an elevated button
 
-The elevated button component uses the [`ElevatedButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedButton.composable#ElevatedButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It has
-a shadow that represents the elevation effect by default and appears as
-an outlined button with a shadow.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-button_48539f15403d5da77166360a9b4a19e316c52a430e25bd4a4a2adcbbefaefac9.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+The elevated button component uses the [`ElevatedButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedButton.composable#ElevatedButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It has a shadow that represents the elevation effect by default and appears as an outlined button with a shadow.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-button_bf22a512f36870f55211ae32333f954f9adc598222224db57fde07eff5faa3c7.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -69,9 +62,8 @@ an outlined button with a shadow.
 
 ## Create a text button
 
-The text button component uses the [`TextButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextButton.composable#TextButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. Until clicked,
-it appears only as text. It does not have a solid fill or outline by default.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-button_eb330238a29eede722779af2e2db3848c2224d4f08a641ce56d01c21fad75154.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+The text button component uses the [`TextButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextButton.composable#TextButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. Until clicked, it appears only as text. It does not have a solid fill or outline by default.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-button_3ab4fa2eb8113355cd8a7d425091901b20fd5f6d61c753fbbb36806712b1d723.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -86,8 +78,7 @@ it appears only as text. It does not have a solid fill or outline by default.
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover
-broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display interactive components

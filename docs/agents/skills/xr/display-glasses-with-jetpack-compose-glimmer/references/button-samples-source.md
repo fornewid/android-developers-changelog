@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
 source: md.txt
 ---
 
-When creating a Glimmer Button component, refer to the following implementation
-samples in `ButtonSamples.kt`:
+When creating a Glimmer Button component, refer to the following implementation samples in `ButtonSamples.kt`:
 
+<br />
 
 ```kotlin
 /*
@@ -177,6 +177,8 @@ private fun LargeButtonWithTrailingIconPreview() {
 private fun LargeButtonWithLeadingAndTrailingIconPreview() {
     GlimmerTheme { LargeButtonWithLeadingAndTrailingIconSample() }
 }
+
+   
 ```
 
 <br />

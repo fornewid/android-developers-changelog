@@ -4,16 +4,14 @@ url: https://developer.android.com/google/play/billing/rtdn-reference
 source: md.txt
 ---
 
-This document lists and describes the types of [Real-time developer notifications](https://developer.android.com/google/play/billing/getting-ready#configure-rtdn) that you can receive from
-Google Play.
+This document lists and describes the types of [Real-time developer notifications](https://developer.android.com/google/play/billing/getting-ready#configure-rtdn) that you can receive from Google Play.
 
 > [!NOTE]
 > **Note:** You must call the [Google Play Developer API](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) after receiving Real-time developer notifications to get the complete status and update your own backend state. These notifications tell you only that the purchase state changed. They do not give you complete information about the purchase.
 
 ## Encoding
 
-Each publish made to a Cloud Pub/Sub topic contains a single base64-encoded data
-field.
+Each publish made to a Cloud Pub/Sub topic contains a single base64-encoded data field.
 
     {
       "message": {
@@ -29,8 +27,7 @@ field.
 > [!NOTE]
 > **Note:** The `messageId` field is a unique identifier for the notification. However, it's recommend that you check the uniqueness of these IDs to avoid processing duplicate notifications and making redundant backend API calls, which helps optimize your API quota usage.
 
-After you decode the base64-encoded data field, the `DeveloperNotification`
-contains the following fields:
+After you decode the base64-encoded data field, the `DeveloperNotification` contains the following fields:
 
     {
       "version": string,
@@ -91,8 +88,7 @@ Here's an example of a notification for a new subscription purchase:
 ## OneTimeProductNotification
 
 > [!NOTE]
-> **Note:** A `OneTimeProductNotification` is sent only if you've chosen to receive one-time product purchase events. For more information, see [Enable real-time
-> developer notifications for your app](https://developer.android.com/google/play/billing/getting-ready#enable-rtdn "Real-time developer notifications").
+> **Note:** A `OneTimeProductNotification` is sent only if you've chosen to receive one-time product purchase events. For more information, see [Enable real-time developer notifications for your app](https://developer.android.com/google/play/billing/getting-ready#enable-rtdn "Real-time developer notifications").
 
 A `OneTimeProductNotification` contains the following fields:
 
@@ -157,8 +153,7 @@ Here's an example of a notification for a new voided purchase:
 
 ### Consuming VoidedPurchaseNotification
 
-When your RTDN client receives a `VoidedPurchaseNotification`, note the
-following information:
+When your RTDN client receives a `VoidedPurchaseNotification`, note the following information:
 
 - **`packageName`**: Identifies the app.
 - **`eventTimeMillis`**: Informs you of the time the status change occurred.
@@ -168,19 +163,14 @@ following information:
 - **`refundType`**: Specifies the type of refund that voided the purchase.
 
 > [!TIP]
-> **Tip:** If you only need to locate the right purchase and order for entitlement adjustments, the information provided in the `VoidedPurchaseNotification` is sufficient. For additional data about voided purchases, use the [Google Play
-> Voided Purchases API](https://developers.google.com/android-publisher/voided-purchases). This API provides a pull model for retrieving voided purchase data within a specified timestamp range.
+> **Tip:** If you only need to locate the right purchase and order for entitlement adjustments, the information provided in the `VoidedPurchaseNotification` is sufficient. For additional data about voided purchases, use the [Google Play Voided Purchases API](https://developers.google.com/android-publisher/voided-purchases). This API provides a pull model for retrieving voided purchase data within a specified timestamp range.
 
 > [!NOTE]
 > **Note:** For partially voided multi-quantity purchases, the `refundableQuantity` field provided by [`purchases.productsv2`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.productsv2) contains the remaining number of purchased products that have not been voided.
 
 ## PendingRefundReviewNotification
 
-A `PendingRefundReviewNotification` is sent when a user requests a chargeback
-for a purchase, and the request requires developer review. When you
-receive this notification, you should evaluate the request and provide a refund
-suggestion and purchase usage evidence within 24 hours by calling the
-[`ReviewRefund`](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/reviewrefund) API.
+A `PendingRefundReviewNotification` is sent when a user requests a chargeback for a purchase, and the request requires developer review. When you receive this notification, you should evaluate the request and provide a refund suggestion and purchase usage evidence within 24 hours by calling the [`ReviewRefund`](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/reviewrefund) API.
 
 > [!NOTE]
 > **Note:** Pending reviews support only `CHARGEBACK` as the refund reason.

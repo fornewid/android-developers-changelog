@@ -4,51 +4,36 @@ url: https://developer.android.com/google/play/requirements/target-sdk
 source: md.txt
 ---
 
-When you upload an APK, it must meet Google Play's [target API level
-requirements](https://support.google.com/googleplay/android-developer/answer/11926878).
+When you upload an APK, it must meet Google Play's [target API level requirements](https://support.google.com/googleplay/android-developer/answer/11926878).
 
 Starting August 31 2026:
 
 - New apps and app updates must target Android 16 (API level 36) or higher to be submitted to Google Play; except for Wear OS and Android Automotive OS apps, which must target Android 15 (API level 35) or higher, and Android TV and Android XR apps, which must target Android 14 (API level 34) or higher.
 - Existing apps must target Android 15 (API level 35) or higher to remain available to new users on devices running Android OS higher than your app's target API level. Apps that target Android 14 (API level 34) or lower, including Android 13 (API level 33) or lower for Wear OS, Android TV, and Android XR, and Android 12 (API level 31) or lower for Android Automotive OS, will only be available on devices running Android OS that are the same or lower than your app's target API level.
 
-If you need more time to update your app, you'll be able to request an
-extension to November 1, 2026. You'll be able to access your app's extension
-forms in Play Console later this year.
+If you need more time to update your app, you'll be able to request an extension to November 1, 2026. You'll be able to access your app's extension forms in Play Console later this year.
 
 Exceptions to these requirements include:
 
 - Permanently private apps that are restricted to users in a specific organization and intended for internal distribution only.
 
 > [!NOTE]
-> **Note:** Out-of-date apps are unavailable to new users of devices that run newer versions of Android. For more information, see the "App availability requirements" section in the [Target API level requirements for Google Play
-> apps](https://support.google.com/googleplay/android-developer/answer/11926878) article in the Play Console Help.
+> **Note:** Out-of-date apps are unavailable to new users of devices that run newer versions of Android. For more information, see the "App availability requirements" section in the [Target API level requirements for Google Play apps](https://support.google.com/googleplay/android-developer/answer/11926878) article in the Play Console Help.
 
 ## Why target newer SDKs?
 
-Every new Android version introduces changes that bring security and performance
-improvements and enhance the Android user experience. Some of these changes only
-apply to apps that explicitly declare support through their `targetSdkVersion`
-manifest attribute (also known as the target API level).
+Every new Android version introduces changes that bring security and performance improvements and enhance the Android user experience. Some of these changes only apply to apps that explicitly declare support through their `targetSdkVersion` manifest attribute (also known as the target API level).
 
-Configuring your app to target a recent API level ensures that users can benefit
-from these improvements, while your app can still run on older Android versions.
-Targeting a recent API level also allows your app to take advantage of the
-platform's [latest features](https://developer.android.com/google/play/requirements/target-sdk#modernize) to delight your users. Furthermore, as of
-Android 10 (API level 29), users [see a warning](https://developer.android.com/about/versions/10/behavior-changes-all#low-target-sdk-warnings) when they start an app for
-the first time if the app targets Android 5.1 (API level 22) or lower.
+Configuring your app to target a recent API level ensures that users can benefit from these improvements, while your app can still run on older Android versions. Targeting a recent API level also allows your app to take advantage of the platform's [latest features](https://developer.android.com/google/play/requirements/target-sdk#modernize) to delight your users. Furthermore, as of Android 10 (API level 29), users [see a warning](https://developer.android.com/about/versions/10/behavior-changes-all#low-target-sdk-warnings) when they start an app for the first time if the app targets Android 5.1 (API level 22) or lower.
 
-This document highlights important points you need to know in updating your
-target API level to meet the [Google Play requirement](https://support.google.com/googleplay/android-developer/answer/11926878). See the instructions
-in the following sections, depending on which version you are migrating to.
+This document highlights important points you need to know in updating your target API level to meet the [Google Play requirement](https://support.google.com/googleplay/android-developer/answer/11926878). See the instructions in the following sections, depending on which version you are migrating to.
 
 > [!NOTE]
 > **Note:** If your Gradle file contains manifest entries, you can confirm or change the current value of `targetSdkVersion` in your app's Gradle file, as described in [Configure your build](https://developer.android.com/studio/build#module-level). Alternatively, you can use the `android:targetSdkVersion` attribute in the manifest file, as described in the documentation for the [`<uses-sdk>`](https://developer.android.com/guide/topics/manifest/uses-sdk-element) manifest element.
 
 ## Migrate from Android 12 and higher (API level 31) to a more recent version
 
-To update your app to target a more recent version of Android, follow the
-relevant behavior changes list:
+To update your app to target a more recent version of Android, follow the relevant behavior changes list:
 
 - [Android 13 behavior changes](https://developer.android.com/about/versions/13/behavior-changes-13)
 - [Android 14 behavior changes](https://developer.android.com/about/versions/14/behavior-changes-14)
@@ -62,8 +47,7 @@ relevant behavior changes list:
 - [Bluetooth](https://developer.android.com/guide/topics/connectivity/bluetooth/permissions): You must replace declarations for the [`BLUETOOTH`](https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH) and [`BLUETOOTH_ADMIN`](https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH_ADMIN) permissions with [`BLUETOOTH_SCAN`](https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH_SCAN), [`BLUETOOTH_ADVERTISE`](https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH_ADVERTISE), or [`BLUETOOTH_CONNECT`](https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH_CONNECT) permissions. You no longer need to make `LOCATION` runtime permission requests for Bluetooth operations.
 - Location: Users can request apps to retrieve only approximate location information. You must request the [`ACCESS_COARSE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_COARSE_LOCATION) permission any time you request [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION).
   - Intent filters: If your app contains [activities](https://developer.android.com/guide/components/activities/intro-activities), [services](https://developer.android.com/guide/components/services), or [broadcast receivers](https://developer.android.com/guide/components/broadcasts) that use [intent filters](https://developer.android.com/guide/components/intents-filters#Receiving), you must explicitly declare the [android:exported](https://developer.android.com/guide/topics/manifest/activity-element#exported) attribute for these components.
-- Hibernation: Apps may be put into hibernation mode if they are not used over a period of time. In hibernation mode your app's runtime permissions and cache are reset, and you can't run jobs or alerts. You can check your [app's
-  hibernation status](https://developer.android.com/topic/performance/app-hibernation).
+- Hibernation: Apps may be put into hibernation mode if they are not used over a period of time. In hibernation mode your app's runtime permissions and cache are reset, and you can't run jobs or alerts. You can check your [app's hibernation status](https://developer.android.com/topic/performance/app-hibernation).
 - [Pending intent mutability](https://developer.android.com/about/versions/12/behavior-changes-12#pending-intent-mutability): You must specify the mutability of each PendingIntent object that your app creates.
 
 **User Experience**
@@ -73,27 +57,14 @@ relevant behavior changes list:
 
 **Performance**
 
-- [Foreground service launch restrictions](https://developer.android.com/about/versions/12/behavior-changes-12#foreground-service-launch-restrictions): To target Android 12 or
-  higher, your app can't start foreground services while it runs in the
-  background, except for a few special cases. If an app attempts to start a
-  foreground service while running in the background, an exception occurs
-  (except for the few special cases).
+- [Foreground service launch restrictions](https://developer.android.com/about/versions/12/behavior-changes-12#foreground-service-launch-restrictions): To target Android 12 or higher, your app can't start foreground services while it runs in the background, except for a few special cases. If an app attempts to start a foreground service while running in the background, an exception occurs (except for the few special cases).
 
-  Consider using WorkManager to schedule and start [expedited work](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#expedited) while
-  your app runs in the background. To complete time-sensitive actions that the
-  user requests, start foreground services within an exact alarm.
-- [Notification trampoline restrictions](https://developer.android.com/about/versions/12/behavior-changes-12#notification-trampolines): When users tap notifications,
-  some apps respond by launching an app component that starts the activity
-  that the user sees and interacts with. This app component is known as a
-  notification trampoline.
+  Consider using WorkManager to schedule and start [expedited work](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#expedited) while your app runs in the background. To complete time-sensitive actions that the user requests, start foreground services within an exact alarm.
+- [Notification trampoline restrictions](https://developer.android.com/about/versions/12/behavior-changes-12#notification-trampolines): When users tap notifications, some apps respond by launching an app component that starts the activity that the user sees and interacts with. This app component is known as a notification trampoline.
 
-  Apps must not start activities from services or broadcast receivers that are
-  used as notification trampolines. After a user taps on a notification or
-  action button within the notification, your app cannot call
-  `startActivity()` inside of a service or broadcast receiver.
+  Apps must not start activities from services or broadcast receivers that are used as notification trampolines. After a user taps on a notification or action button within the notification, your app cannot call `startActivity()` inside of a service or broadcast receiver.
 
-View the complete set of [changes that affect apps targeting Android 12 (API
-level 31)](https://developer.android.com/about/versions/12/behavior-changes-12).
+View the complete set of [changes that affect apps targeting Android 12 (API level 31)](https://developer.android.com/about/versions/12/behavior-changes-12).
 
 ## Migrate from lower than Android 11 (API level 30)
 
@@ -119,9 +90,7 @@ The following considerations apply to apps targeting Android 6.0 and higher vers
 
   - Wherever possible, ensure your app is prepared to handle rejection of permission requests. For example, if a user declines a request to access the device's GPS, ensure your app has another way to proceed.
 
-
-For an exhaustive list of changes introduced in Android 6.0 (API level 23), see the [Behavior Changes](https://developer.android.com/about/versions/marshmallow/android-6.0-changes)
-page for that version of the platform.
+For an exhaustive list of changes introduced in Android 6.0 (API level 23), see the [Behavior Changes](https://developer.android.com/about/versions/marshmallow/android-6.0-changes) page for that version of the platform.
 
 Continue by following the instructions in the next section.
 
@@ -142,13 +111,9 @@ The following considerations apply to apps targeting Android 7.0 and higher vers
 
   - The system restricts access to app private directories.
   - Exposing a `file://` URI outside of your app triggers a `FileUriExposedException`. If you need to share files outside of your app, implement [`FileProvider`](https://developer.android.com/training/secure-file-sharing/setup-sharing)
--
-  The system [forbids linking](https://developer.android.com/about/versions/nougat/android-7.0-changes#ndk)
-  to non-NDK libraries.
+- The system [forbids linking](https://developer.android.com/about/versions/nougat/android-7.0-changes#ndk) to non-NDK libraries.
 
-
-For an exhaustive list of changes introduced in Android 7.0 (API level 24), see the [Behavior Changes](https://developer.android.com/about/versions/nougat/android-7.0-changes)
-page for that version of the platform.
+For an exhaustive list of changes introduced in Android 7.0 (API level 24), see the [Behavior Changes](https://developer.android.com/about/versions/nougat/android-7.0-changes) page for that version of the platform.
 
 Continue by following the instructions in the next section.
 
@@ -175,9 +140,7 @@ The following considerations apply to apps targeting Android 8.0 and higher vers
 - [Privacy](https://developer.android.com/about/versions/oreo/android-8.0-changes#privacy-all)
   - [ANDROID_ID](https://developer.android.com/reference/kotlin/android/provider/Settings.Secure#ANDROID_ID) is scoped per app signing key.
 
-
-For an exhaustive list of changes introduced in Android 8.0 (API level 26), see the [Behavior Changes](https://developer.android.com/about/versions/oreo/android-8.0-changes)
-page for that version of the platform.
+For an exhaustive list of changes introduced in Android 8.0 (API level 26), see the [Behavior Changes](https://developer.android.com/about/versions/oreo/android-8.0-changes) page for that version of the platform.
 
 ### Migrate from Android 8 (API 26) to Android 9 (API 28)
 
@@ -192,15 +155,11 @@ page for that version of the platform.
   - Restricted access to phone numbers, requiring [`READ_CALL_LOG`](https://developer.android.com/reference/kotlin/android/Manifest.permission#READ_CALL_LOG) permission
   - Restricted access to Wi-Fi information
 
-
-For an exhaustive list of changes introduced in Android 9.0 (API level
-28), see [behavior
-changes](https://developer.android.com/about/versions/pie/android-9.0-changes-28).
+For an exhaustive list of changes introduced in Android 9.0 (API level 28), see [behavior changes](https://developer.android.com/about/versions/pie/android-9.0-changes-28).
 
 ### Migrate from Android 9 (API level 28) to Android 10 (API level 29)
 
-- [Notifications
-  with a full-screen intent](https://developer.android.com/training/notify-user/build-notification#urgent-message)
+- [Notifications with a full-screen intent](https://developer.android.com/training/notify-user/build-notification#urgent-message)
   - Need to request the normal permission [`USE_FULL_SCREEN_INTENT`](https://developer.android.com/reference/android/Manifest.permission#USE_FULL_SCREEN_INTENT) (not runtime permission).
 - Support for [foldables](https://developer.android.com/guide/topics/ui/foldables) and large screen devices
   - Multiple activities can now be in the "resumed" state at the same time, but only one actually has focus.
@@ -214,38 +173,31 @@ changes](https://developer.android.com/about/versions/pie/android-9.0-changes-28
   - Restricted access to location while the app is in the background, requiring [`ACCESS_BACKGROUND_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) permission.
   - Restricted access to non-resettable identifiers such as IMEI and serial number.
   - Restricted access to physical activity information such as the user's step count, requiring [`ACTIVITY_RECOGNITION`](https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION) permission.
-  - Restricted access to [some
-    telephony, Bluetooth, and Wi-Fi APIs](https://developer.android.com/about/versions/10/privacy/changes#location-telephony-bluetooth-wifi), requiring [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permission.
+  - Restricted access to [some telephony, Bluetooth, and Wi-Fi APIs](https://developer.android.com/about/versions/10/privacy/changes#location-telephony-bluetooth-wifi), requiring [`ACCESS_FINE_LOCATION`](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permission.
   - Restricted access to Wi-Fi settings
-    - Apps can no longer directly enable or disable Wi-Fi and need to do it [using
-      settings panels](https://developer.android.com/about/versions/10/features#settings-panels).
+    - Apps can no longer directly enable or disable Wi-Fi and need to do it [using settings panels](https://developer.android.com/about/versions/10/features#settings-panels).
     - Restrictions on initiating a connection to a Wi-Fi network, requiring the use of either [`WifiNetworkSpecifier`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSpecifier) or [`WifiNetworkSuggestion`](https://developer.android.com/reference/android/net/wifi/WifiNetworkSuggestion).
 
 ### Migrate from Android 10 (API level 29) to Android 11 (API level 30)
 
 - Privacy
   - [Scoped storage enforcement](https://developer.android.com/about/versions/11/privacy/storage) : Apps should adopt the scoped storage model where app-specific, media, and other file types are saved and accessed using dedicated locations.
-  - [Permissions auto-reset](https://developer.android.com/about/versions/11/privacy/permissions#auto-reset): If users haven't interacted with an app for a few months, the system auto-resets the app's sensitive permissions. This shouldn't affect most apps. If your app primarily works in the background without user interactions, you may consider [requesting users to disable
-    auto reset.](https://developer.android.com/guide/topics/permissions/overview#auto-reset-permissions-unused-apps)
+  - [Permissions auto-reset](https://developer.android.com/about/versions/11/privacy/permissions#auto-reset): If users haven't interacted with an app for a few months, the system auto-resets the app's sensitive permissions. This shouldn't affect most apps. If your app primarily works in the background without user interactions, you may consider [requesting users to disable auto reset.](https://developer.android.com/guide/topics/permissions/overview#auto-reset-permissions-unused-apps)
   - [Background location access](https://developer.android.com/about/versions/11/privacy/location#background-location): Apps must request foreground and background location permission separately. [Granting access to background location permission can only be done in app settings](https://developer.android.com/training/location/permissions#request-background-location) instead of runtime permission dialogs.
   - [Package Visibility](https://developer.android.com/training/basics/intents/package-visibility-use-cases): When an app queries for the list of installed apps and services on the device, the returned list is filtered.
     - If you use [Text-to-speech](https://developer.android.com/about/versions/11/behavior-changes-11#tts-engines) or [Speech Recognition](https://developer.android.com/about/versions/11/behavior-changes-11#speech-recognition) services, you will need to add queries elements for services to the manifest file.
 - Security
-  - [Compressed \`resource.arsc\` files
-    are no longer supported](https://developer.android.com/about/versions/11/behavior-changes-11#compressed-resource-file)
+  - [Compressed \`resource.arsc\` files are no longer supported](https://developer.android.com/about/versions/11/behavior-changes-11#compressed-resource-file)
   - [APK Signature Scheme v2 now required.](https://developer.android.com/about/versions/11/behavior-changes-11#minimum-signature-scheme) For backward compatibility reasons, developers should also continue to sign with APK Signature Scheme v1.
-  - Non-SDK interface restriction. Using non-SDK interfaces is not recommended for apps targeting API level 30, as some of these non-SDK interfaces are now blocked. See [Non-SDK interfaces that
-    are now blocked in Android 11](https://developer.android.com/about/versions/11/non-sdk-11#new-blocked) for a comprehensive list of blocked non-SDK interfaces.
+  - Non-SDK interface restriction. Using non-SDK interfaces is not recommended for apps targeting API level 30, as some of these non-SDK interfaces are now blocked. See [Non-SDK interfaces that are now blocked in Android 11](https://developer.android.com/about/versions/11/non-sdk-11#new-blocked) for a comprehensive list of blocked non-SDK interfaces.
 
-For an exhaustive list of changes introduced in Android 11 (API level 30), see
-the [Behavior Changes](https://developer.android.com/about/versions/11/behavior-changes-11) page.
+For an exhaustive list of changes introduced in Android 11 (API level 30), see the [Behavior Changes](https://developer.android.com/about/versions/11/behavior-changes-11) page.
 
 Continue to update to API 31 by following the instructions in [the previous section](https://developer.android.com/google/play/requirements/target-sdk#pre12).
 
 ## Modernize your apps
 
-As you update the target API level for your apps, consider adopting recent
-platform features to modernize your apps and delight your users.
+As you update the target API level for your apps, consider adopting recent platform features to modernize your apps and delight your users.
 
 - Consider using [CameraX](https://developer.android.com/camerax), which is in Beta, to make the most of using the camera.
 - Use [Jetpack](https://developer.android.com/jetpack) components to help you follow best practices, free you from writing boilerplate code, and simplify complex tasks so that you can focus on the code you care about.
@@ -255,8 +207,7 @@ platform features to modernize your apps and delight your users.
 - Add [gesture navigation](https://developer.android.com/guide/navigation/gesturenav) support to your apps.
 - [Migrate your app](https://developers.google.com/cloud-messaging/android/android-migrate-fcm) from Google Cloud Messaging (GCM) to the latest version of Firebase Cloud Messaging.
 - Take advantage of advanced window management.
-  - Support larger aspect ratios (more than 16:9) to take advantage of recent advances in hardware. Ensure that your app resizes to fill the available screen space. Only declare a maximum aspect ratio as a last resort. For more information about maximum aspect ratios, see [Declare
-    Restricted Screen Support](https://developer.android.com/guide/practices/screens-distribution#MaxAspectRatio).
+  - Support larger aspect ratios (more than 16:9) to take advantage of recent advances in hardware. Ensure that your app resizes to fill the available screen space. Only declare a maximum aspect ratio as a last resort. For more information about maximum aspect ratios, see [Declare Restricted Screen Support](https://developer.android.com/guide/practices/screens-distribution#MaxAspectRatio).
   - Add [multi-window support](https://developer.android.com/guide/topics/ui/multi-window) to help your app increase productivity, and to manage [multiple displays](https://developer.android.com/about/versions/oreo/android-8.0#mds).
   - If a great minimized app experience would improve the user experience, add support for [Picture-in-Picture](https://developer.android.com/guide/topics/ui/picture-in-picture).
     - Optimize for devices with display cutout.
@@ -265,34 +216,20 @@ platform features to modernize your apps and delight your users.
 
 ## Check and update your SDKs and libraries
 
-Make sure that your third-party SDK dependencies support API 31: Some SDK
-providers publish it in their manifest; others will require additional
-investigation. If you use an SDK that doesn't support API 31, make it a priority
-to work with the SDK provider to resolve the issue.
+Make sure that your third-party SDK dependencies support API 31: Some SDK providers publish it in their manifest; others will require additional investigation. If you use an SDK that doesn't support API 31, make it a priority to work with the SDK provider to resolve the issue.
 
-Additionally, note that your app or game's `targetSdkVersion` may restrict
-access to private Android platform libraries; see [NDK Apps Linking to Platform
-Libraries](https://developer.android.com/about/versions/nougat/android-7.0-changes#ndk) for details.
+Additionally, note that your app or game's `targetSdkVersion` may restrict access to private Android platform libraries; see [NDK Apps Linking to Platform Libraries](https://developer.android.com/about/versions/nougat/android-7.0-changes#ndk) for details.
 
-You should also verify any restrictions that may exist in the version of the
-Android Support Library that you're using. As always, you must ensure
-compatibility between the major version of Android Support Library and your
-app's `compileSdkVersion`.
+You should also verify any restrictions that may exist in the version of the Android Support Library that you're using. As always, you must ensure compatibility between the major version of Android Support Library and your app's `compileSdkVersion`.
 
-We recommend that you choose a `targetSdkVersion` smaller than or equal to the
-Support Library's major version. We encourage you to update to a recent
-compatible Support Library in order to take advantage of the latest
-compatibility features and bug fixes.
+We recommend that you choose a `targetSdkVersion` smaller than or equal to the Support Library's major version. We encourage you to update to a recent compatible Support Library in order to take advantage of the latest compatibility features and bug fixes.
 
 ## Test your app
 
-After you update your app's API level and features as appropriate, you should
-test some core use cases. The following suggestions are not exhaustive, but aim
-to guide your testing process. We suggest testing:
+After you update your app's API level and features as appropriate, you should test some core use cases. The following suggestions are not exhaustive, but aim to guide your testing process. We suggest testing:
 
 - That your app compiles to API 29 without errors or warnings.
-- That your app has a strategy for cases where the user rejects permission
-  requests, and prompts the user for permissions. To do so:
+- That your app has a strategy for cases where the user rejects permission requests, and prompts the user for permissions. To do so:
 
   - Go to your app's App Info screen, and disable each permission.
   - Open the app and ensure no crashes.
@@ -310,14 +247,10 @@ to guide your testing process. We suggest testing:
 
   - Check that your app [handles the restricted](https://developer.android.com/topic/performance/background-optimization#media-broadcasts) [`ACTION_NEW_PICTURE`](https://developer.android.com/topic/performance/background-optimization#media-broadcasts) [and](https://developer.android.com/topic/performance/background-optimization#media-broadcasts) [`ACTION_NEW_VIDEO`](https://developer.android.com/topic/performance/background-optimization#media-broadcasts) broadcasts correctly (that is, moved to JobScheduler jobs).
   - Ensure that any critical use cases that depend on these events still work.
-- Handles sharing files to other apps
-  - Test any use case that shares file data with any other app (even
-  another app by the same developer)
+- Handles sharing files to other apps - Test any use case that shares file data with any other app (even another app by the same developer)
 
   - Test the content is visible in the other app and doesn't trigger crashes.
 
 ## Further information
 
-[Opt in to emails in the Google Play Console](http://g.co/play/monthlynews) so that we can
-send you important updates and announcements from Android and Google Play,
-including our monthly partner newsletter.
+[Opt in to emails in the Google Play Console](http://g.co/play/monthlynews) so that we can send you important updates and announcements from Android and Google Play, including our monthly partner newsletter.

@@ -6,27 +6,16 @@ source: md.txt
 
 [Video](https://www.youtube.com/watch?v=mlL6H-s0nF0)
 
-The Android platform is responsible for drawing the system UI, such as the
-status bar and navigation bar. This system UI is displayed regardless of which
-app the user is using.
+The Android platform is responsible for drawing the system UI, such as the status bar and navigation bar. This system UI is displayed regardless of which app the user is using.
 
-[`WindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/WindowInsets) provides information about the system
-UI to ensure that your app draws in the correct area and your UI isn't obscured
-by the system UI.
+[`WindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/WindowInsets) provides information about the system UI to ensure that your app draws in the correct area and your UI isn't obscured by the system UI.
 ![Going edge-to-edge to draw behind the system bars](https://developer.android.com/static/develop/ui/compose/images/layouts/insets/e2e-intro.gif) **Figure 1.** Going edge-to-edge to draw behind the system bars.
 
-On Android 14 (API level 34) and lower, your app's UI does not draw underneath
-the system bars and display cutouts by default.
+On Android 14 (API level 34) and lower, your app's UI does not draw underneath the system bars and display cutouts by default.
 
-On Android 15 (API level 35) and higher, your app draws underneath the system
-bars and display cutouts once your app targets SDK 35. This results in a more
-seamless user experience and allows your app to take full advantage of the
-window space available to it.
+On Android 15 (API level 35) and higher, your app draws underneath the system bars and display cutouts once your app targets SDK 35. This results in a more seamless user experience and allows your app to take full advantage of the window space available to it.
 
-Displaying content behind the system UI is called *going edge-to-edge*. On this
-page, you learn about the different types of insets, how to go edge-to-edge,
-and how to use the inset APIs to animate your UI and ensure your app's content
-isn't obscured by system UI elements.
+Displaying content behind the system UI is called *going edge-to-edge*. On this page, you learn about the different types of insets, how to go edge-to-edge, and how to use the inset APIs to animate your UI and ensure your app's content isn't obscured by system UI elements.
 
 > [!IMPORTANT]
 > **Important:** [Edge-to-edge is enforced](https://developer.android.com/about/versions/15/behavior-changes-15#edge-to-edge) on Android 15 and higher once your app targets SDK 35. If your app is not already edge-to-edge, portions of your app may be hidden and you must handle insets. Depending on the app, this work may or may not be significant. The Material 3 [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable#Scaffold(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) component can reduce the work required to be compatible with the Android 15 edge-to-edge enforcement. See [Create a scaffold component to hold the UI together](https://developer.android.com/quick-guides/content/create-scaffold).
@@ -35,21 +24,11 @@ isn't obscured by system UI elements.
 
 [Video](https://www.youtube.com/watch?v=QRzepC9gHj4)
 
-When an app goes edge-to-edge, you need to ensure that important content and
-interactions are not obscured by the system UI. For example, if a button is
-placed behind the navigation bar, the user may not be able to click it.
+When an app goes edge-to-edge, you need to ensure that important content and interactions are not obscured by the system UI. For example, if a button is placed behind the navigation bar, the user may not be able to click it.
 
-The size of the system UI and information about where it is placed is specified
-using *insets*.
+The size of the system UI and information about where it is placed is specified using *insets*.
 
-Each portion of the system UI has a corresponding type of inset that describes
-its size and where it is placed. For example, status bar insets provide the size
-and position of the status bar, whereas the navigation bar insets provide the
-size and position of the navigation bar. Each type of inset consists of four
-pixel dimensions: top, left, right, and bottom. These dimensions specify how far
-the system UI extends from the corresponding sides of the app's window. To avoid
-overlapping with that type of system UI, therefore, app UI must be inset by that
-amount.
+Each portion of the system UI has a corresponding type of inset that describes its size and where it is placed. For example, status bar insets provide the size and position of the status bar, whereas the navigation bar insets provide the size and position of the navigation bar. Each type of inset consists of four pixel dimensions: top, left, right, and bottom. These dimensions specify how far the system UI extends from the corresponding sides of the app's window. To avoid overlapping with that type of system UI, therefore, app UI must be inset by that amount.
 
 These built-in Android inset types are available through [`WindowInsets`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/WindowInsets):
 
@@ -72,15 +51,13 @@ These built-in Android inset types are available through [`WindowInsets`](https:
 | [`WindowInsets.displayCutout`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).displayCutout()) | The insets representing the amount of spacing needed to avoid overlapping with a display cutout (notch or pinhole). |
 | [`WindowInsets.waterfall`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).waterfall()) | The insets representing the curved areas of a waterfall display. A waterfall display has curved areas along the edges of the screen where the screen begins to wrap along the sides of the device. |
 
-These types are summarized by three "safe" inset types that ensure content isn't
-obscured:
+These types are summarized by three "safe" inset types that ensure content isn't obscured:
 
 - [`WindowInsets.safeDrawing`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).safeDrawing())
 - [`WindowInsets.safeGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).safeGestures())
 - [`WindowInsets.safeContent`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).safeContent())
 
-These "safe" inset types protect content in different ways, based on the
-underlying platform insets:
+These "safe" inset types protect content in different ways, based on the underlying platform insets:
 
 - Use [`WindowInsets.safeDrawing`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).safeDrawing()) to protect content that shouldn't be drawn underneath any system UI. This is the most common usage of insets: to prevent drawing content that is obscured by the system UI (either partially or completely).
 - Use [`WindowInsets.safeGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/package-summary#(androidx.compose.foundation.layout.WindowInsets.Companion).safeGestures()) to protect content with gestures. This avoids system gestures clashing with app gestures (such as those for bottom sheets, carousels, or in games).

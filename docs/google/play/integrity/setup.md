@@ -4,46 +4,31 @@ url: https://developer.android.com/google/play/integrity/setup
 source: md.txt
 ---
 
-This page explains how to set up your app, game or SDK to use the Play
-Integrity API. To integrate the API, you must have a Google Cloud
-project, which is necessary to begin making requests. You
-can then link your Google Cloud project in the Google Play Console (for apps)
-or the Google Play SDK Console (for SDKs). **Linking your project is required
-to access additional configuration options, testing features, API reporting,
-and to request an increase to your daily request quota.**
+This page explains how to set up your app, game or SDK to use the Play Integrity API. To integrate the API, you must have a Google Cloud project, which is necessary to begin making requests. You can then link your Google Cloud project in the Google Play Console (for apps) or the Google Play SDK Console (for SDKs). **Linking your project is required to access additional configuration options, testing features, API reporting, and to request an increase to your daily request quota.**
 
 ## Enable Play Integrity API
 
-Every app or SDK calling the Play Integrity API must have a Google Cloud project
-to use the API and monitor usage. This is the mandatory first step for all
-integrations. You can enable the Play Integrity API in the Google Cloud Console
-or you can skip directly to linking your Cloud project to Google Play
-and Play Integrity API will be enabled for you.
+Every app or SDK calling the Play Integrity API must have a Google Cloud project to use the API and monitor usage. This is the mandatory first step for all integrations. You can enable the Play Integrity API in the Google Cloud Console or you can skip directly to linking your Cloud project to Google Play and Play Integrity API will be enabled for you.
 
-In your [Google Cloud Console](https://console.cloud.google.com/), create a new Cloud project or choose an
-existing Cloud project that you want to use with the Play Integrity API.
+In your [Google Cloud Console](https://console.cloud.google.com/), create a new Cloud project or choose an existing Cloud project that you want to use with the Play Integrity API.
 
 1. Navigate to **APIs and services**.
 2. Select **Enable APIs and services**.
 3. Search for **[Play Integrity API](https://console.cloud.google.com/marketplace/product/google/playintegrity.googleapis.com)**.
 4. Click **Enable**.
 
-You can now integrate the Play Integrity API into your app. To access
-advanced features and quota increases, you must proceed to the linking step.
+You can now integrate the Play Integrity API into your app. To access advanced features and quota increases, you must proceed to the linking step.
 
 > [!NOTE]
 > **Note:** Projects that are enabled in the Google Cloud Console but not linked in the Play Console or Play SDK Console are not eligible for additional configuration options or quota increases.
 
 ## Link to Google Play (recommended)
 
-You can link your Google Cloud project to your app or SDK using these
-instructions.
+You can link your Google Cloud project to your app or SDK using these instructions.
 
 ### For apps and games on Google Play
 
-Apps distributed on Google Play should link their Google Cloud project in the
-Google Play Console to enable additional features and request increased
-daily API quota.
+Apps distributed on Google Play should link their Google Cloud project in the Google Play Console to enable additional features and request increased daily API quota.
 
 1. Open the [Google Play Console](https://play.google.com/console/developers) and select your app.
 2. Navigate to **[Protected with Play](https://play.google.com/console/developers/app/protect-with-play)**.
@@ -53,11 +38,7 @@ daily API quota.
 
 ### For SDK providers on Play SDK Console
 
-SDK providers using the [Google Play SDK Console](https://play.google.com/sdk-console/) can link their
-Google Cloud project to attribute API usage to the SDK rather than the
-individual apps using it, enable additional features, and request
-increased daily API quota. Note that access to the Google Play SDK Console
-is subject to [eligibility criteria](https://support.google.com/googleplay/android-developer/answer/12244916#SDK_eligibility).
+SDK providers using the [Google Play SDK Console](https://play.google.com/sdk-console/) can link their Google Cloud project to attribute API usage to the SDK rather than the individual apps using it, enable additional features, and request increased daily API quota. Note that access to the Google Play SDK Console is subject to [eligibility criteria](https://support.google.com/googleplay/android-developer/answer/12244916#SDK_eligibility).
 
 1. Open the [Google Play SDK Console](https://play.google.com/sdk-console/) and select your SDK.
 2. Navigate to **SDK integrity**
@@ -69,9 +50,7 @@ is subject to [eligibility criteria](https://support.google.com/googleplay/andro
 
 ## Understand Play Integrity API usage limits
 
-Your app or SDK has a default daily limit of 10,000 total requests, tied
-to the associated Cloud Project Number. If you anticipate a higher volume,
-you can request a quota increase.
+Your app or SDK has a default daily limit of 10,000 total requests, tied to the associated Cloud Project Number. If you anticipate a higher volume, you can request a quota increase.
 
 | Action | Daily quota | Notes |
 |---|---|---|
@@ -80,25 +59,16 @@ you can request a quota increase.
 
 ### Increase your daily maximum number of requests
 
-Quota increase is subject to eligibility criteria. Quota increases apply to
-both client-side token generation and server-side decryption calls. Processing
-requests can take up to a week. We recommend monitoring your Play Integrity
-API usage in your Google Cloud Console and setting [quota alerts](https://cloud.google.com/docs/quota?&_ga=2.68760982.-685660492.1676978684#monitoring_quota_metrics) to
-avoid interruptions to your service.
+Quota increase is subject to eligibility criteria. Quota increases apply to both client-side token generation and server-side decryption calls. Processing requests can take up to a week. We recommend monitoring your Play Integrity API usage in your Google Cloud Console and setting [quota alerts](https://cloud.google.com/docs/quota?&_ga=2.68760982.-685660492.1676978684#monitoring_quota_metrics) to avoid interruptions to your service.
 
-Even with higher quota, continue to limit
-[classic requests](https://developer.android.com/google/play/integrity/classic) to infrequent, high-value actions to preserve
-user battery and data usage.
+Even with higher quota, continue to limit [classic requests](https://developer.android.com/google/play/integrity/classic) to infrequent, high-value actions to preserve user battery and data usage.
 
 > [!CAUTION]
 > **Caution:** Very high volume changes should be rolled out gradually. Sudden traffic spikes may cause throttling.
 
 #### For apps and games on Google Play
 
-To be eligible for a quota increase, your app must be available on Google Play
-in addition to any other distribution channels. You must link your Google
-Cloud project to your app in the [Play Console](https://play.google.com/console/developers/app/app-integrity/integrity-api-settings). Quota requests
-from unlinked projects will be rejected.
+To be eligible for a quota increase, your app must be available on Google Play in addition to any other distribution channels. You must link your Google Cloud project to your app in the [Play Console](https://play.google.com/console/developers/app/app-integrity/integrity-api-settings). Quota requests from unlinked projects will be rejected.
 
 To request an increase:
 
@@ -108,29 +78,22 @@ To request an increase:
 
 #### For SDK providers on Play SDK Console
 
-To be eligible for a quota increase, your SDK must be claimed on the Google
-Play SDK Console and your Cloud project must be linked to your SDK there.
-Access to the Google Play SDK Console is subject to [eligibility criteria](https://support.google.com/googleplay/android-developer/answer/12244916#SDK_eligibility).
+To be eligible for a quota increase, your SDK must be claimed on the Google Play SDK Console and your Cloud project must be linked to your SDK there. Access to the Google Play SDK Console is subject to [eligibility criteria](https://support.google.com/googleplay/android-developer/answer/12244916#SDK_eligibility).
 
 To request an increase:
 
 1. Link your Google Cloud project in the **[Google Play SDK Console](https://play.google.com/sdk-console/)**.
 2. Complete the [developer support form](https://support.google.com/googleplay/android-developer/answer/10357403).
 
-In the open comments, provide your SDK details, describe your use case,
-the type of API requests that you're making (standard, classic, or both),
-how often you're making requests, and the daily maximum requests that you want.
+In the open comments, provide your SDK details, describe your use case, the type of API requests that you're making (standard, classic, or both), how often you're making requests, and the daily maximum requests that you want.
 
 ## Integrate Play Integrity API into your app
 
-To integrate the Play Integrity API into your app or SDK, do one of the
-following depending on your development environment:
+To integrate the Play Integrity API into your app or SDK, do one of the following depending on your development environment:
 
 ### Kotlin or Java
 
-The latest Android library for the Play Integrity API is available from
-[Google's Maven Repository](https://maven.google.com/web/index.html#com.google.android.play:integrity). Add the following dependency to your app's
-`build.gradle` file:
+The latest Android library for the Play Integrity API is available from [Google's Maven Repository](https://maven.google.com/web/index.html#com.google.android.play:integrity). Add the following dependency to your app's `build.gradle` file:
 
 ```groovy
 implementation 'com.google.android.play:integrity:1.6.0'
@@ -138,9 +101,7 @@ implementation 'com.google.android.play:integrity:1.6.0'
 
 ### Unity
 
-The following sections describe how to integrate and set up the Google Play
-Integrity API for Unity projects, covering supported Unity versions,
-installation methods, and environment setup.
+The following sections describe how to integrate and set up the Google Play Integrity API for Unity projects, covering supported Unity versions, installation methods, and environment setup.
 
 #### Supported Unity versions
 
@@ -152,16 +113,13 @@ installation methods, and environment setup.
 
 ### OpenUPM-CLI
 
-If you have the [OpenUPM CLI](https://github.com/openupm/openupm-cli#installation)
-installed you can install the OpenUPM registry with the following command:
+If you have the [OpenUPM CLI](https://github.com/openupm/openupm-cli#installation) installed you can install the OpenUPM registry with the following command:
 
     openupm add com.google.play.integrity
 
 ### OpenUPM
 
-1. Open the [package manager settings](https://docs.unity3d.com/Manual/class-PackageManager.html)
-   by selecting the Unity menu option
-   **Edit \> Project Settings \> Package Manager**.
+1. Open the [package manager settings](https://docs.unity3d.com/Manual/class-PackageManager.html) by selecting the Unity menu option **Edit \> Project Settings \> Package Manager**.
 
 2. Add OpenUPM as a scoped registry to the Package Manager window:
 
@@ -172,29 +130,24 @@ installed you can install the OpenUPM registry with the following command:
          com.google.play.core
          com.google.play.integrity
 
-3. Open the [package manager menu](https://docs.unity3d.com/Manual/upm-ui-install.html) by selecting the Unity
-   menu option **Window \> Package Manager**.
+3. Open the [package manager menu](https://docs.unity3d.com/Manual/upm-ui-install.html) by selecting the Unity menu option **Window \> Package Manager**.
 
 4. Set the manager scope drop-down to select **My Registries**.
 
-5. Select the **Google Play Integrity plugin for Unity** package from the
-   package list and press **Install**.
+5. Select the **Google Play Integrity plugin for Unity** package from the package list and press **Install**.
 
 ### Import from GitHub
 
-1. Download the latest [`.unitypackage`](https://github.com/google/play-integrity-unity/releases/latest)
-   release from GitHub.
+1. Download the latest [`.unitypackage`](https://github.com/google/play-integrity-unity/releases/latest) release from GitHub.
 
-2. Import the `.unitypackage` file by selecting the Unity menu option
-   **Assets \> Import package \> Custom Package** and importing all items.
+2. Import the `.unitypackage` file by selecting the Unity menu option **Assets \> Import package \> Custom Package** and importing all items.
 
 > [!NOTE]
 > **Note:** By downloading and using Google Play Unity Plugins, you agree to the [Play Core Software Development Kit Terms of Service](https://developer.android.com/guide/playcore#license).
 
 ### Unreal Engine
 
-The following sections describe how to integrate and set up the Google Play
-Integrity API for Unreal Engine projects.
+The following sections describe how to integrate and set up the Google Play Integrity API for Unreal Engine projects.
 
 #### Supported Unreal Engine versions
 
@@ -205,11 +158,9 @@ The plugin supports **Unreal Engine 5.0** and all subsequent versions.
 > [!NOTE]
 > **Note:** If you have already used the In-app Reviews or In-app Updates plugins in Unreal Engine, you can skip to the final step.
 
-1. Download the [Play Unreal Engine Plugin](https://github.com/google/play-unreal-engine-plugin) from the GitHub
-   repository.
+1. Download the [Play Unreal Engine Plugin](https://github.com/google/play-unreal-engine-plugin) from the GitHub repository.
 
-2. Copy the `GooglePlay` folder inside your `Plugins` folder in your Unreal
-   Engine project.
+2. Copy the `GooglePlay` folder inside your `Plugins` folder in your Unreal Engine project.
 
 3. Open your Unreal Engine project and click **Edit → Plugins**.
 
@@ -217,8 +168,7 @@ The plugin supports **Unreal Engine 5.0** and all subsequent versions.
 
 5. Restart the game project and trigger a build.
 
-6. Open your project's `Build.cs` file and add the `PlayIntegrity` module
-   to `PublicDependencyModuleNames`:
+6. Open your project's `Build.cs` file and add the `PlayIntegrity` module to `PublicDependencyModuleNames`:
 
        using UnrealBuildTool;
 
@@ -236,19 +186,15 @@ The plugin supports **Unreal Engine 5.0** and all subsequent versions.
 
 ### Native
 
-Follow the [native setup guide](https://developer.android.com/google/play/integrity/native-setup). For more details, see Play Integrity's
-[native API reference documentation](https://developer.android.com/reference/native/play/core/group/integrity).
+Follow the [native setup guide](https://developer.android.com/google/play/integrity/native-setup). For more details, see Play Integrity's [native API reference documentation](https://developer.android.com/reference/native/play/core/group/integrity).
 
 ## Configure API responses (optional)
 
-The API response includes default verdicts returned in every request. If you
-have linked your Cloud project in the Play Console or Play SDK Console, you can
-customize your API response to include additional information.
+The API response includes default verdicts returned in every request. If you have linked your Cloud project in the Play Console or Play SDK Console, you can customize your API response to include additional information.
 
 ### Default integrity verdicts
 
-The following integrity verdicts are returned in the Play Integrity API response
-by default:
+The following integrity verdicts are returned in the Play Integrity API response by default:
 
 | Response field | Value | Description |
 |---|---|---|
@@ -263,8 +209,7 @@ by default:
 
 ### Google Play Games for PC
 
-If you distribute to [Google Play Games for PC](https://developer.android.com/games/playgames/overview), you will automatically be
-opted in to receive an additional label in the device integrity verdict:
+If you distribute to [Google Play Games for PC](https://developer.android.com/games/playgames/overview), you will automatically be opted in to receive an additional label in the device integrity verdict:
 
 | Response field | Label | Description |
 |---|---|---|
@@ -272,44 +217,27 @@ opted in to receive an additional label in the device integrity verdict:
 
 ### Optional integrity verdicts
 
-If you have linked your Cloud project in the Play Console or
-Play SDK Console, you can opt in to receive additional information.
+If you have linked your Cloud project in the Play Console or Play SDK Console, you can opt in to receive additional information.
 
-To make changes, visit the Play Console and navigate to
-**Protected with Play** . Next to **Play Integrity API** , click **[Manage](https://play.google.com/console/developers/app/app-integrity/integrity-api-settings)** . Click **Change responses**, edit and save your changes.
+To make changes, visit the Play Console and navigate to **Protected with Play** . Next to **Play Integrity API** , click **[Manage](https://play.google.com/console/developers/app/app-integrity/integrity-api-settings)** . Click **Change responses**, edit and save your changes.
 
 > [!CAUTION]
 > **Caution:** Changes to integrity responses take effect immediately, including for apps and SDKs in production. Make sure your server is prepared to accept new responses before saving changes.
 
 #### Device information
 
-**Additional device labels** in the `deviceIntegrity`
-verdict tell you more about the device environment the app is running on.
-A single device returns multiple labels if it meets the criteria for each.
-You can use these labels to create a tiered enforcement strategy. For example,
-you might choose to trust a device that returns three labels
-(`MEETS_STRONG_INTEGRITY`, `MEETS_DEVICE_INTEGRITY`, and
-`MEETS_BASIC_INTEGRITY`) more than a device that returns only one label
-(`MEETS_BASIC_INTEGRITY`).
+**Additional device labels** in the `deviceIntegrity` verdict tell you more about the device environment the app is running on. A single device returns multiple labels if it meets the criteria for each. You can use these labels to create a tiered enforcement strategy. For example, you might choose to trust a device that returns three labels (`MEETS_STRONG_INTEGRITY`, `MEETS_DEVICE_INTEGRITY`, and `MEETS_BASIC_INTEGRITY`) more than a device that returns only one label (`MEETS_BASIC_INTEGRITY`).
 
-**Device attributes** tells you the Android SDK version of the Android OS on
-the device. In the future, it may be extended with other device
-attributes.
+**Device attributes** tells you the Android SDK version of the Android OS on the device. In the future, it may be extended with other device attributes.
 
-**Recent device activity** returns a level ranging from `LEVEL_1` (low number
-of requests) to `LEVEL_4` (high number of requests). High activity levels may
-indicate a device being used to generate excessive tokens for abusive
-distribution to untrusted devices.
+**Recent device activity** returns a level ranging from `LEVEL_1` (low number of requests) to `LEVEL_4` (high number of requests). High activity levels may indicate a device being used to generate excessive tokens for abusive distribution to untrusted devices.
 
-**Device recall** lets you store some custom, per-device data with specific
-devices that you can reliably retrieve when your app is installed again later
-on the same device.
+**Device recall** lets you store some custom, per-device data with specific devices that you can reliably retrieve when your app is installed again later on the same device.
 
 > [!NOTE]
 > **Note:** [Device recall](https://developer.android.com/google/play/integrity/device-recall) is available in beta to apps and subject to change. Pricing for high-scale usage may apply after general release. SDKs cannot use device recall.
 
-After you opt in to optional information, your API response will include new
-fields and responses in the verdict:
+After you opt in to optional information, your API response will include new fields and responses in the verdict:
 
 | Response field | Label | Description |   |
 |---|---|---|---|
@@ -328,16 +256,11 @@ fields and responses in the verdict:
 
 #### Environment details
 
-**App access risk** tells you whether other apps are running that could be used
-to capture the screen, display overlays, or control the device. Verified
-accessibility services that are known to Google Play are automatically excluded
-from this verdict.
+**App access risk** tells you whether other apps are running that could be used to capture the screen, display overlays, or control the device. Verified accessibility services that are known to Google Play are automatically excluded from this verdict.
 
-**Play Protect verdict** tells you whether Google Play Protect is enabled on the
-device and whether it has found known malware.
+**Play Protect verdict** tells you whether Google Play Protect is enabled on the device and whether it has found known malware.
 
-After you opt in to optional information, your API response will include new
-fields and responses in the verdict:
+After you opt in to optional information, your API response will include new fields and responses in the verdict:
 
 | Response field | Value | Description |
 |---|---|---|
@@ -364,25 +287,17 @@ fields and responses in the verdict:
 
 Skip this section if you only plan to make [standard API requests](https://developer.android.com/google/play/integrity/standard).
 
-By default, Google Play manages response encryption, meaning your backend calls
-Google's server to decrypt verdicts. Alternatively, you can manage keys yourself
-to decrypt locally within your secure server environment.
+By default, Google Play manages response encryption, meaning your backend calls Google's server to decrypt verdicts. Alternatively, you can manage keys yourself to decrypt locally within your secure server environment.
 
 ### Let Google manage your response encryption (recommended)
 
-We recommend allowing Google to generate and manage keys to protect your app's
-security. Your backend will call Google Play's server to decrypt and verify
-responses.
+We recommend allowing Google to generate and manage keys to protect your app's security. Your backend will call Google Play's server to decrypt and verify responses.
 
 ### Manage your own encryption keys
 
-To decrypt locally within your own secure server environment, you can download
-encryption keys from the Play Console or the Play SDK Console. Your app must be
-available on Google Play to use this feature.
+To decrypt locally within your own secure server environment, you can download encryption keys from the Play Console or the Play SDK Console. Your app must be available on Google Play to use this feature.
 
-Before you change your response encryption management strategy in the Play
-Console, make sure your server is correctly configured to decrypt and verify
-integrity tokens on Google Play's servers to avoid disruption.
+Before you change your response encryption management strategy in the Play Console, make sure your server is correctly configured to decrypt and verify integrity tokens on Google Play's servers to avoid disruption.
 
 > [!CAUTION]
 > **Caution:** Never decrypt tokens or expose keys within your client app.

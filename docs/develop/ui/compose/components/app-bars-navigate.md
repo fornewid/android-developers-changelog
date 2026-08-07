@@ -4,18 +4,16 @@ url: https://developer.android.com/develop/ui/compose/components/app-bars-naviga
 source: md.txt
 ---
 
-This guide demonstrates how you can make the navigation icon in a [top app
-bar](https://m3.material.io/components/top-app-bar/overview) perform navigation actions.
+This guide demonstrates how you can make the navigation icon in a [top app bar](https://m3.material.io/components/top-app-bar/overview) perform navigation actions.
 
 > [!NOTE]
 > **Note:** The example on this page uses `CenterAlignedTopAppBar`, but this is applicable to any app bar component with a `navigationIcon` parameter.
 
 ## Example
 
-The following snippet is a minimal example of how you can implement a top app
-bar with a functional navigation icon. In this case, the icon takes the user to
-their previous destination in the app:
+The following snippet is a minimal example of how you can implement a top app bar with a functional navigation icon. In this case, the icon takes the user to their previous destination in the app:
 
+<br />
 
 ```kotlin
 @Composable
@@ -47,6 +45,7 @@ fun TopBarNavigationExample(
         )
     }
 }
+   
 ```
 
 <br />
@@ -58,17 +57,13 @@ Note the following in this example:
 - The composable `TopBarNavigationExample` defines a parameter `navigateBack` of type `() -> Unit`.
 - It passes `navigateBack` for the `navigationIcon` parameter of `CenterAlignedTopAppBar`.
 
-As such, whenever the user clicks the navigation icon in the top app back, it
-calls `navigateBack()`.
+As such, whenever the user clicks the navigation icon in the top app back, it calls `navigateBack()`.
 
 ### Pass a function
 
-This example uses a back arrow for the icon. As such, the argument for
-`navigateBack()` should take the user to the previous destination.
+This example uses a back arrow for the icon. As such, the argument for `navigateBack()` should take the user to the previous destination.
 
-To do so, pass `TopBarNavigationExample` a call to
-[`NavController.popBackStack()`](https://developer.android.com/guide/navigation/backstack). You do this where you [build your
-navigation](https://developer.android.com/guide/navigation/design#compose) graph. For example:
+To do so, pass `TopBarNavigationExample` a call to [`NavController.popBackStack()`](https://developer.android.com/guide/navigation/backstack). You do this where you [build your navigation](https://developer.android.com/guide/navigation/design#compose) graph. For example:
 
     NavHost(navController, startDestination = "home") {
         composable("topBarNavigationExample") {
@@ -81,8 +76,7 @@ navigation](https://developer.android.com/guide/navigation/design#compose) graph
 
 ## Additional resources
 
-For more information on how to implement navigation in your app, see the
-following series of guides:
+For more information on how to implement navigation in your app, see the following series of guides:
 
 - [Navigation with Compose](https://developer.android.com/guide/navigation#framework-options)
 - [Create a NavController](https://developer.android.com/guide/navigation/navcontroller)

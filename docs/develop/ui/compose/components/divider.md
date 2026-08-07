@@ -4,9 +4,7 @@ url: https://developer.android.com/develop/ui/compose/components/divider
 source: md.txt
 ---
 
-[Dividers](https://m3.material.io/components/divider/overview) are thin lines that separate items in lists or other
-containers. You can implement dividers in your app using the `HorizontalDivider`
-and `VerticalDivider` composables.
+[Dividers](https://m3.material.io/components/divider/overview) are thin lines that separate items in lists or other containers. You can implement dividers in your app using the `HorizontalDivider` and `VerticalDivider` composables.
 
 - [`HorizontalDivider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/HorizontalDivider.composable#HorizontalDivider(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color)): Separate items in a column.
 - [`VerticalDivider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/VerticalDivider.composable#VerticalDivider(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color)): Separate items in a row.
@@ -23,10 +21,9 @@ Both components provide parameters for modifying their appearance:
 
 ## Horizontal divider example
 
-The following example demonstrates an implementation of the
-`HorizontalDivider` component. It uses the `thickness` parameter to control the
-height of the line:
+The following example demonstrates an implementation of the `HorizontalDivider` component. It uses the `thickness` parameter to control the height of the line:
 
+<br />
 
 ```kotlin
 @Composable
@@ -39,6 +36,7 @@ fun HorizontalDividerExample() {
         Text("Second item in list")
     }
 }
+   
 ```
 
 <br />
@@ -48,10 +46,9 @@ This implementation renders a thin horizontal line between two text components:
 
 ## Vertical divider example
 
-The following example demonstrates an implementation of the
-`VerticalDivider` component. It uses the `color` parameter to provide a custom
-color for the line:
+The following example demonstrates an implementation of the `VerticalDivider` component. It uses the `color` parameter to provide a custom color for the line:
 
+<br />
 
 ```kotlin
 @Composable
@@ -67,6 +64,7 @@ fun VerticalDividerExample() {
         Text("Second item in row")
     }
 }
+   
 ```
 
 <br />

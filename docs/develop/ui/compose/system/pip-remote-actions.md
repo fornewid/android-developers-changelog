@@ -4,8 +4,7 @@ url: https://developer.android.com/develop/ui/compose/system/pip-remote-actions
 source: md.txt
 ---
 
-If you want to add controls (play, pause, etc.) to your PiP window, create a
-[`RemoteAction`](https://developer.android.com/reference/android/app/RemoteAction) for each control you want to add.
+If you want to add controls (play, pause, etc.) to your PiP window, create a [`RemoteAction`](https://developer.android.com/reference/android/app/RemoteAction) for each control you want to add.
 
 > [!NOTE]
 > **Note:** If you are using a [`MediaSession`](https://developer.android.com/guide/topics/media/media3), there will be default actions added to the window that you don't need to implement yourself.
@@ -20,6 +19,7 @@ If you want to add controls (play, pause, etc.) to your PiP window, create a
    const val EXTRA_CONTROL_TYPE = "control_type"
    const val EXTRA_CONTROL_PLAY = 1
    const val EXTRA_CONTROL_PAUSE = 2
+        
    ```
 2. Create a list of [`RemoteActions`](https://developer.android.com/reference/android/app/RemoteAction) for the controls in your PiP window.
 3. Next, add a [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) and override `onReceive()` to set the actions of each button. Use a [`DisposableEffect`](https://developer.android.com/develop/ui/compose/side-effects#disposableeffect) to register the receiver and the remote actions. When the player is disposed, unregister the receiver.
@@ -59,6 +59,7 @@ If you want to add controls (play, pause, etc.) to your PiP window, create a
            }
        }
    }
+        
    ```
 4. Pass in a list of your remote actions to the [`PictureInPictureParams.Builder`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder):
 
@@ -85,6 +86,7 @@ If you want to add controls (play, pause, etc.) to your PiP window, create a
        context.findActivity().setPictureInPictureParams(builder.build())
    }
    VideoPlayer(modifier = pipModifier)
+        
    ```
 
 ## Next steps

@@ -8,7 +8,6 @@ source: md.txt
 
 # Android Studio v1.2.0 (April 2015)
 
-
 Fixes and enhancements:
 
 <br />
@@ -27,9 +26,7 @@ Fixes and enhancements:
   - Added the simultaneous insertion of opening and closing tags in HTML and XML files.
   - Added a built-in Java class decompiler so you can look at what's inside a library for which the source code is not available.
 
-
-  See [What's New in IntelliJ](https://www.jetbrains.com/idea/whatsnew)
-  for a complete description of the new features and enhancements.
+  See [What's New in IntelliJ](https://www.jetbrains.com/idea/whatsnew) for a complete description of the new features and enhancements.
 - Added additional [Project Views](https://developer.android.com/tools/studio#project-view) for *Scratches* , *Project Files* , *Problems* , *Production* , and *Tests* to enhance project management and access.
 - Enhanced the **File \> Settings** menu and dialogs for improved settings access and management.
 - Added support for high-density displays for Windows and Linux.

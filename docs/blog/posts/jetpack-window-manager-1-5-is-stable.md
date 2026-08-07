@@ -65,6 +65,7 @@ val sizeClass = WindowSizeClass.BREAKPOINTS_V2
 
 <br />
 
+
 Then apply the correct layout when you're sure your app has at least that much space:
 
 ```
@@ -125,8 +126,7 @@ Written by:
 
   ###### Developer Relations Engineer, Android
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/francesco-romano) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/francesco-romano) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)
 Continue reading
 - [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) 03 Mar 2026 03 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_1A0pVS.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -148,8 +148,5 @@ Continue reading
   [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

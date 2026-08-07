@@ -8,7 +8,9 @@ source: md.txt
 
 # Android plugin for Gradle, revision 1.5.0 (November 2015)
 
+
 Dependencies:
+
 General Notes:
 :
     - Integrated the Data Binding plugin into the Android plugin for Gradle. To enable it, add the following code to each per-project `build.gradle` file that uses the plugin:

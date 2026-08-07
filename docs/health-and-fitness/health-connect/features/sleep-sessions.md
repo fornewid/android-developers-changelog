@@ -6,31 +6,19 @@ source: md.txt
 
 > This guide is compatible with Health Connect version [1.1.0-alpha11](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha11).
 
-Health Connect provides a *sleep session* data type, to store information about
-a user's sleep, such as a nightly session or daytime nap.
-The `SleepSessionRecord` data type is used to represent these sessions.
+Health Connect provides a *sleep session* data type, to store information about a user's sleep, such as a nightly session or daytime nap. The `SleepSessionRecord` data type is used to represent these sessions.
 
-Sessions allow users to measure time-based performance over a period of time,
-such as continuous heart rate or location data.
+Sessions allow users to measure time-based performance over a period of time, such as continuous heart rate or location data.
 
-`SleepSessionRecord` sessions contain data that records sleep stages, such as
-`AWAKE`, `SLEEPING` and `DEEP`.
+`SleepSessionRecord` sessions contain data that records sleep stages, such as `AWAKE`, `SLEEPING` and `DEEP`.
 
-**Subtype** data is data that "belongs" to a session and is only meaningful when
-it's read with a parent session. For example, sleep stage.
+**Subtype** data is data that "belongs" to a session and is only meaningful when it's read with a parent session. For example, sleep stage.
 
-**Associated data**, on the other hand, refers to data that is recorded
-independently but falls within the time range of a session. For example, if a
-user records Heart Rate during their sleep session, the Heart Rate data would
-be associated data. Unlike subtype data which is part of the session record,
-associated data consists of independent records, each with its own UUID.
+**Associated data**, on the other hand, refers to data that is recorded independently but falls within the time range of a session. For example, if a user records Heart Rate during their sleep session, the Heart Rate data would be associated data. Unlike subtype data which is part of the session record, associated data consists of independent records, each with its own UUID.
 
 ## Check Health Connect availability
 
-Before attempting to use Health Connect, your app should verify that Health Connect is available
-on the user's device. Health Connect might not be pre-installed on all devices or could be disabled.
-You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)`
-method.
+Before attempting to use Health Connect, your app should verify that Health Connect is available on the user's device. Health Connect might not be pre-installed on all devices or could be disabled. You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)` method.
 
 #### How to check for Health Connect availability
 
@@ -64,8 +52,7 @@ fun checkHealthConnectAvailability(context: Context) {
 }
 ```
 
-Depending on the status returned by `getSdkStatus()`, you can guide the user
-to install or update Health Connect from the Google Play Store if necessary.
+Depending on the status returned by `getSdkStatus()`, you can guide the user to install or update Health Connect from the Google Play Store if necessary.
 
 ## Feature availability
 
@@ -78,11 +65,9 @@ Access to sleep session is protected by the following permissions:
 - `android.permission.health.READ_SLEEP`
 - `android.permission.health.WRITE_SLEEP`
 
-To add sleep session capability to your app, start by requesting
-permissions for the `SleepSession` data type.
+To add sleep session capability to your app, start by requesting permissions for the `SleepSession` data type.
 
-Here's the permission you need to declare to be able to write
-sleep session:
+Here's the permission you need to declare to be able to write sleep session:
 
     <application>
       <uses-permission
@@ -100,13 +85,7 @@ To read sleep session, you need to request the following permissions:
 
 ### Request permissions from the user
 
-After creating a client instance, your app needs to request permissions from
-the user. Users must be allowed to grant or deny permissions at any time.
-
-To do so, create a set of permissions for the required data types.
-Make sure that the permissions in the set are declared in your Android
-manifest first.
-
+After creating a client instance, your app needs to request permissions from the user. Users must be allowed to grant or deny permissions at any time. To do so, create a set of permissions for the required data types. Make sure that the permissions in the set are declared in your Android manifest first.
 
 ```kotlin
 val permissions =
@@ -114,6 +93,7 @@ val permissions =
         HealthPermission.getReadPermission(SleepSessionRecord::class),
         HealthPermission.getWritePermission(SleepSessionRecord::class)
     )
+   
 ```
 Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
 
@@ -134,6 +114,7 @@ val requestPermissionsLauncher = rememberLauncherForActivityResult(
         coroutineScope.launch { snackbarHostState.showSnackbar("Permissions denied.") }
     }
 }
+   
 ```
 Because users can grant or revoke permissions at any time, your app needs to check for permissions every time before using them and handle scenarios where permission is lost.
 
@@ -143,8 +124,7 @@ Because users can grant or revoke permissions at any time, your app needs to che
 
 <br />
 
-The following aggregate values are available for
-`SleepSessionRecord`:
+The following aggregate values are available for `SleepSessionRecord`:
 
 - [`SLEEP_DURATION_TOTAL`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/SleepSessionRecord#SLEEP_DURATION_TOTAL())
 
@@ -152,11 +132,11 @@ The following aggregate values are available for
 
 ## General guidance
 
-Here are some best practice guidelines on how to work with sleep sessions in
-Health Connect.
+Here are some best practice guidelines on how to work with sleep sessions in Health Connect.
 
 - Sessions should be used to add data from a specific sleep session, for sleep:
 
+<br />
 
 ```kotlin
 suspend fun writeSleepSession(healthConnectClient: HealthConnectClient) {
@@ -173,6 +153,7 @@ suspend fun writeSleepSession(healthConnectClient: HealthConnectClient) {
         )
     )
 }
+   
 ```
 
 <br />
@@ -183,8 +164,7 @@ suspend fun writeSleepSession(healthConnectClient: HealthConnectClient) {
 
 ## Sleep sessions
 
-You can read or write sleep data in Health Connect. Sleep data is displayed as a
-session, and can be divided into 8 distinct sleep stages:
+You can read or write sleep data in Health Connect. Sleep data is displayed as a session, and can be divided into 8 distinct sleep stages:
 
 - `UNKNOWN`: Unspecified or unknown if the user is sleeping.
 - `AWAKE`: The user is awake within a sleep cycle, not during the day.
@@ -195,8 +175,7 @@ session, and can be divided into 8 distinct sleep stages:
 - `DEEP`: The user is in a deep sleep cycle.
 - `REM`: The user is in a REM sleep cycle.
 
-These values represent the type of sleep a user experiences within a time range.
-Writing sleep stages is optional, but recommended if available.
+These values represent the type of sleep a user experiences within a time range. Writing sleep stages is optional, but recommended if available.
 
 ### Write sleep sessions
 
@@ -207,6 +186,7 @@ The `SleepSessionRecord` data type has two parts:
 
 Here's how you insert a sleep session without stages:
 
+<br />
 
 ```kotlin
 val zoneRules = ZoneId.systemDefault().rules
@@ -223,6 +203,7 @@ SleepSessionRecord(
     endZoneOffset = endOffset,
     metadata = Metadata.activelyRecorded(device = Device(type = Device.TYPE_WATCH))
 )
+   
 ```
 
 <br />
@@ -248,9 +229,9 @@ Here's how to add stages that cover the entire period of a sleep session:
 
 ### Read a sleep session
 
-For every sleep session returned, you should check whether sleep stage data is
-also present:
+For every sleep session returned, you should check whether sleep stage data is also present:
 
+<br />
 
 ```kotlin
 val response =
@@ -264,6 +245,7 @@ for (sleepRecord in response.records) {
     // Retrieve relevant sleep stages from each sleep record
     val sleepStages = sleepRecord.stages
 }
+   
 ```
 
 <br />
@@ -272,10 +254,12 @@ for (sleepRecord in response.records) {
 
 This is how to delete a session. For this example, we've used a sleep session:
 
+<br />
 
 ```kotlin
 val timeRangeFilter = TimeRangeFilter.between(sleepRecord.startTime, sleepRecord.endTime)
 healthConnectClient.deleteRecords(SleepSessionRecord::class, timeRangeFilter)
+   
 ```
 
 <br />

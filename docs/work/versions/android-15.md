@@ -4,13 +4,11 @@ url: https://developer.android.com/work/versions/android-15
 source: md.txt
 ---
 
-This page provides an overview of the enterprise APIs, features, and behavior
-changes introduced in Android 15 (API level 35).
+This page provides an overview of the enterprise APIs, features, and behavior changes introduced in Android 15 (API level 35).
 
 ## Enhanced employee and device protection
 
-Android 15 enhances employee and device protection with features like theft
-protection, phishing controls, and private space for personal profiles.
+Android 15 enhances employee and device protection with features like theft protection, phishing controls, and private space for personal profiles.
 
 ### Android theft protection
 
@@ -28,15 +26,11 @@ protection, phishing controls, and private space for personal profiles.
 
 ### NIAP compliance maintenance
 
-Android 15 migrates existing backup service audit logging events from logcat to
-security log with the formal definition of
-[`SecurityLog.TAG_BACKUP_SERVICE_TOGGLED`](https://developer.android.com/reference/android/app/admin/SecurityLog#TAG_BACKUP_SERVICE_TOGGLED).
+Android 15 migrates existing backup service audit logging events from logcat to security log with the formal definition of [`SecurityLog.TAG_BACKUP_SERVICE_TOGGLED`](https://developer.android.com/reference/android/app/admin/SecurityLog#TAG_BACKUP_SERVICE_TOGGLED).
 
 ## Stronger management of company-owned devices
 
-Android 15 strengthens company-owned device management by simplifying eSIM
-management, adding controls for Circle to Search on Android Work Profile, and
-adding more customization options for corporate-owned devices.
+Android 15 strengthens company-owned device management by simplifying eSIM management, adding controls for Circle to Search on Android Work Profile, and adding more customization options for corporate-owned devices.
 
 ### Simplify eSIM management on managed devices
 

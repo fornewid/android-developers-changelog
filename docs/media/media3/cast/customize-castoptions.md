@@ -4,14 +4,11 @@ url: https://developer.android.com/media/media3/cast/customize-castoptions
 source: md.txt
 ---
 
-To configure your app's Cast session, provide an [`OptionsProvider`](https://developers.google.com/android/reference/com/google/android/gms/cast/framework/OptionsProvider). Use the
-[`CastOptions`](https://developers.google.com/android/reference/com/google/android/gms/cast/framework/CastOptions) object built by the provider to set the receiver application ID,
-manage session lifecycles, and customize media playback behavior.
+To configure your app's Cast session, provide an [`OptionsProvider`](https://developers.google.com/android/reference/com/google/android/gms/cast/framework/OptionsProvider). Use the [`CastOptions`](https://developers.google.com/android/reference/com/google/android/gms/cast/framework/CastOptions) object built by the provider to set the receiver application ID, manage session lifecycles, and customize media playback behavior.
 
 ## Use the default options provider
 
-For a basic setup that uses the default Cast receiver application, add the
-`DefaultCastOptionsProvider` to your app's `AndroidManifest.xml` file:
+For a basic setup that uses the default Cast receiver application, add the `DefaultCastOptionsProvider` to your app's `AndroidManifest.xml` file:
 
     <application>
       ...
@@ -23,13 +20,11 @@ For a basic setup that uses the default Cast receiver application, add the
 
 ## Create a custom options provider
 
-For more advanced configurations, such as setting a custom receiver application
-ID, you need to create your own `OptionsProvider`.
+For more advanced configurations, such as setting a custom receiver application ID, you need to create your own `OptionsProvider`.
 
 ### 1. Declare the provider in your manifest
 
-First, declare your custom provider in `AndroidManifest.xml`. Make sure to use
-the fully qualified class name.
+First, declare your custom provider in `AndroidManifest.xml`. Make sure to use the fully qualified class name.
 
     <application>
       ...
@@ -41,13 +36,11 @@ the fully qualified class name.
 
 ### 2. Implement the OptionsProvider interface
 
-Next, create a class that implements the `OptionsProvider` interface. In this
-class, you must override `getCastOptions()` to return a `CastOptions` instance.
-The custom `OptionsProvider` class is where you configure your Cast session, for
-example, by setting your custom receiver application ID.
+Next, create a class that implements the `OptionsProvider` interface. In this class, you must override `getCastOptions()` to return a `CastOptions` instance. The custom `OptionsProvider` class is where you configure your Cast session, for example, by setting your custom receiver application ID.
 
 For more information, see [CastOptions.Builder](https://developers.google.com/android/reference/com/google/android/gms/cast/framework/CastOptions.Builder).
 
+<br />
 
 ### Kotlin
 
@@ -70,6 +63,7 @@ class MyCustomCastOptionsProvider : OptionsProvider {
     private const val APP_ID = "<APP_ID>"
   }
 }
+      
 ```
 
 ### Java
@@ -94,6 +88,7 @@ public static final class MyCustomCastOptionsProvider implements OptionsProvider
     return null;
   }
 }
+      
 ```
 
 <br />

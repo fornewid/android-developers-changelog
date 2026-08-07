@@ -4,16 +4,12 @@ url: https://developer.android.com/identity/sign-in/test-restore-credentials
 source: md.txt
 ---
 
-The [Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials) feature within Credential Manager ensures a
-frictionless transition for users moving to a new device. While testing the
-feature, you can use either of the following approaches:
+The [Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials) feature within Credential Manager ensures a frictionless transition for users moving to a new device. While testing the feature, you can use either of the following approaches:
 
 - **Separate devices**: Use a source device to perform the backup and a separate target device to perform the restore, or use two separate Android Studio emulators.
 - **Single device**: Use one physical device or an Android Studio emulator. After the app backs up its data, uninstall and reinstall the app, and then perform the restore.
 
-This guide describes how you can use Android Studio to test Restore Credentials
-for a debuggable app on an emulator, simulating both situations of separate
-devices or a single device.
+This guide describes how you can use Android Studio to test Restore Credentials for a debuggable app on an emulator, simulating both situations of separate devices or a single device.
 
 ## Prerequisites
 
@@ -25,9 +21,7 @@ To use Android Studio's Backup and Restore feature, you need the following:
 
 ## Use Android Studio's Backup and Restore feature
 
-To test the Restore Credentials functionality using Android Studio, first back
-up data from a device, and then restore app data on another device. After
-restoring the app, the authentication state is automatically restored.
+To test the Restore Credentials functionality using Android Studio, first back up data from a device, and then restore app data on another device. After restoring the app, the authentication state is automatically restored.
 
 ### Back up authentication data in Android Studio
 
@@ -45,24 +39,18 @@ To test the backup flow in Android Studio, complete the following steps:
 
 ### Test restored authentication
 
-After the backup is completed, either use the same device to test the restore
-step or use a different device.
+After the backup is completed, either use the same device to test the restore step or use a different device.
 
 To test the restore flow in Android Studio, complete the following steps:
 
-1. To test with the same device, uninstall and reinstall the app. This clears
-   all data on the device. To use it on a new device, install the app on the
-   new device.
+1. To test with the same device, uninstall and reinstall the app. This clears all data on the device. To use it on a new device, install the app on the new device.
 
    > [!NOTE]
    > **Note:** In a production environment, users typically navigate the setup wizard while onboarding. However, Android Studio's restore flow simulates the setup wizard flow, enabling you to test the restoration process without manually performing the initial device setup.
 
-2. After the app is installed, check the current state of the app. If you are
-   redirected to the authentication page, the restore key is not yet available
-   on the device.
+2. After the app is installed, check the current state of the app. If you are redirected to the authentication page, the restore key is not yet available on the device.
 
-3. Click **Restore App data** on the device options of the running device
-   window and select the recently created backup.
+3. Click **Restore App data** on the device options of the running device window and select the recently created backup.
 
    ![Restore App Data in Android Studio](https://developer.android.com/static/identity/sign-in/images/test-restore-step2.png) Restore App Data in Android Studio
 

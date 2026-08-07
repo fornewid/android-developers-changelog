@@ -4,8 +4,7 @@ url: https://developer.android.com/google/play/age-signals/release-notes
 source: md.txt
 ---
 
-This page explains what's in the recent updates to the [Maven repository](https://maven.google.com/web/index.html#com.google.android.play:age-signals) for
-the [Play Age Signals Library](https://developer.android.com/google/play/age-signals/overview).
+This page explains what's in the recent updates to the [Maven repository](https://maven.google.com/web/index.html#com.google.android.play:age-signals) for the [Play Age Signals Library](https://developer.android.com/google/play/age-signals/overview).
 
 ## 0.0.4 (July 2026)
 

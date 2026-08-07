@@ -245,6 +245,7 @@ Results Screen in Full Space: *A bot generated with a prompt: red baseball cap, 
 
 <br />
 
+
 The results screen shows the complimentary quotes using a feathering effect, allowing them to fade out near the edges of the screen. It also uses an actual 3D transition when viewing the input that was used, flipping the picture over in space.
 
 **Publishing to the Google Play Store**
@@ -261,6 +262,7 @@ This lets the Play Store know that this app has XR-differentiated features, show
 ![androidify2.png](https://developer.android.com/static/blog/assets/androidify2_e1a4f46a6c_pdEDq.webp) Androidify as shown in the Google Play Store on Android XR
 
 <br />
+
 
 When uploading the release, we don't need any special steps to release for XR: the same app is distributed as normal to users on the mobile track as to users on an XR device! However, you can choose to add XR-specific screenshots of your app, or even upload an immersive preview of your app using a spatial video asset. On Android XR devices, the Play Store automatically displays this as an immersive 3D preview, allowing users to experience the depth and scale of your content before they install the app.
 
@@ -281,8 +283,7 @@ Written by:
 
   ###### Developer Relations Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/dereck-bridie) ![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_1F9de3.webp) ![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_1F9de3.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/dereck-bridie) ![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_1F9de3.webp) ![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_1F9de3.webp)
 Continue reading
 - [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
@@ -307,8 +308,5 @@ Continue reading
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

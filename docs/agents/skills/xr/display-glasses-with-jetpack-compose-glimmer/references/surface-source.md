@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
 source: md.txt
 ---
 
-When using surfaces to build a custom component, refer to the following source
-code in `Surface.kt`:
+When using surfaces to build a custom component, refer to the following source code in `Surface.kt`:
 
+<br />
 
 ```kotlin
 /*
@@ -750,6 +750,8 @@ private object HighlightShaderHelper {
         return shader
     }
 }
+
+   
 ```
 
 <br />

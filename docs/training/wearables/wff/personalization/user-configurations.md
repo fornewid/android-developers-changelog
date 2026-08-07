@@ -4,9 +4,7 @@ url: https://developer.android.com/training/wearables/wff/personalization/user-c
 source: md.txt
 ---
 
-`UserConfigurations` let you create options that the user can choose
-between. You can adjust the appearance of watch face
-elements based on the chosen values.
+`UserConfigurations` let you create options that the user can choose between. You can adjust the appearance of watch face elements based on the chosen values.
 
 The user configuration options can be:
 
@@ -16,8 +14,7 @@ The user configuration options can be:
 
 ### Boolean options
 
-Boolean options are perhaps the simplest of the user configurations. They can be
-defined as follows:
+Boolean options are perhaps the simplest of the user configurations. They can be defined as follows:
 
 <br />
 
@@ -31,6 +28,7 @@ defined as follows:
         defaultValue="TRUE"
         />
 </UserConfigurations>
+   
 ```
 
 <br />
@@ -51,13 +49,13 @@ Boolean options can then be used in a two ways:
            <!-- ...Content when date not required -->
        </BooleanOption>
    </BooleanConfiguration>
+        
    ```
 
    <br />
 
    Note that configuration options cannot be nested in their use.
-2. Alternatively, the configuration option can be used in
-   [expressions](https://developer.android.com/training/wearables/wff/expressions):
+2. Alternatively, the configuration option can be used in [expressions](https://developer.android.com/training/wearables/wff/expressions):
 
    <br />
 
@@ -72,14 +70,14 @@ Boolean options can then be used in a two ways:
            <!-- Content goes here -->
        </Compare>
    </Condition>
+         
    ```
 
    <br />
 
 ### List options
 
-List options work in a very similar manner to boolean options. For example, to
-provide a list of background images for the user to choose from:
+List options work in a very similar manner to boolean options. For example, to provide a list of background images for the user to choose from:
 
 <br />
 
@@ -96,6 +94,7 @@ provide a list of background images for the user to choose from:
         ...
     </ListConfiguration>
 </UserConfigurations>
+   
 ```
 
 <br />
@@ -116,12 +115,12 @@ Similar to boolean options, there are again two ways to use this:
            <!-- ...Content for option 1 -->
        </ListOption>
    </ListConfiguration>
+        
    ```
 
    <br />
 
-2. Alternatively, the configuration option can be used in more complex
-   expressions:
+2. Alternatively, the configuration option can be used in more complex expressions:
 
    <br />
 
@@ -136,18 +135,16 @@ Similar to boolean options, there are again two ways to use this:
            <!-- Content goes here -->
        </Compare>
    </Condition>
+         
    ```
 
    <br />
 
 ### Color themes
 
-Watch Face Format lets you define color themes through `ColorConfiguration`.
-Users can select the theme of their choice from the watch face editor, and the
-colors from this theme can appear throughout your watch face definition.
+Watch Face Format lets you define color themes through `ColorConfiguration`. Users can select the theme of their choice from the watch face editor, and the colors from this theme can appear throughout your watch face definition.
 
-For example, to define a theme with two entries and three colors in the theme,
-define a `ColorConfiguration` as follows:
+For example, to define a theme with two entries and three colors in the theme, define a `ColorConfiguration` as follows:
 
 <br />
 
@@ -159,13 +156,12 @@ define a `ColorConfiguration` as follows:
         <ColorOption id="1" displayName="urban_label" colors="#f4b393 #fc60a8 #7a28cb" />
     </ColorConfiguration>
 </UserConfigurations>
+   
 ```
 
 <br />
 
-These can then be used as data sources instead of hexadecimal color values. Note
-how the index value is specified to select the first, second, or third element
-of the theme:
+These can then be used as data sources instead of hexadecimal color values. Note how the index value is specified to select the first, second, or third element of the theme:
 
 <br />
 
@@ -181,28 +177,22 @@ of the theme:
         pivotX="0.5" pivotY="0.8571"
         tintColor="[CONFIGURATION.myThemeColor.2]"/>
 </AnalogClock>
+   
 ```
 
 <br />
 
-In the specific case where each `ColorOption` only has one color defined, it is
-also possible to reference it as `CONFIGURATION.myThemeColor`, without the
-index. The user can then select the theme entry of their choice in the watch
-face editor.
+In the specific case where each `ColorOption` only has one color defined, it is also possible to reference it as `CONFIGURATION.myThemeColor`, without the index. The user can then select the theme entry of their choice in the watch face editor.
 
 ## Flavors
 
 **Note**: Flavors are supported on version 2 and higher of Watch Face Format.
 
-`UserConfigurations` provide the user with a lot of flexibility, but as you
-increase the number of configuration elements you define, the number of
-combinations can grow overwhelmingly.
+`UserConfigurations` provide the user with a lot of flexibility, but as you increase the number of configuration elements you define, the number of combinations can grow overwhelmingly.
 
-`Flavors` lets you define *presets* for the `UserConfigurations` that you
-think are worth highlighting.
+`Flavors` lets you define *presets* for the `UserConfigurations` that you think are worth highlighting.
 
-The user can then select from these preset flavors within the companion app,
-or continue to choose each configuration value individually.
+The user can then select from these preset flavors within the companion app, or continue to choose each configuration value individually.
 
 For example, consider a watch face where you define three settings:
 
@@ -212,9 +202,7 @@ For example, consider a watch face where you define three settings:
 
 Furthermore, you have a `ComplicationSlot` on the watch face.
 
-You decide that there are two `Flavors` that you want to highlight to the user.
-There are many more possible combinations of all these settings, but these are
-the ones you think work best:
+You decide that there are two `Flavors` that you want to highlight to the user. There are many more possible combinations of all these settings, but these are the ones you think work best:
 
 1. **A sporty flavor** : This will consist of:
    1. The bright color theme, to energize you and get you active (ID: 0)
@@ -227,8 +215,7 @@ the ones you think work best:
    3. No heart rate showing on the watch face
    4. The complication slot not enabled
 
-Flavors require enabling in `watch_face_info.xml`, so the `FlavorsSupported`
-element in the `watch_face_info.xml` file should be set with `value="true"`.
+Flavors require enabling in `watch_face_info.xml`, so the `FlavorsSupported` element in the `watch_face_info.xml` file should be set with `value="true"`.
 
 Each Flavor is defined within `UserConfigurations` as follows:
 
@@ -264,6 +251,7 @@ Each Flavor is defined within `UserConfigurations` as follows:
         </ComplicationSlot>
     </Flavor>
 </Flavors>
+   
 ```
 
 <br />

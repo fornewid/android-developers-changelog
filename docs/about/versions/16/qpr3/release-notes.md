@@ -46,24 +46,13 @@ source: md.txt
 
 ## About Android 16 QPR3 Beta 2 (January 2026)
 
+Building on the [initial release of Android 16](https://developer.android.com/about/versions/16), we continue to update the platform with fixes and improvements that are then rolled out to supported devices. These releases happen on a quarterly cadence through *Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to Google Pixel devices as part of *Feature Drops*.
 
-Building on the [initial release of Android 16](https://developer.android.com/about/versions/16), we continue to
-update the platform with fixes and improvements that are then rolled out to
-supported devices. These releases happen on a quarterly cadence through
-*Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to
-Google Pixel devices as part of *Feature Drops*.
+Although these updates don't include app-impacting API changes, we provide images of the latest QPR beta builds so you can test your app with these builds as needed (for example, if there are upcoming features that might impact the user experience of your app).
 
-Although these updates don't include app-impacting API changes, we provide
-images of the latest QPR beta builds so you can test your app with these builds
-as needed (for example, if there are upcoming features that might impact the
-user experience of your app).
-
-Unlike developer previews and betas for unreleased, major versions of Android,
-these builds are suitable for general use.
-
+Unlike developer previews and betas for unreleased, major versions of Android, these builds are suitable for general use.
 
 Beta 2 addresses a wide range of stability, performance, and usability issues. Key fixes include resolving critical system crashes/device freezes, and correcting battery management issues where devices ignored charging limits or drained excessively. Significant improvements were made to connectivity, specifically addressing slow Wi-Fi speeds and missed calls. The update also resolves UI glitches in the notification shade and app drawer, ensuring smoother navigation and interaction.
-
 
 It includes fixes for:
 
@@ -84,27 +73,16 @@ It includes fixes for:
 
 **Android 16 QPR3 Beta 1.1 (December 2025)**
 
-
 It includes a fix for:
 
 - A change that caused some apps to crash on startup. ([Issue #470144317](https://issuetracker.google.com/issues/470144317), [Issue #470214834](https://issuetracker.google.com/issues/470214834))
 
-All eligible devices enrolled in the
-[Android Beta for Pixel program](https://g.co/androidbeta)
-will be offered an over-the-air (OTA) update to Beta 1.1.
+All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) will be offered an over-the-air (OTA) update to Beta 1.1.
 
 ## About Android 16 QPR3 Beta 1 (December 2025)
 
-Building on the [initial release of Android 16](https://developer.android.com/about/versions/16), we continue to
-update the platform with fixes and improvements that are then rolled out to
-supported devices. These releases happen on a quarterly cadence through
-*Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to
-Google Pixel devices as part of *Feature Drops*.
+Building on the [initial release of Android 16](https://developer.android.com/about/versions/16), we continue to update the platform with fixes and improvements that are then rolled out to supported devices. These releases happen on a quarterly cadence through *Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to Google Pixel devices as part of *Feature Drops*.
 
-Although these updates don't include app-impacting API changes, we provide
-images of the latest QPR beta builds so you can test your app with these builds
-as needed (for example, if there are upcoming features that might impact the
-user experience of your app).
+Although these updates don't include app-impacting API changes, we provide images of the latest QPR beta builds so you can test your app with these builds as needed (for example, if there are upcoming features that might impact the user experience of your app).
 
-Unlike developer previews and betas for unreleased, major versions of Android,
-these builds are suitable for general use.
+Unlike developer previews and betas for unreleased, major versions of Android, these builds are suitable for general use.

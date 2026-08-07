@@ -17,10 +17,7 @@ source: md.txt
 
 **General Notes:**
 
-- Added support for the `com.android.build.threadPoolSize`
-  property to control the `Android` task thread pool size from
-  the `gradle.properties` file or the command line. The
-  following example sets this property to 4.
+- Added support for the `com.android.build.threadPoolSize` property to control the `Android` task thread pool size from the `gradle.properties` file or the command line. The following example sets this property to 4.
 
               
               -Pcom.android.build.threadPoolSize=4
@@ -63,8 +60,7 @@ source: md.txt
      -Pandroid.testInstrumentationRunnerArguments.class=TestA,TestB
           
   ```
-- Added support for arbitrary additional Android Asset Packaging Tool (AAPT) parameters
-  in the `build.gradle` file. For example:
+- Added support for arbitrary additional Android Asset Packaging Tool (AAPT) parameters in the `build.gradle` file. For example:
 
   ```groovy
   android {
@@ -85,8 +81,7 @@ source: md.txt
   ```
 - Added support for a [test APK module](https://developer.android.com/tools/studio/studio-features#test-module) as a separate test module, using the `targetProjectPath` and `targetVariant` properties to set the APK path and target variant.
 
-  **Note:** A test APK module does not support product
-  flavors and can only target a single variant. Also, Jacoco is not supported yet.
+  **Note:** A test APK module does not support product flavors and can only target a single variant. Also, Jacoco is not supported yet.
 - Added resource name validation before merging resources.
 - When building an AAR (Android ARchive) package for library modules, do not provide an automatic `@{applicationId}` placeholder in the [manifest merger](https://developer.android.com/tools/building/manifest-merge) settings. Instead, use a different placeholder, such as `@{libApplicationId}` and provide a value for it if you want to include application Ids in the archive library.
 

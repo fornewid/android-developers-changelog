@@ -9,8 +9,7 @@ This page lists known devices with [camera extensions](https://developer.android
 > [!NOTE]
 > **Note:** This is not an exhaustive list of all supported devices.
 
-If you don't see your device on this list, check if your device
-has extensions support using the Extensions samples on Github:
+If you don't see your device on this list, check if your device has extensions support using the Extensions samples on Github:
 
 - For Camera2 extensions support, use the [Camera2Extensions](https://github.com/android/camera-samples/tree/main/Camera2Extensions) sample.
 - For CameraX extensions support, use the [CameraXExtensions](https://github.com/android/camera-samples/tree/main/CameraXExtensions) sample.

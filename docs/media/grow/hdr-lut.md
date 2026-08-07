@@ -4,11 +4,7 @@ url: https://developer.android.com/media/grow/hdr-lut
 source: md.txt
 ---
 
-Varying HDR capabilities across Android devices can lead to fragmented HDR
-display outputs. A look-up table (LUT) is a new color correction solution
-designed to resolve this inconsistency. This inconsistency is resolved by
-*prescribing* a way to color correct, rather than delegating to an undefined
-per-device color correction mechanism.
+Varying HDR capabilities across Android devices can lead to fragmented HDR display outputs. A look-up table (LUT) is a new color correction solution designed to resolve this inconsistency. This inconsistency is resolved by *prescribing* a way to color correct, rather than delegating to an undefined per-device color correction mechanism.
 
 ## SDK prerequisites
 
@@ -47,6 +43,4 @@ Follow these steps to apply a LUT to a [`SurfaceControl`](https://developer.andr
     luts.set(entry);
     new SurfaceControl.Transaction().setLuts(sc, luts).apply();
 
-You can also use [`OverlayProperties.getLutProperties()`](https://developer.android.com/reference/android/hardware/OverlayProperties#getLutProperties()) to understand the
-LUT properties of the device, and determine if the Hardware Composer can handle
-the selected LUT.
+You can also use [`OverlayProperties.getLutProperties()`](https://developer.android.com/reference/android/hardware/OverlayProperties#getLutProperties()) to understand the LUT properties of the device, and determine if the Hardware Composer can handle the selected LUT.

@@ -4,22 +4,15 @@ url: https://developer.android.com/media/grow/hdr-playback
 source: md.txt
 ---
 
-HDR, or High Dynamic Range, provides a wider range of colors and greater
-contrast between the brightest whites and darkest shadows, resulting in video
-quality that more closely resembles what the naked eye perceives.
+HDR, or High Dynamic Range, provides a wider range of colors and greater contrast between the brightest whites and darkest shadows, resulting in video quality that more closely resembles what the naked eye perceives.
 
-You can set up HDR video playback in your app to preview and play back HDR video
-content.
+You can set up HDR video playback in your app to preview and play back HDR video content.
 
-This article assumes that you've already added basic video playback support to
-your app. See the [ExoPlayer](https://developer.android.com/guide/topics/media/exoplayer) documentation for
-more details on playback.
+This article assumes that you've already added basic video playback support to your app. See the [ExoPlayer](https://developer.android.com/guide/topics/media/exoplayer) documentation for more details on playback.
 
 ## Device prerequisites
 
-Not all Android devices support HDR playback. Before playing back HDR
-video content in your app, determine if your device meets the following
-prerequisites:
+Not all Android devices support HDR playback. Before playing back HDR video content in your app, determine if your device meets the following prerequisites:
 
 - Targets Android 7.0 or higher (API layer 24).
 - Has a HDR-capable decoder and access to a HDR-capable display.
@@ -45,10 +38,52 @@ if (!capabilities.contains(HDR_TYPE_HLG)) {
 ```java
 // Check if display supports the HDR type
 int[] list = getDisplay().getHdrCapabilities().getSupportedHdrTypes();
-List capabilities = Arrays.stream(list).boxed().collect(Collectors.toList());
-if (!capabilities.contains(HDR_TYPE_HLG)) {
- throw new RuntimeException("Display does not support desired HDR type");
-}
+List
+        
+       capabilities
+        
+       =
+        
+       Arrays
+       .
+       stream
+       (
+       list
+       ).
+       boxed
+       ().
+       collect
+       (
+       Collectors
+       .
+       toList
+       ());
+
+       if
+        
+       (
+       !
+       capabilities
+       .
+       contains
+       (
+       HDR_TYPE_HLG
+       ))
+        
+       {
+
+        
+       throw
+        
+       new
+        
+       RuntimeException
+       (
+       "Display does not support desired HDR type"
+       );
+
+       }
+      
 ```
 
 ## Set up HDR playback in your app

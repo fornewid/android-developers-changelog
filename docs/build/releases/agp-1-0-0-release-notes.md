@@ -6,7 +6,9 @@ source: md.txt
 
 # Android plugin for Gradle, revision 1.0.0 (December 2014)
 
+
 Dependencies:
+
 General Notes:
 :
     - Initial plugin release.

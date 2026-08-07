@@ -4,15 +4,11 @@ url: https://developer.android.com/google/play/billing/play-developer-apis-depre
 source: md.txt
 ---
 
-This document lists the Google Play Developer APIs and the related
-features which are in a deprecation period.
+This document lists the Google Play Developer APIs and the related features which are in a deprecation period.
 
 ## Deprecation timeline - May 19, 2026 to August 31, 2028
 
-The features and APIs in this section are deprecated as of May 19, 2026, and
-will be shut down on August 31, 2028. For deprecated items, you may request
-an extension until November 1, 2028 by submitting a support ticket through
-the [Play Console \> Help](https://play.google.com/console/u/0/developers/help-and-support).
+The features and APIs in this section are deprecated as of May 19, 2026, and will be shut down on August 31, 2028. For deprecated items, you may request an extension until November 1, 2028 by submitting a support ticket through the [Play Console \> Help](https://play.google.com/console/u/0/developers/help-and-support).
 
 > [!NOTE]
 > **Note:** [Client libraries](https://developers.google.com/android-publisher/libraries) released after July 1, 2027, will no longer include these features and APIs. However, existing libraries can still access them until the shutdown date.
@@ -29,10 +25,7 @@ This section lists the API deprecations.
 
 ## Deprecation timeline - May 21, 2025 to August 31, 2027
 
-The features and APIs in this section are deprecated as of May 21, 2025, and
-will be shut down on August 31, 2027. For deprecated
-items, you may request an extension until November 1, 2027 by submitting a
-support ticket through the [Play Console \> Help](https://play.google.com/console/u/0/developers/help-and-support).
+The features and APIs in this section are deprecated as of May 21, 2025, and will be shut down on August 31, 2027. For deprecated items, you may request an extension until November 1, 2027 by submitting a support ticket through the [Play Console \> Help](https://play.google.com/console/u/0/developers/help-and-support).
 
 > [!NOTE]
 > **Note:** [Client libraries](https://developers.google.com/android-publisher/libraries) released after July 1, 2026, will no longer include these features and APIs. However, existing libraries can still access them until the shutdown date.
@@ -52,10 +45,7 @@ This section lists the API deprecations.
 
 ### SubscriptionPurchaseV2 fields for recurring subscriptions
 
-`purchases.subscriptionv2` contains new fields that provide more detail
-about new subscription objects. The following table shows how fields from
-the legacy subscription endpoint map to corresponding fields in
-`purchases.subscriptionv2`.
+`purchases.subscriptionv2` contains new fields that provide more detail about new subscription objects. The following table shows how fields from the legacy subscription endpoint map to corresponding fields in `purchases.subscriptionv2`.
 
 | SubscriptionPurchase | SubscriptionPurchaseV2 |
 |---|---|

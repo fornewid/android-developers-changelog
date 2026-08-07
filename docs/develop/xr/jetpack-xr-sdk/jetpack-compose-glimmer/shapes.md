@@ -6,14 +6,13 @@ source: md.txt
 
 <br />
 
+<br />
 
 Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
-In Jetpack Compose Glimmer, [surfaces](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/surfaces) use shapes to define their visual
-boundaries and roundedness. The [`Shapes`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Shapes) class provides different levels of
-roundedness intended for various types of components.
+In Jetpack Compose Glimmer, [surfaces](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/surfaces) use shapes to define their visual boundaries and roundedness. The [`Shapes`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Shapes) class provides different levels of roundedness intended for various types of components.
 ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_style_shapes.webp) **Figure 1.** An example of large, medium, and small shapes in Jetpack Compose Glimmer.
 
 ## Shape categories
@@ -28,6 +27,7 @@ The [`GlimmerTheme`](https://developer.android.com/reference/kotlin/androidx/xr/
 
 First, get the defined the defined shapes from [`GlimmerTheme.shapes`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/GlimmerTheme#shapes()):
 
+<br />
 
 ```kotlin
 @Composable
@@ -39,12 +39,14 @@ fun ShapesSample() {
         item { ShapeItem("large", shape = shapes.large) }
     }
 }
+   
 ```
 
 <br />
 
 Next, you can apply these shapes to some components:
 
+<br />
 
 ```kotlin
 @Composable
@@ -56,15 +58,14 @@ private fun ShapeItem(name: String, shape: Shape, modifier: Modifier = Modifier)
         Text(name)
     }
 }
+   
 ```
 
 <br />
 
 ## Customize shapes
 
-The `Shapes` class is `@Immutable`. You can create a copy of the existing theme
-shapes and override specific values using the copy function. Do this to maintain
-the theme's structure while adjusting specific radii for your app's brand.
+The `Shapes` class is `@Immutable`. You can create a copy of the existing theme shapes and override specific values using the copy function. Do this to maintain the theme's structure while adjusting specific radii for your app's brand.
 
 ### Example: Override specific shape values
 
@@ -77,8 +78,7 @@ The following code overrides specific shape values:
 
 ### Default values
 
-If not otherwise specified in the `GlimmerTheme`, the system defaults to the
-following values:
+If not otherwise specified in the `GlimmerTheme`, the system defaults to the following values:
 
 | Token | Default shape | Size or radius |
 |---|---|---|

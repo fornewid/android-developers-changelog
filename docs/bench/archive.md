@@ -39,8 +39,7 @@ To view historical performance data for previous models, **select a version belo
   | ![](https://developer.android.com/static/images/bench/icons/qwen.png) Qwen 3.5 9B | **15.5** | 10.4 --- 21.1 | 16.6 | $15.6 |
   | ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT OSS 20B | **2.4** | 1.1 --- 3.8 | 3.8 | $0.2 |
 
-  **Latest results as of
-  June 9th.**   
+  **Latest results as of June 9th.**   
   View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
 -
 
@@ -77,8 +76,7 @@ To view historical performance data for previous models, **select a version belo
   | ![](https://developer.android.com/static/images/bench/icons/qwen.png) Qwen 3.5 9B | **15.5** | 10.1 --- 20.9 | 16.6 | $15.6 |
   | ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT OSS 20B | **2.4** | 1.2 --- 3.9 | 3.8 | $0.2 |
 
-  **Latest results as of
-  May 18th.**   
+  **Latest results as of May 18th.**   
   View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
 -
 
@@ -100,8 +98,7 @@ To view historical performance data for previous models, **select a version belo
   | :gemini: Gemini 3 Flash Preview | **42.0** | 36.5 --- 47.6 |
   | :gemini: Gemini 2.5 Flash | **16.7** | 11.5 --- 22.1 |
 
-  **Latest results as of
-  May 5th.**   
+  **Latest results as of May 5th.**   
   View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
 -
 
@@ -121,8 +118,7 @@ To view historical performance data for previous models, **select a version belo
   | :gemini: Gemini 3 Flash Preview | **42.0** | 36.4 --- 47.7 |
   | :gemini: Gemini 2.5 Flash | **16.1** | 11.2 --- 21.2 |
 
-  **Latest results as of
-  April 7th.**   
+  **Latest results as of April 7th.**   
   View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
 -
 
@@ -140,6 +136,5 @@ To view historical performance data for previous models, **select a version belo
   | :gemini: Gemini 3 Flash Preview | **42.0** | 36.3 --- 47.9 |
   | :gemini: Gemini 2.5 Flash | **16.1** | 10.9 --- 21.9 |
 
-  **Latest results as of
-  March 5th.**   
+  **Latest results as of March 5th.**   
   View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.

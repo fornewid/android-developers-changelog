@@ -62,8 +62,7 @@ Written by:
 
   ###### PM Director
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/maru-ahues-bouza) ![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp) ![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/maru-ahues-bouza) ![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp) ![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)
 Continue reading
 - 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
@@ -91,8 +90,5 @@ Continue reading
   1 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

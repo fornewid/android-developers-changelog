@@ -4,8 +4,7 @@ url: https://developer.android.com/develop/ui/compose/testing/testing-cheatsheet
 source: md.txt
 ---
 
-The Compose testing cheat sheet is a quick reference of some of the most useful
-Compose test APIs. The cheat sheet is also [downloadable in PDF format](https://developer.android.com/static/develop/ui/compose/images/compose-testing-cheatsheet.pdf).
+The Compose testing cheat sheet is a quick reference of some of the most useful Compose test APIs. The cheat sheet is also [downloadable in PDF format](https://developer.android.com/static/develop/ui/compose/images/compose-testing-cheatsheet.pdf).
 
 [![Useful Compose testing APIs](https://developer.android.com/static/develop/ui/compose/images/compose-testing-cheatsheet.png)](https://developer.android.com/static/develop/ui/compose/images/compose-testing-cheatsheet.png)
 

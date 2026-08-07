@@ -4,18 +4,13 @@ url: https://developer.android.com/media/media3/exoplayer/cmcd
 source: md.txt
 ---
 
-Media player clients can transmit valuable information to Content Delivery
-Networks (CDNs) with each object request. Transmitting that data can improve QoS
-monitoring, adaptive traffic optimization, and delivery performance, ultimately
-enhancing the consumer experience.
+Media player clients can transmit valuable information to Content Delivery Networks (CDNs) with each object request. Transmitting that data can improve QoS monitoring, adaptive traffic optimization, and delivery performance, ultimately enhancing the consumer experience.
 
-The implementation in ExoPlayer is based on the specification defined in
-[CTA-5004](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5004-final.pdf).
+The implementation in ExoPlayer is based on the specification defined in [CTA-5004](https://cdn.cta.tech/cta/media/media/resources/standards/pdfs/cta-5004-final.pdf).
 
 ## CMCD support in Exoplayer
 
-CMCD support in ExoPlayer can only be enabled for adaptive streaming formats,
-such as [DASH](https://developer.android.com/guide/topics/media/exoplayer/dash), [HLS](https://developer.android.com/guide/topics/media/exoplayer/hls), and [SmoothStreaming](https://developer.android.com/guide/topics/media/exoplayer/smoothstreaming).
+CMCD support in ExoPlayer can only be enabled for adaptive streaming formats, such as [DASH](https://developer.android.com/guide/topics/media/exoplayer/dash), [HLS](https://developer.android.com/guide/topics/media/exoplayer/hls), and [SmoothStreaming](https://developer.android.com/guide/topics/media/exoplayer/smoothstreaming).
 
 ## CMCD data keys
 
@@ -35,14 +30,11 @@ CMCD data can be transmitted using one of two methods:
 
 ## Enable CMCD
 
-To enable CMCD, you need to create an instance of `CmcdConfiguration.Factory`
-and pass this to the `MediaSource.Factory` which is [used when building the
-player](https://developer.android.com/guide/topics/media/exoplayer/media-sources#customizing-media-source-creation). You can either use the default `CmcdConfiguration.Factory` or provide
-your own custom factory which is called each time an adaptive media source is
-created for the given media item.
+To enable CMCD, you need to create an instance of `CmcdConfiguration.Factory` and pass this to the `MediaSource.Factory` which is [used when building the player](https://developer.android.com/guide/topics/media/exoplayer/media-sources#customizing-media-source-creation). You can either use the default `CmcdConfiguration.Factory` or provide your own custom factory which is called each time an adaptive media source is created for the given media item.
 
 ### Enable CMCD with default configuration factory
 
+<br />
 
 ### Kotlin
 
@@ -51,6 +43,7 @@ created for the given media item.
 val mediaSourceFactory =
   DefaultMediaSourceFactory(context)
     .setCmcdConfigurationFactory(CmcdConfiguration.Factory.DEFAULT)
+      
 ```
 
 ### Java
@@ -60,6 +53,7 @@ val mediaSourceFactory =
 MediaSource.Factory mediaSourceFactory =
     new DefaultMediaSourceFactory(context)
         .setCmcdConfigurationFactory(CmcdConfiguration.Factory.DEFAULT);
+      
 ```
 
 <br />
@@ -69,6 +63,7 @@ MediaSource.Factory mediaSourceFactory =
 
 ### Enable CMCD with custom configuration factory
 
+<br />
 
 ### Kotlin
 
@@ -105,6 +100,7 @@ val cmcdConfigurationFactory =
 // Create media source factory and set your custom cmcdConfigurationFactory.
 val mediaSourceFactory =
   DefaultMediaSourceFactory(context).setCmcdConfigurationFactory(cmcdConfigurationFactory)
+      
 ```
 
 ### Java
@@ -142,6 +138,7 @@ CmcdConfiguration.Factory cmcdConfigurationFactory =
 MediaSource.Factory mediaSourceFactory =
     new DefaultMediaSourceFactory(context)
         .setCmcdConfigurationFactory(cmcdConfigurationFactory);
+      
 ```
 
 <br />
@@ -151,8 +148,7 @@ MediaSource.Factory mediaSourceFactory =
 
 ## CMCD data examples
 
-These examples illustrate valid data combinations of data sent when fetching
-media chunks:
+These examples illustrate valid data combinations of data sent when fetching media chunks:
 
 - As custom HTTP request headers
 

@@ -9,6 +9,14 @@ source: md.txt
 # Community
 
 Discover stories from our users, spotlight features, and the collaborative projects that bring us all together.
+- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_23cCms.webp)](https://developer.android.com/blog/authors/jose-alcerreca) 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_MYo9i.webp)
+
+  ## [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation)
+
+  [arrow_forward](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation) We released the official Android Skills in April. This blog post covers the feedback we received and explains the philosophy and methodology behind the project.
+  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca) • 4 min read
+  - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
+  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
 - [![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_1fkXBh.webp)](https://developer.android.com/blog/authors/steph-pio) 06 Jul 2026 06 Jul 2026 ![](https://developer.android.com/static/blog/assets/IG_Fund26_Strapi_Header_716b75cbab_1E2Dt5.webp)
 
   ## [Google Play launches the first Indie Games Fund in Africa](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa)
@@ -40,22 +48,13 @@ Discover stories from our users, spotlight features, and the collaborative proje
 
   [arrow_forward](https://developer.android.com/blog/posts/we-are-play-solving-the-dinner-dilemma-how-delish-kitchen-empowers-13-million-home-cooks) In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Chiharu - a co-founder of DELISH KITCHEN.
   [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
-- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 13 Nov 2025 13 Nov 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp)
-
-  ## [#WeArePlay: Meet the game creators who entertain, inspire and spark imagination](https://developer.android.com/blog/posts/we-are-play-meet-the-game-creators-who-entertain-inspire-and-spark-imagination)
-
-  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-meet-the-game-creators-who-entertain-inspire-and-spark-imagination) In our latest #WeArePlay stories, we meet the game creators who entertain, inspire and spark imagination in players around the world on Google Play.
-  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
 
-###### of 2
+###### of 3
 
 [arrow_forward](https://developer.android.com/blog/categories/community/2) Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

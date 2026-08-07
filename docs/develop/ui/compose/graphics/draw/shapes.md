@@ -4,22 +4,14 @@ url: https://developer.android.com/develop/ui/compose/graphics/draw/shapes
 source: md.txt
 ---
 
-With Compose, you can create shapes that are made from polygons. For example,
-you can make the following kinds of shapes:
+With Compose, you can create shapes that are made from polygons. For example, you can make the following kinds of shapes:
 ![Blue hexagon in the center of the drawing area](https://developer.android.com/static/develop/ui/compose/images/graphics/shapes/shape_examples_compose.png) **Figure 1**. Examples of different shapes you can make with graphics-shapes library
 
-To create a custom rounded polygon in Compose, add the
-[`graphics-shapes`](https://developer.android.com/jetpack/androidx/releases/graphics) dependency to your
-`app/build.gradle`:
+To create a custom rounded polygon in Compose, add the [`graphics-shapes`](https://developer.android.com/jetpack/androidx/releases/graphics) dependency to your `app/build.gradle`:
 
     implementation "androidx.graphics:graphics-shapes:1.0.1"
 
-This library lets you create shapes that are made from polygons. While polygonal
-shapes have only straight edges and sharp corners, these shapes allow for
-optional rounded corners. It makes it simple to morph between two different
-shapes. Morphing is difficult between arbitrary shapes, and tends to be a
-design-time problem. But this library makes it simple by morphing between these
-shapes with similar polygonal structures.
+This library lets you create shapes that are made from polygons. While polygonal shapes have only straight edges and sharp corners, these shapes allow for optional rounded corners. It makes it simple to morph between two different shapes. Morphing is difficult between arbitrary shapes, and tends to be a design-time problem. But this library makes it simple by morphing between these shapes with similar polygonal structures.
 
 > [!NOTE]
 > **Note:** The [`graphics-shapes`](https://developer.android.com/jetpack/androidx/releases/graphics) library is a separate set of [Shapes](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shape) from the built-in Compose shapes (like [`RoundedCornerShape`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/shape/RoundedCornerShape)). `graphics-shapes` are designed for use with the Compose or View system. Shapes from `graphics-shapes` can be converted into Compose shapes by converting resulting shapes to `Path` objects, as shown in some of the code examples below.
@@ -29,9 +21,9 @@ shapes with similar polygonal structures.
 
 ## Create polygons
 
-The following snippet creates a basic polygon shape with 6 points in the center
-of the drawing area:
+The following snippet creates a basic polygon shape with 6 points in the center of the drawing area:
 
+<br />
 
 ```kotlin
 Box(
@@ -50,23 +42,18 @@ Box(
         }
         .fillMaxSize()
 )
+   
 ```
 
 <br />
 
 ![Blue hexagon in the center of the drawing area](https://developer.android.com/static/develop/ui/compose/images/graphics/shapes/basic_polygon.png) **Figure 2**. Blue hexagon in the center of the drawing area.
 
-In this example, the library creates a `RoundedPolygon` which holds the geometry
-representing the requested shape. In order to draw that shape in a Compose app,
-you must get a `Path` object from it to get the shape into a form which Compose
-knows how to draw.
+In this example, the library creates a `RoundedPolygon` which holds the geometry representing the requested shape. In order to draw that shape in a Compose app, you must get a `Path` object from it to get the shape into a form which Compose knows how to draw.
 
 ### Round the corners of a polygon
 
-To round the corners of a polygon, use the `CornerRounding` parameter. This
-takes two parameters, `radius` and `smoothing`. Each rounded corner is made up
-of 1-3 cubic curves, the center of which has a circular arc shape while the two
-side ("flanking") curves transition from the shape's edge to the center curve.
+To round the corners of a polygon, use the `CornerRounding` parameter. This takes two parameters, `radius` and `smoothing`. Each rounded corner is made up of 1-3 cubic curves, the center of which has a circular arc shape while the two side ("flanking") curves transition from the shape's edge to the center curve.
 
 #### Radius
 
@@ -78,20 +65,14 @@ rounded corners](https://developer.android.com/static/develop/ui/compose/images/
 
 #### Smoothing
 
-Smoothing is a factor which determines how long it takes to get from the
-circular rounding portion of the corner to the edge. A smoothing factor of 0
-(unsmoothed, the default value for `CornerRounding`) results in purely circular
-corner rounding. A nonzero smoothing factor (up to the max of 1.0) results in
-the corner being rounded by three separate curves.
+Smoothing is a factor which determines how long it takes to get from the circular rounding portion of the corner to the edge. A smoothing factor of 0 (unsmoothed, the default value for `CornerRounding`) results in purely circular corner rounding. A nonzero smoothing factor (up to the max of 1.0) results in the corner being rounded by three separate curves.
 ![A smoothing factor of 0 (unsmoothed) produces a single cubic curve which
 follows a circle around the corner with the specified rounding radius, as in the
 earlier example](https://developer.android.com/static/develop/ui/compose/images/graphics/shapes/smoothing_polygon.png) **Figure 5**. A smoothing factor of 0 (unsmoothed) produces a single cubic curve which follows a circle around the corner with the specified rounding radius, as in the earlier example. ![A nonzero smoothing factor produces three cubic curves to round
 the vertex: the inner circular curve (as before) plus two flanking curves that
 transition between the inner curve and the polygon edges.](https://developer.android.com/static/develop/ui/compose/images/graphics/shapes/smoothing_polygon_non_zero.png) **Figure 6**. A nonzero smoothing factor produces three cubic curves to round the vertex: the inner circular curve (as before) plus two flanking curves that transition between the inner curve and the polygon edges.
 
-For example, the snippet below illustrates the subtle difference in setting
-smoothing to 0 versus 1:
-
+For example, the snippet below illustrates the subtle difference in setting smoothing to 0 versus 1:
 
 ```kotlin
 Box(
@@ -114,6 +95,8 @@ Box(
         }
         .size(100.dp)
 )
+
+   
 ```
 
 <br />
@@ -123,24 +106,13 @@ parameter.](https://developer.android.com/static/develop/ui/compose/images/graph
 
 ### Size and position
 
-By default, a shape is created with a radius of `1` around the center (`0, 0`).
-This radius represents the distance between the center and the exterior vertices
-of the polygon on which the shape is based. Note that rounding the corners
-results in a smaller shape since the rounded corners will be closer to the
-center than the vertices being rounded. To size a polygon, adjust the `radius`
-value. To adjust the position, change the `centerX` or `centerY` of the polygon.
-Alternatively, transform the object to change its size, position, and rotation
-using standard `DrawScope` transformation functions such as
-[`DrawScope#translate()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope#(androidx.compose.ui.graphics.drawscope.DrawScope).translate(kotlin.Float,kotlin.Float,kotlin.Function1)).
+By default, a shape is created with a radius of `1` around the center (`0, 0`). This radius represents the distance between the center and the exterior vertices of the polygon on which the shape is based. Note that rounding the corners results in a smaller shape since the rounded corners will be closer to the center than the vertices being rounded. To size a polygon, adjust the `radius` value. To adjust the position, change the `centerX` or `centerY` of the polygon. Alternatively, transform the object to change its size, position, and rotation using standard `DrawScope` transformation functions such as [`DrawScope#translate()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope#(androidx.compose.ui.graphics.drawscope.DrawScope).translate(kotlin.Float,kotlin.Float,kotlin.Function1)).
 
 ## Morph shapes
 
-A `Morph` object is a new shape representing an animation between two polygonal
-shapes. To morph between two shapes, create two `RoundedPolygons` and a `Morph`
-object that takes these two shapes. To calculate a shape between the start and
-end shapes, provide a `progress` value between zero and one to determine its
-form between the starting (0) and ending (1) shapes:
+A `Morph` object is a new shape representing an animation between two polygonal shapes. To morph between two shapes, create two `RoundedPolygons` and a `Morph` object that takes these two shapes. To calculate a shape between the start and end shapes, provide a `progress` value between zero and one to determine its form between the starting (0) and ending (1) shapes:
 
+<br />
 
 ```kotlin
 Box(
@@ -173,20 +145,17 @@ Box(
         }
         .fillMaxSize()
 )
+   
 ```
 
 <br />
 
-In the above example, the progress is exactly halfway between the two shapes
-(rounded triangle and a square), producing the following result:
+In the above example, the progress is exactly halfway between the two shapes (rounded triangle and a square), producing the following result:
 ![50% of the way between a rounded triangle and a square](https://developer.android.com/static/develop/ui/compose/images/graphics/shapes/morph_between_two_shapes.png) **Figure 8**. 50% of the way between a rounded triangle and a square.
 
-In most scenarios, morphing is done as part of an animation, and not just a
-static rendering. To animate between these two, you can use the standard
-[Animation APIs in Compose](https://developer.android.com/develop/ui/compose/animation/introduction) to change
-the progress value over time. For example, you can infinitely animate the morph
-between these two shapes as follows:
+In most scenarios, morphing is done as part of an animation, and not just a static rendering. To animate between these two, you can use the standard [Animation APIs in Compose](https://developer.android.com/develop/ui/compose/animation/introduction) to change the progress value over time. For example, you can infinitely animate the morph between these two shapes as follows:
 
+<br />
 
 ```kotlin
 val infiniteAnimation = rememberInfiniteTransition(label = "infinite animation")
@@ -230,6 +199,7 @@ Box(
         }
         .fillMaxSize()
 )
+   
 ```
 
 <br />
@@ -238,11 +208,9 @@ Box(
 
 ## Use polygon as clip
 
-It's common to use the
-[`clip`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).clip(androidx.compose.ui.graphics.Shape))
-modifier in Compose to change how a composable is rendered, and to take
-advantage of shadows that draw around the clipping area:
+It's common to use the [`clip`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).clip(androidx.compose.ui.graphics.Shape)) modifier in Compose to change how a composable is rendered, and to take advantage of shadows that draw around the clipping area:
 
+<br />
 
 ```kotlin
 fun RoundedPolygon.getBounds() = calculateBounds().let { Rect(it[0], it[1], it[2], it[3]) }
@@ -268,12 +236,14 @@ class RoundedPolygonShape(
         return Outline.Generic(path)
     }
 }
+   
 ```
 
 <br />
 
 You can then use the polygon as a clip, as shown in the following snippet:
 
+<br />
 
 ```kotlin
 val hexagon = remember {
@@ -297,6 +267,7 @@ Box(
         modifier = Modifier.align(Alignment.Center)
     )
 }
+   
 ```
 
 <br />
@@ -304,10 +275,9 @@ Box(
 This results in the following:
 ![Hexagon with the text `hello compose` in the center.](https://developer.android.com/static/develop/ui/compose/images/graphics/shapes/polygon_clip.png) **Figure 10**. Hexagon with the text "Hello Compose" in the center.
 
-This may not look that different from what was rendering before, but it allows
-for leveraging other features in Compose. For example, this technique can be
-used to clip an image and apply a shadow around the clipped region:
+This may not look that different from what was rendering before, but it allows for leveraging other features in Compose. For example, this technique can be used to clip an image and apply a shadow around the clipped region:
 
+<br />
 
 ```kotlin
 val hexagon = remember {
@@ -339,6 +309,7 @@ Box(
 
     )
 }
+   
 ```
 
 <br />
@@ -347,11 +318,9 @@ Box(
 
 ## Morph button on click
 
-You can use the `graphics-shape` library to create a button that morphs between
-two shapes on press. First, create a `MorphPolygonShape` that extends `Shape`,
-scaling and translating it to fit appropriately. Note the passing in of the
-progress so that the shape can be animated:
+You can use the `graphics-shape` library to create a button that morphs between two shapes on press. First, create a `MorphPolygonShape` that extends `Shape`, scaling and translating it to fit appropriately. Note the passing in of the progress so that the shape can be animated:
 
+<br />
 
 ```kotlin
 class MorphPolygonShape(
@@ -375,15 +344,15 @@ class MorphPolygonShape(
         return Outline.Generic(path)
     }
 }
+
+   
 ```
 
 <br />
 
-To use this morph shape, create two polygons, `shapeA` and `shapeB`. Create and
-remember the `Morph`. Then, apply the morph to the button as a clip outline,
-using the `interactionSource` on press as the driving force behind the
-animation:
+To use this morph shape, create two polygons, `shapeA` and `shapeB`. Create and remember the `Morph`. Then, apply the morph to the button as a clip outline, using the `interactionSource` on press as the driving force behind the animation:
 
+<br />
 
 ```kotlin
 val shapeA = remember {
@@ -422,6 +391,7 @@ Box(
 ) {
     Text("Hello", modifier = Modifier.align(Alignment.Center))
 }
+   
 ```
 
 <br />
@@ -431,12 +401,9 @@ This results in the following animation when the box is tapped:
 
 ## Animate shape morphing infinitely
 
-To endlessly animate a morph shape, use
-[`rememberInfiniteTransition`](https://developer.android.com/develop/ui/compose/animation/value-based#rememberinfinitetransition).
-Below is an example of a profile picture that changes shape (and rotates)
-infinitely over time. This approach uses a small adjustment to the
-`MorphPolygonShape` shown above:
+To endlessly animate a morph shape, use [`rememberInfiniteTransition`](https://developer.android.com/develop/ui/compose/animation/value-based#rememberinfinitetransition). Below is an example of a profile picture that changes shape (and rotates) infinitely over time. This approach uses a small adjustment to the `MorphPolygonShape` shown above:
 
+<br />
 
 ```kotlin
 class CustomRotatingMorphShape(
@@ -521,6 +488,7 @@ private fun RotatingScallopedProfilePic() {
         )
     }
 }
+   
 ```
 
 <br />
@@ -530,26 +498,20 @@ This code gives the following fun result:
 
 ## Custom polygons
 
-If shapes created from regular polygons don't cover your use case, you can
-create a more custom shape with a list of vertices. For example, you may want to
-create a heart shape like this:
+If shapes created from regular polygons don't cover your use case, you can create a more custom shape with a list of vertices. For example, you may want to create a heart shape like this:
 ![Heart shape](https://developer.android.com/static/develop/ui/compose/images/graphics/shapes/heart_shape.png) **Figure 14**. Heart shape.
 
-You can specify the individual vertices of this shape using the `RoundedPolygon`
-overload that takes a float array of x, y coordinates.
+You can specify the individual vertices of this shape using the `RoundedPolygon` overload that takes a float array of x, y coordinates.
 
-To break down the heart polygon, notice that the polar coordinate system for
-specifying points makes this easier than using the cartesian (x,y) coordinate
-system, where `0°` starts on the right hand side, and proceeds clockwise, with
-`270°` at the 12 o'clock position:
+To break down the heart polygon, notice that the polar coordinate system for specifying points makes this easier than using the cartesian (x,y) coordinate system, where `0°` starts on the right hand side, and proceeds clockwise, with `270°` at the 12 o'clock position:
 ![Heart shape](https://developer.android.com/static/develop/ui/compose/images/graphics/shapes/heart_shape_coordinates.png) **Figure 15**. Heart shape with coordinates.
 
-The shape can now be defined in an easier way by specifying the angle (𝜭) and
-radius from the center at each point:
+The shape can now be defined in an easier way by specifying the angle (𝜭) and radius from the center at each point:
 ![Heart shape](https://developer.android.com/static/develop/ui/compose/images/graphics/shapes/heart_no_rounding.png) **Figure 16**. Heart shape with coordinates, without rounding.
 
 The vertices can now be created and passed to the `RoundedPolygon` function:
 
+<br />
 
 ```kotlin
 val vertices = remember {
@@ -571,13 +533,14 @@ val vertices = remember {
         radialToCartesian(radius, 290f.toRadians()).y,
     )
 }
+   
 ```
 
 <br />
 
-The vertices need to be translated into cartesian coordinates using this
-`radialToCartesian` function:
+The vertices need to be translated into cartesian coordinates using this `radialToCartesian` function:
 
+<br />
 
 ```kotlin
 internal fun Float.toRadians() = this * PI.toFloat() / 180f
@@ -591,15 +554,14 @@ internal fun radialToCartesian(
 
 internal fun directionVectorPointF(angleRadians: Float) =
     PointF(cos(angleRadians), sin(angleRadians))
+   
 ```
 
 <br />
 
-The preceding code gives you the raw vertices for the heart, but you need to
-round specific corners to get the chosen heart shape. The corners at `90°` and
-`270°` have no rounding, but the other corners do. To achieve custom rounding
-for individual corners, use the `perVertexRounding` parameter:
+The preceding code gives you the raw vertices for the heart, but you need to round specific corners to get the chosen heart shape. The corners at `90°` and `270°` have no rounding, but the other corners do. To achieve custom rounding for individual corners, use the `perVertexRounding` parameter:
 
+<br />
 
 ```kotlin
 val rounding = remember {
@@ -635,6 +597,7 @@ Box(
         }
         .size(400.dp)
 )
+   
 ```
 
 <br />
@@ -642,13 +605,7 @@ Box(
 This results in the pink heart:
 ![Heart shape](https://developer.android.com/static/develop/ui/compose/images/graphics/shapes/heart_shape.png) **Figure 17**. Heart shape result.
 
-If the preceding shapes don't cover your use case, consider using the `Path`
-class to [draw a custom
-shape](https://developer.android.com/develop/ui/compose/graphics/draw/overview#draw-path), or loading up an
-[`ImageVector`](https://developer.android.com/develop/ui/compose/graphics/images/compare#image-vector) file from
-disk. The `graphics-shapes` library is not intended for use for arbitrary
-shapes, but is specifically meant to simplify creation of rounded polygons and
-morph animations between them.
+If the preceding shapes don't cover your use case, consider using the `Path` class to [draw a custom shape](https://developer.android.com/develop/ui/compose/graphics/draw/overview#draw-path), or loading up an [`ImageVector`](https://developer.android.com/develop/ui/compose/graphics/images/compare#image-vector) file from disk. The `graphics-shapes` library is not intended for use for arbitrary shapes, but is specifically meant to simplify creation of rounded polygons and morph animations between them.
 
 ## Additional resources
 

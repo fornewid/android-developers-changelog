@@ -83,16 +83,14 @@ Written by:
 
   ###### Developer Relations Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)
 -
 
   ## [David Chou](https://developer.android.com/blog/authors/david-chou)
 
   ###### Product Manager
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/david-chou) ![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp) ![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/david-chou) ![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp) ![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp)
 Continue reading
 - 4 Authors 28 Jan 2026 28 Jan 2026 ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -114,8 +112,5 @@ Continue reading
   [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

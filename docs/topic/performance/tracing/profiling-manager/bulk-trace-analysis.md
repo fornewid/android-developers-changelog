@@ -4,28 +4,20 @@ url: https://developer.android.com/topic/performance/tracing/profiling-manager/b
 source: md.txt
 ---
 
-Once you have collected multiple traces using `ProfilingManager`, exploring them
-individually to find performance problems becomes impractical. Bulk trace
-analysis lets you query a dataset of traces simultaneously to:
+Once you have collected multiple traces using `ProfilingManager`, exploring them individually to find performance problems becomes impractical. Bulk trace analysis lets you query a dataset of traces simultaneously to:
 
 - Identify common performance regressions.
 - Calculate statistical distributions (for example, P50, P90, P99 latency).
 - Find patterns across several traces.
 - Find outlier traces to understand and debug performance issues.
 
-This section demonstrates how to use the [Perfetto Python Batch Trace
-Processor](https://perfetto.dev/docs/analysis/trace-processor-python) to analyze startup metrics across a set of locally stored traces
-and locate outlier traces for deeper analysis.
+This section demonstrates how to use the [Perfetto Python Batch Trace Processor](https://perfetto.dev/docs/analysis/trace-processor-python) to analyze startup metrics across a set of locally stored traces and locate outlier traces for deeper analysis.
 
 ## Design the query
 
 The first step to perform a bulk analysis is to create a PerfettoSQL query.
 
-In this section, we present an example query that measures app startup latency.
-Specifically, you can measure the duration from `activityStart` to the first
-frame generated (the first occurrence of the `Choreographer#doFrame` slice) to
-measure app startup latency that is within your app's control. Figure 1 shows
-the section to query.
+In this section, we present an example query that measures app startup latency. Specifically, you can measure the duration from `activityStart` to the first frame generated (the first occurrence of the `Choreographer#doFrame` slice) to measure app startup latency that is within your app's control. Figure 1 shows the section to query.
 
 > [!NOTE]
 > **Note:** Before running a bulk trace query, we recommend testing your SQL query on a single trace in the [Perfetto UI](https://ui.perfetto.dev/) to validate results.
@@ -47,9 +39,7 @@ the section to query.
 
     SELECT ts,name,dur from generate_start_to_end_slices('activityStart','*Choreographer#doFrame [0-9]*', true)
 
-You can execute the query within the [Perfetto UI](https://perfetto.dev/docs/analysis/perfetto-sql-getting-started#querying-traces-in-the-perfetto-ui) and then use the query
-results to generate a debug track (Figure 2) and visualize it within the
-timeline (Figure 3).
+You can execute the query within the [Perfetto UI](https://perfetto.dev/docs/analysis/perfetto-sql-getting-started#querying-traces-in-the-perfetto-ui) and then use the query results to generate a debug track (Figure 2) and visualize it within the timeline (Figure 3).
 ![A screenshot of the Perfetto UI showing how to create a debug track for a startup query.](https://developer.android.com/static/topic/performance/images/tracing/bulk-trace-analysis-create-debug-track.png) Figure 2. Create a debug track for a startup query. ![A timeline view in the Perfetto UI showing a generated debug track for a startup query.](https://developer.android.com/static/topic/performance/images/tracing/bulk-trace-analysis-show-debug-track.png) Figure 3. Generated debug track for a startup query.
 
 ## Set up the Python environment
@@ -60,8 +50,7 @@ timeline (Figure 3).
 
 ## Create the bulk trace analysis script
 
-The following sample script executes the query in multiple traces using
-[Perfetto's Python `BatchTraceProcessor`](https://perfetto.dev/docs/analysis/trace-processor-python).
+The following sample script executes the query in multiple traces using [Perfetto's Python `BatchTraceProcessor`](https://perfetto.dev/docs/analysis/trace-processor-python).
 
     from perfetto.batch_trace_processor import BatchTraceProcessor
     import glob
@@ -111,27 +100,14 @@ When you run the Python script, it performs the following actions:
 
 ![A violin plot showing the distribution of queried startup latencies.](https://developer.android.com/static/topic/performance/images/tracing/bulk-trace-analysis-violin-low-latency.png) Figure 4. Violin plot of queried startup latencies.
 
-After you execute the script, the script generates a plot. In this case, the
-plot shows a bimodal distribution with two distinct peaks (Figure 4).
+After you execute the script, the script generates a plot. In this case, the plot shows a bimodal distribution with two distinct peaks (Figure 4).
 
-Next, find the difference between the two populations. This helps you examine
-individual traces in more detail. In this example, the plot is set up so that
-when you hover over the data points (latencies), you can identify the trace
-filenames. You can then open one of the traces that is part of the high-latency
-group.
+Next, find the difference between the two populations. This helps you examine individual traces in more detail. In this example, the plot is set up so that when you hover over the data points (latencies), you can identify the trace filenames. You can then open one of the traces that is part of the high-latency group.
 
-When you open a trace from the high-latency group (Figure 5), you will find an
-extra slice named `MyFlaggedFeature` running during startup (Figure 6).
-Conversely, selecting a trace from the lower-latency population (the leftmost
-peak) confirms the absence of that same slice (Figure 7). This comparison
-indicates that a specific feature flag, enabled for a subset of users, triggers
-the regression.
+When you open a trace from the high-latency group (Figure 5), you will find an extra slice named `MyFlaggedFeature` running during startup (Figure 6). Conversely, selecting a trace from the lower-latency population (the leftmost peak) confirms the absence of that same slice (Figure 7). This comparison indicates that a specific feature flag, enabled for a subset of users, triggers the regression.
 ![A plot highlighted high latency trace.](https://developer.android.com/static/topic/performance/images/tracing/bulk-trace-analysis-violin-high-latency.png) Figure 5. High latency data point in a violin plot. ![A trace highlighting high latency startup due to MyFlaggedFeature slice.](https://developer.android.com/static/topic/performance/images/tracing/bulk-trace-analysis-high-latency-trace.png) Figure 6. High latency trace startup with an additional \`MyFlaggedFeature\` slice. ![A trace highlighting low latency startup without MyFlaggedFeature slice.](https://developer.android.com/static/topic/performance/images/tracing/bulk-trace-analysis-low-latency-trace.png) Figure 7. Low latency trace startup.
 
-This example demonstrates one of the many ways you can use bulk trace analysis.
-Other use cases include extracting statistics from the field to gauge impact,
-detecting regressions, and more.
+This example demonstrates one of the many ways you can use bulk trace analysis. Other use cases include extracting statistics from the field to gauge impact, detecting regressions, and more.
 
 > [!NOTE]
-> **Note:** The local [Batch Trace Processor Python API](https://perfetto.dev/docs/analysis/trace-processor-python) can analyze dozens or hundreds of traces. However, its scalability depends on your computer's memory. To analyze thousands of traces, refer to the [Perfetto Bigtrace
-> documentation](https://perfetto.dev/docs/deployment/deploying-bigtrace-on-a-single-machine) to deploy a scalable cluster.
+> **Note:** The local [Batch Trace Processor Python API](https://perfetto.dev/docs/analysis/trace-processor-python) can analyze dozens or hundreds of traces. However, its scalability depends on your computer's memory. To analyze thousands of traces, refer to the [Perfetto Bigtrace documentation](https://perfetto.dev/docs/deployment/deploying-bigtrace-on-a-single-machine) to deploy a scalable cluster.

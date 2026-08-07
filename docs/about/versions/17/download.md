@@ -4,10 +4,7 @@ url: https://developer.android.com/about/versions/17/download
 source: md.txt
 ---
 
-If you are a developer with a supported Google Pixel device, you can manually
-update that device to the latest build for testing and development. Flashing a
-factory image requires a full device reset, so make sure to [back up your
-data](https://support.google.com/pixelphone/answer/7179901) first. Builds are available for the following Pixel devices:
+If you are a developer with a supported Google Pixel device, you can manually update that device to the latest build for testing and development. Flashing a factory image requires a full device reset, so make sure to [back up your data](https://support.google.com/pixelphone/answer/7179901) first. Builds are available for the following Pixel devices:
 
 - Pixel 6
 - Pixel 6 Pro
@@ -35,46 +32,29 @@ After you've flashed a beta build to your Pixel device, your device is automatic
 
 <br />
 
-Use the following links and instructions to update your supported device to the
-latest build. See [Get
-Android 17 QPR beta builds](https://developer.android.com/about/versions/17/get-qpr) for other ways to get
-QPR1 for testing and development.
+Use the following links and instructions to update your supported device to the latest build. See [Get Android 17 QPR beta builds](https://developer.android.com/about/versions/17/get-qpr) for other ways to get QPR1 for testing and development.
 
 > [!WARNING]
-> **Warning:** Flashing to a beta build from a production build---or going back to a production build from a beta build---requires a full device reset that removes all user data on the device. Make sure to [back up the data from your
-> Pixel](https://support.google.com/pixelphone/answer/7179901) first.
+> **Warning:** Flashing to a beta build from a production build---or going back to a production build from a beta build---requires a full device reset that removes all user data on the device. Make sure to [back up the data from your Pixel](https://support.google.com/pixelphone/answer/7179901) first.
 
 ## Flash your device using Android Flash Tool
 
-**Android Flash Tool** lets you securely flash a system image
-to your supported Pixel device. Android Flash Tool works with any Web browser
-that supports WebUSB, such as Chrome or Edge 79+.
+**Android Flash Tool** lets you securely flash a system image to your supported Pixel device. Android Flash Tool works with any Web browser that supports WebUSB, such as Chrome or Edge 79+.
 
-Android Flash Tool guides you step-by-step through the process of flashing your
-device---there's no need to have tools installed---but you do need to unlock your
-device and [enable USB Debugging in Developer options](https://developer.android.com/studio/debug/dev-options#enable). For
-complete instructions, see the [Android Flash Tool
-documentation](https://source.android.com/setup/contribute/flash).
+Android Flash Tool guides you step-by-step through the process of flashing your device---there's no need to have tools installed---but you do need to unlock your device and [enable USB Debugging in Developer options](https://developer.android.com/studio/debug/dev-options#enable). For complete instructions, see the [Android Flash Tool documentation](https://source.android.com/setup/contribute/flash).
 
-Connect your device over USB, then navigate to Android Flash Tool using the
-following link and follow the onscreen guidance:
-<https://flash.android.com/preview/cinnamonbun-beta4.1>.
+Connect your device over USB, then navigate to Android Flash Tool using the following link and follow the onscreen guidance: <https://flash.android.com/preview/cinnamonbun-beta4.1>.
 
 ## Flash your device manually
 
+
 ![](https://developer.android.com/static/images/lockups/android-stacked.svg)
 
-You can also download the latest system image and manually flash it to your
-device. See the following table to download the system image for your test
-device. Manually flashing a device is useful if you need precise control over
-the test environment or if you need to reinstall frequently, such as when
-performing automated testing.
+You can also download the latest system image and manually flash it to your device. See the following table to download the system image for your test device. Manually flashing a device is useful if you need precise control over the test environment or if you need to reinstall frequently, such as when performing automated testing.
 
-After you back up your device data and download the matching system image, you
-can [flash the image onto your device](https://developers.google.com/android/images#instructions).
+After you back up your device data and download the matching system image, you can [flash the image onto your device](https://developers.google.com/android/images#instructions).
 
-You can choose to [return to the latest public build](https://developer.android.com/about/versions/17/download#public) at any
-time.
+You can choose to [return to the latest public build](https://developer.android.com/about/versions/17/download#public) at any time.
 
 ### Device factory images
 
@@ -111,10 +91,7 @@ time.
 
 ## Return to a public build
 
-You can either use the Android Flash Tool to
-[flash the factory image](https://flash.android.com/back-to-public), or obtain a factory spec system
-image from the [Factory Images for Nexus and Pixel Devices](https://developers.google.com/android/images)
-page and then manually flash it to the device.
+You can either use the Android Flash Tool to [flash the factory image](https://flash.android.com/back-to-public), or obtain a factory spec system image from the [Factory Images for Nexus and Pixel Devices](https://developers.google.com/android/images) page and then manually flash it to the device.
 
 > [!WARNING]
 > **Warning:** Going back to a public build from a preview build (Developer Preview or Beta) requires a full device reset that removes all user data on the device. Make sure to [back up your data first](https://support.google.com/pixelphone/answer/7179901).

@@ -51,7 +51,6 @@ source: md.txt
 
 **Android 17 Beta 4.1 (June 2026)**
 
-
 This minor update to Android 17 Beta 4 includes the following fixes:
 
 - An issue where the status bar incorrectly displayed zero signal bars despite active connectivity. ([Issue #488358813](https://issuetracker.google.com/issues/488358813))
@@ -60,40 +59,25 @@ This minor update to Android 17 Beta 4 includes the following fixes:
 - A Bluetooth audio routing issue that caused playback silence after system interruptions like timers. ([Issue #497181008](https://issuetracker.google.com/issues/497181008))
 - An issue causing hearing aids to be automatically forgotten from paired devices after inactivity or charging. ([Issue #504968772](https://issuetracker.google.com/issues/504968772), [Issue #504395613](https://issuetracker.google.com/issues/504395613), [Issue #493347800](https://issuetracker.google.com/issues/493347800), [Issue #504696777](https://issuetracker.google.com/issues/504696777))
 
-All eligible devices enrolled in the
-[Android Beta for Pixel program](https://g.co/androidbeta)
-will be offered an over-the-air (OTA) update to Beta 4.1.
+All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) will be offered an over-the-air (OTA) update to Beta 4.1.
 
 ### Android 17 Beta 4 (April 2026)
 
-[Android 17 is on its last scheduled beta with Beta 4](https://android-developers.googleblog.com/2026/04/the-fourth-beta-of-android-17.html),
-so perform your final compatibility testing and start publishing
-your Android 17-targeted apps to the Google Play Store.
+[Android 17 is on its last scheduled beta with Beta 4](https://android-developers.googleblog.com/2026/04/the-fourth-beta-of-android-17.html), so perform your final compatibility testing and start publishing your Android 17-targeted apps to the Google Play Store.
 
-If you develop an Android SDK, library, tool, or game engine,
-it's critical to prepare any necessary updates now to prevent
-your downstream app and game developers from being blocked by
-compatibility issues and allow them to target the latest SDK
-features. Make sure to let your downstream developers know if
-updates are needed to fully support Android 17.
+If you develop an Android SDK, library, tool, or game engine, it's critical to prepare any necessary updates now to prevent your downstream app and game developers from being blocked by compatibility issues and allow them to target the latest SDK features. Make sure to let your downstream developers know if updates are needed to fully support Android 17.
 
 #### App Memory Limits
 
-Android 17 beta 4 introduces conservative, app memory limits to
-improve system stability. If your app is killed by these limits,
-[ApplicationExitInfo.getDescription](https://developer.android.com/reference/android/app/ApplicationExitInfo#getDescription()) will contain "MemoryLimiter". You can also use [trigger-based profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture) to capture heap dumps when limits are hit using [TRIGGER_TYPE_ANOMALY](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_ANOMALY).
+Android 17 beta 4 introduces conservative, app memory limits to improve system stability. If your app is killed by these limits, [ApplicationExitInfo.getDescription](https://developer.android.com/reference/android/app/ApplicationExitInfo#getDescription()) will contain "MemoryLimiter". You can also use [trigger-based profiling](https://developer.android.com/topic/performance/tracing/profiling-manager/trigger-based-capture) to capture heap dumps when limits are hit using [TRIGGER_TYPE_ANOMALY](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_ANOMALY).
 
 #### Background audio hardening changes
 
-Starting in Android 17, the audio framework enforces restrictions on background audio interactions including audio playback, audio focus requests, and volume change APIs. Based on your feedback, we've made some changes since beta 2,including targetSDK gating while-in-use FGS enforcement and exempting alarm audio. Full details available in the
-[updated guidance](https://developer.android.com/about/versions/17/changes/bg-audio).
+Starting in Android 17, the audio framework enforces restrictions on background audio interactions including audio playback, audio focus requests, and volume change APIs. Based on your feedback, we've made some changes since beta 2,including targetSDK gating while-in-use FGS enforcement and exempting alarm audio. Full details available in the [updated guidance](https://developer.android.com/about/versions/17/changes/bg-audio).
 
 #### Block cross profile loopback traffic
 
-Beginning with Android 17, cross-profile loopback traffic is no longer
-permitted by default. Loopback traffic within the same profile is not affected.
-This change applies to all apps running on Android 17 or higher,
-regardless of what API level the app targets.
+Beginning with Android 17, cross-profile loopback traffic is no longer permitted by default. Loopback traffic within the same profile is not affected. This change applies to all apps running on Android 17 or higher, regardless of what API level the app targets.
 
 ### Top Issues fixed in Beta 4
 
@@ -115,16 +99,11 @@ regardless of what API level the app targets.
 
 ### Android 17 Beta 3 (March 2026)
 
-[Android 17 has officially reached Platform Stability with Beta 3](https://android-developers.googleblog.com/2026/03/the-third-beta-of-android-17.html). The API
-surface is now locked, meaning it is time to perform final compatibility
-testing and publish your Android 17-targeted apps to the Google Play Store.
+[Android 17 has officially reached Platform Stability with Beta 3](https://android-developers.googleblog.com/2026/03/the-third-beta-of-android-17.html). The API surface is now locked, meaning it is time to perform final compatibility testing and publish your Android 17-targeted apps to the Google Play Store.
 
-If you develop an SDK, library, tool, or game engine, it is critical to release
-your updates now so downstream developers are not blocked from targeting the
-latest SDK features.
+If you develop an SDK, library, tool, or game engine, it is critical to release your updates now so downstream developers are not blocked from targeting the latest SDK features.
 
-Following is a summary of new capabilities, behavior changes,
-and enhancements introduced in Android 17 beta 3:
+Following is a summary of new capabilities, behavior changes, and enhancements introduced in Android 17 beta 3:
 
 #### Media and Camera Enhancements
 
@@ -183,10 +162,7 @@ and enhancements introduced in Android 17 beta 3:
 
 ### Android 17 Beta 2 (February 2026)
 
-[Beta 2 is now available](https://android-developers.googleblog.com/2026/02/the-second-beta-of-android-17.html).
-Similar to beta 1, this release is suitable for development, testing, and
-general use. However, Android 17 is still in active development, so the Android
-system and apps running on it **might not always work as expected**.
+[Beta 2 is now available](https://android-developers.googleblog.com/2026/02/the-second-beta-of-android-17.html). Similar to beta 1, this release is suitable for development, testing, and general use. However, Android 17 is still in active development, so the Android system and apps running on it **might not always work as expected**.
 
 ### What's new in Beta 2
 
@@ -235,21 +211,13 @@ system and apps running on it **might not always work as expected**.
 
 ### Android 17 Beta 1 (February 2026)
 
-[Beta 1 is now available](https://android-developers.googleblog.com/2026/02/the-first-beta-of-android-17.html),
-with the latest features and changes to try with your apps. This release is suitable for development,
-testing, and general use. However, Android 17 is still in active development, so
-the Android system and apps running on it **might not always work as expected**.
+[Beta 1 is now available](https://android-developers.googleblog.com/2026/02/the-first-beta-of-android-17.html), with the latest features and changes to try with your apps. This release is suitable for development, testing, and general use. However, Android 17 is still in active development, so the Android system and apps running on it **might not always work as expected**.
 
-As with previous versions, Android 17 includes system changes. In some cases,
-these changes can affect apps until they are updated to support Android 17, so
-you might see impacts ranging from minor issues to more significant limitations.
-In general, most apps will work as expected, as will most APIs and features.
+As with previous versions, Android 17 includes system changes. In some cases, these changes can affect apps until they are updated to support Android 17, so you might see impacts ranging from minor issues to more significant limitations. In general, most apps will work as expected, as will most APIs and features.
 
 ### What's new in Beta 1
 
-Android 17 continues our work for more adaptable Android apps, introduces significant
-enhancements to camera and media capabilities, new tools for optimizing connectivity,
-and expanded profiles for companion devices. Highlights include:
+Android 17 continues our work for more adaptable Android apps, introduces significant enhancements to camera and media capabilities, new tools for optimizing connectivity, and expanded profiles for companion devices. Highlights include:
 
 #### User Interface \& Windowing
 
@@ -262,8 +230,7 @@ Apps targeting **Android 17 (API level 37)** running on large screens ([sw ≥ 6
 
 ##### Optimized Configuration Changes
 
-To prevent state loss, the system **no longer restarts Activities** by default
-for specific configuration changes, including:
+To prevent state loss, the system **no longer restarts Activities** by default for specific configuration changes, including:
 
 - [`CONFIG_KEYBOARD`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_KEYBOARD) / [`CONFIG_KEYBOARD_HIDDEN`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_KEYBOARD)
 - [`CONFIG_NAVIGATION`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_NAVIGATION)
@@ -271,9 +238,7 @@ for specific configuration changes, including:
 - [`CONFIG_COLOR_MODE`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_COLOR_MODE)
 - [`CONFIG_UI_MODE`](https://developer.android.com/reference/android/content/pm/ActivityInfo#CONFIG_UI_MODE) (only when the UI mode changes to [`UI_MODE_TYPE_DESK`](https://developer.android.com/reference/android/content/res/Configuration#UI_MODE_TYPE_DESK) or from [`UI_MODE_TYPE_DESK`](https://developer.android.com/reference/android/content/res/Configuration#UI_MODE_TYPE_DESK) to another type)
 
-**Action Required**: If your app relies on restarts to reload resources for
-these events, you must explicitly opt-in using the new
-android:recreateOnConfigChanges manifest attribute.
+**Action Required**: If your app relies on restarts to reload resources for these events, you must explicitly opt-in using the new android:recreateOnConfigChanges manifest attribute.
 
 #### Performance \& Runtime
 

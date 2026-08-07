@@ -4,15 +4,11 @@ url: https://developer.android.com/develop/background-work/background-tasks/awak
 source: md.txt
 ---
 
-When it's necessary, you can use wake locks to keep the device from going to
-sleep.
+When it's necessary, you can use wake locks to keep the device from going to sleep.
 
-Under some circumstances, you may need to keep the device awake even when your
-app is in the background. To do this, you can create a *wake lock*.
+Under some circumstances, you may need to keep the device awake even when your app is in the background. To do this, you can create a *wake lock*.
 
-Your feedback is a crucial part of improving our documentation. Please give us
-your feedback using the following link:
-
+Your feedback is a crucial part of improving our documentation. Please give us your feedback using the following link:
 
 [Give feedback](https://docs.google.com/forms/d/e/1FAIpQLSc0OMFG-G88ZyHh_xwauaM2gimwP9-MFvRd6C49q0atZNpZ9w/viewform?usp=dialog)
 

@@ -4,30 +4,20 @@ url: https://developer.android.com/develop/ui/compose/touch-input/scroll/two-dim
 source: md.txt
 ---
 
-In Jetpack Compose, **[`scrollable2D`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/scrollable2D.modifier#(androidx.compose.ui.Modifier).scrollable2D(androidx.compose.foundation.gestures.Scrollable2DState,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource))** and **[`draggable2D`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).draggable2D(androidx.compose.foundation.gestures.Draggable2DState,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.Function1,kotlin.Function1,kotlin.Boolean))** are
-low-level modifiers designed to handle pointer input in two dimensions. While
-the standard 1D modifiers **[`scrollable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/scrollable.modifier#(androidx.compose.ui.Modifier).scrollable(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource))** and **[`draggable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/draggable.modifier#(androidx.compose.ui.Modifier).draggable(androidx.compose.foundation.gestures.DraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.coroutines.SuspendFunction2,kotlin.coroutines.SuspendFunction2,kotlin.Boolean)))** are
-restricted to a single orientation, the 2D variants track movement across both
-the X and Y axes simultaneously.
+In Jetpack Compose, **[`scrollable2D`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/scrollable2D.modifier#(androidx.compose.ui.Modifier).scrollable2D(androidx.compose.foundation.gestures.Scrollable2DState,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource))** and **[`draggable2D`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).draggable2D(androidx.compose.foundation.gestures.Draggable2DState,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.Function1,kotlin.Function1,kotlin.Boolean))** are low-level modifiers designed to handle pointer input in two dimensions. While the standard 1D modifiers **[`scrollable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/scrollable.modifier#(androidx.compose.ui.Modifier).scrollable(androidx.compose.foundation.gestures.ScrollableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource))** and **[`draggable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/draggable.modifier#(androidx.compose.ui.Modifier).draggable(androidx.compose.foundation.gestures.DraggableState,androidx.compose.foundation.gestures.Orientation,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.coroutines.SuspendFunction2,kotlin.coroutines.SuspendFunction2,kotlin.Boolean)))** are restricted to a single orientation, the 2D variants track movement across both the X and Y axes simultaneously.
 
-For example, the existing `scrollable` modifier is used for single-orientation
-scrolling and flinging, while `scrollable2d` is used for scrolling and flinging
-in 2D. This allows you to create more complex layouts that move in all
-directions, such as spreadsheets or image viewers. The `scrollable2d` modifier
-also supports nested scrolling in 2D scenarios.
+For example, the existing `scrollable` modifier is used for single-orientation scrolling and flinging, while `scrollable2d` is used for scrolling and flinging in 2D. This allows you to create more complex layouts that move in all directions, such as spreadsheets or image viewers. The `scrollable2d` modifier also supports nested scrolling in 2D scenarios.
 **Figure 1.** A bi-directional panning on a map.
 
 ## Choose `scrollable2D` or `draggable2D`
 
-Choosing the right API depends on the UI elements you want to move and the
-preferred physical behavior for these elements.
+Choosing the right API depends on the UI elements you want to move and the preferred physical behavior for these elements.
 
 **[`Modifier.scrollable2D`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/scrollable2D.modifier#(androidx.compose.ui.Modifier).scrollable2D(androidx.compose.foundation.gestures.Scrollable2DState,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,androidx.compose.foundation.gestures.FlingBehavior,androidx.compose.foundation.interaction.MutableInteractionSource))**: Use this modifier on a container to move content inside it. For example, use it with maps, spreadsheets, or photo viewers, where the container's content needs to scroll in both horizontal and vertical directions. It includes built-in fling support so the content keeps moving after a swipe, and it coordinates with other scrolling components on the page.
 
 **[`Modifier.draggable2D`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).draggable2D(androidx.compose.foundation.gestures.Draggable2DState,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Boolean,kotlin.Function1,kotlin.Function1,kotlin.Boolean))**: Use this modifier to move a component itself. It's a lightweight modifier, so the movement stops exactly when the user's finger stops. It does not include fling support.
 
-If you want to make a component draggable, but don't need fling or nested scroll
-support, use `draggable2D`.
+If you want to make a component draggable, but don't need fling or nested scroll support, use `draggable2D`.
 
 ## Implement 2D modifiers
 
@@ -35,14 +25,13 @@ The following sections provide examples to show how to use the 2D modifiers.
 
 ### Implement `Modifier.scrollable2D`
 
-Use this modifier for containers where the user needs to move content in all
-directions.
+Use this modifier for containers where the user needs to move content in all directions.
 
 #### Capture 2D movement data
 
-This example shows how to capture raw 2D movement data and display the X,Y
-offset:
+This example shows how to capture raw 2D movement data and display the X,Y offset:
 
+<br />
 
 ```kotlin
 @Composable
@@ -87,6 +76,7 @@ private fun Scrollable2DSample() {
         }
     }
 }
+   
 ```
 
 <br />
@@ -101,10 +91,9 @@ The preceding snippet does the following:
 
 #### Pan a large viewport
 
-This example shows how to use captured 2D scrollable data and apply a
-`translationX` and `translationY` to content that is larger than its parent
-container:
+This example shows how to use captured 2D scrollable data and apply a `translationX` and `translationY` to content that is larger than its parent container:
 
+<br />
 
 ```kotlin
 @Composable
@@ -146,6 +135,7 @@ private fun Panning2DImage() {
         )
     }
 }
+   
 ```
 
 <br />
@@ -161,15 +151,14 @@ The preceding snippet includes the following:
 
 #### Implement nested scrolling with scrollable2D
 
-This example demonstrates how a bi-directional component can be integrated into
-a standard one-dimensional parent, like a vertical news feed.
+This example demonstrates how a bi-directional component can be integrated into a standard one-dimensional parent, like a vertical news feed.
 
 Keep the following points in mind when implementing nested scrolling:
 
-- The lambda for `rememberScrollable2DState` should return only the **consumed
-  delta** , to let the **parent list take over naturally** when the child reaches its limit.
+- The lambda for `rememberScrollable2DState` should return only the **consumed delta** , to let the **parent list take over naturally** when the child reaches its limit.
 - When a user performs a diagonal fling, the 2D velocity is shared. If the child hits a boundary during the animation, the **remaining momentum is propagated** to the parent to continue the scroll naturally.
 
+<br />
 
 ```kotlin
 @Composable
@@ -235,6 +224,7 @@ private fun NestedScrollable2DSample() {
         )
     }
 }
+   
 ```
 
 <br />
@@ -252,12 +242,12 @@ Use the `draggable2D` modifier for moving individual UI elements.
 
 #### Drag a composable element
 
-This example shows the most common use case for `draggable2D` --- allowing a user
-to pick up a UI element and reposition it anywhere within a parent container.
+This example shows the most common use case for `draggable2D` --- allowing a user to pick up a UI element and reposition it anywhere within a parent container.
 
 > [!NOTE]
 > **Note:** `draggable2D` shouldn't be confused with the [Drag and Drop](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/drag-and-drop) pattern. The `dragAndDropSource` modifier is for use with transferring data (URIs, text) between applications, whereas `draggable2D` is for within the same composable hierarchy.
 
+<br />
 
 ```kotlin
 @Composable
@@ -284,6 +274,7 @@ private fun DraggableComposableElement() {
         }
     }
 }
+   
 ```
 
 <br />
@@ -298,11 +289,9 @@ The preceding code snippet includes the following:
 
 #### Drag a child composable based on parent's drag area
 
-This example demonstrates how to use `draggable2D` to create a 2D input area
-where a selector knob is constrained within a specific surface. Unlike the
-draggable element example, which moves the component itself, this implementation
-uses the 2D deltas to move a child composable "selector" across a color picker:
+This example demonstrates how to use `draggable2D` to create a 2D input area where a selector knob is constrained within a specific surface. Unlike the draggable element example, which moves the component itself, this implementation uses the 2D deltas to move a child composable "selector" across a color picker:
 
+<br />
 
 ```kotlin
 @Composable
@@ -352,6 +341,7 @@ private fun ExampleColorSelector(
         )
     }
 }
+   
 ```
 
 <br />

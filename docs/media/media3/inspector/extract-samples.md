@@ -4,16 +4,9 @@ url: https://developer.android.com/media/media3/inspector/extract-samples
 source: md.txt
 ---
 
-The [`MediaExtractorCompat`](https://developer.android.com/reference/androidx/media3/inspector/MediaExtractorCompat) class is a drop-in replacement for the platform's
-[`MediaExtractor`](https://developer.android.com/reference/android/media/MediaExtractor) class and provides identical APIs and functionality. It
-facilitates extraction of demuxed, typically encoded, media data from a data
-source.
+The [`MediaExtractorCompat`](https://developer.android.com/reference/androidx/media3/inspector/MediaExtractorCompat) class is a drop-in replacement for the platform's [`MediaExtractor`](https://developer.android.com/reference/android/media/MediaExtractor) class and provides identical APIs and functionality. It facilitates extraction of demuxed, typically encoded, media data from a data source.
 
-It separates a container file (like an MP4 or MKV) into its individual
-*tracks* , such as video, audio, and subtitles. The extractor then reads the raw,
-*encoded data* from these tracks as a sequence of *samples* (for example, a
-single compressed video frame or block of audio) before they are sent to a
-decoder.
+It separates a container file (like an MP4 or MKV) into its individual *tracks* , such as video, audio, and subtitles. The extractor then reads the raw, *encoded data* from these tracks as a sequence of *samples* (for example, a single compressed video frame or block of audio) before they are sent to a decoder.
 
 Common use cases include:
 
@@ -26,6 +19,7 @@ Common use cases include:
 
 The following code sample shows how to use `MediaExtractorCompat`:
 
+<br />
 
 ### Kotlin
 
@@ -63,6 +57,8 @@ fun extractSamples(context: Context, mediaPath: String) {
     extractor.release()
   }
 }
+
+      
 ```
 
 ### Java
@@ -103,6 +99,8 @@ public void extractSamples(Context context, String mediaPath) {
     extractor.release();
   }
 }
+
+      
 ```
 
 <br />

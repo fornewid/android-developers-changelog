@@ -4,6 +4,18 @@ url: https://developer.android.com/develop/ui/compose/testing
 source: md.txt
 ---
 
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/testing/testing-setup)
+
+### Android testing setup
+
+Use an Android skill to analyze and set up test infrastructure, test harnesses, unit tests, and UI tests for native Android apps. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add --skill testing-setup
+
+<br />
+
 [Video](https://www.youtube.com/watch?v=JyUJZvJ-OV8)
 
 Test your app's UI to verify that behavior of your Compose code is

@@ -6,9 +6,7 @@ source: md.txt
 
 <br />
 
-Parallax scrolling is a technique in which the background content and foreground
-content scroll at different speeds. You can implement this technique to enhance
-your app's UI, creating a more dynamic experience as your users scroll.
+Parallax scrolling is a technique in which the background content and foreground content scroll at different speeds. You can implement this technique to enhance your app's UI, creating a more dynamic experience as your users scroll.
 
 ## Results
 
@@ -20,20 +18,17 @@ your app's UI, creating a more dynamic experience as your users scroll.
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or
-higher.
+This implementation requires that your project minSDK be set to API level 21 or higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/parallax-scrolling_90b94f6fc49da5d289b5455639aac6e3fffc24699727c9148b981cb0dd1fe670.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/parallax-scrolling_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a parallax effect
 
-To achieve the parallax effect, you apply a fraction of the scrolling value from
-the scrolling composable to the composable that needs the parallax effect. The
-following snippet takes two nested visual elements---an image and a block of
-text---and scrolls them in the same direction at different speeds:
+To achieve the parallax effect, you apply a fraction of the scrolling value from the scrolling composable to the composable that needs the parallax effect. The following snippet takes two nested visual elements---an image and a block of text---and scrolls them in the same direction at different speeds:
 
+<br />
 
 ```kotlin
 @Composable
@@ -71,6 +66,7 @@ fun ParallaxEffect() {
         )
     }
 }
+   
 ```
 
 <br />
@@ -82,8 +78,7 @@ fun ParallaxEffect() {
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover
-broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display a list or grid

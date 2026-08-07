@@ -34,8 +34,10 @@ Code examples showcasing common patterns.
 
 ### Deep links
 
-- *[Basic](https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-basic)*: Shows how to parse a deep link URL from an Android Intent into a navigation key.
-- *[Advanced](https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-advanced)*: Shows how to handle deep links with a synthetic back stack and correct "Up" navigation behavior.
+- *[Static URI](https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-staticuri)*: Shows how to handle simple static URI deep links.
+- *[URI with Arguments](https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-uriarguments)*: Shows how to parse path and query arguments from a deep link.
+- *[Synthetic BackStack](https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-syntheticbackstack)*: Shows how to handle deep links with a synthetic back stack.
+- *[Custom Matcher](https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-custommatcher)*: Shows how to implement custom deep link matching logic.
 
 ### Scenes
 
@@ -57,6 +59,7 @@ Code examples showcasing common patterns.
 ### Animations
 
 - *[Animations](https://developer.android.com/guide/navigation/navigation-3/recipes/animations)*: Shows how to override the default animations for all destinations and a single destination.
+- *[Conditional Transitions](https://developer.android.com/guide/navigation/navigation-3/recipes/conditional-transitions)*: Shows how to implement conditional transition animations.
 
 ### Common back stack behavior
 
@@ -65,6 +68,10 @@ Code examples showcasing common patterns.
 ### Conditional navigation
 
 - *[Conditional navigation](https://developer.android.com/guide/navigation/navigation-3/recipes/conditional)*: Switch to a different navigation flow when a condition is met. For example, for authentication or first-time user onboarding.
+
+### Lifecycle
+
+- *[Lifecycle Owner](https://developer.android.com/guide/navigation/navigation-3/recipes/lifecycle-owner)*: Shows how to use and observe Lifecycle in Navigation 3.
 
 ### Architecture
 

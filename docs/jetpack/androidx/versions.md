@@ -6,18 +6,13 @@ source: md.txt
 
 *** ** * ** ***
 
-Jetpack libraries ship separately from the Android OS, so updates to the
-libraries can happen independently and more frequently.
+Jetpack libraries ship separately from the Android OS, so updates to the libraries can happen independently and more frequently.
 
-The libraries follow [strict semantic versioning](https://semver.org/) for binary compatibility with an added inter-version sequence of pre-release revisions.
-A version string (like `1.0.1-beta02`) contains three numbers representing major, minor, and bugfix levels.
-Pre-release versions also have a suffix that specifies the pre-release stage
-(alpha, beta, release candidate) and revision number (01, 02, and so on).
+The libraries follow [strict semantic versioning](https://semver.org/) for binary compatibility with an added inter-version sequence of pre-release revisions. A version string (like `1.0.1-beta02`) contains three numbers representing major, minor, and bugfix levels. Pre-release versions also have a suffix that specifies the pre-release stage (alpha, beta, release candidate) and revision number (01, 02, and so on).
 
 **Please note** that `androidx` libraries are encouraged, but not required, to preserve source compatibility across minor versions. The reason being a major version update would force all artifacts that depend on the previous major version to be explicitly migrated, which would disrupt the workflow of developers.
 
-Every version of a library moves through three pre-release stages on its way to
-becoming a stable release. The criteria for each pre-release stage is:
+Every version of a library moves through three pre-release stages on its way to becoming a stable release. The criteria for each pre-release stage is:
 
 **Alpha**
 
@@ -38,21 +33,13 @@ becoming a stable release. The criteria for each pre-release stage is:
 - Its API surface is final.
 - Dependencies on other libraries must be rc or stable versions only.
 
-A library can have multiple versions at the same time. Each version has a
-different release stage. For example, while the stable release of
-`androidx.activity` could be `1.0.0`, there might also be a `1.1.0-beta02`
-release as well as a `2.0.0-alpha01` release.
+A library can have multiple versions at the same time. Each version has a different release stage. For example, while the stable release of `androidx.activity` could be `1.0.0`, there might also be a `1.1.0-beta02` release as well as a `2.0.0-alpha01` release.
 
 Use this page to learn of the latest updates to the libraries.
 
-The [AndroidX recent release notes page](https://developer.android.com/jetpack/androidx/versions/all-channel)
-lists the libraries that have recently changed. Google's
-[Maven repository](https://dl.google.com/dl/android/maven2/index.html)
-shows the complete version history.
+The [AndroidX recent release notes page](https://developer.android.com/jetpack/androidx/versions/all-channel) lists the libraries that have recently changed. Google's [Maven repository](https://dl.google.com/dl/android/maven2/index.html) shows the complete version history.
 
-Use the table below to view the most recent stable and preview versions of every
-AndroidX library. The links on each row take you to the library's release notes.
-In the release notes you'll find:
+Use the table below to view the most recent stable and preview versions of every AndroidX library. The links on each row take you to the library's release notes. In the release notes you'll find:
 
 - The chronological history of all the releases.
 - A code snippet with the default Gradle dependency declarations to use the artifacts.
@@ -63,19 +50,11 @@ In the release notes you'll find:
 
 **Minimum SDK Version**
 
-AndroidX libraries have the default `minSdk` of 23. Individual libraries might
-use a higher `minSdk` in cases when supporting the lowest API version is
-impossible or prohibitively expensive. The default `minSdk` is meant to cover
-99% of Android users based on the Google Play Store check-in information, as is
-shown in Android Studio's New Project wizard. The default value is updated at a
-yearly cadence. The default `minSdk` only affects new library releases, so
-already released artifacts aren't affected and might support a lower `minSdk`.
+AndroidX libraries have the default `minSdk` of 23. Individual libraries might use a higher `minSdk` in cases when supporting the lowest API version is impossible or prohibitively expensive. The default `minSdk` is meant to cover 99% of Android users based on the Google Play Store check-in information, as is shown in Android Studio's New Project wizard. The default value is updated at a yearly cadence. The default `minSdk` only affects new library releases, so already released artifacts aren't affected and might support a lower `minSdk`.
 
 ### Jetpack libraries
 
-Some AndroidX libraries, like camera, have multiple artifacts that are
-maintained separately. These libraries are marked with an asterisk (\*). See the
-release notes to view the version updates for all of the artifacts.
+Some AndroidX libraries, like camera, have multiple artifacts that are maintained separately. These libraries are marked with an asterisk (\*). See the release notes to view the version updates for all of the artifacts.
 
 <br />
 
@@ -155,7 +134,7 @@ release notes to view the version updates for all of the artifacts.
 | [loader](https://developer.android.com/jetpack/androidx/releases/loader) | July 29, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/loader#1.2.0) | - | - | - |
 | [localbroadcastmanager](https://developer.android.com/jetpack/androidx/releases/localbroadcastmanager) | January 12, 2022 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/localbroadcastmanager#1.1.0) | - | - | - |
 | [media](https://developer.android.com/jetpack/androidx/releases/media) | May 06, 2026 | [1.8.0](https://developer.android.com/jetpack/androidx/releases/media#1.8.0) | - | - | - |
-| [media3](https://developer.android.com/jetpack/androidx/releases/media3) | July 22, 2026 | [1.10.1](https://developer.android.com/jetpack/androidx/releases/media3#1.10.1) | [1.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-rc01) | [1.11.0-beta01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-beta01) | [1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-alpha01) |
+| [media3](https://developer.android.com/jetpack/androidx/releases/media3) | August 05, 2026 | [1.11.0](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0) | - | - | - |
 | [mediarouter](https://developer.android.com/jetpack/androidx/releases/mediarouter) | February 11, 2026 | [1.8.1](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.8.1) | - | - | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-alpha01) |
 | [multidex](https://developer.android.com/jetpack/androidx/releases/multidex) | December 17, 2018 | [2.0.1](https://developer.android.com/jetpack/androidx/releases/multidex#2.0.1) | - | - | - |
 | [metrics](https://developer.android.com/jetpack/androidx/releases/metrics) | October 8, 2025 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/metrics#1.0.0) | - | - | - |
@@ -225,7 +204,6 @@ release notes to view the version updates for all of the artifacts.
 | [xr.scenecore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore) | July 15, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-beta01) | - |
 
 <br />
-
 
 (\*) This library has multiple artifacts. See its release notes for more information.  
 

@@ -12,6 +12,7 @@ source: md.txt
 
 In the past, changes to your app were bundled together before being sent for review. This presented challenges if you needed to reprioritize changes, or if the changes were no longer relevant. For example, updates to your test tracks grouped with marketing changes that need to be rescheduled. This lack of flexibility meant that if some changes were ready for review but not others, you could end up delaying urgent fixes, or publishing changes that you weren't quite ready to make.  
 
+
 Now, you have the ability to hold back the changes you're not ready to have reviewed.
 
 ### **How it works**
@@ -36,6 +37,7 @@ We're committed to continuously improving your publishing experience. Save for l
 
 <br />
 
+
 We're excited to see how Save for later helps you to streamline your release process and bring your app innovations to users even faster.
 Written by:
 
@@ -45,16 +47,14 @@ Written by:
 
   ###### Senior UX Writer and Content Designer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/georgia-doyle) ![View Georgia Doyle's profile](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp) ![View Georgia Doyle's profile](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/georgia-doyle) ![View Georgia Doyle's profile](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp) ![View Georgia Doyle's profile](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp)
 -
 
   ## [Kanu Tibrewal](https://developer.android.com/blog/authors/kanu-tibrewal)
 
   ###### Software Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/kanu-tibrewal) ![View Kanu Tibrewal's profile](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp) ![View Kanu Tibrewal's profile](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/kanu-tibrewal) ![View Kanu Tibrewal's profile](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp) ![View Kanu Tibrewal's profile](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp)
 Continue reading
 - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -76,8 +76,5 @@ Continue reading
   [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

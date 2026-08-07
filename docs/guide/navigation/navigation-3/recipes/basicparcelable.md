@@ -124,4 +124,6 @@ class BasicParcelableActivity : ComponentActivity() {
         }
     }
 }
+
+   
 ```

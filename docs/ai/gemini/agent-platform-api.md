@@ -4,12 +4,7 @@ url: https://developer.android.com/ai/gemini/agent-platform-api
 source: md.txt
 ---
 
-If you're new to the Gemini API, the [Gemini Developer API](https://developer.android.com/ai/gemini/developer-api) is the
-recommended [API provider](https://developer.android.com/ai/gemini#api-providers) for Android Developers. However, if you have
-specific [data location requirements](https://firebase.google.com/docs/ai-logic/locations?api=vertex) or you're already embedded
-in the Google Cloud ecosystem, then you can use the
-Agent Platform Gemini API (formerly Vertex AI) with Firebase AI Logic to access
-Gemini Pro and Flash models.
+If you're new to the Gemini API, the [Gemini Developer API](https://developer.android.com/ai/gemini/developer-api) is the recommended [API provider](https://developer.android.com/ai/gemini#api-providers) for Android Developers. However, if you have specific [data location requirements](https://firebase.google.com/docs/ai-logic/locations?api=vertex) or you're already embedded in the Google Cloud ecosystem, then you can use the Agent Platform Gemini API (formerly Vertex AI) with Firebase AI Logic to access Gemini Pro and Flash models.
 ![Illustration that shows an Android app using the Firebase Android SDK
 to send requests to the Firebase backend in the cloud. Requests are
 routed to the Agent Platform Gemini API,
@@ -17,14 +12,11 @@ which can leverage both Gemini Pro and Flash models.](https://developer.android.
 
 ## Getting started
 
-Before you interact with the Agent Platform Gemini API directly from your app,
-you can experiment with prompts in [Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart).
+Before you interact with the Agent Platform Gemini API directly from your app, you can experiment with prompts in [Agent Studio](https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/quickstart).
 
 ### Set up a Firebase project and connect your app to Firebase
 
-Once you're ready to call the API from your app, follow the instructions in
-"Step 1" of the [Firebase AI Logic getting started guide](https://firebase.google.com/docs/ai-logic/get-started?api=vertex#set-up-firebase) to
-set up Firebase and enable required APIs and services.
+Once you're ready to call the API from your app, follow the instructions in "Step 1" of the [Firebase AI Logic getting started guide](https://firebase.google.com/docs/ai-logic/get-started?api=vertex#set-up-firebase) to set up Firebase and enable required APIs and services.
 
 ### Add the Gradle dependencies
 
@@ -64,14 +56,9 @@ Add the following Gradle dependencies to your app module:
 
 ### Configure the App Check debug provider for local development
 
-Starting early July 2026, as part of the guided setup workflow for AI Logic
-in the Firebase console, Firebase App Check is automatically enforced to protect
-the Gemini API. For local development, you need to configure the
-App Check *debug provider* to bypass attestation while still maintaining the
-enforcement of App Check.
+Starting early July 2026, as part of the guided setup workflow for AI Logic in the Firebase console, Firebase App Check is automatically enforced to protect the Gemini API. For local development, you need to configure the App Check *debug provider* to bypass attestation while still maintaining the enforcement of App Check.
 
-1. In your debug build, configure App Check to use the debug provider
-   factory:
+1. In your debug build, configure App Check to use the debug provider factory:
 
    ### Kotlin
 
@@ -100,36 +87,32 @@ enforcement of App Check.
 
 3. Register your debug token with App Check:
 
-   1. In the Firebase console, go to the
-      **Security** \> **App Check** \> [**Apps** tab](https://console.firebase.google.com/project/_/appcheck/apps/?useAutoProject=true).
+   1. In the Firebase console, go to the **Security** \> **App Check** \> [**Apps** tab](https://console.firebase.google.com/project/_/appcheck/apps/?useAutoProject=true).
 
-   2. Find your app, click the overflow menu
-      (), and then select
-      **Manage debug tokens**.
+   2. Find your app, click the overflow menu (), and then select **Manage debug tokens**.
 
    3. Follow the on-screen instructions to register your debug token.
 
-For details about the debug provider (including how to get a new debug token),
-check out the [official App Check docs](https://firebase.google.com/docs/app-check/android/debug-provider).
+For details about the debug provider (including how to get a new debug token), check out the [official App Check docs](https://firebase.google.com/docs/app-check/android/debug-provider).
 
 > [!CAUTION]
-> **Here are some critical points about the
-> App Check debug provider:**
+> **Here are some critical points about the App Check debug provider:**
 >
 > - **Keep your debug token and debug build private.** Don't commit your debug token to a public repository, and don't ship your debug token or debug build in production builds of your app.
-> - **Register your app with a production attestation provider before
->   releasing to end users.** You'll need to [register your app with a production App Check attestation provider](https://firebase.google.com/docs/ai-logic/app-check) (for example, Play Integrity) so that your end-users can use your feature with App Check enforced.
+> - **Register your app with a production attestation provider before releasing to end users.** You'll need to [register your app with a production App Check attestation provider](https://firebase.google.com/docs/ai-logic/app-check) (for example, Play Integrity) so that your end-users can use your feature with App Check enforced.
 
 ### Initialize the generative model
 
 Start by instantiating a `GenerativeModel` and specifying the model name:
 
+<br />
 
 ### Kotlin
 
 ```kotlin
 val model = Firebase.ai(backend = GenerativeBackend.agentPlatform())
     .generativeModel("gemini-3.5-flash")
+      
 ```
 
 ### Java
@@ -139,13 +122,12 @@ GenerativeModel firebaseAI = FirebaseAI.getInstance(GenerativeBackend.agentPlatf
         .generativeModel("gemini-3.5-flash");
 
 GenerativeModelFutures model = GenerativeModelFutures.from(firebaseAI);
+      
 ```
 
 <br />
 
-In the Firebase documentation, you can learn more about the
-[available Gemini models](https://firebase.google.com/docs/ai-logic/models). You can also learn about
-[configuring model parameters](https://firebase.google.com/docs/ai-logic/model-parameters?api=vertex).
+In the Firebase documentation, you can learn more about the [available Gemini models](https://firebase.google.com/docs/ai-logic/models). You can also learn about [configuring model parameters](https://firebase.google.com/docs/ai-logic/model-parameters?api=vertex).
 
 > [!IMPORTANT]
 > **Important:** In mid-2026, when "Vertex AI" rebranded to "Gemini Enterprise Agent Platform" (or "Agent Platform"), the Firebase AI Logic SDKs added new "Agent Platform" initialization syntax to accommodate this rebranding.  
@@ -155,6 +137,7 @@ In the Firebase documentation, you can learn more about the
 
 To generate a text response, call `generateContent()` with your prompt.
 
+<br />
 
 ### Kotlin
 
@@ -165,6 +148,7 @@ suspend fun generateText(model: GenerativeModel) {
     val response = model.generateContent("Write a story about a magic backpack.")
     // ...
 }
+      
 ```
 
 ### Java
@@ -187,13 +171,11 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
         t.printStackTrace();
     }
 }, executor);
+      
 ```
 
 <br />
 
-Similar to the Gemini Developer API, you can also pass images, audio, video, and
-files with your text prompt. For details, see
-[Interact with the Gemini Developer API from your app](https://developer.android.com/ai/gemini/developer-api#interact-gemini).
+Similar to the Gemini Developer API, you can also pass images, audio, video, and files with your text prompt. For details, see [Interact with the Gemini Developer API from your app](https://developer.android.com/ai/gemini/developer-api#interact-gemini).
 
-To learn more about Firebase AI Logic SDK, see the
-[Firebase documentation](https://firebase.google.com/docs/ai-logic/get-started?api=vertex).
+To learn more about Firebase AI Logic SDK, see the [Firebase documentation](https://firebase.google.com/docs/ai-logic/get-started?api=vertex).

@@ -6,30 +6,23 @@ source: md.txt
 
 <br />
 
+<br />
 
 Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
-An Anchor describes a fixed location and orientation in the real world.
-Attaching an object to an anchor helps objects appear realistically placed in
-the real world.
+An *anchor* describes a location and orientation in the real world. Attaching an object to an anchor helps objects appear realistically placed in the real world and helps your app save power by not having to run logic every frame.
 
 ## Access a session
 
-Create anchors through an ARCore for Jetpack XR [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session). If you're
-enhancing [spatial UI](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose) using Jetpack Compose for XR, [access a session from
-Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#localsession). If you're working with [spatialized entities](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-entities)
-from the Jetpack SceneCore library, [access a session from Jetpack XR
-Runtime](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#access-session).
+Create anchors through an ARCore for Jetpack XR [`Session`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/Session). If you're enhancing [spatial UI](https://developer.android.com/develop/xr/jetpack-xr-sdk/ui-compose) using Jetpack Compose for XR, [access a session from Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#localsession). If you're working with [spatialized entities](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-entities) from the Jetpack SceneCore library, [access a session from Jetpack XR Runtime](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-session#access-session).
 
 ## Configure the session
 
-Creating and loading anchors does not require the session to be configured.
-However, anchor persistence is not enabled by default on XR sessions. To persist
-and load anchors from local storage, configure the session and set the
-[`AnchorPersistenceMode.LOCAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/AnchorPersistenceMode#LOCAL()) mode:
+Creating and loading anchors does not require the session to be configured. However, anchor persistence is not enabled by default on XR sessions. To persist and load anchors from local storage, configure the session and set the [`AnchorPersistenceMode.LOCAL`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/AnchorPersistenceMode#LOCAL()) mode:
 
+<br />
 
 ```kotlin
 val newConfig = Config.Builder(session.config)
@@ -40,6 +33,7 @@ when (val result = session.configure(newConfig)) {
     else ->
         TODO(/* The session could not be configured. See SessionConfigureResult for possible causes. */)
 }
+   
 ```
 
 <br />
@@ -47,75 +41,74 @@ when (val result = session.configure(newConfig)) {
 > [!NOTE]
 > **Note:** Creating, loading, and persisting anchors requires the `android.permission.SCENE_UNDERSTANDING_COARSE` [runtime permission](https://developer.android.com/training/permissions/requesting) to be granted to your app.
 
-## Anchor content to a fixed location in space
+## Anchor content to a location in space
 
-An anchor is created using a [`Pose`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/Pose), which can be interpreted relative to
-an existing [`Anchorable`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchorable) or not. An `Anchorable` is a [`Trackable`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Trackable)
-that can have anchors attached to it.
+An anchor is created using a [`Pose`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/math/Pose), which can be interpreted relative to an existing [`Anchorable`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchorable) or fixed in the world. An `Anchorable` is a [`Trackable`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Trackable) that can have anchors attached to it.
 
 ### Create an anchor relative to an Anchorable
 
-When an anchor is created relative to an `Anchorable`, such as a `Plane`, which
-makes the anchor follow the attached `Anchorable` when it moves through space.
+When an anchor is created relative to an `Anchorable`, such as a `Plane`, this makes the anchor follow the attached `Anchorable` when it moves through space.
 
+<br />
 
 ```kotlin
 val anchor = plane.createAnchor(pose)
+   
 ```
 
 <br />
 
-### Create an anchor without an Anchorable
+### Create an anchor fixed in the world
 
-To create an anchor that isn't attached to an `Anchorable`:
+To create an anchor that's fixed in the world, don't attach it to an `Anchorable`. Only use this type of anchor for points that are floating in space because the session's estimate of where immovable objects are changes over time:
 
+<br />
 
 ```kotlin
 val anchor = Anchor.create(session, pose)
+   
 ```
 
 <br />
 
 ### Attach an entity to an anchor
 
-To render a model at this location, [create a `GltfModel`](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models#place-3d) and set its
-parent to an [`AnchorSpace`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/AnchorSpace).
+To render a model at this location, [create a `GltfModel`](https://developer.android.com/develop/xr/jetpack-xr-sdk/add-3d-models#place-3d) and set its parent to an [`AnchorSpace`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/AnchorSpace).
 
+<br />
 
 ```kotlin
 AnchorSpace.create(session, anchor).apply {
     parent = session.scene.activitySpace
     addChild(entity)
 }
+   
 ```
 
 <br />
 
 ## Understand TrackingState
 
-Each `Trackable` has a `TrackingState` that should be checked before being used.
-A `Trackable` that has a `TrackableState` of `Tracking` has its `Pose` actively
-updated by the system. A `Trackable` that is `Paused` may become `Tracking` in
-the future, whereas one that is `Stopped` will never become `Tracking`.
+Each `Trackable` has a `TrackingState` that should be checked before being used. A `Trackable` that has a `TrackableState` of `Tracking` has its `Pose` actively updated by the system. A `Trackable` that is `Paused` may become `Tracking` in the future, whereas one that is `Stopped` will never become `Tracking`.
 
 ## Persist an Anchor throughout sessions
 
-An anchor that is not persisted disappears after a session is destroyed. By
-persisting an anchor, your app remembers that anchor's position in its private
-app data. This anchor can be retrieved in a subsequent session and is anchored
-in the same location in the world.
+An anchor that is not persisted disappears after a session is destroyed. By persisting an anchor, your app remembers that anchor's position in its private app data. This anchor can be retrieved in a subsequent session and is anchored in the same location in the world.
 
 To persist an anchor, use [`Anchor.persist()`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#persist) as shown here:
 
+<br />
 
 ```kotlin
 val uuid = anchor.persist()
+   
 ```
 
 <br />
 
 Your app can retrieve the anchor by using the [`UUID`](https://developer.android.com/reference/java/util/UUID) in a future session:
 
+<br />
 
 ```kotlin
 when (val result = Anchor.load(session, uuid)) {
@@ -126,27 +119,29 @@ when (val result = Anchor.load(session, uuid)) {
         // handle failure
     }
 }
+   
 ```
 
 <br />
 
-When you don't need an anchor anymore, call [`unpersist()`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#unpersist(androidx.xr.runtime.Session,java.util.UUID)). This removes
-the anchor from your app's storage and makes the given UUID unretrievable for
-calls to [`Anchor.load()`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#load).
+When you don't need an anchor anymore, call [`unpersist()`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#unpersist(androidx.xr.runtime.Session,java.util.UUID)). This removes the anchor from your app's storage and makes the given UUID unretrievable for calls to [`Anchor.load()`](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Anchor#load).
 
+<br />
 
 ```kotlin
 Anchor.unpersist(session, uuid)
+   
 ```
 
 <br />
 
-Your app can also request a list of all anchors that have been persisted that
-are still present in your app's storage:
+Your app can also request a list of all anchors that have been persisted that are still present in your app's storage:
 
+<br />
 
 ```kotlin
 val uuids = Anchor.getPersistedAnchorUuids(session)
+   
 ```
 
 <br />

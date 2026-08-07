@@ -42,29 +42,17 @@ source: md.txt
 
 ## About Android 15 QPR2 Beta 3
 
-Building on the [initial release of Android 15](https://developer.android.com/about/versions/15), we continue to
-update the platform with fixes and improvements that are then rolled out to
-supported devices. These releases happen on a quarterly cadence through
-*Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to
-Google Pixel devices as part of *Feature Drops*.
+Building on the [initial release of Android 15](https://developer.android.com/about/versions/15), we continue to update the platform with fixes and improvements that are then rolled out to supported devices. These releases happen on a quarterly cadence through *Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to Google Pixel devices as part of *Feature Drops*.
 
-Although these updates don't include app-impacting API changes, we provide
-images of the latest QPR beta builds so you can test your app with these builds
-as needed (for example, if there are upcoming features that might impact the
-user experience of your app).
+Although these updates don't include app-impacting API changes, we provide images of the latest QPR beta builds so you can test your app with these builds as needed (for example, if there are upcoming features that might impact the user experience of your app).
 
-Unlike developer previews and betas for unreleased, major versions of Android,
-these builds are suitable for general use. However, review any known issues that
-are listed on this page.
+Unlike developer previews and betas for unreleased, major versions of Android, these builds are suitable for general use. However, review any known issues that are listed on this page.
 
-Android 15 QPR2 builds on the updates in the initial release of Android 15 and
-Android 15 QPR1. This QPR release includes the next round of refinements such as
-bug fixes and improvements to stability and performance.
+Android 15 QPR2 builds on the updates in the initial release of Android 15 and Android 15 QPR1. This QPR release includes the next round of refinements such as bug fixes and improvements to stability and performance.
 
 ### How to get QPR2 Beta 3
 
-You can install Android 15 QPR2 Beta 3 on any of the following Google Pixel
-devices:
+You can install Android 15 QPR2 Beta 3 on any of the following Google Pixel devices:
 
 - Pixel 6 and 6 Pro
 - Pixel 7 and 7 Pro
@@ -87,50 +75,32 @@ Be aware of these general advisories about the release:
 - This release might have various stability, battery, or performance issues.
 - For users with accessibility needs, this release might not be appropriate for daily use.
 - Some apps might not function as expected when running on this release. This limitation includes Google's apps as well as other apps.
-- Android 15 QPR beta builds aren't [Compatibility Test Suite
-  (CTS)](https://source.android.com/compatibility/cts/)-approved, but they have passed preliminary testing and provide a stable set of pre-release APIs for developers. Apps that depend on CTS-approved builds or use the [Play Integrity API](https://developer.android.com/google/play/integrity) ([SafetyNet APIs are
-  deprecated](https://developer.android.com/privacy-and-security/safetynet/deprecation-timeline)) might not work normally on Android 15 QPR beta builds.
+- Android 15 QPR beta builds aren't [Compatibility Test Suite (CTS)](https://source.android.com/compatibility/cts/)-approved, but they have passed preliminary testing and provide a stable set of pre-release APIs for developers. Apps that depend on CTS-approved builds or use the [Play Integrity API](https://developer.android.com/google/play/integrity) ([SafetyNet APIs are deprecated](https://developer.android.com/privacy-and-security/safetynet/deprecation-timeline)) might not work normally on Android 15 QPR beta builds.
 
 ### Get support
 
-Two primary support channels are available to you when developing and testing
-with Android 15 QPR2. The channel you should use to get support depends on where
-you are encountering your issue.
+Two primary support channels are available to you when developing and testing with Android 15 QPR2. The channel you should use to get support depends on where you are encountering your issue.
 
-- **Support for device-specific issues, system issues, and issues with Google
-  apps**: Use the Issue Tracker to create new issues and to view and track
-  issues that you and other developers have submitted.
+- **Support for device-specific issues, system issues, and issues with Google apps**: Use the Issue Tracker to create new issues and to view and track issues that you and other developers have submitted.
 
-  Before creating your own issue, check the known issues listed on this page
-  and search the lists of [top open issues](https://developer.android.com/about/versions/15/qpr-top-issues) and
-  [recently created issues](https://developer.android.com/about/versions/15/qpr-recent-issues) to see if someone else has already reported it.
-  You can subscribe and vote for an issue by clicking **star this issue**
-  ![](https://developer.android.com/static/images/shared/star-issue.svg)
+  Before creating your own issue, check the known issues listed on this page and search the lists of [top open issues](https://developer.android.com/about/versions/15/qpr-top-issues) and [recently created issues](https://developer.android.com/about/versions/15/qpr-recent-issues) to see if someone else has already reported it. You can subscribe and vote for an issue by clicking **star this issue** ![](https://developer.android.com/static/images/shared/star-issue.svg)
 
-  See [Where to report issues](https://developer.android.com/about/versions/15/feedback-qpr#templates) to find an issue template that best matches
-  the type of issue that you are encountering.
+  See [Where to report issues](https://developer.android.com/about/versions/15/feedback-qpr#templates) to find an issue template that best matches the type of issue that you are encountering.
 - **Support for issues with other apps**: Contact the app developer directly.
 
-To discuss issues or ideas with other developers working with the Android 15 QPR
-Beta, join the [android_beta community on Reddit](https://developer.android.com/about/versions/15/dev-community).
+To discuss issues or ideas with other developers working with the Android 15 QPR Beta, join the [android_beta community on Reddit](https://developer.android.com/about/versions/15/dev-community).
 
 ## Features to test
 
-In addition to other app testing that you do with Android 15 QPR2, we recommend
-testing your app with the following features:
+In addition to other app testing that you do with Android 15 QPR2, we recommend testing your app with the following features:
 
 ### Enable 16 KB mode on a device using developer options
 
 ![](https://developer.android.com/static/images/guide/practices/16-kb-dev-option.png)
 
-Toggle the **Boot with 16KB page size** developer
-option to boot a device in 16 KB mode.
+Toggle the **Boot with 16KB page size** developer option to boot a device in 16 KB mode.
 
-In QPR versions of Android 15, you can
-[use the developer option](https://source.android.com/docs/core/architecture/16kb-page-size/16kb-developer-option#use_16kb_toggle) that's available on certain
-devices to boot the device in 16 KB mode and perform on-device testing.
-Before using the developer option, go to **Settings \> System \> Software
-updates** and apply any updates that are available.
+In QPR versions of Android 15, you can [use the developer option](https://source.android.com/docs/core/architecture/16kb-page-size/16kb-developer-option#use_16kb_toggle) that's available on certain devices to boot the device in 16 KB mode and perform on-device testing. Before using the developer option, go to **Settings \> System \> Software updates** and apply any updates that are available.
 
 This developer option is available on the following devices:
 
@@ -142,17 +112,13 @@ This developer option is available on the following devices:
 
 - Pixel 9a (with Android 16 or higher)
 
-For more information about how to prepare your app to support 16 KB page
-sizes, see our [Developer's Guide](https://developer.android.com/guide/practices/page-sizes).
+For more information about how to prepare your app to support 16 KB page sizes, see our [Developer's Guide](https://developer.android.com/guide/practices/page-sizes).
 
 ### Enable the Linux development environment on device using developer options
 
-Starting with Android 15 QPR1, you can try the experimental [Linux terminal
-app](https://android.googlesource.com/platform/packages/modules/Virtualization/+/refs/heads/main/android/TerminalApp/) that's available on select devices. This app provides access
-to a Linux terminal environment within a virtual machine (VM).
+Starting with Android 15 QPR1, you can try the experimental [Linux terminal app](https://android.googlesource.com/platform/packages/modules/Virtualization/+/refs/heads/main/android/TerminalApp/) that's available on select devices. This app provides access to a Linux terminal environment within a virtual machine (VM).
 
-This developer option is available on the following devices where the
-Android Virtualization Framework (AVF) is enabled:
+This developer option is available on the following devices where the Android Virtualization Framework (AVF) is enabled:
 
 - Pixel 7 and 7a (with Android 15 QPR1 or higher)
 - Pixel 8, 8a and 8 Pro (with Android 15 QPR1 or higher)
@@ -160,24 +126,20 @@ Android Virtualization Framework (AVF) is enabled:
 
 To launch the terminal app:
 
-1. [Enable developer options](https://developer.android.com/studio/debug/dev-options#enable) on the device, then open the
-   Settings app and navigate to **System** \> **Developer options** \> **Linux
-   development environment** and toggle the option on.
+1. [Enable developer options](https://developer.android.com/studio/debug/dev-options#enable) on the device, then open the Settings app and navigate to **System** \> **Developer options** \> **Linux development environment** and toggle the option on.
 
    ![Developer option for the linux development
    environment](https://developer.android.com/static/images/about/versions/15/linux-dev-option.png)
 2. Locate the Terminal app in your app drawer and launch it.
 
-   Upon first launch, the app automatically downloads the necessary Linux
-   image.
+   Upon first launch, the app automatically downloads the necessary Linux image.
 
    ![The interface for the Terminal
    app](https://developer.android.com/static/images/about/versions/15/linux-terminal-app.png)
 
 ## Top resolved issues
 
-Android 15 QPR2 Beta 3 resolves the top issues that are described in the
-following list and includes fixes for some issues that are not noted here.
+Android 15 QPR2 Beta 3 resolves the top issues that are described in the following list and includes fixes for some issues that are not noted here.
 
 ### Developer- and user-reported issues
 
@@ -196,27 +158,21 @@ following list and includes fixes for some issues that are not noted here.
 
 ## Top open issues
 
-See [top open issues](https://developer.android.com/about/versions/15/qpr-top-issues) for the latest list of top open issues that have been
-reported by developers.
+See [top open issues](https://developer.android.com/about/versions/15/qpr-top-issues) for the latest list of top open issues that have been reported by developers.
 
 ## Other known issues
 
-Based on our testing, you might encounter the following issues when using
-Android 15 QPR2 Beta 3. These issues are already known, so you don't need to
-file additional reports for similar issues.
+Based on our testing, you might encounter the following issues when using Android 15 QPR2 Beta 3. These issues are already known, so you don't need to file additional reports for similar issues.
 
 ### Android platform
 
 - The touchscreen doesn't work on Pixel 8 or 8a devices after installing Android 15 QPR2 Beta 3 and booting the device in 16 KB mode. To work around this issue:
   - If you already have a device running Android 15 QPR2 with Beta 2.1 or lower, continue to use the previous builds until a fix is released.
-  - If you don't already have a device running Android 15 QPR2 and you want to perform testing in 16 KB mode using Pixel 8 and 8a devices, use a [stable build of Android
-    15 QPR1](https://developers.google.com/android/images) instead.
+  - If you don't already have a device running Android 15 QPR2 and you want to perform testing in 16 KB mode using Pixel 8 and 8a devices, use a [stable build of Android 15 QPR1](https://developers.google.com/android/images) instead.
 
 ## Previous beta releases
 
-Information about previous preview builds is included in the following sections.
-If you're encountering issues, check the lists of previously known issues and
-make sure you're using the latest preview build.
+Information about previous preview builds is included in the following sections. If you're encountering issues, check the lists of previously known issues and make sure you're using the latest preview build.
 
 ### Android 15 QPR2 Beta 2
 
@@ -238,30 +194,18 @@ make sure you're using the latest preview build.
 | **Security patch level** | December 2024 |
 | **Google Play services** | 24.45.32 |
 
-Building on the [initial release of Android 15](https://developer.android.com/about/versions/15), we continue to
-update the platform with fixes and improvements that are then rolled out to
-supported devices. These releases happen on a quarterly cadence through
-*Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to
-Google Pixel devices as part of *Feature Drops*.
+Building on the [initial release of Android 15](https://developer.android.com/about/versions/15), we continue to update the platform with fixes and improvements that are then rolled out to supported devices. These releases happen on a quarterly cadence through *Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to Google Pixel devices as part of *Feature Drops*.
 
-Although these updates don't include app-impacting API changes, we provide
-images of the latest QPR beta builds so you can test your app with these builds
-as needed (for example, if there are upcoming features that might impact the
-user experience of your app).
+Although these updates don't include app-impacting API changes, we provide images of the latest QPR beta builds so you can test your app with these builds as needed (for example, if there are upcoming features that might impact the user experience of your app).
 
-Unlike developer previews and betas for unreleased, major versions of Android,
-these builds are suitable for general use. However, review any known issues that
-are listed on this page.
+Unlike developer previews and betas for unreleased, major versions of Android, these builds are suitable for general use. However, review any known issues that are listed on this page.
 
-Android 15 QPR2 builds on the updates in the initial release of Android 15 and
-Android 15 QPR1. This QPR release includes the next round of refinements such as
-bug fixes and improvements to stability and performance.
+Android 15 QPR2 builds on the updates in the initial release of Android 15 and Android 15 QPR1. This QPR release includes the next round of refinements such as bug fixes and improvements to stability and performance.
 
 #### Minor updates
 
 The following minor updates were released for Beta 2 before the Beta 3 release:
 **Android 15 QPR2 Beta 2.1 (January 2025)**
-
 
 This minor update to Android 15 QPR2 Beta 2 includes the following fixes:
 
@@ -269,17 +213,14 @@ This minor update to Android 15 QPR2 Beta 2 includes the following fixes:
 - Fixed an issue where the Emoji Workshop options opened when selecting wallpapers from other categories in system settings. ([Issue #384629413](https://issuetracker.google.com/issues/384629413))
 - Fixed various other issues that were impacting system stability and connectivity.
 
-All eligible devices enrolled in the
-[Android Beta for Pixel program](https://g.co/androidbeta)
-will be offered an over-the-air (OTA) update to Beta 2.1.
+All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) will be offered an over-the-air (OTA) update to Beta 2.1.
 
 > [!NOTE]
 > **Note:** See [top open issues](https://developer.android.com/about/versions/15/top-issues) for the latest list of issues that have been reported by developers and users.
 
 #### Top resolved issues
 
-Android 15 QPR2 Beta 2 resolves the top issues that are described in the
-following sections and includes fixes for some issues that are not noted here.
+Android 15 QPR2 Beta 2 resolves the top issues that are described in the following sections and includes fixes for some issues that are not noted here.
 
 ##### Developer- and user-reported issues
 
@@ -301,21 +242,10 @@ following sections and includes fixes for some issues that are not noted here.
 | **Security patch level** | November 2024 |
 | **Google Play services** | 24.39.34 |
 
-Building on the [initial release of Android 15](https://developer.android.com/about/versions/15), we continue to
-update the platform with fixes and improvements that are then rolled out to
-supported devices. These releases happen on a quarterly cadence through
-*Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to
-Google Pixel devices as part of *Feature Drops*.
+Building on the [initial release of Android 15](https://developer.android.com/about/versions/15), we continue to update the platform with fixes and improvements that are then rolled out to supported devices. These releases happen on a quarterly cadence through *Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to Google Pixel devices as part of *Feature Drops*.
 
-Although these updates don't include app-impacting API changes, we provide
-images of the latest QPR beta builds so you can test your app with these builds
-as needed (for example, if there are upcoming features that might impact the
-user experience of your app).
+Although these updates don't include app-impacting API changes, we provide images of the latest QPR beta builds so you can test your app with these builds as needed (for example, if there are upcoming features that might impact the user experience of your app).
 
-Unlike developer previews and betas for unreleased, major versions of Android,
-these builds are suitable for general use. However, review any known issues that
-are listed on this page.
+Unlike developer previews and betas for unreleased, major versions of Android, these builds are suitable for general use. However, review any known issues that are listed on this page.
 
-Android 15 QPR2 builds on the updates in the initial release of Android 15 and
-Android 15 QPR1. This QPR release includes the next round of refinements such as
-bug fixes and improvements to stability and performance.
+Android 15 QPR2 builds on the updates in the initial release of Android 15 and Android 15 QPR1. This QPR release includes the next round of refinements such as bug fixes and improvements to stability and performance.

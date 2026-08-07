@@ -4,14 +4,9 @@ url: https://developer.android.com/develop/ui/compose/system/pip-jetpack
 source: md.txt
 ---
 
-The [Picture-in-Picture (PiP) Jetpack Library](https://developer.android.com/jetpack/androidx/releases/core#core-pip-1.0.0-alpha) offers a streamlined and
-robust solution for Android app developers to implement PiP functionality,
-particularly for media playback, video communication, and navigation apps. By
-providing a unified API, the library helps eliminate boilerplate code, common
-in-app bugs, and improve the overall quality of the PiP user experience.
+The [Picture-in-Picture (PiP) Jetpack Library](https://developer.android.com/jetpack/androidx/releases/core#core-pip-1.0.0-alpha) offers a streamlined and robust solution for Android app developers to implement PiP functionality, particularly for media playback, video communication, and navigation apps. By providing a unified API, the library helps eliminate boilerplate code, common in-app bugs, and improve the overall quality of the PiP user experience.
 
-The PiP Jetpack library facilitates the existing PiP APIs by addressing several
-key challenges and inconsistencies across the Android ecosystem:
+The PiP Jetpack library facilitates the existing PiP APIs by addressing several key challenges and inconsistencies across the Android ecosystem:
 
 - **OS fragmentation** : The library automatically handles differences in PiP API calls across various Android versions, such as using [`enterPictureInPictureMode`](https://developer.android.com/reference/android/app/Activity#enterPictureInPictureMode(android.app.PictureInPictureParams)) before Android 12 and [`isAutoEnterEnabled`](https://developer.android.com/reference/android/app/PictureInPictureParams#isAutoEnterEnabled()) after, so developers don't need to manage version differences.
 - **Incorrect PiP parameters** : It provides a unified solution for correctly setting PiP parameters, for example [`setSourceRectHint`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setSourceRectHint(android.graphics.Rect)), to create smooth and high-quality animations during media playback.
@@ -23,8 +18,7 @@ key challenges and inconsistencies across the Android ecosystem:
 
 Identify the app's use case category and legacy PiP logic:
 
-**Categories:**
-Video Playback, Navigation, or Video Call.
+**Categories:** Video Playback, Navigation, or Video Call.
 
 **Legacy PiP Logic to Identify:**
 
@@ -36,8 +30,7 @@ Video Playback, Navigation, or Video Call.
 
 ### 2. AndroidManifest Configuration
 
-Ensure the Activity entering PiP declares support in `AndroidManifest.xml` with
-the necessary `configChanges` to prevent unnecessary restarts:
+Ensure the Activity entering PiP declares support in `AndroidManifest.xml` with the necessary `configChanges` to prevent unnecessary restarts:
 
     <activity
     android:name="VideoActivity" android:supportsPictureInPicture="true"
@@ -53,8 +46,7 @@ Add the required dependencies to `build.gradle`:
     implementation("androidx.activity:activity:1.13.0")
     implementation("androidx.core:core-pip:1.0.0-alpha02") }
 
-Use the latest AndroidX libraries for the dependencies and refer to the
-[releases](https://developer.android.com/jetpack/androidx/releases/core) page for that info.
+Use the latest AndroidX libraries for the dependencies and refer to the [releases](https://developer.android.com/jetpack/androidx/releases/core) page for that info.
 
 ### 4. Template Selection and Initialization
 
@@ -63,17 +55,13 @@ Choose the implementation template that best fits the app's use case:
 - **Navigation and video call** : `BasicPictureInPicture`; seamless resize isn't typically supported, and you don't need a source rect hint.
 - **Video playback** : `VideoPlaybackPictureInPicture`; automatically tracks player view bounds for the source rect hint and enables seamless resize by default.
 
-In order to adopt the Jetpack Library, replace your existing custom PiP
-implementation with the Jetpack Library APIs. The complexity and cost of
-adoption will vary based on the app's current implementation.
+In order to adopt the Jetpack Library, replace your existing custom PiP implementation with the Jetpack Library APIs. The complexity and cost of adoption will vary based on the app's current implementation.
 
-The following sections describe some of the typical use cases of PiP and the
-necessary implementation steps:
+The following sections describe some of the typical use cases of PiP and the necessary implementation steps:
 
 ### Navigation
 
-The app informs the library of the navigation's active or inactive state and
-sets the aspect ratio. The Jetpack library handles the rest.
+The app informs the library of the navigation's active or inactive state and sets the aspect ratio. The Jetpack library handles the rest.
 
 **Key differences:**
 
@@ -83,8 +71,7 @@ sets the aspect ratio. The Jetpack library handles the rest.
 
 ### Video Call
 
-The app informs the library of the call's active or inactive state and sets the
-aspect ratio.
+The app informs the library of the call's active or inactive state and sets the aspect ratio.
 
 **Key differences:**
 
@@ -105,6 +92,7 @@ Examples of implementations.
 
 ### Navigation and Video Call
 
+<br />
 
 ```kotlin
 class NavOrVideoCallJpipActivity : ComponentActivity(), PictureInPictureDelegate.OnPictureInPictureEventListener {
@@ -132,12 +120,14 @@ class NavOrVideoCallJpipActivity : ComponentActivity(), PictureInPictureDelegate
         }
     }
 }
+   
 ```
 
 <br />
 
 ### Video Playback
 
+<br />
 
 ```kotlin
 class VideoPlaybackJpipActivity : ComponentActivity(), PictureInPictureDelegate.OnPictureInPictureEventListener {
@@ -176,6 +166,7 @@ class VideoPlaybackJpipActivity : ComponentActivity(), PictureInPictureDelegate.
         }
     }
 }
+   
 ```
 
 <br />

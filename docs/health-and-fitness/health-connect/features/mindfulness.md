@@ -6,16 +6,11 @@ source: md.txt
 
 > This guide is compatible with Health Connect version [1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-rc01).
 
-Health Connect provides a *mindfulness* data type to measure various aspects
-of mental health, such as stress and anxiety. Mindfulness is a data type
-that is part of overall wellness in Health Connect.
+Health Connect provides a *mindfulness* data type to measure various aspects of mental health, such as stress and anxiety. Mindfulness is a data type that is part of overall wellness in Health Connect.
 
 ## Check Health Connect availability
 
-Before attempting to use Health Connect, your app should verify that Health Connect is available
-on the user's device. Health Connect might not be pre-installed on all devices or could be disabled.
-You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)`
-method.
+Before attempting to use Health Connect, your app should verify that Health Connect is available on the user's device. Health Connect might not be pre-installed on all devices or could be disabled. You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)` method.
 
 #### How to check for Health Connect availability
 
@@ -49,8 +44,7 @@ fun checkHealthConnectAvailability(context: Context) {
 }
 ```
 
-Depending on the status returned by `getSdkStatus()`, you can guide the user
-to install or update Health Connect from the Google Play Store if necessary.
+Depending on the status returned by `getSdkStatus()`, you can guide the user to install or update Health Connect from the Google Play Store if necessary.
 
 ## Feature availability
 
@@ -78,11 +72,9 @@ Access to mindfulness is protected by the following permissions:
 - `android.permission.health.READ_MINDFULNESS`
 - `android.permission.health.WRITE_MINDFULNESS`
 
-To add mindfulness capability to your app, start by requesting
-permissions for the `MindfulnessSession` data type.
+To add mindfulness capability to your app, start by requesting permissions for the `MindfulnessSession` data type.
 
-Here's the permission you need to declare to be able to write
-mindfulness:
+Here's the permission you need to declare to be able to write mindfulness:
 
     <application>
       <uses-permission
@@ -100,13 +92,7 @@ To read mindfulness, you need to request the following permissions:
 
 ### Request permissions from the user
 
-After creating a client instance, your app needs to request permissions from
-the user. Users must be allowed to grant or deny permissions at any time.
-
-To do so, create a set of permissions for the required data types.
-Make sure that the permissions in the set are declared in your Android
-manifest first.
-
+After creating a client instance, your app needs to request permissions from the user. Users must be allowed to grant or deny permissions at any time. To do so, create a set of permissions for the required data types. Make sure that the permissions in the set are declared in your Android manifest first.
 
 ```kotlin
 val permissions =
@@ -114,6 +100,7 @@ val permissions =
         HealthPermission.getReadPermission(MindfulnessSessionRecord::class),
         HealthPermission.getWritePermission(MindfulnessSessionRecord::class)
     )
+   
 ```
 Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
 
@@ -134,6 +121,7 @@ val requestPermissionsLauncher = rememberLauncherForActivityResult(
         coroutineScope.launch { snackbarHostState.showSnackbar("Permissions denied.") }
     }
 }
+   
 ```
 Because users can grant or revoke permissions at any time, your app needs to check for permissions every time before using them and handle scenarios where permission is lost.
 
@@ -141,10 +129,9 @@ Because users can grant or revoke permissions at any time, your app needs to che
 
 ## Information included in a mindfulness session record
 
-Each mindfulness session record captures any type of mindfulness session
-a user performs, for example meditation, breathing, and movement. The record
-can also include additional notes about the session.
+Each mindfulness session record captures any type of mindfulness session a user performs, for example meditation, breathing, and movement. The record can also include additional notes about the session.
 
+<br />
 
 The following mindfulness session types are available for `MindfulnessSessionRecord`:
 
@@ -157,16 +144,13 @@ The following mindfulness session types are available for `MindfulnessSessionRec
 
 <br />
 
-For a full list of mindfulness session types, see the
-[`MindfulnessSessionRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/MindfulnessSessionRecord)
-reference documentation.
+For a full list of mindfulness session types, see the [`MindfulnessSessionRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/MindfulnessSessionRecord) reference documentation.
 
 ## Supported aggregations
 
 <br />
 
-The following aggregate values are available for
-`MindfulnessSessionRecord`:
+The following aggregate values are available for `MindfulnessSessionRecord`:
 
 - [`MINDFULNESS_DURATION_TOTAL`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/MindfulnessSessionRecord#MINDFULNESS_DURATION_TOTAL())
 
@@ -176,6 +160,7 @@ The following aggregate values are available for
 
 The following code snippet demonstrates how to write a mindfulness session:
 
+<br />
 
 ```kotlin
 val isAvailable = healthConnectClient.features.getFeatureStatus(FEATURE_MINDFULNESS_SESSION)
@@ -196,14 +181,14 @@ if (isAvailable == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
             device = Device(type = Device.TYPE_PHONE)
         )
     )
+   
 ```
 
 <br />
 
 ## Read mindfulness session
 
-The following code snippet demonstrates how to read a mindfulness session
-within a time range:
+The following code snippet demonstrates how to read a mindfulness session within a time range:
 
     Val now = Instant.now()
 

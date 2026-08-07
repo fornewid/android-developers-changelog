@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
 source: md.txt
 ---
 
-When creating a Glimmer Title Chip component, refer to the following
-implementation samples in `TitleChipSamples.kt`:
+When creating a Glimmer Title Chip component, refer to the following implementation samples in `TitleChipSamples.kt`:
 
+<br />
 
 ```kotlin
 /*
@@ -102,6 +102,8 @@ private fun TitleChipWithLeadingIconPreview() {
 private fun TitleChipWithCardPreview() {
     GlimmerTheme { TitleChipWithCardSample() }
 }
+
+   
 ```
 
 <br />

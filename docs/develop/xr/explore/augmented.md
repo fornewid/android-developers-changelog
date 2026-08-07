@@ -9,8 +9,7 @@ source: md.txt
 ### Build augmented experiences
 
 Build lightweight, additive experiences that help users on the go, at home, or at work.
-- [![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg)
-  Build for audio glasses and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/build)
+- [![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Build for audio and display glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/build)
 [![](http://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/glimmer/glimmer-overview.jpg)](http://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer)
 
 ### [Build UI with Jetpack Compose Glimmer](http://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer)

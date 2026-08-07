@@ -14,6 +14,7 @@ source: md.txt
 
 Historically, applications requiring access to a specific user's contacts relied on the broad `READ_CONTACTS` permission. While functional, this approach often granted apps more data than necessary. The new Android Contact Picker, introduced in Android 17, changes this dynamic by providing a standardized, secure, and searchable interface for contact selection.  
 
+
 This feature allows users to grant apps access only to the specific contacts they choose, aligning with Android's commitment to data transparency and minimized permission footprints.
 ![picker.png](https://developer.android.com/static/blog/assets/picker_204b45fd1e_UYUJv.webp) ![selection.png](https://developer.android.com/static/blog/assets/selection_a612ca8b4b_Z1zrc3w.webp)
 
@@ -33,6 +34,7 @@ Developers can integrate the Contact Picker using the `Intent.ACTION_PICK_CONTAC
 For devices running Android 17 or higher, the system automatically upgrades legacy `ACTION_PICK` intents that specify contact data types to the new, more secure interface. However, to take full advantage of advanced features like multi-selection, developers are encouraged to update their implementation code and utilize the `ContentResolver` to query the returned Session URI.
 
 <br />
+
 
 Integrate the contact pickerTo integrate the Contact Picker, developers use the `ACTION_PICK_CONTACTS` intent. Below is a code example demonstrating how to launch the picker and request specific data fields, such as email and phone numbers.
 
@@ -132,8 +134,7 @@ Written by:
 
   ###### Product Manager
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/roxanna-walker) ![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp) ![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/roxanna-walker) ![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp) ![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)
 Continue reading
 - [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](https://developer.android.com/blog/authors/roxanna-walker)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/yacine-rezgui) 27 Jan 2026 27 Jan 2026 ![](https://developer.android.com/static/blog/assets/Android_Photo_Picker_Blogger_60fa0ede59_YTu6Y.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -155,8 +156,5 @@ Continue reading
   [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

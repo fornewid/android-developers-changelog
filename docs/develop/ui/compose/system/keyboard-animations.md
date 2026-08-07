@@ -4,9 +4,9 @@ url: https://developer.android.com/develop/ui/compose/system/keyboard-animations
 source: md.txt
 ---
 
-You can apply `Modifier.imeNestedScroll()` to a scrolling container to open and
-close the IME automatically when scrolling to the bottom of the container.
+You can apply `Modifier.imeNestedScroll()` to a scrolling container to open and close the IME automatically when scrolling to the bottom of the container.
 
+<br />
 
 ```kotlin
 class WindowInsetsExampleActivity : AppCompatActivity() {
@@ -46,6 +46,7 @@ fun MyScreen() {
         }
     }
 }
+   
 ```
 
 <br />

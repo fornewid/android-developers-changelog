@@ -24,34 +24,17 @@ source: md.txt
 
 ### Android 17 QPR 2 Beta 2 (July 2026)
 
-Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
-update the platform with fixes and improvements that are then rolled out to
-supported devices. These releases happen on a quarterly cadence through
-*Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to
-Google Pixel devices as part of *Feature Drops*.
+Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to update the platform with fixes and improvements that are then rolled out to supported devices. These releases happen on a quarterly cadence through *Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to Google Pixel devices as part of *Feature Drops*.
 
-Although these updates don't include app-impacting API changes, we provide
-images of the latest QPR beta builds so you can test your app with these builds
-as needed (for example, if there are upcoming features that might impact the
-user experience of your app).
+Although these updates don't include app-impacting API changes, we provide images of the latest QPR beta builds so you can test your app with these builds as needed (for example, if there are upcoming features that might impact the user experience of your app).
 
 ### Android 17 QPR 2 Beta 1 (July 2026)
 
-Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
-update the platform with fixes and improvements that are then rolled out to
-supported devices. These releases happen on a quarterly cadence through
-*Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to
-Google Pixel devices as part of *Feature Drops*.
+Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to update the platform with fixes and improvements that are then rolled out to supported devices. These releases happen on a quarterly cadence through *Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to Google Pixel devices as part of *Feature Drops*.
 
-Although these updates don't include app-impacting API changes, we provide
-images of the latest QPR beta builds so you can test your app with these builds
-as needed (for example, if there are upcoming features that might impact the
-user experience of your app).
+Although these updates don't include app-impacting API changes, we provide images of the latest QPR beta builds so you can test your app with these builds as needed (for example, if there are upcoming features that might impact the user experience of your app).
 
-Android 17 QPR2 includes a minor SDK release. This incremental update has no
-planned behavior changes, minimizing the need for compatibility testing.
-You can the current SDK changes in the
-[API diff report](https://developer.android.com/sdk/api_diff/37.1/changes).
+Android 17 QPR2 includes a minor SDK release. This incremental update has no planned behavior changes, minimizing the need for compatibility testing. You can the current SDK changes in the [API diff report](https://developer.android.com/sdk/api_diff/37.1/changes).
 
 ### Top Issues fixed in Beta 1 (July 2026)
 

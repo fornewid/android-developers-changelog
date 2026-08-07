@@ -64,24 +64,21 @@ Written by:
 
   ###### Developer Relations Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/jan-kleinert) ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_1Ce4cO.webp) ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_1Ce4cO.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/jan-kleinert) ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_1Ce4cO.webp) ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_1Ce4cO.webp)
 -
 
   ## [Noam Gefen](https://developer.android.com/blog/authors/noam-gefen)
 
   ###### Senior Product Manager
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/noam-gefen) ![View Noam Gefen's profile](https://developer.android.com/static/blog/assets/PXL_20250405_073558833_2_6db88dff58_1qPfjF.webp) ![View Noam Gefen's profile](https://developer.android.com/static/blog/assets/PXL_20250405_073558833_2_6db88dff58_1qPfjF.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/noam-gefen) ![View Noam Gefen's profile](https://developer.android.com/static/blog/assets/PXL_20250405_073558833_2_6db88dff58_1qPfjF.webp) ![View Noam Gefen's profile](https://developer.android.com/static/blog/assets/PXL_20250405_073558833_2_6db88dff58_1qPfjF.webp)
 -
 
   ## [Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers)
 
   ###### Developer Relations Engineer, Android for Cars
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/thomas-weathers) ![View Thomas Weathers's profile](https://developer.android.com/static/blog/assets/DSC_0714_1_d2ffa1fb8f_ZtqlBA.webp) ![View Thomas Weathers's profile](https://developer.android.com/static/blog/assets/DSC_0714_1_d2ffa1fb8f_ZtqlBA.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/thomas-weathers) ![View Thomas Weathers's profile](https://developer.android.com/static/blog/assets/DSC_0714_1_d2ffa1fb8f_ZtqlBA.webp) ![View Thomas Weathers's profile](https://developer.android.com/static/blog/assets/DSC_0714_1_d2ffa1fb8f_ZtqlBA.webp)
 Continue reading
 - [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_1T1vC6.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -104,8 +101,5 @@ Continue reading
   [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

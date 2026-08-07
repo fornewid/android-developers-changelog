@@ -14,7 +14,9 @@ source: md.txt
 
 During a standard software build, the compiler makes thousands of small decisions, such as whether to inline a function and which branch of a conditional is likely to be taken, based on static code hints.While these heuristics are useful, they don't always accurately predict code execution during real-world phone usage.  
 
+
 AutoFDO changes this by using real-world execution patterns to guide the compiler. These patterns represent the most common instruction execution paths the code takes during actual use, captured by recording the CPU's branching history. While this data can be collected from fleet devices, for the kernel we synthesize it in a lab environment using representative workloads, such as running the top 100 most popular apps. We use a sampling profiler to capture this data, identifying which parts of the code are 'hot' (frequently used) and which are 'cold'. When we rebuild the kernel with these profiles, the compiler can make much smarter optimization decisions tailored to actual Android workloads.  
+
 
 To understand the impact of this optimization, consider these key facts:
 
@@ -24,6 +26,7 @@ To understand the impact of this optimization, consider these key facts:
 ### Real-World Performance Wins
 
 We have seen impressive improvements across key Android metrics by leveraging profiles from controlled lab environments. These profiles were collected using app crawling and launching, and measured on Pixel devices across the 6.1, 6.6, and 6.12 kernels.  
+
 
 The most noticeable improvements are listed below. Details on the AutoFDO profiles for these kernel versions can be found in the respective Android kernel repositories for [android16-6.12](https://android.googlesource.com/kernel/common/+/refs/heads/android16-6.12/gki/aarch64/afdo/) and [android15-6.6](https://android.googlesource.com/kernel/common/+/refs/heads/android15-6.6/android/gki/aarch64/afdo/) kernels.
 ![boosting_2.png](https://developer.android.com/static/blog/assets/boosting_2_9a4c45f66e_Z17BvwU.webp)
@@ -93,8 +96,7 @@ Written by:
 
   ###### Software Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/yabin-cui) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+  [read_more View profile](https://developer.android.com/blog/authors/yabin-cui) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
 Continue reading
 - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -116,8 +118,5 @@ Continue reading
   [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

@@ -8,7 +8,9 @@ source: md.txt
 
 # Android plugin for Gradle, revision 1.1.3 (March 2015)
 
+
 Dependencies:
+
 General Notes:
 :
     - Fixed issue with duplicated dependencies on a test app that triggered a ProGuard failure.

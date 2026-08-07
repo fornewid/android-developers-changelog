@@ -57,8 +57,7 @@ Written by:
 
   ###### Group Product Manager
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/bennet-manuel) ![View Bennet Manuel's profile](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp) ![View Bennet Manuel's profile](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/bennet-manuel) ![View Bennet Manuel's profile](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp) ![View Bennet Manuel's profile](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)
 Continue reading
 - [![View Bennet Manuel's profile](https://developer.android.com/static/blog/assets/Bennet_Manuel_4be9960838_MydbH.webp)](https://developer.android.com/blog/authors/bennet-manuel)[![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)](https://developer.android.com/blog/authors/robert-clifford) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/a11y_rev_37216d57dc_Z211KeA.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -80,8 +79,5 @@ Continue reading
   [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

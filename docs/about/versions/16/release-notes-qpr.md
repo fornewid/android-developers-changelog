@@ -60,7 +60,6 @@ source: md.txt
 
 **Android 16 QPR1 Beta 3.1 (August 2025)**
 
-
 It includes fixes for:
 
 - Device instability or reboots related to Wi-Fi by improving how the system processes network statistics. ([Issue #433037402](https://issuetracker.google.com/issues/433037402), [Issue #432867183](https://issuetracker.google.com/issues/432867183), [Issue #433418936](https://issuetracker.google.com/issues/433418936), [Issue #432795362](https://issuetracker.google.com/issues/432795362), [Issue #432770117](https://issuetracker.google.com/issues/432770117), [Issue #432699126](https://issuetracker.google.com/issues/432699126), [Issue #435489862](https://issuetracker.google.com/issues/435489862), [Issue #435011484](https://issuetracker.google.com/issues/435011484))
@@ -87,33 +86,22 @@ It includes fixes for:
 - A brief screen flicker happened when launching apps from the notification shade.
 - A system crash that could occur when using your device's media features, especially when connected to a computer for media transfer, by improving the internal handling of media connection resources.
 
-All eligible devices enrolled in the
-[Android Beta for Pixel program](https://g.co/androidbeta)
-will be offered an over-the-air (OTA) update to Beta 3.1.
+All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) will be offered an over-the-air (OTA) update to Beta 3.1.
 
 > [!NOTE]
 > **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues-qpr) for the latest list of issues that have been reported by developers and users.
 
 ## About Android 16 QPR1 Beta 3 (July 2025)
 
-Building on the [initial release of Android 16](https://developer.android.com/about/versions/16), we continue to
-update the platform with fixes and improvements that are then rolled out to
-supported devices. These releases happen on a quarterly cadence through
-*Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to
-Google Pixel devices as part of *Feature Drops*.
+Building on the [initial release of Android 16](https://developer.android.com/about/versions/16), we continue to update the platform with fixes and improvements that are then rolled out to supported devices. These releases happen on a quarterly cadence through *Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to Google Pixel devices as part of *Feature Drops*.
 
-Although these updates don't include app-impacting API changes, we provide
-images of the latest QPR beta builds so you can test your app with these builds
-as needed (for example, if there are upcoming features that might impact the
-user experience of your app).
+Although these updates don't include app-impacting API changes, we provide images of the latest QPR beta builds so you can test your app with these builds as needed (for example, if there are upcoming features that might impact the user experience of your app).
 
-Unlike developer previews and betas for unreleased, major versions of Android,
-these builds are suitable for general use.
+Unlike developer previews and betas for unreleased, major versions of Android, these builds are suitable for general use.
 
 ### How to get QPR1 Beta 3
 
-You can install Android 16 QPR1 Beta 3 on any of the following Google Pixel
-devices:
+You can install Android 16 QPR1 Beta 3 on any of the following Google Pixel devices:
 
 - Pixel 6 and 6 Pro
 - Pixel 6a
@@ -126,9 +114,7 @@ devices:
 - Pixel 9, 9 Pro, 9 Pro XL, and 9 Pro Fold
 - Pixel 9a
 
-See [Get Android 16 QPR beta builds](https://developer.android.com/about/versions/16/get-qpr) for details on how to get started.
-Note: All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta)
-will be offered an over-the-air (OTA) update to Beta 3.
+See [Get Android 16 QPR beta builds](https://developer.android.com/about/versions/16/get-qpr) for details on how to get started. Note: All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) will be offered an over-the-air (OTA) update to Beta 3.
 
 ### General advisories
 
@@ -137,23 +123,18 @@ Be aware of these general advisories about the release:
 - This release might have various stability, battery, or performance issues.
 - For users with accessibility needs, this release might not be appropriate for daily use.
 - Some apps might not function as expected when running on this release. This limitation includes Google's apps as well as other apps.
-- Android 16 QPR beta builds aren't [Compatibility Test Suite
-  (CTS)](https://source.android.com/compatibility/cts/)-approved, but they have passed preliminary testing and provide a stable set of pre-release APIs for developers. Apps that depend on CTS-approved builds or use SafetyNet APIs might not work normally on Android 16 QPR beta builds.
+- Android 16 QPR beta builds aren't [Compatibility Test Suite (CTS)](https://source.android.com/compatibility/cts/)-approved, but they have passed preliminary testing and provide a stable set of pre-release APIs for developers. Apps that depend on CTS-approved builds or use SafetyNet APIs might not work normally on Android 16 QPR beta builds.
 
 ### Get support
 
-Two primary support channels are available to you when developing and testing
-with Android 16 QPR1. The channel you should use to get support depends on where
-you are encountering your issue.
+Two primary support channels are available to you when developing and testing with Android 16 QPR1. The channel you should use to get support depends on where you are encountering your issue.
 
-- **Support for device-specific issues, system issues, and issues with Google
-  apps** : Use the Issue Tracker to create new issues and to view and track issues that you and other developers have submitted. Before creating your own issue, check the known issues listed on this page and search the lists of [top open issues](https://developer.android.com/about/versions/16/top-issues-qpr) and [recently created issues](https://developer.android.com/about/versions/16/recent-issues-qpr) to see if someone else has already reported it. You can subscribe and vote for an issue by clicking **star this issue** ![](https://developer.android.com/static/images/shared/star-issue.svg) See [Where to report issues](https://developer.android.com/about/versions/16/feedback-qpr1#templates) to find an issue template that best matches the type of issue that you are encountering.
+- **Support for device-specific issues, system issues, and issues with Google apps** : Use the Issue Tracker to create new issues and to view and track issues that you and other developers have submitted. Before creating your own issue, check the known issues listed on this page and search the lists of [top open issues](https://developer.android.com/about/versions/16/top-issues-qpr) and [recently created issues](https://developer.android.com/about/versions/16/recent-issues-qpr) to see if someone else has already reported it. You can subscribe and vote for an issue by clicking **star this issue** ![](https://developer.android.com/static/images/shared/star-issue.svg) See [Where to report issues](https://developer.android.com/about/versions/16/feedback-qpr1#templates) to find an issue template that best matches the type of issue that you are encountering.
 - **Support for issues with other apps** : Contact the app developer directly. To discuss issues or ideas with other developers working with the Android 16 QPR Beta, join the [android_beta community on Reddit](https://developer.android.com/about/versions/16/dev-community).
 
 ## Top resolved issues
 
-Android 16 QPR1 Beta 3 resolves the top issues that are described in the
-following list and includes fixes for some issues that are not noted here.
+Android 16 QPR1 Beta 3 resolves the top issues that are described in the following list and includes fixes for some issues that are not noted here.
 
 - *An issue around RTOS task list corruption that was causing restarts. ([Issue #420999948](https://issuetracker.google.com/issues/420999948), [Issue #426316038](https://issuetracker.google.com/issues/426316038))*
 - *Launcher not completely displaying ([Issue #428088033](https://issuetracker.google.com/issues/428088033), [Issue #428405658](https://issuetracker.google.com/issues/428405658), [Issue #429817851](https://issuetracker.google.com/issues/429817851))*
@@ -167,47 +148,31 @@ following list and includes fixes for some issues that are not noted here.
 
 ## Previous beta releases
 
-Information about previous preview builds is included in the following sections.
-If you're encountering issues, check the lists of previously known issues and
-make sure you're using the latest preview build.
+Information about previous preview builds is included in the following sections. If you're encountering issues, check the lists of previously known issues and make sure you're using the latest preview build.
 
 ## About Android 16 QPR1 Beta 2 (June 2025)
 
-Building on the [initial release of Android 16](https://developer.android.com/about/versions/16), we continue to
-update the platform with fixes and improvements that are then rolled out to
-supported devices. These releases happen on a quarterly cadence through
-*Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to
-Google Pixel devices as part of *Feature Drops*.
+Building on the [initial release of Android 16](https://developer.android.com/about/versions/16), we continue to update the platform with fixes and improvements that are then rolled out to supported devices. These releases happen on a quarterly cadence through *Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to Google Pixel devices as part of *Feature Drops*.
 
-Although these updates don't include app-impacting API changes, we provide
-images of the latest QPR beta builds so you can test your app with these builds
-as needed (for example, if there are upcoming features that might impact the
-user experience of your app).
+Although these updates don't include app-impacting API changes, we provide images of the latest QPR beta builds so you can test your app with these builds as needed (for example, if there are upcoming features that might impact the user experience of your app).
 
-Unlike developer previews and betas for unreleased, major versions of Android,
-these builds are suitable for general use.
+Unlike developer previews and betas for unreleased, major versions of Android, these builds are suitable for general use.
 
-Android 16 QPR1 Beta 2 notably contains the developer preview of
-[*enhanced desktop windowing on connected
-displays*](https://android-developers.googleblog.com/2025/06/developer-preview-enhanced-android-desktop-experiences-connected-displays.html).
+Android 16 QPR1 Beta 2 notably contains the developer preview of [*enhanced desktop windowing on connected displays*](https://android-developers.googleblog.com/2025/06/developer-preview-enhanced-android-desktop-experiences-connected-displays.html).
 
 ## Top resolved issues
 
-Android 16 QPR1 Beta 2 resolves the top issues that are described in the
-following list and includes fixes for some issues that are not noted here.
+Android 16 QPR1 Beta 2 resolves the top issues that are described in the following list and includes fixes for some issues that are not noted here.
 
 - *Auto dark theme is not working* ([*Issue #394471802*](https://issuetracker.google.com/issues/394471802), [*Issue #419213868*](https://issuetracker.google.com/issues/419213868))
 - *Now playing is crashing when selecting a track* ([*Issue #421862329*](https://issuetracker.google.com/issues/421862329))
 - *Camera frequently fails to launch* ([*Issue #421870862*](https://issuetracker.google.com/issues/421870862))
-- *Shortcuts for newly-downloaded apps aren't automatically added* ([*Issue
-  #419320526*](https://issuetracker.google.com/issues/419320526))
+- *Shortcuts for newly-downloaded apps aren't automatically added* ([*Issue #419320526*](https://issuetracker.google.com/issues/419320526))
 - *Home button not working on app list UI* ([*Issue #419256078*](https://issuetracker.google.com/issues/419256078))
-- "*More wallpapers" button misaligned in wallpaper settings* ([*Issue
-  #419295443*](https://issuetracker.google.com/issues/419295443))
+- "*More wallpapers" button misaligned in wallpaper settings* ([*Issue #419295443*](https://issuetracker.google.com/issues/419295443))
 - *Gemini fails to work on the lockscreen* ([*Issue #421276731*](https://issuetracker.google.com/issues/421276731))
 
 **Android 16 QPR1 Beta 2.1 (June 2025)**
-
 
 This minor update to Android 16 QPR1 Beta 2 includes the following fixes:
 
@@ -216,34 +181,21 @@ This minor update to Android 16 QPR1 Beta 2 includes the following fixes:
 - The Android back button intermittently fails to function ([Issue #412691179](https://issuetracker.google.com/issues/412691179), [Issue #417434626](https://issuetracker.google.com/issues/4</li>17434626), [Issue #420283260](https://issuetracker.google.com/issues/420283260))
 - Fix for a launcher crash when swiping up from the bottom
 
-All eligible devices enrolled in the
-[Android Beta for Pixel program](https://g.co/androidbeta)
-will be offered an over-the-air (OTA) update to QPR Beta 2.1.
+All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) will be offered an over-the-air (OTA) update to QPR Beta 2.1.
 
 > [!NOTE]
 > **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
 
 ## About Android 16 QPR1 Beta 1 (May 2025)
 
-Building on the [initial release of Android 16](https://developer.android.com/about/versions/16), we continue to
-update the platform with fixes and improvements that are then rolled out to
-supported devices. These releases happen on a quarterly cadence through
-*Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to
-Google Pixel devices as part of *Feature Drops*.
+Building on the [initial release of Android 16](https://developer.android.com/about/versions/16), we continue to update the platform with fixes and improvements that are then rolled out to supported devices. These releases happen on a quarterly cadence through *Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to Google Pixel devices as part of *Feature Drops*.
 
-Although these updates don't include app-impacting API changes, we provide
-images of the latest QPR beta builds so you can test your app with these builds
-as needed (for example, if there are upcoming features that might impact the
-user experience of your app).
+Although these updates don't include app-impacting API changes, we provide images of the latest QPR beta builds so you can test your app with these builds as needed (for example, if there are upcoming features that might impact the user experience of your app).
 
-Unlike developer previews and betas for unreleased, major versions of Android,
-these builds are suitable for general use.
+Unlike developer previews and betas for unreleased, major versions of Android, these builds are suitable for general use.
 
-Android 16 QPR1 includes some of the [Material 3 Expressive changes](https://blog.google/products/android/material-3-expressive-android-wearos-launch/), with
-visual refreshes to notifications, quick settings, the lock screen, and the
-launcher.
+Android 16 QPR1 includes some of the [Material 3 Expressive changes](https://blog.google/products/android/material-3-expressive-android-wearos-launch/), with visual refreshes to notifications, quick settings, the lock screen, and the launcher.
 **Android 16 QPR1 Beta 1.1 (June 2025)**
-
 
 This minor update to Android 16 QPR1 Beta 1 includes the following fixes:
 
@@ -258,9 +210,7 @@ This minor update to Android 16 QPR1 Beta 1 includes the following fixes:
 - Fixed an issue where the date wasn't appearing on the homescreen
 - Fixed a fingerprint authentication failure on a multi-user Android device in certain low-power conditions
 
-All eligible devices enrolled in the
-[Android Beta for Pixel program](https://g.co/androidbeta)
-will be offered an over-the-air (OTA) update to QPR Beta 1.1.
+All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) will be offered an over-the-air (OTA) update to QPR Beta 1.1.
 
 > [!NOTE]
 > **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.

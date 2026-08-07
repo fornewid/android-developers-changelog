@@ -4,11 +4,7 @@ url: https://developer.android.com/ndk/guides/image-decoder
 source: md.txt
 ---
 
-The NDK [`ImageDecoder`](https://developer.android.com/ndk/reference/group/image-decoder) API provides a
-standard API for Android C/C++ apps to decode images directly. App developers no
-longer need to use the Java APIs (via JNI) or third-party image decoding
-libraries. This API, along with encoding functions in the
-[Bitmap](https://developer.android.com/ndk/reference/group/bitmap) module, enables the following:
+The NDK [`ImageDecoder`](https://developer.android.com/ndk/reference/group/image-decoder) API provides a standard API for Android C/C++ apps to decode images directly. App developers no longer need to use the Java APIs (via JNI) or third-party image decoding libraries. This API, along with encoding functions in the [Bitmap](https://developer.android.com/ndk/reference/group/bitmap) module, enables the following:
 
 - Native apps and libraries can be smaller because they no longer have to link their own decoding libraries.
 - Apps and libraries automatically benefit from platform security updates to decoding libraries.
@@ -18,8 +14,7 @@ This page describes how to use the API to decode an image.
 
 ## Availability and capability
 
-The `ImageDecoder` API is available on apps that target Android 11 (API level 30)
-or higher. The implementation is inside the following files:
+The `ImageDecoder` API is available on apps that target Android 11 (API level 30) or higher. The implementation is inside the following files:
 
 - `imagedecoder.h` for the decoder
 - `bitmap.h` for the encoder
@@ -41,9 +36,7 @@ The API supports the following image formats:
 
 - Digital negatives (via the DNG SDK)
 
-In order to cover all usages of the decoded raw images, this API does not
-provide higher level objects like those built on top of decoded images inside
-the Java framework, such as:
+In order to cover all usages of the decoded raw images, this API does not provide higher level objects like those built on top of decoded images inside the Java framework, such as:
 
 - [`Drawable` objects](https://developer.android.com/reference/android/graphics/drawable/Drawable).
 - [`NinePatch`](https://developer.android.com/reference/android/graphics/NinePatch): If present in an encoded image, NinePatch chunks are ignored.
@@ -52,17 +45,13 @@ the Java framework, such as:
 
 ## Decode an image
 
-Decoding starts with some form of input representing the encoded image.
-`AImageDecoder` accepts multiple types of input:
+Decoding starts with some form of input representing the encoded image. `AImageDecoder` accepts multiple types of input:
 
 - [`AAsset`](https://developer.android.com/ndk/reference/group/asset) (shown below)
 - File descriptor
 - Buffer
 
-The following code shows how to open an image `Asset` from a file, decode it,
-and then properly dispose of the decoder and asset. To see an example of
-rendering the decoded image, see the
-[teapot sample](https://github.com/android/ndk-samples/tree/develop/teapots/image-decoder/src/main/cpp/Texture.cpp#30).
+The following code shows how to open an image `Asset` from a file, decode it, and then properly dispose of the decoder and asset. To see an example of rendering the decoded image, see the [teapot sample](https://github.com/android/ndk-samples/tree/develop/teapots/image-decoder/src/main/cpp/Texture.cpp#30).
 
     AAssetManager* nativeManager = AAssetManager_fromJava(env, jAssets);
     const char* file = // Filename

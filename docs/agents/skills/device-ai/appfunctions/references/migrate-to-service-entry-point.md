@@ -4,10 +4,7 @@ url: https://developer.android.com/agents/skills/device-ai/appfunctions/referenc
 source: md.txt
 ---
 
-Follow this systematic procedure to migrate Android applications that use the
-AppFunctions API in version 1.0.0-alpha09 and lower to the compile-time
-`@AppFunctionServiceEntryPoint` architecture introduced in version
-`1.0.0-alpha10`.
+Follow this systematic procedure to migrate Android applications that use the AppFunctions API in version 1.0.0-alpha09 and lower to the compile-time `@AppFunctionServiceEntryPoint` architecture introduced in version `1.0.0-alpha10`.
 
 *** ** * ** ***
 
@@ -29,9 +26,7 @@ In version `1.0.0-alpha10` featuring `@AppFunctionServiceEntryPoint`:
 
 ### Strict migration requirements from 1.0.0-alpha09 to 1.0.0-alpha10
 
-When focusing solely on the mandatory API changes required by the new
-`@AppFunctionServiceEntryPoint` architecture, the migration consists of four
-strict requirements that you must complete:
+When focusing solely on the mandatory API changes required by the new `@AppFunctionServiceEntryPoint` architecture, the migration consists of four strict requirements that you must complete:
 
 1. **Build dependency consolidation** : Remove the merged `appfunctions-service` dependency while retaining core `appfunctions` and the KSP compiler.
 2. **Service wrapper creation** : Replace the legacy `AppFunctionConfiguration.Provider` on the `Application` class with an abstract class extending `AppFunctionService`, annotated with `@AppFunctionServiceEntryPoint`.
@@ -44,10 +39,7 @@ strict requirements that you must complete:
 
 ### Consolidate AppFunctions build dependencies
 
-Remove the standalone `appfunctions-service` library from your module build
-files like `build.gradle.kts` and version catalog like `libs.versions.toml`. In
-version `1.0.0-alpha10`, all core service capabilities are consolidated directly
-within the main `appfunctions` artifact.
+Remove the standalone `appfunctions-service` library from your module build files like `build.gradle.kts` and version catalog like `libs.versions.toml`. In version `1.0.0-alpha10`, all core service capabilities are consolidated directly within the main `appfunctions` artifact.
 
     // build.gradle.kts
     dependencies {
@@ -72,16 +64,13 @@ within the main `appfunctions` artifact.
 
 ### Create a dedicated wrapper service extending `AppFunctionService`
 
-Instead of annotating standalone business logic classes or implementing manual
-configuration providers, create an abstract service wrapper across your project,
-for example `BaseAppFunctionService`, extending `AppFunctionService` and
-annotated with `@AppFunctionServiceEntryPoint`.
+Instead of annotating standalone business logic classes or implementing manual configuration providers, create an abstract service wrapper across your project, for example `BaseAppFunctionService`, extending `AppFunctionService` and annotated with `@AppFunctionServiceEntryPoint`.
 
 #### Recommended approach using Hilt
 
-Annotate your service with `@AndroidEntryPoint` and inject your data
-repositories or use cases using standard `@Inject internal lateinit var`:
+Annotate your service with `@AndroidEntryPoint` and inject your data repositories or use cases using standard `@Inject internal lateinit var`:
 
+<br />
 
 ```kotlin
 @RequiresApi(36)
@@ -102,19 +91,16 @@ abstract class BaseAppFunctionService : AppFunctionService() {
         return messageRepository.send(name, endpointValue, messageBody)
     }
 }
+   
 ```
 
 <br />
 
 #### Framework-agnostic approach using alternative dependency injection or a service locator
 
-While Hilt is recommended, many Android applications implement AppFunctions with
-alternative dependency injection frameworks like Koin, Anvil, or manual Service
-Locators. Because `AppFunctionService` inherits from Android
-`android.app.Service` and therefore `Context`, you are able access your
-application's DI container directly through `applicationContext` in property
-getters or during service lifecycle execution:
+While Hilt is recommended, many Android applications implement AppFunctions with alternative dependency injection frameworks like Koin, Anvil, or manual Service Locators. Because `AppFunctionService` inherits from Android `android.app.Service` and therefore `Context`, you are able access your application's DI container directly through `applicationContext` in property getters or during service lifecycle execution:
 
+<br />
 
 ```kotlin
 @RequiresApi(36)
@@ -139,6 +125,7 @@ abstract class ServiceLocatorBaseAppFunctionService : AppFunctionService() {
         return messageRepository.send(name, endpointValue, messageBody)
     }
 }
+   
 ```
 
 <br />
@@ -150,10 +137,7 @@ abstract class ServiceLocatorBaseAppFunctionService : AppFunctionService() {
 
 ### Simplify method signatures and decouple context
 
-Remove legacy `AppFunctionContext` parameters from your core methods. When a
-method requires an Android `Context`, for example when constructing a
-`PendingIntent`, access `this` directly from your `AppFunctionService` wrapper
-because the wrapper inherently extends `android.content.Context`.
+Remove legacy `AppFunctionContext` parameters from your core methods. When a method requires an Android `Context`, for example when constructing a `PendingIntent`, access `this` directly from your `AppFunctionService` wrapper because the wrapper inherently extends `android.content.Context`.
 
     -   suspend fun makeCall(appFunctionContext: AppFunctionContext, contactName: String?): PendingIntent
     +   suspend fun makeCall(contactName: String?): PendingIntent
@@ -162,8 +146,7 @@ because the wrapper inherently extends `android.content.Context`.
 
 ### Remove legacy configuration provider
 
-Update your `Application` class by removing
-`AppFunctionConfiguration.Provider` and its associated builder entry points:
+Update your `Application` class by removing `AppFunctionConfiguration.Provider` and its associated builder entry points:
 
     -   abstract class BaseChatApplication : Application(), AppFunctionConfiguration.Provider { ... }
     +   abstract class BaseChatApplication : Application()
@@ -172,21 +155,15 @@ Update your `Application` class by removing
 
 ### Avoid redundant abstraction layers
 
-Don't attempt to make an `AppFunction` class or method OS-agnostic---AppFunctions
-are inherently part of the Android platform integration through the
-`androidx.appfunctions` package. For architectural cleanliness, use existing
-application functionality, such as existing repositories, use cases, or domain
-orchestrators, to execute the behavior within your `@AppFunction` methods rather
-than creating redundant abstraction layers around the OS service.
+Don't attempt to make an `AppFunction` class or method OS-agnostic---AppFunctions are inherently part of the Android platform integration through the `androidx.appfunctions` package. For architectural cleanliness, use existing application functionality, such as existing repositories, use cases, or domain orchestrators, to execute the behavior within your `@AppFunction` methods rather than creating redundant abstraction layers around the OS service.
 
 *** ** * ** ***
 
 ### Consolidate service and metadata manifest declarations
 
-Register the KSP-generated service declaration and `app_metadata` property
-inside your module manifest, for example in `src/main/AndroidManifest.xml`
-within the `<application>` tag:
+Register the KSP-generated service declaration and `app_metadata` property inside your module manifest, for example in `src/main/AndroidManifest.xml` within the `<application>` tag:
 
+<br />
 
 ```xml
 <service
@@ -207,6 +184,7 @@ within the `<application>` tag:
 <property
     android:name="android.app.appfunctions.app_metadata"
     android:resource="@xml/app_metadata" />
+   
 ```
 
 <br />
@@ -215,18 +193,7 @@ within the `<application>` tag:
 
 ## Verification and troubleshooting
 
-1. **Clean rebuild and deploy** : `bash
-   ./gradlew clean installDebug`
-2. **Verify AppSearch discovery / indexing** : Run the following ADB command to
-   confirm the OS successfully discovered and indexed your functions:
-   `bash
-   adb shell cmd app_function list-app-functions`
-   *If your package doesn't appear, confirm that `android.app.appfunctions.v2`
-   matches the exact asset name generated in `assets/`.*
+1. **Clean rebuild and deploy** : `bash ./gradlew clean installDebug`
+2. **Verify AppSearch discovery / indexing** : Run the following ADB command to confirm the OS successfully discovered and indexed your functions: `bash adb shell cmd app_function list-app-functions` *If your package doesn't appear, confirm that `android.app.appfunctions.v2` matches the exact asset name generated in `assets/`.*
 
-3. **Verify execution using ADB** :
-   `bash
-   adb shell "cmd app_function execute-app-function \
-   --package com.example.chatapp \
-   --function 'com.example.chatapp.appfunctions.BaseAppFunctionService#send' \
-   --parameters '{\"name\": \"Alice\", \"endpointValue\": \"1\", \"messageBody\": \"Hello Alice!\"}'"`
+3. **Verify execution using ADB** : `bash adb shell "cmd app_function execute-app-function \ --package com.example.chatapp \ --function 'com.example.chatapp.appfunctions.BaseAppFunctionService#send' \ --parameters '{\"name\": \"Alice\", \"endpointValue\": \"1\", \"messageBody\": \"Hello Alice!\"}'"`

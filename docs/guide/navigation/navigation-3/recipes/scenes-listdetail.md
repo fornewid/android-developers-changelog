@@ -174,6 +174,8 @@ class ListDetailSceneStrategy<T : Any>(val windowSizeClass: WindowSizeClass) : S
         )
     }
 }
+
+   
 ```
 
 ```
@@ -293,6 +295,7 @@ private fun NavBackStack<NavKey>.addDetail(detailRoute: ConversationDetail) {
     removeIf { it is ConversationDetail }
     add(detailRoute)
 }
+   
 ```
 
 ```
@@ -438,4 +441,5 @@ fun ProfileScreen() {
         )
     }
 }
+   
 ```

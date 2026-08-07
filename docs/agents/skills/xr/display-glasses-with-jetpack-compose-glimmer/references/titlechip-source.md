@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
 source: md.txt
 ---
 
-When creating a Glimmer Title Chip component, refer to the following source code
-in `TitleChip.kt`:
+When creating a Glimmer Title Chip component, refer to the following source code in `TitleChip.kt`:
 
+<br />
 
 ```kotlin
 /*
@@ -136,6 +136,8 @@ private val MinimumHeight = 44.dp
 
 /** Default maximum width for a [TitleChip] */
 private val MaximumWidth = 352.dp
+
+   
 ```
 
 <br />

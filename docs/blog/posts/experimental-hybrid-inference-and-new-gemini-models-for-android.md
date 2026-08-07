@@ -21,6 +21,7 @@ With the new [Firebase API for hybrid inference](https://firebase.google.com/doc
 
 It allows your app to dynamically switch between Gemini Nano running locally on the device and cloud-hosted Gemini models. The on-device execution uses ML Kit's Prompt API. The cloud inference supports all the Gemini models from Firebase AI Logic in both Vertex AI and the Developer API.  
 
+
 To use it, add the `firebase-ai-ondevice` dependencies to your app along with Firebase AI Logic:
 
 ```kotlin
@@ -47,7 +48,9 @@ val response = model.generateContent(prompt)
 
 The Firebase API for hybrid inference for Android is still experimental, and we encourage you to try it in your app, especially if you are already using Firebase AI Logic.   
 
+
 Currently, on-device models are specialized for single-turn text generation based on text or single Bitmap image inputs. Review the [limitations](https://firebase.google.com/docs/ai-logic/hybrid/android/get-started?api=dev#features-not-yet-available) for more details.  
+
 
 We just published a [new sample in the AI Sample Catalog leveraging the Firebase API for hybrid](https://github.com/android/ai-samples/tree/main/samples/gemini-hybrid), it demonstrates how the Firebase API for hybrid inference can be used to generate a review based on a few selected topics and then translating it into various languages. Check out the code to see it in action!
 ![Hybrid_Inference-Inline-imagery.gif](https://developer.android.com/static/blog/assets/Hybrid_Inference_Inline_imagery_36760c3326_l3eiI.webp) The new hybrid inference sample in action
@@ -59,6 +62,7 @@ We just published a [new sample in the AI Sample Catalog leveraging the Firebase
 As part of the new Gemini models, we've released two models particularly helpful to Android developers and easy to integrate in your application via the Firebase AI Logic SDK.
 
 **Nano Banana**   
+
 Last year we released Nano Banana, a state-of-the-art image generation model. And a few weeks ago, we released a couple new Nana Banana models.
 
 [Nano Banana Pro (Gemini 3 Pro Image)](https://deepmind.google/models/gemini-image/pro/) is designed for professional asset production and can render high-fidelity text, even in a specific font or simulating different types of handwriting.
@@ -66,6 +70,7 @@ Last year we released Nano Banana, a state-of-the-art image generation model. An
 [Nano Banana 2 (Gemini 3.1 Flash Image)](https://deepmind.google/models/gemini-image/flash/) is the high-efficiency counterpart to Nano Banana Pro. It's optimized for speed and high-volume use cases. It can be used for a broad range of use cases (infographics, virtual stickers, contextual illustrations, etc.). * *
 
 The new Nano Banana models leverage real-world knowledge and deep reasoning capabilities to generate precise and detailed images.  
+
 
 We updated our Magic Selfie sample (use image generation to change the background of your selfie!) to use Nano Banana 2. The background segmentation is now handled directly with the image generation model which makes the implementation easier and lets Nano Banana 2 improved image generation capabilities shine. See it in action [here](https://github.com/android/ai-samples/tree/main/samples/magic-selfie).
 ![magic_selfie.png](https://developer.android.com/static/blog/assets/magic_selfie_e5893f79e5_2ewAaS.webp) The updated Magic Selfie sample use Nanobana 2 to update a selfie background
@@ -76,7 +81,9 @@ You can use it via Firebase AI Logic SDK. Read more about it in the [Android doc
 
 We also released [Gemini 3.1 Flash-Lite](https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/), a new version of the Gemini Flash-Lite family. The Gemini Flash-Lite models have been particularly favored by Android developers for its good quality/latency ratio and low inference cost. It's been used by Android developers for various use-cases such as in-app messaging translation or generating a recipe from a picture of a dish.   
 
+
 Gemini 3.1 Flash-Lite, currently in preview, will enable more advanced use cases with latency comparable to Gemini 2.5 Flash-Lite.  
+
 
 To learn more about this model, review the [Firebase documentation](https://firebase.google.com/docs/ai-logic/models).
 
@@ -91,8 +98,7 @@ Written by:
 
   ###### Senior Developer Relations Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
 Continue reading
 - [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_O0qYl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -114,8 +120,5 @@ Continue reading
   [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

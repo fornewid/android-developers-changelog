@@ -4,15 +4,16 @@ url: https://developer.android.com/develop/ui/compose/text/display-text
 source: md.txt
 ---
 
-The most basic way to display text is to use the `Text` composable with a
-`String` as an argument:
+The most basic way to display text is to use the `Text` composable with a `String` as an argument:
 
+<br />
 
 ```kotlin
 @Composable
 fun SimpleText() {
     Text("Hello World")
 }
+   
 ```
 
 <br />
@@ -21,16 +22,16 @@ fun SimpleText() {
 
 ## Display text from resource
 
-We recommend you use [string resources](https://developer.android.com/develop/ui/compose/resources#strings)
-instead of hardcoding `Text` values, as you can share the same strings with your
-Android Views as well as preparing your app for internationalization:
+We recommend you use [string resources](https://developer.android.com/develop/ui/compose/resources#strings) instead of hardcoding `Text` values, as you can share the same strings with your Android Views as well as preparing your app for internationalization:
 
+<br />
 
 ```kotlin
 @Composable
 fun StringResourceText() {
     Text(stringResource(R.string.hello_world))
 }
+   
 ```
 
 <br />

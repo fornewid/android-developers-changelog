@@ -4,8 +4,7 @@ url: https://developer.android.com/develop/ui/compose/components/icon-button
 source: md.txt
 ---
 
-Icon buttons display actions that users can take. Icon buttons must use an icon
-with a clear meaning, and typically represent common or frequently used actions.
+Icon buttons display actions that users can take. Icon buttons must use an icon with a clear meaning, and typically represent common or frequently used actions.
 
 There are two types of icon buttons:
 
@@ -16,10 +15,7 @@ There are two types of icon buttons:
 
 ## API surface
 
-Use the [`IconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/IconButton.composable) composable to implement standard icon buttons. To
-create different visual styles like filled, filled tonal, or outlined, use
-[`FilledIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledIconButton.composable#FilledIconButton(kotlin.Function0,androidx.compose.material3.IconButtonShapes,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), [`FilledTonalIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledTonalIconButton.composable#FilledTonalIconButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), and
-[`OutlinedIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedIconButton.composable#OutlinedIconButton(kotlin.Function0,androidx.compose.material3.IconButtonShapes,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), respectively.
+Use the [`IconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/IconButton.composable) composable to implement standard icon buttons. To create different visual styles like filled, filled tonal, or outlined, use [`FilledIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledIconButton.composable#FilledIconButton(kotlin.Function0,androidx.compose.material3.IconButtonShapes,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), [`FilledTonalIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledTonalIconButton.composable#FilledTonalIconButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), and [`OutlinedIconButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedIconButton.composable#OutlinedIconButton(kotlin.Function0,androidx.compose.material3.IconButtonShapes,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.IconButtonColors,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)), respectively.
 
 The key parameters for `IconButton` include:
 
@@ -29,9 +25,9 @@ The key parameters for `IconButton` include:
 
 ## Basic example: Toggle icon button
 
-This example shows you how to implement a toggle icon button. A toggle icon
-button changes its appearance based on whether it's selected or unselected.
+This example shows you how to implement a toggle icon button. A toggle icon button changes its appearance based on whether it's selected or unselected.
 
+<br />
 
 ```kotlin
 @Preview
@@ -49,6 +45,7 @@ fun ToggleIconButtonExample() {
         )
     }
 }
+   
 ```
 
 <br />
@@ -66,16 +63,14 @@ fun ToggleIconButtonExample() {
 
 ### Result
 
-The following image shows the toggle icon button from the preceding snippet in
-its unselected state:
+The following image shows the toggle icon button from the preceding snippet in its unselected state:
 ![A favorite toggle icon button (a heart) in its unselected state (unfilled).](https://developer.android.com/static/develop/ui/compose/images/components/icon-button-basic.png) **Figure 2.** A "favorite" toggle icon button in its unselected state.
 
 ## Advanced example: Repeated actions on press
 
-This section demonstrates how to create icon buttons that continuously trigger
-an action while the user presses and holds them, rather than just triggering
-once per click.
+This section demonstrates how to create icon buttons that continuously trigger an action while the user presses and holds them, rather than just triggering once per click.
 
+<br />
 
 ```kotlin
 @Composable
@@ -109,6 +104,7 @@ fun MomentaryIconButton(
         )
     }
 }
+   
 ```
 
 <br />
@@ -125,9 +121,9 @@ fun MomentaryIconButton(
   - If `isPressed` is true, the `selectedImage` is shown.
   - Otherwise, the `unselectedImage` is shown.
 
-Next, use this `MomentaryIconButton` in an example. The following snippet
-demonstrates two icon buttons controlling a counter:
+Next, use this `MomentaryIconButton` in an example. The following snippet demonstrates two icon buttons controlling a counter:
 
+<br />
 
 ```kotlin
 @Preview()
@@ -158,6 +154,7 @@ fun MomentaryIconButtonExample() {
         )
     }
 }
+   
 ```
 
 <br />

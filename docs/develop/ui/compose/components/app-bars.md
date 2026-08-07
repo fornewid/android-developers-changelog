@@ -4,9 +4,7 @@ url: https://developer.android.com/develop/ui/compose/components/app-bars
 source: md.txt
 ---
 
-App bars are containers that provide the user access to key features and
-navigation items. There are two types of app bars, top app bars and bottom app
-bars. Their respective appearance and purpose are as follows:
+App bars are containers that provide the user access to key features and navigation items. There are two types of app bars, top app bars and bottom app bars. Their respective appearance and purpose are as follows:
 
 | Type | Appearance | Purpose |
 |---|---|---|
@@ -15,10 +13,7 @@ bars. Their respective appearance and purpose are as follows:
 
 ![An example of a top and bottom app bar.](https://developer.android.com/static/develop/ui/compose/images/components/appbars.svg) **Figure 1.** A top app bar (left) and a bottom app bar (right).
 
-To implement a top app bar and bottom app bar, use the [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable#TopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) and
-[`BottomAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/BottomAppBar.composable#BottomAppBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composables, respectively. They let you create consistent
-interfaces that encapsulate navigation and action controls, and which are
-aligned with Material Design principles.
+To implement a top app bar and bottom app bar, use the [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable#TopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) and [`BottomAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/BottomAppBar.composable#BottomAppBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composables, respectively. They let you create consistent interfaces that encapsulate navigation and action controls, and which are aligned with Material Design principles.
 
 > [!IMPORTANT]
 > **Important:** App bars are generally passed to the `Scaffold` composable, which has specific parameters to receive them. For more information about how `Scaffold` provides a convenient way of structuring your app, visit the [`Scaffold` page](https://developer.android.com/develop/ui/compose/components/scaffold).
@@ -36,8 +31,7 @@ The following table outlines the four types of top app bars:
 
 ### API surface
 
-The various composables that allow you to implement the four different top app
-bars are quite similar. They share several key parameters:
+The various composables that allow you to implement the four different top app bars are quite similar. They share several key parameters:
 
 - `title`: The text that appears across the app bar.
 - `navigationIcon`: The primary icon for navigation. Appears on the left of the app bar.
@@ -47,10 +41,7 @@ bars are quite similar. They share several key parameters:
 
 ### Scroll behavior
 
-You can control how the app bar responds when the user scrolls the given
-scaffold's inner content. To do so, create an instance of
-[`TopAppBarScrollBehavior`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarScrollBehavior) and pass it to your top app bar for the
-`scrollBehavior` parameter.
+You can control how the app bar responds when the user scrolls the given scaffold's inner content. To do so, create an instance of [`TopAppBarScrollBehavior`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarScrollBehavior) and pass it to your top app bar for the `scrollBehavior` parameter.
 
 There are three types of `TopAppBarScrollBehavior`. They are as follows:
 
@@ -62,18 +53,15 @@ The following examples implement several of these options.
 
 ### Examples
 
-The following sections provide implementations for the four different types of
-top app bars, including varying examples of how you can control scroll behavior.
+The following sections provide implementations for the four different types of top app bars, including varying examples of how you can control scroll behavior.
 
 #### Small
 
-To create a small top app bar, use the [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable#TopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable. The
-following example implements a basic top app bar that contains only a title.
+To create a small top app bar, use the [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable#TopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable. The following example implements a basic top app bar that contains only a title.
 
-The following example does not pass `TopAppBar` a value for
-`scrollBehavior` and it therefore does not react to scrolling of the inner
-content.
+The following example does not pass `TopAppBar` a value for `scrollBehavior` and it therefore does not react to scrolling of the inner content.
 
+<br />
 
 ```kotlin
 @Composable
@@ -94,6 +82,7 @@ fun SmallTopAppBarExample() {
         ScrollContent(innerPadding)
     }
 }
+   
 ```
 
 <br />
@@ -103,14 +92,11 @@ This implementation appears as follows:
 
 #### Center aligned
 
-The center aligned top app bar is essentially the same as the small app bar,
-though the title is centered within the component. To implement it, use the
-dedicated [`CenterAlignedTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CenterAlignedTopAppBar.composable#CenterAlignedTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable.
+The center aligned top app bar is essentially the same as the small app bar, though the title is centered within the component. To implement it, use the dedicated [`CenterAlignedTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CenterAlignedTopAppBar.composable#CenterAlignedTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable.
 
-This example uses `enterAlwaysScrollBehavior()` to get the value that it passes
-for `scrollBehavior`. As such, the bar collapses when the user scrolls the
-scaffold's inner content.
+This example uses `enterAlwaysScrollBehavior()` to get the value that it passes for `scrollBehavior`. As such, the bar collapses when the user scrolls the scaffold's inner content.
 
+<br />
 
 ```kotlin
 @Composable
@@ -156,6 +142,7 @@ fun CenterAlignedTopAppBarExample() {
         ScrollContent(innerPadding)
     }
 }
+   
 ```
 
 <br />
@@ -165,12 +152,11 @@ This implementation appears as follows:
 
 #### Medium
 
-The medium top app bar places the title beneath any additional icons. To create
-one, use the [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MediumTopAppBar.composable#MediumTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable.
+The medium top app bar places the title beneath any additional icons. To create one, use the [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MediumTopAppBar.composable#MediumTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable.
 
-Like the previous snippet, this example uses `enterAlwaysScrollBehavior()` to
-get the value that it passes for `scrollBehavior`.
+Like the previous snippet, this example uses `enterAlwaysScrollBehavior()` to get the value that it passes for `scrollBehavior`.
 
+<br />
 
 ```kotlin
 @Composable
@@ -215,26 +201,21 @@ fun MediumTopAppBarExample() {
         ScrollContent(innerPadding)
     }
 }
+   
 ```
 
 <br />
 
-This implementation appears as follows, with a demonstration of how the scroll
-behavior from `enterAlwaysScrollBehavior()` appears:
+This implementation appears as follows, with a demonstration of how the scroll behavior from `enterAlwaysScrollBehavior()` appears:
 **Figure 4.** A medium top app bar that collapses as the user scrolls up and expands as the user scrolls down.
 
 #### Large
 
-A large top app bar is similar to the medium, though the padding between the
-title and the icons is greater and it occupies more space on screen overall. To
-create one, use the [`LargeTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LargeTopAppBar.composable#LargeTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable.
+A large top app bar is similar to the medium, though the padding between the title and the icons is greater and it occupies more space on screen overall. To create one, use the [`LargeTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LargeTopAppBar.composable#LargeTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable.
 
-Unlike the preceding snippets, this example uses
-`exitUntilCollapsedScrollBehavior()` to get the value that it passes for
-`scrollBehavior`. As such, the bar collapses when the user scrolls the
-scaffold's inner content, but then expands when the user scrolls to the end of
-the inner content.
+Unlike the preceding snippets, this example uses `exitUntilCollapsedScrollBehavior()` to get the value that it passes for `scrollBehavior`. As such, the bar collapses when the user scrolls the scaffold's inner content, but then expands when the user scrolls to the end of the inner content.
 
+<br />
 
 ```kotlin
 @Composable
@@ -279,6 +260,7 @@ fun LargeTopAppBarExample() {
         ScrollContent(innerPadding)
     }
 }
+   
 ```
 
 <br />
@@ -288,14 +270,12 @@ This implementation appears as follows:
 
 ## Bottom app bar
 
-To create a bottom app bar, use the `BottomAppBar` composable. Using this
-composable is quite similar to the top app bar composables described in the
-preceding sections of this page. You pass composables for the following key
-parameters:
+To create a bottom app bar, use the `BottomAppBar` composable. Using this composable is quite similar to the top app bar composables described in the preceding sections of this page. You pass composables for the following key parameters:
 
 - `actions`: A series of icons that appear on the left side of the bar. These are commonly either key actions for the given screen, or navigation items.
 - `floatingActionButton`: The floating action button that appears on the right side of the bar.
 
+<br />
 
 ```kotlin
 @Composable
@@ -344,6 +324,7 @@ fun BottomAppBarExample() {
         )
     }
 }
+   
 ```
 
 <br />

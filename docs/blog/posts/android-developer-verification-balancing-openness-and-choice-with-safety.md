@@ -32,9 +32,11 @@ This flow is **a one-time** process for power users -- but it was designed caref
 
 We know a "one size fits all" approach doesn't work for our diverse ecosystem. We want to ensure that identity verification isn't a barrier to entry, so we're providing different paths to fit your specific needs.  
 
+
 In addition to the advanced flow we're building free, limited distribution accounts for students and hobbyists. This allows you to share apps with a small group (up to 20 devices) without needing to provide a government-issued ID or pay a registration fee. This ensures Android remains an open platform for learning and experimentation while maintaining robust protections for the broader community.
 
 <br />
+
 
 Limited distribution accounts and advanced flow for users will be available in August before the new developer verification requirements take effect.
 
@@ -48,8 +50,7 @@ Written by:
 
   ###### Director, Product Management
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)
 Continue reading
 - [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -81,8 +82,5 @@ Continue reading
   - +2 ↩
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

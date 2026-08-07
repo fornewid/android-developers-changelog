@@ -4,28 +4,19 @@ url: https://developer.android.com/develop/ui/compose/styles/performance
 source: md.txt
 ---
 
-By design, Styles operate in the layout and drawing phase of Compose. This
-avoids the need to create lambda-based modifiers as Styles always skip the
-composition phase.
+By design, Styles operate in the layout and drawing phase of Compose. This avoids the need to create lambda-based modifiers as Styles always skip the composition phase.
 ![Phases of Compose and where Styles
 run](https://developer.android.com/static/develop/ui/compose/styles/images/phases_compose_styles_skips.png) **Figure 1.** Phases of Compose and where Styles run.
 
-The performance improvements over modifiers come from three primary
-optimizations:
+The performance improvements over modifiers come from three primary optimizations:
 
 - **Phase shifting**: Styles often target the Draw phase. When a value changes, Compose invalidates only the affected phase (e.g., Redraw) instead of triggering a full Recomposition or Relayout.
 - **Lazy allocation**: Styles defer animation resource allocation until an animation actually starts. This reduces the work required during initial composition.
 - **Reduced object overhead**: Chained modifiers allocate an object for every property (e.g., padding, border). Styles use a single lambda to apply multiple properties, significantly reducing memory allocations. If a Style is defined in a theme, that lambda is shared across all components using that theme.
 
-The following table shows illustrative results of internal [performance
-benchmarks](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/foundation/foundation/benchmark/src/androidTest/java/androidx/compose/foundation/benchmark/StyleBenchmark.kt) for Compose 1.11.0-alpha06 of Styles, in comparison
-to an implementation in Compose without Styles.
+The following table shows illustrative results of internal [performance benchmarks](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/foundation/foundation/benchmark/src/androidTest/java/androidx/compose/foundation/benchmark/StyleBenchmark.kt) for Compose 1.11.0-alpha06 of Styles, in comparison to an implementation in Compose without Styles.
 
-The
-`basic_box_border_change` test highlights the style system's strength in
-avoiding the allocation of multiple modifier objects during property updates,
-resulting in a massive \~77% reduction in allocations, and \~59% reduction in
-time.
+The `basic_box_border_change` test highlights the style system's strength in avoiding the allocation of multiple modifier objects during property updates, resulting in a massive \~77% reduction in allocations, and \~59% reduction in time.
 
 |---|---|---|---|
 | **Test Method** | **Description** | **Time Change** | **Allocation Change** |

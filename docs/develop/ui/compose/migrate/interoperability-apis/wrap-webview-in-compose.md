@@ -4,8 +4,7 @@ url: https://developer.android.com/develop/ui/compose/migrate/interoperability-a
 source: md.txt
 ---
 
-To use a `WebView` in Jetpack Compose, you must wrap it in an `AndroidView`.
-This guide explains common use cases and how to support them in Compose.
+To use a `WebView` in Jetpack Compose, you must wrap it in an `AndroidView`. This guide explains common use cases and how to support them in Compose.
 
 > [!WARNING]
 > **Warning:** If you have complex use cases for `WebView`, we recommend not migrating that layout to use Compose until the Compose `WebView` equivalent is available. Follow the [issue](https://issuetracker.google.com/329866164) for more information and to track the progress of new API support.
@@ -14,6 +13,7 @@ This guide explains common use cases and how to support them in Compose.
 
 To use a `WebView` in Compose, wrap it with an `AndroidView`:
 
+<br />
 
 ```kotlin
 @Composable
@@ -32,30 +32,23 @@ fun SimpleWebView(
         }
     )
 }
+   
 ```
 
 <br />
 
-This works for showing a simple URL within your app. However, `WebView` deals
-with complex state lifecycles that are separate from the Android View
-lifecycle and Compose lifecycle. Integrating Compose can introduce complex
-`WebView` scenarios that result in difficult bugs. The following sections
-describe use cases that may need specific handling to support those features.
+This works for showing a simple URL within your app. However, `WebView` deals with complex state lifecycles that are separate from the Android View lifecycle and Compose lifecycle. Integrating Compose can introduce complex `WebView` scenarios that result in difficult bugs. The following sections describe use cases that may need specific handling to support those features.
 
 ## Persist WebView state
 
-Handling configuration changes and navigation in Compose is challenging because
-`WebView` is a legacy `View` bound to its host `Activity`, and it is
-**not recommended** that its instance outlive the `Activity` lifecycle.
+Handling configuration changes and navigation in Compose is challenging because `WebView` is a legacy `View` bound to its host `Activity`, and it is **not recommended** that its instance outlive the `Activity` lifecycle.
 
-Therefore, the standard way to persist a `WebView`'s state is by allowing
-`WebView` instances to be destroyed and recreated along with the `Activity`. You
-can manually persist its internal navigation history and scroll state using a
-`Bundle`.
+Therefore, the standard way to persist a `WebView`'s state is by allowing `WebView` instances to be destroyed and recreated along with the `Activity`. You can manually persist its internal navigation history and scroll state using a `Bundle`.
 
 > [!NOTE]
 > **Note:** For apps with Compose-only activities, you should ideally avoid Activity recreation altogether by handling configuration changes in the manifest (see [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes)). Handling changes directly improves performance and helps preserve the `WebView`'s internal state.
 
+<br />
 
 ```kotlin
 @Composable
@@ -85,6 +78,7 @@ fun PersistentWebView(url: String) {
         modifier = Modifier.fillMaxSize()
     )
 }
+   
 ```
 
 <br />
@@ -94,12 +88,11 @@ fun PersistentWebView(url: String) {
 
 ## Handle back navigation
 
-When a `WebView` has navigation history, the system back gesture should navigate
-backward within the `WebView` rather than exiting the screen.
+When a `WebView` has navigation history, the system back gesture should navigate backward within the `WebView` rather than exiting the screen.
 
-Use the Compose [`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/BackHandler.composable) API to intercept the system back event, and
-call the `WebView` `goBack()` function:
+Use the Compose [`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/BackHandler.composable) API to intercept the system back event, and call the `WebView` `goBack()` function:
 
+<br />
 
 ```kotlin
 // ...
@@ -151,6 +144,7 @@ fun BackNavigationDemoScreen(onBack: () -> Unit) {
         }
     }
 }
+   
 ```
 
 <br />
@@ -159,21 +153,15 @@ This implementation provides browser-style navigation behavior.
 
 ## Nested scrolling
 
-Nested scrolling is not easily supported when using `WebView` in Compose. When
-placing a `WebView` inside a scrollable Compose container, such as a
-`LazyColumn`, the `WebView` may consume all scroll gestures.
-Since `WebView` relies on its own internal rendering engine, nesting it with
-`LazyColumn` does not currently work properly.
+Nested scrolling is not easily supported when using `WebView` in Compose. When placing a `WebView` inside a scrollable Compose container, such as a `LazyColumn`, the `WebView` may consume all scroll gestures. Since `WebView` relies on its own internal rendering engine, nesting it with `LazyColumn` does not currently work properly.
 
-To track the progress of official nested scrolling support for `WebView`, see
-this [issue](https://issuetracker.google.com/issues/148731508).
+To track the progress of official nested scrolling support for `WebView`, see this [issue](https://issuetracker.google.com/issues/148731508).
 
 ## Edge-to-edge layouts and window insets
 
-When using edge-to-edge layouts, `WebView` content may appear underneath system
-bars such as the status bar. You can use the `windowInsetsPadding` modifier to
-push the entire `WebView` into the safe area:
+When using edge-to-edge layouts, `WebView` content may appear underneath system bars such as the status bar. You can use the `windowInsetsPadding` modifier to push the entire `WebView` into the safe area:
 
+<br />
 
 ```kotlin
 @Composable
@@ -189,6 +177,7 @@ fun EdgeToEdgeDemo(url: String) {
         }
     )
 }
+   
 ```
 
 <br />
@@ -200,15 +189,11 @@ For more information on insets, see [Understand window insets in WebView](https:
 
 ## Synchronize app theme with WebView content
 
-When the application switches between light and dark mode, `WebView` content can
-update automatically without a page reload if handled correctly.
+When the application switches between light and dark mode, `WebView` content can update automatically without a page reload if handled correctly.
 
-If you own the web page content, to synchronize colors with the app's theme,
-handle the media query `prefers-color-scheme` to make sure your web page adapts
-to the selected theme.
+If you own the web page content, to synchronize colors with the app's theme, handle the media query `prefers-color-scheme` to make sure your web page adapts to the selected theme.
 
-To enable native elements like dropdowns and popups to detect and match your app
-theme, apply a `DayNight` style theme to your `Activity.`
+To enable native elements like dropdowns and popups to detect and match your app theme, apply a `DayNight` style theme to your `Activity.`
 
 <br />
 
@@ -223,6 +208,7 @@ theme, apply a `DayNight` style theme to your `Activity.`
 
 <br />
 
+<br />
 
 ```kotlin
 @Composable
@@ -261,36 +247,29 @@ fun ThemeSyncDemo(onBack: () -> Unit) {
         }
     )
 } 
+   
 ```
 
 <br />
 
-If the web page does not have a dark theme, or if you don't own the web content,
-[algorithmic darkening](https://developer.android.com/develop/ui/views/layout/webapps/dark-theme#algorithmic-darkening) may help force a dark theme. Modern websites that
-already have dark mode ignore this algorithm and use their own built-in styles
-instead.
+If the web page does not have a dark theme, or if you don't own the web content, [algorithmic darkening](https://developer.android.com/develop/ui/views/layout/webapps/dark-theme#algorithmic-darkening) may help force a dark theme. Modern websites that already have dark mode ignore this algorithm and use their own built-in styles instead.
 
 ## Handle web permissions in Compose
 
-When a web page requests hardware or data access (for example, camera,
-microphone, or location), `WebView` triggers specific callbacks in its
-`WebChromeClient`. You must handle these callbacks and ensure corresponding
-Android runtime permissions are granted.
+When a web page requests hardware or data access (for example, camera, microphone, or location), `WebView` triggers specific callbacks in its `WebChromeClient`. You must handle these callbacks and ensure corresponding Android runtime permissions are granted.
 
 ### Handle camera and microphone permissions
 
-When a web page requests camera or microphone access (for example, WebRTC or
-video recording), `WebView` calls `WebChromeClient.onPermissionRequest`.
+When a web page requests camera or microphone access (for example, WebRTC or video recording), `WebView` calls `WebChromeClient.onPermissionRequest`.
 
-However, before calling `grant()`, you must request the following Android
-runtime permissions:
+However, before calling `grant()`, you must request the following Android runtime permissions:
 
 - `Manifest.permission.CAMERA`
 - `Manifest.permission.RECORD_AUDIO`
 
-First, define a permission handler for `WebView` that keeps track of the
-`PermissionRequest` requested from `WebView`:
+First, define a permission handler for `WebView` that keeps track of the `PermissionRequest` requested from `WebView`:
 
+<br />
 
 ```kotlin
 class WebViewPermissionHandler(
@@ -334,16 +313,17 @@ class WebViewPermissionHandler(
         pendingRequest = null
     }
 }
+   
 ```
 
 <br />
 
-Next, create a composable that remembers the `WebViewPermissionHandler`. Use
-`rememberLauncherForActivityResult` to request permissions:
+Next, create a composable that remembers the `WebViewPermissionHandler`. Use `rememberLauncherForActivityResult` to request permissions:
 
 > [!NOTE]
 > **Note:** In production, the permission handler should also handle all the partial permission grants and denial use cases and provide UI feedback to the users. For more information, see [Request runtime permissions](https://developer.android.com/training/permissions/requesting).
 
+<br />
 
 ```kotlin
 @Composable
@@ -358,13 +338,14 @@ fun rememberWebViewPermissionHandler(): WebViewPermissionHandler {
         WebViewPermissionHandler(launcher).also { handlerState.value = it }
     }
 }
+   
 ```
 
 <br />
 
-Handle the permission from the `onPermissionRequest` callback. This launches the
-permission launcher:
+Handle the permission from the `onPermissionRequest` callback. This launches the permission launcher:
 
+<br />
 
 ```kotlin
 @Composable
@@ -389,6 +370,7 @@ fun WebViewPermissionScreen() {
         modifier = Modifier.fillMaxSize()
     )
 }
+   
 ```
 
 <br />
@@ -398,7 +380,4 @@ fun WebViewPermissionScreen() {
 
 ## Alternative to an embedded WebView
 
-If you prefer to avoid embedding `WebView`, Android provides other options for
-displaying web content, like [Chrome Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/guide-get-started). See [Use web content
-within your Android app](https://developer.android.com/develop/ui/views/layout/webapps) to understand how to choose the correct approach
-for your use cases (like browsing or authentication).
+If you prefer to avoid embedding `WebView`, Android provides other options for displaying web content, like [Chrome Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/guide-get-started). See [Use web content within your Android app](https://developer.android.com/develop/ui/views/layout/webapps) to understand how to choose the correct approach for your use cases (like browsing or authentication).

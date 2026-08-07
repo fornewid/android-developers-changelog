@@ -5,25 +5,15 @@ source: md.txt
 ---
 
 > [!CAUTION]
-> **Caution:** You are viewing the documentation for Play Age Signals version 0.0.3. Although this version continues to return responses, it's no longer receiving new updates and will be fully deprecated by October 31, 2026. To view the active and supported version, refer to [Play Age Signals documentation](https://developer.android.com/google/play/age-signals/use-age-signals-api).
+> **Caution:** You are viewing the documentation for Play Age Signals version 0.0.3. Although this version continues to return responses, it's no longer receiving new updates. To view the active and supported version, refer to [Play Age Signals documentation](https://developer.android.com/google/play/age-signals/use-age-signals-api).
 
-By using the Play Age Signals API (beta), you agree to the [terms of service](https://developer.android.com/google/play/age-signals/v3/overview#terms-service)
-and you agree to comply with all [Google Play developer policies](https://play.google/developer-content-policy/). To request
-the user's status and age range, you call the API from your app at runtime. The
-Play Age Signals API only returns data for users based in regions where Play is
-required by law to provide age category data.
+By using the Play Age Signals API (beta), you agree to the [terms of service](https://developer.android.com/google/play/age-signals/v3/overview#terms-service) and you agree to comply with all [Google Play developer policies](https://play.google/developer-content-policy/). To request the user's status and age range, you call the API from your app at runtime. The Play Age Signals API only returns data for users based in regions where Play is required by law to provide age category data.
 
-Play returns an age range based on the age bands defined by the applicable
-jurisdiction and regions. The default ages the API returns in applicable
-jurisdictions and regions are 0-12, 13-15, 16-17, and 18+ but [custom age
-ranges](https://developer.android.com/google/play/age-signals/v3/use-age-signals-api#custom-age-ranges) may be received. Google Play automatically updates cached age signals
-for a user within 2 to 8 weeks following the user's birthday.
+Play returns an age range based on the age bands defined by the applicable jurisdiction and regions. The default ages the API returns in applicable jurisdictions and regions are 0-12, 13-15, 16-17, and 18+ but [custom age ranges](https://developer.android.com/google/play/age-signals/v3/use-age-signals-api#custom-age-ranges) may be received. Google Play automatically updates cached age signals for a user within 2 to 8 weeks following the user's birthday.
 
 ## Integrate Play Age Signals API into your app
 
-The Play Age Signals API is supported on phones, foldables, and tablets running
-Android 6.0 (API level 23) and higher. To integrate the Play Age Signals API
-into your app, add the following dependency to your app's `build.gradle` file:
+The Play Age Signals API is supported on phones, foldables, and tablets running Android 6.0 (API level 23) and higher. To integrate the Play Age Signals API into your app, add the following dependency to your app's `build.gradle` file:
 
 `implementation 'com.google.android.play:age-signals:0.0.3'`
 
@@ -83,12 +73,9 @@ ageSignalsManager
 
 ### (Optional) Receive custom age ranges
 
-The default age ranges that the API returns in applicable jurisdictions and
-regions are 0-12, 13-15, 16-17, and 18+.
+The default age ranges that the API returns in applicable jurisdictions and regions are 0-12, 13-15, 16-17, and 18+.
 
-Alternatively, to customize the default age ranges according to your app's
-minimum ages, you can provide these minimum ages for your app on the [Age
-signals](https://play.google.com/console/developers/app/age-signals) page in your Google Play Console.
+Alternatively, to customize the default age ranges according to your app's minimum ages, you can provide these minimum ages for your app on the [Age signals](https://play.google.com/console/developers/app/age-signals) page in your Google Play Console.
 
 1. Go to the [Age signals](https://play.google.com/console/developers/app/age-signals) page in your Play Console.
 2. On the **Custom age ranges** tab, enter up to three minimum ages for your app. Minimum ages must be at least 2 years apart and can be changed once annually.
@@ -114,39 +101,34 @@ The age ranges returned will override the default API response. For example:
 
 ## Age signals responses
 
-The Play Age Signals API (beta) response includes the following fields and
-values. The values are subject to change. If you want the most recent values,
-request an API response when your app opens. You are responsible for providing
-age-appropriate experiences using these signals.
+The Play Age Signals API (beta) response includes the following fields and values. The values are subject to change. If you want the most recent values, request an API response when your app opens. You are responsible for providing age-appropriate experiences using these signals.
 
 | Response field | Values | Description |
-| `userStatus` | VERIFIED | Google verified the user's age using a commercially reasonable method such as a government-issued ID, credit card, or facial age estimation. If `userStatus` is `VERIFIED`, you can ignore the other fields. <br /> Use `ageLower` and `ageUpper` to determine the user's age range. |
-| `userStatus` | DECLARED | The user's age was declared by the user, their parent or legal guardian. <br /> Use `ageLower` and `ageUpper` to determine the user's age range. |
-| `userStatus` | SUPERVISED | The user has a supervised Google Account managed by a parent who sets their age. <br /> Use `ageLower` and `ageUpper` to determine the user's age range. <br /> Use `mostRecentApprovalDate` to determine the last significant change that was approved. |
-| `userStatus` | SUPERVISED_APPROVAL_PENDING | The user has a supervised Google Account, and their supervising parent has not yet approved one or more pending significant changes. <br /> Use `ageLower` and `ageUpper` to determine the user's age range. <br /> Use `mostRecentApprovalDate` to determine the last significant change that was approved. |
-| `userStatus` | SUPERVISED_APPROVAL_DENIED | The user has a supervised Google Account, and their supervising parent denied approval for one or more significant changes. <br /> Use `ageLower` and `ageUpper` to determine the user's age range. <br /> Use `mostRecentApprovalDate` to determine the last significant change that was approved. |
-| `userStatus` | UNKNOWN | The user's age is unknown and the user is in an applicable jurisdiction or region. <br /> **Applicable only to US states:** To obtain an age signal from Google Play, ask the user to visit the Play Store to resolve their status. |
-| `userStatus` | `null` | **Either** the user is not in applicable jurisdictions and regions. <br /> **Or** the user does not share their age with apps. |
-| `ageLower` | 0 to 18 | The (inclusive) lower bound of a supervised user's age range. <br /> Use the `ageLower` and `ageUpper` to determine the user's age range. |
+| `userStatus` | VERIFIED | Google verified the user's age using a commercially reasonable method such as a government-issued ID, credit card, or facial age estimation. If `userStatus` is `VERIFIED`, you can ignore the other fields. Use `ageLower` and `ageUpper` to determine the user's age range. |
+| `userStatus` | DECLARED | The user's age was declared by the user, their parent or legal guardian. Use `ageLower` and `ageUpper` to determine the user's age range. |
+| `userStatus` | SUPERVISED | The user has a supervised Google Account managed by a parent who sets their age. Use `ageLower` and `ageUpper` to determine the user's age range. Use `mostRecentApprovalDate` to determine the last significant change that was approved. |
+| `userStatus` | SUPERVISED_APPROVAL_PENDING | The user has a supervised Google Account, and their supervising parent has not yet approved one or more pending significant changes. Use `ageLower` and `ageUpper` to determine the user's age range. Use `mostRecentApprovalDate` to determine the last significant change that was approved. |
+| `userStatus` | SUPERVISED_APPROVAL_DENIED | The user has a supervised Google Account, and their supervising parent denied approval for one or more significant changes. Use `ageLower` and `ageUpper` to determine the user's age range. Use `mostRecentApprovalDate` to determine the last significant change that was approved. |
+| `userStatus` | UNKNOWN | The user's age is unknown and the user is in an applicable jurisdiction or region. **Applicable only to US states:** To obtain an age signal from Google Play, ask the user to visit the Play Store to resolve their status. |
+| `userStatus` | `null` | **Either** the user is not in applicable jurisdictions and regions. **Or** the user does not share their age with apps. |
+| `ageLower` | 0 to 18 | The (inclusive) lower bound of a supervised user's age range. Use the `ageLower` and `ageUpper` to determine the user's age range. |
 | `ageLower` | `null` | `userStatus` is unknown or `null`. |
-| `ageUpper` | 2 to 18 | The (inclusive) upper bound of a supervised user's age range. <br /> Use the `ageLower` and `ageUpper` to determine the user's age range. |
-| `ageUpper` | `null` | **Either** the `userStatus` is supervised and the user's parent attested age is over 18. <br /> **Or** the `userStatus` is unknown or `null`. |
+| `ageUpper` | 2 to 18 | The (inclusive) upper bound of a supervised user's age range. Use the `ageLower` and `ageUpper` to determine the user's age range. |
+| `ageUpper` | `null` | **Either** the `userStatus` is supervised and the user's parent attested age is over 18. **Or** the `userStatus` is unknown or `null`. |
 | `mostRecentApprovalDate` | Datestamp | The `effective from` date of the most recent significant change that was approved. When an app is installed, the date of the most recent significant change prior to install is used. |
-| `mostRecentApprovalDate` | `null` | **Either** the `userStatus` is supervised and no significant change has been submitted. <br /> **Or** `userStatus` is verified, unknown, or `null`. |
+| `mostRecentApprovalDate` | `null` | **Either** the `userStatus` is supervised and no significant change has been submitted. **Or** `userStatus` is verified, unknown, or `null`. |
 | `installID` | Play-generated alphanumeric ID. | An ID assigned to supervised user installs by Google Play, used for the purposes of notifying you of revoked app approval. Review the documentation for [revoked app approvals](https://developer.android.com/google/play/age-signals/v3/revoked-app-approval). |
 | `installID` | `null` | `userStatus` is verified, unknown, or `null`. |
 |---|---|---|
 
 ## Example responses for users in Brazil
 
-In Brazil, `userStatus` can only be `DECLARED`,
-`UNKNOWN`, or `null`.
+In Brazil, `userStatus` can only be `DECLARED`, `UNKNOWN`, or `null`.
 
 > [!NOTE]
 > **Note:** Use library version 0.0.3 or higher to receive `DECLARED` as a user status. Earlier library versions will return `null` instead of `DECLARED`.
 
-For a user who declared their age and shares it with apps, you would receive the
-following:
+For a user who declared their age and shares it with apps, you would receive the following:
 
 - `userStatus` would be `AgeSignalsVerificationStatus.DECLARED`.
 - `ageLower` would be a number (for example, 13).
@@ -163,15 +145,11 @@ For a user whose age isn't shared with apps, you would receive the following:
 - `userStatus` would be `null`.
 - Other response fields would be `null`.
 
-The user status can change to `DECLARED` once the user's age is
-available to share.
+The user status can change to `DECLARED` once the user's age is available to share.
 
 ## Example responses for users in US states
 
-In applicable US states, `userStatus` can be `VERIFIED`,
-`SUPERVISED`, `SUPERVISED_APPROVAL_PENDING`,
-`SUPERVISED_APPROVAL_DENIED`, `UNKNOWN`, or
-`null`.
+In applicable US states, `userStatus` can be `VERIFIED`, `SUPERVISED`, `SUPERVISED_APPROVAL_PENDING`, `SUPERVISED_APPROVAL_DENIED`, `UNKNOWN`, or `null`.
 
 For a verified user, you would receive the following:
 
@@ -188,8 +166,7 @@ For a supervised user, you would receive the following:
 - `mostRecentApprovalDate` would be a Java date object (for example, `2026-01-01`) or `null` (if no [significant change](https://developer.android.com/google/play/age-signals/v3/notify-significant-changes) has been approved).
 - `installID` would be a Play-generated alphanumeric ID (for example, `550e8400-e29b-41d4-a716-446655441111`).
 
-For a supervised user with a significant change approval pending, you would
-receive the following:
+For a supervised user with a significant change approval pending, you would receive the following:
 
 - `userStatus` would be `AgeSignalsVerificationStatus.SUPERVISED_APPROVAL_PENDING`.
 - `ageLower` would be a number (for example, 13).
@@ -199,15 +176,11 @@ receive the following:
 
 ## Handle API error codes
 
-If your app makes a Play Age Signals API request and the call fails, your app
-receives an error code. These errors can happen for various reasons, such as the
-Play Store app being out of date.
+If your app makes a Play Age Signals API request and the call fails, your app receives an error code. These errors can happen for various reasons, such as the Play Store app being out of date.
 
 ### Retry strategy
 
-In situations where the user is in session, we recommend implementing a retry
-strategy with a maximum number of attempts as an exit condition so that the
-error disrupts the user experience as little as possible.
+In situations where the user is in session, we recommend implementing a retry strategy with a maximum number of attempts as an exit condition so that the error disrupts the user experience as little as possible.
 
 | Numerical value of error code | Error Code | Description | Retryable |
 | -1 | API_NOT_AVAILABLE | The Play Age Signals API is not available. The Play Store app version installed on the device might be old. Possible resolution - Ask the user to update the Play Store. | Yes |

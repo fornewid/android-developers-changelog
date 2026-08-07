@@ -6,11 +6,7 @@ source: md.txt
 
 <br />
 
-Using page indicators, you can help your users understand their current position
-within your app's content, providing a visual indication of progress. These
-navigational cues are useful when you present content sequentially, such as
-carousel implementations, image galleries and slideshows, or pagination in
-lists.
+Using page indicators, you can help your users understand their current position within your app's content, providing a visual indication of progress. These navigational cues are useful when you present content sequentially, such as carousel implementations, image galleries and slideshows, or pagination in lists.
 
 ## Results
 
@@ -18,19 +14,17 @@ lists.
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or
-higher.
+This implementation requires that your project minSDK be set to API level 21 or higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/custom-page-indicator_90b94f6fc49da5d289b5455639aac6e3fffc24699727c9148b981cb0dd1fe670.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/custom-page-indicator_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a horizontal pager with a custom page indicator
 
-The following code creates a horizontal pager that has a page indicator, giving
-the user visual cues for how many pages there are and which page is
-visible:
+The following code creates a horizontal pager that has a page indicator, giving the user visual cues for how many pages there are and which page is visible:
 
+<br />
 
 ```kotlin
 val pagerState = rememberPagerState(pageCount = {
@@ -64,6 +58,7 @@ Row(
         )
     }
 }
+   
 ```
 
 <br />
@@ -79,8 +74,7 @@ Row(
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover
-broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display a list or grid

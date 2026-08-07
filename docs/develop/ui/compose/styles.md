@@ -9,19 +9,13 @@ source: md.txt
 
 [Video](https://www.youtube.com/watch?v=e-wlF3cmJms)
 
-The Style API is a new paradigm for customizing or "styling" elements and
-components in Jetpack Compose, which has traditionally been done through
-modifiers. It is designed to unlock deeper, easier customization.
+The Style API is a new paradigm for customizing or "styling" elements and components in Jetpack Compose, which has traditionally been done through modifiers. It is designed to unlock deeper, easier customization.
 
-The Styles API improves flexibility across form factors, provides better
-performance, and enables easier custom design system creation. Even if you don't
-need custom components, the Styles API has many benefits for your design system.
+The Styles API improves flexibility across form factors, provides better performance, and enables easier custom design system creation. Even if you don't need custom components, the Styles API has many benefits for your design system.
 
-An important distinction is that Styles are not a replacement for modifiers, but
-they do act as a replacement for styling parameters, such as padding and colors.
-We recommend transitioning to using Styles over parameters for increased
-flexibility and performance.
+An important distinction is that Styles are not a replacement for modifiers, but they do act as a replacement for styling parameters, such as padding and colors. We recommend transitioning to using Styles over parameters for increased flexibility and performance.
 
+<br />
 
 ## Android skills
 
@@ -53,12 +47,9 @@ Use the Styles [Android skill](https://developer.android.com/tools/agents/androi
 
 ## Get started: Add dependencies
 
-To use the APIs in your own project, make sure you are using the latest alpha
-release of Jetpack Compose foundation. In your `settings.gradle.kts` file, add
-the snapshot maven repository to the list of repositories to use.
+To use the APIs in your own project, make sure you are using the latest alpha release of Jetpack Compose foundation. In your `settings.gradle.kts` file, add the snapshot maven repository to the list of repositories to use.
 
-Either in your `libs.versions.toml` or directly in your `app/build.gradle.kts`
-file, set the version of Compose to `1.12.0-alpha03`:
+Either in your `libs.versions.toml` or directly in your `app/build.gradle.kts` file, set the version of Compose to `1.12.0-alpha03`:
 
     compose = "1.12.0-alpha03"
 

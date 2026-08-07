@@ -10,9 +10,11 @@ source: md.txt
 
 7 min read ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_1A0pVS.webp) 03 Mar 2026 [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) Developer Relations Engineer, Android We are excited to announce a major milestone in bringing mobile and desktop computing closer together on Android: connected display support has reached general availability with the [Android 16 QPR3](https://developer.android.com/about/versions/16/qpr3/release-notes) release!  
 
+
 As shown at [Google I/O 2025](https://www.youtube.com/watch?v=MmeJSLAnB-M), connected displays allow users to connect their Android devices to an external monitor and instantly access a desktop windowing environment. Apps can be used in free-form or maximized windows and users can multitask just like they would on a desktop OS.
 
 Google and Samsung have collaborated to bring a seamless and powerful desktop windowing experience to devices across the Android ecosystem running Android 16 while connected to an external display.   
+
 This is now generally available on supported devices\* to users who can connect their supported Pixel and Samsung phones to external monitors, enabling new opportunities for building more engaging and more productive app experiences that adapt across form factors.
 
 ### **How does it work?**
@@ -35,6 +37,7 @@ In the Android 16 QPR3 release, we finalized the windowing behaviors, taskbar in
 
 <br />
 
+
 If your app is built with [adaptive design principles](https://m3.material.io/foundations/adaptive-design), it will automatically have the desktop look and feel, and users will feel right at home. If the app is locked to portrait or assumes a touch-only interface, now is the time to modernize.
 
 In particular, pay attention to these key best practices for optimal app experiences on connected displays:
@@ -51,7 +54,9 @@ We provide several tools to help you build the desktop experience. Let's recap t
 
 The biggest update in [Jetpack WindowManager 1.5.0](https://developer.android.com/jetpack/androidx/releases/window#1.5.0) is the addition of two new width window size classes: Large and Extra-large.  
 
+
 Window size classes are our official, opinionated set of viewport breakpoints that help you design and develop adaptive layouts. With 1.5.0, we're extending this guidance for screens that go beyond the size of typical tablets.  
+
 
 Here are the new width breakpoints:
 
@@ -89,11 +94,15 @@ if(sizeClass.isWidthAtLeastBreakpoint(
 
 [Navigation 3](https://developer.android.com/guide/navigation/navigation-3) is the latest addition to the Jetpack collection. Navigation 3, which just reached its first stable release, is a powerful navigation library designed to work with Compose.  
 
+
 Navigation 3 is also a great tool for building adaptive layouts by allowing multiple destinations to be displayed at the same time and allowing seamless switching between those layouts.  
+
 
 This system for managing your app's UI flow is based on Scenes. A [Scene](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/Scene) is a layout that displays one or more destinations at the same time. A [SceneStrategy](https://developer.android.com/reference/androidx/navigation3/ui/SceneStrategy) determines whether it can create a Scene. Chaining SceneStrategy instances together allows you to create and display different scenes for different screen sizes and device configurations.  
 
+
 For out-of-the-box canonical layouts, like list-detail and supporting pane, you can [use the Scenes from the Compose Material 3 Adaptive library](https://developer.android.com/guide/navigation/navigation-3/custom-layouts#display-list-detail) (available in [version 1.3 and above](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#compose_material3_adaptive_version_13_2)).  
+
 
 It's also easy to build your own custom Scenes by [modifying the Scene recipes](https://github.com/android/nav3-recipes?tab=readme-ov-file#create-custom-scenes) or starting from scratch. For example, let's consider a Scene that displays three panes side by side:
 
@@ -164,6 +173,7 @@ NavDisplay(...,
 
 If there isn't enough space to display three or two panes---both our custom scene strategies return `null`. In this case, `NavDisplay` falls back to displaying the last entry in the back stack in a single pane using `SinglePaneScene`.   
 
+
 By using scenes and strategies, you can add one, two, and three pane layouts to your app!
 ![adaptivepane.gif](https://developer.android.com/static/blog/assets/adaptivepane_c2f34f0b31_2qrog2.webp)
 
@@ -204,16 +214,13 @@ Written by:
 
   ###### Developer Relations Engineer, Android
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/francesco-romano) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/francesco-romano) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)
 Continue reading
 - [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) 10 Oct 2025 10 Oct 2025 ![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Z20PMAS.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Jetpack WindowManager 1.5 is stable](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable)
 
-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) We're excited to announce that Jetpack WindowManager 1.5.0 is now stable!
-
-  This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
+  [arrow_forward](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) We're excited to announce that Jetpack WindowManager 1.5.0 is now stable! This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
   [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 2 min read
 - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -229,8 +236,5 @@ Continue reading
   [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

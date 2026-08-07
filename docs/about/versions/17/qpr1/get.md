@@ -14,29 +14,17 @@ You can get Android 17 QPR 1 in any of the following ways:
 
 ## Get Android 17 Beta on a Google Pixel device
 
-To get Android 17 QPR 1 on a supported Google Pixel device, [enroll your device in the
-Android Beta for Pixel program](https://g.co/androidbeta).
+To get Android 17 QPR 1 on a supported Google Pixel device, [enroll your device in the Android Beta for Pixel program](https://g.co/androidbeta).
 
 <br />
 
-Enrolling is a simple and fast process, and it's highly recommended for early
-adopters and developers. In most cases, you don't need to do a full reset of
-your data to move to the Android 17 QPR 1 Beta, but it's recommended that you back up
-data before enrolling your device.
+Enrolling is a simple and fast process, and it's highly recommended for early adopters and developers. In most cases, you don't need to do a full reset of your data to move to the Android 17 QPR 1 Beta, but it's recommended that you back up data before enrolling your device.
 
-Once enrolled, your device will receive regular over-the-air (OTA) updates for
-the duration of the platform's release cycle---including Quarterly Platform
-Releases (QPRs)---unless you opt out earlier.
+Once enrolled, your device will receive regular over-the-air (OTA) updates for the duration of the platform's release cycle---including Quarterly Platform Releases (QPRs)---unless you opt out earlier.
 
-During the Android Beta for Pixel program's release cycle, there are four stable
-releases to the public (the official platform release followed by three
-Quarterly Platform Releases). When you apply a stable release update, you can
-opt out of future Beta updates **without a data wipe** for a limited time (until
-you apply the next Beta update, if you choose to do so).
+During the Android Beta for Pixel program's release cycle, there are four stable releases to the public (the official platform release followed by three Quarterly Platform Releases). When you apply a stable release update, you can opt out of future Beta updates **without a data wipe** for a limited time (until you apply the next Beta update, if you choose to do so).
 
-
-[Enroll in Android 17 QPR 1 Beta for
-Pixel](https://www.google.com/android/beta)
+[Enroll in Android 17 QPR 1 Beta for Pixel](https://www.google.com/android/beta)
 
 ### Supported Google Pixel devices
 
@@ -66,8 +54,7 @@ Android 17 QPR 1 OTAs and downloads are available for the following Pixel device
 
 ### Flash or manually install a system image
 
-Alternatively, if you'd rather flash your device, we recommend using the [Android Flash
-Tool](https://flash.android.com/preview/cinnamonbun-qpr1-beta8). If you need to flash your device manually for some other reason, you can get an Android 17 QPR 1 system image for your device on the [Pixel downloads page](https://developer.android.com/about/versions/17/qpr1/download). See the general instructions on the downloads page for how to flash a system image to your device. This approach can be useful when you need more control over testing, such as for automated testing or regression testing. Android 17 QPR 1 Beta images are available for [supported Pixel devices](https://developer.android.com/about/versions/17/qpr1/get#google-pixel-devices).
+Alternatively, if you'd rather flash your device, we recommend using the [Android Flash Tool](https://flash.android.com/preview/cinnamonbun-qpr1-beta8). If you need to flash your device manually for some other reason, you can get an Android 17 QPR 1 system image for your device on the [Pixel downloads page](https://developer.android.com/about/versions/17/qpr1/download). See the general instructions on the downloads page for how to flash a system image to your device. This approach can be useful when you need more control over testing, such as for automated testing or regression testing. Android 17 QPR 1 Beta images are available for [supported Pixel devices](https://developer.android.com/about/versions/17/qpr1/get#google-pixel-devices).
 
 <br />
 
@@ -76,12 +63,9 @@ Tool](https://flash.android.com/preview/cinnamonbun-qpr1-beta8). If you need to 
 
 ## Set up the Android Emulator
 
-Configuring the Android Emulator to run Android 17 is a flexible solution for
-exploring new features and APIs and testing Android 17 behavior changes. It
-lets you emulate various screen sizes and device characteristics.
+Configuring the Android Emulator to run Android 17 is a flexible solution for exploring new features and APIs and testing Android 17 behavior changes. It lets you emulate various screen sizes and device characteristics.
 
-Depending on the type of testing you need to do, consider setting up a variety
-of virtual devices from these device categories:
+Depending on the type of testing you need to do, consider setting up a variety of virtual devices from these device categories:
 
 - [Phone](https://developer.android.com/about/versions/17/qpr1/get#phone-avd)
 - [Tablet or large-screen device](https://developer.android.com/about/versions/17/qpr1/get#large-screen-avd)
@@ -93,102 +77,62 @@ To set up a virtual device to emulate a typical phone, follow these steps:
 1. Install [Android Studio Meerkat \| 2024.3.1](https://developer.android.com/studio).
 2. In Android Studio, click **Tools \> SDK Manager**.
 3. In the **SDK Tools tab** , select the latest version of **Android Emulator** , and then click the **OK** button. This action installs the latest version if it isn't already installed.
-4. In Android Studio, click **Tools \> Device Manager** . In the
-   **Device Manager** panel, click the
-   **Add a new device** button ![Add new device
-   icon](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png),
-   then select **Create Virtual Device**.
+4. In Android Studio, click **Tools \> Device Manager** . In the **Device Manager** panel, click the **Add a new device** button ![Add new device
+   icon](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png), then select **Create Virtual Device**.
 
    ![Create an Android Virtual Device in Android
    Studio](https://developer.android.com/static/about/versions/17/images/17-create-avd.png)
-5. From the **Phone Category tab** , select a device definition for a
-   [supported Pixel device](https://developer.android.com/about/versions/17/qpr1/get#on_pixel), then click the **Next** button.
+5. From the **Phone Category tab** , select a device definition for a [supported Pixel device](https://developer.android.com/about/versions/17/qpr1/get#on_pixel), then click the **Next** button.
 
-6. Find the Android 17 system image, named **CinnamonBun** , and click the
-   **Download** button ![Download
-   icon](https://developer.android.com/static/about/versions/17/images/17-studio-download.png)
-   next to the **Release Name** . After the download completes, select
-   this system image, and then click the **Next** button.
+6. Find the Android 17 system image, named **CinnamonBun** , and click the **Download** button ![Download
+   icon](https://developer.android.com/static/about/versions/17/images/17-studio-download.png) next to the **Release Name** . After the download completes, select this system image, and then click the **Next** button.
 
-7. Finalize other settings for your virtual device, and then click the
-   **Finish** button.
+7. Finalize other settings for your virtual device, and then click the **Finish** button.
 
-8. After returning to the list of virtual devices in the **Device Manager** ,
-   find your Android 17 virtual device, and then click the **Start** button
-   ![Start button icon](https://developer.android.com/static/about/versions/17/images/17-launch-avd-icon.png).
+8. After returning to the list of virtual devices in the **Device Manager** , find your Android 17 virtual device, and then click the **Start** button ![Start button icon](https://developer.android.com/static/about/versions/17/images/17-launch-avd-icon.png).
 
 ### Set up a virtual device (tablet or large-screen)
 
-To set up a virtual device to emulate a tablet or other large-screen device,
-follow these steps:
+To set up a virtual device to emulate a tablet or other large-screen device, follow these steps:
 
 1. Install [Android Studio Meerkat \| 2024.3.1](https://developer.android.com/studio).
 2. In Android Studio, click **Tools \> SDK Manager**.
 3. In the **SDK Tools tab** , select the latest version of **Android Emulator** , and then click the **OK** button. This action installs the latest version if it isn't already installed.
-4. In Android Studio, click **Tools \> Device Manager** . In the **Device
-   Manager** panel, click the **Add a new device** button ![Add new device
-   icon](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png),
-   then select **Create Virtual Device**.
+4. In Android Studio, click **Tools \> Device Manager** . In the **Device Manager** panel, click the **Add a new device** button ![Add new device
+   icon](https://developer.android.com/static/studio/images/buttons/ic_plus_dark.png), then select **Create Virtual Device**.
 
    ![Create an Android Virtual Device in Android
    Studio](https://developer.android.com/static/about/versions/17/images/17-create-avd.png)
-5. From the **Tablet Category tab** , select a device definition with a large
-   screen, such as the **Pixel Tablet** , or from the **Phone Category tab** ,
-   select the **Pixel Fold** . Then, click the **Next** button.
+5. From the **Tablet Category tab** , select a device definition with a large screen, such as the **Pixel Tablet** , or from the **Phone Category tab** , select the **Pixel Fold** . Then, click the **Next** button.
 
-6. Find the Android 17 system image, named **CinnamonBun** , and click the
-   **Download** button ![Download
-   icon](https://developer.android.com/static/about/versions/17/images/17-studio-download.png)
-   next to the **Release Name** . After the download completes, select
-   this system image, and then click the **Next** button.
+6. Find the Android 17 system image, named **CinnamonBun** , and click the **Download** button ![Download
+   icon](https://developer.android.com/static/about/versions/17/images/17-studio-download.png) next to the **Release Name** . After the download completes, select this system image, and then click the **Next** button.
 
-7. Finalize other settings for your virtual device, and then click the
-   **Finish** button.
+7. Finalize other settings for your virtual device, and then click the **Finish** button.
 
-8. After returning to the list of virtual devices in the **Device Manager** ,
-   find your Android 17 virtual device, and then click the **Start** button
-   ![Start button
+8. After returning to the list of virtual devices in the **Device Manager** , find your Android 17 virtual device, and then click the **Start** button ![Start button
    icon](https://developer.android.com/static/about/versions/17/images/17-launch-avd-icon.png).
 
-Repeat these steps to create large screen device definitions that you can use to
-test your app in a variety of large screen scenarios.
+Repeat these steps to create large screen device definitions that you can use to test your app in a variety of large screen scenarios.
 
 #### Resizable emulator
 
-In addition to large screen virtual devices that you can configure for Android
-17, you can try the resizable device configuration. When you're using a
-resizable device definition with an Android 17 system image, the Android
-Emulator lets you toggle between the three reference devices: phone,
-foldable, and tablet. When using the foldable reference device, you can also
-toggle between folded and unfolded states.
+In addition to large screen virtual devices that you can configure for Android 17, you can try the resizable device configuration. When you're using a resizable device definition with an Android 17 system image, the Android Emulator lets you toggle between the three reference devices: phone, foldable, and tablet. When using the foldable reference device, you can also toggle between folded and unfolded states.
 
-This flexibility makes it easier to both validate your layout at design time and
-test the behavior at runtime, using the same reference devices. To create a new
-resizable emulator, use the Device Manager in Android Studio to create a new
-virtual device and select the **Resizable** device definition in the **Phone**
-category.
+This flexibility makes it easier to both validate your layout at design time and test the behavior at runtime, using the same reference devices. To create a new resizable emulator, use the Device Manager in Android Studio to create a new virtual device and select the **Resizable** device definition in the **Phone** category.
 ![Android Emulator showing a resizable device.](https://developer.android.com/static/about/versions/17/images/17-resizable-emulator.png) Use the resizable device definition for the Android Emulator to test Android 17 in a variety of large screen scenarios.
 
 ## Get a generic system image (GSI)
 
-Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image) binaries are available to developers
-for app testing and validation purposes on supported Treble-compliant devices.
-You can use these images to address any compatibility issues as well as discover
-and report OS and framework issues.
+Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image) binaries are available to developers for app testing and validation purposes on supported Treble-compliant devices. You can use these images to address any compatibility issues as well as discover and report OS and framework issues.
 
-See the [GSI documentation](https://developer.android.com/topic/generic-system-image) for device requirements, flashing instructions,
-and information on choosing the right image type for your device. Once you're
-ready to download a GSI binary, see the [Downloads section](https://developer.android.com/topic/generic-system-image/releases#android-gsi-17) on the GSI
-binaries page.
-
+See the [GSI documentation](https://developer.android.com/topic/generic-system-image) for device requirements, flashing instructions, and information on choosing the right image type for your device. Once you're ready to download a GSI binary, see the [Downloads section](https://developer.android.com/topic/generic-system-image/releases#android-gsi-17) on the GSI binaries page.
 
 ## More information
 
-To learn about which changes might affect you, and to learn how to test these
-changes in your app, read the following topics:
+To learn about which changes might affect you, and to learn how to test these changes in your app, read the following topics:
 
 - [Behavior changes that affect all apps](https://developer.android.com/about/versions/17/behavior-changes-all)
 - [Behavior changes that affect only apps that target Android 17](https://developer.android.com/about/versions/17/behavior-changes-17)
 
-To learn more about new APIs and features available in Android 17, read [Android
-17 features](https://developer.android.com/about/versions/17/features).
+To learn more about new APIs and features available in Android 17, read [Android 17 features](https://developer.android.com/about/versions/17/features).

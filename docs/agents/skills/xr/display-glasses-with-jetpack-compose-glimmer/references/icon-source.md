@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
 source: md.txt
 ---
 
-When creating a Glimmer Icon component, refer to the following source code in
-`Icon.kt`:
+When creating a Glimmer Icon component, refer to the following source code in `Icon.kt`:
 
+<br />
 
 ```kotlin
 /*
@@ -390,6 +390,8 @@ private class IconColorFilterNode(
         }
     }
 }
+
+   
 ```
 
 <br />

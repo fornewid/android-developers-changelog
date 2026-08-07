@@ -30,11 +30,7 @@ Use the issue tracker to create new issues and to view, track, and vote for issu
 
 Before creating your own issue, check the [release notes](https://developer.android.com/about/versions/16/release-notes-qpr) and search the lists of [top open issues](https://developer.android.com/about/versions/16/top-issues-qpr) and [recently created issues](https://developer.android.com/about/versions/16/recent-issues-qpr) to see if someone else has already reported it.
 
-
-You can subscribe and vote for an issue by **starring it**
-![](https://developer.android.com/static/images/shared/star-issue.svg)
-in the issue tracker. For more information, see
-[Subscribing by starring an issue](https://developers.google.com/issue-tracker/guides/subscribe#subscribing_by_starring_an_issue). For general help with Google Issue Tracker, see the [documentation](https://developers.google.com/issue-tracker/).
+You can subscribe and vote for an issue by **starring it** ![](https://developer.android.com/static/images/shared/star-issue.svg) in the issue tracker. For more information, see [Subscribing by starring an issue](https://developers.google.com/issue-tracker/guides/subscribe#subscribing_by_starring_an_issue). For general help with Google Issue Tracker, see the [documentation](https://developers.google.com/issue-tracker/).
 
 Due to the volume of feedback, submitted issues from any channel might not receive a response and issues might be closed upon release of the next build. This process allows our teams to focus on issues that are still reproducible in the latest release.
 
@@ -42,10 +38,7 @@ If your feedback is closed and you're still experiencing the issue on the latest
 
 ### Where to report issues
 
-
-To report a new issue, use the links below to go to the issue template that best
-describes the type of issue. Make sure you fill out the information requested
-in the issue template:
+To report a new issue, use the links below to go to the issue template that best describes the type of issue. Make sure you fill out the information requested in the issue template:
 
 - **[Platform](https://issuetracker.google.com/issues/new?component=190602&template=2068275)**: Issues with Android 16 system software or APIs (platform), NDK (platform), device hardware (Camera, Sensors, CPU, GPU), or Android Runtime (ART).
 - **[App compatibility](https://issuetracker.google.com/issues/new?component=190602&template=2068274):** Issues that occur with an app running on the latest build.

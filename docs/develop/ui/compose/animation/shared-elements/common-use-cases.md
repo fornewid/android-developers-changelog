@@ -4,21 +4,15 @@ url: https://developer.android.com/develop/ui/compose/animation/shared-elements/
 source: md.txt
 ---
 
-When animating shared elements, there are some particular use cases that have
-specific recommendations.
+When animating shared elements, there are some particular use cases that have specific recommendations.
 
 ## Asynchronous images
 
-It's common to use a library to load up an image asynchronously, such as when
-using [Coil's `AsyncImage` composable](https://coil-kt.github.io/coil/compose/).
-For it to work seamlessly between two composables, it is recommended to set
-the `placeholderMemoryCacheKey()` and `memoryCacheKey()` to the same key as
-a string derived from the shared element key, so that the cache key is the
-same for the matched shared elements. The new shared element will be using its
-match's cache as the placeholder until it loads the new image.
+It's common to use a library to load up an image asynchronously, such as when using [Coil's `AsyncImage` composable](https://coil-kt.github.io/coil/compose/). For it to work seamlessly between two composables, it is recommended to set the `placeholderMemoryCacheKey()` and `memoryCacheKey()` to the same key as a string derived from the shared element key, so that the cache key is the same for the matched shared elements. The new shared element will be using its match's cache as the placeholder until it loads the new image.
 
 The typical usage for `AsyncImage` is as follows:
 
+<br />
 
 ```kotlin
 AsyncImage(
@@ -39,17 +33,16 @@ AsyncImage(
             animatedVisibilityScope = this
         )
 )
+   
 ```
 
 <br />
 
 ## Text
 
-To animate `fontSize` changes, use `Modifier.sharedBounds()`, `resizeMode =
-ScaleToBounds()`. This transition makes the size
-change relatively fluid. The `contentScale` parameter can be tweaked to animate
-a specific font weight or style.
+To animate `fontSize` changes, use `Modifier.sharedBounds()`, `resizeMode = ScaleToBounds()`. This transition makes the size change relatively fluid. The `contentScale` parameter can be tweaked to animate a specific font weight or style.
 
+<br />
 
 ```kotlin
 Text(
@@ -66,10 +59,9 @@ Text(
             resizeMode = SharedTransitionScope.ResizeMode.scaleToBounds()
         )
 )
+   
 ```
 
 <br />
 
-`TextAlign` changes are **not** animated by default. Instead, use
-`Modifier.wrapContentSize()` or `Modifier.wrapContentWidth()` over using
-different `TextAlign` for shared transitions.
+`TextAlign` changes are **not** animated by default. Instead, use `Modifier.wrapContentSize()` or `Modifier.wrapContentWidth()` over using different `TextAlign` for shared transitions.

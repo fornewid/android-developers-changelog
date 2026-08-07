@@ -4,20 +4,13 @@ url: https://developer.android.com/guide/playcore/feature-delivery
 source: md.txt
 ---
 
-Google Play's app serving model uses [Android App
-Bundles](https://developer.android.com/guide/app-bundle) to generate and serve optimized APKs for each user's
-device configuration, so users download only the code and resources they need to
-run your app.
+Google Play's app serving model uses [Android App Bundles](https://developer.android.com/guide/app-bundle) to generate and serve optimized APKs for each user's device configuration, so users download only the code and resources they need to run your app.
 
-Play Feature Delivery uses advanced capabilities of app bundles, allowing
-certain features of your app to be delivered conditionally or downloaded on demand.
-To do that, first you need to separate these features from your base app into
-feature modules.
+Play Feature Delivery uses advanced capabilities of app bundles, allowing certain features of your app to be delivered conditionally or downloaded on demand. To do that, first you need to separate these features from your base app into feature modules.
 
 ## Feature module build configuration
 
-When you create a new feature module using Android Studio, the IDE
-applies the following Gradle plugin to the module's `build.gradle` file.
+When you create a new feature module using Android Studio, the IDE applies the following Gradle plugin to the module's `build.gradle` file.
 
     // The following applies the dynamic-feature plugin to your feature module.
     // The plugin includes the Gradle tasks and properties required to configure and build
@@ -27,17 +20,11 @@ applies the following Gradle plugin to the module's `build.gradle` file.
       id 'com.android.dynamic-feature'
     }
 
-Many of the properties available to
-[the standard application plugin](https://developer.android.com/studio/build#module-level)
-are also available to your feature module. The following sections
-describe the properties you should and shouldn't include in your
-feature module's build configuration.
+Many of the properties available to [the standard application plugin](https://developer.android.com/studio/build#module-level) are also available to your feature module. The following sections describe the properties you should and shouldn't include in your feature module's build configuration.
 
 ### What not to include in the feature module build configuration
 
-Because each feature module depends on the base module, it also
-inherits certain configurations. So, you should omit the following in the
-feature module's `build.gradle` file:
+Because each feature module depends on the base module, it also inherits certain configurations. So, you should omit the following in the feature module's `build.gradle` file:
 
 - **Signing configurations:** App bundles are signed using signing configurations that you specify in the base module.
 - **The `minifyEnabled` property:** You can [enable code shrinking](https://developer.android.com/studio/build/shrink-code#shrink-code) for your entire app project from only the base module's build configuration. So, you should omit this property from feature modules. You can, however, [specify additional ProGuard rules](https://developer.android.com/guide/playcore/feature-delivery#dynamic_feature_proguard) for each feature module.
@@ -45,9 +32,7 @@ feature module's `build.gradle` file:
 
 ### Establish a relationship to the base module
 
-When Android Studio creates your feature module, it makes it visible
-to the base module by adding the `android.dynamicFeatures` property to the
-base module's `build.gradle` file, as shown below:
+When Android Studio creates your feature module, it makes it visible to the base module by adding the `android.dynamicFeatures` property to the base module's `build.gradle` file, as shown below:
 
     // In the base module's build.gradle file.
     android {
@@ -69,11 +54,7 @@ Additionally, Android Studio includes the base module as a dependency of the fea
 
 ### Specify additional ProGuard rules
 
-Although only the base module's build configuration may enable code shrinking
-for your app project, you can provide custom ProGuard rules with each
-feature module using the
-[`proguardFiles`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.BuildType.html#com.android.build.gradle.internal.dsl.BuildType:proguardFiles)
-property, as shown below.
+Although only the base module's build configuration may enable code shrinking for your app project, you can provide custom ProGuard rules with each feature module using the [`proguardFiles`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.BuildType.html#com.android.build.gradle.internal.dsl.BuildType:proguardFiles) property, as shown below.
 
     android.buildTypes {
          release {
@@ -83,63 +64,35 @@ property, as shown below.
          }
     }
 
-Note that these ProGuard rules are merged with those from other modules
-(including the base module) at build time. So, while each feature
-module may specify a new set of rules, those rules apply to all modules in the
-app project.
+Note that these ProGuard rules are merged with those from other modules (including the base module) at build time. So, while each feature module may specify a new set of rules, those rules apply to all modules in the app project.
 
 ## Deploy your app
 
-While you're developing your app with support for feature modules, you can
-deploy your app to a connected device like you normally would by selecting
-**Run \> Run** from the menu bar (or by clicking **Run** ![](https://developer.android.com/static/studio/images/buttons/toolbar-run.png) in
-the toolbar).
+While you're developing your app with support for feature modules, you can deploy your app to a connected device like you normally would by selecting **Run \> Run** from the menu bar (or by clicking **Run** ![](https://developer.android.com/static/studio/images/buttons/toolbar-run.png) in the toolbar).
 
-If your app project includes one or more feature modules, you can
-choose which features to include when deploying your app by modifying
-your existing [run/debug configuration](https://developer.android.com/studio/run/rundebugconfig) as
-follows:
+If your app project includes one or more feature modules, you can choose which features to include when deploying your app by modifying your existing [run/debug configuration](https://developer.android.com/studio/run/rundebugconfig) as follows:
 
 1. Select **Run \> Edit Configurations** from the menu bar.
 2. From the left panel of the **Run/Debug Configurations** dialog, select your desired **Android App** configuration.
 3. Under **Dynamic features to deploy** in the **General** tab, check the box next to each feature module you want to include when deploying your app.
 4. Click **OK**.
 
-By default, Android Studio doesn't deploy your app using app bundles to deploy
-your app. Instead, the IDE
-builds and installs APKs to your device that are optimized for deployment speed,
-rather than APK size. To configure Android Studio to instead build and deploy
-APKs and instant experiences from an app bundle, [modify your run/debug
-configuration](https://developer.android.com/studio/run/rundebugconfig#android-application).
+By default, Android Studio doesn't deploy your app using app bundles to deploy your app. Instead, the IDE builds and installs APKs to your device that are optimized for deployment speed, rather than APK size. To configure Android Studio to instead build and deploy APKs and instant experiences from an app bundle, [modify your run/debug configuration](https://developer.android.com/studio/run/rundebugconfig#android-application).
 
 ## Use feature modules for custom delivery
 
-A unique benefit of feature modules is the ability to customize how and when
-different features of your app are downloaded onto devices running Android 5.0
-(API level 21) or higher. For example, to reduce the initial download size of
-your app, you can configure certain features to be either downloaded as needed
-on demand or only by devices that support certain capabilities, such as the
-ability to take pictures or support augmented reality features.
+A unique benefit of feature modules is the ability to customize how and when different features of your app are downloaded onto devices running Android 5.0 (API level 21) or higher. For example, to reduce the initial download size of your app, you can configure certain features to be either downloaded as needed on demand or only by devices that support certain capabilities, such as the ability to take pictures or support augmented reality features.
 
-Although you get highly optimized downloads by default when you upload your app
-as an app bundle, the more advanced and customizable feature delivery options
-require additional configuration and modularization of your app's features using
-*feature modules*. That is, feature modules provide the building
-blocks for creating modular features that you can configure to each be
-downloaded as needed.
+Although you get highly optimized downloads by default when you upload your app as an app bundle, the more advanced and customizable feature delivery options require additional configuration and modularization of your app's features using *feature modules*. That is, feature modules provide the building blocks for creating modular features that you can configure to each be downloaded as needed.
 
-Consider an app that allows your users to buy and sell goods in an online
-marketplace. You can reasonably modularize each of the following functionalities
-of the app into separate feature modules:
+Consider an app that allows your users to buy and sell goods in an online marketplace. You can reasonably modularize each of the following functionalities of the app into separate feature modules:
 
 - Account login and creation
 - Browsing the marketplace
 - Placing an item for sale
 - Processing payments
 
-The table below describes the different delivery options that feature
-modules support, and how they might be used to optimize the initial download
-size of the sample marketplace app.
+The table below describes the different delivery options that feature modules support, and how they might be used to optimize the initial download size of the sample marketplace app.
 
 | Delivery option | Behavior | Sample use-case | Getting started |
 |---|---|---|---|
@@ -150,9 +103,7 @@ size of the sample marketplace app.
 
 ## Building a URI for a resource
 
-If you want to access a resource stored in a feature module using a
-URI, here's how to generate a feature module resource URI using
-[`Uri.Builder()`](https://developer.android.com/reference/kotlin/android/net/Uri.Builder):
+If you want to access a resource stored in a feature module using a URI, here's how to generate a feature module resource URI using [`Uri.Builder()`](https://developer.android.com/reference/kotlin/android/net/Uri.Builder):
 
 ### Kotlin
 
@@ -182,25 +133,20 @@ String uri = Uri.Builder()
                 .build().toString();
 ```
 
-Each part of the path to the resource is constructed at run time, ensuring
-that the correct namespace is generated after the split APKs have been loaded.
+Each part of the path to the resource is constructed at run time, ensuring that the correct namespace is generated after the split APKs have been loaded.
 
-As an example of how the URI is generated, suppose you have an app and
-feature modules with these names:
+As an example of how the URI is generated, suppose you have an app and feature modules with these names:
 
 - App package name: `com.example.my_app_package`
 - Feature's resources package name: `com.example.my_app_package.my_dynamic_feature`
 
-If the `resId` in the code snippet above refers to a raw file resource named
-"my_video" in your feature module, then the `Uri.Builder()` code above would
-output the following:
+If the `resId` in the code snippet above refers to a raw file resource named "my_video" in your feature module, then the `Uri.Builder()` code above would output the following:
 
     android.resource://com.example.my_app_package/raw/com.example.my_app_package.my_dynamic_feature:my_video
 
 This URI can then be used by your app to access the feature module's resource.
 
-To validate the paths in your URI, you can use the [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer)
-to inspect your feature module APK and determine the package name:
+To validate the paths in your URI, you can use the [APK Analyzer](https://developer.android.com/studio/debug/apk-analyzer) to inspect your feature module APK and determine the package name:
 ![A screenshot of the APK Analyzer inspecting the contents of a compiled resource file.](https://developer.android.com/static/images/app-bundle/apk-analyzer-package-name.png) **Figure 1.** Use the APK Analyzer to inspect the package name in a compiled resource file.
 
 ## Considerations for feature modules
@@ -208,8 +154,7 @@ to inspect your feature module APK and determine the package name:
 With feature modules, you can improve build speed and engineering velocity and extensively customize delivery of your app's features to reduce your app's size. However, there are some constraints and edge cases to keep in mind when using feature modules:
 
 - Installing 50 or more feature modules on a single device, via conditional or on-demand delivery, might lead to performance issues. Install-time modules, which are not configured as removable, are automatically included in the base module and only count as one feature module on each device.
-- Limit the number of modules you configure as removable for [install-time
-  delivery](https://developer.android.com/guide/playcore/feature-delivery/install-time) to 10 or fewer. Otherwise, the download and install time of your app might increase.
+- Limit the number of modules you configure as removable for [install-time delivery](https://developer.android.com/guide/playcore/feature-delivery/install-time) to 10 or fewer. Otherwise, the download and install time of your app might increase.
 - Only devices running Android 5.0 (API level 21) and higher support downloading and installing features on demand. To make your feature available to earlier versions of Android, enable **Fusing** when you create a feature module.
 - Enable [SplitCompat](https://developer.android.com/reference/com/google/android/play/core/splitcompat/SplitCompat), so that your app has access to downloaded feature modules that are delivered on demand.
 - Feature modules should not specify activities in their manifest with [`android:exported`](https://developer.android.com/guide/topics/manifest/activity-element#exported) set to `true`. That's because there's no guarantee that the device has downloaded the feature module when another app tries to launch the activity. Additionally, your app should confirm that a feature is downloaded before trying to access its code and resources. To learn more, read [Manage installed modules](https://developer.android.com/guide/playcore/feature-delivery/on-demand#manage_installed_modules).
@@ -217,12 +162,7 @@ With feature modules, you can improve build speed and engineering velocity and e
 
 ## Feature module manifest reference
 
-When creating a new feature module using Android Studio, the IDE
-includes most of the manifest attributes that the module requires to behave
-like a feature module. Additionally, some attributes are injected by the
-build system at compile time, so you needn't specify or modify them yourself.
-The following table describes the manifest attributes that are important to
-feature modules.
+When creating a new feature module using Android Studio, the IDE includes most of the manifest attributes that the module requires to behave like a feature module. Additionally, some attributes are injected by the build system at compile time, so you needn't specify or modify them yourself. The following table describes the manifest attributes that are important to feature modules.
 
 | Attribute | Description |
 |---|---|
@@ -264,18 +204,11 @@ To learn more about using feature modules, try the following resources.
 
 ## Terms of service and data safety
 
-By accessing or using the Play Feature Delivery Library, you agree to the
-[Play Core Software Development Kit Terms of Service](https://developer.android.com/guide/playcore#license). Please read
-and understand all applicable terms and policies before accessing the library.
+By accessing or using the Play Feature Delivery Library, you agree to the [Play Core Software Development Kit Terms of Service](https://developer.android.com/guide/playcore#license). Please read and understand all applicable terms and policies before accessing the library.
 
 ## Data Safety
 
-The Play Core libraries are your app's runtime interface with the Google Play Store.
-As such, when you use Play Core in your app, the Play Store runs its own
-processes, which include handling data as governed by the
-[Google Play Terms of Service](https://play.google.com/about/play-terms/index.html).
-The information below describes how the Play Core libraries handle data to
-process specific requests from your app.
+The Play Core libraries are your app's runtime interface with the Google Play Store. As such, when you use Play Core in your app, the Play Store runs its own processes, which include handling data as governed by the [Google Play Terms of Service](https://play.google.com/about/play-terms/index.html). The information below describes how the Play Core libraries handle data to process specific requests from your app.
 
 ### Additional languages API
 
@@ -295,6 +228,4 @@ process specific requests from your app.
 | Data sharing | Data is not transferred to any third parties. |
 | Data deletion | Data is deleted following a fixed retention period. |
 
-While we aim to be as transparent as possible, you are solely responsible
-for deciding how to respond to Google Play's data safety section form
-regarding your app's user data collection, sharing, and security practices.
+While we aim to be as transparent as possible, you are solely responsible for deciding how to respond to Google Play's data safety section form regarding your app's user data collection, sharing, and security practices.

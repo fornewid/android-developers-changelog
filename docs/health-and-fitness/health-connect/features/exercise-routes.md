@@ -6,15 +6,11 @@ source: md.txt
 
 > This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12).
 
-Exercise routes allow users to track a GPS route for associated exercise
-activities and share maps of their workouts with other apps.
+Exercise routes allow users to track a GPS route for associated exercise activities and share maps of their workouts with other apps.
 
 ## Check Health Connect availability
 
-Before attempting to use Health Connect, your app should verify that Health Connect is available
-on the user's device. Health Connect might not be pre-installed on all devices or could be disabled.
-You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)`
-method.
+Before attempting to use Health Connect, your app should verify that Health Connect is available on the user's device. Health Connect might not be pre-installed on all devices or could be disabled. You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)` method.
 
 #### How to check for Health Connect availability
 
@@ -48,12 +44,9 @@ fun checkHealthConnectAvailability(context: Context) {
 }
 ```
 
-Depending on the status returned by `getSdkStatus()`, you can guide the user
-to install or update Health Connect from the Google Play Store if necessary.
+Depending on the status returned by `getSdkStatus()`, you can guide the user to install or update Health Connect from the Google Play Store if necessary.
 
-This guide provides information on how to request permissions from the user and
-also outlines how apps receive permission to write route data as part of
-an exercise session.
+This guide provides information on how to request permissions from the user and also outlines how apps receive permission to write route data as part of an exercise session.
 
 The read and write functionality for exercise routes includes:
 
@@ -63,11 +56,9 @@ The read and write functionality for exercise routes includes:
    1. For the session owner, data is accessed using a session read.
    2. From a third-party app, through a dialog that allows the user to grant a one-time read of a route.
 
-If the user doesn't have write permissions and the route is not set, the route
-doesn't update.
+If the user doesn't have write permissions and the route is not set, the route doesn't update.
 
-If your app has a route write permission and tries to update a session by
-passing in a session object without a route, the existing route is deleted.
+If your app has a route write permission and tries to update a session by passing in a session object without a route, the existing route is deleted.
 
 ## Feature availability
 
@@ -97,11 +88,9 @@ Access to exercise route is protected by the following permissions:
 
 Note: For this permission type, `READ_EXERCISE_ROUTES` is plural, while `WRITE_EXERCISE_ROUTE` is singular.
 
-To add exercise route capability to your app, start by requesting
-permissions for the `ExerciseSession` data type.
+To add exercise route capability to your app, start by requesting permissions for the `ExerciseSession` data type.
 
-Here's the permission you need to declare to be able to write
-exercise route:
+Here's the permission you need to declare to be able to write exercise route:
 
     <application>
       <uses-permission
@@ -117,13 +106,9 @@ To read exercise route, you need to request the following permissions:
     ...
     </application>
 
-You also have to declare an exercise permission, as each route is associated
-with an exercise session (one session = one workout).
+You also have to declare an exercise permission, as each route is associated with an exercise session (one session = one workout).
 
-To request permissions, use the
-`PermissionController.createRequestPermissionResultContract()` method when you
-first connect your app to Health Connect. Several permissions that you might
-want to request are:
+To request permissions, use the `PermissionController.createRequestPermissionResultContract()` method when you first connect your app to Health Connect. Several permissions that you might want to request are:
 
 - Read health and fitness data, including route data: `HealthPermission.getReadPermission(ExerciseSessionRecord::class)`
 - Write health and fitness data, including route data: `HealthPermission.getWritePermission(ExerciseSessionRecord::class)`
@@ -134,13 +119,7 @@ want to request are:
 
 ### Request permissions from the user
 
-After creating a client instance, your app needs to request permissions from
-the user. Users must be allowed to grant or deny permissions at any time.
-
-To do so, create a set of permissions for the required data types.
-Make sure that the permissions in the set are declared in your Android
-manifest first.
-
+After creating a client instance, your app needs to request permissions from the user. Users must be allowed to grant or deny permissions at any time. To do so, create a set of permissions for the required data types. Make sure that the permissions in the set are declared in your Android manifest first.
 
 ```kotlin
 val permissions =
@@ -148,6 +127,7 @@ val permissions =
         HealthPermission.getReadPermission(ExerciseSessionRecord::class),
         HealthPermission.getWritePermission(ExerciseSessionRecord::class)
     )
+   
 ```
 Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
 
@@ -168,6 +148,7 @@ val requestPermissionsLauncher = rememberLauncherForActivityResult(
         coroutineScope.launch { snackbarHostState.showSnackbar("Permissions denied.") }
     }
 }
+   
 ```
 Because users can grant or revoke permissions at any time, your app needs to check for permissions every time before using them and handle scenarios where permission is lost.
 
@@ -187,8 +168,7 @@ Each exercise session record contains the following information:
 
 <br />
 
-The following aggregate values are available for
-`ExerciseSessionRecord`:
+The following aggregate values are available for `ExerciseSessionRecord`:
 
 - [`EXERCISE_DURATION_TOTAL`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/ExerciseSessionRecord#EXERCISE_DURATION_TOTAL())
 
@@ -200,23 +180,17 @@ The following code snippets show how to read and write an exercise route.
 
 ### Read exercise route
 
-Your app can't read exercise route data created by other apps when it runs in
-the background.
+Your app can't read exercise route data created by other apps when it runs in the background.
 
-When your app runs in the background and tries to read an exercise route created
-by another app, Health Connect returns an `ExerciseRouteResult.ConsentRequired`
-response, even if your app has **Always allow** access to exercise
-route data.
+When your app runs in the background and tries to read an exercise route created by another app, Health Connect returns an `ExerciseRouteResult.ConsentRequired` response, even if your app has **Always allow** access to exercise route data.
 
-For this reason, we strongly recommend that you request routes upon deliberate
-user interaction with your app, when the user is actively engaged with your
-app's UI.
+For this reason, we strongly recommend that you request routes upon deliberate user interaction with your app, when the user is actively engaged with your app's UI.
 
 To learn more about background reads, see [Background read example](https://developer.android.com/health-and-fitness/guides/health-connect/develop/read-data#background-read-example).
 
-The following code snippet demonstrates how to read a session in Health Connect
-and request a route from that session:
+The following code snippet demonstrates how to read a session in Health Connect and request a route from that session:
 
+<br />
 
 ```kotlin
 private suspend fun readExerciseSessionAndRoute() {
@@ -270,15 +244,16 @@ private fun displayExerciseRoute(route: ExerciseRoute) {
         println(location)
     }
 }
+   
 ```
 
 <br />
 
 ### Write an exercise route
 
-The following code demonstrates how to record a session that includes an
-exercise route:
+The following code demonstrates how to record a session that includes an exercise route:
 
+<br />
 
 ```kotlin
 private suspend fun insertExerciseRoute() {
@@ -341,6 +316,7 @@ private suspend fun insertExerciseRoute() {
     // 4. Insert into Health Connect
     client.insertRecords(listOf(exerciseSessionRecord))
 }
+   
 ```
 
 <br />
@@ -407,11 +383,9 @@ Here's an example of how to read an exercise session:
 
 ### Write subtype data
 
-Sessions can also be comprised of optional subtype data, that enrich the
-session with additional information.
+Sessions can also be comprised of optional subtype data, that enrich the session with additional information.
 
-For example, exercise sessions can include the `ExerciseSegment`, `ExerciseLap`
-and `ExerciseRoute` classes:
+For example, exercise sessions can include the `ExerciseSegment`, `ExerciseLap` and `ExerciseRoute` classes:
 
     val segments = listOf(
       ExerciseSegment(
@@ -451,6 +425,7 @@ There are two ways to delete an exercise session:
 
 Here's how you delete subtype data according to time range:
 
+<br />
 
 ```kotlin
 suspend fun deleteExerciseSessionByTimeRange(
@@ -462,13 +437,14 @@ suspend fun deleteExerciseSessionByTimeRange(
     // delete the associated distance record
     healthConnectClient.deleteRecords(DistanceRecord::class, timeRangeFilter)
 }
+   
 ```
 
 <br />
 
-You can also delete subtype data by UID. Doing so only deletes the
-exercise session, not the associated data:
+You can also delete subtype data by UID. Doing so only deletes the exercise session, not the associated data:
 
+<br />
 
 ```kotlin
 suspend fun deleteExerciseSessionByUid(
@@ -481,6 +457,7 @@ suspend fun deleteExerciseSessionByUid(
         clientRecordIdsList = emptyList()
     )
 }
+   
 ```
 
 <br />

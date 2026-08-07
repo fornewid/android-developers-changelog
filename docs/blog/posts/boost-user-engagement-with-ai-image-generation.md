@@ -169,16 +169,14 @@ Written by:
 
   ###### Senior Developer Relations Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
 -
 
   ## [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis)
 
   ###### Developer Relations Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/mozart-louis) ![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp) ![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/mozart-louis) ![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp) ![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)
 Continue reading
 - [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Apr 2026 17 Apr 2026 ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_gOJm.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -200,8 +198,5 @@ Continue reading
   [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

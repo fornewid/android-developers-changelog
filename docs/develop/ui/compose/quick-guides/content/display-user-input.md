@@ -6,9 +6,7 @@ source: md.txt
 
 <br />
 
-The [`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) component displays pop-up messages or requests user input on a
-layer above the main app content. It creates an interruptive UI experience to
-capture user attention.
+The [`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) component displays pop-up messages or requests user input on a layer above the main app content. It creates an interruptive UI experience to capture user attention.
 
 Among the use cases for a dialog are the following:
 
@@ -24,24 +22,19 @@ This topic provides the following implementations:
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or
-higher.
+This implementation requires that your project minSDK be set to API level 21 or higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_90b94f6fc49da5d289b5455639aac6e3fffc24699727c9148b981cb0dd1fe670.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create an Alert dialog
 
-The [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AlertDialog.composable#AlertDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.window.DialogProperties)) composable provides a convenient API for creating a
-Material Design themed dialog. The following example implements two buttons in
-an alert dialog, one that dismisses the dialog, and another that confirms its
-request:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_294feac1adad241aa18f22e2a816ad1d023e70400ee8667c1054d6b3ffaa5ddb.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+The [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AlertDialog.composable#AlertDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.window.DialogProperties)) composable provides a convenient API for creating a Material Design themed dialog. The following example implements two buttons in an alert dialog, one that dismisses the dialog, and another that confirms its request:
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_f05ea0b6524134adef3471192869ec84aadf286cebc0a3c87abab0cb832559e6.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
-This implementation implies a parent composable that passes arguments to the
-child composable in this way:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_241c3bfe76130bed2542b4a29efd977128b4775c8f49703e75fd25b6f4cbc305.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+This implementation implies a parent composable that passes arguments to the child composable in this way:
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_63521998be62285ea6e4e8809291710de2a413b92972659610f2ec606a43cfa6.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -49,8 +42,7 @@ child composable in this way:
 
 ### Key points
 
-`AlertDialog` has specific parameters for handling particular elements of the
-dialog. Among them are the following:
+`AlertDialog` has specific parameters for handling particular elements of the dialog. Among them are the following:
 
 - `title`: The text that appears along the top of the dialog.
 - `text`: The text that appears centered within the dialog.
@@ -59,21 +51,13 @@ dialog. Among them are the following:
 - `dismissButton`: A composable that serves as the dismiss button.
 - `confirmButton`: A composable that serves as the confirm button.
 
-- When the user clicks either of the buttons, the dialog closes. When the user
-  clicks confirm, it calls a function that also handles the confirmation. In
-  this example, those functions are `onDismissRequest()` and
-  `onConfirmRequest()`.
+- When the user clicks either of the buttons, the dialog closes. When the user clicks confirm, it calls a function that also handles the confirmation. In this example, those functions are `onDismissRequest()` and `onConfirmRequest()`.
 
-  In cases where your dialog requires a more complex set of buttons, you may
-  benefit from using the `Dialog` composable and populating it in a more
-  freeform manner.
+  In cases where your dialog requires a more complex set of buttons, you may benefit from using the `Dialog` composable and populating it in a more freeform manner.
 
 ## Create a dialog
 
-[`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) is a basic composable that doesn't provide any styling or
-predefined slots for content. It is a straightforward container that you should
-populate with a container such as `Card`. The following are some of the key
-parameters of a dialog:
+[`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) is a basic composable that doesn't provide any styling or predefined slots for content. It is a straightforward container that you should populate with a container such as `Card`. The following are some of the key parameters of a dialog:
 
 - **`onDismissRequest`**: The lambda called when the user closes the dialog.
 - **`properties`** : An instance of [`DialogProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/DialogProperties) that provides some additional scope for customization.
@@ -83,27 +67,22 @@ parameters of a dialog:
 
 ### Create a basic dialog
 
-The following example is a basic implementation of the `Dialog` composable. Note
-that it uses a `Card` as the secondary container. Without the `Card`, the `Text`
-component would appear alone above the main app content.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_17e14389f2c10375c74314521d911567d75a8f9e249e74576bce6798f431bcb8.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+The following example is a basic implementation of the `Dialog` composable. Note that it uses a `Card` as the secondary container. Without the `Card`, the `Text` component would appear alone above the main app content.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_3364916f6e71fbb5d210149aed6325fef1234c507a4c02f07b96503f487a5617.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Result
 
-Note that when the dialog is open, the main app content beneath it appears
-darkened and grayed out:
+Note that when the dialog is open, the main app content beneath it appears darkened and grayed out:
 ![A dialog that contains nothing other than a label.](https://developer.android.com/static/develop/ui/compose/images/components/dialog-minimal.png) **Figure 2.** Minimal dialog.
 
 ### Create an advanced dialog
 
-The following is a more advanced implemented of the `Dialog` composable. In this
-case, the component manually implements a similar interface to the preceding
-`AlertDialog` example.
+The following is a more advanced implemented of the `Dialog` composable. In this case, the component manually implements a similar interface to the preceding `AlertDialog` example.
 
 > [!CAUTION]
 > **Caution:** If you only need to display a two-button dialog as in this example, you should use `AlertDialog` and its more convenient API. However, if you want to create a more complex dialog, perhaps with forms and multiple buttons, you should use `Dialog` with custom content, as in the following example.
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_282e506e73f9099f2f39566b822b380a43945d78016e2ec7f54418baf7351364.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_5570966a4c9dfb2c609afd6cc2a02ce6da94770f1565347c578117d55b628b3f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Result
 
@@ -111,8 +90,7 @@ case, the component manually implements a similar interface to the preceding
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover
-broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display text

@@ -4,8 +4,7 @@ url: https://developer.android.com/develop/ui/compose/system/predictive-back-tes
 source: md.txt
 ---
 
-If you still use Android 13 or Android 14, you can test the back-to-home
-animation.
+If you still use Android 13 or Android 14, you can test the back-to-home animation.
 
 To test this animation, follow these steps:
 

@@ -4,44 +4,36 @@ url: https://developer.android.com/training/wearables/data/dynamic
 source: md.txt
 ---
 
-Wear OS supports dynamic updates to information that appears in your [tiles](https://developer.android.com/training/wearables/tiles)
-and [complications](https://developer.android.com/training/wearables/tiles/complications).
+Wear OS supports dynamic updates to information that appears in your [tiles](https://developer.android.com/training/wearables/tiles) and [complications](https://developer.android.com/training/wearables/tiles/complications).
 
-Using dynamic expressions, you can bind data that appears on a surface of your
-app--such as a tile or complication--to a particular data source. An example of
-such a data source is heart rate data that the platform can read. After you've
-established this binding, the system updates the data in your tiles and
-complications automatically.
+Using dynamic expressions, you can bind data that appears on a surface of your app--such as a tile or complication--to a particular data source. An example of such a data source is heart rate data that the platform can read. After you've established this binding, the system updates the data in your tiles and complications automatically.
 
 ## Create dynamic data bindings
 
-To create a dynamic data binding, define a variable that uses a
-[dynamic data type](https://developer.android.com/training/wearables/data/dynamic#data-types). Associate this variable with the data stream that you
-want to use.
+To create a dynamic data binding, define a variable that uses a [dynamic data type](https://developer.android.com/training/wearables/data/dynamic#data-types). Associate this variable with the data stream that you want to use.
 
-For example, you can fetch values related to the system clock and health
-information, as shown in the following code snippet.
+For example, you can fetch values related to the system clock and health information, as shown in the following code snippet.
 
 > [!NOTE]
-> **Note:** To access the data in [`PlatformHealthSources`](https://developer.android.com/reference/androidx/wear/protolayout/expression/PlatformHealthSources), you must [request a
-> runtime permission](https://developer.android.com/training/permissions/requesting) in your app.
+> **Note:** To access the data in [`PlatformHealthSources`](https://developer.android.com/reference/androidx/wear/protolayout/expression/PlatformHealthSources), you must [request a runtime permission](https://developer.android.com/training/permissions/requesting) in your app.
 
 <br />
 
 ```kotlin
 val systemTime = DynamicInstant.platformTimeWithSecondsPrecision()
 val steps: DynamicInt32 = PlatformHealthSources.dailySteps()
+   
 ```
 
 <br />
 
-You can also create dynamic values from constant expressions and perform
-arithmetic operations on any dynamic value, as shown in the following snippet:
+You can also create dynamic values from constant expressions and perform arithmetic operations on any dynamic value, as shown in the following snippet:
 
 <br />
 
 ```kotlin
 val dynamicAdditionResult = DynamicInt32.constant(1).plus(2)
+   
 ```
 
 <br />
@@ -58,20 +50,16 @@ Wear OS supports the following dynamic data types:
 - [`DynamicInt32`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicInt32)
 - [`DynamicString`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicString)
 
-In addition, you can transform the data type using built-in capabilities, such
-as the following:
+In addition, you can transform the data type using built-in capabilities, such as the following:
 
 - `DynamicInt32` supports conversion to a `DynamicString` using [`format()`](https://developer.android.com/reference/androidx/wear/protolayout/expression/DynamicBuilders.DynamicInt32#format()).
 - `DynamicDuration` lets you extract specific parts, such as the seconds part of a duration, as `DynamicInt32` objects.
 
 ## Use a limited number of dynamic expressions on each screen
 
-The system has a limit on the number of dynamic expressions that it can process
-simultaneously on a particular screen. The system converts any additional
-dynamic expressions to static values.
+The system has a limit on the number of dynamic expressions that it can process simultaneously on a particular screen. The system converts any additional dynamic expressions to static values.
 
-Wear OS considers constant expressions to be dynamic expressions, too. For
-example, the following code snippet contains 4 dynamic expressions:
+Wear OS considers constant expressions to be dynamic expressions, too. For example, the following code snippet contains 4 dynamic expressions:
 
 1. The `plus()` operation.
 2. The `animate()` operation.
@@ -82,14 +70,14 @@ example, the following code snippet contains 4 dynamic expressions:
 
 ```kotlin
 val animatedAdditionResult = DynamicInt32.constant(1).plus(2).animate()
+   
 ```
 
 <br />
 
 ## Additional resources
 
-To learn more about how to use dynamic expressions in specific surfaces, see the
-following pages:
+To learn more about how to use dynamic expressions in specific surfaces, see the following pages:
 
 - [Use dynamic values in complications](https://developer.android.com/training/wearables/complications/exposing-data#providing-dynamic-values)
 - [Dynamic expressions in Tiles](https://developer.android.com/training/wearables/tiles/dynamic)

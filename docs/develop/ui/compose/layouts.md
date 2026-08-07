@@ -18,11 +18,9 @@ The following pages provide details on how to design and implement your layout:
 
 ## Learn more
 
-- **New!** Try our [Quick Guides](https://developer.android.com/quick-guides) to get a fast and focused content
-  experience.
+- **New!** Try our [Quick Guides](https://developer.android.com/quick-guides) to get a fast and focused content experience.
 
-- To learn more about Compose layouts, try the [Layouts in Jetpack Compose
-  codelab](https://developer.android.com/codelabs/jetpack-compose-layouts).
+- To learn more about Compose layouts, try the [Layouts in Jetpack Compose codelab](https://developer.android.com/codelabs/jetpack-compose-layouts).
 
 ## Recommended for you
 

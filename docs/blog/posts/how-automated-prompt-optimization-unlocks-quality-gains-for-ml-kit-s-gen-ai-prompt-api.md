@@ -70,32 +70,28 @@ Written by:
 
   ###### Product Manager
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/chetan-tekur) ![View Chetan Tekur's profile](https://developer.android.com/static/blog/assets/Chetan_Tekur_ef2e731d60_Z1vmMt4.webp) ![View Chetan Tekur's profile](https://developer.android.com/static/blog/assets/Chetan_Tekur_ef2e731d60_Z1vmMt4.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/chetan-tekur) ![View Chetan Tekur's profile](https://developer.android.com/static/blog/assets/Chetan_Tekur_ef2e731d60_Z1vmMt4.webp) ![View Chetan Tekur's profile](https://developer.android.com/static/blog/assets/Chetan_Tekur_ef2e731d60_Z1vmMt4.webp)
 -
 
   ## [Chao Zhao](https://developer.android.com/blog/authors/chao-zhao)
 
   ###### Software Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/chao-zhao) ![View Chao Zhao's profile](https://developer.android.com/static/blog/assets/chao_zhao_f14947a7e2_ZsSDYG.webp) ![View Chao Zhao's profile](https://developer.android.com/static/blog/assets/chao_zhao_f14947a7e2_ZsSDYG.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/chao-zhao) ![View Chao Zhao's profile](https://developer.android.com/static/blog/assets/chao_zhao_f14947a7e2_ZsSDYG.webp) ![View Chao Zhao's profile](https://developer.android.com/static/blog/assets/chao_zhao_f14947a7e2_ZsSDYG.webp)
 -
 
   ## [Paul Zhou](https://developer.android.com/blog/authors/paul-zhou)
 
   ###### Senior Staff Software Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/paul-zhou) ![View Paul Zhou's profile](https://developer.android.com/static/blog/assets/Paul_Zhou_821eb8ffb9_Z1FoKNS.webp) ![View Paul Zhou's profile](https://developer.android.com/static/blog/assets/Paul_Zhou_821eb8ffb9_Z1FoKNS.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/paul-zhou) ![View Paul Zhou's profile](https://developer.android.com/static/blog/assets/Paul_Zhou_821eb8ffb9_Z1FoKNS.webp) ![View Paul Zhou's profile](https://developer.android.com/static/blog/assets/Paul_Zhou_821eb8ffb9_Z1FoKNS.webp)
 -
 
   ## [Caren Chang](https://developer.android.com/blog/authors/caren-chang)
 
   ###### Developer Relations Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)
 Continue reading
 - [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang)[![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp)](https://developer.android.com/blog/authors/david-chou) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z15e7FP.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -117,8 +113,5 @@ Continue reading
   [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

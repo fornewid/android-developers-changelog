@@ -72,7 +72,7 @@ several strategies:
 ## Summary
 
 By understanding and implementing mitigation strategies, such as input
-validation, output filtering, and architectural safeguards. Android app
+validation, output filtering, and architectural safeguards, Android app
 developers can build more secure, reliable, and trustworthy AI-powered
 applications. This proactive approach is essential for protecting not only their
 apps, but also the users who rely on them.

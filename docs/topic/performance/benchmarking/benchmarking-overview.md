@@ -4,46 +4,27 @@ url: https://developer.android.com/topic/performance/benchmarking/benchmarking-o
 source: md.txt
 ---
 
-Benchmarking is a way to inspect and monitor the performance of your app. You
-can regularly run benchmarks to analyze and debug performance problems and help
-ensure that you don't introduce regressions in recent changes.
+Benchmarking is a way to inspect and monitor the performance of your app. You can regularly run benchmarks to analyze and debug performance problems and help ensure that you don't introduce regressions in recent changes.
 
-Android offers two benchmarking libraries and approaches for analyzing and
-testing different kinds of situations in your app: Macrobenchmark and
-Microbenchmark.
+Android offers two benchmarking libraries and approaches for analyzing and testing different kinds of situations in your app: Macrobenchmark and Microbenchmark.
 
 ## Macrobenchmark
 
-The [Macrobenchmark](https://developer.android.com/studio/profile/macrobenchmark) library measures larger end-user interactions, such as
-startup, interacting with the UI, and animations. The library provides direct
-control over the performance environment you're testing. It lets you control
-compiling and lets you start and stop your app to directly measure actual app
-startup or scrolling.
+The [Macrobenchmark](https://developer.android.com/studio/profile/macrobenchmark) library measures larger end-user interactions, such as startup, interacting with the UI, and animations. The library provides direct control over the performance environment you're testing. It lets you control compiling and lets you start and stop your app to directly measure actual app startup or scrolling.
 
-The Macrobenchmark library injects events and monitors results externally from a
-test app that is built with your tests. Therefore, when writing the benchmarks,
-you don't call your app code directly and instead navigate within your app as a
-user.
+The Macrobenchmark library injects events and monitors results externally from a test app that is built with your tests. Therefore, when writing the benchmarks, you don't call your app code directly and instead navigate within your app as a user.
 
 ## Microbenchmark
 
-The [Microbenchmark](https://developer.android.com/studio/profile/benchmark) library lets you benchmark app code directly in a loop.
-This is designed for measuring CPU work that assesses best-case performance---such
-as warmed up Just in Time (JIT) and disk accesses cached---that you might see with
-an inner-loop or a specific hot function. The library can only measure the
-code that you can call directly in isolation.
+The [Microbenchmark](https://developer.android.com/studio/profile/benchmark) library lets you benchmark app code directly in a loop. This is designed for measuring CPU work that assesses best-case performance---such as warmed up Just in Time (JIT) and disk accesses cached---that you might see with an inner-loop or a specific hot function. The library can only measure the code that you can call directly in isolation.
 
-These are good cases for benchmarking:
-\* When your app needs to process a complex data structure.
-\* When your app has a specific computation-heavy algorithm that it calls multiple times during the app run.
+These are good cases for benchmarking: \* When your app needs to process a complex data structure. \* When your app has a specific computation-heavy algorithm that it calls multiple times during the app run.
 
 You can also measure parts of your UI. For example, you can measure the cost of `RecyclerView` item binding, how long it takes to inflate a layout, or the performance of the layout-and-measure pass of your `View` class.
 
 However, you can't measure how the benchmarked cases contribute to the overall user experience. In some scenarios, benchmarking doesn't tell you if you're improving a bottleneck like dropped frames or app startup time. For this reason, it's crucial to identify those bottlenecks first with the [Android Profiler](https://developer.android.com/studio/profile). After you find the code you want to investigate and optimize, the benchmarked loop can run repeatedly to create less noisy results. This lets you focus on one area of improvement.
 
-The Microbenchmark library only reports information about your app, not about
-the system overall. Therefore, it's best at analyzing performance of situations
-specific to the app, not ones that might relate to overall system issues.
+The Microbenchmark library only reports information about your app, not about the system overall. Therefore, it's best at analyzing performance of situations specific to the app, not ones that might relate to overall system issues.
 
 ## Benchmark library comparison
 

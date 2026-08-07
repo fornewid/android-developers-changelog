@@ -4,87 +4,54 @@ url: https://developer.android.com/training/data-storage/shared/documents-files
 source: md.txt
 ---
 
-On devices that run Android 4.4 (API level 19) and higher, your app can interact
-with a [documents provider](https://developer.android.com/guide/topics/providers/create-document-provider),
-including external storage volumes and cloud-based storage, using the Storage
-Access Framework. This framework allows users to interact with a system picker
-to choose a documents provider and select specific documents and other files for
-your app to create, open, or modify.
+On devices that run Android 4.4 (API level 19) and higher, your app can interact with a [documents provider](https://developer.android.com/guide/topics/providers/create-document-provider), including external storage volumes and cloud-based storage, using the Storage Access Framework. This framework allows users to interact with a system picker to choose a documents provider and select specific documents and other files for your app to create, open, or modify.
 
-Because the user is involved in selecting the files or directories that your app
-can access, this mechanism doesn't require any [system
-permissions](https://developer.android.com/guide/topics/permissions/overview), and user control and privacy
-is enhanced. Additionally, these files, which are stored outside of an
-app-specific directory and outside of the media store, remain on the device
-after your app is uninstalled.
+Because the user is involved in selecting the files or directories that your app can access, this mechanism doesn't require any [system permissions](https://developer.android.com/guide/topics/permissions/overview), and user control and privacy is enhanced. Additionally, these files, which are stored outside of an app-specific directory and outside of the media store, remain on the device after your app is uninstalled.
 
 Using the framework involves the following steps:
 
 1. An app invokes an intent that contains a storage-related action. This action corresponds to a specific [use case](https://developer.android.com/training/data-storage/shared/documents-files#use-cases) that the framework makes available.
 2. The user sees a system picker, allowing them to browse a documents provider and choose a location or document where the storage-related action takes place.
-3. The app gains read and write access to a URI that represents the user's chosen location or document. Using this URI, the app can [perform operations on
-   the chosen location](https://developer.android.com/training/data-storage/shared/documents-files#perform-operations).
+3. The app gains read and write access to a URI that represents the user's chosen location or document. Using this URI, the app can [perform operations on the chosen location](https://developer.android.com/training/data-storage/shared/documents-files#perform-operations).
 
 > [!NOTE]
 > **Note:** If your app accesses media files, consider using the [photo picker](https://developer.android.com/training/data-storage/shared/photopicker), which provides a convenient interface for accessing photos and videos.
 
-To support media file access on devices that run Android 9 (API level 28) or
-lower, declare the
-[`READ_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE)
-permission and set the `maxSdkVersion` to `28`.
+To support media file access on devices that run Android 9 (API level 28) or lower, declare the [`READ_EXTERNAL_STORAGE`](https://developer.android.com/reference/android/Manifest.permission#READ_EXTERNAL_STORAGE) permission and set the `maxSdkVersion` to `28`.
 
-This guide explains the different use cases that the framework supports for
-working with files and other documents. It also explains how to perform
-operations on the user-selected location.
+This guide explains the different use cases that the framework supports for working with files and other documents. It also explains how to perform operations on the user-selected location.
 
 ## Use cases for accessing documents and other files
 
-The Storage Access Framework supports the following use cases for accessing
-files and other documents.
+The Storage Access Framework supports the following use cases for accessing files and other documents.
+
 
 [Create a new file](https://developer.android.com/training/data-storage/shared/documents-files#create-file)
-:   The
-    [`ACTION_CREATE_DOCUMENT`](https://developer.android.com/reference/android/content/Intent#ACTION_CREATE_DOCUMENT)
-    intent action allows users to save a file in a specific location.
+:
+    The [`ACTION_CREATE_DOCUMENT`](https://developer.android.com/reference/android/content/Intent#ACTION_CREATE_DOCUMENT) intent action allows users to save a file in a specific location.
+
 
 [Open a document or file](https://developer.android.com/training/data-storage/shared/documents-files#open-file)
-:   The
-    [`ACTION_OPEN_DOCUMENT`](https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_DOCUMENT)
-    intent action allows users to select a specific document or file to open.
+:
+    The [`ACTION_OPEN_DOCUMENT`](https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_DOCUMENT) intent action allows users to select a specific document or file to open.
+
 
 [Grant access to a directory's contents](https://developer.android.com/training/data-storage/shared/documents-files#grant-access-directory)
-:   The
-    [`ACTION_OPEN_DOCUMENT_TREE`](https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_DOCUMENT_TREE)
-    intent action, available on Android 5.0 (API level 21) and higher, allows users
-    to select a specific directory, granting your app access to all of the files and
-    sub-directories within that directory.
+:
+    The [`ACTION_OPEN_DOCUMENT_TREE`](https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_DOCUMENT_TREE) intent action, available on Android 5.0 (API level 21) and higher, allows users to select a specific directory, granting your app access to all of the files and sub-directories within that directory.
 
 The following sections provide guidance on how to configure each use case.
 
 ## Create a new file
 
-Use the
-[`ACTION_CREATE_DOCUMENT`](https://developer.android.com/reference/android/content/Intent#ACTION_CREATE_DOCUMENT)
-intent action to load the system file picker and allow the user to choose a
-location where to write the contents of a file. This process is similar to the
-one used in the "save as" dialogs that other operating systems use.
-**Note:** `ACTION_CREATE_DOCUMENT` cannot overwrite an
-existing file. If your app tries to save a file with the same name, the system
-appends a number in parentheses at the end of the file name.
+Use the [`ACTION_CREATE_DOCUMENT`](https://developer.android.com/reference/android/content/Intent#ACTION_CREATE_DOCUMENT) intent action to load the system file picker and allow the user to choose a location where to write the contents of a file. This process is similar to the one used in the "save as" dialogs that other operating systems use.
+**Note:** `ACTION_CREATE_DOCUMENT` cannot overwrite an existing file. If your app tries to save a file with the same name, the system appends a number in parentheses at the end of the file name.
 
-For example, if your app tries to save a file called
-`confirmation.pdf` in a directory that already has a file with that
-name, the system saves the new file with the name
-`confirmation(1).pdf`.
+For example, if your app tries to save a file called `confirmation.pdf` in a directory that already has a file with that name, the system saves the new file with the name `confirmation(1).pdf`.
 
-When configuring the intent, specify the file's name and MIME type, and
-optionally specify the URI of the file or directory that the file picker should
-display when it first loads by using the
-[`EXTRA_INITIAL_URI`](https://developer.android.com/reference/android/provider/DocumentsContract#EXTRA_INITIAL_URI)
-intent extra.
+When configuring the intent, specify the file's name and MIME type, and optionally specify the URI of the file or directory that the file picker should display when it first loads by using the [`EXTRA_INITIAL_URI`](https://developer.android.com/reference/android/provider/DocumentsContract#EXTRA_INITIAL_URI) intent extra.
 
-The following code snippet shows how to create and invoke the intent for
-creating a file:
+The following code snippet shows how to create and invoke the intent for creating a file:
 
 ### Kotlin
 
@@ -128,22 +95,11 @@ private void createFile(Uri pickerInitialUri) {
 
 ## Open a file
 
-Your app might use documents as the unit of storage in which users enter data
-that they might want to share with peers or import into other documents. Several
-examples include a user opening a productivity document or opening a book that's
-saved as an EPUB file.
+Your app might use documents as the unit of storage in which users enter data that they might want to share with peers or import into other documents. Several examples include a user opening a productivity document or opening a book that's saved as an EPUB file.
 
-In these cases, allow the user to choose the file to open by invoking the
-[`ACTION_OPEN_DOCUMENT`](https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_DOCUMENT)
-intent, which opens the system's file picker app. To show only the types of
-files that your app supports, specify a MIME type. Also, you can optionally
-specify the URI of the file that the file picker should display when it first
-loads by using the
-[`EXTRA_INITIAL_URI`](https://developer.android.com/reference/android/provider/DocumentsContract#EXTRA_INITIAL_URI)
-intent extra.
+In these cases, allow the user to choose the file to open by invoking the [`ACTION_OPEN_DOCUMENT`](https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_DOCUMENT) intent, which opens the system's file picker app. To show only the types of files that your app supports, specify a MIME type. Also, you can optionally specify the URI of the file that the file picker should display when it first loads by using the [`EXTRA_INITIAL_URI`](https://developer.android.com/reference/android/provider/DocumentsContract#EXTRA_INITIAL_URI) intent extra.
 
-The following code snippet shows how to create and invoke the intent for opening
-a PDF document:
+The following code snippet shows how to create and invoke the intent for opening a PDF document:
 
 ### Kotlin
 
@@ -186,9 +142,7 @@ private void openFile(Uri pickerInitialUri) {
 
 ### Access restrictions
 
-On Android 11 (API level 30) and higher, you cannot use the
-`ACTION_OPEN_DOCUMENT` intent action to request that the user select individual
-files from the following directories:
+On Android 11 (API level 30) and higher, you cannot use the `ACTION_OPEN_DOCUMENT` intent action to request that the user select individual files from the following directories:
 
 - The `Android/data/` directory and all subdirectories.
 - The `Android/obb/` directory and all subdirectories.
@@ -198,26 +152,13 @@ files from the following directories:
 > [!NOTE]
 > **Note:** The intent action that's discussed in this section is available on Android 5.0 (API level 21) and higher.
 
-File management and media-creation apps typically manage groups of files in a
-directory hierarchy. To provide this capability in your app, use the
-[`ACTION_OPEN_DOCUMENT_TREE`](https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_DOCUMENT_TREE)
-intent action, which allows the user to grant access to an entire directory
-tree, with some exceptions starting in Android 11 (API level 30). Your app can
-then access any file in the selected directory and any of its sub-directories.
+File management and media-creation apps typically manage groups of files in a directory hierarchy. To provide this capability in your app, use the [`ACTION_OPEN_DOCUMENT_TREE`](https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_DOCUMENT_TREE) intent action, which allows the user to grant access to an entire directory tree, with some exceptions starting in Android 11 (API level 30). Your app can then access any file in the selected directory and any of its sub-directories.
 
-When using `ACTION_OPEN_DOCUMENT_TREE`, your app gains access only to the
-files in the directory that the user selects. You don't have access to other
-apps' files that reside outside this user-selected directory. This
-user-controlled access allows users to choose exactly what content they're
-comfortable sharing with your app.
+When using `ACTION_OPEN_DOCUMENT_TREE`, your app gains access only to the files in the directory that the user selects. You don't have access to other apps' files that reside outside this user-selected directory. This user-controlled access allows users to choose exactly what content they're comfortable sharing with your app.
 
-Optionally, you can specify the URI of the directory that the file picker should
-display when it first loads by using the
-[`EXTRA_INITIAL_URI`](https://developer.android.com/reference/android/provider/DocumentsContract#EXTRA_INITIAL_URI)
-intent extra.
+Optionally, you can specify the URI of the directory that the file picker should display when it first loads by using the [`EXTRA_INITIAL_URI`](https://developer.android.com/reference/android/provider/DocumentsContract#EXTRA_INITIAL_URI) intent extra.
 
-The following code snippet shows how to create and invoke the intent for opening
-a directory:
+The following code snippet shows how to create and invoke the intent for opening a directory:
 
 ### Kotlin
 
@@ -254,26 +195,20 @@ public void openDirectory(Uri uriToLoad) {
 
 ### Access restrictions
 
-On Android 11 (API level 30) and higher, you cannot use the
-`ACTION_OPEN_DOCUMENT_TREE` intent action to request access to the following
-directories:
+On Android 11 (API level 30) and higher, you cannot use the `ACTION_OPEN_DOCUMENT_TREE` intent action to request access to the following directories:
 
 - The root directory of the internal storage volume.
 - The root directory of each SD card volume that the device manufacturer considers to be *reliable*, regardless of whether the card is emulated or removable. A reliable volume is one that an app can successfully access most of the time.
 - The `Download` directory.
 
-Furthermore, on Android 11 (API level 30) and higher, you cannot use the
-`ACTION_OPEN_DOCUMENT_TREE` intent action to request that the user select
-individual files from the following directories:
+Furthermore, on Android 11 (API level 30) and higher, you cannot use the `ACTION_OPEN_DOCUMENT_TREE` intent action to request that the user select individual files from the following directories:
 
 - The `Android/data/` directory and all subdirectories.
 - The `Android/obb/` directory and all subdirectories.
 
 ## Perform operations on chosen location
 
-After the user has selected a file or directory using the system's file picker,
-you can retrieve the selected item's URI using the following code in
-[`onActivityResult()`](https://developer.android.com/reference/android/app/Activity#onActivityResult(int,%20int,%20android.content.Intent)):
+After the user has selected a file or directory using the system's file picker, you can retrieve the selected item's URI using the following code in [`onActivityResult()`](https://developer.android.com/reference/android/app/Activity#onActivityResult(int,%20int,%20android.content.Intent)):
 
 ### Kotlin
 
@@ -310,33 +245,19 @@ public void onActivityResult(int requestCode, int resultCode,
 }
 ```
 
-By getting a reference to the selected item's URI, your app can perform several
-operations on the item. For example, you can access the item's metadata, edit
-the item in place, and delete the item.
+By getting a reference to the selected item's URI, your app can perform several operations on the item. For example, you can access the item's metadata, edit the item in place, and delete the item.
 
-The following sections show how to complete actions on the files that the user
-selects.
+The following sections show how to complete actions on the files that the user selects.
 
 ### Determine operations that a provider supports
 
-Different content providers allow for different operations to be performed on
-documents---such as copying the document or viewing a document's thumbnail. To
-determine which operations a given provider supports, check the value of
-[`Document.COLUMN_FLAGS`](https://developer.android.com/reference/android/provider/DocumentsContract.Document#COLUMN_FLAGS).
-Your app's UI can then show only the options that the provider supports.
+Different content providers allow for different operations to be performed on documents---such as copying the document or viewing a document's thumbnail. To determine which operations a given provider supports, check the value of [`Document.COLUMN_FLAGS`](https://developer.android.com/reference/android/provider/DocumentsContract.Document#COLUMN_FLAGS). Your app's UI can then show only the options that the provider supports.
 
 ### Persist permissions
 
-When your app opens a file for reading or writing, the system gives your app a
-URI permission grant for that file, which lasts until the user's device
-restarts. Suppose, however, that your app is an image-editing app, and you want
-users to be able to access the 5 images that they most recently edited, directly
-from your app. If the user's device has restarted, you'd have to send the user
-back to the system picker to find the files.
+When your app opens a file for reading or writing, the system gives your app a URI permission grant for that file, which lasts until the user's device restarts. Suppose, however, that your app is an image-editing app, and you want users to be able to access the 5 images that they most recently edited, directly from your app. If the user's device has restarted, you'd have to send the user back to the system picker to find the files.
 
-To preserve access to files across device restarts and create a better user
-experience, your app can "take" the persistable URI permission grant that the
-system offers, as shown in the following code snippet:
+To preserve access to files across device restarts and create a better user experience, your app can "take" the persistable URI permission grant that the system offers, as shown in the following code snippet:
 
 ### Kotlin
 
@@ -364,8 +285,7 @@ getContentResolver().takePersistableUriPermission(uri, takeFlags);
 
 ### Examine document metadata
 
-When you have the URI for a document, you gain access to its metadata. This
-snippet grabs the metadata for a document specified by the URI, and logs it:
+When you have the URI for a document, you gain access to its metadata. This snippet grabs the metadata for a document specified by the URI, and logs it:
 
 ### Kotlin
 
@@ -458,14 +378,11 @@ public void dumpImageMetaData(Uri uri) {
 
 ### Open a document
 
-By having a reference to a document's URI, you can open a document for further
-processing. This section shows examples for opening a bitmap and an input
-stream.
+By having a reference to a document's URI, you can open a document for further processing. This section shows examples for opening a bitmap and an input stream.
 
 #### Bitmap
 
-The following code snippet shows how to open a
-[`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap) file given its URI:
+The following code snippet shows how to open a [`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap) file given its URI:
 
 ### Kotlin
 
@@ -499,13 +416,11 @@ private Bitmap getBitmapFromUri(Uri uri) throws IOException {
 > [!NOTE]
 > **Note:** You should complete this operation on a background thread, not the UI thread.
 
-After you open the bitmap, you can display it in an
-[`ImageView`](https://developer.android.com/reference/android/widget/ImageView).
+After you open the bitmap, you can display it in an [`ImageView`](https://developer.android.com/reference/android/widget/ImageView).
 
 #### Input stream
 
-The following code snippet shows how to open an InputStream object given its
-URI. In this snippet, the lines of the file are being read into a string:
+The following code snippet shows how to open an InputStream object given its URI. In this snippet, the lines of the file are being read into a string:
 
 ### Kotlin
 
@@ -553,8 +468,7 @@ You can use the Storage Access Framework to edit a text document in place.
 > [!NOTE]
 > **Note:** The `DocumentFile` class's [`canWrite()`](https://developer.android.com/reference/androidx/documentfile/provider/DocumentFile#canWrite()) method doesn't necessarily indicate that your app can edit a document. That's because this method returns `true` if [`Document.COLUMN_FLAGS`](https://developer.android.com/training/data-storage/shared/(/reference/android/provider/DocumentsContract.Document#COLUMN_FLAGS)) contains *either* `FLAG_SUPPORTS_DELETE` or `FLAG_SUPPORTS_WRITE`. To determine whether your app can edit a given document, query the value of `FLAG_SUPPORTS_WRITE` directly.
 
-The following code snippet overwrites the contents of the document represented
-by the given URI:
+The following code snippet overwrites the contents of the document represented by the given URI:
 
 ### Kotlin
 
@@ -603,11 +517,7 @@ private void alterDocument(Uri uri) {
 
 ### Delete a document
 
-If you have the URI for a document and the document's
-[`Document.COLUMN_FLAGS`](https://developer.android.com/reference/android/provider/DocumentsContract.Document#COLUMN_FLAGS)
-contains
-[`SUPPORTS_DELETE`](https://developer.android.com/reference/android/provider/DocumentsContract.Document#FLAG_SUPPORTS_DELETE),
-you can delete the document. For example:
+If you have the URI for a document and the document's [`Document.COLUMN_FLAGS`](https://developer.android.com/reference/android/provider/DocumentsContract.Document#COLUMN_FLAGS) contains [`SUPPORTS_DELETE`](https://developer.android.com/reference/android/provider/DocumentsContract.Document#FLAG_SUPPORTS_DELETE), you can delete the document. For example:
 
 ### Kotlin
 
@@ -623,39 +533,23 @@ DocumentsContract.deleteDocument(applicationContext.contentResolver, uri);
 
 ### Retrieve an equivalent media URI
 
-The
-[`getMediaUri()`](https://developer.android.com/reference/android/provider/MediaStore#getMediaUri(android.content.Context,%20android.net.Uri))
-method provides a media store URI that is equivalent to the given documents
-provider URI. The 2 URIs refer to the same underlying item. Using the media
-store URI, you can more easily [access media files from shared
-storage](https://developer.android.com/training/data-storage/shared/media).
+The [`getMediaUri()`](https://developer.android.com/reference/android/provider/MediaStore#getMediaUri(android.content.Context,%20android.net.Uri)) method provides a media store URI that is equivalent to the given documents provider URI. The 2 URIs refer to the same underlying item. Using the media store URI, you can more easily [access media files from shared storage](https://developer.android.com/training/data-storage/shared/media).
 
 > [!NOTE]
 > **Note:** This method doesn't grant any new permissions. Your app must already have the necessary permissions to access a given document provider URI, such as by [opening the document](https://developer.android.com/training/data-storage/shared/documents-files#open).
 
-The `getMediaUri()` method supports `ExternalStorageProvider` URIs. On
-Android 12 (API level 31) and higher, the method also supports
-`MediaDocumentsProvider` URIs.
+The `getMediaUri()` method supports `ExternalStorageProvider` URIs. On Android 12 (API level 31) and higher, the method also supports `MediaDocumentsProvider` URIs.
 
 ### Open a virtual file
 
-On Android 7.0 (API level 25) and higher, your app can make use of virtual files
-that the Storage Access Framework makes available. Even though virtual files
-don't have a binary representation, your app can open their contents by coercing
-them into a different file type or by viewing those files by using the
-[`ACTION_VIEW`](https://developer.android.com/reference/android/content/Intent#ACTION_VIEW) intent
-action.
+On Android 7.0 (API level 25) and higher, your app can make use of virtual files that the Storage Access Framework makes available. Even though virtual files don't have a binary representation, your app can open their contents by coercing them into a different file type or by viewing those files by using the [`ACTION_VIEW`](https://developer.android.com/reference/android/content/Intent#ACTION_VIEW) intent action.
 
-To open virtual files, your client app needs to include special logic to handle
-them. If you want to get a byte representation of the file---to preview the file,
-for example---you need to request for an alternate MIME type from the documents
-provider.
+To open virtual files, your client app needs to include special logic to handle them. If you want to get a byte representation of the file---to preview the file, for example---you need to request for an alternate MIME type from the documents provider.
 
 > [!NOTE]
 > **Note:** Because an app cannot directly open a virtual file by using the [`openInputStream()`](https://developer.android.com/reference/android/content/ContentResolver#openInputStream(android.net.Uri)) method, don't use the [`CATEGORY_OPENABLE`](https://developer.android.com/reference/android/content/Intent#CATEGORY_OPENABLE) category when creating the intent that contains the `ACTION_OPEN_DOCUMENT` or `ACTION_OPEN_DOCUMENT_TREE` action.
 
-After the user makes a selection, use the URI in the results data to determine
-whether the file is virtual, as shown in the following code snippet:
+After the user makes a selection, use the URI in the results data to determine whether the file is virtual, as shown in the following code snippet:
 
 ### Kotlin
 
@@ -708,10 +602,7 @@ private boolean isVirtualFile(Uri uri) {
 }
 ```
 
-After you verify that the document is a virtual file, you can then coerce the
-file into an alternative MIME type, such as `"image/png"`. The following code
-snippet shows how to check whether a virtual file can be represented as an
-image, and if so, gets an input stream from the virtual file:
+After you verify that the document is a virtual file, you can then coerce the file into an alternative MIME type, such as `"image/png"`. The following code snippet shows how to check whether a virtual file can be represented as an image, and if so, gets an input stream from the virtual file:
 
 ### Kotlin
 
@@ -756,8 +647,7 @@ private InputStream getInputStreamForVirtualFile(Uri uri, String mimeTypeFilter)
 
 ## Additional resources
 
-For more information about how to store and access documents and other files,
-consult the following resources.
+For more information about how to store and access documents and other files, consult the following resources.
 
 ### Samples
 
@@ -766,5 +656,4 @@ consult the following resources.
 
 ### Videos
 
-- [Preparing for Scoped Storage (Android Dev Summit
-  '19)](https://www.youtube.com/watch?v=UnJ3amzJM94)
+- [Preparing for Scoped Storage (Android Dev Summit '19)](https://www.youtube.com/watch?v=UnJ3amzJM94)

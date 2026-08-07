@@ -4,24 +4,16 @@ url: https://developer.android.com/media/media3/exoplayer/live-streaming
 source: md.txt
 ---
 
-ExoPlayer plays most adaptive live streams out-of-the-box without any special
-configuration. See the [Supported Formats page](https://developer.android.com/guide/topics/media/exoplayer/supported-formats) for more details.
+ExoPlayer plays most adaptive live streams out-of-the-box without any special configuration. See the [Supported Formats page](https://developer.android.com/guide/topics/media/exoplayer/supported-formats) for more details.
 
-Adaptive live streams offer a window of available media that is updated in
-regular intervals to move with the current real-time. That means the playback
-position will always be somewhere in this window, in most cases close to the
-current real-time at which the stream is being produced. The difference between
-the current real-time and the playback position is called the *live offset*.
+Adaptive live streams offer a window of available media that is updated in regular intervals to move with the current real-time. That means the playback position will always be somewhere in this window, in most cases close to the current real-time at which the stream is being produced. The difference between the current real-time and the playback position is called the *live offset*.
 
 > [!NOTE]
 > **Note:** Unlike adaptive live streams, progressive live streams do not have a live window and can only be played at one position. The documentation on this page is only relevant to adaptive live streams.
 
 ## Detecting and monitoring live playbacks
 
-Every time a live window is updated, registered `Player.Listener` instances
-will receive an `onTimelineChanged` event. You can retrieve details about the
-current live playback by querying various `Player` and `Timeline.Window`
-methods, as listed below and shown in the following figure.
+Every time a live window is updated, registered `Player.Listener` instances will receive an `onTimelineChanged` event. You can retrieve details about the current live playback by querying various `Player` and `Timeline.Window` methods, as listed below and shown in the following figure.
 
 ![Live window](https://developer.android.com/static/guide/topics/media/exoplayer/images/live-window.png)
 
@@ -39,39 +31,28 @@ methods, as listed below and shown in the following figure.
 
 ## Seeking in live streams
 
-You can seek to anywhere within the live window using `Player.seekTo`. The seek
-position passed is relative to the start of the live window. For example,
-`seekTo(0)` will seek to the start of the live window. The player will try to
-keep the same live offset as the seeked-to position after a seek.
+You can seek to anywhere within the live window using `Player.seekTo`. The seek position passed is relative to the start of the live window. For example, `seekTo(0)` will seek to the start of the live window. The player will try to keep the same live offset as the seeked-to position after a seek.
 
-The live window also has a default position at which playback is supposed to
-start. This position is usually somewhere close to the live edge. You can seek
-to the default position by calling `Player.seekToDefaultPosition`.
+The live window also has a default position at which playback is supposed to start. This position is usually somewhere close to the live edge. You can seek to the default position by calling `Player.seekToDefaultPosition`.
 
 ## Live playback UI
 
-ExoPlayer's [default UI components](https://developer.android.com/guide/topics/media/ui/playerview) show the duration of the live window and
-the current playback position within it. This means the position will appear to
-jump backwards each time the live window is updated. If you need different
-behavior, for example showing the Unix time or the current live offset, you can
-fork `PlayerControlView` and modify it to suit your needs.
+ExoPlayer's [default UI components](https://developer.android.com/guide/topics/media/ui/playerview) show the duration of the live window and the current playback position within it. This means the position will appear to jump backwards each time the live window is updated. If you need different behavior, for example showing the Unix time or the current live offset, you can fork `PlayerControlView` and modify it to suit your needs.
 
 > [!NOTE]
 > **Note:** There is a [pending feature request (#2213)](https://github.com/google/ExoPlayer/issues/2213) for ExoPlayer's default UI components to support additional modes when playing live streams.
 
 ## Configuring live playback parameters
 
-ExoPlayer uses some parameters to control the offset of the playback position
-from the live edge, and the range of playback speeds that can be used to
-adjust this offset.
+ExoPlayer uses some parameters to control the offset of the playback position from the live edge, and the range of playback speeds that can be used to adjust this offset.
 
-ExoPlayer gets values for these parameters from three places, in descending
-order of priority (the first value found is used):
+ExoPlayer gets values for these parameters from three places, in descending order of priority (the first value found is used):
 
 - Per `MediaItem` values passed to `MediaItem.Builder.setLiveConfiguration`.
 - Global default values set on `DefaultMediaSourceFactory`.
 - Values read directly from the media.
 
+<br />
 
 ### Kotlin
 
@@ -91,6 +72,7 @@ val mediaItem =
     )
     .build()
 player.setMediaItem(mediaItem)
+      
 ```
 
 ### Java
@@ -111,6 +93,7 @@ MediaItem mediaItem =
             new MediaItem.LiveConfiguration.Builder().setMaxPlaybackSpeed(1.02f).build())
         .build();
 player.setMediaItem(mediaItem);
+      
 ```
 
 <br />
@@ -125,30 +108,15 @@ Available configuration values are:
 
 ## Playback speed adjustment
 
-When playing a low-latency live stream, ExoPlayer adjusts the live offset by
-slightly changing the playback speed. The player will try to match the target
-live offset provided by the media or the app, but will also try to react to
-changing network conditions. For example, if rebuffers occur during playback,
-the player will slow down playback slightly to move further away from the live
-edge. If the network then becomes stable enough to support playing closer to the
-live edge again, the player will speed up playback to move back toward the
-target live offset.
+When playing a low-latency live stream, ExoPlayer adjusts the live offset by slightly changing the playback speed. The player will try to match the target live offset provided by the media or the app, but will also try to react to changing network conditions. For example, if rebuffers occur during playback, the player will slow down playback slightly to move further away from the live edge. If the network then becomes stable enough to support playing closer to the live edge again, the player will speed up playback to move back toward the target live offset.
 
-If automatic playback speed adjustment is not desired, it can be disabled by
-setting `minPlaybackSpeed` and `maxPlaybackSpeed` properties to `1.0f`.
-Similarly, it can be enabled for non-low-latency live streams by setting these
-explicitly to values other than `1.0f`. See
-[the configuration section above](https://developer.android.com/media/media3/exoplayer/live-streaming#configuring-live-playback-parameters) for
-more details on how these properties can be set.
+If automatic playback speed adjustment is not desired, it can be disabled by setting `minPlaybackSpeed` and `maxPlaybackSpeed` properties to `1.0f`. Similarly, it can be enabled for non-low-latency live streams by setting these explicitly to values other than `1.0f`. See [the configuration section above](https://developer.android.com/media/media3/exoplayer/live-streaming#configuring-live-playback-parameters) for more details on how these properties can be set.
 
 ### Customizing the playback speed adjustment algorithm
 
-If speed adjustment is enabled, a `LivePlaybackSpeedControl` defines what
-adjustments are made. It's possible to implement a custom
-`LivePlaybackSpeedControl`, or to customize the default implementation, which is
-`DefaultLivePlaybackSpeedControl`. In both cases, an instance can be set when
-building the player:
+If speed adjustment is enabled, a `LivePlaybackSpeedControl` defines what adjustments are made. It's possible to implement a custom `LivePlaybackSpeedControl`, or to customize the default implementation, which is `DefaultLivePlaybackSpeedControl`. In both cases, an instance can be set when building the player:
 
+<br />
 
 ### Kotlin
 
@@ -159,6 +127,7 @@ val player =
       DefaultLivePlaybackSpeedControl.Builder().setFallbackMaxPlaybackSpeed(1.04f).build()
     )
     .build()
+      
 ```
 
 ### Java
@@ -171,6 +140,7 @@ ExoPlayer player =
                 .setFallbackMaxPlaybackSpeed(1.04f)
                 .build())
         .build();
+      
 ```
 
 <br />
@@ -184,14 +154,9 @@ Relevant customization parameters of `DefaultLivePlaybackSpeedControl` are:
 
 ## BehindLiveWindowException and ERROR_CODE_BEHIND_LIVE_WINDOW
 
-The playback position may fall behind the live window, for example if the player
-is paused or buffering for a long enough period of time. If this happens then
-playback will fail and an exception with error code
-`ERROR_CODE_BEHIND_LIVE_WINDOW` will be reported via
-`Player.Listener.onPlayerError`. Application code may wish to handle such
-errors by resuming playback at the default position. The [PlayerActivity](https://github.com/androidx/media/tree/release/demos/main/src/main/java/androidx/media3/demo/main/PlayerActivity.java) of
-the demo app exemplifies this approach.
+The playback position may fall behind the live window, for example if the player is paused or buffering for a long enough period of time. If this happens then playback will fail and an exception with error code `ERROR_CODE_BEHIND_LIVE_WINDOW` will be reported via `Player.Listener.onPlayerError`. Application code may wish to handle such errors by resuming playback at the default position. The [PlayerActivity](https://github.com/androidx/media/tree/release/demos/main/src/main/java/androidx/media3/demo/main/PlayerActivity.java) of the demo app exemplifies this approach.
 
+<br />
 
 ### Kotlin
 
@@ -205,6 +170,7 @@ override fun onPlayerError(error: PlaybackException) {
     // Handle other errors
   }
 }
+      
 ```
 
 ### Java
@@ -220,6 +186,7 @@ public void onPlayerError(PlaybackException error) {
     // Handle other errors
   }
 }
+      
 ```
 
 <br />

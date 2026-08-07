@@ -9,21 +9,22 @@ source: md.txt
 >
 > Regardless of the Car App Library version, for apps that target Android 13 (API level 33) or lower, `CarConnection` API doesn't encounter this issue, even on a device running Android 14 or higher.
 
-To determine if your app is running on Android Auto or Android Automotive OS,
-use the [`CarConnection` API](https://developer.android.com/reference/androidx/car/app/connection/CarConnection) to retrieve connection information at runtime.
-For example:
+To determine if your app is running on Android Auto or Android Automotive OS, use the [`CarConnection` API](https://developer.android.com/reference/androidx/car/app/connection/CarConnection) to retrieve connection information at runtime. For example:
 
 1. In your car app's `Session`, initialize a `CarConnection` and subscribe to `LiveData` updates:
 
+<br />
 
 ```kotlin
 CarConnection(carContext).type.observe(this, ::onConnectionStateUpdated)
+   
 ```
 
 <br />
 
 1. In the observer, react to changes in the connection state:
 
+<br />
 
 ```kotlin
 fun onConnectionStateUpdated(connectionState: Int) {
@@ -35,6 +36,7 @@ fun onConnectionStateUpdated(connectionState: Int) {
     }
     CarToast.makeText(carContext, message, CarToast.LENGTH_SHORT).show()
 }
+   
 ```
 
 <br />

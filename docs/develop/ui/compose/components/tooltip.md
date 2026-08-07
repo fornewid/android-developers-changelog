@@ -4,8 +4,7 @@ url: https://developer.android.com/develop/ui/compose/components/tooltip
 source: md.txt
 ---
 
-Use [tooltips](https://m3.material.io/components/tooltips/overview) to add context to a button or other UI element.
-There are two types of tooltips:
+Use [tooltips](https://m3.material.io/components/tooltips/overview) to add context to a button or other UI element. There are two types of tooltips:
 
 - **Plain tooltips**: Describe elements or actions of icon buttons.
 - **Rich tooltips**: Provide more detail, such as describing the value of a feature. Can also include an optional title, link, and buttons.
@@ -14,8 +13,7 @@ There are two types of tooltips:
 
 ## API surface
 
-You can use the [`TooltipBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipBox.composable) composable to implement tooltips in your app.
-You control [`TooltipBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipBox.composable) appearance with these main parameters:
+You can use the [`TooltipBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipBox.composable) composable to implement tooltips in your app. You control [`TooltipBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TooltipBox.composable) appearance with these main parameters:
 
 - `positionProvider`: Places the tooltip relative to the anchor content. You typically use a default position provider from the `TooltipDefaults`, or you can provide your own if you need custom positioning logic.
 - `tooltip`: The composable that contains the tooltip's content. You typically use either the `PlainTooltip` or `RichTooltip` composables.
@@ -26,9 +24,9 @@ You control [`TooltipBox`](https://developer.android.com/reference/kotlin/androi
 
 ## Display a plain tooltip
 
-Use a plain tooltip to briefly describe a UI element. This code snippet displays
-a plain tooltip on top of an icon button, labeled "Add to favorites":
+Use a plain tooltip to briefly describe a UI element. This code snippet displays a plain tooltip on top of an icon button, labeled "Add to favorites":
 
+<br />
 
 ```kotlin
 @Composable
@@ -52,6 +50,8 @@ fun PlainTooltipExample(
         }
     }
 }
+
+   
 ```
 
 <br />
@@ -76,10 +76,9 @@ This example produces a plain tooltip on top of an icon:
 
 ## Display a rich tooltip
 
-Use a rich tooltip to provide additional context about a UI element. This
-example creates a multi-line rich tooltip with a title that is anchored to an
-`Icon`:
+Use a rich tooltip to provide additional context about a UI element. This example creates a multi-line rich tooltip with a title that is anchored to an `Icon`:
 
+<br />
 
 ```kotlin
 @Composable
@@ -108,6 +107,7 @@ fun RichTooltipExample(
         }
     }
 }
+   
 ```
 
 <br />
@@ -120,15 +120,14 @@ fun RichTooltipExample(
 
 ### Result
 
-This example produces a rich tooltip with a title attached to an information
-icon:
+This example produces a rich tooltip with a title attached to an information icon:
 ![A multiple-line tooltip with the title 'Rich Tooltip' and a line of text above an information icon.](https://developer.android.com/static/develop/ui/compose/images/RichTooltipExample.png) **Figure 3.**A rich tooltip with a title and an information icon.
 
 ## Customize a rich tooltip
 
-This code snippet displays a rich tooltip with a title, custom actions, and a
-custom caret (arrow) displayed on top of a camera icon button:
+This code snippet displays a rich tooltip with a title, custom actions, and a custom caret (arrow) displayed on top of a camera icon button:
 
+<br />
 
 ```kotlin
 @Composable
@@ -176,6 +175,7 @@ fun AdvancedRichTooltipExample(
         }
     }
 }
+   
 ```
 
 <br />

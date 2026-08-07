@@ -12,44 +12,34 @@ Getting started with `Transformer` consists of the following steps:
 4. Start the export operation, passing in the `EditedMediaItem` to edit and an output path. During export, you can query the current progress or cancel the operation.
 5. When exporting finishes, handle the output as needed. For example, you can share the output to another app or upload it to a server.
 
-Read on for more detail about these steps, and see `TransformerActivity` in the
-[transformer demo
-app](https://github.com/androidx/media/tree/release/demos/transformer) for a
-complete example.
+Read on for more detail about these steps, and see `TransformerActivity` in the [transformer demo app](https://github.com/androidx/media/tree/release/demos/transformer) for a complete example.
 
 ## Add Media3 Transformer as a dependency
 
-The easiest way to get started using Transformer is to add gradle dependencies
-on the library in the `build.gradle` file of your app module:
+The easiest way to get started using Transformer is to add gradle dependencies on the library in the `build.gradle` file of your app module:
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-transformer:1.10.1")
-    implementation("androidx.media3:media3-effect:1.10.1")
-    implementation("androidx.media3:media3-common:1.10.1")
+    implementation("androidx.media3:media3-transformer:1.11.0")
+    implementation("androidx.media3:media3-effect:1.11.0")
+    implementation("androidx.media3:media3-common:1.11.0")
 
 ### Groovy
 
-    implementation "androidx.media3:media3-transformer:1.10.1"
-    implementation "androidx.media3:media3-effect:1.10.1"
-    implementation "androidx.media3:media3-common:1.10.1"
+    implementation "androidx.media3:media3-transformer:1.11.0"
+    implementation "androidx.media3:media3-effect:1.11.0"
+    implementation "androidx.media3:media3-common:1.11.0"
 
-where 1.10.1 is your preferred version. The latest version can be
-found by consulting the [release
-notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md).
+where 1.11.0 is your preferred version. The latest version can be found by consulting the [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md).
 
 > [!IMPORTANT]
 > **Important:** If you're using any other Media3 modules, including Media3 ExoPlayer, they must all be the same version.
 
-More information on the library modules that are available can be found on the
-[Google Maven AndroidX Media3
-page](https://maven.google.com/web/index.html?q=media3).
+More information on the library modules that are available can be found on the [Google Maven AndroidX Media3 page](https://maven.google.com/web/index.html?q=media3).
 
 ### Turn on Java 8 support
 
-If not enabled already, you need to turn on Java 8 support in all `build.gradle`
-files that depend on Transformer by adding the following to the `android`
-section:
+If not enabled already, you need to turn on Java 8 support in all `build.gradle` files that depend on Transformer by adding the following to the `android` section:
 
     compileOptions {
       targetCompatibility JavaVersion.VERSION_1_8
@@ -57,10 +47,9 @@ section:
 
 ## Start a transformation
 
-Here's an example of creating an `EditedMediaItem` to remove audio for an input
-file, then creating and configuring a `Transformer` instance to export
-H.265/HEVC video, outputting the result to `outputPath`.
+Here's an example of creating an `EditedMediaItem` to remove audio for an input file, then creating and configuring a `Transformer` instance to export H.265/HEVC video, outputting the result to `outputPath`.
 
+<br />
 
 ### Kotlin
 
@@ -73,6 +62,7 @@ val transformer =
     .addListener(transformerListener)
     .build()
 transformer.start(editedMediaItem, outputPath)
+      
 ```
 
 ### Java
@@ -87,37 +77,27 @@ Transformer transformer =
         .addListener(transformerListener)
         .build();
 transformer.start(editedMediaItem, outputPath);
+      
 ```
 
 <br />
 
-For more information about media items, see the [ExoPlayer media items
-page](https://developer.android.com/media/media3/exoplayer/media-items). The input can be a progressive or an adaptive
-stream, but the output is always a progressive stream. For adaptive inputs, the
-highest-resolution tracks are always selected for the transformation. The input
-can be of any container format [supported](https://developer.android.com/media/media3/transformer/supported-formats) by ExoPlayer, but
-the output is always an MP4 file.
+For more information about media items, see the [ExoPlayer media items page](https://developer.android.com/media/media3/exoplayer/media-items). The input can be a progressive or an adaptive stream, but the output is always a progressive stream. For adaptive inputs, the highest-resolution tracks are always selected for the transformation. The input can be of any container format [supported](https://developer.android.com/media/media3/transformer/supported-formats) by ExoPlayer, but the output is always an MP4 file.
 
-You can execute multiple export operations sequentially on the same
-`Transformer` instance, but concurrent exports with the same instance are not
-supported.
+You can execute multiple export operations sequentially on the same `Transformer` instance, but concurrent exports with the same instance are not supported.
 
 > [!NOTE]
 > **Note:** Support for generating media by composing together multiple inputs is planned for future versions of Transformer.
 
 ### A note on threading
 
-Transformer instances must be accessed from a single application thread, and the
-listener methods are called on the same thread. For the majority of cases, the
-application thread can just be the main thread of the application. Internally,
-Transformer does its work in the background and posts its calls to listener
-methods on the application thread.
+Transformer instances must be accessed from a single application thread, and the listener methods are called on the same thread. For the majority of cases, the application thread can just be the main thread of the application. Internally, Transformer does its work in the background and posts its calls to listener methods on the application thread.
 
 ## Listen to events
 
-The `start` method is asynchronous. It returns immediately and the app is
-notified of events through the listener passed to the `Transformer` builder.
+The `start` method is asynchronous. It returns immediately and the app is notified of events through the listener passed to the `Transformer` builder.
 
+<br />
 
 ### Kotlin
 
@@ -136,6 +116,7 @@ val transformerListener: Transformer.Listener =
       displayError(exception)
     }
   }
+      
 ```
 
 ### Java
@@ -154,22 +135,18 @@ Transformer.Listener transformerListener =
         displayError(exception);
       }
     };
+      
 ```
 
 <br />
 
-`ExportResult` includes information about the output file, including the file
-size and average bitrates for audio and video, as applicable.
+`ExportResult` includes information about the output file, including the file size and average bitrates for audio and video, as applicable.
 
 ## Get progress updates
 
-Call `Transformer.getProgress` to query the current progress of a
-transformation. The returned value indicates the progress state. If the progress
-state is `PROGRESS_STATE_AVAILABLE`, then the provided `ProgressHolder` is
-updated with the current progress percentage. The following example shows how to
-periodically query the progress of a transformation, where the
-`updateProgressInUi` method can be implemented to update a progress bar.
+Call `Transformer.getProgress` to query the current progress of a transformation. The returned value indicates the progress state. If the progress state is `PROGRESS_STATE_AVAILABLE`, then the provided `ProgressHolder` is updated with the current progress percentage. The following example shows how to periodically query the progress of a transformation, where the `updateProgressInUi` method can be implemented to update a progress bar.
 
+<br />
 
 ### Kotlin
 
@@ -187,6 +164,7 @@ mainHandler.post(
     }
   }
 )
+      
 ```
 
 ### Java
@@ -205,13 +183,11 @@ mainHandler.post(
         }
       }
     });
+      
 ```
 
 <br />
 
 ## Cancel a transformation
 
-If the user chooses to back out of an export flow, cancel the export operation
-with `Transformer.cancel`. Resources like hardware video codecs are limited,
-especially on lower-end devices, so it's important to do this to free up
-resources if the output isn't needed.
+If the user chooses to back out of an export flow, cancel the export operation with `Transformer.cancel`. Resources like hardware video codecs are limited, especially on lower-end devices, so it's important to do this to free up resources if the output isn't needed.

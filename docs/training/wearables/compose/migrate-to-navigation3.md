@@ -9,8 +9,7 @@ Navigation 3 represents a fundamental shift in how Jetpack Compose handles navig
 Understand the architectural changes and steps required to migrate a Wear Compose app from Navigation 2 to Navigation 3.
 
 > [!NOTE]
-> **Note:** This guide is intended to be read in conjunction with [the main Navigation
-> 3 migration guide](https://developer.android.com/guide/navigation/navigation-3/migration-guide). It focuses on the migration steps specific to Wear OS apps, such as transitioning to the [`SwipeDismissableSceneStrategy`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation3/SwipeDismissableSceneStrategy).
+> **Note:** This guide is intended to be read in conjunction with [the main Navigation 3 migration guide](https://developer.android.com/guide/navigation/navigation-3/migration-guide). It focuses on the migration steps specific to Wear OS apps, such as transitioning to the [`SwipeDismissableSceneStrategy`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation3/SwipeDismissableSceneStrategy).
 
 ## Key advantages of Navigation 3
 
@@ -23,9 +22,7 @@ Understand the architectural changes and steps required to migrate a Wear Compos
 
 ### 1. Update dependencies
 
-Remove the old `androidx.wear.compose:compose-navigation` dependency and
-introduce the new split Navigation 3 dependencies, along with Kotlin
-serialization support.
+Remove the old `androidx.wear.compose:compose-navigation` dependency and introduce the new split Navigation 3 dependencies, along with Kotlin serialization support.
 
 **Remove:**
 
@@ -40,13 +37,9 @@ serialization support.
 
 ### 2. Update destinations to implement `NavKey`
 
-In Navigation 2, you might have used strings or generic objects for routing. In
-Navigation 3, you **must** implement the [`NavKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavKey) marker interface and
-annotate every screen object with `@Serializable`.
+In Navigation 2, you might have used strings or generic objects for routing. In Navigation 3, you **must** implement the [`NavKey`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavKey) marker interface and annotate every screen object with `@Serializable`.
 
-*Why is this required?* To guarantee that the back stack can be saved and
-restored across process death, the underlying `navigation3-runtime` relies on
-[`kotlinx-serialization`](https://kotlinlang.org/api/kotlinx.serialization/) to serialize the state.
+*Why is this required?* To guarantee that the back stack can be saved and restored across process death, the underlying `navigation3-runtime` relies on [`kotlinx-serialization`](https://kotlinlang.org/api/kotlinx.serialization/) to serialize the state.
 
 **Before (Navigation 2 - Generic Type-Safe Routes):**
 
@@ -55,6 +48,7 @@ sealed class Nav2Screen {
     data object Landing : Nav2Screen()
     data object List : Nav2Screen()
 }
+    
 ```
 
 **After (Navigation 3 - NavKey + Serializable):**
@@ -68,18 +62,18 @@ sealed interface MigrationScreen : NavKey {
     @Serializable
     data object List : MigrationScreen
 }
+    
 ```
 
 ### 3. Replace the Routing Logic ([`NavController`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController) to `NavBackStack`)
 
-Replace your [`NavController`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController) with a [`NavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavBackStack) initialized via
-[`rememberNavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary#rememberNavBackStack). You also need to instantiate the
-[`SwipeDismissableSceneStrategy`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation3/SwipeDismissableSceneStrategy) specifically for Wear OS.
+Replace your [`NavController`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController) with a [`NavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavBackStack) initialized via [`rememberNavBackStack`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary#rememberNavBackStack). You also need to instantiate the [`SwipeDismissableSceneStrategy`](https://developer.android.com/reference/kotlin/androidx/wear/compose/navigation3/SwipeDismissableSceneStrategy) specifically for Wear OS.
 
 **Before (Navigation 2):**
 
 ```kotlin
 val navController = rememberSwipeDismissableNavController()
+    
 ```
 
 **After (Navigation 3):**
@@ -87,13 +81,12 @@ val navController = rememberSwipeDismissableNavController()
 ```kotlin
 val backStack = rememberNavBackStack(MigrationScreen.Landing as NavKey)
 val strategy = rememberSwipeDismissableSceneStrategy<NavKey>()
+    
 ```
 
 ### 4. Replace `NavHost` with `NavDisplay` and the `entryProvider` DSL
 
-The `NavHost` container and its internal `composable("route") { ... }` builder
-DSL are replaced by [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay) and the [`entryProvider`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary#entryProvider) `{
-entry<Key> { ... } }` DSL.
+The `NavHost` container and its internal `composable("route") { ... }` builder DSL are replaced by [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay) and the [`entryProvider`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/package-summary#entryProvider) `{ entry<Key> { ... } }` DSL.
 
 **Before (Navigation 2):**
 
@@ -108,6 +101,7 @@ SwipeDismissableNavHost(navController = navController, startDestination = "menu"
         ListScreen()
     }
 }
+    
 ```
 
 **After (Navigation 3):**
@@ -127,4 +121,5 @@ NavDisplay(
         }
     }
 )
+    
 ```

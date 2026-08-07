@@ -8,13 +8,9 @@ Compose for Wear OS Material version <button value="2.5">2.5</button> <button va
 
 *** ** * ** ***
 
-Your app should work well on Wear OS devices of all sizes, taking advantage of
-additional space where available, and still look great on smaller screens too.
-This guide provides recommendations for achieving this user experience.
+Your app should work well on Wear OS devices of all sizes, taking advantage of additional space where available, and still look great on smaller screens too. This guide provides recommendations for achieving this user experience.
 
-To learn more about the design principles for adaptive layouts, read the
-[design guidance](https://developer.android.com/design/ui/wear/guides/foundations/adaptive-layouts).
-
+To learn more about the design principles for adaptive layouts, read the [design guidance](https://developer.android.com/design/ui/wear/guides/foundations/adaptive-layouts).
 
 ## Build responsive layouts using Material 3
 
@@ -22,9 +18,7 @@ Layouts should have [percentage-based margins](https://developer.android.com/des
 
 <br />
 
-The following code snippet uses a
-`TransformingLazyColumn` component to create content that looks great on a variety
-of Wear OS screen sizes:
+The following code snippet uses a `TransformingLazyColumn` component to create content that looks great on a variety of Wear OS screen sizes:
 
 ```kotlin
 val columnState = rememberTransformingLazyColumnState()
@@ -72,20 +66,17 @@ ScreenScaffold(
         }
     }
 }
+    
 ```
 
-This example also demonstrates `ScreenScaffold` and `AppScaffold`.
-These coordinate between the App and individual screens
-([navigation routes](https://developer.android.com/training/wearables/compose/navigation)) to ensure the correct scrolling behavior and
-`TimeText` positioning.
+This example also demonstrates `ScreenScaffold` and `AppScaffold`. These coordinate between the App and individual screens ([navigation routes](https://developer.android.com/training/wearables/compose/navigation)) to ensure the correct scrolling behavior and `TimeText` positioning.
 
 For the top and bottom padding, also note the following:
 
 - The specification of the first and last `ItemType`, to determine the correct padding.
 - The use of `ListHeader` for the first item in the list, because `Text` headers shouldn't have padding.
 
-Full specifications can be found in the [Figma design kits](https://developer.android.com/design/ui/wear/guides/foundations/download). For more
-details and examples, see:
+Full specifications can be found in the [Figma design kits](https://developer.android.com/design/ui/wear/guides/foundations/download). For more details and examples, see:
 
 - The [Horologist library](https://github.com/google/horologist) - provides helpers to help build optimized and differentiated apps for Wear OS.
 - The [ComposeStarter sample](https://github.com/android/wear-os-samples/tree/main/ComposeStarter) - an example showing the principles outlined in this guide.
@@ -93,37 +84,24 @@ details and examples, see:
 
 ## Use scrolling layouts in your app
 
-Use a scrolling layout, as shown earlier on this page, as the default choice
-when implementing your screens. This lets users reach your app's components
-regardless of display preferences or Wear OS device screen size.
+Use a scrolling layout, as shown earlier on this page, as the default choice when implementing your screens. This lets users reach your app's components regardless of display preferences or Wear OS device screen size.
 ![The effect of different device size and font-scaling](https://developer.android.com/static/images/wear/screenshot-test.png)
 
-*The effect of different device sizes
-and font-scaling.*
+*The effect of different device sizes and font-scaling.*
 
 ### Dialogs
 
-Dialogs should also be scrollable, unless there is a very good reason not to.
-
-The [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/package-summary#AlertDialog(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.foundation.layout.PaddingValues,androidx.compose.ui.window.DialogProperties,kotlin.Function1)) component is responsive and is scrollable by default
-if the content exceeds the viewport height.
-
+Dialogs should also be scrollable, unless there is a very good reason not to. The [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/package-summary#AlertDialog(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.foundation.layout.PaddingValues,androidx.compose.ui.window.DialogProperties,kotlin.Function1)) component is responsive and is scrollable by default if the content exceeds the viewport height.
 
 ### Custom screens might require non-scrolling layouts
 
-Some screens may still be suited to non-scrolling layouts. Several examples
-include the main player screen in a media app and the workout screen in a
-fitness app.
+Some screens may still be suited to non-scrolling layouts. Several examples include the main player screen in a media app and the workout screen in a fitness app.
 
-In these cases, look at the canonical guidance provided in the
-[Figma design kits](https://developer.android.com/design/ui/wear/guides/foundations/download), and implement a design that is responsive to the size
-of the screen, using the correct margins.
+In these cases, look at the canonical guidance provided in the [Figma design kits](https://developer.android.com/design/ui/wear/guides/foundations/download), and implement a design that is responsive to the size of the screen, using the correct margins.
 
 ## Provide differentiated experiences through breakpoints
 
-With larger displays, you can introduce additional content and features. To
-implement this sort of differentiated experience, use *screen size breakpoints*,
-showing a different layout when the screen size exceeds 225 dp:
+With larger displays, you can introduce additional content and features. To implement this sort of differentiated experience, use *screen size breakpoints*, showing a different layout when the screen size exceeds 225 dp:
 
 ```kotlin
 const val LARGE_DISPLAY_BREAKPOINT = 225
@@ -140,20 +118,19 @@ fun isLargeDisplay() =
         // Show content only for smaller displays.
     }
     // ...
+     
 ```
 
 The [design guidance](https://developer.android.com/design/ui/wear/guides/foundations/larger-screens-differentiated) illustrates more of these opportunities.
 
 ## Test combinations of screen and font sizes using previews
 
-[Compose previews](https://developer.android.com/develop/ui/compose/tooling/previews) help you develop for a variety of Wear OS screen sizes.
-Use both the devices and font-scaling preview definitions to see the following:
+[Compose previews](https://developer.android.com/develop/ui/compose/tooling/previews) help you develop for a variety of Wear OS screen sizes. Use both the devices and font-scaling preview definitions to see the following:
 
 - How your screens look at the extremes of sizing, for example, largest font paired with smallest screen.
 - How your differentiated experience behaves across breakpoints.
 
-Ensure you implement previews using [`WearPreviewDevices`](https://developer.android.com/reference/kotlin/androidx/wear/compose/ui/tooling/preview/WearPreviewDevices) and
-[`WearPreviewFontScales`](https://developer.android.com/reference/kotlin/androidx/wear/compose/ui/tooling/preview/WearPreviewFontScales) for all the screens in your app.
+Ensure you implement previews using [`WearPreviewDevices`](https://developer.android.com/reference/kotlin/androidx/wear/compose/ui/tooling/preview/WearPreviewDevices) and [`WearPreviewFontScales`](https://developer.android.com/reference/kotlin/androidx/wear/compose/ui/tooling/preview/WearPreviewFontScales) for all the screens in your app.
 
 ```kotlin
 @WearPreviewDevices
@@ -162,17 +139,14 @@ Ensure you implement previews using [`WearPreviewDevices`](https://developer.and
 fun ComposeListPreview() {
     ComposeList()
 }
+    
 ```
 
 ## Screenshot testing
 
-Beyond preview testing, screenshot testing lets you test against a range of
-existing hardware sizes. This is particularly useful where those devices might
-not be immediately available to you, and the issue may not present itself on
-other screen sizes.
+Beyond preview testing, screenshot testing lets you test against a range of existing hardware sizes. This is particularly useful where those devices might not be immediately available to you, and the issue may not present itself on other screen sizes.
 
-Screenshot testing also helps you identify regressions at specific locations in
-your codebase.
+Screenshot testing also helps you identify regressions at specific locations in your codebase.
 
 Our samples use [Roborazzi](https://github.com/takahirom/roborazzi) for screenshot testing:
 
@@ -200,6 +174,7 @@ class ComposeListScreenTest(
         fun devices() = WearDevice.entries
     }
 }
+    
 ```
 
 Some important points to note:
@@ -214,8 +189,7 @@ To generate images for your screens, run the following command in a terminal:
 
 ### Verify images
 
-To verify changes against existing images, run the following command in a
-terminal:
+To verify changes against existing images, run the following command in a terminal:
 
     ./gradlew verifyRoborazziDebug
 

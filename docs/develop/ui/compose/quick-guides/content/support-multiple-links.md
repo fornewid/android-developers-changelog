@@ -6,8 +6,7 @@ source: md.txt
 
 <br />
 
-You can support multiple links in a single string of text to perform different
-actions when clicking a subsection of text.
+You can support multiple links in a single string of text to perform different actions when clicking a subsection of text.
 
 ## Results
 
@@ -15,17 +14,17 @@ actions when clicking a subsection of text.
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or
-higher.
+This implementation requires that your project minSDK be set to API level 21 or higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/support-multiple-links_25db4cb5478f8f64b5842826373117869cc8fc398f2e4876b12a04342955ee0d.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/support-multiple-links_511c23f7dff0ca34c1957f6498806bce922c1588762a060a20a1c615f7473fcd.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Display multiple links in a single string
 
 This snippet embeds multiple clickable links into a single string of text:
 
+<br />
 
 ```kotlin
 @Composable
@@ -55,6 +54,7 @@ fun AnnotatedStringWithLinkSample() {
         }
     )
 }
+   
 ```
 
 <br />
@@ -68,8 +68,7 @@ fun AnnotatedStringWithLinkSample() {
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover
-broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display text

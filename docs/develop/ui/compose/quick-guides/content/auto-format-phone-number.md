@@ -6,9 +6,7 @@ source: md.txt
 
 <br />
 
-You can auto format a phone number in a text field in your app, saving users
-time by formatting the phone number as they input digits. Follow this guidance
-to auto format a phone number:
+You can auto format a phone number in a text field in your app, saving users time by formatting the phone number as they input digits. Follow this guidance to auto format a phone number:
 
 - Create the text field.
 - Auto-format a number in the text field.
@@ -19,20 +17,17 @@ to auto format a phone number:
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or
-higher.
+This implementation requires that your project minSDK be set to API level 21 or higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/auto-format-phone-number_25db4cb5478f8f64b5842826373117869cc8fc398f2e4876b12a04342955ee0d.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/auto-format-phone-number_511c23f7dff0ca34c1957f6498806bce922c1588762a060a20a1c615f7473fcd.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create the text field
 
-First, configure the [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable#TextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors)). This example shows a phone number
-formatted per the North American Numbering Plan
-(NANP).`NanpVisualTransformation` formats a raw string of numbers to NANP, eg.
-1234567890 to (123) 456-7890.
+First, configure the [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable#TextField(androidx.compose.ui.text.input.TextFieldValue,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.ui.text.input.VisualTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.KeyboardActions,kotlin.Boolean,kotlin.Int,kotlin.Int,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors)). This example shows a phone number formatted per the North American Numbering Plan (NANP).`NanpVisualTransformation` formats a raw string of numbers to NANP, eg. 1234567890 to (123) 456-7890.
 
+<br />
 
 ```kotlin
 @Composable
@@ -55,6 +50,7 @@ fun PhoneNumber() {
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
 }
+   
 ```
 
 <br />
@@ -66,9 +62,9 @@ fun PhoneNumber() {
 
 ## Auto-format a number in the text field
 
-To format a raw string of numbers, use the implementation of the custom
-`NanpVisualTransformation` class:
+To format a raw string of numbers, use the implementation of the custom `NanpVisualTransformation` class:
 
+<br />
 
 ```kotlin
 class NanpVisualTransformation : VisualTransformation {
@@ -111,6 +107,7 @@ class NanpVisualTransformation : VisualTransformation {
             }
     }
 }
+   
 ```
 
 <br />
@@ -123,8 +120,7 @@ class NanpVisualTransformation : VisualTransformation {
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover
-broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display text

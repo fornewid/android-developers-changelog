@@ -4,18 +4,13 @@ url: https://developer.android.com/develop/ui/compose/text/user-interactions
 source: md.txt
 ---
 
-Jetpack Compose enables fine-grained interactivity in `Text`. Text selection is
-now more flexible and can be done across composable layouts. User interactions
-in text are different from other composable layouts, as you can't add a modifier
-to a portion of a `Text` composable. This page highlights the APIs
-that enable user interactions.
+Jetpack Compose enables fine-grained interactivity in `Text`. Text selection is now more flexible and can be done across composable layouts. User interactions in text are different from other composable layouts, as you can't add a modifier to a portion of a `Text` composable. This page highlights the APIs that enable user interactions.
 
 ## Select text
 
-By default, composables aren't selectable, which means that users can't
-select and copy text from your app. To enable text selection, wrap
-your text elements with a [`SelectionContainer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/selection/SelectionContainer.composable#SelectionContainer(androidx.compose.ui.Modifier,kotlin.Function0)) composable:
+By default, composables aren't selectable, which means that users can't select and copy text from your app. To enable text selection, wrap your text elements with a [`SelectionContainer`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/selection/SelectionContainer.composable#SelectionContainer(androidx.compose.ui.Modifier,kotlin.Function0)) composable:
 
+<br />
 
 ```kotlin
 @Composable
@@ -24,16 +19,16 @@ fun SelectableText() {
         Text("This text is selectable")
     }
 }
+   
 ```
 
 <br />
 
 ![A short passage of text, selected by the user.](https://developer.android.com/static/develop/ui/compose/images/text-selected.png)
 
-You may want to disable selection on specific parts of a selectable area. To do
-so, you need to wrap the unselectable part with a [`DisableSelection`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/selection/DisableSelection.composable#DisableSelection(kotlin.Function0))
-composable:
+You may want to disable selection on specific parts of a selectable area. To do so, you need to wrap the unselectable part with a [`DisableSelection`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/selection/DisableSelection.composable#DisableSelection(kotlin.Function0)) composable:
 
+<br />
 
 ```kotlin
 @Composable
@@ -52,6 +47,7 @@ fun PartiallySelectableText() {
         }
     }
 }
+   
 ```
 
 <br />
@@ -60,15 +56,11 @@ fun PartiallySelectableText() {
 
 ## Create clickable sections of text with `LinkAnnotation`
 
-To listen for clicks on `Text`, you can add the [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0))
-modifier. However, you may want to attach extra information to a certain part of
-the `Text` value, like a URL attached to a certain word to be opened in a
-browser. In cases like this, you need to use a [`LinkAnnotation`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/LinkAnnotation), which is
-an annotation that represents a clickable part of the text.
+To listen for clicks on `Text`, you can add the [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0)) modifier. However, you may want to attach extra information to a certain part of the `Text` value, like a URL attached to a certain word to be opened in a browser. In cases like this, you need to use a [`LinkAnnotation`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/LinkAnnotation), which is an annotation that represents a clickable part of the text.
 
-With `LinkAnnotation`, you can attach a URL to a part of a `Text` composable
-that automatically opens once clicked, as shown in the following snippet:
+With `LinkAnnotation`, you can attach a URL to a part of a `Text` composable that automatically opens once clicked, as shown in the following snippet:
 
+<br />
 
 ```kotlin
 @Composable
@@ -98,15 +90,14 @@ fun AnnotatedStringWithLinkSample() {
         }
     )
 }
+   
 ```
 
 <br />
 
-You can also configure a custom action in response to a user click on a part of
-the `Text` composable. In the following snippet, when the user clicks on
-"Jetpack Compose," a link is displayed, and metrics are logged if the user
-clicks the link:
+You can also configure a custom action in response to a user click on a part of the `Text` composable. In the following snippet, when the user clicks on "Jetpack Compose," a link is displayed, and metrics are logged if the user clicks the link:
 
+<br />
 
 ```kotlin
 @Composable
@@ -130,6 +121,7 @@ fun AnnotatedStringWithListenerSample() {
         }
     )
 }
+   
 ```
 
 <br />

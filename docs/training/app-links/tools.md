@@ -8,8 +8,7 @@ You can use these tools to simplify and manage your App Links.
 
 ## Android Studio App Links Assistant
 
-The Android Studio App Links Assistant is a plugin within Android Studio that
-helps with management, creation and validation of App Links, it includes:
+The Android Studio App Links Assistant is a plugin within Android Studio that helps with management, creation and validation of App Links, it includes:
 
 - An overview of all the existing deep links in the app and their validation statuses.
 - Detailed view of the misconfiguration for each link and guidance on how to fix the issues.
@@ -26,10 +25,7 @@ In Android Studio, click **App Links Assistant** under **Tools**
 
 ## Play Developer Console Deep Link Page
 
-You can also manage and verify deep links through the [Play
-Console](https://play.google.com/console). Once you upload your app, the Console provides a
-dedicated dashboard (under Grow \> Deep links) to help you create and verify your
-App Links:
+You can also manage and verify deep links through the [Play Console](https://play.google.com/console). Once you upload your app, the Console provides a dedicated dashboard (under Grow \> Deep links) to help you create and verify your App Links:
 
 - Get an overview of existing setup + guidance on how to fix issues
 - Surface missing W2AC URLs that should be implemented as DLs
@@ -37,8 +33,7 @@ App Links:
 
 ![Play console screenshot](https://developer.android.com/static/training/app-links/images/tools_1.png)
 
-It also displays an overview of deep links and configuration errors, with
-information on how to fix them.
+It also displays an overview of deep links and configuration errors, with information on how to fix them.
 
 ![Play console gif](https://developer.android.com/static/training/app-links/images/tools_3.gif)
 

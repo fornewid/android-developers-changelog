@@ -6,14 +6,13 @@ source: md.txt
 
 <br />
 
-Android Gradle plugin 9.3 is a minor release that includes a variety of new
-features and improvements.
+Android Gradle plugin 9.3 is a minor release that includes a variety of new features and improvements.
 
 ## Compatibility
 
-The maximum API level that Android Gradle plugin 9.3 supports is API level 37.
-Here is other compatibility info:
+The maximum API level that Android Gradle plugin 9.3 supports is API level 37. Here is other compatibility info:
 
+<br />
 
 |   | Minimum version | Default version | Notes |
 |---:|:---:|:---:|:---:|
@@ -26,23 +25,17 @@ Here is other compatibility info:
 
 ## Standalone R8 Configuration Analyzer Gradle task
 
-Android Gradle plugin 9.3 introduces a dedicated Gradle task for running the [R8
-Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer) in isolation. The R8 Configuration Analyzer helps
-you optimize your app's code shrinking and obfuscation rules.
+Android Gradle plugin 9.3 introduces a dedicated Gradle task for running the [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer) in isolation. The R8 Configuration Analyzer helps you optimize your app's code shrinking and obfuscation rules.
 
     ./gradlew :app:analyzeReleaseR8Config
 
-The `:app:analyzeReleaseR8Config` task generates the report without completing
-the APK or Bundle compilation pipeline. This provides a shorter feedback loop,
-which speeds up developer iteration when refining keep rules. Alternatively,
-you can generate the report automatically by running an R8 release build (such
-as `assembleRelease` or `bundleRelease`).
+The `:app:analyzeReleaseR8Config` task generates the report without completing the APK or Bundle compilation pipeline. This provides a shorter feedback loop, which speeds up developer iteration when refining keep rules. Alternatively, you can generate the report automatically by running an R8 release build (such as `assembleRelease` or `bundleRelease`).
 
-For more information, see [Run the standalone Gradle task for generating
-report](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer#run-standalone-task).
+For more information, see [Run the standalone Gradle task for generating report](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer#run-standalone-task).
 
 ## Fixed issues
 
+<br />
 
 ### Android Gradle plugin 9.3.1
 
@@ -64,10 +57,7 @@ report](https://developer.android.com/topic/performance/app-optimization/r8-conf
 
 ### Android Gradle plugin 9.3.0-alpha12
 
-| Fixed Issues ||
-|---|---|
-| **Android Gradle Plugin** | |---| | [Issue #483853092](https://issuetracker.google.com/issues/483853092) Build Failure: File handle leak on classes.jar in compile_library_classes_jar prevents rebuilds on Windows until IDE restart | |
-| **Lint** | |---| | [Issue #404190661](https://issuetracker.google.com/issues/404190661) Lint treats imported Java library as Android project, ignoring compile SDK version | |
+Fixed Issues **Android Gradle Plugin** [Issue #483853092](https://issuetracker.google.com/issues/483853092) Build Failure: File handle leak on classes.jar in compile_library_classes_jar prevents rebuilds on Windows until IDE restart **Lint** [Issue #404190661](https://issuetracker.google.com/issues/404190661) Lint treats imported Java library as Android project, ignoring compile SDK version
 
 ### Android Gradle plugin 9.3.0-alpha11
 
@@ -101,42 +91,27 @@ report](https://developer.android.com/topic/performance/app-optimization/r8-conf
 
 ### Android Gradle plugin 9.3.0-alpha06
 
-| Fixed Issues ||
-|---|---|
-| **Android Gradle Plugin** | |---| | [Issue #211725171](https://issuetracker.google.com/issues/211725171) JavaDocGenerationTask should use workers | |
+Fixed Issues **Android Gradle Plugin** [Issue #211725171](https://issuetracker.google.com/issues/211725171) JavaDocGenerationTask should use workers
 
 ### Android Gradle plugin 9.3.0-alpha05
 
-| Fixed Issues ||
-|---|---|
-| **Shrinker (R8)** | |---| | [Issue #146403477](https://issuetracker.google.com/issues/146403477) L8 obfucation mapping not included in app mapping.txt | |
+Fixed Issues **Shrinker (R8)** [Issue #146403477](https://issuetracker.google.com/issues/146403477) L8 obfucation mapping not included in app mapping.txt
 
 ### Android Gradle plugin 9.3.0-alpha04
 
-| Fixed Issues ||
-|---|---|
-| **Android Gradle Plugin** | |---| | [Issue #498736839](https://issuetracker.google.com/issues/498736839) KMP keepRules source set ignored without it.consumerKeepRules.publish = true | |
+Fixed Issues **Android Gradle Plugin** [Issue #498736839](https://issuetracker.google.com/issues/498736839) KMP keepRules source set ignored without it.consumerKeepRules.publish = true
 
 ### Android Gradle plugin 9.3.0-alpha03
 
-| Fixed Issues ||
-|---|---|
-| **Android Gradle Plugin** | |---| | [Issue #504996348](https://issuetracker.google.com/issues/504996348) java.lang.ClassNotFoundException: Didn't find class "com.android.tools.r8.RecordTag" after upgrading gradle to 9.2.0 | |
-| **Lint** | |---| | [Issue #492589793](https://issuetracker.google.com/issues/492589793) Lint error when resource shrinking is disabled | |
+Fixed Issues **Android Gradle Plugin** [Issue #504996348](https://issuetracker.google.com/issues/504996348) java.lang.ClassNotFoundException: Didn't find class "com.android.tools.r8.RecordTag" after upgrading gradle to 9.2.0 **Lint** [Issue #492589793](https://issuetracker.google.com/issues/492589793) Lint error when resource shrinking is disabled
 
 ### Android Gradle plugin 9.3.0-alpha02
 
-| Fixed Issues ||
-|---|---|
-| **Android Gradle Plugin** | |---| | [Issue #445195675](https://issuetracker.google.com/issues/445195675) Feature request: Add native_libs_merge_blame_file support to Android Gradle Plugin | |
-| **Lint** | |---| | [Issue #504284788](https://issuetracker.google.com/issues/504284788) Missing backtick in AnnotationDetector issue message | | [Issue #492589793](https://issuetracker.google.com/issues/492589793) Lint error when resource shrinking is disabled | |
+Fixed Issues **Android Gradle Plugin** [Issue #445195675](https://issuetracker.google.com/issues/445195675) Feature request: Add native_libs_merge_blame_file support to Android Gradle Plugin **Lint** [Issue #504284788](https://issuetracker.google.com/issues/504284788) Missing backtick in AnnotationDetector issue message [Issue #492589793](https://issuetracker.google.com/issues/492589793) Lint error when resource shrinking is disabled
 
 ### Android Gradle plugin 9.3.0-alpha01
 
-| Fixed Issues ||
-|---|---|
-| **Android Gradle Plugin** | |---| | [Issue #497456771](https://issuetracker.google.com/issues/497456771) Isuue with auto generated version codes | | [Issue #495889752](https://issuetracker.google.com/issues/495889752) AGP: Migrate away from Project as dependency notation | |
-| **Lint** | |---| | [Issue #492246721](https://issuetracker.google.com/issues/492246721) Lint false positive with UseKtx | |
+Fixed Issues **Android Gradle Plugin** [Issue #497456771](https://issuetracker.google.com/issues/497456771) Isuue with auto generated version codes [Issue #495889752](https://issuetracker.google.com/issues/495889752) AGP: Migrate away from Project as dependency notation **Lint** [Issue #492246721](https://issuetracker.google.com/issues/492246721) Lint false positive with UseKtx
 
 ### Android Gradle plugin 9.3.0
 
@@ -148,12 +123,7 @@ report](https://developer.android.com/topic/performance/app-optimization/r8-conf
 
 ## Updated optimization DSL to configure R8 keep rules
 
-Introduces an [updated optimization DSL](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#optimization-dsl) to configure keep rules for R8
-optimization, supported by app modules and library module tests. To configure
-optimization with the updated DSL, use the new `optimization` block. For apps,
-configure the `optimization` block within a build type (such as `release` or
-`debug`) in the app-level build script. The updated optimization DSL makes R8
-configuration simpler:
+Introduces an [updated optimization DSL](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#optimization-dsl) to configure keep rules for R8 optimization, supported by app modules and library module tests. To configure optimization with the updated DSL, use the new `optimization` block. For apps, configure the `optimization` block within a build type (such as `release` or `debug`) in the app-level build script. The updated optimization DSL makes R8 configuration simpler:
 
 - Turning on optimization enables both code optimization and optimized resource shrinking.
 - You no longer need to specify the default Android keep rules file.
@@ -162,8 +132,4 @@ Note that the [legacy DSL](https://developer.android.com/topic/performance/app-o
 
 ## Introduction of source sets to define keep rules
 
-Place keep rules in the `src/<variant>/keepRules/` source set, with the
-file-suffix `.keep`. Source sets for keep rules are supported by the updated
-optimization DSL and the legacy DSL. Using source sets for keep rules is
-supported in app modules, library modules, and as a way to define consumer rules
-in Kotlin Multiplatform (KMP) modules.
+Place keep rules in the `src/<variant>/keepRules/` source set, with the file-suffix `.keep`. Source sets for keep rules are supported by the updated optimization DSL and the legacy DSL. Using source sets for keep rules is supported in app modules, library modules, and as a way to define consumer rules in Kotlin Multiplatform (KMP) modules.

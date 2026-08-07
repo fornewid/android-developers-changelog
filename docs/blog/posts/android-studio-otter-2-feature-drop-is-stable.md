@@ -69,16 +69,14 @@ Written by:
 
   ###### Product Manager
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/sandhya-mohan) ![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp) ![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/sandhya-mohan) ![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp) ![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)
 -
 
   ## [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns)
 
   ###### Staff Developer Programs Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/trevor-johns) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+  [read_more View profile](https://developer.android.com/blog/authors/trevor-johns) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
 Continue reading
 - [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 15 Jan 2026 15 Jan 2026 ![](https://developer.android.com/static/blog/assets/as_Otter3feb_2dc12a1b18_Z1VaHAk.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -100,8 +98,5 @@ Continue reading
   [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

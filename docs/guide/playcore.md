@@ -4,14 +4,12 @@ url: https://developer.android.com/guide/playcore
 source: md.txt
 ---
 
-This page describes the Google Play Core libraries and how to add them to your
-project.
+This page describes the Google Play Core libraries and how to add them to your project.
 
 > [!IMPORTANT]
 > **Important:** The Google Play Core Java and Kotlin library have been split into multiple separate libraries, one for each feature. Update to the new libraries to benefit from new product additions. For more information, see the [migration guide](https://developer.android.com/guide/playcore#playcore-migration).
 
-The Google Play Core libraries are your app's runtime interface with the Google Play
-Store. Some of the things you can do include the following:
+The Google Play Core libraries are your app's runtime interface with the Google Play Store. Some of the things you can do include the following:
 
 - [Download additional language resources](https://developer.android.com/guide/playcore/feature-delivery/on-demand#lang_resources)
 - [Manage delivery of feature modules](https://developer.android.com/guide/playcore/feature-delivery)
@@ -19,24 +17,15 @@ Store. Some of the things you can do include the following:
 - [Trigger in-app updates](https://developer.android.com/guide/playcore/in-app-updates)
 - [Request in-app reviews](https://developer.android.com/guide/playcore/in-app-review)
 
-The Play Core libraries are available in
-[Java](https://developer.android.com/reference/com/google/android/play/core/packages),
-[native](https://developer.android.com/reference/native/play/core), and [Unity](https://developer.android.com/reference/unity). For more
-information about the latest releases, see the
-[Release notes](https://developer.android.com/reference/com/google/android/play/core/release-notes).
+The Play Core libraries are available in [Java](https://developer.android.com/reference/com/google/android/play/core/packages), [native](https://developer.android.com/reference/native/play/core), and [Unity](https://developer.android.com/reference/unity). For more information about the latest releases, see the [Release notes](https://developer.android.com/reference/com/google/android/play/core/release-notes).
 
 ## Migration from the Play Core Java and Kotlin Library
 
-The Play Core Java and Kotlin Library has been partitioned into multiple
-per-feature Android libraries. This reduces the size Play Core libraries add to
-your app and allows for faster release cycles of the individual features.
+The Play Core Java and Kotlin Library has been partitioned into multiple per-feature Android libraries. This reduces the size Play Core libraries add to your app and allows for faster release cycles of the individual features.
 
-The behavior of each feature has stayed consistent in this migration, the only
-notable change is that the new versions have adopted [Google Play Services' Task API](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task).
+The behavior of each feature has stayed consistent in this migration, the only notable change is that the new versions have adopted [Google Play Services' Task API](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task).
 
-Use the list below to migrate to the new libraries and benefit from new features
-and bug fixes. If you use multiple Play features, you can simply import multiple
-libraries in your `build.gradle` file at once.
+Use the list below to migrate to the new libraries and benefit from new features and bug fixes. If you use multiple Play features, you can simply import multiple libraries in your `build.gradle` file at once.
 
 ### Common migration steps
 

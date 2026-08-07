@@ -86,7 +86,6 @@ source: md.txt
 
 **Android 16 Beta 4.1 (May 2025)**
 
-
 This minor update to Android 16 Beta 4 includes the following fixes:
 
 - Fixed an issue that impacted haptic performance ([Issue #392319999](https://issuetracker.google.com/issues/392319999))
@@ -98,30 +97,18 @@ This minor update to Android 16 Beta 4 includes the following fixes:
 - Fixed a black navigation bar appearing on transitions ([Issue #411509161](https://issuetracker.google.com/issues/411509161))
 - Fixed a Google app crash when loading a website ([Issue #415097836](https://issuetracker.google.com/issues/415097836))
 
-All eligible devices enrolled in the
-[Android Beta for Pixel program](https://g.co/androidbeta)
-will be offered an over-the-air (OTA) update to Beta 4.1.
+All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) will be offered an over-the-air (OTA) update to Beta 4.1.
 
 > [!NOTE]
 > **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
 
 ## About Android 16 Beta 4
 
-Beta 4 is now available, with the latest changes to try with your apps. This
-release is suitable for development, testing, and general use. While we're
-closing in on the release of Android 16, it is still in active development, so
-the Android system and apps running on it **might not always work as expected**.
+Beta 4 is now available, with the latest changes to try with your apps. This release is suitable for development, testing, and general use. While we're closing in on the release of Android 16, it is still in active development, so the Android system and apps running on it **might not always work as expected**.
 
-Beta 4 also marks the second release since our [Platform Stability](https://developer.android.com/about/versions/16/overview#platform_stability)
-milestone, which means that Android 16 has reached final internal and external
-APIs and final app-facing behaviors. [Update your environment](https://developer.android.com/about/versions/16/setup-sdk) and start your
-final [compatibility testing](https://developer.android.com/about/versions/16/migration#compat) now so you can publish any necessary
-compatibility updates ahead of the final release.
+Beta 4 also marks the second release since our [Platform Stability](https://developer.android.com/about/versions/16/overview#platform_stability) milestone, which means that Android 16 has reached final internal and external APIs and final app-facing behaviors. [Update your environment](https://developer.android.com/about/versions/16/setup-sdk) and start your final [compatibility testing](https://developer.android.com/about/versions/16/migration#compat) now so you can publish any necessary compatibility updates ahead of the final release.
 
-As with previous versions, Android 16 includes system changes. In some cases,
-these changes can affect apps until they are updated to support Android 16, so
-you might see impacts ranging from minor issues to more significant limitations.
-In general, most apps will work as expected, as will most APIs and features.
+As with previous versions, Android 16 includes system changes. In some cases, these changes can affect apps until they are updated to support Android 16, so you might see impacts ranging from minor issues to more significant limitations. In general, most apps will work as expected, as will most APIs and features.
 
 ## How to get Beta 4
 
@@ -138,12 +125,9 @@ You can install this release on any of the following Google Pixel devices:
 
 See [Get Android 16](https://developer.android.com/about/versions/16/get) for details on how to get started.
 
-Remember to update your SDK and the Android Emulator as well before you try out
-the latest features and changes. The best way to do this is using the SDK
-Manager in the [latest preview version of Android Studio](https://developer.android.com/studio/preview).
+Remember to update your SDK and the Android Emulator as well before you try out the latest features and changes. The best way to do this is using the SDK Manager in the [latest preview version of Android Studio](https://developer.android.com/studio/preview).
 
-Depending on your development and testing needs, you can also get Android 16 in
-the following ways:
+Depending on your development and testing needs, you can also get Android 16 in the following ways:
 
 - Get Android 16 [on a partner device](https://developer.android.com/about/versions/16/devices)
 - Get Android 16 [on the Android Emulator](https://developer.android.com/about/versions/16/get#on_emulator)
@@ -156,28 +140,20 @@ Be aware of these general advisories about the release:
 - This release might have various stability, battery, or performance issues.
 - For users with accessibility needs, this release might not be appropriate for daily use.
 - Some apps might not function as expected when running on this release. This limitation includes Google's apps as well as other apps.
-- Android 16 Beta builds aren't [Compatibility Test Suite
-  (CTS)‑approved](https://source.android.com/compatibility/cts/), but they have passed preliminary testing and provide a stable set of pre-release APIs for developers. Apps that depend on CTS-approved builds or use [Play Integrity API](https://developer.android.com/google/play/integrity) ([SafetyNet APIs are
-  deprecated](https://developer.android.com/privacy-and-security/safetynet/deprecation-timeline)) might not work normally on Android 16 Beta builds.
+- Android 16 Beta builds aren't [Compatibility Test Suite (CTS)‑approved](https://source.android.com/compatibility/cts/), but they have passed preliminary testing and provide a stable set of pre-release APIs for developers. Apps that depend on CTS-approved builds or use [Play Integrity API](https://developer.android.com/google/play/integrity) ([SafetyNet APIs are deprecated](https://developer.android.com/privacy-and-security/safetynet/deprecation-timeline)) might not work normally on Android 16 Beta builds.
 
 ### Get support
 
-Two primary support channels are available to you when developing and testing
-with Android Beta. The channel you should use to get support depends on where
-you are encountering your issue.
+Two primary support channels are available to you when developing and testing with Android Beta. The channel you should use to get support depends on where you are encountering your issue.
 
-- **Support for device-specific issues, system issues, and issues with Google
-  apps** : Use the Issue Tracker to create new issues and to view and track issues that you and other developers have submitted. Before creating your own issue, check the known issues listed on this page and search the lists of [top
-  open issues](https://developer.android.com/about/versions/16/top-issues) and [recently created issues](https://developer.android.com/about/versions/16/recent-issues) to see if someone else has already reported it. You can subscribe and vote for an issue by clicking **star this issue** . See [Where to report issues](https://developer.android.com/about/versions/16/feedback#templates) to find an issue template that best matches the type of issue that you are encountering.
+- **Support for device-specific issues, system issues, and issues with Google apps** : Use the Issue Tracker to create new issues and to view and track issues that you and other developers have submitted. Before creating your own issue, check the known issues listed on this page and search the lists of [top open issues](https://developer.android.com/about/versions/16/top-issues) and [recently created issues](https://developer.android.com/about/versions/16/recent-issues) to see if someone else has already reported it. You can subscribe and vote for an issue by clicking **star this issue** . See [Where to report issues](https://developer.android.com/about/versions/16/feedback#templates) to find an issue template that best matches the type of issue that you are encountering.
 - **Support for issues with other apps**: Contact the app developer directly.
 
-To discuss issues or ideas with other developers and users working with Android
-16 Beta, join the [android_beta community on Reddit](https://developer.android.com/about/versions/16/dev-community).
+To discuss issues or ideas with other developers and users working with Android 16 Beta, join the [android_beta community on Reddit](https://developer.android.com/about/versions/16/dev-community).
 
 ## Top resolved issues
 
-Android 16 Beta 4 resolves the top issues that are described in the following
-sections and includes fixes for some issues that are not noted here.
+Android 16 Beta 4 resolves the top issues that are described in the following sections and includes fixes for some issues that are not noted here.
 
 ### Developer- and user-reported issues
 
@@ -201,38 +177,20 @@ sections and includes fixes for some issues that are not noted here.
 
 ## Previous preview releases
 
-The following sections describe each of the previous releases during this
-preview cycle.
+The following sections describe each of the previous releases during this preview cycle.
 
 ## About Android 16 Beta 3
 
-[Beta 3 is now
-available](https://android-developers.googleblog.com/2025/03/the-third-beta-of-android-16.html),
-with the latest features and changes to try with your apps. This release is
-suitable for development, testing, and general use. However, Android 16 is still
-in active development, so the Android system and apps running on it **might not
-always work as expected**.
+[Beta 3 is now available](https://android-developers.googleblog.com/2025/03/the-third-beta-of-android-16.html), with the latest features and changes to try with your apps. This release is suitable for development, testing, and general use. However, Android 16 is still in active development, so the Android system and apps running on it **might not always work as expected**.
 
-Beta 3 also marks the [Platform
-Stability](https://developer.android.com/about/versions/16/overview#platform-stability) milestone, which
-means that Android 15 has reached final internal and external APIs and final
-app-facing behaviors. [Update your environment](https://developer.android.com/about/versions/16/setup-sdk)
-and start your final [compatibility
-testing](https://developer.android.com/about/versions/16/migration#compat) now so you can publish any
-necessary compatibility updates ahead of the final release.
+Beta 3 also marks the [Platform Stability](https://developer.android.com/about/versions/16/overview#platform-stability) milestone, which means that Android 15 has reached final internal and external APIs and final app-facing behaviors. [Update your environment](https://developer.android.com/about/versions/16/setup-sdk) and start your final [compatibility testing](https://developer.android.com/about/versions/16/migration#compat) now so you can publish any necessary compatibility updates ahead of the final release.
 
-As with previous versions, Android 16 includes system changes. In some cases,
-these changes can affect apps until they are updated to support Android 16, so
-you might see impacts ranging from minor issues to more significant limitations.
-In general, most apps will work as expected, as will most APIs and features, but
-please review any [known issues listed on this page](https://developer.android.com/about/versions/16/release-notes#ki-beta2) to get a better idea of
-what to expect.
+As with previous versions, Android 16 includes system changes. In some cases, these changes can affect apps until they are updated to support Android 16, so you might see impacts ranging from minor issues to more significant limitations. In general, most apps will work as expected, as will most APIs and features, but please review any [known issues listed on this page](https://developer.android.com/about/versions/16/release-notes#ki-beta2) to get a better idea of what to expect.
 
 #### Minor updates
 
 The following minor updates were released for Beta 3 before the Beta 4 release:
 **Android 16 Beta 3.2 (April 2025)**
-
 
 This minor update to Android 16 Beta 3 includes the following fixes:
 
@@ -241,16 +199,12 @@ This minor update to Android 16 Beta 3 includes the following fixes:
 - Fixed an issue for Pixel 6 and 6 Pro devices that sometimes caused the screen to flicker when taking photos or videos with the camera.
 - Fixed various other issues that were impacting system stability and usability.
 
-All eligible devices enrolled in the
-[Android Beta for Pixel program](https://g.co/androidbeta)
-will be offered an over-the-air (OTA) update to Beta 3.2.
+All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) will be offered an over-the-air (OTA) update to Beta 3.2.
 
 > [!NOTE]
-> **Note:** Other known issues [listed for the Beta 3
-> release](https://developer.android.com/about/versions/16/release-notes#ki-beta3) still apply to Beta 3.2. In addition, see [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
+> **Note:** Other known issues [listed for the Beta 3 release](https://developer.android.com/about/versions/16/release-notes#ki-beta3) still apply to Beta 3.2. In addition, see [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
 
 **Android 16 Beta 3.1 (March 2025)**
-
 
 This minor update to Android 16 Beta 3 includes the following fixes:
 
@@ -259,22 +213,17 @@ This minor update to Android 16 Beta 3 includes the following fixes:
 - Fixed a performance issue that was causing excessive battery drain from high CPU load.
 - Fixed a performance issue that sometimes caused memory leaks in the system server.
 
-All eligible devices enrolled in the
-[Android Beta for Pixel program](https://g.co/androidbeta)
-will be offered an over-the-air (OTA) update to Beta 3.1.
+All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) will be offered an over-the-air (OTA) update to Beta 3.1.
 
 > [!NOTE]
-> **Note:** Other known issues [listed for the Beta 3
-> release](https://developer.android.com/about/versions/16/release-notes#ki-beta3) still apply to Beta 3.1. In addition, see [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
+> **Note:** Other known issues [listed for the Beta 3 release](https://developer.android.com/about/versions/16/release-notes#ki-beta3) still apply to Beta 3.1. In addition, see [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
 
 ## What's new in Beta 3
 
-Android 16 Beta 3 includes new features and changes to try out
-with your apps:
+Android 16 Beta 3 includes new features and changes to try out with your apps:
 
 - [Local network permission](https://developer.android.com/privacy-and-security/local-network-permission)
-- [Outline text for maximum text
-  contrast](https://developer.android.com/about/versions/16/features#outline-text)
+- [Outline text for maximum text contrast](https://developer.android.com/about/versions/16/features#outline-text)
 
 ## How to get Beta 3
 
@@ -293,12 +242,9 @@ You can install this release on any of the following Google Pixel devices:
 
 If you're already running a Developer Preview or Beta build, you will automatically receive an over-the-air (OTA) update to Beta 3. Otherwise, see [Get Android 16](https://developer.android.com/about/versions/16/get) for details on how to get started.
 
-Remember to update your SDK and the Android Emulator as well before you try out
-the latest features and changes. The best way to do this is using the SDK
-Manager in the [latest preview version of Android Studio](https://developer.android.com/studio/preview).
+Remember to update your SDK and the Android Emulator as well before you try out the latest features and changes. The best way to do this is using the SDK Manager in the [latest preview version of Android Studio](https://developer.android.com/studio/preview).
 
-Depending on your development and testing needs, you can also get Android 16 in
-the following ways:
+Depending on your development and testing needs, you can also get Android 16 in the following ways:
 
 - Get Android 16 [on a partner device](https://developer.android.com/about/versions/16/devices).
 
@@ -317,39 +263,24 @@ Be aware of these general advisories about the release:
 - This release might have various stability, battery, or performance issues.
 - For users with accessibility needs, this release might not be appropriate for daily use.
 - Some apps might not function as expected when running on this release. This limitation includes Google's apps as well as other apps.
-- Android 16 QPR beta builds aren't [Compatibility Test Suite (CTS)](https://source.android.com/compatibility/cts/)-approved, but they have passed preliminary testing and provide a stable set of pre-release APIs for developers. Apps that depend on CTS-approved builds or use the [Play
-  Integrity API](https://developer.android.com/google/play/integrity) ([SafetyNet APIs are
-  deprecated](https://developer.android.com/privacy-and-security/safetynet/deprecation-timeline)) might not work normally on Android 16 QPR beta builds.
+- Android 16 QPR beta builds aren't [Compatibility Test Suite (CTS)](https://source.android.com/compatibility/cts/)-approved, but they have passed preliminary testing and provide a stable set of pre-release APIs for developers. Apps that depend on CTS-approved builds or use the [Play Integrity API](https://developer.android.com/google/play/integrity) ([SafetyNet APIs are deprecated](https://developer.android.com/privacy-and-security/safetynet/deprecation-timeline)) might not work normally on Android 16 QPR beta builds.
 
 ### Get support
 
-Two primary support channels are available to you when developing and testing
-with Android 16 QPR2. The channel you should use to get
-support depends on where you are encountering your issue.
+Two primary support channels are available to you when developing and testing with Android 16 QPR2. The channel you should use to get support depends on where you are encountering your issue.
 
-- **Support for device-specific issues, system issues, and issues with Google
-  apps**: Use the Issue Tracker to create new issues and to view and track
-  issues that you and other developers have submitted.
+- **Support for device-specific issues, system issues, and issues with Google apps**: Use the Issue Tracker to create new issues and to view and track issues that you and other developers have submitted.
 
-  Before creating your own issue, check the known issues listed on this page
-  and search the lists of [top open issues](https://developer.android.com/about/versions/16/top-issues) and [recently created
-  issues](https://developer.android.com/about/versions/16/recent-issues) to see if someone else has already reported it. You can
-  subscribe and vote for an issue by clicking **star this issue**
-  ![](https://developer.android.com/static/images/shared/star-issue.svg).
+  Before creating your own issue, check the known issues listed on this page and search the lists of [top open issues](https://developer.android.com/about/versions/16/top-issues) and [recently created issues](https://developer.android.com/about/versions/16/recent-issues) to see if someone else has already reported it. You can subscribe and vote for an issue by clicking **star this issue** ![](https://developer.android.com/static/images/shared/star-issue.svg).
 
-  See [Where to report issues](https://developer.android.com/about/versions/16/feedback#templates) to find an issue template that best matches
-  the type of issue that you are encountering.
+  See [Where to report issues](https://developer.android.com/about/versions/16/feedback#templates) to find an issue template that best matches the type of issue that you are encountering.
 - **Support for issues with other apps**: Contact the app developer directly.
 
-To discuss issues or ideas with other developers working with the Android 16
-
-QPR Beta, join the [android_beta community on
-Reddit](https://developer.android.com/about/versions/16/dev-community).
+To discuss issues or ideas with other developers working with the Android 16 QPR Beta, join the [android_beta community on Reddit](https://developer.android.com/about/versions/16/dev-community).
 
 ## Top resolved issues
 
-Android 16 Beta 3 resolves the top issues that are described in the
-following sections and includes fixes for some issues that are not noted here.
+Android 16 Beta 3 resolves the top issues that are described in the following sections and includes fixes for some issues that are not noted here.
 
 ### Developer- and user-reported issues
 
@@ -363,14 +294,11 @@ following sections and includes fixes for some issues that are not noted here.
 
 ## Top open issues
 
-See [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of top open issues that have been
-reported by developers.
+See [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of top open issues that have been reported by developers.
 
 ## Other known issues
 
-Based on our testing, you might encounter the following issues when using
-Android 16 Beta 3. These issues are already known, so there's no
-need to file additional reports for similar issues.
+Based on our testing, you might encounter the following issues when using Android 16 Beta 3. These issues are already known, so there's no need to file additional reports for similar issues.
 
 ### Android platform
 
@@ -389,25 +317,14 @@ need to file additional reports for similar issues.
 
 ### Android 16 Beta 2
 
-[Beta 2 is now
-available](https://android-developers.googleblog.com/2025/02/second-beta-android16.html),
-with the latest features and changes to try with your apps. This release is
-suitable for development, testing, and general use. However, Android 16 is still
-in active development, so the Android system and apps running on it **might not
-always work as expected**.
+[Beta 2 is now available](https://android-developers.googleblog.com/2025/02/second-beta-android16.html), with the latest features and changes to try with your apps. This release is suitable for development, testing, and general use. However, Android 16 is still in active development, so the Android system and apps running on it **might not always work as expected**.
 
-As with previous versions, Android 16 includes system changes. In some cases,
-these changes can affect apps until they are updated to support Android 16, so
-you might see impacts ranging from minor issues to more significant limitations.
-In general, most apps will work as expected, as will most APIs and features, but
-please review any [known issues listed on this page](https://developer.android.com/about/versions/16/release-notes#ki-beta2) to get a better idea of
-what to expect.
+As with previous versions, Android 16 includes system changes. In some cases, these changes can affect apps until they are updated to support Android 16, so you might see impacts ranging from minor issues to more significant limitations. In general, most apps will work as expected, as will most APIs and features, but please review any [known issues listed on this page](https://developer.android.com/about/versions/16/release-notes#ki-beta2) to get a better idea of what to expect.
 
 #### Minor updates
 
 The following minor updates were released for Beta 2 before the Beta 3 release:
 **Android 16 Beta 2.1 (February 2025)**
-
 
 This minor update to Android 16 Beta 2 includes the following fixes:
 
@@ -416,17 +333,14 @@ This minor update to Android 16 Beta 2 includes the following fixes:
 - Fixed an issue that sometimes caused devices to reboot unexpectedly. ([Issue #396541565](https://issuetracker.google.com/issues/396541565))
 - Fixed various other issues that were impacting system stability, connectivity, and performance.
 
-All eligible devices enrolled in the
-[Android Beta for Pixel program](https://g.co/androidbeta)
-will be offered an over-the-air (OTA) update to Beta 2.1.
+All eligible devices enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) will be offered an over-the-air (OTA) update to Beta 2.1.
 
 > [!NOTE]
 > **Note:** See [top open issues](https://developer.android.com/about/versions/16/top-issues) for the latest list of issues that have been reported by developers and users.
 
 #### What's new in Beta 2
 
-Android 16 Beta 2 includes new features and changes to try out
-with your apps:
+Android 16 Beta 2 includes new features and changes to try out with your apps:
 
 - [Abandoned empty jobs stop reason](https://developer.android.com/about/versions/16/behavior-changes-all#abandoned-job-stop-reason)
 - [16 KB page size compatibility mode](https://developer.android.com/about/versions/16/behavior-changes-all#16-kb-compatibility-mode)
@@ -447,8 +361,7 @@ with your apps:
 
 #### Top resolved issues
 
-Android 16 Beta 2 resolves the top issues that are described in the
-following sections and includes fixes for some issues that are not noted here.
+Android 16 Beta 2 resolves the top issues that are described in the following sections and includes fixes for some issues that are not noted here.
 
 ##### Developer- and user-reported issues
 
@@ -463,9 +376,7 @@ following sections and includes fixes for some issues that are not noted here.
 
 #### Other known issues
 
-Based on our testing, you might encounter the following issues when using
-Android 16 Beta 2. These issues are already known, so there's no
-need to file additional reports for similar issues.
+Based on our testing, you might encounter the following issues when using Android 16 Beta 2. These issues are already known, so there's no need to file additional reports for similar issues.
 
 ##### Android platform
 
@@ -483,24 +394,13 @@ need to file additional reports for similar issues.
 
 ### Android 16 Beta 1
 
-[Beta 1 is now available](https://android-developers.googleblog.com/2025/01/first-beta-android16.html),
-with the latest features and changes to try with your apps. Beta 1 is also the
-first Android 16 release for early adopters and Android enthusiasts who want to
-try out what's coming in Android 16. This release is suitable for development,
-testing, and general use. However, Android 16 is still in active development, so
-the Android system and apps running on it **might not always work as expected**.
+[Beta 1 is now available](https://android-developers.googleblog.com/2025/01/first-beta-android16.html), with the latest features and changes to try with your apps. Beta 1 is also the first Android 16 release for early adopters and Android enthusiasts who want to try out what's coming in Android 16. This release is suitable for development, testing, and general use. However, Android 16 is still in active development, so the Android system and apps running on it **might not always work as expected**.
 
-As with previous versions, Android 16 includes system changes. In some cases,
-these changes can affect apps until they are updated to support Android 16, so
-you might see impacts ranging from minor issues to more significant limitations.
-In general, most apps will work as expected, as will most APIs and features, but
-please review any [known issues listed on this page](https://developer.android.com/about/versions/16/release-notes#ki-beta2) to get a better idea of
-what to expect.
+As with previous versions, Android 16 includes system changes. In some cases, these changes can affect apps until they are updated to support Android 16, so you might see impacts ranging from minor issues to more significant limitations. In general, most apps will work as expected, as will most APIs and features, but please review any [known issues listed on this page](https://developer.android.com/about/versions/16/release-notes#ki-beta2) to get a better idea of what to expect.
 
 #### What's new in Beta 1
 
-Android 16 Beta 1 includes new features and changes to try out
-with your apps:
+Android 16 Beta 1 includes new features and changes to try out with your apps:
 
 - [Ordered broadcast priority scope no longer global](https://developer.android.com/about/versions/16/behavior-changes-all#ordered-broadcast-priority)
 - [ART internal changes](https://developer.android.com/about/versions/16/behavior-changes-all#art-changes)
@@ -522,8 +422,7 @@ with your apps:
 
 #### Top resolved issues
 
-Android 16 Beta 1 resolves the top issues that are described in the
-following sections and includes fixes for some issues that are not noted here.
+Android 16 Beta 1 resolves the top issues that are described in the following sections and includes fixes for some issues that are not noted here.
 
 - Fixed an issue that caused NFC payments to fail in some cases due to a null pointer exception.
 - Fixed an issue that caused excessive battery drain when some apps were running in the background.
@@ -533,9 +432,7 @@ following sections and includes fixes for some issues that are not noted here.
 
 #### Other known issues
 
-Based on our testing, you might encounter the following issues when using
-Android 16 Beta 1. These issues are already known, so there's no
-need to file additional reports for similar issues.
+Based on our testing, you might encounter the following issues when using Android 16 Beta 1. These issues are already known, so there's no need to file additional reports for similar issues.
 
 ##### Android platform
 
@@ -563,22 +460,13 @@ need to file additional reports for similar issues.
 | **Google Play services** | 24.46.30 |
 | **API diff** | - [Baklava DP1 → Baklava DP2](https://developer.android.com/sdk/api_diff/b-dp2-incr/changes) - [API 35 → Baklava DP2](https://developer.android.com/sdk/api_diff/b-dp2/changes) |
 
-[Developer Preview 2 is now
-available](https://android-developers.googleblog.com/2024/12/second-developer-preview-android16.html),
-with the latest features and changes to try with your apps. This build includes
-changes designed to enhance the app experience, improve battery life, and boost
-performance while minimizing incompatibilities, and your feedback is critical in
-helping us understand the full impact of this work.
+[Developer Preview 2 is now available](https://android-developers.googleblog.com/2024/12/second-developer-preview-android16.html), with the latest features and changes to try with your apps. This build includes changes designed to enhance the app experience, improve battery life, and boost performance while minimizing incompatibilities, and your feedback is critical in helping us understand the full impact of this work.
 
-This release is for developers only, to help with early development, testing,
-and feedback. Android 15 Developer Preview 2 is an early baseline build that's
-still in active development, so the Android system and apps running on it
-**might not always work as expected**.
+This release is for developers only, to help with early development, testing, and feedback. Android 15 Developer Preview 2 is an early baseline build that's still in active development, so the Android system and apps running on it **might not always work as expected**.
 
 #### What's new in Developer Preview 2
 
-Android 16 Developer Preview 2 includes new features and changes to try out
-with your apps:
+Android 16 Developer Preview 2 includes new features and changes to try out with your apps:
 
 - [JobScheduler quota optimizations](https://developer.android.com/about/versions/16/behavior-changes-all#job-quota-opt)
 - [Deprecating disruptive accessibility announcements](https://developer.android.com/about/versions/16/behavior-changes-all#disruptive-a11y)
@@ -594,8 +482,7 @@ with your apps:
 
 #### Top resolved issues
 
-Android 16 Developer Preview 2 resolves the top issues that are described in the
-following sections and includes fixes for some issues that are not noted here.
+Android 16 Developer Preview 2 resolves the top issues that are described in the following sections and includes fixes for some issues that are not noted here.
 
 ##### Developer-reported issues
 
@@ -604,9 +491,7 @@ following sections and includes fixes for some issues that are not noted here.
 
 #### Other known issues
 
-Based on our testing, you might encounter the following issues when using
-Android 16 Developer Preview 2. These issues are already known, so there's no
-need to file additional reports for similar issues.
+Based on our testing, you might encounter the following issues when using Android 16 Developer Preview 2. These issues are already known, so there's no need to file additional reports for similar issues.
 
 ##### Android platform
 
@@ -626,16 +511,11 @@ need to file additional reports for similar issues.
 | **Google Play services** | 24.40.35 |
 | **API diff** | - [API 35 → Baklava DP1](https://developer.android.com/sdk/api_diff/b-dp1/changes) |
 
-Welcome to the Android 16 Developer Preview! This first release is for
-developers only, to help with early development, testing, and feedback. Android
-16 Developer Preview 1 is an early baseline build that's still in active
-development, so the Android system and apps running on it **might not always
-work as expected**.
+Welcome to the Android 16 Developer Preview! This first release is for developers only, to help with early development, testing, and feedback. Android 16 Developer Preview 1 is an early baseline build that's still in active development, so the Android system and apps running on it **might not always work as expected**.
 
 #### What's new in Developer Preview 1
 
-Android 16 Developer Preview 1 is the start of Android having more frequent API
-releases as part of our effort to drive faster innovation in apps and devices.
+Android 16 Developer Preview 1 is the start of Android having more frequent API releases as part of our effort to drive faster innovation in apps and devices.
 
 - [Two Android API releases in 2025](https://developer.android.com/about/versions/16/features#two-android)
 - [Photo picker improvements](https://developer.android.com/about/versions/16/features#photo-picker-improvements)
@@ -644,9 +524,7 @@ releases as part of our effort to drive faster innovation in apps and devices.
 
 #### Known issues
 
-Based on our testing, you might encounter the following issues when using
-Android 16 Developer Preview 1. These issues are already known, so there's no
-need to file additional reports for similar issues.
+Based on our testing, you might encounter the following issues when using Android 16 Developer Preview 1. These issues are already known, so there's no need to file additional reports for similar issues.
 
 ##### Android platform
 

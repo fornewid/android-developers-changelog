@@ -6,31 +6,21 @@ source: md.txt
 
 [Video](https://www.youtube.com/watch?v=TUfcjjYstD4)
 
-Shadows visually elevate your UI, indicate interactivity to users, and provide
-immediate feedback on user actions. Compose provides several ways to incorporate
-shadows into your app:
+Shadows visually elevate your UI, indicate interactivity to users, and provide immediate feedback on user actions. Compose provides several ways to incorporate shadows into your app:
 
 - [`Modifier.shadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).shadow(androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Shape,kotlin.Boolean,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)): Creates an elevation-based shadow behind a composable that conforms to Material Design guidelines.
 - [`Modifier.dropShadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#%28androidx.compose.ui.Modifier%29.dropShadow%28androidx.compose.ui.graphics.Shape,kotlin.Function1%29): Creates a customizable shadow that appears behind a composable, making it appear elevated.
 - [`Modifier.innerShadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#%28androidx.compose.ui.Modifier%29.innerShadow%28androidx.compose.ui.graphics.Shape,kotlin.Function1%29): Creates a shadow inside the borders of a composable, making it appear pressed into the surface behind it.
 
-`Modifier.shadow()` is suitable for creating basic shadows, while the
-`dropShadow()` and `innerShadow()` modifiers offer more fine-grained control and
-precision over shadow rendering.
+`Modifier.shadow()` is suitable for creating basic shadows, while the `dropShadow()` and `innerShadow()` modifiers offer more fine-grained control and precision over shadow rendering.
 
-This page describes how to implement each of these modifiers, including how to
-[animate shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows#animate-shadows) upon user interaction and how to chain the
-`innerShadow()` and `dropShadow()` modifiers to
-create [gradient shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows#create-gradient),
-[neumorphic shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows#create-neumorphic), and more.
+This page describes how to implement each of these modifiers, including how to [animate shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows#animate-shadows) upon user interaction and how to chain the `innerShadow()` and `dropShadow()` modifiers to create [gradient shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows#create-gradient), [neumorphic shadows](https://developer.android.com/develop/ui/compose/graphics/draw/shadows#create-neumorphic), and more.
 
 ## Create basic shadows
 
-[`Modifier.shadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).shadow(androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Shape,kotlin.Boolean,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)) creates a basic shadow following [Material Design
-guidelines](https://m3.material.io/styles/elevation/applying-elevation#93fa8972-65fe-4073-9f03-7de12d47db8d) that simulates an overhead light source. The shadow
-depth is based on an `elevation` value, and the cast shadow is clipped to the
-shape of the composable.
+[`Modifier.shadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).shadow(androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Shape,kotlin.Boolean,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)) creates a basic shadow following [Material Design guidelines](https://m3.material.io/styles/elevation/applying-elevation#93fa8972-65fe-4073-9f03-7de12d47db8d) that simulates an overhead light source. The shadow depth is based on an `elevation` value, and the cast shadow is clipped to the shape of the composable.
 
+<br />
 
 ```kotlin
 @Composable
@@ -47,6 +37,7 @@ fun ElevationBasedShadow() {
         )
     }
 }
+   
 ```
 
 <br />
@@ -58,8 +49,7 @@ fun ElevationBasedShadow() {
 
 ## Implement drop shadows
 
-Use the [`dropShadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#%28androidx.compose.ui.Modifier%29.dropShadow%28androidx.compose.ui.graphics.Shape,kotlin.Function1%29) modifier to draw an accurate shadow behind your
-content, which makes the element appear elevated.
+Use the [`dropShadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#%28androidx.compose.ui.Modifier%29.dropShadow%28androidx.compose.ui.graphics.Shape,kotlin.Function1%29) modifier to draw an accurate shadow behind your content, which makes the element appear elevated.
 
 You can control the following key aspects through its `Shadow` parameter:
 
@@ -68,15 +58,11 @@ You can control the following key aspects through its `Shadow` parameter:
 - `offset`: Positions the shadow's geometry along the x and y axes.
 - `spread`: Controls the expansion or contraction of the shadow's geometry.
 
-Additionally, the `shape` parameter defines the shadow's overall shape. It can
-use any geometry from the `androidx.compose.foundation.shape` package, as well
-as the [Material Expressive shapes](https://m3.material.io/styles/shape/overview-principles#579dd4ba-39f3-4e60-bd9b-1d97ed6ef1bf).
+Additionally, the `shape` parameter defines the shadow's overall shape. It can use any geometry from the `androidx.compose.foundation.shape` package, as well as the [Material Expressive shapes](https://m3.material.io/styles/shape/overview-principles#579dd4ba-39f3-4e60-bd9b-1d97ed6ef1bf).
 
-To implement a basic drop shadow, add the `dropShadow()` modifier onto your
-composable chain, providing the radius, color, and spread. Note that the
-`purpleColor` background that appears on top of the shadow is drawn after the
-`dropShadow()` modifier:
+To implement a basic drop shadow, add the `dropShadow()` modifier onto your composable chain, providing the radius, color, and spread. Note that the `purpleColor` background that appears on top of the shadow is drawn after the `dropShadow()` modifier:
 
+<br />
 
 ```kotlin
 @Composable
@@ -109,6 +95,7 @@ fun SimpleDropShadowUsage() {
         }
     }
 }
+   
 ```
 
 <br />
@@ -130,23 +117,18 @@ fun SimpleDropShadowUsage() {
 
 ## Implement inner shadows
 
-To create an inverse effect to `dropShadow()`, use
-[`Modifier.innerShadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#%28androidx.compose.ui.Modifier%29.innerShadow%28androidx.compose.ui.graphics.Shape,kotlin.Function1%29), which creates the illusion that an element is
-recessed or pressed into the underlying surface.
+To create an inverse effect to `dropShadow()`, use [`Modifier.innerShadow()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#%28androidx.compose.ui.Modifier%29.innerShadow%28androidx.compose.ui.graphics.Shape,kotlin.Function1%29), which creates the illusion that an element is recessed or pressed into the underlying surface.
 
-Order is significant when creating inner shadows. The `innerShadow()` modifier
-draws on *top* of the content. To make sure the shadow is visible, you typically
-perform the following steps:
+Order is significant when creating inner shadows. The `innerShadow()` modifier draws on *top* of the content. To make sure the shadow is visible, you typically perform the following steps:
 
 1. Draw your background content.
 2. Apply the `innerShadow()` modifier to create the concave appearance.
 
-If the `innerShadow()` is placed before the background, the background is drawn
-over the shadow, hiding it completely.
+If the `innerShadow()` is placed before the background, the background is drawn over the shadow, hiding it completely.
 
-The following example shows an application of `innerShadow()` on a
-`RoundedCornerShape`:
+The following example shows an application of `innerShadow()` on a `RoundedCornerShape`:
 
+<br />
 
 ```kotlin
 @Composable
@@ -181,6 +163,7 @@ fun SimpleInnerShadowUsage() {
         }
     }
 }
+   
 ```
 
 <br />
@@ -189,13 +172,11 @@ fun SimpleInnerShadowUsage() {
 
 ## Animate shadows on user interaction
 
-To make your shadows respond to user interactions, you can integrate shadow
-properties with [Compose's animation APIs](https://developer.android.com/develop/ui/compose/animation/introduction). When a user presses a button, for
-example, the shadow can change to provide instantaneous visual feedback.
+To make your shadows respond to user interactions, you can integrate shadow properties with [Compose's animation APIs](https://developer.android.com/develop/ui/compose/animation/introduction). When a user presses a button, for example, the shadow can change to provide instantaneous visual feedback.
 
-The following code creates a "pressed" effect with a shadow (the illusion that
-the surface is being pushed down into the screen):
+The following code creates a "pressed" effect with a shadow (the illusion that the surface is being pushed down into the screen):
 
+<br />
 
 ```kotlin
 @Composable
@@ -298,6 +279,7 @@ fun AnimatedColoredShadows() {
         }
     }
 }
+   
 ```
 
 <br />
@@ -318,9 +300,9 @@ fun AnimatedColoredShadows() {
 
 ## Create gradient shadows
 
-Shadows are not limited to solid colors. The shadow API accepts a `Brush`, which
-lets you create gradient shadows.
+Shadows are not limited to solid colors. The shadow API accepts a `Brush`, which lets you create gradient shadows.
 
+<br />
 
 ```kotlin
 Box(
@@ -349,6 +331,7 @@ Box(
         style = MaterialTheme.typography.bodyLarge
     )
 }
+   
 ```
 
 <br />
@@ -360,27 +343,23 @@ Box(
 
 ### Result
 
-You can use a brush as a shadow to create a gradient `dropShadow()` with a
-"breathing" animation:
+You can use a brush as a shadow to create a gradient `dropShadow()` with a "breathing" animation:
 **Figure 5.** An animated gradient drop shadow.
 
 ## Combine shadows
 
-You can combine and layer the `dropShadow()` and `innerShadow()` modifiers to
-create a variety of effects. The following sections show you how to produce
-neumorphic, neobrutalist, and realistic shadows with this technique.
+You can combine and layer the `dropShadow()` and `innerShadow()` modifiers to create a variety of effects. The following sections show you how to produce neumorphic, neobrutalist, and realistic shadows with this technique.
 
 ### Create neumorphic shadows
 
-Neumorphic shadows are characterized by a soft appearance that emerges
-organically from the background. To create neumorphic shadows, do the following:
+Neumorphic shadows are characterized by a soft appearance that emerges organically from the background. To create neumorphic shadows, do the following:
 
 1. Use an element that shares the same colors as its background.
 2. Apply two faint, opposing drop shadows: a light shadow to one corner, and a dark shadow to the opposite corner.
 
-The following snippet layers two `dropShadow()` modifiers to create the
-neumorphic effect:
+The following snippet layers two `dropShadow()` modifiers to create the neumorphic effect:
 
+<br />
 
 ```kotlin
 @Composable
@@ -422,6 +401,7 @@ fun NeumorphicRaisedButton(
             .background(bgColor, shape)
     )
 }
+   
 ```
 
 <br />
@@ -430,10 +410,9 @@ fun NeumorphicRaisedButton(
 
 ### Create neobrutalist shadows
 
-The neobrutalist style showcases high-contrast, blocky layouts, vivid colors,
-and thick borders. To create this effect, use a `dropShadow()` with zero blur
-and a distinct offset, as shown in the following snippet:
+The neobrutalist style showcases high-contrast, blocky layouts, vivid colors, and thick borders. To create this effect, use a `dropShadow()` with zero blur and a distinct offset, as shown in the following snippet:
 
+<br />
 
 ```kotlin
 @Composable
@@ -473,6 +452,7 @@ fun NeoBrutalShadows() {
         }
     }
 }
+   
 ```
 
 <br />
@@ -481,12 +461,9 @@ fun NeoBrutalShadows() {
 
 ### Create realistic shadows
 
-Realistic shadows mimic shadows in the physical world--- they appear lit by a
-primary light source, resulting in both a direct shadow and a more diffuse
-shadow. You can stack multiple `dropShadow()` and `innerShadow()` instances with
-different properties to recreate realistic shadow effects, as shown in the
-following snippet:
+Realistic shadows mimic shadows in the physical world--- they appear lit by a primary light source, resulting in both a direct shadow and a more diffuse shadow. You can stack multiple `dropShadow()` and `innerShadow()` instances with different properties to recreate realistic shadow effects, as shown in the following snippet:
 
+<br />
 
 ```kotlin
 @Composable
@@ -584,6 +561,7 @@ fun RealisticShadows() {
         }
     }
 }
+   
 ```
 
 <br />

@@ -69,24 +69,21 @@ Written by:
 
   ###### Product Manager
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/karan-jhavar) ![View Karan Jhavar's profile](https://developer.android.com/static/blog/assets/Karan_Jhavar_9fe15fcdd8_ZqeKk7.webp) ![View Karan Jhavar's profile](https://developer.android.com/static/blog/assets/Karan_Jhavar_9fe15fcdd8_ZqeKk7.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/karan-jhavar) ![View Karan Jhavar's profile](https://developer.android.com/static/blog/assets/Karan_Jhavar_9fe15fcdd8_ZqeKk7.webp) ![View Karan Jhavar's profile](https://developer.android.com/static/blog/assets/Karan_Jhavar_9fe15fcdd8_ZqeKk7.webp)
 -
 
   ## [Dan Brown](https://developer.android.com/blog/authors/dan-brown)
 
   ###### Product Manager
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/dan-brown) ![View Dan Brown's profile](https://developer.android.com/static/blog/assets/Dan_Brown_94dcf29eb9_2nDlrF.webp) ![View Dan Brown's profile](https://developer.android.com/static/blog/assets/Dan_Brown_94dcf29eb9_2nDlrF.webp)
+  [read_more View profile](https://developer.android.com/blog/authors/dan-brown) ![View Dan Brown's profile](https://developer.android.com/static/blog/assets/Dan_Brown_94dcf29eb9_2nDlrF.webp) ![View Dan Brown's profile](https://developer.android.com/static/blog/assets/Dan_Brown_94dcf29eb9_2nDlrF.webp)
 -
 
   ## [Eric Brenner](https://developer.android.com/blog/authors/eric-brenner)
 
   ###### PM Rotator \& Software Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/eric-brenner) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+  [read_more View profile](https://developer.android.com/blog/authors/eric-brenner) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
 Continue reading
 - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -108,8 +105,5 @@ Continue reading
   [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
 Stay in the loop
 
-
-Get the latest Android development insights delivered to your inbox
-weekly.
-[mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Get the latest Android development insights delivered to your inbox weekly.
+[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

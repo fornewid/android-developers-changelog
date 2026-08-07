@@ -4,19 +4,9 @@ url: https://developer.android.com/develop/adaptive-apps/guides/build-adaptive-n
 source: md.txt
 ---
 
-Most apps have a few top-level destinations that are accessible through the
-app's primary navigation UI. In compact windows, such as a standard phone
-display, the destinations are typically displayed in a navigation bar at the
-bottom of the window. In an expanded window, such as a full screen app on a
-tablet, a navigation rail alongside the app is usually a better choice since the
-navigation controls are easier to reach while holding the left and right sides
-of the device.
+Most apps have a few top-level destinations that are accessible through the app's primary navigation UI. In compact windows, such as a standard phone display, the destinations are typically displayed in a navigation bar at the bottom of the window. In an expanded window, such as a full screen app on a tablet, a navigation rail alongside the app is usually a better choice since the navigation controls are easier to reach while holding the left and right sides of the device.
 
-[`NavigationSuiteScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScaffold.composable) simplifies switching
-between navigation UIs by displaying the appropriate navigation UI composable
-based on [`WindowSizeClass`](https://developer.android.com/reference/kotlin/androidx/window/core/layout/WindowSizeClass). This includes dynamically
-changing the UI during runtime window size changes. The default behavior is to
-show either of the following UI components:
+[`NavigationSuiteScaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScaffold.composable) simplifies switching between navigation UIs by displaying the appropriate navigation UI composable based on [`WindowSizeClass`](https://developer.android.com/reference/kotlin/androidx/window/core/layout/WindowSizeClass). This includes dynamically changing the UI during runtime window size changes. The default behavior is to show either of the following UI components:
 
 - **Navigation bar** if the width or height is compact or if the device is in tabletop posture
 - **Navigation rail** for everything else
@@ -25,10 +15,7 @@ show either of the following UI components:
 
 ## Add dependencies
 
-`NavigationSuiteScaffold` is part of the
-[Material3 adaptive navigation suite](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/package-summary)
-library. Add a dependency for the library in the `build.gradle` file of your app
-or module:
+`NavigationSuiteScaffold` is part of the [Material3 adaptive navigation suite](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/package-summary) library. Add a dependency for the library in the `build.gradle` file of your app or module:
 
 ### Kotlin
 
@@ -40,11 +27,9 @@ or module:
 
 ## Create a scaffold
 
-The two main parts of `NavigationSuiteScaffold` are the navigation suite items
-and the content for the selected destination. You can directly define the
-navigation suite items in a composable, but it's common to have these defined
-elsewhere, for example, in an enum:
+The two main parts of `NavigationSuiteScaffold` are the navigation suite items and the content for the selected destination. You can directly define the navigation suite items in a composable, but it's common to have these defined elsewhere, for example, in an enum:
 
+<br />
 
 ```kotlin
 enum class AppDestinations(
@@ -57,26 +42,25 @@ enum class AppDestinations(
     SHOPPING(R.string.shopping, Icons.Default.ShoppingCart, R.string.shopping),
     PROFILE(R.string.profile, Icons.Default.AccountBox, R.string.profile),
 }
+   
 ```
 
 <br />
 
-To use `NavigationSuiteScaffold`, you must track the current destination, which
-you can do by using `rememberSaveable`:
+To use `NavigationSuiteScaffold`, you must track the current destination, which you can do by using `rememberSaveable`:
 
+<br />
 
 ```kotlin
 var currentDestination by rememberSaveable { mutableStateOf(AppDestinations.HOME) }
+   
 ```
 
 <br />
 
-In the following example, the `navigationSuiteItems` parameter (type
-[`NavigationSuiteScope`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScope)) uses its [`item`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScope#item(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,kotlin.Function0,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) function
-to define the navigation UI for an individual destination. The destination UI is
-used across navigation bars, rails, and drawers. To create navigation items, you
-loop over your `AppDestinations` (defined in the preceding snippet):
+In the following example, the `navigationSuiteItems` parameter (type [`NavigationSuiteScope`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScope)) uses its [`item`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScope#item(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,kotlin.Function0,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) function to define the navigation UI for an individual destination. The destination UI is used across navigation bars, rails, and drawers. To create navigation items, you loop over your `AppDestinations` (defined in the preceding snippet):
 
+<br />
 
 ```kotlin
 NavigationSuiteScaffold(
@@ -98,14 +82,14 @@ NavigationSuiteScaffold(
 ) {
     // TODO: Destination content.
 }
+   
 ```
 
 <br />
 
-Within the destination content lambda, use the `currentDestination` value to
-decide what UI to display. If you use a navigation library in your app, use it
-here to display the appropriate destination. A when statement can suffice:
+Within the destination content lambda, use the `currentDestination` value to decide what UI to display. If you use a navigation library in your app, use it here to display the appropriate destination. A when statement can suffice:
 
+<br />
 
 ```kotlin
 NavigationSuiteScaffold(
@@ -119,28 +103,18 @@ NavigationSuiteScaffold(
         AppDestinations.PROFILE -> ProfileDestination()
     }
 }
+   
 ```
 
 <br />
 
 ## Change colors
 
-`NavigationSuiteScaffold` creates a [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Surface.composable#Surface(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.BorderStroke,kotlin.Function0)) over the entire area
-the scaffold occupies, typically the full window. On top of that, the scaffold
-draws the particular navigation UI, such as a [`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBar.composable#NavigationBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)).
-Both the surface and the navigation UI use the values specified in your app's
-theme, but you can override the theme values.
+`NavigationSuiteScaffold` creates a [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Surface.composable#Surface(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.BorderStroke,kotlin.Function0)) over the entire area the scaffold occupies, typically the full window. On top of that, the scaffold draws the particular navigation UI, such as a [`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBar.composable#NavigationBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)). Both the surface and the navigation UI use the values specified in your app's theme, but you can override the theme values.
 
-The `containerColor` parameter specifies the color of the surface. The default
-is the background color of your color scheme. The `contentColor` parameter
-specifies the color of content *on* that surface. The default is the "on" color
-of whatever is specified for `containerColor`. For example, if `containerColor`
-uses the `background` color, then `contentColor` uses the `onBackground` color.
-See [Material Design 3 theming in Compose](https://developer.android.com/develop/ui/compose/designsystems/material3)
-for more details about how the color system works. When overriding these values,
-use values defined in your theme so your app supports dark and light display
-modes:
+The `containerColor` parameter specifies the color of the surface. The default is the background color of your color scheme. The `contentColor` parameter specifies the color of content *on* that surface. The default is the "on" color of whatever is specified for `containerColor`. For example, if `containerColor` uses the `background` color, then `contentColor` uses the `onBackground` color. See [Material Design 3 theming in Compose](https://developer.android.com/develop/ui/compose/designsystems/material3) for more details about how the color system works. When overriding these values, use values defined in your theme so your app supports dark and light display modes:
 
+<br />
 
 ```kotlin
 NavigationSuiteScaffold(
@@ -150,17 +124,14 @@ NavigationSuiteScaffold(
 ) {
     // Content...
 }
+   
 ```
 
 <br />
 
-The navigation UI is drawn in front of the `NavigationSuiteScaffold` surface.
-The default values for the UI colors are provided by
-[`NavigationSuiteDefaults.colors()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteDefaults#colors(androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)), but you
-can override these values as well. For example, if you want the background of
-the navigation bar to be transparent but the other values to be the defaults,
-override `navigationBarContainerColor`:
+The navigation UI is drawn in front of the `NavigationSuiteScaffold` surface. The default values for the UI colors are provided by [`NavigationSuiteDefaults.colors()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteDefaults#colors(androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)), but you can override these values as well. For example, if you want the background of the navigation bar to be transparent but the other values to be the defaults, override `navigationBarContainerColor`:
 
+<br />
 
 ```kotlin
 NavigationSuiteScaffold(
@@ -171,20 +142,14 @@ NavigationSuiteScaffold(
 ) {
     // Content...
 }
+   
 ```
 
 <br />
 
-Ultimately, you can customize each item in the navigation UI. When calling the
-[`item`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScope#item(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,kotlin.Function0,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) function, you can pass in an instance of
-[`NavigationSuiteItemColors`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteItemColors). The class specifies
-the colors for items in a navigation bar, navigation rail, and navigation
-drawer. That means you can have identical colors across each navigation UI type,
-or you can vary the colors based on your needs. Define the colors at the
-`NavigationSuiteScaffold` level to use the same object instance for all items
-and call the `NavigationSuiteDefaults.itemColors()` function to override only
-the ones you want to change:
+Ultimately, you can customize each item in the navigation UI. When calling the [`item`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteScope#item(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,kotlin.Function0,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) function, you can pass in an instance of [`NavigationSuiteItemColors`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/NavigationSuiteItemColors). The class specifies the colors for items in a navigation bar, navigation rail, and navigation drawer. That means you can have identical colors across each navigation UI type, or you can vary the colors based on your needs. Define the colors at the `NavigationSuiteScaffold` level to use the same object instance for all items and call the `NavigationSuiteDefaults.itemColors()` function to override only the ones you want to change:
 
+<br />
 
 ```kotlin
 val myNavigationSuiteItemColors = NavigationSuiteDefaults.itemColors(
@@ -214,19 +179,16 @@ NavigationSuiteScaffold(
 ) {
     // Content...
 }
+   
 ```
 
 <br />
 
 ## Customize navigation types
 
-The default behavior of `NavigationSuiteScaffold` changes the navigation UI
-based on [window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes). However, you may want to override this
-behavior. For example, if your app shows a single large pane of content for a
-feed, the app could use a permanent navigation drawer for expanded windows but
-still fall back to the default behavior for compact and medium window size
-classes:
+The default behavior of `NavigationSuiteScaffold` changes the navigation UI based on [window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes). However, you may want to override this behavior. For example, if your app shows a single large pane of content for a feed, the app could use a permanent navigation drawer for expanded windows but still fall back to the default behavior for compact and medium window size classes:
 
+<br />
 
 ```kotlin
 val adaptiveInfo = currentWindowAdaptiveInfo()
@@ -244,6 +206,7 @@ NavigationSuiteScaffold(
 ) {
     // Content...
 }
+   
 ```
 
 <br />

@@ -6,6 +6,7 @@ source: md.txt
 
 Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to display graphics in Compose. [ImageVector →](https://developer.android.com/jetpack/compose/graphics/images/compare) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
+<br />
 
 ## Key points
 
@@ -21,43 +22,23 @@ A `https://developer.android.com/reference/android/graphics/drawable/VectorDrawa
 
 <br />
 
-This page and the video below provide an overview of how to create vector drawables in XML.
-Android Studio can also convert SVG files to the vector drawable format, as described in
-using [Add multi-density vector graphics](https://developer.android.com/studio/write/vector-asset-studio).
+This page and the video below provide an overview of how to create vector drawables in XML. Android Studio can also convert SVG files to the vector drawable format, as described in using [Add multi-density vector graphics](https://developer.android.com/studio/write/vector-asset-studio).
 [Video](https://www.youtube.com/watch?v=wlFVIIstKmA)
 
-
-Android 5.0 (API level 21) was the first version to officially support vector drawables with
-`https://developer.android.com/reference/android/graphics/drawable/VectorDrawable`
-and `https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable`, but
-you can support older versions with the Android support library, which provides the
-`https://developer.android.com/reference/androidx/vectordrawable/graphics/drawable/VectorDrawableCompat` and
-`https://developer.android.com/reference/androidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat` classes.
+Android 5.0 (API level 21) was the first version to officially support vector drawables with `https://developer.android.com/reference/android/graphics/drawable/VectorDrawable` and `https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable`, but you can support older versions with the Android support library, which provides the `https://developer.android.com/reference/androidx/vectordrawable/graphics/drawable/VectorDrawableCompat` and `https://developer.android.com/reference/androidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat` classes.
 
 ## About VectorDrawable class
 
-
-`https://developer.android.com/reference/android/graphics/drawable/VectorDrawable` defines a static drawable
-object. Similar to the SVG format, each vector graphic is defined as a tree
-hierarchy, which is made up of `path` and `group` objects.
-Each `path` contains the geometry of the object's outline and
-`group` contains details for transformation. All paths are drawn
-in the same order as they appear in the XML file.
+`https://developer.android.com/reference/android/graphics/drawable/VectorDrawable` defines a static drawable object. Similar to the SVG format, each vector graphic is defined as a tree hierarchy, which is made up of `path` and `group` objects. Each `path` contains the geometry of the object's outline and `group` contains details for transformation. All paths are drawn in the same order as they appear in the XML file.
 ![](https://developer.android.com/static/images/guide/topics/graphics/vectorpath.png)
-
 
 **Figure 1.** Sample hierarchy of a vector drawable asset
 
-
-The [Vector asset
-studio](https://developer.android.com/studio/write/vector-asset-studio) tool offers a simple way to add a vector graphic to the project
-as an XML file.
+The [Vector asset studio](https://developer.android.com/studio/write/vector-asset-studio) tool offers a simple way to add a vector graphic to the project as an XML file.
 
 ### Example XML
 
-
-Here is a sample `VectorDrawable` XML file that renders an image
-of a battery in the charging mode.
+Here is a sample `VectorDrawable` XML file that renders an image of a battery in the charging mode.
 
 ```xml
 <!-- res/drawable/battery_charging.xml -->
@@ -89,15 +70,9 @@ This XML renders the following image:
 
 ## About AnimatedVectorDrawable class
 
-
-`https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable` adds animation to the properties of a vector
-graphic. You can define an animated vector graphic as three separate
-resource files or as a single XML file defining the entire drawable. Let's
-look at both the approaches for better understanding: [Multiple XML files](https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources#multiple-files) and [Single
-XML file](https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources#single-file).
+`https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable` adds animation to the properties of a vector graphic. You can define an animated vector graphic as three separate resource files or as a single XML file defining the entire drawable. Let's look at both the approaches for better understanding: [Multiple XML files](https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources#multiple-files) and [Single XML file](https://developer.android.com/develop/ui/views/graphics/vector-drawable-resources#single-file).
 
 ### Multiple XML files
-
 
 By using this approach, you can define three separate XML files:
 
@@ -106,7 +81,6 @@ By using this approach, you can define three separate XML files:
 - An animator XML file.
 
 #### Example of multiple XML files
-
 
 The following XML files demonstrate the animation of a vector graphic.
 
@@ -169,12 +143,7 @@ The following XML files demonstrate the animation of a vector graphic.
 
 ### Single XML file
 
-
-By using this approach, you can merge the related XML files into a single
-XML file through the XML Bundle Format. At the time of building the app, the
-`aapt` tag creates separate resources and references them in the
-animated vector. This approach requires Build Tools 24 or higher, and the
-output is backward compatible.
+By using this approach, you can merge the related XML files into a single XML file through the XML Bundle Format. At the time of building the app, the `aapt` tag creates separate resources and references them in the animated vector. This approach requires Build Tools 24 or higher, and the output is backward compatible.
 
 #### Example of a single XML file
 
@@ -212,28 +181,11 @@ output is backward compatible.
 
 ## Vector drawables backward compatibility solution
 
+To support vector drawable and animated vector drawable on devices running platform versions lower than Android 5.0 (API level 21), or use `fillColor`, `fillType` and `strokeColor` functionalities below Android 7.0 (API level 24), `https://developer.android.com/reference/androidx/vectordrawable/graphics/drawable/VectorDrawableCompat` and `https://developer.android.com/reference/androidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat` are available through two support libraries: `support-vector-drawable` and `animated-vector-drawable`, respectively.
 
-To support vector drawable and animated vector drawable on devices running platform versions lower
-than Android 5.0 (API level 21), or use `fillColor`, `fillType` and
-`strokeColor` functionalities below Android 7.0 (API level 24),
-`https://developer.android.com/reference/androidx/vectordrawable/graphics/drawable/VectorDrawableCompat`
-and `https://developer.android.com/reference/androidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat`
-are available through two support libraries:
-`support-vector-drawable` and `animated-vector-drawable`,
-respectively.
+Android Studio 1.4 introduced limited compatibility support for vector drawables by generating PNG files at build time. However, the vector drawable and animated vector drawable support Libraries offer both flexibility and broad compatibility --- it's a support library, so you can use it with all Android platform versions back to Android 2.1 (API level 7+). To configure your app to use vector support libraries, add the `vectorDrawables` element to your `build.gradle` file in the app module.
 
-
-Android Studio 1.4 introduced limited compatibility support for vector
-drawables by generating PNG files at build time. However, the vector drawable
-and animated vector drawable support Libraries offer both flexibility and
-broad compatibility --- it's a support library, so you can use it with all
-Android platform versions back to Android 2.1 (API level 7+). To configure your
-app to use vector support libraries, add the `vectorDrawables`
-element to your `build.gradle` file in the app module.
-
-
-Use the following code snippet to configure the `vectorDrawables`
-element:
+Use the following code snippet to configure the `vectorDrawables` element:
 
 ### Groovy
 
@@ -289,21 +241,7 @@ android {
 }
 ```
 
-
-You can use `https://developer.android.com/reference/androidx/vectordrawable/graphics/drawable/VectorDrawableCompat`
-and
-`https://developer.android.com/reference/androidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat` on all
-on devices running Android 4.0 (API level 14) and higher. The way Android
-loads drawables, not every place that accepts a drawable ID, such as in an XML
-file, supports loading vector drawables. The
-`https://developer.android.com/reference/android/support/v7/appcompat/package-summary` package has added a number
-of features to make it easy to use vector drawables. Firstly, when you use
-`https://developer.android.com/reference/android/support/v7/appcompat/package-summary` package with
-`https://developer.android.com/reference/android/widget/ImageView` or with subclasses such as
-`https://developer.android.com/reference/android/widget/ImageButton` and
-`https://developer.android.com/reference/com/google/android/material/floatingactionbutton/FloatingActionButton`, you can
-use the new `app:srcCompat` attribute to reference vector drawables
-as well as any other drawable available to `android:src`:
+You can use `https://developer.android.com/reference/androidx/vectordrawable/graphics/drawable/VectorDrawableCompat` and `https://developer.android.com/reference/androidx/vectordrawable/graphics/drawable/AnimatedVectorDrawableCompat` on all on devices running Android 4.0 (API level 14) and higher. The way Android loads drawables, not every place that accepts a drawable ID, such as in an XML file, supports loading vector drawables. The `https://developer.android.com/reference/android/support/v7/appcompat/package-summary` package has added a number of features to make it easy to use vector drawables. Firstly, when you use `https://developer.android.com/reference/android/support/v7/appcompat/package-summary` package with `https://developer.android.com/reference/android/widget/ImageView` or with subclasses such as `https://developer.android.com/reference/android/widget/ImageButton` and `https://developer.android.com/reference/com/google/android/material/floatingactionbutton/FloatingActionButton`, you can use the new `app:srcCompat` attribute to reference vector drawables as well as any other drawable available to `android:src`:
 
 ```xml
 <ImageView
@@ -312,19 +250,12 @@ as well as any other drawable available to `android:src`:
   app:srcCompat="@drawable/ic_add" />
 ```
 
-
-To change drawables at runtime, you can use the
-`https://developer.android.com/reference/android/widget/ImageView#setImageResource(int)`
-method as before. Using `AppCompat`
-and `app:srcCompat` is the most foolproof method of integrating
-vector drawables into your app.
-
+To change drawables at runtime, you can use the `https://developer.android.com/reference/android/widget/ImageView#setImageResource(int)` method as before. Using `AppCompat` and `app:srcCompat` is the most foolproof method of integrating vector drawables into your app.
 
 Support Library 25.4.0 and higher supports the following features:
 
 - **Path Morphing (PathType evaluator)** Used to morph one path into another path.
 - **Path Interpolation** Used to define a flexible interpolator (represented as a path) instead of the system-defined interpolators like LinearInterpolator.
-
 
 Support Library 26.0.0-beta1 and higher supports the following features:
 
@@ -332,9 +263,7 @@ Support Library 26.0.0-beta1 and higher supports the following features:
 
 #### Example of multiple XML files using the support library
 
-
-The following XML files demonstrate the approach of using multiple XML files
-to animate a vector graphic.
+The following XML files demonstrate the approach of using multiple XML files to animate a vector graphic.
 
 - VectorDrawable's XML file: `vd.xml`
 -
@@ -381,12 +310,7 @@ to animate a vector graphic.
 
 ### Single XML file
 
-
-The following XML file demonstrates the approach of using a single XML file
-to animate a vector graphic. At the time of building the app, the
-`aapt` tag creates separate resources and references them in the
-animated vector. This approach requires Build Tools 24 or higher, and the
-output is backward compatible.
+The following XML file demonstrates the approach of using a single XML file to animate a vector graphic. At the time of building the app, the `aapt` tag creates separate resources and references them in the animated vector. This approach requires Build Tools 24 or higher, and the output is backward compatible.
 
 #### Example of a single XML file using the support library
 

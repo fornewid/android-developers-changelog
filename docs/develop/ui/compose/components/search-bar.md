@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/compose/components/search-bar
 source: md.txt
 ---
 
-Use a [search bar](https://m3.material.io/components/search/guidelines#3b162db3-8d55-425a-920b-95b1041ff999) to implement search functionality. A search
-bar is a persistent search field that lets users enter a keyword or phrase to
-display relevant results within your app, and is recommended when search is the
-primary focus of your app.
+Use a [search bar](https://m3.material.io/components/search/guidelines#3b162db3-8d55-425a-920b-95b1041ff999) to implement search functionality. A search bar is a persistent search field that lets users enter a keyword or phrase to display relevant results within your app, and is recommended when search is the primary focus of your app.
 
 > [!NOTE]
 > **Note:** The [`SearchBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SearchBar.composable#SearchBar(kotlin.Function0,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.SearchBarColors,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable is experimental.
@@ -17,8 +14,7 @@ The search bar on the right has a text field and a search suggestion beneath it.
 
 ## API surface
 
-Use the [`SearchBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SearchBar.composable#SearchBar(kotlin.Function0,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.SearchBarColors,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable to implement search bars. Key parameters for
-this composable include the following:
+Use the [`SearchBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SearchBar.composable#SearchBar(kotlin.Function0,kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.SearchBarColors,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable to implement search bars. Key parameters for this composable include the following:
 
 - `inputField`: Defines the input field of the search bar. It typically utilizes `SearchBarDefaults.InputField`, which allows customization of:
   - `query`: The query text to be shown in the input field.
@@ -26,13 +22,13 @@ this composable include the following:
 - `expanded`: A boolean indicating whether the search bar is expanded to show suggestions or filtered results.
 - `onExpandedChange`: Lambda to handle changes in the dropdown's expanded state.
 
-- `content`: The content of this search bar to display search results below the
-  `inputField`.
+- `content`: The content of this search bar to display search results below the `inputField`.
 
 ## Search bar with suggestions
 
 This snippet shows a basic implementation of `SearchBar` with suggestions:
 
+<br />
 
 ```kotlin
 @OptIn(ExperimentalMaterial3Api::class)
@@ -88,6 +84,7 @@ fun SimpleSearchBar(
         }
     }
 }
+   
 ```
 
 <br />
@@ -111,9 +108,9 @@ fun SimpleSearchBar(
 
 ## Search bar with filtered list
 
-This example shows a `SearchBar` that filters a list based on the user's search
-query:
+This example shows a `SearchBar` that filters a list based on the user's search query:
 
+<br />
 
 ```kotlin
 @OptIn(ExperimentalMaterial3Api::class)
@@ -185,6 +182,7 @@ fun CustomizableSearchBar(
         }
     }
 }
+   
 ```
 
 <br />
@@ -196,8 +194,7 @@ fun CustomizableSearchBar(
 - `onSearch = { ... }` calls the `onSearch` lambda and collapses the search bar when the search is submitted.
 - A `LazyColumn` handles a potentially large number of search results efficiently. It iterates through the `searchResults` list and displays each result as a `ListItem`.
 - Each `ListItem` composable shows the item text, text showing additional information, and a star icon as the item's `leadingContent`. In this example, an option to favorite the item is presented.
-- For the filtering logic, see `CustomizableSearchBarExample` in the [full
-  source code on GitHub](https://github.com/android/snippets/blob/030dddb8f6f319ffb1b3809fe71add6417531fe2/compose/snippets/src/main/java/com/example/compose/snippets/components/SearchBar.kt).
+- For the filtering logic, see `CustomizableSearchBarExample` in the [full source code on GitHub](https://github.com/android/snippets/blob/030dddb8f6f319ffb1b3809fe71add6417531fe2/compose/snippets/src/main/java/com/example/compose/snippets/components/SearchBar.kt).
 
 ### Result
 

@@ -4,22 +4,15 @@ url: https://developer.android.com/develop/ui/compose/graphics/images/customize
 source: md.txt
 ---
 
-You can customize images using properties on an `Image` composable
-(`contentScale`, `colorFilter`). You can also apply existing [modifiers](https://developer.android.com/develop/ui/compose/modifiers-list)
-to apply different effects to your `Image`. Modifiers can be used on **any
-composable** , not just the `Image` composable, whereas `contentScale` and
-`colorFilter` are explicit parameters on the `Image` composable.
+You can customize images using properties on an `Image` composable (`contentScale`, `colorFilter`). You can also apply existing [modifiers](https://developer.android.com/develop/ui/compose/modifiers-list) to apply different effects to your `Image`. Modifiers can be used on **any composable** , not just the `Image` composable, whereas `contentScale` and `colorFilter` are explicit parameters on the `Image` composable.
 
 ## Content scale
 
-Specify a `contentScale` option to crop or change how an image is scaled inside
-its bounds. By default, if you don't specify a `contentScale` option,
-`ContentScale.Fit` is used.
+Specify a `contentScale` option to crop or change how an image is scaled inside its bounds. By default, if you don't specify a `contentScale` option, `ContentScale.Fit` is used.
 
-In the following example, the `Image` composable is restricted to a 150dp size
-with a border, and the background is set to yellow on the `Image` composable to
-showcase the different `ContentScale` options in the following table.
+In the following example, the `Image` composable is restricted to a 150dp size with a border, and the background is set to yellow on the `Image` composable to showcase the different `ContentScale` options in the following table.
 
+<br />
 
 ```kotlin
 val imageModifier = Modifier
@@ -32,12 +25,12 @@ Image(
     contentScale = ContentScale.Fit,
     modifier = imageModifier
 )
+   
 ```
 
 <br />
 
-Setting different `ContentScale` options results in different outputs. The
-following table helps you choose the correct `ContentScale` mode:
+Setting different `ContentScale` options results in different outputs. The following table helps you choose the correct `ContentScale` mode:
 
 |---|---|---|
 | **Source image** | ![The portrait source, which shows a dog.](https://developer.android.com/static/develop/ui/compose/images/graphics-sourceimagesmall.jpg) | ![The landscape source, which shows a different dog.](https://developer.android.com/static/develop/ui/compose/images/graphics-sourceimageland.jpg) |
@@ -52,9 +45,9 @@ following table helps you choose the correct `ContentScale` mode:
 
 ## Clip an `Image` composable to a shape
 
-To make an image fit into a shape, use the built-in `clip` modifier.
-To crop an image into a circle shape, use `Modifier.clip(CircleShape)`:
+To make an image fit into a shape, use the built-in `clip` modifier. To crop an image into a circle shape, use `Modifier.clip(CircleShape)`:
 
+<br />
 
 ```kotlin
 Image(
@@ -65,15 +58,16 @@ Image(
         .size(200.dp)
         .clip(CircleShape)
 )
+   
 ```
 
 <br />
 
 ![An image of a dog clipped into a perfect circle.](https://developer.android.com/static/develop/ui/compose/images/graphics-clipcircle.png) **Figure 1** . Clipping an image with `CircleShape`.
 
-For a rounded corner shape, use `Modifier.clip(RoundedCornerShape(16.dp)`), with
-the size of the corners you want to be rounded:
+For a rounded corner shape, use `Modifier.clip(RoundedCornerShape(16.dp)`), with the size of the corners you want to be rounded:
 
+<br />
 
 ```kotlin
 Image(
@@ -84,15 +78,16 @@ Image(
         .size(200.dp)
         .clip(RoundedCornerShape(16.dp))
 )
+   
 ```
 
 <br />
 
 ![A square image of a dog clipped with rounded corners.](https://developer.android.com/static/develop/ui/compose/images/graphics-roundedcorners.png) **Figure 2** . Clipping an image with `RoundedCornerShape`.
 
-You can also create your own clipping shape by extending `Shape`, and providing
-a `Path` for the shape to clip around:
+You can also create your own clipping shape by extending `Shape`, and providing a `Path` for the shape to clip around:
 
+<br />
 
 ```kotlin
 class SquashedOval : Shape {
@@ -124,6 +119,7 @@ Image(
         .size(200.dp)
         .clip(SquashedOval())
 )
+   
 ```
 
 <br />
@@ -132,9 +128,9 @@ Image(
 
 ## Add a border to an `Image` composable
 
-A common operation is to combine the `Modifier.border()` with `Modifier.clip()`
-to create a border around an image:
+A common operation is to combine the `Modifier.border()` with `Modifier.clip()` to create a border around an image:
 
+<br />
 
 ```kotlin
 val borderWidth = 4.dp
@@ -151,15 +147,16 @@ Image(
         .padding(borderWidth)
         .clip(CircleShape)
 )
+   
 ```
 
 <br />
 
 ![A square image of a dog, clipped into a circle, with a yellow border around the circular shape.](https://developer.android.com/static/develop/ui/compose/images/graphics-border.png) **Figure 4**. A clipped image with a border around it.
 
-To create a gradient border, you can use the [`Brush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush) API to
-draw a rainbow gradient border around the image:
+To create a gradient border, you can use the [`Brush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush) API to draw a rainbow gradient border around the image:
 
+<br />
 
 ```kotlin
 val rainbowColorsBrush = remember {
@@ -190,6 +187,7 @@ Image(
         .padding(borderWidth)
         .clip(CircleShape)
 )
+   
 ```
 
 <br />
@@ -198,10 +196,9 @@ Image(
 
 ## Set a custom aspect ratio
 
-To transform an image into a custom aspect ratio, use
-`Modifier.aspectRatio(16f/9f)` to provide a custom ratio for an image (or any
-composable).
+To transform an image into a custom aspect ratio, use `Modifier.aspectRatio(16f/9f)` to provide a custom ratio for an image (or any composable).
 
+<br />
 
 ```kotlin
 Image(
@@ -209,6 +206,7 @@ Image(
     contentDescription = stringResource(id = R.string.dog_content_description),
     modifier = Modifier.aspectRatio(16f / 9f)
 )
+   
 ```
 
 <br />
@@ -217,17 +215,13 @@ Image(
 
 ## Color filter: transform pixel colors of image
 
-The `Image` composable has a `colorFilter` parameter that can change the output
-of individual pixels of your image.
+The `Image` composable has a `colorFilter` parameter that can change the output of individual pixels of your image.
 
 ### Tint images
 
-Using `ColorFilter.tint(color, blendMode)` applies a blend mode with the
-given color onto your `Image` composable. `ColorFilter.tint(color, blendMode)`
-uses `BlendMode.SrcIn` to tint content, meaning that the color supplied is
-shown where the image is displayed on screen. This is useful for icons and
-vectors that need to be themed differently.
+Using `ColorFilter.tint(color, blendMode)` applies a blend mode with the given color onto your `Image` composable. `ColorFilter.tint(color, blendMode)` uses `BlendMode.SrcIn` to tint content, meaning that the color supplied is shown where the image is displayed on screen. This is useful for icons and vectors that need to be themed differently.
 
+<br />
 
 ```kotlin
 Image(
@@ -235,16 +229,16 @@ Image(
     contentDescription = stringResource(id = R.string.bus_content_description),
     colorFilter = ColorFilter.tint(Color.Yellow)
 )
+   
 ```
 
 <br />
 
 ![An image of a bus with a yellow tint applied.](https://developer.android.com/static/develop/ui/compose/images/graphics-bus.png) **Figure 7** . `ColorFilter.tint` applied with `BlendMode.SrcIn`.
 
-Other `BlendMode`s result in different effects. For example, setting
-`BlendMode.Darken` with a `Color.Green` on an image produces the following
-result:
+Other `BlendMode`s result in different effects. For example, setting `BlendMode.Darken` with a `Color.Green` on an image produces the following result:
 
+<br />
 
 ```kotlin
 Image(
@@ -252,21 +246,20 @@ Image(
     contentDescription = stringResource(id = R.string.dog_content_description),
     colorFilter = ColorFilter.tint(Color.Green, blendMode = BlendMode.Darken)
 )
+   
 ```
 
 <br />
 
 ![A dog with a green tint applied using BlendMode.Darken, resulting in darker green shades.](https://developer.android.com/static/develop/ui/compose/images/graphics-blendmode.png) **Figure 8** . `Color.Green tint` with `BlendMode.Darken`.
 
-See the [`BlendMode` reference documentation](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/BlendMode) for more information on the
-different blend modes available.
+See the [`BlendMode` reference documentation](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/BlendMode) for more information on the different blend modes available.
 
 ### Apply an `Image` filter with color matrix
 
-Transform your image using the color matrix `ColorFilter` option. For example,
-to apply a black and white filter onto your images you could use the
-[`ColorMatrix`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ColorMatrix) and set the saturation to `0f`.
+Transform your image using the color matrix `ColorFilter` option. For example, to apply a black and white filter onto your images you could use the [`ColorMatrix`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ColorMatrix) and set the saturation to `0f`.
 
+<br />
 
 ```kotlin
 Image(
@@ -274,6 +267,7 @@ Image(
     contentDescription = stringResource(id = R.string.dog_content_description),
     colorFilter = ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(0f) })
 )
+   
 ```
 
 <br />
@@ -282,9 +276,9 @@ Image(
 
 #### Adjust contrast or brightness of an `Image` composable
 
-To change the contrast and brightness of an image, you can use the
-[`ColorMatrix`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ColorMatrix) to change the values:
+To change the contrast and brightness of an image, you can use the [`ColorMatrix`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ColorMatrix) to change the values:
 
+<br />
 
 ```kotlin
 val contrast = 2f // 0f..10f (1 should be default)
@@ -300,6 +294,7 @@ Image(
     contentDescription = stringResource(id = R.string.dog_content_description),
     colorFilter = ColorFilter.colorMatrix(ColorMatrix(colorMatrix))
 )
+   
 ```
 
 <br />
@@ -308,9 +303,9 @@ Image(
 
 #### Invert colors of an `Image` composable
 
-To invert the colors of an image, set the [`ColorMatrix`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ColorMatrix) to invert the
-colors:
+To invert the colors of an image, set the [`ColorMatrix`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/ColorMatrix) to invert the colors:
 
+<br />
 
 ```kotlin
 val colorMatrix = floatArrayOf(
@@ -324,6 +319,7 @@ Image(
     contentDescription = stringResource(id = R.string.dog_content_description),
     colorFilter = ColorFilter.colorMatrix(ColorMatrix(colorMatrix))
 )
+   
 ```
 
 <br />
@@ -332,10 +328,9 @@ Image(
 
 ## Blur an `Image` composable
 
-To blur an image, use `Modifier.blur()`, supplying the `radiusX` and `radiusY`,
-which specifies the blur radius in the horizontal and vertical direction
-respectively.
+To blur an image, use `Modifier.blur()`, supplying the `radiusX` and `radiusY`, which specifies the blur radius in the horizontal and vertical direction respectively.
 
+<br />
 
 ```kotlin
 Image(
@@ -350,22 +345,18 @@ Image(
             edgeTreatment = BlurredEdgeTreatment(RoundedCornerShape(8.dp))
         )
 )
+   
 ```
 
 <br />
 
 ![A dog with a strong blur effect applied, making it appear indistinct and out of focus.](https://developer.android.com/static/develop/ui/compose/images/graphics-blur.png) **Figure 12** . `BlurEffect` applied to an image.
 
-When blurring `Images`, it is recommended to use `BlurredEdgeTreatment(Shape)`,
-instead of `BlurredEdgeTreatment.Unbounded`, as the latter is used for blurring
-of arbitrary renderings that are expected to render outside the bounds of the
-original content. For images, it is likely that they won't render outside the
-bounds of the content, whereas blurring a rounded rectangle may require this
-distinction.
+When blurring `Images`, it is recommended to use `BlurredEdgeTreatment(Shape)`, instead of `BlurredEdgeTreatment.Unbounded`, as the latter is used for blurring of arbitrary renderings that are expected to render outside the bounds of the original content. For images, it is likely that they won't render outside the bounds of the content, whereas blurring a rounded rectangle may require this distinction.
 
-For example, if we set the `BlurredEdgeTreatment` to `Unbounded` on the
-preceding image, the edges of the image appear blurred instead of sharp:
+For example, if we set the `BlurredEdgeTreatment` to `Unbounded` on the preceding image, the edges of the image appear blurred instead of sharp:
 
+<br />
 
 ```kotlin
 Image(
@@ -381,6 +372,7 @@ Image(
         )
         .clip(RoundedCornerShape(8.dp))
 )
+   
 ```
 
 <br />

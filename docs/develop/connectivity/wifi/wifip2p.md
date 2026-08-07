@@ -4,13 +4,7 @@ url: https://developer.android.com/develop/connectivity/wifi/wifip2p
 source: md.txt
 ---
 
-[Wi-Fi Direct](https://www.wi-fi.org/discover-wi-fi/wi-fi-direct)
-(P2P) allows devices with the appropriate hardware to connect directly to each
-other via Wi-Fi without an intermediate access point. Using these APIs, you can
-discover and connect to other devices when each device supports Wi-Fi P2P, then
-communicate over a speedy connection across distances much longer than a
-Bluetooth connection. This is useful for applications that share data among
-users, such as a multiplayer game or a photo-sharing application.
+[Wi-Fi Direct](https://www.wi-fi.org/discover-wi-fi/wi-fi-direct) (P2P) allows devices with the appropriate hardware to connect directly to each other via Wi-Fi without an intermediate access point. Using these APIs, you can discover and connect to other devices when each device supports Wi-Fi P2P, then communicate over a speedy connection across distances much longer than a Bluetooth connection. This is useful for applications that share data among users, such as a multiplayer game or a photo-sharing application.
 
 The Wi-Fi P2P APIs consist of the following main parts:
 
@@ -18,25 +12,11 @@ The Wi-Fi P2P APIs consist of the following main parts:
 - Listeners that allow you to be notified of the success or failure of `WifiP2pManager` method calls. When calling `WifiP2pManager` methods, each method can receive a specific listener passed in as a parameter.
 - Intents that notify you of specific events detected by the Wi-Fi P2P framework, such as a dropped connection or a newly discovered peer.
 
-You will often use these three main components of the APIs together. For
-example, you can provide a
-[`WifiP2pManager.ActionListener`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener)
-to a call to
-[`discoverPeers()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverPeers(android.net.wifi.p2p.WifiP2pManager.Channel,%20android.net.wifi.p2p.WifiP2pManager.ActionListener))
-so that
-[`ActionListener.onSuccess()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener#onSuccess())
-and
-[`ActionListener.onFailure()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener#onFailure(int))
-methods can notify you. A
-[`WIFI_P2P_PEERS_CHANGED_ACTION`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_PEERS_CHANGED_ACTION)
-intent is also broadcast if the `discoverPeers()` method discovers that the
-peers list has changed.
+You will often use these three main components of the APIs together. For example, you can provide a [`WifiP2pManager.ActionListener`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener) to a call to [`discoverPeers()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverPeers(android.net.wifi.p2p.WifiP2pManager.Channel,%20android.net.wifi.p2p.WifiP2pManager.ActionListener)) so that [`ActionListener.onSuccess()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener#onSuccess()) and [`ActionListener.onFailure()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.ActionListener#onFailure(int)) methods can notify you. A [`WIFI_P2P_PEERS_CHANGED_ACTION`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#WIFI_P2P_PEERS_CHANGED_ACTION) intent is also broadcast if the `discoverPeers()` method discovers that the peers list has changed.
 
 ## API overview
 
-The `WifiP2pManager` class provides methods to enable you to interact with the
-Wi-Fi hardware on your device to do things like discover and connect to peers.
-The following actions are available:
+The `WifiP2pManager` class provides methods to enable you to interact with the Wi-Fi hardware on your device to do things like discover and connect to peers. The following actions are available:
 
 **Table 1.** Wi-Fi P2P Methods
 
@@ -52,11 +32,7 @@ The following actions are available:
 | ` https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverPeers(android.net.wifi.p2p.WifiP2pManager.Channel,%20android.net.wifi.p2p.WifiP2pManager.ActionListener) ` | Initiates peer discovery. |
 | ` https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestPeers(android.net.wifi.p2p.WifiP2pManager.Channel,%20android.net.wifi.p2p.WifiP2pManager.PeerListListener) ` | Requests the current list of discovered peers. |
 
-`WifiP2pManager` methods let
-you pass in a listener, so that the Wi-Fi P2P framework can notify your activity
-of the status of a call. The available listener interfaces and the corresponding
-`WifiP2pManager` method calls
-that use the listeners are described in table 2.
+`WifiP2pManager` methods let you pass in a listener, so that the Wi-Fi P2P framework can notify your activity of the status of a call. The available listener interfaces and the corresponding `WifiP2pManager` method calls that use the listeners are described in table 2.
 
 **Table 2.** Wi-Fi P2P Listeners
 
@@ -68,11 +44,7 @@ that use the listeners are described in table 2.
 | ` https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.GroupInfoListener ` | ` requestGroupInfo() ` |
 | ` https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.PeerListListener ` | ` requestPeers() ` |
 
-The Wi-Fi P2P APIs define intents that are broadcast when certain Wi-Fi P2P
-events happen, such as when a new peer is discovered or when a device's Wi-Fi
-state changes. You can register to receive these intents in your application by
-[creating a broadcast receiver](https://developer.android.com/develop/connectivity/wifi/wifip2p#broadcast-receiver)
-that handles these intents:
+The Wi-Fi P2P APIs define intents that are broadcast when certain Wi-Fi P2P events happen, such as when a new peer is discovered or when a device's Wi-Fi state changes. You can register to receive these intents in your application by [creating a broadcast receiver](https://developer.android.com/develop/connectivity/wifi/wifip2p#broadcast-receiver) that handles these intents:
 
 **Table 3.** Wi-Fi P2P Intents
 
@@ -85,31 +57,13 @@ that handles these intents:
 
 ## Create a broadcast receiver for Wi-Fi P2P intents
 
-A broadcast receiver allows you to receive intents broadcast by the Android
-system, so that your application can respond to events that you are interested
-in. The basic steps for creating a broadcast receiver to handle Wi-Fi P2P
-intents are as follows:
+A broadcast receiver allows you to receive intents broadcast by the Android system, so that your application can respond to events that you are interested in. The basic steps for creating a broadcast receiver to handle Wi-Fi P2P intents are as follows:
 
-1. Create a class that extends the
-   [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) class.
-   For the class' constructor, you will use parameters for the `WifiP2pManager`,
-   `WifiP2pManager.Channel`, and the activity that this broadcast receiver will
-   be registered in. This allows the broadcast receiver to send updates to the
-   activity as well as have access to the Wi-Fi hardware and a communication
-   channel if needed.
+1. Create a class that extends the [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) class. For the class' constructor, you will use parameters for the `WifiP2pManager`, `WifiP2pManager.Channel`, and the activity that this broadcast receiver will be registered in. This allows the broadcast receiver to send updates to the activity as well as have access to the Wi-Fi hardware and a communication channel if needed.
 
-2. In the broadcast receiver, check for the intents that you are interested in
-   in the
-   [`onReceive()`](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context,%20android.content.Intent))
-   method. Perform any necessary actions depending on the intent that is
-   received. For example, if the broadcast receiver receives a
-   `WIFI_P2P_PEERS_CHANGED_ACTION` intent, you can call the `requestPeers()`
-   method to get a list of the currently discovered peers.
+2. In the broadcast receiver, check for the intents that you are interested in in the [`onReceive()`](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context,%20android.content.Intent)) method. Perform any necessary actions depending on the intent that is received. For example, if the broadcast receiver receives a `WIFI_P2P_PEERS_CHANGED_ACTION` intent, you can call the `requestPeers()` method to get a list of the currently discovered peers.
 
-The following code shows you how to create a typical broadcast receiver. The
-broadcast receiver takes a `WifiP2pManager` object and an activity as arguments
-and uses these two classes to appropriately carry out the needed actions when
-the broadcast receiver receives an intent:
+The following code shows you how to create a typical broadcast receiver. The broadcast receiver takes a `WifiP2pManager` object and an activity as arguments and uses these two classes to appropriately carry out the needed actions when the broadcast receiver receives an intent:
 
 ### Kotlin
 
@@ -180,36 +134,27 @@ public class WiFiDirectBroadcastReceiver extends BroadcastReceiver {
 }
 ```
 
-On devices running Android 10 and higher, the following broadcast intents are
-non-sticky:
+On devices running Android 10 and higher, the following broadcast intents are non-sticky:
+
 
 `WIFI_P2P_CONNECTION_CHANGED_ACTION`
-:   Applications can use
-    `requestConnectionInfo()`,
-    [`requestNetworkInfo()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestNetworkInfo(android.net.wifi.p2p.WifiP2pManager.Channel,%20android.net.wifi.p2p.WifiP2pManager.NetworkInfoListener)),
-    or `requestGroupInfo()` to retrieve the current connection information.
+:
+    Applications can use `requestConnectionInfo()`, [`requestNetworkInfo()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestNetworkInfo(android.net.wifi.p2p.WifiP2pManager.Channel,%20android.net.wifi.p2p.WifiP2pManager.NetworkInfoListener)), or `requestGroupInfo()` to retrieve the current connection information.
+
 
 `WIFI_P2P_THIS_DEVICE_CHANGED_ACTION`
-:   Applications can use
-    [`requestDeviceInfo()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestDeviceInfo(android.net.wifi.p2p.WifiP2pManager.Channel,%20android.net.wifi.p2p.WifiP2pManager.DeviceInfoListener))
-    to retrieve the current connection information.
+:
+    Applications can use [`requestDeviceInfo()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestDeviceInfo(android.net.wifi.p2p.WifiP2pManager.Channel,%20android.net.wifi.p2p.WifiP2pManager.DeviceInfoListener)) to retrieve the current connection information.
 
 ## Create a Wi-Fi P2P application
 
-Creating a Wi-Fi P2P application involves creating and registering a broadcast
-receiver for your application, discovering peers, connecting to a peer, and
-transferring data to a peer. The following sections describe how to do this.
+Creating a Wi-Fi P2P application involves creating and registering a broadcast receiver for your application, discovering peers, connecting to a peer, and transferring data to a peer. The following sections describe how to do this.
 
 ### Initial setup
 
-Before using the Wi-Fi P2P APIs, you must ensure that your application can
-access the hardware and that the device supports the Wi-Fi P2P protocol. If
-Wi-Fi P2P is supported, you can obtain an instance of `WifiP2pManager`, create
-and register your broadcast receiver, and begin using the Wi-Fi P2P APIs.
+Before using the Wi-Fi P2P APIs, you must ensure that your application can access the hardware and that the device supports the Wi-Fi P2P protocol. If Wi-Fi P2P is supported, you can obtain an instance of `WifiP2pManager`, create and register your broadcast receiver, and begin using the Wi-Fi P2P APIs.
 
-1. Request permission to use the Wi-Fi hardware on the device and declare
-   your application to have the correct minimum SDK version in the Android
-   manifest:
+1. Request permission to use the Wi-Fi hardware on the device and declare your application to have the correct minimum SDK version in the Android manifest:
 
        <uses-sdk android:minSdkVersion="14" />
        <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -231,18 +176,13 @@ and register your broadcast receiver, and begin using the Wi-Fi P2P APIs.
                         android:maxSdkVersion="32" />
 
    > [!NOTE]
-   > **Note:** On apps that target Android 13 (API level 33) and higher, both `discoverPeers()` and `connect()` require the [`android.permission.NEARBY_WIFI_DEVICES`](https://developer.android.com/reference/android/Manifest.permission#NEARBY_WIFI_DEVICES) permission. On apps that target earlier versions of Android, these methods require the `ACCESS_FINE_LOCATION` permission instead. Since these permissions are [dangerous
-   > permissions](https://developer.android.com/develop/permissions/overview#runtime), you must [request them at runtime](https://developer.android.com/training/permissions/requesting) before you can call `discoverPeers()` or `connect()`.
+   > **Note:** On apps that target Android 13 (API level 33) and higher, both `discoverPeers()` and `connect()` require the [`android.permission.NEARBY_WIFI_DEVICES`](https://developer.android.com/reference/android/Manifest.permission#NEARBY_WIFI_DEVICES) permission. On apps that target earlier versions of Android, these methods require the `ACCESS_FINE_LOCATION` permission instead. Since these permissions are [dangerous permissions](https://developer.android.com/develop/permissions/overview#runtime), you must [request them at runtime](https://developer.android.com/training/permissions/requesting) before you can call `discoverPeers()` or `connect()`.
 
-   Besides the preceding permissions, the following APIs also require Location
-   Mode to be enabled:
+   Besides the preceding permissions, the following APIs also require Location Mode to be enabled:
    - [`discoverPeers()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverPeers(android.net.wifi.p2p.WifiP2pManager.Channel,%20android.net.wifi.p2p.WifiP2pManager.ActionListener))
    - [`discoverServices()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#discoverServices(android.net.wifi.p2p.WifiP2pManager.Channel,%2520android.net.wifi.p2p.WifiP2pManager.ActionListener))
    - [`requestPeers()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager#requestPeers(android.net.wifi.p2p.WifiP2pManager.Channel,%20android.net.wifi.p2p.WifiP2pManager.PeerListListener))
-2. Check to see if Wi-Fi P2P is on and supported. A good place to check this is
-   in your broadcast receiver when it receives the
-   `WIFI_P2P_STATE_CHANGED_ACTION` intent. Notify your activity of the Wi-Fi P2P
-   state and react accordingly:
+2. Check to see if Wi-Fi P2P is on and supported. A good place to check this is in your broadcast receiver when it receives the `WIFI_P2P_STATE_CHANGED_ACTION` intent. Notify your activity of the Wi-Fi P2P state and react accordingly:
 
    ### Kotlin
 
@@ -285,16 +225,7 @@ and register your broadcast receiver, and begin using the Wi-Fi P2P APIs.
    ...
    }
    ```
-3. In your activity's
-   [`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle))
-   method, obtain an instance of `WifiP2pManager` and register your application
-   with the Wi-Fi P2P framework by calling `initialize()`. This method returns a
-   `WifiP2pManager.Channel`, which is used to connect your application to the
-   Wi-Fi P2P framework. You should also create an instance of your broadcast
-   receiver with the `WifiP2pManager` and `WifiP2pManager.Channel` objects along
-   with a reference to your activity. This enables your broadcast receiver to
-   notify your activity of interesting events and update it accordingly. It also
-   enables you to manipulate the device's Wi-Fi state if necessary:
+3. In your activity's [`onCreate()`](https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)) method, obtain an instance of `WifiP2pManager` and register your application with the Wi-Fi P2P framework by calling `initialize()`. This method returns a `WifiP2pManager.Channel`, which is used to connect your application to the Wi-Fi P2P framework. You should also create an instance of your broadcast receiver with the `WifiP2pManager` and `WifiP2pManager.Channel` objects along with a reference to your activity. This enables your broadcast receiver to notify your activity of interesting events and update it accordingly. It also enables you to manipulate the device's Wi-Fi state if necessary:
 
    ### Kotlin
 
@@ -332,8 +263,7 @@ and register your broadcast receiver, and begin using the Wi-Fi P2P APIs.
       ...
    }
    ```
-4. Create an intent filter and add the same intents that your broadcast receiver
-   checks for:
+4. Create an intent filter and add the same intents that your broadcast receiver checks for:
 
    ### Kotlin
 
@@ -362,11 +292,7 @@ and register your broadcast receiver, and begin using the Wi-Fi P2P APIs.
       ...
    }
    ```
-5. Register the broadcast receiver in the
-   [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()) method of your
-   activity and unregister it in the
-   [`onPause()`](https://developer.android.com/reference/android/app/Activity#onPause()) method of your
-   activity:
+5. Register the broadcast receiver in the [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()) method of your activity and unregister it in the [`onPause()`](https://developer.android.com/reference/android/app/Activity#onPause()) method of your activity:
 
    ### Kotlin
 
@@ -404,25 +330,15 @@ and register your broadcast receiver, and begin using the Wi-Fi P2P APIs.
       unregisterReceiver(receiver);
    }
    ```
-6. When you have gotten a `WifiP2pManager.Channel` and set up a broadcast
-   receiver, your application can make Wi-Fi P2P method calls and receive Wi-Fi
-   P2P intents.
+6. When you have gotten a `WifiP2pManager.Channel` and set up a broadcast receiver, your application can make Wi-Fi P2P method calls and receive Wi-Fi P2P intents.
 
-7. Implement your application, using the Wi-Fi P2P features by calling the
-   methods in `WifiP2pManager`.
+7. Implement your application, using the Wi-Fi P2P features by calling the methods in `WifiP2pManager`.
 
-The next sections describe how to do common actions such as discovering and
-connecting to peers.
+The next sections describe how to do common actions such as discovering and connecting to peers.
 
 ### Discover peers
 
-Call `discoverPeers()` to detect available peers that are in range and available
-for connection. The call to this function is asynchronous and a success or
-failure is communicated to your application with `onSuccess()` and `onFailure()`
-if you created a `WifiP2pManager.ActionListener`. The `onSuccess()` method only
-notifies you that the discovery process succeeded and does not provide any
-information about the actual peers that it discovered, if any. The following
-code sample shows how to set this up.
+Call `discoverPeers()` to detect available peers that are in range and available for connection. The call to this function is asynchronous and a success or failure is communicated to your application with `onSuccess()` and `onFailure()` if you created a `WifiP2pManager.ActionListener`. The `onSuccess()` method only notifies you that the discovery process succeeded and does not provide any information about the actual peers that it discovered, if any. The following code sample shows how to set this up.
 
 ### Kotlin
 
@@ -455,11 +371,7 @@ manager.discoverPeers(channel, new WifiP2pManager.ActionListener() {
 });
 ```
 
-If the discovery process succeeds and detects peers, the system broadcasts the
-`WIFI_P2P_PEERS_CHANGED_ACTION` intent, which you can listen for in a broadcast
-receiver to get a list of peers. When your application receives the
-`WIFI_P2P_PEERS_CHANGED_ACTION` intent, you can request a list of the discovered
-peers with `requestPeers()`. The following code shows how to set this up.
+If the discovery process succeeds and detects peers, the system broadcasts the `WIFI_P2P_PEERS_CHANGED_ACTION` intent, which you can listen for in a broadcast receiver to get a list of peers. When your application receives the `WIFI_P2P_PEERS_CHANGED_ACTION` intent, you can request a list of the discovered peers with `requestPeers()`. The following code shows how to set this up.
 
 ### Kotlin
 
@@ -494,22 +406,11 @@ if (WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION.equals(action)) {
 }
 ```
 
-The `requestPeers()` method is also asynchronous and can notify your activity
-when a list of peers is available with
-[`onPeersAvailable()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.PeerListListener#onPeersAvailable(android.net.wifi.p2p.WifiP2pDeviceList)),
-which is defined in the `WifiP2pManager.PeerListListener` interface. The
-`onPeersAvailable()` method provides you with a
-[`WifiP2pDeviceList`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pDeviceList), which
-you can iterate through to find the peer to connect to.
+The `requestPeers()` method is also asynchronous and can notify your activity when a list of peers is available with [`onPeersAvailable()`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pManager.PeerListListener#onPeersAvailable(android.net.wifi.p2p.WifiP2pDeviceList)), which is defined in the `WifiP2pManager.PeerListListener` interface. The `onPeersAvailable()` method provides you with a [`WifiP2pDeviceList`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pDeviceList), which you can iterate through to find the peer to connect to.
 
 ### Connect to peers
 
-Once you have gotten a list of possible peers and selected a device to connect
-to, call the `connect()` method to connect to the device. This method call
-requires a [`WifiP2pConfig`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pConfig)
-object that contains information about the device to connect to.
-`WifiP2pManager.ActionListener` can notify you of a connection success or
-failure. The following code shows you how to create a connection to a device.
+Once you have gotten a list of possible peers and selected a device to connect to, call the `connect()` method to connect to the device. This method call requires a [`WifiP2pConfig`](https://developer.android.com/reference/android/net/wifi/p2p/WifiP2pConfig) object that contains information about the device to connect to. `WifiP2pManager.ActionListener` can notify you of a connection success or failure. The following code shows you how to create a connection to a device.
 
 ### Kotlin
 
@@ -554,19 +455,14 @@ manager.connect(channel, config, new ActionListener() {
 
 ### Transfer data
 
-Once a connection is established, you can transfer data between the devices with
-sockets. The basic steps of transferring data are as follows:
+Once a connection is established, you can transfer data between the devices with sockets. The basic steps of transferring data are as follows:
 
 1. Create a [`ServerSocket`](https://developer.android.com/reference/java/net/ServerSocket). This socket waits for a connection from a client on a specified port and blocks until it happens, so do this in a background thread.
 2. Create a client [`Socket`](https://developer.android.com/reference/java/net/Socket). The client uses the IP address and port of the server socket to connect to the server device.
 3. Send data from the client to the server. When the client socket successfully connects to the server socket, you can send data from the client to the server with byte streams.
 4. The server socket waits for a client connection (with the [`accept()`](https://developer.android.com/reference/java/net/ServerSocket#accept()) method). This call blocks until a client connects, so call this in another thread. When a connection happens, the server device can receive the data from the client.
 
-The following example, modified from the [Wi-Fi P2P
-Demo](https://android.googlesource.com/platform/development/+/master/samples/WiFiDirectDemo/),
-shows you how to create this client-server socket communication and transfer
-JPEG images from a client to a server with a service. For a complete working
-example, compile and run the demo.
+The following example, modified from the [Wi-Fi P2P Demo](https://android.googlesource.com/platform/development/+/master/samples/WiFiDirectDemo/), shows you how to create this client-server socket communication and transfer JPEG images from a client to a server with a service. For a complete working example, compile and run the demo.
 
 ### Kotlin
 
@@ -685,8 +581,7 @@ public static class FileServerAsyncTask extends AsyncTask {
 }
 ```
 
-On the client, connect to the server socket with a client socket and transfer
-data. This example transfers a JPEG file on the client device's file system.
+On the client, connect to the server socket with a client socket and transfer data. This example transfers a JPEG file on the client device's file system.
 
 ### Kotlin
 

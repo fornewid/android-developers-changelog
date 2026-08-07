@@ -11,8 +11,7 @@ This page explains how to add SafetyNet APIs to your app.
 
 ## Before you begin
 
-To prepare your app, first make sure that your app's build file uses the
-following values:
+To prepare your app, first make sure that your app's build file uses the following values:
 
 - A `minSdkVersion` of `19` or higher
 - A `compileSdkVersion` of `28` or higher
@@ -21,10 +20,7 @@ Then complete the steps in the following sections.
 
 ## Configure your app
 
-In your `settings.gradle` file, include
-[Google's Maven repository](https://maven.google.com/web/index.html)
-and [Maven central repository](https://search.maven.org/artifact)
-in both your `dependencyResolutionManagement` and `pluginManagement` repository sections:
+In your `settings.gradle` file, include [Google's Maven repository](https://maven.google.com/web/index.html) and [Maven central repository](https://search.maven.org/artifact) in both your `dependencyResolutionManagement` and `pluginManagement` repository sections:
 
     pluginManagement {
         repositories {
@@ -42,10 +38,7 @@ in both your `dependencyResolutionManagement` and `pluginManagement` repository 
         }
     }
 
-Add the [Google Play services](http://developer.google.com/android)
-dependency for the Google Play API to your
-[module's Gradle build file](https://developer.android.com/studio/build#module-level),
-which is commonly `app/build.gradle`:
+Add the [Google Play services](http://developer.google.com/android) dependency for the Google Play API to your [module's Gradle build file](https://developer.android.com/studio/build#module-level), which is commonly `app/build.gradle`:
 
     dependencies {
       implementation 'com.google.android.gms:play-services-safetynet:18.1.0'
@@ -53,17 +46,20 @@ which is commonly `app/build.gradle`:
 
 ## More information
 
+
 **[SafetyNet Safe Browsing API](https://developer.android.com/training/safetynet/safebrowsing)**
-:   Learn how the SafetyNet Safe Browsing API provides services for determining
-    whether a URL has been marked as a known threat by Google.
+:
+    Learn how the SafetyNet Safe Browsing API provides services for determining whether a URL has been marked as a known threat by Google.
+
 
 **[SafetyNet reCAPTCHA API](https://developer.android.com/training/safetynet/recaptcha)**
-:   Learn how the SafetyNet reCAPTCHA API protects your app from malicious
-    traffic.
+:
+    Learn how the SafetyNet reCAPTCHA API protects your app from malicious traffic.
+
 
 **[SafetyNet Verify Apps API](https://developer.android.com/training/safetynet/verify-apps)**
-:   Learn how the SafetyNet Verify Apps API protects devices against potentially
-    harmful apps.
+:
+    Learn how the SafetyNet Verify Apps API protects devices against potentially harmful apps.
 
 ## Additional resources
 

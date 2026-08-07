@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/views/layout/cardview
 source: md.txt
 ---
 
+<br />
+
 Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to work with layouts in Compose. [Card in Material 3 →](https://developer.android.com/develop/ui/compose/components/card) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
 
 <br />
@@ -11,20 +13,12 @@ Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. L
 > [!NOTE]
 > **Note:** For a better user experience, see [Material Design Cards](https://m3.material.io/components/cards/overview).
 
-Apps often need to display data in similarly styled containers, such as
-containers that hold information about the items in a list. The system provides
-the [`CardView`](https://developer.android.com/reference/androidx/cardview/widget/CardView) API for you to
-show information in *cards* that have a consistent look across the platform. For
-example, cards have a default elevation above their containing view group, so
-the system draws shadows below them. Cards provide a way to contain a group of
-views while providing a consistent style for the container.
+Apps often need to display data in similarly styled containers, such as containers that hold information about the items in a list. The system provides the [`CardView`](https://developer.android.com/reference/androidx/cardview/widget/CardView) API for you to show information in *cards* that have a consistent look across the platform. For example, cards have a default elevation above their containing view group, so the system draws shadows below them. Cards provide a way to contain a group of views while providing a consistent style for the container.
 ![A image showing a glimpse of an app UI based on cards](https://lh3.googleusercontent.com/eqldDGsvpjGd9_6OsnYI677l_W3Uj4NjBTCkttiBWxIx4GxjdX8DizUcEHDAzGYrBGM32lDrraxkYiBjLnnXly6D_UvUdyQ64FX4riSB-LYa3A=s0) **Figure 1.** An app UI based on cards.
 
 ## Add the dependencies
 
-The `CardView` widget is part of [AndroidX](https://developer.android.com/jetpack/androidx). To use it in
-your project, add the following dependency to your app module's `build.gradle`
-file:
+The `CardView` widget is part of [AndroidX](https://developer.android.com/jetpack/androidx). To use it in your project, add the following dependency to your app module's `build.gradle` file:
 
 ### Groovy
 
@@ -44,9 +38,7 @@ dependencies {
 
 ## Create cards
 
-To use a `CardView`, add it to your layout file. Use it as a view group to
-contain other views. In the following example, the `CardView` contains an
-`ImageView` and a few `TextViews` to display some information to the user:
+To use a `CardView`, add it to your layout file. Use it as a view group to contain other views. In the following example, the `CardView` contains an `ImageView` and a few `TextViews` to display some information to the user:
 
     <?xml version="1.0" encoding="utf-8"?>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -115,16 +107,10 @@ contain other views. In the following example, the `CardView` contains an
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-The previous code snippet produces something similar to the following, assuming
-you use the same Android logo image:
+The previous code snippet produces something similar to the following, assuming you use the same Android logo image:
 ![An image showing a single card](https://developer.android.com/static/images/cards/card_basic_example.png) **Figure 2.** A basic example of CardView-based layout.
 
-The card in this example is drawn to the screen with a default elevation, which
-causes the system to draw a shadow under it. You can provide a custom elevation
-for a card with the `card_view:cardElevation` attribute. A card at a higher
-elevation has a more pronounced shadow, and a card at a lower elevation has a
-lighter shadow. `CardView` uses real elevation and dynamic shadows on Android
-5.0 (API level 21) and higher.
+The card in this example is drawn to the screen with a default elevation, which causes the system to draw a shadow under it. You can provide a custom elevation for a card with the `card_view:cardElevation` attribute. A card at a higher elevation has a more pronounced shadow, and a card at a lower elevation has a lighter shadow. `CardView` uses real elevation and dynamic shadows on Android 5.0 (API level 21) and higher.
 
 Use these properties to customize the appearance of the `CardView` widget:
 

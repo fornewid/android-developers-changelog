@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
 source: md.txt
 ---
 
-When creating a Glimmer Icon Sizes component, refer to the following source
-code in `ListItem.kt` for list items:
+When creating a Glimmer Icon Sizes component, refer to the following source code in `ListItem.kt` for list items:
 
+<br />
 
 ```kotlin
 /*
@@ -282,6 +282,8 @@ public object ListItemDefaults {
 
 /** Default minimum height for a [ListItem] */
 private val MinimumHeight = 80.dp
+
+   
 ```
 
 <br />

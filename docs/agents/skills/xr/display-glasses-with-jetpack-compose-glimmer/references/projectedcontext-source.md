@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
 source: md.txt
 ---
 
-When using a Projected Context to launch the Glasses Projected activity on the
-Projected Device, refer to the following source code in `ProjectedContext.kt`:
+When using a Projected Context to launch the Glasses Projected activity on the Projected Device, refer to the following source code in `ProjectedContext.kt`:
 
+<br />
 
 ```kotlin
 /*
@@ -266,6 +266,8 @@ public object ProjectedContext {
     private fun getProjectedDisplayIds(context: Context) =
         getVirtualDevice(context)?.displayIds ?: IntArray(size = 0)
 }
+
+   
 ```
 
 <br />

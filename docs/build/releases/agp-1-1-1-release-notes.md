@@ -6,7 +6,9 @@ source: md.txt
 
 # Android plugin for Gradle, revision 1.1.1 (February 2015)
 
+
 Dependencies:
+
 General Notes:
 :
     - Modified build variants so only variants that package a [Wear](https://developer.android.com/training/wearables/apps) app trigger Wear-specific build tasks.

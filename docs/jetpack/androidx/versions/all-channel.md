@@ -6,18 +6,11 @@ source: md.txt
 
 *** ** * ** ***
 
-Each version of an AndroidX library passes through four release channels while
-being developed. This page lists the components in all four channels. To view
-the entire release history for a particular component back thru January 2018,
-select it in the left-side menu. See the
-[Archive](https://developer.android.com/jetpack/androidx/releases/archive) section for release notes prior
-to 2018.
+Each version of an AndroidX library passes through four release channels while being developed. This page lists the components in all four channels. To view the entire release history for a particular component back thru January 2018, select it in the left-side menu. See the [Archive](https://developer.android.com/jetpack/androidx/releases/archive) section for release notes prior to 2018.
 
-To view the current versions for every component,
-see the [versions page](https://developer.android.com/jetpack/androidx/versions).
+To view the current versions for every component, see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
-The first stable release of AndroidX 1.0.0 suitable for use in
-production was released on September 21, 2018.
+The first stable release of AndroidX 1.0.0 suitable for use in production was released on September 21, 2018.
 
 > [!NOTE]
 > **Note:** the Jetpack team started signing Jetpack libraries in June 2023. For more information, see [verifying Jetpack dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies).
@@ -30,6 +23,10 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
 ## Latest Release
 
 These Jetpack libraries have been recently updated.
+
+## August 05, 2026
+
+- [Media3 Version 1.11.0](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0)
 
 ## July 29, 2026
 

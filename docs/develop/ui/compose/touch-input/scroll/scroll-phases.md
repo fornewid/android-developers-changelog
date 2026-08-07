@@ -4,13 +4,9 @@ url: https://developer.android.com/develop/ui/compose/touch-input/scroll/scroll-
 source: md.txt
 ---
 
-Scrolling is divided into multiple phases. Input delta is dispatched through a
-sequence of phases to ensure each phase has an opportunity to consume or react
-to the movement.
+Scrolling is divided into multiple phases. Input delta is dispatched through a sequence of phases to ensure each phase has an opportunity to consume or react to the movement.
 
-Throughout this cycle, both the available input delta and the consumed input
-delta are passed along at every step. This provides each phase with the complete
-context needed to react to, consume, or listen to the scroll event.
+Throughout this cycle, both the available input delta and the consumed input delta are passed along at every step. This provides each phase with the complete context needed to react to, consume, or listen to the scroll event.
 ![A scroll cycle diagram showing the scroll phases of a user scroll event](https://developer.android.com/static/develop/ui/compose/images/scroll-section.png) **Figure 1.** A scroll cycle diagram showing the scroll phases of a user scroll event.
 
 As illustrated in Figure 1, the scrolling process follows this exact order:
@@ -25,18 +21,9 @@ As illustrated in Figure 1, the scrolling process follows this exact order:
 
 ## Transform input delta
 
-Pointer input delta requires sign adjustments across scroll phases to match
-expected contracts. Before the delta reaches the **Scroll** phase, scroll
-modifiers adjust input delta based on orientation, layout direction, and RTL
-contexts. This happens because raw input tracks the physical pixel movement of
-the pointer on the screen (for example, moving down increases the screen's
-Y-coordinate, yielding a positive delta). However, to achieve "natural
-scrolling" where content moves with your finger, dragging down means the
-viewport must shift up over the content, which corresponds to a negative scroll
-offset.
+Pointer input delta requires sign adjustments across scroll phases to match expected contracts. Before the delta reaches the **Scroll** phase, scroll modifiers adjust input delta based on orientation, layout direction, and RTL contexts. This happens because raw input tracks the physical pixel movement of the pointer on the screen (for example, moving down increases the screen's Y-coordinate, yielding a positive delta). However, to achieve "natural scrolling" where content moves with your finger, dragging down means the viewport must shift up over the content, which corresponds to a negative scroll offset.
 
-Input deltas from other input sources, such as a mouse wheel or touchpad,
-aren't transformed throughout the scroll phases.
+Input deltas from other input sources, such as a mouse wheel or touchpad, aren't transformed throughout the scroll phases.
 
 > [!NOTE]
 > **Note:** For more information about scroll modifiers, see the [Scroll documentation](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/scroll).
@@ -45,8 +32,7 @@ aren't transformed throughout the scroll phases.
 
 ![A graph that maps a gesture where the pointer moves right](https://developer.android.com/static/develop/ui/compose/images/scroll-graph.png) **Figure 2.** A graph that maps a gesture where the pointer moves right.
 
-To understand how deltas are consumed and transformed, see Figure 2, which maps
-a gesture where the pointer moves *right*.
+To understand how deltas are consumed and transformed, see Figure 2, which maps a gesture where the pointer moves *right*.
 
 - **Pre-scroll:** The gesture begins with a positive raw input delta of **100** .
   - **Overscroll** observes this and consumes **10** , leaving **90**.
@@ -60,8 +46,7 @@ a gesture where the pointer moves *right*.
 
 ## Pointer input delta transformation reference
 
-The following table outlines how input deltas are signed across different phases and
-directions for pointer input.
+The following table outlines how input deltas are signed across different phases and directions for pointer input.
 
 |   | Raw input delta | Overscroll effect | Nested scroll | `scrollableArea` with horizontal orientation | `scrollableArea` with horizontal orientation (reversed) | `scrollableArea` with vertical orientation | `scrollableArea` with vertical orientation (reversed) |
 |---|---|---|---|---|---|---|---|

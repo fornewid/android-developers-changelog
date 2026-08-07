@@ -178,6 +178,8 @@ class SharedViewModelStoreNavEntryDecorator<T : Any>(
 
 val LocalSharedViewModelStoreOwner =
     staticCompositionLocalOf<ViewModelStoreOwner> { error("No LocalSharedViewModelStoreOwner provided!") }
+
+   
 ```
 
 ```
@@ -307,4 +309,6 @@ fun NavKey.toContentKey() = this.toString()
 class CounterViewModel : ViewModel() {
     var count by mutableIntStateOf(0)
 }
+
+   
 ```

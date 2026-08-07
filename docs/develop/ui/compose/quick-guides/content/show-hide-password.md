@@ -6,8 +6,7 @@ source: md.txt
 
 <br />
 
-You can create an icon to hide or show a password based on a user toggle to
-improve security and enhance the user experience.
+You can create an icon to hide or show a password based on a user toggle to improve security and enhance the user experience.
 
 ## Results
 
@@ -19,18 +18,17 @@ improve security and enhance the user experience.
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or
-higher.
+This implementation requires that your project minSDK be set to API level 21 or higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/show-hide-password_576af7a2d1f7304014ae02c708ba378bcac727de6e775ce9379778498dc0b111.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/show-hide-password_84f2618d51ebb86b60a4d3b889838eb12797d1962335c83e5d36c624acea25e6.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Show or hide a password based on user toggle
 
-To show or hide a password based on a user toggle, create an input field for
-entering information and use a clickable icon for the toggle:
+To show or hide a password based on a user toggle, create an input field for entering information and use a clickable icon for the toggle:
 
+<br />
 
 ```kotlin
 @Composable
@@ -75,6 +73,7 @@ fun PasswordTextField() {
         }
     )
 }
+   
 ```
 
 <br />
@@ -88,8 +87,7 @@ fun PasswordTextField() {
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover
-broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display text
