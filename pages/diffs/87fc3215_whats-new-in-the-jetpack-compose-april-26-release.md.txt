@@ -1,0 +1,27 @@
+diff --git a/docs/blog/posts/whats-new-in-the-jetpack-compose-april-26-release.md b/docs/blog/posts/whats-new-in-the-jetpack-compose-april-26-release.md
+index 0ade44b6..dfdc3311 100644
+--- a/docs/blog/posts/whats-new-in-the-jetpack-compose-april-26-release.md
++++ b/docs/blog/posts/whats-new-in-the-jetpack-compose-april-26-release.md
+@@ -266,8 +266,7 @@ Written by:
+ 
+   ###### Developer Advocate, Android
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/meghan-mehta) ![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z21FLk.webp) ![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z21FLk.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/meghan-mehta) ![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z21FLk.webp) ![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z21FLk.webp)
+ Continue reading
+ - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -289,8 +288,5 @@ Continue reading
+   [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

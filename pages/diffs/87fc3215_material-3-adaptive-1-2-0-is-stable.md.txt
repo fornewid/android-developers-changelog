@@ -1,0 +1,43 @@
+diff --git a/docs/blog/posts/material-3-adaptive-1-2-0-is-stable.md b/docs/blog/posts/material-3-adaptive-1-2-0-is-stable.md
+index 5d73d92e..e63b065b 100644
+--- a/docs/blog/posts/material-3-adaptive-1-2-0-is-stable.md
++++ b/docs/blog/posts/material-3-adaptive-1-2-0-is-stable.md
+@@ -41,6 +41,7 @@ While reflowing is an incredible option in many cases, there might be situations
+ 
+ <br />
+ 
++
+ ![material2.jpg](https://developer.android.com/static/blog/assets/material2_c8c506bd91_1mCTJO.webp)
+ 
+ *Levitating a pane from the side to the center based on the aspect ratio*
+@@ -62,6 +63,7 @@ val navigator = rememberListDetailPaneScaffoldNavigator<Nothing>(
+ 
+ <br />
+ 
++
+ To learn more about how to leverage these new adaptive strategies, see the [Material website](https://m3.material.io/foundations/layout/applying-layout/pane-layouts#d692ea5e-2dda-4071-a1f6-8c1dc5a82f5d) and the complete [sample code](https://github.com/androidx/androidx/blob/8bb7d5cbce10c0c5cf62a24d79ce1337ff1727be/compose/material3/adaptive/samples/src/main/java/androidx/compose/material3/adaptive/samples/ThreePaneScaffoldSample.kt) on GitHub.
+ Written by:
+ 
+@@ -71,8 +73,7 @@ Written by:
+ 
+   ###### Developer Relations Engineer
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/rob-orgiu) ![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_22fyUM.webp) ![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_22fyUM.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/rob-orgiu) ![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_22fyUM.webp) ![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_22fyUM.webp)
+ Continue reading
+ - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -94,8 +95,5 @@ Continue reading
+   [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

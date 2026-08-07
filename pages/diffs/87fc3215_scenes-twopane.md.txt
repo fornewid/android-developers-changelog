@@ -1,0 +1,21 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/scenes-twopane.md b/docs/guide/navigation/navigation-3/recipes/scenes-twopane.md
+index bc89dded..1a0564e9 100644
+--- a/docs/guide/navigation/navigation-3/recipes/scenes-twopane.md
++++ b/docs/guide/navigation/navigation-3/recipes/scenes-twopane.md
+@@ -129,6 +129,8 @@ class TwoPaneSceneStrategy<T : Any>(val windowSizeClass: WindowSizeClass) : Scen
+ 
+ 
+ }
++
++   
+ ```
+ 
+ ```
+@@ -247,4 +249,6 @@ private fun NavBackStack<NavKey>.addProductRoute(productId: Int) {
+         add(productRoute)
+     }
+ }
++
++   
+ ```
+\ No newline at end of file

@@ -1,0 +1,26 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmertheme-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmertheme-source.md
+index 24be0141..ff178f8d 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmertheme-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmertheme-source.md
+@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
+ source: md.txt
+ ---
+ 
+-When implementing Glimmer styles, refer to the following source code in
+-`GlimmerTheme.kt`:
++When implementing Glimmer styles, refer to the following source code in `GlimmerTheme.kt`:
+ 
++<br />
+ 
+ ```kotlin
+ /*
+@@ -183,6 +183,8 @@ private val _localGlimmerTheme: ProvidableCompositionLocal<GlimmerTheme> =
+     staticCompositionLocalOf {
+         GlimmerTheme()
+     }
++
++   
+ ```
+ 
+ <br />
+\ No newline at end of file

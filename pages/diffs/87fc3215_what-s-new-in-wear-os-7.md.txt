@@ -1,0 +1,27 @@
+diff --git a/docs/blog/posts/what-s-new-in-wear-os-7.md b/docs/blog/posts/what-s-new-in-wear-os-7.md
+index 8dfb5ffe..487b1b9c 100644
+--- a/docs/blog/posts/what-s-new-in-wear-os-7.md
++++ b/docs/blog/posts/what-s-new-in-wear-os-7.md
+@@ -264,8 +264,7 @@ Written by:
+ 
+   ###### Developer Relations Engineer
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/john-zoeller) ![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp) ![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/john-zoeller) ![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp) ![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp)
+ Continue reading
+ - [![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -303,8 +302,5 @@ Continue reading
+   - +2 ↩
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

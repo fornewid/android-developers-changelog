@@ -1,0 +1,75 @@
+diff --git a/docs/blog/categories/product-news/16.md b/docs/blog/categories/product-news/16.md
+index 8c239b36..69ed2d35 100644
+--- a/docs/blog/categories/product-news/16.md
++++ b/docs/blog/categories/product-news/16.md
+@@ -9,6 +9,24 @@ source: md.txt
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins) 23 Oct 2025 23 Oct 2025 ![](https://developer.android.com/static/blog/assets/xr_Week5_985628de53_229QRh.webp)
++
++  ## [Optimizing Performance for Android XR with Unity](https://developer.android.com/blog/posts/optimizing-performance-for-android-xr-with-unity)
++
++  [arrow_forward](https://developer.android.com/blog/posts/optimizing-performance-for-android-xr-with-unity) Samsung Galaxy XR is here, powered by Android XR! This blog post is part of our Android XR Spotlight Week, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.
++  [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins) • 6 min read
++- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 22 Oct 2025 22 Oct 2025 ![](https://developer.android.com/static/blog/assets/Galaxy_XR_BLOG_341f1e7643_2mbd4B.webp)
++
++  ## [Giving your apps a new home on Samsung Galaxy XR, the first device powered by Android XR](https://developer.android.com/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr)
++
++  [arrow_forward](https://developer.android.com/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr) The first device powered by Android XR is here: engineered by Samsung, Galaxy XR, is available now, putting the possibilities of immersive experiences directly into users' hands.
++  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
++- [![View Ran Mor's profile](https://developer.android.com/static/blog/assets/Ran_Profile_Picture_4af70ee745_20lqjv.webp)](https://developer.android.com/blog/authors/ran-mor) 20 Oct 2025 20 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Dynamic_App_Links_Blog_42ba94ce09_GV68O.webp)
++
++  ## [Dynamic App Links: Elevating your Android deep linking](https://developer.android.com/blog/posts/dynamic-app-links-elevating-your-android-deep-linking)
++
++  [arrow_forward](https://developer.android.com/blog/posts/dynamic-app-links-elevating-your-android-deep-linking) We're excited to announce the availability of Dynamic App Links, a significant leap forward for Android App Links that brings them on par with, and in many ways surpasses, industry standards for deep linking.
++  [Ran Mor](https://developer.android.com/blog/authors/ran-mor) • 2 min read
+ - [![View Tahsin Masrur's profile](https://developer.android.com/static/blog/assets/Tahsin_a6df1d8c3c_1WrW45.webp)](https://developer.android.com/blog/authors/tahsin-masrur) 15 Oct 2025 15 Oct 2025 ![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_Feature_blog_1_856fb165e3_Z3rLg4.webp)
+ 
+   ## [Beyond Single Features: Guaranteeing Feature Combinations With CameraX 1.5](https://developer.android.com/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5)
+@@ -25,39 +43,15 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+ 
+   ## [Jetpack WindowManager 1.5 is stable](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) We're excited to announce that Jetpack WindowManager 1.5.0 is now stable!
+-
+-  This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
++  [arrow_forward](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) We're excited to announce that Jetpack WindowManager 1.5.0 is now stable! This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
+   [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 2 min read
+-- [![View Paris Hsu's profile](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_Z2izffS.webp)](https://developer.android.com/blog/authors/paris-hsu) 09 Oct 2025 09 Oct 2025 ![](https://developer.android.com/static/blog/assets/as_Narwhal_7bf25b6657_Zl5Grc.webp)
+-
+-  ## [Android Studio Narwhal 4 Feature Drop: watch face support and improved stability](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-narwhal-4-feature-drop-watch-face-support-and-improved-stability) Android Studio Narwhal 4 Feature Drop is now stable and ready for you to use!
+-  [Paris Hsu](https://developer.android.com/blog/authors/paris-hsu) • 5 min read
+-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+-- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 02 Oct 2025 02 Oct 2025 ![](https://developer.android.com/static/blog/assets/6m_Evk_L_Olno_HD_56e1732bf5_2enBUx.webp)
+-
+-  ## [Optimize your app battery using Android vitals wake lock metric](https://developer.android.com/blog/posts/optimize-your-app-battery-using-android-vitals-wake-lock-metric)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/optimize-your-app-battery-using-android-vitals-wake-lock-metric) Battery life is a crucial aspect of user experience and wake locks play a major role. In this blog post we'll explore what wake locks are, what are some best practices for using them and how you can better understand your own app's behavior with the Play Console metric.
+-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 7 min read
+-- [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](https://developer.android.com/blog/authors/mayuri-khabya) 22 Sep 2025 22 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_1XxrMX.webp)
+-
+-  ## [Elevating media playback: A deep dive into Media3's PreloadManager - Part 2](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2) Welcome to the second installment of our three-part series on media preloading with Media3. This series is designed to guide you through the process of building highly responsive, low-latency media experiences in your Android apps.
+-  [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) • 9 min read
+ [arrow_back](https://developer.android.com/blog/categories/product-news/15)
+ 
+ #### Page 16
+ 
+-###### of 17
++###### of 18
+ 
+ [arrow_forward](https://developer.android.com/blog/categories/product-news/17) Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

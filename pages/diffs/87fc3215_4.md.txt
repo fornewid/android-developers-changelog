@@ -1,0 +1,52 @@
+diff --git a/docs/blog/latest/4.md b/docs/blog/latest/4.md
+index c51694a4..4e5035b1 100644
+--- a/docs/blog/latest/4.md
++++ b/docs/blog/latest/4.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Andrew Lewis's profile](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)](https://developer.android.com/blog/authors/andrew-lewis) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/Androidmedia3_1_10_6c365d70f6_Oaj9H.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Media3 1.10 is out](https://developer.android.com/blog/posts/media3-1-10-is-out)
++
++  [arrow_forward](https://developer.android.com/blog/posts/media3-1-10-is-out) Media3 1.10 includes new features, bug fixes and feature improvements, including Material3-based playback widgets, expanded format support in ExoPlayer and improved speed adjustment when exporting media with Transformer.
++  [Andrew Lewis](https://developer.android.com/blog/authors/andrew-lewis) • 2 min read
+ - [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](https://developer.android.com/blog/authors/roxanna-walker) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/contact_Picker_4392c5da87_ZQDO82.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Contact Picker: Privacy-First Contact Sharing](https://developer.android.com/blog/posts/contact-picker-privacy-first-contact-sharing)
+@@ -126,12 +132,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio) In January we announced Android Studio Otter 3 Feature Drop in stable, including Agent Mode enhancements and many other updates to provide more control and flexibility over using AI to help you build high quality Android apps.
+   [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 4 min read
+-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Feb 2026 26 Feb 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [The Second Beta of Android 17](https://developer.android.com/blog/posts/the-second-beta-of-android-17)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/the-second-beta-of-android-17) Today we're releasing the second beta of Android 17, continuing our work to build a platform that prioritizes privacy, security, and refined performance.
+-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 6 min read
+ [arrow_back](https://developer.android.com/blog/latest/3)
+ 
+ #### Page 4
+@@ -186,6 +186,8 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#coroutines](https://developer.android.com/blog/topics/coroutines)
+ - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
+ - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
++- [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
++- [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Foldables](https://developer.android.com/blog/topics/foldables)
+@@ -195,8 +197,5 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Window Size Classes](https://developer.android.com/blog/topics/blog-topic)
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

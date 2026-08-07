@@ -1,0 +1,128 @@
+diff --git a/docs/training/wearables/widgets/get_started.md b/docs/training/wearables/widgets/get_started.md
+index 7f9243aa..0de134a8 100644
+--- a/docs/training/wearables/widgets/get_started.md
++++ b/docs/training/wearables/widgets/get_started.md
+@@ -13,17 +13,14 @@ Before you begin, ensure your environment meets the following requirements.
+ 
+ ### Runtime Requirements
+ 
+-Wear Widgets require version **1.6.1 or higher** of the
+-`com.google.android.wearable.protolayout.renderer` APK on the target device.
++Wear Widgets require version **1.6.1 or higher** of the `com.google.android.wearable.protolayout.renderer` APK on the target device.
+ 
+ Get a compatible version of the renderer in one of the following ways:
+ 
+-- **Wear OS 7 Emulator** : Use the Wear OS 7 emulator image. Versions lower than 7 are not suitable. For setup instructions, see [Set up the Wear OS 7
+-  emulator](https://developer.android.com/training/wearables/versions/7/setup).
++- **Wear OS 7 Emulator** : Use the Wear OS 7 emulator image. Versions lower than 7 are not suitable. For setup instructions, see [Set up the Wear OS 7 emulator](https://developer.android.com/training/wearables/versions/7/setup).
+ - **Physical Device**: Use a physical Wear OS device that receives automatic updates from the Google Play Store, or a developer device signed in to the Google Play Store.
+ 
+-To check what version you have installed on your device, use the following
+-command:
++To check what version you have installed on your device, use the following command:
+ 
+     adb shell dumpsys package com.google.android.wearable.protolayout.renderer | \
+       grep -m 1 versionName | \
+@@ -90,10 +87,7 @@ dependencies {
+ 
+ ## Build a Hello World Widget
+ 
+-A Wear Widget consists of a service extending
+-[`GlanceWearWidgetService`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidgetService) and a widget class
+-extending [`GlanceWearWidget`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidget). The UI is defined using
+-`@RemoteComposable` functions. `@RemoteComposable` functions.
++A Wear Widget consists of a service extending [`GlanceWearWidgetService`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidgetService) and a widget class extending [`GlanceWearWidget`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidget). The UI is defined using `@RemoteComposable` functions. `@RemoteComposable` functions.
+ 
+ ### Define the Service
+ 
+@@ -105,6 +99,7 @@ To define your widget, create a service that extends `GlanceWearWidgetService`.
+ class HelloWidgetService : GlanceWearWidgetService() {
+     override val widget: GlanceWearWidget = HelloWidget()
+ }
++    
+ ```
+ 
+ ### Define the Widget
+@@ -122,6 +117,7 @@ class HelloWidget : GlanceWearWidget() {
+         }
+     }
+ }
++    
+ ```
+ 
+ ### Define the Content
+@@ -141,14 +137,12 @@ fun HelloWidgetContent() {
+         )
+     }
+ }
++    
+ ```
+ 
+ ### Create the Widget Configuration XML
+ 
+-Create a new file `res/xml/hello_widget_info.xml` to define the widget's
+-properties and supported sizes. For a complete reference of the supported XML
+-attributes in the `<wearwidget-provider>` tag, see the
+-[`WearWidgetProviderInfo`](https://developer.android.com/reference/kotlin/androidx/glance/wear/core/WearWidgetProviderInfo) documentation.
++Create a new file `res/xml/hello_widget_info.xml` to define the widget's properties and supported sizes. For a complete reference of the supported XML attributes in the `<wearwidget-provider>` tag, see the [`WearWidgetProviderInfo`](https://developer.android.com/reference/kotlin/androidx/glance/wear/core/WearWidgetProviderInfo) documentation.
+ 
+ ```xml
+ <wearwidget-provider
+@@ -164,12 +158,12 @@ attributes in the `<wearwidget-provider>` tag, see the
+         type="LARGE"
+         previewImage="@drawable/widget_preview_large" />
+ </wearwidget-provider>
++    
+ ```
+ 
+ ### Register in AndroidManifest.xml
+ 
+-Register the service in your `AndroidManifest.xml` with the required intent
+-filters and metadata.
++Register the service in your `AndroidManifest.xml` with the required intent filters and metadata.
+ 
+ ```xml
+ <service
+@@ -193,28 +187,24 @@ filters and metadata.
+         android:name="androidx.wear.tiles.PREVIEW"
+         android:resource="@drawable/tile_preview" />
+ </service>
++    
+ ```
+ 
+ ## Build and Deploy
+ 
+-After defining your service and widget, you can build your project and deploy it
+-to a device or emulator.
++After defining your service and widget, you can build your project and deploy it to a device or emulator.
+ 
+ ### Build and Install
+ 
+-Build the project and install the debug APK onto your connected device or
+-emulator:
++Build the project and install the debug APK onto your connected device or emulator:
+ 
+     ./gradlew :app:installDebug
+ 
+ ### Add and preview your widget
+ 
+-After the app is installed, use `adb` to programmatically add the widget to the
+-carousel and display it on the screen.
++After the app is installed, use `adb` to programmatically add the widget to the carousel and display it on the screen.
+ 
+-**Note:** Wear Widgets use the underlying tile infrastructure for debugging
+-purposes. As a result, the `adb` commands require the
+-[`add-tile`](https://developer.android.com/training/wearables/tiles/debug#adb) and [`show-tile`](https://developer.android.com/training/wearables/tiles/debug#adb) operations.
++**Note:** Wear Widgets use the underlying tile infrastructure for debugging purposes. As a result, the `adb` commands require the [`add-tile`](https://developer.android.com/training/wearables/tiles/debug#adb) and [`show-tile`](https://developer.android.com/training/wearables/tiles/debug#adb) operations.
+ 
+ **1. Add the widget to the carousel:**
+ 
+@@ -233,5 +223,4 @@ purposes. As a result, the `adb` commands require the
+       --es operation show-tile \
+       --ei index 0
+ 
+-Android Studio Previews are also available to help you test your layouts across
+-different screen sizes.
+\ No newline at end of file
++Android Studio Previews are also available to help you test your layouts across different screen sizes.
+\ No newline at end of file

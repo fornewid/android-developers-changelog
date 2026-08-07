@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/andrei-shikov.md b/docs/blog/authors/andrei-shikov.md
+index d5bf4dbe..a95c8c4e 100644
+--- a/docs/blog/authors/andrei-shikov.md
++++ b/docs/blog/authors/andrei-shikov.md
+@@ -23,8 +23,5 @@ Android Toolkit
+   - +1 ↩
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

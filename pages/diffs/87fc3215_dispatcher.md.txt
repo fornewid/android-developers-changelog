@@ -1,0 +1,147 @@
+diff --git a/docs/guide/navigation/navigation-event/dispatcher.md b/docs/guide/navigation/navigation-event/dispatcher.md
+index 0bf84abc..5ce3a13f 100644
+--- a/docs/guide/navigation/navigation-event/dispatcher.md
++++ b/docs/guide/navigation/navigation-event/dispatcher.md
+@@ -4,37 +4,29 @@ url: https://developer.android.com/guide/navigation/navigation-event/dispatcher
+ source: md.txt
+ ---
+ 
+-To implement a robust navigation system, your app needs a centralized way to
+-handle back gestures and other navigation signals. This page describes how to
+-use [`NavigationEventDispatcher`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher) to coordinate and distribute these
+-navigation events across your application.
++To implement a robust navigation system, your app needs a centralized way to handle back gestures and other navigation signals. This page describes how to use [`NavigationEventDispatcher`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher) to coordinate and distribute these navigation events across your application.
+ 
+ ## Declare a `NavigationEventDispatcher`
+ 
+-The `NavigationEventDispatcher` is the central component of the
+-`NavigationEvent` library. It acts as an event hub that dispatches
+-navigation-related events, such as back gestures and navigation transitions, to
+-registered listeners within your app. Components can subscribe to these events
+-to react to navigation changes or other system-driven navigation actions.
++The `NavigationEventDispatcher` is the central component of the `NavigationEvent` library. It acts as an event hub that dispatches navigation-related events, such as back gestures and navigation transitions, to registered listeners within your app. Components can subscribe to these events to react to navigation changes or other system-driven navigation actions.
+ 
+-You should provide `NavigationEventDispatcher` instances through a
+-[`NavigationEventDispatcherOwner`](https://developer.android.com/reference/androidx/navigationevent/NavigationEventDispatcherOwner). This ensures that different parts of your
+-app can access the same dispatcher and observe navigation events in a consistent
+-and coordinated way.
++You should provide `NavigationEventDispatcher` instances through a [`NavigationEventDispatcherOwner`](https://developer.android.com/reference/androidx/navigationevent/NavigationEventDispatcherOwner). This ensures that different parts of your app can access the same dispatcher and observe navigation events in a consistent and coordinated way.
+ 
++<br />
+ 
+ ```kotlin
+ class MyComponent: NavigationEventDispatcherOwner {
+     override val navigationEventDispatcher: NavigationEventDispatcher =
+         NavigationEventDispatcher()
+ }
++   
+ ```
+ 
+ <br />
+ 
+-If you are inside of a `ComponentActivity`, instead of implementing your own
+-dispatcher, you can retrieve the one provided for you.
++If you are inside of a `ComponentActivity`, instead of implementing your own dispatcher, you can retrieve the one provided for you.
+ 
++<br />
+ 
+ ```kotlin
+ class MyCustomActivity : ComponentActivity() {
+@@ -43,22 +35,20 @@ class MyCustomActivity : ComponentActivity() {
+         navigationEventDispatcher.addHandler(myNavigationEventHandler)
+     }
+ }
++   
+ ```
+ 
+ <br />
+ 
+ ## Add a `NavigationEventInput`
+ 
+-Now that you've registered the handler, you are set up to receive events.
+-However, you need to provide a source from which the events are generated with
+-`NavigationEventInput`.
++Now that you've registered the handler, you are set up to receive events. However, you need to provide a source from which the events are generated with `NavigationEventInput`.
+ 
+-`NavigationEventInput` is the platform-specific component that receives
+-raw system input and translates it into a standard `NavigationEvent` to be sent
+-to the `NavigationEventDispatcher`.
++`NavigationEventInput` is the platform-specific component that receives raw system input and translates it into a standard `NavigationEvent` to be sent to the `NavigationEventDispatcher`.
+ 
+ The following example is a custom implementation of a `NavigationEventInput`:
+ 
++<br />
+ 
+ ```kotlin
+ public class MyInput : NavigationEventInput() {
+@@ -82,15 +72,18 @@ public class MyInput : NavigationEventInput() {
+         dispatchOnBackCompleted()
+     }
+ }
++   
+ ```
+ 
+ <br />
+ 
+ Next, provide that input to your dispatcher:
+ 
++<br />
+ 
+ ```kotlin
+ navigationEventDispatcher.addInput(MyInput())
++   
+ ```
+ 
+ <br />
+@@ -100,41 +93,29 @@ navigationEventDispatcher.addInput(MyInput())
+ 
+ ## Clean up resources with `dispose()`
+ 
+-To prevent memory leaks in a dynamic UI, every created
+-`NavigationEventDispatcher` instance must be explicitly removed from the
+-hierarchy using the `dispose()` method when the component it is tied to is
+-destroyed:
++To prevent memory leaks in a dynamic UI, every created `NavigationEventDispatcher` instance must be explicitly removed from the hierarchy using the `dispose()` method when the component it is tied to is destroyed:
+ 
++<br />
+ 
+ ```kotlin
+ navigationEventDispatcher.dispose()
++   
+ ```
+ 
+ <br />
+ 
+-The `dispose()` method ensures a *cascading cleanup* by iteratively removing
+-the dispatcher and all of its descendants (children and grandchildren),
+-guaranteeing that all associated handlers are unregistered from the shared
+-system.
++The `dispose()` method ensures a *cascading cleanup* by iteratively removing the dispatcher and all of its descendants (children and grandchildren), guaranteeing that all associated handlers are unregistered from the shared system.
+ 
+ ### Dispatcher hierarchy and control
+ 
+-The `NavigationEventDispatcher` supports a parent-child hierarchy, enabling
+-components nested deep within a UI (such as nested `NavHost`s or dialogs) to
+-participate in navigation event handling.
++The `NavigationEventDispatcher` supports a parent-child hierarchy, enabling components nested deep within a UI (such as nested `NavHost`s or dialogs) to participate in navigation event handling.
+ 
+ #### Create a child dispatcher
+ 
+-A child dispatcher is created by passing a reference to its parent dispatcher
+-during construction. All dispatchers in a hierarchy share the same
+-`NavigationEventProcessor` to maintain a global **Last-In, First-Out (LIFO)**
+-event ordering based on priority.
++A child dispatcher is created by passing a reference to its parent dispatcher during construction. All dispatchers in a hierarchy share the same `NavigationEventProcessor` to maintain a global **Last-In, First-Out (LIFO)** event ordering based on priority.
+ 
+ #### Hierarchical enabling
+ 
+-The dispatcher includes an `isEnabled` property that allows developers to enable
+-or disable an entire subtree of handlers at once.
++The dispatcher includes an `isEnabled` property that allows developers to enable or disable an entire subtree of handlers at once.
+ 
+-When a parent dispatcher is disabled (`isEnabled = false`), all handlers
+-associated with that parent and any of its children will be ignored, regardless
+-of their individual enabled state.
+\ No newline at end of file
++When a parent dispatcher is disabled (`isEnabled = false`), all handlers associated with that parent and any of its children will be ignored, regardless of their individual enabled state.
+\ No newline at end of file

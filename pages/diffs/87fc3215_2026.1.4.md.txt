@@ -1,0 +1,44 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2026.1.4.md b/docs/studio/releases/fixed-bugs/studio/2026.1.4.md
+index 018e2be3..1b20ae7b 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2026.1.4.md
++++ b/docs/studio/releases/fixed-bugs/studio/2026.1.4.md
+@@ -4,16 +4,21 @@ url: https://developer.android.com/studio/releases/fixed-bugs/studio/2026.1.4
+ source: md.txt
+ ---
+ 
++### Android Studio Quail 4 \| 2026.1.4 Canary 4
++
++**Released together with:**
++
++- Android Gradle Plugin 9.4.0-alpha08
++
++Fixed Issues **CPU** [Issue #157084391](https://issuetracker.google.com/issues/157084391) tools/base/common/.../SparseArray.java has memory leak **Gemini** [Issue #538645014](https://issuetracker.google.com/issues/538645014) Android Studio AI grep toolCall keeps failing to execute. [Issue #500338962](https://issuetracker.google.com/issues/500338962) Shell command is not available in Sandbox of GIAS [Issue #540709807](https://issuetracker.google.com/issues/540709807) S0 CRITICAL: Data Loss - AI Agent executed malformed shell command deleting drive contents **Hangouts** [Issue #41325047](https://issuetracker.google.com/issues/41325047) Regression: Chrome crashes on screen sharing through hangouts **Profilers** [Issue #183419293](https://issuetracker.google.com/issues/183419293) Tiny fonts in the Profiler (CPU and native memory charts)
++
+ ### Android Studio Quail 4 \| 2026.1.4 Canary 3
+ 
+ **Released together with:**
+ 
+ - Android Gradle Plugin 9.4.0-alpha07
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **APK Viewer** | |---| | [Issue #534815916](https://issuetracker.google.com/issues/534815916) Bug: IDE fails to parse its own APK, to reach the content of the manifest file | |
+-| **Database Inspector** | |---| | [Issue #530704637](https://issuetracker.google.com/issues/530704637) Launching database inspector segfaults in SQLite | |
++Fixed Issues **APK Viewer** [Issue #534815916](https://issuetracker.google.com/issues/534815916) Bug: IDE fails to parse its own APK, to reach the content of the manifest file **Database Inspector** [Issue #530704637](https://issuetracker.google.com/issues/530704637) Launching database inspector segfaults in SQLite
+ 
+ ### Android Studio Quail 4 \| 2026.1.4 Canary 2
+ 
+@@ -29,10 +34,4 @@ source: md.txt
+ 
+ - Android Gradle Plugin 9.4.0-alpha05
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Android Studio** | |---| | [Issue #533146818](https://issuetracker.google.com/issues/533146818) ExtractAnnotations task does not share build cache entries between mac and linux | |
+-| **Gradle Integration** | |---| | [Issue #491718901](https://issuetracker.google.com/issues/491718901) AGP 9.1.0 Circular dependency error between :app:l8DexDesugarLibUiTest and :app:minifyAndroidTestWithR8 | |
+-| **Lint** | |---| | [Issue #526716181](https://issuetracker.google.com/issues/526716181) Disable DalvikOverride by default | | [Issue #533527424](https://issuetracker.google.com/issues/533527424) Lint tasks do not share build cache entries between mac and linux | |
+-| **Navigation Editor** | |---| | [Issue #271424916](https://issuetracker.google.com/issues/271424916) nested navigation graph as starting destination breaks Android Studio Preview | |
+-| **Running Devices** | |---| | [Issue #532163938](https://issuetracker.google.com/issues/532163938) "Hardware Input" emulator option is not persisted across Android Studio restarts | |
+\ No newline at end of file
++Fixed Issues **Android Studio** [Issue #533146818](https://issuetracker.google.com/issues/533146818) ExtractAnnotations task does not share build cache entries between mac and linux **Gradle Integration** [Issue #491718901](https://issuetracker.google.com/issues/491718901) AGP 9.1.0 Circular dependency error between :app:l8DexDesugarLibUiTest and :app:minifyAndroidTestWithR8 **Lint** [Issue #526716181](https://issuetracker.google.com/issues/526716181) Disable DalvikOverride by default [Issue #533527424](https://issuetracker.google.com/issues/533527424) Lint tasks do not share build cache entries between mac and linux **Navigation Editor** [Issue #271424916](https://issuetracker.google.com/issues/271424916) nested navigation graph as starting destination breaks Android Studio Preview **Running Devices** [Issue #532163938](https://issuetracker.google.com/issues/532163938) "Hardware Input" emulator option is not persisted across Android Studio restarts
+\ No newline at end of file

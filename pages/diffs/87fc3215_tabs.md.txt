@@ -1,0 +1,73 @@
+diff --git a/docs/develop/ui/compose/components/tabs.md b/docs/develop/ui/compose/components/tabs.md
+index 66dfc614..aef8f6df 100644
+--- a/docs/develop/ui/compose/components/tabs.md
++++ b/docs/develop/ui/compose/components/tabs.md
+@@ -4,23 +4,18 @@ url: https://developer.android.com/develop/ui/compose/components/tabs
+ source: md.txt
+ ---
+ 
+-Tabs allow you to organize groups of related content. There are two types of
+-tabs:
++Tabs allow you to organize groups of related content. There are two types of tabs:
+ 
+ - **Primary tabs**: Placed at the top of the content pane under a top app bar. They display the main content destinations, and should be used when just one set of tabs are needed.
+ - **Secondary tabs**: Used within a content area to further separate related content and establish hierarchy. They are necessary when a screen requires more than one level of tabs.
+ 
+ ![3 primary tabs are shown with associated icons (Flights, Trips, and Explore). 2 secondary tabs are shown (Overview, Specifications) without associated icons.](https://developer.android.com/static/develop/ui/compose/images/primary-secondary-tab.png) **Figure 1.** Primary tabs (1) and secondary tabs (2).
+ 
+-This page shows how to display primary tabs in your app with related screens and
+-basic navigation.
++This page shows how to display primary tabs in your app with related screens and basic navigation.
+ 
+ ## API surface
+ 
+-Use the [`Tab`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Tab.composable#Tab(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.interaction.MutableInteractionSource)), [`PrimaryTabRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/PrimaryTabRow.composable#PrimaryTabRow(kotlin.Int,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,kotlin.Function0,kotlin.Function0)), and [`SecondaryTabRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SecondaryTabRow.composable#SecondaryTabRow(kotlin.Int,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,kotlin.Function0,kotlin.Function0)) composables
+-to implement tabs. The `Tab` composable represents an individual tab within the
+-row, and is typically used inside of a `PrimaryTabRow` (for primary indicator
+-tabs) or `SecondaryTabRow` (for secondary indicator tabs).
++Use the [`Tab`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Tab.composable#Tab(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.interaction.MutableInteractionSource)), [`PrimaryTabRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/PrimaryTabRow.composable#PrimaryTabRow(kotlin.Int,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,kotlin.Function0,kotlin.Function0)), and [`SecondaryTabRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SecondaryTabRow.composable#SecondaryTabRow(kotlin.Int,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,kotlin.Function0,kotlin.Function0)) composables to implement tabs. The `Tab` composable represents an individual tab within the row, and is typically used inside of a `PrimaryTabRow` (for primary indicator tabs) or `SecondaryTabRow` (for secondary indicator tabs).
+ 
+ `Tab` includes the following key parameters:
+ 
+@@ -32,12 +27,12 @@ tabs) or `SecondaryTabRow` (for secondary indicator tabs).
+ 
+ ## Example: Tab-based navigation
+ 
+-The following snippet implements a top navigation bar with tabs to navigate
+-between different screens in an app:
++The following snippet implements a top navigation bar with tabs to navigate between different screens in an app:
+ 
+ > [!NOTE]
+ > **Note:** The [full source code](https://github.com/android/snippets/blob/main/compose/snippets/src/main/java/com/example/compose/snippets/components/Navigation.kt) includes the code that establishes the basic navigation structure for the following example.
+ 
++<br />
+ 
+ ```kotlin
+ @Composable
+@@ -68,6 +63,7 @@ fun NavigationTabExample(modifier: Modifier = Modifier) {
+         AppNavHost(navController, startDestination)
+     }
+ }
++   
+ ```
+ 
+ <br />
+@@ -76,8 +72,7 @@ fun NavigationTabExample(modifier: Modifier = Modifier) {
+ 
+ - `PrimaryTabRow` displays a horizontal row of tabs, with each tab corresponding to a `Destination`.
+ - `val navController = rememberNavController()` creates and remembers an instance of [`NavHostController`](https://developer.android.com/reference/androidx/navigation/NavHostController), which manages the navigation within a [`NavHost`](https://developer.android.com/reference/androidx/navigation/NavHost).
+-- `var selectedDestination by rememberSaveable {
+-  mutableIntStateOf(startDestination.ordinal) }` manages the state of the selected tab.
++- `var selectedDestination by rememberSaveable { mutableIntStateOf(startDestination.ordinal) }` manages the state of the selected tab.
+   - `startDestination.ordinal` gets the numerical index (position) of the `Destination.SONGS` enum entry.
+ - When you click a tab, the `onClick` lambda calls `navController.navigate(route = destination.route)` to navigate to the corresponding screen.
+ - The `onClick` lambda of the `Tab` updates the `selectedDestination` state to visually highlight the clicked tab.
+@@ -86,7 +81,7 @@ fun NavigationTabExample(modifier: Modifier = Modifier) {
+ ### Result
+ 
+ The following image shows the result of the previous snippet:
+-![3 tabs arranged horizontally across the top of the app screen. The tabs are Songs, Album, and Playlist, with the Songs tab selected and underlined.](https://developer.android.com/static/develop/ui/compose/images/Tabs (1).png)**Figure 2.** 3 tabs--- Songs, Album, and Playlist--- arranged horizontally.
++![3 tabs arranged horizontally across the top of the app screen. The tabs are Songs, Album, and Playlist, with the Songs tab selected and underlined.](https://developer.android.com/static/develop/ui/compose/images/Tabs (1).png) **Figure 2.** 3 tabs--- Songs, Album, and Playlist--- arranged horizontally.
+ 
+ ## Additional resources
+ 

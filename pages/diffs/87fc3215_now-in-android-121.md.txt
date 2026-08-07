@@ -1,0 +1,50 @@
+diff --git a/docs/blog/posts/now-in-android-121.md b/docs/blog/posts/now-in-android-121.md
+index 6f392c86..8abf8264 100644
+--- a/docs/blog/posts/now-in-android-121.md
++++ b/docs/blog/posts/now-in-android-121.md
+@@ -251,8 +251,7 @@ Written by:
+ 
+   ###### Developer Advocate
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/daniel-galpin) ![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp) ![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/daniel-galpin) ![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp) ![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp)
+ Continue reading
+ - [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 30 Sep 2025 30 Sep 2025 ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_rfy1m.webp) [Community](https://developer.android.com/blog/categories/community)
+ 
+@@ -262,6 +261,14 @@ Continue reading
+   [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
+   - [#Android](https://developer.android.com/blog/topics/android)
+   - [#identity](https://developer.android.com/blog/topics/identity)
++- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_23cCms.webp)](https://developer.android.com/blog/authors/jose-alcerreca) 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_MYo9i.webp) [Community](https://developer.android.com/blog/categories/community)
++
++  ## [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation)
++
++  [arrow_forward](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation) We released the official Android Skills in April. This blog post covers the feedback we received and explains the philosophy and methodology behind the project.
++  [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca) • 4 min read
++  - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
++  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+ - [![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_1fkXBh.webp)](https://developer.android.com/blog/authors/steph-pio) 06 Jul 2026 06 Jul 2026 ![](https://developer.android.com/static/blog/assets/IG_Fund26_Strapi_Header_716b75cbab_1E2Dt5.webp) [Community](https://developer.android.com/blog/categories/community)
+ 
+   ## [Google Play launches the first Indie Games Fund in Africa](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa)
+@@ -269,16 +276,7 @@ Continue reading
+   [arrow_forward](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa) Google Play is launching the first Indie Games Fund in Africa, investing $1 million to empower 10 indie game studios across Sub-Saharan Africa.
+   [Steph Pio](https://developer.android.com/blog/authors/steph-pio) • 1 min read
+   - [#Google Play](https://developer.android.com/blog/topics/google-play)
+-- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp) [Community](https://developer.android.com/blog/categories/community)
+-
+-  ## [Meet the class of 2026 for the Google Play Apps Accelerator](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator) The wait is over! We are incredibly excited to share the Google Play Apps Accelerator class of 2026.
+-  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 1 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

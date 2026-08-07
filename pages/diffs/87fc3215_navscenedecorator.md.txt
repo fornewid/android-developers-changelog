@@ -1,0 +1,52 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/navscenedecorator.md b/docs/guide/navigation/navigation-3/recipes/navscenedecorator.md
+index 768099c1..c27ee15d 100644
+--- a/docs/guide/navigation/navigation-3/recipes/navscenedecorator.md
++++ b/docs/guide/navigation/navigation-3/recipes/navscenedecorator.md
+@@ -101,6 +101,7 @@ class ResponsiveNavigationSceneDecoratorActivity : ComponentActivity() {
+         }
+     }
+ }
++   
+ ```
+ 
+ ```
+@@ -238,6 +239,7 @@ class ResponsiveNavigationSceneDecoratorStrategy<T : Any>(
+     }
+ 
+ }
++   
+ ```
+ 
+ ```
+@@ -512,6 +514,7 @@ fun NavRail(
+         }
+     }
+ }
++   
+ ```
+ 
+ ```
+@@ -720,6 +723,8 @@ private class WindowInsetsOverlapNode(
+         }
+     }
+ }
++
++   
+ ```
+ 
+ ```
+@@ -823,6 +828,7 @@ fun NavigationState.toEntries(
+ 
+     return stacksInUse.flatMap { decoratedEntries[it] ?: emptyList() }.toMutableStateList()
+ }
++   
+ ```
+ 
+ ```
+@@ -872,4 +878,5 @@ class Navigator(val state: NavigationState) {
+         }
+     }
+ }
++   
+ ```
+\ No newline at end of file

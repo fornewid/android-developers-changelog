@@ -1,0 +1,133 @@
+diff --git a/docs/develop/adaptive-apps/cookbook/detachable-keyboard.md b/docs/develop/adaptive-apps/cookbook/detachable-keyboard.md
+index 8c5c36dd..946494be 100644
+--- a/docs/develop/adaptive-apps/cookbook/detachable-keyboard.md
++++ b/docs/develop/adaptive-apps/cookbook/detachable-keyboard.md
+@@ -6,39 +6,24 @@ source: md.txt
+ 
+ ![Three star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/shared/three-star-rating.png)
+ 
+-Support for detachable keyboards helps maximize user productivity on large
+-screen devices. Android triggers a configuration change every time a keyboard is
+-attached to or detached from a device, which can cause a loss of UI state. Your
+-app can either [save and restore its state](https://developer.android.com/topic/libraries/architecture/saving-states), letting
+-the system handle activity recreation, or
+-[restrict activity recreation](https://developer.android.com/guide/topics/resources/runtime-changes#restrict-activity) for keyboard
+-configuration changes.
+-
+-In all cases all data related to the keyboard is stored in a [`Configuration`](https://developer.android.com/reference/kotlin/android/content/res/Configuration)
+-object. The [`keyboard`](https://developer.android.com/reference/android/content/res/Configuration#keyboard) and [`keyboardHidden`](https://developer.android.com/reference/android/content/res/Configuration#hardKeyboardHidden) fields of the configuration
+-object contain information about the type of keyboard and its availability.
++Support for detachable keyboards helps maximize user productivity on large screen devices. Android triggers a configuration change every time a keyboard is attached to or detached from a device, which can cause a loss of UI state. Your app can either [save and restore its state](https://developer.android.com/topic/libraries/architecture/saving-states), letting the system handle activity recreation, or [restrict activity recreation](https://developer.android.com/guide/topics/resources/runtime-changes#restrict-activity) for keyboard configuration changes.
++
++In all cases all data related to the keyboard is stored in a [`Configuration`](https://developer.android.com/reference/kotlin/android/content/res/Configuration) object. The [`keyboard`](https://developer.android.com/reference/android/content/res/Configuration#keyboard) and [`keyboardHidden`](https://developer.android.com/reference/android/content/res/Configuration#hardKeyboardHidden) fields of the configuration object contain information about the type of keyboard and its availability.
+ 
+ ## Best practices
+ 
+-Apps optimized for large screens support every type of input device, from
+-software and hardware keyboards to stylus, mouse, trackpad, and other peripheral
+-devices.
++Apps optimized for large screens support every type of input device, from software and hardware keyboards to stylus, mouse, trackpad, and other peripheral devices.
+ 
+-Support for external keyboards involves configuration changes, which you can
+-manage in either of two ways:
++Support for external keyboards involves configuration changes, which you can manage in either of two ways:
+ 
+ 1. Let the system recreate the running activity, and you take care of managing the state of your app.
+ 2. Manage the configuration change yourself (the activity won't be recreated):
+    - Declare all keyboard-related configuration values
+    - Create a configuration change handler
+ 
+-Productivity apps, which often require fine control of the UI for text entry and
+-other input, can benefit from the do-it-yourself approach to handling
+-configuration changes.
++Productivity apps, which often require fine control of the UI for text entry and other input, can benefit from the do-it-yourself approach to handling configuration changes.
+ 
+-In special cases, you might want to change your app layout when a hardware
+-keyboard is attached or detached, for example, to make more space for tools or
+-editing windows.
++In special cases, you might want to change your app layout when a hardware keyboard is attached or detached, for example, to make more space for tools or editing windows.
+ 
+ In Jetpack Compose, you can react to keyboard configuration changes in two ways:
+ 
+@@ -53,16 +38,11 @@ In Jetpack Compose, you can react to keyboard configuration changes in two ways:
+ 
+ ## Steps
+ 
+-Declare the `configChanges` attribute and add keyboard-related values to prevent
+-activity recreation. Then, use either `LocalConfiguration.current` to
+-dynamically adapt your Composable layout, or register a configuration listener
+-using `DisposableEffect`.
++Declare the `configChanges` attribute and add keyboard-related values to prevent activity recreation. Then, use either `LocalConfiguration.current` to dynamically adapt your Composable layout, or register a configuration listener using `DisposableEffect`.
+ 
+ ### 1. Declare `configChanges` attribute
+ 
+-Update the `<activity>` element in the app manifest by adding the
+-`keyboard|keyboardHidden` values to the list of already managed configuration
+-changes:
++Update the `<activity>` element in the app manifest by adding the `keyboard|keyboardHidden` values to the list of already managed configuration changes:
+ 
+     <activity
+           ...
+@@ -70,16 +50,13 @@ changes:
+ 
+ ### 2. Respond to keyboard configuration changes
+ 
+-To handle configuration changes in Jetpack Compose, use one of the following
+-options depending on whether you are updating the UI or executing a side-effect
+-callback:
++To handle configuration changes in Jetpack Compose, use one of the following options depending on whether you are updating the UI or executing a side-effect callback:
+ 
+ - **Option A: Reactive UI (Recommended)**
+ 
+-  Read the keyboard type directly from `LocalConfiguration.current`. When a
+-  hardware keyboard is attached or detached, this value changes, and Compose
+-  automatically recomposes your UI.
++  Read the keyboard type directly from `LocalConfiguration.current`. When a hardware keyboard is attached or detached, this value changes, and Compose automatically recomposes your UI.
+ 
++  <br />
+ 
+   ```kotlin
+   val configuration = LocalConfiguration.current
+@@ -90,17 +67,16 @@ callback:
+   } else {
+       // Render default layout
+   }
++       
+   ```
+ 
+   <br />
+ 
+ - **Option B: Side-Effect Listener**
+ 
+-  If you need to run a side-effect (such as logging, updating a local
+-  database, or triggering analytics) when the configuration changes, use a
+-  `DisposableEffect` to register a configuration change listener on the host
+-  `ComponentActivity`.
++  If you need to run a side-effect (such as logging, updating a local database, or triggering analytics) when the configuration changes, use a `DisposableEffect` to register a configuration change listener on the host `ComponentActivity`.
+ 
++  <br />
+ 
+   ```kotlin
+   val context = LocalActivity.current
+@@ -115,16 +91,15 @@ callback:
+           activity?.removeOnConfigurationChangedListener(listener)
+       }
+   }
++       
+   ```
+ 
+   <br />
+ 
+ ## Results
+ 
+-Your app will now respond to an external keyboard being attached or detached
+-without recreating the running activity.
++Your app will now respond to an external keyboard being attached or detached without recreating the running activity.
+ 
+ ## Additional resources
+ 
+-To learn how to save your app's UI state during configuration changes like
+-keyboard attachment or detachment, see [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states).
+\ No newline at end of file
++To learn how to save your app's UI state during configuration changes like keyboard attachment or detachment, see [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states).
+\ No newline at end of file

@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/matthew-forsythe.md b/docs/blog/authors/matthew-forsythe.md
+index 7c76d0d2..71ba5b4a 100644
+--- a/docs/blog/authors/matthew-forsythe.md
++++ b/docs/blog/authors/matthew-forsythe.md
+@@ -50,8 +50,5 @@ Director, Product Management
+   - [#identity](https://developer.android.com/blog/topics/identity)
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

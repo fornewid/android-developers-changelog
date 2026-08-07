@@ -1,0 +1,35 @@
+diff --git a/docs/blog/posts/jetpack-navigation-3-is-stable.md b/docs/blog/posts/jetpack-navigation-3-is-stable.md
+index 802616ed..142d9b7c 100644
+--- a/docs/blog/posts/jetpack-navigation-3-is-stable.md
++++ b/docs/blog/posts/jetpack-navigation-3-is-stable.md
+@@ -81,6 +81,7 @@ Nav3 Spotlight Week starts Dec 1st 2025.
+ 
+ <br />
+ 
++
+ As always, if you find any issues, please [file them here](https://issuetracker.google.com/issues/new?component=1750212&template=2102223).
+ - [#Nav3](https://developer.android.com/blog/topics/nav3)
+ - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+@@ -92,8 +93,7 @@ Written by:
+ 
+   ###### Developer Relations Engineer
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/don-turner) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/don-turner) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)
+ Continue reading
+ - [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z2lMDgd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -120,8 +120,5 @@ Continue reading
+   [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

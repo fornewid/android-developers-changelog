@@ -1,0 +1,120 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-chip.md b/docs/develop/ui/compose/quick-guides/content/create-chip.md
+index 7edc5f22..a9214915 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-chip.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-chip.md
+@@ -6,9 +6,7 @@ source: md.txt
+ 
+ <br />
+ 
+-The `Chip` component is a compact, interactive UI element. It represents complex
+-entities like a contact or tag, often with an icon and label. It can be
+-checkable, dismissible, or clickable.
++The `Chip` component is a compact, interactive UI element. It represents complex entities like a contact or tag, often with an icon and label. It can be checkable, dismissible, or clickable.
+ 
+ The five types of chips and where you might use them are as follows:
+ 
+@@ -20,28 +18,21 @@ The five types of chips and where you might use them are as follows:
+ 
+ ## Version compatibility
+ 
+-This implementation requires that your project minSDK be set to API level 21 or
+-higher.
++This implementation requires that your project minSDK be set to API level 21 or higher.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_90b94f6fc49da5d289b5455639aac6e3fffc24699727c9148b981cb0dd1fe670.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Create an assist chip
+ 
+-The [`AssistChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AssistChip.composable) composable provides a straightforward way to create an
+-assist chip that nudges the user in a particular direction. One distinguishing
+-feature is its `leadingIcon` parameter that lets you display an icon on the left
+-side of the chip, as shown in figure 1. The following example demonstrates how
+-you can implement it:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_60e17de0ea74740f56525236104786974a30018a3ba576993ec19d241c1da35f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe> ![A simple assist chip.](https://developer.android.com/static/develop/ui/compose/images/components/chip-assist.png) **Figure 1.** Assist chip.
++The [`AssistChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AssistChip.composable) composable provides a straightforward way to create an assist chip that nudges the user in a particular direction. One distinguishing feature is its `leadingIcon` parameter that lets you display an icon on the left side of the chip, as shown in figure 1. The following example demonstrates how you can implement it:
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_c11523e150858c5872a9945571d35743f913d85580dd80bc3284099d998b2794.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe> ![A simple assist chip.](https://developer.android.com/static/develop/ui/compose/images/components/chip-assist.png) **Figure 1.** Assist chip.
+ 
+ ## Create a filter chip
+ 
+-The [`FilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilterChip.composable) composable requires you to track whether or not the chip
+-is selected. The following example demonstrates how you can show a leading
+-checked icon only when the user has selected the chip:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_5cd3c98b67c9016e003da4e7d158b9dd3cb20312a4894ce3bdd0866139457754.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++The [`FilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilterChip.composable) composable requires you to track whether or not the chip is selected. The following example demonstrates how you can show a leading checked icon only when the user has selected the chip:
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_9e869f916c395f9bd7d81c128baab44ba199381d925041dd29e23e266e8de929.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+@@ -49,18 +40,14 @@ checked icon only when the user has selected the chip:
+ 
+ ## Create an input chip
+ 
+-You can use the [`InputChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/InputChip.composable) composable to create chips that result from
+-user interaction. For example, in an email client, when the user is writing an
+-email, an input chip might represent a person whose address the user has entered
+-into the "to:" field.
++You can use the [`InputChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/InputChip.composable) composable to create chips that result from user interaction. For example, in an email client, when the user is writing an email, an input chip might represent a person whose address the user has entered into the "to:" field.
+ 
+-The following implementation demonstrates an input chip that is in a selected
+-state. The user dismisses the chip when they press it.
++The following implementation demonstrates an input chip that is in a selected state. The user dismisses the chip when they press it.
+ 
+ > [!NOTE]
+ > **Note:** Consider how you might use a chip like this in the preceding email use case, with a name passed in for the `text` parameter, and a function that performs the necessary network calls for `onDismiss`.
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_fe0a20bdd32258f33be3fea4c16e2c6872fa0de8af37d9ac20416b5707e5a1a2.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_09d0dc8c560708888e0658862e72a8f9f26e7c7e780861338d1552cb9ffd8268.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+@@ -68,14 +55,10 @@ state. The user dismisses the chip when they press it.
+ 
+ ## Create a suggestion chip
+ 
+-The [`SuggestionChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SuggestionChip.composable) composable is the most basic of the composables listed
+-on this page, both in its API definition and its common use cases. Suggestion
+-chips present dynamically generated hints. For example, in an AI chat app, you
+-might use suggestion chips to present possible responses to the most recent
+-message.
++The [`SuggestionChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SuggestionChip.composable) composable is the most basic of the composables listed on this page, both in its API definition and its common use cases. Suggestion chips present dynamically generated hints. For example, in an AI chat app, you might use suggestion chips to present possible responses to the most recent message.
+ 
+ Consider this implementation of `SuggestionChip`:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_7e4515c94bf00dd33f7d7df3c1c68acce76d399c6a37b77fd2586c02faa29e7b.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_66a29bc34951b2de82188f5ac20e923b1b0d1cc8aa17547c04e8a70ca7e781dc.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+@@ -86,9 +69,7 @@ Consider this implementation of `SuggestionChip`:
+ 
+ ## Create an elevated chip
+ 
+-All the examples in this document use the base composables that take a flat
+-appearance. If you want a chip that has an elevated appearance, use one of the
+-three following composables:
++All the examples in this document use the base composables that take a flat appearance. If you want a chip that has an elevated appearance, use one of the three following composables:
+ 
+ - [`ElevatedAssistChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedAssistChip.composable)
+ - [`ElevatedFilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedFilterChip.composable)
+@@ -96,8 +77,7 @@ three following composables:
+ 
+ ## Key points
+ 
+-Four composables correspond to the four types of chips, and they share the
+-following parameters:
++Four composables correspond to the four types of chips, and they share the following parameters:
+ 
+ - **`label`**: The string that appears on the chip.
+ - **`icon`** : The icon displayed at the start of the chip. Some composables have a separate `leadingIcon` and `trailingIcon` parameter.
+@@ -105,8 +85,7 @@ following parameters:
+ 
+ ## Collections that contain this guide
+ 
+-This guide is part of these curated Quick Guide collections that cover
+-broader Android development goals:
++This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+ ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
+ 
+ ### Display interactive components

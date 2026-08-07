@@ -1,0 +1,36 @@
+diff --git a/docs/blog/posts/build-native-android-apps-in-google-ai-studio.md b/docs/blog/posts/build-native-android-apps-in-google-ai-studio.md
+index 0fac7c18..2c4db35c 100644
+--- a/docs/blog/posts/build-native-android-apps-in-google-ai-studio.md
++++ b/docs/blog/posts/build-native-android-apps-in-google-ai-studio.md
+@@ -78,16 +78,14 @@ Written by:
+ 
+   ###### Group Product Manager
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/emma-louise-leavey) ![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_16g0DP.webp) ![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_16g0DP.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/emma-louise-leavey) ![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_16g0DP.webp) ![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_16g0DP.webp)
+ -
+ 
+   ## [Mike Taylor-Cai](https://developer.android.com/blog/authors/mike-taylor-cai)
+ 
+   ###### Product Manager
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/mike-taylor-cai) ![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_Z1VdIJy.webp) ![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_Z1VdIJy.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/mike-taylor-cai) ![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_Z1VdIJy.webp) ![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_Z1VdIJy.webp)
+ Continue reading
+ - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -109,8 +107,5 @@ Continue reading
+   [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

@@ -1,0 +1,38 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/retain.md b/docs/guide/navigation/navigation-3/recipes/retain.md
+index 19d57f59..eb05ed40 100644
+--- a/docs/guide/navigation/navigation-3/recipes/retain.md
++++ b/docs/guide/navigation/navigation-3/recipes/retain.md
+@@ -6,21 +6,15 @@ source: md.txt
+ 
+ # Retain Recipe
+ 
+-This recipe demonstrates how to retain values for items on the back stack.
+-It also shows how to implement a custom NavEntryDecorator.
++This recipe demonstrates how to retain values for items on the back stack. It also shows how to implement a custom NavEntryDecorator.
+ 
+ ## How it works
+ 
+-To use retain with nav 3, you need to define and install a NavEntryDecorator.
+-This decorator will mange a `RetainedValuesStoreRegistry` that wraps destinations in a unique `RetainedValuesStore`.
++To use retain with nav 3, you need to define and install a NavEntryDecorator. This decorator will mange a `RetainedValuesStoreRegistry` that wraps destinations in a unique `RetainedValuesStore`.
+ 
+-The decorator implemented in this sample will keep retained values for as long as the item is in the backstack.
+-If an item is popped and then re-added, it will get new retained values.
++The decorator implemented in this sample will keep retained values for as long as the item is in the backstack. If an item is popped and then re-added, it will get new retained values.
+ 
+-For more information on retain, see the documentation for
+-[`retain`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/package-summary?hl=en#retain(kotlin.Function0)),
+-[`RetainedValuesStore`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/RetainedValuesStore?hl=en),
+-and [`RetainedValuesStoreRegistry`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/RetainedValuesStoreRegistry?hl=en).
++For more information on retain, see the documentation for [`retain`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/package-summary?hl=en#retain(kotlin.Function0)), [`RetainedValuesStore`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/RetainedValuesStore?hl=en), and [`RetainedValuesStoreRegistry`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/retain/RetainedValuesStoreRegistry?hl=en).
+ 
+ For information on NavEntryDecorator, see [the official documentation](https://developer.android.com/guide/navigation/navigation-3/naventrydecorators).
+ [![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/retain)
+@@ -149,4 +143,6 @@ class RetainedValuesStoreNavEntryDecorator<T : Any>(
+         registry.LocalRetainedValuesStoreProvider(entry.contentKey) { entry.Content() }
+     },
+ )
++
++   
+ ```
+\ No newline at end of file

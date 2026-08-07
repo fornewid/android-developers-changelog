@@ -1,0 +1,35 @@
+diff --git a/docs/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets.md b/docs/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets.md
+index 29e5c91e..ffab1533 100644
+--- a/docs/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets.md
++++ b/docs/blog/posts/beyond-the-smartphone-how-jio-hotstar-optimized-its-ux-for-foldables-and-tablets.md
+@@ -46,6 +46,7 @@ The breakpoints are in order, from the biggest to the smallest, as internally th
+ 
+ <br />
+ 
++
+ JioHotstar is able to provide the premium experience unique to foldable devices: [Tabletop Mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/make-your-app-fold-aware#tabletop_posture). This feature conveniently relocates the video player to the top half of the screen and the video controls to the bottom half when a foldable device is partially folded for a handsfree experience.
+ 
+ To accomplish this, also using the Material 3 Adaptive library, the same [currentWindowAdaptiveInfo()](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/Posture#isTabletop()) can be used to query for the tabletop mode. Once the device is held in tabletop mode, a change of layout to match the top and bottom half of the posture can be done with a column to place the player in the top half and the controllers in the bottom half:
+@@ -82,8 +83,7 @@ Written by:
+ 
+   ###### Developer Relations Engineer
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/prateek-batra) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
++  [read_more View profile](https://developer.android.com/blog/authors/prateek-batra) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+ Continue reading
+ - [![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z1s2HD7.webp)](https://developer.android.com/blog/authors/jonathan-starup)[![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_EPI3Y.webp)](https://developer.android.com/blog/authors/andrei-shikov) 27 Jul 2026 27 Jul 2026 ![](https://developer.android.com/static/blog/assets/0707_Faster_Kotlin_coroutines_on_Android_with_R8_Strapi_5b162a2623_ZM78f7.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+ 
+@@ -114,8 +114,5 @@ Continue reading
+   - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

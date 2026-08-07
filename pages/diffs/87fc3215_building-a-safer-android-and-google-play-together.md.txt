@@ -1,0 +1,36 @@
+diff --git a/docs/blog/posts/building-a-safer-android-and-google-play-together.md b/docs/blog/posts/building-a-safer-android-and-google-play-together.md
+index aa162de9..19340e85 100644
+--- a/docs/blog/posts/building-a-safer-android-and-google-play-together.md
++++ b/docs/blog/posts/building-a-safer-android-and-google-play-together.md
+@@ -51,16 +51,14 @@ Written by:
+ 
+   ###### Director, Product Management
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)
+ -
+ 
+   ## [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino)
+ 
+   ###### Sr. Director
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/ron-aquino) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
++  [read_more View profile](https://developer.android.com/blog/authors/ron-aquino) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+ Continue reading
+ - [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -83,8 +81,5 @@ Continue reading
+   - [#Android](https://developer.android.com/blog/topics/android)
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

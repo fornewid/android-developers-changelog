@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/mozart-louis.md b/docs/blog/authors/mozart-louis.md
+index 0e9f5af2..084e6022 100644
+--- a/docs/blog/authors/mozart-louis.md
++++ b/docs/blog/authors/mozart-louis.md
+@@ -19,8 +19,5 @@ Android Camera
+   5 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

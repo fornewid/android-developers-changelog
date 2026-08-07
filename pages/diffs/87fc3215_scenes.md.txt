@@ -1,0 +1,205 @@
+diff --git a/docs/guide/navigation/navigation-3/scenes.md b/docs/guide/navigation/navigation-3/scenes.md
+index dd95c9f1..cec6aa7f 100644
+--- a/docs/guide/navigation/navigation-3/scenes.md
++++ b/docs/guide/navigation/navigation-3/scenes.md
+@@ -4,21 +4,13 @@ url: https://developer.android.com/guide/navigation/navigation-3/scenes
+ source: md.txt
+ ---
+ 
+-Navigation 3 introduces a powerful and flexible system for managing your app's
+-UI flow through **Scenes**. Scenes allow you to create highly customized
+-layouts, adapt to different screen sizes, and manage complex multi-pane
+-experiences seamlessly.
++Navigation 3 introduces a powerful and flexible system for managing your app's UI flow through **Scenes**. Scenes allow you to create highly customized layouts, adapt to different screen sizes, and manage complex multi-pane experiences seamlessly.
+ 
+ ## Understand Scenes
+ 
+-In Navigation 3, a [`Scene`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene) is the fundamental unit that renders one or more
+-[`NavEntry`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavEntry) instances. Think of a `Scene` as a distinct visual state or
+-section of your UI that can contain and manage the display of content from your
+-back stack.
++In Navigation 3, a [`Scene`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene) is the fundamental unit that renders one or more [`NavEntry`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavEntry) instances. Think of a `Scene` as a distinct visual state or section of your UI that can contain and manage the display of content from your back stack.
+ 
+-Each `Scene` instance is uniquely identified by its [`key`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene#key()) and the class of
+-the `Scene` itself. This unique identifier is crucial because it drives the
+-[top-level animation when the `Scene` changes](https://developer.android.com/guide/navigation/navigation-3/animate-destinations#understand).
++Each `Scene` instance is uniquely identified by its [`key`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/Scene#key()) and the class of the `Scene` itself. This unique identifier is crucial because it drives the [top-level animation when the `Scene` changes](https://developer.android.com/guide/navigation/navigation-3/animate-destinations#understand).
+ 
+ The `Scene` interface has the following properties:
+ 
+@@ -30,33 +22,26 @@ The `Scene` interface has the following properties:
+ 
+ ### Implement equals and hashCode in custom Scenes
+ 
+-Custom `Scene` implementations must correctly implement `equals` and `hashCode`
+-to support the following:
++Custom `Scene` implementations must correctly implement `equals` and `hashCode` to support the following:
+ 
+ - **Scene state transitions** : Every time a scene is calculated by the list of scene strategies, `NavDisplay` checks the equality of the new scene and the previous one. If it detects a change, it updates the `SeekableTransition` used to transition between scenes, which in turn affects the lifecycle state of the scenes.
+ - **Overlay management** : For `OverlayScene`s (like dialogs), `NavDisplay` uses the scene object itself as a `key` to track overlay lifecycles and exit animations.
+ 
+-Verify that all properties that define the scene's content, such as `key`,
+-`entries`, and `previousEntries`, are included in the `equals` and `hashCode`
+-implementations. Generally, avoid including callbacks (like `onBack`) in the
+-implementation of these methods as they can change instances without changing
+-the logical scene state.
++Verify that all properties that define the scene's content, such as `key`, `entries`, and `previousEntries`, are included in the `equals` and `hashCode` implementations. Generally, avoid including callbacks (like `onBack`) in the implementation of these methods as they can change instances without changing the logical scene state.
+ 
+ > [!TIP]
+ > **Tip:** If your custom `Scene` doesn't have any callback properties and otherwise meets the requirements to be marked as [data classes](https://kotlinlang.org/docs/data-classes.html), that can be a straightforward way to meet this requirement.
+ 
+ ## Understand scene strategies
+ 
+-A [`SceneStrategy`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneStrategy) is the mechanism that determines how a given list of
+-`NavEntry`s from the back stack should be arranged and transitioned into a
+-`Scene`. Essentially, when presented with the current back stack entries, a
+-`SceneStrategy` asks itself two key questions:
++A [`SceneStrategy`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneStrategy) is the mechanism that determines how a given list of `NavEntry`s from the back stack should be arranged and transitioned into a `Scene`. Essentially, when presented with the current back stack entries, a `SceneStrategy` asks itself two key questions:
+ 
+ 1. **Can I create a `Scene` from these entries?** If the `SceneStrategy` determines it can handle the given `NavEntry`s and form a meaningful `Scene` (e.g., a dialog or a multi-pane layout), it proceeds. Otherwise, it returns `null`, giving other strategies a chance to create a `Scene`.
+ 2. **If so, how should I arrange those entries into the `Scene?`** Once a `SceneStrategy` commits to handling the entries, it takes on the responsibility of constructing a `Scene` and defining how the specified `NavEntry`s will be displayed within that `Scene`.
+ 
+ The core of a `SceneStrategy` is its [`calculateScene`](https://developer.android.com/reference/kotlin/androidx/navigation3/scene/SceneStrategy#calculateScene(kotlin.collections.List)) method:
+ 
++<br />
+ 
+ ```kotlin
+ @Composable
+@@ -64,28 +49,20 @@ public fun calculateScene(
+     entries: List<NavEntry<T>>,
+     onBack: (count: Int) -> Unit,
+ ): Scene<T>?
++    
+ ```
+ 
+ <br />
+ 
+-This method is an extension function on a `SceneStrategyScope` that takes the
+-current `List<NavEntry<T>>` from the back stack. It should return a `Scene<T>`
+-if it can successfully form one from the provided entries, or `null` if it
+-cannot.
++This method is an extension function on a `SceneStrategyScope` that takes the current `List<NavEntry<T>>` from the back stack. It should return a `Scene<T>` if it can successfully form one from the provided entries, or `null` if it cannot.
+ 
+-The `SceneStrategyScope` is responsible for maintaining any optional arguments
+-that the `SceneStrategy` might need, such as an `onBack` callback.
++The `SceneStrategyScope` is responsible for maintaining any optional arguments that the `SceneStrategy` might need, such as an `onBack` callback.
+ 
+ ## How Scenes and scene strategies work together
+ 
+-The `NavDisplay` is the central composable that observes your back stack and
+-uses one or more `SceneStrategy`s to determine and render the appropriate
+-`Scene`.
++The `NavDisplay` is the central composable that observes your back stack and uses one or more `SceneStrategy`s to determine and render the appropriate `Scene`.
+ 
+-The `NavDisplay`'s `sceneStrategies` parameter expects a list of `SceneStrategy`
+-instances that are responsible for calculating the `Scene` to display. If no
+-`Scene` is calculated by the provided strategies, `NavDisplay` automatically
+-falls back to using a `SinglePaneSceneStrategy` by default.
++The `NavDisplay`'s `sceneStrategies` parameter expects a list of `SceneStrategy` instances that are responsible for calculating the `Scene` to display. If no `Scene` is calculated by the provided strategies, `NavDisplay` automatically falls back to using a `SinglePaneSceneStrategy` by default.
+ 
+ Here's a breakdown of the interaction:
+ 
+@@ -95,9 +72,9 @@ Here's a breakdown of the interaction:
+ 
+ ## Example: Single pane layout (default behavior)
+ 
+-The simplest custom layout you can have is a single-pane display, which is the
+-default behavior if no other `SceneStrategy` takes precedence.
++The simplest custom layout you can have is a single-pane display, which is the default behavior if no other `SceneStrategy` takes precedence.
+ 
++<br />
+ 
+ ```kotlin
+ data class SinglePaneScene<T : Any>(
+@@ -121,21 +98,21 @@ public class SinglePaneSceneStrategy<T : Any> : SceneStrategy<T> {
+             previousEntries = entries.dropLast(1)
+         )
+ }
++   
+ ```
+ 
+ <br />
+ 
+ ## Example: Basic list-detail layout (custom Scene and strategy)
+ 
+-This example demonstrates how to create a list-detail layout that is
+-activated based on two conditions:
++This example demonstrates how to create a list-detail layout that is activated based on two conditions:
+ 
+ 1. The **window width** is sufficiently wide to support two panes (i.e., at least `WIDTH_DP_MEDIUM_LOWER_BOUND`).
+ 2. The back stack contains entries that have declared their support for being displayed in a list-detail layout using specific metadata.
+ 
+-The following snippet is the source code for `ListDetailScene.kt` and it
+-contains both `ListDetailScene` and `ListDetailSceneStrategy`:
++The following snippet is the source code for `ListDetailScene.kt` and it contains both `ListDetailScene` and `ListDetailSceneStrategy`:
+ 
++<br />
+ 
+ ```kotlin
+ // --- ListDetailScene ---
+@@ -222,17 +199,14 @@ class ListDetailSceneStrategy<T : Any>(val windowSizeClass: WindowSizeClass) : S
+         }
+     }
+ }
++   
+ ```
+ 
+ <br />
+ 
+-To use this `ListDetailSceneStrategy` in your `NavDisplay`, modify your
+-`entryProvider` calls to include `ListDetailScene.listPane()` metadata for the
+-entry you intend to show as a **list** layout, and the
+-`ListDetailScene.detailPane()` for the entry you want to show as **detail**
+-layout. Then, provide `ListDetailSceneStrategy()` as your `sceneStrategy`,
+-relying on the default fallback for single-pane scenarios:
++To use this `ListDetailSceneStrategy` in your `NavDisplay`, modify your `entryProvider` calls to include `ListDetailScene.listPane()` metadata for the entry you intend to show as a **list** layout, and the `ListDetailScene.detailPane()` for the entry you want to show as **detail** layout. Then, provide `ListDetailSceneStrategy()` as your `sceneStrategy`, relying on the default fallback for single-pane scenarios:
+ 
++<br />
+ 
+ ```kotlin
+ // Define your navigation keys
+@@ -277,21 +251,16 @@ private fun NavBackStack<NavKey>.addDetail(detailRoute: ConversationDetail) {
+     removeIf { it is ConversationDetail }
+     add(detailRoute)
+ }
++   
+ ```
+ 
+ <br />
+ 
+-If you don't want to create your own list-detail scene, you can use the
+-Material list-detail scene, which comes with sensible details and the
+-support for placeholders, as showcased in the next section.
++If you don't want to create your own list-detail scene, you can use the Material list-detail scene, which comes with sensible details and the support for placeholders, as showcased in the next section.
+ 
+ ## Display list-detail content in a Material Adaptive Scene
+ 
+-For the **list-detail use case** , the
+-`androidx.compose.material3.adaptive:adaptive-navigation3` artifact provides a
+-`ListDetailSceneStrategy` that creates a list-detail `Scene`. This `Scene`
+-automatically handles complex multi-pane arrangements (list, detail, and extra
+-panes) and adapts them based on window size and device state.
++For the **list-detail use case** , the `androidx.compose.material3.adaptive:adaptive-navigation3` artifact provides a `ListDetailSceneStrategy` that creates a list-detail `Scene`. This `Scene` automatically handles complex multi-pane arrangements (list, detail, and extra panes) and adapts them based on window size and device state.
+ 
+ To create a Material list-detail `Scene`, follow these steps:
+ 
+@@ -299,9 +268,9 @@ To create a Material list-detail `Scene`, follow these steps:
+ 2. **Define your entries with `ListDetailSceneStrategy` metadata** : Use `listPane(), detailPane()`, and `extraPane()` to mark your `NavEntrys` for appropriate pane display. The `listPane()` helper also lets you specify a `detailPlaceholder` when no item is selected.
+ 3. **Use `rememberListDetailSceneStrategy`** (): This composable function provides a pre-configured `ListDetailSceneStrategy` that can be used by a `NavDisplay`.
+ 
+-The following snippet is a sample `Activity` demonstrating the usage of
+-`ListDetailSceneStrategy`:
++The following snippet is a sample `Activity` demonstrating the usage of `ListDetailSceneStrategy`:
+ 
++<br />
+ 
+ ```kotlin
+ @Serializable
+@@ -369,6 +338,7 @@ class MaterialListDetailActivity : ComponentActivity() {
+         }
+     }
+ }
++   
+ ```
+ 
+ <br />

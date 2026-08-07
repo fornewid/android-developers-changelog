@@ -1,0 +1,102 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md b/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md
+index aeff58a2..95f1ffd8 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md
+@@ -6,10 +6,7 @@ source: md.txt
+ 
+ <br />
+ 
+-Progress indicators visually surface the status of an operation. They use motion
+-to bring to the user's attention how near completion the process is, such as
+-loading or processing data. They can also signify that processing is taking
+-place, without reference to how close to completion it might be.
++Progress indicators visually surface the status of an operation. They use motion to bring to the user's attention how near completion the process is, such as loading or processing data. They can also signify that processing is taking place, without reference to how close to completion it might be.
+ 
+ Consider these three use cases where you might use a progress indicator:
+ 
+@@ -29,64 +26,49 @@ Likewise, a progress indicator can take one of the two following forms:
+ 
+ ## Version compatibility
+ 
+-This implementation requires that your project minSDK be set to API level 21 or
+-higher.
++This implementation requires that your project minSDK be set to API level 21 or higher.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_90b94f6fc49da5d289b5455639aac6e3fffc24699727c9148b981cb0dd1fe670.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Create determinate indicators
+ 
+-A determinate indicator reflects exactly how complete an action is. Use either
+-the [`LinearProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LinearProgressIndicator.composable#LinearProgressIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp)) or [`CircularProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CircularProgressIndicator.composable#CircularProgressIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp))
+-composables and pass a value for the `progress` parameter.
++A determinate indicator reflects exactly how complete an action is. Use either the [`LinearProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LinearProgressIndicator.composable#LinearProgressIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp)) or [`CircularProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CircularProgressIndicator.composable#CircularProgressIndicator(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp)) composables and pass a value for the `progress` parameter.
+ 
+-The following snippet provides a relatively detailed example. When the user
+-presses the button, the app both displays the progress indicator, and launches a
+-coroutine that gradually increases the value of `progress`. This causes the
+-progress indicator to iterate up in turn.
++The following snippet provides a relatively detailed example. When the user presses the button, the app both displays the progress indicator, and launches a coroutine that gradually increases the value of `progress`. This causes the progress indicator to iterate up in turn.
+ 
+ > [!NOTE]
+ > **Note:** The following example uses a coroutine to do the work of iterating the `progress` value because it would otherwise block the UI thread.
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_9706664bc2fc9ad5edb5b272b31a6411f6d5a4d4b6fc73091334c46daabe4feb.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_63d83d4d89c55e0ec4a816836e099cc8d27f5d8400500ff5607a75919ca87f89.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+-When loading is partially complete, the linear indicator in the preceding
+-example appears as follows:
++When loading is partially complete, the linear indicator in the preceding example appears as follows:
+ 
+ Likewise, the circular indicator appears as follows:
+ 
+ ## Create indeterminate indicators
+ 
+-An indeterminate indicator does not reflect how close to completion an operation
+-is. Rather, it uses motion to indicate to the user that processing is ongoing,
+-though without specifying any degree of completion.
++An indeterminate indicator does not reflect how close to completion an operation is. Rather, it uses motion to indicate to the user that processing is ongoing, though without specifying any degree of completion.
+ 
+-To create an indeterminate progress indicator, use the `LinearProgressIndicator`
+-or `CircularProgressIndicator` composable, but don't pass in a value for
+-`progress`. The following example demonstrates how you can toggle an
+-indeterminate indicator with a button press.
++To create an indeterminate progress indicator, use the `LinearProgressIndicator` or `CircularProgressIndicator` composable, but don't pass in a value for `progress`. The following example demonstrates how you can toggle an indeterminate indicator with a button press.
+ 
+ > [!NOTE]
+ > **Note:** This example also demonstrates how you can pass values for the `color` and `trackColor` parameters to customize the appearance of the indicator.
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_abd720ef0eaa0a17f7c76f54acc8819975bca88fa77396c2a0994366f219924a.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_a5f13f3d7161511df65be9d44856fa7c6e4166a155f6ae0f7de01002bf2711e7.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+ The following is an example of this implementation when the indicator is active:
+ 
+-The following is an example of the same implementation but with
+-`LinearProgressIndicator` instead of `CircularProgressIndicator`.
++The following is an example of the same implementation but with `LinearProgressIndicator` instead of `CircularProgressIndicator`.
+ 
+ ## Key points
+ 
+-Although there are several composables you can use to create progress indicators
+-consistent with Material Design, their parameters don't differ greatly.
+-Among the key parameters you should keep in mind are the following:
++Although there are several composables you can use to create progress indicators consistent with Material Design, their parameters don't differ greatly. Among the key parameters you should keep in mind are the following:
+ 
+ - `progress`: The current progress that the indicator displays. Pass a `Float` between `0.0` and `1.0`.
+ - `color`: The color of the indicator, that is, the part of the component that reflects progress and which fully encompasses the component when progress is complete.
+@@ -97,8 +79,7 @@ Among the key parameters you should keep in mind are the following:
+ 
+ ## Collections that contain this guide
+ 
+-This guide is part of these curated Quick Guide collections that cover
+-broader Android development goals:
++This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+ ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
+ 
+ ### Display interactive components

@@ -1,0 +1,17 @@
+diff --git a/docs/develop/ui/compose/graphics.md b/docs/develop/ui/compose/graphics.md
+index 7eaee60b..23e541dd 100644
+--- a/docs/develop/ui/compose/graphics.md
++++ b/docs/develop/ui/compose/graphics.md
+@@ -4,11 +4,7 @@ url: https://developer.android.com/develop/ui/compose/graphics
+ source: md.txt
+ ---
+ 
+-Using bright, engaging visuals in your Android apps can help improve the look
+-and feel of your application. In Android, there are a few different ways in
+-which you can render something visually on screen using either a vector,
+-bitmap, or directly drawing with a canvas on screen. In this section, learn
+-how to work these different kinds of graphics.
++Using bright, engaging visuals in your Android apps can help improve the look and feel of your application. In Android, there are a few different ways in which you can render something visually on screen using either a vector, bitmap, or directly drawing with a canvas on screen. In this section, learn how to work these different kinds of graphics.
+ 
+ Learn how to work with images using these details:
+ 

@@ -1,0 +1,140 @@
+diff --git a/docs/training/wearables/wff/time.md b/docs/training/wearables/wff/time.md
+index 7fa47eff..22e07436 100644
+--- a/docs/training/wearables/wff/time.md
++++ b/docs/training/wearables/wff/time.md
+@@ -4,14 +4,11 @@ url: https://developer.android.com/training/wearables/wff/time
+ source: md.txt
+ ---
+ 
+-The primary job of a watch face is to show the time, and the Watch Face Format
+-lets you create both analog and digital clocks using the
+-[`AnalogClock`](https://developer.android.com/training/wearables/wff/clock/analog-clock) and [`DigitalClock`](https://developer.android.com/training/wearables/wff/clock/digital-clock) elements.
++The primary job of a watch face is to show the time, and the Watch Face Format lets you create both analog and digital clocks using the [`AnalogClock`](https://developer.android.com/training/wearables/wff/clock/analog-clock) and [`DigitalClock`](https://developer.android.com/training/wearables/wff/clock/digital-clock) elements.
+ 
+ ### Digital clocks
+ 
+-A basic digital clock can be defined using the `DigitalClock` and
+-[`TimeText`](https://developer.android.com/training/wearables/wff/clock/time-text) element within your watch face `Scene`:
++A basic digital clock can be defined using the `DigitalClock` and [`TimeText`](https://developer.android.com/training/wearables/wff/clock/time-text) element within your watch face `Scene`:
+ 
+ <br />
+ 
+@@ -21,20 +18,16 @@ A basic digital clock can be defined using the `DigitalClock` and
+         <Font family="SYNC_TO_DEVICE" size="16" />
+     </TimeText>
+ </DigitalClock>
++   
+ ```
+ 
+ <br />
+ 
+-The `format` attribute lets you control how the time is represented using
+-a combination of hours, minutes, and seconds. The exact options differ depending
+-on the version of Watch Face Format being used; version 2 expands the options
+-here.
++The `format` attribute lets you control how the time is represented using a combination of hours, minutes, and seconds. The exact options differ depending on the version of Watch Face Format being used; version 2 expands the options here.
+ 
+ In the preceding example, [Font](https://developer.android.com/training/wearables/wff/group/part/text/font) is set to use the system font.
+ 
+-It can also be useful to show the time for other locations in the world, for
+-example a *world clock* . This can be achieved through the [`Localization`](https://developer.android.com/training/wearables/wff/common/localization)
+-element:
++It can also be useful to show the time for other locations in the world, for example a *world clock* . This can be achieved through the [`Localization`](https://developer.android.com/training/wearables/wff/common/localization) element:
+ 
+ <br />
+ 
+@@ -48,15 +41,14 @@ element:
+     </TimeText>
+     <!-- END_EXCLUDE -->
+ </DigitalClock>
++   
+ ```
+ 
+ <br />
+ 
+ ### Analog clocks
+ 
+-To create an analog clock, use the [`AnalogClock`](https://developer.android.com/training/wearables/wff/clock/analog-clock) element. Each of the
+-`HourHand, MinuteHand`, and `SecondHand` child elements specifies the resource
+-that should be used in the rendering:
++To create an analog clock, use the [`AnalogClock`](https://developer.android.com/training/wearables/wff/clock/analog-clock) element. Each of the `HourHand, MinuteHand`, and `SecondHand` child elements specifies the resource that should be used in the rendering:
+ 
+ <br />
+ 
+@@ -69,49 +61,37 @@ that should be used in the rendering:
+     <SecondHand resource="second" x="226" y="20" width="8" height="245"
+         pivotX="0.5" pivotY="0.8571" />
+ </AnalogClock>
++   
+ ```
+ 
+ <br />
+ 
+ #### Specify the pivot point
+ 
+-Each of the hour, minute, and second resources are rotated as time advances,
+-but it is important to specify the correct point around which each should pivot.
++Each of the hour, minute, and second resources are rotated as time advances, but it is important to specify the correct point around which each should pivot.
+ 
+-In some situations, the pivot point is not quite at the bottom of the hand, and
+-is centered horizontally. This should be specified as `<HourHand ...
+-pivotY="(pivot_ratio)" />` where:
++In some situations, the pivot point is not quite at the bottom of the hand, and is centered horizontally. This should be specified as `<HourHand ... pivotY="(pivot_ratio)" />` where:
+ $$ pivot\\_ratio = \\frac{pivot\\_height}{full\\_height} $$
+ 
+ #### Color the watch hands
+ 
+-To allow the user to customize the appearance of the watch face, it is common to
+-have a configurable color for the watch hands.
++To allow the user to customize the appearance of the watch face, it is common to have a configurable color for the watch hands.
+ 
+-A way to achieve this is through the `tintColor` on each of the hands to
+-separately tint each hand, or on `AnalogClock`, to tint all hands the same
+-color.
++A way to achieve this is through the `tintColor` on each of the hands to separately tint each hand, or on `AnalogClock`, to tint all hands the same color.
+ 
+-In addition to enabling users to tint specific colors, you can supply a
+-configuration option to `tintColor` to allow the user to choose, for example,
+-adding `tintColor="[CONFIGURATION.handColors.0]` to the `AnalogClock` element.
++In addition to enabling users to tint specific colors, you can supply a configuration option to `tintColor` to allow the user to choose, for example, adding `tintColor="[CONFIGURATION.handColors.0]` to the `AnalogClock` element.
+ 
+ #### Drop shadow
+ 
+-For a realistic watch hand effect, using a drop shadow behind each hand can give
+-the appearance of depth.
++For a realistic watch hand effect, using a drop shadow behind each hand can give the appearance of depth.
+ 
+-To achieve this, use two of each hand type within a single `AnalogClock`,
+-offsetting one behind the other, and use a separate resource for the hand that
+-represents the shadow.
++To achieve this, use two of each hand type within a single `AnalogClock`, offsetting one behind the other, and use a separate resource for the hand that represents the shadow.
+ 
+ #### Face decorations
+ 
+-Analog watch faces often have decorations around the face showing the hours or
+-minutes. To achieve this, there are two approaches:
++Analog watch faces often have decorations around the face showing the hours or minutes. To achieve this, there are two approaches:
+ 
+-1. Include a full-screen background image, which contains your predrawn watch
+-   face. [See working with images](https://developer.android.com/training/wearables/wff/images).
++1. Include a full-screen background image, which contains your predrawn watch face. [See working with images](https://developer.android.com/training/wearables/wff/images).
+ 
+    <br />
+ 
+@@ -119,6 +99,7 @@ minutes. To achieve this, there are two approaches:
+    <PartImage x="0" y="0" width="450" height="450">
+        <Image resource="watch_face_dial" />
+    </PartImage>
++        
+    ```
+ 
+    <br />
+@@ -149,6 +130,7 @@ minutes. To achieve this, there are two approaches:
+        </PartText>
+    </Group>
+    <!-- etc -->
++        
+    ```
+ 
+    <br />
+\ No newline at end of file

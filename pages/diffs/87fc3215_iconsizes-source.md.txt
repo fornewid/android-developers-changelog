@@ -1,0 +1,26 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/iconsizes-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/iconsizes-source.md
+index 0439c958..05398e71 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/iconsizes-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/iconsizes-source.md
+@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
+ source: md.txt
+ ---
+ 
+-When creating a Glimmer Icon component, refer to the following source code in
+-`IconSizes.kt` for setting icon sizes:
++When creating a Glimmer Icon component, refer to the following source code in `IconSizes.kt` for setting icon sizes:
+ 
++<br />
+ 
+ ```kotlin
+ /*
+@@ -79,6 +79,8 @@ public class IconSizes(
+         return "IconSizes(small=$small, medium=$medium, large=$large)"
+     }
+ }
++
++   
+ ```
+ 
+ <br />
+\ No newline at end of file

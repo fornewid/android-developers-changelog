@@ -1,0 +1,36 @@
+diff --git a/docs/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio.md b/docs/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio.md
+index 4f5b956d..b2afbb51 100644
+--- a/docs/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio.md
++++ b/docs/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio.md
+@@ -42,16 +42,14 @@ Written by:
+ 
+   ###### Staff Developer Advocate
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/amrit-sanjeev) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/amrit-sanjeev) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
+ -
+ 
+   ## [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns)
+ 
+   ###### Staff Developer Programs Engineer
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/trevor-johns) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
++  [read_more View profile](https://developer.android.com/blog/authors/trevor-johns) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+ Continue reading
+ - [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)](https://developer.android.com/blog/authors/ash-nohe) 08 May 2026 08 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_Z2vwfIA.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+ 
+@@ -81,8 +79,5 @@ Continue reading
+   - +1 ↩
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

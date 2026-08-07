@@ -1,0 +1,44 @@
+diff --git a/docs/blog/posts/the-embedded-photo-picker.md b/docs/blog/posts/the-embedded-photo-picker.md
+index 0756bc47..15ba001f 100644
+--- a/docs/blog/posts/the-embedded-photo-picker.md
++++ b/docs/blog/posts/the-embedded-photo-picker.md
+@@ -231,6 +231,7 @@ It's important to note that the embedded photo picker experience is available fo
+ 
+ For enhanced user privacy and security, the system renders the embedded photo picker in a way that prevents any drawing or overlaying. This intentional design choice means that your UX should consider the photo picker's display area as a distinct and dedicated element, much like you would plan for an advertising banner.  
+ 
++
+ If you have any feedback or suggestions, submit tickets to our [issue tracker](https://developer.android.com/about/versions/14/feedback#create_vote).
+ Written by:
+ 
+@@ -240,16 +241,14 @@ Written by:
+ 
+   ###### Product Manager
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/roxanna-walker) ![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp) ![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/roxanna-walker) ![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp) ![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)
+ -
+ 
+   ## [Yacine Rezgui](https://developer.android.com/blog/authors/yacine-rezgui)
+ 
+   ###### Developer Relations Engineer
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/yacine-rezgui) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
++  [read_more View profile](https://developer.android.com/blog/authors/yacine-rezgui) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+ Continue reading
+ - [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](https://developer.android.com/blog/authors/roxanna-walker) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/contact_Picker_4392c5da87_ZQDO82.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -271,8 +270,5 @@ Continue reading
+   [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

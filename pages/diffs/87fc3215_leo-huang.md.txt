@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/leo-huang.md b/docs/blog/authors/leo-huang.md
+index 47b6ff5d..f9683a3f 100644
+--- a/docs/blog/authors/leo-huang.md
++++ b/docs/blog/authors/leo-huang.md
+@@ -17,8 +17,5 @@ Software Engineer
+   6 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

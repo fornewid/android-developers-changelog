@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/matthew-warner.md b/docs/blog/authors/matthew-warner.md
+index a6565689..c059d21b 100644
+--- a/docs/blog/authors/matthew-warner.md
++++ b/docs/blog/authors/matthew-warner.md
+@@ -29,8 +29,5 @@ Product Manager
+   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

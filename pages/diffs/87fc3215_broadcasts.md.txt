@@ -1,0 +1,528 @@
+diff --git a/docs/develop/background-work/background-tasks/broadcasts.md b/docs/develop/background-work/background-tasks/broadcasts.md
+index ea28f705..ce02010c 100644
+--- a/docs/develop/background-work/background-tasks/broadcasts.md
++++ b/docs/develop/background-work/background-tasks/broadcasts.md
+@@ -4,131 +4,75 @@ url: https://developer.android.com/develop/background-work/background-tasks/broa
+ source: md.txt
+ ---
+ 
+-Android apps send and receive broadcast messages from the Android system and
+-other Android apps, similar to the [publish-subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) design pattern. The
+-system and apps typically send broadcasts when certain events occur. For
+-example, the Android system
+-sends broadcasts when various system events occur, such as system boot or device
+-charging. Apps also send custom broadcasts, for example, to notify other apps of
+-something that might interest them (for example, new data download).
+-
+-Apps can register to receive specific broadcasts. When a broadcast is sent, the
+-system automatically routes broadcasts to apps that have subscribed to receive
+-that particular type of broadcast.
+-
+-Generally speaking, broadcasts can be used as a messaging system across apps and
+-outside of the normal user flow. However, you must be careful not to abuse the
+-opportunity to respond to broadcasts and run jobs in the background that can
+-contribute to a slow system performance.
++Android apps send and receive broadcast messages from the Android system and other Android apps, similar to the [publish-subscribe](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) design pattern. The system and apps typically send broadcasts when certain events occur. For example, the Android system sends broadcasts when various system events occur, such as system boot or device charging. Apps also send custom broadcasts, for example, to notify other apps of something that might interest them (for example, new data download).
++
++Apps can register to receive specific broadcasts. When a broadcast is sent, the system automatically routes broadcasts to apps that have subscribed to receive that particular type of broadcast.
++
++Generally speaking, broadcasts can be used as a messaging system across apps and outside of the normal user flow. However, you must be careful not to abuse the opportunity to respond to broadcasts and run jobs in the background that can contribute to a slow system performance.
+ 
+ > [!NOTE]
+ > **Note:** The system optimizes the delivery of broadcasts in order to maintain optimal system health. Therefore, delivery times of broadcasts are not guaranteed. Apps that need low-latency interprocess communication should consider [bound services](https://developer.android.com/guide/components/bound-services).
+ 
+ ## About system broadcasts
+ 
+-The system automatically sends broadcasts when various system events occur, such
+-as when the system switches in and out of Airplane Mode. All subscribed apps
+-receive these broadcasts.
++The system automatically sends broadcasts when various system events occur, such as when the system switches in and out of Airplane Mode. All subscribed apps receive these broadcasts.
+ 
+-The `Intent` object wraps the broadcast message. The `action` string identifies
+-the event that occurred, such as `android.intent.action.AIRPLANE_MODE`. The
+-intent might also include additional information bundled into its extra field.
+-For example, the Airplane Mode intent includes a boolean extra that indicates
+-whether or not Airplane Mode is on.
++The `Intent` object wraps the broadcast message. The `action` string identifies the event that occurred, such as `android.intent.action.AIRPLANE_MODE`. The intent might also include additional information bundled into its extra field. For example, the Airplane Mode intent includes a boolean extra that indicates whether or not Airplane Mode is on.
+ 
+-For more information about how to read intents and get the action string from an
+-intent, see [Intents and Intent Filters](https://developer.android.com/guide/components/intents-filters).
++For more information about how to read intents and get the action string from an intent, see [Intents and Intent Filters](https://developer.android.com/guide/components/intents-filters).
+ 
+ ### System broadcast actions
+ 
+-For a complete list of system broadcast actions, see the `BROADCAST_ACTIONS.TXT`
+-file in the Android SDK. Each broadcast action has a constant field associated
+-with it. For example, the value of the constant
+-[`ACTION_AIRPLANE_MODE_CHANGED`](https://developer.android.com/reference/android/content/Intent#ACTION_AIRPLANE_MODE_CHANGED) is `android.intent.action.AIRPLANE_MODE`.
+-Documentation for each broadcast action is available in its associated constant
+-field.
++For a complete list of system broadcast actions, see the `BROADCAST_ACTIONS.TXT` file in the Android SDK. Each broadcast action has a constant field associated with it. For example, the value of the constant [`ACTION_AIRPLANE_MODE_CHANGED`](https://developer.android.com/reference/android/content/Intent#ACTION_AIRPLANE_MODE_CHANGED) is `android.intent.action.AIRPLANE_MODE`. Documentation for each broadcast action is available in its associated constant field.
+ 
+ ### Changes to system broadcasts
+ 
+-As the Android platform evolves, it periodically changes how system broadcasts
+-behave. Keep the following changes in mind to support all versions of Android.
++As the Android platform evolves, it periodically changes how system broadcasts behave. Keep the following changes in mind to support all versions of Android.
+ 
+ #### Android 16
+ 
+-In [Android 16](https://developer.android.com/about/versions/16/behavior-changes-all#ordered-broadcast-priority), broadcast delivery order using the [`android:priority`](https://developer.android.com/guide/topics/manifest/intent-filter-element#priority)
+-attribute or [`IntentFilter.setPriority()`](https://developer.android.com/reference/android/content/IntentFilter#setPriority(int)) across different processes
+-won't be guaranteed. Broadcast priorities are only respected
+-within the same application process rather than across all processes.
++In [Android 16](https://developer.android.com/about/versions/16/behavior-changes-all#ordered-broadcast-priority), broadcast delivery order using the [`android:priority`](https://developer.android.com/guide/topics/manifest/intent-filter-element#priority) attribute or [`IntentFilter.setPriority()`](https://developer.android.com/reference/android/content/IntentFilter#setPriority(int)) across different processes won't be guaranteed. Broadcast priorities are only respected within the same application process rather than across all processes.
+ 
+-Also, broadcast priorities are automatically confined to the range
+-([`SYSTEM_LOW_PRIORITY`](https://developer.android.com/reference/android/content/IntentFilter#SYSTEM_LOW_PRIORITY) + 1, [`SYSTEM_HIGH_PRIORITY`](https://developer.android.com/reference/android/content/IntentFilter#SYSTEM_HIGH_PRIORITY) - 1).
+-Only system components are allowed to set `SYSTEM_LOW_PRIORITY`,
+-`SYSTEM_HIGH_PRIORITY` as broadcast priority.
++Also, broadcast priorities are automatically confined to the range ([`SYSTEM_LOW_PRIORITY`](https://developer.android.com/reference/android/content/IntentFilter#SYSTEM_LOW_PRIORITY) + 1, [`SYSTEM_HIGH_PRIORITY`](https://developer.android.com/reference/android/content/IntentFilter#SYSTEM_HIGH_PRIORITY) - 1). Only system components are allowed to set `SYSTEM_LOW_PRIORITY`, `SYSTEM_HIGH_PRIORITY` as broadcast priority.
+ 
+ #### Android 14
+ 
+-While apps are in a [cached state](https://developer.android.com/guide/components/activities/process-lifecycle), the system optimizes broadcast delivery
+-for system health. For example, the system defers less important system
+-broadcasts such as [`ACTION_SCREEN_ON`](https://developer.android.com/reference/android/content/Intent#ACTION_SCREEN_ON) while the app is in a cached state.
+-Once the app goes from the cached state into an [active process lifecycle](https://developer.android.com/guide/components/activities/process-lifecycle),
+-the system delivers any deferred broadcasts.
++While apps are in a [cached state](https://developer.android.com/guide/components/activities/process-lifecycle), the system optimizes broadcast delivery for system health. For example, the system defers less important system broadcasts such as [`ACTION_SCREEN_ON`](https://developer.android.com/reference/android/content/Intent#ACTION_SCREEN_ON) while the app is in a cached state. Once the app goes from the cached state into an [active process lifecycle](https://developer.android.com/guide/components/activities/process-lifecycle), the system delivers any deferred broadcasts.
+ 
+-Important broadcasts that are [declared in the manifest](https://developer.android.com/develop/background-work/background-tasks/broadcasts#manifest-declared-receivers) temporarily remove
+-apps from the cached state for delivery.
++Important broadcasts that are [declared in the manifest](https://developer.android.com/develop/background-work/background-tasks/broadcasts#manifest-declared-receivers) temporarily remove apps from the cached state for delivery.
+ 
+ #### Android 9
+ 
+-Beginning with Android 9 (API level 28), The [`NETWORK_STATE_CHANGED_ACTION`](https://developer.android.com/reference/android/net/wifi/WifiManager#NETWORK_STATE_CHANGED_ACTION)
+-broadcast doesn't receive information about the user's location or personally
+-identifiable data.
++Beginning with Android 9 (API level 28), The [`NETWORK_STATE_CHANGED_ACTION`](https://developer.android.com/reference/android/net/wifi/WifiManager#NETWORK_STATE_CHANGED_ACTION) broadcast doesn't receive information about the user's location or personally identifiable data.
+ 
+-If your app is installed on a device running Android 9.0 (API level 28) or
+-higher, the system doesn't include SSIDs, BSSIDs, connection information, or
+-scan results in Wi-Fi broadcasts. To get this information, call
+-[`getConnectionInfo()`](https://developer.android.com/reference/android/net/wifi/WifiManager#getConnectionInfo()) instead.
++If your app is installed on a device running Android 9.0 (API level 28) or higher, the system doesn't include SSIDs, BSSIDs, connection information, or scan results in Wi-Fi broadcasts. To get this information, call [`getConnectionInfo()`](https://developer.android.com/reference/android/net/wifi/WifiManager#getConnectionInfo()) instead.
+ 
+ #### Android 8.0
+ 
+-Beginning with Android 8.0 (API level 26), the system imposes additional
+-restrictions on manifest-declared receivers.
++Beginning with Android 8.0 (API level 26), the system imposes additional restrictions on manifest-declared receivers.
+ 
+-If your app targets Android 8.0 or higher, you cannot use the manifest to
+-declare a receiver for most implicit broadcasts (broadcasts that don't target
+-your app specifically). You can still use a [context-registered receiver](https://developer.android.com/develop/background-work/background-tasks/broadcasts#context-registered-receivers)
+-when the user is actively using your app.
++If your app targets Android 8.0 or higher, you cannot use the manifest to declare a receiver for most implicit broadcasts (broadcasts that don't target your app specifically). You can still use a [context-registered receiver](https://developer.android.com/develop/background-work/background-tasks/broadcasts#context-registered-receivers) when the user is actively using your app.
+ 
+ #### Android 7.0
+ 
+-Android 7.0 (API level 24) and higher don't send the following system
+-broadcasts:
++Android 7.0 (API level 24) and higher don't send the following system broadcasts:
+ 
+ - [`ACTION_NEW_PICTURE`](https://developer.android.com/reference/android/hardware/Camera#ACTION_NEW_PICTURE)
+ - [`ACTION_NEW_VIDEO`](https://developer.android.com/reference/android/hardware/Camera#ACTION_NEW_VIDEO)
+ 
+-Also, apps targeting Android 7.0 and higher must register the
+-[`CONNECTIVITY_ACTION`](https://developer.android.com/reference/android/net/ConnectivityManager#CONNECTIVITY_ACTION) broadcast using
+-[`registerReceiver(BroadcastReceiver, IntentFilter)`](https://developer.android.com/reference/androidx/core/content/ContextCompat#registerReceiver(android.content.Context,android.content.BroadcastReceiver,android.content.IntentFilter,int)). Declaring a receiver
+-in the manifest doesn't work.
++Also, apps targeting Android 7.0 and higher must register the [`CONNECTIVITY_ACTION`](https://developer.android.com/reference/android/net/ConnectivityManager#CONNECTIVITY_ACTION) broadcast using [`registerReceiver(BroadcastReceiver, IntentFilter)`](https://developer.android.com/reference/androidx/core/content/ContextCompat#registerReceiver(android.content.Context,android.content.BroadcastReceiver,android.content.IntentFilter,int)). Declaring a receiver in the manifest doesn't work.
+ 
+ ## Receive broadcasts
+ 
+-Apps can receive broadcasts in two ways: through context-registered receivers
+-and manifest-declared receivers.
++Apps can receive broadcasts in two ways: through context-registered receivers and manifest-declared receivers.
+ 
+ ### Context-registered receivers
+ 
+-Context-registered receivers receive broadcasts as long as their registering
+-context is valid. This is typically between the calls to `registerReceiver` and
+-`unregisterReceiver`. The registering context also becomes invalid when the
+-system destroys the corresponding context. For example, if you register within
+-an [`Activity`](https://developer.android.com/reference/android/app/Activity) context, you receive broadcasts as long as the activity
+-remains active. If you register with the Application context, you receive
+-broadcasts as long as the app runs.
++Context-registered receivers receive broadcasts as long as their registering context is valid. This is typically between the calls to `registerReceiver` and `unregisterReceiver`. The registering context also becomes invalid when the system destroys the corresponding context. For example, if you register within an [`Activity`](https://developer.android.com/reference/android/app/Activity) context, you receive broadcasts as long as the activity remains active. If you register with the Application context, you receive broadcasts as long as the app runs.
+ 
+ To register a receiver with a context, perform the following steps:
+ 
+-1. In your app's module-level build file, include version 1.9.0 or higher of
+-   the [AndroidX Core library](https://developer.android.com/jetpack/androidx/releases/core):
++1. In your app's module-level build file, include version 1.9.0 or higher of the [AndroidX Core library](https://developer.android.com/jetpack/androidx/releases/core):
+ 
+    ### Groovy
+ 
+@@ -215,27 +159,14 @@ To register a receiver with a context, perform the following steps:
+ 
+        IntentFilter filter = new IntentFilter("com.example.snippets.ACTION_UPDATE_DATA");
+ 
+-4. Choose whether the broadcast receiver should be exported and visible to
+-   other apps on the device. If this receiver is listening for broadcasts sent
+-   from the system or from other apps---even other apps that you own---use the
+-   `RECEIVER_EXPORTED` flag. If instead this receiver is listening only for
+-   broadcasts sent by your app, use the `RECEIVER_NOT_EXPORTED` flag.
++4. Choose whether the broadcast receiver should be exported and visible to other apps on the device. If this receiver is listening for broadcasts sent from the system or from other apps---even other apps that you own---use the `RECEIVER_EXPORTED` flag. If instead this receiver is listening only for broadcasts sent by your app, use the `RECEIVER_NOT_EXPORTED` flag.
+ 
+    > [!NOTE]
+-   > Some system broadcasts come from highly privileged
+-   > apps, such as Bluetooth and telephony, that are part of the Android
+-   > framework but don't run under the system's unique process ID (UID). To
+-   > receive all system broadcasts, including broadcasts from highly privileged
+-   > apps, flag your receiver with `RECEIVER_EXPORTED`.
++   > Some system broadcasts come from highly privileged apps, such as Bluetooth and telephony, that are part of the Android framework but don't run under the system's unique process ID (UID). To receive all system broadcasts, including broadcasts from highly privileged apps, flag your receiver with `RECEIVER_EXPORTED`.
+    >
+-   > If you flag your receiver with `RECEIVER_NOT_EXPORTED`, the
+-   > receiver is able to receive some system broadcasts and broadcasts from your
+-   > app, but not broadcasts from the highly privileged apps.
++   > If you flag your receiver with `RECEIVER_NOT_EXPORTED`, the receiver is able to receive some system broadcasts and broadcasts from your app, but not broadcasts from the highly privileged apps.
+    >
+-   > If your app is listening for multiple broadcasts, but only some should be
+-   > flagged `RECEIVER_NOT_EXPORTED` and some
+-   > `RECEIVER_EXPORTED`, partition the broadcasts among different
+-   > broadcast receivers.
++   > If your app is listening for multiple broadcasts, but only some should be flagged `RECEIVER_NOT_EXPORTED` and some `RECEIVER_EXPORTED`, partition the broadcasts among different broadcast receivers.
+ 
+    ### Kotlin
+ 
+@@ -245,14 +176,14 @@ To register a receiver with a context, perform the following steps:
+        } else {
+            ContextCompat.RECEIVER_NOT_EXPORTED
+        }
+-
++                
+    ### Java
+ 
+        boolean listenToBroadcastsFromOtherApps = false;
+        int receiverFlags = listenToBroadcastsFromOtherApps
+                ? ContextCompat.RECEIVER_EXPORTED
+                : ContextCompat.RECEIVER_NOT_EXPORTED;
+-
++                
+    > [!CAUTION]
+    > **Caution:** If you export the broadcast receiver, other apps could send unprotected broadcasts to your app.
+ 
+@@ -266,19 +197,11 @@ To register a receiver with a context, perform the following steps:
+ 
+        ContextCompat.registerReceiver(context, myBroadcastReceiver, filter, receiverFlags);
+ 
+-6. To stop receiving broadcasts, call
+-   [`unregisterReceiver(android.content.BroadcastReceiver)`](https://developer.android.com/reference/android/content/Context#unregisterReceiver(android.content.BroadcastReceiver)). Be sure to
+-   unregister the receiver when you no longer need it or the context is no
+-   longer valid.
++6. To stop receiving broadcasts, call [`unregisterReceiver(android.content.BroadcastReceiver)`](https://developer.android.com/reference/android/content/Context#unregisterReceiver(android.content.BroadcastReceiver)). Be sure to unregister the receiver when you no longer need it or the context is no longer valid.
+ 
+ #### Unregister your broadcast receiver
+ 
+-While the broadcast receiver is registered, it holds a reference to the Context
+-that you registered it with. This can potentially cause leaks if the receiver's
+-registered scope exceeds the Context lifecycle scope. For example, this can
+-occur when you register a receiver on an Activity scope, but you forget to
+-unregister it when the system destroys the Activity. Therefore, always
+-unregister your broadcast receiver.
++While the broadcast receiver is registered, it holds a reference to the Context that you registered it with. This can potentially cause leaks if the receiver's registered scope exceeds the Context lifecycle scope. For example, this can occur when you register a receiver on an Activity scope, but you forget to unregister it when the system destroys the Activity. Therefore, always unregister your broadcast receiver.
+ 
+ ### Kotlin
+ 
+@@ -298,7 +221,7 @@ unregister your broadcast receiver.
+             this.unregisterReceiver(myBroadcastReceiver)
+         }
+     }
+-
++           
+ ### Java
+ 
+     class MyActivity extends ComponentActivity {
+@@ -312,11 +235,10 @@ unregister your broadcast receiver.
+             // Set content
+         }
+     }
+-
++           
+ #### Register receivers in the smallest scope
+ 
+-Your broadcast receiver should only be registered when you're actually
+-interested in the result. Choose the smallest possible receiver scope:
++Your broadcast receiver should only be registered when you're actually interested in the result. Choose the smallest possible receiver scope:
+ 
+ - [`LifecycleResumeEffect`](https://developer.android.com/reference/kotlin/androidx/lifecycle/compose/LifecycleResumeEffect.composable#LifecycleResumeEffect(kotlin.Any,androidx.lifecycle.LifecycleOwner,kotlin.Function1)) or activity `onResume`/`onPause` lifecycle methods: The broadcast receiver only receives updates while the app is in its resumed state.
+ - [`LifecycleStartEffect`](https://developer.android.com/reference/kotlin/androidx/lifecycle/compose/LifecycleStartEffect.composable#LifecycleStartEffect(kotlin.Any,androidx.lifecycle.LifecycleOwner,kotlin.Function1)) or activity `onStart`/`onStop` lifecycle methods: The broadcast receiver only receives updates while the app is in its resumed state.
+@@ -326,15 +248,9 @@ interested in the result. Choose the smallest possible receiver scope:
+ 
+ #### Create stateful and stateless composable
+ 
+-Compose has stateful and stateless composables. Registering or unregistering a
+-broadcast receiver inside a composable makes it stateful. The composable is not
+-a deterministic function that renders the same content when passed the same
+-parameters. Internal state can change based on calls to the registered broadcast
+-receiver.
++Compose has stateful and stateless composables. Registering or unregistering a broadcast receiver inside a composable makes it stateful. The composable is not a deterministic function that renders the same content when passed the same parameters. Internal state can change based on calls to the registered broadcast receiver.
+ 
+-As a best practice in Compose, we recommend that you split your composables into
+-stateful and stateless versions. Therefore, we recommend that you hoist the
+-creation of the broadcast receiver out of a Composable to make it stateless:
++As a best practice in Compose, we recommend that you split your composables into stateful and stateless versions. Therefore, we recommend that you hoist the creation of the broadcast receiver out of a Composable to make it stateless:
+ 
+     @Composable
+     fun MyStatefulScreen() {
+@@ -352,12 +268,10 @@ creation of the broadcast receiver out of a Composable to make it stateless:
+     fun MyStatelessScreen() {
+         // Implement your screen
+     }
+-
++        
+ ### Manifest-declared receivers
+ 
+-If you declare a broadcast receiver in your manifest, the system launches your
+-app when the broadcast is sent. If the app is not already running, the system
+-launches the app.
++If you declare a broadcast receiver in your manifest, the system launches your app when the broadcast is sent. If the app is not already running, the system launches the app.
+ 
+ > [!NOTE]
+ > **Note:** If your app targets API level 26 or higher, you cannot use the manifest to declare a receiver for *implicit* broadcasts, except for a few implicit broadcasts that are [exempted from that restriction](https://developer.android.com/guide/components/broadcast-exceptions). Implicit broadcasts are broadcasts that don't target your app specifically. In most cases, you can use [scheduled jobs](https://developer.android.com/topic/performance/scheduling) instead.
+@@ -373,12 +287,9 @@ To declare a broadcast receiver in the manifest, perform the following steps:
+                <action android:name="com.example.snippets.ACTION_UPDATE_DATA" />
+            </intent-filter>
+        </receiver>
+-
+-   The intent filters specify the broadcast actions your receiver subscribes
+-   to.
+-2. Subclass [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) and implement
+-   [`onReceive(Context, Intent)`](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context,%20android.content.Intent)). The broadcast receiver in the following
+-   example logs and displays the contents of the broadcast:
++             
++   The intent filters specify the broadcast actions your receiver subscribes to.
++2. Subclass [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) and implement [`onReceive(Context, Intent)`](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context,%20android.content.Intent)). The broadcast receiver in the following example logs and displays the contents of the broadcast:
+ 
+    ### Kotlin
+ 
+@@ -395,7 +306,7 @@ To declare a broadcast receiver in the manifest, perform the following steps:
+                }
+            }
+        }
+-
++                
+    ### Java
+ 
+        public static class MyBroadcastReceiver extends BroadcastReceiver {
+@@ -412,36 +323,18 @@ To declare a broadcast receiver in the manifest, perform the following steps:
+                }
+            }
+        }
++                
++The system package manager registers the receiver when the app is installed. The receiver then becomes a separate entry point into your app which means that the system can start the app and deliver the broadcast if the app is not running.
+ 
+-The system package manager registers the receiver when the app is installed. The
+-receiver then becomes a separate entry point into your app which means that the
+-system can start the app and deliver the broadcast if the app is not running.
+-
+-The system creates a new [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) component object to handle
+-each broadcast that it receives. This object is valid only for the duration of
+-the call to [`onReceive(Context, Intent)`](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context,%20android.content.Intent)). Once your code returns from this
+-method, the system considers the component no longer active.
++The system creates a new [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) component object to handle each broadcast that it receives. This object is valid only for the duration of the call to [`onReceive(Context, Intent)`](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context,%20android.content.Intent)). Once your code returns from this method, the system considers the component no longer active.
+ 
+ ### Effects on process state
+ 
+-Whether your [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) is operating or not affects its contained
+-process, which can alter its system-killing likelihood. A foreground process
+-executes a receiver's [`onReceive()`](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context,%20android.content.Intent)) method. The system runs the process
+-except under extreme memory pressure.
+-
+-The system deactivates the `BroadcastReceiver` after `onReceive()`.
+-The receiver's
+-host process's significance depends on its app components. If that process hosts
+-only a manifest-declared receiver, the system might kill it after `onReceive()`
+-to free resources for other more critical processes. This is common for apps the
+-user has never or not recently interacted with.
+-
+-Thus, broadcast receivers shouldn't initiate long-running background threads.
+-The system can stop the process at any moment after `onReceive()` to reclaim
+-memory, terminating the created thread. To keep the process alive, schedule a
+-[`JobService`](https://developer.android.com/reference/android/app/job/JobService) from the receiver using the [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler) so the
+-system knows the process is still working. [Background Work Overview](https://developer.android.com/guide/background)
+-provides more details.
++Whether your [`BroadcastReceiver`](https://developer.android.com/reference/android/content/BroadcastReceiver) is operating or not affects its contained process, which can alter its system-killing likelihood. A foreground process executes a receiver's [`onReceive()`](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context,%20android.content.Intent)) method. The system runs the process except under extreme memory pressure.
++
++The system deactivates the `BroadcastReceiver` after `onReceive()`. The receiver's host process's significance depends on its app components. If that process hosts only a manifest-declared receiver, the system might kill it after `onReceive()` to free resources for other more critical processes. This is common for apps the user has never or not recently interacted with.
++
++Thus, broadcast receivers shouldn't initiate long-running background threads. The system can stop the process at any moment after `onReceive()` to reclaim memory, terminating the created thread. To keep the process alive, schedule a [`JobService`](https://developer.android.com/reference/android/app/job/JobService) from the receiver using the [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler) so the system knows the process is still working. [Background Work Overview](https://developer.android.com/guide/background) provides more details.
+ 
+ ## Send broadcasts
+ 
+@@ -450,8 +343,7 @@ Android provides two ways for apps to send broadcasts:
+ - The [`sendOrderedBroadcast(Intent, String)`](https://developer.android.com/reference/android/content/Context#sendOrderedBroadcast(android.content.Intent,%20java.lang.String)) method sends broadcasts to one receiver at a time. As each receiver executes in turn, it can propagate a result to the next receiver. It can also completely abort the broadcast so that it doesn't reach other receivers. You can control the order in which receivers run within the same app process. To do so, use the `android:priority` attribute of the matching intent-filter. Receivers with the same priority are run in an arbitrary order.
+ - The [`sendBroadcast(Intent)`](https://developer.android.com/reference/android/content/Context#sendBroadcast(android.content.Intent,%20java.lang.String)) method sends broadcasts to all receivers in an undefined order. This is called a Normal Broadcast. This is more efficient, but means that receivers cannot read results from other receivers, propagate data received from the broadcast, or abort the broadcast.
+ 
+-The following code snippet demonstrates how to send a broadcast by creating an
+-Intent and calling [`sendBroadcast(Intent)`](https://developer.android.com/reference/android/content/Context#sendBroadcast(android.content.Intent)).
++The following code snippet demonstrates how to send a broadcast by creating an Intent and calling [`sendBroadcast(Intent)`](https://developer.android.com/reference/android/content/Context#sendBroadcast(android.content.Intent)).
+ 
+ ### Kotlin
+ 
+@@ -460,40 +352,26 @@ Intent and calling [`sendBroadcast(Intent)`](https://developer.android.com/refer
+         setPackage("com.example.snippets")
+     }
+     context.sendBroadcast(intent)
+-
++           
+ ### Java
+ 
+     Intent intent = new Intent("com.example.snippets.ACTION_UPDATE_DATA");
+     intent.putExtra("com.example.snippets.DATA", newData);
+     intent.setPackage("com.example.snippets");
+     context.sendBroadcast(intent);
+-
+-The broadcast message is wrapped in an [`Intent`](https://developer.android.com/reference/android/content/Intent) object. The intent's
+-`action` string must provide the app's Java package name syntax and uniquely
+-identify the broadcast event. You can attach additional information to the
+-intent with [`putExtra(String, Bundle)`](https://developer.android.com/reference/androidx/core/content/ContextCompat#registerReceiver(android.content.Context,android.content.BroadcastReceiver,android.content.IntentFilter,int)). You can also limit a broadcast to
+-a set of apps in the same organization by calling [`setPackage(String)`](https://developer.android.com/reference/android/content/Intent#setPackage(java.lang.String)) on
+-the intent.
++           
++The broadcast message is wrapped in an [`Intent`](https://developer.android.com/reference/android/content/Intent) object. The intent's `action` string must provide the app's Java package name syntax and uniquely identify the broadcast event. You can attach additional information to the intent with [`putExtra(String, Bundle)`](https://developer.android.com/reference/androidx/core/content/ContextCompat#registerReceiver(android.content.Context,android.content.BroadcastReceiver,android.content.IntentFilter,int)). You can also limit a broadcast to a set of apps in the same organization by calling [`setPackage(String)`](https://developer.android.com/reference/android/content/Intent#setPackage(java.lang.String)) on the intent.
+ 
+ > [!NOTE]
+ > **Note:** Although you can use intents for both sending broadcasts and starting activities with [`startActivity(Intent)`](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)), these actions are completely unrelated. Broadcast receivers can't see or capture intents used to start an activity; likewise, when you broadcast an intent, you can't find or start an activity.
+ 
+ ## Restrict broadcasts with permissions
+ 
+-Permissions allow you to restrict broadcasts to the set of apps that hold
+-certain permissions. You can enforce restrictions on either the sender or
+-receiver of a broadcast.
++Permissions allow you to restrict broadcasts to the set of apps that hold certain permissions. You can enforce restrictions on either the sender or receiver of a broadcast.
+ 
+ ### Send broadcasts with permissions
+ 
+-When you call [`sendBroadcast(Intent, String)`](https://developer.android.com/reference/android/content/Context#sendOrderedBroadcast(android.content.Intent,%20java.lang.String)) or
+-[`sendOrderedBroadcast(Intent, String, BroadcastReceiver, Handler, int, String,
+-Bundle)`](https://developer.android.com/reference/android/content/Context#sendOrderedBroadcast(android.content.Intent,%20java.lang.String,%20java.lang.String,%20android.content.BroadcastReceiver,%20android.os.Handler,%20int,%20java.lang.String,%20android.os.Bundle))
+-, you can specify a permission parameter. Only receivers who have requested that
+-permission with the `<uses-permission>` tag in their manifest can receive the
+-broadcast. If the permission is dangerous, you must grant the permission before
+-the receiver can receive the broadcast. For example, the following code sends a
+-broadcast with a permission:
++When you call [`sendBroadcast(Intent, String)`](https://developer.android.com/reference/android/content/Context#sendOrderedBroadcast(android.content.Intent,%20java.lang.String)) or [`sendOrderedBroadcast(Intent, String, BroadcastReceiver, Handler, int, String, Bundle)`](https://developer.android.com/reference/android/content/Context#sendOrderedBroadcast(android.content.Intent,%20java.lang.String,%20java.lang.String,%20android.content.BroadcastReceiver,%20android.os.Handler,%20int,%20java.lang.String,%20android.os.Bundle)) , you can specify a permission parameter. Only receivers who have requested that permission with the `<uses-permission>` tag in their manifest can receive the broadcast. If the permission is dangerous, you must grant the permission before the receiver can receive the broadcast. For example, the following code sends a broadcast with a permission:
+ 
+ ### Kotlin
+ 
+@@ -503,31 +381,20 @@ broadcast with a permission:
+ 
+     context.sendBroadcast(intent, android.Manifest.permission.ACCESS_COARSE_LOCATION);
+ 
+-To receive the broadcast, the receiving app must request the permission as
+-follows:
++To receive the broadcast, the receiving app must request the permission as follows:
+ 
+     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+ 
+-You can specify either an existing system permission like
+-[`BLUETOOTH_CONNECT`](https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH_CONNECT) or define a custom permission with the
+-[`<permission>`](https://developer.android.com/guide/topics/manifest/permission-element) element. For information on permissions and security in
+-general, see the [System Permissions](https://developer.android.com/guide/topics/security/permissions).
++You can specify either an existing system permission like [`BLUETOOTH_CONNECT`](https://developer.android.com/reference/android/Manifest.permission#BLUETOOTH_CONNECT) or define a custom permission with the [`<permission>`](https://developer.android.com/guide/topics/manifest/permission-element) element. For information on permissions and security in general, see the [System Permissions](https://developer.android.com/guide/topics/security/permissions).
+ 
+ > [!NOTE]
+ > **Note:** Custom permissions are registered when the app is installed. The app that defines the custom permission must be installed before the app that uses it.
+ 
+ ### Receive broadcasts with permissions
+ 
+-If you specify a permission parameter when registering a broadcast receiver
+-(either with
+-[`registerReceiver(BroadcastReceiver, IntentFilter, String, Handler)`](https://developer.android.com/reference/android/content/Context#registerReceiver(android.content.BroadcastReceiver,%20android.content.IntentFilter,%20java.lang.String,%20android.os.Handler)) or in
+-[`<receiver>`](https://developer.android.com/guide/topics/manifest/receiver-element) tag in your manifest), then only broadcasters who have
+-requested the permission with the [`<uses-permission>`](https://developer.android.com/guide/topics/manifest/uses-permission-element) tag in their
+-manifest can send an Intent to the receiver. If the permission is dangerous,
+-the broadcaster must also be granted the permission.
++If you specify a permission parameter when registering a broadcast receiver (either with [`registerReceiver(BroadcastReceiver, IntentFilter, String, Handler)`](https://developer.android.com/reference/android/content/Context#registerReceiver(android.content.BroadcastReceiver,%20android.content.IntentFilter,%20java.lang.String,%20android.os.Handler)) or in [`<receiver>`](https://developer.android.com/guide/topics/manifest/receiver-element) tag in your manifest), then only broadcasters who have requested the permission with the [`<uses-permission>`](https://developer.android.com/guide/topics/manifest/uses-permission-element) tag in their manifest can send an Intent to the receiver. If the permission is dangerous, the broadcaster must also be granted the permission.
+ 
+-For example, assume your receiving app has a manifest-declared receiver as
+-follows:
++For example, assume your receiving app has a manifest-declared receiver as follows:
+ 
+     <!-- If this receiver listens for broadcasts sent from the system or from
+          other apps, even other apps that you own, set android:exported to "true". -->
+@@ -539,7 +406,7 @@ follows:
+             <action android:name="com.example.snippets.ACTION_UPDATE_DATA" />
+         </intent-filter>
+     </receiver>
+-
++        
+ Or your receiving app has a context-registered receiver as follows:
+ 
+ ### Kotlin
+@@ -550,7 +417,7 @@ Or your receiving app has a context-registered receiver as follows:
+         null, // scheduler that defines thread, null means run on main thread
+         receiverFlags
+     )
+-
++           
+ ### Java
+ 
+     ContextCompat.registerReceiver(
+@@ -559,9 +426,8 @@ Or your receiving app has a context-registered receiver as follows:
+             null, // scheduler that defines thread, null means run on main thread
+             receiverFlags
+     );
+-
+-Then, to be able to send broadcasts to those receivers, the sending app must
+-request the permission as follows:
++           
++Then, to be able to send broadcasts to those receivers, the sending app must request the permission as follows:
+ 
+     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+ 
+@@ -569,40 +435,20 @@ request the permission as follows:
+ 
+ Here are some security considerations for sending and receiving broadcasts:
+ 
+-- If many apps have registered to receive the same broadcast in their
+-  manifest, it can cause the system to launch a lot of apps, causing a
+-  substantial impact on both device performance and user experience. To avoid
+-  this, prefer using context registration over manifest declaration. Sometimes,
+-  the Android system itself enforces the use of context-registered receivers.
+-  For example, the [`CONNECTIVITY_ACTION`](https://developer.android.com/reference/android/net/ConnectivityManager#CONNECTIVITY_ACTION) broadcast is delivered only to
+-  context-registered receivers.
++- If many apps have registered to receive the same broadcast in their manifest, it can cause the system to launch a lot of apps, causing a substantial impact on both device performance and user experience. To avoid this, prefer using context registration over manifest declaration. Sometimes, the Android system itself enforces the use of context-registered receivers. For example, the [`CONNECTIVITY_ACTION`](https://developer.android.com/reference/android/net/ConnectivityManager#CONNECTIVITY_ACTION) broadcast is delivered only to context-registered receivers.
+ 
+-- Don't broadcast sensitive information using an implicit intent. Any app can
+-  read the information if it registers to receive the broadcast.
+-  There are three ways to control who can receive your broadcasts:
++- Don't broadcast sensitive information using an implicit intent. Any app can read the information if it registers to receive the broadcast. There are three ways to control who can receive your broadcasts:
+ 
+   - You can specify a permission when sending a broadcast.
+   - In Android 4.0 (API level 14) and higher, you can specify a [package](https://developer.android.com/guide/topics/manifest/manifest-element#package) with [`setPackage(String)`](https://developer.android.com/reference/android/content/Intent#setPackage(java.lang.String)) when sending a broadcast. The system restricts the broadcast to the set of apps that match the package.
+-- When you register a receiver, any app can send potentially malicious
+-  broadcasts to your app's receiver. There are several ways to limit the
+-  broadcasts that your app receives:
++- When you register a receiver, any app can send potentially malicious broadcasts to your app's receiver. There are several ways to limit the broadcasts that your app receives:
+ 
+   - You can specify a permission when registering a broadcast receiver.
+   - For manifest-declared receivers, you can set the [android:exported](https://developer.android.com/guide/topics/manifest/receiver-element#exported) attribute to "false" in the manifest. The receiver does not receive broadcasts from sources outside of the app.
+-- The namespace for broadcast actions is global. Make sure that action names
+-  and other strings are written in a namespace you own. Otherwise, you may
+-  inadvertently conflict with other apps.
+-
+-- Because a receiver's [`onReceive(Context, Intent)`](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context,%20android.content.Intent)) method runs on the
+-  main thread, it should execute
+-  and return quickly. If you need to perform long-running work, be careful
+-  about spawning threads or starting background services because the system
+-  can kill the entire process after `onReceive()` returns. For more
+-  information, see [Effect on process state](https://developer.android.com/develop/background-work/background-tasks/broadcasts#effects-process-state) To perform long running work,
+-  we recommend:
++- The namespace for broadcast actions is global. Make sure that action names and other strings are written in a namespace you own. Otherwise, you may inadvertently conflict with other apps.
++
++- Because a receiver's [`onReceive(Context, Intent)`](https://developer.android.com/reference/android/content/BroadcastReceiver#onReceive(android.content.Context,%20android.content.Intent)) method runs on the main thread, it should execute and return quickly. If you need to perform long-running work, be careful about spawning threads or starting background services because the system can kill the entire process after `onReceive()` returns. For more information, see [Effect on process state](https://developer.android.com/develop/background-work/background-tasks/broadcasts#effects-process-state) To perform long running work, we recommend:
+ 
+   - Calling [`goAsync()`](https://developer.android.com/reference/android/content/BroadcastReceiver#goAsync()) in your receiver's `onReceive()` method and passing the [`BroadcastReceiver.PendingResult`](https://developer.android.com/reference/android/content/BroadcastReceiver.PendingResult) to a background thread. This keeps the broadcast active after returning from `onReceive()`. However, even with this approach the system expects you to finish with the broadcast very quickly (under 10 seconds). It does allow you to move work to another thread to avoid glitching the main thread.
+   - Scheduling a job with the [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler). For more information, see [Intelligent Job Scheduling](https://developer.android.com/topic/performance/scheduling).
+-- Don't start activities from broadcast receivers because the user experience
+-  is jarring; especially if there is more than one receiver. Instead, consider
+-  displaying a [notification](https://developer.android.com/develop/ui/views/notifications).
+\ No newline at end of file
++- Don't start activities from broadcast receivers because the user experience is jarring; especially if there is more than one receiver. Instead, consider displaying a [notification](https://developer.android.com/develop/ui/views/notifications).
+\ No newline at end of file

@@ -1,0 +1,30 @@
+diff --git a/docs/training/cars/apps/library/inline-car-icons.md b/docs/training/cars/apps/library/inline-car-icons.md
+index 2843022d..ac2c75c9 100644
+--- a/docs/training/cars/apps/library/inline-car-icons.md
++++ b/docs/training/cars/apps/library/inline-car-icons.md
+@@ -4,14 +4,12 @@ url: https://developer.android.com/training/cars/apps/library/inline-car-icons
+ source: md.txt
+ ---
+ 
+-You can add icons inline with text to enrich your app's visual appeal using
+-[`CarIconSpan`](https://developer.android.com/reference/kotlin/androidx/car/app/model/CarIconSpan). See the documentation for [`CarIconSpan.create`](https://developer.android.com/reference/kotlin/androidx/car/app/model/CarIconSpan#create) for more
+-information on creating these spans. See [Spantastic text styling with Spans](https://medium.com/androiddevelopers/spantastic-text-styling-with-spans-17b0c16b4568)
+-for an overview of how text styling with spans work.
++You can add icons inline with text to enrich your app's visual appeal using [`CarIconSpan`](https://developer.android.com/reference/kotlin/androidx/car/app/model/CarIconSpan). See the documentation for [`CarIconSpan.create`](https://developer.android.com/reference/kotlin/androidx/car/app/model/CarIconSpan#create) for more information on creating these spans. See [Spantastic text styling with Spans](https://medium.com/androiddevelopers/spantastic-text-styling-with-spans-17b0c16b4568) for an overview of how text styling with spans work.
+ 
+ > [!NOTE]
+ > **Note:** On hosts that support a Car App API level of less than five, raw text is rendered instead of the `CarIcon`.
+ 
++<br />
+ 
+ ```kotlin
+ val rating = SpannableString("Rating: 4.5 stars")
+@@ -35,6 +33,7 @@ val row = Row.Builder()
+     .setTitle("Rating Row")
+     .addText(rating)
+     .build()
++   
+ ```
+ 
+ <br />
+\ No newline at end of file

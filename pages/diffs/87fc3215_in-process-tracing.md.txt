@@ -1,0 +1,331 @@
+diff --git a/docs/topic/performance/tracing/in-process-tracing.md b/docs/topic/performance/tracing/in-process-tracing.md
+index 3d64d005..af03b76e 100644
+--- a/docs/topic/performance/tracing/in-process-tracing.md
++++ b/docs/topic/performance/tracing/in-process-tracing.md
+@@ -4,27 +4,17 @@ url: https://developer.android.com/topic/performance/tracing/in-process-tracing
+ source: md.txt
+ ---
+ 
+-The [`androidx.tracing:tracing:2.0.0-beta01`](https://developer.android.com/jetpack/androidx/releases/tracing) library is a low-overhead
+-Kotlin API that lets you capture in-process trace events. These events can
+-capture time slices and their context. The library also supports context
+-propagation for Kotlin coroutines.
++The [`androidx.tracing:tracing:2.0.0-beta01`](https://developer.android.com/jetpack/androidx/releases/tracing) library is a low-overhead Kotlin API that lets you capture in-process trace events. These events can capture time slices and their context. The library also supports context propagation for Kotlin coroutines.
+ 
+-The library uses the same [Perfetto](https://perfetto.dev) trace packet format that Android
+-developers are familiar with. Also, Tracing `2.0` (unlike the `1.0.0-*` APIs)
+-supports the notion of **pluggable tracing backends** and **sinks** , so other
+-tracing libraries can **customize** the output tracing format, and how context
+-propagation works in their implementation.
++The library uses the same [Perfetto](https://perfetto.dev) trace packet format that Android developers are familiar with. Also, Tracing `2.0` (unlike the `1.0.0-*` APIs) supports the notion of **pluggable tracing backends** and **sinks** , so other tracing libraries can **customize** the output tracing format, and how context propagation works in their implementation.
+ 
+ ## Dependencies
+ 
+-To start tracing, you need to define the dependencies in your
+-`build.gradle.kts`.
++To start tracing, you need to define the dependencies in your `build.gradle.kts`.
+ 
+ ### Kotlin Multiplatform projects
+ 
+-Libraries that only need to emit trace events should depend on the lightweight
+-`androidx.tracing:tracing` API. Apps that configure the tracing backend
+-should also depend on `androidx.tracing:tracing-wire`.
++Libraries that only need to emit trace events should depend on the lightweight `androidx.tracing:tracing` API. Apps that configure the tracing backend should also depend on `androidx.tracing:tracing-wire`.
+ 
+     kotlin {
+       sourceSets {
+@@ -51,8 +41,7 @@ should also depend on `androidx.tracing:tracing-wire`.
+ 
+ ### Android-only projects
+ 
+-If you're targeting Android only, add the following to your application or
+-library's `build.gradle.kts` file:
++If you're targeting Android only, add the following to your application or library's `build.gradle.kts` file:
+ 
+     dependencies {
+         // For libraries and applications to emit events
+@@ -67,31 +56,23 @@ library's `build.gradle.kts` file:
+ 
+ ## Initialization and discovery
+ 
+-Before you can record trace events, you must initialize the tracing
+-infrastructure. This involves creating an `AbstractTraceDriver` and registering
+-its `Tracer` globally.
++Before you can record trace events, you must initialize the tracing infrastructure. This involves creating an `AbstractTraceDriver` and registering its `Tracer` globally.
+ 
+ ### Android
+ 
+-On Android, if you include the `androidx.tracing:tracing-wire` dependency,
+-initialization happens automatically on application startup using the
+-`androidx.startup` library.
++On Android, if you include the `androidx.tracing:tracing-wire` dependency, initialization happens automatically on application startup using the `androidx.startup` library.
+ 
+ By default, this automatic initialization does the following:
+ 
+-- Creates a `TraceDriver` with a `TraceSink` that writes Perfetto trace files
+-  to `Context.noBackupFilesDir/perfetto_traces/`.
++- Creates a `TraceDriver` with a `TraceSink` that writes Perfetto trace files to `Context.noBackupFilesDir/perfetto_traces/`.
+ 
+ - Registers the resulting `Tracer` globally.
+ 
+ #### Customize the `TraceDriver` instance
+ 
+-If you need to customize the configuration, for example to change where trace files
+-are saved or to use a custom `TraceSink`, you can provide your own
+-`AbstractTraceDriver` instance.
++If you need to customize the configuration, for example to change where trace files are saved or to use a custom `TraceSink`, you can provide your own `AbstractTraceDriver` instance.
+ 
+-To customize the configuration, make your `Application` class implement
+-`AbstractTraceDriver.Factory`:
++To customize the configuration, make your `Application` class implement `AbstractTraceDriver.Factory`:
+ 
+     import android.app.Application
+     import androidx.tracing.AbstractTraceDriver
+@@ -111,14 +92,11 @@ To customize the configuration, make your `Application` class implement
+         }
+     }
+ 
+-The automatic initializer detects that your `Application` subclass
+-implements `Factory` and uses your custom driver factory.
++The automatic initializer detects that your `Application` subclass implements `Factory` and uses your custom driver factory.
+ 
+ ### JVM
+ 
+-On the JVM, there's no automatic bootstrapping mechanism. The application is
+-responsible for initializing the `TraceDriver` and registering the `Tracer`
+-globally during startup, most commonly in your `main` function.
++On the JVM, there's no automatic bootstrapping mechanism. The application is responsible for initializing the `TraceDriver` and registering the `Tracer` globally during startup, most commonly in your `main` function.
+ 
+ To register the tracer, call `Tracer.setGlobalTracer()`.
+ 
+@@ -149,19 +127,11 @@ To register the tracer, call `Tracer.setGlobalTracer()`.
+ 
+ ## Basic usage
+ 
+-A `TraceSink` defines how trace packets are serialized. Tracing 2.0.0 comes with
+-an implementation of a Sink that uses the `Perfetto` trace packet format. A
+-`TraceDriver` provides a handle to the `Tracer` and can be used to finalize a
+-trace.
++A `TraceSink` defines how trace packets are serialized. Tracing 2.0.0 comes with an implementation of a Sink that uses the `Perfetto` trace packet format. A `TraceDriver` provides a handle to the `Tracer` and can be used to finalize a trace.
+ 
+-Once the `Tracer` is initialized, either automatically on Android or manually on
+-the JVM, use the global `Tracer.global` instance to emit trace events.
++Once the `Tracer` is initialized, either automatically on Android or manually on the JVM, use the global `Tracer.global` instance to emit trace events.
+ 
+-You can also use the `TraceDriver` to disable all trace points in the
+-application, if you choose not to trace at all in some application variants. You
+-can optionally enable trace points for a given `category` by providing an
+-implementation for `isCategoryEnabled` when creating an instance of
+-`TraceDriver`.
++You can also use the `TraceDriver` to disable all trace points in the application, if you choose not to trace at all in some application variants. You can optionally enable trace points for a given `category` by providing an implementation for `isCategoryEnabled` when creating an instance of `TraceDriver`.
+ 
+     val driver = TraceDriver(
+         sink = sink,
+@@ -171,8 +141,7 @@ implementation for `isCategoryEnabled` when creating an instance of
+         }
+     )
+ 
+-Here's a basic example of emitting a trace event using `Tracer.global` on the
+-JVM, including manual setup:
++Here's a basic example of emitting a trace event using `Tracer.global` on the JVM, including manual setup:
+ 
+     import androidx.tracing.Tracer
+     import androidx.tracing.DelicateTracingApi
+@@ -210,15 +179,11 @@ JVM, including manual setup:
+     }
+ 
+ This generates the following trace.
+-![Screen capture of a basic Perfetto trace](https://developer.android.com/static/topic/performance/images/in-process-tracing/basic.png)
+-**Figure 1.**
+-Screen capture of a basic Perfetto trace.
++![Screen capture of a basic Perfetto trace](https://developer.android.com/static/topic/performance/images/in-process-tracing/basic.png) **Figure 1.** Screen capture of a basic Perfetto trace.
+ 
+-You can see that the correct process and thread tracks are populated and that
+-they produced a single trace section `basic`, which ran for 100 ms.
++You can see that the correct process and thread tracks are populated and that they produced a single trace section `basic`, which ran for 100 ms.
+ 
+-Trace sections (or slices) can be nested on the same track to represent
+-overlapping events. Here is an example.
++Trace sections (or slices) can be nested on the same track to represent overlapping events. Here is an example.
+ 
+     fun main() {
+         val driver = createTraceDriver()
+@@ -253,20 +218,13 @@ overlapping events. Here is an example.
+     }
+ 
+ This generates the following trace.
+-![Screen capture of a basic Perfetto trace with nested sections](https://developer.android.com/static/topic/performance/images/in-process-tracing/basic_nested.png)
+-**Figure 2.**
+-Screen capture of a basic Perfetto trace with nested sections.
++![Screen capture of a basic Perfetto trace with nested sections](https://developer.android.com/static/topic/performance/images/in-process-tracing/basic_nested.png) **Figure 2.** Screen capture of a basic Perfetto trace with nested sections.
+ 
+-You can see that there are overlapping events in the main thread track. It is
+-very clear that `processImage` calls `loadImage` and `sharpen` on the same
+-thread.
++You can see that there are overlapping events in the main thread track. It is very clear that `processImage` calls `loadImage` and `sharpen` on the same thread.
+ 
+ ## Add additional metadata in trace sections
+ 
+-Sometimes, it can be useful to attach additional contextual metadata to a trace
+-slice, to get more details. Some examples of such metadata could include the
+-`nav destination` that the user is on, or `input arguments` that might end up
+-determining how long a function takes.
++Sometimes, it can be useful to attach additional contextual metadata to a trace slice, to get more details. Some examples of such metadata could include the `nav destination` that the user is on, or `input arguments` that might end up determining how long a function takes.
+ 
+     fun main() {
+         val driver = createTraceDriver()
+@@ -289,17 +247,12 @@ determining how long a function takes.
+         }
+     }
+ 
+-This produces the following result. Note the `Arguments` section contains key
+-value pairs added when producing the `slice`.
+-![Screen capture of a basic Perfetto trace with additional metadata](https://developer.android.com/static/topic/performance/images/in-process-tracing/basic_with_context.png)
+-**Figure 3.**
+-Screen capture of a basic Perfetto trace with additional metadata.
++This produces the following result. Note the `Arguments` section contains key value pairs added when producing the `slice`.
++![Screen capture of a basic Perfetto trace with additional metadata](https://developer.android.com/static/topic/performance/images/in-process-tracing/basic_with_context.png) **Figure 3.** Screen capture of a basic Perfetto trace with additional metadata.
+ 
+ ## Context propagation
+ 
+-When using Kotlin coroutines, or other similar frameworks that help with
+-concurrent workloads, Tracing 2.0 supports the notion of context propagation.
+-This is best explained by an example.
++When using Kotlin coroutines, or other similar frameworks that help with concurrent workloads, Tracing 2.0 supports the notion of context propagation. This is best explained by an example.
+ 
+     suspend fun taskOne() {
+         Tracer.global.traceCoroutine(category = CATEGORY_MAIN, "taskOne") {
+@@ -329,21 +282,14 @@ This is best explained by an example.
+     }
+ 
+ This produces the following result.
+-![Screen capture of a Perfetto trace with context propagation](https://developer.android.com/static/topic/performance/images/in-process-tracing/context_propagation.png)
+-**Figure 4.**
+-Screen capture of a basic Perfetto trace with context propagation.
++![Screen capture of a Perfetto trace with context propagation](https://developer.android.com/static/topic/performance/images/in-process-tracing/context_propagation.png) **Figure 4.** Screen capture of a basic Perfetto trace with context propagation.
+ 
+-Context Propagation makes it a lot simpler to **visualize the flow of
+-execution** . You can see exactly which tasks were related (connected to others),
+-and exactly when `Threads` were *suspended* and *resumed*.
++Context Propagation makes it a lot simpler to **visualize the flow of execution** . You can see exactly which tasks were related (connected to others), and exactly when `Threads` were *suspended* and *resumed*.
+ 
+-For example, you can see that the slice `main` spawned `taskOne` and `taskTwo`.
+-After that, both threads were inactive because the coroutines were suspended
+-due to the use of `delay`.
++For example, you can see that the slice `main` spawned `taskOne` and `taskTwo`. After that, both threads were inactive because the coroutines were suspended due to the use of `delay`.
+ 
+ > [!NOTE]
+-> **Note:** The `traceCoroutine` API uses `PropagationToken`s under the hood that are attached to the underlying `coroutineContext` responsible for overseeing execution. The core `Tracer` API also makes it possible to **bring your own
+-> implementation of context propagation** if you choose.
++> **Note:** The `traceCoroutine` API uses `PropagationToken`s under the hood that are attached to the underlying `coroutineContext` responsible for overseeing execution. The core `Tracer` API also makes it possible to **bring your own implementation of context propagation** if you choose.
+ 
+ > [!NOTE]
+ > **Note:** In `2.0.0-beta01`, context propagation uses Perfetto flows to represent the flow of execution. This is an imperfect representation, as it presents you with a thread-centric view. The `Tracer` therefore keeps track of when coroutines are suspended and resumed. This is also why you might see multiple slices that correspond to a single `suspend` function, as it suspends and resumes.
+@@ -353,9 +299,7 @@ due to the use of `delay`.
+ 
+ ## Manual propagation
+ 
+-Sometimes, when you're mixing concurrent workloads using Kotlin coroutines with
+-instances of Java `Executor` it might be useful to propagate the context from
+-one to the other. Here is an example:
++Sometimes, when you're mixing concurrent workloads using Kotlin coroutines with instances of Java `Executor` it might be useful to propagate the context from one to the other. Here is an example:
+ 
+     fun executorTask(
+         token: PropagationToken,
+@@ -401,37 +345,23 @@ one to the other. Here is an example:
+     }
+ 
+ This produces the following result.
+-![Screen capture of a Perfetto trace with manual context propagation](https://developer.android.com/static/topic/performance/images/in-process-tracing/manual_context_propagation.png)
+-**Figure 5.**
+-Screen capture of a basic Perfetto trace with manual context propagation.
++![Screen capture of a Perfetto trace with manual context propagation](https://developer.android.com/static/topic/performance/images/in-process-tracing/manual_context_propagation.png) **Figure 5.** Screen capture of a basic Perfetto trace with manual context propagation.
+ 
+-You can see that execution started in a `CoroutineContext`, and subsequently
+-switched to a Java `Executor`, but we were still able to use context
+-propagation.
++You can see that execution started in a `CoroutineContext`, and subsequently switched to a Java `Executor`, but we were still able to use context propagation.
+ 
+ > [!NOTE]
+ > **Note:** You can also use the `Tracer.tokenForManualPropagation()` API if you want complete control over how context propagation works. This is especially useful when your async workflow is convoluted (such as, when you chain operators on a Kotlin `Flow`).
+ 
+ ## Combine with system traces
+ 
+-The `androidx.tracing` library doesn't capture information like CPU scheduling,
+-memory usage, and the application's interaction with the operating system in
+-general. This is because the library provides a way to perform
+-**low-overhead in-process tracing**.
++The `androidx.tracing` library doesn't capture information like CPU scheduling, memory usage, and the application's interaction with the operating system in general. This is because the library provides a way to perform **low-overhead in-process tracing**.
+ 
+-However, it is extremely trivial to merge system traces with in-process traces
+-and visualize them as a single trace if needed. This is because `Perfetto UI`
+-supports visualizing multiple trace files from a device on a unified timeline.
++However, it is extremely trivial to merge system traces with in-process traces and visualize them as a single trace if needed. This is because `Perfetto UI` supports visualizing multiple trace files from a device on a unified timeline.
+ 
+-To do this, you can start a system tracing session using `Perfetto UI` by
+-following [instructions here](https://perfetto.dev/docs/getting-started/system-tracing#recording-your-first-system-trace).
++To do this, you can start a system tracing session using `Perfetto UI` by following [instructions here](https://perfetto.dev/docs/getting-started/system-tracing#recording-your-first-system-trace).
+ 
+-You can also record in-process trace events using the `Tracing 2.0` API, while
+-system tracing is turned on. Once you have **both** trace files you can use the
+-`Open Multiple Trace Files` option in Perfetto.
+-![Opening multiple trace files in Perfetto UI](https://developer.android.com/static/topic/performance/images/in-process-tracing/multiple_trace_files.png)
+-**Figure 6.**
+-Opening multiple trace files in Perfetto UI.
++You can also record in-process trace events using the `Tracing 2.0` API, while system tracing is turned on. Once you have **both** trace files you can use the `Open Multiple Trace Files` option in Perfetto.
++![Opening multiple trace files in Perfetto UI](https://developer.android.com/static/topic/performance/images/in-process-tracing/multiple_trace_files.png) **Figure 6.** Opening multiple trace files in Perfetto UI.
+ 
+ > [!NOTE]
+ > **Note:** This feature requires that the [MultiTraceOpen](https://ui.perfetto.dev/#!/plugins/dev.perfetto.MultiTraceOpen) plugin be enabled in the Perfetto UI.
+@@ -441,15 +371,11 @@ Opening multiple trace files in Perfetto UI.
+ 
+ ## Advanced workflows
+ 
+-This section describes advanced workflows you can implement with the
+-in-process tracing library.
++This section describes advanced workflows you can implement with the in-process tracing library.
+ 
+ ### Correlate slices
+ 
+-Sometimes, it is useful to attribute slices in a trace to a more high level user
+-action or a system event. For example to attribute all the slices that
+-correspond to some background work as part of a notification, you could do
+-something like:
++Sometimes, it is useful to attribute slices in a trace to a more high level user action or a system event. For example to attribute all the slices that correspond to some background work as part of a notification, you could do something like:
+ 
+     fun main() {
+         val driver = createTraceDriver()
+@@ -486,19 +412,14 @@ something like:
+     }
+ 
+ This produces the following result.
+-![Screen capture of a Perfetto trace with correlated slices](https://developer.android.com/static/topic/performance/images/in-process-tracing/correlating_slices.png)
+-**Figure 7.**
+-Screen capture of a Perfetto trace with correlated slices.
++![Screen capture of a Perfetto trace with correlated slices](https://developer.android.com/static/topic/performance/images/in-process-tracing/correlating_slices.png) **Figure 7.** Screen capture of a Perfetto trace with correlated slices.
+ 
+ > [!NOTE]
+ > **Note:** Note the `Arguments` section, and that Perfetto chooses a consistent color scheme for slices when they share a `correlationId`.
+ 
+ ### Add call stack information
+ 
+-Host-side tools, such as compiler plugins and annotation processors, can also
+-choose to embed call stack information into a trace, to make it convenient to
+-locate the file, class, or method responsible for producing a trace section in a
+-trace.
++Host-side tools, such as compiler plugins and annotation processors, can also choose to embed call stack information into a trace, to make it convenient to locate the file, class, or method responsible for producing a trace section in a trace.
+ 
+     fun main() {
+         val driver = createTraceDriver()
+@@ -523,9 +444,7 @@ trace.
+     }
+ 
+ This produces the following result.
+-![Screen capture of a Perfetto trace with call stack information](https://developer.android.com/static/topic/performance/images/in-process-tracing/call_stack_entry.png)
+-**Figure 8.**
+-Screen capture of a Perfetto trace with call stack information.
++![Screen capture of a Perfetto trace with call stack information](https://developer.android.com/static/topic/performance/images/in-process-tracing/call_stack_entry.png) **Figure 8.** Screen capture of a Perfetto trace with call stack information.
+ 
+ > [!NOTE]
+ > **Note:** Note the `Arguments` section, which contains the call stack information.
+\ No newline at end of file

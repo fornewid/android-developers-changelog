@@ -1,0 +1,57 @@
+diff --git a/docs/training/data-storage/room/creating-views.md b/docs/training/data-storage/room/creating-views.md
+index a3157d67..82605771 100644
+--- a/docs/training/data-storage/room/creating-views.md
++++ b/docs/training/data-storage/room/creating-views.md
+@@ -4,21 +4,18 @@ url: https://developer.android.com/training/data-storage/room/creating-views
+ source: md.txt
+ ---
+ 
+-The [Room persistence library](https://developer.android.com/training/data-storage/room) supports
+-[SQLite database views](https://www.sqlite.org/lang_createview.html), which let you encapsulate a query
+-in a class. Room refers to these query-backed classes as *views* , and you can
+-use them as data objects in a [data access object (DAO)](https://developer.android.com/training/data-storage/room/accessing-data).
++The [Room persistence library](https://developer.android.com/training/data-storage/room) supports [SQLite database views](https://www.sqlite.org/lang_createview.html), which let you encapsulate a query in a class. Room refers to these query-backed classes as *views* , and you can use them as data objects in a [data access object (DAO)](https://developer.android.com/training/data-storage/room/accessing-data).
+ 
+ > [!NOTE]
+ > **Note:** Like [entities](https://developer.android.com/training/data-storage/room/defining-data), you can run `SELECT` statements against views. However, you can't run `INSERT`, `UPDATE`, or `DELETE` statements against views.
+ 
+ ## Create a view
+ 
+-To create a view, add the [`@DatabaseView`](https://developer.android.com/reference/kotlin/androidx/room3/DatabaseView) annotation to a class. Set the
+-annotation value to the query that the class represents.
++To create a view, add the [`@DatabaseView`](https://developer.android.com/reference/kotlin/androidx/room3/DatabaseView) annotation to a class. Set the annotation value to the query that the class represents.
+ 
+ The following code snippet provides an example of a view:
+ 
++<br />
+ 
+ ```kotlin
+ @DatabaseView(
+@@ -33,15 +30,16 @@ data class UserDetail(
+     val departmentId: Long,
+     val departmentName: String?
+ )
++   
+ ```
+ 
+ <br />
+ 
+ ## Associate a view with your database
+ 
+-To include this view in your database, add the [`views`](https://developer.android.com/reference/kotlin/androidx/room3/Database#views()) property to your
+-app's `@Database` annotation:
++To include this view in your database, add the [`views`](https://developer.android.com/reference/kotlin/androidx/room3/Database#views()) property to your app's `@Database` annotation:
+ 
++<br />
+ 
+ ```kotlin
+ @Database(
+@@ -52,6 +50,7 @@ app's `@Database` annotation:
+ abstract class AppDatabase : RoomDatabase() {
+     abstract fun userDao(): UserDao
+ }
++   
+ ```
+ 
+ <br />
+\ No newline at end of file

@@ -1,0 +1,136 @@
+diff --git a/docs/about/versions/17/features/contact-picker.md b/docs/about/versions/17/features/contact-picker.md
+index 70bb5bb5..39665902 100644
+--- a/docs/about/versions/17/features/contact-picker.md
++++ b/docs/about/versions/17/features/contact-picker.md
+@@ -4,27 +4,13 @@ url: https://developer.android.com/about/versions/17/features/contact-picker
+ source: md.txt
+ ---
+ 
+-The Android Contact Picker is a standardized, browsable interface for users to
+-share contacts with your app. Available on devices running
+-Android 17 (API level 37) or higher, the picker offers a privacy-preserving
+-alternative to the broad `READ_CONTACTS` permission. Instead of requesting
+-access to the user's entire address book, your app specifies the data fields it
+-needs, such as phone numbers or email addresses, and the user selects specific
+-contacts to share. This grants your app read access to only the selected data,
+-ensuring granular control while providing a consistent user experience with
+-built-in search, profile switching, and multi-selection capabilities without
+-having to build or maintain the UI.
++The Android Contact Picker is a standardized, browsable interface for users to share contacts with your app. Available on devices running Android 17 (API level 37) or higher, the picker offers a privacy-preserving alternative to the broad `READ_CONTACTS` permission. Instead of requesting access to the user's entire address book, your app specifies the data fields it needs, such as phone numbers or email addresses, and the user selects specific contacts to share. This grants your app read access to only the selected data, ensuring granular control while providing a consistent user experience with built-in search, profile switching, and multi-selection capabilities without having to build or maintain the UI.
+ 
+ ## Integrate the Contact Picker
+ 
+-To integrate the Contact Picker, use the
+-`ContactsPickerSessionContract.ACTION_PICK_CONTACTS` intent.
+-This intent launches the picker and returns the selected contacts to your app.
++To integrate the Contact Picker, use the `ContactsPickerSessionContract.ACTION_PICK_CONTACTS` intent. This intent launches the picker and returns the selected contacts to your app.
+ 
+-Unlike the legacy `ACTION_PICK`, the Contact Picker lets you specify multiple
+-data fields your app requires at the same time. You do this using
+-`ContactsPickerSessionContract.EXTRA_REQUESTED_DATA_FIELDS`, passing an
+-`ArrayList<String>` of MIME types defined in `ContactsContract.CommonDataKinds`.
++Unlike the legacy `ACTION_PICK`, the Contact Picker lets you specify multiple data fields your app requires at the same time. You do this using `ContactsPickerSessionContract.EXTRA_REQUESTED_DATA_FIELDS`, passing an `ArrayList<String>` of MIME types defined in `ContactsContract.CommonDataKinds`.
+ 
+ Common MIME types include:
+ 
+@@ -34,9 +20,7 @@ Common MIME types include:
+ 
+ ## Launch the picker
+ 
+-Use `registerForActivityResult` with the `StartActivityForResult` contract to
+-launch the picker. You can configure the intent to allow single or multiple
+-selections.
++Use `registerForActivityResult` with the `StartActivityForResult` contract to launch the picker. You can configure the intent to allow single or multiple selections.
+ 
+     // Launcher for the Contact Picker intent
+     val pickContact = rememberLauncherForActivityResult(StartActivityForResult()) {
+@@ -49,20 +33,15 @@ selections.
+             }
+         }
+     }
+-
++        
+ ## Selection mode
+ 
+-The Contact Picker's UI adjusts according to the data fields requested.
+-Depending on these requirements, users can either choose an entire contact
+-record when multiple fields are needed, or select specific data items from
+-within a contact's information.
++The Contact Picker's UI adjusts according to the data fields requested. Depending on these requirements, users can either choose an entire contact record when multiple fields are needed, or select specific data items from within a contact's information.
+ ![The Contact Picker different UI modes](https://developer.android.com/static/about/versions/17/images/17-contact-picker-modes.png) **Figure 1.** The Contact Picker interface adapts to requested data fields (single contact, multiple contacts, and multiple phone numbers selection).
+ 
+ ### Select a single contact
+ 
+-In this example, the app requests only phone numbers. The picker will filter the
+-list to show only contacts with phone numbers and lets the user select a
+-specific number.
++In this example, the app requests only phone numbers. The picker will filter the list to show only contacts with phone numbers and lets the user select a specific number.
+ 
+     // Define the specific contact data fields you need
+     val requestedFields = arrayListOf(
+@@ -81,11 +60,10 @@ specific number.
+ 
+     // Launch the picker
+     pickContact.launch(pickContactIntent)
+-
++        
+ ### Select multiple contacts
+ 
+-To enable multi-selection, add the `Intent.EXTRA_ALLOW_MULTIPLE` extra. You can
+-optionally limit the number of items a user can select.
++To enable multi-selection, add the `Intent.EXTRA_ALLOW_MULTIPLE` extra. You can optionally limit the number of items a user can select.
+ 
+     val requestedFields = arrayListOf(
+         Email.CONTENT_ITEM_TYPE,
+@@ -110,15 +88,12 @@ optionally limit the number of items a user can select.
+ 
+     // Launch the picker
+     pickContact.launch(pickContactIntent)
+-
++        
+ ## Handle the results
+ 
+-When the user completes the selection, the system returns a `RESULT_OK` and a
+-Session URI. This URI grants temporary read access to the selected data.
++When the user completes the selection, the system returns a `RESULT_OK` and a Session URI. This URI grants temporary read access to the selected data.
+ 
+-You can query this URI using a standard `ContentResolver`. The resulting
+-`Cursor` contains the requested data fields and follows the schema of
+-`ContactsContract.Data`.
++You can query this URI using a standard `ContentResolver`. The resulting `Cursor` contains the requested data fields and follows the schema of `ContactsContract.Data`.
+ 
+     // Data class representing a parsed Contact with selected details.
+     data class Contact(
+@@ -182,28 +157,19 @@ You can query this URI using a standard `ContentResolver`. The resulting
+ 
+         return@withContext contactsMap.values.toList()
+     }
+-
++        
+ > [!NOTE]
+ > **Note:** Contact Picker Session URIs don't support custom `selection` and `selectionArgs`. Setting these parameters will raise an exception.
+ 
+ ## Backward Compatibility
+ 
+-For apps targeting Android 17 (API level 37) and higher, the system
+-automatically upgrades the existing `Intent.ACTION_PICK` intent to use the new
+-Contact Picker interface.
++For apps targeting Android 17 (API level 37) and higher, the system automatically upgrades the existing `Intent.ACTION_PICK` intent to use the new Contact Picker interface.
+ 
+-If your app already uses `ACTION_PICK`, you don't need to change your code to
+-receive the new UI. However, to take advantage of new features, such as
+-receiving a single `Uri` to query contact data, switching between personal \&
+-work profiles or multiple data field requests, you must update your
+-implementation to use `ContactsPickerSessionContract.ACTION_PICK_CONTACTS` or
+-the new intent extras.
++If your app already uses `ACTION_PICK`, you don't need to change your code to receive the new UI. However, to take advantage of new features, such as receiving a single `Uri` to query contact data, switching between personal \& work profiles or multiple data field requests, you must update your implementation to use `ContactsPickerSessionContract.ACTION_PICK_CONTACTS` or the new intent extras.
+ 
+ ### Testing on older target SDKs
+ 
+-You can test the new picker behavior on devices running Android 17 and
+-higher even if your app targets a lower SDK version by adding the
+-`EXTRA_USE_SYSTEM_CONTACTS_PICKER` boolean extra to your `ACTION_PICK` intent.
++You can test the new picker behavior on devices running Android 17 and higher even if your app targets a lower SDK version by adding the `EXTRA_USE_SYSTEM_CONTACTS_PICKER` boolean extra to your `ACTION_PICK` intent.
+ 
+ ## Best practices
+ 

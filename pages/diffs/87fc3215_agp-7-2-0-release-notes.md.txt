@@ -1,0 +1,111 @@
+diff --git a/docs/build/releases/agp-7-2-0-release-notes.md b/docs/build/releases/agp-7-2-0-release-notes.md
+index 509a2c69..ee81190b 100644
+--- a/docs/build/releases/agp-7-2-0-release-notes.md
++++ b/docs/build/releases/agp-7-2-0-release-notes.md
+@@ -6,28 +6,21 @@ source: md.txt
+ 
+ # Android Gradle Plugin 7.2.0 (May 2022)
+ 
+-Android Gradle plugin 7.2.0 is a major release that includes a variety of
+-new features and improvements.
++Android Gradle plugin 7.2.0 is a major release that includes a variety of new features and improvements.
+ **7.2.2 (August 2022)**
+ 
+-This minor update corresponds to the release of Android Studio Chipmunk
+-Patch 2 and includes the following bug fixes:
++This minor update corresponds to the release of Android Studio Chipmunk Patch 2 and includes the following bug fixes:
+ 
+ - [Issue #232438924](https://issuetracker.google.com/issues/232438924): AndroidGradlePlugin version 7.2 breaks transform API when used along with ASM API
+ - [Issue #231037948](https://issuetracker.google.com/issues/231037948): AGP 7.2.0-rc01 :buildSrc:generatePrecompiledScriptPluginAccessors - shadow/bundletool/com/android/prefs/AndroidLocation$AndroidLocationException
+ 
+ **7.2.1 (May 2022)**
+ 
+-
+-This minor update corresponds to the release of Android Studio Chipmunk
+-Patch 1 and includes the following bug fixes:
++This minor update corresponds to the release of Android Studio Chipmunk Patch 1 and includes the following bug fixes:
+ 
+ - [Issue #230361284](https://issuetracker.google.com/issues/230361284): bundletool does not package baseline profiles correctly
+ 
+-
+-To see the other bug fixes included in this release, see the
+-[Android Studio Chipmunk Patch 1
+-release notes](https://developer.android.com/studio/releases#patch-releases).
++To see the other bug fixes included in this release, see the [Android Studio Chipmunk Patch 1 release notes](https://developer.android.com/studio/releases#patch-releases).
+ 
+ ## Compatibility
+ 
+@@ -40,24 +33,13 @@ release notes](https://developer.android.com/studio/releases#patch-releases).
+ 
+ ## Jetifier warning and check in Build Analyzer
+ 
+-Build Analyzer now displays a warning if your project's
+-`gradle.properties` file includes
+-`android.enableJetifier=true`. This flag was introduced in a
+-previous version of Android Studio to enable AndroidX for libraries that don't
+-support AndroidX natively. However, the library ecosystem has mostly moved to
+-support AndroidX natively and the Jetifier flag is probably no longer needed by
+-your project. Additionally, the flag can lead to slower build performance. If
+-you see this warning, you can run a check within Build Analyzer to confirm if
+-the flag can be removed.
++Build Analyzer now displays a warning if your project's `gradle.properties` file includes `android.enableJetifier=true`. This flag was introduced in a previous version of Android Studio to enable AndroidX for libraries that don't support AndroidX natively. However, the library ecosystem has mostly moved to support AndroidX natively and the Jetifier flag is probably no longer needed by your project. Additionally, the flag can lead to slower build performance. If you see this warning, you can run a check within Build Analyzer to confirm if the flag can be removed.
+ 
+ ## Support for test fixtures
+ 
+-Starting with Android Studio Chipmunk Beta 1, Android Studio supports both
+-Android and Java test fixtures. See Gradle's guide on [using test fixtures](https://docs.gradle.org/current/userguide/java_testing.html#sec:java_test_fixtures){:.external}
+-for more information on the test fixtures feature and how to use it in a Java project.
++Starting with Android Studio Chipmunk Beta 1, Android Studio supports both Android and Java test fixtures. See Gradle's guide on [using test fixtures](https://docs.gradle.org/current/userguide/java_testing.html#sec:java_test_fixtures){:.external} for more information on the test fixtures feature and how to use it in a Java project.
+ 
+-To enable test fixtures in your Android library module, add the following to
+-your library-level `build.gradle` file:
++To enable test fixtures in your Android library module, add the following to your library-level `build.gradle` file:
+ 
+     android {
+       testFixtures {
+@@ -67,13 +49,9 @@ your library-level `build.gradle` file:
+       }
+     }
+ 
+-By default, publishing your library also publishes the test fixtures AAR with
+-the main library. The Gradle Module Metadata file will contain information for
+-Gradle to be able to consume the right artifact when requesting the
+-`testFixtures` component.
++By default, publishing your library also publishes the test fixtures AAR with the main library. The Gradle Module Metadata file will contain information for Gradle to be able to consume the right artifact when requesting the `testFixtures` component.
+ 
+-To disable publishing the test fixtures AAR of a library in the release variant,
+-add the following to your library-level `build.gradle` file:
++To disable publishing the test fixtures AAR of a library in the release variant, add the following to your library-level `build.gradle` file:
+ 
+     afterEvaluate {
+       components.release.withVariantsFromConfiguration(
+@@ -82,15 +60,13 @@ add the following to your library-level `build.gradle` file:
+         configurations.releaseTestFixturesVariantReleaseRuntimePublication) { skip() }
+     }
+ 
+-To consume the test fixtures AAR of a published Android library, you can use
+-Gradle's helper method `testFixtures()`.
++To consume the test fixtures AAR of a published Android library, you can use Gradle's helper method `testFixtures()`.
+ 
+     dependencies {
+       testImplementation testFixtures('com.example.company:publishedLib:1.0')
+     }
+ 
+-By default, lint will analyze test fixtures sources. You can configure
+-lint to ignore test fixtures sources as follows:
++By default, lint will analyze test fixtures sources. You can configure lint to ignore test fixtures sources as follows:
+ 
+     android {
+       lint {
+@@ -100,8 +76,4 @@ lint to ignore test fixtures sources as follows:
+ 
+ ## Duplicate content roots not supported
+ 
+-Starting with AGP 7.2, you can no longer share the same source
+-directory across multiple source sets. For example, you can't use the same
+-test sources for both unit tests and instrumentation tests. To learn more,
+-see [Change the
+-default source sets configurations](https://developer.android.com/studio/build/build-variants#configure-sourcesets).
+\ No newline at end of file
++Starting with AGP 7.2, you can no longer share the same source directory across multiple source sets. For example, you can't use the same test sources for both unit tests and instrumentation tests. To learn more, see [Change the default source sets configurations](https://developer.android.com/studio/build/build-variants#configure-sourcesets).
+\ No newline at end of file

@@ -1,0 +1,100 @@
+diff --git a/docs/media/media3/transformer/composition.md b/docs/media/media3/transformer/composition.md
+index 0fcfd3f9..1262b14f 100644
+--- a/docs/media/media3/transformer/composition.md
++++ b/docs/media/media3/transformer/composition.md
+@@ -4,20 +4,10 @@ url: https://developer.android.com/media/media3/transformer/composition
+ source: md.txt
+ ---
+ 
+-The Media3 Transformer library provides a suite of tools for editing and
+-manipulating media. A core component for multi-asset editing is the
+-[`Composition`](https://developer.android.com/reference/androidx/media3/transformer/Composition) API. This API lets you arrange multiple input media items,
+-such as video clips, images, and audio tracks, into a single, coherent structure
+-that can then be processed, previewed, or exported. A `Composition` can be
+-thought of as a timeline that holds one or more sequences of media. Each
+-sequence (defined by an [`EditedMediaItemSequence`](https://developer.android.com/reference/kotlin/androidx/media3/transformer/EditedMediaItemSequence)) contains individual
+-media items (defined as [`EditedMediaItem`](https://developer.android.com/reference/kotlin/androidx/media3/transformer/EditedMediaItem) instances).
+-[Transformations and effects](https://developer.android.com/media/media3/transformer/transformations) can be applied to an individual
+-`EditedMediaItem`, or to an entire `Composition`.
++The Media3 Transformer library provides a suite of tools for editing and manipulating media. A core component for multi-asset editing is the [`Composition`](https://developer.android.com/reference/androidx/media3/transformer/Composition) API. This API lets you arrange multiple input media items, such as video clips, images, and audio tracks, into a single, coherent structure that can then be processed, previewed, or exported. A `Composition` can be thought of as a timeline that holds one or more sequences of media. Each sequence (defined by an [`EditedMediaItemSequence`](https://developer.android.com/reference/kotlin/androidx/media3/transformer/EditedMediaItemSequence)) contains individual media items (defined as [`EditedMediaItem`](https://developer.android.com/reference/kotlin/androidx/media3/transformer/EditedMediaItem) instances). [Transformations and effects](https://developer.android.com/media/media3/transformer/transformations) can be applied to an individual `EditedMediaItem`, or to an entire `Composition`.
+ ![The structure of a Composition object](https://developer.android.com/static/guide/topics/media/transformer/images/composition-structure.png) The structure of a Composition object
+ 
+-A `Composition` is your entry point for a variety of use cases with Media3
+-Transformer, such as:
++A `Composition` is your entry point for a variety of use cases with Media3 Transformer, such as:
+ 
+ - Sequentially combining audio, image, and video assets.
+ - Overlaying a video on top of another video (picture-in-picture).
+@@ -25,14 +15,11 @@ Transformer, such as:
+ - Applying visual or audio effects across an entire edited piece.
+ - Handling complex scenarios like HDR video processing.
+ 
+-This guide focuses on how to define and build `Composition` objects, including
+-the key classes involved, how to create basic and more complex compositions
+-with single or multiple sequences, and how to apply effects at different levels.
++This guide focuses on how to define and build `Composition` objects, including the key classes involved, how to create basic and more complex compositions with single or multiple sequences, and how to apply effects at different levels.
+ 
+ ## Key Concepts and Classes
+ 
+-To effectively use the `Composition` API, it's important to understand the main
+-classes involved in constructing a media composition:
++To effectively use the `Composition` API, it's important to understand the main classes involved in constructing a media composition:
+ 
+ `Effects`:
+ 
+@@ -60,9 +47,9 @@ classes involved in constructing a media composition:
+ 
+ ## Create and export a `Composition`
+ 
+-Here is an example of creating a video asset that consists of two
+-edited video clips, overlaid with an audio track, and exporting it:
++Here is an example of creating a video asset that consists of two edited video clips, overlaid with an audio track, and exporting it:
+ 
++<br />
+ 
+ ### Kotlin
+ 
+@@ -84,6 +71,7 @@ val backgroundAudioSequence =
+ val composition = Composition.Builder(videoSequence, backgroundAudioSequence).build()
+ 
+ transformer.start(composition, filePath)
++      
+ ```
+ 
+ ### Java
+@@ -109,14 +97,14 @@ Composition composition =
+     new Composition.Builder(videoSequence, backgroundAudioSequence).build();
+ 
+ transformer.start(composition, filePath);
++      
+ ```
+ 
+ <br />
+ 
+ ## Examples of supported use cases
+ 
+-This is a non-exhaustive list of use cases that the Transformer API
+-supports with `Composition`:
++This is a non-exhaustive list of use cases that the Transformer API supports with `Composition`:
+ 
+ - Sequentially combining audio, image, and video assets.
+ - Adding background audio to a video asset.
+@@ -125,14 +113,10 @@ supports with `Composition`:
+ 
+ ## Current limitations
+ 
+-Sequences within a Composition must meet the conditions outlined in
+-[`Transformer.start()`](https://developer.android.com/reference/androidx/media3/transformer/Transformer#start(androidx.media3.transformer.Composition,java.lang.String)).
+-Furthermore, the following operations are not yet supported when working with
+-Compositions:
++Sequences within a Composition must meet the conditions outlined in [`Transformer.start()`](https://developer.android.com/reference/androidx/media3/transformer/Transformer#start(androidx.media3.transformer.Composition,java.lang.String)). Furthermore, the following operations are not yet supported when working with Compositions:
+ 
+ - Crossfading video or audio tracks
+ 
+ ## Feature requests
+ 
+-If you have any feature requests for the Transformer APIs, file an issue on the
+-[Media3 GitHub repository](https://github.com/androidx/media/issues).
+\ No newline at end of file
++If you have any feature requests for the Transformer APIs, file an issue on the [Media3 GitHub repository](https://github.com/androidx/media/issues).
+\ No newline at end of file

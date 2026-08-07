@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/basicsaveable.md b/docs/guide/navigation/navigation-3/recipes/basicsaveable.md
+index ecbac5b5..08b680b8 100644
+--- a/docs/guide/navigation/navigation-3/recipes/basicsaveable.md
++++ b/docs/guide/navigation/navigation-3/recipes/basicsaveable.md
+@@ -93,4 +93,6 @@ class BasicSaveableActivity : ComponentActivity() {
+         }
+     }
+ }
++
++   
+ ```
+\ No newline at end of file

@@ -1,0 +1,53 @@
+diff --git a/docs/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md b/docs/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md
+index 7d214a3c..11191e31 100644
+--- a/docs/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md
++++ b/docs/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md
+@@ -32,6 +32,7 @@ Prompt API allows for highly customized GenAI use cases. Here are some recommend
+ - Information extraction: Extracting important details about an upcoming event from an email thread.
+ 
+ **Implementation**   
++
+ Prompt API lets you create custom prompts and set optional generation parameters with just a few lines of code:
+ 
+ ```
+@@ -70,24 +71,21 @@ Written by:
+ 
+   ###### Developer Relations Engineer
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)
+ -
+ 
+   ## [Chengji Yan](https://developer.android.com/blog/authors/chengji-yan)
+ 
+   ###### Software Engineer
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/chengji-yan) ![View Chengji Yan's profile](https://developer.android.com/static/blog/assets/Chengji_Yan_575ccacca8_Z1RWjMU.webp) ![View Chengji Yan's profile](https://developer.android.com/static/blog/assets/Chengji_Yan_575ccacca8_Z1RWjMU.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/chengji-yan) ![View Chengji Yan's profile](https://developer.android.com/static/blog/assets/Chengji_Yan_575ccacca8_Z1RWjMU.webp) ![View Chengji Yan's profile](https://developer.android.com/static/blog/assets/Chengji_Yan_575ccacca8_Z1RWjMU.webp)
+ -
+ 
+   ## [Penny Li](https://developer.android.com/blog/authors/penny-li)
+ 
+   ###### Software Engineer
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/penny-li) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
++  [read_more View profile](https://developer.android.com/blog/authors/penny-li) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+ Continue reading
+ - [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang)[![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp)](https://developer.android.com/blog/authors/david-chou) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z15e7FP.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -109,8 +107,5 @@ Continue reading
+   [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

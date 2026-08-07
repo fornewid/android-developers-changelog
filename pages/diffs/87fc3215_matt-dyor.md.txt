@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/matt-dyor.md b/docs/blog/authors/matt-dyor.md
+index f888cbf9..f8151e6d 100644
+--- a/docs/blog/authors/matt-dyor.md
++++ b/docs/blog/authors/matt-dyor.md
+@@ -30,8 +30,5 @@ Senior Product Manager
+   3 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

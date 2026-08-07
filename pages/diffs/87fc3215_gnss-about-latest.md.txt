@@ -1,0 +1,31 @@
+diff --git a/docs/develop/sensors-and-location/sensors/gnss-about-latest.md b/docs/develop/sensors-and-location/sensors/gnss-about-latest.md
+index bcae85f3..027ab9b0 100644
+--- a/docs/develop/sensors-and-location/sensors/gnss-about-latest.md
++++ b/docs/develop/sensors-and-location/sensors/gnss-about-latest.md
+@@ -9,20 +9,16 @@ source: md.txt
+ - [Detect GNSS jamming and spoofing](https://developer.android.com/develop/sensors-and-location/sensors/gnss-spoof-jam)
+ - [Analyze raw measurements with GnssLogger](https://developer.android.com/develop/sensors-and-location/sensors/gnss-analyze-raw)
+ 
+-**GnssLogger for Wear OS v1.1** offers many of the key features found in the
+-phone app:
++**GnssLogger for Wear OS v1.1** offers many of the key features found in the phone app:
+ 
+ - Display real-time [`GnssStatus`](https://developer.android.com/reference/android/location/GnssStatus) information from the GNSS chipset.
+ - Display a real-time map with the GNSS chipset position.
+ - Log to standard CSV (.txt) and industry-standard [RINEX](https://igs.org/wg/rinex/) and NMEA file formats.
+ - [Access and share logs from GnssLogger for Wear OS](https://developer.android.com/develop/sensors-and-location/sensors/gnss-wear-share-logs)
+ 
+-Here's a breakdown of features that are supported in both GnssLogger phone
+-and Wear OS apps.
++Here's a breakdown of features that are supported in both GnssLogger phone and Wear OS apps.
+ ![Table of supported features](https://developer.android.com/static/images/sensors/gnss-about2.png) Compare phone and Wear OS features
+ 
+-For more details about the data logged to file, see the
+-[GnssLogger Logging documentation](https://github.com/google/gps-measurement-tools/blob/master/LOGGING_FORMAT).
++For more details about the data logged to file, see the [GnssLogger Logging documentation](https://github.com/google/gps-measurement-tools/blob/master/LOGGING_FORMAT).
+ 
+-Provide feedback on new features using our
+-[public issue tracker](https://issuetracker.google.com/issues/new?component=313183&template=0).
+\ No newline at end of file
++Provide feedback on new features using our [public issue tracker](https://issuetracker.google.com/issues/new?component=313183&template=0).
+\ No newline at end of file

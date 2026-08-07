@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/dialog.md b/docs/guide/navigation/navigation-3/recipes/dialog.md
+index a5923166..ae53e445 100644
+--- a/docs/guide/navigation/navigation-3/recipes/dialog.md
++++ b/docs/guide/navigation/navigation-3/recipes/dialog.md
+@@ -110,4 +110,6 @@ class DialogActivity : ComponentActivity() {
+         }
+     }
+ }
++
++   
+ ```
+\ No newline at end of file

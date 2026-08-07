@@ -1,0 +1,21 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/sharedviewmodel.md b/docs/guide/navigation/navigation-3/recipes/sharedviewmodel.md
+index 2cf814a9..570613fd 100644
+--- a/docs/guide/navigation/navigation-3/recipes/sharedviewmodel.md
++++ b/docs/guide/navigation/navigation-3/recipes/sharedviewmodel.md
+@@ -178,6 +178,8 @@ class SharedViewModelStoreNavEntryDecorator<T : Any>(
+ 
+ val LocalSharedViewModelStoreOwner =
+     staticCompositionLocalOf<ViewModelStoreOwner> { error("No LocalSharedViewModelStoreOwner provided!") }
++
++   
+ ```
+ 
+ ```
+@@ -307,4 +309,6 @@ fun NavKey.toContentKey() = this.toString()
+ class CounterViewModel : ViewModel() {
+     var count by mutableIntStateOf(0)
+ }
++
++   
+ ```
+\ No newline at end of file

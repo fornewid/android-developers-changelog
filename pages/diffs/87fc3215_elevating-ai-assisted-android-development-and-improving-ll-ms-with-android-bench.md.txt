@@ -1,0 +1,52 @@
+diff --git a/docs/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench.md b/docs/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench.md
+index e2e35c79..4e7d99e0 100644
+--- a/docs/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench.md
++++ b/docs/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench.md
+@@ -21,6 +21,7 @@ Each evaluation attempts to have an LLM fix the issue reported in the task, whic
+ We validated this methodology with several LLM makers, including JetBrains.
+ 
+ "*Measuring AI's impact on Android is a massive challenge, so it's great to see a framework that's this sound and realistic. While we're active in benchmarking ourselves, Android Bench is a unique and welcome addition. This methodology is exactly the kind of rigorous evaluation Android developers need right now."*   
++
+ - Kirill Smelov, Head of AI Integrations at JetBrains.
+ 
+ #### **The first Android Bench results**
+@@ -47,9 +48,15 @@ Written by:
+ 
+   ###### Vice President, Product Management, Android Developer
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+ Continue reading
++- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
++  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
++  - [#Android 17](https://developer.android.com/blog/topics/android-17)
+ - [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
+@@ -64,17 +71,7 @@ Continue reading
+   [arrow_forward](https://developer.android.com/blog/posts/building-for-the-intelligence-system-on-android) Announced today during The Android Show, Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps.
+   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
+   - [#Android](https://developer.android.com/blog/topics/android)
+-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Gemma 4: The new standard for local agentic intelligence on Android](https://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android) Today, we are enhancing Android development with Gemma 4, our latest state-of-the-art open model designed with complex reasoning and autonomous tool-calling capabilities.
+-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 2 min read
+-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/don-turner.md b/docs/blog/authors/don-turner.md
+index 36daa001..c50943b8 100644
+--- a/docs/blog/authors/don-turner.md
++++ b/docs/blog/authors/don-turner.md
+@@ -25,8 +25,5 @@ Developer Relations Engineer
+   - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

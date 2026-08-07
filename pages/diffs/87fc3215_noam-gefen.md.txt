@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/noam-gefen.md b/docs/blog/authors/noam-gefen.md
+index 63b646a1..9c81ddf7 100644
+--- a/docs/blog/authors/noam-gefen.md
++++ b/docs/blog/authors/noam-gefen.md
+@@ -18,8 +18,5 @@ Senior Product Manager
+   - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

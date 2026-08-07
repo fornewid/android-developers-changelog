@@ -1,0 +1,19 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/interop.md b/docs/guide/navigation/navigation-3/recipes/interop.md
+index e1c7ae2c..b241e5da 100644
+--- a/docs/guide/navigation/navigation-3/recipes/interop.md
++++ b/docs/guide/navigation/navigation-3/recipes/interop.md
+@@ -51,6 +51,7 @@ class MyCustomFragment : Fragment() {
+         }
+     }
+ }
++   
+ ```
+ 
+ ```
+@@ -121,4 +122,5 @@ class InteropActivity : FragmentActivity() {
+         }
+     }
+ }
++   
+ ```
+\ No newline at end of file

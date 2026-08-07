@@ -1,0 +1,23 @@
+diff --git a/docs/training/tv/playback/compose/details.md b/docs/training/tv/playback/compose/details.md
+index 391a0628..ccf4b98f 100644
+--- a/docs/training/tv/playback/compose/details.md
++++ b/docs/training/tv/playback/compose/details.md
+@@ -4,16 +4,9 @@ url: https://developer.android.com/training/tv/playback/compose/details
+ source: md.txt
+ ---
+ 
+-Many TV apps include content detail pages with relevant metadata for a given
+-piece of content (i.e. a specific movie). Detail pages can be implemented as a
+-composable function, taking metadata of the selected content as its argument.
++Many TV apps include content detail pages with relevant metadata for a given piece of content (i.e. a specific movie). Detail pages can be implemented as a composable function, taking metadata of the selected content as its argument.
+ 
+-The following code is a typical implementation of the details screen. It
+-[loads an image](https://developer.android.com/jetpack/compose/graphics/images/loading#internet-loading)
+-of the given movie with its title and description. The user's able to make a
+-screen transition to the player screen, which can be triggered by clicking a
+-button to start movie playback. You can handle this action to make the screen
+-transition by setting a callback function.
++The following code is a typical implementation of the details screen. It [loads an image](https://developer.android.com/jetpack/compose/graphics/images/loading#internet-loading) of the given movie with its title and description. The user's able to make a screen transition to the player screen, which can be triggered by clicking a button to start movie playback. You can handle this action to make the screen transition by setting a callback function.
+ 
+     @Composable
+     fun DetailsScreen(

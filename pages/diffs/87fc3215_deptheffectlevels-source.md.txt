@@ -1,0 +1,26 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/deptheffectlevels-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/deptheffectlevels-source.md
+index 142ef2be..79684ce5 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/deptheffectlevels-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/deptheffectlevels-source.md
+@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
+ source: md.txt
+ ---
+ 
+-When simulating depth on AI glasses using shadows, refer to the following source
+-code in `DepthEffectLevels.kt`:
++When simulating depth on AI glasses using shadows, refer to the following source code in `DepthEffectLevels.kt`:
+ 
++<br />
+ 
+ ```kotlin
+ /*
+@@ -106,6 +106,8 @@ private val DepthEffectLevel5 =
+         layer1 = Shadow(radius = 56.dp, color = Color.Black, spread = 32.dp, alpha = 0.90f),
+         layer2 = Shadow(radius = 12.dp, color = Color.Black, spread = 12.dp),
+     )
++
++   
+ ```
+ 
+ <br />
+\ No newline at end of file

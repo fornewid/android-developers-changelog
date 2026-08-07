@@ -1,0 +1,155 @@
+diff --git a/docs/jetpack/androidx/releases/compose-animation.md b/docs/jetpack/androidx/releases/compose-animation.md
+index cc0858ac..4a73738a 100644
+--- a/docs/jetpack/androidx/releases/compose-animation.md
++++ b/docs/jetpack/androidx/releases/compose-animation.md
+@@ -14,9 +14,7 @@ source: md.txt
+ 
+ ## Structure
+ 
+-Compose is a combination of 7 Maven group IDs within `androidx`. Each group
+-contains a targeted subset of functionality, each with its own set of release
+-notes.
++Compose is a combination of 7 Maven group IDs within `androidx`. Each group contains a targeted subset of functionality, each with its own set of release notes.
+ 
+ This table explains the groups and links to each set of release notes.
+ 
+@@ -32,12 +30,9 @@ This table explains the groups and links to each set of release notes.
+ 
+ ## Declaring dependencies
+ 
+-To add a dependency on Compose, you must add the Google Maven repository to your
+-project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
+-for more information.
++To add a dependency on Compose, you must add the Google Maven repository to your project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) for more information.
+ 
+-Add the dependencies for the artifacts you need in the `build.gradle` file for
+-your app or module:
++Add the dependencies for the artifacts you need in the `build.gradle` file for your app or module:
+ 
+ ### Groovy
+ 
+@@ -87,16 +82,11 @@ For more information about dependencies, see [Add build dependencies](https://de
+ 
+ ## Feedback
+ 
+-Your feedback helps make Jetpack better. Let us know if you discover new issues or have
+-ideas for improving this library. Please take a look at the
+-[existing issues](https://issuetracker.google.com/issues?q=componentid:610478+status:open)
+-in this library before you create a new one. You can add your vote to an existing issue by
+-clicking the star button.
++Your feedback helps make Jetpack better. Let us know if you discover new issues or have ideas for improving this library. Please take a look at the [existing issues](https://issuetracker.google.com/issues?q=componentid:610478+status:open) in this library before you create a new one. You can add your vote to an existing issue by clicking the star button.
+ 
+ [Create a new issue](https://issuetracker.google.com/issues/new?component=610478&template=1265071)
+ 
+-See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+-for more information.
++See the [Issue Tracker documentation](https://developers.google.com/issue-tracker) for more information.
+ 
+ ## Version 1.12
+ 
+@@ -764,8 +754,7 @@ February 12, 2025
+ 
+ January 29, 2025
+ 
+-`androidx.compose.animation:animation-*:1.7.7` is released. No changes from 1.7.6.
+-December 11, 2024
++`androidx.compose.animation:animation-*:1.7.7` is released. No changes from 1.7.6. December 11, 2024
+ 
+ `androidx.compose.animation:animation-*:1.7.6` is released. Version 1.7.6 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4cbf03b378a865660d8209d0229c2bb1928c6e33..5e65beadeb2e2c15f34d0fff72861847795cca4f/compose/animation).
+ 
+@@ -1743,10 +1732,7 @@ November 17, 2021
+ **API Changes**
+ 
+ - Added new modifier Modifier.onPlaced to allow placement change to be observed. Additional changes to child modifier's offset can therefore be made based on the observed placement change. ([I558fd](https://android-review.googlesource.com/#/q/I558fd6a0fc0788942efe09a6c3e33c6c62608904))
+-- New support for contentKey in Crossfade.
+-  ContentKey will be used for equality check by animation system.
+-  Therefore custom diffing on states can be achieved via specifying
+-  appropriate contentKey for different states.
++- New support for contentKey in Crossfade. ContentKey will be used for equality check by animation system. Therefore custom diffing on states can be achieved via specifying appropriate contentKey for different states.
+ 
+   ContentKey will also be used as the key for save \& restore content. ([I2e055](https://android-review.googlesource.com/#/q/I2e055c2b42736633b544b653e9815255578e7169), [b/197907070](https://issuetracker.google.com/issues/197907070))
+ 
+@@ -1784,12 +1770,9 @@ September 29, 2021
+ 
+ **API Changes**
+ 
+-- `EnterTransition`, `ExitTransition`, and some of the
+-  `AnimatedVisibility` APIs have been made stable.
+-  `MutableTransitionState.isIdle` is also no longer experimental. ([I5072d](https://android-review.googlesource.com/#/q/I5072db0fff64678b726a90670668d1dc274cadab))
++- `EnterTransition`, `ExitTransition`, and some of the `AnimatedVisibility` APIs have been made stable. `MutableTransitionState.isIdle` is also no longer experimental. ([I5072d](https://android-review.googlesource.com/#/q/I5072db0fff64678b726a90670668d1dc274cadab))
+ 
+-- **Breaking change** : lambdas in Enter/ExitTransition factories
+-  have been moved to the last position in the param list. ([I5072d](https://android-review.googlesource.com/#/q/I5072db0fff64678b726a90670668d1dc274cadab))
++- **Breaking change** : lambdas in Enter/ExitTransition factories have been moved to the last position in the param list. ([I5072d](https://android-review.googlesource.com/#/q/I5072db0fff64678b726a90670668d1dc274cadab))
+ 
+ ### Version 1.1.0-alpha04
+ 
+@@ -2302,11 +2285,7 @@ September 2, 2020
+ 
+ **API Changes**
+ 
+-- Added `ManualFrameClock.hasAwaiters` to see if anything is
+-  awaiting a frame from that clock; `runWithManualClock` as a replacement
+-  for `runBlocking` when running tests that need a ManualFrameClock;
+-  `TestUiDispatcher.Main` that gives easy access to the main UI dispatcher
+-  in your tests.
++- Added `ManualFrameClock.hasAwaiters` to see if anything is awaiting a frame from that clock; `runWithManualClock` as a replacement for `runBlocking` when running tests that need a ManualFrameClock; `TestUiDispatcher.Main` that gives easy access to the main UI dispatcher in your tests.
+ 
+   For example:
+ 
+@@ -2327,12 +2306,9 @@ September 2, 2020
+ 
+ **Bug Fixes**
+ 
+-- onPreCommit is deprecated; onCommit now has onPreCommit's
+-  behavior.
++- onPreCommit is deprecated; onCommit now has onPreCommit's behavior.
+ 
+-  onCommit and onActive now run in the same choreographer frame that
+-  the composition changes committed in rather than at the beginning
+-  of the next choreographer frame. ([I70403](https://android-review.googlesource.com/#/q/I70403eea442a7a003f08e7b1d19e44e0134ea077))
++  onCommit and onActive now run in the same choreographer frame that the composition changes committed in rather than at the beginning of the next choreographer frame. ([I70403](https://android-review.googlesource.com/#/q/I70403eea442a7a003f08e7b1d19e44e0134ea077))
+ 
+ ### Version 1.0.0-alpha01
+ 
+@@ -2355,20 +2331,10 @@ August 19, 2020
+ - Offset has become an inline class ([Iaec70](https://android-review.googlesource.com/#/q/Iaec70bb466cae8964f03e7484c1e86857c924f82))
+ - IntOffset is now an inline class ([Iac0bf](https://android-review.googlesource.com/#/q/Iac0bf89bb95642bf3a77073aead2cbce4c0e2e37))
+ - IntSize is now an inline class ([I2bf42](https://android-review.googlesource.com/#/q/I2bf426245b41f4189dead45114e3791bbceb9d13))
+-- AnimatedVisibilty composable animates the appearance
+-  and disappearance of the child content.
+-
+-  EnterTransition and ExitTransition are introduced to work with
+-  AnimatedVisibilty composable to provide 3 different typs of
+-  appearance and disappearance animation: fade, slide, and
+-  expand/shrink the content. The different types of animations
+-  can be combined to achieve more bespoke look and feel. ([Idda11](https://android-review.googlesource.com/#/q/Idda1162e0d7f777f64dfd91b3192c2548d1c2c29))
+-- Deprecated PxBounds in
+-  favor of Rect. Updated all usages
+-  of PxBounds with rect and added
+-  proper deprecate/replace with
+-  annotations to assist with the
+-  migration. ([I37038](https://android-review.googlesource.com/#/q/I370384202fff3e5b147d42086f4350ab7fa830de), [b/162627058](https://issuetracker.google.com/issues/162627058))
++- AnimatedVisibilty composable animates the appearance and disappearance of the child content.
++
++  EnterTransition and ExitTransition are introduced to work with AnimatedVisibilty composable to provide 3 different typs of appearance and disappearance animation: fade, slide, and expand/shrink the content. The different types of animations can be combined to achieve more bespoke look and feel. ([Idda11](https://android-review.googlesource.com/#/q/Idda1162e0d7f777f64dfd91b3192c2548d1c2c29))
++- Deprecated PxBounds in favor of Rect. Updated all usages of PxBounds with rect and added proper deprecate/replace with annotations to assist with the migration. ([I37038](https://android-review.googlesource.com/#/q/I370384202fff3e5b147d42086f4350ab7fa830de), [b/162627058](https://issuetracker.google.com/issues/162627058))
+ 
+ **Bug Fixes**
+ 
+@@ -2386,13 +2352,9 @@ August 5, 2020
+ - Built-in vector converters to convert built-in units are now accessible via `Foo.VectorConverter`. e.g. `Dp.VectorConverter`, `Color.VectorConverter`, `Float.VectorConverter`, etc ([I3e273](https://android-review.googlesource.com/#/q/I3e2734f9712d94cc664184d35d495edab50bda53))
+ - Support end listener in `Modifier.animateContentSize()` such that when size change animation finishes, the listener will be notified, along with start/end size of the animation. ([I277b2](https://android-review.googlesource.com/#/q/I277b2b90f1ab5c6473cfb1e2de56e0ae7e67245d))
+ - New animateContentSize modifier that animates the layout size change of its child modifier ([Ieffdc](https://android-review.googlesource.com/#/q/Ieffdccd0fd0545ed139ecc20ef7baaebcda6d9d2))
+-- Added `MonotonicFrameAnimationClock` that enables you to use a
+-  MonotonicFrameClock as an `AnimationClockObservable` to bridge the gap
+-  between the new coroutines based clocks and APIs that still use the old
+-  callback based clocks.
++- Added `MonotonicFrameAnimationClock` that enables you to use a MonotonicFrameClock as an `AnimationClockObservable` to bridge the gap between the new coroutines based clocks and APIs that still use the old callback based clocks.
+ 
+-  The `MonotonicFrameClock`equivalent of `ManualAnimationClock` is now
+-  `ManualFrameClock`. ([I111c7](https://android-review.googlesource.com/#/q/I111c7b7182a1495f95eab1bb808d3acd6af82447), [b/161247083](https://issuetracker.google.com/issues/161247083))
++  The `MonotonicFrameClock`equivalent of `ManualAnimationClock` is now `ManualFrameClock`. ([I111c7](https://android-review.googlesource.com/#/q/I111c7b7182a1495f95eab1bb808d3acd6af82447), [b/161247083](https://issuetracker.google.com/issues/161247083))
+ 
+ **Bug Fixes**
+ 

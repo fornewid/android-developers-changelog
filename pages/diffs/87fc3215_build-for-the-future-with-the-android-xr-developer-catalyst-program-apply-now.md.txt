@@ -1,0 +1,17 @@
+diff --git a/docs/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md b/docs/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md
+index 0d469940..82257cee 100644
+--- a/docs/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md
++++ b/docs/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now.md
+@@ -56,8 +56,5 @@ Continue reading
+   1 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

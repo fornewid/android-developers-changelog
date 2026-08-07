@@ -1,0 +1,97 @@
+diff --git a/docs/develop/ui/compose/components/slider.md b/docs/develop/ui/compose/components/slider.md
+index 9212a309..2d7fe475 100644
+--- a/docs/develop/ui/compose/components/slider.md
++++ b/docs/develop/ui/compose/components/slider.md
+@@ -4,8 +4,7 @@ url: https://developer.android.com/develop/ui/compose/components/slider
+ source: md.txt
+ ---
+ 
+-The [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) composable allows users to make selections from a range of
+-values. You might use a slider to let the user do the following:
++The [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) composable allows users to make selections from a range of values. You might use a slider to let the user do the following:
+ 
+ - Adjust settings that use a range of values, such as volume, and brightness.
+ - Filter data in a graph, as when setting a price range.
+@@ -21,17 +20,15 @@ The slider contains a track, thumb, value label, and tick marks:
+ 
+ ## Basic implementation
+ 
+-See the [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) reference for a full API definition. Some of the key
+-parameters for the `Slider` composable are the following:
++See the [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) reference for a full API definition. Some of the key parameters for the `Slider` composable are the following:
+ 
+ - **`value`**: The current value of the slider.
+ - **`onValueChange`**: A lambda that gets called every time the value is changed.
+ - **`enabled`**: A boolean value that indicates if the user can interact with the slider.
+ 
+-The following example is a straightforward slider. It allows the user to
+-select a value from `0.0` to `1.0`. Because the user can select any value in
+-that range, the slider is *continuous*.
++The following example is a straightforward slider. It allows the user to select a value from `0.0` to `1.0`. Because the user can select any value in that range, the slider is *continuous*.
+ 
++<br />
+ 
+ ```kotlin
+ @Preview
+@@ -46,6 +43,7 @@ fun SliderMinimalExample() {
+         Text(text = sliderPosition.toString())
+     }
+ }
++   
+ ```
+ 
+ <br />
+@@ -55,17 +53,15 @@ This implementation appears as follows:
+ 
+ ## Advanced implementation
+ 
+-When implementing a more complex slider, you can additionally make use of the
+-following parameters.
++When implementing a more complex slider, you can additionally make use of the following parameters.
+ 
+ - **`colors`** : An instance of `SliderColors` that lets you control the colors of the slider.
+ - **`valueRange`**: The range of values that the slider can take.
+ - **`steps`**: The number of notches on the slider to which the thumb snaps.
+ 
+-The following snippet implements a slider that has three steps, with a range
+-from `0.0` to `50.0`. Because the thumb snaps to each step, this slider is
+-*discrete*.
++The following snippet implements a slider that has three steps, with a range from `0.0` to `50.0`. Because the thumb snaps to each step, this slider is *discrete*.
+ 
++<br />
+ 
+ ```kotlin
+ @Preview
+@@ -87,6 +83,7 @@ fun SliderAdvancedExample() {
+         Text(text = sliderPosition.toString())
+     }
+ }
++   
+ ```
+ 
+ <br />
+@@ -102,13 +99,11 @@ The implementation appears as follows:
+ 
+ ## Range slider
+ 
+-You can also use the dedicated `RangeSlider` composable. This allows the user to
+-select two values. This can be useful in cases such as when the user wishes to
+-select a minimum and maximum price.
++You can also use the dedicated `RangeSlider` composable. This allows the user to select two values. This can be useful in cases such as when the user wishes to select a minimum and maximum price.
+ 
+-The following example is a relatively straightforward example of a continuous
+-range slider.
++The following example is a relatively straightforward example of a continuous range slider.
+ 
++<br />
+ 
+ ```kotlin
+ @Preview
+@@ -129,6 +124,7 @@ fun RangeSliderExample() {
+         Text(text = sliderPosition.toString())
+     }
+ }
++   
+ ```
+ 
+ <br />

@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/material-supportingpane.md b/docs/guide/navigation/navigation-3/recipes/material-supportingpane.md
+index c16b21de..edec28a9 100644
+--- a/docs/guide/navigation/navigation-3/recipes/material-supportingpane.md
++++ b/docs/guide/navigation/navigation-3/recipes/material-supportingpane.md
+@@ -148,4 +148,6 @@ class MaterialSupportingPaneActivity : ComponentActivity() {
+         }
+     }
+ }
++
++   
+ ```
+\ No newline at end of file

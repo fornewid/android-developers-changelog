@@ -1,0 +1,62 @@
+diff --git a/docs/develop/ui/compose/tooling/editor-actions.md b/docs/develop/ui/compose/tooling/editor-actions.md
+index 30aa9231..ecb04b68 100644
+--- a/docs/develop/ui/compose/tooling/editor-actions.md
++++ b/docs/develop/ui/compose/tooling/editor-actions.md
+@@ -4,31 +4,25 @@ url: https://developer.android.com/develop/ui/compose/tooling/editor-actions
+ source: md.txt
+ ---
+ 
+-Android Studio has features inside the editor area to improve your productivity
+-with Jetpack Compose.
++Android Studio has features inside the editor area to improve your productivity with Jetpack Compose.
+ 
+ ## Live templates
+ 
+-Android Studio comes with these Compose-related live templates, which allow you
+-to enter code snippets for fast insertion by typing the corresponding template
+-abbreviation:
++Android Studio comes with these Compose-related live templates, which allow you to enter code snippets for fast insertion by typing the corresponding template abbreviation:
+ 
+ - `comp` to set up a `@Composable` function
+ - `prev` to create a `@Preview` composable function
+ - `paddp` to add a `padding` Modifier in dp
+ - `weight` to add a `weight` Modifier
+-- `W`, `WR`, `WC` to surround the current composable with a `Box`, `Row`, or `Column`container
++- `W`, `WR`, `WC` to surround the current composable with a `Box`, `Row`, or `Column` container
+ 
+ ## Gutter icons
+ 
+-Gutter icons are contextual actions visible on the sidebar, next to the line
+-numbers. Android Studio introduces several gutter icons specific to Jetpack
+-Compose to ease your developer experience.
++Gutter icons are contextual actions visible on the sidebar, next to the line numbers. Android Studio introduces several gutter icons specific to Jetpack Compose to ease your developer experience.
+ 
+ ### Deploy preview
+ 
+-You can deploy a `@Preview` to the emulator or physical device directly from the
+-gutter icon:
++You can deploy a `@Preview` to the emulator or physical device directly from the gutter icon:
+ 
+ ![The user clicking a preview function's deploy gutter icon, and deploying the
+ preview to the
+@@ -36,18 +30,14 @@ device](https://developer.android.com/static/develop/ui/compose/images/tooling-p
+ 
+ ### Color picker
+ 
+-Whenever a color is defined inside or outside a composable, its preview is shown
+-on the gutter. You can change the color using the color picker by clicking on
+-it like this:
++Whenever a color is defined inside or outside a composable, its preview is shown on the gutter. You can change the color using the color picker by clicking on it like this:
+ 
+ ![The user clicking a color in the gutter, bringing up a color
+ picker](https://developer.android.com/static/develop/ui/compose/images/tooling-color-picker.gif)
+ 
+ ### Image resource picker
+ 
+-Whenever a drawable, vector, or image is defined inside or outside a
+-composable, its preview is shown on the gutter. You can change it using the
+-image resource picker by clicking on it like this:
++Whenever a drawable, vector, or image is defined inside or outside a composable, its preview is shown on the gutter. You can change it using the image resource picker by clicking on it like this:
+ 
+ ![The user clicking an icon in the gutter, bringing up the resource
+ picker](https://developer.android.com/static/develop/ui/compose/images/tooling-resource-picker.gif)

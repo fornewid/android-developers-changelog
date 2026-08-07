@@ -1,0 +1,26 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stack-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stack-source.md
+index 3dce2065..2b362558 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stack-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stack-source.md
+@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
+ source: md.txt
+ ---
+ 
+-When creating a Glimmer Stack component, refer to the following source code in
+-`Stack.kt`:
++When creating a Glimmer Stack component, refer to the following source code in `Stack.kt`:
+ 
++<br />
+ 
+ ```kotlin
+ /*
+@@ -370,6 +370,8 @@ private val SnapAnimationSpec =
+         stiffness = 118f,
+         visibilityThreshold = Int.VisibilityThreshold.toFloat(),
+     )
++
++   
+ ```
+ 
+ <br />
+\ No newline at end of file

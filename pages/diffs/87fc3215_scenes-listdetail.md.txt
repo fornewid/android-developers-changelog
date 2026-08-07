@@ -1,0 +1,28 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/scenes-listdetail.md b/docs/guide/navigation/navigation-3/recipes/scenes-listdetail.md
+index 907115af..7abb5156 100644
+--- a/docs/guide/navigation/navigation-3/recipes/scenes-listdetail.md
++++ b/docs/guide/navigation/navigation-3/recipes/scenes-listdetail.md
+@@ -174,6 +174,8 @@ class ListDetailSceneStrategy<T : Any>(val windowSizeClass: WindowSizeClass) : S
+         )
+     }
+ }
++
++   
+ ```
+ 
+ ```
+@@ -293,6 +295,7 @@ private fun NavBackStack<NavKey>.addDetail(detailRoute: ConversationDetail) {
+     removeIf { it is ConversationDetail }
+     add(detailRoute)
+ }
++   
+ ```
+ 
+ ```
+@@ -438,4 +441,5 @@ fun ProfileScreen() {
+         )
+     }
+ }
++   
+ ```
+\ No newline at end of file

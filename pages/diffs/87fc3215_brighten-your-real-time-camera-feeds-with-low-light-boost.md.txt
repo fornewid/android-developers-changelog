@@ -1,0 +1,73 @@
+diff --git a/docs/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md b/docs/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md
+index c1bb78ad..84ed43a4 100644
+--- a/docs/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md
++++ b/docs/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md
+@@ -42,26 +42,33 @@ There are two ways to implement Low Light Boost to provide the best experience a
+ ### Low Light Boost AE Mode (Hardware)
+ 
+ **Mechanism:**   
++
+ This mode is supported on devices running Android 15 and newer and requires the OEM to have implemented the support in HAL (currently available on Pixel 10 devices). It integrates directly with the camera's Image Signal Processor (ISP). If you set [CaptureRequest.CONTROL_AE_MODE](https://developer.android.com/reference/android/hardware/camera2/CaptureRequest#CONTROL_AE_MODE) to [CameraMetadata.CONTROL_AE_MODE_ON_LOW_LIGHT_BOOST_BRIGHTNESS_PRIORITY](https://developer.android.com/reference/android/hardware/camera2/CameraMetadata#CONTROL_AE_MODE_ON_LOW_LIGHT_BOOST_BRIGHTNESS_PRIORITY), the camera system takes control.
+ 
+ **Behavior:**   
++
+ The HAL/ISP analyzes the scene and adjusts sensor and processing parameters, often including increasing exposure time, to brighten the image. This can yield frames with a significantly improved signal-to-noise ratio (SNR) because the extended exposure time, rather than an increase in digital sensor gain (ISO), allows the sensor to capture more light information.
+ 
+ **Advantage:**   
++
+ Potentially better image quality and power efficiency as it leverages dedicated hardware pathways.
+ 
+ **Trade off:**   
++
+ May result in a lower frame rate in very dark conditions as the sensor needs more time to capture light. The frame rate can drop to as low as 10 FPS in very low light conditions.
+ 
+ ### Google Low Light Boost (Software via Google Play Services)
+ 
+ **Mechanism:**   
++
+ This solution, distributed as an [optional module via Google Play services](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/package-summary), applies post-processing to the camera stream. It uses a sophisticated realtime image enhancement technology called HDRNet.
+ 
+ **Google HDRNet:**   
++
+ This deep learning model analyzes the image at a lower resolution to predict a compact set of parameters (a bilateral grid). This grid then guides the efficient, spatially-varying enhancement of the full-resolution image on the GPU. The model is trained to brighten and improve image quality in low-light conditions, with a focus on face visibility.
+ 
+ **Process Orchestration:**   
++
+ The HDRNet model and its accompanying logic are orchestrated by the Low Light Boost processor. This includes:
+ 
+ 1. Scene Analysis:  
+@@ -74,9 +81,11 @@ The HDRNet model and its accompanying logic are orchestrated by the Low Light Bo
+ ![low-light-boost-processor-diagram.png](https://developer.android.com/static/blog/assets/low_light_boost_processor_diagram_0dd70eed34_1IY9im.webp)
+ 
+ **Advantage:**   
++
+ Works on a broader range of devices (currently supports Samsung S22 Ultra, S23 Ultra, S24 Ultra, S25 Ultra, and Pixel 6 through Pixel 9) without requiring specific HAL support. Maintains the camera's frame rate as it's a post-processing effect.
+ 
+ **Trade-off:**   
++
+ As a post-processing method, the quality is limited by the information present in the frames delivered by the sensor. It cannot recover details lost due to extreme darkness at the sensor level.
+ 
+ By offering both hardware and software pathways, Low Light Boost provides a scalable solution to enhance low-light camera performance across the Android ecosystem. Developers should prioritize the AE mode where available and use the Google Low Light Boost as a robust fallback.
+@@ -240,8 +249,7 @@ Written by:
+ 
+   ###### Developer Relations Engineer
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/donovan-mcmurray) ![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp) ![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/donovan-mcmurray) ![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp) ![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp)
+ Continue reading
+ - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -263,8 +271,5 @@ Continue reading
+   [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

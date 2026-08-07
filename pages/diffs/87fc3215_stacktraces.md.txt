@@ -1,0 +1,95 @@
+diff --git a/docs/develop/ui/compose/tooling/stacktraces.md b/docs/develop/ui/compose/tooling/stacktraces.md
+index caa8f38f..ec74ec5d 100644
+--- a/docs/develop/ui/compose/tooling/stacktraces.md
++++ b/docs/develop/ui/compose/tooling/stacktraces.md
+@@ -4,24 +4,17 @@ url: https://developer.android.com/develop/ui/compose/tooling/stacktraces
+ source: md.txt
+ ---
+ 
+-Jetpack Compose executes your code in multiple different phases, which causes
+-some parts of the `@Composable` function to be executed separately from each
+-other. Crashes in these phases can result in stack traces that are hard to
+-decipher, making it difficult to pinpoint the exact function or line of code
+-that caused the crash.
++Jetpack Compose executes your code in multiple different phases, which causes some parts of the `@Composable` function to be executed separately from each other. Crashes in these phases can result in stack traces that are hard to decipher, making it difficult to pinpoint the exact function or line of code that caused the crash.
+ 
+ ## Add source info to stack traces
+ 
+-To improve stack trace readability, an opt-in API provides richer crash location
+-details, including composable names and locations, enabling you to:
++To improve stack trace readability, an opt-in API provides richer crash location details, including composable names and locations, enabling you to:
+ 
+ - Efficiently identify and resolve crash sources
+ - Isolate crashes for reproducible samples
+ - Investigate crashes that previously only showed internal stack frames
+ 
+-The Compose runtime can detect the crash location in composition and reconstruct
+-a stack trace based on your `@Composable` hierarchy. The stack trace is appended
+-for crashes in:
++The Compose runtime can detect the crash location in composition and reconstruct a stack trace based on your `@Composable` hierarchy. The stack trace is appended for crashes in:
+ 
+ - Composition
+ - `DisposableEffect` and `LaunchedEffect` (except for `onDispose` or cancellation)
+@@ -33,6 +26,7 @@ To enable this feature, add the following lines to the application entry point:
+ > [!WARNING]
+ > **Warning:** Verify that you are using Kotlin 2.3.0+ and have R8 enabled when using `Auto` or `GroupKeys` option in production builds.
+ 
++<br />
+ 
+ ```kotlin
+ // Enable stack traces at application level: onCreate
+@@ -48,12 +42,12 @@ class SampleStackTracesEnabledApp : Application() {
+         Composer.setDiagnosticStackTraceMode(ComposeStackTraceMode.SourceInformation)
+     }
+ }
++   
+ ```
+ 
+ <br />
+ 
+-Ideally, perform this configuration before creating any compositions to verify
+-that the stack trace information is collected correctly.
++Ideally, perform this configuration before creating any compositions to verify that the stack trace information is collected correctly.
+ 
+ There are four options for the [`ComposeStackTraceMode`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/tooling/ComposeStackTraceMode):
+ 
+@@ -62,8 +56,7 @@ There are four options for the [`ComposeStackTraceMode`](https://developer.andro
+ - [`SourceInformation`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/tooling/ComposeStackTraceMode#SourceInformation()): Useful for non-minified builds, collects source information and adds it to the stack trace. The results are more accurate, but incur significant performance cost that is similar to attaching the Layout inspector. They are created to be used in debug versions of the apps to get accurate readings on a crash that requires more information about its location. The source information is removed from minified apps to optimize the binary size and performance.
+ - [`None`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/tooling/ComposeStackTraceMode#None()): No extra stack trace details added.
+ 
+-When using the `SourceInformation` option, the stack trace then appears as a
+-`DiagnosticComposeException` in the suppressed exception list:
++When using the `SourceInformation` option, the stack trace then appears as a `DiagnosticComposeException` in the suppressed exception list:
+ 
+     java.lang.IllegalStateException: Test layout error
+         at <original trace>
+@@ -97,23 +90,14 @@ There are a few known issues with stack trace frames:
+ 
+ ### Source information stack traces
+ 
+-Missing line numbers (`<unknown line>`) in the first stack frame for crashes in
+-composition. Since source information introspection is happening after a crash,
+-the slot table data can be incomplete and drop line number.
+-`ReusableComposeNode` and `remember` don't produce source information, so you
+-will see `<unknown line>` in the stack frames for those functions.
++Missing line numbers (`<unknown line>`) in the first stack frame for crashes in composition. Since source information introspection is happening after a crash, the slot table data can be incomplete and drop line number. `ReusableComposeNode` and `remember` don't produce source information, so you will see `<unknown line>` in the stack frames for those functions.
+ 
+ ### Group keys stack traces
+ 
+-`GroupKeys` based stack traces can only point to the first line of the
+-`@Composable` function by design. They also don't contain any data for any
+-functions that don't produce a group (such as inline or non-Unit returning
+-functions)
++`GroupKeys` based stack traces can only point to the first line of the `@Composable` function by design. They also don't contain any data for any functions that don't produce a group (such as inline or non-Unit returning functions)
+ 
+ ## Stack trace collection crashes
+ 
+-If the stack trace collection crashes for any reason, that exception is appended
+-as a suppressed exception instead of `DiagnosticComposeException`.
++If the stack trace collection crashes for any reason, that exception is appended as a suppressed exception instead of `DiagnosticComposeException`.
+ 
+-Report any suppressed crashes or stack trace inconsistencies to the [Compose
+-Runtime component](https://issuetracker.google.com/issues/new?component=610764&template=1424126).
+\ No newline at end of file
++Report any suppressed crashes or stack trace inconsistencies to the [Compose Runtime component](https://issuetracker.google.com/issues/new?component=610764&template=1424126).
+\ No newline at end of file

@@ -1,0 +1,165 @@
+diff --git a/docs/develop/ui/compose/components/datepickers.md b/docs/develop/ui/compose/components/datepickers.md
+index 8a587b7c..50e0060e 100644
+--- a/docs/develop/ui/compose/components/datepickers.md
++++ b/docs/develop/ui/compose/components/datepickers.md
+@@ -4,8 +4,7 @@ url: https://developer.android.com/develop/ui/compose/components/datepickers
+ source: md.txt
+ ---
+ 
+-[Date pickers](https://m3.material.io/components/date-pickers/overview) let users select a date, a date range, or both. They use a
+-calendar dialog or text input to let users select dates.
++[Date pickers](https://m3.material.io/components/date-pickers/overview) let users select a date, a date range, or both. They use a calendar dialog or text input to let users select dates.
+ 
+ ## Types
+ 
+@@ -15,8 +14,7 @@ There are three types of date pickers:
+ - **Modal**: Appears as a dialog overlaying the app's content. This provides a clear focus on date selection.
+ - **Modal input**: Combines a text field with a modal date picker.
+ 
+-You can implement these date pickers in your app using the following
+-composables:
++You can implement these date pickers in your app using the following composables:
+ 
+ - [`DatePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DatePicker.composable): General composable for a date picker. The container you use determines whether it is docked or model.
+ - [`DatePickerDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DatePickerDialog.composable#DatePickerDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.material3.DatePickerColors,androidx.compose.ui.window.DialogProperties,kotlin.Function1)): The container for both modal and modal input date pickers.
+@@ -27,20 +25,15 @@ composables:
+ 
+ ## State
+ 
+-The key parameter that the different date picker composables share in common is
+-`state`, which takes either a [`DatePickerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DatePickerState) or
+-[`DateRangePickerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DateRangePickerState) object. Their properties capture information about
+-the user's selection using the date picker, such as the current selected date.
++The key parameter that the different date picker composables share in common is `state`, which takes either a [`DatePickerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DatePickerState) or [`DateRangePickerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DateRangePickerState) object. Their properties capture information about the user's selection using the date picker, such as the current selected date.
+ 
+-For more information on how you can make use of the selected date, see the [Use
+-selected date section](https://developer.android.com/develop/ui/compose/components/datepickers#selected-date).
++For more information on how you can make use of the selected date, see the [Use selected date section](https://developer.android.com/develop/ui/compose/components/datepickers#selected-date).
+ 
+ ## Docked date picker
+ 
+-In the following example, there is a text field that prompts the user to input
+-their date of birth. When they click the calendar icon in the field, it opens a
+-docked date picker below the input field.
++In the following example, there is a text field that prompts the user to input their date of birth. When they click the calendar icon in the field, it opens a docked date picker below the input field.
+ 
++<br />
+ 
+ ```kotlin
+ @Composable
+@@ -136,6 +129,7 @@ fun convertMillisToDate(millis: Long): String {
+     val formatter = SimpleDateFormat("MM/dd/yyyy", Locale.getDefault())
+     return formatter.format(Date(millis))
+ }
++   
+ ```
+ 
+ <br />
+@@ -161,9 +155,9 @@ After clicking the calendar icon, this implementation appears as follows:
+ 
+ ## Modal date picker
+ 
+-A modal date picker displays a dialog that floats over the screen. To implement
+-it, create a [`DatePickerDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DatePickerDialog.composable#DatePickerDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.material3.DatePickerColors,androidx.compose.ui.window.DialogProperties,kotlin.Function1)) and pass it a [`DatePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DatePicker.composable).
++A modal date picker displays a dialog that floats over the screen. To implement it, create a [`DatePickerDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DatePickerDialog.composable#DatePickerDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.material3.DatePickerColors,androidx.compose.ui.window.DialogProperties,kotlin.Function1)) and pass it a [`DatePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DatePicker.composable).
+ 
++<br />
+ 
+ ```kotlin
+ @Composable
+@@ -192,6 +186,7 @@ fun DatePickerModal(
+         DatePicker(state = datePickerState)
+     }
+ }
++   
+ ```
+ 
+ <br />
+@@ -210,9 +205,9 @@ This implementation appears as follows:
+ 
+ ## Input modal date picker
+ 
+-A modal date picker with input displays a dialog that floats over the screen and
+-allows the user to input a date.
++A modal date picker with input displays a dialog that floats over the screen and allows the user to input a date.
+ 
++<br />
+ 
+ ```kotlin
+ @Composable
+@@ -241,14 +236,14 @@ fun DatePickerModalInput(
+         DatePicker(state = datePickerState)
+     }
+ }
++   
+ ```
+ 
+ <br />
+ 
+ ### Key points about the code
+ 
+-This is very much the same as the [modal date picker example](https://developer.android.com/develop/ui/compose/components/datepickers#modal). The primary
+-difference is the following:
++This is very much the same as the [modal date picker example](https://developer.android.com/develop/ui/compose/components/datepickers#modal). The primary difference is the following:
+ 
+ - The `initialDisplayMode` parameter sets the initial display mode to `DisplayMode.Input`.
+ 
+@@ -256,17 +251,13 @@ difference is the following:
+ 
+ ## Date picker with range
+ 
+-You can create a date picker that lets the user select a range between a start
+-and end date. To do so, use [`DateRangePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DateRangePicker.composable).
++You can create a date picker that lets the user select a range between a start and end date. To do so, use [`DateRangePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DateRangePicker.composable).
+ 
+-The use of `DateRangePicker` is essentially the same as `DatePicker`. You can
+-use it for a [docked picker](https://developer.android.com/develop/ui/compose/components/datepickers#docked) as a child of `PopUp`, or you can use it as a
+-[modal picker](https://developer.android.com/develop/ui/compose/components/datepickers#modal) and pass it to `DatePickerDialog`. The primary difference is
+-that you use [`DateRangePickerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DateRangePickerState) instead of [`DatePickerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DatePickerState).
++The use of `DateRangePicker` is essentially the same as `DatePicker`. You can use it for a [docked picker](https://developer.android.com/develop/ui/compose/components/datepickers#docked) as a child of `PopUp`, or you can use it as a [modal picker](https://developer.android.com/develop/ui/compose/components/datepickers#modal) and pass it to `DatePickerDialog`. The primary difference is that you use [`DateRangePickerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DateRangePickerState) instead of [`DatePickerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DatePickerState).
+ 
+-The following snippet demonstrates how to create a modal date picker with a
+-range:
++The following snippet demonstrates how to create a modal date picker with a range:
+ 
++<br />
+ 
+ ```kotlin
+ @Composable
+@@ -314,6 +305,7 @@ fun DateRangePickerModal(
+         )
+     }
+ }
++   
+ ```
+ 
+ <br />
+@@ -333,11 +325,9 @@ This implementation appears as follows:
+ 
+ ## Use selected date
+ 
+-To capture the selected date, track it in the parent composable as a `Long` and
+-pass the value to the `DatePicker` in `onDateSelected`. The following snippet
+-demonstrates this, though you can see the full implementation in the [official
+-snippets app](https://github.com/android/snippets/tree/main/compose/snippets/src/main/java/com/example/compose/snippets).
++To capture the selected date, track it in the parent composable as a `Long` and pass the value to the `DatePicker` in `onDateSelected`. The following snippet demonstrates this, though you can see the full implementation in the [official snippets app](https://github.com/android/snippets/tree/main/compose/snippets/src/main/java/com/example/compose/snippets).
+ 
++<br />
+ 
+ ```kotlin
+ // ...
+@@ -360,12 +350,12 @@ snippets app](https://github.com/android/snippets/tree/main/compose/snippets/src
+         )
+     }
+ // ...
++    
+ ```
+ 
+ <br />
+ 
+-Essentially the same applies for [range date pickers](https://developer.android.com/develop/ui/compose/components/datepickers#range), though you need to
+-use a `Pair<Long?, Long?>` or a data class to capture the start and end values.
++Essentially the same applies for [range date pickers](https://developer.android.com/develop/ui/compose/components/datepickers#range), though you need to use a `Pair<Long?, Long?>` or a data class to capture the start and end values.
+ 
+ > [!IMPORTANT]
+ > **Important:** Instead of using a `Long` for the selected date, you could pass the state object itself from the parent composable to the child. Doing so would let you capture the full state in the parent.

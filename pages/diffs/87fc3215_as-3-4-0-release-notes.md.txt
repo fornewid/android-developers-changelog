@@ -1,0 +1,333 @@
+diff --git a/docs/studio/releases/past-releases/as-3-4-0-release-notes.md b/docs/studio/releases/past-releases/as-3-4-0-release-notes.md
+index 7a40a0fc..3d80535d 100644
+--- a/docs/studio/releases/past-releases/as-3-4-0-release-notes.md
++++ b/docs/studio/releases/past-releases/as-3-4-0-release-notes.md
+@@ -12,8 +12,7 @@ source: md.txt
+ 
+ <br />
+ 
+-Android Studio 3.4 is a major release that includes a variety of new features
+-and improvements.
++Android Studio 3.4 is a major release that includes a variety of new features and improvements.
+ 
+ <br />
+ 
+@@ -27,22 +26,15 @@ and improvements.
+ 
+ **3.4.2 (July 2019)**
+ 
+-
+-This minor update includes various bug fixes and performance improvements.
+-To see a list of notable bug fixes, read the related post on the
+-[Release Updates blog](https://androidstudio.googleblog.com/2019/07/android-studio-342-available.html).
++This minor update includes various bug fixes and performance improvements. To see a list of notable bug fixes, read the related post on the [Release Updates blog](https://androidstudio.googleblog.com/2019/07/android-studio-342-available.html).
+ 
+ **3.4.1 (May 2019)**
+ 
+-
+-This minor update includes various bug fixes and performance improvements.
+-To see a list of notable bug fixes, read the related post on the
+-[Release Updates blog](https://androidstudio.googleblog.com/2019/05/android-studio-341-available.html).
++This minor update includes various bug fixes and performance improvements. To see a list of notable bug fixes, read the related post on the [Release Updates blog](https://androidstudio.googleblog.com/2019/05/android-studio-341-available.html).
+ 
+ **3.4.0 known issues**
+ 
+-- Profiling is disabled when deploying your app to a device
+-  running Android Q Beta.
++- Profiling is disabled when deploying your app to a device running Android Q Beta.
+ 
+ - When using the Data Binding Library, `LiveDataListener.onChanged()` might fail with a NPE. A fix for this issue will be included in Android Studio 3.4.1 and is already available in the latest [Preview version](https://developer.android.com/studio/preview) of Android Studio 3.5. (See [issue #122066788](https://issuetracker.google.com/122066788))
+ 
+@@ -56,9 +48,7 @@ To see a list of notable bug fixes, read the related post on the
+ 
+ <br />
+ 
+-The core Android Studio IDE has been updated with improvements from IntelliJ
+-IDEA through the
+-[2018.3.4 release](https://blog.jetbrains.com/idea/2019/01/intellij-idea-2018-3-4-is-released/).
++The core Android Studio IDE has been updated with improvements from IntelliJ IDEA through the [2018.3.4 release](https://blog.jetbrains.com/idea/2019/01/intellij-idea-2018-3-4-is-released/).
+ 
+ <br />
+ 
+@@ -70,8 +60,7 @@ IDEA through the
+ 
+ <br />
+ 
+-For information on what's new in Android Gradle plugin 3.4.0, see its
+-[release notes](https://developer.android.com/studio/releases/gradle-plugin).
++For information on what's new in Android Gradle plugin 3.4.0, see its [release notes](https://developer.android.com/studio/releases/gradle-plugin).
+ 
+ <br />
+ 
+@@ -83,18 +72,13 @@ For information on what's new in Android Gradle plugin 3.4.0, see its
+ 
+ <br />
+ 
+-The new Project Structure Dialog (PSD) makes it easier to update
+-dependencies and configure different aspects of your project, such as modules,
+-build variants, signing configurations, and build variables.
++The new Project Structure Dialog (PSD) makes it easier to update dependencies and configure different aspects of your project, such as modules, build variants, signing configurations, and build variables.
+ 
+ <br />
+ 
+ <br />
+ 
+-You can open the PSD by selecting **File \> Project Structure** from the menu
+-bar. You can also open the PSD by pressing `Ctrl+Shift+Alt+S` on Windows and
+-Linux, or `Command+;` (semicolon) on macOS. You can find descriptions of some of
+-the new and updated sections of the PSD below.
++You can open the PSD by selecting **File \> Project Structure** from the menu bar. You can also open the PSD by pressing `Ctrl+Shift+Alt+S` on Windows and Linux, or `Command+;` (semicolon) on macOS. You can find descriptions of some of the new and updated sections of the PSD below.
+ 
+ <br />
+ 
+@@ -106,9 +90,7 @@ the new and updated sections of the PSD below.
+ 
+ <br />
+ 
+-The new variables section of the PSD allows you to create and manage build
+-variables, such as those to keep version numbers for dependencies consistent
+-across your project.
++The new variables section of the PSD allows you to create and manage build variables, such as those to keep version numbers for dependencies consistent across your project.
+ 
+ <br />
+ 
+@@ -123,10 +105,7 @@ across your project.
+ 
+ <br />
+ 
+-**Note:** If your existing build configuration files assign
+-values through complex Groovy scripts, you may not be able to edit those values
+-through the PSD. Additionally, you can not edit build files written in Kotlin
+-using the PSD.
++**Note:** If your existing build configuration files assign values through complex Groovy scripts, you may not be able to edit those values through the PSD. Additionally, you can not edit build files written in Kotlin using the PSD.
+ 
+ <br />
+ 
+@@ -138,10 +117,7 @@ using the PSD.
+ 
+ <br />
+ 
+-Configure properties that are applied to all build variants in an existing
+-module or add new modules to your project from the **Modules** section. For
+-example, this is where you can configure `defaultConfig` properties or manage
+-signing configurations.
++Configure properties that are applied to all build variants in an existing module or add new modules to your project from the **Modules** section. For example, this is where you can configure `defaultConfig` properties or manage signing configurations.
+ 
+ <br />
+ 
+@@ -153,9 +129,7 @@ signing configurations.
+ 
+ <br />
+ 
+-Inspect and visualize each dependency in the dependency graph of
+-your project, as resolved by Gradle during project sync, by following these
+-steps:
++Inspect and visualize each dependency in the dependency graph of your project, as resolved by Gradle during project sync, by following these steps:
+ 
+ <br />
+ 
+@@ -171,17 +145,13 @@ steps:
+ 
+ <br />
+ 
+-You can also quickly search for and add dependencies to your project by first
+-selecting a module from the **Dependencies** section of the PSD, clicking
+-the (+) button in the **Declared Dependencies** section, and selecting the type
+-of dependency you want to add.
++You can also quickly search for and add dependencies to your project by first selecting a module from the **Dependencies** section of the PSD, clicking the (+) button in the **Declared Dependencies** section, and selecting the type of dependency you want to add.
+ 
+ <br />
+ 
+ <br />
+ 
+-Depending on the type of dependency you select, you should see a dialog,
+-similar to the one below, that helps you add the dependency to the module.
++Depending on the type of dependency you select, you should see a dialog, similar to the one below, that helps you add the dependency to the module.
+ 
+ <br />
+ 
+@@ -195,9 +165,7 @@ similar to the one below, that helps you add the dependency to the module.
+ 
+ <br />
+ 
+-In this section of the PSD, create and configure build variants and product
+-flavors for each module in your project. You can add manifest placeholders, add
+-ProGuard files, and assign signing keys, and more.
++In this section of the PSD, create and configure build variants and product flavors for each module in your project. You can add manifest placeholders, add ProGuard files, and assign signing keys, and more.
+ 
+ <br />
+ 
+@@ -211,8 +179,7 @@ ProGuard files, and assign signing keys, and more.
+ 
+ <br />
+ 
+-See suggested updates for project dependencies and build variables in the
+-**Suggestions** section, as shown below.
++See suggested updates for project dependencies and build variables in the **Suggestions** section, as shown below.
+ 
+ <br />
+ 
+@@ -226,10 +193,7 @@ See suggested updates for project dependencies and build variables in the
+ 
+ <br />
+ 
+-Resource Manager is a new tool window for importing, creating, managing, and
+-using resources in your app. You can open the tool window by selecting
+-**View \> Tool Windows \> Resource Manager** from the menu bar. The Resource
+-Manager allows you to do the following:
++Resource Manager is a new tool window for importing, creating, managing, and using resources in your app. You can open the tool window by selecting **View \> Tool Windows \> Resource Manager** from the menu bar. The Resource Manager allows you to do the following:
+ 
+ <br />
+ 
+@@ -248,8 +212,7 @@ Manager allows you to do the following:
+ 
+ <br />
+ 
+-To learn more, read the guide about how to
+-[Manage app resources](https://developer.android.com/studio/write/resource-manager).
++To learn more, read the guide about how to [Manage app resources](https://developer.android.com/studio/write/resource-manager).
+ 
+ <br />
+ 
+@@ -261,20 +224,13 @@ To learn more, read the guide about how to
+ 
+ <br />
+ 
+-When you provide debugging symbol files for the `.so` shared libraries inside
+-your APK, Android Studio verifies that the
+-[build ID](https://linux.die.net/man/1/ld) of the provided symbol files match
+-the build ID of the `.so` libraries inside the APK.
++When you provide debugging symbol files for the `.so` shared libraries inside your APK, Android Studio verifies that the [build ID](https://linux.die.net/man/1/ld) of the provided symbol files match the build ID of the `.so` libraries inside the APK.
+ 
+ <br />
+ 
+ <br />
+ 
+-If you build the native libraries in your APK with a build ID, Android Studio
+-checks whether the build ID in your symbol files matches the build ID in your
+-native libraries and rejects the symbol files if there is a mismatch. If
+-you did not build with a build ID, then providing incorrect symbol files may
+-cause problems with debugging.
++If you build the native libraries in your APK with a build ID, Android Studio checks whether the build ID in your symbol files matches the build ID in your native libraries and rejects the symbol files if there is a mismatch. If you did not build with a build ID, then providing incorrect symbol files may cause problems with debugging.
+ 
+ <br />
+ 
+@@ -286,19 +242,13 @@ cause problems with debugging.
+ 
+ <br />
+ 
+-R8 integrates desugaring, shrinking, obfuscating,
+-optimizing, and dexing all in one step---resulting in
+-[noticeable build performance improvements](https://www.google.com/url?q=https://android-developers.googleblog.com/2018/11/r8-new-code-shrinker-from-google-is.html&sa=D&ust=1551922493258000&usg=AFQjCNH0N1wuMX645n7giw0wjikzjm3WCA).
+-R8 was introduced in Android Gradle plugin 3.3.0 and
+-is now enabled by default for both app and Android library projects using
+-plugin 3.4.0 and higher.
++R8 integrates desugaring, shrinking, obfuscating, optimizing, and dexing all in one step---resulting in [noticeable build performance improvements](https://www.google.com/url?q=https://android-developers.googleblog.com/2018/11/r8-new-code-shrinker-from-google-is.html&sa=D&ust=1551922493258000&usg=AFQjCNH0N1wuMX645n7giw0wjikzjm3WCA). R8 was introduced in Android Gradle plugin 3.3.0 and is now enabled by default for both app and Android library projects using plugin 3.4.0 and higher.
+ 
+ <br />
+ 
+ <br />
+ 
+-The image below provides a high-level overview of the compile process
+-before R8 was introduced.
++The image below provides a high-level overview of the compile process before R8 was introduced.
+ 
+ <br />
+ 
+@@ -307,8 +257,7 @@ desugaring.](https://developer.android.com/static/studio/images/build/r8/compile
+ 
+ <br />
+ 
+-Now, with R8, desugaring, shrinking, obfuscating, optimizing, and dexing (D8)
+-are all completed in one step, as illustrated below.
++Now, with R8, desugaring, shrinking, obfuscating, optimizing, and dexing (D8) are all completed in one step, as illustrated below.
+ 
+ <br />
+ 
+@@ -317,23 +266,13 @@ are all performed in a single compile step.](https://developer.android.com/stati
+ 
+ <br />
+ 
+-Keep in mind, R8 is designed to work with your existing ProGuard rules, so
+-you'll likely not need to take any actions to benefit from R8. However,
+-because it's a different technology to ProGuard that's designed specifically
+-for Android projects, shrinking and optimization may result in removing code
+-that ProGuard may have not. So, in this unlikely situation, you might need to
+-add additional rules to keep that code in your build output.
++Keep in mind, R8 is designed to work with your existing ProGuard rules, so you'll likely not need to take any actions to benefit from R8. However, because it's a different technology to ProGuard that's designed specifically for Android projects, shrinking and optimization may result in removing code that ProGuard may have not. So, in this unlikely situation, you might need to add additional rules to keep that code in your build output.
+ 
+ <br />
+ 
+ <br />
+ 
+-If you experience issues using R8, read the
+-[R8 compatibility FAQ](https://r8.googlesource.com/r8/+/refs/heads/master/compatibility-faq.md)
+-to check if there's a solution to your issue. If a solution isn't documented,
+-please [report a bug](https://issuetracker.google.com/issues/new?component=326788&template=1025938).
+-You can disable R8 by adding one of the following lines to your project's
+-`gradle.properties` file:
++If you experience issues using R8, read the [R8 compatibility FAQ](https://r8.googlesource.com/r8/+/refs/heads/master/compatibility-faq.md) to check if there's a solution to your issue. If a solution isn't documented, please [report a bug](https://issuetracker.google.com/issues/new?component=326788&template=1025938). You can disable R8 by adding one of the following lines to your project's `gradle.properties` file:
+ 
+ <br />
+ 
+@@ -349,11 +288,7 @@ You can disable R8 by adding one of the following lines to your project's
+ 
+ <br />
+ 
+-**Note:** For a given build type, if you set
+-`useProguard` to `false` in your app
+-module's `build.gradle` file, the Android Gradle plugin uses R8 to shrink your
+-app's code for that build type, regardless of whether you disable R8 in your
+-project's `gradle.properties` file.
++**Note:** For a given build type, if you set `useProguard` to `false` in your app module's `build.gradle` file, the Android Gradle plugin uses R8 to shrink your app's code for that build type, regardless of whether you disable R8 in your project's `gradle.properties` file.
+ 
+ <br />
+ 
+@@ -365,9 +300,7 @@ project's `gradle.properties` file.
+ 
+ <br />
+ 
+-All argument types supported by the Navigation component are now supported in
+-the Navigation Editor. For more information on supported types, see
+-[Pass data between destinations](https://developer.android.com/topic/libraries/architecture/navigation/navigation-pass-data).
++All argument types supported by the Navigation component are now supported in the Navigation Editor. For more information on supported types, see [Pass data between destinations](https://developer.android.com/topic/libraries/architecture/navigation/navigation-pass-data).
+ 
+ <br />
+ 
+@@ -375,9 +308,7 @@ the Navigation Editor. For more information on supported types, see
+ 
+ ## Layout Editor improvements {:#layout-editor}
+ 
+-The **Attributes** pane in the Layout Editor has been streamlined into a single
+-page with sections you can expand to reveal attributes you can configure. The
+-**Attributes** pane also includes the following updates:
++The **Attributes** pane in the Layout Editor has been streamlined into a single page with sections you can expand to reveal attributes you can configure. The **Attributes** pane also includes the following updates:
+ 
+ <br />
+ 
+@@ -397,12 +328,7 @@ page with sections you can expand to reveal attributes you can configure. The
+ 
+ <br />
+ 
+-If you start using certain Jetpack and Firebase classes in your code, a new
+-intention action suggests adding the required Gradle library dependency to your
+-project, if you haven't already done so. For example, if you reference the
+-`WorkManager` class without first importing the required
+-`android.arch.work:work-runtime` dependency, an intention action lets you do so
+-easily in a single click, as shown below.
++If you start using certain Jetpack and Firebase classes in your code, a new intention action suggests adding the required Gradle library dependency to your project, if you haven't already done so. For example, if you reference the `WorkManager` class without first importing the required `android.arch.work:work-runtime` dependency, an intention action lets you do so easily in a single click, as shown below.
+ 
+ <br />
+ 
+@@ -410,9 +336,6 @@ easily in a single click, as shown below.
+ 
+ <br />
+ 
+-In particular, because Jetpack repackaged the support library into discrete
+-packages that are easier to manage and update, this intention action helps you
+-quickly add only the dependencies you need for the Jetpack components you want
+-to use.
++In particular, because Jetpack repackaged the support library into discrete packages that are easier to manage and update, this intention action helps you quickly add only the dependencies you need for the Jetpack components you want to use.
+ 
+ <br />
+\ No newline at end of file

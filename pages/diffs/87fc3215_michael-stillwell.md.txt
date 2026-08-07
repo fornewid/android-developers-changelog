@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/michael-stillwell.md b/docs/blog/authors/michael-stillwell.md
+index 4e10421c..57b48c1c 100644
+--- a/docs/blog/authors/michael-stillwell.md
++++ b/docs/blog/authors/michael-stillwell.md
+@@ -17,8 +17,5 @@ Developer Relations Engineer
+   2 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

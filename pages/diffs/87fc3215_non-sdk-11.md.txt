@@ -1,0 +1,96 @@
+diff --git a/docs/about/versions/11/non-sdk-11.md b/docs/about/versions/11/non-sdk-11.md
+index 530ac9a1..bc9be528 100644
+--- a/docs/about/versions/11/non-sdk-11.md
++++ b/docs/about/versions/11/non-sdk-11.md
+@@ -4,33 +4,15 @@ url: https://developer.android.com/about/versions/11/non-sdk-11
+ source: md.txt
+ ---
+ 
+-Android 11 includes updated lists of restricted non-SDK
+-interfaces based on collaboration with Android developers and the latest
+-internal testing. Whenever possible, we make sure that public alternatives are
+-available before we restrict non-SDK interfaces.
++Android 11 includes updated lists of restricted non-SDK interfaces based on collaboration with Android developers and the latest internal testing. Whenever possible, we make sure that public alternatives are available before we restrict non-SDK interfaces.
+ 
+-If your app does not target Android 11, some of these changes
+-might not immediately affect you. However, while you can currently use some
+-non-SDK interfaces ([depending on your app's target API level](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names)),
+-using any non-SDK method or field always carries a high risk of breaking your
+-app.
++If your app does not target Android 11, some of these changes might not immediately affect you. However, while you can currently use some non-SDK interfaces ([depending on your app's target API level](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names)), using any non-SDK method or field always carries a high risk of breaking your app.
+ 
+-If you are unsure if your app uses non-SDK interfaces, you can [test your
+-app](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk)
+-to find out. If your app relies on non-SDK interfaces, you should begin planning
+-a migration to SDK alternatives. Nevertheless, we understand that some apps have
+-valid use cases for using non-SDK interfaces. If you cannot find an alternative
+-to using a non-SDK interface for a feature in your app, you should [request a
+-new public API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request).
++If you are unsure if your app uses non-SDK interfaces, you can [test your app](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk) to find out. If your app relies on non-SDK interfaces, you should begin planning a migration to SDK alternatives. Nevertheless, we understand that some apps have valid use cases for using non-SDK interfaces. If you cannot find an alternative to using a non-SDK interface for a feature in your app, you should [request a new public API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request).
+ 
+ ## Non-SDK test APIs now restricted
+ 
+-Starting in Android 11, non-SDK test APIs---those annotated with
+-`@TestApi` in AOSP---are now blocked by default. These non-SDK interfaces are
+-used to perform internal testing on the Android platform. Apps can continue to
+-use non-SDK test APIs that are not [restricted at their target API
+-level](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names),
+-but any new test APIs will be included in the blocklist.
++Starting in Android 11, non-SDK test APIs---those annotated with `@TestApi` in AOSP---are now blocked by default. These non-SDK interfaces are used to perform internal testing on the Android platform. Apps can continue to use non-SDK test APIs that are not [restricted at their target API level](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names), but any new test APIs will be included in the blocklist.
+ 
+ ## List changes for Android 11
+ 
+@@ -39,8 +21,7 @@ The list changes in Android 11 fall into the following categories:
+ - Non-SDK interfaces that were unsupported (greylisted) in Android 10 (API level 29) that are now [blocked in Android 11 (API level 30)](https://developer.android.com/about/versions/11/non-sdk-11#new-blocked).
+ - Non-SDK interfaces that were [added to the Android SDK in Android 11](https://developer.android.com/about/versions/11/non-sdk-11#new-sdk).
+ 
+-For a complete list of all non-SDK interfaces for Android 11 (API level 30),
+-download the following file: [`hiddenapi-flags.csv`](https://dl.google.com/developers/android/rvc/non-sdk/hiddenapi-flags.csv).
++For a complete list of all non-SDK interfaces for Android 11 (API level 30), download the following file: [`hiddenapi-flags.csv`](https://dl.google.com/developers/android/rvc/non-sdk/hiddenapi-flags.csv).
+ 
+ ### Non-SDK interfaces that are now blocked in Android 11
+ 
+@@ -52,28 +33,16 @@ download the following file: [`hiddenapi-flags.csv`](https://dl.google.com/devel
+ 
+ ### How to toggle
+ 
+-As you test your app's compatibility with Android 11, you can toggle this change on or off
+-using the following ADB commands:
++As you test your app's compatibility with Android 11, you can toggle this change on or off using the following ADB commands:
+ 
+     adb shell am compat enable (149994052|HIDE_MAXTARGETSDK_Q_HIDDEN_APIS) PACKAGE_NAME
+     adb shell am compat disable (149994052|HIDE_MAXTARGETSDK_Q_HIDDEN_APIS) PACKAGE_NAME
+ 
+-For more information about the compatibility framework and toggling changes, see
+-[Test and debug platform behavior changes in
+-your app](https://developer.android.com/guide/app-compatibility/test-debug).
++For more information about the compatibility framework and toggling changes, see [Test and debug platform behavior changes in your app](https://developer.android.com/guide/app-compatibility/test-debug).
+ 
+-The following code box lists all of the non-SDK interfaces that were unsupported
+-(greylisted) in Android 10 (API level 29) that are blocked in Android 11 (API
+-level 30). That is, these interfaces belong to the `max-target-q`
+-(`greylist-max-q`) list, so your app can only use these interfaces if it targets
+-Android 10 (API level 29) or lower.
++The following code box lists all of the non-SDK interfaces that were unsupported (greylisted) in Android 10 (API level 29) that are blocked in Android 11 (API level 30). That is, these interfaces belong to the `max-target-q` (`greylist-max-q`) list, so your app can only use these interfaces if it targets Android 10 (API level 29) or lower.
+ 
+-Our goal is to make sure that public alternatives are available before we
+-restrict non-SDK interfaces, and we understand that your app might have a valid
+-use case for using these interfaces. If an interface that your app uses in a
+-prior version is blocked in Android 11, you should [request a new public
+-API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request)
+-for that interface.
++Our goal is to make sure that public alternatives are available before we restrict non-SDK interfaces, and we understand that your app might have a valid use case for using these interfaces. If an interface that your app uses in a prior version is blocked in Android 11, you should [request a new public API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request) for that interface.
+ 
+ ```
+ Landroid/app/Activity;->mParent:Landroid/app/Activity;   # Use androidx.fragment.app.Fragment and androidx.fragment.app.FragmentManager instead.
+@@ -918,9 +887,7 @@ Lcom/android/internal/R$xml;->power_profile:I
+ 
+ ### non-SDK interfaces that were added to the SDK in Android 11
+ 
+-The following code box lists all of the non-SDK interfaces that were unsupported
+-(greylisted) in Android 10 (API level 29) that were added to the Android SDK in
+-Android 11 (API level 30). Each interface takes up one line.
++The following code box lists all of the non-SDK interfaces that were unsupported (greylisted) in Android 10 (API level 29) that were added to the Android SDK in Android 11 (API level 30). Each interface takes up one line.
+ 
+ ```
+ Landroid/provider/Settings$Global;->WIFI_P2P_PENDING_FACTORY_RESET:Ljava/lang/String;

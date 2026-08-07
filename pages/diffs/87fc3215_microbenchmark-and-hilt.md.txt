@@ -1,0 +1,160 @@
+diff --git a/docs/topic/performance/benchmarking/microbenchmark-and-hilt.md b/docs/topic/performance/benchmarking/microbenchmark-and-hilt.md
+index d8e70ca3..ceef1ba5 100644
+--- a/docs/topic/performance/benchmarking/microbenchmark-and-hilt.md
++++ b/docs/topic/performance/benchmarking/microbenchmark-and-hilt.md
+@@ -4,10 +4,7 @@ url: https://developer.android.com/topic/performance/benchmarking/microbenchmark
+ source: md.txt
+ ---
+ 
+-Many apps use Hilt to inject different behaviors to different build variants.
+-This can be particularly useful when Microbenchmarking your app because it lets
+-you switch out a component that can skew the results. For example, the following
+-code snippet shows a repository that fetches and sorts a list of names:
++Many apps use Hilt to inject different behaviors to different build variants. This can be particularly useful when Microbenchmarking your app because it lets you switch out a component that can skew the results. For example, the following code snippet shows a repository that fetches and sorts a list of names:
+ 
+ ### Kotlin
+ 
+@@ -71,20 +68,13 @@ public class PeopleRepository {
+ }
+ ```
+ 
+-If you include a network call when benchmarking, implement a fake network call
+-to get a more accurate result.
++If you include a network call when benchmarking, implement a fake network call to get a more accurate result.
+ 
+-Including a real network call when benchmarking makes it harder to interpret
+-benchmark results. Network calls can be affected by many external factors, and
+-their duration can vary between iterations of running the benchmark. The
+-duration of network calls can take longer than the sorting.
++Including a real network call when benchmarking makes it harder to interpret benchmark results. Network calls can be affected by many external factors, and their duration can vary between iterations of running the benchmark. The duration of network calls can take longer than the sorting.
+ 
+ ## Implement a fake network call using Hilt
+ 
+-The call to `dataSource.getPeople()`, as shown in the preceding example,
+-contains a network call. However, the `NetworkDataSource` instance is injected
+-by Hilt, and you can replace it with the following fake implementation for
+-benchmarking:
++The call to `dataSource.getPeople()`, as shown in the preceding example, contains a network call. However, the `NetworkDataSource` instance is injected by Hilt, and you can replace it with the following fake implementation for benchmarking:
+ 
+ ### Kotlin
+ 
+@@ -115,9 +105,7 @@ public class FakeNetworkDataSource implements NetworkDataSource{
+ }
+ ```
+ 
+-This fake network call is designed to run as quickly as possible when you call
+-the `getPeople()` method. For Hilt to be able to inject this, the following
+-provider is used:
++This fake network call is designed to run as quickly as possible when you call the `getPeople()` method. For Hilt to be able to inject this, the following provider is used:
+ 
+ ### Kotlin
+ 
+@@ -173,14 +161,9 @@ public class FakeNetworkModule {
+ }
+ ```
+ 
+-The data is loaded from assets using a potentially variable length I/O call.
+-However, this is done during initialization and won't cause any irregularities
+-when `getPeople()` is called during benchmarking.
++The data is loaded from assets using a potentially variable length I/O call. However, this is done during initialization and won't cause any irregularities when `getPeople()` is called during benchmarking.
+ 
+-Some apps already use fakes on debug builds to remove any backend dependencies.
+-However, you need to benchmark on a build as close to the release build as
+-possible. The rest of this document uses a multi-module, multi-variant structure
+-as described in [Full project setup](https://developer.android.com/topic/performance/benchmarking/microbenchmark-write#full-setup).
++Some apps already use fakes on debug builds to remove any backend dependencies. However, you need to benchmark on a build as close to the release build as possible. The rest of this document uses a multi-module, multi-variant structure as described in [Full project setup](https://developer.android.com/topic/performance/benchmarking/microbenchmark-write#full-setup).
+ 
+ There are three modules:
+ 
+@@ -188,18 +171,11 @@ There are three modules:
+ - `benchmark`: contains the benchmark code.
+ - `app`: contains the remaining app code.
+ 
+-Each of the preceding modules has a build variant named `benchmark` along with
+-the usual `debug` and `release` variants.
++Each of the preceding modules has a build variant named `benchmark` along with the usual `debug` and `release` variants.
+ 
+ ## Configure the benchmark module
+ 
+-The code for the fake network call is in the `debug` source set of the
+-`benchmarkable` module, and the full network implementation is in the `release`
+-source set of the same module. The asset file containing the data returned by
+-the fake implementation is in the `debug` source set to avoid any APK bloat in
+-the `release` build. The `benchmark` variant needs to be based on `release` and
+-use the `debug` source set. The build configuration for the `benchmark` variant
+-of the `benchmarkable` module containing the fake implementation is as follows:
++The code for the fake network call is in the `debug` source set of the `benchmarkable` module, and the full network implementation is in the `release` source set of the same module. The asset file containing the data returned by the fake implementation is in the `debug` source set to avoid any APK bloat in the `release` build. The `benchmark` variant needs to be based on `release` and use the `debug` source set. The build configuration for the `benchmark` variant of the `benchmarkable` module containing the fake implementation is as follows:
+ 
+ ### Kotlin
+ 
+@@ -254,8 +230,7 @@ android {
+ }
+ ```
+ 
+-In the `benchmark` module add a custom test runner that creates an `Application`
+-for the tests to run in that supports Hilt as follows:
++In the `benchmark` module add a custom test runner that creates an `Application` for the tests to run in that supports Hilt as follows:
+ 
+ ### Kotlin
+ 
+@@ -288,9 +263,7 @@ public class JavaHiltBenchmarkRunner extends AndroidBenchmarkRunner {
+ }
+ ```
+ 
+-This makes the `Application` object in which the tests are run extend the
+-[`HiltTestApplication`](https://dagger.dev/api/latest/dagger/hilt/android/testing/HiltTestApplication.html) class. Make the following changes to the build
+-configuration:
++This makes the `Application` object in which the tests are run extend the [`HiltTestApplication`](https://dagger.dev/api/latest/dagger/hilt/android/testing/HiltTestApplication.html) class. Make the following changes to the build configuration:
+ 
+ ### Kotlin
+ 
+@@ -402,8 +375,7 @@ The preceding example does the following:
+ - Adds the `benchmark` variant.
+ - Adds the required dependencies.
+ 
+-You need to change the `testBuildType` to ensure that Gradle creates the
+-`connectedBenchmarkAndroidTest` task, which performs the benchmarking.
++You need to change the `testBuildType` to ensure that Gradle creates the `connectedBenchmarkAndroidTest` task, which performs the benchmarking.
+ 
+ ## Create the microbenchmark
+ 
+@@ -512,32 +484,16 @@ public class PeopleRepositoryBenchmark {
+ }
+ ```
+ 
+-The preceding example creates rules for both the benchmark and Hilt.
+-`benchmarkRule` performs the timing of the benchmark. `hiltRule` performs the
+-dependency injection on the benchmark test class. You must invoke the
+-[`inject()`](https://dagger.dev/api/latest/dagger/hilt/android/testing/HiltAndroidRule.html#inject()) method of the Hilt rule in a `@Before` function to perform the
+-injection before running any individual tests.
++The preceding example creates rules for both the benchmark and Hilt. `benchmarkRule` performs the timing of the benchmark. `hiltRule` performs the dependency injection on the benchmark test class. You must invoke the [`inject()`](https://dagger.dev/api/latest/dagger/hilt/android/testing/HiltAndroidRule.html#inject()) method of the Hilt rule in a `@Before` function to perform the injection before running any individual tests.
+ 
+-The benchmark itself pauses timing while the [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata) observer is
+-registered. Then it uses a latch to wait until the `LiveData` is updated before
+-finishing. As the sorting is run in the time between when
+-`peopleRepository.update()` is called and when `LiveData` receives an update,
+-the duration of the sorting is included in the benchmark timing.
++The benchmark itself pauses timing while the [`LiveData`](https://developer.android.com/topic/libraries/architecture/livedata) observer is registered. Then it uses a latch to wait until the `LiveData` is updated before finishing. As the sorting is run in the time between when `peopleRepository.update()` is called and when `LiveData` receives an update, the duration of the sorting is included in the benchmark timing.
+ 
+ ## Run the microbenchmark
+ 
+-Run the benchmark with `./gradlew :benchmark:connectedBenchmarkAndroidTest`
+-to perform the benchmark over many iterations and to print the timing data to
+-[Logcat](https://developer.android.com/studio/debug/logcat):
++Run the benchmark with `./gradlew :benchmark:connectedBenchmarkAndroidTest` to perform the benchmark over many iterations and to print the timing data to [Logcat](https://developer.android.com/studio/debug/logcat):
+ 
+     PeopleRepositoryBenchmark.log[Metric (timeNs) results: median 613408.3952380952, min 451949.30476190476, max 1412143.5142857144, standardDeviation: 273221.2328680522...
+ 
+-The preceding example shows the benchmark result between 0.6ms and 1.4ms to run
+-the sorting algorithm on a list of 1,000 items. However, if you include the
+-network call in the benchmark, then the variance between iterations is greater
+-than the time that the sort itself is taking to run, hence the need to isolate
+-the sorting from the network call.
++The preceding example shows the benchmark result between 0.6ms and 1.4ms to run the sorting algorithm on a list of 1,000 items. However, if you include the network call in the benchmark, then the variance between iterations is greater than the time that the sort itself is taking to run, hence the need to isolate the sorting from the network call.
+ 
+-You can always refactor code to make it easier to run the sorting in
+-isolation, but if you're already using Hilt, you can use it to inject fakes for
+-benchmarking instead.
+\ No newline at end of file
++You can always refactor code to make it easier to run the sorting in isolation, but if you're already using Hilt, you can use it to inject fakes for benchmarking instead.
+\ No newline at end of file

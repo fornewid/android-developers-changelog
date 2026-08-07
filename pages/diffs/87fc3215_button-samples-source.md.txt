@@ -1,0 +1,26 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md
+index 51c355b9..9f48af00 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source.md
+@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
+ source: md.txt
+ ---
+ 
+-When creating a Glimmer Button component, refer to the following implementation
+-samples in `ButtonSamples.kt`:
++When creating a Glimmer Button component, refer to the following implementation samples in `ButtonSamples.kt`:
+ 
++<br />
+ 
+ ```kotlin
+ /*
+@@ -177,6 +177,8 @@ private fun LargeButtonWithTrailingIconPreview() {
+ private fun LargeButtonWithLeadingAndTrailingIconPreview() {
+     GlimmerTheme { LargeButtonWithLeadingAndTrailingIconSample() }
+ }
++
++   
+ ```
+ 
+ <br />
+\ No newline at end of file

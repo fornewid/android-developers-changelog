@@ -1,0 +1,156 @@
+diff --git a/docs/docs/quality-guidelines/wear-app-quality.md b/docs/docs/quality-guidelines/wear-app-quality.md
+index 1300d31f..f03951b6 100644
+--- a/docs/docs/quality-guidelines/wear-app-quality.md
++++ b/docs/docs/quality-guidelines/wear-app-quality.md
+@@ -4,36 +4,23 @@ url: https://developer.android.com/docs/quality-guidelines/wear-app-quality
+ source: md.txt
+ ---
+ 
+-The checklists on this page show various requirements to help you assess the
+-quality of your Wear OS app and follow the
+-[Principles of Wear OS development](https://developer.android.com/training/wearables/principles). Each requirement has a unique ID which
+-you might find helpful to use when you communicate with your team. Failing to
+-comply with all of the requirements might lead to rejection of your app
+-submission from the Play Store.
++The checklists on this page show various requirements to help you assess the quality of your Wear OS app and follow the [Principles of Wear OS development](https://developer.android.com/training/wearables/principles). Each requirement has a unique ID which you might find helpful to use when you communicate with your team. Failing to comply with all of the requirements might lead to rejection of your app submission from the Play Store.
+ 
+-The [version history](https://developer.android.com/docs/quality-guidelines/wear-app-quality#version-history) section on this page shows how the checklist has
+-changed over time.
++The [version history](https://developer.android.com/docs/quality-guidelines/wear-app-quality#version-history) section on this page shows how the checklist has changed over time.
+ 
+ ## Requirements
+ 
+-To publish on the Play Store, your watch app must satisfy all the applicable
+-requirements. In addition, your mobile app should [satisfy the core app quality
+-requirements](https://developer.android.com/docs/quality-guidelines/core-app-quality).
++To publish on the Play Store, your watch app must satisfy all the applicable requirements. In addition, your mobile app should [satisfy the core app quality requirements](https://developer.android.com/docs/quality-guidelines/core-app-quality).
+ 
+ ### Target SDK version
+ 
+-As of August 31, 2025, all new apps [must target Android 14 (API level 34) or
+-higher](https://support.google.com/googleplay/android-developer/answer/11926878) to be submitted to Google Play. [Wear OS 5](https://developer.android.com/training/wearables/versions/5) is based on this
+-version.
++As of August 31, 2025, all new apps [must target Android 14 (API level 34) or higher](https://support.google.com/googleplay/android-developer/answer/11926878) to be submitted to Google Play. [Wear OS 5](https://developer.android.com/training/wearables/versions/5) is based on this version.
+ 
+-Also, as of the same date, apps targeting Android 12 (API level 31) or lower
+-aren't discoverable from the Play Store on devices that run Wear OS versions
+-higher than your app's target API level.
++Also, as of the same date, apps targeting Android 12 (API level 31) or lower aren't discoverable from the Play Store on devices that run Wear OS versions higher than your app's target API level.
+ 
+ ### Watch Face Format
+ 
+-As of January 2026, the Watch Face Format is required for installing watch faces
+-on all Wear OS devices.
++As of January 2026, the Watch Face Format is required for installing watch faces on all Wear OS devices.
+ 
+ Learn more about the user-facing changes in this [Help Center article](https://support.google.com/wearos/thread/284572445).
+ 
+@@ -43,14 +30,11 @@ As of September 15, 2026, all Wear OS apps must [support 64-bit devices](https:/
+ 
+ ### Watch face play listing icon
+ 
+-As of July 15, 2026, all watch face apps must comply with the updated
+-policy (WO-G4) for Play listing icons. This includes featuring a centered,
+-circular watch face as the icon asset.
++As of July 15, 2026, all watch face apps must comply with the updated policy (WO-G4) for Play listing icons. This includes featuring a centered, circular watch face as the icon asset.
+ 
+ *** ** * ** ***
+ 
+-To filter for guidelines that are relevant to your app, select the **Apps** and
+-**Watch faces** items in the following interactive checklist:
++To filter for guidelines that are relevant to your app, select the **Apps** and **Watch faces** items in the following interactive checklist:
+ 
+ | Quality requirement categories |
+ |---|
+@@ -59,9 +43,7 @@ To filter for guidelines that are relevant to your app, select the **Apps** and
+ 
+ ### Visual experience
+ 
+-The following requirements let your app follow critical design and interaction
+-patterns to create a consistent, intuitive, and enjoyable user experience on
+-Wear OS:
++The following requirements let your app follow critical design and interaction patterns to create a consistent, intuitive, and enjoyable user experience on Wear OS:
+ 
+ | Area | Requirement | ID | Benchmark |
+ |---|---|---|---|
+@@ -84,8 +66,7 @@ Wear OS:
+ 
+ ### Performance and functionality
+ 
+-Follow these requirements to configure your app correctly and provide the
+-expected performance and functional behavior:
++Follow these requirements to configure your app correctly and provide the expected performance and functional behavior:
+ 
+ | Area | Requirement | ID | Benchmark |
+ |---|---|---|---|
+@@ -102,8 +83,7 @@ expected performance and functional behavior:
+ 
+ ### Google Play
+ 
+-Follow these requirements to configure your app consistently with other listings
+-and classifications on Google Play:
++Follow these requirements to configure your app consistently with other listings and classifications on Google Play:
+ 
+ | Area | Requirement | ID | Benchmark |
+ |---|---|---|---|
+@@ -122,52 +102,28 @@ and classifications on Google Play:
+ 
+ ## Frequently asked questions
+ 
++**After I submit my app for Wear OS review, how do I find out if my app doesn't meet all of the requirements for Wear OS?**
+ 
+-**After I submit my app for Wear OS review, how do I find out if my app doesn't meet all
+-of the requirements for Wear OS?**
++If your app does not meet the usability requirements described on this page, the Play Store team contacts you using the email address specified in the [Google Play Console](https://play.google.com/console/) account associated with the app.
+ 
++**My app targets form factors other than just Wear OS. If my app does not meet the Wear OS requirements, does my new or updated app still appear on Google Play for other devices?**
+ 
+-If your app does not meet the usability requirements described on this page, the Play Store team
+-contacts you using the email address specified in the
+-[Google Play Console](https://play.google.com/console/) account associated with the
+-app.
+-
+-
+-**My app targets form factors other than just Wear OS. If my app does not meet the Wear OS
+-requirements, does my new or updated app still appear on Google Play for other devices?**
+-
+-
+-Updates to your Google Play store listing can only be published if all changes are approved. If
+-an update of a form-factor-specific artifact is blocking further updates to your listing for
+-other devices such as phones or tablets, you may want to remove that artifact by replacing it
+-with an empty submission until you can address the requirements.
+-
+-For information about how to publish your Wear OS apps in Google Play, see
+-[Distribute to Wear OS](https://developer.android.com/distribute/best-practices/launch/distribute-wear).
++Updates to your Google Play store listing can only be published if all changes are approved. If an update of a form-factor-specific artifact is blocking further updates to your listing for other devices such as phones or tablets, you may want to remove that artifact by replacing it with an empty submission until you can address the requirements.
+ 
++For information about how to publish your Wear OS apps in Google Play, see [Distribute to Wear OS](https://developer.android.com/distribute/best-practices/launch/distribute-wear).
+ 
+ **How do I manage policy violations and appeals?**
+ 
+-
+-You can learn more about
+-[managing
+-policy violations and appeals](https://support.google.com/googleplay/android-developer/answer/9899142) in the Google Play policy center.
+-
++You can learn more about [managing policy violations and appeals](https://support.google.com/googleplay/android-developer/answer/9899142) in the Google Play policy center.
+ 
+ **How should I test my app?**
+ 
+-
+-Test your app and make sure it works on a watch running Wear OS 3.0 or
+-higher. If you pair your mobile device or emulator with a Wear OS emulator for
+-testing, verify that your app behaves as expected on each of these emulators:
++Test your app and make sure it works on a watch running Wear OS 3.0 or higher. If you pair your mobile device or emulator with a Wear OS emulator for testing, verify that your app behaves as expected on each of these emulators:
+ 
+ - Wear OS small round 1.2" (192dp)
+ - Wear OS large round 1.39" (227dp)
+ 
+-
+-Additionally, you can use \[Firebase Test Lab\]\[8\] to run tests written for your
+-standalone Wear OS app on physical Google Pixel Watch devices. Learn more about
+-the \[supported physical Android devices\]\[9\] in Firebase Test Lab.
++Additionally, you can use [Firebase Test Lab](https://firebase.google.com/docs/test-lab) to run tests written for your standalone Wear OS app on physical Google Pixel Watch devices. Learn more about the [supported physical Android devices](https://firebase.google.com/docs/test-lab/android/available-testing-devices) in Firebase Test Lab.
+ 
+ ## Version history
+ 

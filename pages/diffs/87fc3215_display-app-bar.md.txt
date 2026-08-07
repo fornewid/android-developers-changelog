@@ -1,0 +1,171 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/display-app-bar.md b/docs/develop/ui/compose/quick-guides/content/display-app-bar.md
+index ab4b35bb..0563c64d 100644
+--- a/docs/develop/ui/compose/quick-guides/content/display-app-bar.md
++++ b/docs/develop/ui/compose/quick-guides/content/display-app-bar.md
+@@ -6,8 +6,7 @@ source: md.txt
+ 
+ <br />
+ 
+-App bars are containers at the top or the bottom of the screen that give your
+-users access to key features and navigation items:
++App bars are containers at the top or the bottom of the screen that give your users access to key features and navigation items:
+ 
+ | Type | Appearance | Purpose |
+ |---|---|---|
+@@ -16,17 +15,15 @@ users access to key features and navigation items:
+ 
+ ## Version compatibility
+ 
+-This implementation requires that your project minSDK be set to API level 21 or
+-higher.
++This implementation requires that your project minSDK be set to API level 21 or higher.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_90b94f6fc49da5d289b5455639aac6e3fffc24699727c9148b981cb0dd1fe670.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Implement a top app bar
+ 
+-The following code shows implementations for the four types of top app bars,
+-including varying examples of how you can control scroll behavior.
++The following code shows implementations for the four types of top app bars, including varying examples of how you can control scroll behavior.
+ 
+ - [Small top app bar](https://developer.android.com/develop/ui/compose/quick-guides/content/display-app-bar#small)
+ - [Center-aligned top app bar](https://developer.android.com/develop/ui/compose/quick-guides/content/display-app-bar#center)
+@@ -35,8 +32,7 @@ including varying examples of how you can control scroll behavior.
+ 
+ ### Small top app bar
+ 
+-To create a small top app bar, use the [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable) composable. This is the
+-simplest possible top app bar and in this example just contains a title.
++To create a small top app bar, use the [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable) composable. This is the simplest possible top app bar and in this example just contains a title.
+ 
+ #### Result
+ 
+@@ -44,16 +40,12 @@ simplest possible top app bar and in this example just contains a title.
+ 
+ #### Implement a small top app bar
+ 
+-The following example does not pass `TopAppBar` a value for
+-`scrollBehavior`, so the top app bar does not react to scrolling of the inner
+-content.
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_0a6385b5b49ccf92f6dd71818c3518c6b54ea04cefd399ca420fa19b3552c4f5.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++The following example does not pass `TopAppBar` a value for `scrollBehavior`, so the top app bar does not react to scrolling of the inner content.
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_3385e49883c2bdac0c751b9df715118824be1714ed72feace24cb85c5dd6edda.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Center-aligned top app bar
+ 
+-The center-aligned top app bar is the same as the small app bar,
+-except the title is centered within the component. To implement it, use the
+-dedicated [`CenterAlignedTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable#Scaffold(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) composable.
++The center-aligned top app bar is the same as the small app bar, except the title is centered within the component. To implement it, use the dedicated [`CenterAlignedTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable#Scaffold(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) composable.
+ 
+ #### Result
+ 
+@@ -61,15 +53,12 @@ dedicated [`CenterAlignedTopAppBar`](https://developer.android.com/reference/kot
+ 
+ #### Implement a center-aligned top app bar
+ 
+-This example uses `enterAlwaysScrollBehavior()` to get the value that it passes
+-for `scrollBehavior`. The bar collapses when the user scrolls the
+-scaffold's inner content.
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_9731bcc808c1e35bf0e41928f273d2c10d7190e2d2ab22e6aa99fa6d461e3a98.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++This example uses `enterAlwaysScrollBehavior()` to get the value that it passes for `scrollBehavior`. The bar collapses when the user scrolls the scaffold's inner content.
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_f32cdd479c2b62807971447b8c08057d75593b86c1d3033e94a80a3668c2b745.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Medium top app bar
+ 
+-The medium top app bar places the title beneath any additional icons. To create
+-one, use the [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MediumTopAppBar.composable#MediumTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable.
++The medium top app bar places the title beneath any additional icons. To create one, use the [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MediumTopAppBar.composable#MediumTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable.
+ 
+ #### Result
+ 
+@@ -81,15 +70,12 @@ one, use the [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/
+ 
+ #### Implement a medium top app bar
+ 
+-Like the previous code, this example uses `enterAlwaysScrollBehavior()` to
+-get the value that it passes for `scrollBehavior`.
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_94c457d662b0a874e9c604209be7bc9938db8221bd54931d76759f542fb2404d.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++Like the previous code, this example uses `enterAlwaysScrollBehavior()` to get the value that it passes for `scrollBehavior`.
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_b9e4cef2ed38de0271bb0e162f14762eb8492ce3ee95e9cdcfcbdc9b49e86ce8.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Large top app bar
+ 
+-A large top app bar is similar to the medium, though the padding between the
+-title and the icons is greater and it occupies more space on screen overall. To
+-create one, use the [`LargeTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LargeTopAppBar.composable#LargeTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) ) composable.
++A large top app bar is similar to the medium, though the padding between the title and the icons is greater and it occupies more space on screen overall. To create one, use the [`LargeTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LargeTopAppBar.composable#LargeTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) ) composable.
+ 
+ #### Result
+ 
+@@ -97,17 +83,12 @@ create one, use the [`LargeTopAppBar`](https://developer.android.com/reference/k
+ 
+ #### Implement a large top app bar
+ 
+-This example uses
+-`exitUntilCollapsedScrollBehavior()` to get the value that it passes for
+-`scrollBehavior`. The bar collapses when the user scrolls the
+-scaffold's inner content, but then expands when the user scrolls to the end of
+-the inner content.
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_3aa8a78fc224d65b3cf7c8e56c1f3ed908ecaf1f95676dd51cc1b17c3bf686ef.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++This example uses `exitUntilCollapsedScrollBehavior()` to get the value that it passes for `scrollBehavior`. The bar collapses when the user scrolls the scaffold's inner content, but then expands when the user scrolls to the end of the inner content.
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_bbcffe8d2bb1f124f88eae3158e788ac7d0c9d3b283c88c78937494911674d27.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Implement a bottom app bar
+ 
+-To create a bottom app bar, use the [`BottomAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/BottomAppBar.composable#BottomAppBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable, which is
+-similar to the top app bar composable.
++To create a bottom app bar, use the [`BottomAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/BottomAppBar.composable#BottomAppBar(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable, which is similar to the top app bar composable.
+ 
+ ### Result
+ 
+@@ -115,8 +96,7 @@ similar to the top app bar composable.
+ 
+ #### Implement a bottom app bar
+ 
+-You pass composables for the following key
+-parameters:
++You pass composables for the following key parameters:
+ 
+ - `actions`: A series of icons that appear on the left side of the bar. These are commonly either key actions for the given screen, or navigation items.
+ - `floatingActionButton`: The floating action button that appears on the right side of the bar.
+@@ -124,23 +104,19 @@ parameters:
+ > [!NOTE]
+ > **Note:** You can also use `BottomAppBar` without passing a value for `actions` and `floatingActionButton`. You create a custom bottom app bar by filling `BottomAppBar` with content as you would other containers.
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_3868fab0f9892da37ada296998f93c4faa46bab17cf5a28c238ffb30a6f31848.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-app-bar_9ec1f2d6eb2f42288169acdfd63ae878c40d41e441920723ec590dcabac51d72.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Key points
+ 
+ - You generally pass app bars to the `Scaffold` composable, which has specific parameters to receive them.
+-- The composables that you use to implement top app
+-  bars share key parameters:
++- The composables that you use to implement top app bars share key parameters:
+ 
+   - `title`: The text that appears across the app bar.
+   - `navigationIcon`: The primary icon for navigation, which appears on the left of the app bar.
+   - `actions`: Icons that provide the user access to key actions, which appear on the right of the app bar.
+   - `scrollBehavior`: Determines how the top app bar responds to scrolling of the scaffold's inner content.
+   - `colors`: Determines how the app bar appears.
+-- You can control how the app bar responds when the user scrolls the
+-  scaffold's inner content. To do so, create an instance of
+-  [`TopAppBarScrollBehavior`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarScrollBehavior) and pass it to your top app bar for the
+-  `scrollBehavior` parameter. There are three types of `TopAppBarScrollBehavior`:
++- You can control how the app bar responds when the user scrolls the scaffold's inner content. To do so, create an instance of [`TopAppBarScrollBehavior`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarScrollBehavior) and pass it to your top app bar for the `scrollBehavior` parameter. There are three types of `TopAppBarScrollBehavior`:
+ 
+   - `enterAlwaysScrollBehavior`: When the user pulls up the scaffold's inner content, the top app bar collapses. The app bar expands when the user pulls down the inner content.
+   - `exitUntilCollapsedScrollBehavior`: Similar to `enterAlwaysScrollBehavior`, though the app bar also expands when the user reaches the end of the scaffold's inner content.
+@@ -148,8 +124,7 @@ parameters:
+ 
+ ## Collections that contain this guide
+ 
+-This guide is part of these curated Quick Guide collections that cover
+-broader Android development goals:
++This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+ ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
+ 
+ ### Display interactive components

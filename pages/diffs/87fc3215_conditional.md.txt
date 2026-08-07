@@ -1,0 +1,19 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/conditional.md b/docs/guide/navigation/navigation-3/recipes/conditional.md
+index 4dd6462c..56e3fe59 100644
+--- a/docs/guide/navigation/navigation-3/recipes/conditional.md
++++ b/docs/guide/navigation/navigation-3/recipes/conditional.md
+@@ -182,6 +182,7 @@ fun <T : NavKey> rememberNavBackStack(vararg elements: T): NavBackStack<T> {
+         NavBackStack(*elements)
+     }
+ }
++   
+ ```
+ 
+ ```
+@@ -233,4 +234,5 @@ class Navigator(
+ 
+     fun goBack() = backStack.removeLastOrNull()
+ }
++   
+ ```
+\ No newline at end of file

@@ -1,0 +1,437 @@
+diff --git a/docs/ai/gemini/developer-api.md b/docs/ai/gemini/developer-api.md
+index 5ea2cbb7..4e1feb27 100644
+--- a/docs/ai/gemini/developer-api.md
++++ b/docs/ai/gemini/developer-api.md
+@@ -4,16 +4,9 @@ url: https://developer.android.com/ai/gemini/developer-api
+ source: md.txt
+ ---
+ 
+-The *Gemini Developer API* gives you access to Google's Gemini models, letting
+-you build cutting-edge generative AI features into your Android apps---including
+-conversational chat, image generation (with Nano Banana), and text generation
+-based on text, image, audio, and video input.
+-
+-To access the Gemini Pro and Flash models, you can use the Gemini Developer API
+-with Firebase AI Logic. It lets you get started without requiring a payment
+-method (like a credit card), and provides a generous free tier. Once you
+-validate your integration with a small user base, you can scale by upgrading to
+-the paid tier.
++The *Gemini Developer API* gives you access to Google's Gemini models, letting you build cutting-edge generative AI features into your Android apps---including conversational chat, image generation (with Nano Banana), and text generation based on text, image, audio, and video input.
++
++To access the Gemini Pro and Flash models, you can use the Gemini Developer API with Firebase AI Logic. It lets you get started without requiring a payment method (like a credit card), and provides a generous free tier. Once you validate your integration with a small user base, you can scale by upgrading to the paid tier.
+ ![Illustration that shows an Android app using the Firebase Android SDK
+ to send requests to the Firebase backend in the cloud. Requests are
+ routed to the Gemini Developer API,
+@@ -24,29 +17,19 @@ which can leverage both Gemini Pro and Flash models.](https://developer.android.
+ 
+ ### Getting started
+ 
+-Before you interact with the Gemini API directly from your app, you'll need to
+-do a few things first, including getting familiar with prompting as well as
+-setting up Firebase and your app to use the SDK.
++Before you interact with the Gemini API directly from your app, you'll need to do a few things first, including getting familiar with prompting as well as setting up Firebase and your app to use the SDK.
+ 
+ ### Experiment with prompts
+ 
+-Experimenting with prompts can help you find the best phrasing, content, and
+-format for your Android app. [Google AI Studio](https://aistudio.google.com/) is an Integrated
+-Development Environment (IDE) that you can use to prototype and design prompts
+-for your app's use cases.
++Experimenting with prompts can help you find the best phrasing, content, and format for your Android app. [Google AI Studio](https://aistudio.google.com/) is an Integrated Development Environment (IDE) that you can use to prototype and design prompts for your app's use cases.
+ 
+-Creating effective prompts for your use case involves extensive experimentation,
+-which is a critical part of the process. You can learn more about prompting in
+-the [Firebase documentation](https://firebase.google.com/docs/ai-logic/prompt-design).
++Creating effective prompts for your use case involves extensive experimentation, which is a critical part of the process. You can learn more about prompting in the [Firebase documentation](https://firebase.google.com/docs/ai-logic/prompt-design).
+ 
+-Once you are happy with your prompt, click the **\<\>** button to get code
+-snippets that you can add to your code.
++Once you are happy with your prompt, click the **\<\>** button to get code snippets that you can add to your code.
+ 
+ ### Set up a Firebase project and connect your app to Firebase
+ 
+-Once you're ready to call the API from your app, follow the instructions in
+-"Step 1" of the [Firebase AI Logic getting started guide](https://firebase.google.com/docs/ai-logic/get-started?api=dev#set-up-firebase) to set up Firebase
+-and enable required APIs and services.
++Once you're ready to call the API from your app, follow the instructions in "Step 1" of the [Firebase AI Logic getting started guide](https://firebase.google.com/docs/ai-logic/get-started?api=dev#set-up-firebase) to set up Firebase and enable required APIs and services.
+ 
+ ### Add the Gradle dependencies
+ 
+@@ -86,14 +69,9 @@ Add the following Gradle dependencies to your app module:
+ 
+ ### Configure the App Check debug provider for local development
+ 
+-Starting early July 2026, as part of the guided setup workflow for AI Logic
+-in the Firebase console, Firebase App Check is automatically enforced to protect
+-the Gemini API. For local development, you need to configure the
+-App Check *debug provider* to bypass attestation while still maintaining the
+-enforcement of App Check.
++Starting early July 2026, as part of the guided setup workflow for AI Logic in the Firebase console, Firebase App Check is automatically enforced to protect the Gemini API. For local development, you need to configure the App Check *debug provider* to bypass attestation while still maintaining the enforcement of App Check.
+ 
+-1. In your debug build, configure App Check to use the debug provider
+-   factory:
++1. In your debug build, configure App Check to use the debug provider factory:
+ 
+    ### Kotlin
+ 
+@@ -122,25 +100,19 @@ enforcement of App Check.
+ 
+ 3. Register your debug token with App Check:
+ 
+-   1. In the Firebase console, go to the
+-      **Security** \> **App Check** \> [**Apps** tab](https://console.firebase.google.com/project/_/appcheck/apps/?useAutoProject=true).
++   1. In the Firebase console, go to the **Security** \> **App Check** \> [**Apps** tab](https://console.firebase.google.com/project/_/appcheck/apps/?useAutoProject=true).
+ 
+-   2. Find your app, click the overflow menu
+-      (), and then select
+-      **Manage debug tokens**.
++   2. Find your app, click the overflow menu (), and then select **Manage debug tokens**.
+ 
+    3. Follow the on-screen instructions to register your debug token.
+ 
+-For details about the debug provider (including how to get a new debug token),
+-check out the [official App Check docs](https://firebase.google.com/docs/app-check/android/debug-provider).
++For details about the debug provider (including how to get a new debug token), check out the [official App Check docs](https://firebase.google.com/docs/app-check/android/debug-provider).
+ 
+ > [!CAUTION]
+-> **Here are some critical points about the
+-> App Check debug provider:**
++> **Here are some critical points about the App Check debug provider:**
+ >
+ > - **Keep your debug token and debug build private.** Don't commit your debug token to a public repository, and don't ship your debug token or debug build in production builds of your app.
+-> - **Register your app with a production attestation provider before
+->   releasing to end users.** You'll need to [register your app with a production App Check attestation provider](https://firebase.google.com/docs/ai-logic/app-check) (for example, Play Integrity) so that your end-users can use your feature with App Check enforced.
++> - **Register your app with a production attestation provider before releasing to end users.** You'll need to [register your app with a production App Check attestation provider](https://firebase.google.com/docs/ai-logic/app-check) (for example, Play Integrity) so that your end-users can use your feature with App Check enforced.
+ 
+ ### Initialize the generative model
+ 
+@@ -149,6 +121,7 @@ check out the [official App Check docs](https://firebase.google.com/docs/app-che
+ 
+ Start by instantiating a `GenerativeModel` and specifying the model name:
+ 
++<br />
+ 
+ ### Kotlin
+ 
+@@ -156,6 +129,7 @@ Start by instantiating a `GenerativeModel` and specifying the model name:
+ // Start by instantiating a GenerativeModel and specifying the model name:
+ val model = Firebase.ai(backend = GenerativeBackend.googleAI())
+     .generativeModel("gemini-3.5-flash")
++      
+ ```
+ 
+ ### Java
+@@ -165,23 +139,22 @@ GenerativeModel firebaseAI = FirebaseAI.getInstance(GenerativeBackend.googleAI()
+         .generativeModel("gemini-3.5-flash");
+ 
+ GenerativeModelFutures model = GenerativeModelFutures.from(firebaseAI);
++      
+ ```
+ 
+ <br />
+ 
+-Learn more about the [available models](https://firebase.google.com/docs/ai-logic/models) for use with the Gemini
+-Developer API. You can also learn more about
+-[configuring model parameters](https://firebase.google.com/docs/ai-logic/model-parameters?api=dev).
++Learn more about the [available models](https://firebase.google.com/docs/ai-logic/models) for use with the Gemini Developer API. You can also learn more about [configuring model parameters](https://firebase.google.com/docs/ai-logic/model-parameters?api=dev).
+ 
+ ## Interact with the Gemini Developer API from your app
+ 
+-Now that you've set up Firebase and your app to use the SDK, you're ready to
+-interact with the Gemini Developer API from your app.
++Now that you've set up Firebase and your app to use the SDK, you're ready to interact with the Gemini Developer API from your app.
+ 
+ ### Generate text
+ 
+ To generate a text response, call `generateContent()` with your prompt.
+ 
++<br />
+ 
+ ### Kotlin
+ 
+@@ -189,6 +162,7 @@ To generate a text response, call `generateContent()` with your prompt.
+ scope.launch {
+     val response = model.generateContent("Write a story about a magic backpack.")
+ }
++      
+ ```
+ 
+ ### Java
+@@ -210,17 +184,18 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
+         t.printStackTrace();
+     }
+ }, executor);
++      
+ ```
+ 
+ <br />
+ 
+ ### Generate text from images and other media
+ 
+-You can also generate text from a prompt that includes text plus images or other
+-media. When you call `generateContent()`, you can pass the media as inline data.
++You can also generate text from a prompt that includes text plus images or other media. When you call `generateContent()`, you can pass the media as inline data.
+ 
+ For example, to use a bitmap, use the `image` content type:
+ 
++<br />
+ 
+ ### Kotlin
+ 
+@@ -233,6 +208,7 @@ scope.launch {
+         }
+     )
+ }
++      
+ ```
+ 
+ ### Java
+@@ -255,12 +231,14 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
+         t.printStackTrace();
+     }
+ }, executor);
++      
+ ```
+ 
+ <br />
+ 
+ To pass an audio file, use the `inlineData` content type:
+ 
++<br />
+ 
+ ### Kotlin
+ 
+@@ -280,6 +258,7 @@ scope.launch {
+         }
+     }
+ }
++      
+ ```
+ 
+ ### Java
+@@ -323,12 +302,14 @@ try (InputStream stream = resolver.openInputStream(audioUri)) {
+ } catch (URISyntaxException e) {
+     Log.e(TAG, "Invalid audio file", e);
+ }
++      
+ ```
+ 
+ <br />
+ 
+ And to provide a video file, continue using the `inlineData` content type:
+ 
++<br />
+ 
+ ### Kotlin
+ 
+@@ -348,6 +329,7 @@ scope.launch {
+         }
+     }
+ }
++      
+ ```
+ 
+ ### Java
+@@ -389,19 +371,18 @@ try (InputStream stream = resolver.openInputStream(videoUri)) {
+ } catch (URISyntaxException e) {
+     e.printStackTrace();
+ }
++      
+ ```
+ 
+ <br />
+ 
+-Similarly, you can also pass PDF (`application/pdf`) and plain text
+-(`text/plain`) documents by passing their respective MIME Type as a parameter.
++Similarly, you can also pass PDF (`application/pdf`) and plain text (`text/plain`) documents by passing their respective MIME Type as a parameter.
+ 
+ ### Multi-turn chat
+ 
+-You can also support multi-turn conversations. Initialize a chat with the
+-`startChat()` function. You can optionally provide the model with a message
+-history. Then call the `sendMessage()` function to send chat messages.
++You can also support multi-turn conversations. Initialize a chat with the `startChat()` function. You can optionally provide the model with a message history. Then call the `sendMessage()` function to send chat messages.
+ 
++<br />
+ 
+ ### Kotlin
+ 
+@@ -416,6 +397,7 @@ val chat = model.startChat(
+ scope.launch {
+     val response = chat.sendMessage("How many paws are in my house?")
+ }
++      
+ ```
+ 
+ ### Java
+@@ -457,6 +439,7 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
+         t.printStackTrace();
+     }
+ }, executor);
++      
+ ```
+ 
+ <br />
+@@ -466,15 +449,9 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
+ > [!NOTE]
+ > **Note:** Gemini 3.1 Flash Image (`gemini-3.1-flash-image`, Nano Banana 2), Gemini 3 Pro Image (`gemini-3-pro-image`, Nano Banana Pro), and Gemini 3.1 Flash-Lite Image (`gemini-3.1-flash-lite-image`, Nano Banana 2 Lite) are now available as stable versions. Learn more about the capabilities of [Gemini 3.1 Flash Image](https://deepmind.google/models/gemini-image/flash/), [Gemini 3 Pro Image](https://deepmind.google/models/gemini-image/pro/), and [Gemini 3.1 Flash-Lite Image](https://deepmind.google/models/gemini-image/flash-lite/)
+ 
+-The Gemini Image models (a.k.a., Nano Banana models) can generate and edit
+-images by leveraging world knowledge and reasoning. They generate contextually
+-relevant images, seamlessly blending or interleaving text and image outputs.
+-They can also generate accurate visuals with long text sequences, and they
+-support conversational image editing while maintaining context.
++The Gemini Image models (a.k.a., Nano Banana models) can generate and edit images by leveraging world knowledge and reasoning. They generate contextually relevant images, seamlessly blending or interleaving text and image outputs. They can also generate accurate visuals with long text sequences, and they support conversational image editing while maintaining context.
+ 
+-This guide describes how to use the Gemini Image models (the Nano Banana models)
+-using the Firebase AI Logic SDK for Android. Find more details about
+-[generating images with Gemini](https://firebase.google.com/docs/ai-logic/generate-images-gemini?api=dev) in the Firebase documentation.
++This guide describes how to use the Gemini Image models (the Nano Banana models) using the Firebase AI Logic SDK for Android. Find more details about [generating images with Gemini](https://firebase.google.com/docs/ai-logic/generate-images-gemini?api=dev) in the Firebase documentation.
+ 
+ > [!NOTE]
+ > **Note:** Using Gemini models for image generation using the Firebase AI Logic SDK is in Preview. This means the feature isn't subject to any SLA or deprecation policy and could change in backward-incompatible ways.
+@@ -486,18 +463,16 @@ with a blue backpack.](https://developer.android.com/static/ai/assets/images/t-r
+ 
+ #### Initialize the generative model
+ 
+-Instantiate a `GenerativeModel` and specify a Gemini Image model name (like
+-`gemini-3.1-flash-image`). Then, configure `responseModalities` to include both
+-`TEXT` and `IMAGE` to generate interleaved text and images. If you exclude
+-`TEXT`, then the model will only return images.
++Instantiate a `GenerativeModel` and specify a Gemini Image model name (like `gemini-3.1-flash-image`). Then, configure `responseModalities` to include both `TEXT` and `IMAGE` to generate interleaved text and images. If you exclude `TEXT`, then the model will only return images.
+ 
++<br />
+ 
+ ### Kotlin
+ 
+ ```kotlin
+ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).generativeModel(
+-    modelName = "gemini-3.5-flash-image-preview",
+-    // Configure the model to respond with text and images (required)
++    modelName = "gemini-3.1-flash-image",
++    // Configure the model to respond with images (required) and text (optional)
+     generationConfig = generationConfig {
+         responseModalities = listOf(
+             ResponseModality.TEXT,
+@@ -505,28 +480,30 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).generativeModel(
+         )
+     }
+ )
++      
+ ```
+ 
+ ### Java
+ 
+ ```java
+ GenerativeModel ai = FirebaseAI.getInstance(GenerativeBackend.googleAI()).generativeModel(
+-        "gemini-3.5-flash-image-preview",
++        "gemini-3.1-flash-image",
+         // Configure the model to respond with text and images (required)
+         new GenerationConfig.Builder()
+                 .setResponseModalities(Arrays.asList(ResponseModality.TEXT, ResponseModality.IMAGE))
+                 .build()
+ );
+ GenerativeModelFutures model = GenerativeModelFutures.from(ai);
++      
+ ```
+ 
+ <br />
+ 
+ #### Generate images (text-only input)
+ 
+-You can instruct a Gemini model to generate images by providing a text-only
+-prompt:
++You can instruct a Gemini model to generate images by providing a text-only prompt:
+ 
++<br />
+ 
+ ### Kotlin
+ 
+@@ -540,6 +517,7 @@ scope.launch {
+         .candidates.first().content.parts.filterIsInstance<ImagePart>()
+         .firstOrNull()?.image
+ }
++      
+ ```
+ 
+ ### Java
+@@ -569,15 +547,16 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
+         t.printStackTrace();
+     }
+ }, executor);
++      
+ ```
+ 
+ <br />
+ 
+ #### Edit images (text and image input)
+ 
+-You can ask a Gemini model to edit existing images by providing both text and
+-one or more images in your prompt:
++You can ask a Gemini model to edit existing images by providing both text and one or more images in your prompt:
+ 
++<br />
+ 
+ ### Kotlin
+ 
+@@ -593,6 +572,7 @@ scope.launch {
+         .candidates.first().content.parts.filterIsInstance<ImagePart>().firstOrNull()?.image
+     // Handle the generated text and image
+ }
++      
+ ```
+ 
+ ### Java
+@@ -624,19 +604,18 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
+         t.printStackTrace();
+     }
+ }, executor);
++      
+ ```
+ 
+ <br />
+ 
+ #### Iterate and edit images through multi-turn chat
+ 
+-For a conversational approach to image editing, you can use multi-turn chat.
+-This allows for follow-up requests to refine edits without needing to re-send
+-the original image.
++For a conversational approach to image editing, you can use multi-turn chat. This allows for follow-up requests to refine edits without needing to re-send the original image.
+ 
+-First, initialize a chat with `startChat()`, optionally providing a message
+-history. Then, use `sendMessage()` for subsequent messages:
++First, initialize a chat with `startChat()`, optionally providing a message history. Then, use `sendMessage()` for subsequent messages:
+ 
++<br />
+ 
+ ### Kotlin
+ 
+@@ -659,6 +638,7 @@ scope.launch {
+     generatedImageAsBitmap = response
+         .candidates.first().content.parts.filterIsInstance<ImagePart>().firstOrNull()?.image
+ }
++      
+ ```
+ 
+ ### Java
+@@ -713,6 +693,7 @@ Futures.addCallback(modelResponseFuture, new FutureCallback<GenerateContentRespo
+         t.printStackTrace();
+     }
+ }, executor);
++      
+ ```
+ 
+ <br />
+@@ -726,10 +707,8 @@ Note the following considerations and limitations:
+ - **Language Support** : For best performance, use the following languages: English (`en`), Mexican Spanish (`es-mx`), Japanese (`ja-jp`), Simplified Chinese (`zh-cn`), and Hindi (`hi-in`).
+ - **Generation Issues** :
+   - Image generation may not always trigger, sometimes resulting in text-only output. **Try asking for image outputs explicitly** (for example, "generate an image", "provide images as you go along", "update the image").
+-  - The model may stop generating partway through. **Try again or try a
+-    different prompt**.
+-  - The model may generate text as an image. **Try asking for text outputs
+-    explicitly** (for example, "generate narrative text along with illustrations").
++  - The model may stop generating partway through. **Try again or try a different prompt**.
++  - The model may generate text as an image. **Try asking for text outputs explicitly** (for example, "generate narrative text along with illustrations").
+ 
+ For more details, see the [Firebase documentation](https://firebase.google.com/docs/ai-logic/generate-images-gemini?api=dev).
+ 

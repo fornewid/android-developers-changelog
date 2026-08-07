@@ -1,0 +1,417 @@
+diff --git a/docs/develop/ui/compose/designsystems/material2-material3.md b/docs/develop/ui/compose/designsystems/material2-material3.md
+index 4b77c9db..4b2e3ae5 100644
+--- a/docs/develop/ui/compose/designsystems/material2-material3.md
++++ b/docs/develop/ui/compose/designsystems/material2-material3.md
+@@ -4,43 +4,27 @@ url: https://developer.android.com/develop/ui/compose/designsystems/material2-ma
+ source: md.txt
+ ---
+ 
+-[Material Design 3](https://m3.material.io/) is the next evolution of Material Design. It includes
+-updated theming, components, and Material You personalization features like
+-dynamic color. It's an update to [Material Design 2](https://material.io/) and is cohesive with the
+-new visual style and system UI on Android 12 and higher.
++[Material Design 3](https://m3.material.io/) is the next evolution of Material Design. It includes updated theming, components, and Material You personalization features like dynamic color. It's an update to [Material Design 2](https://material.io/) and is cohesive with the new visual style and system UI on Android 12 and higher.
+ 
+-This guide focuses on migrating from the [Compose Material
+-(androidx.compose.material) Jetpack library](https://developer.android.com/jetpack/androidx/releases/compose-material) to the [Compose Material 3
+-(androidx.compose.material3) Jetpack library](https://developer.android.com/jetpack/androidx/releases/compose-material3).
++This guide focuses on migrating from the [Compose Material (androidx.compose.material) Jetpack library](https://developer.android.com/jetpack/androidx/releases/compose-material) to the [Compose Material 3 (androidx.compose.material3) Jetpack library](https://developer.android.com/jetpack/androidx/releases/compose-material3).
+ 
+ > [!NOTE]
+ > **Note:** This guide uses abbreviation "M3" to refer to the interchangeable terms: "Material 3", "Material Design 3", "Material You", and the Compose Material 3 (androidx.compose.material3) Jetpack library. The abbreviation "M2" is used to refer to the interchangeable terms: "Material 2", "Material Design 2", and the Compose Material (`androidx.compose.material`) Jetpack library.
+ 
+ ## Approaches
+ 
+-In general, **you should not use both M2 and M3 in a single app long-term**.
+-This is because the two design systems and respective libraries differ
+-significantly in terms of their UX/UI designs and Compose implementations.
++In general, **you should not use both M2 and M3 in a single app long-term**. This is because the two design systems and respective libraries differ significantly in terms of their UX/UI designs and Compose implementations.
+ 
+-Your app may use a design system, such as one created using Figma. In such
+-cases, we also highly recommend that you or your design team migrate it from M2
+-to M3 *before* starting the Compose migration. It doesn't make sense to migrate
+-an app to M3 if its UX/UI design is based on M2.
++Your app may use a design system, such as one created using Figma. In such cases, we also highly recommend that you or your design team migrate it from M2 to M3 *before* starting the Compose migration. It doesn't make sense to migrate an app to M3 if its UX/UI design is based on M2.
+ 
+-Furthermore, your approach to migration should take your app's
+-size, complexity, and UX/UI design into account. Doing so helps you to
+-minimize the impact on your codebase. Take a phased approach to
+-migration.
++Furthermore, your approach to migration should take your app's size, complexity, and UX/UI design into account. Doing so helps you to minimize the impact on your codebase. Take a phased approach to migration.
+ 
+ > [!NOTE]
+ > **Note:** If you're starting a new app instead of migrating an existing app from M2 to M3, we recommend that you use M3 from the beginning.
+ 
+ ### When to migrate
+ 
+-You should ideally start the migration as soon as possible. However, it's
+-important to consider whether your app is in a realistic position to
+-**fully** migrate from M2 to M3. There are some *blocker* scenarios to
+-consider investigating before you start:
++You should ideally start the migration as soon as possible. However, it's important to consider whether your app is in a realistic position to **fully** migrate from M2 to M3. There are some *blocker* scenarios to consider investigating before you start:
+ 
+ | Scenario | Recommended approach |
+ |---|---|
+@@ -48,10 +32,7 @@ consider investigating before you start:
+ | Your app uses a component from M2 that isn't available in M3 yet. See the [Components and layouts](https://developer.android.com/develop/ui/compose/designsystems/material2-material3#components-and) section. | Begin phased migration. |
+ | You or your design team haven't migrated the app's design system from M2 to M3. | Migrate the design system from M2 to M3, then begin phased migration. |
+ 
+-Even if you're affected by the preceding scenarios, you should take a phased
+-approach to migration before committing and releasing an app update. In these
+-cases, you would use M2 and M3 side-by-side, and gradually phase out M2 while
+-migrating to M3.
++Even if you're affected by the preceding scenarios, you should take a phased approach to migration before committing and releasing an app update. In these cases, you would use M2 and M3 side-by-side, and gradually phase out M2 while migrating to M3.
+ 
+ ### Phased approach
+ 
+@@ -77,9 +58,7 @@ M3 has a separate package and version from M2:
+ 
+ See the latest M3 versions on the [Compose Material 3 releases page](https://developer.android.com/jetpack/androidx/releases/compose-material3).
+ 
+-Other Material dependencies outside of the main M2 and M3 libraries have not
+-changed. They use a mix of the M2 and M3 packages and versions, but this has no
+-impact on migration. They can be used as-is with M3:
++Other Material dependencies outside of the main M2 and M3 libraries have not changed. They use a mix of the M2 and M3 packages and versions, but this has no impact on migration. They can be used as-is with M3:
+ 
+ | Library | Package and version |
+ |---|---|
+@@ -88,9 +67,7 @@ impact on migration. They can be used as-is with M3:
+ 
+ ## Experimental APIs
+ 
+-Some M3 APIs are considered experimental. In such cases, you need to opt
+-in at the function or file level using the
+-[`ExperimentalMaterial3Api`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api) annotation:
++Some M3 APIs are considered experimental. In such cases, you need to opt in at the function or file level using the [`ExperimentalMaterial3Api`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ExperimentalMaterial3Api) annotation:
+ 
+     import androidx.compose.material3.ExperimentalMaterial3Api
+ 
+@@ -102,8 +79,7 @@ in at the function or file level using the
+ 
+ ## Theming
+ 
+-In both M2 and M3, the theme composable is named `MaterialTheme` but the import
+-packages and parameters differ:
++In both M2 and M3, the theme composable is named `MaterialTheme` but the import packages and parameters differ:
+ 
+ ### M2
+ 
+@@ -136,10 +112,7 @@ packages and parameters differ:
+ 
+ ![Comparison of the M2 to M3 color systems](https://developer.android.com/static/develop/ui/compose/images/migration-color-update.png) **Figure 1**. M2 color system (left) versus M3 color system (right).
+ 
+-The [color system](https://m3.material.io/styles/color/overview) in M3 is significantly different to M2. The
+-number of color parameters has increased, they have different names, and they
+-map differently to M3 components. In Compose, this applies to the M2
+-[`Colors`](https://developer.android.com/reference/kotlin/androidx/compose/material/Colors) class, the M3 [`ColorScheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ColorScheme) class, and related functions:
++The [color system](https://m3.material.io/styles/color/overview) in M3 is significantly different to M2. The number of color parameters has increased, they have different names, and they map differently to M3 components. In Compose, this applies to the M2 [`Colors`](https://developer.android.com/reference/kotlin/androidx/compose/material/Colors) class, the M3 [`ColorScheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ColorScheme) class, and related functions:
+ 
+ ### M2
+ 
+@@ -175,12 +148,7 @@ map differently to M3 components. In Compose, this applies to the M2
+         AppLightColorScheme
+     }
+ 
+-Given the significant differences between the M2 and M3 color systems, there's
+-no reasonable mapping for [`Color`](https://developer.android.com/reference/kotlin/androidx/compose/material/Colors#isLight()) parameters. Instead, use the [Material
+-Theme Builder tool](https://m3.material.io/theme-builder) to generate an M3 color scheme. Use the M2
+-colors as *core* source colors in the tool, which the tool expands into tonal
+-palettes used by the M3 color scheme. The following mappings are recommended as
+-a starting point:
++Given the significant differences between the M2 and M3 color systems, there's no reasonable mapping for [`Color`](https://developer.android.com/reference/kotlin/androidx/compose/material/Colors#isLight()) parameters. Instead, use the [Material Theme Builder tool](https://m3.material.io/theme-builder) to generate an M3 color scheme. Use the M2 colors as *core* source colors in the tool, which the tool expands into tonal palettes used by the M3 color scheme. The following mappings are recommended as a starting point:
+ 
+ | M2 | Material Theme Builder |
+ |---|---|
+@@ -194,15 +162,11 @@ a starting point:
+ 
+ ![M2 colors used in Material Theme Builder to generate an M3 color scheme](https://developer.android.com/static/develop/ui/compose/images/migration-colorscheme-update.png) **Figure 2**. Jetchat's M2 colors used in Material Theme Builder to generate an M3 color scheme.
+ 
+-You can copy the color hex code values for light and dark themes from the tool
+-and use them to implement an M3 ColorScheme instance. Alternatively, Material
+-Theme Builder can export Compose code.
++You can copy the color hex code values for light and dark themes from the tool and use them to implement an M3 ColorScheme instance. Alternatively, Material Theme Builder can export Compose code.
+ 
+ #### `isLight`
+ 
+-Unlike the M2 `Colors` class, the M3 `ColorScheme` class doesn't include an
+-[`isLight`](https://developer.android.com/reference/kotlin/androidx/compose/material/Colors#isLight()) parameter. In general, you should try and model whatever needs
+-this information at the theme level. For example:
++Unlike the M2 `Colors` class, the M3 `ColorScheme` class doesn't include an [`isLight`](https://developer.android.com/reference/kotlin/androidx/compose/material/Colors#isLight()) parameter. In general, you should try and model whatever needs this information at the theme level. For example:
+ 
+ ### M2
+ 
+@@ -264,9 +228,7 @@ See the [Custom design systems in Compose guide](https://developer.android.com/d
+ 
+ #### Dynamic color
+ 
+-A new feature in M3 is [dynamic color](https://m3.material.io/styles/color/dynamic-color/overview). Instead of using custom
+-colors, an M3 `ColorScheme` can make use of device wallpaper colors on Android
+-12 and higher, using the following functions:
++A new feature in M3 is [dynamic color](https://m3.material.io/styles/color/dynamic-color/overview). Instead of using custom colors, an M3 `ColorScheme` can make use of device wallpaper colors on Android 12 and higher, using the following functions:
+ 
+ - [`dynamicLightColorScheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#dynamiclightcolorscheme)
+ - [`dynamicDarkColorScheme`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#dynamicdarkcolorscheme)
+@@ -278,10 +240,7 @@ colors, an M3 `ColorScheme` can make use of device wallpaper colors on Android
+ 
+ ![Comparison of M2 and M3 typography systems](https://developer.android.com/static/develop/ui/compose/images/migration-typography-update.png) **Figure 3**. M3 typography system (left) versus M2 typography system (right)
+ 
+-The [typography system](https://m3.material.io/styles/typography/overview) in M3 is different to M2. The number of
+-typography parameters is roughly the same, but they have different names and
+-they map differently to M3 components. In Compose, this applies to the M2
+-[`Typography`](https://developer.android.com/reference/kotlin/androidx/compose/material/Typography) class and the M3 [`Typography`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Typography) class:
++The [typography system](https://m3.material.io/styles/typography/overview) in M3 is different to M2. The number of typography parameters is roughly the same, but they have different names and they map differently to M3 components. In Compose, this applies to the M2 [`Typography`](https://developer.android.com/reference/kotlin/androidx/compose/material/Typography) class and the M3 [`Typography`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Typography) class:
+ 
+ ### M2
+ 
+@@ -299,8 +258,7 @@ they map differently to M3 components. In Compose, this applies to the M2
+         // M3 TextStyle parameters
+     )
+ 
+-The following [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle) parameter mappings are recommended as a starting
+-point:
++The following [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle) parameter mappings are recommended as a starting point:
+ 
+ | M2 | M3 |
+ |---|---|
+@@ -327,10 +285,7 @@ point:
+ 
+ ![Comparison of M2 and M3 shape systems](https://developer.android.com/static/develop/ui/compose/images/migration-shape-update.png) **Figure 4**. M2 shape system (left) versus M3 shape system (right).
+ 
+-The [shape system](https://m3.material.io/styles/shape/overview) in M3 is different to M2. The number of shape
+-parameters has increased, they're named differently and they map differently to
+-M3 components. In Compose, this applies to the M2 [`Shapes`](https://developer.android.com/reference/kotlin/androidx/compose/material/Shapes) class and the
+-M3 [`Shapes`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Shapes) class:
++The [shape system](https://m3.material.io/styles/shape/overview) in M3 is different to M2. The number of shape parameters has increased, they're named differently and they map differently to M3 components. In Compose, this applies to the M2 [`Shapes`](https://developer.android.com/reference/kotlin/androidx/compose/material/Shapes) class and the M3 [`Shapes`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Shapes) class:
+ 
+ ### M2
+ 
+@@ -348,8 +303,7 @@ M3 [`Shapes`](https://developer.android.com/reference/kotlin/androidx/compose/ma
+         // M3 Shape parameters
+     )
+ 
+-The following [`Shape`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shape) parameter mappings are recommended as a starting
+-point:
++The following [`Shape`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Shape) parameter mappings are recommended as a starting point:
+ 
+ | M2 | M3 |
+ |---|---|
+@@ -364,19 +318,11 @@ point:
+ 
+ ## Components and layouts
+ 
+-Most components and layouts from M2 are available in M3. There are, however,
+-some missing as well as new ones that didn't exist in M2. Furthermore, some M3
+-components have more variations than their equivalents in M2. In general, the M3
+-API surfaces are designed to be as similar as possible to their closest
+-equivalents in M2.
++Most components and layouts from M2 are available in M3. There are, however, some missing as well as new ones that didn't exist in M2. Furthermore, some M3 components have more variations than their equivalents in M2. In general, the M3 API surfaces are designed to be as similar as possible to their closest equivalents in M2.
+ 
+-Given the updated color, typography and shape systems, M3 components tend to map
+-differently to the new theming values. It's a good idea to check out the [tokens
+-directory](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/material3/material3/src/commonMain/kotlin/androidx/compose/material3/tokens/) in the Compose Material 3 source code as a source of
+-truth for these mappings.
++Given the updated color, typography and shape systems, M3 components tend to map differently to the new theming values. It's a good idea to check out the [tokens directory](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/material3/material3/src/commonMain/kotlin/androidx/compose/material3/tokens/) in the Compose Material 3 source code as a source of truth for these mappings.
+ 
+-While some components require special considerations, the following function
+-mappings are recommended as a starting point:
++While some components require special considerations, the following function mappings are recommended as a starting point:
+ 
+ **Missing APIs**:
+ 
+@@ -446,16 +392,13 @@ mappings are recommended as a starting point:
+ | [`androidx.compose.material.TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material/TopAppBar.composable) | [`androidx.compose.material3.TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable) |
+ | [`androidx.compose.material.TriStateCheckbox`](https://developer.android.com/reference/kotlin/androidx/compose/material/TriStateCheckbox.composable) | [`androidx.compose.material3.TriStateCheckbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TriStateCheckbox.composable) |
+ 
+-See the latest M3 components and layouts on the [Compose Material 3 API
+-reference overview](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#overview), and keep an eye out on the [releases page](https://developer.android.com/jetpack/androidx/releases/compose-material3) for new
+-and updated APIs.
++See the latest M3 components and layouts on the [Compose Material 3 API reference overview](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#overview), and keep an eye out on the [releases page](https://developer.android.com/jetpack/androidx/releases/compose-material3) for new and updated APIs.
+ 
+ ### Scaffold, snackbars and navigation drawer
+ 
+ ![Comparison of M2 and M3 scaffold with snackbar and navigation drawer](https://developer.android.com/static/develop/ui/compose/images/migration-scaffold-update.gif) **Figure 5**. M2 scaffold with snackbar and navigation drawer (left) versus M3 scaffold with snackbar and navigation drawer (right).
+ 
+-Scaffold in M3 is different to M2. In both M2 and M3, the main layout composable
+-is named `Scaffold` but the import packages and parameters differ:
++Scaffold in M3 is different to M2. In both M2 and M3, the main layout composable is named `Scaffold` but the import packages and parameters differ:
+ 
+ ### M2
+ 
+@@ -473,8 +416,7 @@ is named `Scaffold` but the import packages and parameters differ:
+         // M3 scaffold parameters
+     )
+ 
+-The M2 [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable) contains a `backgroundColor` parameter is now named to
+-`containerColor` in the M3 [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Scaffold.composable):
++The M2 [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable) contains a `backgroundColor` parameter is now named to `containerColor` in the M3 [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Scaffold.composable):
+ 
+ ### M2
+ 
+@@ -494,9 +436,7 @@ The M2 [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/comp
+         content = { ... }
+     )
+ 
+-The M2 [`ScaffoldState`](https://developer.android.com/reference/kotlin/androidx/compose/material/ScaffoldState) class no longer exists in M3 as it contains a
+-[`drawerState`](https://developer.android.com/reference/kotlin/androidx/compose/material/ScaffoldState#drawerState()) parameter which is no longer needed. To show snackbars with
+-the M3 `Scaffold`, use [`SnackbarHostState`](https://developer.android.com/reference/kotlin/androidx/compose/material/SnackbarHostState) instead:
++The M2 [`ScaffoldState`](https://developer.android.com/reference/kotlin/androidx/compose/material/ScaffoldState) class no longer exists in M3 as it contains a [`drawerState`](https://developer.android.com/reference/kotlin/androidx/compose/material/ScaffoldState#drawerState()) parameter which is no longer needed. To show snackbars with the M3 `Scaffold`, use [`SnackbarHostState`](https://developer.android.com/reference/kotlin/androidx/compose/material/SnackbarHostState) instead:
+ 
+ ### M2
+ 
+@@ -538,10 +478,7 @@ the M3 `Scaffold`, use [`SnackbarHostState`](https://developer.android.com/refer
+ > [!NOTE]
+ > **Note:** The [`SnackbarData`](https://developer.android.com/reference/kotlin/androidx/compose/material/SnackbarData) class in M2 has been split into [`SnackbarData`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarData) and [`SnackbarVisuals`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarVisuals) in M3.
+ 
+-All of the `drawer*` parameters from the M2 `Scaffold` have been removed from
+-the M3 `Scaffold`. These include parameters such as `drawerShape` and
+-`drawerContent`. To show a drawer with the M3 `Scaffold`, use a navigation
+-drawer composable, such as [`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable), instead:
++All of the `drawer*` parameters from the M2 `Scaffold` have been removed from the M3 `Scaffold`. These include parameters such as `drawerShape` and `drawerContent`. To show a drawer with the M3 `Scaffold`, use a navigation drawer composable, such as [`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable), instead:
+ 
+ ### M2
+ 
+@@ -613,9 +550,7 @@ drawer composable, such as [`ModalNavigationDrawer`](https://developer.android.c
+ 
+ ![Comparison of M2 and M3 scaffold with top app bar and scrolled list](https://developer.android.com/static/develop/ui/compose/images/migration-topbar-update.png) **Figure 6**. M2 scaffold with top app bar and scrolled list (left) versus M3 scaffold with top app bar and scrolled list (right)
+ 
+-[Top app bars](https://m3.material.io/components/top-app-bar/overview) in M3 are different to those in M2. In both M2
+-and M3, the main top app bar composable is named `TopAppBar` but the import
+-packages and parameters differ:
++[Top app bars](https://m3.material.io/components/top-app-bar/overview) in M3 are different to those in M2. In both M2 and M3, the main top app bar composable is named `TopAppBar` but the import packages and parameters differ:
+ 
+ ### M2
+ 
+@@ -629,15 +564,9 @@ packages and parameters differ:
+ 
+     TopAppBar(...)
+ 
+-Consider using the M3 [`CenterAlignedTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CenterAlignedTopAppBar.composable) if you were previously
+-centering content within the M2 `TopAppBar`. It's good to be aware of the
+-[`MediumTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MediumTopAppBar.composable) and [`LargeTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LargeTopAppBar.composable) as well.
++Consider using the M3 [`CenterAlignedTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CenterAlignedTopAppBar.composable) if you were previously centering content within the M2 `TopAppBar`. It's good to be aware of the [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MediumTopAppBar.composable) and [`LargeTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LargeTopAppBar.composable) as well.
+ 
+-M3 top app bars contain a new `scrollBehavior` parameter to provide different
+-functionality on scroll through the [`TopAppBarScrollBehavior`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarScrollBehavior) class, such
+-as changing elevation. This works in conjunction with scrolling content using
+-[`Modifier.nestedScroll`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/package-summary#nestedscroll). This was possible in the M2 `TopAppBar` by
+-manually changing the `elevation` parameter:
++M3 top app bars contain a new `scrollBehavior` parameter to provide different functionality on scroll through the [`TopAppBarScrollBehavior`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBarScrollBehavior) class, such as changing elevation. This works in conjunction with scrolling content using [`Modifier.nestedScroll`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/nestedscroll/package-summary#nestedscroll). This was possible in the M2 `TopAppBar` by manually changing the `elevation` parameter:
+ 
+ ### M2
+ 
+@@ -693,10 +622,7 @@ manually changing the `elevation` parameter:
+ 
+ ![Comparison of M2 bottom navigation and M3 navigation bar](https://developer.android.com/static/develop/ui/compose/images/migration-bottomnav-update.png) **Figure 7**. M2 bottom navigation (left) versus M3 navigation bar (right).
+ 
+-Bottom navigation in M2 has been renamed to [navigation bar](https://m3.material.io/components/navigation-bar/overview) in
+-M3. In M2 there are the [`BottomNavigation`](https://developer.android.com/reference/kotlin/androidx/compose/material/BottomNavigation.composable) and
+-[`BottomNavigationItem`](https://developer.android.com/reference/kotlin/androidx/compose/material/BottomNavigationItem.composable) composables, while in M3 there are the
+-[`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBar.composable) and [`NavigationBarItem`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBarItem.composable) composables:
++Bottom navigation in M2 has been renamed to [navigation bar](https://m3.material.io/components/navigation-bar/overview) in M3. In M2 there are the [`BottomNavigation`](https://developer.android.com/reference/kotlin/androidx/compose/material/BottomNavigation.composable) and [`BottomNavigationItem`](https://developer.android.com/reference/kotlin/androidx/compose/material/BottomNavigationItem.composable) composables, while in M3 there are the [`NavigationBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBar.composable) and [`NavigationBarItem`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationBarItem.composable) composables:
+ 
+ ### M2
+ 
+@@ -724,8 +650,7 @@ M3. In M2 there are the [`BottomNavigation`](https://developer.android.com/refer
+ 
+ ![Comparison of M2 and M3 buttons](https://developer.android.com/static/develop/ui/compose/images/migration-buttons-update.png) **Figure 8**. M2 buttons (left) versus M3 buttons (right)
+ 
+-[Buttons, icon buttons and floating action buttons (FABs)](https://m3.material.io/components/all-buttons) in M3
+-are different to those in M2. M3 includes all of the M2 button composables:
++[Buttons, icon buttons and floating action buttons (FABs)](https://m3.material.io/components/all-buttons) in M3 are different to those in M2. M3 includes all of the M2 button composables:
+ 
+ ### M2
+ 
+@@ -769,15 +694,13 @@ are different to those in M2. M3 includes all of the M2 button composables:
+     FloatingActionButton(...)
+     ExtendedFloatingActionButton(...)
+ 
+-M3 also includes new button variations. Check them out on the [Compose Material
+-3 API reference overview](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#components).
++M3 also includes new button variations. Check them out on the [Compose Material 3 API reference overview](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#components).
+ 
+ ### Switch
+ 
+ ![Comparison of M2 and M3 switches](https://developer.android.com/static/develop/ui/compose/images/migration-switch-update.png) **Figure 9**. M2 switch (left) versus M3 switch (right).
+ 
+-[Switch](https://m3.material.io/components/switch/overview) in M3 is different to M2. In both M2 and M3, the switch
+-composable is named `Switch` but the import packages differ:
++[Switch](https://m3.material.io/components/switch/overview) in M3 is different to M2. In both M2 and M3, the switch composable is named `Switch` but the import packages differ:
+ 
+ ### M2
+ 
+@@ -795,14 +718,12 @@ composable is named `Switch` but the import packages differ:
+ 
+ ![Comparison of M2 surface elevation and M3 surface elevation in light and dark themes](https://developer.android.com/static/develop/ui/compose/images/migration-elevation-update.png) **Figure 10**. M2 surface elevation versus M3 surface elevation in light theme (left) and dark theme (right).
+ 
+-The surface and elevation systems in M3 are different to M2. There are two types
+-of elevation in M3:
++The surface and elevation systems in M3 are different to M2. There are two types of elevation in M3:
+ 
+ - Shadow elevation (casts a shadow, same as M2)
+ - Tonal elevation (overlays a color, new to M3)
+ 
+-In Compose, this applies to the M2 [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material/Surface.composable) function and the M3
+-[`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Surface.composable) function:
++In Compose, this applies to the M2 [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material/Surface.composable) function and the M3 [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Surface.composable) function:
+ 
+ ### M2
+ 
+@@ -821,33 +742,23 @@ In Compose, this applies to the M2 [`Surface`](https://developer.android.com/ref
+         tonalElevation = ...
+     ) { ... }
+ 
+-You can use the `elevation` [`Dp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Dp) values in M2 for both `shadowElevation`
+-and/or `tonalElevation` in M3, depending on the UX/UI design preference.
+-`Surface` is the backing composable behind most components, so component
+-composables might also expose elevation parameters you must migrate in the same
+-way.
++You can use the `elevation` [`Dp`](https://developer.android.com/reference/kotlin/androidx/compose/ui/unit/Dp) values in M2 for both `shadowElevation` and/or `tonalElevation` in M3, depending on the UX/UI design preference. `Surface` is the backing composable behind most components, so component composables might also expose elevation parameters you must migrate in the same way.
+ 
+ > [!NOTE]
+ > **Note:** The default color used by `tonalElevation` in M3 is `primary`. You can override this by using the `surfaceTint` parameter in the `ColorScheme` class.
+ 
+-Tonal elevation in M3 replaces the concept of elevation overlays in M2 dark
+-themes. As a result, [`ElevationOverlay`](https://developer.android.com/reference/kotlin/androidx/compose/material/ElevationOverlay) and [`LocalElevationOverlay`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalElevationOverlay())
+-don't exist in M3, and [`LocalAbsoluteElevation`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalAbsoluteElevation()) in M2 has changed to
+-[`LocalAbsoluteTonalElevation`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#LocalAbsoluteTonalElevation()) in M3.
++Tonal elevation in M3 replaces the concept of elevation overlays in M2 dark themes. As a result, [`ElevationOverlay`](https://developer.android.com/reference/kotlin/androidx/compose/material/ElevationOverlay) and [`LocalElevationOverlay`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalElevationOverlay()) don't exist in M3, and [`LocalAbsoluteElevation`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalAbsoluteElevation()) in M2 has changed to [`LocalAbsoluteTonalElevation`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#LocalAbsoluteTonalElevation()) in M3.
+ 
+ ## Emphasis and content alpha
+ 
+ ![Comparison of M2 and M3 icon and text emphasis](https://developer.android.com/static/develop/ui/compose/images/migration-emphasis-update.png) **Figure 11**. M2 icon and text emphasis (left) versus M3 icon and text emphasis (right)
+ 
+-Emphasis in M3 is significantly different to M2. In M2, emphasis involved using
+-*on* colors with certain alpha values to differentiate content like text and
+-icons. In M3, there are now a couple different approaches:
++Emphasis in M3 is significantly different to M2. In M2, emphasis involved using *on* colors with certain alpha values to differentiate content like text and icons. In M3, there are now a couple different approaches:
+ 
+ - Using *on* colors alongside their *variant on* colors from the expanded M3 color system.
+ - Using different font weights for text.
+ 
+-As a result, [`ContentAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha) and [`LocalContentAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalContentAlpha()) don't exist in
+-M3 and need to be replaced.
++As a result, [`ContentAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha) and [`LocalContentAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalContentAlpha()) don't exist in M3 and need to be replaced.
+ 
+ > [!NOTE]
+ > **Note:** For disabled states in M3, it's still acceptable to use *on* colors with alpha values, like in M2. For more information, see [Color roles](https://m3.material.io/styles/color/roles#19e75989-7485-4f5b-a769-940c4e4364bc).
+@@ -941,9 +852,7 @@ Here are examples of text emphasis in M2 and M3:
+ 
+ ## Backgrounds and containers
+ 
+-Backgrounds in M2 are named containers in M3. In general, you can replace
+-`background*` parameters in M2 with `container*` in M3, using the same values.
+-For example:
++Backgrounds in M2 are named containers in M3. In general, you can replace `background*` parameters in M2 with `container*` in M3, using the same values. For example:
+ 
+ ### M2
+ 
+@@ -959,8 +868,7 @@ For example:
+ 
+ ## Useful links
+ 
+-To learn more about migrating from M2 to M3 in Compose, consult the following
+-additional resources.
++To learn more about migrating from M2 to M3 in Compose, consult the following additional resources.
+ 
+ ### Docs
+ 

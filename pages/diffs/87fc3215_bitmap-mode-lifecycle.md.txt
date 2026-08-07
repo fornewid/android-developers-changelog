@@ -1,0 +1,79 @@
+diff --git a/docs/media/ai-enhancement/bitmap-mode-lifecycle.md b/docs/media/ai-enhancement/bitmap-mode-lifecycle.md
+index cd98f883..337dc6dc 100644
+--- a/docs/media/ai-enhancement/bitmap-mode-lifecycle.md
++++ b/docs/media/ai-enhancement/bitmap-mode-lifecycle.md
+@@ -4,22 +4,13 @@ url: https://developer.android.com/media/ai-enhancement/bitmap-mode-lifecycle
+ source: md.txt
+ ---
+ 
+-The Media Enhancement API provides a low-latency, privacy-preserving, on-device
+-AI solution that leverages hardware acceleration to deliver high-quality media
+-improvements with zero APK bloat. For more information, see [Understand the
+-media enhancement capabilities](https://developer.android.com/media/ai-enhancement/overview).
++The Media Enhancement API provides a low-latency, privacy-preserving, on-device AI solution that leverages hardware acceleration to deliver high-quality media improvements with zero APK bloat. For more information, see [Understand the media enhancement capabilities](https://developer.android.com/media/ai-enhancement/overview).
+ 
+-The static Bitmap mode (`EnhancementMode.BITMAP`) is designed for static,
+-decoded image processing.
++The static Bitmap mode (`EnhancementMode.BITMAP`) is designed for static, decoded image processing.
+ 
+-Operating in Bitmap mode requires the OS to serialize uncompressed pixel data
+-and copy it from CPU memory across the system bus to GPU memory, returning the
+-processed frame through a reverse copy. It is optimized for single-frame
+-execution and isn't compatible with real-time video streaming.
++Operating in Bitmap mode requires the OS to serialize uncompressed pixel data and copy it from CPU memory across the system bus to GPU memory, returning the processed frame through a reverse copy. It is optimized for single-frame execution and isn't compatible with real-time video streaming.
+ 
+-This workflow involves creating a session, processing a single bitmap with it,
+-and then handling the result. The code examples from the previous sections cover
+-this use case in detail.
++This workflow involves creating a session, processing a single bitmap with it, and then handling the result. The code examples from the previous sections cover this use case in detail.
+ 
+ 1. **Configure options** : Create an `EnhancementOptions` object, ensuring the `enhancementMode` is set to `EnhancementMode.BITMAP`.
+ 2. **Create session** : Use the `createSessionAsync` wrapper we defined earlier to create an `EnhancementSession`. This is a heavyweight object, so create it only when needed.
+@@ -27,10 +18,7 @@ this use case in detail.
+ 4. **Handle result**: The suspend function returns a new, enhanced Bitmap on success or throw an exception on failure.
+ 5. **Release session** : Crucially, call `session.release()` when you are finished to free up GPU resources.
+ 
+-The `EnhancementSession` is a heavyweight context object that maintains a
+-persistent GPU or NPU memory pipeline. It allocates dedicated video RAM (VRAM)
+-and native system handles. To prevent severe memory leaks and potential
+-`OutOfMemoryError` crashes, adhere to the following lifecycle principles:
++The `EnhancementSession` is a heavyweight context object that maintains a persistent GPU or NPU memory pipeline. It allocates dedicated video RAM (VRAM) and native system handles. To prevent severe memory leaks and potential `OutOfMemoryError` crashes, adhere to the following lifecycle principles:
+ 
+ 1. **Lazy instantiation**: Don't create a session until the user initiates an enhancement action.
+ 2. **Strategic reuse**: Maintain and reuse a single session instance when processing multiple images with identical configurations (dimensions and toggled options).
+@@ -38,12 +26,9 @@ and native system handles. To prevent severe memory leaks and potential
+ 
+ ## Initialize the enhancement engine
+ 
+-This method orchestrates a two-step check. It verifies if the device's hardware
+-supports acceleration, and then ensures the required machine learning modules
+-are present.
++This method orchestrates a two-step check. It verifies if the device's hardware supports acceleration, and then ensures the required machine learning modules are present.
+ 
+-Running this as a prerequisite step prevents runtime initialization failures by
+-validating capabilities before your app attempts to process media.
++Running this as a prerequisite step prevents runtime initialization failures by validating capabilities before your app attempts to process media.
+ 
+     class MediaSetupViewModel(application: Application) : AndroidViewModel(application) {
+         private val enhancementClient = Enhancement.getClient(application)
+@@ -74,8 +59,7 @@ validating capabilities before your app attempts to process media.
+ 
+ ## Create session and bitmap process wrappers
+ 
+-Use these Kotlin coroutine wrappers to convert task-based client callbacks into
+-standard suspending functions, enabling cleaner and sequential execution.
++Use these Kotlin coroutine wrappers to convert task-based client callbacks into standard suspending functions, enabling cleaner and sequential execution.
+ 
+     // Wraps the task-based createSession callback into a suspending function.
+     suspend fun EnhancementClient.createSessionAsync(
+@@ -130,9 +114,7 @@ standard suspending functions, enabling cleaner and sequential execution.
+ 
+ ## Execute the bitmap pipeline in a `ViewModel`
+ 
+-To integrate the enhancement pipeline into your application architecture, use a
+-`ViewModel` to manage the session lifecycle. This approach ensures that the
+-heavy GPU resources are released when the `ViewModel` is cleared.
++To integrate the enhancement pipeline into your application architecture, use a `ViewModel` to manage the session lifecycle. This approach ensures that the heavy GPU resources are released when the `ViewModel` is cleared.
+ 
+     // Define a data class to hold image information.
+     data class ImageInfo(val bitmap: Bitmap)

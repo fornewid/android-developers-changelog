@@ -1,0 +1,35 @@
+diff --git a/docs/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices.md b/docs/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices.md
+index 8f1c3b8b..202fbf87 100644
+--- a/docs/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices.md
++++ b/docs/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices.md
+@@ -33,6 +33,7 @@ Prioritizing optimizations to make your app *adaptive* isn't just about keeping
+ - **Increased engagement on large screens:** Users on large screen devices often have different interaction patterns. On large screens, users may engage for longer sessions, perform more complex tasks, and consume more content.
+ 
+ [**Concepts saw a 70% increase in user engagement**](https://www.youtube.com/watch?v=WSnfe3KiXbg) on large screens after optimizing.  
++
+ Usage for 6 major media streaming apps in the US was up to **3x more for tablet and phone users**, as compared to phone only users.
+ 
+ - **More accessible app experiences:** According to the World Bank, [15%](https://www.worldbank.org/en/news/immersive-story/2022/02/15/an-accessible-future-for-persons-with-disabilities-what-does-it-take#:~:text=10%20Commitments%0Aon%20Disability%2DInclusion) of the world's population has some type of disability. People with disabilities depend on apps and services that support accessibility to communicate, learn, and work. Matching the user's preferred orientation improves the accessibility of applications, helping to create an inclusive experience for all.
+@@ -89,8 +90,7 @@ Written by:
+ 
+   ###### Senior Product Manager
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
+ Continue reading
+ - [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_Z1BKgnT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -121,8 +121,5 @@ Continue reading
+   - +2 ↩
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

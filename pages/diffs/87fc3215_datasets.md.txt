@@ -1,0 +1,61 @@
+diff --git a/docs/training/data-storage/shared/datasets.md b/docs/training/data-storage/shared/datasets.md
+index c94b2d8c..184a6e89 100644
+--- a/docs/training/data-storage/shared/datasets.md
++++ b/docs/training/data-storage/shared/datasets.md
+@@ -4,19 +4,11 @@ url: https://developer.android.com/training/data-storage/shared/datasets
+ source: md.txt
+ ---
+ 
+-Starting in Android 11 (API level 30), the system caches large datasets that
+-multiple apps might access for use cases like machine learning and media
+-playback. This functionality helps reduce data redundancy, both over the network
+-and on disk.
++Starting in Android 11 (API level 30), the system caches large datasets that multiple apps might access for use cases like machine learning and media playback. This functionality helps reduce data redundancy, both over the network and on disk.
+ 
+-When your app needs access to a shared large dataset, it can first look for
+-these cached datasets, called *shared data blobs* , before determining whether to
+-download a new copy. Apps can access these shared datasets functionality using
+-the APIs in [`BlobStoreManager`](https://developer.android.com/reference/android/app/blob/BlobStoreManager).
++When your app needs access to a shared large dataset, it can first look for these cached datasets, called *shared data blobs* , before determining whether to download a new copy. Apps can access these shared datasets functionality using the APIs in [`BlobStoreManager`](https://developer.android.com/reference/android/app/blob/BlobStoreManager).
+ 
+-The system maintains the shared data blobs and controls which apps can access
+-them. When your app contributes data blobs, you can indicate which other apps
+-should have access by calling one of the following methods:
++The system maintains the shared data blobs and controls which apps can access them. When your app contributes data blobs, you can indicate which other apps should have access by calling one of the following methods:
+ 
+ - To grant access to a specific set of apps on a device, pass the package names of these apps into [`allowPackageAccess()`](https://developer.android.com/reference/android/app/blob/BlobStoreManager.Session#allowPackageAccess(java.lang.String,%20byte%5B%5D)).
+ - To allow only apps whose certificates are signed using the same key as the one used for your app---such as an app suite that you manage---call [`allowSameSignatureAccess()`](https://developer.android.com/reference/android/app/blob/BlobStoreManager.Session#allowSameSignatureAccess()).
+@@ -24,20 +16,15 @@ should have access by calling one of the following methods:
+ 
+ ## Access shared data blobs
+ 
+-The system represents each shared data blob using a
+-[`BlobHandle`](https://developer.android.com/reference/android/app/blob/BlobHandle) object. Each instance of `BlobHandle`
+-contains a cryptographically-secure hash and some identifying details for the
+-dataset.
++The system represents each shared data blob using a [`BlobHandle`](https://developer.android.com/reference/android/app/blob/BlobHandle) object. Each instance of `BlobHandle` contains a cryptographically-secure hash and some identifying details for the dataset.
+ 
+-To access shared data blobs, download identifying details from the server. Using
+-these details, check whether the dataset is already available on the system.
++To access shared data blobs, download identifying details from the server. Using these details, check whether the dataset is already available on the system.
+ 
+ The next step depends on whether data is available.
+ 
+ ### Dataset available
+ 
+-If the dataset is already available on the device, then access it from the system,
+-as shown in the following code snippet:
++If the dataset is already available on the device, then access it from the system, as shown in the following code snippet:
+ 
+ ### Kotlin
+ 
+@@ -77,8 +64,7 @@ if (blobStoreManager != null) {
+ 
+ ### Dataset unavailable
+ 
+-If the dataset isn't available, then download it from the server and contribute it
+-to the system, as shown in the following code snippet:
++If the dataset isn't available, then download it from the server and contribute it to the system, as shown in the following code snippet:
+ 
+ ### Kotlin
+ 

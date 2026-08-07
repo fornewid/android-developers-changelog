@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/nick-butcher.md b/docs/blog/authors/nick-butcher.md
+index 06ee4128..ed0191f3 100644
+--- a/docs/blog/authors/nick-butcher.md
++++ b/docs/blog/authors/nick-butcher.md
+@@ -30,8 +30,5 @@ Product Manager
+   6 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

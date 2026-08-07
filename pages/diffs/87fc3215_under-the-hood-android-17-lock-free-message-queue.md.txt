@@ -1,0 +1,44 @@
+diff --git a/docs/blog/posts/under-the-hood-android-17-lock-free-message-queue.md b/docs/blog/posts/under-the-hood-android-17-lock-free-message-queue.md
+index 0c27a6d7..c620ae97 100644
+--- a/docs/blog/posts/under-the-hood-android-17-lock-free-message-queue.md
++++ b/docs/blog/posts/under-the-hood-android-17-lock-free-message-queue.md
+@@ -352,6 +352,7 @@ Here, the branchless implementation takes fewer cycles and instructions than eve
+ 
+ <br />
+ 
++
+ However, this technique is not always applicable. Branchless approaches generally require doing work that will be thrown away, and if the branch is predictable most of the time, that wasted work can slow your code down. In addition, removing a branch often introduces a *data dependency*. Modern CPUs execute multiple operations per cycle, but they can't execute an instruction until its inputs from a previous instruction are ready. In contrast, a CPU can *speculate* about data in branches, and work ahead if a branch is predicted correctly.
+ 
+ #### **Testing and Validation**
+@@ -407,16 +408,14 @@ Written by:
+ 
+   ###### Software Engineer
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/charles-munger) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
++  [read_more View profile](https://developer.android.com/blog/authors/charles-munger) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+ -
+ 
+   ## [Shai Barack](https://developer.android.com/blog/authors/shai-barack)
+ 
+   ###### Android Platform Performance Lead
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/shai-barack) ![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp) ![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/shai-barack) ![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp) ![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp)
+ Continue reading
+ - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -438,8 +437,5 @@ Continue reading
+   [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

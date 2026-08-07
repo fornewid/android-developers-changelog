@@ -1,0 +1,74 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-scrollable-grid.md b/docs/develop/ui/compose/quick-guides/content/create-scrollable-grid.md
+index 9793c35f..79c45252 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-scrollable-grid.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-scrollable-grid.md
+@@ -6,9 +6,7 @@ source: md.txt
+ 
+ <br />
+ 
+-You can manage large datasets and dynamic content with lazy grids, improving app
+-performance. With lazy grid composables, you can display items in a scrollable
+-container, spanned across multiple columns or rows.
++You can manage large datasets and dynamic content with lazy grids, improving app performance. With lazy grid composables, you can display items in a scrollable container, spanned across multiple columns or rows.
+ 
+ ## Results
+ 
+@@ -20,24 +18,21 @@ container, spanned across multiple columns or rows.
+ 
+ ## Version compatibility
+ 
+-This implementation requires that your project minSDK be set to API level 21 or
+-higher.
++This implementation requires that your project minSDK be set to API level 21 or higher.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-scrollable-grid_90b94f6fc49da5d289b5455639aac6e3fffc24699727c9148b981cb0dd1fe670.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-scrollable-grid_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Decide grid orientation
+ 
+-The [`LazyHorizontalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyHorizontalGrid.composable) and [`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyVerticalGrid.composable) composables provide
+-support for displaying items in a grid. A lazy vertical grid displays its items
+-in a vertically scrollable container, spanned across multiple columns, while
+-lazy horizontal grids have the same behavior on the horizontal axis.
++The [`LazyHorizontalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyHorizontalGrid.composable) and [`LazyVerticalGrid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/LazyVerticalGrid.composable) composables provide support for displaying items in a grid. A lazy vertical grid displays its items in a vertically scrollable container, spanned across multiple columns, while lazy horizontal grids have the same behavior on the horizontal axis.
+ 
+ ### Create a scrollable grid
+ 
+ The following code creates a horizontal scrolling grid with three columns:
+ 
++<br />
+ 
+ ```kotlin
+ @Composable
+@@ -63,6 +58,7 @@ fun ScrollingGrid() {
+         }
+     }
+ }
++   
+ ```
+ 
+ <br />
+@@ -76,18 +72,14 @@ fun ScrollingGrid() {
+ - [`items(itemsList)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope#items(kotlin.Int,kotlin.Function1,kotlin.Function1,kotlin.Function2)) adds `itemsList` to `LazyHorizontalGrid`. The lambda renders a [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/Text.composable#Text(androidx.compose.ui.text.AnnotatedString,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Int,kotlin.collections.Map,kotlin.Function1,androidx.compose.ui.text.TextStyle)) composable for each item and set the text to the item description.
+ - [`item()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope#item(kotlin.Any,kotlin.Any,kotlin.Function1)) adds a single item to `LazyHorizontalGrid` while the lambda renders a single `Text` composable in a similar manner to `items()`.
+ - [`GridCells.Fixed`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/GridCells.Fixed) defines the number of rows or columns.
+-- To create a grid with as many rows as possible, set the number of rows using
+-  [`GridCells.Adaptive`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/GridCells.Adaptive).
++- To create a grid with as many rows as possible, set the number of rows using [`GridCells.Adaptive`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/grid/GridCells.Adaptive).
+ 
+-  In the following code, the `20.dp` value
+-  specifies that every column is at least 20.dp, and all columns have equal
+-  widths. If the screen is 88.dp wide, there are 4 columns at 22.dp each.
++  In the following code, the `20.dp` value specifies that every column is at least 20.dp, and all columns have equal widths. If the screen is 88.dp wide, there are 4 columns at 22.dp each.
+   <iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-scrollable-grid_fe5e0b12d80040bc72255125535a693104eb9686afe66e9008879790936f560f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Collections that contain this guide
+ 
+-This guide is part of these curated Quick Guide collections that cover
+-broader Android development goals:
++This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+ ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
+ 
+ ### Display a list or grid

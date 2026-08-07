@@ -1,0 +1,36 @@
+diff --git a/docs/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api.md b/docs/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api.md
+index 32fb20b7..b12c80c5 100644
+--- a/docs/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api.md
++++ b/docs/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api.md
+@@ -82,16 +82,14 @@ Written by:
+ 
+   ###### Principal Product Manager
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/dom-elliott) ![View Dom Elliott's profile](https://developer.android.com/static/blog/assets/dom_elliot_d78b0628db_flDQk.webp) ![View Dom Elliott's profile](https://developer.android.com/static/blog/assets/dom_elliot_d78b0628db_flDQk.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/dom-elliott) ![View Dom Elliott's profile](https://developer.android.com/static/blog/assets/dom_elliot_d78b0628db_flDQk.webp) ![View Dom Elliott's profile](https://developer.android.com/static/blog/assets/dom_elliot_d78b0628db_flDQk.webp)
+ -
+ 
+   ## [Eric Lynch](https://developer.android.com/blog/authors/eric-lynch)
+ 
+   ###### Product Manager
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/eric-lynch) ![View Eric Lynch's profile](https://developer.android.com/static/blog/assets/Eric_Lynch_bb0a252f52_Z1St4R.webp) ![View Eric Lynch's profile](https://developer.android.com/static/blog/assets/Eric_Lynch_bb0a252f52_Z1St4R.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/eric-lynch) ![View Eric Lynch's profile](https://developer.android.com/static/blog/assets/Eric_Lynch_bb0a252f52_Z1St4R.webp) ![View Eric Lynch's profile](https://developer.android.com/static/blog/assets/Eric_Lynch_bb0a252f52_Z1St4R.webp)
+ Continue reading
+ - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -113,8 +111,5 @@ Continue reading
+   [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

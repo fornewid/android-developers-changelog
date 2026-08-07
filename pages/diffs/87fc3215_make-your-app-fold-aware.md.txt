@@ -1,0 +1,276 @@
+diff --git a/docs/develop/adaptive-apps/guides/foldables/make-your-app-fold-aware.md b/docs/develop/adaptive-apps/guides/foldables/make-your-app-fold-aware.md
+index 8d2afe84..0b8adb3e 100644
+--- a/docs/develop/adaptive-apps/guides/foldables/make-your-app-fold-aware.md
++++ b/docs/develop/adaptive-apps/guides/foldables/make-your-app-fold-aware.md
+@@ -4,37 +4,21 @@ url: https://developer.android.com/develop/adaptive-apps/guides/foldables/make-y
+ source: md.txt
+ ---
+ 
+-Large unfolded displays and unique folded states enable new user experiences on
+-foldable devices. To make your app fold aware, use the [Jetpack WindowManager
+-library](https://developer.android.com/jetpack/androidx/releases/window), which provides an API surface for foldable device window features
+-such as folds and hinges. When your app is fold aware, it can adapt its layout
+-to avoid placing important content in the area of folds or hinges and use folds
+-and hinges as natural separators.
++Large unfolded displays and unique folded states enable new user experiences on foldable devices. To make your app fold aware, use the [Jetpack WindowManager library](https://developer.android.com/jetpack/androidx/releases/window), which provides an API surface for foldable device window features such as folds and hinges. When your app is fold aware, it can adapt its layout to avoid placing important content in the area of folds or hinges and use folds and hinges as natural separators.
+ 
+-Understanding whether a device supports configurations such as tabletop or book
+-posture can guide decisions about supporting different layouts or providing
+-specific features.
++Understanding whether a device supports configurations such as tabletop or book posture can guide decisions about supporting different layouts or providing specific features.
+ 
+ ## Window information
+ 
+-The [`WindowInfoTracker`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowInfoTracker) interface in Jetpack WindowManager exposes window
+-layout information. The interface's [`windowLayoutInfo()`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowInfoTracker#windowLayoutInfo(android.app.Activity)) method returns a
+-stream of [`WindowLayoutInfo`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowLayoutInfo) data that informs your app about a foldable
+-device's fold state. The [`WindowInfoTracker#getOrCreate()`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowInfoTracker#getOrCreate(android.content.Context)) method creates an
+-instance of `WindowInfoTracker`.
++The [`WindowInfoTracker`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowInfoTracker) interface in Jetpack WindowManager exposes window layout information. The interface's [`windowLayoutInfo()`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowInfoTracker#windowLayoutInfo(android.app.Activity)) method returns a stream of [`WindowLayoutInfo`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowLayoutInfo) data that informs your app about a foldable device's fold state. The [`WindowInfoTracker#getOrCreate()`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowInfoTracker#getOrCreate(android.content.Context)) method creates an instance of `WindowInfoTracker`.
+ 
+-WindowManager provides support for collecting `WindowLayoutInfo` data using
+-Kotlin flows and Java callbacks.
++WindowManager provides support for collecting `WindowLayoutInfo` data using Kotlin flows and Java callbacks.
+ 
+ ### Kotlin flows
+ 
+-To start and stop `WindowLayoutInfo` data collection, you can use a [restartable
+-lifecycle-aware coroutine](https://developer.android.com/topic/libraries/architecture/coroutines#restart) in which the `repeatOnLifecycle` code block is
+-executed when the lifecycle is at least `STARTED` and is stopped when the
+-lifecycle is `STOPPED`. Execution of the code block is automatically restarted
+-when the lifecycle is `STARTED` again. In the following example, the code block
+-collects and uses `WindowLayoutInfo` data:
++To start and stop `WindowLayoutInfo` data collection, you can use a [restartable lifecycle-aware coroutine](https://developer.android.com/topic/libraries/architecture/coroutines#restart) in which the `repeatOnLifecycle` code block is executed when the lifecycle is at least `STARTED` and is stopped when the lifecycle is `STOPPED`. Execution of the code block is automatically restarted when the lifecycle is `STARTED` again. In the following example, the code block collects and uses `WindowLayoutInfo` data:
+ 
++<br />
+ 
+ ```kotlin
+ class DisplayFeaturesActivity : ComponentActivity() {
+@@ -53,18 +37,14 @@ class DisplayFeaturesActivity : ComponentActivity() {
+         }
+     }
+ }
++   
+ ```
+ 
+ <br />
+ 
+ ### Java callbacks
+ 
+-The callback compatibility layer included in the
+-[`androidx.window:window-java`](https://developer.android.com/jetpack/androidx/releases/window#declaring_dependencies) dependency enables you to collect
+-`WindowLayoutInfo` updates without using a Kotlin flow. The artifact includes
+-the [`WindowInfoTrackerCallbackAdapter`](https://developer.android.com/reference/kotlin/androidx/window/java/layout/WindowInfoTrackerCallbackAdapter) class, which adapts a
+-`WindowInfoTracker` to support registering (and unregistering) callbacks to
+-receive `WindowLayoutInfo` updates, for example:
++The callback compatibility layer included in the [`androidx.window:window-java`](https://developer.android.com/jetpack/androidx/releases/window#declaring_dependencies) dependency enables you to collect `WindowLayoutInfo` updates without using a Kotlin flow. The artifact includes the [`WindowInfoTrackerCallbackAdapter`](https://developer.android.com/reference/kotlin/androidx/window/java/layout/WindowInfoTrackerCallbackAdapter) class, which adapts a `WindowInfoTracker` to support registering (and unregistering) callbacks to receive `WindowLayoutInfo` updates, for example:
+ 
+     public class SplitLayoutActivity extends AppCompatActivity {
+ 
+@@ -110,16 +90,9 @@ receive `WindowLayoutInfo` updates, for example:
+ 
+ ### RxJava support
+ 
+-If you're already using [RxJava](https://github.com/ReactiveX/RxJava) (version [`2`](https://github.com/ReactiveX/RxJava#version-2x) or [`3`](https://github.com/ReactiveX/RxJava#version-3x-javadoc)),
+-you can take advantage of artifacts that enable you to use an
+-[`Observable`](http://reactivex.io/documentation/observable.html) or [`Flowable`](http://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Flowable.html)
+-to collect `WindowLayoutInfo` updates without using a Kotlin flow.
++If you're already using [RxJava](https://github.com/ReactiveX/RxJava) (version [`2`](https://github.com/ReactiveX/RxJava#version-2x) or [`3`](https://github.com/ReactiveX/RxJava#version-3x-javadoc)), you can take advantage of artifacts that enable you to use an [`Observable`](http://reactivex.io/documentation/observable.html) or [`Flowable`](http://reactivex.io/RxJava/3.x/javadoc/io/reactivex/rxjava3/core/Flowable.html) to collect `WindowLayoutInfo` updates without using a Kotlin flow.
+ 
+-The compatibility layer provided by the `androidx.window:window-rxjava2` and
+-`androidx.window:window-rxjava3` dependencies includes the
+-[`WindowInfoTracker#windowLayoutInfoFlowable()`](https://developer.android.com/reference/kotlin/androidx/window/rxjava2/layout/package-summary#(androidx.window.layout.WindowInfoTracker).windowLayoutInfoFlowable(android.app.Activity)) and
+-[`WindowInfoTracker#windowLayoutInfoObservable()`](https://developer.android.com/reference/kotlin/androidx/window/rxjava2/layout/package-summary#(androidx.window.layout.WindowInfoTracker).windowLayoutInfoObservable(android.app.Activity)) methods, which enable your
+-app to receive `WindowLayoutInfo` updates, for example:
++The compatibility layer provided by the `androidx.window:window-rxjava2` and `androidx.window:window-rxjava3` dependencies includes the [`WindowInfoTracker#windowLayoutInfoFlowable()`](https://developer.android.com/reference/kotlin/androidx/window/rxjava2/layout/package-summary#(androidx.window.layout.WindowInfoTracker).windowLayoutInfoFlowable(android.app.Activity)) and [`WindowInfoTracker#windowLayoutInfoObservable()`](https://developer.android.com/reference/kotlin/androidx/window/rxjava2/layout/package-summary#(androidx.window.layout.WindowInfoTracker).windowLayoutInfoObservable(android.app.Activity)) methods, which enable your app to receive `WindowLayoutInfo` updates, for example:
+ 
+     class RxActivity: AppCompatActivity {
+ 
+@@ -164,37 +137,28 @@ app to receive `WindowLayoutInfo` updates, for example:
+ 
+ ## Features of foldable displays
+ 
+-The `WindowLayoutInfo` class of Jetpack WindowManager makes the features of a
+-display window available as a list of [`DisplayFeature`](https://developer.android.com/reference/kotlin/androidx/window/layout/DisplayFeature) elements.
++The `WindowLayoutInfo` class of Jetpack WindowManager makes the features of a display window available as a list of [`DisplayFeature`](https://developer.android.com/reference/kotlin/androidx/window/layout/DisplayFeature) elements.
+ 
+-A [`FoldingFeature`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature) is a type of `DisplayFeature` that provides information
+-about foldable displays, including the following properties:
++A [`FoldingFeature`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature) is a type of `DisplayFeature` that provides information about foldable displays, including the following properties:
+ 
+ - `state`: The folded state of the device, [`FLAT`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State#FLAT()) or [`HALF_OPENED`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State#HALF_OPENED())
+ 
+-- `orientation`: The orientation of the fold or hinge, [`HORIZONTAL`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.Orientation#HORIZONTAL()) or
+-  [`VERTICAL`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.Orientation#VERTICAL())
++- `orientation`: The orientation of the fold or hinge, [`HORIZONTAL`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.Orientation#HORIZONTAL()) or [`VERTICAL`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.Orientation#VERTICAL())
+ 
+-- `occlusionType`: Whether the fold or hinge conceals part of the display,
+-  [`NONE`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.OcclusionType#NONE()) or [`FULL`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.OcclusionType#FULL())
++- `occlusionType`: Whether the fold or hinge conceals part of the display, [`NONE`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.OcclusionType#NONE()) or [`FULL`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.OcclusionType#FULL())
+ 
+-- `isSeparating`: Whether the fold or hinge creates two logical display areas,
+-  true or false
++- `isSeparating`: Whether the fold or hinge creates two logical display areas, true or false
+ 
+ > [!NOTE]
+ > **Note:** Although the hinge on foldable devices allows the device to fold to various angles, `FoldingFeature` does not expose the angle as part of the API. Different devices have different reporting ranges, and sensor accuracy can vary from device to device; so, animations or logic based on the precise hinge angle must be tuned to the device.
+ 
+-A foldable device that is `HALF_OPENED` always reports `isSeparating` as true
+-because the screen is separated into two display areas. Also, `isSeparating` is
+-always true on a dual‑screen device when the application spans both
+-screens.
++A foldable device that is `HALF_OPENED` always reports `isSeparating` as true because the screen is separated into two display areas. Also, `isSeparating` is always true on a dual‑screen device when the application spans both screens.
+ 
+-The `FoldingFeature` [`bounds`](https://developer.android.com/reference/kotlin/androidx/window/layout/DisplayFeature#bounds()) property (inherited from `DisplayFeature`)
+-represents the bounding rectangle of a folding feature such as a fold or hinge.
+-The bounds can be used to position elements on screen relative to the feature:
++The `FoldingFeature` [`bounds`](https://developer.android.com/reference/kotlin/androidx/window/layout/DisplayFeature#bounds()) property (inherited from `DisplayFeature`) represents the bounding rectangle of a folding feature such as a fold or hinge. The bounds can be used to position elements on screen relative to the feature:
+ 
+ ### Kotlin
+ 
++<br />
+ 
+ ```kotlin
+ override fun onCreate(savedInstanceState: Bundle?) {
+@@ -215,6 +179,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
+         }
+     }
+ }
++      
+ ```
+ 
+ <br />
+@@ -260,20 +225,16 @@ override fun onCreate(savedInstanceState: Bundle?) {
+ 
+ ### Tabletop posture
+ 
+-Using the information included in the `FoldingFeature` object, your app can
+-support postures like tabletop, where the phone sits on a surface, the hinge is
+-in a horizontal position, and the foldable screen is half opened.
++Using the information included in the `FoldingFeature` object, your app can support postures like tabletop, where the phone sits on a surface, the hinge is in a horizontal position, and the foldable screen is half opened.
+ 
+-Tabletop posture offers users the convenience of operating their phones without
+-holding the phone in their hands. Tabletop posture is great for watching media,
+-taking photos, and making video calls.
++Tabletop posture offers users the convenience of operating their phones without holding the phone in their hands. Tabletop posture is great for watching media, taking photos, and making video calls.
+ ![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/foldables/tabletop.png) **Figure 1.** A video player app in tabletop posture---video on vertical portion of screen; playback controls on horizontal portion.
+ 
+-Use [`FoldingFeature.State`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State) and [`FoldingFeature.Orientation`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.Orientation) to determine
+-whether the device is in tabletop posture:
++Use [`FoldingFeature.State`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State) and [`FoldingFeature.Orientation`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.Orientation) to determine whether the device is in tabletop posture:
+ 
+ ### Kotlin
+ 
++<br />
+ 
+ ```kotlin
+ fun isTableTopPosture(foldFeature: FoldingFeature?): Boolean {
+@@ -281,6 +242,7 @@ fun isTableTopPosture(foldFeature: FoldingFeature?): Boolean {
+     return foldFeature?.state == FoldingFeature.State.HALF_OPENED &&
+         foldFeature.orientation == FoldingFeature.Orientation.HORIZONTAL
+ }
++      
+ ```
+ 
+ <br />
+@@ -293,24 +255,18 @@ fun isTableTopPosture(foldFeature: FoldingFeature?): Boolean {
+                (foldFeature.getOrientation() == FoldingFeature.Orientation.HORIZONTAL);
+     }
+ 
+-Once you know the device is in tabletop posture, update your app layout
+-accordingly. For media apps, that typically means placing the playback above the
+-fold and positioning controls and supplementary content just following for a
+-hands‑free viewing or listening experience.
++Once you know the device is in tabletop posture, update your app layout accordingly. For media apps, that typically means placing the playback above the fold and positioning controls and supplementary content just following for a hands‑free viewing or listening experience.
+ 
+-On Android 15 (API level 35) and higher, you can invoke a synchronous API to
+-detect whether a device supports tabletop posture regardless of the current
+-state of the device.
++On Android 15 (API level 35) and higher, you can invoke a synchronous API to detect whether a device supports tabletop posture regardless of the current state of the device.
+ 
+ > [!NOTE]
+ > **Note:** The API requires [WindowManager Extensions](https://source.android.com/docs/core/display/windowmanager-extensions) version 6, which ships with Android 15 or higher.
+ 
+-The API provides a list of postures supported by the device. If the list
+-contains tabletop posture, you can split your app layout to support the posture
+-and run A/B tests on your app UI for tabletop and full‑screen layouts.
++The API provides a list of postures supported by the device. If the list contains tabletop posture, you can split your app layout to support the posture and run A/B tests on your app UI for tabletop and full‑screen layouts.
+ 
+ ### Kotlin
+ 
++<br />
+ 
+ ```kotlin
+ if (WindowSdkExtensions.getInstance().extensionVersion >= 6) {
+@@ -319,6 +275,7 @@ if (WindowSdkExtensions.getInstance().extensionVersion >= 6) {
+         // Device supports tabletop posture.
+     }
+ }
++      
+ ```
+ 
+ <br />
+@@ -337,31 +294,21 @@ if (WindowSdkExtensions.getInstance().extensionVersion >= 6) {
+ 
+ #### Examples
+ 
+-- [`MediaPlayerActivity`](https://github.com/android/platform-samples/blob/main/samples/user-interface/windowmanager/src/main/java/com/example/platform/ui/windowmanager/MediaPlayerActivity.kt) app: See how to use [Media3
+-  Exoplayer](https://developer.android.com/guide/topics/media/exoplayer) and [WindowManager](https://github.com/android/platform-samples/tree/main/samples/user-interface/windowmanager) to create a fold‑aware video
+-  player.
++- [`MediaPlayerActivity`](https://github.com/android/platform-samples/blob/main/samples/user-interface/windowmanager/src/main/java/com/example/platform/ui/windowmanager/MediaPlayerActivity.kt) app: See how to use [Media3 Exoplayer](https://developer.android.com/guide/topics/media/exoplayer) and [WindowManager](https://github.com/android/platform-samples/tree/main/samples/user-interface/windowmanager) to create a fold‑aware video player.
+ 
+-- [Optimize your camera app on foldable devices with Jetpack WindowManager](https://developer.android.com/codelabs/android-camera-foldables#5)
+-  codelab: Learn how to implement tabletop posture for photography apps. Show
+-  the viewfinder on the top half of the screen (above the fold) and the
+-  controls on the bottom half (below the fold).
++- [Optimize your camera app on foldable devices with Jetpack WindowManager](https://developer.android.com/codelabs/android-camera-foldables#5) codelab: Learn how to implement tabletop posture for photography apps. Show the viewfinder on the top half of the screen (above the fold) and the controls on the bottom half (below the fold).
+ 
+ ### Book posture
+ 
+-Another unique foldable feature is book posture, where the device is half opened
+-and the hinge is vertical. Book posture is great for reading e‑books. With
+-a two‑page layout on a large screen foldable open like a bound book, book
+-posture captures the experience of reading a real book.
++Another unique foldable feature is book posture, where the device is half opened and the hinge is vertical. Book posture is great for reading e‑books. With a two‑page layout on a large screen foldable open like a bound book, book posture captures the experience of reading a real book.
+ 
+-It can also be used for photography if you want to capture a different aspect
+-ratio while taking pictures hands‑free.
++It can also be used for photography if you want to capture a different aspect ratio while taking pictures hands‑free.
+ 
+-Implement book posture with the same techniques used for tabletop posture. The
+-only difference is the code should check that the folding feature orientation is
+-vertical instead of horizontal:
++Implement book posture with the same techniques used for tabletop posture. The only difference is the code should check that the folding feature orientation is vertical instead of horizontal:
+ 
+ ### Kotlin
+ 
++<br />
+ 
+ ```kotlin
+ fun isBookPosture(foldFeature: FoldingFeature?): Boolean {
+@@ -369,6 +316,7 @@ fun isBookPosture(foldFeature: FoldingFeature?): Boolean {
+     return foldFeature?.state == FoldingFeature.State.HALF_OPENED &&
+         foldFeature.orientation == FoldingFeature.Orientation.VERTICAL
+ }
++      
+ ```
+ 
+ <br />
+@@ -386,15 +334,9 @@ fun isBookPosture(foldFeature: FoldingFeature?): Boolean {
+ 
+ ## Window size changes
+ 
+-An app's display area can change as a result of a device configuration change,
+-for example, when the device is folded or unfolded, rotated, or a window is
+-resized in multi‑window mode.
++An app's display area can change as a result of a device configuration change, for example, when the device is folded or unfolded, rotated, or a window is resized in multi‑window mode.
+ 
+-The Jetpack WindowManager [`WindowMetricsCalculator`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowMetricsCalculator) class enables you to
+-retrieve the current and maximum window metrics. Like the platform
+-[`WindowMetrics`](https://developer.android.com/reference/kotlin/android/view/WindowMetrics) introduced in API level 30, the [WindowManager
+-`WindowMetrics`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowMetrics) provide the window bounds, but the API is backward compatible
+-down to API level 14.
++The Jetpack WindowManager [`WindowMetricsCalculator`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowMetricsCalculator) class enables you to retrieve the current and maximum window metrics. Like the platform [`WindowMetrics`](https://developer.android.com/reference/kotlin/android/view/WindowMetrics) introduced in API level 30, the [WindowManager `WindowMetrics`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowMetrics) provide the window bounds, but the API is backward compatible down to API level 14.
+ 
+ See [Use window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes).
+ 

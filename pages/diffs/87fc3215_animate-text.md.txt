@@ -1,0 +1,57 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/animate-text.md b/docs/develop/ui/compose/quick-guides/content/animate-text.md
+index 0b45dc18..e58cee72 100644
+--- a/docs/develop/ui/compose/quick-guides/content/animate-text.md
++++ b/docs/develop/ui/compose/quick-guides/content/animate-text.md
+@@ -6,8 +6,7 @@ source: md.txt
+ 
+ <br />
+ 
+-You can animate, character-by-character, the appearance of text, so it looks
+-like a streaming typing effect, similar to what a typewriter would produce.
++You can animate, character-by-character, the appearance of text, so it looks like a streaming typing effect, similar to what a typewriter would produce.
+ 
+ ## Results
+ 
+@@ -19,20 +18,17 @@ like a streaming typing effect, similar to what a typewriter would produce.
+ 
+ ## Version compatibility
+ 
+-This implementation requires that your project minSDK be set to API level 21 or
+-higher.
++This implementation requires that your project minSDK be set to API level 21 or higher.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/animate-text_25db4cb5478f8f64b5842826373117869cc8fc398f2e4876b12a04342955ee0d.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/animate-text_511c23f7dff0ca34c1957f6498806bce922c1588762a060a20a1c615f7473fcd.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Animate text character-by-character
+ 
+-This code animates text character-by-character. It tracks an index to control
+-how much of the text is revealed. The displayed text updates dynamically to show
+-only the characters up to the current index. Finally, the variable runs the
+-animation when it changes.
++This code animates text character-by-character. It tracks an index to control how much of the text is revealed. The displayed text updates dynamically to show only the characters up to the current index. Finally, the variable runs the animation when it changes.
+ 
++<br />
+ 
+ ```kotlin
+ @Composable
+@@ -67,6 +63,7 @@ private fun AnimatedText() {
+         }
+     }
+     Text(substringText)
++   
+ ```
+ 
+ <br />
+@@ -79,8 +76,7 @@ private fun AnimatedText() {
+ 
+ ## Collections that contain this guide
+ 
+-This guide is part of these curated Quick Guide collections that cover
+-broader Android development goals:
++This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+ ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
+ 
+ ### Display text

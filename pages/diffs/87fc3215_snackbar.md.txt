@@ -1,0 +1,69 @@
+diff --git a/docs/develop/ui/compose/components/snackbar.md b/docs/develop/ui/compose/components/snackbar.md
+index b3923ae0..59989106 100644
+--- a/docs/develop/ui/compose/components/snackbar.md
++++ b/docs/develop/ui/compose/components/snackbar.md
+@@ -4,10 +4,7 @@ url: https://developer.android.com/develop/ui/compose/components/snackbar
+ source: md.txt
+ ---
+ 
+-The [snackbar component](https://m3.material.io/components/snackbar/overview) serves as a brief notification that appears at the
+-bottom of the screen. It provides feedback about an operation or action without
+-interrupting the user experience. Snackbars disappear after a few seconds. The
+-user can also dismiss them with an action, such as tapping a button.
++The [snackbar component](https://m3.material.io/components/snackbar/overview) serves as a brief notification that appears at the bottom of the screen. It provides feedback about an operation or action without interrupting the user experience. Snackbars disappear after a few seconds. The user can also dismiss them with an action, such as tapping a button.
+ 
+ Consider these three use cases where you might use a snackbar:
+ 
+@@ -19,14 +16,11 @@ Consider these three use cases where you might use a snackbar:
+ 
+ ## Basic example
+ 
+-To implement a snackbar, you first create [`SnackbarHost`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHost.composable#SnackbarHost(androidx.compose.material3.SnackbarHostState,androidx.compose.ui.Modifier,kotlin.Function1)), which includes a
+-[`SnackbarHostState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHostState) property. `SnackbarHostState` provides access to the
+-[`showSnackbar()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHostState#showsnackbar) function which you can use to display your snackbar.
++To implement a snackbar, you first create [`SnackbarHost`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHost.composable#SnackbarHost(androidx.compose.material3.SnackbarHostState,androidx.compose.ui.Modifier,kotlin.Function1)), which includes a [`SnackbarHostState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHostState) property. `SnackbarHostState` provides access to the [`showSnackbar()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHostState#showsnackbar) function which you can use to display your snackbar.
+ 
+-This suspending function requires a `CoroutineScope`---like the one returned by
+-[`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rememberCoroutineScope.composable)---and can be called in response to UI events to
+-show a [`Snackbar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Snackbar.composable) within `Scaffold`.
++This suspending function requires a `CoroutineScope`---like the one returned by [`rememberCoroutineScope`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rememberCoroutineScope.composable)---and can be called in response to UI events to show a [`Snackbar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Snackbar.composable) within `Scaffold`.
+ 
++<br />
+ 
+ ```kotlin
+ val scope = rememberCoroutineScope()
+@@ -49,16 +43,16 @@ Scaffold(
+ ) { contentPadding ->
+     // Screen content
+ }
++   
+ ```
+ 
+ <br />
+ 
+ ## Snackbar with action
+ 
+-You can provide an optional action and adjust the duration of the `Snackbar`.
+-The `snackbarHostState.showSnackbar()` function accepts additional `actionLabel`
+-and `duration` parameters, and returns a [`SnackbarResult`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarResult).
++You can provide an optional action and adjust the duration of the `Snackbar`. The `snackbarHostState.showSnackbar()` function accepts additional `actionLabel` and `duration` parameters, and returns a [`SnackbarResult`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarResult).
+ 
++<br />
+ 
+ ```kotlin
+ val scope = rememberCoroutineScope()
+@@ -95,12 +89,12 @@ Scaffold(
+ ) { contentPadding ->
+     // Screen content
+ }
++   
+ ```
+ 
+ <br />
+ 
+-You can provide a custom `Snackbar` with the `snackbarHost` parameter. See the
+-[`SnackbarHost` API reference docs](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHost.composable#SnackbarHost(androidx.compose.material3.SnackbarHostState,androidx.compose.ui.Modifier,kotlin.Function1)) for more information.
++You can provide a custom `Snackbar` with the `snackbarHost` parameter. See the [`SnackbarHost` API reference docs](https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHost.composable#SnackbarHost(androidx.compose.material3.SnackbarHostState,androidx.compose.ui.Modifier,kotlin.Function1)) for more information.
+ 
+ ### Key points
+ 

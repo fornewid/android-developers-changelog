@@ -1,0 +1,195 @@
+diff --git a/docs/studio/preview/features.md b/docs/studio/preview/features.md
+index 7936f444..df355b2a 100644
+--- a/docs/studio/preview/features.md
++++ b/docs/studio/preview/features.md
+@@ -4,29 +4,17 @@ url: https://developer.android.com/studio/preview/features
+ source: md.txt
+ ---
+ 
+-This page lists the new features introduced in Android Studio preview releases.
+-The preview builds provide early access to the latest features and improvements
+-in Android Studio. [You can download these preview versions](https://developer.android.com/studio/preview).
+-If you encounter any problems using a preview version of Android Studio, [let us
+-know](https://developer.android.com/studio/report-bugs). Your bug reports help to make Android Studio better.
++This page lists the new features introduced in Android Studio preview releases. The preview builds provide early access to the latest features and improvements in Android Studio. [You can download these preview versions](https://developer.android.com/studio/preview). If you encounter any problems using a preview version of Android Studio, [let us know](https://developer.android.com/studio/report-bugs). Your bug reports help to make Android Studio better.
+ 
+-Canary releases contain leading edge features under active development, and are
+-lightly tested. While you can use Canary builds for development, be aware that
+-features might be added or changed. Release Candidates (RC) are the next version
+-of Android Studio, and are almost ready for stable release. The feature set for
+-the next version has been stabilized. See
+-[Android Studio release names](https://developer.android.com/studio/releases/studio-release-names) to understand Android
+-Studio version naming.
++Canary releases contain leading edge features under active development, and are lightly tested. While you can use Canary builds for development, be aware that features might be added or changed. Release Candidates (RC) are the next version of Android Studio, and are almost ready for stable release. The feature set for the next version has been stabilized. See [Android Studio release names](https://developer.android.com/studio/releases/studio-release-names) to understand Android Studio version naming.
+ 
+-For the latest news on Android Studio preview releases, including a list of
+-notable fixes in each preview release, see the [Release
+-Updates](https://androidstudio.googleblog.com/) in the Android Studio blog.
++For the latest news on Android Studio preview releases, including a list of notable fixes in each preview release, see the [Release Updates](https://androidstudio.googleblog.com/) in the Android Studio blog.
+ 
++<br />
+ 
+ ## Current versions of Android Studio
+ 
+-The following table lists the current versions of Android Studio and their
+-respective channels.
++The following table lists the current versions of Android Studio and their respective channels.
+ 
+ | Version | Channel |
+ |---|---|
+@@ -38,27 +26,13 @@ respective channels.
+ 
+ ## Compatibility with Android Gradle plugin previews
+ 
+-Each preview version of Android Studio is published alongside a corresponding
+-version of the Android Gradle plugin (AGP). Preview versions of Studio should
+-work with any
+-[compatible](https://developer.android.com/studio/releases#android_gradle_plugin_and_android_studio_compatibility)
+-stable version of AGP. However, if you're using a preview version of AGP, you
+-must use the corresponding preview version of Studio (for example, Android
+-Studio Chipmunk Canary 7 with AGP 7.2.0-alpha07). Attempts to use divergent
+-versions (for example, Android Studio Chipmunk Beta 1 with AGP
+-7.2.0-alpha07) will cause a Sync failure, which results in a prompt to update to
+-the corresponding version of AGP.
+-
+-For a detailed log of Android Gradle plugin API deprecations and removals, see
+-the [Android Gradle plugin API
+-updates](https://developer.android.com/studio/releases/gradle-plugin-api-updates).
++Each preview version of Android Studio is published alongside a corresponding version of the Android Gradle plugin (AGP). Preview versions of Studio should work with any [compatible](https://developer.android.com/studio/releases#android_gradle_plugin_and_android_studio_compatibility) stable version of AGP. However, if you're using a preview version of AGP, you must use the corresponding preview version of Studio (for example, Android Studio Chipmunk Canary 7 with AGP 7.2.0-alpha07). Attempts to use divergent versions (for example, Android Studio Chipmunk Beta 1 with AGP 7.2.0-alpha07) will cause a Sync failure, which results in a prompt to update to the corresponding version of AGP.
++
++For a detailed log of Android Gradle plugin API deprecations and removals, see the [Android Gradle plugin API updates](https://developer.android.com/studio/releases/gradle-plugin-api-updates).
+ 
+ ## Studio Labs
+ 
+-Studio Labs lets you try out the latest AI experimental features in a stable
+-version of Android Studio, so you can more quickly integrate our AI assistance
+-offerings in your development workflow. For more information, see
+-[Studio Labs](https://developer.android.com/studio/gemini/labs).
++Studio Labs lets you try out the latest AI experimental features in a stable version of Android Studio, so you can more quickly integrate our AI assistance offerings in your development workflow. For more information, see [Studio Labs](https://developer.android.com/studio/gemini/labs).
+ 
+ > [!NOTE]
+ > **Note:** Studio Labs is accessible in RC and stable releases starting with Android Studio Narwhal. In the corresponding canary versions of Android Studio, the features are enabled by default.
+@@ -73,65 +47,38 @@ The following are features currently available in Studio Labs.
+ 
+ The following are new features in Android Studio Quail 4.
+ 
+-To see what's been fixed in this version of Android Studio, see the [closed
+-issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.1.4).
++To see what's been fixed in this version of Android Studio, see the [closed issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.1.4).
+ 
+ ### Build full-stack apps with Firebase in Agent Mode
+ 
+-Firebase services like Authentication and Cloud Firestore databases can be
+-[enabled and configured directly in Agent Mode](https://firebase.blog/posts/2026/05/google-io-2026-announcements) in
+-Android Studio using [Firebase agent skills](https://firebase.google.com/docs/ai-assistance/agent-skills).
+-The agent can help you complete Firebase integration and configure backend
+-services. This integration lets you build robust, full-stack Android apps without
+-leaving your IDE.
++Firebase services like Authentication and Cloud Firestore databases can be [enabled and configured directly in Agent Mode](https://firebase.blog/posts/2026/05/google-io-2026-announcements) in Android Studio using [Firebase agent skills](https://firebase.google.com/docs/ai-assistance/agent-skills). The agent can help you complete Firebase integration and configure backend services. This integration lets you build robust, full-stack Android apps without leaving your IDE.
+ ![The agent guiding a user through Firebase Auth and Firestore setup in the IDE.](https://developer.android.com/static/studio/images/build-full-stack-apps-with-firebase-agent-mode.png) The agent guiding a user through Firebase integration in the chat interface.
+ 
+ ### Build Android apps in Google AI Studio
+ 
+-[Google AI Studio](https://ai.dev/apps?features=build_android_app) supports [full Android app
+-development capabilities](http://android-developers.googleblog.com/2026/05/build-android-apps-google-ai-studio.html). You can generate new Android
+-apps from natural language prompts, preview them instantly using an embedded Android
+-Emulator, and deploy them directly to your physical devices over USB using ADB.
++[Google AI Studio](https://ai.dev/apps?features=build_android_app) supports [full Android app development capabilities](http://android-developers.googleblog.com/2026/05/build-android-apps-google-ai-studio.html). You can generate new Android apps from natural language prompts, preview them instantly using an embedded Android Emulator, and deploy them directly to your physical devices over USB using ADB.
+ 
+-When you're ready to test with users, Google AI Studio can publish directly to the
+-Google Play Console. The tool automatically handles the app record creation,
+-bundles the package, and uploads it to an internal testing track.
++When you're ready to test with users, Google AI Studio can publish directly to the Google Play Console. The tool automatically handles the app record creation, bundles the package, and uploads it to an internal testing track.
+ 
+-For advanced editing and production readiness, you can export your Google AI Studio
+-project as a ZIP file and open it seamlessly in Android Studio.
++For advanced editing and production readiness, you can export your Google AI Studio project as a ZIP file and open it seamlessly in Android Studio.
+ ![The Google AI Studio interface with an embedded emulator showing a generated app.](https://developer.android.com/static/studio/images/build-android-app-ai-studio.png) Google AI Studio with build mode and embedded Android Emulator.
+ 
+ ### Android CLI
+ 
+-Android CLI enables you to build apps using any AI agent, LLM, or development
+-environment of your choice. It is [designed to help AI agents build
+-faster](https://android-developers.googleblog.com/2026/04/build-android-apps-3x-faster-using-any-agent.html) and use fewer tokens compared to generic LLM tools.
++Android CLI enables you to build apps using any AI agent, LLM, or development environment of your choice. It is [designed to help AI agents build faster](https://android-developers.googleblog.com/2026/04/build-android-apps-3x-faster-using-any-agent.html) and use fewer tokens compared to generic LLM tools.
+ 
+-You can ground your agent with the Android Knowledge Base and Android skills to
+-ensure they follow recommended best practices. Furthermore, Android CLI enables
+-your agent to call into the IDE to do advanced tasks such as find symbol
+-declarations and analyze files for issues.
++You can ground your agent with the Android Knowledge Base and Android skills to ensure they follow recommended best practices. Furthermore, Android CLI enables your agent to call into the IDE to do advanced tasks such as find symbol declarations and analyze files for issues.
+ 
+-In addition, Android CLI is integrated into
+-[Google Antigravity 2.0](http://d.android.com/tools/agents).
++In addition, Android CLI is integrated into [Google Antigravity 2.0](http://d.android.com/tools/agents).
+ ![Diagram of an agent using the Android CLI to interact with the Android Studio IDE.](https://developer.android.com/static/studio/images/android-cli-quail-2-c1.png) Using the Android CLI to bridge agents with Android Studio tools and knowledge.
+ 
+ ### Compose Preview Screenshot Testing tool
+ 
+-Use the Compose Preview Screenshot Testing tool to test your Compose UIs and
+-prevent regressions. The new tool helps you generate HTML reports that let you
+-visually detect any changes to your app's UI. Learn more at [Compose Preview
+-Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing).
++Use the Compose Preview Screenshot Testing tool to test your Compose UIs and prevent regressions. The new tool helps you generate HTML reports that let you visually detect any changes to your app's UI. Learn more at [Compose Preview Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing).
+ 
+ ### Recomposition state reads in the Layout Inspector
+ 
+-We've made it easier to diagnose high
+-[recomposition](https://developer.android.com/develop/ui/compose/mental-model#recomposition) counts by adding
+-Recomposition state reads to the [Layout
+-Inspector](https://developer.android.com/studio/debug/layout-inspector). Available in Panda 3 canary, this
+-feature helps you identify the state variables that triggered a recomposition by
+-providing a detailed list of state reads performed during that cycle. To use
+-this feature, use `compose.ui:ui:1.10.0 (BOM 2025.12.01)` or higher.
++We've made it easier to diagnose high [recomposition](https://developer.android.com/develop/ui/compose/mental-model#recomposition) counts by adding Recomposition state reads to the [Layout Inspector](https://developer.android.com/studio/debug/layout-inspector). Available in Panda 3 canary, this feature helps you identify the state variables that triggered a recomposition by providing a detailed list of state reads performed during that cycle. To use this feature, use `compose.ui:ui:1.10.0 (BOM 2025.12.01)` or higher.
+ 
+ **Key capabilities**
+ 
+@@ -149,13 +96,11 @@ Follow these steps to try out these features.
+ 1. Open the Layout Inspector.
+ 2. Right-click the recomposition column and do one of the following:
+ 
+-   - For all nodes, select **Observe Recomposition \> Observe
+-     All**.
++   - For all nodes, select **Observe Recomposition \> Observe All**.
+    - For specific notes, select **Recomposition \> Observe Node**.
+ 
+    ![](https://developer.android.com/static/studio/images/design/compose-state-inspector-entry.png) Turn on recomposition state reads in the Layout Inspector
+-3. Interact with your app. When recompositions occur, click the blue count
+-   links in the Component Tree to inspect the state.
++3. Interact with your app. When recompositions occur, click the blue count links in the Component Tree to inspect the state.
+ 
+    ![](https://developer.android.com/static/studio/images/design/compose-state-inspector.png) Sample result of recomposition state reads in the Layout Inspector
+ 4. Click "Explain with AI" to get a breakdown analysis of why recomposition happened.
+@@ -164,21 +109,14 @@ Follow these steps to try out these features.
+ 
+ ### Publish to Google Play for testing
+ 
+-Android Studio now gives you the ability to upload new releases of your app
+-directly to Google Play Console test tracks. You can do this by selecting
+-a new option to continue to 'Publish for Testing' at the end of the Generate
+-Signed App Bundle flow. This integration supports uploading an initial
+-release of a brand-new app to a Play Console internal test track. You can
+-also use this feature to upload releases of existing apps to other types of
+-test tracks. You need to be registered on Google Play Console to take
+-advantage of this functionality.
++Android Studio now gives you the ability to upload new releases of your app directly to Google Play Console test tracks. You can do this by selecting a new option to continue to 'Publish for Testing' at the end of the Generate Signed App Bundle flow. This integration supports uploading an initial release of a brand-new app to a Play Console internal test track. You can also use this feature to upload releases of existing apps to other types of test tracks. You need to be registered on Google Play Console to take advantage of this functionality.
+ 
+ ### Gemma 4 integration
+ 
+-You can now run the powerful Gemma 4 model directly within Android Studio for AI
+-code assistance without relying on a third-party provider to host it. Powered
+-natively by an integrated runtime, this local execution gives you full control
+-to design new features, refactor code, and debug issues---all completely
+-on-device. To download Gemma models, go to **Settings \> Tools \> AI \> Model
+-Providers \> Gemma**.
+-![](https://developer.android.com/static/studio/releases/assistant/2026.1.4/gemma-4.png)
+\ No newline at end of file
++You can now run the powerful Gemma 4 model directly within Android Studio for AI code assistance without relying on a third-party provider to host it. Powered natively by an integrated runtime, this local execution gives you full control to design new features, refactor code, and debug issues---all completely on-device. To download Gemma models, go to **Settings \> Tools \> AI \> Model Providers \> Gemma**.
++![](https://developer.android.com/static/studio/releases/assistant/2026.1.4/gemma-4.png)
++
++### Simulate back navigation transitions with Interactive Preview
++
++Quail 4 introduces dedicated controls---including a **Navigate Back** action and a **Predictive Back Progress** slider---allowing you to test back and forward animations without deploying to a physical device or emulator. You can now step through custom transition states and verify predictive back gesture behavior directly within [Compose Interactive Preview](https://developer.android.com/develop/ui/compose/tooling/previews#preview-interactive).
++![](https://developer.android.com/static/studio/releases/assistant/2026.1.4/interactive-preview.gif)
+\ No newline at end of file

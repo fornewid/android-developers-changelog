@@ -1,0 +1,119 @@
+diff --git a/docs/build/releases/agp-9-1-0-release-notes.md b/docs/build/releases/agp-9-1-0-release-notes.md
+index 2552bad5..ea5307f1 100644
+--- a/docs/build/releases/agp-9-1-0-release-notes.md
++++ b/docs/build/releases/agp-9-1-0-release-notes.md
+@@ -6,8 +6,7 @@ source: md.txt
+ 
+ <br />
+ 
+-Android Gradle plugin 9.1 is a minor release that includes a variety of new
+-features and improvements.
++Android Gradle plugin 9.1 is a minor release that includes a variety of new features and improvements.
+ 
+ ## Compatibility
+ 
+@@ -15,6 +14,7 @@ Android Gradle plugin 9.1.1 supports Android API level 37.0 and below.
+ 
+ Here is other compatibility info:
+ 
++<br />
+ 
+ |   | Minimum version | Default version | Notes |
+ |---:|:---:|:---:|:---:|
+@@ -31,23 +31,15 @@ The following R8 changes are included in AGP 9.1.0.
+ 
+ ### Enable repackaging to unnamed (default) package when compiling to DEX
+ 
+-R8 now repackages classes into the unnamed (default) package when compiling
+-to DEX by default. This effectively adds the rule `-repackageclasses` to
+-builds that use neither `-flattenpackagehierarchy` or
+-`-repackageclasses` explicitly.
++R8 now repackages classes into the unnamed (default) package when compiling to DEX by default. This effectively adds the rule `-repackageclasses` to builds that use neither `-flattenpackagehierarchy` or `-repackageclasses` explicitly.
+ 
+-Repackaging by default ensures consistency with obfuscation, optimization and
+-shrinking, which are all opt-out rather than opt-in, and thereby
+-mitigates suboptimal configurations that are not explicitly opting in to
+-repackaging.
++Repackaging by default ensures consistency with obfuscation, optimization and shrinking, which are all opt-out rather than opt-in, and thereby mitigates suboptimal configurations that are not explicitly opting in to repackaging.
+ 
+ In order to opt out of this behavior, use the new `-dontrepackage` rule.
+ 
+ ### Support named levels for -maximumremovedandroidloglevel
+ 
+-When using `-maximumremovedandroidloglevel`, you can now specify the log
+-level names instead of the numbers. The following table shows the names
+-and the corresponding numeric log level.
++When using `-maximumremovedandroidloglevel`, you can now specify the log level names instead of the numbers. The following table shows the names and the corresponding numeric log level.
+ 
+ | Name | Level |
+ |---|---|
+@@ -63,6 +55,7 @@ You must specify the log level names in all caps.
+ 
+ ## Fixed issues
+ 
++<br />
+ 
+ ### Android Gradle plugin 9.1.0-rc01
+ 
+@@ -72,22 +65,15 @@ You must specify the log level names in all caps.
+ 
+ ### Android Gradle plugin 9.1.0-alpha09
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Lint** | |---| | [Issue #454429194](https://issuetracker.google.com/issues/454429194) Lint in Otter.2 does not recognize the new compileSdk and targetSdk DSL from AGP 9.0 | |
++Fixed Issues **Lint** [Issue #454429194](https://issuetracker.google.com/issues/454429194) Lint in Otter.2 does not recognize the new compileSdk and targetSdk DSL from AGP 9.0
+ 
+ ### Android Gradle plugin 9.1.0-alpha08
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Android Gradle Plugin** | |---| | [Issue #473854532](https://issuetracker.google.com/issues/473854532) Clean Project menu runs a sub-project target instead of just "clean" | | [Issue #460470375](https://issuetracker.google.com/issues/460470375) Incremental dex desugaring bug in AGP | | [Issue #272344409](https://issuetracker.google.com/issues/272344409) Config cache: avoid accessing task extensions and conventions at execution time | | [Issue #448452488](https://issuetracker.google.com/issues/448452488) AGP does not know about canary platforms and complains | |
+-| **Lint Integration** | |---| | [Issue #478976180](https://issuetracker.google.com/issues/478976180) Android Lint using K1 when applied to a java-library project | | [Issue #197146610](https://issuetracker.google.com/issues/197146610) "Lint check for lint checks" not running | |
++Fixed Issues **Android Gradle Plugin** [Issue #473854532](https://issuetracker.google.com/issues/473854532) Clean Project menu runs a sub-project target instead of just "clean" [Issue #460470375](https://issuetracker.google.com/issues/460470375) Incremental dex desugaring bug in AGP [Issue #272344409](https://issuetracker.google.com/issues/272344409) Config cache: avoid accessing task extensions and conventions at execution time [Issue #448452488](https://issuetracker.google.com/issues/448452488) AGP does not know about canary platforms and complains **Lint Integration** [Issue #478976180](https://issuetracker.google.com/issues/478976180) Android Lint using K1 when applied to a java-library project [Issue #197146610](https://issuetracker.google.com/issues/197146610) "Lint check for lint checks" not running
+ 
+ ### Android Gradle plugin 9.1.0-alpha07
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Android Gradle Plugin** | |---| | [Issue #474099556](https://issuetracker.google.com/issues/474099556) beforeVariants for KMP needs to be implemented. | |
++Fixed Issues **Android Gradle Plugin** [Issue #474099556](https://issuetracker.google.com/issues/474099556) beforeVariants for KMP needs to be implemented.
+ 
+ ### Android Gradle plugin 9.1.0-alpha06
+ 
+@@ -97,15 +83,11 @@ You must specify the log level names in all caps.
+ 
+ ### Android Gradle plugin 9.1.0-alpha05
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Android Gradle Plugin** | |---| | [Issue #471410336](https://issuetracker.google.com/issues/471410336) AGP 9.0.0-rc01 doesn't resolve Kotlin libraries via kotlin() function | |
++Fixed Issues **Android Gradle Plugin** [Issue #471410336](https://issuetracker.google.com/issues/471410336) AGP 9.0.0-rc01 doesn't resolve Kotlin libraries via kotlin() function
+ 
+ ### Android Gradle plugin 9.1.0-alpha04
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Android Gradle Plugin** | |---| | [Issue #398173037](https://issuetracker.google.com/issues/398173037) \`\*.xml.flat\` files contain absolute file paths | |
++Fixed Issues **Android Gradle Plugin** [Issue #398173037](https://issuetracker.google.com/issues/398173037) \`\*.xml.flat\` files contain absolute file paths
+ 
+ ### Android Gradle plugin 9.1.0-alpha03
+ 
+@@ -115,15 +97,11 @@ You must specify the log level names in all caps.
+ 
+ ### Android Gradle plugin 9.1.0-alpha02
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Android Gradle Plugin** | |---| | [Issue #458708710](https://issuetracker.google.com/issues/458708710) Add ability to turn ManifestProcessorTask warnings into errors | |
++Fixed Issues **Android Gradle Plugin** [Issue #458708710](https://issuetracker.google.com/issues/458708710) Add ability to turn ManifestProcessorTask warnings into errors
+ 
+ ### Android Gradle plugin 9.1.0-alpha01
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Android Gradle Plugin** | |---| | [Issue #458708710](https://issuetracker.google.com/issues/458708710) Add ability to turn ManifestProcessorTask warnings into errors | | [Issue #469745905](https://issuetracker.google.com/issues/469745905) Transforming \`OBFUSCATION_MAPPING_FILE\` artifact results in outputs of R8 task missing from the output folder | |
++Fixed Issues **Android Gradle Plugin** [Issue #458708710](https://issuetracker.google.com/issues/458708710) Add ability to turn ManifestProcessorTask warnings into errors [Issue #469745905](https://issuetracker.google.com/issues/469745905) Transforming \`OBFUSCATION_MAPPING_FILE\` artifact results in outputs of R8 task missing from the output folder
+ 
+ ### Android Gradle plugin 9.1.0
+ 

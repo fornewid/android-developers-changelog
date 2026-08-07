@@ -1,0 +1,47 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/modular-hilt.md b/docs/guide/navigation/navigation-3/recipes/modular-hilt.md
+index bc7efd54..6f5c5c5f 100644
+--- a/docs/guide/navigation/navigation-3/recipes/modular-hilt.md
++++ b/docs/guide/navigation/navigation-3/recipes/modular-hilt.md
+@@ -81,6 +81,8 @@ private fun ProfileScreen() {
+         )
+     }
+ }
++
++   
+ ```
+ 
+ ```
+@@ -124,6 +126,8 @@ class HiltModularActivity : ComponentActivity() {
+         }
+     }
+ }
++
++   
+ ```
+ 
+ ```
+@@ -242,6 +246,8 @@ private fun ConversationDetailScreen(
+         }
+     }
+ }
++
++   
+ ```
+ 
+ ```
+@@ -267,6 +273,7 @@ class Navigator(startDestination: Any) {
+         backStack.removeLastOrNull()
+     }
+ }
++   
+ ```
+ 
+ ```
+@@ -286,4 +293,6 @@ object AppModule {
+     @ActivityRetainedScoped
+     fun provideNavigator() : Navigator = Navigator(startDestination = ConversationList)
+ }
++
++   
+ ```
+\ No newline at end of file

@@ -1,0 +1,112 @@
+diff --git a/docs/develop/ui/compose/testing/interoperability.md b/docs/develop/ui/compose/testing/interoperability.md
+index f3cf83dc..ff17008d 100644
+--- a/docs/develop/ui/compose/testing/interoperability.md
++++ b/docs/develop/ui/compose/testing/interoperability.md
+@@ -8,11 +8,9 @@ Compose integrates with common testing frameworks.
+ 
+ ## Interoperability with Espresso
+ 
+-In a hybrid app, you can find Compose components inside view hierarchies and
+-views inside Compose composables (via the [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) composable).
++In a hybrid app, you can find Compose components inside view hierarchies and views inside Compose composables (via the [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView.composable#AndroidView(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) composable).
+ 
+-There are no special steps needed to match either type. You match views with
+-Espresso's [`onView`](https://developer.android.com/reference/androidx/test/espresso/Espresso#onView(org.hamcrest.Matcher%3Candroid.view.View%3E)), and Compose elements with the [`ComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule).
++There are no special steps needed to match either type. You match views with Espresso's [`onView`](https://developer.android.com/reference/androidx/test/espresso/Espresso#onView(org.hamcrest.Matcher%3Candroid.view.View%3E)), and Compose elements with the [`ComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule).
+ 
+     @Test
+     fun androidViewInteropTest() {
+@@ -31,29 +29,20 @@ Espresso's [`onView`](https://developer.android.com/reference/androidx/test/espr
+ 
+ ### Scope Compose searches to specific Views
+ 
+-When migrating complex UIs to Compose, you might encounter identical Compose
+-elements nested inside multiple traditional Android Views---such as within a
+-`RecyclerView` or a `ViewPager`. In these scenarios, a standard Compose search
+-like `onNodeWithText("Save")` might fail with a "Multiple nodes found" error.
++When migrating complex UIs to Compose, you might encounter identical Compose elements nested inside multiple traditional Android Views---such as within a `RecyclerView` or a `ViewPager`. In these scenarios, a standard Compose search like `onNodeWithText("Save")` might fail with a "Multiple nodes found" error.
+ 
+-Instead of modifying your production code to inject dynamic test tags to
+-distinguish these elements, you can scope your Compose test directly to a
+-specific Android View.
++Instead of modifying your production code to inject dynamic test tags to distinguish these elements, you can scope your Compose test directly to a specific Android View.
+ 
+-Use the `onRootWithViewInteraction` API on your test rule. This function accepts
+-an Espresso `ViewInteraction`, allowing you to leverage Espresso to isolate a
+-specific container View and perform Compose interactions exclusively within
+-that scoped hierarchy.
++Use the `onRootWithViewInteraction` API on your test rule. This function accepts an Espresso `ViewInteraction`, allowing you to leverage Espresso to isolate a specific container View and perform Compose interactions exclusively within that scoped hierarchy.
+ 
+ > [!NOTE]
+ > **Note:** This API is specifically designed for testing Compose components nested inside Views. To test Views nested inside Compose, continue using standard Espresso interactions.
+ 
+ #### Interact with a list item
+ 
+-If you need to interact with a Compose element inside a specific `RecyclerView`
+-row, use Espresso to locate the row, then scope your Compose interaction to it.
+-This ignores identical Compose elements in all other rows.
++If you need to interact with a Compose element inside a specific `RecyclerView` row, use Espresso to locate the row, then scope your Compose interaction to it. This ignores identical Compose elements in all other rows.
+ 
++<br />
+ 
+ ```kotlin
+ @Test
+@@ -75,16 +64,16 @@ fun testComposeButtonInsideRecyclerViewItem() = runComposeUiTest {
+         .onNode(hasText("Like"))
+         .performClick()
+ }
++   
+ ```
+ 
+ <br />
+ 
+ #### Resolve ambiguity in ViewPagers
+ 
+-When multiple fragments with identical Compose layouts are in memory
+-simultaneously, you can scope the search to the specific fragment's root View ID
+-to prevent matching ambiguity.
++When multiple fragments with identical Compose layouts are in memory simultaneously, you can scope the search to the specific fragment's root View ID to prevent matching ambiguity.
+ 
++<br />
+ 
+ ```kotlin
+ @Test
+@@ -100,25 +89,19 @@ fun testComposeButtonInsideViewPagerItem() = runComposeUiTest {
+         .onNode(hasText("Save"))
+         .assertIsDisplayed()
+ }
++   
+ ```
+ 
+ <br />
+ 
+ ## Interoperability with UiAutomator
+ 
+-By default, composables are accessible from [UiAutomator](https://developer.android.com/training/testing/other-components/ui-automator) only by their
+-convenient descriptors (displayed text, content description, etc.). If you want
+-to access any composable that uses [`Modifier.testTag`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).testTag(kotlin.String)), you need to enable
+-the semantic property `testTagsAsResourceId` for the particular composable's
+-subtree. Enabling this behavior is useful for composables that don't have any
+-other unique handle, such as scrollable composables (for example, `LazyColumn`).
++By default, composables are accessible from [UiAutomator](https://developer.android.com/training/testing/other-components/ui-automator) only by their convenient descriptors (displayed text, content description, etc.). If you want to access any composable that uses [`Modifier.testTag`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).testTag(kotlin.String)), you need to enable the semantic property `testTagsAsResourceId` for the particular composable's subtree. Enabling this behavior is useful for composables that don't have any other unique handle, such as scrollable composables (for example, `LazyColumn`).
+ 
+ > [!NOTE]
+ > **Note:** This feature is available in Jetpack Compose version 1.2.0-alpha08 and higher.
+ 
+-Enable the semantic property only once high in your composables hierarchy to
+-ensure all nested composables with `Modifier.testTag` are accessible from
+-UiAutomator.
++Enable the semantic property only once high in your composables hierarchy to ensure all nested composables with `Modifier.testTag` are accessible from UiAutomator.
+ 
+     Scaffold(
+         // Enables for all composables in the hierarchy.
+@@ -134,8 +117,7 @@ UiAutomator.
+         }
+     }
+ 
+-Any composable with the `Modifier.testTag(tag)` can be accessible with the use
+-of [`By.res(resourceName)`](https://developer.android.com/reference/androidx/test/uiautomator/BySelector#res) using the same `tag` as the `resourceName`.
++Any composable with the `Modifier.testTag(tag)` can be accessible with the use of [`By.res(resourceName)`](https://developer.android.com/reference/androidx/test/uiautomator/BySelector#res) using the same `tag` as the `resourceName`.
+ 
+ > [!CAUTION]
+ > **Caution:** Make sure you don't use [`By.res(resourcePackage, resourceId)`](https://developer.android.com/reference/androidx/test/uiautomator/BySelector#res_1) as this formats the argument as `$resourcePackage:id/$resourceId`, which is different from `Modifier.testTag`.

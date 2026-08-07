@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/bradley-allen.md b/docs/blog/authors/bradley-allen.md
+index b7b96225..6954bbf1 100644
+--- a/docs/blog/authors/bradley-allen.md
++++ b/docs/blog/authors/bradley-allen.md
+@@ -17,8 +17,5 @@ Technical Writer
+   1 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

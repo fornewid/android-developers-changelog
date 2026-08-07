@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/ataul-munim.md b/docs/blog/authors/ataul-munim.md
+index 4853fd73..a10897bc 100644
+--- a/docs/blog/authors/ataul-munim.md
++++ b/docs/blog/authors/ataul-munim.md
+@@ -25,8 +25,5 @@ Android
+   - +3 ↩
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

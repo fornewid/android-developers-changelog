@@ -1,0 +1,27 @@
+diff --git a/docs/blog/posts/high-speed-capture-and-slow-motion-video-with-camera-x-1-5.md b/docs/blog/posts/high-speed-capture-and-slow-motion-video-with-camera-x-1-5.md
+index 26480d5c..b298192d 100644
+--- a/docs/blog/posts/high-speed-capture-and-slow-motion-video-with-camera-x-1-5.md
++++ b/docs/blog/posts/high-speed-capture-and-slow-motion-video-with-camera-x-1-5.md
+@@ -293,8 +293,7 @@ Written by:
+ 
+   ###### Software Engineer
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/leo-huang) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
++  [read_more View profile](https://developer.android.com/blog/authors/leo-huang) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+ Continue reading
+ - [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+@@ -319,8 +318,5 @@ Continue reading
+   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

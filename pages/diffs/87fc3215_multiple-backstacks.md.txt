@@ -1,0 +1,39 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/multiple-backstacks.md b/docs/guide/navigation/navigation-3/recipes/multiple-backstacks.md
+index 6a87043f..bfa60a54 100644
+--- a/docs/guide/navigation/navigation-3/recipes/multiple-backstacks.md
++++ b/docs/guide/navigation/navigation-3/recipes/multiple-backstacks.md
+@@ -84,6 +84,8 @@ class Navigator(val state: NavigationState){
+         }
+     }
+ }
++
++   
+ ```
+ 
+ ```
+@@ -220,6 +222,8 @@ class NavigationState(
+             listOf(startRoute, topLevelRoute)
+         }
+ }
++
++   
+ ```
+ 
+ ```
+@@ -348,6 +352,8 @@ class MultipleStacksActivity : ComponentActivity() {
+         }
+     }
+ }
++
++   
+ ```
+ 
+ ```
+@@ -471,4 +477,6 @@ fun EntryProviderScope<NavKey>.featureCSection(
+         }
+     }
+ }
++
++   
+ ```
+\ No newline at end of file

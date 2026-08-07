@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/donovan-mcmurray.md b/docs/blog/authors/donovan-mcmurray.md
+index 4cba1a33..b76d52da 100644
+--- a/docs/blog/authors/donovan-mcmurray.md
++++ b/docs/blog/authors/donovan-mcmurray.md
+@@ -17,8 +17,5 @@ Developer Relations Engineer
+   7 min read
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

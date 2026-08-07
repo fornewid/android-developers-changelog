@@ -1,0 +1,14 @@
+diff --git a/docs/build/releases/agp-1-5-0-release-notes.md b/docs/build/releases/agp-1-5-0-release-notes.md
+index 89a2622a..00ca9497 100644
+--- a/docs/build/releases/agp-1-5-0-release-notes.md
++++ b/docs/build/releases/agp-1-5-0-release-notes.md
+@@ -8,7 +8,9 @@ source: md.txt
+ 
+ # Android plugin for Gradle, revision 1.5.0 (November 2015)
+ 
++
+ Dependencies:
++
+ General Notes:
+ :
+     - Integrated the Data Binding plugin into the Android plugin for Gradle. To enable it, add the following code to each per-project `build.gradle` file that uses the plugin:

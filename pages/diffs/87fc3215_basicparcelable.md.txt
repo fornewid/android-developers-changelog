@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/basicparcelable.md b/docs/guide/navigation/navigation-3/recipes/basicparcelable.md
+index 68dd62df..ff3f1db1 100644
+--- a/docs/guide/navigation/navigation-3/recipes/basicparcelable.md
++++ b/docs/guide/navigation/navigation-3/recipes/basicparcelable.md
+@@ -124,4 +124,6 @@ class BasicParcelableActivity : ComponentActivity() {
+         }
+     }
+ }
++
++   
+ ```
+\ No newline at end of file

@@ -1,0 +1,33 @@
+diff --git a/docs/training/wearables/wff/transform/content.md b/docs/training/wearables/wff/transform/content.md
+index 684b68f3..b57d5f8c 100644
+--- a/docs/training/wearables/wff/transform/content.md
++++ b/docs/training/wearables/wff/transform/content.md
+@@ -4,17 +4,11 @@ url: https://developer.android.com/training/wearables/wff/transform/content
+ source: md.txt
+ ---
+ 
+-While `Transform` lets you change the appearance of elements or groups of
+-elements, there might be occasions where you want to switch between a list of
+-behaviors based on some condition. This is analogous to a `switch` statement
+-or `if...else` statement in other languages.
++While `Transform` lets you change the appearance of elements or groups of elements, there might be occasions where you want to switch between a list of behaviors based on some condition. This is analogous to a `switch` statement or `if...else` statement in other languages.
+ 
+-For example, you might want to show a different background for early morning,
+-morning, lunch, afternoon, evening, and night.
++For example, you might want to show a different background for early morning, morning, lunch, afternoon, evening, and night.
+ 
+-`Condition` statements in Watch Face Format let you include different parts
+-of your watch face scene depending on the evaluation of [expressions](https://developer.android.com/training/wearables/wff/expressions), for
+-example:
++`Condition` statements in Watch Face Format let you include different parts of your watch face scene depending on the evaluation of [expressions](https://developer.android.com/training/wearables/wff/expressions), for example:
+ 
+ <br />
+ 
+@@ -41,6 +35,7 @@ example:
+         <!-- content -->
+     </Default>
+ </Condition>
++     
+ ```
+ 
+ <br />

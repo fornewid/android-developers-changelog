@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/ryan-bartley.md b/docs/blog/authors/ryan-bartley.md
+index 050d26d1..59461e9d 100644
+--- a/docs/blog/authors/ryan-bartley.md
++++ b/docs/blog/authors/ryan-bartley.md
+@@ -23,8 +23,5 @@ Android XR
+   - +1 ↩
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

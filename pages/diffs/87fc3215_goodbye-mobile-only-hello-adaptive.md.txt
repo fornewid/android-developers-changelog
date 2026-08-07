@@ -1,0 +1,43 @@
+diff --git a/docs/blog/posts/goodbye-mobile-only-hello-adaptive.md b/docs/blog/posts/goodbye-mobile-only-hello-adaptive.md
+index 6607d171..acde6d43 100644
+--- a/docs/blog/posts/goodbye-mobile-only-hello-adaptive.md
++++ b/docs/blog/posts/goodbye-mobile-only-hello-adaptive.md
+@@ -22,6 +22,7 @@ This engagement signals a necessary shift in development: [goodbye mobile apps,
+ 
+ <br />
+ 
++
+ To help you build for that future, we spent this year releasing tools that make[adaptive the default way to build](https://developer.android.com/develop/ui/compose/build-adaptive-apps). Here are three key updates from 2025 designed to help you build these experiences.
+ 
+ ### **Standardizing adaptive behavior with Android 16**
+@@ -51,6 +52,7 @@ Built for Compose, [Nav3](https://developer.android.com/guide/navigation/navigat
+ 
+ <br />
+ 
++
+ This year delivered the tools you need, from optimizing for expansive layouts to the granular controls of [WindowManager](https://developer.android.com/jetpack/androidx/releases/window#version_15_2) and [Navigation 3](https://developer.android.com/guide/navigation/navigation-3). And, Android 16 began the shift toward truly flexible UI, with updates coming next year to deliver excellent adaptive experiences across all form factors. To learn more about [adaptive development principles](https://android-developers.googleblog.com/2025/05/adaptiveapps-io25.html) and get started, head over to [d.android.com/adaptive-apps](http://d.android.com/adaptive-apps).
+ 
+ The tools are ready, and the users are waiting. We can't wait to see what you build!
+@@ -68,8 +70,7 @@ Written by:
+ 
+   ###### Senior Product Manager
+ 
+-  [read_more
+-  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
++  [read_more View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
+ Continue reading
+ - [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -99,8 +100,5 @@ Continue reading
+   - +1 ↩
+ Stay in the loop
+ 
+-
+-Get the latest Android development insights delivered to your inbox
+-weekly.
+-[mail
+-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Get the latest Android development insights delivered to your inbox weekly.
++[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
