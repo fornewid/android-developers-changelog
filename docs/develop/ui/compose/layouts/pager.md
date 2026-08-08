@@ -24,10 +24,8 @@ HorizontalPager(state = pagerState) { page ->
     // Our page content
     Text(
         text = "Page: $page",
-        modifier = Modifier.fillMaxWidth()
-    )
-}
-   
+        modifier = Modifier.fillMaxWidth
+   nippets.kt
 ```
 
 <br />
@@ -50,10 +48,8 @@ VerticalPager(state = pagerState) { page ->
     // Our page content
     Text(
         text = "Page: $page",
-        modifier = Modifier.fillMaxWidth()
-    )
-}
-   
+        modifier = Modifier.fillMaxWidth
+   nippets.kt
 ```
 
 <br />
@@ -94,9 +90,9 @@ Button(onClick = {
         pagerState.scrollToPage(5)
     }
 }, modifier = Modifier.align(Alignment.BottomCenter)) {
-    Text("Jump to Page 5")
-}
-   
+    Text("Jum
+    ;)
+}PagerSnippets.kt
 ```
 
 <br />
@@ -128,9 +124,9 @@ Button(onClick = {
         pagerState.animateScrollToPage(5)
     }
 }, modifier = Modifier.align(Alignment.BottomCenter)) {
-    Text("Jump to Page 5")
-}
-   
+    Text("Jum
+    ;)
+}PagerSnippets.kt
 ```
 
 <br />
@@ -162,11 +158,11 @@ LaunchedEffect(pagerState) {
 }
 
 VerticalPager(
-    state = pagerState,
-) { page ->
-    Text(text = "Page: $page")
-}
-   
+    state = pa>gerState,
+) { page -
+    Text(tex
+    $page")
+}PagerSnippets.kt
 ```
 
 <br />
@@ -200,7 +196,7 @@ Row(
         .padding(bottom = 8.dp),
     horizontalArrangement = Arrangement.Center
 ) {
-    repeat(pagerState.pageCount) { iteration ->
+    repeat(pagerState.pageCount) { i>teration -
         val color = if (pagerState.currentPage == iteration) Color.DarkGray else Color.LightGray
         Box(
             modifier = Modifier
@@ -208,10 +204,8 @@ Row(
                 .clip(CircleShape)
                 .background(color)
                 .size(16.dp)
-        )
-    }
-}
-   
+       
+    nippets.kt
 ```
 
 <br />
@@ -452,10 +446,8 @@ fun AutoAdvancePager(pageItems: List<Color>, modifier: Modifier = Modifier) {
             )
         }
 
-        PagerIndicator(pageItems.size, pagerState.currentPage)
-    }
-}
-   
+        PagerIndicator(pageItems.size, pagerState.currentPag
+    nippets.kt
 ```
 
 <br />

@@ -127,7 +127,7 @@ In the legacy `MediaSessionCompat` world, the `MediaSessionConnector` was respon
 
 2. In the `build.gradle` file where you maintain your dependencies, add **an implementation dependency to the AndroidX Media3 session module** and remove the legacy dependency:
 
-       implementation "androidx.media3:media3-session:1.10.1"
+       implementation "androidx.media3:media3-session:1.11.0"
 
 3. Replace the `MediaSessionCompat` with **`androidx.media3.session.MediaSession`**.
 
@@ -160,7 +160,7 @@ In the legacy `MediaSessionCompat` world, the `MediaSessionConnector` was respon
    > [!NOTE]
    > **Note:** You can intercept any playback operation on a `Player` by wrapping it in a `ForwardingSimpleBasePlayer(player)`. See [more information about `ForwardingSimpleBasePlayer`](https://developer.android.com/media/media3/exoplayer/customization#player-operations).
 
-5. Implement `MySessionCallback` as required by your app. This is optional. If you want to allow controllers to add media items to the player, implement [`MediaSession.Callback.onAddMediaItems()`](https://github.com/androidx/media/blob/1.10.1/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184). It serves various current and legacy API methods that add media items to the player for playback in a backwards compatible way. This includes the `MediaController.set/addMediaItems()` methods of the Media3 controller, as well as the `TransportControls.prepareFrom*/playFrom*` methods of the legacy API. A sample implementation of `onAddMediaItems` can be found [in the `PlaybackService` of the session demo app](https://github.com/androidx/media/blob/1.10.1/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184).
+5. Implement `MySessionCallback` as required by your app. This is optional. If you want to allow controllers to add media items to the player, implement [`MediaSession.Callback.onAddMediaItems()`](https://github.com/androidx/media/blob/1.11.0/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184). It serves various current and legacy API methods that add media items to the player for playback in a backwards compatible way. This includes the `MediaController.set/addMediaItems()` methods of the Media3 controller, as well as the `TransportControls.prepareFrom*/playFrom*` methods of the legacy API. A sample implementation of `onAddMediaItems` can be found [in the `PlaybackService` of the session demo app](https://github.com/androidx/media/blob/1.11.0/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184).
 
 6. Release the media session at the code site where you destroyed your session before the migration:
 
@@ -224,14 +224,14 @@ The `MediaLibraryService` is backwards compatible with the `MediaBrowserService`
 
 2. In the `build.gradle` file where you maintain your dependencies, add **an implementation dependency to the [AndroidX Media3 session module](https://github.com/androidx/media/tree/release/libraries/session)** and remove the legacy dependency:
 
-       implementation "androidx.media3:media3-session:1.10.1"
+       implementation "androidx.media3:media3-session:1.11.0"
 
 3. **Change your service to inherit from a `MediaLibraryService`** instead of `MediaBrowserService` As said earlier, the `MediaLibraryService` is compatible with the legacy `MediaBrowserService`. Accordingly, the broader API that the service is offering to clients is still the same. So it's likely that an app can keep most of the logic that is required to implement the `MediaBrowserService` and adapt it for the new `MediaLibraryService`.
 
    The main differences compared to the legacy `MediaBrowserServiceCompat` are as follows:
    - **Implement the service life-cycle methods:** The methods that need to be overridden on the service itself are `onCreate/onDestroy`, where an app allocates/releases the library session, the player, and other resources. In addition to standard service life-cycle methods, an app needs to override `onGetSession(MediaSession.ControllerInfo)` to return the `MediaLibrarySession` that was built in `onCreate`.
 
-   - **Implement MediaLibraryService.MediaLibrarySessionCallback:** Building a session requires a [`MediaLibraryService.MediaLibrarySessionCallback`](https://github.com/androidx/media/blob/1.10.1/libraries/session/src/main/java/androidx/media3/session/MediaLibraryService.java#L127) that implements the actual domain API methods. So instead of overriding API methods of the legacy service, you will override the methods of the `MediaLibrarySession.Callback` instead.
+   - **Implement MediaLibraryService.MediaLibrarySessionCallback:** Building a session requires a [`MediaLibraryService.MediaLibrarySessionCallback`](https://github.com/androidx/media/blob/1.11.0/libraries/session/src/main/java/androidx/media3/session/MediaLibraryService.java#L127) that implements the actual domain API methods. So instead of overriding API methods of the legacy service, you will override the methods of the `MediaLibrarySession.Callback` instead.
 
      The callback is then used to build the `MediaLibrarySession`:
 
@@ -254,12 +254,12 @@ The `MediaLibraryService` is backwards compatible with the `MediaBrowserService`
 
      <br />
 
-     Find the [full API of the MediaLibrarySessionCallback](https://github.com/androidx/media/blob/1.10.1/libraries/session/src/main/java/androidx/media3/session/MediaLibraryService.java#L127) in the API documentation.
-   - **Implement [`MediaSession.Callback.onAddMediaItems()`](https://github.com/androidx/media/blob/1.10.1/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184)** : The callback `onAddMediaItems(MediaSession, ControllerInfo, List<MediaItem>)` serves various current and legacy API methods that add media items to the player for playback in a backwards compatible way. This includes the `MediaController.set/addMediaItems()` methods of the Media3 controller, as well as the `TransportControls.prepareFrom*/playFrom*` methods of the legacy API. A sample implementation of the callback can be found [in the `PlaybackService` of the session demo app](https://github.com/androidx/media/blob/1.10.1/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184).
+     Find the [full API of the MediaLibrarySessionCallback](https://github.com/androidx/media/blob/1.11.0/libraries/session/src/main/java/androidx/media3/session/MediaLibraryService.java#L127) in the API documentation.
+   - **Implement [`MediaSession.Callback.onAddMediaItems()`](https://github.com/androidx/media/blob/1.11.0/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184)** : The callback `onAddMediaItems(MediaSession, ControllerInfo, List<MediaItem>)` serves various current and legacy API methods that add media items to the player for playback in a backwards compatible way. This includes the `MediaController.set/addMediaItems()` methods of the Media3 controller, as well as the `TransportControls.prepareFrom*/playFrom*` methods of the legacy API. A sample implementation of the callback can be found [in the `PlaybackService` of the session demo app](https://github.com/androidx/media/blob/1.11.0/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L184).
 
    - AndroidX Media3 is using **`androidx.media3.common.MediaItem`** instead of [MediaBrowserCompat.MediaItem](https://developer.android.com/reference/kotlin/android/support/v4/media/MediaBrowserCompat.MediaItem) and [MediaMetadataCompat](https://developer.android.com/reference/kotlin/android/support/v4/media/MediaMetadataCompat). Parts of your code tied to the legacy classes need to be changed accordingly or map to the Media3 `MediaItem` instead.
 
-   - The general **asynchronous programming model changed to `Futures`** in contrast to the detachable `Result` approach of the `MediaBrowserServiceCompat`. Your service implementation can return an asynchronous [`ListenableFuture`](https://guava.dev/releases/21.0/api/docs/com/google/common/util/concurrent/ListenableFuture.html) instead of detaching a result or [return an immediate Future to directly return a value](https://github.com/androidx/media/blob/1.10.1/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L136).
+   - The general **asynchronous programming model changed to `Futures`** in contrast to the detachable `Result` approach of the `MediaBrowserServiceCompat`. Your service implementation can return an asynchronous [`ListenableFuture`](https://guava.dev/releases/21.0/api/docs/com/google/common/util/concurrent/ListenableFuture.html) instead of detaching a result or [return an immediate Future to directly return a value](https://github.com/androidx/media/blob/1.11.0/demos/session/src/main/java/androidx/media3/demo/session/PlaybackService.kt#L136).
 
 ### Remove PlayerNotificationManager
 

@@ -27,19 +27,19 @@ For example, to depend on ExoPlayer with DASH playback support and UI components
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-exoplayer:1.10.1")
-    implementation("androidx.media3:media3-exoplayer-dash:1.10.1")
-    implementation("androidx.media3:media3-ui:1.10.1")
-    implementation("androidx.media3:media3-ui-compose-material3:1.10.1")
+    implementation("androidx.media3:media3-exoplayer:1.11.0")
+    implementation("androidx.media3:media3-exoplayer-dash:1.11.0")
+    implementation("androidx.media3:media3-ui:1.11.0")
+    implementation("androidx.media3:media3-ui-compose-material3:1.11.0")
 
 ### Groovy
 
-    implementation "androidx.media3:media3-exoplayer:1.10.1"
-    implementation "androidx.media3:media3-exoplayer-dash:1.10.1"
-    implementation "androidx.media3:media3-ui:1.10.1"
-    implementation("androidx.media3:media3-ui-compose-material3:1.10.1")
+    implementation "androidx.media3:media3-exoplayer:1.11.0"
+    implementation "androidx.media3:media3-exoplayer-dash:1.11.0"
+    implementation "androidx.media3:media3-ui:1.11.0"
+    implementation("androidx.media3:media3-ui-compose-material3:1.11.0")
 
-where 1.10.1 is your preferred version (the latest version can be found by consulting the [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)). All modules must be of the same version.
+where 1.11.0 is your preferred version (the latest version can be found by consulting the [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)). All modules must be of the same version.
 
 AndroidX Media3 has library modules that depend on external libraries to provide additional functionality. Some are available from the Maven repository, whereas others must be built manually. Browse the [libraries directory](https://github.com/androidx/media/tree/main/libraries) and see individual READMEs for details.
 

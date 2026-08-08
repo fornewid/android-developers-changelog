@@ -31,10 +31,10 @@ This implementation requires that your project minSDK be set to API level 21 or 
 ## Create an Alert dialog
 
 The [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AlertDialog.composable#AlertDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.window.DialogProperties)) composable provides a convenient API for creating a Material Design themed dialog. The following example implements two buttons in an alert dialog, one that dismisses the dialog, and another that confirms its request:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_f05ea0b6524134adef3471192869ec84aadf286cebc0a3c87abab0cb832559e6.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_361edcef6494b1954876f70c360c834a475ee22b3871b16a0fb08c7fd5ac4240.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 This implementation implies a parent composable that passes arguments to the child composable in this way:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_63521998be62285ea6e4e8809291710de2a413b92972659610f2ec606a43cfa6.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_fbe043f80b4362d3943b5d06229d8706081506c1025f840c9e94bf8adc0dfc21.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -68,7 +68,7 @@ This implementation implies a parent composable that passes arguments to the chi
 ### Create a basic dialog
 
 The following example is a basic implementation of the `Dialog` composable. Note that it uses a `Card` as the secondary container. Without the `Card`, the `Text` component would appear alone above the main app content.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_3364916f6e71fbb5d210149aed6325fef1234c507a4c02f07b96503f487a5617.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_a183a395a5d993d024c0e72519633c26a8b2ef6dc5b82f23af03a1109b8597e7.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Result
 
@@ -82,7 +82,7 @@ The following is a more advanced implemented of the `Dialog` composable. In this
 > [!CAUTION]
 > **Caution:** If you only need to display a two-button dialog as in this example, you should use `AlertDialog` and its more convenient API. However, if you want to create a more complex dialog, perhaps with forms and multiple buttons, you should use `Dialog` with custom content, as in the following example.
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_5570966a4c9dfb2c609afd6cc2a02ce6da94770f1565347c578117d55b628b3f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-user-input_2b484be209646879a2345b42377f3d0fecfa7a65412ff70858c7ba901e39a205.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Result
 

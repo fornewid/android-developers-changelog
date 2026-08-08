@@ -6,8 +6,23 @@ source: md.txt
 
 This document contains release notes for the Google Play Billing Library.
 
-> [!NOTE]
-> **Note:** You can use the [Play Billing Library Version Upgrade Skill](https://github.com/android/skills/tree/main/play/play-billing-library-version-upgrade) to automate your upgrade to the latest version.
+<br />
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/play/play-billing-library-version-upgrade)
+
+### Upgrade Play Billing Library
+
+Use the Play Billing Library [Android skill](https://developer.android.com/tools/agents/android-skills) to automate your upgrade to the latest version. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add --skill play-billing-library-version-upgrade
+
+To activate the skill, try the following prompt:
+
+    Help me upgrade my Play Billing Library implementation.
+
+<br />
 
 ## Google Play Billing Library 9.1.0 Release (2026-06-18)
 

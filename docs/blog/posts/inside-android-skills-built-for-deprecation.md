@@ -69,7 +69,7 @@ While SOTA models generally don't need basic skills, there are some scenarios wh
 
 ## Where can I find core skills?
 
-The Android community has your back. Chris Banes has [a comprehensive collection of skills for Compose and Kotlin](https://github.com/chrisbanes/skills), Ivan Morguillo published [a skill that audits Compose projects](https://github.com/hamen/compose_skill), and Jaewoong Eum created two on [testing](https://github.com/skydoves/compose-performance-skills) and [performance](https://github.com/skydoves/compose-performance-skills).
+The Android community has your back. Chris Banes has [a comprehensive collection of skills for Compose and Kotlin](https://github.com/chrisbanes/skills), Ivan Morgillo published [a skill that audits Compose projects](https://github.com/hamen/compose_skill), and Jaewoong Eum created two on [testing](https://github.com/skydoves/compose-performance-skills) and [performance](https://github.com/skydoves/compose-performance-skills).
 
 Always download skills from reputable sources! I personally wouldn't trust repositories containing dozens or hundreds of Android skills as they're probably AI-generated and untested, and they could even contain malicious or biased instructions. Also, don't install general software engineering skills blindly; a lot of them are tailored for web development.
 

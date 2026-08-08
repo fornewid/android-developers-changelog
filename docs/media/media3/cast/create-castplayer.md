@@ -18,17 +18,17 @@ To start using `CastPlayer`, add the AndroidX Media3 and `CastPlayer` dependenci
 
 ### Kotlin
 
-    implementation("androidx.media3:media3-exoplayer:1.10.1")
-    implementation("androidx.media3:media3-ui:1.10.1")
-    implementation("androidx.media3:media3-session:1.10.1")
-    implementation("androidx.media3:media3-cast:1.10.1")
+    implementation("androidx.media3:media3-exoplayer:1.11.0")
+    implementation("androidx.media3:media3-ui:1.11.0")
+    implementation("androidx.media3:media3-session:1.11.0")
+    implementation("androidx.media3:media3-cast:1.11.0")
 
 ### Groovy
 
-    implementation "androidx.media3:media3-exoplayer:1.10.1"
-    implementation "androidx.media3:media3-ui:1.10.1"
-    implementation "androidx.media3:media3-session:1.10.1"
-    implementation "androidx.media3:media3-cast:1.10.1"
+    implementation "androidx.media3:media3-exoplayer:1.11.0"
+    implementation "androidx.media3:media3-ui:1.11.0"
+    implementation "androidx.media3:media3-session:1.11.0"
+    implementation "androidx.media3:media3-cast:1.11.0"
 
 ## Configure your CastPlayer
 

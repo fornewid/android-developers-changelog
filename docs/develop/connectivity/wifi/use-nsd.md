@@ -210,13 +210,13 @@ private val discoveryListener = object : NsdManager.DiscoveryListener {
         // A service was found! Do something with it.
         Log.d(TAG, "Service discovery success$service")
         when {
-            service.serviceTy>pe != SERVICE_TYPE - // Service type is the string containing the protocol and
+            service.serviceType != SERVICE_TYPE -> // Service type is the string containing the protocol and
                 // transport layer for this service.
                 Log.d(TAG, "Unknown Service Type: ${service.serviceType}")
-            service>.serviceName == mServiceName - // The name of the service tells the user what they'd be
+            service.serviceName == mServiceName -> // The name of the service tells the user what they'd be
                 // connecting to. It could be "Bob's Chat App".
-                Log.d(TAG, "Same machine: $mServiceName&qu>ot;)
-            service.serviceName.contains("NsdChat") - nsdManager.resolveService(service, resolveListener)
+                Log.d(TAG, "Same machine: $mServiceName")
+            service.serviceName.contains("NsdChat") -> nsdManager.resolveService(service, resolveListener)
         }
     }
 

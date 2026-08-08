@@ -6,22 +6,16 @@ source: md.txt
 
 [Video](https://www.youtube.com/watch?v=Y0Cs2MQxyIs)
 
-Navigation refers to the interactions that let users navigate across, into, and
-back out from the different pieces of content within your app.
+Navigation refers to the interactions that let users navigate across, into, and back out from the different pieces of content within your app.
 
-Android Jetpack's Navigation component includes the [Navigation
-library](https://developer.android.com/jetpack/androidx/releases/navigation), [Safe Args Gradle plug-in](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args),
-and tooling to help you implement app navigation. The Navigation component
-handles diverse navigation use cases, from straightforward button clicks to more
-complex patterns, such as app bars and the navigation drawer.
+Android Jetpack's Navigation component includes the [Navigation library](https://developer.android.com/jetpack/androidx/releases/navigation), [Safe Args Gradle plug-in](https://developer.android.com/guide/navigation/navigation-pass-data#Safe-args), and tooling to help you implement app navigation. The Navigation component handles diverse navigation use cases, from straightforward button clicks to more complex patterns, such as app bars and the navigation drawer.
 
 > [!IMPORTANT]
 > **Important:** The Navigation component also ensures a consistent and predictable user experience by adhering to an established [set of principles](https://developer.android.com/guide/navigation/navigation-principles).
 
 ## Key concepts
 
-The following table provides an overview of the key concepts in
-navigation and the main types that you use to implement them.
+The following table provides an overview of the key concepts in navigation and the main types that you use to implement them.
 
 | Concept | Purpose | Type |
 |---|---|---|
@@ -36,8 +30,7 @@ navigation and the main types that you use to implement them.
 
 ## Benefits and features
 
-The Navigation component provides a number of other benefits and features,
-including the following:
+The Navigation component provides a number of other benefits and features, including the following:
 
 - **Animations and transitions:** Provides standardized resources for animations and transitions.
 - **Deep linking:** Implements and handles deep links that take the user directly to a destination.
@@ -55,21 +48,16 @@ including the following:
 
 ## Framework options
 
-The Navigation component supports two primary frameworks for implementing your
-navigation graph, depending on your app's UI architecture:
+The Navigation component supports two primary frameworks for implementing your navigation graph, depending on your app's UI architecture:
 
 - **Compose**: If your app is built entirely with Jetpack Compose, use Navigation Compose. Destinations in your graph are composables.
 - **Fragments**: If your app uses Views or a mix of Views and Compose, use the Fragment-based Navigation component. Destinations in your graph are fragments that can host standard Views, Compose content, or a combination of both.
 
-For applications migrating from Views to Compose, the recommended strategy is
-to continue using the Fragment-based Navigation component while converting
-individual screens to Compose. Once all fragments have been replaced with
-composables, you can migrate the navigation graph to Navigation Compose.
+For applications migrating from Views to Compose, the recommended strategy is to continue using the Fragment-based Navigation component while converting individual screens to Compose. Once all fragments have been replaced with composables, you can migrate the navigation graph to Navigation Compose.
 
 ## Set up your environment
 
-To include navigation support in your project, add the following dependencies to
-your app's `build.gradle` file:
+To include navigation support in your project, add the following dependencies to your app's `build.gradle` file:
 
 ### Groovy
 
@@ -129,19 +117,15 @@ dependencies {
 }
 ```
 
-For information on adding other architecture components to your project, see
-[Add components to your project](https://developer.android.com/topic/libraries/architecture/adding-components#navigation).
+For information on adding other architecture components to your project, see [Add components to your project](https://developer.android.com/topic/libraries/architecture/adding-components#navigation).
 
 ## Next steps
 
-For more documentation and resources related to the Navigation component, see
-the following resources.
+For more documentation and resources related to the Navigation component, see the following resources.
 
 ### Detailed guides
 
-For more information on how to implement a navigation host and `NavController`,
-as well as detail on how they interact with Compose and other UI frameworks, see
-the following guides:
+For more information on how to implement a navigation host and `NavController`, as well as detail on how they interact with Compose and other UI frameworks, see the following guides:
 
 - [Create a navigation controller](https://developer.android.com/guide/navigation/navcontroller): Outlines how to create a `NavController`.
 - [Create your navigation graph](https://developer.android.com/guide/navigation/design): Details how to create a navigation host and a navigation graph.
@@ -158,7 +142,6 @@ the following guides:
 - [Navigating navigation](https://www.youtube.com/watch?v=09qjn706ITA)
 - [10 best practices for moving to a single activity](https://www.youtube.com/watch?v=9O1D_Ytk0xg)
 - [Single activity: Why, when, and how (Android Dev Summit '18)](https://www.youtube.com/watch?v=2k8x8V77CrU)
-- [Android Jetpack: Manage UI navigation with navigation controller (Google
-  I/O '18)](https://www.youtube.com/watch?v=8GCXtCjtg40)
+- [Android Jetpack: Manage UI navigation with navigation controller (Google I/O '18)](https://www.youtube.com/watch?v=8GCXtCjtg40)
 
 ### Samples
