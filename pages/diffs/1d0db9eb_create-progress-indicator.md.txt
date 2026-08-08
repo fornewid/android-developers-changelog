@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md b/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md
+index 95f1ffd8..adcdded8 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-progress-indicator.md
+@@ -41,7 +41,7 @@ The following snippet provides a relatively detailed example. When the user pres
+ > [!NOTE]
+ > **Note:** The following example uses a coroutine to do the work of iterating the `progress` value because it would otherwise block the UI thread.
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_63d83d4d89c55e0ec4a816836e099cc8d27f5d8400500ff5607a75919ca87f89.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_840670c748160ae3524ad3620941d4ff8fec548206d8d2b8b8e484f83ae70d62.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+@@ -58,7 +58,7 @@ To create an indeterminate progress indicator, use the `LinearProgressIndicator`
+ > [!NOTE]
+ > **Note:** This example also demonstrates how you can pass values for the `color` and `trackColor` parameters to customize the appearance of the indicator.
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_a5f13f3d7161511df65be9d44856fa7c6e4166a155f6ae0f7de01002bf2711e7.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-progress-indicator_c947f553586ecf19fe9c26a8f6a95f2422e33902793122564c930cffe381629f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 

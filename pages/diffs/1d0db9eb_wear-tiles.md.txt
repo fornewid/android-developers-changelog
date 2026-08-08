@@ -1,0 +1,52 @@
+diff --git a/docs/jetpack/androidx/releases/wear-tiles.md b/docs/jetpack/androidx/releases/wear-tiles.md
+index c8218d17..a7f90bfa 100644
+--- a/docs/jetpack/androidx/releases/wear-tiles.md
++++ b/docs/jetpack/androidx/releases/wear-tiles.md
+@@ -14,12 +14,9 @@ source: md.txt
+ 
+ ## Declaring dependencies
+ 
+-To add a dependency on Wear, you must add the Google Maven repository to your
+-project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
+-for more information.
++To add a dependency on Wear, you must add the Google Maven repository to your project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) for more information.
+ 
+-Add the dependencies for the artifacts you need in the `build.gradle` file for
+-your app or module:
++Add the dependencies for the artifacts you need in the `build.gradle` file for your app or module:
+ 
+ ### Groovy
+ 
+@@ -73,16 +70,11 @@ For more information about dependencies, see [Add build dependencies](https://de
+ 
+ ## Feedback
+ 
+-Your feedback helps make Jetpack better. Let us know if you discover new issues or have
+-ideas for improving this library. Please take a look at the
+-[existing issues](https://issuetracker.google.com/issues?q=componentid:1112273+status:open)
+-in this library before you create a new one. You can add your vote to an existing issue by
+-clicking the star button.
++Your feedback helps make Jetpack better. Let us know if you discover new issues or have ideas for improving this library. Please take a look at the [existing issues](https://issuetracker.google.com/issues?q=componentid:1112273+status:open) in this library before you create a new one. You can add your vote to an existing issue by clicking the star button.
+ 
+ [Create a new issue](https://issuetracker.google.com/issues/new?component=1112273&template=1623657)
+ 
+-See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+-for more information.
++See the [Issue Tracker documentation](https://developers.google.com/issue-tracker) for more information.
+ 
+ ## Version 1.6
+ 
+@@ -967,11 +959,9 @@ September 29, 2021
+ 
+ **Bug Fixes**
+ 
+-- UpdateScheduler no longer uses a weak
+-  reference, fixing issues where TileUiClient would not update([I1120d](https://android-review.googlesource.com/#/q/I1120ddab0752d5f2104cf65bd4235783b6b818c2), [b/199061124](https://issuetracker.google.com/issues/199061124))
++- UpdateScheduler no longer uses a weak reference, fixing issues where TileUiClient would not update([I1120d](https://android-review.googlesource.com/#/q/I1120ddab0752d5f2104cf65bd4235783b6b818c2), [b/199061124](https://issuetracker.google.com/issues/199061124))
+ 
+-- Declare that SysUiTileUpdateRequester queries PacakgeManager, fixing a
+-  bug where tile updates would not work on R+ devices. ([I1120d](https://android-review.googlesource.com/#/q/I1120ddab0752d5f2104cf65bd4235783b6b818c2))
++- Declare that SysUiTileUpdateRequester queries PacakgeManager, fixing a bug where tile updates would not work on R+ devices. ([I1120d](https://android-review.googlesource.com/#/q/I1120ddab0752d5f2104cf65bd4235783b6b818c2))
+ 
+ ### Version 1.0.0-alpha11
+ 

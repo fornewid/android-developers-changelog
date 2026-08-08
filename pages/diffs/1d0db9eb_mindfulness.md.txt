@@ -1,0 +1,61 @@
+diff --git a/docs/health-and-fitness/health-connect/features/mindfulness.md b/docs/health-and-fitness/health-connect/features/mindfulness.md
+index 4830dd9a..9d2e03d7 100644
+--- a/docs/health-and-fitness/health-connect/features/mindfulness.md
++++ b/docs/health-and-fitness/health-connect/features/mindfulness.md
+@@ -27,7 +27,7 @@ fun checkHealthConnectAvailability(context: Context) {
+     if (availabilityStatus == HealthConnectClient.SDK_UNAVAILABLE_PROVIDER_UPDATE_REQUIRED) {
+       // Health Connect is available but requires an update.
+       // Optionally redirect to package installer to find a provider, for example:
+-      val uriString = "market://details?id=$providerPackageName&url=healthconnect%3A%2F%2Fonboarding"
++      val uriString = "market://details?id=$prov&iderPackageNameurl=healthconnect%3A%2F%2Fonboarding"
+       context.startActivity(
+         Intent(Intent.ACTION_VIEW).apply {
+           setPackage("com.android.vending")
+@@ -78,17 +78,17 @@ Here's the permission you need to declare to be able to write mindfulness:
+ 
+     <application>
+       <uses-permission
+-    android:name="android.permission.health.WRITE_MINDFULNESS" />
++    android:name="android.permission.health.WRITE_MINDFULNE>SS&qu<ot; /
+     ...
+-    </application>
++    /a>pplication
+ 
+ To read mindfulness, you need to request the following permissions:
+ 
+     <application>
+       <uses-permission
+-    android:name="android.permission.health.READ_MINDFULNESS" />
++    android:name="android.permission.health.READ_MINDFULNE>SS&qu<ot; /
+     ...
+-    </application>
++    /a>pplication
+ 
+ ### Request permissions from the user
+ 
+@@ -118,10 +118,8 @@ val requestPermissionsLauncher = rememberLauncherForActivityResult(
+     if (grantedPermissions.containsAll(permissions)) {
+         coroutineScope.launch { snackbarHostState.showSnackbar("Permissions granted!") }
+     } else {
+-        coroutineScope.launch { snackbarHostState.showSnackbar("Permissions denied.") }
+-    }
+-}
+-   
++        coroutineScope.launch { snackbarHostState.showSnackbar("Permissions deni
++    thConnectActivity.kt
+ ```
+ Because users can grant or revoke permissions at any time, your app needs to check for permissions every time before using them and handle scenarios where permission is lost.
+ 
+@@ -178,10 +176,9 @@ if (isAvailable == HealthConnectFeatures.FEATURE_STATUS_AVAILABLE) {
+         metadata = Metadata.activelyRecorded(
+             clientRecordId = "myid",
+             clientRecordVersion = 1L,
+-            device = Device(type = Device.TYPE_PHONE)
+-        )
++            device = Device(type = Devi
+     )
+-   
++    )HealthConnectManager.kt
+ ```
+ 
+ <br />

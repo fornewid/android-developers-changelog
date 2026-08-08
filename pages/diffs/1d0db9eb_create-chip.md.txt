@@ -1,0 +1,37 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-chip.md b/docs/develop/ui/compose/quick-guides/content/create-chip.md
+index a9214915..7ccd66a9 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-chip.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-chip.md
+@@ -27,12 +27,12 @@ This implementation requires that your project minSDK be set to API level 21 or
+ ## Create an assist chip
+ 
+ The [`AssistChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AssistChip.composable) composable provides a straightforward way to create an assist chip that nudges the user in a particular direction. One distinguishing feature is its `leadingIcon` parameter that lets you display an icon on the left side of the chip, as shown in figure 1. The following example demonstrates how you can implement it:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_c11523e150858c5872a9945571d35743f913d85580dd80bc3284099d998b2794.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe> ![A simple assist chip.](https://developer.android.com/static/develop/ui/compose/images/components/chip-assist.png) **Figure 1.** Assist chip.
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_9fc8ebd20304cc5389d35ab4591f796b98c2bac28f4f2855068dcc665049df65.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe> ![A simple assist chip.](https://developer.android.com/static/develop/ui/compose/images/components/chip-assist.png) **Figure 1.** Assist chip.
+ 
+ ## Create a filter chip
+ 
+ The [`FilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilterChip.composable) composable requires you to track whether or not the chip is selected. The following example demonstrates how you can show a leading checked icon only when the user has selected the chip:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_9e869f916c395f9bd7d81c128baab44ba199381d925041dd29e23e266e8de929.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_04d7aaddbd154982ce30d4706a66c759bad63b243db25c01876312b1be5992e2.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+@@ -47,7 +47,7 @@ The following implementation demonstrates an input chip that is in a selected st
+ > [!NOTE]
+ > **Note:** Consider how you might use a chip like this in the preceding email use case, with a name passed in for the `text` parameter, and a function that performs the necessary network calls for `onDismiss`.
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_09d0dc8c560708888e0658862e72a8f9f26e7c7e780861338d1552cb9ffd8268.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_d622726c4fdad577269355c6f76f2e50cfe03967bd3d233c580f79cedb708391.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+@@ -58,7 +58,7 @@ The following implementation demonstrates an input chip that is in a selected st
+ The [`SuggestionChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SuggestionChip.composable) composable is the most basic of the composables listed on this page, both in its API definition and its common use cases. Suggestion chips present dynamically generated hints. For example, in an AI chat app, you might use suggestion chips to present possible responses to the most recent message.
+ 
+ Consider this implementation of `SuggestionChip`:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_66a29bc34951b2de82188f5ac20e923b1b0d1cc8aa17547c04e8a70ca7e781dc.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-chip_51d5c5cc02fc425dea957e272e5126a11274e7c41b4fbc242e326ec0881a8bae.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 

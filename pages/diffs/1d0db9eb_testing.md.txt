@@ -1,0 +1,81 @@
+diff --git a/docs/develop/ui/compose/testing.md b/docs/develop/ui/compose/testing.md
+index 3ae970af..80fc6f04 100644
+--- a/docs/develop/ui/compose/testing.md
++++ b/docs/develop/ui/compose/testing.md
+@@ -4,6 +4,8 @@ url: https://developer.android.com/develop/ui/compose/testing
+ source: md.txt
+ ---
+ 
++<br />
++
+ ## Android skills
+ 
+ [View on GitHub](https://github.com/android/skills/tree/main/testing/testing-setup)
+@@ -18,25 +20,18 @@ Use an Android skill to analyze and set up test infrastructure, test harnesses,
+ 
+ [Video](https://www.youtube.com/watch?v=JyUJZvJ-OV8)
+ 
+-Test your app's UI to verify that behavior of your Compose code is
+-correct. This lets you catch errors early and improve the quality of your app.
++Test your app's UI to verify that behavior of your Compose code is correct. This lets you catch errors early and improve the quality of your app.
+ 
+-Compose provides a set of testing APIs to find elements, verify their
+-attributes, and perform user actions. The APIs also include advanced features
+-such as time manipulation. Use these APIs to create robust tests that verify
+-your app's behavior.
++Compose provides a set of testing APIs to find elements, verify their attributes, and perform user actions. The APIs also include advanced features such as time manipulation. Use these APIs to create robust tests that verify your app's behavior.
+ 
+ > [!IMPORTANT]
+ > **Important:** For more on testing Android apps in general, including testing `View` elements, see the [general testing section](https://developer.android.com/training/testing). A good place to start is the [Fundamentals of testing Android apps](https://developer.android.com/training/testing/fundamentals) guide.
+ 
+ ## Views
+ 
+-If you are working with views instead of Compose, see the general [Test apps on
+-Android](https://developer.android.com/training/testing) section.
++If you are working with views instead of Compose, see the general [Test apps on Android](https://developer.android.com/training/testing) section.
+ 
+-In particular, a good place to start is the [Automate UI tests](https://developer.android.com/training/testing/ui-tests) guide. It
+-lays out how you can automate tests that run on-device, including when using
+-views.
++In particular, a good place to start is the [Automate UI tests](https://developer.android.com/training/testing/ui-tests) guide. It lays out how you can automate tests that run on-device, including when using views.
+ 
+ ## Key Concepts
+ 
+@@ -49,26 +44,20 @@ The following are some key concepts for testing your Compose code:
+ 
+ ## Testing cheatsheet
+ 
+-See the [testing cheatsheet](https://developer.android.com/develop/ui/compose/testing/testing-cheatsheet) for an overview of all the key topics you should
+-learn about testing in Compose.
++See the [testing cheatsheet](https://developer.android.com/develop/ui/compose/testing/testing-cheatsheet) for an overview of all the key topics you should learn about testing in Compose.
+ 
+ ## Setup
+ 
+ Set up your app to let you test Compose code.
+ 
+-First, add the following dependencies to the `build.gradle` file of the module
+-containing your UI tests:
++First, add the following dependencies to the `build.gradle` file of the module containing your UI tests:
+ 
+     // Test rules and transitive dependencies:
+     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$compose_version")
+     // Needed for createComposeRule(), but not for createAndroidComposeRule<YourActivity>():
+     debugImplementation("androidx.compose.ui:ui-test-manifest:$compose_version")
+ 
+-This module includes a [`ComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule) and an implementation for Android
+-called [`AndroidComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/AndroidComposeTestRule). Through this rule you can set Compose
+-content or access the activity. You construct the rules using factory functions,
+-either [`createComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/package-summary#createComposeRule()) or, if you need access to an activity,
+-[`createAndroidComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/package-summary#createAndroidComposeRule()). A typical UI test for Compose looks like this:
++This module includes a [`ComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule) and an implementation for Android called [`AndroidComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/AndroidComposeTestRule). Through this rule you can set Compose content or access the activity. You construct the rules using factory functions, either [`createComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/package-summary#createComposeRule()) or, if you need access to an activity, [`createAndroidComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/package-summary#createAndroidComposeRule()). A typical UI test for Compose looks like this:
+ 
+     // file: app/src/androidTest/java/com/package/MyComposeTest.kt
+ 
+@@ -109,6 +98,7 @@ To learn more, try the [Jetpack Compose Testing codelab](https://developer.andro
+ 
+ ### Samples
+ 
++
+ ## Recommended for you
+ 
+ - Note: link text is displayed when JavaScript is off

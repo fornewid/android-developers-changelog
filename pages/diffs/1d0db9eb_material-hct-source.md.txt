@@ -1,0 +1,12 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/material-hct-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/material-hct-source.md
+index a480a803..87cb4556 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/material-hct-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/material-hct-source.md
+@@ -220,4 +220,6 @@ export class Hct {
+     return recastHct;
+   }
+ }
++
++   
+ ```
+\ No newline at end of file

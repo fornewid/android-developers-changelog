@@ -1,0 +1,70 @@
+diff --git a/docs/kotlin/multiplatform/sqlite.md b/docs/kotlin/multiplatform/sqlite.md
+index 97a7b797..d8c055b4 100644
+--- a/docs/kotlin/multiplatform/sqlite.md
++++ b/docs/kotlin/multiplatform/sqlite.md
+@@ -4,16 +4,11 @@ url: https://developer.android.com/kotlin/multiplatform/sqlite
+ source: md.txt
+ ---
+ 
+-The `androidx.sqlite` library contains abstract interfaces along with basic
+-implementations which can be used to build your own libraries that access
+-SQLite. You might want to consider using the [Room](https://developer.android.com/kotlin/multiplatform/room) library, which provides
+-an abstraction layer over SQLite to allow for more robust database access while
+-harnessing the full power of SQLite.
++The `androidx.sqlite` library contains abstract interfaces along with basic implementations which can be used to build your own libraries that access SQLite. You might want to consider using the [Room](https://developer.android.com/kotlin/multiplatform/room) library, which provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
+ 
+ ## Set up dependencies
+ 
+-To set up SQLite in your KMP project, add the dependencies for the artifacts in
+-the `build.gradle.kts` file for your module:
++To set up SQLite in your KMP project, add the dependencies for the artifacts in the `build.gradle.kts` file for your module:
+ 
+ > [!NOTE]
+ > **Note:** `androidx.sqlite` supports KMP in version 2.5.0 and higher. Web support, including JavaScript and WasmJS, requires version 2.7.0 and higher.
+@@ -33,11 +28,7 @@ the `build.gradle.kts` file for your module:
+ 
+ ## SQLite Driver APIs
+ 
+-The `androidx.sqlite` library groups offer low-level APIs for communicating with
+-the SQLite library either included in the library when using
+-`androidx.sqlite:sqlite-bundled` or in the host platform, such as Android or iOS
+-when using `androidx.sqlite:sqlite-framework`. The APIs closely follow the core
+-functionality of SQLite C API.
++The `androidx.sqlite` library groups offer low-level APIs for communicating with the SQLite library either included in the library when using `androidx.sqlite:sqlite-bundled` or in the host platform, such as Android or iOS when using `androidx.sqlite:sqlite-framework`. The APIs closely follow the core functionality of SQLite C API.
+ 
+ There are three main interfaces:
+ 
+@@ -90,29 +81,17 @@ The following table summarizes the available driver implementations:
+ | `BundledSQLiteDriver` | `androidx.sqlite:sqlite-bundled` | Android, iOS, Mac, Linux and JVM (Desktop) |
+ | `WebWorkerSQLiteDriver` | `androidx.sqlite:sqlite-web` | JavaScript and WebAssembly (WasmJS) |
+ 
+-The recommended implementation to use is `BundledSQLiteDriver` available in
+-`androidx.sqlite:sqlite-bundled`. It includes the SQLite library compiled from
+-source, offering the most up-to-date version and consistency across all the
+-supported KMP platforms.
++The recommended implementation to use is `BundledSQLiteDriver` available in `androidx.sqlite:sqlite-bundled`. It includes the SQLite library compiled from source, offering the most up-to-date version and consistency across all the supported KMP platforms.
+ 
+ ### SQLite Driver and Room
+ 
+-The driver APIs are useful for low-level interactions with an SQLite database.
+-For a feature-rich library that provides more robust access to SQLite, we
+-recommend Room.
++The driver APIs are useful for low-level interactions with an SQLite database. For a feature-rich library that provides more robust access to SQLite, we recommend Room.
+ 
+-A `RoomDatabase` relies on a `SQLiteDriver` to perform database operations,
+-and you must configure an implementation using
+-[`RoomDatabase.Builder.setDriver`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase#setDriver(androidx.sqlite.SQLiteDriver)). Room provides
+-[`RoomDatabase.useReaderConnection`](https://developer.android.com/reference/kotlin/androidx/room3/package-summary#(androidx.room3.RoomDatabase).useReaderConnection(kotlin.coroutines.SuspendFunction1)) and
+-[`RoomDatabase.useWriterConnection`](https://developer.android.com/reference/kotlin/androidx/room3/package-summary#(androidx.room3.RoomDatabase).useWriterConnection(kotlin.coroutines.SuspendFunction1)) for more direct access to the managed
+-database connections.
++A `RoomDatabase` relies on a `SQLiteDriver` to perform database operations, and you must configure an implementation using [`RoomDatabase.Builder.setDriver`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase#setDriver(androidx.sqlite.SQLiteDriver)). Room provides [`RoomDatabase.useReaderConnection`](https://developer.android.com/reference/kotlin/androidx/room3/package-summary#(androidx.room3.RoomDatabase).useReaderConnection(kotlin.coroutines.SuspendFunction1)) and [`RoomDatabase.useWriterConnection`](https://developer.android.com/reference/kotlin/androidx/room3/package-summary#(androidx.room3.RoomDatabase).useWriterConnection(kotlin.coroutines.SuspendFunction1)) for more direct access to the managed database connections.
+ 
+ ## Migrate to Kotlin Multiplatform
+ 
+-You must migrate any use of low-level Support SQLite API components,
+-such as the `SupportSQLiteDatabase` interface, to the equivalent SQLite
+-Driver components.
++You must migrate any use of low-level Support SQLite API components, such as the `SupportSQLiteDatabase` interface, to the equivalent SQLite Driver components.
+ 
+ ### Kotlin Multiplatform
+ 

@@ -1,0 +1,23 @@
+diff --git a/docs/bench.md b/docs/bench.md
+index e227be24..15a319b8 100644
+--- a/docs/bench.md
++++ b/docs/bench.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ AI-assisted software engineering has seen the emergence of several benchmarks to measure the capabilities of LLMs. Android developers face specific challenges that aren't covered by existing benchmarks, so we created one that focuses on a north star of high quality Android development. All models Open weight models Closed weight models
+ 
+-| Model | Score (%) info Average percentage of 100 test cases successfully resolved across 10 runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) | Avg latency (h) info Average time taken to solve 100 tasks across 10 runs | Avg cost ($) info Average cost per full benchmark run |
++| Model | Score (%) info Average percentage of 100 test cases successfully resolved across 5 runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) | Avg latency (h) info Average time taken to solve 100 tasks across 5 runs | Avg cost ($) info Average cost per full benchmark run |
+ |---|---|---|---|---|
+ | ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Fable 5 | **84.5** | 79.9 --- 88.8 | 8.0 | $133.2 |
+ | ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 5.5 | **80.2** | 73.5 --- 86.6 | 11.4 | $138.3 |
+@@ -38,8 +38,7 @@ AI-assisted software engineering has seen the emergence of several benchmarks to
+ | ![](https://developer.android.com/static/images/bench/icons/google.png) Gemma 4 31B IT | **36.3** | 29.3 --- 43.2 | 38.9 | $10.6 |
+ | ![](https://developer.android.com/static/images/bench/icons/google.png) Gemma 4 26B A4B IT | **25.1** | 18.6 --- 31.8 | 21.4 | $3.3 |
+ 
+-**Latest results as of
+-July 8th.**   
++**Latest results as of July 8th.**   
+ View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
+ 
+ ### [Latest Updates](http://developer.android.com/bench/changelog)
