@@ -1,0 +1,26 @@
+diff --git a/docs/develop/ui/compose/notifications/notification-permission.md b/docs/develop/ui/compose/notifications/notification-permission.md
+index 772a0ebd..e96ef2ec 100644
+--- a/docs/develop/ui/compose/notifications/notification-permission.md
++++ b/docs/develop/ui/compose/notifications/notification-permission.md
+@@ -46,10 +46,9 @@ If the user selects the **allow** option, your app can do the following:
+ ### User selects "Don't allow"
+ 
+ If the user selects the **don't allow** option, your app can't send notifications unless it qualifies for an [exemption](https://developer.android.com/develop/ui/compose/notifications/notification-permission#exemptions). All notification channels are blocked, except for a few specific roles. This is similar to the behavior that occurs when the user manually turns off all notifications for your app in system settings.
+-**Caution:** If your app targets 12L or lower and the user taps **Don't allow**, even just once, they aren't prompted again until one of the following occurs:
+ 
+-- The user uninstalls and reinstalls your app.
+-- You update your app to target Android 13 or higher.
++> [!CAUTION]
++> **Caution:** If your app targets 12L or lower and the user taps **Don't allow**, even just once, they aren't prompted again until they uninstall and reinstall your app, or you update your app to target Android 13 or higher.
+ 
+ ### User swipes away from dialog
+ 
+@@ -151,7 +150,7 @@ invitation to get notified of trip updates. After the user presses the
+ I'm in button, the app requests the new permission, which causes the system
+ dialog to appear](https://developer.android.com/static/images/permissions/notification-permission-a13-recommended-flow.svg) **Figure 1.** A recommended user-driven workflow for requesting the notification permission. The middle screen is necessary only if `shouldShowRequestPermissionRationale()` returns `true`.
+ 
+-## Request the permission in Compose
++## Request the permission
+ 
+ To request the permission within your Compose UI, use the [`rememberLauncherForActivityResult()`](https://developer.android.com/reference/kotlin/androidx/activity/compose/package-summary#rememberLauncherForActivityResult(androidx.activity.result.contract.ActivityResultContract,kotlin.Function1)) API with the [`ActivityResultContracts.RequestPermission()`](https://developer.android.com/reference/androidx/activity/result/contract/ActivityResultContracts.RequestPermission) contract.
+ 

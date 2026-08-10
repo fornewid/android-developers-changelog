@@ -1,0 +1,19 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-bottom-sheet.md b/docs/develop/ui/compose/quick-guides/content/create-bottom-sheet.md
+index 355fcf48..86bdda3f 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-bottom-sheet.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-bottom-sheet.md
+@@ -26,12 +26,12 @@ This implementation requires that your project minSDK be set to API level 21 or
+ ## Implement a bottom sheet
+ 
+ To implement a [bottom sheet](https://m3.material.io/components/bottom-sheets/overview), use the [`ModalBottomSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalBottomSheet.composable) composable:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-bottom-sheet_6a082d72fba43ac1f91dfef60bcb8dda00747f6190b668d205843007c3215934.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-bottom-sheet_1ee886840eca259baf2a17b3bc4409f55b1794ae6b94347c569d49f40858ec8c.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Expand and collapse the sheet
+ 
+ To expand and collapse the sheet, use [`SheetState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SheetState):
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-bottom-sheet_7fdbfe392a0936d38383d33fdc28da59a7617fe14d93925d69483a00c650f07a.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-bottom-sheet_b4c6c261a24a86b9ec04e72fd24722393f1774fbf0592353b6ced0fe1a0a3ef0.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Key points
+ 

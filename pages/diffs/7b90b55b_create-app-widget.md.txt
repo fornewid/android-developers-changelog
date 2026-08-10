@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/glance/create-app-widget.md b/docs/develop/ui/compose/glance/create-app-widget.md
+index b30a51d8..03e3baca 100644
+--- a/docs/develop/ui/compose/glance/create-app-widget.md
++++ b/docs/develop/ui/compose/glance/create-app-widget.md
+@@ -129,7 +129,7 @@ The following table describes the `<appwidget-provider>` attributes pertaining t
+ |---|---|
+ | `updatePeriodMillis` | Defines how often the widget framework requests an update from the `GlanceAppWidgetReceiver` by calling the `onUpdate()` callback method. We recommend updating as infrequently as possible---no more than once an hour---to conserve the battery. For details, see the [When to update widgets](https://developer.android.com/develop/ui/compose/glance/glance-app-widget#when-to-update-widgets) section in Glance state management. |
+ | `initialLayout` | Points to the layout resource that defines the loading layout of the widget before the Glance UI compositions render. You can use the predefined loading layout provided in the library: `@layout/glance_default_loading_layout`. |
+-| `configure` | Defines the configuration activity that launches when the user adds the widget. See the [Implement a widget configuration Activity](https://developer.android.com/develop/ui/compose/glance/create-app-widget#configure-activity) section on this page. |
++| `configure` | Defines the configuration activity that launches when the user adds the widget. See the [Implement the configuration activity](https://developer.android.com/develop/ui/compose/glance/configuration#implement) guide. |
+ | `description` | Specifies the description for the widget picker to display for your widget. Introduced in Android 12. |
+ | `previewLayout` (Android 12) and `previewImage` (Android 11 and lower) | - Starting in Android 12, the `previewLayout` attribute specifies a scalable preview, which you provide as an XML layout set to the widget's default size. Ideally, this points to a static XML mapping matching your design layout. - In Android 11 or lower, the `previewImage` attribute specifies a static image drawable screenshot of what the widget looks like, appearing in the widget picker. We recommend specifying both so your app falls back gracefully on older platforms. For newer platforms (Android 15+), you can define live generated previews in Kotlin using \`GlanceAppWidget.providePreview\`. See the [Generated Previews guide](https://developer.android.com/develop/ui/compose/glance/generated-previews). |
+ | `autoAdvanceViewId` | Specifies the view ID of the widget subview that is auto-advanced by the widget's host. |

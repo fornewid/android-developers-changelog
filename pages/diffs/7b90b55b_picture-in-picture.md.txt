@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/system/picture-in-picture.md b/docs/develop/ui/compose/system/picture-in-picture.md
+index 74b96621..5a0ed86c 100644
+--- a/docs/develop/ui/compose/system/picture-in-picture.md
++++ b/docs/develop/ui/compose/system/picture-in-picture.md
+@@ -16,7 +16,7 @@ Use the [Jetpack Picture-in-Picture library](https://developer.android.com/devel
+ 
+ When you enter PiP mode, your app's entire UI enters the PiP window unless you specify how your UI should look in and out of PiP mode.
+ 
+-First, you need to know when your app is in PiP mode or not. You can use [`OnPictureInPictureModeChangedProvider`](https://developer.android.com/reference/androidx/core/app/OnPictureInPictureModeChangedProvider) to achieve this. The code below tells you if your app is in PiP mode.
++First, you need to know when your app is in PiP mode or not. You can use [`OnPictureInPictureModeChangedProvider`](https://developer.android.com/reference/androidx/core/app/OnPictureInPictureModeChangedProvider) to achieve this. The following code checks whether your app is in PiP mode.
+ 
+ <br />
+ 

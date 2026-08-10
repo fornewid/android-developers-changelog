@@ -1,0 +1,161 @@
+diff --git a/docs/develop/ui/compose/kotlin.md b/docs/develop/ui/compose/kotlin.md
+index 4b8e1a44..84c75429 100644
+--- a/docs/develop/ui/compose/kotlin.md
++++ b/docs/develop/ui/compose/kotlin.md
+@@ -18,8 +18,8 @@ void drawSquare(int sideLength) { }
+ 
+ void drawSquare(int sideLength, int thickness) { }
+ 
+-void drawSquare(int sideLength, int thickness, Color edgeColor) { }
+-   
++void drawSquare(int sideLength, int thickness, Color edgeColor)
++   java
+ ```
+ 
+ In Kotlin, you can write a single function and specify the default values for the arguments:
+@@ -61,8 +61,8 @@ Most Compose libraries use default arguments, and it's a good practice to do the
+ <br />
+ 
+ ```kotlin
+-Text(text = "Hello, Android!")
+-   
++Text(text = "Hello, Andro
++    nippets.kt
+ ```
+ 
+ <br />
+@@ -77,9 +77,8 @@ Text(
+     color = Color.Unspecified,
+     fontSize = TextUnit.Unspecified,
+     letterSpacing = TextUnit.Unspecified,
+-    overflow = TextOverflow.Clip
+-)
+-   
++    overflow = TextOverf
++    nippets.kt
+ ```
+ 
+ <br />
+@@ -134,10 +133,10 @@ Column(
+     content = {
+         Text("Some text")
+         Text("Some more text")
+-        Text("Last text")
++        Text(
++   uot;)
+     }
+-)
+-   
++)KotlinSnippets.kt
+ ```
+ 
+ <br />
+@@ -150,9 +149,9 @@ Because the `content` parameter is the last one in the function signature, and w
+ Column(modifier = Modifier.padding(16.dp)) {
+     Text("Some text")
+     Text("Some more text")
+-    Text("Last text")
+-}
+    
++    text")
++}KotlinSnippets.kt
+ ```
+ 
+ <br />
+@@ -167,9 +166,9 @@ In fact, if the *only* parameter you're passing is that trailing lambda---that i
+ Column {
+     Text("Some text")
+     Text("Some more text")
+-    Text("Last text")
+-}
+    
++    text")
++}KotlinSnippets.kt
+ ```
+ 
+ <br />
+@@ -192,10 +191,8 @@ Row {
+         // Alignment.CenterVertically but not to
+         // Alignment.CenterHorizontally, which would be available
+         // in a ColumnScope.
+-        modifier = Modifier.align(Alignment.CenterVertically)
+-    )
+-}
+-   
++        modifier = Modifier.align(Alignment.CenterVerticall
++    nippets.kt
+ ```
+ 
+ <br />
+@@ -246,8 +243,8 @@ Other code can access the property with code like this:
+ 
+ ```kotlin
+ val myDC = DelegatingClass()
+-println("The name property is: " + myDC.name)
+-   
++println("The name property is: " + 
++   nippets.kt
+ ```
+ 
+ <br />
+@@ -293,8 +290,8 @@ val mary = Person(name = "Mary", age = 35)
+ 
+ // ...
+ 
+-val (name, age) = mary
+-    
++val (name, a
++    nippets.kt
+ ```
+ 
+ <br />
+@@ -343,12 +340,10 @@ fun MessageList(messages: List<Message>) {
+         }
+ 
+         // Add list of messages
+-        items(messages) { message ->
++        items(messages) {> message -
+             Message(message)
+-        }
+-    }
+-}
+-   
++       
++    nippets.kt
+ ```
+ 
+ <br />
+@@ -406,8 +401,8 @@ Button(
+             viewModel.loadData()
+         }
+     }
+-) { /* ... */ }
+-   
++) { /* ... 
++    s.kt
+ ```
+ 
+ <br />
+@@ -432,8 +427,8 @@ Button( // ...
+             viewModel.loadData()
+         }
+     }
+-) { /* ... */ }
+-   
++) { /* ... 
++    s.kt
+ ```
+ 
+ <br />
+@@ -487,9 +482,8 @@ fun MoveBoxWhereTapped() {
+                 }
+                 .size(40.dp)
+                 .background(Color(0xff3c1361), CircleShape)
+-        )
+-    }
+-   
++     
++    nippets.kt
+ ```
+ 
+ <br />

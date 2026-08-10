@@ -1,0 +1,108 @@
+diff --git a/docs/develop/ui/compose/layouts/pager.md b/docs/develop/ui/compose/layouts/pager.md
+index 4a326a46..a898cd39 100644
+--- a/docs/develop/ui/compose/layouts/pager.md
++++ b/docs/develop/ui/compose/layouts/pager.md
+@@ -24,8 +24,10 @@ HorizontalPager(state = pagerState) { page ->
+     // Our page content
+     Text(
+         text = "Page: $page",
+-        modifier = Modifier.fillMaxWidth
+-   nippets.kt
++        modifier = Modifier.fillMaxWidth()
++    )
++}
++   
+ ```
+ 
+ <br />
+@@ -48,8 +50,10 @@ VerticalPager(state = pagerState) { page ->
+     // Our page content
+     Text(
+         text = "Page: $page",
+-        modifier = Modifier.fillMaxWidth
+-   nippets.kt
++        modifier = Modifier.fillMaxWidth()
++    )
++}
++   
+ ```
+ 
+ <br />
+@@ -90,9 +94,9 @@ Button(onClick = {
+         pagerState.scrollToPage(5)
+     }
+ }, modifier = Modifier.align(Alignment.BottomCenter)) {
+-    Text("Jum
+-    ;)
+-}PagerSnippets.kt
++    Text("Jump to Page 5")
++}
++   
+ ```
+ 
+ <br />
+@@ -124,9 +128,9 @@ Button(onClick = {
+         pagerState.animateScrollToPage(5)
+     }
+ }, modifier = Modifier.align(Alignment.BottomCenter)) {
+-    Text("Jum
+-    ;)
+-}PagerSnippets.kt
++    Text("Jump to Page 5")
++}
++   
+ ```
+ 
+ <br />
+@@ -158,11 +162,11 @@ LaunchedEffect(pagerState) {
+ }
+ 
+ VerticalPager(
+-    state = pa>gerState,
+-) { page -
+-    Text(tex
+-    $page")
+-}PagerSnippets.kt
++    state = pagerState,
++) { page ->
++    Text(text = "Page: $page")
++}
++   
+ ```
+ 
+ <br />
+@@ -196,7 +200,7 @@ Row(
+         .padding(bottom = 8.dp),
+     horizontalArrangement = Arrangement.Center
+ ) {
+-    repeat(pagerState.pageCount) { i>teration -
++    repeat(pagerState.pageCount) { iteration ->
+         val color = if (pagerState.currentPage == iteration) Color.DarkGray else Color.LightGray
+         Box(
+             modifier = Modifier
+@@ -204,8 +208,10 @@ Row(
+                 .clip(CircleShape)
+                 .background(color)
+                 .size(16.dp)
+-       
+-    nippets.kt
++        )
++    }
++}
++   
+ ```
+ 
+ <br />
+@@ -446,8 +452,10 @@ fun AutoAdvancePager(pageItems: List<Color>, modifier: Modifier = Modifier) {
+             )
+         }
+ 
+-        PagerIndicator(pageItems.size, pagerState.currentPag
+-    nippets.kt
++        PagerIndicator(pageItems.size, pagerState.currentPage)
++    }
++}
++   
+ ```
+ 
+ <br />
