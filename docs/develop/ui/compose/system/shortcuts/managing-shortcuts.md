@@ -128,7 +128,7 @@ When rate limiting is active, [`isRateLimitingActive`](https://developer.android
 
 If you encounter rate limiting during development or testing, you can select **Developer Options \> Reset ShortcutManager rate-limiting** from the [device's settings](https://developer.android.com/studio/debug/dev-options), or you can enter the following command in `adb`:
 
-    $ adb shell cmd shortcut reset-throttling [ --user <var>your-user-id</var> ]
+    adb shell cmd shortcut reset-throttling [ --user your-user-id ]
 
 ## Backup and restore
 

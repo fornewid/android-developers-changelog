@@ -35,7 +35,7 @@ This implementation requires that your project minSDK be set to API level 21 or 
 ## Create a basic slider
 
 The following example is a straightforward slider. That allows the user to select a value from `0.0` to `1.0`. Because the user can select any value in that range, the slider is *continuous*.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_050b89de0841f19f6e52912c7f3f1c536d43bc4ac5b6cedab9962da4cd69e232.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_cee374561057ebb292b124ae45d1ffa18d83fb5644530d54c73a1cf84f2e12e7.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -44,7 +44,7 @@ The following example is a straightforward slider. That allows the user to selec
 ## Create an advanced slider
 
 The following snippet implements a slider that has three steps, with a range from `0.0` to `50.0`. Because the thumb snaps to each step, this slider is *discrete*.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_b4d0573394ec1de335ba7dc206b233d5c608d53f403b9ddbe6d4812d2daa7f0d.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_640b1e979d0f5e86af117cd48d1292eac4eca99de405c27eec99320cb1bc9fb4.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -58,7 +58,7 @@ The following snippet implements a slider that has three steps, with a range fro
 You can also use the dedicated [`RangeSlider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/RangeSlider.composable#RangeSlider(kotlin.ranges.ClosedFloatingPointRange,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.ranges.ClosedFloatingPointRange,kotlin.Int,kotlin.Function0,androidx.compose.material3.SliderColors)) composable. This allows the user to select two values. This can be useful in cases such as when the user wishes to select a minimum and maximum price.
 
 The following example is a relatively straightforward example of a continuous range slider:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_bd0565c8172d6becdd3748a789821ff30da6a392d5b02092e35c98b098189c5b.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_779dac18f95b165fb845b4b9241186d46d139644475d93b28c62386cd88b4213.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 

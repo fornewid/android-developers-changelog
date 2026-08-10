@@ -84,10 +84,8 @@ fun SpatialPanelContent() {
             text = "Spatial Panel",
             color = Color.White,
             fontSize = 25.sp
-        )
-    }
-}
-   
+       
+    alPanel.kt
 ```
 
 <br />
@@ -156,10 +154,8 @@ fun OrbiterExample() {
                     fontSize = 50.sp
                 )
             }
-        }
-    }
-}
-   
+       
+    Orbiter.kt
 ```
 
 <br />
@@ -201,12 +197,12 @@ Subspace {
                 SpatialPanelContent("Middle Right")
             }
             SpatialPanel(SubspaceModifier.height(250.dp).width(400.dp)) {
-                SpatialPanelContent("Bottom Right")
+                SpatialPanelConte
+    Right")
             }
         }
     }
-}
-   
+}SpatialLayout.kt
 ```
 
 <br />
@@ -233,10 +229,8 @@ fun SpatialPanelContent(text: String) {
             color = Color.White,
             fontSize = 25.sp,
             fontWeight = FontWeight.Bold
-        )
-    }
-}
-   
+       
+    lLayout.kt
 ```
 
 <br />
@@ -258,10 +252,8 @@ To display a model, first define its source and state using [`rememberSpatialGlt
 ```kotlin
 val modelState = rememberSpatialGltfModelState(
     source = SpatialGltfModelSource.fromPath(
-        Paths.get("models/model_name.glb")
-    )
-)
-   
+        Paths.get("models/model_name.glb"
+    tfModel.kt
 ```
 
 <br />
@@ -373,7 +365,7 @@ fun SpatialExternalSurfaceContent() {
             val mediaItem = MediaItem.fromUri(videoUri)
 
             // onSurfaceCreated is invoked only one time, when the Surface is created
-            onSurfaceCreated { surface ->
+            onSurfaceCreated {> surface -
                 exoPlayer.setVideoSurface(surface)
                 exoPlayer.setMediaItem(mediaItem)
                 exoPlayer.prepare()
@@ -382,10 +374,8 @@ fun SpatialExternalSurfaceContent() {
             // onSurfaceDestroyed is invoked when the SpatialExternalSurface composable and its
             // associated Surface are destroyed
             onSurfaceDestroyed { exoPlayer.release() }
-        }
-    }
-}
-   
+       
+    Surface.kt
 ```
 
 <br />
@@ -440,7 +430,7 @@ fun DrmSpatialVideoPlayer() {
                 )
                 .build()
 
-            onSurfaceCreated { surface ->
+            onSurfac>eCreated { surface -
                 // The created surface is secure and can be used by the player.
                 exoPlayer.setVideoSurface(surface)
                 exoPlayer.setMediaItem(mediaItem)
@@ -448,11 +438,8 @@ fun DrmSpatialVideoPlayer() {
                 exoPlayer.play()
             }
 
-            onSurfaceDestroyed { exoPlayer.release() }
-        }
-    }
-}
-   
+            onSurfaceDestroyed { exoPlayer.release()
+   alExternalSurface.kt
 ```
 
 <br />
@@ -503,10 +490,8 @@ fun DelayedDialog() {
                     Text("OK")
                 }
             }
-        }
-    }
-}
-   
+       
+    lDialog.kt
 ```
 
 <br />
@@ -567,10 +552,8 @@ Subspace {
                 modifier = Modifier
                     .background(Color.Blue)
             )
-        }
-    }
-}
-   
+       
+    Orbiter.kt
 ```
 
 <br />

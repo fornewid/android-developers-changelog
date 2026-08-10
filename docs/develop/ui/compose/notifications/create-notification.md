@@ -121,11 +121,11 @@ fun createNotificationChannel(context: Context) {
 
 <br />
 
-Because you must create the notification channel before posting any notifications on Android 8.0 and later, execute this code as soon as your app starts. It's safe to call this repeatedly, because creating an existing notification channel performs no operation.
+Because you must create the notification channel before posting notifications on Android 8.0 and higher, execute this code when your app starts. It's safe to call repeatedly because creating an existing channel does nothing.
 
-The `NotificationChannel` constructor requires an `importance`, using one of the constants from the [`NotificationManager`](https://developer.android.com/reference/android/app/NotificationManager) class. This parameter determines how to interrupt the user for any notification that belongs to this channel. Set the *priority* with `setPriority()` to support Android 7.1 and earlier, as shown in the preceding example.
+The `NotificationChannel` constructor requires an importance level using a [`NotificationManager`](https://developer.android.com/reference/android/app/NotificationManager) constant. This determines how to interrupt the user. To support Android 7.1 and lower, also set the priority with `setPriority()` as shown in the preceding example.
 
-Although you must set the notification importance or priority as shown in the following example, the system doesn't guarantee the alert behavior you get. In some cases, the system might change the importance level based on other factors, and the user can always redefine what the importance level is for a given channel.
+Although you must set the importance or priority, the system doesn't guarantee the alert behavior. The system might adjust it based on other factors, and the user can always customize the channel's importance level.
 
 For more information about what the different levels mean, read about [notification importance levels](https://developer.android.com/develop/ui/compose/notifications#importance).
 
@@ -295,7 +295,7 @@ val replyPendingIntent: PendingIntent =
 <br />
 
 > [!CAUTION]
-> **Caution:** If you reuse a `PendingIntent`, a user might reply to a different conversation than the one they intend. You must provide a request code that is different for each conversation or provide an intent that doesn't return `true` when you call `https://developer.android.com/reference/android/app/PendingIntent#equals(java.lang.Object)` on the reply intent of any other conversation. The conversation ID is frequently passed as part of the intent's extras bundle, but is ignored when you call `equals()`.
+> **Caution:** If you reuse a `PendingIntent`, a user might reply to a different conversation than the one they intend. You must provide a request code that is different for each conversation or provide an intent that doesn't return `true` when you call [`equals()`](https://developer.android.com/reference/android/app/PendingIntent#equals(java.lang.Object)) on the reply intent of any other conversation. The conversation ID is frequently passed as part of the intent's extras bundle, but is ignored when you call `equals()`.
 
 Attach the [`RemoteInput`](https://developer.android.com/reference/androidx/core/app/RemoteInput) object to an action using [`addRemoteInput()`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Action.Builder#addRemoteInput(androidx.core.app.RemoteInput)).
 

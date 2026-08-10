@@ -104,7 +104,7 @@ Android 10 (API level 29) and higher versions support multi-resume---all activit
 
 Multi-resume is also available on select devices running Android 9 (API level 28). To opt in to multi-resume on Android 9 devices, add the following manifest metadata:
 
-    <meta-data android:name="android.allow_multiple_resumed_activities" android:valu>e="true" /
+    <meta-data android:name="android.allow_multiple_resumed_activities" android:value="true" />
 
 To verify that a given device supports this manifest metadata, refer to the device specifications.
 
@@ -236,7 +236,7 @@ Set this attribute in your manifest's [`<activity>`](https://developer.android.c
 
     <application
       android:name=".MyActivity"
-      android:resizeableActivity=["tru>e&quot; | "false"] /;
+      android:resizeableActivity=["true" | "false"] />;
 
 If this attribute is set to `true`, the activity can be launched in split-screen and desktop windowing modes. If the attribute is set to `false`, the activity does not support multi-window mode. If the value is false, and the user attempts to launch the activity in multi-window mode, the activity takes over the full screen.
 
@@ -257,7 +257,7 @@ Set this attribute in your manifest's [`<activity>`](https://developer.android.c
 
     <activity
       android:name=".MyActivity"
-      android:supportsPictureInPicture=["tru>e" | "false"] /
+      android:supportsPictureInPicture=["true" | "false"] />
 
 > [!NOTE]
 > **Note:** If `supportsPictureInPicture="true"`, you must set the `android:configChanges` attribute to enable your activity to handle configuration changes. See [Add videos using picture-in-picture (PiP)](https://developer.android.com/training/tv/playback/picture-in-picture).
@@ -270,7 +270,7 @@ To handle multi-window configuration changes yourself, such as when a user resiz
       android:name=".MyActivity"
       android:configChanges="screenSize | smallestScreenSize
 
-          | screenLayout |> orientation" /
+          | screenLayout | orientation" />
 
 After adding `android:configChanges`, your activity and fragments receive a callback to [`onConfigurationChanged()`](https://developer.android.com/reference/kotlin/android/app/Activity#onconfigurationchanged) instead of being destroyed and recreated. You can then manually update your views, reload resources, and perform other operations as needed.
 
@@ -286,13 +286,13 @@ On Android 7.0 (API level 24) and higher, the [`<layout>`](https://developer.and
 
 The following code shows how to specify an activity's default size and location and its minimum size when the activity is displayed in desktop windowing mode:
 
-    <activity android:name=".MyActi>vity&<quot;
-        layout android:defaultHeight="500dp"
+    <activity android:name=".MyActivity">
+        <layout android:defaultHeight="500dp"
               android:defaultWidth="600dp"
               android:gravity="top|end|..."
-              android:minHeight=&quo>t<;450dp&qu>ot;
-              android:minWidth="300dp" /
-    /activity
+              android:minHeight="450dp"
+              android:minWidth="300dp" />
+    </activity>
 
 ## Multi-window mode at runtime
 

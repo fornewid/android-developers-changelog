@@ -61,6 +61,8 @@ class StaticUriDeepLinkActivity : ComponentActivity() {
         }
     }
 }
+
+   
 ```
 
 ```
@@ -143,4 +145,5 @@ private val HOME_MATCHER = UriDeepLinkMatcher(
     uriPattern = DeepLinkUri(HOME_URI),
     serializer = serializer<HomeKey>(),
 )
+   
 ```
