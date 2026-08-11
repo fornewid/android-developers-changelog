@@ -4910,8 +4910,8 @@
     },
     "studio/install.md": {
       "original_url": "https://developer.android.com/studio/install",
-      "hash": "b110ef8e2c7aa5a54ace4727bbe1af060cb12417feae832a6b3e05a085abb7fd",
-      "last_updated": "2026-08-07T15:18:25.067831",
+      "hash": "c2ba68b17b22406c01688a8ed31d370d345358e91a290646f25456f442414127",
+      "last_updated": "2026-08-11T15:22:59.952574",
       "fetch_method": "md.txt"
     },
     "studio/releases/fixed-bugs/studio/2023.3.2.md": {
@@ -11510,8 +11510,8 @@
     },
     "latest-updates.md": {
       "original_url": "https://developer.android.com/latest-updates",
-      "hash": "6391efb77c5ed4f845d34af6e120f2a88f2a706f9e70986ddef5c1a9b866512d",
-      "last_updated": "2026-08-07T15:21:28.831118",
+      "hash": "833f8fa69c5cda2c7b6d72973a2978534dcac84e9ef2de46689d561a3660b244",
+      "last_updated": "2026-08-11T15:26:57.885945",
       "fetch_method": "md.txt"
     },
     "design/ui/cars/guides/templates/map-content-template.md": {
@@ -13880,8 +13880,8 @@
     },
     "studio/nightly.md": {
       "original_url": "https://developer.android.com/studio/nightly",
-      "hash": "e201faa38aabe76c3a9218f0405d0b9f28f43819cd1f152a11371a15c3e74891",
-      "last_updated": "2026-08-10T15:22:33.831369",
+      "hash": "cc184c4c5356a5f988f08ccc43c7d87a126d4eee75ae122f7604477a75e28e18",
+      "last_updated": "2026-08-11T15:21:54.195965",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/arcore/hands.md": {
@@ -13940,8 +13940,8 @@
     },
     "build/releases/about-agp.md": {
       "original_url": "https://developer.android.com/build/releases/about-agp",
-      "hash": "ecce2bdf438ac0db7ecf74635bb87e433c53a0ecac8450c2919dfcda280dd940",
-      "last_updated": "2026-08-07T15:19:09.764856",
+      "hash": "468beca78dd4635549fd9b1e0c5d7c73933e3da3880ed01fd78f18e900d536e0",
+      "last_updated": "2026-08-11T15:23:35.462682",
       "fetch_method": "md.txt"
     },
     "guide/fragments/lifecycle.md": {
@@ -14342,8 +14342,8 @@
     },
     "studio.md": {
       "original_url": "https://developer.android.com/studio",
-      "hash": "ce3651bf26c4e274858c99602c836b0a02fa0e954b914a228b8fc83d236bd747",
-      "last_updated": "2026-08-07T15:17:51.561867",
+      "hash": "95ff572976bafedf97b30b2112884422c4b00c7c448416943c57da6a5577ca8b",
+      "last_updated": "2026-08-11T15:21:57.271812",
       "fetch_method": "md.txt"
     },
     "studio/releases/past-releases/as-3-3-0-release-notes.md": {
@@ -14540,8 +14540,8 @@
     },
     "games/pgs/play-games-sidekick.md": {
       "original_url": "https://developer.android.com/games/pgs/play-games-sidekick",
-      "hash": "96bf77a9ac4e0bd5411a3d8fff465f26538397ef97cb4a239a3a13612e78d785",
-      "last_updated": "2026-07-20T15:37:52.719637",
+      "hash": "ccb8bee69afe9950f99be15b9f7c21ee0ac2773e9d3398c4f30e12ac7d845d4c",
+      "last_updated": "2026-08-11T15:23:58.251288",
       "fetch_method": "md.txt"
     },
     "studio/profile/chart-glossary/top-bottom-charts.md": {
@@ -15986,8 +15986,8 @@
     },
     "developer-verification/guides/faq.md": {
       "original_url": "https://developer.android.com/developer-verification/guides/faq",
-      "hash": "93f2e023759d2fd684ab1ea4ed7f2348a7e94f5fbf41c7df2fd21475eb2201b5",
-      "last_updated": "2026-07-22T15:31:36.827052",
+      "hash": "5762267b4a40d678166b2f163e83dd0770581af46978dac512b1f2fb21f50834",
+      "last_updated": "2026-08-11T15:21:03.024417",
       "fetch_method": "md.txt"
     },
     "stories/apps/google-photos.md": {
@@ -16010,8 +16010,8 @@
     },
     "studio/releases.md": {
       "original_url": "https://developer.android.com/studio/releases",
-      "hash": "a1cdb15181210ddd90548459dc5b77d44e75e33e493535cd556c2ccfcff252bf",
-      "last_updated": "2026-08-07T15:21:06.666146",
+      "hash": "2348898f03bff8e178b3e6b5ebd40a3a3ee3b4d06259b7d3bf58c5ae1138fff8",
+      "last_updated": "2026-08-11T15:26:12.352004",
       "fetch_method": "md.txt"
     },
     "games/pgs/android/troubleshooting.md": {
@@ -16388,8 +16388,8 @@
     },
     "studio/emulator_archive.md": {
       "original_url": "https://developer.android.com/studio/emulator_archive",
-      "hash": "529a7e59539d6875605bc04ebebef586922670a48ea030d8509abf590388c77e",
-      "last_updated": "2026-08-04T15:50:37.921495",
+      "hash": "2f6003b65de182184c6006faca2f1ffe689e0b0ae7a1c4e9fc2329de4e726068",
+      "last_updated": "2026-08-11T15:25:15.397750",
       "fetch_method": "md.txt"
     },
     "about/versions/11/behavior-changes-all.md": {
@@ -17354,8 +17354,8 @@
     },
     "games/engines/unity/memory-advice.md": {
       "original_url": "https://developer.android.com/games/engines/unity/memory-advice",
-      "hash": "aa3a7d769b405343a76eca46350498f3ea50be9ec37365314a8a1c6ef6289a2f",
-      "last_updated": "2026-04-10T15:19:09.735754",
+      "hash": "f16025a2404c9630ff94e6e5996a8c02e8066eacaa1f73e5d83851ffde58b73e",
+      "last_updated": "2026-08-11T15:20:02.195888",
       "fetch_method": "md.txt"
     },
     "google/play/billing/compatibility.md": {
@@ -19100,8 +19100,8 @@
     },
     "studio/archive.md": {
       "original_url": "https://developer.android.com/studio/archive",
-      "hash": "f12e007420da959a014b496bd42308893b0eee3a71767d2d85b1f13ee3fc32df",
-      "last_updated": "2026-08-07T15:21:26.231836",
+      "hash": "848b6b1bfa639d1af2f69dd3944439548306477bb8fc278931143752f84ee404",
+      "last_updated": "2026-08-11T15:26:44.857867",
       "fetch_method": "md.txt"
     },
     "kotlin/overview.md": {
@@ -21134,8 +21134,8 @@
     },
     "topic/performance/baselineprofiles/overview.md": {
       "original_url": "https://developer.android.com/topic/performance/baselineprofiles/overview",
-      "hash": "2b14687edc19e82421ac682281b0ba14f562095cb15d39e3eb73291f1a5b30c7",
-      "last_updated": "2026-08-07T15:21:26.613810",
+      "hash": "867b3a6918d0ea06568c44e0a083bd1be6ad5c2fe1cc5169a74657b0098a7f7c",
+      "last_updated": "2026-08-11T15:26:40.988906",
       "fetch_method": "md.txt"
     },
     "media/platform/sharing-audio-input.md": {
@@ -23648,8 +23648,8 @@
     },
     "gemini-in-android.md": {
       "original_url": "https://developer.android.com/gemini-in-android",
-      "hash": "daa06721ef6080cafbd8ad29ac7d589d626ed0899cb3e71f8c6fdc12e63758c0",
-      "last_updated": "2026-08-07T15:21:05.219882",
+      "hash": "f756bc5cf9022d6620906a87aaaf6ebcf688b6b7b8aefbc1b499ee7ca1f5b565",
+      "last_updated": "2026-08-11T15:25:58.300867",
       "fetch_method": "md.txt"
     },
     "media.md": {
@@ -25310,9 +25310,9 @@
     },
     "design/ui/gallery.md": {
       "original_url": "https://developer.android.com/design/ui/gallery",
-      "hash": "29b8a2767ffac6eac47c6e99a5f9190b59a1ffc26878984073f40a13ce6c26ca",
-      "last_updated": "2026-02-27T15:14:03.296808",
-      "fetch_method": "html-scrape"
+      "hash": "9488ee97657bfeef214882cbe30949a47fda506088477c2906ce6f0f9ab82240",
+      "last_updated": "2026-08-11T15:24:29.487665",
+      "fetch_method": "md.txt"
     },
     "design/ui/gallery/shopping/ebay.md": {
       "original_url": "https://developer.android.com/design/ui/gallery/shopping/ebay",
@@ -25334,8 +25334,8 @@
     },
     "design/ui/gallery/reading/complementary.md": {
       "original_url": "https://developer.android.com/design/ui/gallery/reading/complementary",
-      "hash": "a142261b4925601833ab6dab833923f8d2fc4f9b5ae5e6d822effaf1c39b47d0",
-      "last_updated": "2026-04-06T15:18:36.027597",
+      "hash": "d9152d86526212201fa19e4a654f4560f06f6f3c6e1b77ead99c435812e52398",
+      "last_updated": "2026-08-11T15:22:44.960413",
       "fetch_method": "md.txt"
     },
     "large-screens/archive/gallery/games.md": {
@@ -25496,9 +25496,9 @@
     },
     "design/ui/gallery/social/duo.md": {
       "original_url": "https://developer.android.com/design/ui/gallery/social/duo",
-      "hash": "e1e0b6003c8213e798836c56fdcc6b1dca565e6423d7d1a5b2a8456939378839",
-      "last_updated": "2026-04-10T15:19:54.771626",
-      "fetch_method": "html-scrape"
+      "hash": "6b7b22babbed6be0d9112944425f782c6108766f945beaad19b1c5ab6241faab",
+      "last_updated": "2026-08-11T15:25:54.759246",
+      "fetch_method": "md.txt"
     },
     "large-screens/archive/gallery/reading.md": {
       "original_url": "https://developer.android.com/large-screens/archive/gallery/reading",
@@ -25508,9 +25508,9 @@
     },
     "design/ui/gallery/media/detail.md": {
       "original_url": "https://developer.android.com/design/ui/gallery/media/detail",
-      "hash": "c79327caf41559f75714c71e1559122cd0fe114fae0cdd5deab6b424c547daf7",
-      "last_updated": "2026-04-10T15:20:33.024139",
-      "fetch_method": "html-scrape"
+      "hash": "c7f8a6aafde43d6a9196f833b5fdbb82ccc2285f540cdeb8508566dde3d74e00",
+      "last_updated": "2026-08-11T15:21:15.299540",
+      "fetch_method": "md.txt"
     },
     "large-screens/archive/gallery/productivity.md": {
       "original_url": "https://developer.android.com/large-screens/archive/gallery/productivity",
@@ -25532,8 +25532,8 @@
     },
     "design/ui/gallery/media/discovery.md": {
       "original_url": "https://developer.android.com/design/ui/gallery/media/discovery",
-      "hash": "ceb70a2d6219210a3ca86eeb73776af109601dc1a68614d2194d7bf4e3ec7786",
-      "last_updated": "2026-04-06T15:29:08.298510",
+      "hash": "0d17041d1f11bae76f53159376dc38856773044fa83f3eda49577d37e560de90",
+      "last_updated": "2026-08-11T15:23:34.351348",
       "fetch_method": "md.txt"
     },
     "studio/releases/past-releases/as-panda-1-release-notes.md": {
@@ -30104,8 +30104,8 @@
     },
     "develop/xr/unreal/setup.md": {
       "original_url": "https://developer.android.com/develop/xr/unreal/setup",
-      "hash": "7db80c612ebb40ba45fff11411e46226c1d687c28594992f813ac7a597b9cd4c",
-      "last_updated": "2026-08-07T15:19:08.829477",
+      "hash": "8c109729ca2cfde61c9c399c5897f6bc42f480c126abec1140289bb342cbcd70",
+      "last_updated": "2026-08-11T15:23:47.959084",
       "fetch_method": "md.txt"
     },
     "blog/authors/emma-louise-leavey.md": {
@@ -30620,8 +30620,8 @@
     },
     "studio/releases/fixed-bugs/emulator/37.md": {
       "original_url": "https://developer.android.com/studio/releases/fixed-bugs/emulator/37",
-      "hash": "24107af3fcb509e3f841a6d26a1bf3677c5c9fcaaec0f6560b5b4e27ac13511b",
-      "last_updated": "2026-08-04T15:46:56.784407",
+      "hash": "56802e3f7d07d7af22806f325f915952f360de3d3cf8778c9ff1cf41274df333",
+      "last_updated": "2026-08-11T15:21:22.455626",
       "fetch_method": "md.txt"
     },
     "guide/navigation/testing/fragments.md": {
@@ -30842,8 +30842,8 @@
     },
     "studio/releases/fixed-bugs/studio/2026.1.3.md": {
       "original_url": "https://developer.android.com/studio/releases/fixed-bugs/studio/2026.1.3",
-      "hash": "7ac5e86f99d197233d4239b908c3bc9ee900f813914e862fff59085b62822e92",
-      "last_updated": "2026-07-30T15:38:14.016057",
+      "hash": "f998a464a2d190c1daaff0d61e99ed09c11ced704487fc0ddd98e7c4f693d14b",
+      "last_updated": "2026-08-11T15:21:44.004130",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/migrate/interoperability-apis/wrap-webview-in-compose.md": {
@@ -32276,14 +32276,14 @@
     },
     "games/optimize/memory-overview.md": {
       "original_url": "https://developer.android.com/games/optimize/memory-overview",
-      "hash": "b6641ad1f51b73da99a92f75fcc810a1b67ff043d79cb87d94258e6635b45b97",
-      "last_updated": "2026-08-04T15:46:04.937856",
+      "hash": "79e94f296ea742ab71a80b79d561774aa67fa0ebe2d409bac6b64f400aba44ce",
+      "last_updated": "2026-08-11T15:20:26.843084",
       "fetch_method": "md.txt"
     },
     "games/engines/unity/unity-memory-usage.md": {
       "original_url": "https://developer.android.com/games/engines/unity/unity-memory-usage",
-      "hash": "a9be4bfc2d735fdc4de3ca078192a89f681a4515033f90272af89408aa6dea1e",
-      "last_updated": "2026-08-04T15:50:35.836168",
+      "hash": "0973c3eb14089b14178d9e251e44e6becdec8507563780338696add43e836b5c",
+      "last_updated": "2026-08-11T15:25:11.088482",
       "fetch_method": "md.txt"
     },
     "games/optimize/memory-monitoring.md": {
@@ -32393,7 +32393,37 @@
       "hash": "3d4c41dec32933d6c5c4c404faa726689e8994c0fdc477ae6f42bfdb39686096",
       "last_updated": "2026-08-08T15:09:16.683149",
       "fetch_method": "md.txt"
+    },
+    "games/engines/unreal/unreal-memory-usage.md": {
+      "original_url": "https://developer.android.com/games/engines/unreal/unreal-memory-usage",
+      "hash": "8983349cce172741cd377dc8261f47a22ad1e06ad1ba7ecf84d42eb47ebac780",
+      "last_updated": "2026-08-11T15:21:59.152573",
+      "fetch_method": "md.txt"
+    },
+    "design/ui/gallery/productivity/multitask.md": {
+      "original_url": "https://developer.android.com/design/ui/gallery/productivity/multitask",
+      "hash": "5ffd49c8a65227df6457604bf7e64f23867d4456f2dfc5a35fac403f15c378be",
+      "last_updated": "2026-08-11T15:23:32.798232",
+      "fetch_method": "md.txt"
+    },
+    "topic/performance/vitals/bitmap-memory-usage.md": {
+      "original_url": "https://developer.android.com/topic/performance/vitals/bitmap-memory-usage",
+      "hash": "cc24915736f71727a71fcbd1f059af6e6b9cb613684c3a473e9e6bb9ece38d62",
+      "last_updated": "2026-08-11T15:24:28.099508",
+      "fetch_method": "md.txt"
+    },
+    "topic/performance/views/benchmarking/macrobenchmark-metrics-views.md": {
+      "original_url": "https://developer.android.com/topic/performance/views/benchmarking/macrobenchmark-metrics-views",
+      "hash": "7feb9322b7cbb28093ecbb17c1286ebd5b213298636fbe4ff6f63e75c2e53d35",
+      "last_updated": "2026-08-11T15:25:14.598291",
+      "fetch_method": "md.txt"
+    },
+    "design/ui/gallery/media/multitask.md": {
+      "original_url": "https://developer.android.com/design/ui/gallery/media/multitask",
+      "hash": "0650d239e8e29b3a8934dc1c73f6f99cfc64dd7c44d59d87b50a0e79af834140",
+      "last_updated": "2026-08-11T15:26:12.921201",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-08-10T15:27:35.810909"
+  "last_updated": "2026-08-11T15:27:08.759805"
 }

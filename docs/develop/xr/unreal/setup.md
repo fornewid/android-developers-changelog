@@ -25,7 +25,7 @@ Before you can set up Unreal Engine for Android XR development, you need to inst
 
 3. Install the [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0).
 
-4. Install [Android Studio](https://developer.android.com/studio) (Quail 3 \| 2026.1.3 or higher).
+4. Install [Android Studio](https://developer.android.com/studio) (Quail 3 \| 2026.1.3 Patch 1 or higher).
 
 ## Install Android build support
 

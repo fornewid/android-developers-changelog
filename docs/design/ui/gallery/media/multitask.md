@@ -1,12 +1,24 @@
 ---
-title: https://developer.android.com/design/ui/gallery/media/discovery
-url: https://developer.android.com/design/ui/gallery/media/discovery
+title: https://developer.android.com/design/ui/gallery/media/multitask
+url: https://developer.android.com/design/ui/gallery/media/multitask
 source: md.txt
 ---
 
 <br />
 
-Create a rich media feed that enables users to discover new content, new artists, new recommendations and reviews, with more to see, more to choose from on large screens.
+Split the screen to enable users to multitask with media apps.
+
+## Picture-in-picture
+
+Bring the small screen to the big screen so users can watch and work, learn and do at the same time.
+
+![](https://developer.android.com/static/images/large-screens/gallery/samples/media/gallery_media_PiP.webp)
+
+## Multi-window
+
+Let users multitask with two apps side by side to browse a collection of movies while checking out casts and characters, or listen to music while searching for covers or music news and reviews.
+
+![](https://developer.android.com/static/images/large-screens/gallery/samples/media/gallery_media_multiwindow.webp)
 
 *** ** * ** ***
 
