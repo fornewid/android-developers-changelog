@@ -1,0 +1,13 @@
+diff --git a/docs/topic/performance/baselineprofiles/overview.md b/docs/topic/performance/baselineprofiles/overview.md
+index f31a6807..2046827e 100644
+--- a/docs/topic/performance/baselineprofiles/overview.md
++++ b/docs/topic/performance/baselineprofiles/overview.md
+@@ -162,8 +162,6 @@ The following are possible issues and solutions, or issues for which there are o
+ 
+ - Baseline Profile generation might fail due to permission settings on some devices, including OnePlus devices. To work around this, turn off the **Disable permission monitoring** option in the **Developer Options** settings.
+ 
+-- Baseline Profile generation isn't supported on Firebase Test Lab devices, including Gradle-managed Test Lab devices ([issue #285187547](https://issuetracker.google.com/issues/285187547)).
+-
+ - To provide Baseline Profiles for libraries successfully, use Baseline Profile Gradle plugin 1.2.3 or AGP 8.3, at minimum ([issue #313992099](https://issuetracker.google.com/313992099)).
+ 
+ - If you generate Baseline Profiles with the command `./gradlew app:generateBaselineProfile`, the benchmarks in the test module also run, and the results are discarded. If this happens, you can generate only the Baseline Profiles by running the command with `-P android.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile`. This issue has been fixed in AGP 8.2.

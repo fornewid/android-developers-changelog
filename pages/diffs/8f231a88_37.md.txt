@@ -1,0 +1,63 @@
+diff --git a/docs/studio/releases/fixed-bugs/emulator/37.md b/docs/studio/releases/fixed-bugs/emulator/37.md
+index 5cc0537f..308d9277 100644
+--- a/docs/studio/releases/fixed-bugs/emulator/37.md
++++ b/docs/studio/releases/fixed-bugs/emulator/37.md
+@@ -4,11 +4,13 @@ url: https://developer.android.com/studio/releases/fixed-bugs/emulator/37
+ source: md.txt
+ ---
+ 
++### Android Emulator 37.2.4 Canary
++
++*This release includes minor fixes and improvements.*
++
+ ### Android Emulator 37.2.3 Canary
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Emulator** | |---| | [Issue #537802959](https://issuetracker.google.com/issues/537802959) macOS (Apple Silicon): gRPC streamScreenshot with ImageTransport MMAP crashes emulator engine (36.6.11.0) / silently never writes frames (37.2.1.0 canary) | |
++Fixed Issues **Emulator** [Issue #537802959](https://issuetracker.google.com/issues/537802959) macOS (Apple Silicon): gRPC streamScreenshot with ImageTransport MMAP crashes emulator engine (36.6.11.0) / silently never writes frames (37.2.1.0 canary)
+ 
+ ### Android Emulator 37.1.11 Stable
+ 
+@@ -32,27 +34,19 @@ source: md.txt
+ 
+ ### Android Emulator 37.1.8 Canary
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Emulator** | |---| | [Issue #526671872](https://issuetracker.google.com/issues/526671872) Support unit suffixes (e.g., "6G", "32M") for AVD RAM and VM Heap size configurations in config.ini | |
++Fixed Issues **Emulator** [Issue #526671872](https://issuetracker.google.com/issues/526671872) Support unit suffixes (e.g., "6G", "32M") for AVD RAM and VM Heap size configurations in config.ini
+ 
+ ### Android Emulator 37.1.7 Canary
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Emulator** | |---| | [Issue #529712437](https://issuetracker.google.com/issues/529712437) Network connectivity issue introduced in 37.1.6 Canary affecting Android TV and older API system images. | |
++Fixed Issues **Emulator** [Issue #529712437](https://issuetracker.google.com/issues/529712437) Network connectivity issue introduced in 37.1.6 Canary affecting Android TV and older API system images.
+ 
+ ### Android Emulator 37.1.6 Canary
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Emulator** | |---| | [Issue #170461562](https://issuetracker.google.com/issues/170461562) Emulator configuration is not being saved | |
++Fixed Issues **Emulator** [Issue #170461562](https://issuetracker.google.com/issues/170461562) Emulator configuration is not being saved
+ 
+ ### Android Emulator 37.1.5 Canary
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Emulator** | |---| | [Issue #324465986](https://issuetracker.google.com/issues/324465986) No out of storage error when taking a snapshot on an emulator with no space | |
++Fixed Issues **Emulator** [Issue #324465986](https://issuetracker.google.com/issues/324465986) No out of storage error when taking a snapshot on an emulator with no space
+ 
+ ### Android Emulator 37.1.4 Canary
+ 
+@@ -68,6 +62,4 @@ source: md.txt
+ 
+ ### Android Emulator 37.1.1 Canary
+ 
+-| Fixed Issues ||
+-|---|---|
+-| **Emulator** | |---| | [Issue #158918659](https://issuetracker.google.com/issues/158918659) You have a typo | |
+\ No newline at end of file
++Fixed Issues **Emulator** [Issue #158918659](https://issuetracker.google.com/issues/158918659) You have a typo
+\ No newline at end of file

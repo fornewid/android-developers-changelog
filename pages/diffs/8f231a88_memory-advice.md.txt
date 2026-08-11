@@ -1,0 +1,76 @@
+diff --git a/docs/games/engines/unity/memory-advice.md b/docs/games/engines/unity/memory-advice.md
+index 23521c18..349b72e4 100644
+--- a/docs/games/engines/unity/memory-advice.md
++++ b/docs/games/engines/unity/memory-advice.md
+@@ -4,11 +4,10 @@ url: https://developer.android.com/games/engines/unity/memory-advice
+ source: md.txt
+ ---
+ 
+-# Get started with the Memory Advice API for Unity games
++> [!NOTE]
++> **Note:** The Memory Advice API Beta is now over and the library is deprecated. [learn more about alternative memory management approaches](https://developer.android.com/games/optimize/memory-allocation).
+ 
+-| **Note:** The Memory Advice API Beta is now over and the library is deprecated.[learn more about alternative memory management approaches](https://developer.android.com/games/optimize/memory-allocation).
+-
+-This guide describes how to use the Memory Advice plugin for Unity to integrate the[Memory Advice API](https://developer.android.com/games/sdk/memory-advice/overview)into your Unity game.
++This guide describes how to use the Memory Advice plugin for Unity to integrate the [Memory Advice API](https://developer.android.com/games/sdk/memory-advice/overview) into your Unity game.
+ 
+ ## Requirements
+ 
+@@ -22,15 +21,15 @@ The plugin is supported on:
+ 
+ - Unity 2022 with Android NDK r23
+ 
+-You may face unexpected issues if you are using other versions of Unity and the Android NDK. To find the NDK version used by your Unity installation, see the[Android environment setup guide](https://docs.unity3d.com/Manual/android-sdksetup.html)for Unity.
++You may face unexpected issues if you are using other versions of Unity and the Android NDK. To find the NDK version used by your Unity installation, see the [Android environment setup guide](https://docs.unity3d.com/Manual/android-sdksetup.html) for Unity.
+ 
+ ## Download the plugin
+ 
+-Download[the plugin](https://dl.google.com/developers/android/games/memory_advice/memory-advice-1.0.0-beta01.unitypackage).
++Download [the plugin](https://dl.google.com/developers/android/games/memory_advice/memory-advice-1.0.0-beta01.unitypackage).
+ 
+ ## Import the plugin
+ 
+-The plugin is a Unity Package that you can import into your project. To import the plugin, click**Assets \> Import Package \> Custom Package** and select the`.unitypackage`file you downloaded. You can also double-click the`.unitypackage`file after opening your Unity project.
++The plugin is a Unity Package that you can import into your project. To import the plugin, click **Assets \> Import Package \> Custom Package** and select the `.unitypackage` file you downloaded. You can also double-click the `.unitypackage` file after opening your Unity project.
+ 
+ ## Use the library
+ 
+@@ -38,7 +37,7 @@ This section describes how to use the library.
+ 
+ ### Initialize the library
+ 
+-You need to initialize the library once when the app starts. To do so, add this code to your project:  
++You need to initialize the library once when the app starts. To do so, add this code to your project:
+ 
+     void Start()
+     {
+@@ -51,7 +50,7 @@ You need to initialize the library once when the app starts. To do so, add this
+ 
+ ### Poll for memory state
+ 
+-You can retrieve the memory state of your app by polling the library at the interval of your choosing. Use the[MemoryAdvice_getMemoryState](https://developer.android.com/reference/games/memory-advice/group/memory-advice#memoryadvice_getmemorystate)function whenever you need to poll the library:  
++You can retrieve the memory state of your app by polling the library at the interval of your choosing. Use the [MemoryAdvice_getMemoryState](https://developer.android.com/reference/games/memory-advice/group/memory-advice#memoryadvice_getmemorystate) function whenever you need to poll the library:
+ 
+     MemoryState memoryState = MemoryAdvice.GetMemoryState();
+     switch (memoryState)
+@@ -70,7 +69,7 @@ You can retrieve the memory state of your app by polling the library at the inte
+ 
+ ### Set up a watcher
+ 
+-You can also set up[a watcher](https://developer.android.com/reference/games/memory-advice/group/memory-advice#memoryadvice_registerwatcher)and register the Memory Advice API, and your watcher function will get called when the state is either approaching the limit or the critical[memory state](https://developer.android.com/reference/games/memory-advice/group/memory-advice#memoryadvice_memorystate)(but not for the ok state). For example, the following code creates a watcher and requests a Memory Advice API notification every 2 seconds:  
++You can also set up [a watcher](https://developer.android.com/reference/games/memory-advice/group/memory-advice#memoryadvice_registerwatcher) and register the Memory Advice API, and your watcher function will get called when the state is either approaching the limit or the critical [memory state](https://developer.android.com/reference/games/memory-advice/group/memory-advice#memoryadvice_memorystate) (but not for the ok state). For example, the following code creates a watcher and requests a Memory Advice API notification every 2 seconds:
+ 
+     MemoryAdviceErrorCode errorCode = MemoryAdvice.RegisterWatcher(2000,
+             new MemoryWatcherDelegateListener((MemoryState state) =>
+@@ -95,6 +94,6 @@ You can also set up[a watcher](https://developer.android.com/reference/games/mem
+ 
+ ## What's next
+ 
+-You can download our[Unity sample project](https://dl.google.com/developers/android/games/memory_advice/sample.zip)that provides a simple UI for allocating and freeing memory, and uses Memory Advice API to monitor the memory state.
++You can download our [Unity sample project](https://dl.google.com/developers/android/games/memory_advice/sample.zip) that provides a simple UI for allocating and freeing memory, and uses Memory Advice API to monitor the memory state.
+ 
+-See the[overview](https://developer.android.com/games/sdk/memory-advice/overview)for[additional resources](https://developer.android.com/games/sdk/memory-advice/overview#additional_resources)and[reporting issues](https://developer.android.com/games/sdk/memory-advice/overview#issues_and_feedback).
+\ No newline at end of file
++See the [overview](https://developer.android.com/games/sdk/memory-advice/overview) for [additional resources](https://developer.android.com/games/sdk/memory-advice/overview#additional_resources) and [reporting issues](https://developer.android.com/games/sdk/memory-advice/overview#issues_and_feedback).
+\ No newline at end of file
