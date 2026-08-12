@@ -18,7 +18,7 @@ This table lists all the artifacts in the `androidx.security` group.
 | security-app-authenticator-testing | [1.0.0](https://developer.android.com/jetpack/androidx/releases/security#security-app-authenticator-testing-1.0.0) | - | - | - |
 | security-identity-credential | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/security#security-identity-credential-1.0.0-alpha03) |
 
-This library was last updated on: June 17, 2026
+This library was last updated on: August 12, 2026
 
 ## Declaring dependencies
 
@@ -47,6 +47,16 @@ for more information.
 ## Security-State-Provider
 
 ### Version 1.0
+
+#### Version 1.0.0-beta02
+
+August 12, 2026
+
+`androidx.security:security-state-provider:1.0.0-beta02` is released. Version 1.0.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e29a10982f4299b1fa812e229d76792092a62814..84c5d1a43793a411eac9868e4e16a8a62cfb08b7/security/security-state-provider).
+
+**Bug Fixes**
+
+- Improved performance by moving cleanup operations off the synchronous write path to a background executor, resolving tail latency issues. ([58acc7](https://android-review.googlesource.com/#/q/58acc7f1a2358e0516ff070aa7448b87384300af))
 
 #### Version 1.0.0-beta01
 
@@ -116,6 +126,16 @@ September 24, 2025
 ## Security-State
 
 ### Version 1.1
+
+#### Version 1.1.0-beta03
+
+August 12, 2026
+
+`androidx.security:security-state:1.1.0-beta03` is released. Version 1.1.0-beta03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/14c2f2ed81d0f61a3227641684cd875e95dd6529..b1ecf5e9d06f3916abadca321cc4e7200c58fe34/security/security-state).
+
+**API Changes**
+
+- Deprecated `DEFAULT_VULNERABILITY_REPORTS_URL` and `getVulnerabilityReportUrl` in favor of `createVulnerabilityReportUrl`, which defaults to the new OSV vulnerability report endpoint (android-api.osv.dev). ([Ie0b69](https://android-review.googlesource.com/#/q/Ie0b69f798b69a1df7a654687c71ce5c87b5678d0))
 
 #### Version 1.1.0-beta02
 

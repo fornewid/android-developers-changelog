@@ -1,0 +1,177 @@
+---
+title: https://developer.android.com/blog/posts/media3-1-11-whats-new
+url: https://developer.android.com/blog/posts/media3-1-11-whats-new
+source: md.txt
+---
+
+[How-tos](https://developer.android.com/blog/categories/how-tos)
+
+# Media3 1.11 - What's new?
+
+3 min read ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) 11 Aug 2026 [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) Software Engineer, Android Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components. We're expanding our Jetpack Compose UI modules with customizable `Player` slots and easy to use defaults, interactive gestures, state observers, and short-form video preloading using `PlayerPool`. We also modernized the Media3 Cast integration with SystemUI Output Switcher support, introduced a new Ktor HTTP client network extension, and added new muxing utilities for Ogg and WAV files.
+
+Read on for key highlights, and check out the full [release notes](https://github.com/androidx/media/releases/tag/1.11.0) for a comprehensive list of changes.
+
+## Playback UI and Compose
+
+With Android becoming Compose-first, we are continuing to expand the `media3-ui-compose` and `media3-ui-compose-material3` modules. This update introduces more granular control over your player layout, richer interaction patterns, and deeper integration with Material3.
+
+### Customizable Player layout
+
+The Material 3 Player Composable now supports dedicated content slots for `topControls`, `centerControls`, `bottomControls`, and `errorOverlay`. You can drop in your own Composables or use the ready-made defaults published in `PlayerDefaults`:
+
+```kotlin
+Player(
+  player = player,
+  topControls = { PlayerDefaults.TopControls(player) },
+  centerControls = { PlayerDefaults.CenterControls(player) },
+  bottomControls = { PlayerDefaults.BottomControls(player) },
+)
+```
+
+The `Player` Composable also integrates `FocusRequester` support, enabling seamless D-pad and keyboard navigation on Android TV, foldables, and desktop environments. large-screen devices.
+![player_video.png](https://developer.android.com/static/blog/assets/player_video_98aaa49b87_Z1yndyT.webp) Example for a Composable Player with customized controls
+
+### Gestures and playback speed control
+
+`PlaybackSpeedState` now provides a fast-forward/slow-motion API. The [`demo-compose app`](https://github.com/androidx/media/tree/release/demos/compose) showcases this with a long-press gesture to fast-forward playback and seeking with double tap. Combined with the `ProgressSlider` introduced in 1.10, the Compose player UI now offers rich touch and gesture interactions out of the box.
+
+### Short-form video preloading with PlayerPool
+
+For apps with sliding-window media feeds (for example, short-form vertical video), managing multiple `ExoPlayer` instances efficiently is a common challenge. Media3 1.11 introduces `PlayerPool` (in `common-ktx`) and `rememberPooledPlayer` (in `ui-compose`) to handle player recycling and preloading automatically.
+
+The new `ShortFormPlayerScreen` in `demo-compose` shows this in action, a vertically paging feed where players are pooled, preloaded, and seamlessly recycled as the user scrolls.
+
+### MiniController
+
+A new `MiniController` Composable in `media3-ui-compose-material3` provides a compact playback bar displaying the current item's title, artist, artwork, and progress alongside play/pause controls. As all our default Composables in `media3-ui-compose-material3`, the `MiniController` supports Material3 Dynamic Color integration, allowing it to automatically adapt to the user's wallpaper theme.This is ideal for persistent bottom-sheet or mini-player affordances, for example while the user browses content or during active Cast sessions.
+![mini_player.png](https://developer.android.com/static/blog/assets/mini_player_642c57d3da_si8g7.webp) The Media3 MiniController showing album art, media metadata and basic controls
+
+### Expanded state holders for metadata and errors
+
+We added several new reactive state holders to `media3-ui-compose`:
+
+- `rememberCurrentMediaItemState` -- observe metadata about the currently playing item
+- `rememberPlaylistState` -- observe the full playlist and active indices
+- `rememberErrorState` -- track playback errors, with a matching `ErrorText` Composable and default `ErrorOverlay` in Material3
+
+We'll continue working on new additions and more customization options in upcoming releases. Please share your thoughts on the [project issue tracker](https://github.com/androidx/media/issues).
+
+## Modernized Cast integration
+
+Media3 1.11 updates the Cast extension with programmatic configuration options and support for OS-level routing.
+
+### CastParams and SystemUI Output Switcher
+
+You can now configure the Cast extension using `CastParams`:
+
+```kotlin
+val castParams = CastParams.Builder()
+  .setShowSystemOutputSwitcherOnCastButtonClick(true)
+  .build()
+
+
+Cast.getSingletonInstance(context).initialize(castParams)
+```
+
+Setting `setShowSystemOutputSwitcherOnCastIconClick(true)` configures the `MediaRouteButton` to open Android's native **SystemUI Output Switcher** on supported platform versions, providing a unified output picker experience.
+
+### Reactive MediaRouteButton state in Compose
+
+Apps using Jetpack Compose can now easily add the Media routing button (also known as Cast button), which automatically observes the dialog state and updates accordingly. No further logic needed when used together with Media3's `CastPlayer`!
+
+```kotlin
+@Composable
+fun TopAppBarWithCast() {
+  Row {
+    Text(text = "App Title")
+    MediaRouteButton()
+  }
+}
+```
+![cast_button_2.png](https://developer.android.com/static/blog/assets/cast_button_2_196135917f_Z1DNqyf.webp) Media3 media route button in an app launching the default output switcher dialog
+
+## Core playback and session enhancements
+
+### Eclipsa Video - HAGC dynamic HDR metadata (API 37+)
+
+[Eclipsa Video](https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen) promises a more consistent HDR experience across devices, with a consistent baseline HDR white, adaptive headroom depending on the screen and the surroundings, ensuring the creative intent is preserved on all devices.
+
+ExoPlayer now supports playback of the necessary HAGC (ST 2094-50) timed metadata for progressive media (MP4, Matroska). The player automatically merges HAGC metadata tracks with the associated video track and delivers the metadata out-of-band to the decoder on API 37+ devices. On older devices, ExoPlayer seamlessly falls back to providing a standard HDR playback experience without the adjustments.
+![eclipsa.png](https://developer.android.com/static/blog/assets/eclipsa_90a4444436_1jGL9D.webp) Illustration to show benefits of Eclipsa Video HDR, like more consistent color contract
+
+### New Ktor HTTP client extension
+
+A new `media3-datasource-ktor` extension module provides `KtorDataSource`, backed by the [Ktor](https://ktor.io/) HTTP stack. This offers a Kotlin-first, coroutine-friendly alternative to the existing Cronet and OkHttp data source modules.
+
+### Asynchronous MediaSession connections
+
+`MediaSession.Callback` now includes `onConnectAsync()`, which lets you process controller connection attempts asynchronously --- for example, to verify authorization before accepting a connection. You can return an immediate `Future` with `Futures.immediateFuture(ConnectionResult)` for the same behavior as the existing `onConnect`.
+
+```kotlin
+override fun onConnectAsync(
+  session: MediaSession,
+  controller: MediaSession.ControllerInfo
+): ListenableFuture<MediaSession.ConnectionResult> {
+  return authenticateControllerAsync(controller)
+}
+```
+
+### Safer MediaSession defaults
+
+For apps that don't override `onConnect` or `onConnectAsync` in `MediaSession.Callback`, the library now defaults to a more secure configuration. Specifically, session data is no longer shared by default with untrusted controllers, meaning third-party or non-system apps lacking notification access are restricted from accessing session data unless you explicitly implement these callback methods to authorize the connection.
+
+## New Muxer implementations \& container parsing
+
+### OggMuxer and WavMuxer
+
+We've added two new dedicated muxers: `OggMuxer` for muxing `OPUS` and `VORBIS` streams into standard .ogg files, and `WavMuxer` for generating uncompressed and floating-point PCM `.wav` audio files.
+
+### Container parsing and track references
+
+- **MP4 Track References (** `tref`**):** `Mp4Muxer.addTrackReference` allows linking dependent metadata or aux tracks to primary video streams.
+- **Chapter Extraction:** QuickTime and Nero chapter from MP4 files (`.m4a`, `.m4b`), and Matroska chapters, are now extracted as `Chapter` metadata entries for audiobook and podcast navigation.
+
+Please use the [issue tracker](https://github.com/androidx/media/issues) to report any bugs, or if you have questions or feature requests. We look forward to hearing from you!
+- [#Media3](https://developer.android.com/blog/topics/media3)
+- [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+- [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+Written by:
+
+-
+
+  ## [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich)
+
+  ###### Software Engineer
+
+  [read_more
+  View profile](https://developer.android.com/blog/authors/toni-heidenreich) ![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp) ![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)
+Continue reading
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
+  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZbOM76.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
+  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 6 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+- 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_21AGRW.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Build intelligent Android apps: Cloud and hybrid inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference)
+
+  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
+  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 8 min read
+  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+Stay in the loop
+
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

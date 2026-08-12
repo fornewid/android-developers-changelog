@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 15, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-beta01) | - |
+| August 12, 2026 | - | - | [1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-beta02) | - |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.scenecore:scenecore:1.0.0-beta01"
+    implementation "androidx.xr.scenecore:scenecore:1.0.0-beta02"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-beta01"
+    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-beta02"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.scenecore:scenecore:1.0.0-beta01")
+    implementation("androidx.xr.scenecore:scenecore:1.0.0-beta02")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-beta01")
+    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-beta02")
 }
 ```
 
@@ -59,6 +59,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-beta02
+
+August 12, 2026
+
+`androidx.xr.scenecore:scenecore-*:1.0.0-beta02` is released. Version 1.0.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e3bbb4aa3f4ca7e3eee99b35365971fa699c8a69..5e16bb06cf26d3e2a2d555059216c43831826f57/xr/scenecore).
+
+**Bug fixes**
+
+- `toMoveEvent()` will return `null` if the parent entity has been garbage collected. ([Ia7a1b](https://android-review.googlesource.com/#/q/Ia7a1bf73146b410e247c98c1301e9700d9cb988a))
 
 ### Version 1.0.0-beta01
 

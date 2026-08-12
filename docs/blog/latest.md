@@ -7,6 +7,16 @@ source: md.txt
 # The Latest
 
 Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+
+  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
+  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
+  - [#Media3](https://developer.android.com/blog/topics/media3)
+  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+  - +1 ↩
 - [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_23cCms.webp)](https://developer.android.com/blog/authors/jose-alcerreca) 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_MYo9i.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation)
@@ -140,12 +150,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 2 min read
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
-- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_ZDTMlF.webp)](https://developer.android.com/blog/authors/simona-milanovic) 09 Jun 2026 09 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Dev_Productivity_Strapi_b7e79722e6_45umk.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Top 3 updates for Android developer productivity](https://developer.android.com/blog/posts/top-3-updates-for-android-developer-productivity)
-
-  [arrow_forward](https://developer.android.com/blog/posts/top-3-updates-for-android-developer-productivity) Every year, Google I/O brings new announcements and resources across ecosystems and products, including Android development. As development shifts toward AI and agent-assisted tooling, we've expanded our offerings to better support you, however you decide to build for Android.
-  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) • 2 min read
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
@@ -202,6 +206,9 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
 - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
 - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+- [#Media3](https://developer.android.com/blog/topics/media3)
+- [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+- [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
 - [#authentication](https://developer.android.com/blog/topics/authentication)
 - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
 - [#Foldables](https://developer.android.com/blog/topics/foldables)
@@ -211,5 +218,8 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Window Size Classes](https://developer.android.com/blog/topics/blog-topic)
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

@@ -138,17 +138,21 @@ to implement highlights for focused and selected controls. The following code
 example demonstrates how to enable visual behavior for a button to indicate that
 a user has navigated to the control and then selected it:
 
-    <!-- res/drawable/button.xml -->
-    <?xml version="1.0" encoding="utf-8"?>
-    <selector xmlns:android="http://schemas.android.com/apk/res/android">
-        <item android:state_pressed="true"
-              android:drawable="@drawable/button_pressed" /> <!-- pressed -->
-        <item android:state_focused="true"
-              android:drawable="@drawable/button_focused" /> <!-- focused -->
-        <item android:state_hovered="true"
-              android:drawable="@drawable/button_focused" /> <!-- hovered -->
-        <item android:drawable="@drawable/button_normal" /> <!-- default -->
-    </selector>
+
+```xml
+<!-- res/drawable/button.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true"
+          android:drawable="@drawable/button_pressed" /> <!-- pressed -->
+    <item android:state_focused="true"
+          android:drawable="@drawable/button_focused" /> <!-- focused -->
+    <item android:state_hovered="true"
+          android:drawable="@drawable/button_focused" /> <!-- hovered -->
+    <item android:drawable="@drawable/button_normal" /> <!-- default -->
+</selector>
+```
+
+<br />
 
 The following layout XML sample code applies the previous state list drawable to
 a `Button`:

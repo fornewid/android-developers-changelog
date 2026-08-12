@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 15, 2026 | - | - | - | [1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha16) |
+| August 12, 2026 | - | - | - | [1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha17) |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.compose:compose:1.0.0-alpha16"
+    implementation "androidx.xr.compose:compose:1.0.0-alpha17"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha16"
+    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha17"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.compose:compose:1.0.0-alpha16")
+    implementation("androidx.xr.compose:compose:1.0.0-alpha17")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha16")
+    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha17")
 }
 ```
 
@@ -59,6 +59,32 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha17
+
+August 12, 2026
+
+`androidx.xr.compose:compose:1.0.0-alpha17` and `androidx.xr.compose:compose-testing:1.0.0-alpha17` are released. Version 1.0.0-alpha17 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/acddfd8ada1ae0da79f5ae0f95f5c07e79c6d4e1..21d3a25e98cb0aafed30e30d4e1d89bba15ed1d7/xr/compose).
+
+**API Changes**
+
+- Remove the `Meter` value class, it is replaced by `virtualPixelDensity` in `Scenecore`. ([I690ee](https://android-review.googlesource.com/#/q/I690ee091ef7f69e60d2de1564a87ba7da59291fb))
+- The `SpatialGltfModel` API is now experimental and must be opted in for use. ([I4557e](https://android-review.googlesource.com/#/q/I4557e117894af094e08343c84ecfdde25a089376))
+- Make `system` resizable nullable ([Ib0093](https://android-review.googlesource.com/#/q/Ib00930218f248f77b701cd9e09d4fc216a7984e8))
+- Exposed `Density` in `SubspaceSemanticsInfo` for testing. ([I2e826](https://android-review.googlesource.com/#/q/I2e826dfca3b87f7202aa3bd0370e25f70d66704f))
+- Rename `ResizePolicy` default option to `system` and add a new `Default` option without parameters ([Ic8b16](https://android-review.googlesource.com/#/q/Ic8b1609787fd568af045f9ce96d38881e3bdbe38))
+- Mark `FollowTarget` experimental. The whole `FollowingSubspace` API is now experimental. ([Id4ee3](https://android-review.googlesource.com/#/q/Id4ee3f8ac3b0452edfb8b32bcaf75fe6cc5f699a))
+- Remove `GltfAnimation` APIs ([Ic2894](https://android-review.googlesource.com/#/q/Ic28943cb8bed77701fa7880b079b6bea75df1b52))
+- Renamed the parameterized `MovePolicy.default()` method to `MovePolicy.system()`. Introduced a `val MovePolicy.Default` property to represent the standard default movement behavior. ([Iedcc9](https://android-review.googlesource.com/#/q/Iedcc9c9b99fead311db82c6d4598323a52400699))
+- Expand `ExperimentalMoveAnchorPolicy` opt in requirements to `PlaneSemantic` and `PlaneOrientation` ([Ief927](https://android-review.googlesource.com/#/q/Ief9272baf58da98a77520837aee05a8f20da5683))
+- Remove `resetMins` from `VolumeConstraints.offset` ([Ib2f2f](https://android-review.googlesource.com/#/q/Ib2f2f9080b33c6d4ca3a2a469504e4be2e8b30cc))
+- Removed deprecated `SceneCoreEntitySizeAdapter` function. ([Ib6722](https://android-review.googlesource.com/#/q/Ib6722ad2823b518b1596615f882bb2d9b870a1af))
+- Removed deprecated `Subspace` overload with `allowUnboundedSubspace`. ([I8e97f](https://android-review.googlesource.com/#/q/I8e97fef7f94c7335869aa6342d04d85231092a97))
+- Removed deprecated semantics modifier overload. ([I4ac10](https://android-review.googlesource.com/#/q/I4ac105d7bba51cc5ce34489e1e228201fb8c2fb1))
+
+**Bug Fixes**
+
+- Fixed issue where children of a `Composable` with an `InteractionPolicy` attached trigger input events ([Icdba6](https://android-review.googlesource.com/#/q/Icdba6b5a89559fc521beba2c14e8ef2e30f42f21))
 
 ### Version 1.0.0-alpha16
 

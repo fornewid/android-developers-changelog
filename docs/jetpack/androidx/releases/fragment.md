@@ -28,7 +28,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    def fragment_version = "1.8.9"
+    def fragment_version = "1.9.0"
 
     // Java language implementation
     implementation "androidx.fragment:fragment:$fragment_version"
@@ -46,7 +46,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val fragment_version = "1.8.9"
+    val fragment_version = "1.9.0"
 
     // Java language implementation
     implementation("androidx.fragment:fragment:$fragment_version")

@@ -10,7 +10,7 @@ The Navigation Event library provides a KMP-first API for handling system back a
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 29, 2026 | [1.1.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.2) | - | - | [1.2.0-alpha03](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha03) |
+| August 12, 2026 | [1.1.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.2) | - | - | [1.2.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigationevent:navigationevent:1.2.0-alpha03"
+    implementation "androidx.navigationevent:navigationevent:1.2.0-alpha04"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigationevent:navigationevent:1.2.0-alpha03")
+    implementation("androidx.navigationevent:navigationevent:1.2.0-alpha04")
 }
 ```
 
@@ -53,6 +53,20 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.2
+
+### Version 1.2.0-alpha04
+
+August 12, 2026
+
+`androidx.navigationevent:navigationevent-*:1.2.0-alpha04` is released. Version 1.2.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..384f3c27346bf5812f359330dc2310f0cbb66402/navigationevent).
+
+**API Changes**
+
+- Added new APIs `hasEnabledBackHandlers` and `hasEnabledForwardHandlers` to `NavigationEventInput` to allow tracking directional capabilities independently. ([I772bf](https://android-review.googlesource.com/#/q/I772bf3ada606f09fd47c1af4a12b811c76c1665b), [b/123456789](https://issuetracker.google.com/issues/123456789))
+
+**Bug Fixes**
+
+- Introduce fallback context traversal lookup to resolve `LocalNavigationEventDispatcherOwner` when view tree owners are not available. ([I51e30](https://android-review.googlesource.com/#/q/I51e302741b17c4152e916c2d8a3a8617c81e4b22), [b/530641649](https://issuetracker.google.com/issues/530641649))
 
 ### Version 1.2.0-alpha03
 

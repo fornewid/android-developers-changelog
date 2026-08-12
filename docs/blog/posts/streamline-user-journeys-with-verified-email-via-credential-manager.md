@@ -80,14 +80,16 @@ Written by:
 
   ###### Developer Relations Engineer
 
-  [read_more View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)
 -
 
   ## [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle)
 
   ###### Product Manager
 
-  [read_more View profile](https://developer.android.com/blog/authors/jean-pierre-pralle) ![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp) ![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/jean-pierre-pralle) ![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp) ![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)
 Continue reading
 - [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_2x1elG.webp)](https://developer.android.com/blog/authors/vinisha-athwani) 04 Sep 2025 04 Sep 2025 ![](https://developer.android.com/static/blog/assets/passkeys_Credential_27ba66338c_ZzmQtB.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
@@ -95,6 +97,16 @@ Continue reading
 
   [arrow_forward](https://developer.android.com/blog/posts/best-practices-for-migrating-users-to-passkeys-with-credential-manager) For Android developers, the Credential Manager API helps you guide your users towards using passkeys while ensuring continued support for traditional sign-in mechanisms, such as passwords.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Vinisha Athwani](https://developer.android.com/blog/authors/vinisha-athwani) • 6 min read
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+
+  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
+  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
+  - [#Media3](https://developer.android.com/blog/topics/media3)
+  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+  - +1 ↩
 - [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
@@ -102,14 +114,10 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
   [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZbOM76.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
-
-  ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
-  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

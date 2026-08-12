@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 29, 2026 | [1.4.1](https://developer.android.com/jetpack/androidx/releases/benchmark#1.4.1) | - | [1.5.0-beta01](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-beta01) | - |
+| August 12, 2026 | [1.4.1](https://developer.android.com/jetpack/androidx/releases/benchmark#1.4.1) | [1.5.0-rc01](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -137,6 +137,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.5
+
+### Version 1.5.0-rc01
+
+August 12, 2026
+
+`androidx.benchmark:benchmark-*:1.5.0-rc01` is released. Version 1.5.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..74b81ce3c99a369371ea2678b09e486cb9b86c3b/benchmark).
 
 ### Version 1.5.0-beta01
 

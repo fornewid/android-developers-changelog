@@ -10,7 +10,7 @@ Write trace events to the system trace buffer.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 29, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/tracing#1.3.0) | [2.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-rc01) | - | - |
+| August 12, 2026 | [2.0.0](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0) | - | - | - |
 
 ## Feedback
 
@@ -28,6 +28,29 @@ for more information.
 ## Tracing
 
 ### Version 2.0
+
+#### Version 2.0.0
+
+August 12, 2026
+
+`androidx.tracing:tracing-*:2.0.0` is released. Version 2.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/262b8e77a141e4b20a5656688137c1a1a89492b0..6ee6b62c3228b222feb14eccbaf9f10719f0f81f/tracing).
+
+**Major features of 2.0.0:**
+
+New [in-process API](https://developer.android.com/topic/performance/tracing/in-process-tracing) enables:
+
+- Record trace content in-process, in the field
+- Perfetto flows (arrows from one slice to another)
+- Perfetto annotations (key/value slice metadata)
+- [`traceCoroutine() {}`](https://developer.android.com/reference/kotlin/androidx/tracing/Tracer#traceCoroutine(kotlin.String,kotlin.String,androidx.tracing.PropagationToken,kotlin.Boolean,kotlin.Function1,kotlin.coroutines.SuspendFunction0)) - Coroutine Tracing API which traces thread switches
+- Category filtering
+- Significantly lower overhead than existing `android.os.Trace` API and `trace() {}` wrapper
+- KMP tracing - can be used on libraries without Android dependency, and on host JVM projects
+- After the fact [merging with System trace recording](https://developer.android.com/topic/performance/tracing/in-process-tracing#combine-with-system-traces) (implemented by default in AndroidX Benchmark 1.5)
+
+Note that the new tracing APIs record to a process-controlled buffer which is not yet captured by Studio system trace recording. This will be addressed in the Studio Profilers in an upcoming release.
+
+The existing `android.os.Trace` / `trace() {}` APIs have not been deprecated. These APIs are still recommended for low frequency events that should always be recorded into the system trace buffer, especially in libraries.
 
 #### Version 2.0.0-rc01
 

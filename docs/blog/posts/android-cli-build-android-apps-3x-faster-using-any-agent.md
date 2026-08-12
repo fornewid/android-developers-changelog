@@ -80,15 +80,27 @@ Written by:
 
   ###### Group Product Manager
 
-  [read_more View profile](https://developer.android.com/blog/authors/adarsh-fernando) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/adarsh-fernando) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)
 -
 
   ## [Esteban de la Canal](https://developer.android.com/blog/authors/esteban-de-la-canal)
 
   ###### Senior Staff Software Engineer
 
-  [read_more View profile](https://developer.android.com/blog/authors/esteban-de-la-canal) ![View Esteban de la Canal's profile](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp) ![View Esteban de la Canal's profile](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/esteban-de-la-canal) ![View Esteban de la Canal's profile](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp) ![View Esteban de la Canal's profile](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)
 Continue reading
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+
+  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
+  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
+  - [#Media3](https://developer.android.com/blog/topics/media3)
+  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+  - +1 ↩
 - [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
@@ -103,14 +115,10 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
   [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 6 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_21AGRW.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
-
-  ## [Build intelligent Android apps: Cloud and hybrid inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 8 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 29, 2026 | [1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.11.4) | [1.12.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0-rc01) | - | - |
+| August 12, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0) | - | - | [1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-alpha01) |
 
 ## Structure
 
@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.foundation:foundation:1.11.4"
+    implementation "androidx.compose.foundation:foundation:1.12.0"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.foundation:foundation:1.11.4")
+    implementation("androidx.compose.foundation:foundation:1.12.0")
 }
 
 android {
@@ -98,7 +98,76 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
+## Version 1.13
+
+### Version 1.13.0-alpha01
+
+August 12, 2026
+
+`androidx.compose.foundation:foundation-*:1.13.0-alpha01` is released. Version 1.13.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/963bf914f78b389bdddef0da7f36bee19d897274..9586cfb5d4ee4296fd84037c43597a5ae4a39d1b/compose/foundation).
+
+**Breaking Changes**
+
+- Following on from the announcement in the previous release, `Modifier.onFocusedBoundsChanged` has had its implementation fully removed. Using this modifier now no-ops. Migrate to using `FocusTargetModifierNode.getFocusedRect()` to query this information on demand as needed. ([Ia39db](https://android-review.googlesource.com/#/q/Ia39dbf5b8b6973111dfb3b80c33cc3d84d7dc224), [b/220030968](https://issuetracker.google.com/issues/220030968))
+
+**API Changes**
+
+- Providing `LazyLayoutCacheWindow` and `LazyGridPrefetchStrategy` via `LazyGridState` has been deprecated in favour of providing a `LazyLayoutCacheWindow` to the composable function. ([I3f31e](https://android-review.googlesource.com/#/q/I3f31e8a1794b5c84e02074f2c193b6a571526fe3))
+- Remove `isSkipItemPlacementAnimationFixEnabled` flag ([I890f3](https://android-review.googlesource.com/#/q/I890f38fc47af56a25e406ce7e62b6b1f596d6395), [b/493183465](https://issuetracker.google.com/issues/493183465))
+- Remove `isClearNestedScrollCoroutineScopeFixEnabled` flag ([Iedfd7](https://android-review.googlesource.com/#/q/Iedfd7dbc2135c79f85b42fab5196f8f2fdb8e986), [b/506963276](https://issuetracker.google.com/issues/506963276))
+- Changed flag `isCacheWindowVisibleItemCountCheckEnabled` to `isCacheWindowLookaheadCheckEnabled` ([I2ea06](https://android-review.googlesource.com/#/q/I2ea06145059191d1fb9c5dffd1822c82944a7c61))
+- `TextFieldState` now saves and restores text style information. `AnnotatedString.Annotation.Saver` is now public to allow saving and restoring of `AnnotatedString.Annotation` objects. ([I8b533](https://android-review.googlesource.com/#/q/I8b53310e091fb8dbf3b967a3d05160a7ee7bc161), [b/135556699](https://issuetracker.google.com/issues/135556699))
+- Adds a cache window to lazy staggered grid layout. To revert to the old prefetch behaviour, set `isUsingCacheWindowInStaggeredGrids` to false. ([I1c70d](https://android-review.googlesource.com/#/q/I1c70d5a1df9d903c161ea016fd86cf32c9cd2481))
+- `FlexBox` and its related configuration APIs have been promoted to stable and are no longer experimental. ([I209ed](https://android-review.googlesource.com/#/q/I209edb04879e230a01385d99a940377049956e86), [b/475491619](https://issuetracker.google.com/issues/475491619))
+- Added `maxItemsInEachLine` configuration to `FlexBox` to allow limiting the number of items per line when wrapping is enabled. ([I2744b](https://android-review.googlesource.com/#/q/I2744bcfa267323b0aa4aabc93ff4ce0d1e01c3ef), [b/475491619](https://issuetracker.google.com/issues/475491619))
+- Annotated overridable empty base methods across Compose with `@EmptySuper` to denote that overriding implementations should not invoke super. ([Id407b](https://android-review.googlesource.com/#/q/Id407ba2271cefe08c55717409ca22dbf23922c9e))
+- Promoted `WindowInsets` visibility and animation APIs to stable. ([I37441](https://android-review.googlesource.com/#/q/I37441127982613960908a1b13db9da11cb73c7b6), [b/537329254](https://issuetracker.google.com/issues/537329254))
+- Clicks on clickable elements now automatically play interaction sound effects on Android. ([Ia72f8](https://android-review.googlesource.com/#/q/Ia72f88c95decc66b7d4aae212f4805989074d0be))
+- The cache window now refils the ahead window if the number of visible items change without having scrolled. Set the `isCacheWindowVisibleItemCountCheckEnabled` flag to `false` to disable this check and revert to old behaviour. ([I67b5a](https://android-review.googlesource.com/#/q/I67b5a376315654b34a988d1e5141b2b251cfbd01))
+- Updated `NestedScrollDispatcher.coroutineScope` property to safely return a cancelled `CoroutineScope` when unattached or detached. ([I9b112](https://android-review.googlesource.com/#/q/I9b1120913c72b7e950bf0bc90107da4fd008f846), [b/535290281](https://issuetracker.google.com/issues/535290281))
+- Renamed `enableNonScrollCaching` to `isNonScrollCachingEnabled` ([I7a54b](https://android-review.googlesource.com/#/q/I7a54b2932575c999f7c0a9ead983a6aeb0e954d5), [b/535290282](https://issuetracker.google.com/issues/535290282))
+- Added @`CheckResult` to `SemanticsNodeInteraction.isDisplayed`() and `isNotDisplayed`() to ensure their return values are asserted, preventing silent test failures when developers mistakenly use them instead of assertion APIs. ([I1b447](https://android-review.googlesource.com/#/q/I1b447087e19fde4f9a64dd462e68bb21d14d463a), [b/508178494](https://issuetracker.google.com/issues/508178494))
+- Make `LazyLayoutCacheWindow` stable ([I2cda3](https://android-review.googlesource.com/#/q/I2cda3c6f86ea54915ed2caca8b00fb6ece9401f6))
+- Added the `bringIntoViewSpec` param for Horizontal and Vertical Pager to allow overriding Pager's default implementation. ([Icdcbf](https://android-review.googlesource.com/#/q/Icdcbf8b96207d0e5730b47129fd0f7c4e8dbd5d8), [b/505052292](https://issuetracker.google.com/issues/505052292))
+- Fixes a bug in the lazy layout prefetch scheduler's idle detection. Previously, the scheduler might have incorrectly considered itself idle when a frame is severely delayed, potentially leading to jank when scrolling. To revert to the old behaviour set the `isLazyPrefetchSchedulerIdleTimeFixEnabled` compose flag to false. ([If0594](https://android-review.googlesource.com/#/q/If0594bb843247ed5b611af1f29b835e58524a87d), [b/458024295](https://issuetracker.google.com/issues/458024295))
+- Introduce `coroutineScopeOrNull()` in `NestedScrollDispatcher`, an alternative API to access the dispatcher's parent coroutine scope. ([I18c0f](https://android-review.googlesource.com/#/q/I18c0f6c699f5ecdb9c59a2551a2c75d7efe3ae02))
+- Fixed horizontal text shifting during overscroll in Compose. Can be disabled via `AndroidComposeFoundationFlags.isOverscrollPixelRoundingEnabled`. ([Ica169](https://android-review.googlesource.com/#/q/Ica169e97b7238c355bd12dcce1df4b12da7bc6fe), [b/532079110](https://issuetracker.google.com/issues/532079110), [b/532081619](https://issuetracker.google.com/issues/532081619))
+- Introduce the flag `isDraggableZeroDeltaConsumptionEnabled` to control the rollout of this fix in Draggable. Zero delta events are now processed correctly. ([I50eb1](https://android-review.googlesource.com/#/q/I50eb1d11564c198bd8e73d3bd52053f7270ce605), [b/524163413](https://issuetracker.google.com/issues/524163413))
+- Text selection is now safely constrained to the text length during concurrent text updates to prevent crashes. ([I64fd7](https://android-review.googlesource.com/#/q/I64fd7fdcf6549976c0764a831abd27d70d83d4ec))
+- `androidx.benchmark` now has a `minSdk` of 24. ([Ic2a85](https://android-review.googlesource.com/#/q/Ic2a8500af8a2bf092fcc1b27d9a599aa5f3b81d7))
+- The links are now better handling the clicks when span multiline. The touch target has been override to 0 to support this. If this is not a desirable behavior, use `ComposeFoundationFlags.isLinkMinimumTouchTargetSizeZeroEnabled` flag to override it. ([Ide41b](https://android-review.googlesource.com/#/q/Ide41b67b4d1d94cb9308e1d34185aa9edf8ed04c), [b/361106057](https://issuetracker.google.com/issues/361106057))
+- Fixed a low-volume exception when writing to a mutable state object. ([I48194](https://android-review.googlesource.com/#/q/I48194daf951489710c7942bfc30f1006c6221608), [b/503110696](https://issuetracker.google.com/issues/503110696))
+- Expose observable `keys` on `SaveableStateHolder` to simplify navigation/back stack state management and remove the need for external `key` tracking. Access via `holder.keys`; remove with `removeState`. ([I9bbbb](https://android-review.googlesource.com/#/q/I9bbbbb908db412063ea99fecd2ebfff78929af24), [b/398887924](https://issuetracker.google.com/issues/398887924))
+- Removes experimental outdated `IndirectPointerEvent` helper function. ([I05dee](https://android-review.googlesource.com/#/q/I05deed7e712f7a964d434a92e5fdba45a143798c), [b/499336763](https://issuetracker.google.com/issues/499336763), [b/501098299](https://issuetracker.google.com/issues/501098299), [b/501098376](https://issuetracker.google.com/issues/501098376), [b/513249467](https://issuetracker.google.com/issues/513249467))
+- Make `LocalBringIntoViewSpec` stable on Android. ([Ibcb97](https://android-review.googlesource.com/#/q/Ibcb97d4e362163c26879c7d19704bb39912259dc))
+- Add `isMultiLaneCacheWindowEnabled` flag ([I3d997](https://android-review.googlesource.com/#/q/I3d997155681d650c6b9023eb7ce0e823ca595c5a))
+- Created a new `SelectionState` API, to be passed to `SelectionContainer` for observing selected text and programmatically updating selection." into androidx-main am: 929401883c am: c02871cac4 ([I15bd4](https://android-review.googlesource.com/#/q/I15bd4c06c62ee001a31f5d39b7469f7642dd7505))
+- Added `LocalTextFieldContentObserverRegistrationExecutor` that offers a way to delegate the implicit `ContentObserver` registration that happens in `TextField`s to a background thread. ([Ib4fa6](https://android-review.googlesource.com/#/q/Ib4fa6b39ec15bea7f6e2a425600bc62f6c709ad5), [b/505287297](https://issuetracker.google.com/issues/505287297), [b/509842675](https://issuetracker.google.com/issues/509842675))
+- Renamed `TextObfuscationMode.Default` to `System`. `TextObfuscationMode.RevealLastTyped` now acts as an absolute override and always reveals the last typed character. The default argument of `BasicSecureTextField` is updated to System. ([If26d3](https://android-review.googlesource.com/#/q/If26d388fdefadc7626cd60fa8e4a8cc375941311), [b/425658491](https://issuetracker.google.com/issues/425658491), [b/453647378](https://issuetracker.google.com/issues/453647378))
+
+**Bug Fixes**
+
+- Fixed an issue where fast scrolling in Compose nested inside an Android scroll container (like `ScrollView` or `CoordinatorLayout`) would sometimes calculate incorrect velocity. ([I0f017](https://android-review.googlesource.com/#/q/I0f01748498ac88957c49906755782065516a85e5))
+- Fixed an issue in `FlexBox` where focus traversal did not match the visual order of items when using reverse directions, reverse wrap, or custom item order. ([I4cc61](https://android-review.googlesource.com/#/q/I4cc617babd013201e187fdc287b82991b470828b), [b/521609263](https://issuetracker.google.com/issues/521609263))
+- Fixed an issue where standard layout modifiers like `Modifier.fillMaxWidth()` and `Modifier.fillMaxHeight()` had no effect on items inside `FlexBox` unless an explicit flex grow factor was specified. ([Ib0ac3](https://android-review.googlesource.com/#/q/Ib0ac33b93b74242bde3a0597446aafe9fe1649ca), [b/515657458](https://issuetracker.google.com/issues/515657458))
+- Optimized file-level initialization of `foundation` top-level value class properties by using dynamic getters. ([I570d7](https://android-review.googlesource.com/#/q/I570d7f84d56d251fedff604c31d683b4f5126dae))
+- Optimized companion object initialization of `foundation-layout` value classes (`WindowInsetsSides`, etc.) by using dynamic getters. ([I01c2b](https://android-review.googlesource.com/#/q/I01c2bd94c52d6b0bd38c6d9242834f5085dbe222))
+- Fixed an issue where Compose text selection context menu items displayed stale strings after an in-app locale switch when Activity restarts were disabled via `android:configChanges`. ([Ic910b](https://android-review.googlesource.com/#/q/Ic910be4a0688615a5eaa438fd338e1b49278bd41), [b/515156417](https://issuetracker.google.com/issues/515156417))
+- Optimized companion object initialization of `compose:foundation` value classes (`KeyModifiers`, `MarqueeAnimationMode`, `Source`, etc.) by using dynamic getters. ([I78455](https://android-review.googlesource.com/#/q/I78455710a8fc4f460bffcd13301a10244ec68e19))
+- Fixes style animations to ensure that, when transitioning to and from a value that is only conditionally set in an animation, it will be treated as animating to and from the default value of the property. ([I8e41d](https://android-review.googlesource.com/#/q/I8e41d5b3242b3afb7d51ed134fdf2e2331e06a21), [b/527140078](https://issuetracker.google.com/issues/527140078))
+- Fixed an issue in Grid where auto-placed items with a span larger than the available explicit tracks in the constrained direction would bleed outside the grid's bounds when gaps were applied. ([I00ce0](https://android-review.googlesource.com/#/q/I00ce095266c2eda5fd718b9ecf6c0ce939fb5508), [b/506570362](https://issuetracker.google.com/issues/506570362))
+- Cleans up API information ([Ia8066](https://android-review.googlesource.com/#/q/Ia8066818f7e33220445aaeafa9ecc0668cc4818b))
+- Fixed a bug in `BasicTextField` where it would not correctly provide extracted text updates to the IME when requested. ([I746fa](https://android-review.googlesource.com/#/q/I746fad07c1c04e6a8a4dc11bcd2973982760c0e4), [b/203549026](https://issuetracker.google.com/issues/203549026), [b/492363474](https://issuetracker.google.com/issues/492363474))
+
 ## Version 1.12
+
+### Version 1.12.0
+
+August 12, 2026
+
+`androidx.compose.foundation:foundation-*:1.12.0` is released. Version 1.12.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/854220f44ea8ea80fee824a6c5a045f39bede289..963bf914f78b389bdddef0da7f36bee19d897274/compose/foundation).
+
+**Important changes since 1.11.0:**
 
 ### Version 1.12.0-rc01
 

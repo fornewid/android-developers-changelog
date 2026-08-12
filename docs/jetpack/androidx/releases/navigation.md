@@ -13,13 +13,16 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 29, 2026 | [2.9.8](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8) | - | [2.10.0-beta01](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-beta01) | - |
+| August 12, 2026 | [2.9.8](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8) | [2.10.0-rc01](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-rc01) | - | - |
 
 ## Declaring dependencies
 
-To add a dependency on Navigation, you must add the Google Maven repository to your project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) for more information.
+To add a dependency on Navigation, you must add the Google Maven repository to your
+project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
+for more information.
 
-Add the dependencies for the artifacts you need in the `build.gradle` file for your app or module:
+Add the dependencies for the artifacts you need in the `build.gradle` file for
+your app or module:
 
 ### Groovy
 
@@ -81,7 +84,8 @@ dependencies {
 
 ### Safe Args
 
-To add [Safe Args](https://developer.android.com/topic/libraries/architecture/navigation/navigation-pass-data#Safe-args) to your project, include the following `classpath` in your top level `build.gradle` file:
+To add [Safe Args](https://developer.android.com/topic/libraries/architecture/navigation/navigation-pass-data#Safe-args)
+to your project, include the following `classpath` in your top level `build.gradle` file:
 
 ### Groovy
 
@@ -113,7 +117,8 @@ buildscript {
 
 You must also apply one of two available plugins.
 
-To generate Java language code suitable for Java or mixed Java and Kotlin modules, add this line to **your app or module's** `build.gradle` file:
+To generate Java language code suitable for Java or mixed Java and Kotlin modules, add
+this line to **your app or module's** `build.gradle` file:
 
 ### Groovy
 
@@ -149,7 +154,9 @@ plugins {
 }
 ```
 
-You must have `android.useAndroidX=true` in your [`gradle.properties` file](https://developer.android.com/studio/build#properties-files) as per [Migrating to AndroidX](https://developer.android.com/jetpack/androidx/migrate#migrate)).
+You must have `android.useAndroidX=true` in your
+[`gradle.properties` file](https://developer.android.com/studio/build#properties-files) as per
+[Migrating to AndroidX](https://developer.android.com/jetpack/androidx/migrate#migrate)).
 
 For information on using Kotlin extensions, see the [ktx documentation](https://developer.android.com/kotlin/ktx).
 
@@ -157,13 +164,28 @@ For more information about dependencies, see [Add Build Dependencies](https://de
 
 ## Feedback
 
-Your feedback helps make Jetpack better. Let us know if you discover new issues or have ideas for improving this library. Please take a look at the [existing issues](https://issuetracker.google.com/issues?q=componentid:409828+status:open) in this library before you create a new one. You can add your vote to an existing issue by clicking the star button.
+Your feedback helps make Jetpack better. Let us know if you discover new issues or have
+ideas for improving this library. Please take a look at the
+[existing issues](https://issuetracker.google.com/issues?q=componentid:409828+status:open)
+in this library before you create a new one. You can add your vote to an existing issue by
+clicking the star button.
 
 [Create a new issue](https://issuetracker.google.com/issues/new?component=409828&template=1093757)
 
-See the [Issue Tracker documentation](https://developers.google.com/issue-tracker) for more information.
+See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+for more information.
 
 ## Navigation Version 2.10
+
+### Version 2.10.0-rc01
+
+August 12, 2026
+
+`androidx.navigation:navigation-*:2.10.0-rc01` is released. Version 2.10.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..e5786b680000c8346398db3041109c816a38acdf/navigation).
+
+**Behavior changes**
+
+- The minimum SDK for Navigation has been moved to API 24 along with the rest of the AndroidX libraries. ([I972da](https://android-review.googlesource.com/#/q/I972dab1c69d8d9ab1fe5a4dd73e07a4ddedd413d), [b/474169350](https://issuetracker.google.com/issues/474169350))
 
 ### Version 2.10.0-beta01
 
@@ -2070,7 +2092,9 @@ June 2, 2021
 
 - NavigationUI methods that took a `BottomNavigationView` have been updated to instead take its superclass introduced in Material `1.4.0`, `NavigationBarView`. This allows these methods to be used with the `NavigationRailView`. ([Ib0b36](https://android-review.googlesource.com/#/q/Ib0b36d933571daab2e94a79d524388c282a8c23c), [b/182938895](https://issuetracker.google.com/issues/182938895))
 
-- When inflating an `<action>` element via XML, animation attributes can use attributes pulled from your theme using the `app:enterAnim="?attr/transitionEnter"` syntax. ([I07bc1](https://android-review.googlesource.com/#/q/I07bc1fbfd65e0c36c0cd8f1210efc1e82810f3dd), [b/178291654](https://issuetracker.google.com/issues/178291654))
+- When inflating an `<action>` element via XML, animation attributes can
+  use attributes pulled from your theme using the
+  `app:enterAnim="?attr/transitionEnter"` syntax. ([I07bc1](https://android-review.googlesource.com/#/q/I07bc1fbfd65e0c36c0cd8f1210efc1e82810f3dd), [b/178291654](https://issuetracker.google.com/issues/178291654))
 
 **API Changes**
 
@@ -2079,13 +2103,17 @@ June 2, 2021
 **Bug Fixes**
 
 - `DialogFragmentNavigator` now uses the `NavigatorState.pop()` API to inform the `NavController` when a dialog is dismissed by hitting the system back button or clicking outside of it, ensuring that the `NavController` state is always in sync with the Navigator's state. ([I2ead9](https://android-review.googlesource.com/#/q/I2ead97ae3d392d40e9312f3212e6bea02bf3343e))
-- Navigation no longer gives a `ConcurrentModificationException` when using manipulating the list of `OnDestinationChangedListeners` from with an `onDestinationChanged` callback. ([Ib1707](https://android-review.googlesource.com/#/q/Ib17074c773ed9462c6a69ad384c23e28fa8abaf6), [b/188860458](https://issuetracker.google.com/issues/188860458))
+- Navigation no longer gives a `ConcurrentModificationException` when
+  using manipulating the list of `OnDestinationChangedListeners` from with an `onDestinationChanged` callback. ([Ib1707](https://android-review.googlesource.com/#/q/Ib17074c773ed9462c6a69ad384c23e28fa8abaf6), [b/188860458](https://issuetracker.google.com/issues/188860458))
 
-- Safe Args no longer crashes when attempting to generate direction properties in Kotlin. ([Id2416](https://android-review.googlesource.com/#/q/Id2416d7d7c52888fb9ec9bdbb80afcc7d2a1bf3e), [b/188564435](https://issuetracker.google.com/issues/188564435))
+- Safe Args no longer crashes when attempting to generate
+  direction properties in Kotlin. ([Id2416](https://android-review.googlesource.com/#/q/Id2416d7d7c52888fb9ec9bdbb80afcc7d2a1bf3e), [b/188564435](https://issuetracker.google.com/issues/188564435))
 
-- The setId method on NavDestination is now properly annotated with `@IdRes`, so it only accepts resource ids. ([I69b80](https://android-review.googlesource.com/#/q/I69b80a6a63c4db257385c96bd07ad21f7665dcb8))
+- The setId method on NavDestination is now properly annotated
+  with `@IdRes`, so it only accepts resource ids. ([I69b80](https://android-review.googlesource.com/#/q/I69b80a6a63c4db257385c96bd07ad21f7665dcb8))
 
-- The int parameter of `findNode` is now `resId` instead of `resid`. ([I7711d](https://android-review.googlesource.com/#/q/I7711dafc332d1b06dfe48295bdf1cc05b23cf040))
+- The int parameter of `findNode` is now `resId` instead of
+  `resid`. ([I7711d](https://android-review.googlesource.com/#/q/I7711dafc332d1b06dfe48295bdf1cc05b23cf040))
 
 **Dependency Update**
 
@@ -3002,11 +3030,19 @@ Navigation `2.0.0` is released with no changes from `2.0.0-rc02`.
 
 March 6, 2019
 
-Navigation 2.0.0-rc02 provides new artifacts with the `androidx.navigation` group ID and changes its dependencies to the AndroidX equivalents.
+Navigation 2.0.0-rc02 provides new artifacts with the `androidx.navigation`
+group ID and changes its dependencies to the AndroidX equivalents.
 
-The behavior of 2.0.0-rc02 is identical to behavior to Navigation 1.0.0-rc02 and no changes to your code should be required to update from 1.0.0-rc02 besides updating your dependencies to match the [new dependencies](https://developer.android.com/jetpack/androidx/releases/navigation#declaring_dependencies).
+The behavior of 2.0.0-rc02 is identical to behavior to Navigation 1.0.0-rc02
+and no changes to your code should be required to update from 1.0.0-rc02
+besides updating your dependencies to match the
+[new dependencies](https://developer.android.com/jetpack/androidx/releases/navigation#declaring_dependencies).
 
-Your project must have [migrated to AndroidX](https://developer.android.com/jetpack/androidx/migrate) to use 2.X releases of Navigation. Navigation 1.0 stable will be the last release using the Support Library dependencies; all future development beyond 1.0 will be based on AndroidX and build upon the 2.0 stable release.
+Your project must have
+[migrated to AndroidX](https://developer.android.com/jetpack/androidx/migrate) to use 2.X releases of
+Navigation. Navigation 1.0 stable will be the last release using the Support
+Library dependencies; all future development beyond 1.0 will be based on
+AndroidX and build upon the 2.0 stable release.
 
 ## Pre-AndroidX Dependencies
 
@@ -3019,7 +3055,8 @@ For the pre-AndroidX versions of Navigation, include these dependencies:
         implementation "android.arch.navigation:navigation-ui:$nav_version" // For Kotlin use navigation-ui-ktx
     }
 
-For [Safe args](https://developer.android.com/topic/libraries/architecture/navigation/navigation-pass-data#Safe-args), add the following **classpath** in your **top level** `build.gradle` file
+For [Safe args](https://developer.android.com/topic/libraries/architecture/navigation/navigation-pass-data#Safe-args), add the
+following **classpath** in your **top level** `build.gradle` file
 
     buildscript {
         repositories {
@@ -3042,7 +3079,8 @@ Navigation `1.0.0` is released with no changes from `1.0.0-rc02`.
 
 February 26, 2019
 
-This is the second release candidate for Navigation's 1.0.0 stable release. This release contains a number of bug fixes.
+This is the second release candidate for Navigation's 1.0.0 stable release.
+This release contains a number of bug fixes.
 
 **Bug Fixes**
 
@@ -3055,7 +3093,8 @@ This is the second release candidate for Navigation's 1.0.0 stable release. This
 
 February 21, 2019
 
-This is a release candidate for Navigation's 1.0.0 stable release. This release contains one bug fix.
+This is a release candidate for Navigation's 1.0.0 stable release. This
+release contains one bug fix.
 
 **Bug Fixes**
 
@@ -3086,7 +3125,9 @@ This release includes a number of minor improvements and important bug fixes.
 
 February 4, 2019
 
-This is the first beta release of Navigation; moving forward, the Navigation API is expected to stay stable until the next version unless there is a critical problem. This release contains some bug fixes and behavior changes.
+This is the first beta release of Navigation; moving forward, the Navigation
+API is expected to stay stable until the next version unless there is a
+critical problem. This release contains some bug fixes and behavior changes.
 
 **Behavior changes**
 
@@ -3121,7 +3162,8 @@ January 23, 2019
 
 - Safe Args fails to import the Directions class associated with global actions. [b/123307342](https://issuetracker.google.com/123307342)
 
-This release contains breaking API changes; please see the *Breaking Changes* section below.
+This release contains breaking API changes;
+please see the *Breaking Changes* section below.
 
 **New Features**
 
@@ -3155,9 +3197,18 @@ This release contains breaking API changes; please see the *Breaking Changes* se
 
 December 18, 2018
 
-This release contains breaking API changes; please see the *Breaking Changes* section below.
+This release contains breaking API changes;
+please see the *Breaking Changes* section below.
 
-We have chosen not to continue development of the `android.arch.navigation:navigation-testing` artifact. While it has proven helpful for internal testing of `NavController`, we strongly recommend alternate testing strategies, such as mocking the `NavController` instance in order to verify that the correct `navigate()` calls are being done. This approach is discussed in detail in the [Single Activity talk at AndroidDevSummit 2018](https://www.youtube.com/watch?v=2k8x8V77CrU) and we'll be working on additional documentation specifically around testing with Navigation.
+We have chosen not to continue development of the
+`android.arch.navigation:navigation-testing` artifact. While it has proven
+helpful for internal testing of `NavController`, we strongly recommend
+alternate testing strategies, such as mocking the `NavController` instance
+in order to verify that the correct `navigate()` calls are being done. This
+approach is discussed in detail in the
+[Single Activity talk at AndroidDevSummit 2018](https://www.youtube.com/watch?v=2k8x8V77CrU)
+and we'll be working on additional documentation specifically around testing
+with Navigation.
 
 **New Features**
 
@@ -3180,7 +3231,8 @@ We have chosen not to continue development of the `android.arch.navigation:navig
 
 December 6, 2018
 
-This release contains breaking API changes; please see the *Breaking Changes* section below.
+This release contains breaking API changes;
+please see the *Breaking Changes* section below.
 
 **New Features**
 
@@ -3376,4 +3428,5 @@ June 7, 2018
 
 May 8, 2018
 
-[Navigation](https://developer.android.com/topic/libraries/architecture/navigation/navigation-implementing) provides a framework for building in-app navigation. This initial release is `1.0.0-alpha01`.
+[Navigation](https://developer.android.com/topic/libraries/architecture/navigation/navigation-implementing) provides a framework for building in-app
+navigation. This initial release is `1.0.0-alpha01`.

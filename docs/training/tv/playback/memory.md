@@ -263,11 +263,16 @@ recommendations:
 
 ### Kotlin
 
-    Constraints.Builder()
-        .setRequiredNetworkType(NetworkType.CONNECTED)
-        .setRequiresStorageNotLow(true)
-        .setRequiresDeviceIdle(true)
-        .build()
+
+```kotlin
+Constraints.Builder()
+    .setRequiredNetworkType(NetworkType.CONNECTED)
+    .setRequiresStorageNotLow(true)
+    .setRequiresDeviceIdle(true)
+    .build()
+```
+
+<br />
 
 ### Java
 

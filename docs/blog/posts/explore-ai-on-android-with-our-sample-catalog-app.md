@@ -16,9 +16,7 @@ We are thrilled to announce the launch of the redesigned [**Android AI Sample Ca
 
 **Discover what's possible with Google AI**   
 
-
 The Android AI Sample Catalog is designed as a one-stop destination to explore the capabilities of Google AI APIs and SDKs. Inside, you'll find a collection of samples demonstrating a wide range of AI use cases that you can test yourself. We really designed this catalog to give you a hands-on feel for what you can build and help you find the right solution and capability for your needs.  
-
 
 Here are some of the samples you can find in the catalog:
 
@@ -28,13 +26,11 @@ Here are some of the samples you can find in the catalog:
 
 Other samples include: image editing via Imagen mask-editing capabilities, a to-do list app controlled via the voice using the Gemini Live API, on-device rewrite assistance powered by Gemini Nano, and more!   
 
-
 The samples using cloud inference are built using the [Firebase AI Logic SDK](https://firebase.google.com/docs/ai-logic/get-started?platform=android), and the [ML Kit GenAI API](https://developers.google.com/ml-kit/genai) is used for the samples running on-device inference. We plan to continue creating new samples and updating the existing ones as new capabilities are added to the models and SDKs.  
 
 **Fully open source and ready to copy**
 
 We believe the best way to learn is by doing. That's why the AI Sample Catalog is not only fully open-source but it's been architectured so the code relevant to the AI features is self-contained and easy to copy and paste, so you can quickly experiment with these code samples in your own project.   
-
 
 When you're exploring a sample in the app and want to see how it's built, you can simply click the **\<\> SOURCE** button to jump directly to the code on GitHub.
 ![imagechat.png](https://developer.android.com/static/blog/assets/imagechat_bafbc9583f_1a9ScM.webp)
@@ -56,14 +52,16 @@ Written by:
 
   ###### Senior Developer Relations Engineer
 
-  [read_more View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
 -
 
   ## [Ivy Knight](https://developer.android.com/blog/authors/ivy-knight)
 
   ###### Senior Design Advocate
 
-  [read_more View profile](https://developer.android.com/blog/authors/ivy-knight) ![View Ivy Knight's profile](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp) ![View Ivy Knight's profile](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/ivy-knight) ![View Ivy Knight's profile](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp) ![View Ivy Knight's profile](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp)
 Continue reading
 - 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_21AGRW.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
@@ -72,6 +70,16 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 8 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+
+  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
+  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
+  - [#Media3](https://developer.android.com/blog/topics/media3)
+  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+  - +1 ↩
 - [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
@@ -79,14 +87,10 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
   [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZbOM76.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
-
-  ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
-  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

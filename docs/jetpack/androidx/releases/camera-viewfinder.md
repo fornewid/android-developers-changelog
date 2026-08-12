@@ -34,9 +34,9 @@ your app or module:
 dependencies {
     // Use to implement camera viewfinders
     
-    implementation "androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha02"
-    implementation "androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha02"
-    implementation "androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha02"
+    implementation "androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha03"
+    implementation "androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha03"
+    implementation "androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha03"
 
 }
 ```
@@ -46,9 +46,9 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement camera viewfinders
-    implementation("androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha02")
-    implementation("androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha02")
-    implementation("androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha02")
+    implementation("androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha03")
+    implementation("androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha03")
+    implementation("androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha03")
 
 
 }

@@ -6,11 +6,33 @@ source: md.txt
 
 *** ** * ** ***
 
-Each version of an AndroidX library passes through four release channels while being developed. This page lists the components that have been updated to a new stable version. To view the entire release history for a particular component back thru January 2018, select it in the left-side menu. See the [Archive](https://developer.android.com/jetpack/androidx/releases/archive) section for release notes prior to 2018.
+Each version of an AndroidX library passes through four release channels while
+being developed. This page lists the components that have been updated to a new
+stable version. To view the entire release history for a particular component
+back thru January 2018, select it in the left-side menu. See the
+[Archive](https://developer.android.com/jetpack/androidx/releases/archive) section for release notes prior
+to 2018.
 
-To view the current versions for every component, see the [versions page](https://developer.android.com/jetpack/androidx/versions).
+To view the current versions for every component,
+see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
-The first stable release of AndroidX 1.0.0 suitable for use in production was released on September 21, 2018.
+The first stable release of AndroidX 1.0.0 suitable for use in
+production was released on September 21, 2018.
+
+## August 12, 2026
+
+- [Appcompat Version 1.8.0](https://developer.android.com/jetpack/androidx/releases/appcompat#1.8.0)
+- [Compose Animation Version 1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0)
+- [Compose Foundation Version 1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0)
+- [Compose Material Version 1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.0)
+- [Compose Material3 Adaptive Version 1.3.0](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0)
+- [Compose Runtime Version 1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0)
+- [Compose UI Version 1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0)
+- [Fragment Version 1.9.0](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0)
+- [Navigation3 Version 1.1.6](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.6)
+- [Paging Version 3.5.1](https://developer.android.com/jetpack/androidx/releases/paging#3.5.1)
+- [Tracing Version 2.0.0](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0)
+- [Webkit Version 1.17.0](https://developer.android.com/jetpack/androidx/releases/webkit#webkit-1.17.0)
 
 ## August 05, 2026
 

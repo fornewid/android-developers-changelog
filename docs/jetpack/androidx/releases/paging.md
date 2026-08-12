@@ -13,10 +13,10 @@ This table lists all the artifacts in the `androidx.paging` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| paging-\* | [3.5.0](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0) | - | - | - |
-| paging-compose | [3.5.0](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0) | - | - | - |
+| paging-\* | [3.5.1](https://developer.android.com/jetpack/androidx/releases/paging#3.5.1) | - | - | - |
+| paging-compose | [3.5.1](https://developer.android.com/jetpack/androidx/releases/paging#3.5.1) | - | - | - |
 
-This library was last updated on: May 06, 2026
+This library was last updated on: August 12, 2026
 
 ## Declaring dependencies
 
@@ -31,7 +31,7 @@ your app or module:
 
 ```groovy
 dependencies {
-  def paging_version = "3.5.0"
+  def paging_version = "3.5.1"
 
   implementation "androidx.paging:paging-runtime:$paging_version"
 
@@ -48,7 +48,7 @@ dependencies {
   implementation "androidx.paging:paging-guava:$paging_version"
 
   // optional - Jetpack Compose integration
-  implementation "androidx.paging:paging-compose:3.5.0"
+  implementation "androidx.paging:paging-compose:3.5.1"
 }
 ```
 
@@ -56,7 +56,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-  val paging_version = "3.5.0"
+  val paging_version = "3.5.1"
 
   implementation("androidx.paging:paging-runtime:$paging_version")
 
@@ -73,7 +73,7 @@ dependencies {
   implementation("androidx.paging:paging-guava:$paging_version")
 
   // optional - Jetpack Compose integration
-  implementation("androidx.paging:paging-compose:3.5.0")
+  implementation("androidx.paging:paging-compose:3.5.1")
 }
 ```
 
@@ -96,6 +96,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 3.5
+
+### Version 3.5.1
+
+August 12, 2026
+
+`androidx.paging:paging-*:3.5.1` is released. Version 3.5.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d0f5daa3f889fbbaad88763d8e0bc8dfbf90f03f..a529819e192125f997c07106fe4c2878d7279bdb/paging).
+
+**Bug Fixes**
+
+- Fixed `PagingSource.getRefreshKey` providing an incorrect `anchorPosition` that is too large when refreshing a page with separators while scrolling into placeholders. ([I475f0](https://android-review.googlesource.com/#/q/I475f09990005e3bcd7143cc4cf99a1a1cf2fb33a), [b/516565503](https://issuetracker.google.com/issues/516565503))
 
 ### Version 3.5.0
 

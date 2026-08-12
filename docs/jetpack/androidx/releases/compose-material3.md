@@ -48,7 +48,7 @@ your app or module:
 dependencies {
     implementation "androidx.compose.material3:material3:1.4.0"
     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha25"
+    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha26"
 }
 
 android {
@@ -72,7 +72,7 @@ android {
 dependencies {
     implementation("androidx.compose.material3:material3:1.4.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha25")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha26")
 }
 
 android {

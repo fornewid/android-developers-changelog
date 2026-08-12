@@ -6,24 +6,29 @@ source: md.txt
 
 <br />
 
-<br />
 
 Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/xr-headsets-icon.svg) XR Headsets [](https://developer.android.com/develop/xr/devices#xr-headsets) ![](https://developer.android.com/static/images/develop/xr/xr-glasses-icon.svg) Wired XR Glasses [](https://developer.android.com/develop/xr/devices#xr-glasses) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
 Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
-Augmented reality apps often depend on specific real-world situations to function. For example, your app might require a detected surface, like a table, in order to place a virtual game board. To test your app against different scenarios, use the [ARCore test rule](https://developer.android.com/reference/kotlin/androidx/xr/arcore/testing/ArCoreTestRule) APIs to write tests in a controlled ARCore test environment. The APIs handle session setup and state, so you can focus on testing your app's core logic.
+Augmented reality apps often depend on specific real-world situations to
+function. For example, your app might require a detected surface, like a table,
+in order to place a virtual game board. To test your app against different
+scenarios, use the [ARCore test rule](https://developer.android.com/reference/kotlin/androidx/xr/arcore/testing/ArCoreTestRule) APIs to write tests in a
+controlled ARCore test environment. The APIs handle session setup and state, so
+you can focus on testing your app's core logic.
 
 ## Add library dependencies
 
-To use the ARCore test rule, add these dependencies to your app's `build.gradle` file:
+To use the ARCore test rule, add these dependencies to your app's `build.gradle`
+file:
 
 ### Kotlin
 
 ```kotlin
 dependencies {
-    testImplementation("androidx.xr.arcore:arcore-testing:1.0.0-beta01")
+    testImplementation("androidx.xr.arcore:arcore-testing:1.0.0-beta02")
 }
 ```
 
@@ -31,17 +36,18 @@ dependencies {
 
 ```groovy
 dependencies {
-    testImplementation "androidx.xr.arcore:arcore-testing:1.0.0-beta01"
+    testImplementation "androidx.xr.arcore:arcore-testing:1.0.0-beta02"
 }
 ```
 
-If your app depends on [XR SceneCore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore), also include the [XR SceneCore testing](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#declaring_dependencies) dependency:
+If your app depends on [XR SceneCore](https://developer.android.com/jetpack/androidx/releases/xr-scenecore), also include the
+[XR SceneCore testing](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#declaring_dependencies) dependency:
 
 ### Kotlin
 
 ```kotlin
 dependencies {
-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-beta01")
+    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-beta02")
 }
 ```
 
@@ -49,15 +55,15 @@ dependencies {
 
 ```groovy
 dependencies {
-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-beta01"
+    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-beta02"
 }
 ```
 
 ## Set up the test rule
 
-In your [JUnit test](https://developer.android.com/training/testing/local-tests), use a [`AndroidJUnit4` test runner](https://developer.android.com/training/testing/local-tests/robolectric) to set up a test:
+In your [JUnit test](https://developer.android.com/training/testing/local-tests), use a
+[`AndroidJUnit4` test runner](https://developer.android.com/training/testing/local-tests/robolectric) to set up a test:
 
-<br />
 
 ```kotlin
 @Rule @JvmField val arCoreTestRule = ArCoreTestRule()
@@ -87,18 +93,19 @@ fun setUp() {
     // Configure the session.
     session.configure(Config.Builder(session.config).setHandTracking(HandTrackingMode.BOTH).build())
 }
-   
 ```
 
 <br />
 
-In the `@Before` step, set up your testing environment, including required permissions and session configuration.
+In the `@Before` step, set up your testing environment, including required
+permissions and session configuration.
 
 ## Create test cases
 
-[Create a test case](https://developer.android.com/training/testing/local-tests/robolectric#ui-testing) in order to test a certain scenario. In this example, we test whether a [hand tracking](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/hands) gesture detector works with our test data:
+[Create a test case](https://developer.android.com/training/testing/local-tests/robolectric#ui-testing) in order to test a certain scenario. In
+this example, we test whether a [hand tracking](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/hands) gesture detector
+works with our test data:
 
-<br />
 
 ```kotlin
 @Test
@@ -111,7 +118,6 @@ fun test_thumbsUp() = runTest(testDispatcher) {
     val isThumbsUp = detectThumbsUp(handState)
     assertThat(isThumbsUp).isTrue()
 }
-   
 ```
 
 <br />

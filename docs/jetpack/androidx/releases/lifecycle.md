@@ -13,10 +13,10 @@ This table lists all the artifacts in the `androidx.lifecycle` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| lifecycle-\* | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | - |
-| lifecycle-viewmodel-navigation3 | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | - |
+| lifecycle-\* | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha01) |
+| lifecycle-viewmodel-navigation3 | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha01) |
 
-This library was last updated on: June 17, 2026
+This library was last updated on: August 12, 2026
 
 ## Declaring dependencies
 
@@ -54,7 +54,7 @@ your app or module:
         implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
 
         // ViewModel integration with Navigation3
-        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0"
+        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha01"
 
         // Annotation processor
         kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
@@ -101,7 +101,7 @@ your app or module:
         implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
 
         // ViewModel integration with Navigation3
-        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.11.0")
+        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha01")
 
         // Annotation processor
         kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
@@ -222,6 +222,20 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 2.12
+
+### Version 2.12.0-alpha01
+
+August 12, 2026
+
+`androidx.lifecycle:lifecycle-*:2.12.0-alpha01` is released. Version 2.12.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a01f1a6c29523dd9b046b7f2a383d7d24559e316..384f3c27346bf5812f359330dc2310f0cbb66402/lifecycle).
+
+**Bug Fixes**
+
+- Deprecate `lifecycle-compiler` annotation processor artifact. Please migrate to `DefaultLifecycleObserver` or `LifecycleEventObserver` instead of using the annotation processor. ([Ibf571](https://android-review.googlesource.com/#/q/Ibf571850666e2850430ba0e21ef067924619446e), [b/541926513](https://issuetracker.google.com/issues/541926513))
+- `SavedStateViewModelFactory` and `AbstractSavedStateViewModelFactory` now fail-fast immediately if the provided `SavedStateRegistryOwner` does not implement `ViewModelStoreOwner`, preventing delayed crashes during component recreation. ([Icf317](https://android-review.googlesource.com/#/q/Icf31744863b188ad68aad7c253a8cdfc30f33ba1))
+- Add system tracing to `LifecycleRegistry` event dispatches. ([Ie1f92](https://android-review.googlesource.com/#/q/Ie1f9268e65c36dae63145ac1dd82a4c115bb9389), [b/112161409](https://issuetracker.google.com/issues/112161409))
 
 ## Version 2.11
 

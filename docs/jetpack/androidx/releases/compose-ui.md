@@ -43,7 +43,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.ui:ui:1.11.4"
+    implementation "androidx.compose.ui:ui:1.12.0"
 }
 
 android {
@@ -65,7 +65,7 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.ui:ui:1.11.4")
+    implementation("androidx.compose.ui:ui:1.12.0")
 }
 
 android {

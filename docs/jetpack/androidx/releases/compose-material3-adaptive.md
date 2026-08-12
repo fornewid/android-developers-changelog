@@ -27,10 +27,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.material3.adaptive:adaptive:1.3.0-rc01"
-    implementation "androidx.compose.material3.adaptive:adaptive-layout:1.3.0-rc01"
-    implementation "androidx.compose.material3.adaptive:adaptive-navigation:1.3.0-rc01"
-    implementation "androidx.compose.material3.adaptive:adaptive-navigation3:1.3.0-rc01"
+    implementation "androidx.compose.material3.adaptive:adaptive:1.3.0"
+    implementation "androidx.compose.material3.adaptive:adaptive-layout:1.3.0"
+    implementation "androidx.compose.material3.adaptive:adaptive-navigation:1.3.0"
+    implementation "androidx.compose.material3.adaptive:adaptive-navigation3:1.3.0"
 }
 ```
 
@@ -38,10 +38,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.material3.adaptive:adaptive:1.3.0-rc01")
-    implementation("androidx.compose.material3.adaptive:adaptive-layout:1.3.0-rc01")
-    implementation("androidx.compose.material3.adaptive:adaptive-navigation:1.3.0-rc01")
-    implementation("androidx.compose.material3.adaptive:adaptive-navigation3:1.3.0-rc01")
+    implementation("androidx.compose.material3.adaptive:adaptive:1.3.0")
+    implementation("androidx.compose.material3.adaptive:adaptive-layout:1.3.0")
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation:1.3.0")
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation3:1.3.0")
 }
 ```
 

@@ -4,11 +4,15 @@ url: https://developer.android.com/kotlin/ktx
 source: md.txt
 ---
 
-# Android KTX Part of [Android Jetpack](https://developer.android.com/jetpack).
+# Android KTX
+Part of [Android Jetpack](https://developer.android.com/jetpack).
 
 [Video](https://www.youtube.com/watch?v=nKzvYBMdm54)
 
-Android KTX is a set of Kotlin extensions that are included with Android [Jetpack](https://developer.android.com/jetpack) and other Android libraries. KTX extensions provide concise, idiomatic Kotlin to Jetpack, Android platform, and other APIs. To do so, these extensions leverage several Kotlin language features, including the following:
+Android KTX is a set of Kotlin extensions that are included with Android
+[Jetpack](https://developer.android.com/jetpack) and other Android libraries. KTX extensions provide concise,
+idiomatic Kotlin to Jetpack, Android platform, and other APIs. To do so, these
+extensions leverage several Kotlin language features, including the following:
 
 - Extension functions
 - Extension properties
@@ -17,16 +21,29 @@ Android KTX is a set of Kotlin extensions that are included with Android [Jetpac
 - Parameter default values
 - Coroutines
 
-As an example, when working with [`SharedPreferences`](https://developer.android.com/reference/android/content/SharedPreferences), you must [create an editor](https://developer.android.com/reference/android/content/SharedPreferences#edit()) before you can make modifications to the preferences data. You must also apply or commit those changes when you are finished editing, as shown in the following example:
+As an example, when working with
+[`SharedPreferences`](https://developer.android.com/reference/android/content/SharedPreferences), you must
+[create an editor](https://developer.android.com/reference/android/content/SharedPreferences#edit())
+before you can make modifications to the preferences data. You must also apply
+or commit those changes when you are finished editing, as shown in the following
+example:
 
     sharedPreferences
             .edit()  // create an Editor
             .putBoolean("key", value)
             .apply() // write to disk asynchronously
 
-Kotlin lambdas are a perfect fit for this use case. They allow you to take a more concise approach by passing a block of code to execute after the editor is created, letting the code execute, and then letting the `SharedPreferences` API apply the changes atomically.
+Kotlin lambdas are a perfect fit for this use case. They allow you to take a
+more concise approach by passing a block of code to execute after the editor is
+created, letting the code execute, and then letting the `SharedPreferences` API
+apply the changes atomically.
 
-Here's an example of one of the Android KTX Core functions, [`SharedPreferences.edit`](https://developer.android.com/reference/kotlin/androidx/core/content/package-summary#edit), which adds an edit function to `SharedPreferences`. This function takes an optional `boolean` flag as its first argument that indicates whether to commit or apply the changes. It also receives an action to perform on the `SharedPreferences` editor in the form of a lambda.
+Here's an example of one of the Android KTX Core functions,
+[`SharedPreferences.edit`](https://developer.android.com/reference/kotlin/androidx/core/content/package-summary#edit),
+which adds an edit function to `SharedPreferences`. This function takes an
+optional `boolean` flag as its first argument that indicates whether to commit
+or apply the changes. It also receives an action to perform on the
+`SharedPreferences` editor in the form of a lambda.
 
     // SharedPreferences.edit extension function signature from Android KTX - Core
     // inline fun SharedPreferences.edit(
@@ -39,15 +56,27 @@ Here's an example of one of the Android KTX Core functions, [`SharedPreferences.
     // Commit a new value synchronously
     sharedPreferences.edit(commit = true) { putBoolean("key", value) }
 
-The caller can choose whether to commit or apply the changes. The `action` lambda is itself an anonymous extension function on `SharedPreferences.Editor` which returns `Unit`, as indicated by its signature. This is why inside the block, you are able to perform the work directly on the `SharedPreferences.Editor`.
+The caller can choose whether to commit or apply the changes. The `action`
+lambda is itself an anonymous extension function on `SharedPreferences.Editor`
+which returns `Unit`, as indicated by its signature. This is why inside the
+block, you are able to perform the work directly on the
+`SharedPreferences.Editor`.
 
-Finally, the `SharedPreferences.edit()` signature contains the `inline` keyword. This keyword tells the Kotlin compiler that it should copy and paste (or *inline* ) the compiled bytecode for the function each time the function is used. This avoids the overhead of instantiating a new class for every `action` each time this function is called.
+Finally, the `SharedPreferences.edit()` signature contains the `inline` keyword.
+This keyword tells the Kotlin compiler that it should copy and paste (or
+*inline* ) the compiled bytecode for the function each time the function is used.
+This avoids the overhead of instantiating a new class for every `action` each
+time this function is called.
 
-This pattern of passing code using lambdas, applying sensible defaults that can be overridden, and adding these behaviors to existing APIs using `inline` extension functions is typical of the enhancements provided by the Android KTX library.
+This pattern of passing code using lambdas, applying sensible defaults that can
+be overridden, and adding these behaviors to existing APIs using `inline`
+extension functions is typical of the enhancements provided by the Android KTX
+library.
 
 ## Use Android KTX in your project
 
-To start using Android KTX, add the following dependency to your project's `build.gradle` file:
+To start using Android KTX, add the following dependency to your project's
+`build.gradle` file:
 
 ### Groovy
 
@@ -67,17 +96,28 @@ repositories {
 
 ## AndroidX Modules
 
-Android KTX is organized into modules, where each module contains one or more packages.
+Android KTX is organized into modules, where each module contains one or more
+packages.
 
-You must include a dependency for each module artifact in your app's `build.gradle` file. Remember to append the version number to the artifact. You can find the latest version numbers in each artifact's corresponding section in this topic.
+You must include a dependency for each module artifact in your app's
+`build.gradle` file. Remember to append the version number to the artifact.
+You can find the latest version numbers in each artifact's corresponding section
+in this topic.
 
-Android KTX contains a [single core module](https://developer.android.com/kotlin/ktx#core) that provides Kotlin extensions for common framework APIs and several domain-specific extensions.
+Android KTX contains a [single core module](https://developer.android.com/kotlin/ktx#core) that provides Kotlin
+extensions for common framework APIs and several domain-specific extensions.
 
-With the exception of the core module, all KTX module artifacts replace the underlying Java dependency in your `build.gradle` file. For example, you can replace a `androidx.fragment:fragment` dependency with `androidx.fragment:fragment-ktx`. This syntax helps to better manage versioning and does not add additional dependency declaration requirements.
+With the exception of the core module, all KTX module artifacts replace the
+underlying Java dependency in your `build.gradle` file. For example, you can
+replace a `androidx.fragment:fragment` dependency with
+`androidx.fragment:fragment-ktx`. This syntax helps to better manage
+versioning and does not add additional dependency declaration requirements.
 
 ### Core KTX
 
-The Core KTX module provides extensions for common libraries that are part of the Android framework. These libraries do not have Java-based dependencies that you need to add to `build.gradle`.
+The Core KTX module provides extensions for common libraries that are part of
+the Android framework. These libraries do not have Java-based dependencies that
+you need to add to `build.gradle`.
 
 To include this module, add the following to your app's `build.gradle` file:
 
@@ -117,7 +157,9 @@ Here's a list of the packages that are contained in the Core KTX module:
 
 ### Collection KTX
 
-The Collection extensions contain utility functions for working with Android's memory-efficient collection libraries, including `ArrayMap`, `LongSparseArray`, `LruCache`, and others.
+The Collection extensions contain utility functions for working with Android's
+memory-efficient collection libraries, including `ArrayMap`, `LongSparseArray`,
+`LruCache`, and others.
 
 To use this module, add the following to your app's `build.gradle` file:
 
@@ -137,7 +179,9 @@ dependencies {
 }
 ```
 
-Collection extensions take advantage of Kotlin's operator overloading to simplify things like collection concatenation, as shown in the following example:
+Collection extensions take advantage of Kotlin's operator overloading to
+simplify things like collection concatenation, as shown in the following
+example:
 
     // Combine 2 ArraySets into 1.
     val combinedArraySet = arraySetOf(1, 2, 3) + arraySetOf(4, 5, 6)
@@ -147,7 +191,9 @@ Collection extensions take advantage of Kotlin's operator overloading to simplif
 
 ### Fragment KTX
 
-The [Fragment KTX module](https://developer.android.com/reference/kotlin/androidx/fragment/app/package-summary#extension-functions-summary) provides a number of extensions to simplify the fragment API.
+The
+[Fragment KTX module](https://developer.android.com/reference/kotlin/androidx/fragment/app/package-summary#extension-functions-summary)
+provides a number of extensions to simplify the fragment API.
 
 To include this module, add the following to your app's `build.gradle` file:
 
@@ -155,7 +201,7 @@ To include this module, add the following to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.fragment:fragment-ktx:1.8.9"
+    implementation "androidx.fragment:fragment-ktx:1.9.0"
 }
 ```
 
@@ -163,11 +209,12 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.fragment:fragment-ktx:1.8.9")
+    implementation("androidx.fragment:fragment-ktx:1.9.0")
 }
 ```
 
-With the Fragment KTX module, you can simplify fragment transactions with lambdas, for example:
+With the Fragment KTX module, you can simplify fragment transactions with
+lambdas, for example:
 
     fragmentManager().commit {
        addToBackStack("...")
@@ -177,7 +224,8 @@ With the Fragment KTX module, you can simplify fragment transactions with lambda
        add(fragment, "...")
     }
 
-You can also bind to a `ViewModel` in one line by using the `viewModels` and `activityViewModels` property delegates:
+You can also bind to a `ViewModel` in one line by using the `viewModels` and
+`activityViewModels` property delegates:
 
     // Get a reference to the ViewModel scoped to this Fragment
     val viewModel by viewModels<MyViewModel>()
@@ -187,7 +235,11 @@ You can also bind to a `ViewModel` in one line by using the `viewModels` and `ac
 
 ### Lifecycle KTX
 
-Lifecycle KTX defines a `LifecycleScope` for each [`Lifecycle`](https://developer.android.com/topic/libraries/architecture/lifecycle) object. Any coroutine launched in this scope is canceled when the `Lifecycle` is destroyed. You can access the `CoroutineScope` of the `Lifecycle` by using the `lifecycle.coroutineScope` or `lifecycleOwner.lifecycleScope` properties.
+Lifecycle KTX defines a `LifecycleScope` for each
+[`Lifecycle`](https://developer.android.com/topic/libraries/architecture/lifecycle) object. Any coroutine
+launched in this scope is canceled when the `Lifecycle` is destroyed. You can
+access the `CoroutineScope` of the `Lifecycle` by using the
+`lifecycle.coroutineScope` or `lifecycleOwner.lifecycleScope` properties.
 
 To include this module, add the following to your app's `build.gradle` file:
 
@@ -207,7 +259,8 @@ dependencies {
 }
 ```
 
-The following example demonstrates how to use `lifecycleOwner.lifecycleScope` to create precomputed text asynchronously:
+The following example demonstrates how to use `lifecycleOwner.lifecycleScope` to
+create precomputed text asynchronously:
 
     class MyFragment: Fragment() {
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -224,7 +277,10 @@ The following example demonstrates how to use `lifecycleOwner.lifecycleScope` to
 
 ### LiveData KTX
 
-When using LiveData, you might need to calculate values asynchronously. For example, you might want to retrieve a user's preferences and serve them to your UI. For these cases, LiveData KTX provides a `liveData` builder function that calls a `suspend` function and serves the result as a `LiveData` object.
+When using LiveData, you might need to calculate values asynchronously. For
+example, you might want to retrieve a user's preferences and serve them to your
+UI. For these cases, LiveData KTX provides a `liveData` builder function that
+calls a `suspend` function and serves the result as a `LiveData` object.
 
 To include this module, add the following to your app's `build.gradle` file:
 
@@ -244,18 +300,22 @@ dependencies {
 }
 ```
 
-In the following example, `loadUser()` is a suspend function declared elsewhere. You can use the `liveData` builder function to call `loadUser()` asynchronously, and then use `emit()` to emit the result:
+In the following example, `loadUser()` is a suspend function declared elsewhere.
+You can use the `liveData` builder function to call `loadUser()` asynchronously,
+and then use `emit()` to emit the result:
 
     val user: LiveData<User> = liveData {
         val data = database.loadUser() // loadUser is a suspend function.
         emit(data)
     }
 
-For more information on using coroutines with `LiveData`, see [Use Kotlin coroutines with Architecture components](https://developer.android.com/topic/libraries/architecture/coroutines#livedata).
+For more information on using coroutines with `LiveData`, see
+[Use Kotlin coroutines with Architecture components](https://developer.android.com/topic/libraries/architecture/coroutines#livedata).
 
 ### Navigation KTX
 
-Each component of the Navigation library has its own KTX version that adapts the API to be more succinct and Kotlin-idiomatic.
+Each component of the Navigation library has its own KTX version that adapts the
+API to be more succinct and Kotlin-idiomatic.
 
 To include these modules, add the following to your app's `build.gradle` file:
 
@@ -279,7 +339,8 @@ dependencies {
 }
 ```
 
-Use the extension functions and property delegation to access destination arguments and navigate to destinations, as shown in the following example:
+Use the extension functions and property delegation to access destination
+arguments and navigate to destinations, as shown in the following example:
 
     class MyDestination : Fragment() {
 
@@ -301,7 +362,9 @@ Use the extension functions and property delegation to access destination argume
 
 ### Palette KTX
 
-The [Palette KTX module](https://developer.android.com/reference/kotlin/androidx/palette/graphics/package-summary#extension-functions-summary) offers idiomatic Kotlin support for working with color palettes.
+The
+[Palette KTX module](https://developer.android.com/reference/kotlin/androidx/palette/graphics/package-summary#extension-functions-summary)
+offers idiomatic Kotlin support for working with color palettes.
 
 To use this module, add the following to your app's `build.gradle` file:
 
@@ -321,14 +384,16 @@ dependencies {
 }
 ```
 
-As an example, when working with a `Palette` instance, you can retrieve the `selected` swatch for a given `target` by using the get operator (`[ ]`):
+As an example, when working with a `Palette` instance, you can retrieve the
+`selected` swatch for a given `target` by using the get operator (`[ ]`):
 
     val palette = Palette.from(bitmap).generate()
     val swatch = palette[target]
 
 ### Reactive Streams KTX
 
-Reactive Streams KTX module lets you create an observable `LiveData` stream from a `ReactiveStreams` publisher.
+Reactive Streams KTX module lets you create an observable `LiveData` stream from
+a `ReactiveStreams` publisher.
 
 To include this module, add the following to your app's `build.gradle` file:
 
@@ -348,9 +413,16 @@ dependencies {
 }
 ```
 
-As an example, assume a database with a small list of users. In your app, you load the database into memory and then display user data in your UI. To achieve this, you might use [RxJava](https://github.com/ReactiveX/RxJava). The [`Room`](https://developer.android.com/topic/libraries/architecture/room) Jetpack component can retrieve the user list as a `Flowable`. In this scenario, you must also manage the Rx publisher subscription across the life of your fragment or activity.
+As an example, assume a database with a small list of users. In your app, you
+load the database into memory and then display user data in your UI. To achieve
+this, you might use [RxJava](https://github.com/ReactiveX/RxJava).
+The [`Room`](https://developer.android.com/topic/libraries/architecture/room) Jetpack component can retrieve
+the user list as a `Flowable`. In this scenario, you must also manage the Rx
+publisher subscription across the life of your fragment or activity.
 
-With `LiveDataReactiveStreams`, however, you can benefit from RxJava and its rich set of operators and work-scheduling capabilities while also working with the simplicity of `LiveData`, as shown in the following example:
+With `LiveDataReactiveStreams`, however, you can benefit from RxJava and its
+rich set of operators and work-scheduling capabilities while also working with
+the simplicity of `LiveData`, as shown in the following example:
 
     val fun getUsersLiveData() : LiveData<List<User>> {
         val users: Flowable<List<User>> = dao.findUsers()
@@ -379,7 +451,11 @@ dependencies {
 }
 ```
 
-Here are a couple of examples where Room now uses coroutines. The first example uses a `suspend` function to return a list of `User` objects, while the second utilizes Kotlin's [`Flow`](https://kotlinlang.org/docs/reference/coroutines/flow.html) to asynchronously return the `User` list. Note that when using `Flow`, you're also notified of any changes in the tables you're querying.
+Here are a couple of examples where Room now uses coroutines. The first example
+uses a `suspend` function to return a list of `User` objects, while the second
+utilizes Kotlin's [`Flow`](https://kotlinlang.org/docs/reference/coroutines/flow.html)
+to asynchronously return the `User` list. Note that when using `Flow`, you're
+also notified of any changes in the tables you're querying.
 
     @Query("SELECT * FROM Users")
     suspend fun getUsers(): List<User>
@@ -389,7 +465,8 @@ Here are a couple of examples where Room now uses coroutines. The first example 
 
 ### SQLite KTX
 
-SQLite extensions wrap SQL-related code in transactions, eliminating a lot of boilerplate code.
+SQLite extensions wrap SQL-related code in transactions, eliminating a lot of
+boilerplate code.
 
 To use this module, add the following to your app's `build.gradle` file:
 
@@ -409,7 +486,8 @@ dependencies {
 }
 ```
 
-Here's an example of using the `transaction` extension to perform a database transaction:
+Here's an example of using the `transaction` extension to perform a database
+transaction:
 
     db.transaction {
         // insert data
@@ -417,7 +495,12 @@ Here's an example of using the `transaction` extension to perform a database tra
 
 ### ViewModel KTX
 
-The ViewModel KTX library provides a `viewModelScope()` function that makes it easier to launch [coroutines](https://developer.android.com/kotlin/coroutines) from your `ViewModel`. The [`CoroutineScope`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/) is bound to `Dispatchers.Main` and is automatically cancelled when the `ViewModel` is cleared. You can use `viewModelScope()` instead of creating a new scope for each `ViewModel`.
+The ViewModel KTX library provides a `viewModelScope()` function that makes it
+easier to launch [coroutines](https://developer.android.com/kotlin/coroutines) from your `ViewModel`. The
+[`CoroutineScope`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/-coroutine-scope/)
+is bound to `Dispatchers.Main` and is automatically cancelled
+when the `ViewModel` is cleared. You can use `viewModelScope()` instead of
+creating a new scope for each `ViewModel`.
 
 To include this module, add the following to your app's `build.gradle` file:
 
@@ -437,7 +520,9 @@ dependencies {
 }
 ```
 
-As an example, the following `viewModelScope()` function launches a coroutine that makes a network request in a background thread. The library handles all of the setup and corresponding scope clearing:
+As an example, the following `viewModelScope()` function launches a coroutine
+that makes a network request in a background thread. The library handles all of
+the setup and corresponding scope clearing:
 
     class MainViewModel : ViewModel() {
         // Make a network request without blocking the UI thread
@@ -474,7 +559,10 @@ dependencies {
 }
 ```
 
-Instead of extending [`Worker`](https://developer.android.com/reference/androidx/work/Worker), you can now extend [`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker), which has a slightly different API. For example, if you wanted to build a simple `CoroutineWorker` to perform some network operations, you can do the following:
+Instead of extending [`Worker`](https://developer.android.com/reference/androidx/work/Worker), you can now
+extend [`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker),
+which has a slightly different API. For example, if you wanted to build a simple
+`CoroutineWorker` to perform some network operations, you can do the following:
 
     class CoroutineDownloadWorker(context: Context, params: WorkerParameters)
             : CoroutineWorker(context, params) {
@@ -493,11 +581,15 @@ Instead of extending [`Worker`](https://developer.android.com/reference/androidx
         }
     }
 
-For more information on using `CoroutineWorker`, see [Threading in CoroutineWorker](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/coroutineworker).
+For more information on using `CoroutineWorker`, see
+[Threading in CoroutineWorker](https://developer.android.com/topic/libraries/architecture/workmanager/advanced/coroutineworker).
 
-WorkManager KTX also adds extension functions to `Operations` and `ListenableFutures` to suspend the current coroutine.
+WorkManager KTX also adds extension functions to `Operations` and
+`ListenableFutures` to suspend the current coroutine.
 
-Here's an example that suspends the [`Operation`](https://developer.android.com/reference/androidx/work/Operation) that's returned by [`enqueue()`](https://developer.android.com/reference/androidx/work/WorkContinuation#enqueue()):
+Here's an example that suspends the
+[`Operation`](https://developer.android.com/reference/androidx/work/Operation) that's returned by
+[`enqueue()`](https://developer.android.com/reference/androidx/work/WorkContinuation#enqueue()):
 
     // Inside of a coroutine...
 
@@ -514,21 +606,28 @@ You can also include additional KTX modules that exist outside of AndroidX.
 
 ### Firebase KTX
 
-Some of the Firebase SDKs for Android have Kotlin extension libraries that enable you to write idiomatic Kotlin code when using Firebase in your app. For more information, see the following topics:
+Some of the Firebase SDKs for Android have Kotlin extension libraries that
+enable you to write idiomatic Kotlin code when using Firebase in your app. For
+more information, see the following topics:
 
 - [Firebase Android SDK](https://firebaseopensource.com/projects/firebase/firebase-android-sdk#kotlin_extensions)
 - [Firebase Common Kotlin Extensions](https://github.com/firebase/firebase-android-sdk/blob/master/docs/ktx/common.md)
 
 ### Google Maps Platform KTX
 
-There are KTX extensions available for Google Maps Platform Android SDKs which allow you to take advantage of several Kotlin language features such as extension functions, named parameters and default arguments, destructuring declarations, and coroutines. For more information, see the following topics:
+There are KTX extensions available for Google Maps Platform Android SDKs which
+allow you to take advantage of several Kotlin language features such as extension
+functions, named parameters and default arguments, destructuring declarations,
+and coroutines. For more information, see the following topics:
 
 - [Maps Android KTX](https://developers.google.com/maps/documentation/android-sdk/ktx)
 - [Places Android KTX](https://developers.google.com/places/android-sdk/ktx)
 
 ### Play Core KTX
 
-Play Core KTX adds support for Kotlin coroutines for one-shot requests and Flow for monitoring status updates by adding extension functions to `SplitInstallManager` and `AppUpdateManager` in the Play Core library.
+Play Core KTX adds support for Kotlin coroutines for one-shot requests and Flow
+for monitoring status updates by adding extension functions to
+`SplitInstallManager` and `AppUpdateManager` in the Play Core library.
 
 To include this module, add the following to your app's `build.gradle` file:
 
@@ -566,4 +665,5 @@ Here's an example of a status-monitoring `Flow`:
 
 To learn more about Android KTX, see the [DevBytes video](https://www.youtube.com/watch?v=r_19VZ0xRO8&feature=youtu.be).
 
-To report an issue or suggest a feature, use the [Android KTX issue tracker](https://issuetracker.google.com/issues/new?component=396204&template=1082185).
+To report an issue or suggest a feature, use the
+[Android KTX issue tracker](https://issuetracker.google.com/issues/new?component=396204&template=1082185).

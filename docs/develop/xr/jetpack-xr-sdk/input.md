@@ -1,29 +1,56 @@
 ---
-title: https://developer.android.com/develop/xr/jetpack-xr-sdk/input
+title: Handle input from audio glasses and display glasses  |  Android XR for Jetpack XR SDK  |  Android Developers
 url: https://developer.android.com/develop/xr/jetpack-xr-sdk/input
-source: md.txt
+source: html-scrape
 ---
 
-<br />
+The Android XR SDK has  [reached Developer Preview 4](https://android-developers.googleblog.com/2026/05/android-xr-sdk-developer-preview-4-updates.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android XR](https://developer.android.com/develop/xr)
+* [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk)
+* [Guides](https://developer.android.com/develop/xr/get-started)
+
+# Handle input from audio glasses and display glasses Stay organized with collections Save and categorize content based on your preferences.
 
 
-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
-Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
-<br />
+
+
+Applicable XR devices
+
+This guidance helps you build experiences for these types of XR devices.
+
+[Learn about XR device types →](/develop/xr/devices)
+
+![](/static/images/develop/xr/ai-glasses-icon.svg)
+
+
+Audio &  
+Display Glasses
+
+[Learn about XR device types →](/develop/xr/devices)
 
 Regardless of whether a user has audio glasses or display glasses, their voice
 is their primary way to interact with their device.
 
-> [!WARNING]
-> **Preview:** We'll have more information in a future release about handling physical input.
+**Preview:** We'll have more information in a future release about handling physical
+input.
 
 This guide explains how to [handle audio input using automatic speech
-recognition](https://developer.android.com/develop/xr/jetpack-xr-sdk/asr).
+recognition](/develop/xr/jetpack-xr-sdk/asr).
 
 This guide assumes you're familiar with the following concepts:
 
-- [Requesting hardware permissions](https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions)
-- [Android activities](https://developer.android.com/guide/components/activities/intro-activities)
-- [The activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle)
-- [Activity state changes](https://developer.android.com/guide/components/activities/state-changes)
+* [Requesting hardware permissions](/develop/xr/jetpack-xr-sdk/request-hardware-permissions)
+* [Android activities](/guide/components/activities/intro-activities)
+* [The activity lifecycle](/guide/components/activities/activity-lifecycle)
+* [Activity state changes](/guide/components/activities/state-changes)
+
+[Next
+
+Handle audio input using Automatic Speech Recognition
+
+arrow\_forward](/develop/xr/jetpack-xr-sdk/asr)

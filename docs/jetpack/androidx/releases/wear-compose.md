@@ -12,7 +12,7 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 29, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | - | - | [1.7.0-alpha07](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha07) |
+| August 12, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | - | [1.7.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-beta01) | - |
 
 > [!NOTE]
 > **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
@@ -90,6 +90,29 @@ for more information.
 <br />
 
 ## Version 1.7
+
+### Version 1.7.0-beta01
+
+August 12, 2026
+
+`androidx.wear.compose:compose-*:1.7.0-beta01` is released. Version 1.7.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..73e22c60975d7fb8491f51f0de9d82843e170f82/wear/compose).
+
+The 1.7.0-beta01 release of Compose for Wear OS indicates that this release of the library is feature complete and the API is locked. Wear Compose 1.7.0-beta01 includes the following new functionality:
+
+- One-handed gesture support, consisting of gesture handlers for primary action (e.g. double-pinch) and dismiss action (e.g. wrist-turn) and animated indicators that show when the gestures are available on clickable UI elements (like buttons and cards), scrollable lists and pagers.
+- Added `PinnableContainer` support to `TransformingLazyColumn`, for holding an item in memory instead of disposing when the item is scrolled out of the viewport.
+- `TransformingLazyColumn` now has support for animating items as they move out of the viewport, allowing them to smoothly slide off-screen instead of fading out.
+- Added `firstLayoutItemProvider` to `TransformingLazyColumn` as an optional customization for the first layout item. When specified, the provider defines the item and its edge used as the initial placement reference, which is useful for controlling the direction of content-shifting when items are dynamically updated.
+- Improvements to `SwipeToReveal` to support nested scroll, fast flings, a second haptic at the partial reveal state and `actionContentSpacing` for the distance between the main content and the action buttons.
+- Introduced `@FrequentlyChangingValue` and `@RememberInComposition` annotations that provide lint warnings to prevent performance issues caused by reading high-frequency state updates or failing to remember objects during composition.
+
+**API Changes**
+
+- Renamed `GestureAction` to `OneHandedGestureAction`, `GesturePriority` to `OneHandedGesturePriority` and `GestureIndicatorSize` to `OneHandedGestureIndicatorSize` ([Ifc7f4](https://android-review.googlesource.com/#/q/Ifc7f4a79a156d12144352629de14d757655540fb), [b/522761843](https://issuetracker.google.com/issues/522761843))
+
+**Bug Fixes**
+
+- Fixed an issue in `ScrollInfoProvider` which caused `TimeText` to flash or disappear when list items change or resized. ([Ief762](https://android-review.googlesource.com/#/q/Ief7620f204a3addbb051e30d921fd05cdf5b209c), [b/537433564](https://issuetracker.google.com/issues/537433564))
 
 ### Version 1.7.0-alpha07
 

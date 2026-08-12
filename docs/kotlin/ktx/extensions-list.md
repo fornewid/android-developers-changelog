@@ -1227,7 +1227,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.fragment:fragment-ktx:1.8.9"
+    implementation "androidx.fragment:fragment-ktx:1.9.0"
 }
 ```
 
@@ -1235,7 +1235,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.fragment:fragment-ktx:1.8.9")
+    implementation("androidx.fragment:fragment-ktx:1.9.0")
 }
 ```
 
@@ -1275,7 +1275,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.fragment:fragment-testing:1.8.9"
+    implementation "androidx.fragment:fragment-testing:1.9.0"
 }
 ```
 
@@ -1283,7 +1283,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.fragment:fragment-testing:1.8.9")
+    implementation("androidx.fragment:fragment-testing:1.9.0")
 }
 ```
 

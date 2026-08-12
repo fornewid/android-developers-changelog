@@ -16,6 +16,12 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## August 12, 2026
+
+- [Benchmark Version 1.5.0-rc01](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-rc01)
+- [Navigation Version 2.10.0-rc01](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-rc01)
+- [WorkManager Version 2.12.0-rc01](https://developer.android.com/jetpack/androidx/releases/work#2.12.0-rc01)
+
 ## July 29, 2026
 
 - [Appcompat Version 1.8.0-rc01](https://developer.android.com/jetpack/androidx/releases/appcompat#1.8.0-rc01)

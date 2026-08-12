@@ -6,13 +6,18 @@ source: md.txt
 
 <br />
 
-Delight readers by giving them more than they expect with a large display space that's made for more---more content, more design ideas. Supplement your main app content with enlightening, edifying information in a supporting pane. Keep readers reading for more app engagement and increased user retention and loyalty.
+Delight readers by giving them more than they expect with a large display space
+that's made for more---more content, more design ideas. Supplement your main app
+content with enlightening, edifying information in a supporting pane. Keep
+readers reading for more app engagement and increased user retention and
+loyalty.
 
-![](https://developer.android.com/static/images/large-screens/gallery/samples/reading/gallery_reading_complementary_large.webp)
+![](https://developer.android.com/static/images/large-screens/gallery/samples/reading/gallery_reading_complementary_large.png)
 
-![](https://developer.android.com/static/images/large-screens/gallery/samples/reading/gallery_reading_complementary_compact.webp)
+![](https://developer.android.com/static/images/large-screens/gallery/samples/reading/gallery_reading_complementary_compact.png)
 
-Expand the reading experience with comments, notes, bookmarks, and other related content in a collapsible supporting pane.
+Expand the reading experience with comments, notes, bookmarks, and other
+related content in a collapsible supporting pane.
 
 ![](https://developer.android.com/static/images/large-screens/gallery/samples/reading/gallery_reading_contentplus_compact.webp)
 
@@ -20,35 +25,43 @@ Expand the reading experience with comments, notes, bookmarks, and other related
 
 *** ** * ** ***
 
-<br />
 
 ## Android AdaptiveUI Samples
 
-Explore inspiring, optimized designs for large screen devices. Browse UI/UX templates for popular app categories, including media, creativity, games, and more.
+Explore inspiring, optimized designs for large screen devices. Browse UI/UX
+templates for popular app categories, including media, creativity, games, and
+more.
 
-[View Figma Kit](https://www.figma.com/community/file/1539759053650269019/android-adaptive-ui-samples)
+[View Figma
+Kit](https://www.figma.com/community/file/1539759053650269019/android-adaptive-ui-samples)
 ![](https://developer.android.com/static/images/large-screens/gallery/samples/callouts/android-adaptive-samples.png)
 
 <br />
 
-<br />
 
 ## Implement a supporting pane
 
-A mobile view may require supporting content or controls, typically in the form of sheets or dialogs, to help the primary view stay focused and uncluttered.
+A mobile view may require supporting content or controls, typically in the form
+of sheets or dialogs, to help the primary view stay focused and uncluttered.
 
-[Learn more](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#supporting-pane) [Material Design website](https://material.io/foundations/layout/canonical-layouts/supporting-pane)
+[Learn
+more](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#supporting-pane)
+[Material Design
+website](https://material.io/foundations/layout/canonical-layouts/supporting-pane)
 ![](https://developer.android.com/static/images/large-screens/gallery/samples/callouts/supporting-pane.png)
 
 <br />
 
-<br />
 
 ## Implement a feed
 
-A feed layout arranges equivalent content elements in a configurable grid for quick, convenient viewing of a large amount of content.
+A feed layout arranges equivalent content elements in a configurable grid for
+quick, convenient viewing of a large amount of content.
 
-[Learn more](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#feed) [Material Design website](https://material.io/foundations/layout/canonical-layouts/feed)
+[Learn
+more](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#feed)
+[Material Design
+website](https://material.io/foundations/layout/canonical-layouts/feed)
 ![](https://developer.android.com/static/images/large-screens/gallery/samples/callouts/feed.png)
 
 <br />

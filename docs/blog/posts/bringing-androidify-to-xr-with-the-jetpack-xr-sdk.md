@@ -245,7 +245,6 @@ Results Screen in Full Space: *A bot generated with a prompt: red baseball cap, 
 
 <br />
 
-
 The results screen shows the complimentary quotes using a feathering effect, allowing them to fade out near the edges of the screen. It also uses an actual 3D transition when viewing the input that was used, flipping the picture over in space.
 
 **Publishing to the Google Play Store**
@@ -262,7 +261,6 @@ This lets the Play Store know that this app has XR-differentiated features, show
 ![androidify2.png](https://developer.android.com/static/blog/assets/androidify2_e1a4f46a6c_pdEDq.webp) Androidify as shown in the Google Play Store on Android XR
 
 <br />
-
 
 When uploading the release, we don't need any special steps to release for XR: the same app is distributed as normal to users on the mobile track as to users on an XR device! However, you can choose to add XR-specific screenshots of your app, or even upload an immersive preview of your app using a spatial video asset. On Android XR devices, the Play Store automatically displays this as an immersive 3D preview, allowing users to experience the depth and scale of your content before they install the app.
 
@@ -283,8 +281,19 @@ Written by:
 
   ###### Developer Relations Engineer
 
-  [read_more View profile](https://developer.android.com/blog/authors/dereck-bridie) ![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_1F9de3.webp) ![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_1F9de3.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/dereck-bridie) ![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_1F9de3.webp) ![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_1F9de3.webp)
 Continue reading
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+
+  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+
+  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
+  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
+  - [#Media3](https://developer.android.com/blog/topics/media3)
+  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+  - +1 ↩
 - [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
@@ -299,14 +308,10 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
   [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 6 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_21AGRW.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
-
-  ## [Build intelligent Android apps: Cloud and hybrid inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 8 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

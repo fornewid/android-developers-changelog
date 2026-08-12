@@ -16,6 +16,30 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## August 12, 2026
+
+- [Camera Featurecombinationquery Version 1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.7.0-alpha03)
+- [Camera Version 1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03)
+- [Camera Viewfinder Version 1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha03)
+- [Compose Animation Version 1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-alpha01)
+- [Compose Foundation Version 1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-alpha01)
+- [Compose Material 3 Version 1.5.0-alpha26](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha26)
+- [Compose Material Version 1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-alpha01)
+- [Compose Remote Version 1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha17)
+- [Compose Runtime Version 1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-alpha01)
+- [Compose UI Version 1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-alpha01)
+- [Connect-client Connect-client-external-protobuf Connect-client-proto Version 1.2.0-alpha05](https://developer.android.com/jetpack/androidx/releases/health-connect#1.2.0-alpha05)
+- [Connect-testing Version 1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/health-connect#connect-testing-1.0.0-alpha04)
+- [Glance Wear Version 1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha16)
+- [Glimmer Glimmer-google-fonts Version 1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha17)
+- [Ink Version 1.1.0-alpha07](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha07)
+- [Lifecycle Version 2.12.0-alpha01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha01)
+- [Navigationevent Version 1.2.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha04)
+- [Savedstate Version 1.6.0-alpha01](https://developer.android.com/jetpack/androidx/releases/savedstate#1.6.0-alpha01)
+- [Wear Compose Remote Version 1.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha09)
+- [Xr Compose Version 1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha17)
+- [Xr Projected Version 1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha11)
+
 ## July 29, 2026
 
 - [Compose Material 3 Version 1.5.0-alpha25](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha25)
