@@ -1,0 +1,38 @@
+diff --git a/docs/design/ui/gallery/reading/readera.md b/docs/design/ui/gallery/reading/readera.md
+index 2dc4c02d..3192df70 100644
+--- a/docs/design/ui/gallery/reading/readera.md
++++ b/docs/design/ui/gallery/reading/readera.md
+@@ -1,19 +1,10 @@
+ ---
+-title: Readera  |  Gallery  |  Android Developers
++title: https://developer.android.com/design/ui/gallery/reading/readera
+ url: https://developer.android.com/design/ui/gallery/reading/readera
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [UI Design](https://developer.android.com/design/ui)
+-* [Gallery](https://developer.android.com/design/ui/gallery)
+-
+-# Readera Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
++<br />
+ 
+ "By adding support for tablets and foldable devices, we gave users more options
+ for easy and comfortable reading. After adapting for large screens, we have
+@@ -24,6 +15,6 @@ Veronika Gorbacheva
+ 
+ Managing Director of Readera LLC
+ 
+-![](/static/images/large-screens/gallery/samples/reading/gallery_reading_readera.png)
++![](https://developer.android.com/static/images/large-screens/gallery/samples/reading/gallery_reading_readera.png)
+ 
+----
+\ No newline at end of file
++*** ** * ** ***
+\ No newline at end of file

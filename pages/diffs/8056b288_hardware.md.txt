@@ -1,0 +1,26 @@
+diff --git a/docs/training/tv/get-started/hardware.md b/docs/training/tv/get-started/hardware.md
+index 72bcb432..95df682a 100644
+--- a/docs/training/tv/get-started/hardware.md
++++ b/docs/training/tv/get-started/hardware.md
+@@ -306,14 +306,18 @@ setup.
+ ```kotlin
+ // Request a static location from the location manager.
+ val locationManager = this.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+-val location: Location = locationManager.getLastKnownLocation("static")
++val location = locationManager.getLastKnownLocation("static")
++if (location == null) {
++    Log.e(TAG, "Location is null")
++    return
++}
+ 
+ // Attempt to get postal code from the static location object.
+ val geocoder = Geocoder(this)
+ val address: Address? =
+         try {
+-            geocoder.getFromLocation(location.latitude, location.longitude, 1)[0]
+-                    .apply {
++            geocoder.getFromLocation(location.latitude, location.longitude, 1)?.firstOrNull()
++                    ?.apply {
+                         Log.d(TAG, postalCode)
+                     }
+         } catch (e: IOException) {

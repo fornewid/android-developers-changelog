@@ -1,0 +1,109 @@
+diff --git a/docs/blog/posts/getting-started-with-unity-and-android-xr.md b/docs/blog/posts/getting-started-with-unity-and-android-xr.md
+index 8247a1af..5b4da07f 100644
+--- a/docs/blog/posts/getting-started-with-unity-and-android-xr.md
++++ b/docs/blog/posts/getting-started-with-unity-and-android-xr.md
+@@ -14,16 +14,13 @@ There's never been a better time to get into XR development. Last December, we a
+ 
+ <br />
+ 
+-
+ And when combined with [Unity](https://unity.com/)'s existing XR tools, you get a powerful and mature development stack. This makes it possible to create and deploy XR apps that work across multiple devices.
+ ![openxr_face_tracking2.webp](https://developer.android.com/static/blog/assets/openxr_face_tracking2_d1bed7ef87_2snsjU.webp)
+ 
+ No matter whether you've done XR development before or not, we want to help you get started.  
+ 
+-
+ This blog will get you up and running with Android XR and Unity development. We'll focus on the practical steps to configure your environment, understand the package ecosystem, and start building.  
+ 
+-
+ By the end of this blog, you'll have a good understanding of:
+ 
+ - The package ecosystem
+@@ -36,7 +33,6 @@ By the end of this blog, you'll have a good understanding of:
+ 
+ You might choose Unity for its cross-platform compatibility, allowing you to build once and deploy to Android XR and other XR devices.  
+ 
+-
+ When using Unity, you benefit from its mature XR ecosystem and tooling. It already has established packages such as [XR Interaction Toolkit](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@3.0/manual/index.html), [OpenXR plugin](https://docs.unity3d.com/Packages/com.unity.xr.openxr@1.15/manual/index.html), [XR composition layers](https://docs.unity3d.com/Packages/com.unity.xr.compositionlayers@0.5/manual/usage-guide.html), [XR Hands](https://docs.unity3d.com/Packages/com.unity.xr.hands@1.7/manual/index.html), an extensive asset store full of XR-ready components and templates, and XR simulation and testing tools. And since Unity 6 was released last November, you'll also benefit from its improved [Universal Render Pipeline (URP)](https://unity.com/features/srp/universal-render-pipeline) performance, better Vulkan graphics support, and enhanced build profiles.
+ 
+ Here are some sample projects to get an idea of what can be done:
+@@ -55,7 +51,6 @@ You'll need Unity 6 to create your app, as earlier versions don't support Androi
+ ### Android XR build profiles: simplifying configuration
+ 
+ Unity build profiles are project assets that store your platform-specific settings and configurations. So instead of needing to manually set up 15-20 different settings across multiple menus, you can use a build profile to do this automatically.  
+-
+ You can create your own build profiles, but for now we recommend using the dedicated Android XR build profile we created.
+ 
+ *You can select your build profile by selecting File \> Build Profile from your Unity project. For full instructions, see the *[*Develop for Android XR*](https://docs.unity3d.com/6000.1/Documentation/Manual/xr-android-xr-develop.html)* workflow page.*
+@@ -86,12 +81,10 @@ The [Unity OpenXR: Android XR](https://docs.unity3d.com/Packages/com.unity.xr.an
+ 
+ <br />
+ 
+-
+ Whereas the [Android XR Extensions for Unity](https://github.com/android/android-xr-unity-package) is Google's XR package, designed specifically for developing for Android XR devices. It supplements the Unity OpenXR package with additional features such as environment blend modes, scene meshing, image tracking, and body tracking. The tradeoff is that you can only develop for Android XR devices.
+ 
+ <br />
+ 
+-
+ Which one you choose will depend on your specific needs, but we generally recommend going with the Unity OpenXR: Android XR, as it gives you far more flexibility for the devices your app will be compatible with, and then based on your application requirements you can then add Android XR Extensions for Unity.
+ 
+ ### How to install packages
+@@ -141,7 +134,6 @@ Whatever you build, you'll need to capture [runtime permissions](https://develop
+ 
+ These capabilities provide deeper personal information than traditional desktop or mobile apps, so the runtime permissions ensure your users have full control over what data they choose to share. So, to keep with Android's security and privacy policies, Android XR has permissions for each of these features.  
+ 
+-
+ For example, if you use the XR Hands package for custom hand gestures, you will need to request the [hand tracking permission](https://docs.unity3d.com/Packages/com.unity.xr.androidxr-openxr@0.4/manual/features/hand-tracking.html#permissions) (see below) as this package needs to track a lot of information about the user's hands. This includes things like tracking hand joint poses and angular and linear velocities;
+ 
+ **Note: For a full list of extensions that require permissions, check out information on the** [**XR developer website**](https://developer.android.com/develop/xr/get-started#understand-permissions)**.**
+@@ -184,7 +176,6 @@ For example, if you're displaying text, the standard Unity rendering is more lik
+ 
+ <br />
+ 
+-
+ As well as text, it also renders video, images, and UI elements at a much higher quality. It does this by utilising native support for the runtime's compositor layers.
+ 
+ *To turn on Composition Layers, open Package Manager, select 'Unity Register', then install 'XR Composition Layers'.*
+@@ -216,8 +207,19 @@ Written by:
+ 
+   ###### Developer Relations Engineer
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/luke-hopkins) ![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp) ![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/luke-hopkins) ![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp) ![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)
+ Continue reading
++- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++
++  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
++
++  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
++  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
++  - [#Media3](https://developer.android.com/blog/topics/media3)
++  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
++  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
++  - +1 ↩
+ - [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+   ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
+@@ -232,14 +234,10 @@ Continue reading
+   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
+   [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 6 min read
+   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+-- 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_21AGRW.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+-
+-  ## [Build intelligent Android apps: Cloud and hybrid inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
+-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 8 min read
+-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

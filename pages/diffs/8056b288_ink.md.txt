@@ -1,0 +1,84 @@
+diff --git a/docs/jetpack/androidx/releases/ink.md b/docs/jetpack/androidx/releases/ink.md
+index 39856797..bddd203b 100644
+--- a/docs/jetpack/androidx/releases/ink.md
++++ b/docs/jetpack/androidx/releases/ink.md
+@@ -10,7 +10,7 @@ Inspire best-in-class pen apps. Lower the developer barrier to entry for high pe
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 29, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha06](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha06) |
++| August 12, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha07](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha07) |
+ 
+ ## Declaring dependencies
+ 
+@@ -26,16 +26,16 @@ your app or module:
+ ```groovy
+ dependencies {
+   
+-    implementation "androidx.ink:ink-authoring:1.1.0-alpha06"
+-    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha06"
+-    implementation "androidx.ink:ink-brush:1.1.0-alpha06"
+-    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha06"
+-    implementation "androidx.ink:ink-geometry:1.1.0-alpha06"
+-    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha06"
+-    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha06"
+-    implementation "androidx.ink:ink-rendering:1.1.0-alpha06"
+-    implementation "androidx.ink:ink-storage:1.1.0-alpha06"
+-    implementation "androidx.ink:ink-strokes:1.1.0-alpha06"
++    implementation "androidx.ink:ink-authoring:1.1.0-alpha07"
++    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha07"
++    implementation "androidx.ink:ink-brush:1.1.0-alpha07"
++    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha07"
++    implementation "androidx.ink:ink-geometry:1.1.0-alpha07"
++    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha07"
++    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha07"
++    implementation "androidx.ink:ink-rendering:1.1.0-alpha07"
++    implementation "androidx.ink:ink-storage:1.1.0-alpha07"
++    implementation "androidx.ink:ink-strokes:1.1.0-alpha07"
+     
+ }
+ ```
+@@ -46,16 +46,16 @@ dependencies {
+ dependencies {
+ 
+ 
+-    implementation("androidx.ink:ink-authoring:1.1.0-alpha06")
+-    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha06")
+-    implementation("androidx.ink:ink-brush:1.1.0-alpha06")
+-    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha06")
+-    implementation("androidx.ink:ink-geometry:1.1.0-alpha06")
+-    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha06")
+-    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha06")
+-    implementation("androidx.ink:ink-rendering:1.1.0-alpha06")
+-    implementation("androidx.ink:ink-storage:1.1.0-alpha06")
+-    implementation("androidx.ink:ink-strokes:1.1.0-alpha06")
++    implementation("androidx.ink:ink-authoring:1.1.0-alpha07")
++    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha07")
++    implementation("androidx.ink:ink-brush:1.1.0-alpha07")
++    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha07")
++    implementation("androidx.ink:ink-geometry:1.1.0-alpha07")
++    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha07")
++    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha07")
++    implementation("androidx.ink:ink-rendering:1.1.0-alpha07")
++    implementation("androidx.ink:ink-storage:1.1.0-alpha07")
++    implementation("androidx.ink:ink-strokes:1.1.0-alpha07")
+ }
+ ```
+ 
+@@ -76,6 +76,16 @@ for more information.
+ 
+ ## Ink Version 1.1
+ 
++### Version 1.1.0-alpha07
++
++August 12, 2026
++
++`androidx.ink:ink-*:1.1.0-alpha07` is released. Version 1.1.0-alpha07 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..384f3c27346bf5812f359330dc2310f0cbb66402/ink).
++
++**API Changes**
++
++- Fix performance regression affecting dense particle brushes, update Brush.Version constants based on API feedback ([I87f0f](https://android-review.googlesource.com/#/q/I87f0f66b89510cd90229f2c0ca5904e3c8f872cc))
++
+ ### Version 1.1.0-alpha06
+ 
+ July 29, 2026

@@ -1,0 +1,59 @@
+diff --git a/docs/design/ui/gallery/shopping/multi-task.md b/docs/design/ui/gallery/shopping/multi-task.md
+index b03dd049..42568178 100644
+--- a/docs/design/ui/gallery/shopping/multi-task.md
++++ b/docs/design/ui/gallery/shopping/multi-task.md
+@@ -1,41 +1,34 @@
+ ---
+-title: Multi-task shopping  |  Gallery  |  Android Developers
++title: https://developer.android.com/design/ui/gallery/shopping/multi-task
+ url: https://developer.android.com/design/ui/gallery/shopping/multi-task
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [UI Design](https://developer.android.com/design/ui)
+-* [Gallery](https://developer.android.com/design/ui/gallery)
+-
+-# Multi-task shopping Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
++<br />
+ 
+ Expedite informed, confident buying decisions by enabling shoppers to view
+ products in one window while researching product ratings, reviews, and reports
+ in another.
+ 
+-![](/static/images/large-screens/gallery/samples/shopping/gallery_shopping_multiwindow.png)
++![](https://developer.android.com/static/images/large-screens/gallery/samples/shopping/gallery_shopping_multiwindow.png)
+ 
+ Make purchasing quick and easy with a drag-and-drop shopping cart. Capture
+ prospective purchases in a drag-and-drop wish list. Enable shoppers to share
+ bargains and buys with family and friends using drag and drop from shopping apps
+ to chat or email apps in multi-window mode.
+ 
+-![](/static/images/large-screens/gallery/samples/shopping/gallery_shopping_dragdrop.png)
++![](https://developer.android.com/static/images/large-screens/gallery/samples/shopping/gallery_shopping_dragdrop.png)
++
++*** ** * ** ***
+ 
+----
+ 
+ ## Implement a list-detail
+ 
+ A list-detail layout enables users to explore lists of items that have
+-descriptive, explanatory, or other supplementary information—the item detail.
++descriptive, explanatory, or other supplementary information---the item detail.
+ 
+-[Learn more](/develop/ui/compose/layouts/adaptive/canonical-layouts#list-detail)
++[Learn more](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#list-detail)
+ [Material Design website](https://material.io/foundations/layout/canonical-layouts/list-detail)
++![](https://developer.android.com/static/images/large-screens/gallery/samples/callouts/adaptive-implementation.png)
+ 
+-![](/static/images/large-screens/gallery/samples/callouts/adaptive-implementation.png)
+\ No newline at end of file
++<br />
+\ No newline at end of file

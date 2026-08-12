@@ -1,0 +1,22 @@
+diff --git a/docs/training/tv/playback/ambient-mode.md b/docs/training/tv/playback/ambient-mode.md
+index 85e72bc9..91352caa 100644
+--- a/docs/training/tv/playback/ambient-mode.md
++++ b/docs/training/tv/playback/ambient-mode.md
+@@ -62,7 +62,7 @@ Apps can prevent the screen from turning off by setting a flag on the
+ ### Kotlin
+ 
+ ```kotlin
+-requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
++activity?.window?.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+ ```
+ 
+ ### Java
+@@ -77,7 +77,7 @@ clear the flag:
+ ### Kotlin
+ 
+ ```kotlin
+-requireActivity().window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
++activity?.window?.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+ ```
+ 
+ ### Java

@@ -1,0 +1,54 @@
+diff --git a/docs/jetpack/androidx/releases/webkit.md b/docs/jetpack/androidx/releases/webkit.md
+index 33d3abf0..884b9987 100644
+--- a/docs/jetpack/androidx/releases/webkit.md
++++ b/docs/jetpack/androidx/releases/webkit.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 29, 2026 | [1.16.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.16.0) | [1.17.0-rc01](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0-rc01) | - | - |
++| August 12, 2026 | [1.17.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0) | - | - | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,7 +25,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.webkit:webkit:1.16.0"
++    implementation "androidx.webkit:webkit:1.17.0"
+ }
+ ```
+ 
+@@ -33,7 +33,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.webkit:webkit:1.16.0")
++    implementation("androidx.webkit:webkit:1.17.0")
+ }
+ ```
+ 
+@@ -54,6 +54,22 @@ for more information.
+ 
+ ## Webkit Version 1.17
+ 
++### Version 1.17.0
++
++August 12, 2026
++
++`androidx.webkit:webkit:1.17.0` is released. Version 1.17.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5744fa6296a0f6147952e836b3d92dd87ff7d4dd..86a006fbdf97644dbc4072bf0ee700e15ce02986/webkit/webkit).
++
++**Important Changes Since 1.16.0**
++
++- **Enhanced Navigation Capabilities ([`WebViewCompat#navigate`](https://developer.android.com/reference/kotlin/androidx/webkit/WebViewCompat#navigate(android.webkit.WebView,java.lang.String,androidx.webkit.NavigationParameters))):** Introduces a modern replacement for [`WebView#loadUrl`](https://developer.android.com/reference/android/webkit/WebView#loadUrl(java.lang.String,%20java.util.Map%3Cjava.lang.String,java.lang.String%3E)). Key capabilities include replacing history entries, returning a trackable `Navigation` object, and consistent header persistence during state save/restore.
++- **HTTP Cache Quota Control ([`Profile#getHttpCache`](https://developer.android.com/reference/kotlin/androidx/webkit/Profile#getHttpCache())):** Provides APIs to inspect and adjust profile-level HTTP cache quotas, benefiting static-content-heavy applications and reducing cache directory footprint when unused.
++- **Preconnection Queueing ([`Profile#enqueuePreconnect`](https://developer.android.com/reference/kotlin/androidx/webkit/Profile#enqueuePreconnect(java.lang.String))):** Allows enqueuing preconnect requests in advance without forcing an immediate startup WebView.
++- **Favicon Download Optimization ([`WebSettingsCompat#setDownloadFaviconsEnabled`](https://developer.android.com/reference/kotlin/androidx/webkit/WebSettingsCompat#setDownloadFaviconsEnabled(android.webkit.WebSettings,boolean))):** Enables apps to disable automatic Favicon fetching on navigation to reduce memory consumption and network bandwidth.
++- **Prerender Management ([`Profile#getMaxPrerenders`](https://developer.android.com/reference/kotlin/androidx/webkit/Profile#getMaxPrerenders()) / `clearMaxPrerenders`):** Introduces methods to retrieve and reset maximum allowed concurrent prerenders.
++- **API Modernization \& Cleanups:** Deprecated `SpeculativeLoadingParameters` in favor of `PrerenderParameters` / `PrefetchParameters`. Removed experimental `Profile#setOriginMatchedHeader` (superseded by [`Profile#addCustomHeader`](https://developer.android.com/reference/androidx/webkit/Profile#addCustomHeader(androidx.webkit.CustomHeader)) in 1.15.0).
++- **Proactive Crash Prevention Lint Rule:** Adds an AndroidX lint check that flags missing [`onRenderProcessGone`](https://developer.android.com/reference/android/webkit/WebViewClient#onRenderProcessGone(android.webkit.WebView,%20android.webkit.RenderProcessGoneDetail)) implementations when a custom `WebViewClient` is attached, encouraging developers to handle renderer crashes gracefully.
++
+ ### Version 1.17.0-rc01
+ 
+ July 29, 2026

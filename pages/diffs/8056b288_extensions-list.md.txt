@@ -1,0 +1,40 @@
+diff --git a/docs/kotlin/ktx/extensions-list.md b/docs/kotlin/ktx/extensions-list.md
+index a2843763..d035e2b3 100644
+--- a/docs/kotlin/ktx/extensions-list.md
++++ b/docs/kotlin/ktx/extensions-list.md
+@@ -1227,7 +1227,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.fragment:fragment-ktx:1.8.9"
++    implementation "androidx.fragment:fragment-ktx:1.9.0"
+ }
+ ```
+ 
+@@ -1235,7 +1235,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.fragment:fragment-ktx:1.8.9")
++    implementation("androidx.fragment:fragment-ktx:1.9.0")
+ }
+ ```
+ 
+@@ -1275,7 +1275,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.fragment:fragment-testing:1.8.9"
++    implementation "androidx.fragment:fragment-testing:1.9.0"
+ }
+ ```
+ 
+@@ -1283,7 +1283,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.fragment:fragment-testing:1.8.9")
++    implementation("androidx.fragment:fragment-testing:1.9.0")
+ }
+ ```
+ 

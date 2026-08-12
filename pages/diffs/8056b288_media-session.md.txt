@@ -1,0 +1,73 @@
+diff --git a/docs/training/tv/playback/media-session.md b/docs/training/tv/playback/media-session.md
+index eb1ec551..bd9aea19 100644
+--- a/docs/training/tv/playback/media-session.md
++++ b/docs/training/tv/playback/media-session.md
+@@ -15,7 +15,7 @@ is an example of how to set the appropriate callback and flags:
+ session = MediaSession(this, "MusicService").apply {
+     setCallback(MediaSessionCallback())
+     setFlags(
+-            MediaSession.FLAG_HANDLES_MEDIA_BUTTONS or MediaSession.FLAG_HANDLES_TRANSPORT_CONTROLS
++        MediaSession.FLAG_HANDLES_MEDIA_BUTTONS or MediaSession.FLAG_HANDLES_TRANSPORT_CONTROLS
+     )
+ }
+ ```
+@@ -32,7 +32,7 @@ session.setFlags(MediaSession.FLAG_HANDLES_MEDIA_BUTTONS |
+ ## Start a media session
+ 
+ Be sure to also call
+-[`setActive(true)`](https://developer.android.com/reference/android/media/session/MediaSession#setActive(boolean))
++[`setActive(true)`](https://developer.android.com/reference/kotlin/android/media/session/MediaSession#setactive)
+ when playback begins. Your app must also request audio focus, as described in
+ [Manage audio focus](https://developer.android.com/media/optimize/audio-focus). These steps are
+ shown in the following example:
+@@ -40,14 +40,13 @@ shown in the following example:
+ ### Kotlin
+ 
+ ```kotlin
+-private fun handlePlayRequest() {
+-
++fun handlePlayRequest() {
+     tryToGetAudioFocus()
+ 
+     if (!session.isActive) {
+         session.isActive = true
+     }
+-    ...
++    // ...
+ }
+ ```
+ 
+@@ -76,22 +75,24 @@ the state of the current media:
+ ```kotlin
+ private fun updatePlaybackState() {
+     val position: Long =
+-            mediaPlayer
+-                    ?.takeIf { it.isPlaying }
+-                    ?.currentPosition?.toLong()
+-                    ?: PlaybackState.PLAYBACK_POSITION_UNKNOWN
++        mediaPlayer
++            ?.takeIf { it.isPlaying }
++            ?.currentPosition?.toLong()
++            ?: PlaybackState.PLAYBACK_POSITION_UNKNOWN
+ 
+     val stateBuilder = PlaybackState.Builder()
+-            .setActions(getAvailableActions()).apply {
+-                setState(mState, position, 1.0f)
+-            }
++        .setActions(getAvailableActions()).apply {
++            setState(mState, position, 1.0f)
++        }
+     session.setPlaybackState(stateBuilder.build())
+ }
+ 
+ private fun getAvailableActions(): Long {
+-    var actions = (PlaybackState.ACTION_PLAY_PAUSE
++    var actions = (
++        PlaybackState.ACTION_PLAY_PAUSE
+             or PlaybackState.ACTION_PLAY_FROM_MEDIA_ID
+-            or PlaybackState.ACTION_PLAY_FROM_SEARCH)
++            or PlaybackState.ACTION_PLAY_FROM_SEARCH
++        )
+ 
+     playingQueue?.takeIf { it.isNotEmpty() }?.apply {
+         actions = if (mState == PlaybackState.STATE_PLAYING) {

@@ -1,0 +1,61 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/run/emulator/xr-headsets-glasses.md b/docs/develop/xr/jetpack-xr-sdk/run/emulator/xr-headsets-glasses.md
+index 5e8f6925..518545bf 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/run/emulator/xr-headsets-glasses.md
++++ b/docs/develop/xr/jetpack-xr-sdk/run/emulator/xr-headsets-glasses.md
+@@ -46,15 +46,26 @@ When the Android XR Emulator loads, look for the menu like the one shown in
+ figure 1. Use the controls in this menu to interact with the emulator.
+ ![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/emulator-menu.png) **Figure 1.** Use the controls in the emulator menu to interact with the emulator.
+ 
+-### Enable the mouse and keyboard
++### Interact with apps
+ 
+-The emulator supports interaction through a mouse and keyboard. When you want to
+-interact with the system or an Android app in the emulator, select the
+-interaction controls option:
+-![Icon for the Android XR Emulator interaction option](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/emulator-interaction-icon.png)
++The emulator supports multiple interaction modes. To interact with the system
++or an Android app, select one of the following modes from the emulator controls:
++![Modes for the Android XR Emulator interaction option](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-glasses-app-interaction-modes.png) **Figure 2.** Select a mode to interact with app in the emulator.
+ 
+-After selecting this, you can start interacting with elements within the virtual
+-space by moving the mouse over the emulator window.
++- **Hand tracking**: hands automatically direct their raycasts toward your
++  mouse pointer position. Drag to perform pinch interactions to select,
++  hold, or manipulate a panel or 3D object.
++
++  > [!NOTE]
++  > **Note:** The emulator currently supports single-handed (right hand only) pinch interactions. Left-hand controls and alternative gestures, such as grabbing and poking, aren't currently supported.
++
++- **Eye tracking**: the emulator simulates the user's eye-gaze focus using
++  your mouse pointer's position in 3D space. Moving your mouse shifts the
++  gaze focus across UI elements. Click your mouse to select the focused UI
++  element.
++
++- **Connected mouse and keyboard**: move your mouse cursor over the emulator
++  window to interact directly with elements within the virtual space.
+ 
+ <br />
+ 
+@@ -84,11 +95,11 @@ environment. To use these while using mouse and keyboard input, hold the
+ 
+ The menu at the top of the emulator includes the Toggle Passthrough option to
+ enable or disable a simulated passthrough environment.
+-![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/emulator-toggle-passthrough.png) **Figure 2.** Toggle passthrough to see a simulated passthrough environment.
++![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/emulator-toggle-passthrough.png) **Figure 3.** Toggle passthrough to see a simulated passthrough environment.
+ 
+ When enabled, passthrough mode displays a simulated indoor environment. Use this
+ mode to test apps in mixed reality.
+-![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-headset-emulator-passthrough.png) **Figure 3.** A simulated passthrough environment shows spatial UI elements anchored within a room.
++![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-headset-emulator-passthrough.png) **Figure 4.** A simulated passthrough environment shows spatial UI elements anchored within a room.
+ 
+ ### Adjust the environment dimming levels on XR glasses
+ 
+@@ -101,7 +112,7 @@ Use the emulator's environment dimming controls to accurately preview immersive
+ content on XR glasses. To adjust the dimming levels, click the **Environment
+ Visibility** icon and use the environment dimming slider to pick a level between
+ fully transparent and maximum opacity.
+-![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-glasses-environment-dimming.webp) **Figure 4.** By adjusting the dimming levels, you can accurately preview how your digital content blends with or stands out against the physical world.
++![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/xr-glasses-environment-dimming.webp) **Figure 5.** By adjusting the dimming levels, you can accurately preview how your digital content blends with or stands out against the physical world.
+ 
+ ### Other emulator controls
+ 

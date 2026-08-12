@@ -1,0 +1,30 @@
+diff --git a/docs/jetpack/androidx/releases/camera-viewfinder.md b/docs/jetpack/androidx/releases/camera-viewfinder.md
+index cf34f7ba..d6fef62f 100644
+--- a/docs/jetpack/androidx/releases/camera-viewfinder.md
++++ b/docs/jetpack/androidx/releases/camera-viewfinder.md
+@@ -34,9 +34,9 @@ your app or module:
+ dependencies {
+     // Use to implement camera viewfinders
+     
+-    implementation "androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha02"
+-    implementation "androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha02"
+-    implementation "androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha02"
++    implementation "androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha03"
++    implementation "androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha03"
++    implementation "androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha03"
+ 
+ }
+ ```
+@@ -46,9 +46,9 @@ dependencies {
+ ```kotlin
+ dependencies {
+     // Use to implement camera viewfinders
+-    implementation("androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha02")
+-    implementation("androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha02")
+-    implementation("androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha02")
++    implementation("androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha03")
++    implementation("androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha03")
++    implementation("androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha03")
+ 
+ 
+ }

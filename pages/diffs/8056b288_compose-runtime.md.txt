@@ -1,0 +1,108 @@
+diff --git a/docs/jetpack/androidx/releases/compose-runtime.md b/docs/jetpack/androidx/releases/compose-runtime.md
+index 470a057c..521fc95d 100644
+--- a/docs/jetpack/androidx/releases/compose-runtime.md
++++ b/docs/jetpack/androidx/releases/compose-runtime.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 29, 2026 | [1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.11.4) | [1.12.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0-rc01) | - | - |
++| August 12, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0) | - | - | [1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-alpha01) |
+ 
+ ## Structure
+ 
+@@ -43,9 +43,9 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.compose.runtime:runtime:1.11.4"
+-    implementation "androidx.compose.runtime:runtime-livedata:1.11.4"
+-    implementation "androidx.compose.runtime:runtime-rxjava2:1.11.4"
++    implementation "androidx.compose.runtime:runtime:1.12.0"
++    implementation "androidx.compose.runtime:runtime-livedata:1.12.0"
++    implementation "androidx.compose.runtime:runtime-rxjava2:1.12.0"
+ }
+ 
+ android {
+@@ -67,9 +67,9 @@ android {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.compose.runtime:runtime:1.11.4")
+-    implementation("androidx.compose.runtime:runtime-livedata:1.11.4")
+-    implementation("androidx.compose.runtime:runtime-rxjava2:1.11.4")
++    implementation("androidx.compose.runtime:runtime:1.12.0")
++    implementation("androidx.compose.runtime:runtime-livedata:1.12.0")
++    implementation("androidx.compose.runtime:runtime-rxjava2:1.12.0")
+ }
+ 
+ android {
+@@ -102,8 +102,68 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 1.13
++
++### Version 1.13.0-alpha01
++
++August 12, 2026
++
++`androidx.compose.runtime:runtime-*:1.13.0-alpha01` is released. Version 1.13.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/963bf914f78b389bdddef0da7f36bee19d897274..e25ec03c7788f3a71bd0290253e35cb311fa4f5f/compose/runtime).
++
++**API Changes**
++
++- We've adjusted the `LinkTable` feature flag to reduce contention
++  in merged proguard rule sets and to increase compatibility when an
++  app is minified outside of Gradle. The proguard syntax used to
++  configure the flag has changed slightly. See below, and note the
++  added parenthesis ([I419da](https://android-review.googlesource.com/#/q/I419da7dd5ae6de407d2309c11198210e894fbda8)):
++  `-assumevalues public class androidx.compose.runtime.ComposeRuntimeFlags {
++  static boolean isLinkBufferComposerEnabled() return true;
++  }`
++
++- `produceState()` and `Flow.collectAsState()` now accept a `SnapshotMutationPolicy` argument to control the equality and merging policy of the underlying `State` object. ([I0c167](https://android-review.googlesource.com/#/q/I0c1672cad07da8cfd19fd93df54b59e040dcef21), [b/405128869](https://issuetracker.google.com/issues/405128869))
++
++- Made `@ComposableTarget` repeatable. See the updated documentation for more information. ([I99a89](https://android-review.googlesource.com/#/q/I99a891b63f9f1c2b611117fcf55db6254fe9ee77), [b/481422057](https://issuetracker.google.com/issues/481422057))
++
++- Added `RecompositionTracer` to record recomposition invalidation flow ([I1dbc1](https://android-review.googlesource.com/#/q/I1dbc18d06eb0593446462062de5b1a1afbd7426b), [Ia991d](https://android-review.googlesource.com/#/q/Ia991d32923ca94d41999007bfd25697c5d8dba8a), [b/531813367](https://issuetracker.google.com/issues/531813367))
++
++- Exposed observable `keys` on `SaveableStateHolder` to simplify navigation/back stack state management and remove
++  the need for external `key` tracking. Access via `holder.keys`; remove with `removeState`. ([I9bbbb](https://android-review.googlesource.com/#/q/I9bbbbb908db412063ea99fecd2ebfff78929af24), [b/398887924](https://issuetracker.google.com/issues/398887924))
++
++- Added `staticCompositionLocalWithComputedDefaultOf` to create `ProvidableCompositionLocals` that act as static when provided, or computed when unprovided. ([I844e4](https://android-review.googlesource.com/#/q/I844e4d856fe81e34273f1ec228d29cf288eb04d7))
++
++**Bug Fixes**
++
++- Fixed an issue in the `GapComposer` that can cause `RememberObserver` instances after a `withCompositionLocal` block to incorrectly execute their forget callbacks before `RememberObserver`s in the block. ([I4d54c](https://android-review.googlesource.com/#/q/I4d54cb4f4bded090d77b65ead27b60ef455c487c))
++- Fixed a low-volume exception when writing to a mutable state object. ([I48194](https://android-review.googlesource.com/#/q/I48194daf951489710c7942bfc30f1006c6221608), [b/503110696](https://issuetracker.google.com/issues/503110696))
++- Fixed a bug in `SnapshotStateSet.writeToParcel` where it was only serializing the first entry. ([I64f4c](https://android-review.googlesource.com/#/q/I64f4c91903ddb920bb624149bf6fa0b9f12383da), [b/537461421](https://issuetracker.google.com/issues/537461421))
++- The `CancellationException`s used to cancel `LaunchedEffect`s and remembered `CoroutineScopes` have been tweaked for clarity when appearing in stack traces. ([I89840](https://android-review.googlesource.com/#/q/I89840ede0b993b20ead4405befa1174a257fea20), [b/449897855](https://issuetracker.google.com/issues/449897855))
++- Optimized companion object initialization of `compose:runtime` value classes (`ComposeStackTraceMode`, `GroupKind`) by using dynamic getters. ([I50640](https://android-review.googlesource.com/#/q/I50640b7f06085022234faeedcfea14f20974f254))
++- Remove requirement for `compileSdk` 37 ([If78b4](https://android-review.googlesource.com/#/q/If78b4fbdec15e6b1d6ad34a487ae10b2e2494325))
++
++**External Contribution**
++
++- Fixed parent compositions becoming unresponsive when erroring subcomposition is removed during Live Edit. ([I3717c](https://android-review.googlesource.com/#/q/I3717cdfbd23927aa66a023c5dc9e30133e0f8153))
++- Fixed Live Edit recovery after an error in a subcomposition so parent compositions continue observing state changes. ([I63fb5](https://android-review.googlesource.com/#/q/I63fb5e04a2d34eab3b79c2fefa97118ff204da25))
++
+ ## Version 1.12
+ 
++### Version 1.12.0
++
++August 12, 2026
++
++`androidx.compose.runtime:runtime-*:1.12.0` is released. Version 1.12.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/854220f44ea8ea80fee824a6c5a045f39bede289..963bf914f78b389bdddef0da7f36bee19d897274/compose/runtime).
++
++**Important changes since 1.11.0:**
++
++**Updates to the Experimental Slot Table**
++
++- We've made progress towards stabilizing the experimental `LinkTable` implementation introduced in 1.11. The new implementation is designed to improve recomposition performance, especially with small random changes. We encourage users to try the new `SlotTable` and report any issues you encounter. See `ComposeRuntimeFlags.isLinkBufferComposerEnabled` for more information.
++
++**Side Effect with Keys API**
++
++- Added an overload to `SideEffect` that accepts key arguments. The new API can be used to fire one-shot `SideEffect`s without the need for a `LaunchedEffect` or `DisposableEffect` whose `CoroutineScope` or `onDispose` block are unused. ([I528b2](https://android-review.googlesource.com/#/q/I528b214d6fc40d3436c178e9a23cd897443f8f0c), [b/476108743](https://issuetracker.google.com/issues/476108743))
++
+ ### Version 1.12.0-rc01
+ 
+ July 29, 2026

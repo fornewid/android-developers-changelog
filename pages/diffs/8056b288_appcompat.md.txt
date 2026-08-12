@@ -1,0 +1,46 @@
+diff --git a/docs/jetpack/androidx/releases/appcompat.md b/docs/jetpack/androidx/releases/appcompat.md
+index 98925171..c0cfaf3c 100644
+--- a/docs/jetpack/androidx/releases/appcompat.md
++++ b/docs/jetpack/androidx/releases/appcompat.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 29, 2026 | [1.7.1](https://developer.android.com/jetpack/androidx/releases/appcompat#1.7.1) | [1.8.0-rc01](https://developer.android.com/jetpack/androidx/releases/appcompat#1.8.0-rc01) | - | - |
++| August 12, 2026 | [1.8.0](https://developer.android.com/jetpack/androidx/releases/appcompat#1.8.0) | - | - | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,7 +25,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    def appcompat_version = "1.7.1"
++    def appcompat_version = "1.8.0"
+ 
+     implementation "androidx.appcompat:appcompat:$appcompat_version"
+     // For loading and tinting drawables on older versions of the platform
+@@ -37,7 +37,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    val appcompat_version = "1.7.1"
++    val appcompat_version = "1.8.0"
+ 
+     implementation("androidx.appcompat:appcompat:$appcompat_version")
+     // For loading and tinting drawables on older versions of the platform
+@@ -62,6 +62,14 @@ for more information.
+ 
+ ## Version 1.8
+ 
++### Version 1.8.0
++
++August 12, 2026
++
++`androidx.appcompat:appcompat:1.8.0` and `androidx.appcompat:appcompat-resources:1.8.0` are released. Version 1.8.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e144631ecabce2e5206abae98d8f18101bac88e0..a158e682bd38dd5b7deb1d9c59630a00494b2ab6/appcompat).
++
++**Important changes since 1.7.0:**
++
+ ### Version 1.8.0-rc01
+ 
+ July 29, 2026

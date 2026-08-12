@@ -1,0 +1,53 @@
+diff --git a/docs/blog/latest/5.md b/docs/blog/latest/5.md
+index 8748ef71..ab37e5af 100644
+--- a/docs/blog/latest/5.md
++++ b/docs/blog/latest/5.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 02 Mar 2026 02 Mar 2026 ![](https://developer.android.com/static/blog/assets/supercharge_99f4219536_Z2aoaib.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Supercharge your Android development with 6 expert tips for Gemini in Android Studio](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio)
++
++  [arrow_forward](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio) In January we announced Android Studio Otter 3 Feature Drop in stable, including Agent Mode enhancements and many other updates to provide more control and flexibility over using AI to help you build high quality Android apps.
++  [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 4 min read
+ - [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Feb 2026 26 Feb 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [The Second Beta of Android 17](https://developer.android.com/blog/posts/the-second-beta-of-android-17)
+@@ -126,12 +132,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash) Today, we're expanding the Gemini 3 model family with the release of Gemini 3 Flash, frontier intelligence built for speed at a fraction of the cost.
+   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) • 2 min read
+-- [![View Sam Bright's profile](https://developer.android.com/static/blog/assets/Sam_Bright_Headshot_2023_ca4877d69c_1VeLdh.webp)](https://developer.android.com/blog/authors/sam-bright) 15 Dec 2025 15 Dec 2025 ![](https://developer.android.com/static/blog/assets/image_8_8d65429579_7b1Fx.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Notes from Google Play: A look back at the tools that powered your growth in 2025](https://developer.android.com/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025) Together, we've built Play into something much more than a store---it's a dynamic ecosystem powered by your creativity. This year, our focus was ensuring Play continues to be the best destination for people to discover incredible content and enjoy rewarding gaming experiences.
+-  [Sam Bright](https://developer.android.com/blog/authors/sam-bright) • 7 min read
+ [arrow_back](https://developer.android.com/blog/latest/4)
+ 
+ #### Page 5
+@@ -188,6 +188,9 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
+ - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
+ - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
++- [#Media3](https://developer.android.com/blog/topics/media3)
++- [#Jetpack](https://developer.android.com/blog/topics/jetpack)
++- [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Foldables](https://developer.android.com/blog/topics/foldables)
+@@ -197,5 +200,8 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Window Size Classes](https://developer.android.com/blog/topics/blog-topic)
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

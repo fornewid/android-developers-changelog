@@ -1,0 +1,49 @@
+diff --git a/docs/jetpack/androidx/releases/xr-arcore.md b/docs/jetpack/androidx/releases/xr-arcore.md
+index 2dca7724..a0d9d991 100644
+--- a/docs/jetpack/androidx/releases/xr-arcore.md
++++ b/docs/jetpack/androidx/releases/xr-arcore.md
+@@ -13,7 +13,7 @@ Bring digital content into the real world with perception capabilities.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 15, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-beta01) | - |
++| August 12, 2026 | - | - | [1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-beta02) | - |
+ 
+ 
+ ## Declaring dependencies
+@@ -30,7 +30,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.arcore:arcore:1.0.0-beta01"
++    implementation "androidx.xr.arcore:arcore:1.0.0-beta02"
+ }
+ ```
+ 
+@@ -38,7 +38,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.arcore:arcore:1.0.0-beta01")
++    implementation("androidx.xr.arcore:arcore:1.0.0-beta02")
+ }
+ ```
+ 
+@@ -59,6 +59,17 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-beta02
++
++August 12, 2026
++
++`androidx.xr.arcore:arcore-*:1.0.0-beta02` is released. Version 1.0.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/55bb7fb3c184dcf0c343d732cb435f8b233a0453..6aac064a92dc69c01271e1810f149f398d07d741/xr/arcore).
++
++**Bug Fixes**
++
++- Fix concurrency issue in `OpenXR` anchor persistence. ([I15c8b](https://android-review.googlesource.com/#/q/I15c8b064f0555ddee4734a9d5d9ac2fec4a5d576))
++- Implemented `toString()` in more classes for debugging. ([I587e8](https://android-review.googlesource.com/#/q/I587e8232768166159a705844c99783036a6a6964))
++
+ ### Version 1.0.0-beta01
+ 
+ July 15, 2026

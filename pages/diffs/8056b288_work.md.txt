@@ -1,0 +1,32 @@
+diff --git a/docs/jetpack/androidx/releases/work.md b/docs/jetpack/androidx/releases/work.md
+index 0b0da04e..70a4fa76 100644
+--- a/docs/jetpack/androidx/releases/work.md
++++ b/docs/jetpack/androidx/releases/work.md
+@@ -13,7 +13,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 29, 2026 | [2.11.2](https://developer.android.com/jetpack/androidx/releases/work#2.11.2) | - | [2.12.0-beta01](https://developer.android.com/jetpack/androidx/releases/work#2.12.0-beta01) | - |
++| August 12, 2026 | [2.11.2](https://developer.android.com/jetpack/androidx/releases/work#2.11.2) | [2.12.0-rc01](https://developer.android.com/jetpack/androidx/releases/work#2.12.0-rc01) | - | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -94,6 +94,18 @@ for more information.
+ 
+ ## Version 2.12
+ 
++### Version 2.12.0-rc01
++
++August 12, 2026
++
++`androidx.work:work-*:2.12.0-rc01` is released. Version 2.12.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..7e17ecb7290ccdd0d3225a8da7848c578289cb2e/work).
++
++**Bug Fixes**
++
++- Fixed typo in `WorkConstraintsDaoTest` class and file name. ([I0868d](https://android-review.googlesource.com/#/q/I0868d040fdaccac081482199fe43ec36e79ecda4))
++- Reduced lock contention in `PackageManagerService` during `WorkManager` startup by querying and caching component manifest default enablement states in `PackageManagerHelper`. ([Id84ba](https://android-review.googlesource.com/#/q/Id84ba0eecc3f37eee92b4a6d087e43485a6541ca), [b/528755807](https://issuetracker.google.com/issues/528755807))
++- Fixed an issue where calling `WorkManager.updateWork` while a worker was actively running caused execution lifecycle event hooks and telemetry tracking to immediately shift to the post-update generation. ([Ie80e8](https://android-review.googlesource.com/#/q/Ie80e811dff2b4bdf1d33be80afc4cae3a2a2e2e8), [b/511074795](https://issuetracker.google.com/issues/511074795))
++
+ ### Version 2.12.0-beta01
+ 
+ July 29, 2026

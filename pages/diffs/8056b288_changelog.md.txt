@@ -1,0 +1,21 @@
+diff --git a/docs/bench/changelog.md b/docs/bench/changelog.md
+index a6b88cf0..e899bd0d 100644
+--- a/docs/bench/changelog.md
++++ b/docs/bench/changelog.md
+@@ -8,7 +8,15 @@ source: md.txt
+ 
+ ## Changelog
+ 
+-Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. **July 13th, 2026**
++Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. **August 11th, 2026**
++
++- New models • Aug 11th ![](https://developer.android.com/static/images/bench/icons/anthropic.png) **Claude Opus 5**
++- New models • Aug 11th ![](https://developer.android.com/static/images/bench/icons/openai.png) **GPT 5.6 Sol, GPT 5.6 Luna, GPT 5.6 Terra**
++- New models • Aug 11th ![](https://developer.android.com/static/images/bench/icons/kimi.png) **Kimi K3**
++- New models • Aug 11th ![](https://developer.android.com/static/images/bench/icons/qwen.png) **Qwen3.8 Max**
++- New models • Aug 11th :gemini: **Gemini 3.6 Flash, Gemini 3.5 Flash Lite**
++- Archived models • Aug 11th ![](https://developer.android.com/static/images/bench/icons/google.png) **Gemma 4 26B A4B IT**
++**July 13th, 2026**
+ 
+ - [New updates • Jul 13th ![](https://developer.android.com/static/images/bench/icons/github.png) **Share results on the community repository**](https://github.com/android-bench/community-results)
+ - [New updates • Jul 13th ![](https://developer.android.com/static/images/bench/icons/github.png) **Contribute new tasks to our community dataset on GitHub**](https://github.com/android-bench/community-dataset)

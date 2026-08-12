@@ -1,0 +1,26 @@
+diff --git a/docs/training/tv/playback/memory.md b/docs/training/tv/playback/memory.md
+index 66508802..e01c1c58 100644
+--- a/docs/training/tv/playback/memory.md
++++ b/docs/training/tv/playback/memory.md
+@@ -263,11 +263,16 @@ recommendations:
+ 
+ ### Kotlin
+ 
+-    Constraints.Builder()
+-        .setRequiredNetworkType(NetworkType.CONNECTED)
+-        .setRequiresStorageNotLow(true)
+-        .setRequiresDeviceIdle(true)
+-        .build()
++
++```kotlin
++Constraints.Builder()
++    .setRequiredNetworkType(NetworkType.CONNECTED)
++    .setRequiresStorageNotLow(true)
++    .setRequiresDeviceIdle(true)
++    .build()
++```
++
++<br />
+ 
+ ### Java
+ 

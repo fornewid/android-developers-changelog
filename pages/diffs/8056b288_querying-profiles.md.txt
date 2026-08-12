@@ -1,0 +1,109 @@
+diff --git a/docs/topic/performance/tracing/profiling-manager/querying-profiles.md b/docs/topic/performance/tracing/profiling-manager/querying-profiles.md
+index 3a684232..62a38869 100644
+--- a/docs/topic/performance/tracing/profiling-manager/querying-profiles.md
++++ b/docs/topic/performance/tracing/profiling-manager/querying-profiles.md
+@@ -6,23 +6,38 @@ source: md.txt
+ 
+ <br />
+ 
+-Querying `ProfilingManager` profiles is similar to querying regular Perfetto profiles. Therefore, review [Getting Started with PerfettoSQL](https://perfetto.dev/docs/analysis/perfetto-sql-getting-started) for a guide on how to query profiles.
++Querying `ProfilingManager` profiles is similar to querying regular Perfetto
++profiles. Therefore, review [Getting Started with PerfettoSQL](https://perfetto.dev/docs/analysis/perfetto-sql-getting-started) for a guide on
++how to query profiles.
+ 
+-An important distinction between regular Perfetto traces and `ProfilingManager` traces is that `ProfilingManager` traces pass through a trace redactor. This redactor removes information about other processes unrelated to your app for privacy reasons.
++An important distinction between regular Perfetto traces and `ProfilingManager`
++traces is that `ProfilingManager` traces pass through a trace redactor. This
++redactor removes information about other processes unrelated to your app for
++privacy reasons.
+ 
+-Some queries from the Perfetto standard library are not usable on redacted traces. This is because `ProfilingManager` only collects profiling data for your app, not other processes. As a result, the queries you can use with `ProfilingManager` are a smaller set than those for full system profiles recorded using local Perfetto.
++Some queries from the Perfetto standard library are not usable on redacted
++traces. This is because `ProfilingManager` only collects profiling data for your
++app, not other processes. As a result, the queries you can use with
++`ProfilingManager` are a smaller set than those for full system profiles
++recorded using local Perfetto.
+ 
+-Even though the querying space is reduced, you can still use many PerfettoSQL queries and tables from the [Perfetto Standard Library](https://perfetto.dev/docs/analysis/stdlib-docs) as-is, so we encourage you to try them.
++Even though the querying space is reduced, you can still use many PerfettoSQL
++queries and tables from the [Perfetto Standard Library](https://perfetto.dev/docs/analysis/stdlib-docs) as-is, so we
++encourage you to try them.
+ 
+-We also recommend that you review [Analyzing Android Traces](https://perfetto.dev/docs/getting-started/android-trace-analysis) to find ready-to-use queries that provide useful performance data without modification.
++We also recommend that you review [Analyzing Android Traces](https://perfetto.dev/docs/getting-started/android-trace-analysis) to find
++ready-to-use queries that provide useful performance data without modification.
+ 
+ ## ProfilingManager sample queries
+ 
+-To simplify the querying journey, this section provides a list of queries that work with `ProfilingManager`. You can use these queries directly or as examples to build other queries.
++To simplify the querying journey, this section provides a list of queries that
++work with `ProfilingManager`. You can use these queries directly or as examples
++to build other queries.
+ 
+ ### Find the most duplicated slices
+ 
+-This query finds repeated slices in a trace and sorts them by how often they appear, showing the most duplicated ones first.
++This query finds repeated slices in a trace and sorts them by how often they
++appear, showing the most duplicated ones first.
+ 
+ Finding duplicated work is a common way to find unnecessary work in a trace.
+ 
+@@ -41,7 +56,9 @@ Finding duplicated work is a common way to find unnecessary work in a trace.
+ 
+ #### Find slow frames
+ 
+-This query finds frames where your app takes too long to generate a frame, assuming an expected frame rate of 60 Hz (16.6 ms). The `dur` is set to 16,660,000 because slice durations in Perfetto tables are stored in nanoseconds.
++This query finds frames where your app takes too long to generate a frame,
++assuming an expected frame rate of 60 Hz (16.6 ms). The `dur` is set to
++16,660,000 because slice durations in Perfetto tables are stored in nanoseconds.
+ 
+     INCLUDE PERFETTO module android.frames.timeline;
+     SELECT * FROM android_frames WHERE dur > 16660000;
+@@ -51,25 +68,31 @@ This query finds frames where your app takes too long to generate a frame, assum
+     INCLUDE PERFETTO module android.frames.timeline;
+     SELECT * FROM actual_frame_timeline_slice WHERE jank_type = 'App Deadline Missed';
+ 
+-This query is useful to find locations where jank occurs in the trace because the app takes too long to generate a frame. This means that the UI thread failed to generate a frame. Under extreme circumstances, this could precede an ANR.
++This query is useful to find locations where jank occurs in the trace because
++the app takes too long to generate a frame. This means that the UI thread failed
++to generate a frame. Under extreme circumstances, this could precede an ANR.
+ 
+ > [!NOTE]
+ > **Note:** Jank detection in this query depends on the device refresh rate. A higher refresh rate means less tolerance for jank.
+ 
+ ### Find most duplicated objects
+ 
+-You can also query memory-related profiles, such as heap dumps, to perform more complex memory analyses.
++You can also query memory-related profiles, such as heap dumps, to perform more
++complex memory analyses.
+ 
+     INCLUDE PERFETTO MODULE android.memory.heap_graph.heap_graph_class_aggregation;
+ 
+     SELECT * FROM android_heap_graph_class_aggregation WHERE obj_count >= 2
+     ORDER BY obj_count DESC LIMIT 100
+ 
+-This query returns the top 100 duplicated objects. This can help you find objects that are instantiated multiple times, which might reveal opportunities for caching them or identify unintended duplicates.
++This query returns the top 100 duplicated objects. This can help you find
++objects that are instantiated multiple times, which might reveal opportunities
++for caching them or identify unintended duplicates.
+ 
+ ### Cold startup latency
+ 
+-You can also query for startups. This section provides a more elaborate query to estimate cold startup time in a trace.
++You can also query for startups. This section provides a more elaborate query to
++estimate cold startup time in a trace.
+ 
+     -- This function finds slices that match the given GLOB $pattern
+     CREATE OR REPLACE FUNCTION find_slices(pattern STRING) RETURNS
+@@ -89,4 +112,8 @@ You can also query for startups. This section provides a more elaborate query to
+     -- Using these functions we can estimate cold startup time by generating a slice between bindApplication and first frame.
+     SELECT * from generate_start_to_end_slices('bindApplication','*Choreographer#doFrame [0-9]*', true)
+ 
+-This query generates a slice that represents the time between two slices that define the startup time: `bindApplication` (typically found at the start of a cold app launch) and the first `Choreographer#doFrame` slice (the first generated frame). This metric effectively estimates cold startup TTFF (time to first frame).
+\ No newline at end of file
++This query generates a slice that represents the time between two slices that
++define the startup time: `bindApplication` (typically found at the start of a
++cold app launch) and the first `Choreographer#doFrame` slice (the first
++generated frame). This metric effectively estimates cold startup TTFF (time to
++first frame).
+\ No newline at end of file

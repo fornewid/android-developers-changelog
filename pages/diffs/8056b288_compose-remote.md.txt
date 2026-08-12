@@ -1,0 +1,98 @@
+diff --git a/docs/jetpack/androidx/releases/compose-remote.md b/docs/jetpack/androidx/releases/compose-remote.md
+index 5f9e0262..c62b7e68 100644
+--- a/docs/jetpack/androidx/releases/compose-remote.md
++++ b/docs/jetpack/androidx/releases/compose-remote.md
+@@ -10,7 +10,7 @@ Remote Compose is a framework to create UI for remote surfaces
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 29, 2026 | - | - | - | [1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha16) |
++| August 12, 2026 | - | - | - | [1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha17) |
+ 
+ ## Declaring dependencies
+ 
+@@ -26,20 +26,20 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.compose.remote:remote-core:1.0.0-alpha16"
++    implementation "androidx.compose.remote:remote-core:1.0.0-alpha17"
+ 
+     // Use to create Remote Compose documents
+-    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha16"
+-    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha16"
+-    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha16"
+-    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha16"
+-    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha16"
++    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha17"
++    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha17"
++    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha17"
++    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha17"
++    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha17"
+ 
+     // Use to render a Remote Compose document
+-    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha16"
+-    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha16"
++    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha17"
++    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha17"
+ 
+-    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha16"
++    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha17"
+ }
+ ```
+ 
+@@ -47,20 +47,20 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.compose.remote:remote-core:1.0.0-alpha16")
++    implementation("androidx.compose.remote:remote-core:1.0.0-alpha17")
+ 
+     // Use to create Remote Compose documents
+-    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha16")
+-    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha16")
+-    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha16")
+-    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha16")
+-    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha16")
++    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha17")
++    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha17")
++    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha17")
++    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha17")
++    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha17")
+ 
+     // Use to render a Remote Compose document
+-    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha16")
+-    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha16")
++    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha17")
++    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha17")
+ 
+-    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha16")
++    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha17")
+ }
+ ```
+ 
+@@ -82,6 +82,24 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha17
++
++August 12, 2026
++
++`androidx.compose.remote:remote-*:1.0.0-alpha17` is released. Version 1.0.0-alpha17 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..e25ec03c7788f3a71bd0290253e35cb311fa4f5f/compose/remote).
++
++**API Changes**
++
++- Promoted several `RemoteCompose` unit and type conversion APIs to public, including `toRemoteFloat()`, `toRemoteLong()`, `toPx(density)`, `asRdp()`, `toRemoteDp()`, `asRemoteTextUnit()`, and `toRsp()`. ([Idca36](https://android-review.googlesource.com/#/q/Idca36af6cab36eb22de99b70d45a4cb367659252), [b/465743273](https://issuetracker.google.com/issues/465743273))
++- Promoted `drawCircle`, `drawOval`, and `drawLine` in `RemoteDrawScope` to public. ([Iccf34](https://android-review.googlesource.com/#/q/Iccf346a83f6830b6f37935909e762996fbe8bf46), [b/465743273](https://issuetracker.google.com/issues/465743273))
++- Added arithmetic and comparison operations to `RemoteDp`. ([I4b712](https://android-review.googlesource.com/#/q/I4b7124d5e9a18fb48847028cbd28771c7b715976), [b/467023174](https://issuetracker.google.com/issues/467023174))
++- Exposed `RemoteBrush`, `radialGradient`, and `sweepGradient` as public APIs in remote-creation-compose. ([I24695](https://android-review.googlesource.com/#/q/I24695287ebc231f83aa384c38418eeece4493882), [b/465743273](https://issuetracker.google.com/issues/465743273))
++
++**Other**
++
++- Move to default `minSdk` 24. ([I972da](https://android-review.googlesource.com/#/q/I972dab1c69d8d9ab1fe5a4dd73e07a4ddedd413d), [b/474169350](https://issuetracker.google.com/issues/474169350))
++- Disallow parent touch interception when `RemoteComposeView` handles touch. ([I4c6cd](https://android-review.googlesource.com/#/q/I4c6cd250030696ffa246023fc3a2d86591708b76), [b/514549600](https://issuetracker.google.com/issues/514549600))
++
+ ### Version 1.0.0-alpha16
+ 
+ July 29, 2026

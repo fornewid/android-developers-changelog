@@ -1,0 +1,41 @@
+diff --git a/docs/design/ui/gallery/games/continuity.md b/docs/design/ui/gallery/games/continuity.md
+index 23705a46..dd3ccbbb 100644
+--- a/docs/design/ui/gallery/games/continuity.md
++++ b/docs/design/ui/gallery/games/continuity.md
+@@ -1,30 +1,14 @@
+ ---
+-title: Continuity  |  Gallery  |  Android Developers
++title: https://developer.android.com/design/ui/gallery/games/continuity
+ url: https://developer.android.com/design/ui/gallery/games/continuity
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [UI Design](https://developer.android.com/design/ui)
+-* [Gallery](https://developer.android.com/design/ui/gallery)
+-
+-# Continuity Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
++<br />
+ 
+ Support configuration changes gracefully to ensure your game looks and plays
+ great in every orientation, posture, and window size. Build for continuity of
+ play and let your players pick up where they left off across different form
+ factors and platforms.
+ 
+-[![
+-
+-](/images/large-screens/gallery/games/continuity.png)](/static/videos/large-screens/gallery/games/continuity.mp4)
+-[
+-
+-](/static/videos/large-screens/gallery/games/continuity_dt.mp4)
+-
+----
+\ No newline at end of file
++*** ** * ** ***
+\ No newline at end of file
