@@ -1,0 +1,40 @@
+diff --git a/docs/blog/posts/what-s-new-in-wear-os-7.md b/docs/blog/posts/what-s-new-in-wear-os-7.md
+index 487b1b9c..dfccc70f 100644
+--- a/docs/blog/posts/what-s-new-in-wear-os-7.md
++++ b/docs/blog/posts/what-s-new-in-wear-os-7.md
+@@ -264,7 +264,8 @@ Written by:
+ 
+   ###### Developer Relations Engineer
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/john-zoeller) ![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp) ![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/john-zoeller) ![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp) ![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp)
+ Continue reading
+ - [![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -274,10 +275,11 @@ Continue reading
+   [Ataul Munim](https://developer.android.com/blog/authors/ataul-munim) • 3 min read
+   - [#Performance](https://developer.android.com/blog/topics/performance)
+   - [#Memory](https://developer.android.com/blog/topics/memory)
++  - [#Widgets](https://developer.android.com/blog/topics/widgets)
+   - [#R8](https://developer.android.com/blog/topics/r8)
+   - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+   - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+-  - +3 ↩
++  - +4 ↩
+ - [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26)
+@@ -302,5 +304,8 @@ Continue reading
+   - +2 ↩
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

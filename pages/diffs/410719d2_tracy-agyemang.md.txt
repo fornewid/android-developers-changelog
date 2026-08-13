@@ -1,0 +1,26 @@
+diff --git a/docs/blog/authors/tracy-agyemang.md b/docs/blog/authors/tracy-agyemang.md
+index 4783ea7d..67ad4c35 100644
+--- a/docs/blog/authors/tracy-agyemang.md
++++ b/docs/blog/authors/tracy-agyemang.md
+@@ -4,7 +4,7 @@ url: https://developer.android.com/blog/authors/tracy-agyemang
+ source: md.txt
+ ---
+ 
+-8 posts ![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
++9 posts ![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
+ 
+ # Tracy Agyemang
+ 
+@@ -54,5 +54,8 @@ Product Marketing Manager
+ 
+ [arrow_forward](https://developer.android.com/blog/authors/tracy-agyemang/2) Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

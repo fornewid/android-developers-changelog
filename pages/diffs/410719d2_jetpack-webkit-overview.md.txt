@@ -1,0 +1,65 @@
+diff --git a/docs/develop/ui/views/layout/webapps/jetpack-webkit-overview.md b/docs/develop/ui/views/layout/webapps/jetpack-webkit-overview.md
+index 4313fcb1..6fb631d2 100644
+--- a/docs/develop/ui/views/layout/webapps/jetpack-webkit-overview.md
++++ b/docs/develop/ui/views/layout/webapps/jetpack-webkit-overview.md
+@@ -45,6 +45,12 @@ functionality:
+ - **Offers granular control over browsing data** : To delete browsing data stored
+   by WebView for specific origins, use the [`WebStorageCompat`](https://developer.android.com/reference/kotlin/androidx/webkit/WebStorageCompat) class.
+ 
++- **Improves state and memory efficiency** : Safely serialize navigation state
++  within the 1MB transaction budget and avoid `TransactionTooLargeException`
++  crashes using size-limited state serialization with
++  [`WebViewCompat.saveState()`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#saveState(android.webkit.WebView,android.os.Bundle,int)). For more information, see [Manage
++  WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state).
++
+ ## Understand the components
+ 
+ To use Jetpack Webkit effectively, you must understand the relationship between
+@@ -181,6 +187,29 @@ For guidance about implementing crash recovery strategies, see [Handle WebView
+ termination](https://developer.android.com/develop/ui/views/layout/webapps/handle-termination). For API details, see [`androidx.webkit`
+ reference documentation](https://developer.android.com/reference/kotlin/androidx/webkit/package-summary).
+ 
++### Manage saved state and transaction size
++
++The `WebViewCompat.saveState` API lets you enforce byte limits and prune forward
++history during serialization, preventing `TransactionTooLargeException` crashes
++while preserving essential navigation history.
++
++**Without Jetpack WebKit**
++
++Uses the standard framework method, which serializes the entire navigation
++stack without size limits and can trigger `TransactionTooLargeException` if the
++payload exceeds Android's 1MB transaction limit.
++
++    webView.saveState(outState)
++
++**With Jetpack WebKit**
++
++Uses `WebViewCompat` to enforce a maximum byte limit or drop forward navigation
++entries, protecting against transaction overflows.
++
++    WebViewCompat.saveState(webView, outState, maxSizeBytes)
++
++For more information, see [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state).
++
+ ## Integrate Jetpack Webkit into your code
+ 
+ Using Jetpack Webkit augments the capabilities of the standard WebView class,
+@@ -236,7 +265,7 @@ following dependency to add Jetpack Webkit:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.webkit:webkit:1.16.0"
++    implementation "androidx.webkit:webkit:1.17.0"
+ }
+ ```
+ 
+@@ -244,7 +273,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.webkit:webkit:1.16.0")
++    implementation("androidx.webkit:webkit:1.17.0")
+ }
+ ```
+ 

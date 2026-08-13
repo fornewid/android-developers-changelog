@@ -1,0 +1,19 @@
+diff --git a/docs/blog/topics/jetpack.md b/docs/blog/topics/jetpack.md
+index 999a5883..1fef783f 100644
+--- a/docs/blog/topics/jetpack.md
++++ b/docs/blog/topics/jetpack.md
+@@ -16,6 +16,14 @@ source: md.txt
+   - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+   - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+   - +1 ↩
++- [![View Summers Pittman's profile](https://developer.android.com/static/blog/assets/Summers_Pittman_e1dd057c92_Z1pDsqU.webp)](https://developer.android.com/blog/authors/summers-pittman)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 Mar 2025 04 Mar 2025 ![](https://developer.android.com/static/blog/assets/soundcloud_Jet_Pack_8602d748f3_1zRpWT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
++
++  ## [SoundCloud uses Jetpack Glance to build Liked Tracks widget in just 2 weeks](https://developer.android.com/blog/posts/sound-cloud-uses-jetpack-glance-to-build-liked-tracks-widget-in-just-2-weeks)
++
++  [arrow_forward](https://developer.android.com/blog/posts/sound-cloud-uses-jetpack-glance-to-build-liked-tracks-widget-in-just-2-weeks) To make it even easier for users to listen on Android, developers at SoundCloud --- an artist-first music platform --- turned to Jetpack Glance to create a Liked Tracks widget for their highly-rated app, which boasts 4.6 stars and over 100 million downloads.
++  [Summers Pittman](https://developer.android.com/blog/authors/summers-pittman), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 3 min read
++  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
++  - [#Widgets](https://developer.android.com/blog/topics/widgets)
+ Stay in the loop
+ 
+ 

@@ -1,0 +1,35 @@
+diff --git a/docs/blog/posts/building-premium-android-experiences-at-google-i-o-26.md b/docs/blog/posts/building-premium-android-experiences-at-google-i-o-26.md
+index 24a36b94..a7b87160 100644
+--- a/docs/blog/posts/building-premium-android-experiences-at-google-i-o-26.md
++++ b/docs/blog/posts/building-premium-android-experiences-at-google-i-o-26.md
+@@ -51,6 +51,7 @@ By unifying these technical pillars, you can build a cohesive, high-performance
+ For more details, check out the *premium Android experience* [YouTube playlist](https://youtube.com/playlist?list=PLWz5rJ2EKKc8lSdmWQ_fSpV9yEGRvEL6S&si=H6-8-AbtEyTqSxeY).
+ - [#Performance](https://developer.android.com/blog/topics/performance)
+ - [#Memory](https://developer.android.com/blog/topics/memory)
++- [#Widgets](https://developer.android.com/blog/topics/widgets)
+ - [#R8](https://developer.android.com/blog/topics/r8)
+ - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+@@ -62,7 +63,8 @@ Written by:
+ 
+   ###### Developer Relations Engineer
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/ataul-munim) ![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp) ![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/ataul-munim) ![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp) ![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)
+ Continue reading
+ - [![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp)](https://developer.android.com/blog/authors/john-zoeller) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Developer_Blog_2_1_1440x720_6_64da0326e3_Z1M1YEl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -89,5 +91,8 @@ Continue reading
+   [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

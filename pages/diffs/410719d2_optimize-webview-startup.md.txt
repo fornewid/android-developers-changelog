@@ -1,0 +1,28 @@
+diff --git a/docs/develop/ui/views/layout/webapps/optimize-webview-startup.md b/docs/develop/ui/views/layout/webapps/optimize-webview-startup.md
+index 120045b9..abd7fbd2 100644
+--- a/docs/develop/ui/views/layout/webapps/optimize-webview-startup.md
++++ b/docs/develop/ui/views/layout/webapps/optimize-webview-startup.md
+@@ -6,9 +6,8 @@ source: md.txt
+ 
+ When your app first uses a WebView, the system performs specific startup tasks.
+ This startup process is heavy. By default, it happens implicitly on the UI
+-thread the first time the application calls many APIs within the
+-`android.webkit` or `androidx.webkit` packages, or inflates a layout that
+-contains a WebView tag.
++thread the first time the app calls many APIs within the `android.webkit` or
++`androidx.webkit` packages, or inflates a layout that contains a WebView tag.
+ 
+ ## Why this matters
+ 
+@@ -279,7 +278,9 @@ benefits on newer devices without incurring a performance penalty on older ones.
+ While optimizing WebView startup reduces the risk of ANR errors during app
+ launch, you should also protect your app against runtime renderer crashes and
+ system memory reclamation. To maintain comprehensive app stability once your
+-WebView is running, see [Handle WebView termination](https://developer.android.com/develop/ui/views/layout/webapps/handle-termination).
++WebView is running, see [Handle WebView termination](https://developer.android.com/develop/ui/views/layout/webapps/handle-termination). In addition, preserve
++user state across background process death by using [`WebView.saveState()`](https://developer.android.com/reference/android/webkit/WebView#saveState(android.os.Bundle))
++and following memory-safe practices in [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state).
+ 
+ If you encounter issues or have feedback about the `startUpWebView` API, file a
+ bug on the [public issue tracker](https://issuetracker.google.com/issues/new?component=460423).
+\ No newline at end of file

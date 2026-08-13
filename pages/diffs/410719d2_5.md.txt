@@ -1,0 +1,21 @@
+diff --git a/docs/blog/latest/5.md b/docs/blog/latest/5.md
+index ab37e5af..208cf2cf 100644
+--- a/docs/blog/latest/5.md
++++ b/docs/blog/latest/5.md
+@@ -160,6 +160,8 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
+ - [#Google Play](https://developer.android.com/blog/topics/google-play)
+ - [#Memory](https://developer.android.com/blog/topics/memory)
++- [#Jetpack](https://developer.android.com/blog/topics/jetpack)
++- [#Widgets](https://developer.android.com/blog/topics/widgets)
+ - [#Idling Resources](https://developer.android.com/blog/topics/idling-resources)
+ - [#identity](https://developer.android.com/blog/topics/identity)
+ - [#Nav3](https://developer.android.com/blog/topics/nav3)
+@@ -189,7 +191,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
+ - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+ - [#Media3](https://developer.android.com/blog/topics/media3)
+-- [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+ - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)

@@ -1,0 +1,19 @@
+diff --git a/docs/training/cars/distribute.md b/docs/training/cars/distribute.md
+index 345178f0..614e7f72 100644
+--- a/docs/training/cars/distribute.md
++++ b/docs/training/cars/distribute.md
+@@ -102,9 +102,11 @@ in the Google Play Console:
+ 1. Navigate to the [Form factors](https://play.google.com/console/developers/app/advanced-distribution?tab=releaseTypes) section of the **Advanced Settings** page.
+ 2. Click **Add form factor** and select **Android Automotive OS**.
+ 3. Complete the requirements for Android Automotive OS:
+-   - Upload Android Automotive OS screenshots for all store listings.
+-     - This includes both the [main store listing](https://play.google.com/console/developers/app/main-store-listing) and any [custom store listings](https://play.google.com/console/developers/app/custom-store-listings).
+-     - To take screenshots of the required resolutions, you can use the *Automotive (1024p landscape)* and *Automotive Portrait* [hardware profiles](https://developer.android.com/training/cars/testing/emulator#bundled-profiles). Your screenshots shouldn't reference any Original Equipment Manufacturer (OEM) in particular.
++   - Provide Android Automotive OS screenshots. Depending on your app's category, Android Automotive OS screenshots might be required for your app's Google Play Store listing. See the [EP-4](https://developer.android.com/docs/quality-guidelines/car-app-quality#EP-4) quality guideline for category-specific guidance. If your listing has screenshots, it:
++     - Must include screenshots for both the [main store listing](https://play.google.com/console/developers/app/main-store-listing) and any [custom store listings](https://play.google.com/console/developers/app/custom-store-listings).
++     - Must include at least two portrait (800px by 1280px) and two landscape (1024px by 786px) screenshots showing the current version of your app.
++       - Take screenshots using a [generic system image](https://developer.android.com/training/cars/testing/emulator#generic-images). Use the Android Automotive OS emulator's *Automotive (1024p landscape)* and *Automotive Portrait* [hardware profiles](https://developer.android.com/training/cars/testing/emulator#bundled-profiles) to take screenshots at the required resolutions. Your screenshots shouldn't reference any Original Equipment Manufacturer (OEM) in particular.
++     - May include additional screenshots that contain content other than the app interface, such as promotional artwork.
+    - Release an Android Automotive OS app bundle or APK to a testing track.
+    - Agree to the review policy to ensure your app follows Android Automotive OS quality guidelines.
+      - Select the type of track you'll use to distribute your app to Android Automotive OS devices. **Important:** The default set by the Google Play Console is to use the same tracks as for mobile devices. However, the mobile track is not permitted for some categories of apps on Android Automotive OS. See [Choose a track for Android Automotive OS](https://developer.android.com/training/cars/distribute#choose-track-aaos) for more information.
