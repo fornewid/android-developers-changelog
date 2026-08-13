@@ -259,3 +259,16 @@ scripts, see [How to check memory with Unity tools](https://developer.android.co
   - **Using the `ProfilerRecorder` class**: Monitor memory categories dynamically. To establish a reliable baseline approximation, fetch Total Reserved Memory (on Release builds) or subtract Gfx Reserved Memory from it (on Development builds) to strip out file-backed graphics memory components.
 - **Unity memory profiler** : To identify and debug memory leaks offline, capture a memory snapshot and inspect the Resident Memory on Device chart found under the All of Memory section. To calculate the approximate footprint, sum the totals of the following categories: Untracked, Android Runtime, Native, and Managed.
   - **zRAM limitation**: Under tight memory conditions, the Android kernel can compress inactive memory pages into swap space (zRAM). Because the Unity Memory Profiler can't detect OS-level swap parameters, you might see minor footprint discrepancies during heavy memory scenes. Cross-reference your estimates with Perfetto to confirm exact values.
+
+#### Unreal
+
+In an Unreal Engine environment, you can evaluate your game's memory footprint
+by combining engine diagnostics with platform telemetry. For step-by-step
+instructions and profiling workflows, see [Check memory usage with Unreal
+Engine](https://developer.android.com/games/engines/unreal/unreal-memory-usage).
+
+Key diagnostic tools and interfaces include:
+
+- **C++ Diagnostics API** : Use `GetMemoryUsedFast` for lightweight memory queries and the `GetStats` interface for hardware-level memory statistics.
+- **Console Commands** : Monitor real-time memory allocation trends on device hardware using the `stat unit` and `stat unitmax` engine commands.
+- **Unreal Insights**: Inspect frame-accurate timeline captures to analyze platform-level metrics and custom memory counters.

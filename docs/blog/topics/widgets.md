@@ -1,10 +1,10 @@
 ---
-title: https://developer.android.com/blog/topics/automotive-os
-url: https://developer.android.com/blog/topics/automotive-os
+title: https://developer.android.com/blog/topics/widgets
+url: https://developer.android.com/blog/topics/widgets
 source: md.txt
 ---
 
-# #Automotive OS
+# #Widgets
 
 - [![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -19,13 +19,14 @@ source: md.txt
   - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
   - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
   - +4 ↩
-- [![View Eser Erdem's profile](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z1jraMn.webp)](https://developer.android.com/blog/authors/eser-erdem) 24 Mar 2026 24 Mar 2026 ![](https://developer.android.com/static/blog/assets/AAOS_SDV_Hero_dark_6dfe605408_bCiba.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Summers Pittman's profile](https://developer.android.com/static/blog/assets/Summers_Pittman_e1dd057c92_Z1pDsqU.webp)](https://developer.android.com/blog/authors/summers-pittman)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 Mar 2025 04 Mar 2025 ![](https://developer.android.com/static/blog/assets/soundcloud_Jet_Pack_8602d748f3_1zRpWT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
-  ## [Beyond Infotainment: Extending Android Automotive OS for Software-defined Vehicles](https://developer.android.com/blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles)
+  ## [SoundCloud uses Jetpack Glance to build Liked Tracks widget in just 2 weeks](https://developer.android.com/blog/posts/sound-cloud-uses-jetpack-glance-to-build-liked-tracks-widget-in-just-2-weeks)
 
-  [arrow_forward](https://developer.android.com/blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles) At Google we're deeply committed to the automotive industry--not just as a technology provider, but as a partner in the industry's transformation.
-  [Eser Erdem](https://developer.android.com/blog/authors/eser-erdem) • 3 min read
-  - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+  [arrow_forward](https://developer.android.com/blog/posts/sound-cloud-uses-jetpack-glance-to-build-liked-tracks-widget-in-just-2-weeks) To make it even easier for users to listen on Android, developers at SoundCloud --- an artist-first music platform --- turned to Jetpack Glance to create a Liked Tracks widget for their highly-rated app, which boasts 4.6 stars and over 100 million downloads.
+  [Summers Pittman](https://developer.android.com/blog/authors/summers-pittman), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 3 min read
+  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+  - [#Widgets](https://developer.android.com/blog/topics/widgets)
 Stay in the loop
 
 

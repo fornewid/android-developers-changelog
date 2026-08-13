@@ -228,6 +228,6 @@ Linux](https://dl.google.com/android/apa/ide-zips/v0.9.0/android-performance-ana
 
 | Platform | Package SHA-256 checksum | Size |
 |---|---|---|
-| Windows | [android-performance-analyzer-windows.zip](https://dl.google.com/android/apa/ide-zips/v0.9.0/android-performance-analyzer-windows.zip) 6e93f6fda0c4b4d53e5cdec75ed38d4085476bdbe0b131fe7e43b28bcb473dc3 | 536 MiB |
-| Mac | [android-performance-analyzer-mac.dmg](https://dl.google.com/android/apa/install/v0.9.0/android-performance-analyzer-mac.dmg) 5b9c5935277eb6d12992d0c35d20114614025a501c9462f1459e5217567557bc | 503 MiB |
-| Linux | [android-performance-analyzer-linux.tar.gz](https://dl.google.com/android/apa/ide-zips/v0.9.0/android-performance-analyzer-linux.tar.gz) a3a549de2b2a53bc33b19ff9fe73d24adf007e7f009c370bdc31fa90bcea5368 | 545 MiB |
+| Windows | [android-performance-analyzer-windows.zip](https://dl.google.com/android/apa/ide-zips/v0.9.0/android-performance-analyzer-windows.zip) 6e93f6fda0c4b4d53e5cdec75ed38d4085476bdbe0b131fe7e43b28bcb473dc3 | 562.1 MB |
+| Mac | [android-performance-analyzer-mac.dmg](https://dl.google.com/android/apa/install/v0.9.0/android-performance-analyzer-mac.dmg) 5b9c5935277eb6d12992d0c35d20114614025a501c9462f1459e5217567557bc | 528.1 MB |
+| Linux | [android-performance-analyzer-linux.tar.gz](https://dl.google.com/android/apa/ide-zips/v0.9.0/android-performance-analyzer-linux.tar.gz) a3a549de2b2a53bc33b19ff9fe73d24adf007e7f009c370bdc31fa90bcea5368 | 577.6 MB |

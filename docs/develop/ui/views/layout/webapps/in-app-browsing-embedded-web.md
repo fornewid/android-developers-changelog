@@ -4,11 +4,17 @@ url: https://developer.android.com/develop/ui/views/layout/webapps/in-app-browsi
 source: md.txt
 ---
 
-In-app browsers give your users a full web experience without making them leave your app. Android offers two primary APIs for implementing in-app browsers: [Custom Tabs](https://developer.android.com/develop/ui/views/layout/webapps/overview-of-android-custom-tabs) and [WebViews](https://developer.android.com/reference/android/webkit/WebView). Use an in-app browser when you have a link or an ad that leads to a web page. You can open that page right inside your app, as you can see in **Figure 1.**
+In-app browsers give your users a full web experience without making them leave
+your app. Android offers two primary APIs for implementing in-app browsers:
+[Custom Tabs](https://developer.android.com/develop/ui/views/layout/webapps/overview-of-android-custom-tabs) and [WebViews](https://developer.android.com/reference/android/webkit/WebView). Use an in-app browser when you
+have a link or an ad that leads to a web page. You can open that page right
+inside your app, as you can see in **Figure 1.**
 ![An in-app link in a red box, and an arrow pointing to another screen
 showing the link opened with a custom tab.](https://developer.android.com/static/develop/ui/views/layout/webapps/InAppLinking1.png) **Figure 1.** Clicking on an in-app link (left) and opening an in-app browser using a Custom Tab (right).
 
-Choosing between Custom Tabs and WebViews is a big architectural decision that affects your development speed, user experience, and how much control you have over the UI.
+Choosing between Custom Tabs and WebViews is a big architectural decision that
+affects your development speed, user experience, and how much control you have
+over the UI.
 
 ## Quick comparison
 
@@ -27,11 +33,16 @@ Use the following table to help you decide which tool fits your needs:
 
 ## WebView
 
-A WebView is a view that makes web pages an integral part of your app's layout. It is powerful, but it's a bit more complex to handle compared to Custom Tabs.
+A WebView is a view that makes web pages an integral part of your app's layout.
+It is powerful, but it's a bit more complex to handle compared to Custom Tabs.
 
-WebView can load remote or local web content, execute JavaScript, and enable bidirectional communication between your web content and native app code. To learn more about its capabilities, see [What WebView can do](https://developer.android.com/develop/ui/views/layout/webapps/embed-web-content-in-app#what-webview-can-do).
+WebView can load remote or local web content, execute JavaScript, and enable
+bidirectional communication between your web content and native app code. To
+learn more about its capabilities, see [What WebView can do](https://developer.android.com/develop/ui/views/layout/webapps/embed-web-content-in-app#what-webview-can-do).
 
-You can also use WebView to deliver a web application or display an online web page as part of your app. For example, an end-user agreement that you need to update periodically. To learn more, see [Build web apps in WebView](https://developer.android.com/develop/ui/views/layout/webapps/webview).
+You can also use WebView to deliver a web application or display an online web
+page as part of your app. For example, an end-user agreement that you need to
+update periodically. To learn more, see [Build web apps in WebView](https://developer.android.com/develop/ui/views/layout/webapps/webview).
 
 ### Why you should choose WebView
 
@@ -47,11 +58,13 @@ The following are some scenarios where WebView is a good fit:
 The following are some key trade-offs to consider when using WebView:
 
 - **Performance:** WebView can be memory-intensive. If you don't manage it carefully, you can run into performance issues or ANRs (App Not Responding errors).
-- **Security and maintenance:** You're responsible for hardening the security and managing the lifecycle. However, WebView updates roll out globally through Google Play, so you don't have to worry about the underlying engine getting outdated.
+- **Security and maintenance:** You're responsible for hardening the security and managing the lifecycle. This includes [managing state preservation](https://developer.android.com/develop/ui/views/layout/webapps/manage-state) across process recreation using `WebViewCompat.saveState()` and staying within Android's 1MB saved state transaction limit. However, WebView updates release globally through Google Play, so you don't have to worry about the underlying engine getting outdated.
 
 ## Custom Tabs
 
-Custom Tabs are a great choice for directing users to external URLs, as they provide a fast, secure, and user-friendly browser window that slides over your app.
+Custom Tabs are a great choice for directing users to external URLs, as they
+provide a fast, secure, and user-friendly browser window that slides over
+your app.
 
 ### Why you should choose Custom Tabs
 
@@ -62,7 +75,8 @@ The following are some scenarios where Custom Tabs are a good fit:
 - **Shared state:** Because it shares cookies with the user's default browser, users don't have to sign in again to sites they have already visited.
 - **Third-party sign-in:** They are well-suited for third-party sign-in flows (such as "Sign in with Google" or "Sign in with Facebook") as the browser handles credentials securely.
 
-Although most browsers support Custom Tabs, some offer more customization than others. For more information, see [Browser support](https://developer.chrome.com/docs/android/custom-tabs/browser-support).
+Although most browsers support Custom Tabs, some offer more customization than
+others. For more information, see [Browser support](https://developer.chrome.com/docs/android/custom-tabs/browser-support).
 
 ## Use web content in Jetpack Compose
 
@@ -73,10 +87,12 @@ You can use both Custom Tabs and WebView when building with Jetpack Compose:
 
 ### Additional resources
 
-To develop web pages for Android-powered devices using WebViews or Custom Tabs APIs, see the following documents:
+To develop web pages for Android-powered devices using WebViews or Custom Tabs
+APIs, see the following documents:
 
 - [Embedding web content into your app as primary or supporting content](https://developer.android.com/develop/ui/views/layout/webapps)
 - [API Reference: WebView](https://developer.android.com/reference/android/webkit/WebView)
 - [Custom Tabs Overview](https://developer.android.com/develop/ui/views/layout/webapps/overview-of-android-custom-tabs)
 - [Overview of Trusted Web Activities](https://developer.android.com/develop/ui/views/layout/webapps/trusted-web-activities)
+- [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state)
 - [Browser support](https://developer.chrome.com/docs/android/custom-tabs/browser-support)

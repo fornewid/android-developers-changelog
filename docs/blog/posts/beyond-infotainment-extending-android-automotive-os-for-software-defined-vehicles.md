@@ -10,7 +10,6 @@ source: md.txt
 
 3 min read ![](https://developer.android.com/static/blog/assets/AAOS_SDV_Hero_dark_6dfe605408_bCiba.webp) 24 Mar 2026 [![View Eser Erdem's profile](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z1jraMn.webp)](https://developer.android.com/blog/authors/eser-erdem) [Eser Erdem](https://developer.android.com/blog/authors/eser-erdem) Engineering Manager At Google we're deeply committed to the automotive industry--not just as a technology provider, but as a partner in the industry's transformation. We believe that car makers and users should have choice and flexibility, and that open platforms are the best enablers. For over a decade, we have provided Android Automotive OS (AAOS) as an open platform for infotainment, enabling rich innovation and differentiation in the in-vehicle digital experience. However, as vehicles modernize, car makers face new hurdles: fragmented software across compute components, poor portability between architectures, and a lack of granular update capabilities. To address these problems, we are expanding AAOS beyond infotainment with Android Automotive OS for Software Defined Vehicles (AAOS SDV)--an open platform featuring a modular structure, a topology-agnostic communication layer, and the support for granular updates.  
 
-
 The transition toward SDVs is an incredible industry transformation, and we are eager to contribute to the broader ecosystem making it happen. Later this year, AAOS SDV will be available in the [Android Open Source Project (AOSP)](https://source.android.com/docs/automotive/start/what_automotive) for uses beyond infotainment. By bringing our SDV platform into the open-source domain, we empower the industry to develop or enhance features that lower costs, accelerate time to market, and provide significant advantages across the automotive landscape.
 ![automotive-os.webp](https://developer.android.com/static/blog/assets/automotive_os_28b164eff1_1dW7YL.webp)
 
@@ -18,9 +17,7 @@ The transition toward SDVs is an incredible industry transformation, and we are 
 
 AAOS SDV is engineered to address the core challenges of modern vehicle development. This new AAOS expansion provides a compact, performant and scalable software foundation based on a headless Android native stack, extending much deeper into the vehicle architecture to power software components throughout the vehicle such as the seat actuator, instrument cluster, climate control, lighting, cameras, mirrors, telemetry, and more.  
 
-
 AAOS SDV's core is a lightweight Android-based operating system incorporating low-level automotive specific frameworks for communications, diagnostics, software updates, and more. This enables AAOS SDV to power many different vehicle controllers, tackling Core Compute, Body Controls, and Cluster domains.  
-
 
 In addition, the AAOS SDV platform includes a new framework, Display Safety, for implementing instrument cluster applications including audible chimes, regulatory camera, and sophisticated graphics that blend seamlessly with AAOS IVI content. Display Safety includes a safety design toolchain and a reference safety monitor, allowing OEMs to meet functional safety requirements leveraging the diverse platform safety mechanisms of Automotive SoCs.
 ![large_Google AAOS SDV Blog - Simplified Vehicle Architecture Animated (2).gif](https://developer.android.com/static/blog/assets/large_Google_AAOS_SDV_Blog_Simplified_Vehicle_Architecture_Animated_2_e9a497fff5_Zz1Uwv.webp)
@@ -59,7 +56,8 @@ Written by:
 
   ###### Engineering Manager
 
-  [read_more View profile](https://developer.android.com/blog/authors/eser-erdem) ![View Eser Erdem's profile](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z1jraMn.webp) ![View Eser Erdem's profile](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z1jraMn.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/eser-erdem) ![View Eser Erdem's profile](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z1jraMn.webp) ![View Eser Erdem's profile](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z1jraMn.webp)
 Continue reading
 - [![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -69,10 +67,11 @@ Continue reading
   [Ataul Munim](https://developer.android.com/blog/authors/ataul-munim) • 3 min read
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - [#Memory](https://developer.android.com/blog/topics/memory)
+  - [#Widgets](https://developer.android.com/blog/topics/widgets)
   - [#R8](https://developer.android.com/blog/topics/r8)
   - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
   - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
-  - +3 ↩
+  - +4 ↩
 - [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Delivering safer, age-appropriate experiences on Google Play](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play)
@@ -87,5 +86,8 @@ Continue reading
   [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

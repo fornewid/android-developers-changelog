@@ -386,3 +386,21 @@ situations.
 To learn more about how the system handles low-memory situations, see
 [Processes and app
 lifecycle](https://developer.android.com/guide/topics/processes/process-lifecycle).
+
+## Preserve state and navigation history
+
+When the system reclaims background resources or the device undergoes a configuration change, an
+app's activity and its `WebView` objects may be destroyed. To preserve the user's
+navigation context, use the `https://developer.android.com/reference/android/webkit/WebView#saveState(android.os.Bundle)`
+method within `onSaveInstanceState()` to serialize the navigation history into a
+`Bundle`, and then restore it using `https://developer.android.com/reference/android/webkit/WebView#restoreState(android.os.Bundle)`.
+
+Because Android enforces a strict 1MB limit across the entire process for
+`savedInstanceState`, serializing large browsing sessions with the
+standard framework API can result in a `TransactionTooLargeException`.
+To enforce size limits or drop forward history entries safely, use the Jetpack
+Webkit method
+`https://developer.android.com/reference/androidx/webkit/WebViewCompat#saveState(android.webkit.WebView,android.os.Bundle,int)`.
+
+For detailed strategies and best practices on managing state efficiently, see
+[Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state).

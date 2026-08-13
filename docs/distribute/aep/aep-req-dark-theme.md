@@ -12,9 +12,9 @@ strain. Your app must automatically adopt the system-wide dark theme preference.
 
 To qualify for AEP, your app must adhere to the following requirements:
 
-- Dark themes must be applied to 100% of the app's screens, overlays, and system-level components like the navigation bar.
+- Dark theme must be applied to 100% of the app's screens, overlays, and system-level components like the navigation bar.
 - All text and icons must maintain a contrast ratio of at least 4.5:1 against their backgrounds, meeting [WCAG AA accessibility standards](https://www.w3.org/WAI/standards-guidelines/wcag/).
-- The app must correctly react to the [`uiMode`](https://developer.android.com/reference/android/content/res/Configuration#uiMode) configuration change when the user toggles dark themes at the system level.
+- The app must correctly react to the [`uiMode`](https://developer.android.com/reference/android/content/res/Configuration#uiMode) configuration change when the user toggles dark theme at the system level.
 
 ## Guideline applicability
 

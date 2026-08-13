@@ -20,8 +20,14 @@ visually separated from surrounding content.
 
 ## Composition
 
-If a banner is dismissible, the host automatically renders the final item in the
-trailing elements list as a standardized, close icon button.
+The Banner item is designed for high glanceability and includes four components, two
+of which are required:
+
+- **Leading image or icon** (required)
+- **Primary text: title and subtexts** (required)
+- Secondary text (optional)
+- Trailing image or icon (optional)
+
 ![hero](https://developer.android.com/static/design/ui/cars/guides/components/banners/banners-assets/image-161-22628.png) *1.* *Leading image*
 
 *2.* *Primary text*

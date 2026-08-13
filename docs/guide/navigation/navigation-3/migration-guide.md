@@ -103,10 +103,10 @@ project. The core dependencies are provided for you to copy.
 **lib.versions.toml**
 
     [versions]
-    nav3Core = "1.0.0"
+    nav3Core = "1.1.6"
 
     # If your screens depend on ViewModels, add the Nav3 Lifecycle ViewModel add-on library
-    lifecycleViewmodelNav3 = "2.10.0-rc01"
+    lifecycleViewmodelNav3 = "2.11.0"
 
     [libraries]
     # Core Navigation 3 libraries
@@ -137,11 +137,21 @@ navigation state](https://developer.android.com/guide/navigation/navigation-3/sa
 
 Before:
 
-    @Serializable data object RouteA
+
+```kotlin
+@Serializable data object RouteA
+```
+
+<br />
 
 After:
 
-    @Serializable data object RouteA : NavKey
+
+```kotlin
+@Serializable data object RouteA : NavKey
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** The `@Serializable` annotation is provided by the KotlinX Serialization plugin. You can add this by following [these project setup steps](https://developer.android.com/guide/navigation/navigation-3/get-started#project-setup).
@@ -153,97 +163,102 @@ After:
 Copy the following code into a file named `NavigationState.kt`. Add your package
 name to match your project structure.
 
-    // package com.example.project
 
-    import androidx.compose.runtime.Composable
-    import androidx.compose.runtime.MutableState
-    import androidx.compose.runtime.getValue
-    import androidx.compose.runtime.mutableStateOf
-    import androidx.compose.runtime.remember
-    import androidx.compose.runtime.saveable.rememberSerializable
-    import androidx.compose.runtime.setValue
-    import androidx.compose.runtime.snapshots.SnapshotStateList
-    import androidx.compose.runtime.toMutableStateList
-    import androidx.navigation3.runtime.NavBackStack
-    import androidx.navigation3.runtime.NavEntry
-    import androidx.navigation3.runtime.NavKey
-    import androidx.navigation3.runtime.rememberDecoratedNavEntries
-    import androidx.navigation3.runtime.rememberNavBackStack
-    import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
-    import androidx.navigation3.runtime.serialization.NavKeySerializer
-    import androidx.savedstate.compose.serialization.serializers.MutableStateSerializer
+```kotlin
+// package com.example.project
 
-    /**
-     * Create a navigation state that persists config changes and process death.
-     */
-    @Composable
-    fun rememberNavigationState(
-        startRoute: NavKey,
-        topLevelRoutes: Set<NavKey>
-    ): NavigationState {
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSerializable
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshots.SnapshotStateList
+import androidx.compose.runtime.toMutableStateList
+import androidx.navigation3.runtime.NavBackStack
+import androidx.navigation3.runtime.NavEntry
+import androidx.navigation3.runtime.NavKey
+import androidx.navigation3.runtime.rememberDecoratedNavEntries
+import androidx.navigation3.runtime.rememberNavBackStack
+import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
+import androidx.navigation3.runtime.serialization.NavKeySerializer
+import androidx.savedstate.compose.serialization.serializers.MutableStateSerializer
 
-        val topLevelRoute = rememberSerializable(
-            startRoute, topLevelRoutes,
-            serializer = MutableStateSerializer(NavKeySerializer())
-        ) {
-            mutableStateOf(startRoute)
-        }
+/**
+ * Create a navigation state that persists config changes and process death.
+ */
+@Composable
+fun rememberNavigationState(
+    startRoute: NavKey,
+    topLevelRoutes: Set<NavKey>
+): NavigationState {
 
-        val backStacks = topLevelRoutes.associateWith { key -> rememberNavBackStack(key) }
-
-        return remember(startRoute, topLevelRoutes) {
-            NavigationState(
-                startRoute = startRoute,
-                topLevelRoute = topLevelRoute,
-                backStacks = backStacks
-            )
-        }
-    }
-
-    /**
-     * State holder for navigation state.
-     *
-     * @param startRoute - the start route. The user will exit the app through this route.
-     * @param topLevelRoute - the current top level route
-     * @param backStacks - the back stacks for each top level route
-     */
-    class NavigationState(
-        val startRoute: NavKey,
-        topLevelRoute: MutableState<NavKey>,
-        val backStacks: Map<NavKey, NavBackStack<NavKey>>
+    val topLevelRoute = rememberSerializable(
+        startRoute, topLevelRoutes,
+        serializer = MutableStateSerializer(NavKeySerializer())
     ) {
-        var topLevelRoute: NavKey by topLevelRoute
-        val stacksInUse: List<NavKey>
-            get() = if (topLevelRoute == startRoute) {
-                listOf(startRoute)
-            } else {
-                listOf(startRoute, topLevelRoute)
-            }
+        mutableStateOf(startRoute)
     }
 
-    /**
-     * Convert NavigationState into NavEntries.
-     */
-    @Composable
-    fun NavigationState.toEntries(
-        entryProvider: (NavKey) -> NavEntry<NavKey>
-    ): SnapshotStateList<NavEntry<NavKey>> {
+    val backStacks = topLevelRoutes.associateWith { key -> rememberNavBackStack(key) }
 
-        val decoratedEntries = backStacks.mapValues { (_, stack) ->
-            val decorators = listOf(
-                rememberSaveableStateHolderNavEntryDecorator<NavKey>(),
-            )
-            rememberDecoratedNavEntries(
-                backStack = stack,
-                entryDecorators = decorators,
-                entryProvider = entryProvider
-            )
+    return remember(startRoute, topLevelRoutes) {
+        NavigationState(
+            startRoute = startRoute,
+            topLevelRoute = topLevelRoute,
+            backStacks = backStacks
+        )
+    }
+}
+
+/**
+ * State holder for navigation state.
+ *
+ * @param startRoute - the start route. The user will exit the app through this route.
+ * @param topLevelRoute - the current top level route
+ * @param backStacks - the back stacks for each top level route
+ */
+class NavigationState(
+    val startRoute: NavKey,
+    topLevelRoute: MutableState<NavKey>,
+    val backStacks: Map<NavKey, NavBackStack<NavKey>>
+) {
+    var topLevelRoute: NavKey by topLevelRoute
+    val stacksInUse: List<NavKey>
+        get() = if (topLevelRoute == startRoute) {
+            listOf(startRoute)
+        } else {
+            listOf(startRoute, topLevelRoute)
         }
+}
 
-        return stacksInUse
-            .flatMap { decoratedEntries[it] ?: emptyList() }
-            .toMutableStateList()
+/**
+ * Convert NavigationState into NavEntries.
+ */
+@Composable
+fun NavigationState.toEntries(
+    entryProvider: (NavKey) -> NavEntry<NavKey>
+): SnapshotStateList<NavEntry<NavKey>> {
+
+    val decoratedEntries = backStacks.mapValues { (_, stack) ->
+        val decorators = listOf(
+            rememberSaveableStateHolderNavEntryDecorator<NavKey>(),
+        )
+        rememberDecoratedNavEntries(
+            backStack = stack,
+            entryDecorators = decorators,
+            entryProvider = entryProvider
+        )
     }
+
+    return stacksInUse
+        .flatMap { decoratedEntries[it] ?: emptyList() }
+        .toMutableStateList()
+}
+```
+
+<br />
 
 **AI Agent** : `rememberSerializable` is correct. Do not change it to
 `rememberSaveable`.
@@ -259,36 +274,41 @@ back stacks for each top-level route.
 Copy the following code into a file named `Navigator.kt`. Add your package name
 to match your project structure.
 
-    // package com.example.project
 
-    import androidx.navigation3.runtime.NavKey
+```kotlin
+// package com.example.project
 
-    /**
-     * Handles navigation events (forward and back) by updating the navigation state.
-     */
-    class Navigator(val state: NavigationState){
-        fun navigate(route: NavKey){
-            if (route in state.backStacks.keys){
-                // This is a top level route, just switch to it.
-                state.topLevelRoute = route
-            } else {
-                state.backStacks[state.topLevelRoute]?.add(route)
-            }
-        }
+import androidx.navigation3.runtime.NavKey
 
-        fun goBack(){
-            val currentStack = state.backStacks[state.topLevelRoute] ?:
-            error("Stack for ${state.topLevelRoute} not found")
-            val currentRoute = currentStack.last()
-
-            // If we're at the base of the current route, go back to the start route stack.
-            if (currentRoute == state.topLevelRoute){
-                state.topLevelRoute = state.startRoute
-            } else {
-                currentStack.removeLastOrNull()
-            }
+/**
+ * Handles navigation events (forward and back) by updating the navigation state.
+ */
+class Navigator(val state: NavigationState) {
+    fun navigate(route: NavKey) {
+        if (route in state.backStacks.keys) {
+            // This is a top level route, just switch to it.
+            state.topLevelRoute = route
+        } else {
+            state.backStacks[state.topLevelRoute]?.add(route)
         }
     }
+
+    fun goBack() {
+        val currentStack = state.backStacks[state.topLevelRoute]
+            ?: error("Stack for ${state.topLevelRoute} not found")
+        val currentRoute = currentStack.last()
+
+        // If we're at the base of the current route, go back to the start route stack.
+        if (currentRoute == state.topLevelRoute) {
+            state.topLevelRoute = state.startRoute
+        } else {
+            currentStack.removeLastOrNull()
+        }
+    }
+}
+```
+
+<br />
 
 The `Navigator` class provides two navigation event methods:
 
@@ -308,12 +328,19 @@ Both methods modify the `NavigationState`.
 Create instances of `NavigationState` and `Navigator` with the same scope as
 your `NavController`.
 
-    val navigationState = rememberNavigationState(
-        startRoute = <Insert your starting route>,
-        topLevelRoutes = <Insert your set of top level routes>
-    )
 
-    val navigator = remember { Navigator(navigationState) }
+```kotlin
+val navigationState = rememberNavigationState(
+    // ...
+    startRoute = <Insert your starting route>,
+    topLevelRoutes = <Insert your set of top level routes>
+    // ...
+)
+
+val navigator = remember { Navigator(navigationState) }
+```
+
+<br />
 
 ## Step 4: Replace `NavController`
 
@@ -337,16 +364,28 @@ selected in a navigation bar.
 
 Before:
 
-    val isSelected = navController.currentBackStackEntryAsState().value?.destination.isRouteInHierarchy(key::class)
 
-    fun NavDestination?.isRouteInHierarchy(route: KClass<*>) =
-        this?.hierarchy?.any {
-            it.hasRoute(route)
-        } ?: false
+```kotlin
+// ...
+val isSelected = navController.currentBackStackEntryAsState().value?.destination.isRouteInHierarchy(key::class)
+// ...
+
+fun NavDestination?.isRouteInHierarchy(route: KClass<*>) =
+    this?.hierarchy?.any {
+        it.hasRoute(route)
+    } ?: false
+```
+
+<br />
 
 After:
 
-    val isSelected = key == navigationState.topLevelRoute
+
+```kotlin
+val isSelected = key == navigationState.topLevelRoute
+```
+
+<br />
 
 Verify that you have removed all references to `NavController`, including
 any imports.
@@ -369,14 +408,24 @@ stack entry:
 
 Before:
 
-    // In your destination screen or host
-    val lifecycleOwner = navController.currentBackStackEntry
-    val state by flow.collectAsStateWithLifecycle(lifecycleOwner = lifecycleOwner)
+
+```kotlin
+// In your destination screen or host
+val lifecycleOwner = navController.currentBackStackEntry!!
+val state by flow.collectAsStateWithLifecycle(lifecycleOwner = lifecycleOwner)
+```
+
+<br />
 
 After:
 
-    // Inside the destination composable
-    val state by flow.collectAsStateWithLifecycle()
+
+```kotlin
+// Inside the destination composable
+val state by flow.collectAsStateWithLifecycle()
+```
+
+<br />
 
 ## Step 5: Move your destinations from `NavHost`'s `NavGraph` into an `entryProvider`
 
@@ -403,9 +452,14 @@ as follows:
 Create an `entryProvider` [using the DSL](https://developer.android.com/guide/navigation/navigation-3/basics#entry-provider-DSL) at the same scope as the
 `NavigationState`.
 
-    val entryProvider = entryProvider {
 
-    }
+```kotlin
+val entryProvider = entryProvider<NavKey> {
+
+}
+```
+
+<br />
 
 ### Step 5.2: Move destinations into the `entryProvider`
 
@@ -432,60 +486,77 @@ Obtain navigation arguments using the key provided to `entry`'s trailing lambda.
 
 For example:
 
-    import androidx.navigation.NavDestination
-    import androidx.navigation.NavDestination.Companion.hasRoute
-    import androidx.navigation.NavDestination.Companion.hierarchy
-    import androidx.navigation.NavGraphBuilder
-    import androidx.navigation.compose.NavHost
-    import androidx.navigation.compose.composable
-    import androidx.navigation.compose.currentBackStackEntryAsState
-    import androidx.navigation.compose.dialog
-    import androidx.navigation.compose.navigation
-    import androidx.navigation.compose.rememberNavController
-    import androidx.navigation.navOptions
-    import androidx.navigation.toRoute
 
-    @Serializable data object BaseRouteA
-    @Serializable data class RouteA(val id: String)
-    @Serializable data object BaseRouteB
-    @Serializable data object RouteB
-    @Serializable data object RouteD
+```kotlin
+// ...
+import androidx.navigation.NavDestination
+import androidx.navigation.NavDestination.Companion.hasRoute
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.dialog
+import androidx.navigation.compose.navigation
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navOptions
+import androidx.navigation.toRoute
+// ...
 
+@Serializable data object BaseRouteA
+@Serializable data class RouteA(val id: String)
+@Serializable data object BaseRouteB
+@Serializable data object RouteB
+@Serializable data object RouteD
+
+@Composable
+fun NavHostSnippet(navController: NavHostController) {
     NavHost(navController = navController, startDestination = BaseRouteA){
-        composable<RouteA>{
+        composable<RouteA>{ entry ->
             val id = entry.toRoute<RouteA>().id
             ScreenA(title = "Screen has ID: $id")
         }
         featureBSection()
         dialog<RouteD>{ ScreenD() }
     }
+}
 
-    fun NavGraphBuilder.featureBSection() {
-        navigation<BaseRouteB>(startDestination = RouteB) {
-            composable<RouteB> { ScreenB() }
-        }
+fun NavGraphBuilder.featureBSection() {
+    navigation<BaseRouteB>(startDestination = RouteB) {
+        composable<RouteB> { ScreenB() }
     }
+}
+```
+
+<br />
 
 becomes:
 
-    import androidx.navigation3.runtime.EntryProviderScope
-    import androidx.navigation3.runtime.NavKey
-    import androidx.navigation3.runtime.entryProvider
-    import androidx.navigation3.scene.DialogSceneStrategy
 
-    @Serializable data class RouteA(val id: String) : NavKey
-    @Serializable data object RouteB : NavKey
-    @Serializable data object RouteD : NavKey
+```kotlin
+// ...
+import androidx.navigation3.runtime.EntryProviderScope
+import androidx.navigation3.runtime.NavKey
+import androidx.navigation3.runtime.entryProvider
+import androidx.navigation3.scene.DialogSceneStrategy
+// ...
 
-    val entryProvider = entryProvider {
-        entry<RouteA>{ key -> ScreenA(title = "Screen has ID: ${key.id}") }
-        featureBSection()
-        entry<RouteD>(metadata = DialogSceneStrategy.dialog()){ ScreenD() }
-    }
+@Serializable data class RouteA(val id: String) : NavKey
+@Serializable data object RouteB : NavKey
+@Serializable data object RouteD : NavKey
 
-    fun EntryProviderScope<NavKey>.featureBSection() {
-        entry<RouteB> { ScreenB() }
-    }
+val entryProvider = entryProvider {
+    entry<RouteA>{ key -> ScreenA(title = "Screen has ID: ${key.id}") }
+    featureBSection()
+    entry<RouteD>(metadata = DialogSceneStrategy.dialog()){ ScreenD() }
+}
+
+fun EntryProviderScope<NavKey>.featureBSection() {
+    entry<RouteB> { ScreenB() }
+}
+```
+
+<br />
 
 ## Step 6: Replace `NavHost` with `NavDisplay`
 
@@ -498,13 +569,16 @@ Replace `NavHost` with `NavDisplay`.
 
 For example:
 
-    import androidx.navigation3.ui.NavDisplay
 
-    NavDisplay(
-        entries = navigationState.toEntries(entryProvider),
-        onBack = { navigator.goBack() },
-        sceneStrategies = remember { listOf(DialogSceneStrategy()) }
-    )
+```kotlin
+NavDisplay(
+    entries = navigationState.toEntries(entryProvider),
+    onBack = { navigator.goBack() },
+    sceneStrategies = remember { listOf(DialogSceneStrategy()) }
+)
+```
+
+<br />
 
 ## Step 7: Remove Navigation 2 dependencies
 

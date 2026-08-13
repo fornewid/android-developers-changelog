@@ -49,8 +49,9 @@ Alas, your browser doesn't support HTML5 video. That's OK! You can still [downlo
 
 Double pinch is most useful when the user can navigate to that UI element
 either using gestures, voice, or when the element opens automatically (like a
-notification or media controls). If the only way to navigate to the UI element is by touch or
-buttons, the action is not a good use case for the primary action gesture.
+notification or media controls). If the only way to navigate to the UI element
+is by touch or buttons, the action isn't a good use case for the primary
+action gesture.
 
 ### Dismiss action
 
@@ -72,14 +73,14 @@ provide an empty subscription.
 ## Quick gesture guidelines
 
 The Wear OS gestures framework is designed to handle interruptions and controls.
-It is not designed to enable full watch navigation. Follow these guidelines to
+It isn't designed to enable full watch navigation. Follow these guidelines to
 adopt one-handed gestures in your app:
 
 1. **Minimize navigation:** Use gestures for *one-and-done* interactions, such as dismissing a notification or pausing and resuming media.
 2. **Use scroll sparingly:** The primary gesture (double pinch) can be used to scroll, but this shouldn't be the default experience for all scrollable content. Only enable gesture scrolling if the following conditions can be met:
    - The user is able to get into the scroll view with one hand or in a hands-free way, such as using a gesture, voice command, or on a screen that auto-launches, like media control and maps navigation.
    - The content provides value at a glance, such as a workout summary, and doesn't require further interaction other than an optional single button that can also take the primary gesture action once it's scrolled into view (such as a *done* edge button).
-3. **Avoid dead ends:** Ensure gesture actions don't result in dead ends where a user cannot proceed further in their journey without using the touchscreen or a physical button.
+3. **Avoid dead ends:** Ensure gesture actions don't result in dead ends where a user can't proceed further in their journey without using the touchscreen or a physical button.
 4. **Avoid hidden actions:** Never hide a gesture-only action. If a user can perform an action with a double pinch, a visible, tappable button that performs the same task must be present. The exception to this is universal actions like a wrist turn to go back, where user intent is hard to predict.
 
 ## Gesture interaction flow and feedback
@@ -106,7 +107,7 @@ settings are also provided in system settings---on Pixel Watch, in
 ### Tutorial onboarding
 
 On Pixel Watch, users are introduced to hand gestures through an
-interactive tutorial and Pixel Tips. There is no need to create a unique gesture
+interactive tutorial and Pixel Tips. There's no need to create a unique gesture
 tutorial within your app. Instead, leverage the in-context hints provided by
 Jetpack Compose on Wear OS to inform users where gestures are available within
 your app.
@@ -132,11 +133,11 @@ more legible, causing minimal obstruction of other UI elements.
 
 
 Button hint
-![Button hint example](https://developer.android.com/static/wear/images/design/gestures-hint-button-icon.png)
+![Button gesture hint icon example](https://developer.android.com/static/wear/images/design/gestures-hint-button-icon.png)
 
 Swaps with an existing icon or text momentarily.
 Floating hint
-![Floating hint example](https://developer.android.com/static/wear/images/design/gestures-hint-floating-icon.png)
+![Floating gesture hint icon example](https://developer.android.com/static/wear/images/design/gestures-hint-floating-icon.png)
 
 Points to an element on screen that is too small to hold a button hint.
 
@@ -182,4 +183,4 @@ gestures \> Gesture hints**) for users to adjust the cadence.
 ## Additional resources
 
 For developer guidance on how to implement one-handed gestures in your app,
-see the [Build apps for the wrist with Wear OS](https://developer.android.com/wear).
+see [One-handed gestures with Compose](https://developer.android.com/training/wearables/compose/one-handed-gestures).
