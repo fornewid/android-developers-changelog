@@ -19,16 +19,21 @@ OTA images are available for the following Pixel devices:
 
 After you've installed a beta build to your Pixel device, your device is automatically enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) and offered continuous over-the-air (OTA) updates to the latest beta builds (including QPRs) until you choose to unenroll that device from the program.
 
-We also deliver flashable images at each milestone, so you can choose the approach that works best for your test environment.
+We also deliver flashable images at each milestone, so you can choose the
+approach that works best for your test environment.
 
-Use the following links and instructions to update your supported device to the latest build. See [Get Android 16 QPR beta builds](https://developer.android.com/about/versions/16/get-qpr) for other ways to get QPR2 for testing and development.
+Use the following links and instructions to update your supported device to the
+latest build. See [Get
+Android 16 QPR beta builds](https://developer.android.com/about/versions/16/get-qpr) for other ways to get
+QPR2 for testing and development.
 
 ## Apply an OTA image
 
-
 ![](https://developer.android.com/static/images/lockups/android-stacked.svg)
 
-Download an OTA device image from the following table and apply it by following the [updating instructions](https://developers.google.com/android/ota#instructions) listed on [Full OTA Images for Nexus and Pixel Devices](https://developers.google.com/android/ota).
+Download an OTA device image from the following table and apply it by following
+the [updating instructions](https://developers.google.com/android/ota#instructions) listed on [Full OTA Images for Nexus and Pixel
+Devices](https://developers.google.com/android/ota).
 
 You can choose to [return to the latest public build](https://developer.android.com/about/versions/16/download-ota#public) at any time.
 
@@ -66,7 +71,10 @@ You can choose to [return to the latest public build](https://developer.android.
 
 ## Return to a public build
 
-You can either use the Android Flash Tool to [flash the factory image](https://flash.android.com/back-to-public), or obtain a factory spec system image from the [Factory Images for Nexus and Pixel Devices](https://developers.google.com/android/images) page and then manually flash it to the device.
+You can either use the Android Flash Tool to
+[flash the factory image](https://flash.android.com/back-to-public), or obtain a factory spec system
+image from the [Factory Images for Nexus and Pixel Devices](https://developers.google.com/android/images)
+page and then manually flash it to the device.
 
 > [!WARNING]
 > **Warning:** Going back to a public build from a preview build (Developer Preview or Beta) requires a full device reset that removes all user data on the device. Make sure to [back up your data first](https://support.google.com/pixelphone/answer/7179901).

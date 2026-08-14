@@ -42,6 +42,7 @@ This guide explains the following areas:
 - Jetpack Compose Glimmer components, including the following:
   - [Buttons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/buttons)
   - [Cards](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/cards)
+  - [Horizontal pagers](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/pager)
   - [Icons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/icons)
   - [Icon buttons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/icon-buttons)
   - [Lists](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/lists)

@@ -6,7 +6,9 @@ source: md.txt
 
 <br />
 
-The [navigation drawer](https://material.io/components/navigation-drawer) component is a slide-in menu that lets users navigate to various sections of your app. Users can activate it by swiping from the side or tapping a menu icon.
+The [navigation drawer](https://material.io/components/navigation-drawer) component is a slide-in menu that lets users navigate
+to various sections of your app. Users can activate it by swiping from the side
+or tapping a menu icon.
 
 Consider these three use cases for implementing a navigation drawer:
 
@@ -28,22 +30,27 @@ In Material Design, there are two types of navigation drawers:
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or higher.
+This implementation requires that your project minSDK be set to API level 21 or
+higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_fe30e5b1b3bf57635bdc2152f1499c7d7bf124e4909c22a4e51155c557d1cd7f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Implement a navigation drawer
 
-You can use the [`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0)) composable to implement a navigation drawer:
+You can use the [`ModalNavigationDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalNavigationDrawer.composable#ModalNavigationDrawer(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.material3.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlin.Function0)) composable to implement a
+navigation drawer:
 <iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_37c8d4b060a9c9754da873333a9ae22fe44be4808a53d3a43d4e6b065f3c102f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Key points
 
-- Use the `drawerContent` slot to provide a [`ModalDrawerSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalDrawerSheet.composable#ModalDrawerSheet(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) and provide the drawer's contents.
+- Use the `drawerContent` slot to provide a [`ModalDrawerSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalDrawerSheet.composable#ModalDrawerSheet(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) and
+  provide the drawer's contents.
 
-- `ModalNavigationDrawer` accepts a number of additional drawer parameters. For example, you can toggle whether or not the drawer responds to drags with the `gesturesEnabled` parameter as in the following example:
+- `ModalNavigationDrawer` accepts a number of additional drawer parameters.
+  For example, you can toggle whether or not the drawer responds to drags with
+  the `gesturesEnabled` parameter as in the following example:
 
   <iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-navigation-drawer_b617d07979ac177cc2f4d1fcaf5cbcc7916960c9fef665ee12df27b27047cc6b.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
@@ -59,7 +66,8 @@ To control how the drawer opens and closes, use [`DrawerState`](https://develope
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover
+broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display interactive components

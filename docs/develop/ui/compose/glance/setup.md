@@ -4,9 +4,12 @@ url: https://developer.android.com/develop/ui/compose/glance/setup
 source: md.txt
 ---
 
-This page describes how to set up your development environment to use Glance. You can get the latest available version from [the release page](https://developer.android.com/jetpack/androidx/releases/glance).
+This page describes how to set up your development environment to use Glance.
+You can get the latest available version from
+[the release page](https://developer.android.com/jetpack/androidx/releases/glance).
 
-Add the specific Glance dependency in your app's module based on the type of "glanceable" you want to build.
+Add the specific Glance dependency in your app's module based on the type of
+"glanceable" you want to build.
 
     dependencies {
        // For AppWidgets support
@@ -21,7 +24,8 @@ Add the specific Glance dependency in your app's module based on the type of "gl
 
 ## Activate Compose compiler
 
-Set the following options to ensure that the Compose compiler is available for Glance:
+Set the following options to ensure that the Compose compiler is available for
+Glance:
 
 
     android {

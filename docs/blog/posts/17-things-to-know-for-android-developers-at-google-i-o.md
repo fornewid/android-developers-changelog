@@ -100,7 +100,6 @@ Today's [updates from Google Play](https://goo.gle/play-io26) help expand your r
 
 Android 17 includes new performance \& system architecture improvements (in addition to app memory limits) like a lock-free MessageQueue and a GC with more frequent, less intensive young-generation collections to ensure system-wide stability and smoother UIs. The new [contact picker](https://developer.android.com/about/versions/17/features/contact-picker) and [eyedropper API](https://developer.android.com/reference/android/content/Intent#ACTION_OPEN_EYE_DROPPER) help minimize the use of sensitive permissions and unnecessary access to user data.  
 
-
 Review [the behavior changes](https://developer.android.com/about/versions/17/behavior-changes-all) to make sure your app is ready for Android 17, including [background audio hardening](https://developer.android.com/about/versions/17/behavior-changes-all#bg-audio) and [SMS OTP protection](https://developer.android.com/about/versions/17/behavior-changes-all#sms-otp-all-apps). Get ready to [target Android 17](https://developer.android.com/about/versions/17/behavior-changes-17) (API 37) with changes such as mandatory large-screen resizability, certificate transparency by default, and restricted local network access. You can start testing today by enrolling your device [in the Beta](https://android-developers.googleblog.com/2026/04/the-fourth-beta-of-android-17.html) or using the latest 17.0 emulator images.
 
 Oh, and one more thing. The third beta of our Android 17 [quarterly platform release (QPR1) is here](https://developer.android.com/about/versions/17/qpr1/release-notes), and it contains a minor SDK release to support several features that just couldn't wait for QPR2.
@@ -117,7 +116,8 @@ Written by:
 
   ###### Vice President, Product Management, Android Developer
 
-  [read_more View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
 Continue reading
 - [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -149,5 +149,8 @@ Continue reading
   - +1 ↩
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

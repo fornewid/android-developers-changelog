@@ -7,7 +7,10 @@ source: md.txt
 > [!WARNING]
 > **Warning:** Hey Googler! Before sideloading a new release, check your Building on the [initial release of Android 16](https://developer.android.com/about/versions/16), we continue to update the platform with fixes and improvements that are then rolled out to supported devices. These releases happen on a quarterly cadence through *Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to Google Pixel devices as part of *Feature Drops*.
 
-Although these updates don't include app-impacting API changes, we provide images of the latest QPR beta builds so you can test your app with these builds as needed (for example, if there are upcoming features that might impact the user experience of your app).
+Although these updates don't include app-impacting API changes, we provide
+images of the latest QPR beta builds so you can test your app with these builds
+as needed (for example, if there are upcoming features that might impact the
+user experience of your app).
 
 - Pixel 6 and 6 Pro
 - Pixel 6a
@@ -24,16 +27,28 @@ keywords_public: Android 16, QPR, OTA, Over-The-Air, Pixel devices, beta builds,
 
 <br />
 
-To find OTA images for already-released, stable versions of the platform, see [Full OTA Images for Nexus and Pixel Devices](https://developers.google.com/android/ota). Applying an OTA image can help you recover a device that received an OTA update for an Android 16 QPR Beta build but wouldn't start up after the update was installed. If you are trying to get Android 16 QPR1 on your device but you aren't trying to recover from a failed OTA update, see [Get Android 16 QPR beta builds](https://developer.android.com/about/versions/16/get-qpr) instead. OTA images are available for the following Pixel devices: \* Pixel 6 and 6 Pro \* Pixel 7, 7a, and 7 Pro \* Pixel Fold \* Pixel Tablet \* Pixel 8, 8a, and 8 Pro \* Pixel 9, 9a, 9 Pro, 9 Pro XL, and 9 Pro Fold
+To find OTA images for already-released, stable versions of the platform, see [Full OTA Images for Nexus and Pixel Devices](https://developers.google.com/android/ota). Applying an OTA image can help you recover a device that received an OTA update for an Android 16 QPR Beta build but wouldn't start up after the update was installed. If you are trying to get Android 16 QPR1 on your device but you aren't trying to recover from a failed OTA update, see [Get Android 16 QPR beta
+builds](https://developer.android.com/about/versions/16/get-qpr) instead. OTA images are available for the following Pixel devices: \* Pixel 6 and 6 Pro \* Pixel 7, 7a, and 7 Pro \* Pixel Fold \* Pixel Tablet \* Pixel 8, 8a, and 8 Pro \* Pixel 9, 9a, 9 Pro, 9 Pro XL, and 9 Pro Fold
 
 <br />
 
-After you've installed a beta build to your Pixel device, your device is automatically enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) and offered continuous over-the-air (OTA) updates to the latest beta builds (including QPRs) until you choose to unenroll that device from the program. We also deliver flashable images at each milestone, so you can choose the approach that works best for your test environment. Use the following links and instructions to update your supported device to the latest build. See [Get Android 16 QPR beta builds](https://developer.android.com/about/versions/16/get-qpr) for other ways to get QPR1 for testing and development.
+After you've installed a beta build to your Pixel device, your device is
+automatically enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) and offered
+continuous over-the-air (OTA) updates to the latest beta builds (including QPRs)
+until you choose to unenroll that device from the program. We also deliver
+flashable images at each milestone, so you can choose the approach that works
+best for your test environment.
+Use the following links and instructions to update your supported device to the
+latest build. See [Get Android 16 QPR beta builds](https://developer.android.com/about/versions/16/get-qpr) for other ways to get QPR1
+for testing and development.
 
 ## Apply an OTA image
 
-
-![](https://developer.android.com/static/images/lockups/android-stacked.svg) Download an OTA device image from the following table and apply it by following the [updating instructions](https://developers.google.com/android/ota#instructions) listed on [Full OTA Images for Nexus and Pixel Devices](https://developers.google.com/android/ota). You can choose to [return to the latest public build](https://developer.android.com/about/versions/16/download-ota-qpr#public) at any time.
+![](https://developer.android.com/static/images/lockups/android-stacked.svg)
+Download an OTA device image from the following table and apply it by following
+the [updating instructions](https://developers.google.com/android/ota#instructions) listed on [Full OTA Images for Nexus and Pixel
+Devices](https://developers.google.com/android/ota).
+You can choose to [return to the latest public build](https://developer.android.com/about/versions/16/download-ota-qpr#public) at any time.
 
 <br />
 
@@ -64,7 +79,10 @@ Warning: Before applying an Android 16 OTA image, we strongly recommend that you
 
 ## Return to a public build
 
-You can either use the Android Flash Tool to [flash the factory image](https://flash.android.com/back-to-public), or obtain a factory spec system image from the [Factory Images for Nexus and Pixel Devices](https://developers.google.com/android/images) page and then manually flash it to the device.
+You can either use the Android Flash Tool to
+[flash the factory image](https://flash.android.com/back-to-public), or obtain a factory spec system
+image from the [Factory Images for Nexus and Pixel Devices](https://developers.google.com/android/images)
+page and then manually flash it to the device.
 
 > [!WARNING]
 > **Warning:** Going back to a public build from a preview build (Developer Preview or Beta) requires a full device reset that removes all user data on the device. Make sure to [back up your data first](https://support.google.com/pixelphone/answer/7179901).

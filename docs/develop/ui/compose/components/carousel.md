@@ -4,7 +4,10 @@ url: https://developer.android.com/develop/ui/compose/components/carousel
 source: md.txt
 ---
 
-A carousel displays a scrollable list of items that adapt dynamically based on window size. Use carousels to showcase a collection of related content. Carousel items emphasize visuals, but can also contain brief text that adapts to the item size.
+A carousel displays a scrollable list of items that adapt dynamically based on
+window size. Use carousels to showcase a collection of related content.
+Carousel items emphasize visuals, but can also contain brief text that adapts to
+the item size.
 
 There are four carousel layouts available to suit different use cases:
 
@@ -15,11 +18,15 @@ There are four carousel layouts available to suit different use cases:
 
 ![An uncontained and full-screen carousel type shown next to each other. The uncontained carousel type has multiple carousel items, while full-screen has one item taking up the screen](https://developer.android.com/static/develop/ui/compose/images/components/carousel-uncontained-and-full-screen.png) **Figure 1.** Uncontained (1) and full-screen (2) carousel types.
 
-This page shows you how to implement the multi-browse and uncontained carousel layouts. See the [Carousel Material 3 guidelines](https://m3.material.io/components/carousel/overview) for more information about the layout types.
+This page shows you how to implement the multi-browse and uncontained carousel
+layouts. See the [Carousel Material 3 guidelines](https://m3.material.io/components/carousel/overview) for
+more information about the layout types.
 
 ## API surface
 
-To implement multi-browse and uncontained carousels, use the [`HorizontalMultiBrowseCarousel`](https://developer.android.com/reference/kotlin/androidx/compose/material3/carousel/HorizontalMultiBrowseCarousel.composable) and [`HorizontalUncontainedCarousel`](https://developer.android.com/reference/kotlin/androidx/compose/material3/carousel/HorizontalUncontainedCarousel.composable) composables. These composables share the following key parameters:
+To implement multi-browse and uncontained carousels, use the
+[`HorizontalMultiBrowseCarousel`](https://developer.android.com/reference/kotlin/androidx/compose/material3/carousel/HorizontalMultiBrowseCarousel.composable) and [`HorizontalUncontainedCarousel`](https://developer.android.com/reference/kotlin/androidx/compose/material3/carousel/HorizontalUncontainedCarousel.composable)
+composables. These composables share the following key parameters:
 
 - `state`: A `CarouselState` instance that manages the current item index and scroll position. Create this state using `rememberCarouselState { itemCount }`, where `itemCount` is the total number of items in the carousel.
 - `itemSpacing`: Defines the amount of empty space between adjacent items in the carousel.
@@ -35,7 +42,6 @@ These composables differ in how they specify item sizing:
 
 This snippet implements a multi-browse carousel:
 
-<br />
 
 ```kotlin
 @Composable
@@ -77,7 +83,6 @@ fun CarouselExample_MultiBrowse() {
         )
     }
 }
-   
 ```
 
 <br />
@@ -103,7 +108,6 @@ The following image shows the result from the preceding snippet:
 
 The following snippet implements an uncontained carousel:
 
-<br />
 
 ```kotlin
 @Composable
@@ -145,7 +149,6 @@ fun CarouselExample() {
         )
     }
 }
-   
 ```
 
 <br />

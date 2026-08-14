@@ -7,46 +7,68 @@ source: md.txt
 > [!NOTE]
 > **Note:** Modern android development (MAD) uses a single-activity architecture based on Jetpack APIs, including Jetpack Compose. Activity embedding is designed for multiple-activity, legacy apps that can't be easily updated to MAD. Create new apps using MAD. Update your legacy apps to MAD whenever possible.
 
-Activity embedding optimizes apps on large screen devices by splitting an application's task window between two activities or two instances of the same activity.
+Activity embedding optimizes apps on large screen devices by splitting an
+application's task window between two activities or two instances of the same
+activity.
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/settings_app.png) **Figure 1.** Settings app with activities side by side.
 
-If your app consists of multiple activities, activity embedding enables you to provide an enhanced user experience on tablets, foldables, and ChromeOS devices.
+If your app consists of multiple activities, activity embedding enables you to
+provide an enhanced user experience on tablets, foldables, and ChromeOS devices.
 
-Activity embedding requires no code refactoring. You determine how your app displays its activities---side by side or stacked---by creating an XML configuration file or by making [Jetpack WindowManager](https://developer.android.com/reference/androidx/window/embedding/package-summary) API calls.
+Activity embedding requires no code refactoring. You determine how your app
+displays its activities---side by side or stacked---by creating an XML
+configuration file or by making [Jetpack WindowManager](https://developer.android.com/reference/androidx/window/embedding/package-summary) API calls.
 
-Support for small screens is maintained automatically. When your app is on a device with a small screen, activities are stacked one on top of the other. On large screens, activities are displayed side by side. The system determines the presentation based on the configuration you've created---no branching logic required.
+Support for small screens is maintained automatically. When your app is on a
+device with a small screen, activities are stacked one on top of the other. On
+large screens, activities are displayed side by side. The system determines the
+presentation based on the configuration you've created---no branching logic
+required.
 
-Activity embedding accommodates device orientation changes and works seamlessly on foldable devices, stacking and unstacking activities as the device folds and unfolds.
+Activity embedding accommodates device orientation changes and works seamlessly
+on foldable devices, stacking and unstacking activities as the device folds and
+unfolds.
 
-Activity embedding is supported on most large screen devices running Android 12L (API level 32) and higher.
+Activity embedding is supported on most large screen devices running Android 12L
+(API level 32) and higher.
 
 > [!NOTE]
 > **Objective:** Activity embedding enables activity-based apps to meet the [LS-U1](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality#LS-U1) requirement of the [Large screen app quality](https://developer.android.com/docs/quality-guidelines/large-screen-app-quality) guidelines.
 
 ## Split task window
 
-Activity embedding splits the app task window into two containers: primary and secondary. The containers hold activities launched from the main activity or from other activities already in the containers.
+Activity embedding splits the app task window into two containers: primary and
+secondary. The containers hold activities launched from the main activity or
+from other activities already in the containers.
 
-Activities are stacked in the secondary container as they're launched, and the secondary container is stacked on top of the primary container on small screens, so activity stacking and back navigation are consistent with the ordering of activities already built into your app.
+Activities are stacked in the secondary container as they're launched, and the
+secondary container is stacked on top of the primary container on small screens,
+so activity stacking and back navigation are consistent with the ordering of
+activities already built into your app.
 
-Activity embedding enables you to display activities in a variety of ways. Your app can split the task window by launching two activities simultaneously side by side or one above the other:
+Activity embedding enables you to display activities in a variety of ways. Your
+app can split the task window by launching two activities simultaneously side
+by side or one above the other:
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_b.png) ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_over_b.png) **Figure 2.** Two activities side by side and one above the other.
 
 > [!NOTE]
 > **Note:** The aspect ratio of the display determines the relative positioning of activities. On landscape displays, activities are displayed side by side; on portrait displays or foldables in tabletop posture, one above the other. See also [Split orientation](https://developer.android.com/develop/ui/views/layout/activity-embedding#split_orientation).
 
-An activity that's occupying the entire task window can create a split by launching a new activity alongside:
+An activity that's occupying the entire task window can create a split by
+launching a new activity alongside:
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_to_a_b.png) **Figure 3.** Activity A starts activity B to the side.
 
 > [!NOTE]
 > **Note:** Only the activity that created the split can occupy the primary container. The secondary container, however, can contain a stack of activities.
 
-Activities that are already in a split and sharing a task window can launch other activities in the following ways:
+Activities that are already in a split and sharing a task window can launch
+other activities in the following ways:
 
 - To the side on top of another activity:
 
   ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_b_to_a_c.png) **Figure 4.** Activity A starts activity C to the side over activity B.
-- To the side, and shift the split sideways, concealing the previous primary activity:
+- To the side, and shift the split sideways, concealing the previous primary
+  activity:
 
   ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_b_to_b_c.png) **Figure 5.** Activity B starts activity C to the side and shifts the split sideways.
 - Launch an activity in place on top; that is, in the same activity stack:
@@ -58,33 +80,54 @@ Activities that are already in a split and sharing a task window can launch othe
 
 ## Back navigation
 
-Different types of applications can have different back navigation rules in a split task window state depending on the dependencies between activities or how users trigger the back event, for example:
+Different types of applications can have different back navigation rules in a
+split task window state depending on the dependencies between activities or how
+users trigger the back event, for example:
 
 - Going together: If activities are related, and one shouldn't be shown without the other, back navigation can be configured to finish both.
 - Going it alone: If activities are fully independent, back navigation on an activity does not affect the state of another activity in the task window.
 
-The back event is sent to the last focused activity when using button navigation.
+The back event is sent to the last focused activity when using button
+navigation.
 
 For gesture-based navigation:
 
-- Android 14 (API level 34) and lower --- The back event is sent to the activity where the gesture occurred. When users swipe from the left side of the screen, the back event is sent to the activity in the left‑hand pane of the split window. When users swipe from the right side of the screen, the back event is sent to the activity in the right‑hand pane.
+- Android 14 (API level 34) and lower --- The back event is sent to the
+  activity where the gesture occurred. When users swipe from the left side of
+  the screen, the back event is sent to the activity in the left‑hand
+  pane of the split window. When users swipe from the right side of the
+  screen, the back event is sent to the activity in the right‑hand pane.
 
 - Android 15 (API level 35) and higher
 
-  - When dealing with multiple activities from the same app, the gesture finishes the top activity regardless of the swipe direction, providing a more unified experience.
+  - When dealing with multiple activities from the same app, the gesture
+    finishes the top activity regardless of the swipe direction, providing a
+    more unified experience.
 
-  - In scenarios involving two activities from different apps (overlay), the back event is directed to the last activity in focus, aligning with the behavior of button navigation.
+  - In scenarios involving two activities from different apps (overlay), the
+    back event is directed to the last activity in focus, aligning with the
+    behavior of button navigation.
 
 ## Multi-pane layout
 
-Jetpack WindowManager enables you to build an activity embedding multi-pane layout on large screen devices with Android 12L (API level 32) or higher and on some devices with earlier platform versions. Existing apps that are based on multiple activities rather than fragments or view-based layouts such as [`SlidingPaneLayout`](https://developer.android.com/reference/androidx/slidingpanelayout/widget/SlidingPaneLayout) can provide an improved large screen user experience without refactoring source code.
+Jetpack WindowManager enables you to build an activity embedding multi-pane
+layout on large screen devices with Android 12L (API level 32) or higher and on
+some devices with earlier platform versions. Existing apps that are based on
+multiple activities rather than fragments or view-based layouts such as
+[`SlidingPaneLayout`](https://developer.android.com/reference/androidx/slidingpanelayout/widget/SlidingPaneLayout) can provide an improved large screen user experience
+without refactoring source code.
 
-One common example is a list-detail split. To ensure a high-quality presentation, the system starts the list activity, and then the application immediately starts the detail activity. The transition system waits until both activities are drawn, then displays them together. To the user, the two activities launch as one.
+One common example is a list-detail split. To ensure a high-quality
+presentation, the system starts the list activity, and then the application
+immediately starts the detail activity. The transition system waits until both
+activities are drawn, then displays them together. To the user, the two
+activities launch as one.
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/launcher_to_list-detail.png) **Figure 8.** Two activities started simultaneously in a multi-pane layout.
 
 ## Split attributes
 
-You can specify how the task window is proportioned between the split containers and how the containers are layed out relative to one another.
+You can specify how the task window is proportioned between the split containers
+and how the containers are layed out relative to one another.
 
 For rules defined in an XML configuration file, set the following attributes:
 
@@ -96,10 +139,13 @@ For rules defined in an XML configuration file, set the following attributes:
 
 See the [XML configuration](https://developer.android.com/develop/ui/views/layout/activity-embedding#xml_configuration) section for examples.
 
-For rules created using the WindowManager APIs, create a [`SplitAttributes`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes) object with [`SplitAttributes.Builder`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes.Builder) and call the following builder methods:
+For rules created using the WindowManager APIs, create a [`SplitAttributes`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes)
+object with [`SplitAttributes.Builder`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes.Builder) and call the following builder
+methods:
 
 - `setSplitType()`: Sets the proportions of the split containers. See [`SplitAttributes.SplitType`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes.SplitType) for valid arguments, including the [`SplitAttributes.SplitType.ratio()`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes.SplitType#ratio(kotlin.Float)) method.
-- `setLayoutDirection()`: Sets the layout of the containers. See [`SplitAttributes.LayoutDirection`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes.LayoutDirection) for possible values.
+- `setLayoutDirection()`: Sets the layout of the containers. See
+  [`SplitAttributes.LayoutDirection`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes.LayoutDirection) for possible values.
 
   > [!NOTE]
   > **Note:** The [`TOP_TO_BOTTOM`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes.LayoutDirection#TOP_TO_BOTTOM()) and [`BOTTOM_TO_TOP`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes.LayoutDirection#BOTTOM_TO_TOP()) specifications are available only through the WindowManager APIs. Equivalent XML attributes are not supported.
@@ -109,13 +155,18 @@ See the [WindowManager API](https://developer.android.com/develop/ui/views/layou
 
 ## Split orientation
 
-The dimensions and aspect ratio of the display determine the positioning of activities in activity embedding splits. On large landscape displays, activities are displayed side by side; on tall portrait displays or tabletop posture on foldables, one above the other.
+The dimensions and aspect ratio of the display determine the positioning of
+activities in activity embedding splits. On large landscape displays, activities
+are displayed side by side; on tall portrait displays or tabletop posture on
+foldables, one above the other.
 
-You can specify the split orientation with the [`SplitController`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitController) [`SplitAttributes`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes) calculator. The calculator computes `SplitAttributes` for the active [`SplitRule`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitRule).
+You can specify the split orientation with the [`SplitController`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitController)
+[`SplitAttributes`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes) calculator. The calculator computes `SplitAttributes` for
+the active [`SplitRule`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitRule).
 
-Use the calculator to split the parent container in different directions for different device states, for example:
+Use the calculator to split the parent container in different directions for
+different device states, for example:
 
-<br />
 
 ### Kotlin
 
@@ -142,7 +193,6 @@ if (WindowSdkExtensions.getInstance().extensionVersion >= 2) {
         }
     }
 }
-      
 ```
 
 ### Java
@@ -170,14 +220,14 @@ if (WindowSdkExtensions.getInstance().getExtensionVersion() >= 2) {
         }
     });
 }
-      
 ```
 
 <br />
 
-On foldable devices, you can split the screen vertically if the device is landscape, display a single activity if the device is portrait, and split the screen horizontally if the device is in tabletop posture:
+On foldable devices, you can split the screen vertically if the device is
+landscape, display a single activity if the device is portrait, and split the
+screen horizontally if the device is in tabletop posture:
 
-<br />
 
 ### Kotlin
 
@@ -217,7 +267,6 @@ if (WindowSdkExtensions.getInstance().extensionVersion >= 2) {
         }
     }
 }
-      
 ```
 
 ### Java
@@ -259,7 +308,6 @@ if (WindowSdkExtensions.getInstance().getExtensionVersion() >= 2) {
         }
     });
 }
-      
 ```
 
 <br />
@@ -269,21 +317,42 @@ if (WindowSdkExtensions.getInstance().getExtensionVersion() >= 2) {
 
 ## Placeholders
 
-Placeholder activities are empty secondary activities that occupy an area of an activity split. They are ultimately meant to be replaced with another activity that contains content. For example, a placeholder activity could occupy the secondary side of an activity split in a list-detail layout until an item from the list is selected, at which point an activity containing the detail information for the selected list item replaces the placeholder.
+Placeholder activities are empty secondary activities that occupy an area of an
+activity split. They are ultimately meant to be replaced with another activity
+that contains content. For example, a placeholder activity could occupy the
+secondary side of an activity split in a list-detail layout until an item from
+the list is selected, at which point an activity containing the detail
+information for the selected list item replaces the placeholder.
 
-By default, the system displays placeholders only when there is enough space for an activity split. Placeholders automatically finish when the display size changes to a width or height too small to display a split. When space permits, the system relaunches the placeholder with a reinitialized state.
+By default, the system displays placeholders only when there is enough space for
+an activity split. Placeholders automatically finish when the display size
+changes to a width or height too small to display a split. When space permits,
+the system relaunches the placeholder with a reinitialized state.
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/placeholder_finished_recreated.png) **Figure 10.** Foldable device folding and unfolding. Placeholder activity is finished and recreated as display size changes.
 
-However, the `stickyPlaceholder` attribute of a [`SplitPlaceholderRule`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPlaceholderRule) or [`setSticky()`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPlaceholderRule.Builder#setSticky(kotlin.Boolean)) method of [`SplitPlaceholder.Builder`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPlaceholderRule.Builder) can override the default behavior. When the attribute or method specifies a value of `true`, the system displays the placeholder as the topmost activity in the task window when the display is resized down to a single-pane display from a two-pane display (see [Split configuration](https://developer.android.com/develop/ui/views/layout/activity-embedding#split_configuration) for an example).
+However, the `stickyPlaceholder` attribute of a [`SplitPlaceholderRule`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPlaceholderRule) or
+[`setSticky()`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPlaceholderRule.Builder#setSticky(kotlin.Boolean)) method of [`SplitPlaceholder.Builder`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPlaceholderRule.Builder) can override the
+default behavior. When the attribute or method specifies a value of `true`, the
+system displays the placeholder as the topmost activity in the task window when
+the display is resized down to a single-pane display from a two-pane display
+(see [Split configuration](https://developer.android.com/develop/ui/views/layout/activity-embedding#split_configuration) for an example).
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/placeholder_sticky.png) **Figure 11.** Foldable device folding and unfolding. Placeholder activity is sticky.
 
 ## Window size changes
 
-When device configuration changes reduce the task window width so that it is not large enough for a multi-pane layout (for example, when a large screen foldable device folds from tablet size to phone size or the app window is resized in multi-window mode), the non-placeholder activities in the secondary pane of the task window are stacked on top of the activities in the primary pane.
+When device configuration changes reduce the task window width so that it is not
+large enough for a multi-pane layout (for example, when a large screen foldable
+device folds from tablet size to phone size or the app window is resized in
+multi-window mode), the non-placeholder activities in the secondary pane of the
+task window are stacked on top of the activities in the primary pane.
 
-Placeholder activities are shown only when there is enough display width for a split. On smaller screens, the placeholder is automatically dismissed. When the display area becomes large enough again, the placeholder is recreated. (See the [Placeholders](https://developer.android.com/develop/ui/views/layout/activity-embedding#placeholders) section.)
+Placeholder activities are shown only when there is enough display width for a
+split. On smaller screens, the placeholder is automatically dismissed. When the
+display area becomes large enough again, the placeholder is recreated. (See the
+[Placeholders](https://developer.android.com/develop/ui/views/layout/activity-embedding#placeholders) section.)
 
-Activity stacking is possible because [WindowManager](https://developer.android.com/reference/android/view/WindowManager) z-orders the activities in the secondary pane above activities in the primary pane.
+Activity stacking is possible because [WindowManager](https://developer.android.com/reference/android/view/WindowManager) z-orders the activities
+in the secondary pane above activities in the primary pane.
 
 ### Multiple activities in secondary pane
 
@@ -298,13 +367,16 @@ resulting in the following z-order of activities in the same task:
 Secondary stack is stacked on top of prmary activity stack
 containing activity A.](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_with_b_c_stack.png)
 
-So, in a smaller task window, the application shrinks to a single activity with C at the top of the stack:
+So, in a smaller task window, the application shrinks to a single activity with
+C at the top of the stack:
 
 ![Small window showing only activity C.](https://developer.android.com/static/develop/ui/views/images/activity-embedding/c_stack.png)
 
-Navigating back in the smaller window navigates through the activities stacked on top of each other.
+Navigating back in the smaller window navigates through the activities stacked
+on top of each other.
 
-If the task window configuration is restored to a larger size that can accommodate multiple panes, the activities are displayed side by side again.
+If the task window configuration is restored to a larger size that can
+accommodate multiple panes, the activities are displayed side by side again.
 
 ### Stacked splits
 
@@ -317,40 +389,59 @@ The result is the following z-order of activities in the same task:
 ![Activities A, B, and C in a single stack. The activities are stacked
 in the following order from top to bottom: C, B, A.](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_b_c_stack.png)
 
-In a smaller task window, the application shrinks to a single activity with C on top:
+In a smaller task window, the application shrinks to a single activity with C on
+top:
 
 ![Small window showing only activity C.](https://developer.android.com/static/develop/ui/views/images/activity-embedding/c_stack.png)
 
 ## Fixed-portrait orientation
 
-The [android:screenOrientation](https://developer.android.com/guide/topics/manifest/activity-element#screen) manifest setting enables apps to constrain activities to portrait or landscape orientation. To improve the user experience on large screen devices such as tablets and foldables, device manufacturers (OEMs) can ignore screen orientation requests and letterbox the app in portrait orientation on landscape displays or landscape orientation on portrait displays.
+The [android:screenOrientation](https://developer.android.com/guide/topics/manifest/activity-element#screen) manifest setting enables apps to constrain
+activities to portrait or landscape orientation. To improve the user experience
+on large screen devices such as tablets and foldables, device manufacturers
+(OEMs) can ignore screen orientation requests and letterbox the app in portrait
+orientation on landscape displays or landscape orientation on portrait displays.
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_letterboxed_portrait_and_landscape.png) **Figure 12.** Letterboxed activities: fixed-portrait on landscape device (left), fixed-landscape on portrait device (right).
 
-Similarly, when activity embedding is enabled, OEMs can customize devices to letterbox fixed-portrait activities in landscape orientation on large screens (width ≥ 600dp). When a fixed-portrait activity launches a second activity, the device can display the two activities side by side in a two-pane display.
+Similarly, when activity embedding is enabled, OEMs can customize devices to
+letterbox fixed-portrait activities in landscape orientation on large screens
+(width ≥ 600dp). When a fixed-portrait activity launches a second activity,
+the device can display the two activities side by side in a two-pane display.
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_letterboxed_portrait_to_a_b.png) **Figure 13.** Fixed-portrait activity A starts activity B to the side.
 
-Always add the `android.window.PROPERTY_ACTIVITY_EMBEDDING_SPLITS_ENABLED` property to your app manifest file to inform devices that your app supports activity embedding (see the [Split configuration](https://developer.android.com/develop/ui/views/layout/activity-embedding#split_configuration) section). OEM-customized devices can then determine whether to letterbox fixed-portrait activities.
+Always add the `android.window.PROPERTY_ACTIVITY_EMBEDDING_SPLITS_ENABLED`
+property to your app manifest file to inform devices that your app supports
+activity embedding (see the [Split configuration](https://developer.android.com/develop/ui/views/layout/activity-embedding#split_configuration)
+section). OEM-customized devices can then determine whether to letterbox
+fixed-portrait activities.
 
 ## Split configuration
 
-Split rules configure activity splits. You define split rules in an XML configuration file or by making Jetpack [WindowManager](https://developer.android.com/jetpack/androidx/releases/window) API calls.
+Split rules configure activity splits. You define split rules in an XML
+configuration file or by making Jetpack [WindowManager](https://developer.android.com/jetpack/androidx/releases/window) API
+calls.
 
-In either case, your app must access the WindowManager library and must inform the system that the app has implemented activity embedding.
+In either case, your app must access the WindowManager library and must inform
+the system that the app has implemented activity embedding.
 
 Do the following:
 
-1. Add the latest WindowManager library dependency to your app's module-level `build.gradle` file, for example:
+1. Add the latest WindowManager library dependency to your app's module-level
+   `build.gradle` file, for example:
 
    `implementation 'androidx.window:window:1.1.0-beta02'`
 
-   The WindowManager library provides all the components required for activity embedding.
+   The WindowManager library provides all the components required for activity
+   embedding.
 
    > [!NOTE]
    > **Note:** See the [WindowManager release notes](https://developer.android.com/jetpack/androidx/releases/window) for release versions.
 
 2. Inform the system that your app has implemented activity embedding.
 
-   Add the `android.window.PROPERTY_ACTIVITY_EMBEDDING_SPLITS_ENABLED` property to the \<application\> element of the app manifest file, and set the value to true, for example:
+   Add the `android.window.PROPERTY_ACTIVITY_EMBEDDING_SPLITS_ENABLED` property
+   to the \<application\> element of the app manifest file, and set the
+   value to true, for example:
 
        <manifest xmlns:android="http://schemas.android.com/apk/res/android">
            <application>
@@ -360,13 +451,19 @@ Do the following:
            </application>
        </manifest>
 
-   On WindowManager release 1.1.0-alpha06 and later, activity embedding splits are disabled unless the property is added to the manifest and set to true.
+   On WindowManager release 1.1.0-alpha06 and later, activity embedding splits
+   are disabled unless the property is added to the manifest and set to true.
 
-   Also, device manufacturers use the setting to enable custom capabilities for apps that support activity embedding. For example, devices can letterbox a portrait-only activity on landscape displays to orient the activity for the transition to a two-pane layout when a second activity starts (see [Fixed-portrait orientation](https://developer.android.com/develop/ui/views/layout/activity-embedding#fixed_portrait)).
+   Also, device manufacturers use the setting to enable custom capabilities for
+   apps that support activity embedding. For example, devices can letterbox a
+   portrait-only activity on landscape displays to orient the activity for the
+   transition to a two-pane layout when a second activity starts (see
+   [Fixed-portrait orientation](https://developer.android.com/develop/ui/views/layout/activity-embedding#fixed_portrait)).
 
 ### XML configuration
 
-To create an XML-based implementation of activity embedding, complete the following steps:
+To create an XML-based implementation of activity embedding, complete the
+following steps:
 
 1. Create an XML resource file that does the following:
 
@@ -422,10 +519,15 @@ To create an XML-based implementation of activity embedding, complete the follow
 
 2. Create an initializer.
 
-   The WindowManager [`RuleController`](https://developer.android.com/reference/kotlin/androidx/window/embedding/RuleController) component parses the XML configuration file and makes the rules available to the system. A Jetpack [Startup](https://developer.android.com/jetpack/androidx/releases/startup) library [`Initializer`](https://developer.android.com/reference/kotlin/androidx/startup/Initializer) makes the XML file available to `RuleController` at app startup so that the rules are in effect when any activities start.
+   The WindowManager [`RuleController`](https://developer.android.com/reference/kotlin/androidx/window/embedding/RuleController) component parses the XML
+   configuration file and makes the rules available to the system. A Jetpack
+   [Startup](https://developer.android.com/jetpack/androidx/releases/startup) library [`Initializer`](https://developer.android.com/reference/kotlin/androidx/startup/Initializer) makes the XML file available to
+   `RuleController` at app startup so that the rules are in effect when any
+   activities start.
 
    To create an initializer, do the following:
-   1. Add the latest Jetpack Startup library dependency to your module-level `build.gradle` file, for example:
+   1. Add the latest Jetpack Startup library dependency to your module-level
+      `build.gradle` file, for example:
 
       `implementation 'androidx.startup:startup-runtime:1.1.1'`
 
@@ -434,9 +536,10 @@ To create an XML-based implementation of activity embedding, complete the follow
 
    2. Create a class that implements the `Initializer` interface.
 
-      The initializer makes the split rules available to `RuleController` by passing the ID of the XML configuration file (`main_split_config.xml`) to the `RuleController.parseRules()` method.
+      The initializer makes the split rules available to `RuleController` by
+      passing the ID of the XML configuration file (`main_split_config.xml`)
+      to the `RuleController.parseRules()` method.
 
-      <br />
 
       ### Kotlin
 
@@ -453,7 +556,6 @@ To create an XML-based implementation of activity embedding, complete the follow
               return emptyList()
           }
       }
-                
       ```
 
       ### Java
@@ -477,14 +579,15 @@ To create an XML-based implementation of activity embedding, complete the follow
                return Collections.emptyList();
            }
       }
-                
       ```
 
       <br />
 
 3. Create a content provider for the rule definitions.
 
-   Add [`androidx.startup.InitializationProvider`](https://developer.android.com/reference/androidx/startup/InitializationProvider) to your app manifest file as a [`<provider>`](https://developer.android.com/guide/topics/manifest/provider-element). Include a reference to the implementation of your `RuleController` initializer, `SplitInitializer`:
+   Add [`androidx.startup.InitializationProvider`](https://developer.android.com/reference/androidx/startup/InitializationProvider) to your app manifest file
+   as a [`<provider>`](https://developer.android.com/guide/topics/manifest/provider-element). Include a reference to the implementation of your
+   `RuleController` initializer, `SplitInitializer`:
 
        <!-- AndroidManifest.xml -->
 
@@ -497,11 +600,16 @@ To create an XML-based implementation of activity embedding, complete the follow
                android:value="androidx.startup" />
        </provider>
 
-   `InitializationProvider` discovers and initializes `SplitInitializer` before the app's `onCreate()` method is called. As a result, the split rules are in effect when the app's main activity starts.
+   `InitializationProvider` discovers and initializes `SplitInitializer` before
+   the app's `onCreate()` method is called. As a result, the split rules are in
+   effect when the app's main activity starts.
 
 ### WindowManager API
 
-You can implement activity embedding programmatically with a handful of API calls. Make the calls in the `onCreate()` method of a subclass of [`Application`](https://developer.android.com/reference/kotlin/android/app/Application) to ensure the rules are in effect before any activities launch.
+You can implement activity embedding programmatically with a handful of API
+calls. Make the calls in the `onCreate()` method of a subclass of
+[`Application`](https://developer.android.com/reference/kotlin/android/app/Application) to ensure the rules are in effect before any activities
+launch.
 
 > [!NOTE]
 > **Note:** For basic implementations, you can add the rules to `RuleController` in the `onCreate()` method of the app's main activity or the primary activity of a split. However, deep links and various app destruction and recreation use cases can bypass initialization implemented this way. For reliable initialization in all use cases, add the rules to `RuleController` in an `Application` subclass (or Jetpack Startup initializer if you're using an XML configuration file, see [XML configuration](https://developer.android.com/develop/ui/views/layout/activity-embedding#xml_configuration)).
@@ -510,9 +618,9 @@ To programmatically create an activity split, do the following:
 
 1. Create a split rule:
 
-   1. Create a [`SplitPairFilter`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPairFilter) that identifies the activities that share the split:
+   1. Create a [`SplitPairFilter`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPairFilter)
+      that identifies the activities that share the split:
 
-      <br />
 
       ### Kotlin
 
@@ -522,7 +630,6 @@ To programmatically create an activity split, do the following:
           ComponentName(this, DetailActivity::class.java),
           null
       )
-                
       ```
 
       ### Java
@@ -533,20 +640,17 @@ To programmatically create an activity split, do the following:
          new ComponentName(this, DetailActivity.class),
          null
       );
-                
       ```
 
       <br />
 
    2. Add the filter to a filter set:
 
-      <br />
 
       ### Kotlin
 
       ```kotlin
       val filterSet = setOf(splitPairFilter)
-                
       ```
 
       ### Java
@@ -554,7 +658,6 @@ To programmatically create an activity split, do the following:
       ```java
       Set<SplitPairFilter> filterSet = new HashSet<>();
       filterSet.add(splitPairFilter);
-                
       ```
       \`\`\`
 
@@ -562,7 +665,6 @@ To programmatically create an activity split, do the following:
 
    3. Create layout attributes for the split:
 
-      <br />
 
       ### Kotlin
 
@@ -571,7 +673,6 @@ To programmatically create an activity split, do the following:
           .setSplitType(SplitAttributes.SplitType.ratio(0.33f))
           .setLayoutDirection(SplitAttributes.LayoutDirection.LEFT_TO_RIGHT)
           .build()
-                
       ```
 
       ### Java
@@ -581,17 +682,16 @@ To programmatically create an activity split, do the following:
             .setSplitType(SplitAttributes.SplitType.ratio(0.33f))
             .setLayoutDirection(SplitAttributes.LayoutDirection.LEFT_TO_RIGHT)
             .build();
-                
       ```
 
       <br />
 
-      [`SplitAttributes.Builder`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes.Builder) creates an object containing layout attributes:
+      [`SplitAttributes.Builder`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes.Builder) creates an object containing layout
+      attributes:
       - [`setSplitType()`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes.Builder#setSplitType(androidx.window.embedding.SplitAttributes.SplitType)): Defines how the available display area is allocated to each activity container. The ratio split type specifies the proportion of the available display area allocated to the primary container; the secondary container occupies the remainder of the available display area.
       - [`setLayoutDirection()`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitAttributes.Builder#setLayoutDirection(androidx.window.embedding.SplitAttributes.LayoutDirection)): Specifies how the activity containers are laid out relative to one another, primary container first.
    4. Build a [`SplitPairRule`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPairRule):
 
-      <br />
 
       ### Kotlin
 
@@ -605,7 +705,6 @@ To programmatically create an activity split, do the following:
           .setFinishSecondaryWithPrimary(SplitRule.FinishBehavior.ALWAYS)
           .setClearTop(false)
           .build()
-                
       ```
 
       ### Java
@@ -620,7 +719,6 @@ To programmatically create an activity split, do the following:
           .setFinishSecondaryWithPrimary(SplitRule.FinishBehavior.ALWAYS)
           .setClearTop(false)
           .build();
-                
       ```
 
       <br />
@@ -634,16 +732,15 @@ To programmatically create an activity split, do the following:
       - [`setFinishPrimaryWithSecondary()`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPairRule.Builder#setFinishPrimaryWithSecondary(androidx.window.embedding.SplitRule.FinishBehavior)): Sets how finishing all activities in the secondary container affects the activities in the primary container. `NEVER` indicates the system shouldn't finish the primary activities when all activities in the secondary container finish (see [Finish activities](https://developer.android.com/develop/ui/views/layout/activity-embedding#finish_activities)).
       - [`setFinishSecondaryWithPrimary()`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPairRule.Builder#setFinishSecondaryWithPrimary(androidx.window.embedding.SplitRule.FinishBehavior)): Sets how finishing all activities in the primary container affects the activities in the secondary container. `ALWAYS` indicates the system should always finish the activities in the secondary container when all activities in the primary container finish (see [Finish activities](https://developer.android.com/develop/ui/views/layout/activity-embedding#finish_activities)).
       - [`setClearTop()`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPairRule.Builder#setClearTop(kotlin.Boolean)): Specifies whether all activities in the secondary container are finished when a new activity is launched in the container. A `false` value specifies that new activities are stacked on top of activities already in the secondary container.
-   5. Get the singleton instance of the WindowManager [`RuleController`](https://developer.android.com/reference/kotlin/androidx/window/embedding/RuleController), and add the rule:
+   5. Get the singleton instance of the WindowManager [`RuleController`](https://developer.android.com/reference/kotlin/androidx/window/embedding/RuleController),
+      and add the rule:
 
-      <br />
 
       ### Kotlin
 
       ```kotlin
       val ruleController = RuleController.getInstance(this)
       ruleController.addRule(splitPairRule)
-                
       ```
 
       ### Java
@@ -651,16 +748,16 @@ To programmatically create an activity split, do the following:
       ```java
       RuleController ruleController = RuleController.getInstance(this);
       ruleController.addRule(splitPairRule);
-                
       ```
 
       <br />
 
-   6. Create a [placeholder](https://developer.android.com/develop/ui/views/layout/activity-embedding#placeholders) for the secondary container when content is not available:
+   6. Create a [placeholder](https://developer.android.com/develop/ui/views/layout/activity-embedding#placeholders) for the secondary container when
+      content is not available:
 
-   7. Create an [`ActivityFilter`](https://developer.android.com/reference/kotlin/androidx/window/embedding/ActivityFilter) that identifies the activity with which the placeholder shares a task window split:
+   7. Create an [`ActivityFilter`](https://developer.android.com/reference/kotlin/androidx/window/embedding/ActivityFilter) that identifies the activity with which
+      the placeholder shares a task window split:
 
-      <br />
 
       ### Kotlin
 
@@ -669,7 +766,6 @@ To programmatically create an activity split, do the following:
           ComponentName(this, ListActivity::class.java),
           null
       )
-                
       ```
 
       ### Java
@@ -679,20 +775,17 @@ To programmatically create an activity split, do the following:
           new ComponentName(this, ListActivity.class),
           null
       );
-                
       ```
 
       <br />
 
    8. Add the filter to a filter set:
 
-      <br />
 
       ### Kotlin
 
       ```kotlin
       val placeholderActivityFilterSet = setOf(placeholderActivityFilter)
-                
       ```
 
       ### Java
@@ -700,14 +793,13 @@ To programmatically create an activity split, do the following:
       ```java
       Set<ActivityFilter> placeholderActivityFilterSet = new HashSet<>();
       placeholderActivityFilterSet.add(placeholderActivityFilter);
-                
       ```
 
       <br />
 
-   9. Create a [`SplitPlaceholderRule`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPlaceholderRule):
+   9. Create a
+      [`SplitPlaceholderRule`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPlaceholderRule):
 
-      <br />
 
       ### Kotlin
 
@@ -722,7 +814,6 @@ To programmatically create an activity split, do the following:
           .setFinishPrimaryWithPlaceholder(SplitRule.FinishBehavior.ALWAYS)
           .setSticky(false)
           .build()
-                
       ```
 
       ### Java
@@ -738,7 +829,6 @@ To programmatically create an activity split, do the following:
            .setFinishPrimaryWithPlaceholder(SplitRule.FinishBehavior.ALWAYS)
            .setSticky(false)
            .build();
-                
       ```
 
       <br />
@@ -754,20 +844,17 @@ To programmatically create an activity split, do the following:
       - [`setSticky()`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPlaceholderRule.Builder#setSticky(kotlin.Boolean)): Determines whether the placeholder activity appears on top of the activity stack on small displays once the placeholder has first appeared in a split with sufficient minimum width.
    10. Add the rule to the WindowManager `RuleController`:
 
-       <br />
 
        ### Kotlin
 
        ```kotlin
        ruleController.addRule(splitPlaceholderRule)
-                 
        ```
 
        ### Java
 
        ```java
        ruleController.addRule(splitPlaceholderRule);
-                 
        ```
 
        <br />
@@ -777,9 +864,9 @@ To programmatically create an activity split, do the following:
 
 2. Specify activities that should never be part of a split:
 
-   1. Create an `ActivityFilter` that identifies an activity that should always occupy the entire task display area:
+   1. Create an `ActivityFilter` that identifies an activity that should
+      always occupy the entire task display area:
 
-      <br />
 
       ### Kotlin
 
@@ -788,7 +875,6 @@ To programmatically create an activity split, do the following:
           ComponentName(this, ExpandedActivity::class.java),
           null
       )
-                
       ```
 
       ### Java
@@ -798,20 +884,17 @@ To programmatically create an activity split, do the following:
           new ComponentName(this, ExpandedActivity.class),
           null
       );
-                
       ```
 
       <br />
 
    2. Add the filter to a filter set:
 
-      <br />
 
       ### Kotlin
 
       ```kotlin
       val expandedActivityFilterSet = setOf(expandedActivityFilter)
-                
       ```
 
       ### Java
@@ -819,14 +902,12 @@ To programmatically create an activity split, do the following:
       ```java
       Set<ActivityFilter> expandedActivityFilterSet = new HashSet<>();
       expandedActivityFilterSet.add(expandedActivityFilter);
-                
       ```
 
       <br />
 
    3. Create an [`ActivityRule`](https://developer.android.com/reference/kotlin/androidx/window/embedding/ActivityRule):
 
-      <br />
 
       ### Kotlin
 
@@ -834,7 +915,6 @@ To programmatically create an activity split, do the following:
       val activityRule = ActivityRule.Builder(expandedActivityFilterSet)
           .setAlwaysExpand(true)
           .build()
-                
       ```
 
       ### Java
@@ -844,7 +924,6 @@ To programmatically create an activity split, do the following:
           expandedActivityFilterSet
       ).setAlwaysExpand(true)
        .build();
-                
       ```
 
       <br />
@@ -854,20 +933,17 @@ To programmatically create an activity split, do the following:
       - [`setAlwaysExpand()`](https://developer.android.com/reference/kotlin/androidx/window/embedding/ActivityRule.Builder#setAlwaysExpand(kotlin.Boolean)): Specifies whether the activity should fill the entire task window.
    4. Add the rule to the WindowManager `RuleController`:
 
-      <br />
 
       ### Kotlin
 
       ```kotlin
       ruleController.addRule(activityRule)
-                
       ```
 
       ### Java
 
       ```java
       ruleController.addRule(activityRule);
-                
       ```
 
       <br />
@@ -877,20 +953,34 @@ To programmatically create an activity split, do the following:
 
 ## Cross-application embedding
 
-On Android 13 (API level 33) and higher, apps can embed activities from other apps. Cross‑application, or cross‑[UID](https://developer.android.com/guide/topics/permissions/defining#userid), activity embedding enables visual integration of activities from multiple Android applications. The system displays an activity of the host app and an embedded activity from another app on screen side by side or top and bottom just as in single-app activity embedding.
+On Android 13 (API level 33) and higher, apps can embed activities from other
+apps. Cross‑application, or cross‑[UID](https://developer.android.com/guide/topics/permissions/defining#userid), activity embedding
+enables visual integration of activities from multiple Android applications. The
+system displays an activity of the host app and an embedded activity from
+another app on screen side by side or top and bottom just as in single-app
+activity embedding.
 
-For example, the Settings app could embed the wallpaper selector activity from the WallpaperPicker app:
+For example, the Settings app could embed the wallpaper selector activity from
+the WallpaperPicker app:
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/wallpaper_activity_embedded_in_settings_app.png) **Figure 14.** Settings app (menu on left) with wallpaper selector as embedded activity (right).
 
 ### Trust model
 
-Host processes that embed activities from other apps are able to redefine the presentation of the embedded activities, including size, position, cropping, and transparency. Malicious hosts can use this capability to mislead users and create [clickjacking](https://en.wikipedia.org/wiki/Clickjacking) or other UI-redressing attacks.
+Host processes that embed activities from other apps are able to redefine the
+presentation of the embedded activities, including size, position, cropping, and
+transparency. Malicious hosts can use this capability to mislead users and
+create [clickjacking](https://en.wikipedia.org/wiki/Clickjacking) or other UI-redressing attacks.
 
-To prevent misuse of cross-app activity embedding, Android requires apps to opt in to allow embedding of their activities. Apps can designate hosts as trusted or untrusted.
+To prevent misuse of cross-app activity embedding, Android requires apps to opt
+in to allow embedding of their activities. Apps can designate hosts as trusted
+or untrusted.
 
 #### Trusted hosts
 
-To allow other applications to embed and fully control the presentation of activities from your app, specify the SHA-256 certificate of the host application in the [`android:knownActivityEmbeddingCerts`](https://developer.android.com/reference/android/R.attr#knownActivityEmbeddingCerts) attribute of the [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element) or [`<application>`](https://developer.android.com/guide/topics/manifest/application-element) elements of your app's manifest file.
+To allow other applications to embed and fully control the presentation of
+activities from your app, specify the SHA-256 certificate of the host
+application in the [`android:knownActivityEmbeddingCerts`](https://developer.android.com/reference/android/R.attr#knownActivityEmbeddingCerts) attribute of the
+[`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element) or [`<application>`](https://developer.android.com/guide/topics/manifest/application-element) elements of your app's manifest file.
 
 Set the value of `android:knownActivityEmbeddingCerts` either as a string:
 
@@ -916,21 +1006,27 @@ which references a resource like the following:
         </string-array>
     </resources>
 
-App owners can get a SHA certificate digest by running the Gradle `signingReport` task. The certificate digest is the SHA-256 fingerprint without the separating colons. For more information, see [Run a signing report](https://developer.android.com/studio/publish/app-signing#signing_report) and [Authenticating Your Client](https://developers.google.com/android/guides/client-auth#using_gradles_signing_report).
+App owners can get a SHA certificate digest by running the Gradle
+`signingReport` task. The certificate digest is the SHA-256 fingerprint without
+the separating colons. For more information, see [Run a signing report](https://developer.android.com/studio/publish/app-signing#signing_report) and
+[Authenticating Your Client](https://developers.google.com/android/guides/client-auth#using_gradles_signing_report).
 
 > [!NOTE]
 > **Note:** If `android:knownActivityEmbeddingCerts` is declared in both the `<activity>` and `<application>` manifest elements, the value in the `<activity>` element takes precedence.
 
 #### Untrusted hosts
 
-To allow any app to embed your app's activities and control their presentation, specify the [`android:allowUntrustedActivityEmbedding`](https://developer.android.com/reference/android/R.attr#allowUntrustedActivityEmbedding) attribute in the `<activity>` or `<application>` elements in the app manifest, for example:
+To allow any app to embed your app's activities and control their presentation,
+specify the [`android:allowUntrustedActivityEmbedding`](https://developer.android.com/reference/android/R.attr#allowUntrustedActivityEmbedding) attribute in the
+`<activity>` or `<application>` elements in the app manifest, for example:
 
     <activity
         android:name=".MyEmbeddableActivity"
         android:allowUntrustedActivityEmbedding="true"
         ... />
 
-The default value of the attribute is false, which prevents cross-app activity embedding.
+The default value of the attribute is false, which prevents cross-app activity
+embedding.
 
 > [!WARNING]
 > **Warning:** Activities that allow untrusted embedding must not expose sensitive information, UI controls, or input fields that could fall victim to [clickjacking](https://en.wikipedia.org/wiki/Clickjacking) attacks.
@@ -940,11 +1036,17 @@ The default value of the attribute is false, which prevents cross-app activity e
 
 ##### Custom authentication
 
-To mitigate the risks of untrusted activity embedding, create a custom authentication mechanism that verifies the host identity. If you know the host certificates, use the [`androidx.security.app.authenticator`](https://developer.android.com/reference/kotlin/androidx/security/app/authenticator/package-summary) library to authenticate. If the host authenticates after embedding your activity, you can display the actual content. If not, you can inform the user that the action was not allowed and block the content.
+To mitigate the risks of untrusted activity embedding, create a custom
+authentication mechanism that verifies the host identity. If you know the host
+certificates, use the [`androidx.security.app.authenticator`](https://developer.android.com/reference/kotlin/androidx/security/app/authenticator/package-summary) library to
+authenticate. If the host authenticates after embedding your activity, you can
+display the actual content. If not, you can inform the user that the action was
+not allowed and block the content.
 
-Use the [`ActivityEmbeddingController#isActivityEmbedded()`](https://developer.android.com/reference/kotlin/androidx/window/embedding/ActivityEmbeddingController#isActivityEmbedded(android.app.Activity)) method from the Jetpack WindowManager library to check whether a host is embedding your activity, for example:
+Use the [`ActivityEmbeddingController#isActivityEmbedded()`](https://developer.android.com/reference/kotlin/androidx/window/embedding/ActivityEmbeddingController#isActivityEmbedded(android.app.Activity)) method from the
+Jetpack WindowManager library to check whether a host is embedding your
+activity, for example:
 
-<br />
 
 ### Kotlin
 
@@ -952,7 +1054,6 @@ Use the [`ActivityEmbeddingController#isActivityEmbedded()`](https://developer.a
 fun isActivityEmbedded(activity: Activity): Boolean {
     return ActivityEmbeddingController.getInstance(this).isActivityEmbedded(activity)
 }
-      
 ```
 
 ### Java
@@ -961,30 +1062,48 @@ fun isActivityEmbedded(activity: Activity): Boolean {
 boolean isActivityEmbedded(Activity activity) {
     return ActivityEmbeddingController.getInstance(context).isActivityEmbedded(activity);
 }
-      
 ```
 
 <br />
 
 #### Minimum size restriction
 
-The Android system applies the minimum height and width specified in the app manifest [`<layout>`](https://developer.android.com/guide/topics/manifest/layout-element) element to embedded activities. If an application does not specify minimum height and width, the system default values apply ([`sw220dp`](https://source.android.com/docs/compatibility/13/android-13-cdd#3814_multi-windows)).
+The Android system applies the minimum height and width specified in the app
+manifest [`<layout>`](https://developer.android.com/guide/topics/manifest/layout-element) element to embedded activities. If an application does
+not specify minimum height and width, the system default values apply
+([`sw220dp`](https://source.android.com/docs/compatibility/13/android-13-cdd#3814_multi-windows)).
 
-If the host attempts to resize the embedded container to a size smaller than the minimum, the embedded container expands to occupy the entire task bounds.
+If the host attempts to resize the embedded container to a size smaller than the
+minimum, the embedded container expands to occupy the entire task bounds.
 
 #### \<activity-alias\>
 
-For trusted or untrusted activity embedding to work with the [`<activity-alias>`](https://developer.android.com/guide/topics/manifest/activity-alias-element) element, `android:knownActivityEmbeddingCerts` or `android:allowUntrustedActivityEmbedding` must be applied to the target activity rather than the alias. The policy that verifies security on the system server is based on the flags set on the target, not the alias.
+For trusted or untrusted activity embedding to work with the
+[`<activity-alias>`](https://developer.android.com/guide/topics/manifest/activity-alias-element) element, `android:knownActivityEmbeddingCerts` or
+`android:allowUntrustedActivityEmbedding` must be applied to the target activity
+rather than the alias. The policy that verifies security on the system server is
+based on the flags set on the target, not the alias.
 
 ### Host application
 
-Host applications implement cross-app activity embedding the same way they implement single-app activity embedding. [`SplitPairRule`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPairRule) and [`SplitPairFilter`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPairFilter) or [`ActivityRule`](https://developer.android.com/reference/kotlin/androidx/window/embedding/ActivityRule) and [`ActivityFilter`](https://developer.android.com/reference/kotlin/androidx/window/embedding/ActivityFilter) objects specify embedded activities and task window splits. Split rules are defined [statically in XML](https://developer.android.com/develop/ui/views/layout/activity-embedding#split_configuration) or at runtime using Jetpack WindowManager API calls.
+Host applications implement cross-app activity embedding the same way they
+implement single-app activity embedding. [`SplitPairRule`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPairRule) and
+[`SplitPairFilter`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitPairFilter) or [`ActivityRule`](https://developer.android.com/reference/kotlin/androidx/window/embedding/ActivityRule) and [`ActivityFilter`](https://developer.android.com/reference/kotlin/androidx/window/embedding/ActivityFilter) objects
+specify embedded activities and task window splits. Split rules are defined
+[statically in XML](https://developer.android.com/develop/ui/views/layout/activity-embedding#split_configuration) or at runtime using Jetpack
+WindowManager API calls.
 
-If a host application attempts to embed an activity that has not opted in to cross-app embedding, the activity occupies the entire task bounds. As a result, host applications need to know whether target activities allow cross-app embedding.
+If a host application attempts to embed an activity that has not opted in to
+cross-app embedding, the activity occupies the entire task bounds. As a result,
+host applications need to know whether target activities allow cross-app
+embedding.
 
-If an embedded activity starts a new activity in the same task and the new activity has not opted in to cross-app embedding, the activity occupies the entire task bounds instead of overlaying the activity in the embedded container.
+If an embedded activity starts a new activity in the same task and the new
+activity has not opted in to cross-app embedding, the activity occupies the
+entire task bounds instead of overlaying the activity in the embedded container.
 
-A host application can embed its own activities without restriction as long as the activities launch in the same task.
+A host application can embed its own activities without restriction as long as
+the activities launch in the same task.
 
 ## Split examples
 
@@ -992,7 +1111,9 @@ A host application can embed its own activities without restriction as long as t
 
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_to_a_b.png) **Figure 15.** Activity A starts activity B to the side.
 
-No refactoring required. You can define the configuration for the split statically or at runtime and then call [`Context#startActivity()`](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)) without any additional parameters.
+No refactoring required. You can define the configuration for the split
+statically or at runtime and then call [`Context#startActivity()`](https://developer.android.com/reference/android/content/Context#startActivity(android.content.Intent)) without any
+additional parameters.
 
     <SplitPairRule>
         <SplitPairFilter
@@ -1002,10 +1123,18 @@ No refactoring required. You can define the configuration for the split statical
 
 ### Split by default
 
-When the landing page of an application is designed to be split into two containers on large screens, the user experience is best when both activities are created and presented simultaneously. However, content might not be available for the secondary container of the split until the user interacts with the activity in the primary container (for example, the user selects an item from a navigation menu). A placeholder activity can fill the void until content can be displayed in the secondary container of the split (see the [Placeholders](https://developer.android.com/develop/ui/views/layout/activity-embedding#placeholders) section).
+When the landing page of an application is designed to be split into two
+containers on large screens, the user experience is best when both activities
+are created and presented simultaneously. However, content might not be
+available for the secondary container of the split until the user interacts with
+the activity in the primary container (for example, the user selects an item
+from a navigation menu). A placeholder activity can fill the void until content
+can be displayed in the secondary container of the split (see the
+[Placeholders](https://developer.android.com/develop/ui/views/layout/activity-embedding#placeholders) section).
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/launcher_main_placeholder.png) **Figure 16.** Split created by opening two activities simultaneously. One activity is a placeholder.
 
-To create a split with a placeholder, create a placeholder and associate it with the primary activity:
+To create a split with a placeholder, create a placeholder and associate it with
+the primary activity:
 
     <SplitPlaceholderRule
         window:placeholderActivityName=".PlaceholderActivity">
@@ -1015,12 +1144,17 @@ To create a split with a placeholder, create a placeholder and associate it with
 
 ### Deep link split
 
-When an app receives an intent, the target activity can be shown as the secondary part of an activity split; for example, a request to show a detail screen with information about an item from a list. On small displays, the detail is shown in the full task window; on larger devices, beside the list.
+When an app receives an intent, the target activity can be shown as the
+secondary part of an activity split; for example, a request to show a detail
+screen with information about an item from a list. On small displays, the detail
+is shown in the full task window; on larger devices, beside the list.
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/deep_link_split.png) **Figure 17.** Deep link detail activity shown alone on a small screen, but together with a list activity on a large screen.
 
-The launch request should be routed to the main activity, and the target detail activity should be launched in a split. The system automatically chooses the correct presentation---stacked or side by side---based on the available display width.
+The launch request should be routed to the main activity, and the target detail
+activity should be launched in a split. The system automatically chooses the
+correct presentation---stacked or side by side---based on the available
+display width.
 
-<br />
 
 ### Kotlin
 
@@ -1031,7 +1165,6 @@ override fun onCreate(savedInstanceState: Bundle?) {
         .addRule(SplitPairRule.Builder(filterSet).build())
     startActivity(Intent(this, DetailActivity::class.java))
 }
-      
 ```
 
 ### Java
@@ -1044,12 +1177,13 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
         .addRule(new SplitPairRule.Builder(filterSet).build());
     startActivity(new Intent(this, DetailActivity.class));
 }
-      
 ```
 
 <br />
 
-The deep link destination might be the only activity that should be available to the user in the back navigation stack, and you might want to avoid dismissing the detail activity and leaving only the main activity:
+The deep link destination might be the only activity that should be available to
+the user in the back navigation stack, and you might want to avoid dismissing
+the detail activity and leaving only the main activity:
 
 ![Large display with list activity and detail activity side by side.
 Back navigation unable to dismiss detail activity and leave list
@@ -1058,7 +1192,8 @@ activity on screen.](https://developer.android.com/static/develop/ui/views/image
 ![Small display with detail activity only. Back navigation unable to
 dismiss detail activity and reveal list activity.](https://developer.android.com/static/develop/ui/views/images/activity-embedding/detail_back_to_list.png)
 
-Instead, you can finish both activities at the same time by using the `finishPrimaryWithSecondary` attribute:
+Instead, you can finish both activities at the same time by using the
+`finishPrimaryWithSecondary` attribute:
 
     <SplitPairRule
         window:finishPrimaryWithSecondary="always">
@@ -1071,10 +1206,11 @@ See the [Configuration attributes](https://developer.android.com/develop/ui/view
 
 ### Multiple activities in split containers
 
-Stacking multiple activities in a split container enables users to access deep content. For example, with a list-detail split, the user might need to go into a sub-detail section but keep the primary activity in place:
+Stacking multiple activities in a split container enables users to access deep
+content. For example, with a list-detail split, the user might need to go into a
+sub-detail section but keep the primary activity in place:
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/list-detail_to_list-sub-detail.png) **Figure 18.** Activity opened in place in the secondary pane of the task window.
 
-<br />
 
 ### Kotlin
 
@@ -1084,7 +1220,6 @@ class DetailActivity : AppCompatActivity() {
         startActivity(Intent(this, SubdetailActivity::class.java))
     }
 }
-      
 ```
 
 ### Java
@@ -1095,7 +1230,6 @@ public class DetailActivity  extends AppCompatActivity {
         startActivity(new Intent(this, SubdetailActivity.class));
     }
 }
-      
 ```
 
 <br />
@@ -1104,31 +1238,50 @@ The sub-detail activity is placed on top of the detail activity, concealing it:
 
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/list_with_detail_sub-detail_stack.png)
 
-The user can then go back to the previous detail level by navigating back through the stack:
+The user can then go back to the previous detail level by navigating back
+through the stack:
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/list-sub-detail_to_list-detail.png) **Figure 19.** Activity removed from the top of the stack.
 
-Stacking activities on top of each other is the default behavior when activities are launched from an activity in the same secondary container. Activities launched from the primary container within an active split also end up in the secondary container on the top of the activity stack.
+Stacking activities on top of each other is the default behavior when activities
+are launched from an activity in the same secondary container. Activities
+launched from the primary container within an active split also end up in the
+secondary container on the top of the activity stack.
 
 > [!NOTE]
 > **Note:** Secondary activities cannot be launched in the primary container of the split task window in this initial version of the API. This behavior is consistent with the existing system behavior when activities are overlapping on smaller displays.
 
 ### Activities in a new task
 
-When activities in a split task window start activities in a new task, the new task is separate from the task that includes the split and is displayed full window. The Recents screen shows two tasks: the task in the split and the new task.
+When activities in a split task window start activities in a new task, the new
+task is separate from the task that includes the split and is displayed full
+window. The Recents screen shows two tasks: the task in the split and the new
+task.
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/task_1_to_task_2.png) **Figure 20.** Start activity C in a new task from activity B.
 
 ### Activity replacement
 
-Activities can be replaced in the secondary container stack; for example, when the primary activity is used for top-level navigation and the secondary activity is a selected destination. Each selection from the top-level navigation should start a new activity in the secondary container and remove the activity or activities that were previously there.
+Activities can be replaced in the secondary container stack; for example, when
+the primary activity is used for top-level navigation and the secondary activity
+is a selected destination. Each selection from the top-level navigation should
+start a new activity in the secondary container and remove the activity or
+activities that were previously there.
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/menu_screen_a_to_menu_screen_b.png) **Figure 21.** Top-level navigation activity in the primary pane replaces destination activities in the secondary pane.
 
-If the app doesn't finish the activity in the secondary container when the navigation selection changes, back navigation might be confusing when the split is collapsed (when the device is folded). For example, if you have a menu in the primary pane and screens A and B stacked in the secondary pane, when the user folds the phone, B is on top of A, and A is on top of the menu. When the user navigates back from B, A appears instead of the menu.
+If the app doesn't finish the activity in the secondary container when the
+navigation selection changes, back navigation might be confusing when the split
+is collapsed (when the device is folded). For example, if you have a menu in the
+primary pane and screens A and B stacked in the secondary pane, when the user
+folds the phone, B is on top of A, and A is on top of the menu. When the user
+navigates back from B, A appears instead of the menu.
 
 Screen A must be removed from the back stack in such cases.
 
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/menu_screen_b_stack.png)
 
-The default behavior when launching to the side in a new container over an existing split is to put the new secondary containers on top and retain the old ones in the back stack. You can configure the splits to clear the previous secondary containers with `clearTop` and launch new activities normally.
+The default behavior when launching to the side in a new container over an
+existing split is to put the new secondary containers on top and retain the old
+ones in the back stack. You can configure the splits to clear the previous
+secondary containers with `clearTop` and launch new activities normally.
 
     <SplitPairRule
         window:clearTop="true">
@@ -1140,7 +1293,6 @@ The default behavior when launching to the side in a new container over an exist
             window:secondaryActivityName=".ScreenB"/>
     </SplitPairRule>
 
-<br />
 
 ### Kotlin
 
@@ -1150,7 +1302,6 @@ inner class MenuActivity : AppCompatActivity() {
         startActivity(Intent(this, classForItem(selectedMenuItem)))
     }
 }
-      
 ```
 
 ### Java
@@ -1161,26 +1312,32 @@ public class MenuActivity extends AppCompatActivity{
         startActivity(new Intent(this, classForItem(selectedMenuItem)));
     }
 }
-      
 ```
 
 <br />
 
-Alternatively, use the same secondary activity, and from the primary (menu) activity send new intents that resolve to the same instance but trigger a state or UI update in the secondary container.
+Alternatively, use the same secondary activity, and from the primary (menu)
+activity send new intents that resolve to the same instance but trigger a state
+or UI update in the secondary container.
 
 ### Multiple splits
 
-Apps can provide multi-level deep navigation by launching additional activities to the side.
+Apps can provide multi-level deep navigation by launching additional activities
+to the side.
 
-When an activity in a secondary container launches a new activity to the side, a new split is created over top of the existing split.
+When an activity in a secondary container launches a new activity to the side, a
+new split is created over top of the existing split.
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_b_to_b_c.png) **Figure 22.** Activity B starts activity C to the side.
 
-The back stack contains all activities that were previously opened, so users can navigate to the A/B split after finishing C.
+The back stack contains all activities that were previously opened, so users can
+navigate to the A/B split after finishing C.
 
 ![Activities A, B, and C in a stack. The activities are stacked in
 the following order from top to bottom: C, B, A.](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_b_c_stack.png)
 
-To create a new split, launch the new activity to the side from the existing secondary container. Declare the configurations for both the A/B and B/C splits and launch activity C normally from B:
+To create a new split, launch the new activity to the side from the existing
+secondary container. Declare the configurations for both the A/B and B/C splits
+and launch activity C normally from B:
 
     <SplitPairRule>
         <SplitPairFilter
@@ -1191,7 +1348,6 @@ To create a new split, launch the new activity to the side from the existing sec
             window:secondaryActivityName=".C"/>
     </SplitPairRule>
 
-<br />
 
 ### Kotlin
 
@@ -1201,7 +1357,6 @@ class B : AppCompatActivity() {
         startActivity(Intent(this, C::class.java))
     }
 }
-      
 ```
 
 ### Java
@@ -1212,7 +1367,6 @@ public class B extends AppCompatActivity{
         startActivity(new Intent(this, C.class));
     }
 }
-      
 ```
 
 <br />
@@ -1222,15 +1376,20 @@ public class B extends AppCompatActivity{
 
 ## React to split state changes
 
-Different activities in an app can have UI elements that perform the same function; for example, a control that opens a window containing account settings.
+Different activities in an app can have UI elements that perform the same
+function; for example, a control that opens a window containing account
+settings.
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/main_detail_with_ui_element.png) **Figure 23.** Different activities with functionally identical UI elements.
 
-If two activities that have a UI element in common are in a split, it's redundant and perhaps confusing to show the element in both activities.
+If two activities that have a UI element in common are in a split, it's
+redundant and perhaps confusing to show the element in both activities.
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/main_detail_with_ui_element_duplicated.png) **Figure 24.** Duplicate UI elements in activity split.
 
-To know when activities are in a split, check the [`SplitController.splitInfoList`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitController#splitInfoList(android.app.Activity)) flow or register a listener with [`SplitControllerCallbackAdapter`](https://developer.android.com/reference/androidx/window/java/embedding/SplitControllerCallbackAdapter) for changes in the split state. Then, adjust the UI accordingly:
+To know when activities are in a split, check the
+[`SplitController.splitInfoList`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitController#splitInfoList(android.app.Activity)) flow or register a listener with
+[`SplitControllerCallbackAdapter`](https://developer.android.com/reference/androidx/window/java/embedding/SplitControllerCallbackAdapter) for changes in the split state. Then,
+adjust the UI accordingly:
 
-<br />
 
 ### Kotlin
 
@@ -1245,7 +1404,6 @@ lifecycleScope.launch {
             }
     }
 }
-      
 ```
 
 ### Java
@@ -1264,23 +1422,30 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
                     splitInfoList.isEmpty() ? View.VISIBLE : View.GONE);
             });
 }
-      
 ```
 
 <br />
 
-Coroutines can be launched in any lifecycle state, but are typically launched in the [`STARTED`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.State#STARTED) state to conserve resources (see [Use Kotlin coroutines with lifecycle-aware components](https://developer.android.com/topic/libraries/architecture/coroutines) for more information).
+Coroutines can be launched in any lifecycle state, but are typically launched in
+the [`STARTED`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.State#STARTED) state to conserve resources (see [Use Kotlin coroutines with
+lifecycle-aware components](https://developer.android.com/topic/libraries/architecture/coroutines) for more information).
 
-Callbacks can be made in any lifecycle state, including when an activity is stopped. Listeners should usually be registered in `onStart()` and unregistered in `onStop()`.
+Callbacks can be made in any lifecycle state, including when an activity is
+stopped. Listeners should usually be registered in `onStart()` and unregistered
+in `onStop()`.
 
 > [!NOTE]
 > **Note:** Use callbacks for Java apps only. Use the `splitInfoList` flow API for Kotlin apps. To access `SplitControllerCallbackAdapter` in your app, add a dependency to the latest version of the `androidx.window:window-java` library in the app's module-level `build.gradle` file.
 
 ## Full-window modal
 
-Some activities block users from interacting with the application until a specified action is performed; for example, a login screen activity, policy acknowledgement screen, or error message. Modal activities should be prevented from appearing in a split.
+Some activities block users from interacting with the application until a
+specified action is performed; for example, a login screen activity, policy
+acknowledgement screen, or error message. Modal activities should be prevented
+from appearing in a split.
 
-An activity can be forced to always fill the task window by using the expand configuration:
+An activity can be forced to always fill the task window by using the expand
+configuration:
 
     <ActivityRule
         window:alwaysExpand="true">
@@ -1290,16 +1455,22 @@ An activity can be forced to always fill the task window by using the expand con
 
 ## Finish activities
 
-Users can finish activities on either side of the split by swiping from the edge of the display:
+Users can finish activities on either side of the split by swiping from the edge
+of the display:
 ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/swipe_gesture_finish_b.png) **Figure 25.** Swipe gesture finishing activity B. ![](https://developer.android.com/static/develop/ui/views/images/activity-embedding/swipe_gesture_finish_a.png) **Figure 26.** Swipe gesture finishing activity A.
 
-If the device is set up to use the back button instead of gesture navigation, the input is sent to the focused activity---the activity that was touched or launched last.
+If the device is set up to use the back button instead of gesture navigation,
+the input is sent to the focused activity---the activity that was touched or
+launched last.
 
-The effect that finishing all activities in a container has on the opposing container depends on the split configuration.
+The effect that finishing all activities in a container has on the opposing
+container depends on the split configuration.
 
 ### Configuration attributes
 
-You can specify split pair rule attributes to configure how finishing all activities on one side of the split affects the activities on the other side of the split. The attributes are:
+You can specify split pair rule attributes to configure how finishing all
+activities on one side of the split affects the activities on the other side of
+the split. The attributes are:
 
 - `window:finishPrimaryWithSecondary` --- How finishing all activities in the secondary container affects the activities in the primary container
 - `window:finishSecondaryWithPrimary` --- How finishing all activities in the primary container affects the activities in the secondary container
@@ -1324,7 +1495,8 @@ For example:
 
 ### Default configuration
 
-When all activities in one container of a split finish, the remaining container occupies the entire window:
+When all activities in one container of a split finish, the remaining container
+occupies the entire window:
 
     <SplitPairRule>
         <SplitPairFilter
@@ -1340,7 +1512,8 @@ occupy the entire window.](https://developer.android.com/static/develop/ui/views
 
 ### Finish activities together
 
-Finish the activities in the primary container automatically when all activities in the secondary container finish:
+Finish the activities in the primary container automatically when all activities
+in the secondary container finish:
 
     <SplitPairRule
         window:finishPrimaryWithSecondary="always">
@@ -1355,7 +1528,8 @@ finishes A, leaving the task window empty.](https://developer.android.com/static
 ![Split containing activities A and B. A is finished, leaving B alone
 in the task window.](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_b_finish_a_to_b.png)
 
-Finish the activities in the secondary container automatically when all activities in the primary container finish:
+Finish the activities in the secondary container automatically when all
+activities in the primary container finish:
 
     <SplitPairRule
         window:finishSecondaryWithPrimary="always">
@@ -1370,7 +1544,8 @@ finishes B, leaving the task window empty.](https://developer.android.com/static
 ![Split containing activities A and B. B is finished, leaving A alone
 in the task window.](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_b_finish_b_to_a.png)
 
-Finish activities together when all activities in either the primary or secondary container finish:
+Finish activities together when all activities in either the primary or
+secondary container finish:
 
     <SplitPairRule
         window:finishPrimaryWithSecondary="always"
@@ -1388,7 +1563,8 @@ finishes A, leaving the task window empty.](https://developer.android.com/static
 
 ### Finish multiple activities in containers
 
-If multiple activities are stacked in a split container, finishing an activity on the bottom of the stack does not automatically finish activities on top.
+If multiple activities are stacked in a split container, finishing an activity
+on the bottom of the stack does not automatically finish activities on top.
 
 For example, if two activities are in the secondary container, C on top of B:
 
@@ -1396,7 +1572,8 @@ For example, if two activities are in the secondary container, C on top of B:
 is stacked on top of the prmary activity stack containing activity
 A.](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_with_b_c_stack.png)
 
-and the configuration of the split is defined by the configuration of activities A and B:
+and the configuration of the split is defined by the configuration of activities
+A and B:
 
     <SplitPairRule>
         <SplitPairFilter
@@ -1410,13 +1587,15 @@ finishing the top activity retains the split.
 secondary, C stacked on top of B. C finishes, leaving A and B in the
 activity split.](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_c_finish_c_to_a_b.png)
 
-Finishing the bottom (root) activity of the secondary container does not remove the activities on top of it; and so, also retains the split.
+Finishing the bottom (root) activity of the secondary container does not remove
+the activities on top of it; and so, also retains the split.
 
 ![Split with activity A in primary container and activities B and C in
 secondary, C stacked on top of B. B finishes, leaving A and C in the
 activity split.](https://developer.android.com/static/develop/ui/views/images/activity-embedding/a_c_finish_b_to_a_c.png)
 
-Any additional rules for finishing activities together, such as finishing the secondary activity with the primary, are also executed:
+Any additional rules for finishing activities together, such as finishing the
+secondary activity with the primary, are also executed:
 
     <SplitPairRule
         window:finishSecondaryWithPrimary="always">
@@ -1453,13 +1632,18 @@ C.](https://developer.android.com/static/develop/ui/views/images/activity-embedd
 
 ## Change split properties at runtime
 
-The properties of an active and visible split cannot be changed. Changing the split rules affects additional activity launches and new containers, but not existing and active splits.
+The properties of an active and visible split cannot be changed. Changing the
+split rules affects additional activity launches and new containers, but not
+existing and active splits.
 
-To change the properties of active splits, finish the side activity or activities in the split and launch to the side again with a new configuration.
+To change the properties of active splits, finish the side activity or
+activities in the split and launch to the side again with a new configuration.
 
 ## Dynamic split properties
 
-Android 15 (API level 35) and higher supported by Jetpack [WindowManager 1.4](https://developer.android.com/jetpack/androidx/releases/window#version_14_2) and higher offer dynamic features that enable configurability of activity embedding splits, including:
+Android 15 (API level 35) and higher supported by Jetpack [WindowManager 1.4](https://developer.android.com/jetpack/androidx/releases/window#version_14_2)
+and higher offer dynamic features that enable configurability of activity
+embedding splits, including:
 
 - **Pane expansion:** An interactive, draggable divider enables users to resize the panes in a split presentation.
 - **Activity stack pinning:** Users can pin the content in one container and isolate navigation in the container from navigation in the other container.
@@ -1467,12 +1651,14 @@ Android 15 (API level 35) and higher supported by Jetpack [WindowManager 1.4](ht
 
 ### Pane expansion
 
-Pane expansion enables users to adjust the amount of screen space allocated to the two activities in a dual‑pane layout.
+Pane expansion enables users to adjust the amount of screen space allocated to
+the two activities in a dual‑pane layout.
 
 > [!NOTE]
 > **Note:** Pane expansion is available only on [WindowManager Extensions](https://source.android.com/docs/core/display/windowmanager-extensions) 6 and higher. Version 6 ships with Android 15.
 
-To customize the appearance of the window divider and set the divider's draggable range, do the following:
+To customize the appearance of the window divider and set the divider's
+draggable range, do the following:
 
 1. Create an instance of [`DividerAttributes`](https://developer.android.com/reference/kotlin/androidx/window/embedding/DividerAttributes)
 
@@ -1480,14 +1666,18 @@ To customize the appearance of the window divider and set the divider's draggabl
 
    - **[`color`](https://developer.android.com/reference/kotlin/androidx/window/embedding/DividerAttributes#color()):** The color of the draggable pane separator.
 
-   - **[`widthDp`](https://developer.android.com/reference/kotlin/androidx/window/embedding/DividerAttributes#widthDp()):** The width of the draggable pane separator. Set to [`WIDTH_SYSTEM_DEFAULT`](https://developer.android.com/reference/kotlin/androidx/window/embedding/DividerAttributes#WIDTH_SYSTEM_DEFAULT()) to let the system determine the divider width.
+   - **[`widthDp`](https://developer.android.com/reference/kotlin/androidx/window/embedding/DividerAttributes#widthDp()):** The width of the draggable pane separator. Set to
+     [`WIDTH_SYSTEM_DEFAULT`](https://developer.android.com/reference/kotlin/androidx/window/embedding/DividerAttributes#WIDTH_SYSTEM_DEFAULT()) to let the system determine the divider
+     width.
 
-   - **Drag range:** The minimum percentage of the screen either pane can occupy. Can range from 0.33 to 0.66. Set to [`DRAG_RANGE_SYSTEM_DEFAULT`](https://developer.android.com/reference/kotlin/androidx/window/embedding/DividerAttributes.DragRange#DRAG_RANGE_SYSTEM_DEFAULT()) to let the system determine the drag range.
+   - **Drag range:** The minimum percentage of the screen either pane can
+     occupy. Can range from 0.33 to 0.66. Set to
+     [`DRAG_RANGE_SYSTEM_DEFAULT`](https://developer.android.com/reference/kotlin/androidx/window/embedding/DividerAttributes.DragRange#DRAG_RANGE_SYSTEM_DEFAULT()) to let the system determine the drag
+     range.
 
      > [!NOTE]
      > **Note:** If the user drags the divider beyond the specified range, the system either fully expands the container or moves the divider back into the specified range.
 
-   <br />
 
    ### Kotlin
 
@@ -1506,7 +1696,6 @@ To customize the appearance of the window divider and set the divider's draggabl
        )
    }
    val splitAttributes: SplitAttributes = splitAttributesBuilder.build()
-           
    ```
 
    ### Java
@@ -1526,18 +1715,20 @@ To customize the appearance of the window divider and set the divider's draggabl
        );
    }
    SplitAttributes _splitAttributes = splitAttributesBuilder.build();
-           
    ```
 
    <br />
 
 ### Activity stack pinning
 
-Activity stack pinning enables users to *pin* one of the split windows so the activity stays as is while users navigate within the other window. Activity stack pinning provides an enhanced multitasking experience.
+Activity stack pinning enables users to *pin* one of the split windows so the
+activity stays as is while users navigate within the other window. Activity
+stack pinning provides an enhanced multitasking experience.
 
 To enable activity stack pinning in your app, do the following:
 
-1. Add a button to the layout file of the activity you want to pin, for example, the detail activity of an list‑detail layout:
+1. Add a button to the layout file of the activity you want to pin, for
+   example, the detail activity of an list‑detail layout:
 
        <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -1572,9 +1763,9 @@ To enable activity stack pinning in your app, do the following:
 
        </androidx.constraintlayout.widget.ConstraintLayout>
 
-2. In the `onCreate()` method of the activity, set an onclick listener on the button:
+2. In the `onCreate()` method of the activity, set an onclick listener on the
+   button:
 
-   <br />
 
    ### Kotlin
 
@@ -1594,7 +1785,6 @@ To enable activity stack pinning in your app, do the following:
        SplitController.getInstance(applicationContext)
            .pinTopActivityStack(taskId, pinSplitRule)
    }
-           
    ```
 
    ### Java
@@ -1615,7 +1805,6 @@ To enable activity stack pinning in your app, do the following:
        SplitController.getInstance(getApplicationContext())
            .pinTopActivityStack(getTaskId(), pinSplitRule);
    });
-           
    ```
 
    <br />
@@ -1628,21 +1817,30 @@ To enable activity stack pinning in your app, do the following:
 
 ### Dialog full-screen dim
 
-Activities typically dim their displays to draw attention to a dialog. In activity embedding, both panes of the dual‑pane display should dim, not just the pane containing the activity that opened the dialog, for a unified UI experience.
+Activities typically dim their displays to draw attention to a dialog. In
+activity embedding, both panes of the dual‑pane display should dim, not
+just the pane containing the activity that opened the dialog, for a unified UI
+experience.
 
-With WindowManager 1.4 and higher, the entire app window dims by default when a dialog opens (see [`EmbeddingConfiguration.DimAreaBehavior.ON_TASK`](https://developer.android.com/reference/kotlin/androidx/window/embedding/EmbeddingConfiguration.DimAreaBehavior#ON_TASK())).
+With WindowManager 1.4 and higher, the entire app window dims by default when a
+dialog opens (see [`EmbeddingConfiguration.DimAreaBehavior.ON_TASK`](https://developer.android.com/reference/kotlin/androidx/window/embedding/EmbeddingConfiguration.DimAreaBehavior#ON_TASK())).
 
-To dim only the container of the activity that opened the dialog, use [`EmbeddingConfiguration.DimAreaBehavior.ON_ACTIVITY_STACK`](https://developer.android.com/reference/kotlin/androidx/window/embedding/EmbeddingConfiguration.DimAreaBehavior#ON_ACTIVITY_STACK()).
+To dim only the container of the activity that opened the dialog, use
+[`EmbeddingConfiguration.DimAreaBehavior.ON_ACTIVITY_STACK`](https://developer.android.com/reference/kotlin/androidx/window/embedding/EmbeddingConfiguration.DimAreaBehavior#ON_ACTIVITY_STACK()).
 
 ## Extract an activity from a split to full window
 
-Create a new configuration that displays the side activity full window, and then relaunch the activity with an intent that resolves to the same instance.
+Create a new configuration that displays the side activity full window, and then
+relaunch the activity with an intent that resolves to the same instance.
 
 ## Check for split support at runtime
 
-Activity embedding is supported on Android 12L (API level 32) and higher, but is also available on some devices running earlier platform versions. To check at runtime for the availability of the feature, use the [`SplitController.splitSupportStatus`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitController#splitSupportStatus()) property or [`SplitController.getSplitSupportStatus()`](https://developer.android.com/reference/androidx/window/embedding/SplitController#getSplitSupportStatus()) method:
+Activity embedding is supported on Android 12L (API level 32) and higher, but is
+also available on some devices running earlier platform versions. To check at
+runtime for the availability of the feature, use the
+[`SplitController.splitSupportStatus`](https://developer.android.com/reference/kotlin/androidx/window/embedding/SplitController#splitSupportStatus()) property or
+[`SplitController.getSplitSupportStatus()`](https://developer.android.com/reference/androidx/window/embedding/SplitController#getSplitSupportStatus()) method:
 
-<br />
 
 ### Kotlin
 
@@ -1652,7 +1850,6 @@ if (SplitController.getInstance(this).splitSupportStatus ==
 ) {
     // Device supports split activity features.
 }
-      
 ```
 
 ### Java
@@ -1662,20 +1859,29 @@ if (SplitController.getInstance(this).getSplitSupportStatus() ==
     SplitController.SplitSupportStatus.SPLIT_AVAILABLE) {
     // Device supports split activity features.
 }
-      
 ```
 
 <br />
 
-If splits are not supported, activities are launched on top of the activity stack (following the non-activity embedding model).
+If splits are not supported, activities are launched on top of the activity
+stack (following the non-activity embedding model).
 
 ## Prevent system override
 
-The manufacturers of Android devices (original equipment manufacturers, or OEMs), can implement activity embedding as a function of the device system. The system specifies split rules for multi-activity apps, overriding the windowing behavior of the apps. The system override forces multi-activity apps into a system-defined activity embedding mode.
+The manufacturers of Android devices (original equipment manufacturers, or
+OEMs), can implement activity embedding as a function of the device system. The
+system specifies split rules for multi-activity apps, overriding the windowing
+behavior of the apps. The system override forces multi-activity apps into a
+system-defined activity embedding mode.
 
-System activity embedding can enhance app presentation through multi-pane layouts, such as [list-detail](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#list-detail), without any changes to the app. However, the system's activity embedding might also cause incorrect app layouts, bugs, or conflicts with activity embedding implemented by the app.
+System activity embedding can enhance app presentation through multi-pane
+layouts, such as [list-detail](https://developer.android.com/develop/ui/compose/layouts/adaptive/canonical-layouts#list-detail), without any changes to the app. However, the
+system's activity embedding might also cause incorrect app layouts, bugs, or
+conflicts with activity embedding implemented by the app.
 
-Your app can prevent or permit system activity embedding by setting [`PROPERTY_ACTIVITY_EMBEDDING_ALLOW_SYSTEM_OVERRIDE`](https://developer.android.com/reference/kotlin/androidx/window/WindowProperties#PROPERTY_ACTIVITY_EMBEDDING_ALLOW_SYSTEM_OVERRIDE()) in the app manifest file, for example:
+Your app can prevent or permit system activity embedding by setting
+[`PROPERTY_ACTIVITY_EMBEDDING_ALLOW_SYSTEM_OVERRIDE`](https://developer.android.com/reference/kotlin/androidx/window/WindowProperties#PROPERTY_ACTIVITY_EMBEDDING_ALLOW_SYSTEM_OVERRIDE()) in the app manifest
+file, for example:
 
     <manifest xmlns:android="http://schemas.android.com/apk/res/android">
         <application>
@@ -1685,7 +1891,11 @@ Your app can prevent or permit system activity embedding by setting [`PROPERTY_A
         </application>
     </manifest>
 
-The property name is defined in the Jetpack WindowManager [`WindowProperties`](https://developer.android.com/reference/kotlin/androidx/window/WindowProperties) object. Set the value to `false` if your app implements activity embedding, or if you want to otherwise prevent the system from applying its activity embedding rules to your app. Set the value to `true` to permit the system to apply system-defined activity embedding to your app.
+The property name is defined in the Jetpack WindowManager [`WindowProperties`](https://developer.android.com/reference/kotlin/androidx/window/WindowProperties)
+object. Set the value to `false` if your app implements activity embedding, or
+if you want to otherwise prevent the system from applying its activity embedding
+rules to your app. Set the value to `true` to permit the system to apply
+system-defined activity embedding to your app.
 
 > [!NOTE]
 > **Note:** OEMs can implement system activity embedding for any Android version or API level. Always set the `android.window.PROPERTY_ACTIVITY_EMBEDDING_ALLOW_SYSTEM_OVERRIDE` property regardless of your app's targeted API level.

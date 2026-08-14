@@ -4,24 +4,42 @@ url: https://developer.android.com/develop/background-work/background-tasks/pers
 source: md.txt
 ---
 
-WorkManager has built-in support for long running workers. In such cases, WorkManager can provide a signal to the OS that the process should be kept alive if possible while this work is executing. These Workers can run longer than 10 minutes. Example use-cases for this new feature include bulk uploads or downloads (that cannot be chunked), crunching on an ML model locally, or a task that's *important to the user* of the app.
+WorkManager has built-in support for long running workers. In such cases,
+WorkManager can provide a signal to the OS that the process should be kept alive
+if possible while this work is executing. These Workers can run longer than 10
+minutes. Example use-cases for this new feature include bulk uploads or
+downloads (that cannot be chunked), crunching on an ML model locally, or a task
+that's *important to the user* of the app.
 
-Under the hood, WorkManager manages and runs a foreground service on your behalf to execute the [`WorkRequest`](https://developer.android.com/reference/androidx/work/WorkRequest), while also showing a configurable notification.
+Under the hood, WorkManager manages and runs a foreground service on your behalf
+to execute the [`WorkRequest`](https://developer.android.com/reference/androidx/work/WorkRequest), while also showing a configurable
+notification.
 
-[`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker) now supports the [`setForegroundAsync()`](https://developer.android.com/reference/androidx/work/ListenableWorker#setForegroundAsync(androidx.work.ForegroundInfo)) API, and [`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker) supports a suspending [`setForeground()`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker#setforeground) API. These APIs allow developers to specify that this `WorkRequest` is *important* (from a user perspective) or *long-running*.
+[`ListenableWorker`](https://developer.android.com/reference/androidx/work/ListenableWorker) now supports the [`setForegroundAsync()`](https://developer.android.com/reference/androidx/work/ListenableWorker#setForegroundAsync(androidx.work.ForegroundInfo)) API, and
+[`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker) supports a suspending [`setForeground()`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker#setforeground) API. These
+APIs allow developers to specify that this `WorkRequest` is *important* (from a
+user perspective) or *long-running*.
 
 > [!NOTE]
 > **Note:** WorkManager relies on [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler) to schedule its work, even in situations where WorkManager creates a foreground service to run its tasks. Starting with Android 16, long running workers (which use foreground services) can exhaust your app's job quota. If this happens, you can try launching the foreground service directly instead of using WorkManager. If you need to download data in response to a user action, consider using a [user-initiated data transfer job](https://developer.android.com/develop/background-work/background-tasks/uidt). These jobs are exempt from the ordinary job quotas.
 
-Starting with `2.3.0-alpha03`, WorkManager also allows you to create a [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent), which can be used to cancel workers without having to register a new Android component using the [`createCancelPendingIntent()`](https://developer.android.com/reference/androidx/work/WorkManager#createCancelPendingIntent(java.util.UUID)) API. This approach is especially useful when used with the `setForegroundAsync()` or `setForeground()` APIs, which can be used to add a notification action to cancel the `Worker`.
+Starting with `2.3.0-alpha03`, WorkManager also allows you to create a
+[`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent), which can be used to cancel workers without having to
+register a new Android component using the [`createCancelPendingIntent()`](https://developer.android.com/reference/androidx/work/WorkManager#createCancelPendingIntent(java.util.UUID))
+API. This approach is especially useful when used with the
+`setForegroundAsync()` or `setForeground()` APIs, which can be used to add a
+notification action to cancel the `Worker`.
 
 ## Creating and managing long-running workers
 
-You'll use a slightly different approach depending on whether you are coding in Kotlin or Java.
+You'll use a slightly different approach depending on whether you are coding in
+Kotlin or Java.
 
 ### Kotlin
 
-Kotlin developers should use [`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker). Instead of using `setForegroundAsync()`, you can use the suspending version of that method, [`setForeground()`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker#setforeground).
+Kotlin developers should use [`CoroutineWorker`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker). Instead of using
+`setForegroundAsync()`, you can use the suspending version of that method,
+[`setForeground()`](https://developer.android.com/reference/kotlin/androidx/work/CoroutineWorker#setforeground).
 
     class DownloadWorker(context: Context, parameters: WorkerParameters) :
        CoroutineWorker(context, parameters) {
@@ -89,9 +107,13 @@ Kotlin developers should use [`CoroutineWorker`](https://developer.android.com/r
 
 ### Java
 
-Developers using a `ListenableWorker` or a `Worker` can call the [`setForegroundAsync()`](https://developer.android.com/reference/androidx/work/ListenableWorker#setForegroundAsync(androidx.work.ForegroundInfo)) API, which returns a `ListenableFuture<Void>`. You can also call `setForegroundAsync()` to update an ongoing `Notification`.
+Developers using a `ListenableWorker` or a `Worker` can call the
+[`setForegroundAsync()`](https://developer.android.com/reference/androidx/work/ListenableWorker#setForegroundAsync(androidx.work.ForegroundInfo)) API, which returns a `ListenableFuture<Void>`. You
+can also call `setForegroundAsync()` to update an ongoing `Notification`.
 
-Here is a simple example of a long running worker that downloads a file. This Worker keeps track of progress to update an ongoing `Notification` which shows the download progress.
+Here is a simple example of a long running worker that downloads a file. This
+Worker keeps track of progress to update an ongoing `Notification` which shows
+the download progress.
 
     public class DownloadWorker extends Worker {
        private static final String KEY_INPUT_URL = "KEY_INPUT_URL";
@@ -166,15 +188,24 @@ Here is a simple example of a long running worker that downloads a file. This Wo
 > [!NOTE]
 > **Note:** Depending on which API level your app is targeting and what kind of work the service is doing, you may be *required* to declare a foreground service type. Declaring a foreground service type is a best practice no matter what version of Android you're targeting. For more details, see [Declare foreground services and request permissions](https://developer.android.com/develop/background-work/services/fgs/declare).
 
-If your app targets Android 14 (API level 34) or higher you must specify a [foreground service type](https://developer.android.com/develop/background-work/services/fgs/service-types) for all long-running workers. If your app targets Android 10 (API level 29) or higher and contains a long-running worker that requires access to location, indicate that the worker uses a [foreground service type of `location`](https://developer.android.com/develop/background-work/services/fgs/service-types#location).
+If your app targets Android 14 (API level 34) or higher you must specify a
+[foreground service type](https://developer.android.com/develop/background-work/services/fgs/service-types) for all long-running workers.
+If your app targets Android 10 (API level 29) or higher and contains a
+long-running worker that requires access to location, indicate that the worker
+uses a [foreground service type of `location`](https://developer.android.com/develop/background-work/services/fgs/service-types#location).
 
-If your app targets Android 11 (API level 30) or higher and contains a long-running worker that requires access to camera or microphone, declare the [`camera`](https://developer.android.com/develop/background-work/services/fgs/service-types#camera) or [`microphone`](https://developer.android.com/develop/background-work/services/fgs/service-types#microphone) foreground service types, respectively.
+If your app targets Android 11 (API level 30) or higher
+and contains a long-running worker that requires access to camera or microphone,
+declare the [`camera`](https://developer.android.com/develop/background-work/services/fgs/service-types#camera) or [`microphone`](https://developer.android.com/develop/background-work/services/fgs/service-types#microphone) foreground
+service types, respectively.
 
-To add these foreground service types, complete the steps described in the following sections.
+To add these foreground service types, complete the steps described in the
+following sections.
 
 ### Declare foreground service types in app manifest
 
-Declare the worker's foreground service type in your app's manifest. In the following example, the worker requires access to location and microphone:
+Declare the worker's foreground service type in your app's manifest. In the
+following example, the worker requires access to location and microphone:
 
 AndroidManifest.xml
 
@@ -190,10 +221,12 @@ AndroidManifest.xml
 
 ### Specify foreground service types at runtime
 
-When you call `setForeground()` or `setForegroundAsync()`, ensure you specify a [foreground service type](https://developer.android.com/develop/background-work/services/fgs/service-types).
+When you call `setForeground()` or `setForegroundAsync()`, ensure you specify a
+[foreground service type](https://developer.android.com/develop/background-work/services/fgs/service-types).
 
 > [!NOTE]
-> **Note:** Beginning with Android 14 (API level 34), when you call `setForeground()` or `setForegroundAsync()`, the system checks for specific prerequisites based on service type. For more information, see [Declare foreground services and request permissions](https://developer.android.com/develop/background-work/services/fgs/declare).
+> **Note:** Beginning with Android 14 (API level 34), when you call `setForeground()` or `setForegroundAsync()`, the system checks for specific prerequisites based on service type. For more information, see [Declare foreground services and request
+> permissions](https://developer.android.com/develop/background-work/services/fgs/declare).
 
 MyLocationAndMicrophoneWorker
 

@@ -4,9 +4,11 @@ url: https://developer.android.com/develop/ui/compose/migrate/interoperability-a
 source: md.txt
 ---
 
-Incrementally migrating your app to Compose means that Compose and Views will co-exist in your app.
+Incrementally migrating your app to Compose means that Compose and Views will
+co-exist in your app.
 
-The following pages describe the specific APIs you need to use to integrate Compose within your existing View-based app:
+The following pages describe the specific APIs you need to use to integrate
+Compose within your existing View-based app:
 
 - [Using Compose in Views](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/compose-in-views): Learn about `ComposeView`---the API to use to add Compose in Views.
 - [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose): Learn about `AndroidView` and `AndroidViewBinding`---APIs for using Views in Compose.

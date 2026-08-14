@@ -44,7 +44,6 @@ Instead of manually navigating back and forth, you can accept these multi-locati
 
 Adding powerful AI features to your app just got easier, introducing the Gemini API Starter template for Android Studio!   
 
-
 Integrating generative AI into your Android application used to mean managing complex backend plumbing and worrying about API key security. With the new Gemini API Starter template in Android Studio, developers can now jump straight into building features rather than spending time configuring infrastructure.
 
 **Key benefits include:**
@@ -99,7 +98,8 @@ Written by:
 
   ###### Senior Product Manager
 
-  [read_more View profile](https://developer.android.com/blog/authors/matt-dyor) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/matt-dyor) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)
 Continue reading
 - [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -114,13 +114,17 @@ Continue reading
 
   [arrow_forward](https://developer.android.com/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2) Android Studio Panda 2 is now stable and ready for you to use in production.
   [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) • 3 min read
-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_1w4qDC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Delivering safer, age-appropriate experiences on Google Play](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play)
+  ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
 
-  [arrow_forward](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play) Providing a safe online experience and protecting users from harm is a top priority at Google Play.
-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
+  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release) Today, the Jetpack Compose August '26 release is stable!
+  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

@@ -26,7 +26,7 @@ package names, which may include proving ownership of the private signing keys
 used for those packages.
 
 While 99% of apps on Play have been registered automatically using information
-you have already provided, you should check your [Play Console Home page](https://play.google.com/console/u/0/developers/5700313618786177705/android-developer-verification). By
+you have already provided, you should check your [Play Console Home page](https://play.google.com/console/u/0/developers). By
 September 30, 2026, register any remaining apps you want to continue
 distributing to avoid global removal from Google Play and ensure a seamless user
 installation experience.

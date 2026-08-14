@@ -4,32 +4,33 @@ url: https://developer.android.com/develop/ui/compose/touch-input/user-interacti
 source: md.txt
 ---
 
-The [`SwipeToDismissBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable) component allows a user to dismiss or update an item by swiping it to the left or right.
+The [`SwipeToDismissBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable) component allows a user to dismiss or update an
+item by swiping it to the left or right.
 
 ## API surface
 
-Use the `SwipeToDismissBox` composable to implement actions that are triggered by swipe gestures. Key parameters include:
+Use the `SwipeToDismissBox` composable to implement actions that are triggered
+by swipe gestures. Key parameters include:
 
 - `state`: The `SwipeToDismissBoxState` state created to store the value produced by calculations on the swipe item, which triggers events when produced.
 - `backgroundContent`: A customizable composable displayed behind the item content that is revealed when the content is swiped.
 
 ## Basic example: Update or dismiss on swipe
 
-The snippets in this example show a swipe implementation that either updates the item when swiped from start to end, or dismisses the item when swiped from end to start.
+The snippets in this example show a swipe implementation that either
+updates the item when swiped from start to end, or dismisses the item when
+swiped from end to start.
 
-<br />
 
 ```kotlin
 data class TodoItem(
     val itemDescription: String,
     var isItemDone: Boolean = false
 )
-   
 ```
 
 <br />
 
-<br />
 
 ```kotlin
 @Composable
@@ -87,7 +88,6 @@ fun TodoListItem(
         )
     }
 }
-   
 ```
 
 <br />
@@ -107,7 +107,6 @@ fun TodoListItem(
   - `StartToEnd` shows a `CheckBox` icon when the to-do item is done and a `CheckBoxOutlineBlank` icon when it is not done.
   - `EndToStart` displays a `Delete` icon.
 
-<br />
 
 ```kotlin
 @Composable
@@ -137,7 +136,6 @@ private fun SwipeItemExample() {
         }
     }
 }
-   
 ```
 
 <br />
@@ -153,28 +151,27 @@ private fun SwipeItemExample() {
 
 ### Result
 
-The following video demonstrates the basic swipe-to-dismiss functionality from the preceding snippets:
+The following video demonstrates the basic swipe-to-dismiss functionality from
+the preceding snippets:
 **Figure 1**. A basic implementation of swipe-to-dismiss that can both mark an item as complete and show a dismiss animation for an item in a list.
 
 See the [GitHub source file](https://github.com/android/snippets/blob/d2ccac0e57f635b49aea57804c3ff6ab3ddafd15/compose/snippets/src/main/java/com/example/compose/snippets/components/SwipeToDismissBox.kt) for the full sample code.
 
 ## Advanced example: Animate background color on swipe
 
-The following snippets show how to incorporate a positional threshold to animate an item's background color on swipe.
+The following snippets show how to incorporate a positional threshold to animate
+an item's background color on swipe.
 
-<br />
 
 ```kotlin
 data class TodoItem(
     val itemDescription: String,
     var isItemDone: Boolean = false
 )
-   
 ```
 
 <br />
 
-<br />
 
 ```kotlin
 @Composable
@@ -236,7 +233,6 @@ fun TodoListItemWithAnimation(
         }
     }
 }
-   
 ```
 
 <br />
@@ -251,7 +247,6 @@ fun TodoListItemWithAnimation(
   - The amount of transition from one color to the next is determined by `swipeToDismissBoxState.progress`.
 - [`OutlinedCard`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedCard.composable#OutlinedCard(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) adds a subtle visual separation between the list items.
 
-<br />
 
 ```kotlin
 @Composable
@@ -281,7 +276,6 @@ private fun SwipeItemWithAnimationExample() {
         }
     }
 }
-   
 ```
 
 <br />
@@ -292,7 +286,8 @@ private fun SwipeItemWithAnimationExample() {
 
 ### Result
 
-The following video shows the advanced functionality with animated background color:
+The following video shows the advanced functionality with animated background
+color:
 **Figure 2**. An implementation of swiping to reveal or delete, with animated background colors and a longer threshold before the action registers.
 
 See the [GitHub source file](https://github.com/android/snippets/blob/d2ccac0e57f635b49aea57804c3ff6ab3ddafd15/compose/snippets/src/main/java/com/example/compose/snippets/components/SwipeToDismissBox.kt) for the full sample code.

@@ -4,17 +4,30 @@ url: https://developer.android.com/develop/ui/views/layout/immersive
 source: md.txt
 ---
 
-Some content is best experienced in fullscreen without any indicators on the status bar or the navigation bar. Some examples are videos, games, image galleries, books, and presentation slides. This is referred to as *immersive mode*. This page shows how you can engage users more deeply with content in fullscreen.
+Some content is best experienced in fullscreen without any indicators on the
+status bar or the navigation bar. Some examples are videos, games, image
+galleries, books, and presentation slides. This is referred to as
+*immersive mode*. This page shows how you can engage users more deeply with
+content in fullscreen.
 ![](https://developer.android.com/static/design/media/fullscreen_landing.png) **Figure 1.** Example of immersive mode.
 
-Immersive mode helps users avoid accidental exits during a game and delivers an immersive experience for enjoying images, videos, and books. However, be mindful of how often users jump in and out of apps to check notifications, to conduct impromptu searches, or to take other actions. Because immersive mode causes users to lose easy access to system navigation, use immersive mode only when the benefit to the user experience goes beyond simply using extra screen space.
+Immersive mode helps users avoid accidental exits during a game and
+delivers an immersive experience for enjoying images, videos, and books.
+However, be mindful of how often users jump in and out of apps to check notifications,
+to conduct impromptu searches, or to take other actions. Because immersive mode
+causes users to lose easy access to system navigation, use immersive mode only
+when the benefit to the user experience goes beyond simply using extra screen
+space.
 
 > [!NOTE]
 > **Note:** In [desktop windowing mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-desktop-windowing), the system-drawn caption bar is always visible at the top of the window, even for games in immersive mode. If your app targets games or other full-screen experiences, you must use either `WindowInsetsCompat.Type.systemBars()` (which includes the caption bar) or `WindowInsetsCompat.Type.captionBar()` to avoid your UI being obscured by the window controls.
 
-Use [`WindowInsetsControllerCompat.hide()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#hide(int)) to hide the system bars and [`WindowInsetsControllerCompat.show()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#show(int)) to bring them back.
+Use [`WindowInsetsControllerCompat.hide()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#hide(int))
+to hide the system bars and [`WindowInsetsControllerCompat.show()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#show(int))
+to bring them back.
 
-The following snippet shows an example of configuring a button to hide and show the system bars.
+The following snippet shows an example of configuring a button to hide and show
+the system bars.
 
 ### Kotlin
 
@@ -90,24 +103,38 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-Optionally, you can specify the type of system bars to hide and determine their behavior when a user interacts with them.
+Optionally, you can specify the type of system bars to hide and determine
+their behavior when a user interacts with them.
 
 #### Specify which system bars to hide
 
-To specify the type of system bars to hide, pass one of the following parameters to `WindowInsetsControllerCompat.hide()`.
+To specify the type of system bars to hide, pass one of the following parameters
+to `WindowInsetsControllerCompat.hide()`.
 
-- Use [`WindowInsetsCompat.Type.systemBars()`](https://developer.android.com/reference/kotlin/androidx/core/view/WindowInsetsCompat.Type#systembars) to hide both system bars.
+- Use [`WindowInsetsCompat.Type.systemBars()`](https://developer.android.com/reference/kotlin/androidx/core/view/WindowInsetsCompat.Type#systembars) to
+  hide both system bars.
 
-- Use [`WindowInsetsCompat.Type.statusBars()`](https://developer.android.com/reference/kotlin/androidx/core/view/WindowInsetsCompat.Type#statusbars) to hide only the status bar.
+- Use [`WindowInsetsCompat.Type.statusBars()`](https://developer.android.com/reference/kotlin/androidx/core/view/WindowInsetsCompat.Type#statusbars) to
+  hide only the status bar.
 
-- Use [`WindowInsetsCompat.Type.navigationBars()`](https://developer.android.com/reference/kotlin/androidx/core/view/WindowInsetsCompat.Type#navigationbars) to hide only the navigation bar.
+- Use [`WindowInsetsCompat.Type.navigationBars()`](https://developer.android.com/reference/kotlin/androidx/core/view/WindowInsetsCompat.Type#navigationbars) to
+  hide only the navigation bar.
 
 #### Specify behavior of hidden system bars
 
-Use [`WindowInsetsControllerCompat.setSystemBarsBehavior()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#setSystemBarsBehavior(int)) to specify how hidden system bars behave when the user interacts with them.
+Use [`WindowInsetsControllerCompat.setSystemBarsBehavior()`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#setSystemBarsBehavior(int))
+to specify how hidden system bars behave when the user interacts with them.
 
-- Use [`WindowInsetsControllerCompat.BEHAVIOR_SHOW_BARS_BY_TOUCH`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#BEHAVIOR_SHOW_BARS_BY_TOUCH()) to reveal hidden system bars on *any* user interactions on the corresponding display.
+- Use [`WindowInsetsControllerCompat.BEHAVIOR_SHOW_BARS_BY_TOUCH`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#BEHAVIOR_SHOW_BARS_BY_TOUCH())
+  to reveal hidden system bars on *any* user interactions on the corresponding
+  display.
 
-- Use [`WindowInsetsControllerCompat.BEHAVIOR_SHOW_BARS_BY_SWIPE`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#BEHAVIOR_SHOW_BARS_BY_SWIPE()) to reveal hidden system bars on any system gestures, such as swiping from the edge of the screen where the bar is hidden from.
+- Use [`WindowInsetsControllerCompat.BEHAVIOR_SHOW_BARS_BY_SWIPE`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#BEHAVIOR_SHOW_BARS_BY_SWIPE())
+  to reveal hidden system bars on any system gestures, such as swiping from
+  the edge of the screen where the bar is hidden from.
 
-- Use [`WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE()) to temporarily reveal hidden system bars with system gestures, such as swiping from the edge of the screen where the bar is hidden from. These transient system bars overlay your app's content, might have some degree of transparency, and are automatically hidden after a short timeout.
+- Use [`WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE`](https://developer.android.com/reference/androidx/core/view/WindowInsetsControllerCompat#BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE())
+  to temporarily reveal hidden system bars with system gestures, such as
+  swiping from the edge of the screen where the bar is hidden from. These
+  transient system bars overlay your app's content, might have some degree of
+  transparency, and are automatically hidden after a short timeout.

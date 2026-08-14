@@ -4,7 +4,9 @@ url: https://developer.android.com/develop/ui/compose/components/dialog
 source: md.txt
 ---
 
-The [`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) component displays dialog messages or requests user input on a layer above the main app content. It creates an interruptive UI experience to capture user attention.
+The [`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) component displays dialog messages or requests user input on a
+layer above the main app content. It creates an interruptive UI experience to
+capture user attention.
 
 Among the use cases for a dialog are the following:
 
@@ -16,7 +18,9 @@ Among the use cases for a dialog are the following:
 
 ## Alert dialog
 
-The [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AlertDialog.composable#AlertDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.window.DialogProperties)) composable provides a convenient API for creating a Material Design themed dialog. `AlertDialog` has specific parameters for handling particular elements of the dialog. Among them are the following:
+The [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AlertDialog.composable#AlertDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.window.DialogProperties)) composable provides a convenient API for creating a
+Material Design themed dialog. `AlertDialog` has specific parameters for
+handling particular elements of the dialog. Among them are the following:
 
 - `title`: The text that appears along the top of the dialog.
 - `text`: The text that appears centered within the dialog.
@@ -25,9 +29,9 @@ The [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/comp
 - `dismissButton`: A composable that serves as the dismiss button.
 - `confirmButton`: A composable that serves as the confirm button.
 
-The following example implements two buttons in an alert dialog, one that dismisses the dialog, and another that confirms its request.
+The following example implements two buttons in an alert dialog, one that
+dismisses the dialog, and another that confirms its request.
 
-<br />
 
 ```kotlin
 @Composable
@@ -71,14 +75,13 @@ fun AlertDialogExample(
         }
     )
 }
-   
 ```
 
 <br />
 
-This implementation implies a parent composable that passes arguments to the child composable in this way:
+This implementation implies a parent composable that passes arguments to the
+child composable in this way:
 
-<br />
 
 ```kotlin
 @Composable
@@ -104,7 +107,6 @@ fun DialogExamples() {
         }
     }
 }
-   
 ```
 
 <br />
@@ -120,7 +122,10 @@ This implementation appears as follows:
 
 ## Dialog composable
 
-[`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) is a basic composable that doesn't provide any styling or predefined slots for content. It is a relatively straightforward container that you should populate with a container such as `Card`. The following are some of the key parameters of a dialog:
+[`Dialog`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/Dialog.composable#Dialog(kotlin.Function0,androidx.compose.ui.window.DialogProperties,kotlin.Function0)) is a basic composable that doesn't provide any styling or
+predefined slots for content. It is a relatively straightforward container that
+you should populate with a container such as `Card`. The following are some of
+the key parameters of a dialog:
 
 - **`onDismissRequest`**: The lambda called when the user closes the dialog.
 - **`properties`** : An instance of [`DialogProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/window/DialogProperties) that provides some additional scope for customization.
@@ -130,9 +135,10 @@ This implementation appears as follows:
 
 ### Basic example
 
-The following example is a basic implementation of the `Dialog` composable. Note that it uses a `Card` as the secondary container. Without the `Card`, the `Text` component would appear alone above the main app content.
+The following example is a basic implementation of the `Dialog` composable. Note
+that it uses a `Card` as the secondary container. Without the `Card`, the `Text`
+component would appear alone above the main app content.
 
-<br />
 
 ```kotlin
 @Composable
@@ -155,22 +161,23 @@ fun MinimalDialog(onDismissRequest: () -> Unit) {
         }
     }
 }
-   
 ```
 
 <br />
 
-This implementation appears as follows. Note that when the dialog is open, the main app content beneath it appears darkened and grayed out:
+This implementation appears as follows. Note that when the dialog is open, the
+main app content beneath it appears darkened and grayed out:
 ![A dialog that contains nothing other than a label.](https://developer.android.com/static/develop/ui/compose/images/components/dialog-minimal.png) **Figure 3.** Minimal dialog.
 
 ### Advanced example
 
-The following is a more advanced implementation of the `Dialog` composable. In this case, the component manually implements a similar interface to the preceding `AlertDialog` example.
+The following is a more advanced implementation of the `Dialog` composable. In
+this case, the component manually implements a similar interface to the
+preceding `AlertDialog` example.
 
 > [!CAUTION]
 > **Caution:** If you only need to display a two-button dialog as in this example, you should use `AlertDialog` and its more convenient API. However, if you want to create a more complex dialog, perhaps with forms and multiple buttons, you should use `Dialog` with custom content, as in the following example.
 
-<br />
 
 ```kotlin
 @Composable
@@ -228,7 +235,6 @@ fun DialogWithImage(
         }
     }
 }
-   
 ```
 
 <br />

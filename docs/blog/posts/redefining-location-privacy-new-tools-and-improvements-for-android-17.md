@@ -34,7 +34,6 @@ Additionally, you can select the appropriate text label from a predefined list o
 
 The location button will be provided as a Jetpack library, ensuring easy integration into your existing app layouts similar to any other Jetpack view implementation, and simplifying how you request permission to access precise location. Additionally, when you implement location button with the Jetpack library it will automatically handle backwards compatibility by defaulting to the existing location prompt when a user taps it on a device running Android 16 or below.  
 
-
 The Android location button is available for testing as of Android 17 Beta 3.
 
 #### Location access transparency
@@ -70,7 +69,8 @@ Written by:
 
   ###### Developer Relations Engineer
 
-  [read_more View profile](https://developer.android.com/blog/authors/robert-clifford) ![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp) ![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/robert-clifford) ![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp) ![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)
 Continue reading
 - [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -95,5 +95,8 @@ Continue reading
   [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel), [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford) • 2 min read
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

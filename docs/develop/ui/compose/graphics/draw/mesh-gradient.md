@@ -4,27 +4,35 @@ url: https://developer.android.com/develop/ui/compose/graphics/draw/mesh-gradien
 source: md.txt
 ---
 
-Mesh gradients create complex, multi-directional color transitions using a 2D grid of patches. Unlike linear or radial gradients, mesh gradients smoothly interpolate colors across a grid. Use mesh gradients to create fluid and organic aesthetic elements in your user interface.
+Mesh gradients create complex, multi-directional color transitions using a 2D
+grid of patches. Unlike linear or radial gradients, mesh gradients smoothly
+interpolate colors across a grid. Use mesh gradients to create fluid and organic
+aesthetic elements in your user interface.
 ![A mesh gradient example with a display of its current mesh gradient points.](https://developer.android.com/static/develop/ui/compose/images/graphics/mesh-gradient/mesh_gradient_example.png) **Figure 1**. A mesh gradient example with a display of its current mesh gradient points.
 
 ## Key concepts
 
-To construct a mesh gradient, define the grid dimensions, the vertices, and the color transitions between points:
+To construct a mesh gradient, define the grid dimensions, the vertices, and the
+color transitions between points:
 
 - **Grid dimensions:** The mesh is split into patches along the vertical and horizontal axes. A grid of `rows` and `columns` contains (rows+1)×(columns+1) vertices. For example, a 1×1 mesh consists of 4 vertices forming one patch.
 - **Normalized coordinates:** All vertex positions use a normalized coordinate system where `(0f, 0f)` represents the top-left and `(1f, 1f)` represents the bottom-right of the drawing bounds.
 - **Bezier control points (tangents):** Each vertex contains up to four optional bezier control points. These tangents specify the edge curvature between neighboring vertices. If you use `Offset.Unspecified`, Compose infers the tangents to ensure smooth transitions across patches. Each grid cell formed by 4 vertices along with their control points generates a bezier patch.
-- **Color interpolation:** The framework calculates colors between the main vertices. Set `hasBicubicColor` to `true` for [Catmull-Rom interpolation](https://en.wikipedia.org/wiki/Catmull%E2%80%93Rom_spline) for smoother color shifts, or `false` for bilinear interpolation.
+- **Color interpolation:** The framework calculates colors between the main vertices. Set `hasBicubicColor` to `true` for [Catmull-Rom
+  interpolation](https://en.wikipedia.org/wiki/Catmull%E2%80%93Rom_spline) for smoother color shifts, or `false` for bilinear interpolation.
 
 ## Draw with `MeshGradientPainter`
 
-In Jetpack Compose, use [`MeshGradientPainter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/MeshGradientPainter) to render a mesh gradient. `MeshGradientPainter` draws on the canvas.
+In Jetpack Compose, use
+[`MeshGradientPainter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/MeshGradientPainter)
+to render a mesh gradient. `MeshGradientPainter` draws on the canvas.
 
 ### **Create a simple mesh gradient**
 
-To create a basic static mesh gradient, initialize a `MeshGradientPainter` by specifying its dimensions and using the `setVertex` function inside the configuration block to position your corner points and assign them colors.
+To create a basic static mesh gradient, initialize a `MeshGradientPainter` by
+specifying its dimensions and using the `setVertex` function inside the
+configuration block to position your corner points and assign them colors.
 
-<br />
 
 ```kotlin
 val rows = 1
@@ -46,7 +54,6 @@ Box(
         .fillMaxWidth()
         .paint(gradientPainter)
 )
-   
 ```
 
 <br />
@@ -55,11 +62,13 @@ Box(
 
 ## Use specific Bezier control points
 
-By default, the mesh generator handles complex calculations to keep the grid transitions smooth. However, you can explicitly customize tangents on any single vertex if you want to selectively push, pull, or sharply pinch certain color sections.
+By default, the mesh generator handles complex calculations to keep the grid
+transitions smooth. However, you can explicitly customize tangents on any single
+vertex if you want to selectively push, pull, or sharply pinch certain color
+sections.
 
 Control offsets are measured relative to the host vertex's position.
 
-<br />
 
 ```kotlin
 val customTangentPainter = remember {
@@ -86,7 +95,6 @@ Box(
         .fillMaxWidth()
         .paint(customTangentPainter)
 )
-   
 ```
 
 <br />
@@ -98,9 +106,9 @@ Box(
 
 ## Create advanced grids
 
-This example shows a 3 by 3 grid, meaning there are 16 points that need to be specified, with the middle points set with different offsets:
+This example shows a 3 by 3 grid, meaning there are 16 points that need to
+be specified, with the middle points set with different offsets:
 
-<br />
 
 ```kotlin
 val points = remember {
@@ -147,7 +155,6 @@ Box(
         .paint(gradientPainter)
         // ...
 )
-   
 ```
 
 <br />
@@ -156,9 +163,10 @@ Box(
 
 ## Animate a mesh gradient
 
-Because the `block` lambda parameter of `MeshGradientPainter` is executed within a `DrawScope`, it can read and observe mutable state. You can animate positions or colors over time without re-allocating shaders or bitmaps.
+Because the `block` lambda parameter of `MeshGradientPainter` is executed within
+a `DrawScope`, it can read and observe mutable state. You can animate positions
+or colors over time without re-allocating shaders or bitmaps.
 
-<br />
 
 ```kotlin
 val infiniteTransition = rememberInfiniteTransition(label = "meshMovement")
@@ -215,7 +223,6 @@ Box(
         .fillMaxWidth()
         .paint(gradientPainter)
 )
-   
 ```
 
 <br />

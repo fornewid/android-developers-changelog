@@ -6,7 +6,9 @@ source: md.txt
 
 ## The 10-foot UI
 
-A "10-foot UI" is a design paradigm for televisions that tailors an interface for viewing from approximately 3 meters (10 feet) away. When designing for this experience, account for these key characteristics:
+A "10-foot UI" is a design paradigm for televisions that tailors an interface
+for viewing from approximately 3 meters (10 feet) away. When designing for this
+experience, account for these key characteristics:
 
 - **Viewing distance**: Viewers are sitting far from the screen, "leaning back". Screen layouts are uncluttered, with text and UI elements that are large enough to be comfortably readable from a distance, without dense blocks of text.
 - **Color contrast**: To avoid washed out colors on TV displays with low contrast ratios, the design uses high-contrast palettes and distinct visual indicators so focused states remain visible across different TV panels.
@@ -14,13 +16,18 @@ A "10-foot UI" is a design paradigm for televisions that tailors an interface fo
 
 ## Core architecture and library selection
 
-When migrating an Android TV application to Jetpack Compose, you must use `androidx.tv` libraries and follow these 10-foot UI patterns:
+When migrating an Android TV application to Jetpack Compose, you must use
+`androidx.tv` libraries and follow these 10-foot UI patterns:
 
 - **UI modernization**: Focus on custom, cinematic layouts over legacy direct 1:1 templates. You must use Jetpack Compose for TV features like dynamic gradient hero backdrops, custom focus animations, custom navigation drawers, and custom layouts.
 - **Primary design system** : You must always use `androidx.tv.material3.*` (`androidx.tv:tv-material`) over mobile `androidx.compose.material3.*`. TV Material 3 provides built-in D-Pad focus handling, focus zoom scaling, and TV-optimized typography and shapes. To set up Compose for TV dependencies, follow [Compose for TV setup](https://developer.android.com/training/tv/playback/compose).
-- **Focus zoom animation** : For interactive cards, you must use `CompactCard`, `ClassicCard`, or `WideCardContainer` with `scale = CardDefaults.scale(focusedScale = 1.1f)` to provide standard TV focus animation.
-- **Coil image loading** : To use declarative `AsyncImage(model, contentDescription, ...)` without passing an explicit `ImageLoader` parameter, you must include `io.coil-kt:coil-compose` in your Gradle dependencies.
-- **Explicit imports** : You must always import TV Material 3 classes explicitly (for example, `import androidx.tv.material3.Surface`, `import androidx.tv.material3.ListItem`) instead of using wildcard imports (`import androidx.tv.material3.*`).
+- **Focus zoom animation** : For interactive cards, you must use `CompactCard`, `ClassicCard`, or `WideCardContainer` with `scale =
+  CardDefaults.scale(focusedScale = 1.1f)` to provide standard TV focus animation.
+- **Coil image loading** : To use declarative `AsyncImage(model,
+  contentDescription, ...)` without passing an explicit `ImageLoader` parameter, you must include `io.coil-kt:coil-compose` in your Gradle dependencies.
+- **Explicit imports** : You must always import TV Material 3 classes explicitly (for example, `import androidx.tv.material3.Surface`, `import
+  androidx.tv.material3.ListItem`) instead of using wildcard imports (`import
+  androidx.tv.material3.*`).
 - **File naming conventions** : You must name Composable screen files after the screen (for example, name `BrowseScreen` as `BrowseScreen.kt`, `PlaybackScreen` as `PlaybackScreen.kt`, and `AuthenticationScreen` as `AuthenticationScreen.kt`). Don't use generic prefixes like `Main`.
 - **Overscan and bezels** : You must apply horizontal padding (for example, `horizontal = 48.dp` or `32.dp`, `vertical = 24.dp`) to root containers, carousels, and top bars to prevent clipping.
 - **Reading width constrainment** : You must constrain reading width using `Modifier.widthIn(max = 600.dp)` on text columns for long-form text.
@@ -29,13 +36,19 @@ When migrating an Android TV application to Jetpack Compose, you must use `andro
 
 ## D-pad focus handling and navigation
 
-Jetpack Compose for TV (`androidx.tv.material3`) requires explicit focus management, as components don't receive initial focus automatically and navigation uses 2D spatial coordinates. To configure TV D-pad navigation, follow instructions in [TV Navigation guide](https://developer.android.com/training/tv/get-started/navigation).
+Jetpack Compose for TV (`androidx.tv.material3`) requires explicit focus
+management, as components don't receive initial focus automatically and
+navigation uses 2D spatial coordinates. To configure TV D-pad navigation, follow
+instructions in [TV Navigation guide](https://developer.android.com/training/tv/get-started/navigation).
 
 ### Initial focus
 
-You must assign initial focus to the primary interactive element on every screen (such as the first action button, card, or `ListItem`) using `FocusRequester` when entering a screen. Define `val focusRequester = remember { FocusRequester() }`, attach `Modifier.focusRequester(focusRequester)` to the primary element, and request focus inside `LaunchedEffect(Unit) { focusRequester.requestFocus() }`:
+You must assign initial focus to the primary interactive element on every screen
+(such as the first action button, card, or `ListItem`) using `FocusRequester`
+when entering a screen. Define `val focusRequester = remember { FocusRequester()
+}`, attach `Modifier.focusRequester(focusRequester)` to the primary element, and
+request focus inside `LaunchedEffect(Unit) { focusRequester.requestFocus() }`:
 
-<br />
 
 ```kotlin
 val focusRequester = remember { FocusRequester() }
@@ -44,20 +57,29 @@ val focusManager = LocalFocusManager.current
 LaunchedEffect(Unit) {
     focusRequester.requestFocus()
 }
-   
 ```
 
 <br />
 
-*Note: For screens with dynamic state or pagers (like `OnboardingScreen` using `HorizontalPager`), you must pass the state key to `LaunchedEffect` (for example `LaunchedEffect(pagerState.currentPage)`) so that focus is re-applied when the page changes.*
+*Note: For screens with dynamic state or pagers (like `OnboardingScreen` using
+`HorizontalPager`), you must pass the state key to `LaunchedEffect` (for example
+`LaunchedEffect(pagerState.currentPage)`) so that focus is re-applied when the
+page changes.*
 
 ### Bidirectional focus routing and avoiding focus traps
 
-When interactive elements sit on opposite sides of the display, standard 2D spatial navigation fails to find targets across them. This creates focus traps where users are unable to navigate out of an area using the D-pad.
+When interactive elements sit on opposite sides of the display, standard 2D
+spatial navigation fails to find targets across them. This creates focus traps
+where users are unable to navigate out of an area using the D-pad.
 
-For symmetrical, bidirectional D-pad navigation without focus traps, you must rely on Compose's 2D spatial focus engine whenever possible. When connecting adjacent UI elements across scrollable containers (like `LazyColumn` or `LazyRow`), don't set directional overrides (`up = ...`, `down = ...`) targeting individual items inside lazy lists. When an item scrolls off-screen during vertical navigation, its `FocusRequester` becomes uninitialized, throwing `IllegalStateException` during focus searches:
+For symmetrical, bidirectional D-pad navigation without focus traps, you must
+rely on Compose's 2D spatial focus engine whenever possible. When connecting
+adjacent UI elements across scrollable containers (like `LazyColumn` or
+`LazyRow`), don't set directional overrides (`up = ...`, `down = ...`) targeting
+individual items inside lazy lists. When an item scrolls off-screen during
+vertical navigation, its `FocusRequester` becomes uninitialized, throwing
+`IllegalStateException` during focus searches:
 
-<br />
 
 ```kotlin
 Row(
@@ -71,18 +93,25 @@ Row(
         modifier = Modifier.focusRequester(topBarFocusRequester)
     ) { Text("Search") }
 }
-   
 ```
 
 <br />
 
 ### Row focus recollection (`Modifier.focusRestorer`)
 
-When navigating vertically between horizontal carousels (`LazyRow`), Compose's default 2D spatial focus engine searches along the X coordinate of the focused item. If a user scrolls right in Row 1 (for example to Item 4 at X=800dp) and presses DOWN to navigate to Row 2, spatial routing focuses whatever item sits at X=800dp in Row 2.
+When navigating vertically between horizontal carousels (`LazyRow`), Compose's
+default 2D spatial focus engine searches along the X coordinate of the focused
+item. If a user scrolls right in Row 1 (for example to Item 4 at X=800dp) and
+presses DOWN to navigate to Row 2, spatial routing focuses whatever item sits at
+X=800dp in Row 2.
 
-To make every row maintain its own recollection of card focus (restoring focus to the previously visited item when revisited), you must attach **`Modifier.focusRestorer`** (with no arguments) directly to the `LazyRow`. Don't pass custom fallback `FocusRequester` lambdas in lazy containers, as calling `requestFocus` on an unattached or off-screen item during rapid D-pad scrolling throws `IllegalStateException`.
+To make every row maintain its own recollection of card focus (restoring focus
+to the previously visited item when revisited), you must attach
+**`Modifier.focusRestorer`** (with no arguments) directly to the `LazyRow`.
+Don't pass custom fallback `FocusRequester` lambdas in lazy containers, as
+calling `requestFocus` on an unattached or off-screen item during rapid D-pad
+scrolling throws `IllegalStateException`.
 
-<br />
 
 ```kotlin
 LazyRow(
@@ -119,20 +148,26 @@ LazyRow(
         )
     }
 }
-   
 ```
 
 <br />
 
 ### Text input, hardware keyboard enter interception, and IME focus chaining
 
-When migrating search bars or login forms from Leanback (`SearchSupportFragment`, `GuidedStepSupportFragment`), don't use bare `BasicTextField` containers or empty `Surface(onClick = {})` wrappers, as they prevent D-pad CENTER from attaching the virtual keyboard (IME).
+When migrating search bars or login forms from Leanback
+(`SearchSupportFragment`, `GuidedStepSupportFragment`), don't use bare
+`BasicTextField` containers or empty `Surface(onClick = {})` wrappers, as they
+prevent D-pad CENTER from attaching the virtual keyboard (IME).
 
-1. **Clickable TV surface wrapper with Back-key interception (`onPreviewKeyEvent`)** : Wrap standard M3 `TextField` inside a focusable TV `Surface(onClick = { focusRequester.requestFocus() }, scale = ClickableSurfaceDefaults.scale(focusedScale = 1.01f), border = ClickableSurfaceDefaults.border(focusedBorder = Border(BorderStroke(2.dp, Color.White))))` to provide a focused border outline and D-pad focus scaling. You must attach `Modifier.onPreviewKeyEvent` on the text field or wrapper to intercept `Key.Back` and `Key.Escape` so the user's able to remove focus from the input field without exiting the screen.
+1. **Clickable TV surface wrapper with Back-key interception
+   (`onPreviewKeyEvent`)** : Wrap standard M3 `TextField` inside a focusable TV `Surface(onClick = { focusRequester.requestFocus() }, scale =
+   ClickableSurfaceDefaults.scale(focusedScale = 1.01f), border =
+   ClickableSurfaceDefaults.border(focusedBorder = Border(BorderStroke(2.dp,
+   Color.White))))` to provide a focused border outline and D-pad focus scaling. You must attach `Modifier.onPreviewKeyEvent` on the text field or wrapper to intercept `Key.Back` and `Key.Escape` so the user's able to remove focus from the input field without exiting the screen.
 2. **Why Back-key interception is mandatory** : When editing a text field on Android TV, pressing the D-pad **Back** button normally navigates back and exits the screen. By intercepting `Key.Back` and `Key.Escape` on `KeyUp` in `onPreviewKeyEvent` to stop editing (clearing focus), the user's able to return to D-pad form navigation without being trapped in the text field or accidentally exiting the screen.
-3. **IME focus chaining** : For multi-field forms (such as Username and Password in authentication screens), attach `KeyboardActions(onNext = { focusManager.moveFocus(FocusDirection.Down) })` with `ImeAction.Next` on top fields to route focus down to the next input box, and `ImeAction.Done` on the bottom field to route focus directly to the submit button:
+3. **IME focus chaining** : For multi-field forms (such as Username and Password in authentication screens), attach `KeyboardActions(onNext = {
+   focusManager.moveFocus(FocusDirection.Down) })` with `ImeAction.Next` on top fields to route focus down to the next input box, and `ImeAction.Done` on the bottom field to route focus directly to the submit button:
 
-<br />
 
 ```kotlin
 Surface(
@@ -183,21 +218,26 @@ Surface(
             }
     )
 }
-   
 ```
 
 <br />
 
 ## Lazy containers
 
-When implementing scrollable lists or grids in Jetpack Compose for TV, you must use standard `LazyColumn`, `LazyRow`, and `LazyVerticalGrid` from `androidx.compose.foundation.lazy` and `androidx.compose.foundation.lazy.grid`. For catalog browsing layouts, follow instructions in [Catalog Browser guide](https://developer.android.com/training/tv/playback/compose/browse).
+When implementing scrollable lists or grids in Jetpack Compose for TV, you must
+use standard `LazyColumn`, `LazyRow`, and `LazyVerticalGrid` from
+`androidx.compose.foundation.lazy` and `androidx.compose.foundation.lazy.grid`.
+For catalog browsing layouts, follow instructions in [Catalog Browser guide](https://developer.android.com/training/tv/playback/compose/browse).
 
-1. **Pivot scrolling with `BringIntoViewSpec`** : When defining a custom pivot scroll line for catalog rows using `BringIntoViewSpec` and `CompositionLocalProvider(LocalBringIntoViewSpec provides ...)`, you must ensure your project compiles against Compose Foundation 1.7.0+ by adding `implementation platform('androidx.compose:compose-bom:2024.06.00')` (or newer) or `implementation 'androidx.compose.foundation:foundation:1.7.0'` in `app/build.gradle`. Without Compose Foundation 1.7.0+, `import androidx.compose.foundation.gestures.LocalBringIntoViewSpec` will fail with `Unresolved reference: LocalBringIntoViewSpec`.
-2. **Row focus recollection (`Modifier.focusRestorer`)** : Annotate your composable with `@OptIn(ExperimentalFocusRestorerApi::class, ExperimentalComposeUiApi::class)` and attach `Modifier.focusRestorer` on every category `LazyRow` to remember and restore the last focused card when navigating vertically across catalog rows.
+1. **Pivot scrolling with `BringIntoViewSpec`** : When defining a custom pivot scroll line for catalog rows using `BringIntoViewSpec` and `CompositionLocalProvider(LocalBringIntoViewSpec provides ...)`, you must ensure your project compiles against Compose Foundation 1.7.0+ by adding `implementation platform('androidx.compose:compose-bom:2024.06.00')` (or newer) or `implementation 'androidx.compose.foundation:foundation:1.7.0'` in `app/build.gradle`. Without Compose Foundation 1.7.0+, `import
+   androidx.compose.foundation.gestures.LocalBringIntoViewSpec` will fail with `Unresolved reference: LocalBringIntoViewSpec`.
+2. **Row focus recollection (`Modifier.focusRestorer`)** : Annotate your composable with `@OptIn(ExperimentalFocusRestorerApi::class,
+   ExperimentalComposeUiApi::class)` and attach `Modifier.focusRestorer` on every category `LazyRow` to remember and restore the last focused card when navigating vertically across catalog rows.
 
-When populated with focusable TV Material 3 components (`CompactCard`, `ListItem`, `Button`), standard Compose lazy containers handle 2D D-Pad focus routing, focus memory, and edge scrolling automatically:
+When populated with focusable TV Material 3 components (`CompactCard`,
+`ListItem`, `Button`), standard Compose lazy containers handle 2D D-Pad focus
+routing, focus memory, and edge scrolling automatically:
 
-<br />
 
 ```kotlin
 @Composable
@@ -217,14 +257,16 @@ fun CatalogBrowser(
         }
     }
 }
-   
 ```
 
 <br />
 
 ## Media3 video playback and transport controls
 
-When migrating legacy Leanback video playback (`VideoSupportFragment` / `PlaybackGlue`), use Compose Media3 `PlayerSurface` (`androidx.media3.ui.compose.PlayerSurface`) combined with a translucent transport controls overlay:
+When migrating legacy Leanback video playback (`VideoSupportFragment` /
+`PlaybackGlue`), use Compose Media3 `PlayerSurface`
+(`androidx.media3.ui.compose.PlayerSurface`) combined with a translucent
+transport controls overlay:
 
 1. **Mandatory Media3 transport control buttons (`PlayPauseButton`)** : Over the `PlayerSurface`, you must layer a translucent bottom controls bar (`Box(modifier = Modifier.align(Alignment.BottomCenter))`) containing explicit Media3 UI Compose buttons: at minimum `PlayPauseButton`, `SeekBackButton`, and `SeekForwardButton`. Never leave the transport controls overlay empty. To use these composables, you must add `implementation 'androidx.media3:media3-ui-compose-material3:1.6.0'` alongside `androidx.media3:media3-ui-compose` in your `app/build.gradle` dependencies.
 2. **D-pad directional seeking (`onPreviewKeyEvent`)** : To support seeking backward and forward with the remote control D-pad, attach `Modifier.onPreviewKeyEvent` on the container or controls overlay and intercept Compose `Key.DirectionLeft` and `Key.DirectionRight` (for example, `keyEvent.key == Key.DirectionLeft`) to seek backward and forward by 10 seconds (`exoPlayer.seekTo(exoPlayer.currentPosition - 10000)`). Never use legacy Android View keycodes (`KeyEvent.KEYCODE_DPAD_LEFT` or `nativeKeyEvent.keyCode`).
@@ -232,7 +274,8 @@ When migrating legacy Leanback video playback (`VideoSupportFragment` / `Playbac
 
 ## Phased migration strategy
 
-To migrate an app cleanly without breaking compilation or introducing circular dependencies, execute in five distinct phases:
+To migrate an app cleanly without breaking compilation or introducing circular
+dependencies, execute in five distinct phases:
 
 - **Phase 1**: Foundation and design system
 - **Phase 2**: Leaf and standalone screens
@@ -253,7 +296,6 @@ To migrate an app cleanly without breaking compilation or introducing circular d
 - Replace legacy `Fragment` classes with activities of type `ComponentActivity` that declaratively use components in Compose.
 - Clean up legacy style and theme references in `res/values/styles.xml` and `res/values/themes.xml` (such as removing `preferenceTheme` that points to `@style/PreferenceThemeOverlay.v14.Leanback`) that aren't supported once leanback dependencies are removed:
 
-<br />
 
 ```kotlin
 @Composable
@@ -310,7 +352,6 @@ fun TvSettingsScreen(
         }
     }
 }
-   
 ```
 
 <br />
@@ -350,11 +391,16 @@ fun TvSettingsScreen(
 
 ### Modern TV immersive list architecture (`BrowseScreen`)
 
-When building a 10-foot TV browse screen or Immersive List, don't place a hero banner before or outside a scrolling list, and don't fight Compose's automatic `BringIntoView` system with programmatic `animateScrollToItem` calls.
+When building a 10-foot TV browse screen or Immersive List, don't place a hero
+banner before or outside a scrolling list, and don't fight Compose's automatic
+`BringIntoView` system with programmatic `animateScrollToItem` calls.
 
-Instead, use `BringIntoViewSpec` with `LocalBringIntoViewSpec` from Compose Foundation to define exact TV pivot scrolling (for example, pivoting active rows at 35% from the top edge of the display). Combine this with a reshaping immersive row: when lower rows are focused (`focusedCategoryIndex > 0`), hide the hero text and display a normal section header on Row 0:
+Instead, use `BringIntoViewSpec` with `LocalBringIntoViewSpec` from Compose
+Foundation to define exact TV pivot scrolling (for example, pivoting active rows
+at 35% from the top edge of the display). Combine this with a reshaping
+immersive row: when lower rows are focused (`focusedCategoryIndex > 0`), hide
+the hero text and display a normal section header on Row 0:
 
-<br />
 
 ```kotlin
 @Composable
@@ -492,16 +538,19 @@ private fun PositionFocusedItemInLazyLayout(
     }
     CompositionLocalProvider(LocalBringIntoViewSpec provides bringIntoViewSpec, content = content)
 }
-   
 ```
 
 <br />
 
 ### Media3 playback in Compose TV (`PlaybackScreen`)
 
-Implement a custom playback screen using `androidx.media3.ui.compose.PlayerSurface` as the video rendering canvas. Layer Material3 transport controls (`SeekBackButton`, `PlayPauseButton`, `SeekForwardButton` from `androidx.media3:media3-ui-compose-material3`) over the surface in a translucent bottom overlay, and handle D-pad remote key events with an auto-hide timeout:
+Implement a custom playback screen using
+`androidx.media3.ui.compose.PlayerSurface` as the video rendering canvas. Layer
+Material3 transport controls (`SeekBackButton`, `PlayPauseButton`,
+`SeekForwardButton` from `androidx.media3:media3-ui-compose-material3`) over the
+surface in a translucent bottom overlay, and handle D-pad remote key events with
+an auto-hide timeout:
 
-<br />
 
 ```kotlin
 @OptIn(UnstableApi::class)
@@ -618,16 +667,16 @@ fun Media3PlaybackScreen(
         }
     }
 }
-   
 ```
 
 <br />
 
 ### Replacing CursorLoader with reactive coroutine flow
 
-Replace legacy `LoaderManager.LoaderCallbacks<Cursor>` and `CursorObjectAdapter` with a repository returning a `Flow` that observes database changes and triggers asynchronous fetching when empty:
+Replace legacy `LoaderManager.LoaderCallbacks<Cursor>` and `CursorObjectAdapter`
+with a repository returning a `Flow` that observes database changes and triggers
+asynchronous fetching when empty:
 
-<br />
 
 ```kotlin
 object VideoFlowRepository {
@@ -657,7 +706,6 @@ object VideoFlowRepository {
         return emptyList()
     }
 }
-   
 ```
 
 <br />

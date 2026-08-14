@@ -17,7 +17,6 @@ With the Android XR SDK you can:
 - Take advantage of natural, multimodal interaction capabilities such as hands and eyes
 
 *"We believe Android XR is a game-changer for storytelling. It allows us to merge narrative depth with advanced interactive features, creating an immersive world where audiences can engage with characters and stories like never before."*   
-
 - Jed Weintrob, Partner at [**30 Ninjas**](https://30ninjas.com/)
 
 ### Your apps on Android XR
@@ -45,7 +44,6 @@ The Jetpack XR SDK includes new [Jetpack](https://developer.android.com/jetpack)
 - [**ARCore for Jetpack XR**](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore) - brings powerful perception capabilities for your app to understand the real world
 
 *"With Android XR, we can bring Calm directly into your world, capturing the senses and allowing you to experience it in a deeper and more transformative way. By collaborating closely with the Android XR team on this cutting-edge technology, we've reimagined how to create a sense of depth and space, resulting in a level of immersion that instantly helps you feel more present, focused, and relaxed."*   
-
 - Dan Szeto, Vice President at [**Calm Studios**](https://www.calm.com/)
 
 Kickstart your Jetpack XR SDK journey with the [**Hello XR Sample**](https://github.com/android/xr-samples), a straightforward introduction to the essential features of Jetpack Compose for XR.
@@ -81,7 +79,6 @@ Unity is adding Android XR support to these popular XR packages:
 We're also rolling out the Android XR Extensions for Unity with samples and innovative features such as mouse interaction profile, environment blend mode, personalized hand mesh, object tracking, and more.
 
 *"Having already brought Demeo to most commercially available platforms, it's safe to say we were impressed with the process of adapting the game to run on Android XR."*   
-
 -- Johan Gastrin, CTO at [**Resolution Games**](https://www.resolutiongames.com/)
 
 Check out our [getting started guide for unity](https://developer.android.com/develop/xr/unity) and [Unity's blog post](https://on.unity.com/3DdnxJW) to learn more.
@@ -124,7 +121,8 @@ Written by:
 
   ###### Vice President, Product Management, Android Developer
 
-  [read_more View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
 Continue reading
 - [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -149,5 +147,8 @@ Continue reading
   - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

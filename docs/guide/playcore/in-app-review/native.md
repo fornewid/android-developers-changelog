@@ -4,17 +4,30 @@ url: https://developer.android.com/guide/playcore/in-app-review/native
 source: md.txt
 ---
 
-This guide describes how to integrate in-app reviews in your app using native (C or C++) code. There are separate integration guides if you are using [Kotlin or Java](https://developer.android.com/guide/playcore/in-app-review/kotlin-java), [Unity](https://developer.android.com/guide/playcore/in-app-review/unity) or [Unreal Engine](https://developer.android.com/guide/playcore/in-app-review/unreal-engine).
+This guide describes how to integrate in-app reviews in your app using native (C
+or C++) code. There are separate integration guides if you are using [Kotlin or
+Java](https://developer.android.com/guide/playcore/in-app-review/kotlin-java), [Unity](https://developer.android.com/guide/playcore/in-app-review/unity) or [Unreal Engine](https://developer.android.com/guide/playcore/in-app-review/unreal-engine).
 
 ## Native SDK overview
 
-The Play Core Native SDK is part of [Google Play Core libraries](https://developer.android.com/guide/playcore) family. The Play Core Native SDK includes a C header file, `review.h`, that wraps [`ReviewManager`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewManager) from the Java Play In-App Review libraries. This header file allows your app to call the API directly from your native code. For an overview of the public functions that are available, see the [Play Review native module documentation](https://developer.android.com/reference/native/play/core/group/review).
+The Play Core Native SDK is part of [Google Play Core libraries](https://developer.android.com/guide/playcore) family. The
+Play Core Native SDK includes a C header file, `review.h`, that wraps
+[`ReviewManager`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewManager) from the Java Play In-App Review libraries. This header
+file allows your app to call the API directly from your native code. For an
+overview of the public functions that are available, see the [Play Review native
+module documentation](https://developer.android.com/reference/native/play/core/group/review).
 
-[`ReviewManager_requestReviewFlow`](https://developer.android.com/reference/native/play/core/group/review#reviewmanager_requestreviewflow) starts a request that gathers the information that is required to launch the in-app review flow later. You can track the result of the request using [`ReviewManager_getReviewStatus`](https://developer.android.com/reference/native/play/core/group/review#reviewmanager_getreviewstatus). For more information about all the statuses that `ReviewManager_getReviewStatus` can return, see [`ReviewErrorCode`](https://developer.android.com/reference/native/play/core/group/review#reviewerrorcode).
+[`ReviewManager_requestReviewFlow`](https://developer.android.com/reference/native/play/core/group/review#reviewmanager_requestreviewflow) starts a request that gathers the
+information that is required to launch the in-app review flow later. You can
+track the result of the request using [`ReviewManager_getReviewStatus`](https://developer.android.com/reference/native/play/core/group/review#reviewmanager_getreviewstatus). For
+more information about all the statuses that `ReviewManager_getReviewStatus` can
+return, see [`ReviewErrorCode`](https://developer.android.com/reference/native/play/core/group/review#reviewerrorcode).
 
-Both the request and launch functions return `REVIEW_NO_ERROR` if the function succeeds.
+Both the request and launch functions return `REVIEW_NO_ERROR` if the function
+succeeds.
 
 ## Set up your development environment
+
 
 ## Download Play Core Native SDK
 
@@ -37,7 +50,11 @@ I have read and agree with the above terms and conditions <button class="button 
 
    - Install [Android Studio](https://developer.android.com/studio) version 4.0 or higher. Use the SDK Manager UI to install Android SDK Platform version 10.0 (API level 29).
    - Install the [Android SDK command-line tools](https://developer.android.com/studio#command-tools) and use [`sdkmanager`](https://developer.android.com/studio/command-line/sdkmanager) to install Android SDK Platform version 10.0 (API level 29).
-2. Prepare Android Studio for native development by using the [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) to install the latest CMake and Android Native Development Kit (NDK). For more information on creating or importing native projects, see [Getting Started with the NDK](https://developer.android.com/ndk/guides).
+2. Prepare Android Studio for native development by using the
+   [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) to install the latest
+   CMake and Android Native Development Kit (NDK). For more information on
+   creating or importing native projects, see
+   [Getting Started with the NDK](https://developer.android.com/ndk/guides).
 
 3. Download the zip file and extract it alongside your project.
 
@@ -196,27 +213,37 @@ I have read and agree with the above terms and conditions <button class="button 
 
 ## Data Collection
 
-The Play Core Native SDK may collect version related data to allow Google to improve the product, including:
+The Play Core Native SDK may collect version related data to allow Google to
+improve the product, including:
 
 - App's package name
 - App's package version
 - Play Core Native SDK's version
 
-This data will be collected when you upload [your app package](https://developer.android.com/studio/publish/upload-bundle) to the Play Console. To opt-out of this data collection process, remove the `$playcoreDir/playcore-native-metadata.jar` import in the build.gradle file.
+This data will be collected when you upload [your app package](https://developer.android.com/studio/publish/upload-bundle)
+to the Play Console. To opt-out of this data collection process, remove the
+`$playcoreDir/playcore-native-metadata.jar` import in the build.gradle file.
 
-Note, this data collection related to your use of the Play Core Native SDK and Google's use of the collected data is separate and independent of Google's collection of library dependencies declared in Gradle when you upload your app package to the Play Console.
+Note, this data collection related to your use of the Play Core Native SDK and
+Google's use of the collected data is separate and independent of Google's
+collection of library dependencies declared in Gradle when you upload your app
+package to the Play Console.
 
-After you integrate the Play Core Native SDK into your project, include the following line in files that contain API calls:
+After you integrate the Play Core Native SDK into your project, include the
+following line in files that contain API calls:
 
 ## Include review.h
 
-After integrating the Play Core Native SDK into your project, include the following line in files that will contain API calls:
+After integrating the Play Core Native SDK into your project, include the
+following line in files that will contain API calls:
 
     #include "play/review.h"
 
 ## Initialize the Review API
 
-Whenever you want to use the API, you must initialize it first by calling the [`ReviewManager_init`](https://developer.android.com/reference/native/play/core/group/review#reviewmanager_init) function, as shown in the following example built with [`android_native_app_glue.h`](https://developer.android.com/ndk/guides/concepts#naa):
+Whenever you want to use the API, you must initialize it first by calling the
+[`ReviewManager_init`](https://developer.android.com/reference/native/play/core/group/review#reviewmanager_init) function, as shown in the following example built
+with [`android_native_app_glue.h`](https://developer.android.com/ndk/guides/concepts#naa):
 
     void android_main(android_app* app) {
       app->onInputEvent = HandleInputEvent;
@@ -229,7 +256,16 @@ Whenever you want to use the API, you must initialize it first by calling the [`
 
 ## Request the in-app review flow
 
-Follow the guidance about [when to request in-app reviews](https://developer.android.com/guide/playcore/in-app-review#when-to-request) to determine good points in your app's user flow to prompt the user for a review (for example, after a user dismisses the summary screen at the end of a level in a game). When your app gets close one of these points, call [`ReviewManager_requestReviewFlow`](https://developer.android.com/reference/native/play/core/group/review#reviewmanager_requestreviewflow) to asynchronously request the information that your app needs to launch an in-app review flow. Monitor the progress of the `ReviewManager_requestReviewFlow` operation by calling [`ReviewManager_getReviewStatus`](https://developer.android.com/reference/native/play/core/group/review#reviewmanager_getreviewstatus), for example once every frame. This might take up to a couple of seconds, so you should start this process before your app reaches the point when you want to show the in-app review flow.
+Follow the guidance about [when to request in-app reviews](https://developer.android.com/guide/playcore/in-app-review#when-to-request) to determine good
+points in your app's user flow to prompt the user for a review (for example,
+after a user dismisses the summary screen at the end of a level in a game). When
+your app gets close one of these points, call
+[`ReviewManager_requestReviewFlow`](https://developer.android.com/reference/native/play/core/group/review#reviewmanager_requestreviewflow) to asynchronously request the information
+that your app needs to launch an in-app review flow. Monitor the progress of the
+`ReviewManager_requestReviewFlow` operation by calling
+[`ReviewManager_getReviewStatus`](https://developer.android.com/reference/native/play/core/group/review#reviewmanager_getreviewstatus), for example once every frame. This might
+take up to a couple of seconds, so you should start this process before your app
+reaches the point when you want to show the in-app review flow.
 
     ReviewErrorCode error_code = ReviewManager_requestReviewFlow();
     if (error_code == REVIEW_NO_ERROR) {
@@ -242,7 +278,13 @@ Follow the guidance about [when to request in-app reviews](https://developer.and
 
 ## Handle statuses and launch the in-app review flow
 
-Whenever a request has started or the in-app review flow is launched, you can check the status using [`ReviewManager_getReviewStatus`](https://developer.android.com/reference/native/play/core/group/review#reviewmanager_getreviewstatus). This lets you define the logic depending on the API status. One way to approach this is to keep the status as a global variable and check whether the status is `REVIEW_REQUEST_FLOW_COMPLETED` when the user performs a certain action (for example, tapping a "Next Level" button in a game), as shown in the following example:
+Whenever a request has started or the in-app review flow is launched, you can
+check the status using [`ReviewManager_getReviewStatus`](https://developer.android.com/reference/native/play/core/group/review#reviewmanager_getreviewstatus). This lets you
+define the logic depending on the API status. One way to approach this is to
+keep the status as a global variable and check whether the status is
+`REVIEW_REQUEST_FLOW_COMPLETED` when the user performs a certain action (for
+example, tapping a "Next Level" button in a game), as shown in the following
+example:
 
     ReviewStatus status;
     ReviewErrorCode error_code = ReviewManager_getReviewStatus(&status);
@@ -270,7 +312,8 @@ Whenever a request has started or the in-app review flow is launched, you can ch
             break;
     }
 
-When the status is `REVIEW_REQUEST_FLOW_COMPLETED` and your app is ready, launch the in-app review flow:
+When the status is `REVIEW_REQUEST_FLOW_COMPLETED` and your app is ready, launch
+the in-app review flow:
 
 ```c
 // This call uses https://developer.android.com/ndk/guides/concepts#naa.
@@ -281,14 +324,19 @@ if (error_code != REVIEW_NO_ERROR) {
 }
 ```
 
-After launching the in-app review flow, keep checking the status for completion and continue with your app flow. A common way to handle this, would be by following the [Game Loop](https://developer.android.com/games/develop/gameloops) pattern.
+After launching the in-app review flow, keep checking the status for completion
+and continue with your app flow. A common way to handle this, would be by
+following the [Game Loop](https://developer.android.com/games/develop/gameloops) pattern.
 
 ## Free resources
 
-Don't forget to free resources by calling the [`ReviewManager_destroy`](https://developer.android.com/reference/native/play/core/group/review#reviewmanager_destroy) function once your app has finished using the API (for example, after the in-app review flow is completed).
+Don't forget to free resources by calling the [`ReviewManager_destroy`](https://developer.android.com/reference/native/play/core/group/review#reviewmanager_destroy)
+function once your app has finished using the API (for example, after the in-app
+review flow is completed).
 
     void ReviewManager_destroy();
 
 ## Next steps
 
-[Test your app's in-app review flow](https://developer.android.com/guide/playcore/in-app-review/test) to verify that your integration is working correctly.
+[Test your app's in-app review flow](https://developer.android.com/guide/playcore/in-app-review/test) to verify that your integration is
+working correctly.

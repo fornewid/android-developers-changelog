@@ -4,7 +4,10 @@ url: https://developer.android.com/develop/ui/compose/components/button
 source: md.txt
 ---
 
-Buttons are fundamental components that allow the user to trigger a defined action. There are five types of buttons. This table describes the appearance of each of the five button types, as well as where you should use them:
+Buttons are fundamental components that allow the user to trigger a defined
+action. There are five types of buttons. This table describes the
+appearance of each of the five button types, as well as where you should use
+them:
 
 | Type | Appearance | Purpose |
 |---|---|---|
@@ -19,31 +22,26 @@ This image demonstrates the five types of buttons in Material Design:
 
 ## API surface
 
-
 `onClick`
-:
-    The function that the system calls when the user presses the button.
-
+:   The function that the system calls when the user presses the button.
 
 `enabled`
-:
-    When `false`, this parameter makes the button appear unavailable and inactive.
-
+:   When `false`, this parameter makes the button appear unavailable and
+    inactive.
 
 `colors`
-:
-    An instance of `ButtonColors` that determines the colors used in the button.
-
+:   An instance of `ButtonColors` that determines the colors used in the
+    button.
 
 `contentPadding`
-:
-    The padding within the button.
+:   The padding within the button.
 
 ## Filled button
 
-The filled button component uses the basic [`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It is filled with a solid color by default. The snippet shows how to implement the component:
+The filled button component uses the basic [`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It is
+filled with a solid color by default. The snippet shows how to implement the
+component:
 
-<br />
 
 ```kotlin
 @Composable
@@ -52,7 +50,6 @@ fun FilledButtonExample(onClick: () -> Unit) {
         Text("Filled")
     }
 }
-   
 ```
 
 <br />
@@ -65,11 +62,11 @@ This implementation appears as shown:
 
 ## Filled tonal button
 
-The filled tonal button component uses the [`FilledTonalButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledTonalButton.composable#FilledTonalButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It is filled with a tonal color by default.
+The filled tonal button component uses the [`FilledTonalButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilledTonalButton.composable#FilledTonalButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable.
+It is filled with a tonal color by default.
 
 The snippet shows how to implement the component:
 
-<br />
 
 ```kotlin
 @Composable
@@ -78,7 +75,6 @@ fun FilledTonalButtonExample(onClick: () -> Unit) {
         Text("Tonal")
     }
 }
-   
 ```
 
 <br />
@@ -88,11 +84,11 @@ This implementation appears as shown:
 
 ## Outlined button
 
-The outlined button component uses the [`OutlinedButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedButton.composable#OutlinedButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It appears with an outline by default.
+The outlined button component uses the [`OutlinedButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedButton.composable#OutlinedButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It
+appears with an outline by default.
 
 The snippet shows how to implement the component:
 
-<br />
 
 ```kotlin
 @Composable
@@ -101,7 +97,6 @@ fun OutlinedButtonExample(onClick: () -> Unit) {
         Text("Outlined")
     }
 }
-   
 ```
 
 <br />
@@ -111,11 +106,12 @@ This implementation appears as shown:
 
 ## Elevated button
 
-The elevated button component uses the [`ElevatedButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedButton.composable#ElevatedButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It has a shadow that represents the elevation effect by default. It is a filled button that includes a shadow.
+The elevated button component uses the [`ElevatedButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedButton.composable#ElevatedButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It has
+a shadow that represents the elevation effect by default. It is a filled button
+that includes a shadow.
 
 The snippet shows how to implement the component:
 
-<br />
 
 ```kotlin
 @Composable
@@ -124,7 +120,6 @@ fun ElevatedButtonExample(onClick: () -> Unit) {
         Text("Elevated")
     }
 }
-   
 ```
 
 <br />
@@ -134,11 +129,11 @@ This implementation appears as shown:
 
 ## Text button
 
-The text button component uses the [`TextButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextButton.composable#TextButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It appears as only text until pressed. It does not have a solid fill or outline by default.
+The text button component uses the [`TextButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TextButton.composable#TextButton(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.material3.ButtonColors,androidx.compose.material3.ButtonElevation,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1)) composable. It appears as
+only text until pressed. It does not have a solid fill or outline by default.
 
 The snippet shows how to implement the component:
 
-<br />
 
 ```kotlin
 @Composable
@@ -149,7 +144,6 @@ fun TextButtonExample(onClick: () -> Unit) {
         Text("Text Button")
     }
 }
-   
 ```
 
 <br />

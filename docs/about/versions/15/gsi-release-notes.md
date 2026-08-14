@@ -4,9 +4,16 @@ url: https://developer.android.com/about/versions/15/gsi-release-notes
 source: md.txt
 ---
 
-Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image) binaries are available to developers for app testing and validation purposes on [supported Treble-compliant devices](https://developer.android.com/topic/generic-system-image#device-compliance). Developers can use these images to address any compatibility issues with Android 15 QPR2 as well as discover and report OS and framework issues until Android 15 QPR2 is officially released.
+Android [Generic System Image (GSI)](https://developer.android.com/topic/generic-system-image) binaries are available to developers for
+app testing and validation purposes on [supported Treble-compliant devices](https://developer.android.com/topic/generic-system-image#device-compliance).
+Developers can use these images to address any compatibility issues with
+Android 15 QPR2 as well as discover and report OS and framework issues
+until Android 15 QPR2 is officially released.
 
-GSI binaries for Android 15 QPR2 are built from the same AOSP and GMS sources as the [corresponding Google Pixel builds](https://developer.android.com/about/versions/15/download). These binaries contain the same API and SDK, have a similar CTS result, and have been validated on the following Pixel devices:
+GSI binaries for Android 15 QPR2 are built from
+the same AOSP and GMS sources as the [corresponding Google Pixel builds](https://developer.android.com/about/versions/15/download).
+These binaries contain the same API and SDK, have a similar CTS result, and have
+been validated on the following Pixel devices:
 
 - Pixel 6 and 6 Pro
 - Pixel 7 and 7 Pro
@@ -17,16 +24,21 @@ GSI binaries for Android 15 QPR2 are built from the same AOSP and GMS sources as
 - Pixel 8a
 - Pixel 9, 9 Pro, 9 Pro XL, and 9 Pro Fold
 
-See the [GSI documentation](https://developer.android.com/topic/generic-system-image) for device requirements, flashing instructions, and more information on choosing the right image type for your device.
+See the [GSI documentation](https://developer.android.com/topic/generic-system-image) for device requirements, flashing instructions,
+and more information on choosing the right image type for your device.
 
-To find GSI binaries for already-released, stable versions of the platform, see the [Generic System Image releases](https://developer.android.com/topic/generic-system-image/releases#15-stable) page.
+To find GSI binaries for already-released, stable versions of the platform, see
+the [Generic System Image releases](https://developer.android.com/topic/generic-system-image/releases#15-stable) page.
 
 > [!NOTE]
-> **Note:** [**File GSI bugs**](https://issuetracker.google.com/issues/new?component=470386&template=1147338) for any system-related issues you encounter. Make sure to attach a full bug report and **clearly indicate that you are using a GSI build** in your bug description to help the Android team find your issues and address them more quickly. For app-related issues found when using a GSI, we recommend reproducing the issue on a Pixel device before contacting the app developer directly.
+> **Note:** [**File GSI bugs**](https://issuetracker.google.com/issues/new?component=470386&template=1147338) for any system-related issues you encounter. Make sure to attach a full bug report and **clearly indicate that you are using a GSI
+> build** in your bug description to help the Android team find your issues and address them more quickly. For app-related issues found when using a GSI, we recommend reproducing the issue on a Pixel device before contacting the app developer directly.
 
 ## General advisories
 
-GSI binaries offer core OS and framework capabilities that are common to all Android 15 QPR2 beta builds, but they might be missing specific capabilities as listed and are not intended for general use.
+GSI binaries offer core OS and framework capabilities that are common to all
+Android 15 QPR2 beta builds, but they might be
+missing specific capabilities as listed and are not intended for general use.
 
 Before you start using a GSI, review the following general advisories:
 
@@ -38,24 +50,41 @@ Before you start using a GSI, review the following general advisories:
 
 ## Install with Android Flash Tool
 
-**Android Flash Tool** lets you securely flash a system image to your supported Pixel device. Android Flash Tool works with any Web browser that supports WebUSB, such as Chrome or Edge 79+.
+**Android Flash Tool** lets you securely flash a system image
+to your supported Pixel device. Android Flash Tool works with any Web browser
+that supports WebUSB, such as Chrome or Edge 79+.
 
-Android Flash Tool guides you step-by-step through the process of flashing your device---there's no need to have tools installed---but you do need to unlock your device and [enable USB Debugging in Developer options](https://developer.android.com/studio/debug/dev-options#enable). For complete instructions, see the [Android Flash Tool documentation](https://source.android.com/setup/contribute/flash).
+Android Flash Tool guides you step-by-step through the process of flashing your
+device---there's no need to have tools installed---but you do need to unlock your
+device and [enable USB Debugging in Developer options](https://developer.android.com/studio/debug/dev-options#enable). For
+complete instructions, see the [Android Flash Tool
+documentation](https://source.android.com/setup/contribute/flash).
 
-Connect your device over USB, then, depending on the type of system image you want to flash, navigate to Android Flash Tool using one of the following links and follow the onscreen guidance:
+Connect your device over USB, then, depending on the type of system image you
+want to flash, navigate to Android Flash Tool using one of the following links
+and follow the onscreen guidance:
 
 - **ARM64 GSI with GMS** : <https://flash.android.com/preview/vic-qpr2-beta3-gsi-gms>
 - **ARM64 GSI** : <https://flash.android.com/preview/vic-qpr2-beta3-gsi>
 
 ## Known issues
 
-Android 15 GSI binaries have the following GSI-specific known issues that might occur with some devices and builds:
+Android 15 GSI binaries have the following GSI-specific known issues that might
+occur with some devices and builds:
 
-- **Bluetooth audio**: In some cases, Bluetooth audio can't be heard after pairing a new device.
+- **Bluetooth audio**: In some cases, Bluetooth audio can't be heard after
+  pairing a new device.
 
-- **Power Cycle**: Rebooting GSI might fail on some devices. To work around it, reboot the device into recovery mode, erase user data, perform a factory reset, and then reboot the device.
+- **Power Cycle**: Rebooting GSI might fail on some devices. To work around
+  it, reboot the device into recovery mode, erase user data, perform a factory
+  reset, and then reboot the device.
 
-- **System partition size** : GSI + GMS file size (images named `_gsi\_gms\_arm64-*_`) might be bigger than the default dynamic system partition size on your device. To work around this issue, you can delete some non-essential dynamic partitions, such as the product partition, and flash the GSI again. For more information, see the [flashing GSIs documentation](https://source.android.com/setup/build/gsi#flashing-gsis).
+- **System partition size** : GSI + GMS file size (images named
+  `_gsi\_gms\_arm64-*_`) might be bigger than the default dynamic system
+  partition size on your device. To work around this issue, you can delete
+  some non-essential dynamic partitions, such as the product partition, and
+  flash the GSI again. For more information, see the [flashing GSIs
+  documentation](https://source.android.com/setup/build/gsi#flashing-gsis).
 
 ## Downloads
 
@@ -71,7 +100,6 @@ Android 15 GSI binaries have the following GSI-specific known issues that might 
 | x86_64+GMS | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="x86_64-gms" data-modal-dialog-id="a15_gms_x86_64_GSI_zip">gsi_gms_x86_64-exp-BP11.241210.004-12926906-ee11ed2c.zip</button> `ee11ed2c46cc97c896c6e5a391976ebda7bab15a8e66e72e808d53ec1583d141` |
 | x86_64 | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="x86_64" data-modal-dialog-id="a15_aosp_x86_64_GSI_zip">aosp_x86_64-exp-BP11.241210.004-12926906-4944ba98.zip</button> `4944ba98ed5b0587604f02c585804e6689021a1ae2e1276d84691dd444a4e1f0` |
 
-<br />
 
 ### Download Android 15 GSI Release
 

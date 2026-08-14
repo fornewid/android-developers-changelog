@@ -4,18 +4,33 @@ url: https://developer.android.com/about/versions/12/dev-support-images
 source: md.txt
 ---
 
-For Pixel 6, and Pixel 6 Pro devices, Android 13 included a bootloader update to address potential security vulnerabilities, and the *anti-rollback counter* for those devices was incremented, preventing them from being rolled back to Android 12.
+For Pixel 6, and Pixel 6 Pro devices, Android 13 included a bootloader
+update to address potential security vulnerabilities, and the *anti-rollback
+counter* for those devices was incremented, preventing them from being rolled
+back to Android 12.
 
-To facilitate app development and testing, we provide modified Android 12 system images for these Pixel devices called *Developer Support images*. Developer Support images are system images that are based on stable, public builds of Android 12 (API level 31) and the 12L feature drop (API level 32) that also include an updated version of the bootloader with security fixes and an incremented anti-rollback counter.
+To facilitate app development and testing, we provide modified Android 12 system
+images for these Pixel devices called *Developer Support images*. Developer
+Support images are system images that are based on stable, public builds of
+Android 12 (API level 31) and the 12L feature drop (API level 32) that also
+include an updated version of the bootloader with security fixes and an
+incremented anti-rollback counter.
 
-A Pixel 6 or 6 Pro device that is running Android 13 can be rolled back to an Android 12 Developer Support image but can't be rolled back to any other Android 12 images. A device that is running a Developer Support image can be flashed to the [latest public build](https://developer.android.com/about/versions/12/dev-support-images#public) but can't be flashed back to any previous Android 12 images.
+A Pixel 6 or 6 Pro device that is running Android 13 can be rolled back to
+an Android 12 Developer Support image but can't be rolled back to any other
+Android 12 images. A device that is running a Developer Support image can be
+flashed to the [latest public build](https://developer.android.com/about/versions/12/dev-support-images#public) but can't be flashed back to any
+previous Android 12 images.
 
 > [!WARNING]
 > **Warning:** Flashing to a Developer Support build from a public build---or going back to a public build from a Developer Support build---requires a full device reset that removes all user data on the device. Make sure to [back up your data first](https://support.google.com/pixelphone/answer/7179901).
 
 ## General advisories
 
-Developer Support builds are intended to provide a system and app experience as close as possible to the behavior of Android 12 running on a typical user's device. However, here are few things to keep in mind while using these builds for development and testing:
+Developer Support builds are intended to provide a system and app experience as
+close as possible to the behavior of Android 12 running on a typical user's
+device. However, here are few things to keep in mind while using these builds
+for development and testing:
 
 - Developer Support builds are for developers only and aren't suitable for general use.
 - Devices using developer support builds don't receive OTA security updates like other devices, and Developer Support images aren't rebuilt with the latest security fixes. Only an updated bootloader version is included, with its own security fixes and an incremented anti-rollback counter.
@@ -23,35 +38,58 @@ Developer Support builds are intended to provide a system and app experience as 
 
 ## How to provide feedback
 
-Use the [issue tracker](https://issuetracker.google.com/issues/new?component=1234465&template=1725758) to create new issues and to view, track, and vote for issues that you and other developers have created.
+Use the [issue tracker](https://issuetracker.google.com/issues/new?component=1234465&template=1725758)
+to create new issues and to view, track, and vote for issues that you and other
+developers have created.
 
-Before creating your own issue, check the [list of open issues](https://issuetracker.google.com/issues?q=componentid:1234465+status:open) to see if someone else has already reported it. You can subscribe and vote for an issue by **starring it** ![](https://developer.android.com/static/images/shared/star-issue.svg) in the issue tracker. For more information, see [Subscribing by starring an issue](https://developers.google.com/issue-tracker/guides/subscribe#subscribing_by_starring_an_issue). For general help with Google Issue Tracker, see the [documentation](https://developers.google.com/issue-tracker/).
+Before creating your own issue, check the
+[list of open issues](https://issuetracker.google.com/issues?q=componentid:1234465+status:open)
+to see if someone else has already reported it. You can subscribe and vote for
+an issue by **starring it**
+![](https://developer.android.com/static/images/shared/star-issue.svg) in
+the issue tracker. For more information, see
+[Subscribing by starring an issue](https://developers.google.com/issue-tracker/guides/subscribe#subscribing_by_starring_an_issue).
+For general help with Google Issue Tracker, see the
+[documentation](https://developers.google.com/issue-tracker/).
 
 ## Flash your device
 
-You can flash an Android 12 Developer Support build to your device in any of these ways:
+You can flash an Android 12 Developer Support build to your device in any of
+these ways:
 
 - [Flash your device using the Android Flash tool](https://developer.android.com/about/versions/12/dev-support-images#flashtool)
 - [Flash your device manually](https://developer.android.com/about/versions/12/dev-support-images#flash)
 
 ### Flash your device using Android Flash Tool
 
-Android Flash Tool lets you securely flash a system image to your supported Pixel device. Android Flash Tool works with any Web browser that supports WebUSB, such as Chrome or Edge 79+.
+Android Flash Tool lets you securely flash a system image to your supported
+Pixel device. Android Flash Tool works with any Web browser that supports
+WebUSB, such as Chrome or Edge 79+.
 
-Android Flash Tool guides you step-by-step through the process of flashing your device---there's no need to have tools installed---but you will need to unlock your device and [enable USB Debugging in Developer options](https://developer.android.com/studio/debug/dev-options#enable).
+Android Flash Tool guides you step-by-step through the process of flashing your
+device---there's no need to have tools installed---but you will need to unlock your
+device and
+[enable USB Debugging in Developer options](https://developer.android.com/studio/debug/dev-options#enable).
 
-Connect your device over USB, then navigate to Android Flash Tool using one of the following links and follow the onscreen guidance:
+Connect your device over USB, then navigate to Android Flash Tool using one of
+the following links and follow the onscreen guidance:
 
 - [Flash an Android 12 (API level 31) Developer Support image](https://flash.android.com/release/12.0.0)
 - [Flash a 12L (API level 32) Developer Support image](https://flash.android.com/release/12.1.0)
 
-For complete instructions, see the [Android Flash Tool documentation](https://source.android.com/setup/contribute/flash).
+For complete instructions, see the
+[Android Flash Tool documentation](https://source.android.com/setup/contribute/flash).
 
 ### Flash your device manually
 
-You can also download a Developer Support image and manually flash it to your device. See the following table to download the system image for your test device. Manually flashing a device is useful if you need precise control over the test environment or if you need to reinstall frequently, such as when performing automated testing.
+You can also download a Developer Support image and manually flash it to your
+device. See the following table to download the system image for your test
+device. Manually flashing a device is useful if you need precise control over
+the test environment or if you need to reinstall frequently, such as when
+performing automated testing.
 
-After you back up your device data and download the matching system image below, you can [flash the image onto your device](https://developers.google.com/android/images#instructions).
+After you back up your device data and download the matching system image below,
+you can [flash the image onto your device](https://developers.google.com/android/images#instructions).
 
 You can choose to [return to the latest public build](https://developer.android.com/about/versions/12/dev-support-images#public) at any time.
 
@@ -80,7 +118,11 @@ You can choose to [return to the latest public build](https://developer.android.
 
 ## Return to a public build
 
-You can use the Android Flash Tool to [flash the factory image](https://flash.android.com/back-to-public) or obtain a factory spec system image from the [Factory Images for Nexus and Pixel Devices](https://developers.google.com/android/images) page and then manually flash it to the device.
+You can use the Android Flash Tool to
+[flash the factory image](https://flash.android.com/back-to-public) or obtain a
+factory spec system image from the
+[Factory Images for Nexus and Pixel Devices](https://developers.google.com/android/images)
+page and then manually flash it to the device.
 
 > [!WARNING]
 > **Warning:** Going back to a public build from a Developer Support build requires a full device reset that removes all user data on the device. Make sure to [back up your data first](https://support.google.com/pixelphone/answer/7179901).

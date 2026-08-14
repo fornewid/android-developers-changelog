@@ -4,7 +4,11 @@ url: https://developer.android.com/develop/ui/compose/graphics
 source: md.txt
 ---
 
-Using bright, engaging visuals in your Android apps can help improve the look and feel of your application. In Android, there are a few different ways in which you can render something visually on screen using either a vector, bitmap, or directly drawing with a canvas on screen. In this section, learn how to work these different kinds of graphics.
+Using bright, engaging visuals in your Android apps can help improve the look
+and feel of your application. In Android, there are a few different ways in
+which you can render something visually on screen using either a vector,
+bitmap, or directly drawing with a canvas on screen. In this section, learn
+how to work these different kinds of graphics.
 
 Learn how to work with images using these details:
 

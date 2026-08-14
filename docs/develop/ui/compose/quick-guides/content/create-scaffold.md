@@ -6,7 +6,10 @@ source: md.txt
 
 <br />
 
-In Material Design, a scaffold is a fundamental structure that provides a standardized platform for complex user interfaces. It holds together different parts of the UI, such as app bars and floating action buttons, giving apps a coherent look and feel.
+In Material Design, a scaffold is a fundamental structure that provides a
+standardized platform for complex user interfaces. It holds together different
+parts of the UI, such as app bars and floating action buttons, giving apps a
+coherent look and feel.
 
 ## Results
 
@@ -14,32 +17,42 @@ In Material Design, a scaffold is a fundamental structure that provides a standa
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or higher.
+This implementation requires that your project minSDK be set to API level 21
+or higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-scaffold_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-scaffold_fe30e5b1b3bf57635bdc2152f1499c7d7bf124e4909c22a4e51155c557d1cd7f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a scaffold
 
-The following example provides a full example of how you might implement [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable#Scaffold(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)). It contains a top app bar, bottom app bar, and a floating action button that interacts with `Scaffold`'s internal state.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-scaffold_761a081439292ee1bfaedccddf599115a79d1f3d1a87af13d60b4724e5a349e3.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+The following example provides a full example of how you might implement
+[`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable#Scaffold(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)). It contains a top app bar, bottom app bar, and a floating action
+button that interacts with `Scaffold`'s internal state.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-scaffold_2e8de02c29017cabe91934e51f2e89b1cf7eb494fe7f595bf8290e81e259d7b7.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Key points
 
-The [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/ScaffoldState) composable provides a straightforward API you can use to quickly assemble your app's structure according to Material Design guidelines. `Scaffold` accepts several composables as parameters. Among these are the following:
+The [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/ScaffoldState) composable provides a straightforward API you can use to
+quickly assemble your app's structure according to Material Design guidelines.
+`Scaffold` accepts several composables as parameters. Among these are the
+following:
 
 - `topBar`: The app bar across the top of the screen.
 - `bottomBar`: The app bar across the bottom of the screen.
 - `floatingActionButton`: A button that hovers over the bottom-right corner of the screen that you can use to expose key actions.
 
-For more detailed examples on how you can implement both top and bottom app bars, see the app bars page.
+For more detailed examples on how you can implement both top and bottom
+app bars, see the app bars page.
 
-You can also pass `Scaffold` content as you would to other containers. It passes an `innerPadding` value to the `content` lambda that you can then use in child composables.
+You can also pass `Scaffold` content as you would to other containers. It passes
+an `innerPadding` value to the `content` lambda that you can then use in child
+composables.
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover
+broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Create a home screen scaffold

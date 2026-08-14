@@ -267,7 +267,6 @@ object OnDemandModule : DynamicModule(
         }
     }
 }
-   
 ```
 
 ```
@@ -479,8 +478,6 @@ class DynamicFeatureManager(context: Context) {
         clearSessionState()
     }
 }
-
-   
 ```
 
 ```
@@ -525,7 +522,6 @@ inline fun <reified K : AppNavKey> EntryProviderScope<NavKey>.appEntry(
 ) {
     addEntryProvider(K::class, clazzContentKey, { metadata }, content)
 }
-   
 ```
 
 ```
@@ -655,8 +651,6 @@ private fun getStatusTitle(status: InstallStatus): String {
         else -> ""
     }
 }
-
-   
 ```
 
 ````
@@ -728,6 +722,4 @@ fun EntryProviderScope<NavKey>.buildDynamicEntries(
         build()
     }
 }
-
-   
 ````

@@ -66,6 +66,16 @@ Written by:
   [read_more
   View profile](https://developer.android.com/blog/authors/ataul-munim) ![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp) ![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)
 Continue reading
+- [![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_Derb5.webp)](https://developer.android.com/blog/authors/chiara-chiappini) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Bring_one_handed_gestures_Strapi_defff06599_Z1FDx9g.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Bring one-handed gestures to your Wear OS app](https://developer.android.com/blog/posts/bring-one-handed-gestures-to-your-wear-os-app)
+
+  [arrow_forward](https://developer.android.com/blog/posts/bring-one-handed-gestures-to-your-wear-os-app) First introduced on Pixel Watch with Wear OS 6.1, one-handed gestures made quick interactions effortless, such as starting and stopping a timer, accepting calls, and controlling media.
+  [Chiara Chiappini](https://developer.android.com/blog/authors/chiara-chiappini) • 3 min read
+  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
+  - [#pixel watch](https://developer.android.com/blog/topics/pixel-watch)
+  - +1 ↩
 - [![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp)](https://developer.android.com/blog/authors/john-zoeller) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Developer_Blog_2_1_1440x720_6_64da0326e3_Z1M1YEl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [What's New in Wear OS 7](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7)
@@ -83,12 +93,6 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles) At Google we're deeply committed to the automotive industry--not just as a technology provider, but as a partner in the industry's transformation.
   [Eser Erdem](https://developer.android.com/blog/authors/eser-erdem) • 3 min read
   - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Delivering safer, age-appropriate experiences on Google Play](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play)
-
-  [arrow_forward](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play) Providing a safe online experience and protecting users from harm is a top priority at Google Play.
-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
 Stay in the loop
 
 

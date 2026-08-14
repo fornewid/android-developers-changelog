@@ -4,13 +4,14 @@ url: https://developer.android.com/build/releases/agp-8-3-0-release-notes
 source: md.txt
 ---
 
-Android Gradle plugin 8.3.0 is a major release that includes a variety of new features and improvements.
+Android Gradle plugin 8.3.0 is a major release that includes a variety of new
+features and improvements.
 
 ## Compatibility
 
-The maximum API level that Android Gradle plugin 8.3 supports is API level 34. Here is other compatibility info:
+The maximum API level that Android Gradle plugin 8.3 supports is API level 34.
+Here is other compatibility info:
 
-<br />
 
 |   | Minimum version | Default version | Notes |
 |---:|:---:|:---:|:---:|
@@ -27,7 +28,8 @@ The following are new features in Android Gradle plugin 8.3.
 
 <br />
 
-The following is a list of the patch releases in Android Studio Iguana and Android Gradle plugin 8.3.
+The following is a list of the patch releases in Android Studio Iguana
+and Android Gradle plugin 8.3.
 
 <br />
 
@@ -39,7 +41,8 @@ The following is a list of the patch releases in Android Studio Iguana and Andro
 
 <br />
 
-This minor update includes [these bug fixes](https://developer.android.com/studio/releases/fixed-bugs/studio/2023.2.1#android-studio-iguana-|-2023.2.1-patch-2).
+This minor update includes
+[these bug fixes](https://developer.android.com/studio/releases/fixed-bugs/studio/2023.2.1#android-studio-iguana-|-2023.2.1-patch-2).
 
 <br />
 
@@ -51,66 +54,142 @@ This minor update includes [these bug fixes](https://developer.android.com/studi
 
 <br />
 
-This minor update includes [these bug fixes](https://developer.android.com/studio/releases/fixed-bugs/studio/2023.2.1#android-studio-iguana-|-2023.2.1-patch-1).
+This minor update includes
+[these bug fixes](https://developer.android.com/studio/releases/fixed-bugs/studio/2023.2.1#android-studio-iguana-|-2023.2.1-patch-1).
 
 <br />
 
 ## Support for Gradle Version Catalogs
 
-Android Studio supports TOML-based [Gradle Version Catalogs](https://docs.gradle.org/current/userguide/platforms.html), a feature that lets you manage dependencies in one central location and share dependencies across modules or projects. Android Studio now makes it easier to configure version catalogs through editor suggestions and integration with the **Project Structure** dialog. Learn how to [set up and configure Gradle Version Catalogs](https://developer.android.com/build/dependencies) or how to [migrate your build to version catalogs](https://developer.android.com/studio/build/migrate-to-catalogs).
+Android Studio supports TOML-based
+[Gradle Version Catalogs](https://docs.gradle.org/current/userguide/platforms.html),
+a feature that lets you manage dependencies in one central location and share
+dependencies across modules or projects. Android Studio now makes it easier to
+configure version catalogs through editor suggestions and integration with the
+**Project Structure** dialog. Learn how to
+[set up and configure Gradle Version Catalogs](https://developer.android.com/build/dependencies)
+or how to
+[migrate your build to version catalogs](https://developer.android.com/studio/build/migrate-to-catalogs).
 
 > [!NOTE]
 > **Note:** Starting with Android Studio Giraffe Canary 10, new projects use Gradle Version Catalogs by default. If an existing project uses a catalog in `gradle/libs.versions.toml`, new modules that are added to that project also use the catalog.
 
 ### Code completion and navigation
 
-Android Studio offers code completion when you're editing a version catalog in the TOML file format or adding a dependency from a version catalog to a build file. To use code completion, press <kbd>Ctrl+Space</kbd> (<kbd>Command+Space</kbd> on macOS). In addition, you can quickly navigate from a dependency reference in your app's `build.gradle` file to where it's declared in the version catalog by pressing <kbd>Ctrl+b</kbd> (<kbd>Command+b</kbd> on macOS).
+Android Studio offers code completion when you're editing a version catalog in
+the TOML file format or adding a dependency from a version catalog to a build
+file. To use code completion, press <kbd>Ctrl+Space</kbd>
+(<kbd>Command+Space</kbd> on macOS). In addition, you can quickly navigate from
+a dependency reference in your app's `build.gradle` file to where it's declared
+in the version catalog by pressing <kbd>Ctrl+b</kbd>
+(<kbd>Command+b</kbd> on macOS).
 
 ![Code completion when adding a dependency](https://developer.android.com/static/studio/images/gradle-version-catalogs-code-completion.png)
 
 ### Integration with the Project Structure dialog
 
-If your project uses a version catalog defined in the TOML file format, you can edit variables you've defined there through the **Project Structure** dialog **Variables** view (**File \> Project Structure \> Variables**) in Android Studio. For each version catalog, there is a drop-down that lists the variables from that catalog. To edit a variable, click its value and overwrite it. When you save these changes, the TOML file is updated accordingly.
+If your project uses a version catalog defined in the TOML file format, you can
+edit variables you've defined there through the **Project Structure** dialog
+**Variables** view (**File \> Project Structure \> Variables**) in Android Studio.
+For each version catalog, there is a drop-down that lists the variables from
+that catalog. To edit a variable, click its value and overwrite it. When you
+save these changes, the TOML file is updated accordingly.
 
 ![Variables from a version catalog in the Project Structure dialog](https://developer.android.com/static/studio/images/gradle-version-catalogs-variables.png)
 
-You can also update dependencies in the **Project Structure** dialog **Dependencies** view (**File \> Project Structure \> Dependencies** ). To update versions using the **Project Structure** dialog, navigate to the module and dependency you want to edit, and then update the **Requested Version** field. When you save these changes, the TOML file is updated accordingly. Note that if the dependency version was defined using a variable, updating the version directly this way replaces the variable with a hardcoded value. Also be aware that removing a dependency from a build file, whether you use the **Project Structure** dialog or not, doesn't remove the dependency from the version catalog.
+You can also update dependencies in the **Project Structure** dialog
+**Dependencies** view (**File \> Project Structure \> Dependencies** ). To update
+versions using the **Project Structure** dialog, navigate to the module and
+dependency you want to edit, and then update the **Requested Version** field.
+When you save these changes, the TOML file is updated accordingly. Note that if
+the dependency version was defined using a variable, updating the version
+directly this way replaces the variable with a hardcoded value. Also be aware
+that removing a dependency from a build file, whether you use the **Project
+Structure** dialog or not, doesn't remove the dependency from the version
+catalog.
 
 ![Dependencies from a version catalog in the Project Structure dialog](https://developer.android.com/static/studio/images/gradle-version-catalogs-dependencies.png)
 
 ### Known issues and limitations
 
-The following are known issues or limitations with Gradle Version Catalogs support in Android Studio.
+The following are known issues or limitations with Gradle Version Catalogs
+support in Android Studio.
 
-- Error highlighting plugin alias declarations in Kotlin script files: when you add a plugin declaration of the form `alias(libs.plugins.example)`, the editor adds a red underline under the `libs` part. This is a known issue in Gradle versions 8.0 and lower and will be resolved in a future release of Gradle.
+- Error highlighting plugin alias declarations in Kotlin script files: when you
+  add a plugin declaration of the form `alias(libs.plugins.example)`, the editor
+  adds a red underline under the `libs` part. This is a known issue in Gradle
+  versions 8.0 and lower and will be resolved in a future release of Gradle.
 
-- Android Studio support only for version catalogs in TOML format: currently the Android Studio code completion, navigation, and Project Structure dialog support is only available for version catalogs defined in the TOML file format. However, you can still add a version catalog directly in the `settings.gradle` file and use its dependencies in your project.
+- Android Studio support only for version catalogs in TOML format: currently the
+  Android Studio code completion, navigation, and Project Structure dialog
+  support is only available for version catalogs defined in the TOML file
+  format. However, you can still add a version catalog directly in the
+  `settings.gradle` file and use its dependencies in your project.
 
-- Navigation for KTS build files not supported: navigating to a dependency definition in a version catalog by using <kbd>Control</kbd>+click (<kbd>Command</kbd>+click on macOS) isn't yet supported for build files written using Kotlin script.
+- Navigation for KTS build files not supported: navigating to a dependency
+  definition in a version catalog by using <kbd>Control</kbd>+click
+  (<kbd>Command</kbd>+click on macOS) isn't yet supported for build files
+  written using Kotlin script.
 
-- Firebase Assistant adds dependencies directly in build scripts: the [Firebase Assistant](https://firebase.google.com/docs/android/learn-more#firebase-assistant) adds dependencies directly to your build scripts instead of through version catalogs.
+- Firebase Assistant adds dependencies directly in build scripts: the
+  [Firebase Assistant](https://firebase.google.com/docs/android/learn-more#firebase-assistant)
+  adds dependencies directly to your build scripts instead of through version
+  catalogs.
 
-- "Find usages" functionality not supported: finding usages of a version catalog variable in other build files isn't yet supported, whether the build file is in KTS or Groovy. That is, using <kbd>Control</kbd>+click (<kbd>Command</kbd>+click on macOS) on a variable definition in a version catalog doesn't lead to the build files where the variable is used.
+- "Find usages" functionality not supported: finding usages of a version catalog
+  variable in other build files isn't yet supported, whether the build file is
+  in KTS or Groovy. That is, using <kbd>Control</kbd>+click
+  (<kbd>Command</kbd>+click on macOS) on a variable definition in a version
+  catalog doesn't lead to the build files where the variable is used.
 
-- The Project Structure dialog in Android Studio shows multiple catalog files if they're in the root `gradle` folder, but doesn't show catalogs for a [composite build](https://docs.gradle.org/current/userguide/composite_builds.html). For example, if you have two catalog files---one for your app and one for a composite build---the Project Structure dialog only shows the app catalog file. You can use a composite build, but you have to edit its TOML file directly.
+- The Project Structure dialog in Android Studio shows multiple catalog
+  files if they're in the root `gradle` folder, but doesn't show catalogs for
+  a [composite build](https://docs.gradle.org/current/userguide/composite_builds.html).
+  For example, if you have two catalog files---one for your app and one for a
+  composite build---the Project Structure dialog only shows the app catalog file.
+  You can use a composite build, but you have to edit its TOML file directly.
 
 ## Additional SDK insights: policy issues
 
-Android Studio displays lint warnings in `build.gradle.kts` and `build.gradle` files and in the **Project Structure Dialog** for public SDKs that have Play policy violations in the [Google Play SDK Index](https://developer.android.com/distribute/sdk-index). You should update any dependencies that violate Play policies because these violations could prevent you from publishing to the Google Play Console in the future. The policy violation warnings supplement the [outdated version warnings](https://developer.android.com/build/dependencies#sdk-insights) displayed by Android Studio.
+Android Studio displays lint warnings in `build.gradle.kts` and `build.gradle`
+files and in the
+**Project Structure Dialog** for public SDKs that have Play policy violations
+in the [Google Play SDK Index](https://developer.android.com/distribute/sdk-index). You should update any
+dependencies that violate Play policies because these violations could prevent
+you from publishing to the Google Play Console in the future. The policy
+violation warnings supplement
+the [outdated version warnings](https://developer.android.com/build/dependencies#sdk-insights)
+displayed by Android Studio.
 
 ## Android Studio compileSdk version support
 
-Android Studio displays a warning if your project uses a `compileSdk` that isn't supported by the current version of Android Studio. If available, it also suggests moving to a version of Android Studio that supports the `compileSdk` used by your project. Keep in mind that [upgrading Android Studio might also require you upgrade AGP](https://developer.android.com/studio/releases#android_gradle_plugin_and_android_studio_compatibility). AGP also displays a warning in the **Build** tool window if the `compileSdk` used by your project isn't supported by the current version of AGP.
+Android Studio displays a warning if your project uses a `compileSdk` that isn't
+supported by the current version of Android Studio. If available, it also
+suggests moving to a version of Android Studio that supports the `compileSdk`
+used by your project. Keep in mind that
+[upgrading Android Studio might also require you upgrade AGP](https://developer.android.com/studio/releases#android_gradle_plugin_and_android_studio_compatibility).
+AGP also displays a warning in the **Build** tool window if the `compileSdk`
+used by your project isn't supported by the current version of AGP.
 
 ## Lint behavior changes
 
-Starting with Android Gradle plugin 8.3.0-alpha02, when running lint on a module, separate lint analysis tasks are run for the main and test components of the module. The reason for this change is to improve performance. To revert to the earlier behavior, set `android.experimental.lint.analysisPerComponent=false` in your `gradle.properties` file.
+Starting with Android Gradle plugin 8.3.0-alpha02, when running lint on a
+module, separate lint analysis tasks are run for the main and test
+components of the module. The reason for this change is to improve performance.
+To revert to the earlier behavior, set
+`android.experimental.lint.analysisPerComponent=false` in your
+`gradle.properties` file.
 
 ## Precise resource shrinking on by default
 
-Precise resource shrinking, which removes unused entries from the `resources.arsc` file and eliminates unused resource files, is on by default. When this shrinking is enabled, your resource table is reduced and only referenced `res` folder entries are included in the APK.
+Precise resource shrinking, which removes unused entries from the
+`resources.arsc` file and eliminates unused resource files, is on by default.
+When this shrinking is enabled, your resource table is reduced and only
+referenced `res` folder entries are included in the APK.
 
-To turn off precise resource shrinking, set `android.enableNewResourceShrinker.preciseShrinking` to `false` in your project's `gradle.properties` file.
+To turn off precise resource shrinking, set
+`android.enableNewResourceShrinker.preciseShrinking` to `false` in your
+project's `gradle.properties` file.
 
 ## Fixed issues
 

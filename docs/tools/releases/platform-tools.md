@@ -6,13 +6,31 @@ source: md.txt
 
 <br />
 
-Android SDK Platform-Tools is a component for the Android SDK. It includes tools that interface with the Android platform, primarily [`adb`](https://developer.android.com/tools/adb) and [`fastboot`](https://android.googlesource.com/platform/system/core/+/master/fastboot/#fastboot). Although `adb` is required for Android app development, app developers will normally just use the copy Studio installs. This download is useful if you want to use `adb` directly from the command-line and don't have Studio installed. (If you do have Studio installed, you might want to just use the copy it installed because Studio will automatically update it.) `fastboot` is needed if you want to unlock your device bootloader and flash it with a new system image. This package used to contain `systrace`, but that has been obsoleted in favor of Studio Profiler, gpuinspector.dev, or Perfetto.
+Android SDK Platform-Tools is a component for the Android SDK.
+It includes tools that interface with the Android platform, primarily
+[`adb`](https://developer.android.com/tools/adb) and
+[`fastboot`](https://android.googlesource.com/platform/system/core/+/master/fastboot/#fastboot).
+Although `adb` is required for Android app development, app developers will
+normally just use the copy Studio installs. This download is useful if you want
+to use `adb` directly from the command-line and don't have Studio installed.
+(If you do have Studio installed, you might want to just use the copy it
+installed because Studio will automatically update it.) `fastboot` is needed
+if you want to unlock your device bootloader and flash it with a new system
+image. This package used to contain `systrace`, but that has been obsoleted in
+favor of Studio Profiler, gpuinspector.dev, or Perfetto.
 
-Although some new features in `adb` and `fastboot` are available only for recent versions of Android, they're backward compatible, so you should only need the latest version of the SDK Platform-Tools and should file bugs if you find exceptions.
+Although some new features in `adb` and `fastboot` are available only for recent
+versions of Android, they're backward compatible, so you should only need the
+latest version of the SDK Platform-Tools and should file bugs if you find
+exceptions.
 
 ## Downloads
 
-If you're an Android developer, you should get the latest SDK Platform-Tools from Android Studio's [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) or from the [`sdkmanager`](https://developer.android.com/studio/command-line/sdkmanager) command-line tool. This ensures the tools are saved to the right place with the rest of your Android SDK tools and easily updated.
+If you're an Android developer, you should get the latest
+SDK Platform-Tools from Android Studio's [SDK Manager](https://developer.android.com/studio/intro/update#sdk-manager) or from the
+[`sdkmanager`](https://developer.android.com/studio/command-line/sdkmanager)
+command-line tool. This ensures the tools are saved to the right place with
+the rest of your Android SDK tools and easily updated.
 
 But if you want just these command-line tools, use the following links:
 
@@ -20,7 +38,8 @@ But if you want just these command-line tools, use the following links:
 - <button class="devsite-dialog-button button-white button-regular" data-modal-dialog-id="dac-download-mac-dialog-id"> Download SDK Platform-Tools for Mac</button>
 - <button class="devsite-dialog-button button-white button-regular" data-modal-dialog-id="dac-download-linux-dialog-id"> Download SDK Platform-Tools for Linux</button>
 
-Although these links do not change, they always point to the most recent version of the tools.
+Although these links do not change, they always point to the most recent version
+of the tools.
 
 ## Revisions
 
@@ -110,7 +129,8 @@ Never released past Canary due to [issue #439152273](https://issuetracker.google
 - **adb**
   - Propagate `-a (gListenAll)` when adb forks an adb host server (previously, the flag only worked for `adb -a server nodaemon`)
   - Faster root and unroot
-  - Reland `Flag(env) guarding clear endpoint (device) feature for OSX usb start.` ([issue #270205252](https://issuetracker.google.com/issues/270205252)).
+  - Reland `Flag(env) guarding clear endpoint (device)
+    feature for OSX usb start.` ([issue #270205252](https://issuetracker.google.com/issues/270205252)).
 - **fastboot**
   - Mac: remove retries on invalid IO iterator (flashing failure with LIBUSB_TRANSFER_CANCELLED)
   - Windows: fix "Sparse file is too large or invalid" when using "flashall"
@@ -314,7 +334,8 @@ Never released past Canary due to [issue #439152273](https://issuetracker.google
 - **fastboot**
   - Adds support for dynamic partitions.
 - **Updated Windows requirements**
-  - The platform tools now depend on the Windows Universal C Runtime, which is usually installed by default via Windows Update. If you see errors mentioning missing DLLs, you may need to manually fetch and install the [runtime package](https://support.microsoft.com/en-ca/help/2999226/update-for-universal-c-runtime-in-windows).
+  - The platform tools now depend on the Windows Universal C Runtime, which is usually installed by default via Windows Update. If you see errors mentioning missing DLLs, you may need to manually fetch and install the [runtime
+    package](https://support.microsoft.com/en-ca/help/2999226/update-for-universal-c-runtime-in-windows).
 
 #### 28.0.1 (September 2018)
 
@@ -362,27 +383,38 @@ Never released past Canary due to [issue #439152273](https://issuetracker.google
 
 #### 25.0.5 (April 24, 2017)
 
-- Fixed adb sideload of large updates on Windows, manifesting as "std::bad_alloc" ([bug 37139736](https://issuetracker.google.com/37139736)).
+- Fixed adb sideload of large updates on Windows, manifesting as
+  "std::bad_alloc" ([bug
+  37139736](https://issuetracker.google.com/37139736)).
 
-- Fixed adb problems with some Windows firewalls, manifesting as "cannot open transport registration socketpair" ([bug 37139725](https://issuetracker.google.com/37139725)).
+- Fixed adb problems with some Windows firewalls, manifesting as "cannot open
+  transport registration socketpair"
+  ([bug 37139725](https://issuetracker.google.com/37139725)).
 
 - Both `adb --version` and `fastboot --version` now include the install path.
 
 - Changed adb to not resolve `localhost` to work around misconfigured VPN.
 
-- Changed adb to no longer reset USB devices on Linux, which could affect other attached USB devices.
+- Changed adb to no longer reset USB devices on Linux, which could affect
+  other attached USB devices.
 
 #### 25.0.4 (March 16, 2017)
 
 - Added experimental libusb support to Linux and Mac adb
 
-To use the libusb backend, set the environment variable ADB_LIBUSB=true before launching a new adb server. The new `adb host-features` command will tell you whether or not you're using libusb.
+To use the libusb backend, set the environment variable ADB_LIBUSB=true before
+launching a new adb server. The new `adb host-features` command will tell you
+whether or not you're using libusb.
 
-To restart adb with libusb and check that it worked, use `adb kill-server; ADB_LIBUSB=1 adb start-server; adb host-features`. The output should include "libusb".
+To restart adb with libusb and check that it worked, use `adb kill-server;
+ADB_LIBUSB=1 adb start-server; adb host-features`. The output should include
+"libusb".
 
 In this release, the old non-libusb implementation remains the default.
 
-- fastboot doesn't hang 2016 MacBook Pros anymore ([bug 231129](https://code.google.com/p/android/issues/detail?id=231129))
+- fastboot doesn't hang 2016 MacBook Pros anymore
+  ([bug
+  231129](https://code.google.com/p/android/issues/detail?id=231129))
 
 - Fixed Systrace command line capture on Mac
 
@@ -468,7 +500,9 @@ This is the Android Software Development Kit License Agreement
 
 ### 14. General Legal Terms
 
-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android SDK Platform-Tools for Windows </button> [Download Android SDK Platform-Tools for Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)
+14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android SDK Platform-Tools for Windows </button> [Download Android SDK Platform-Tools
+for
+Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip)
 
 *platform-tools-latest-windows.zip*
 
@@ -536,7 +570,9 @@ This is the Android Software Development Kit License Agreement
 
 ### 14. General Legal Terms
 
-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android SDK Platform-Tools for Mac </button> [Download Android SDK Platform-Tools for Mac](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip)
+14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android SDK Platform-Tools for Mac </button> [Download Android SDK Platform-Tools
+for
+Mac](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip)
 
 *platform-tools-latest-darwin.zip*
 
@@ -604,7 +640,9 @@ This is the Android Software Development Kit License Agreement
 
 ### 14. General Legal Terms
 
-14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android SDK Platform-Tools for Linux </button> [Download Android SDK Platform-Tools for Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
+14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android SDK Platform-Tools for Linux </button> [Download Android SDK Platform-Tools
+for
+Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip)
 
 *platform-tools-latest-linux.zip*
 

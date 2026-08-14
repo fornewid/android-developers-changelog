@@ -4,7 +4,11 @@ url: https://developer.android.com/media/media3/exoplayer/smoothstreaming
 source: md.txt
 ---
 
-ExoPlayer supports SmoothStreaming with the FMP4 container format. Media streams must be demuxed, meaning that video, audio, and text must be defined in distinct StreamIndex elements in the SmoothStreaming manifest. The contained audio and video sample formats must also be supported (see the [sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats) section for details).
+ExoPlayer supports SmoothStreaming with the FMP4 container format. Media streams
+must be demuxed, meaning that video, audio, and text must be defined in distinct
+StreamIndex elements in the SmoothStreaming manifest. The contained audio and
+video sample formats must also be supported (see the
+[sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats) section for details).
 
 | Feature | Supported | Comments |
 |---|---|---|
@@ -20,7 +24,8 @@ ExoPlayer supports SmoothStreaming with the FMP4 container format. Media streams
 
 ## Using MediaItem
 
-To play a SmoothStreaming stream, you need to depend on the SmoothStreaming module.
+To play a SmoothStreaming stream, you need to depend on the SmoothStreaming
+module.
 
 ### Kotlin
 
@@ -30,9 +35,9 @@ To play a SmoothStreaming stream, you need to depend on the SmoothStreaming modu
 
     implementation "androidx.media3:media3-exoplayer-smoothstreaming:1.11.0"
 
-You can then create a `MediaItem` for a SmoothStreaming manifest URI and pass it to the player.
+You can then create a `MediaItem` for a SmoothStreaming manifest URI and pass it
+to the player.
 
-<br />
 
 ### Kotlin
 
@@ -43,7 +48,6 @@ val player = ExoPlayer.Builder(context).build()
 player.setMediaItem(MediaItem.fromUri(ssUri))
 // Prepare the player.
 player.prepare()
-      
 ```
 
 ### Java
@@ -55,20 +59,22 @@ ExoPlayer player = new ExoPlayer.Builder(context).build();
 player.setMediaItem(MediaItem.fromUri(ssUri));
 // Prepare the player.
 player.prepare();
-      
 ```
 
 <br />
 
-If your URI doesn't end with `.ism/Manifest`, you can pass `MimeTypes.APPLICATION_SS` to `setMimeType` of `MediaItem.Builder` to explicitly indicate the type of the content.
+If your URI doesn't end with `.ism/Manifest`, you can pass
+`MimeTypes.APPLICATION_SS` to `setMimeType` of `MediaItem.Builder` to explicitly
+indicate the type of the content.
 
-ExoPlayer will automatically adapt between representations defined in the manifest, taking into account both available bandwidth and device capabilities.
+ExoPlayer will automatically adapt between representations defined in the
+manifest, taking into account both available bandwidth and device capabilities.
 
 ## Using SsMediaSource
 
-For more customization options, you can create a `SsMediaSource` and pass it directly to the player instead of a `MediaItem`.
+For more customization options, you can create a `SsMediaSource` and pass it
+directly to the player instead of a `MediaItem`.
 
-<br />
 
 ### Kotlin
 
@@ -84,7 +90,6 @@ val player = ExoPlayer.Builder(context).build()
 player.setMediaSource(mediaSource)
 // Prepare the player.
 player.prepare()
-      
 ```
 
 ### Java
@@ -101,16 +106,19 @@ ExoPlayer player = new ExoPlayer.Builder(context).build();
 player.setMediaSource(mediaSource);
 // Prepare the player.
 player.prepare();
-      
 ```
 
 <br />
 
 ## Accessing the manifest
 
-You can retrieve the current manifest by calling `Player.getCurrentManifest`. For SmoothStreaming, you should cast the returned object to `SsManifest`. The `onTimelineChanged` callback of `Player.Listener` is also called whenever the manifest is loaded. This will happen once for on-demand content and possibly many times for live content. The following code snippet shows how an app can do something whenever the manifest is loaded.
+You can retrieve the current manifest by calling `Player.getCurrentManifest`.
+For SmoothStreaming, you should cast the returned object to `SsManifest`. The
+`onTimelineChanged` callback of `Player.Listener` is also called whenever
+the manifest is loaded. This will happen once for on-demand content and
+possibly many times for live content. The following code snippet shows how an app
+can do something whenever the manifest is loaded.
 
-<br />
 
 ### Kotlin
 
@@ -125,7 +133,6 @@ player.addListener(
     }
   }
 )
-      
 ```
 
 ### Java
@@ -143,11 +150,11 @@ player.addListener(
         }
       }
     });
-      
 ```
 
 <br />
 
 ## Customizing playback
 
-ExoPlayer provides multiple ways for you to tailor playback experience to your app's needs. See the [Customization page](https://developer.android.com/guide/topics/media/exoplayer/customization) for examples.
+ExoPlayer provides multiple ways for you to tailor playback experience to your
+app's needs. See the [Customization page](https://developer.android.com/guide/topics/media/exoplayer/customization) for examples.

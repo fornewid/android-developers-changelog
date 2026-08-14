@@ -5,13 +5,21 @@ source: md.txt
 ---
 
 > [!CAUTION]
-> **Caution:** Material 3 is the latest set of Material Components for Compose. New apps should use [Material 3](https://developer.android.com/develop/ui/compose/designsystems/material3) instead. This guidance is for Material 2. For information on how to migrate to Material 3, see the [migration guidance](https://developer.android.com/develop/ui/compose/designsystems/material2-material3).
+> **Caution:** Material 3 is the latest set of Material Components for Compose. New apps should use [Material 3](https://developer.android.com/develop/ui/compose/designsystems/material3) instead. This guidance is for Material 2. For information on how to migrate to Material 3, see the [migration
+> guidance](https://developer.android.com/develop/ui/compose/designsystems/material2-material3).
 
-Jetpack Compose offers an implementation of [Material Design](https://material.io/design/introduction), a comprehensive design system for creating digital interfaces. The [Material Design components](https://material.io/components) (buttons, cards, switches, and so on) are built on top of [Material Theming](https://material.io/design/material-theming/), which is a systematic way to customize Material Design to better reflect your product's brand. A Material Theme contains [color](https://material.io/design/color/), [typography](https://material.io/design/typography/), and [shape](https://material.io/design/shape/) attributes. When you customize these attributes, your changes are automatically reflected in the components you use to build your app.
+Jetpack Compose offers an implementation of [Material Design](https://material.io/design/introduction), a
+comprehensive design system for creating digital interfaces. The [Material
+Design components](https://material.io/components) (buttons, cards, switches, and so on) are
+built on top of [Material Theming](https://material.io/design/material-theming/), which is a systematic way to
+customize Material Design to better reflect your product's brand. A Material
+Theme contains [color](https://material.io/design/color/), [typography](https://material.io/design/typography/), and
+[shape](https://material.io/design/shape/) attributes. When you customize these attributes, your
+changes are automatically reflected in the components you use to build your app.
 
-Jetpack Compose implements these concepts with the [`MaterialTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/MaterialTheme.composable#MaterialTheme(androidx.compose.material.Colors,androidx.compose.material.Typography,androidx.compose.material.Shapes,kotlin.Function0)) composable:
+Jetpack Compose implements these concepts with the [`MaterialTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/MaterialTheme.composable#MaterialTheme(androidx.compose.material.Colors,androidx.compose.material.Typography,androidx.compose.material.Shapes,kotlin.Function0))
+composable:
 
-<br />
 
 ```kotlin
 MaterialTheme(
@@ -21,7 +29,6 @@ MaterialTheme(
 ) {
     // app content
 }
-   
 ```
 
 <br />
@@ -33,22 +40,24 @@ Configure the parameters you pass to `MaterialTheme` to theme your application.
 
 Colors are modeled in Compose with the [`Color`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color) class, a data-holding class.
 
-<br />
 
 ```kotlin
 val Red = Color(0xffff0000)
 val Blue = Color(red = 0f, green = 0f, blue = 1f)
-   
 ```
 
 <br />
 
-While you can organize these however you like (as top-level constants, within a singleton, or defined inline), we **strongly** recommend specifying colors in your theme and retrieving the colors from there. This approach makes it possible to support [dark theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) and nested themes.
+While you can organize these however you like (as top-level constants, within a
+singleton, or defined inline), we **strongly** recommend specifying colors in
+your theme and retrieving the colors from there. This approach makes it possible
+to support [dark theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) and nested themes.
 ![Example of theme's color palette](https://developer.android.com/static/develop/ui/compose/images/theme-colors.png) **Figure 2.** The Material color system.
 
-Compose provides the [`Colors`](https://developer.android.com/reference/kotlin/androidx/compose/material/Colors) class to model the [Material color system](https://material.io/design/color/). `Colors` provides builder functions to create sets of [light](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#lightColors(androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color)) or [dark](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#darkColors(androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)) colors:
+Compose provides the [`Colors`](https://developer.android.com/reference/kotlin/androidx/compose/material/Colors) class to model the [Material color
+system](https://material.io/design/color/). `Colors` provides builder functions to create sets of
+[light](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#lightColors(androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color,%20androidx.compose.ui.graphics.Color)) or [dark](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#darkColors(androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)) colors:
 
-<br />
 
 ```kotlin
 private val Yellow200 = Color(0xffffeb46)
@@ -66,14 +75,12 @@ private val LightColors = lightColors(
     secondary = Blue700,
     // ...
 )
-   
 ```
 
 <br />
 
 After you have defined your `Colors`, you can pass them to a `MaterialTheme`:
 
-<br />
 
 ```kotlin
 MaterialTheme(
@@ -81,23 +88,21 @@ MaterialTheme(
 ) {
     // app content
 }
-   
 ```
 
 <br />
 
 ### Use theme colors
 
-You can retrieve the `Colors` provided to the `MaterialTheme` composable by using `MaterialTheme.colors`.
+You can retrieve the `Colors` provided to the `MaterialTheme` composable by
+using `MaterialTheme.colors`.
 
-<br />
 
 ```kotlin
 Text(
     text = "Hello theming",
     color = MaterialTheme.colors.primary
 )
-   
 ```
 
 <br />
@@ -109,7 +114,6 @@ Text(
 
 Many components accept a pair of color and content color:
 
-<br />
 
 ```kotlin
 Surface(
@@ -123,26 +127,42 @@ TopAppBar(
     contentColor = contentColorFor(backgroundColor),
     // ...
 ) { /* ... */ }
-   
 ```
 
 <br />
 
-This lets you not only set the color of a composable, but also provide a default color for the *content,* the composables contained within it. Many composables use this content color by default. For example, `Text` bases its color on its parent's content color, and `Icon` uses that color to set its tint.
+This lets you not only set the color of a composable, but also provide a
+default color for the *content,* the composables contained within it. Many
+composables use this content color by default. For example, `Text` bases its
+color on its parent's content color, and `Icon` uses that color to set its tint.
 ![Two examples of the same banner, with different colors](https://developer.android.com/static/develop/ui/compose/images/theme-contrast-styles.png) **Figure 3.** Setting different background colors produces different text and icon colors.
 
-The [`contentColorFor()`](https://developer.android.com/reference/kotlin/androidx/compose/material/contentColorFor.composable#contentColorFor(androidx.compose.ui.graphics.Color)) method retrieves the appropriate "on" color for any theme colors. For example, if you set a [`primary`](https://developer.android.com/reference/kotlin/androidx/compose/material/Colors#primary()) background color on `Surface`, it uses this function to set [`onPrimary`](https://developer.android.com/reference/kotlin/androidx/compose/material/Colors#onPrimary()) as the content color. If you set a non-theme background color, you should also specify an appropriate content color. Use [`LocalContentColor`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalContentColor()) to retrieve the preferred content color for the current background, at a given position in the hierarchy.
+The [`contentColorFor()`](https://developer.android.com/reference/kotlin/androidx/compose/material/contentColorFor.composable#contentColorFor(androidx.compose.ui.graphics.Color)) method retrieves the appropriate "on" color for
+any theme colors. For example, if you set a [`primary`](https://developer.android.com/reference/kotlin/androidx/compose/material/Colors#primary()) background color on
+`Surface`, it uses this function to set [`onPrimary`](https://developer.android.com/reference/kotlin/androidx/compose/material/Colors#onPrimary()) as the content color.
+If you set a non-theme background color, you should also specify an appropriate
+content color. Use [`LocalContentColor`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalContentColor()) to retrieve the preferred content
+color for the current background, at a given position in the hierarchy.
 
 > [!NOTE]
 > **Note:** If you need to set the background color of an element, prefer using a parent [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material/Surface.composable#Surface(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.BorderStroke,androidx.compose.ui.unit.Dp,kotlin.Function0)) to do this, which sets an appropriate content color. Be wary of direct [`Modifier.background()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/background.modifier#(androidx.compose.ui.Modifier).background(androidx.compose.ui.graphics.Brush,androidx.compose.ui.graphics.Shape,kotlin.Float)) calls, which don't set an appropriate content color.
 
 ### Content alpha
 
-Often you want to vary how much you emphasize content to communicate importance and provide visual hierarchy. The [Material Design text legibility recommendations](https://material.io/design/color/text-legibility.html) advise employing different levels of opacity to convey different importance levels.
+Often you want to vary how much you emphasize content to communicate importance
+and provide visual hierarchy. The [Material Design text legibility
+recommendations](https://material.io/design/color/text-legibility.html) advise employing different levels of opacity
+to convey different importance levels.
 
-Jetpack Compose implements this using [`LocalContentAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalContentAlpha()). You can specify a content alpha for a hierarchy by [providing a value](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocalProvider.composable#CompositionLocalProvider(kotlin.Array,kotlin.Function0)) for this [`CompositionLocal`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal). Nested composables can use this value to apply the alpha treatment to their content. For example, [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#Text(kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Function1,androidx.compose.ui.text.TextStyle)) and [`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material/Icon.composable#Icon(androidx.compose.ui.graphics.painter.Painter,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color)) by default use the combination of [`LocalContentColor`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalContentColor()) adjusted to use [`LocalContentAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalContentAlpha()). Material specifies some standard alpha values ([`high`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha#high()), [`medium`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha#medium()), [`disabled`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha#disabled())) which are modeled by the [`ContentAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha) object.
+Jetpack Compose implements this using [`LocalContentAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalContentAlpha()). You can specify
+a content alpha for a hierarchy by [providing a value](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocalProvider.composable#CompositionLocalProvider(kotlin.Array,kotlin.Function0)) for this
+[`CompositionLocal`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal). Nested composables can use this value to apply the
+alpha treatment to their content. For example, [`Text`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#Text(kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.font.FontStyle,androidx.compose.ui.text.font.FontWeight,androidx.compose.ui.text.font.FontFamily,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextDecoration,androidx.compose.ui.text.style.TextAlign,androidx.compose.ui.unit.TextUnit,androidx.compose.ui.text.style.TextOverflow,kotlin.Boolean,kotlin.Int,kotlin.Function1,androidx.compose.ui.text.TextStyle)) and [`Icon`](https://developer.android.com/reference/kotlin/androidx/compose/material/Icon.composable#Icon(androidx.compose.ui.graphics.painter.Painter,kotlin.String,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color)) by
+default use the combination of [`LocalContentColor`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalContentColor()) adjusted to use
+[`LocalContentAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalContentAlpha()). Material specifies some standard alpha values
+([`high`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha#high()), [`medium`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha#medium()), [`disabled`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha#disabled())) which are modeled by the
+[`ContentAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha) object.
 
-<br />
 
 ```kotlin
 // By default, both Icon & Text use the combination of LocalContentColor &
@@ -160,7 +180,6 @@ CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.disabled) {
         // ...
     )
 }
-   
 ```
 
 <br />
@@ -168,14 +187,15 @@ CompositionLocalProvider(LocalContentAlpha provides ContentAlpha.disabled) {
 > [!NOTE]
 > **Note:** [`MaterialTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/MaterialTheme.composable#MaterialTheme(androidx.compose.material.Colors,androidx.compose.material.Typography,androidx.compose.material.Shapes,kotlin.Function0)) defaults [`LocalContentAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalContentAlpha()) to [`ContentAlpha.high`](https://developer.android.com/reference/kotlin/androidx/compose/material/ContentAlpha#high()).
 
-To learn more about `CompositionLocal`, see [Locally scoped data with CompositionLocal](https://developer.android.com/develop/ui/compose/compositionlocal).
+To learn more about `CompositionLocal`, see [Locally scoped data with
+CompositionLocal](https://developer.android.com/develop/ui/compose/compositionlocal).
 ![Screenshot of an article title, showing different levels of text emphasis](https://developer.android.com/static/develop/ui/compose/images/theme-emphasis.png) **Figure 4.** Apply different levels of emphasis to text to visually communicate the information hierarchy. The first line of text is the title and has the most important information, and thus uses `ContentAlpha.high`. The second line contains less-important metadata, and thus uses `ContentAlpha.medium`.
 
 ### Dark theme
 
-In Compose, you implement light and dark themes by providing different sets of `Colors` to the `MaterialTheme` composable:
+In Compose, you implement light and dark themes by providing different sets of
+`Colors` to the `MaterialTheme` composable:
 
-<br />
 
 ```kotlin
 @Composable
@@ -189,16 +209,17 @@ fun MyTheme(
         content = content
     )
 }
-   
 ```
 
 <br />
 
-In this example, `MaterialTheme` is wrapped in its own composable function, which accepts a parameter that specifies whether to use a dark theme or not. In this case, the function gets the default value for `darkTheme` by querying the [device theme setting](https://developer.android.com/reference/kotlin/androidx/compose/foundation/isSystemInDarkTheme.composable#isSystemInDarkTheme()).
+In this example, `MaterialTheme` is wrapped in its own composable function,
+which accepts a parameter that specifies whether to use a dark theme or not. In
+this case, the function gets the default value for `darkTheme` by querying the
+[device theme setting](https://developer.android.com/reference/kotlin/androidx/compose/foundation/isSystemInDarkTheme.composable#isSystemInDarkTheme()).
 
 You can use code like this to check if the current `Colors` are light or dark:
 
-<br />
 
 ```kotlin
 val isLightTheme = MaterialTheme.colors.isLight
@@ -212,18 +233,20 @@ Icon(
     ),
     contentDescription = "Theme"
 )
-   
 ```
 
 <br />
 
 #### Elevation overlays
 
-In Material, surfaces in dark themes with higher elevations receive [elevation overlays](https://material.io/design/color/dark-theme.html#properties), which lighten their background. The higher a surface's elevation (raising it closer to an implied light source), the lighter that surface becomes.
+In Material, surfaces in dark themes with higher elevations receive [elevation
+overlays](https://material.io/design/color/dark-theme.html#properties), which lighten their background. The higher a
+surface's elevation (raising it closer to an implied light source), the lighter
+that surface becomes.
 
-The `Surface` composable applies these overlays automatically when using dark colors, and so does any other Material composable which uses a surface:
+The `Surface` composable applies these overlays automatically when using
+dark colors, and so does any other Material composable which uses a surface:
 
-<br />
 
 ```kotlin
 Surface(
@@ -231,16 +254,16 @@ Surface(
     color = MaterialTheme.colors.surface, // color will be adjusted for elevation
     /*...*/
 ) { /*...*/ }
-   
 ```
 
 <br />
 
 ![Screenshot of an app, showing the subtly different colors used for elements at different elevation levels](https://developer.android.com/static/develop/ui/compose/images/theme-elevation.png) **Figure 5.** The cards and bottom navigation are both using the `surface` color as their background. Since the cards and bottom navigation are at different elevation levels above the background, they have slightly different colors--the cards are lighter than the background and the bottom navigation is lighter than the cards.
 
-For custom scenarios that don't involve a `Surface`, use [`LocalElevationOverlay`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalElevationOverlay()), a `CompositionLocal` containing the [`ElevationOverlay`](https://developer.android.com/reference/kotlin/androidx/compose/material/ElevationOverlay) used by [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#surface) components:
+For custom scenarios that don't involve a `Surface`, use
+[`LocalElevationOverlay`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalElevationOverlay()), a `CompositionLocal` containing the
+[`ElevationOverlay`](https://developer.android.com/reference/kotlin/androidx/compose/material/ElevationOverlay) used by [`Surface`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#surface) components:
 
-<br />
 
 ```kotlin
 // Elevation overlays
@@ -250,14 +273,13 @@ val elevation = 4.dp
 val overlaidColor = LocalElevationOverlay.current?.apply(
     color, elevation
 )
-   
 ```
 
 <br />
 
-To disable elevation overlays, provide `null` at the chosen point in a composable hierarchy:
+To disable elevation overlays, provide `null` at the chosen point in a
+composable hierarchy:
 
-<br />
 
 ```kotlin
 MyTheme {
@@ -265,19 +287,20 @@ MyTheme {
         // Content without elevation overlays
     }
 }
-   
 ```
 
 <br />
 
 #### Limited color accents
 
-Material recommends applying [limited color accents](https://material.io/design/color/dark-theme.html#anatomy) for dark themes by preferring the use of the `surface` color over the `primary` color in most cases. Material composables like `TopAppBar` and `BottomNavigation` implement this behavior by default.
+Material recommends applying [limited color accents](https://material.io/design/color/dark-theme.html#anatomy) for dark
+themes by preferring the use of the `surface` color over the `primary` color in
+most cases. Material composables like `TopAppBar` and `BottomNavigation`
+implement this behavior by default.
 ![Screenshot of a Material dark theme, showing the top app bar using surface color instead of primary color for limited color accents](https://developer.android.com/static/develop/ui/compose/images/themes-material-dark-theme.png) **Figure 6.** Material dark theme with limited color accents. The top app bar uses the primary color in light theme, and surface color in dark theme.
 
 For custom scenarios, use the [`primarySurface`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#(androidx.compose.material.Colors).primarySurface()) extension property:
 
-<br />
 
 ```kotlin
 Surface(
@@ -285,19 +308,20 @@ Surface(
     color = MaterialTheme.colors.primarySurface,
     /*...*/
 ) { /*...*/ }
-   
 ```
 
 <br />
 
 ## Typography
 
-Material defines a [type system](https://material.io/design/typography/the-type-system.html), encouraging you to use a small number of semantically-named styles.
+Material defines a [type system](https://material.io/design/typography/the-type-system.html), encouraging you to use a small
+number of semantically-named styles.
 ![Example of several different typefaces in various styles](https://developer.android.com/static/develop/ui/compose/images/theme-typefaces.png) **Figure 7.** The Material type system.
 
-Compose implements the type system with the [`Typography`](https://developer.android.com/reference/kotlin/androidx/compose/material/Typography), [`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle), and [font-related](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/package-summary) classes. The `Typography` constructor offers defaults for each style so you can omit any you don't want to customize:
+Compose implements the type system with the [`Typography`](https://developer.android.com/reference/kotlin/androidx/compose/material/Typography),
+[`TextStyle`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/TextStyle), and [font-related](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/font/package-summary) classes. The `Typography` constructor
+offers defaults for each style so you can omit any you don't want to customize:
 
-<br />
 
 ```kotlin
 val raleway = FontFamily(
@@ -322,37 +346,35 @@ val myTypography = Typography(
 MaterialTheme(typography = myTypography, /*...*/) {
     /*...*/
 }
-   
 ```
 
 <br />
 
-If you want to use the same typeface throughout, specify the [`defaultFontFamily`](https://developer.android.com/reference/kotlin/androidx/compose/material/Typography#public-constructors) parameter and omit the `fontFamily` of any `TextStyle` elements:
+If you want to use the same typeface throughout, specify the
+[`defaultFontFamily`](https://developer.android.com/reference/kotlin/androidx/compose/material/Typography#public-constructors) parameter and omit the `fontFamily` of any
+`TextStyle` elements:
 
-<br />
 
 ```kotlin
 val typography = Typography(defaultFontFamily = raleway)
 MaterialTheme(typography = typography, /*...*/) {
     /*...*/
 }
-   
 ```
 
 <br />
 
 ### Use text styles
 
-`TextStyle` elements are accessed using `MaterialTheme.typography`. Retrieve the `TextStyle` elements as follows:
+`TextStyle` elements are accessed using `MaterialTheme.typography`. Retrieve
+the `TextStyle` elements as follows:
 
-<br />
 
 ```kotlin
 Text(
     text = "Subtitle2 styled",
     style = MaterialTheme.typography.subtitle2
 )
-   
 ```
 
 <br />
@@ -361,12 +383,13 @@ Text(
 
 ## Shape
 
-Material defines a [shape system](https://material.io/design/shape/about-shape.html), letting you define shapes for large, medium, and small components.
+Material defines a [shape system](https://material.io/design/shape/about-shape.html), letting you define shapes for
+large, medium, and small components.
 ![Shows a variety of Material Design shapes](https://developer.android.com/static/develop/ui/compose/images/theme-shapes.png) **Figure 9.** The Material shape system.
 
-Compose implements the shape system with the [`Shapes`](https://developer.android.com/reference/kotlin/androidx/compose/material/Shapes) class, which lets you specify a [`CornerBasedShape`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/shape/CornerBasedShape) for each size category:
+Compose implements the shape system with the [`Shapes`](https://developer.android.com/reference/kotlin/androidx/compose/material/Shapes) class, which lets
+you specify a [`CornerBasedShape`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/shape/CornerBasedShape) for each size category:
 
-<br />
 
 ```kotlin
 val shapes = Shapes(
@@ -383,18 +406,21 @@ val shapes = Shapes(
 MaterialTheme(shapes = shapes, /*...*/) {
     /*...*/
 }
-   
 ```
 
 <br />
 
-Many components use these shapes by default. For example, [`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.material.ButtonElevation,androidx.compose.ui.graphics.Shape,androidx.compose.foundation.BorderStroke,androidx.compose.material.ButtonColors,androidx.compose.foundation.layout.PaddingValues,kotlin.Function1)), [`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors,androidx.compose.foundation.interaction.MutableInteractionSource)), and [`FloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material/FloatingActionButton.composable#FloatingActionButton(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.material.FloatingActionButtonElevation,kotlin.Function0)) default to small, [`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material/AlertDialog.composable#AlertDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.window.DialogProperties)) defaults to medium, and [`ModalDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material/ModalDrawer.composable#ModalDrawer(kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.material.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function0)) defaults to large --- see the [shape scheme reference](https://material.io/design/shape/applying-shape-to-ui.html#shape-scheme) for the complete mapping.
+Many components use these shapes by default. For example, [`Button`](https://developer.android.com/reference/kotlin/androidx/compose/material/Button.composable#Button(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.material.ButtonElevation,androidx.compose.ui.graphics.Shape,androidx.compose.foundation.BorderStroke,androidx.compose.material.ButtonColors,androidx.compose.foundation.layout.PaddingValues,kotlin.Function1)),
+[`TextField`](https://developer.android.com/reference/kotlin/androidx/compose/material/TextField.composable#TextField(androidx.compose.foundation.text.input.TextFieldState,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Boolean,androidx.compose.ui.text.TextStyle,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Boolean,androidx.compose.foundation.text.input.InputTransformation,androidx.compose.foundation.text.input.OutputTransformation,androidx.compose.foundation.text.KeyboardOptions,androidx.compose.foundation.text.input.KeyboardActionHandler,androidx.compose.foundation.text.input.TextFieldLineLimits,androidx.compose.foundation.ScrollState,androidx.compose.ui.graphics.Shape,androidx.compose.material.TextFieldColors,androidx.compose.foundation.interaction.MutableInteractionSource)), and [`FloatingActionButton`](https://developer.android.com/reference/kotlin/androidx/compose/material/FloatingActionButton.composable#FloatingActionButton(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.foundation.interaction.MutableInteractionSource,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.material.FloatingActionButtonElevation,kotlin.Function0)) default to small,
+[`AlertDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material/AlertDialog.composable#AlertDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.window.DialogProperties)) defaults to medium, and [`ModalDrawer`](https://developer.android.com/reference/kotlin/androidx/compose/material/ModalDrawer.composable#ModalDrawer(kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.material.DrawerState,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function0)) defaults to
+large --- see the [shape scheme reference](https://material.io/design/shape/applying-shape-to-ui.html#shape-scheme) for the complete
+mapping.
 
 ### Use shapes
 
-`Shape` elements are accessed using `MaterialTheme.shapes`. Retrieve the `Shape` elements with code like this:
+`Shape` elements are accessed using `MaterialTheme.shapes`. Retrieve the
+`Shape` elements with code like this:
 
-<br />
 
 ```kotlin
 Surface(
@@ -402,7 +428,6 @@ Surface(
 ) {
     /*...*/
 }
-   
 ```
 
 <br />
@@ -411,9 +436,13 @@ Surface(
 
 ## Default styles
 
-There is no equivalent concept in Compose of [default styles](https://developer.android.com/guide/topics/ui/look-and-feel/themes#Widgets) from Android Views. You can provide similar functionality by creating your own `overload` composable functions that wrap Material components. For example, to create a style of button, wrap a button in your own composable function, directly setting the parameters you want or need to alter and exposing others as parameters to the containing composable.
+There is no equivalent concept in Compose of [default styles](https://developer.android.com/guide/topics/ui/look-and-feel/themes#Widgets) from Android
+Views. You can provide similar functionality by creating your own `overload`
+composable functions that wrap Material components. For example, to create a
+style of button, wrap a button in your own composable function, directly setting
+the parameters you want or need to alter and exposing others as parameters to
+the containing composable.
 
-<br />
 
 ```kotlin
 @Composable
@@ -431,21 +460,27 @@ fun MyButton(
         content = content
     )
 }
-   
 ```
 
 <br />
 
 ## Theme overlays
 
-You can achieve the equivalent of [theme overlays](https://medium.com/androiddevelopers/android-styling-themes-overlay-1ffd57745207) from Android Views in Compose by nesting [`MaterialTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#materialtheme) composables. Because `MaterialTheme` defaults the colors, typography, and shapes to the current theme value, all other parameters keep their default values when a theme only sets one of those parameters.
+You can achieve the equivalent of [theme overlays](https://medium.com/androiddevelopers/android-styling-themes-overlay-1ffd57745207) from Android
+Views in Compose by nesting [`MaterialTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#materialtheme) composables. Because
+`MaterialTheme` defaults the colors, typography, and shapes to the current
+theme value, all other parameters keep their default values when a theme only
+sets one of those parameters.
 
-Furthermore, when migrating View-based screens to Compose, watch out for usages of the `android:theme` attribute. It's likely you need a new `MaterialTheme` in that part of the Compose UI tree.
+Furthermore, when migrating View-based screens to Compose, watch out for usages
+of the `android:theme` attribute. It's likely you need a new `MaterialTheme`
+in that part of the Compose UI tree.
 
-In this example, the details screen uses a `PinkTheme` for most of the screen, and then a `BlueTheme` for the related section. The following screenshot and code illustrate this concept:
+In this example, the details screen uses a `PinkTheme` for most of the screen,
+and then a `BlueTheme` for the related section. The following screenshot and
+code illustrate this concept:
 ![Screenshot of an app demonstrating nested themes, with a pink theme for the main screen and a blue theme for a related section](https://developer.android.com/static/develop/ui/compose/images/themes-material-overlays.png) **Figure 11.** Nested themes.
 
-<br />
 
 ```kotlin
 @Composable
@@ -462,21 +497,24 @@ fun RelatedSection(/* ... */) {
         // content
     }
 }
-   
 ```
 
 <br />
 
 ## Component states
 
-Material components that can be interacted with (clicked, toggled, etc.) can be in different visual states. States include enabled, disabled, pressed, etc.
+Material components that can be interacted with (clicked, toggled, etc.) can be
+in different visual states. States include enabled, disabled, pressed, etc.
 
-Composables often have an `enabled` parameter. Setting it to `false` prevents interaction, and changes properties like color and elevation to visually convey the component state.
+Composables often have an `enabled` parameter. Setting it to `false` prevents
+interaction, and changes properties like color and elevation to visually convey
+the component state.
 ![Screenshot of two buttons: one enabled, one disabled, showing their different visual states](https://developer.android.com/static/develop/ui/compose/images/themes-material-button-states.png) **Figure 12.** Button with `enabled = true` (left) and `enabled = false` (right).
 
-In most cases you can rely on defaults for values like color and elevation. If you need to configure values used in different states, there are classes and convenience functions available. Consider the following button example:
+In most cases you can rely on defaults for values like color and elevation. If
+you need to configure values used in different states, there are classes
+and convenience functions available. Consider the following button example:
 
-<br />
 
 ```kotlin
 Button(
@@ -497,7 +535,6 @@ Button(
         // Also pressedElevation
     )
 ) { /* ... */ }
-   
 ```
 
 <br />
@@ -506,13 +543,19 @@ Button(
 
 ## Ripples
 
-Material components use ripples to indicate they're being interacted with. If you're using `MaterialTheme` in your hierarchy, a `Ripple` is used as the default [`Indication`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Indication) inside modifiers such as [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/clickable.modifier#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) and [`indication`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/indication.modifier#(androidx.compose.ui.Modifier).indication(androidx.compose.foundation.interaction.InteractionSource,androidx.compose.foundation.Indication)).
+Material components use ripples to indicate they're being interacted with. If
+you're using `MaterialTheme` in your hierarchy, a `Ripple` is used as the
+default [`Indication`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Indication) inside modifiers such as [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/clickable.modifier#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) and
+[`indication`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/indication.modifier#(androidx.compose.ui.Modifier).indication(androidx.compose.foundation.interaction.InteractionSource,androidx.compose.foundation.Indication)).
 
-In most cases you can rely on the default `Ripple`. If you need to configure their appearance, you can use [`RippleTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/RippleTheme) to change properties like color and alpha.
+In most cases you can rely on the default `Ripple`. If you need to
+configure their appearance, you can use [`RippleTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/RippleTheme) to change properties
+like color and alpha.
 
-You can extend `RippleTheme` and make use of the [`defaultRippleColor`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/RippleTheme#defaultRippleColor(androidx.compose.ui.graphics.Color,kotlin.Boolean)) and [`defaultRippleAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/RippleTheme#defaultRippleAlpha(androidx.compose.ui.graphics.Color,kotlin.Boolean)) utility functions. You can then provide your custom ripple theme in your hierarchy using [`LocalRippleTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/package-summary#LocalRippleTheme()):
+You can extend `RippleTheme` and make use of the [`defaultRippleColor`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/RippleTheme#defaultRippleColor(androidx.compose.ui.graphics.Color,kotlin.Boolean)) and
+[`defaultRippleAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/RippleTheme#defaultRippleAlpha(androidx.compose.ui.graphics.Color,kotlin.Boolean)) utility functions. You can then provide your custom
+ripple theme in your hierarchy using [`LocalRippleTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/package-summary#LocalRippleTheme()):
 
-<br />
 
 ```kotlin
 @Composable
@@ -540,7 +583,6 @@ private object SecondaryRippleTheme : RippleTheme {
         lightTheme = MaterialTheme.colors.isLight
     )
 }
-   
 ```
 
 <br />
@@ -549,7 +591,8 @@ private object SecondaryRippleTheme : RippleTheme {
 
 ## Learn more
 
-To learn more about Material Theming in Compose, consult the following additional resources.
+To learn more about Material Theming in Compose, consult the following
+additional resources.
 
 ### Codelabs
 

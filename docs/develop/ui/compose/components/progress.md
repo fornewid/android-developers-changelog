@@ -4,7 +4,10 @@ url: https://developer.android.com/develop/ui/compose/components/progress
 source: md.txt
 ---
 
-Progress indicators visually surface the status of an operation. They use motion to bring to the user's attention how near completion the process is, such as loading or processing data. They can also signify that processing is taking place, without reference to how close to completion it might be.
+Progress indicators visually surface the status of an operation. They use motion
+to bring to the user's attention how near completion the process is, such as
+loading or processing data. They can also signify that processing is taking
+place, without reference to how close to completion it might be.
 
 Consider these three use cases where you might use a progress indicator:
 
@@ -26,7 +29,9 @@ Likewise, a progress indicator can take one of the two following forms:
 
 ## API Surface
 
-Although there are several composables you can use to create progress indicators consistent with Material Design, their parameters don't differ greatly. Among the key parameters you should keep in mind are the following:
+Although there are several composables you can use to create progress indicators
+consistent with Material Design, their parameters don't differ greatly. Among
+the key parameters you should keep in mind are the following:
 
 - `progress`: The current progress that the indicator displays. Pass a `Float` between `0.0` and `1.0`.
 - `color`: The color of the actual indicator. That is, the part of the component that reflects progress and which fully encompasses the component when progress is complete.
@@ -37,14 +42,18 @@ Although there are several composables you can use to create progress indicators
 
 ## Determinate indicators
 
-A determinate indicator reflects exactly how complete an action is. Use either the [`LinearProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LinearProgressIndicator.composable#LinearProgressIndicator(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp,kotlin.Function1)) or [`CircularProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CircularProgressIndicator.composable#CircularProgressIndicator(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp)) composables and pass a value for the `progress` parameter.
+A determinate indicator reflects exactly how complete an action is. Use either
+the [`LinearProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LinearProgressIndicator.composable#LinearProgressIndicator(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp,kotlin.Function1)) or [`CircularProgressIndicator`](https://developer.android.com/reference/kotlin/androidx/compose/material3/CircularProgressIndicator.composable#CircularProgressIndicator(kotlin.Function0,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.StrokeCap,androidx.compose.ui.unit.Dp))
+composables and pass a value for the `progress` parameter.
 
-The following snippet provides a relatively detailed example. When the user presses the button, the app both displays the progress indicator, and launches a coroutine that gradually increases the value of `progress`. This causes the progress indicator to iterate up in turn.
+The following snippet provides a relatively detailed example. When the user
+presses the button, the app both displays the progress indicator, and launches a
+coroutine that gradually increases the value of `progress`. This causes the
+progress indicator to iterate up in turn.
 
 > [!NOTE]
 > **Note:** The following example uses a coroutine to do the work of iterating the `progress` value because it would otherwise block the UI thread.
 
-<br />
 
 ```kotlin
 @Composable
@@ -86,25 +95,29 @@ suspend fun loadProgress(updateProgress: (Float) -> Unit) {
         delay(100)
     }
 }
-   
 ```
 
 <br />
 
-When loading is partially complete, the linear indicator in the preceding example appears as follows:
+When loading is partially complete, the linear indicator in the preceding
+example appears as follows:
 
 Likewise, the circular indicator appears as follows:
 
 ## Indeterminate indicators
 
-An indeterminate indicator does not reflect how close to completion an operation is. Rather, it uses motion to indicate to the user that processing is ongoing, though without specifying any degree of completion.
+An indeterminate indicator does not reflect how close to completion an operation
+is. Rather, it uses motion to indicate to the user that processing is ongoing,
+though without specifying any degree of completion.
 
-To create an indeterminate progress indicator, use the `LinearProgressIndicator` or `CircularProgressIndicator` composable, but don't pass in a value for `progress`. The following example demonstrates how you can toggle an indeterminate indicator with a button press.
+To create an indeterminate progress indicator, use the `LinearProgressIndicator`
+or `CircularProgressIndicator` composable, but don't pass in a value for
+`progress`. The following example demonstrates how you can toggle an
+indeterminate indicator with a button press.
 
 > [!NOTE]
 > **Note:** This example also demonstrates how you can pass values for the `color` and `trackColor` parameters to customize the appearance of the indicator.
 
-<br />
 
 ```kotlin
 @Composable
@@ -123,14 +136,14 @@ fun IndeterminateCircularIndicator() {
         trackColor = MaterialTheme.colorScheme.surfaceVariant,
     )
 }
-   
 ```
 
 <br />
 
 The following is an example of this implementation when the indicator is active:
 
-The following is an example of the same implementation but with `LinearProgressIndicator` instead of `CircularProgressIndicator`.
+The following is an example of the same implementation but with
+`LinearProgressIndicator` instead of `CircularProgressIndicator`.
 
 ## Additional resources
 

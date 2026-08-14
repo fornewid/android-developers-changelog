@@ -4,13 +4,15 @@ url: https://developer.android.com/develop/ui/compose/components/app-bars-dynami
 source: md.txt
 ---
 
-This guide explains how to create a dynamic top app bar in Compose that changes its options when items are selected from the list. You can modify the top app bar's title and actions based on the selection state.
+This guide explains how to create a dynamic top app bar in Compose that changes
+its options when items are selected from the list. You can modify the top app
+bar's title and actions based on the selection state.
 
 ## Implement dynamic top app bar behavior
 
-This code defines a composable function for the top app bar that changes based on item selection:
+This code defines a composable function for the top app bar that changes based
+on item selection:
 
-<br />
 
 ```kotlin
 @Composable
@@ -48,7 +50,6 @@ fun AppBarSelectionActions(
         modifier = modifier
     )
 }
-   
 ```
 
 <br />
@@ -70,7 +71,6 @@ fun AppBarSelectionActions(
 
 This example demonstrates how to add a selectable list to a dynamic top app bar:
 
-<br />
 
 ```kotlin
 @Composable
@@ -105,7 +105,6 @@ private fun AppBarMultiSelectionExample(
         }
     }
 }
-   
 ```
 
 <br />

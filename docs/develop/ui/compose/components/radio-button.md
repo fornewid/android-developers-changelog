@@ -4,12 +4,17 @@ url: https://developer.android.com/develop/ui/compose/components/radio-button
 source: md.txt
 ---
 
-A [radio button](https://m3.material.io/components/radio-button/overview) lets a user select an option from a set of options. You use a radio button when only one item can be selected from a list. If users need to select more than one item, use a [switch](https://m3.material.io/components/switch/overview) instead.
+A [radio button](https://m3.material.io/components/radio-button/overview) lets a user select an option from a set of
+options. You use a radio button when only one item can be selected from a
+list. If users need to select more than one item, use a [switch](https://m3.material.io/components/switch/overview)
+instead.
 ![Two radio buttons with no labels. The left button is selected, and the circle is filled in to indicate its selected state. The right button is not filled in](https://developer.android.com/static/develop/ui/compose/images/components/radio-button.svg) **Figure 1.** A pair of radio buttons with one option selected.
 
 ## API surface
 
-Use the [`RadioButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/RadioButton.composable#RadioButton(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.RadioButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource)) composable to list the available options. Wrap each `RadioButton` option and its label inside a `Row` component to group them together.
+Use the [`RadioButton`](https://developer.android.com/reference/kotlin/androidx/compose/material3/RadioButton.composable#RadioButton(kotlin.Boolean,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.RadioButtonColors,androidx.compose.foundation.interaction.MutableInteractionSource)) composable to list the available options. Wrap each
+`RadioButton` option and its label inside a `Row` component to group them
+together.
 
 `RadioButton` includes the following key parameters:
 
@@ -22,7 +27,6 @@ Use the [`RadioButton`](https://developer.android.com/reference/kotlin/androidx/
 
 The following code snippet renders a list of radio buttons within a `Column`:
 
-<br />
 
 ```kotlin
 @Composable
@@ -57,7 +61,6 @@ fun RadioButtonSingleSelection(modifier: Modifier = Modifier) {
         }
     }
 }
-   
 ```
 
 <br />

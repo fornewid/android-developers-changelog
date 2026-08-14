@@ -4,13 +4,23 @@ url: https://developer.android.com/kotlin/coroutines
 source: md.txt
 ---
 
-A *coroutine* is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously. [Coroutines](https://kotlinlang.org/docs/coroutines-guide.html) were added to Kotlin in version 1.3 and are based on established concepts from other languages.
+A *coroutine* is a concurrency design pattern that you can use on
+Android to simplify code that executes asynchronously.
+[Coroutines](https://kotlinlang.org/docs/coroutines-guide.html)
+were added to Kotlin in version 1.3 and are based on established
+concepts from other languages.
 
-On Android, coroutines help to manage long-running tasks that might otherwise block the main thread and cause your app to become unresponsive. Over 50% of professional developers who use coroutines have reported seeing increased productivity. This topic describes how you can use Kotlin coroutines to address these problems, enabling you to write cleaner and more concise app code.
+On Android, coroutines help to manage long-running tasks that might
+otherwise block the main thread and cause your app to become unresponsive.
+Over 50% of professional developers who use coroutines have reported seeing
+increased productivity.
+This topic describes how you can use Kotlin coroutines to address these
+problems, enabling you to write cleaner and more concise app code.
 
 ## Features
 
-Coroutines is our recommended solution for asynchronous programming on Android. Noteworthy features include the following:
+Coroutines is our recommended solution for asynchronous programming on
+Android. Noteworthy features include the following:
 
 - **Lightweight** : You can run many coroutines on a single thread due to support for [*suspension*](https://kotlinlang.org/docs/reference/coroutines/basics.html), which doesn't block the thread where the coroutine is running. Suspending saves memory over blocking while supporting many concurrent operations.
 - **Fewer memory leaks** : Use [*structured concurrency*](https://kotlinlang.org/docs/reference/coroutines/basics.html#structured-concurrency) to run operations within a scope.
@@ -19,15 +29,24 @@ Coroutines is our recommended solution for asynchronous programming on Android. 
 
 ## Examples overview
 
-Based on the [Guide to app architecture](https://developer.android.com/jetpack/docs/guide), the examples in this topic make a network request and return the result to the main thread, where the app can then display the result to the user.
+Based on the [Guide to app architecture](https://developer.android.com/jetpack/docs/guide), the examples
+in this topic make a network request and return the result to the main
+thread, where the app can then display the result to the user.
 
-Specifically, the [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel) Architecture component calls the repository layer on the main thread to trigger the network request. This guide iterates through various solutions that use coroutines to keep the main thread unblocked.
+Specifically, the [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel)
+Architecture component calls the repository layer on the main thread to
+trigger the network request. This guide iterates through various solutions
+that use coroutines to keep the main thread unblocked.
 
-`ViewModel` includes a set of KTX extensions that work directly with coroutines. These extension are [`lifecycle-viewmodel-ktx` library](https://developer.android.com/kotlin/ktx#viewmodel) and are used in this guide.
+`ViewModel` includes a set of KTX extensions that work directly with
+coroutines. These extension are
+[`lifecycle-viewmodel-ktx` library](https://developer.android.com/kotlin/ktx#viewmodel) and are used
+in this guide.
 
 ## Dependency info
 
-To use coroutines in your Android project, add the following dependency to your app's `build.gradle` file:
+To use coroutines in your Android project, add the following dependency
+to your app's `build.gradle` file:
 
 ### Groovy
 
@@ -47,11 +66,15 @@ dependencies {
 
 ## Executing in a background thread
 
-Making a network request on the main thread causes it to wait, or *block* , until it receives a response. Since the thread is blocked, the OS isn't able to call `onDraw()`, which causes your app to freeze and potentially leads to an Application Not Responding (ANR) dialog. For a better user experience, let's run this operation on a background thread.
+Making a network request on the main thread causes it to wait, or *block* ,
+until it receives a response. Since the thread is blocked, the OS isn't
+able to call `onDraw()`, which causes your app to freeze and potentially
+leads to an Application Not Responding (ANR) dialog. For a better user
+experience, let's run this operation on a background thread.
 
-First, let's take a look at our `Repository` class and see how it's making the network request:
+First, let's take a look at our `Repository` class and see how it's
+making the network request:
 
-<br />
 
 ```kotlin
 sealed class Result<out R> {
@@ -78,16 +101,16 @@ class LoginRepository(private val responseParser: LoginResponseParser) {
         return Result.Error(Exception("Cannot open HttpURLConnection"))
     }
 }
-   
 ```
 
 <br />
 
-`makeLoginRequest` is synchronous and blocks the calling thread. To model the response of the network request, we have our own `Result` class.
+`makeLoginRequest` is synchronous and blocks the calling thread. To model
+the response of the network request, we have our own `Result` class.
 
-The `ViewModel` triggers the network request when the user clicks, for example, on a button:
+The `ViewModel` triggers the network request when the user clicks, for
+example, on a button:
 
-<br />
 
 ```kotlin
 class LoginViewModel(
@@ -99,14 +122,15 @@ class LoginViewModel(
         loginRepository.makeLoginRequest(jsonBody)
     }
 }
-   
 ```
 
 <br />
 
-With the previous code, `LoginViewModel` is blocking the UI thread when making the network request. The simplest solution to move the execution off the main thread is to create a new coroutine and execute the network request on an I/O thread:
+With the previous code, `LoginViewModel` is blocking the UI thread when
+making the network request. The simplest solution to move the execution
+off the main thread is to create a new coroutine and execute the network
+request on an I/O thread:
 
-<br />
 
 ```kotlin
 class LoginViewModel(
@@ -121,7 +145,6 @@ class LoginViewModel(
         }
     }
 }
-   
 ```
 
 <br />
@@ -138,15 +161,24 @@ The `login` function is executed as follows:
 - `launch` creates a new coroutine, and the network request is made independently on a thread reserved for I/O operations.
 - While the coroutine is running, the `login` function continues execution and returns, possibly before the network request is finished. Note that for simplicity, the network response is ignored for now.
 
-Since this coroutine is started with `viewModelScope`, it is executed in the scope of the `ViewModel`. If the `ViewModel` is destroyed because the user is navigating away from the screen, `viewModelScope` is automatically cancelled, and all running coroutines are canceled as well.
+Since this coroutine is started with `viewModelScope`, it is executed in
+the scope of the `ViewModel`. If the `ViewModel` is destroyed because the
+user is navigating away from the screen, `viewModelScope` is automatically
+cancelled, and all running coroutines are canceled as well.
 
-One issue with the previous example is that anything calling `makeLoginRequest` needs to remember to explicitly move the execution off the main thread. Let's see how we can modify the `Repository` to solve this problem for us.
+One issue with the previous example is that anything calling
+`makeLoginRequest` needs to remember to explicitly move the execution off
+the main thread. Let's see how we can modify the `Repository` to solve
+this problem for us.
 
 ## Use coroutines for main-safety
 
-We consider a function *main-safe* when it doesn't block UI updates on the main thread. The `makeLoginRequest` function is not main-safe, as calling `makeLoginRequest` from the main thread does block the UI. Use the `withContext()` function from the coroutines library to move the execution of a coroutine to a different thread:
+We consider a function *main-safe* when it doesn't block UI updates on the
+main thread. The `makeLoginRequest` function is not main-safe, as calling
+`makeLoginRequest` from the main thread does block the UI. Use the
+`withContext()` function from the coroutines library to move the execution
+of a coroutine to a different thread:
 
-<br />
 
 ```kotlin
 class LoginRepository(
@@ -163,21 +195,24 @@ class LoginRepository(
         }
     }
 }
-   
 ```
 
 <br />
 
-`withContext(Dispatchers.IO)` moves the execution of the coroutine to an I/O thread, making our calling function main-safe and enabling the UI to update as needed.
+`withContext(Dispatchers.IO)` moves the execution of the coroutine to an
+I/O thread, making our calling function main-safe and enabling the UI to
+update as needed.
 
-`makeLoginRequest` is also marked with the `suspend` keyword. This keyword is Kotlin's way to enforce a function to be called from within a coroutine.
+`makeLoginRequest` is also marked with the `suspend` keyword. This keyword
+is Kotlin's way to enforce a function to be called from within a coroutine.
 
 > [!NOTE]
 > **Note:** For easier testing, we recommend injecting `Dispatchers` into a `Repository` layer. To learn more, see [Testing coroutines on Android](https://www.youtube.com/watch?v=KMb0Fs8rCRs).
 
-In the following example, the coroutine is created in the `LoginViewModel`. As `makeLoginRequest` moves the execution off the main thread, the coroutine in the `login` function can be now executed in the main thread:
+In the following example, the coroutine is created in the `LoginViewModel`.
+As `makeLoginRequest` moves the execution off the main thread, the coroutine
+in the `login` function can be now executed in the main thread:
 
-<br />
 
 ```kotlin
 class LoginViewModel(
@@ -201,12 +236,13 @@ class LoginViewModel(
         }
     }
 }
-   
 ```
 
 <br />
 
-Note that the coroutine is still needed here, since `makeLoginRequest` is a `suspend` function, and all `suspend` functions must be executed in a coroutine.
+Note that the coroutine is still needed here, since `makeLoginRequest` is
+a `suspend` function, and all `suspend` functions must be executed in
+a coroutine.
 
 This code differs from the previous `login` example in a couple of ways:
 
@@ -225,9 +261,10 @@ The login function now executes as follows:
 
 ## Handling exceptions
 
-To handle exceptions that the `Repository` layer can throw, use Kotlin's [built-in support for exceptions](https://kotlinlang.org/docs/reference/exceptions.html). In the following example, we use a `try-catch` block:
+To handle exceptions that the `Repository` layer can throw, use Kotlin's
+[built-in support for exceptions](https://kotlinlang.org/docs/reference/exceptions.html).
+In the following example, we use a `try-catch` block:
 
-<br />
 
 ```kotlin
 class LoginViewModel(
@@ -249,16 +286,17 @@ class LoginViewModel(
         }
     }
 }
-   
 ```
 
 <br />
 
-In this example, any unexpected exception thrown by the `makeLoginRequest()` call is handled as an error in the UI.
+In this example, any unexpected exception thrown by the `makeLoginRequest()`
+call is handled as an error in the UI.
 
 ## Additional coroutines resources
 
-For a more detailed look at coroutines on Android, see [Improve app performance with Kotlin coroutines](https://developer.android.com/kotlin/coroutines/coroutines-adv).
+For a more detailed look at coroutines on Android, see
+[Improve app performance with Kotlin coroutines](https://developer.android.com/kotlin/coroutines/coroutines-adv).
 
 For more coroutines resources, see the following links:
 

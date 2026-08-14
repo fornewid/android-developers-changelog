@@ -6,7 +6,8 @@ source: md.txt
 
 <br />
 
-Create a top app bar to help users navigate and access functions in your app, using the [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable) composable.
+Create a top app bar to help users navigate and access functions in your app,
+using the [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TopAppBar.composable) composable.
 
 ## Results
 
@@ -18,16 +19,19 @@ Create a top app bar to help users navigate and access functions in your app, us
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or higher.
+This implementation requires that your project minSDK be set to API level 21 or
+higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-top-app-bar_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-top-app-bar_fe30e5b1b3bf57635bdc2152f1499c7d7bf124e4909c22a4e51155c557d1cd7f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a composable for top app bar
 
-Create a top app bar using the [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MediumTopAppBar.composable#MediumTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable that collapses when the user scrolls down the content area, and expands when the user scrolls back to the top of the content:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-top-app-bar_886fbae1e8e2ec35320033f4861bf057e13102d54a45a063d2ddae7d29996848.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+Create a top app bar using the [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MediumTopAppBar.composable#MediumTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable that collapses
+when the user scrolls down the content area, and expands when the user scrolls
+back to the top of the content:
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-top-app-bar_b64c697f3542ed5a3409ff7458c305ca87844ca75709fefa5230c48da6f8be42.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Key points about the code
 
@@ -45,7 +49,8 @@ Create a top app bar using the [`MediumTopAppBar`](https://developer.android.com
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover
+broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Create a home screen scaffold

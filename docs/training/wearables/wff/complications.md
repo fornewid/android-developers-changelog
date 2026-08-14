@@ -4,7 +4,9 @@ url: https://developer.android.com/training/wearables/wff/complications
 source: md.txt
 ---
 
-[Complications](https://developer.android.com/design/ui/wear/guides/surfaces/complications) are a feature of both physical and smartwatch watch faces that show additional information. Typically the user selects what information is shown in a complication.
+[Complications](https://developer.android.com/design/ui/wear/guides/surfaces/complications) are a feature of both physical and smartwatch watch faces
+that show additional information. Typically the user selects what information is
+shown in a complication.
 
 Typically complications come in a number of shapes:
 
@@ -18,31 +20,47 @@ In Wear OS, the Complication system can be broken down into two parts:
 1. The Complication [**data source**](https://developer.android.com/training/wearables/complications#data-source)
 2. The Complication **rendering**
 
-For example, a health and fitness app might implement a Daily Steps complication data source. This could be rendered by the WFF watch face.
+For example, a health and fitness app might implement a Daily Steps complication
+data source. This could be rendered by the WFF watch face.
 
 ## Data sources in complications
 
-Complication data sources specify only the data to be rendered, and the type of complication. The data source plays no part in determining how the data should be represented on the watch face.
+Complication data sources specify only the data to be rendered, and the type of
+complication. The data source plays no part in determining how the data should
+be represented on the watch face.
 
-For example, the health and fitness Daily Steps complication data source may produce the following data to indicate the user has taken 2400 of their target 10000 steps today:
+For example, the health and fitness Daily Steps complication data source may
+produce the following data to indicate the user has taken 2400 of their target
+10000 steps today:
 
 - Type: [`GOAL_PROGRESS`](https://developer.android.com/reference/androidx/wear/watchface/complications/data/GoalProgressComplicationData.Builder)
 - Value: `2400`
 - TargetValue: `10000`
 
-Note that there is nothing in this data that indicates how this should be rendered.
+Note that there is nothing in this data that indicates how this should be
+rendered.
 
-The watch face specifies what types of complication it is capable of rendering. This determines which data sources are then available for the user to select from.
+The watch face specifies what types of complication it is capable of rendering.
+This determines which data sources are then available for the user to select
+from.
 
-In the case of the Daily Steps example, you decide in your watch face definition how to render the `Value` and `TargetValue`: would it be as text, or as a progress indicator? That is for you as the watch face designer to decide.
+In the case of the Daily Steps example, you decide in your watch face
+definition how to render the `Value` and `TargetValue`: would it be as text, or as
+a progress indicator? That is for you as the watch face designer to decide.
 
 ## Define complications
 
-Offering the ability to show complications on your watch face can be valuable to users, as it allows them to have a greater range of information at a glance and customized to their needs.
+Offering the ability to show complications on your watch face can be valuable to
+users, as it allows them to have a greater range of information at a glance and
+customized to their needs.
 
-Decide if and how many complications to support on your watch face, what their shapes and positioning will be, and what types of data they support.
+Decide if and how many complications to support on your watch face,
+what their shapes and positioning will be, and what types of data they
+support.
 
-Each space on the watch face for a complication is defined as a `ComplicationSlot` within which a bounding area is defined for the rendering of the complication:
+Each space on the watch face for a complication is defined as a
+`ComplicationSlot` within which a bounding area is defined for the rendering of
+the complication:
 
 <br />
 
@@ -57,20 +75,26 @@ Each space on the watch face for a complication is defined as a `ComplicationSlo
         <!-- Complication content for rendering SMALL_IMAGE data goes here -->
     </Complication>
 </ComplicationSlot>
-   
 ```
 
 <br />
 
-A similar approach can be applied to the other bounding shapes such as rectangle and ellipse.
+A similar approach can be applied to the other bounding shapes such as rectangle
+and ellipse.
 
 ## Set the complication type and defaults
 
-The complication system provides a number of different types, which allows the watch face to express what type of data it can represent on the screen. For example, an Arc complication, as shown previously, isn't a great fit for an image-based complication data type such as `SMALL_IMAGE`, but could work very well for numeric data such as `RANGED_VALUE`.
+The complication system provides a number of different types, which
+allows the watch face to express what type of data it can represent on the
+screen. For example, an Arc complication, as shown previously, isn't a great fit
+for an image-based complication data type such as `SMALL_IMAGE`, but could work
+very well for numeric data such as `RANGED_VALUE`.
 
-In your `ComplicationSlot` declaration, set `supportedTypes` to the space-separated list of the types that can be rendered in this slot.
+In your `ComplicationSlot` declaration, set `supportedTypes` to the
+space-separated list of the types that can be rendered in this slot.
 
-You must also set the default source for the `ComplicationSlot` unless you allow the `EMPTY` type, in which case setting a default is optional:
+You must also set the default source for the `ComplicationSlot` unless you
+allow the `EMPTY` type, in which case setting a default is optional:
 
 <br />
 
@@ -82,20 +106,27 @@ You must also set the default source for the `ComplicationSlot` unless you allow
         defaultSystemProviderType="SHORT_TEXT" />
     <!-- ... -->
 </ComplicationSlot>
-   
 ```
 
 <br />
 
-In addition to having to specify system providers, [you can optionally specify non-system providers](https://developer.android.com/training/wearables/wff/complication/default-provider-policy?version=2#bounding-arc-optional-attributes), such as third-party providers to use by default, if they are already installed.
+In addition to having to specify system providers, [you can optionally specify
+non-system providers](https://developer.android.com/training/wearables/wff/complication/default-provider-policy?version=2#bounding-arc-optional-attributes), such as third-party providers to use by default, if
+they are already installed.
 
 ## Render complication data
 
-Having defined the `ComplicationSlot`, bounds, and containing `Complication` element, use standard WFF components, such as `PartDraw, PartImage` and `PartText` to display the Complication data.
+Having defined the `ComplicationSlot`, bounds, and containing `Complication`
+element, use standard WFF components, such as `PartDraw, PartImage` and
+`PartText` to display the Complication data.
 
-Elements within the `Complication` data have access to a special data source: `COMPLICATION`, which provides the various data properties set by the complication data source.
+Elements within the `Complication` data have access to a special data source:
+`COMPLICATION`, which provides the various data properties set by the
+complication data source.
 
-For example, a `SMALL_IMAGE` complication can set the `COMPLICATION.SMALL_IMAGE` and `COMPLICATION.SMALL_IMAGE_AMBIENT` values. These can be used instead of resource in an `Image` element:
+For example, a `SMALL_IMAGE` complication can set the `COMPLICATION.SMALL_IMAGE`
+and `COMPLICATION.SMALL_IMAGE_AMBIENT` values. These can be used instead of
+resource in an `Image` element:
 
 <br />
 
@@ -105,12 +136,13 @@ For example, a `SMALL_IMAGE` complication can set the `COMPLICATION.SMALL_IMAGE`
         <Image resource="[COMPLICATION.SMALL_IMAGE]" />
     </PartImage>
 </Complication>
-   
 ```
 
 <br />
 
-Each different complication type has a different set of available properties that can be set; for a full list of each, see the [`Complication`](https://developer.android.com/training/wearables/wff/complication/complication) reference. This example displays the text from a `SHORT_TEXT` complication:
+Each different complication type has a different set of available properties
+that can be set; for a full list of each, see the [`Complication`](https://developer.android.com/training/wearables/wff/complication/complication) reference.
+This example displays the text from a `SHORT_TEXT` complication:
 
 <br />
 
@@ -126,14 +158,14 @@ Each different complication type has a different set of available properties tha
         </Text>
     </PartText>
 </Complication>
-   
 ```
 
 <br />
 
 ### Maximize usefulness when rendering complications
 
-There are a number of challenges when adding `ComplicationSlots` to your watch face:
+There are a number of challenges when adding `ComplicationSlots` to your watch
+face:
 
 1. There are numerous Complication data types. Different apps may provide one or many of these.
 2. Each Complication data type, as well as having mandatory properties also has many optional properties. Check that the most useful rendering is made from the available properties, taking into account the different combinations.

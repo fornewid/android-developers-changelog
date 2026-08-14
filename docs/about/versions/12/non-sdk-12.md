@@ -4,11 +4,24 @@ url: https://developer.android.com/about/versions/12/non-sdk-12
 source: md.txt
 ---
 
-Android 12 includes updated lists of restricted non-SDK interfaces based on collaboration with Android developers and the latest internal testing. Whenever possible, we make sure that public alternatives are available before we restrict non-SDK interfaces.
+Android 12 includes updated lists of restricted non-SDK
+interfaces based on collaboration with Android developers and the latest
+internal testing. Whenever possible, we make sure that public alternatives are
+available before we restrict non-SDK interfaces.
 
-If your app does not target Android 12, some of these changes might not immediately affect you. However, while you can currently use some non-SDK interfaces ([depending on your app's target API level](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names)), using any non-SDK method or field always carries a high risk of breaking your app.
+If your app does not target Android 12, some of these changes
+might not immediately affect you. However, while you can currently use some
+non-SDK interfaces ([depending on your app's target API level](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names)),
+using any non-SDK method or field always carries a high risk of breaking your
+app.
 
-If you are unsure if your app uses non-SDK interfaces, you can [test your app](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk) to find out. If your app relies on non-SDK interfaces, you should begin planning a migration to SDK alternatives. Nevertheless, we understand that some apps have valid use cases for using non-SDK interfaces. If you cannot find an alternative to using a non-SDK interface for a feature in your app, you should [request a new public API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request).
+If you are unsure if your app uses non-SDK interfaces, you can [test your
+app](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-for-non-sdk)
+to find out. If your app relies on non-SDK interfaces, you should begin planning
+a migration to SDK alternatives. Nevertheless, we understand that some apps have
+valid use cases for using non-SDK interfaces. If you cannot find an alternative
+to using a non-SDK interface for a feature in your app, you should [request a
+new public API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request).
 
 ## List changes for Android 12
 
@@ -17,7 +30,8 @@ The list changes in Android 12 fall into the following categories:
 - Non-SDK interfaces that were unsupported (greylisted) in Android 11 (API level 30) that are [blocked in Android 12](https://developer.android.com/about/versions/12/non-sdk-12#new-blocked).
 - Non-SDK interfaces that were [added to the Android SDK in Android 12](https://developer.android.com/about/versions/12/non-sdk-12#new-sdk).
 
-For a complete list of all non-SDK interfaces for Android 12, download the following file:
+For a complete list of all non-SDK interfaces for Android 12, download the
+following file:
 
 File: [`hiddenapi-flags.csv`](https://dl.google.com/developers/android/sc/non-sdk/hiddenapi-flags.csv)
 
@@ -25,9 +39,18 @@ SHA-256 checksum: `40674ff4291eb268f86561bf687e69dbd013df9ec9531a460404532a4ac9a
 
 ### Non-SDK interfaces that are now blocked in Android 12
 
-The following code box lists all of the non-SDK interfaces that were unsupported (greylisted) in Android 11 (API level 30) that are blocked in Android 12. That is, these interfaces belong to the `max-target-r` (`greylist-max-r`) list, so your app can only use these interfaces if it targets Android 11 (API level 30) or lower.
+The following code box lists all of the non-SDK interfaces that were unsupported
+(greylisted) in Android 11 (API level 30) that are blocked in Android 12.
+That is, these interfaces belong to the `max-target-r`
+(`greylist-max-r`) list, so your app can only use these interfaces if it targets
+Android 11 (API level 30) or lower.
 
-Our goal is to make sure that public alternatives are available before we restrict non-SDK interfaces, and we understand that your app might have a valid use case for using these interfaces. If an interface that your app uses in a prior version is now blocked in Android 12, you should [request a new public API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request) for that interface.
+Our goal is to make sure that public alternatives are available before we
+restrict non-SDK interfaces, and we understand that your app might have a valid
+use case for using these interfaces. If an interface that your app uses in a
+prior version is now blocked in Android 12, you should [request a new public
+API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#feature-request)
+for that interface.
 
 ```
 Landroid/app/Activity;->attach(Landroid/content/Context;Landroid/app/ActivityThread;Landroid/app/Instrumentation;Landroid/os/IBinder;ILandroid/app/Application;Landroid/content/Intent;Landroid/content/pm/ActivityInfo;Ljava/lang/CharSequence;Landroid/app/Activity;Ljava/lang/String;Landroid/app/Activity$NonConfigurationInstances;Landroid/content/res/Configuration;Ljava/lang/String;Lcom/android/internal/app/IVoiceInteractor;Landroid/view/Window;Landroid/view/ViewRootImpl$ActivityConfigCallback;Landroid/os/IBinder;Landroid/os/IBinder;)V
@@ -3173,7 +3196,9 @@ Lsun/util/calendar/LocalGregorianCalendar;->validate(Lsun/util/calendar/Calendar
 
 ### Non-SDK interfaces that were added to the SDK in Android 12
 
-The following code box lists all of the non-SDK interfaces that were restricted in Android 11 (API level 30) that were added to the Android SDK in Android 12. Each interface takes up one line.
+The following code box lists all of the non-SDK interfaces that were restricted
+in Android 11 (API level 30) that were added to the Android SDK in
+Android 12. Each interface takes up one line.
 
 ```
 Landroid/accessibilityservice/AccessibilityService;->GLOBAL_ACTION_ACCESSIBILITY_ALL_APPS:I

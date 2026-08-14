@@ -4,13 +4,21 @@ url: https://developer.android.com/training/tv/playback/compose/lists
 source: md.txt
 ---
 
-For TV apps, the browsing experience relies on efficient focus-based navigation. Using standard Compose Foundation lazy layouts, you can create performant vertical and horizontal lists that automatically handle focus-driven scrolling to keep active items in view.
+For TV apps, the browsing experience relies on efficient focus-based navigation.
+Using standard Compose Foundation lazy layouts, you can create performant
+vertical and horizontal lists that automatically handle focus-driven scrolling
+to keep active items in view.
 
 ## Default scroll behavior optimized for TV
 
-Starting with Compose Foundation 1.7.0, standard lazy layouts (like `LazyRow` and `LazyColumn`) include built-in support for focus-positioning features. This is the recommended way to build catalogs for TV apps as it helps keep focused items remain visible and positioned intuitively for the user.
+Starting with Compose Foundation 1.7.0, standard lazy layouts (like `LazyRow`
+and `LazyColumn`) include built-in support for focus-positioning features. This
+is the recommended way to build catalogs for TV apps as it helps keep focused
+items remain visible and positioned intuitively for the user.
 
-To implement a basic scrollable list, use the standard lazy components. These components automatically handle D-pad navigation and bring the focused item into view.
+To implement a basic scrollable list, use the standard lazy components. These
+components automatically handle D-pad navigation and bring the focused item into
+view.
 
     import androidx.compose.foundation.lazy.LazyRow
     import androidx.compose.foundation.lazy.items
@@ -29,11 +37,18 @@ To implement a basic scrollable list, use the standard lazy components. These co
 
 ## Customize scroll behavior with `BringIntoViewSpec`
 
-If your design requires a specific "pivot" point (for example, keeping the focused item exactly 30% from the left edge), you can customize the scrolling behavior using a `BringIntoViewSpec`. This replaces the older `pivotOffsets` functionality by allowing you to define exactly how the viewport should scroll to accommodate a focused item.
+If your design requires a specific "pivot" point (for example, keeping the
+focused item exactly 30% from the left edge), you can customize the scrolling
+behavior using a `BringIntoViewSpec`. This replaces the older `pivotOffsets`
+functionality by allowing you to define exactly how the viewport should scroll
+to accommodate a focused item.
 
 ### 1. Define a custom `BringIntoViewSpec`
 
-The following helper composable lets you define a "pivot" based on parent and child fractions. The `parentFraction` determines where in the container the item should land, and the `childFraction` determines which part of the item aligns with that point.
+The following helper composable lets you define a "pivot" based on parent and
+child fractions. The `parentFraction` determines where in the container the item
+should land, and the `childFraction` determines which part of the item aligns
+with that point.
 
     @OptIn(ExperimentalFoundationApi::class)
     @Composable
@@ -78,7 +93,8 @@ The following helper composable lets you define a "pivot" based on parent and ch
 
 ### 2. Apply the custom spec
 
-Wrap your layouts with the helper to apply the positioning. This is useful for creating a "consistent focus line" across different rows of your catalog.
+Wrap your layouts with the helper to apply the positioning. This is useful for
+creating a "consistent focus line" across different rows of your catalog.
 
     PositionFocusedItemInLazyLayout(
         parentFraction = 0.3f, // Pivot 30% from the edge
@@ -94,7 +110,8 @@ Wrap your layouts with the helper to apply the positioning. This is useful for c
 
 ### 3. Opt-out for specific nested layouts
 
-If you have a specific nested layout that should use standard scrolling behavior instead of your custom pivot, provide the `DefaultBringIntoViewSpec`:
+If you have a specific nested layout that should use standard scrolling behavior
+instead of your custom pivot, provide the `DefaultBringIntoViewSpec`:
 
     private val DefaultBringIntoViewSpec = object : BringIntoViewSpec {}
 
@@ -109,11 +126,13 @@ If you have a specific nested layout that should use standard scrolling behavior
         }
     }
 
-In effect, by passing an empty `BringIntoViewSpec` enables the framework's default behavior to take over.
+In effect, by passing an empty `BringIntoViewSpec` enables the framework's
+default behavior to take over.
 
 ## Migration from TV Foundation to Compose Foundation
 
-The TV-specific lazy layouts in `androidx.tv.foundation` are deprecated in favor of the standard Compose Foundation layouts.
+The TV-specific lazy layouts in `androidx.tv.foundation` are deprecated in favor
+of the standard Compose Foundation layouts.
 
 ### Dependency updates
 

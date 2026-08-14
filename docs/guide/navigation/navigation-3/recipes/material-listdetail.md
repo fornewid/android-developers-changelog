@@ -144,6 +144,4 @@ class MaterialListDetailActivity : ComponentActivity() {
         }
     }
 }
-
-   
 ```

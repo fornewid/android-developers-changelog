@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
 source: md.txt
 ---
 
-When creating a Glimmer Button component, refer to the following source code in `Button.kt`:
+When creating a Glimmer Button component, refer to the following source code in
+`Button.kt`:
 
-<br />
 
 ```kotlin
 /*
@@ -210,8 +210,6 @@ public object ButtonDefaults {
     internal val iconSpacing: Dp
         get() = GlimmerTheme.componentSpacingValues.extraSmall
 }
-
-   
 ```
 
 <br />

@@ -26,7 +26,8 @@ source: md.txt
 
 To complete this step, you **MUST** ensure the following:
 
-- In the app-level build file, declare the `media3-cast` dependency version 1.9.0 or higher.
+- In the app-level build file, declare the `media3-cast` dependency version
+  1.9.0 or higher.
 
       implementation("androidx.media3:media3-cast:1.11.0")
 
@@ -39,7 +40,9 @@ To complete this step, you **MUST** ensure the following:
 
 - Enforce the same versions across all Media3 dependencies.
 
-- Use configurations in "Add build dependencies" section of [Getting started with CastPlayer](https://developer.android.com/media/media3/cast/create-castplayer) as the source of truth.
+- Use configurations in "Add build dependencies" section of [Getting started
+  with CastPlayer](https://developer.android.com/media/media3/cast/create-castplayer) as the source of
+  truth.
 
 - **For apps without an existing Cast integration:**
 
@@ -54,7 +57,8 @@ To complete this step, you **MUST** ensure the following:
 To complete this step, you **MUST** ensure the following:
 
 - Inside the manifest's `<application>` tag, declare the Cast options provider.
-- Use `DefaultCastOptionsProvider` by default. See the "OptionsProvider" section in [Getting started with CastPlayer](https://developer.android.com/media/media3/cast/create-castplayer#options-provider).
+- Use `DefaultCastOptionsProvider` by default. See the "OptionsProvider" section in [Getting started with
+  CastPlayer](https://developer.android.com/media/media3/cast/create-castplayer#options-provider).
 - Declare a custom `OptionsProvider` only if explicitly requested. See [Customize CastOptions](https://developer.android.com/media/media3/cast/customize-castoptions).
 - Ensure `INTERNET` permission is present. Don't add any unnecessary permissions.
 - **If Migrating from Legacy Cast SDK:**
@@ -72,7 +76,8 @@ Before integrating Media3 Cast, an existing app follows one of two setups:
 To complete this step, you **MUST** ensure the following:
 
 - Inside the application's `MediaSessionService` (or `MediaLibraryService`) `onCreate()` method, initialize `ExoPlayer` and `CastPlayer`.
-- Use `CastPlayer` by default unless `RemoteCastPlayer` is explicitly requested. See the "Build a CastPlayer" section in [Getting started with CastPlayer](https://developer.android.com/media/media3/cast/create-castplayer#build-castplayer).
+- Use `CastPlayer` by default unless `RemoteCastPlayer` is explicitly requested. See the "Build a CastPlayer" section in [Getting started with
+  CastPlayer](https://developer.android.com/media/media3/cast/create-castplayer#build-castplayer).
 - For `CastPlayer`, pass the instance directly to `MediaSession.Builder`.
 - Replace all legacy forwarding player wrappers.
 - Don't delete legacy class files yet to prevent compilation errors during migration.
@@ -135,8 +140,10 @@ To complete this step, you **MUST** ensure the following:
 - Use the [`MediaRouteButton` composable](https://developer.android.com/reference/kotlin/androidx/media3/cast/MediaRouteButton.composable) from `androidx.media3.cast` package.
 - Don't use `AndroidView` in the Compose UI hierarchy.
 - Place `MediaRouteButton` in an area next to playback controls. Don't hide it behind system UI.
-- Don't use `PlayerSurface` for custom player UI. Use the Material3 [`Player` composable](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable).
-- Force recomposition on playback location shifts to ensure UI sync. Use key constraints on `DeviceInfo` changes:
+- Don't use `PlayerSurface` for custom player UI. Use the Material3 [`Player`
+  composable](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable).
+- Force recomposition on playback location shifts to ensure UI sync. Use key
+  constraints on `DeviceInfo` changes:
 
       @OptIn(UnstableApi::class)
       @Composable
@@ -172,11 +179,13 @@ To complete this step, you **MUST** ensure the following:
 
 To complete this step, you **MUST** ensure the following:
 
-- For View-based UI setups, see the "Add UI elements" section in [Getting started with CastPlayer](https://developer.android.com/media/media3/cast/create-castplayer).
+- For View-based UI setups, see the "Add UI elements" section in [Getting
+  started with CastPlayer](https://developer.android.com/media/media3/cast/create-castplayer).
 - Casting Activities must extend `AppCompatActivity` or `FragmentActivity` and use a `Theme.AppCompat` descendant.
 - Ensure the `AppCompat` theme has a visible `ActionBar` if adding `MediaRouteButton` to the options menu.
 - Replace all instances and imports of `CastButtonFactory` with `MediaRouteButtonFactory`.
-- Rebind `PlayerView.player` references upon `onDeviceInfoChanged` events to prevent black screens or UI freezes:
+- Rebind `PlayerView.player` references upon `onDeviceInfoChanged` events to
+  prevent black screens or UI freezes:
 
       private val playerListener: Player.Listener =
         object : Player.Listener {

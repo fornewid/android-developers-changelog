@@ -4,18 +4,24 @@ url: https://developer.android.com/develop/ui/compose/components/switch
 source: md.txt
 ---
 
-The [`Switch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Switch.composable#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)) component allows users to toggle between two states: checked and unchecked. In your app you may use a switch to let the user do one of the following:
+The [`Switch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Switch.composable#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)) component allows users to toggle between two states: checked
+and unchecked. In your app you may use a switch to let the user do one of the
+following:
 
 - Toggle a setting on or off.
 - Enable or disable a feature.
 - Select an option.
 
-The component has two parts: the thumb and the track. The thumb is the draggable part of the switch, and the track is the background. The user can drag the thumb to the left or right to change the state of the switch. They can also tap the switch to check and clear it.
+The component has two parts: the thumb and the track. The thumb is the draggable
+part of the switch, and the track is the background. The user can drag the thumb
+to the left or right to change the state of the switch. They can also tap the
+switch to check and clear it.
 ![Examples of the Switch component in both light and dark mode.](https://developer.android.com/static/develop/ui/compose/images/components/switches.png) **Figure 1.** The switch component.
 
 ## Basic implementation
 
-See the [`Switch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Switch.composable#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)) reference for a full API definition. The following are some of the key parameters you might need to use:
+See the [`Switch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Switch.composable#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)) reference for a full API definition. The following are
+some of the key parameters you might need to use:
 
 - **`checked`**: The initial state of the switch.
 - **`onCheckedChange`**: A callback that is called when the state of the switch changes.
@@ -24,7 +30,6 @@ See the [`Switch`](https://developer.android.com/reference/kotlin/androidx/compo
 
 The following example is a minimal implementation of the `Switch` composable.
 
-<br />
 
 ```kotlin
 @Composable
@@ -38,7 +43,6 @@ fun SwitchMinimalExample() {
         }
     )
 }
-   
 ```
 
 <br />
@@ -51,16 +55,18 @@ This is the appearance when checked:
 
 ## Advanced implementation
 
-The primary parameters you might want to use when implementing a more advanced switch are the following:
+The primary parameters you might want to use when implementing a more advanced
+switch are the following:
 
 - **`thumbContent`**: Use this to customize the appearance of the thumb when it is checked.
 - **`colors`**: Use this to customize the color of the track and thumb.
 
 ### Custom thumb
 
-You can pass any composable for the `thumbContent` parameter to create a custom thumb. The following is an example of a switch that uses a custom icon for its thumb:
+You can pass any composable for the `thumbContent` parameter to create a custom
+thumb. The following is an example of a switch that uses a custom icon for its
+thumb:
 
-<br />
 
 ```kotlin
 @Composable
@@ -85,19 +91,21 @@ fun SwitchWithIconExample() {
         }
     )
 }
-   
 ```
 
 <br />
 
-In this implementation, the unchecked appearance is the same as the example in the preceding section. However, when checked, this implementation appears as follows:
+In this implementation, the unchecked appearance is the same as the example in
+the preceding section. However, when checked, this implementation appears as
+follows:
 ![A switch that uses the thumbContent parameter to display a custom icon when checked.](https://developer.android.com/static/develop/ui/compose/images/components/switch-icon.png) **Figure 4.** A switch with a custom checked icon.
 
 ### Custom colors
 
-The following example demonstrates how you can use the colors parameter to change the color of a switch's thumb and track, taking into account whether the switch is checked.
+The following example demonstrates how you can use the colors parameter to
+change the color of a switch's thumb and track, taking into account whether the
+switch is checked.
 
-<br />
 
 ```kotlin
 @Composable
@@ -117,7 +125,6 @@ fun SwitchWithCustomColors() {
         )
     )
 }
-   
 ```
 
 <br />

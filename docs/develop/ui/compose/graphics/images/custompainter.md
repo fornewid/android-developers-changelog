@@ -4,15 +4,25 @@ url: https://developer.android.com/develop/ui/compose/graphics/images/custompain
 source: md.txt
 ---
 
-In Compose, a [`Painter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/painter/Painter) object is used to represent something that can be drawn (a replacement to the `Drawable` APIs defined in Android) and influence measurement and layout of the corresponding composable that is using it . A `BitmapPainter` takes an `ImageBitmap` that can draw a `Bitmap` on screen.
+In Compose, a [`Painter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/painter/Painter) object is used to represent something that can be
+drawn (a replacement to the `Drawable` APIs defined in Android) and influence
+measurement and layout of the corresponding composable that is using it . A
+`BitmapPainter` takes an `ImageBitmap` that can draw a `Bitmap` on screen.
 
-For most use cases, using the `painterResource()` function returns the correct painter for the asset (such as `BitmapPainter` or `VectorPainter`). For more information on the differences between the two, read the [ImageBitmap versus ImageVector](https://developer.android.com/develop/ui/compose/graphics/images/compare) section.
+For most use cases, using the `painterResource()` function returns the correct
+painter for the asset (such as `BitmapPainter` or `VectorPainter`). For more
+information on the differences between the two, read the
+[ImageBitmap versus ImageVector](https://developer.android.com/develop/ui/compose/graphics/images/compare) section.
 
-A `Painter` is different from a `DrawModifier`, which strictly draws within the bounds that are given to it and has no influence on the measurement or layout of the composable.
+A `Painter` is different from a `DrawModifier`, which strictly draws within the
+bounds that are given to it and has no influence on the measurement or layout of
+the composable.
 
-To create a custom painter, extend the `Painter` class, and implement the `onDraw` method, which allows access to the `DrawScope` to draw custom graphics. You can also override the `intrinsicSize`, which will be used to influence the Composable that it is contained in:
+To create a custom painter, extend the `Painter` class, and implement the
+`onDraw` method, which allows access to the `DrawScope` to draw custom
+graphics. You can also override the `intrinsicSize`, which will be used to
+influence the Composable that it is contained in:
 
-<br />
 
 ```kotlin
 class OverlayImagePainter constructor(
@@ -65,14 +75,13 @@ class OverlayImagePainter constructor(
         return srcSize
     }
 }
-   
 ```
 
 <br />
 
-Now that we have our custom `Painter`, we can overlay any image on top of our source image as follows:
+Now that we have our custom `Painter`, we can overlay any image on top of our
+source image as follows:
 
-<br />
 
 ```kotlin
 val rainbowImage = ImageBitmap.imageResource(id = R.drawable.rainbow)
@@ -86,17 +95,17 @@ Image(
     contentScale = ContentScale.Crop,
     modifier = Modifier.wrapContentSize()
 )
-   
 ```
 
 <br />
 
-The following figure shows the output of combining the two images with a custom painter:
+The following figure shows the output of combining the two images with a custom
+painter:
 ![Custom Painter that overlays two images on top of each other](https://developer.android.com/static/develop/ui/compose/images/graphics-rainbowoverlay.jpg) **Figure 1**: Custom Painter that overlays two images on top of each other
 
-A custom painter can also be used with the [`Modifier.paint(customPainter)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/paint.modifier#(androidx.compose.ui.Modifier).paint(androidx.compose.ui.graphics.painter.Painter,kotlin.Boolean,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Float,androidx.compose.ui.graphics.ColorFilter)) to draw the content to a composable as follows:
+A custom painter can also be used with the [`Modifier.paint(customPainter)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/draw/paint.modifier#(androidx.compose.ui.Modifier).paint(androidx.compose.ui.graphics.painter.Painter,kotlin.Boolean,androidx.compose.ui.Alignment,androidx.compose.ui.layout.ContentScale,kotlin.Float,androidx.compose.ui.graphics.ColorFilter))
+to draw the content to a composable as follows:
 
-<br />
 
 ```kotlin
 val rainbowImage = ImageBitmap.imageResource(id = R.drawable.rainbow)
@@ -111,7 +120,6 @@ Box(
         .background(color = Color.Yellow)
         .paint(customPainter)
 ) { /** intentionally empty **/ }
-   
 ```
 
 <br />

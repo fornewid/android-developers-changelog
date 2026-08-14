@@ -122,8 +122,6 @@ class DialogSceneDecoratorActivity : ComponentActivity() {
         }
     }
 }
-
-   
 ```
 
 ```
@@ -306,6 +304,4 @@ class DialogSceneDecoratorStrategy<T : Any>(
             }
     }
 }
-
-   
 ```

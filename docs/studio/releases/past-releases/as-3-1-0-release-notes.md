@@ -8,7 +8,8 @@ source: md.txt
 
 # Android Studio 3.1 (March 2018)
 
-Android Studio 3.1.0 is a major release that includes a variety of new features and improvements.
+Android Studio 3.1.0 is a major release that includes a variety of new
+features and improvements.
 [Video](https://www.youtube.com/watch?v=nnnW0nehPEA) **3.1.4 (August 2018)**
 
 This update to Android Studio 3.1 includes the following changes and fixes:
@@ -41,25 +42,40 @@ This update to Android Studio 3.1 includes fixes for the following bugs:
 This update to Android Studio 3.1 includes fixes for the following bugs:
 
 - In some cases, Android Studio hung indefinitely during exit.
-- Builds configured with [source sets](https://developer.android.com/studio/build/build-variants#sourcesets) failed with the following message when Instant Run was enabled:
+- Builds configured with [source sets](https://developer.android.com/studio/build/build-variants#sourcesets)
+  failed with the following message when Instant Run was enabled:
 
-  `"The SourceSet name is not recognized by the Android Gradle Plugin."`
+  `"The SourceSet name is not recognized by the
+  Android Gradle Plugin."`
 - When Instant Run was enabled, builds of new Kotlin projects failed when triggered by the **Run** command.
 - During editing of the `build.gradle` file, there was sometimes a noticeable delay between typing a character and the character appearing on the screen.
-- Build failures occurred during dexing in some projects with large numbers of modules or external dependencies, with the following error message:
+- Build failures occurred during dexing in some projects with large
+  numbers of modules or external dependencies, with the following error
+  message:
 
-  `"RejectedExecutionException: Thread limit exceeded replacing blocked worker"`
+  `"RejectedExecutionException: Thread limit exceeded replacing
+  blocked worker"`
 - The computation of the D8 main DEX list was not taking into account some reflective invocations.
 
-This update also includes changes that make running lint checks from Gradle much faster in some scenarios.
+This update also includes changes that make running lint checks from Gradle
+much faster in some scenarios.
 
 **3.1.1 (April 2018)**
 
 This update to Android Studio 3.1 includes fixes for the following bugs:
 
-- In some cases, when a project created in Android Studio 3.0 was opened for the first time in Android Studio 3.1, the Gradle-aware Make task was removed from the **Before launch** area in **Run/Debug Configurations** . The result was that projects did not build when the **Run** or **Debug** button was clicked, which in turn caused failures such as deployment of incorrect APKs and crashes when using Instant Run.
+- In some cases, when a project created in Android Studio 3.0 was opened
+  for the first time in Android Studio 3.1, the Gradle-aware Make task
+  was removed from the **Before launch** area in **Run/Debug
+  Configurations** . The result was that projects did not build when the
+  **Run** or **Debug** button was clicked, which in turn caused
+  failures such as deployment of incorrect APKs and crashes when using
+  Instant Run.
 
-  To solve this problem, Android Studio 3.1.1 adds the Gradle-aware Make task to the run configuration for projects that are missing this entry. This modification occurs after the first Gradle sync when the project is loaded.
+  To solve this problem, Android Studio 3.1.1 adds the Gradle-aware Make
+  task to the run configuration for projects that are missing this entry.
+  This modification occurs after the first Gradle sync when the project is
+  loaded.
 - The debugger crashed when debugging a layout with a text box if advanced profiling was enabled.
 - Android Studio froze after you clicked **Build Variants**.
 - AAR (Android archive) files were extracted twice, once during the Gradle sync process and once during the Gradle build process.
@@ -74,13 +90,23 @@ This update to Android Studio 3.1 includes fixes for the following bugs:
 
 ### IntelliJ 2017.3.3
 
-The core Android Studio IDE has been updated with improvements from IntelliJ IDEA through the 2017.3.3 release. Improvements include better control flow analysis for collections and strings, improved nullability inference, new quick fixes, and much more.
+The core Android Studio IDE has been updated with improvements from IntelliJ
+IDEA through the 2017.3.3 release. Improvements include better control flow
+analysis for collections and strings, improved nullability inference, new quick
+fixes, and much more.
 
-For details, see the JetBrains release notes for IntelliJ IDEA versions [2017.2](https://www.jetbrains.com/idea/whatsnew/#v2017-2) and [2017.3](https://www.jetbrains.com/idea/whatsnew/#v2017-3), as well as the JetBrains release notes for [bug-fix updates](https://blog.jetbrains.com/idea/2018/01/intellij-idea-2017-3-3-is-released/).
+For details, see the JetBrains release notes for IntelliJ IDEA versions
+[2017.2](https://www.jetbrains.com/idea/whatsnew/#v2017-2) and
+[2017.3](https://www.jetbrains.com/idea/whatsnew/#v2017-3), as
+well as the JetBrains release notes for
+[bug-fix updates](https://blog.jetbrains.com/idea/2018/01/intellij-idea-2017-3-3-is-released/).
 
-### SQL editing improvements with Room
+### SQL editing improvements with
+Room
 
-When you use the [Room database library](https://developer.android.com/topic/libraries/architecture/room), you can take advantage of several improvements to SQL editing:
+When you use the
+[Room database library](https://developer.android.com/topic/libraries/architecture/room),
+you can take advantage of several improvements to SQL editing:
 
 - Code completion within a [`Query`](https://developer.android.com/reference/androidx/room/Query) understands SQL tables (entities), columns, query parameters, aliases, joins, subqueries, and WITH clauses.
 - SQL syntax highlighting now works.
@@ -88,17 +114,35 @@ When you use the [Room database library](https://developer.android.com/topic/lib
 - SQL usages are shown when using **Find usages** (right-click and choose **Find usages** from the context menu).
 - To navigate to an SQL entity's declaration in Java or Kotlin code, you can hold Control (Command on Mac) while clicking the entity.
 
-For information on using SQL with Room, see [Save data in a local database using Room](https://developer.android.com/training/data-storage/room).
+For information on using SQL with Room, see
+[Save data in a local
+database using Room](https://developer.android.com/training/data-storage/room).
 
-### Updates to data binding
+### Updates to data
+binding
 
-This update includes several improvements for [data binding](https://developer.android.com/topic/libraries/data-binding):
+This update includes several improvements for
+[data binding](https://developer.android.com/topic/libraries/data-binding):
 
-- You can now use a [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) object as an observable field in data binding expressions. The [`ViewDataBinding`](https://developer.android.com/reference/androidx/databinding/ViewDataBinding) class now includes a new `setLifecycle()` method that you use to observe [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData) objects.
+- You can now use a
+  [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData)
+  object as an observable field in data binding expressions. The
+  [`ViewDataBinding`](https://developer.android.com/reference/androidx/databinding/ViewDataBinding)
+  class now includes a new `setLifecycle()` method that you use
+  to observe
+  [`LiveData`](https://developer.android.com/reference/androidx/lifecycle/LiveData)
+  objects.
 
-- The [`ObservableField`](https://developer.android.com/reference/androidx/databinding/ObservableField) class can now accept other [`Observable`](https://developer.android.com/reference/androidx/databinding/Observable) objects in its constructor.
+- The
+  [`ObservableField`](https://developer.android.com/reference/androidx/databinding/ObservableField)
+  class can now accept other
+  [`Observable`](https://developer.android.com/reference/androidx/databinding/Observable)
+  objects in its constructor.
 
-- You can preview a new incremental compiler for your data binding classes. For details of this new compiler and instructions for enabling it, see [Data Binding Compiler V2](https://developer.android.com/topic/libraries/data-binding#enable_v2).
+- You can preview a new incremental compiler for your data binding
+  classes. For details of this new compiler and instructions for enabling
+  it, see
+  [Data Binding Compiler V2](https://developer.android.com/topic/libraries/data-binding#enable_v2).
 
   Benefits of the new compiler include the following:
   - `ViewBinding` classes are generated by the Android Plugin for Gradle before the Java compiler.
@@ -110,44 +154,63 @@ This update includes several improvements for [data binding](https://developer.a
 
 ## Compiler and Gradle
 
-### D8 is the default DEX compiler
+### D8 is the default DEX
+compiler
 
 The D8 compiler is now used by default for generating DEX bytecode.
 
-This new DEX compiler brings with it several benefits, including the following:
+This new DEX compiler brings with it several benefits, including the
+following:
 
 - Faster dexing
 - Lower memory usage
 - Improved code generation (better register allocation, smarter string tables)
 - Better debugging experience when stepping through code
 
-You don't need to make any changes to your code or your development workflow to get these benefits, unless you had previously manually disabled the D8 compiler.
+You don't need to make any changes to your code or your development
+workflow to get these benefits, unless you had previously manually
+disabled the D8 compiler.
 
-If you set `android.enableD8` to `false` in your `gradle.properties`, either delete that flag or set it to `true`:
+If you set `android.enableD8` to `false` in your
+`gradle.properties`, either delete that flag or set it to
+`true`:
 
             android.enableD8=true
           
-For details, see [New DEX compiler](https://developer.android.com/studio/releases/gradle-plugin#D8).
+For details, see
+[New DEX compiler](https://developer.android.com/studio/releases/gradle-plugin#D8).
 
-### Incremental desugaring
+### Incremental
+desugaring
 
-For projects that use [Java 8 language features](https://developer.android.com/studio/write/java8-support), incremental desugaring is enabled by default, which can improve build times.
+For projects that use
+[Java 8 language features](https://developer.android.com/studio/write/java8-support),
+incremental desugaring is enabled by default, which can improve build
+times.
 
-Desugaring converts [syntactic sugar](https://en.wikipedia.org/wiki/Syntactic_sugar) into a form that the compiler can process more efficiently.
+Desugaring converts
+[syntactic sugar](https://en.wikipedia.org/wiki/Syntactic_sugar)
+into a form that the compiler can process more efficiently.
 
-You can disable incremental desugaring by specifying the following in your project's `gradle.properties` file:
+You can disable incremental desugaring by specifying the following in
+your project's `gradle.properties` file:
 
             android.enableIncrementalDesugaring=false
           
 ### Simplified output window
 
-The **Gradle Console** has been replaced with the **Build** window, which has **Sync** and **Build** tabs.
+The **Gradle Console** has been replaced with the **Build**
+window, which has **Sync** and **Build** tabs.
 
-For details about how to use the new, simplified **Build** window, see[Monitor the build process](https://developer.android.com/studio/run#gradle-console).
+For details about how to use the new, simplified **Build** window,
+see[Monitor the build
+process](https://developer.android.com/studio/run#gradle-console).
 
-### Batch updates and indexing concurrency
+### Batch updates and indexing
+concurrency
 
-The Gradle sync and IDE indexing processes are now much more efficient, reducing time wasted on many redundant indexing operations.
+The Gradle sync and IDE indexing processes are now much more efficient,
+reducing time wasted on many redundant indexing operations.
 
 <br />
 
@@ -155,17 +218,26 @@ The Gradle sync and IDE indexing processes are now much more efficient, reducing
 
 ## C++ and LLDB
 
-We have made many quality and performance improvements in the coding, syncing, building, and debugging phases of C++ development. Improvements include the following:
+We have made many quality and performance improvements in the coding, syncing,
+building, and debugging phases of C++ development. Improvements include the
+following:
 
-- If you work with large C++ projects, you should notice a significant improvement in the reduction of time spent building symbols. Sync time is also greatly reduced for large projects.
+- If you work with large C++ projects, you should notice a significant improvement
+  in the reduction of time spent building symbols. Sync time is also greatly
+  reduced for large projects.
 
-- Performance when building and syncing with CMake has been improved through more aggressive reuse of cached results.
+- Performance when building and syncing with CMake has been improved through
+  more aggressive reuse of cached results.
 
-- The addition of formatters ("pretty printers") for more C++ data structures makes LLDB output easier to read.
+- The addition of formatters ("pretty printers") for more C++ data structures
+  makes LLDB output easier to read.
 
-- [LLDB](https://developer.android.com/studio/debug) now works with only Android 4.1 (API level 16) and higher.
+- [LLDB](https://developer.android.com/studio/debug) now works with only Android 4.1 (API level 16)
+  and higher.
 
-**Note:** Native debugging with Android Studio 3.0 or greater does not work on 32-bit Windows. If you are using 32-bit Windows and need to debug native code, use Android Studio 2.3.
+**Note:** Native debugging with Android Studio 3.0 or
+greater does not work on 32-bit Windows. If you are using 32-bit Windows and
+need to debug native code, use Android Studio 2.3.
 
 <br />
 
@@ -175,13 +247,21 @@ We have made many quality and performance improvements in the coding, syncing, b
 
 ### Kotlin upgraded to version 1.2.30
 
-Android Studio 3.1 includes [Kotlin version 1.2.30](https://blog.jetbrains.com/kotlin/2018/03/kotlin-1-2-30-is-out/).
+Android Studio 3.1 includes
+[Kotlin
+version 1.2.30](https://blog.jetbrains.com/kotlin/2018/03/kotlin-1-2-30-is-out/).
 
-### Kotlin code now analyzed with command-line lint check
+### Kotlin code now analyzed with
+command-line lint check
 
-[Running lint from the command line](https://developer.android.com/studio/write/lint#commandline) now analyzes your Kotlin classes.
+[Running lint from the
+command line](https://developer.android.com/studio/write/lint#commandline) now analyzes your Kotlin classes.
 
-For each project that you would like to run lint on, [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) must be included in the top-level `build.gradle` file. The Maven repository is already included for projects created in Android Studio 3.0 and higher.
+For each project that you would like to run lint on,
+[Google's Maven
+repository](https://developer.android.com/studio/build/dependencies#google-maven) must be included in the top-level `build.gradle`
+file. The Maven repository is already included for projects created in
+Android Studio 3.0 and higher.
 
 <br />
 
@@ -191,32 +271,60 @@ For each project that you would like to run lint on, [Google's Maven repository]
 
 ### Sample native C++ processes with CPU Profiler
 
-The [CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler) now includes a default configuration to record sampled traces of your app's native threads. You can use this configuration by deploying your app to a device running Android 8.0 (API level 26) or higher and then selecting **Sampled (Native)** from the CPU Profiler's recording configurations dropdown menu. After that, [record and inspect a trace](https://developer.android.com/studio/profile/cpu-profiler#method_traces) as you normally would.
+The [CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler) now
+includes a default configuration to record sampled traces of your app's
+native threads. You can use this configuration by deploying your app to a
+device running Android 8.0 (API level 26) or higher and then selecting
+**Sampled (Native)** from the CPU Profiler's recording
+configurations dropdown menu. After that,
+[record and
+inspect a trace](https://developer.android.com/studio/profile/cpu-profiler#method_traces) as you normally would.
 
-You can change default settings, such as the sampling interval, by [creating a recording configuration](https://developer.android.com/studio/profile/cpu-profiler#configurations).
+You can change default settings, such as the sampling interval, by
+[creating a
+recording configuration](https://developer.android.com/studio/profile/cpu-profiler#configurations).
 
-To switch back to tracing your Java threads, select either a **Sampled (Java)** or **Instrumented (Java)** configuration.
+To switch back to tracing your Java threads, select either a
+**Sampled (Java)** or **Instrumented (Java)**
+configuration.
 
-### Filter CPU traces, memory allocation results, and heap dumps
+### Filter CPU traces, memory
+allocation results, and heap dumps
 
-The [CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler) and [Memory Profiler](https://developer.android.com/studio/profile/memory-profiler) include a search feature that allows you to filter results from recording a method trace, memory allocations, or heap dump.
+The [CPU Profiler](https://developer.android.com/studio/profile/cpu-profiler) and
+[Memory Profiler](https://developer.android.com/studio/profile/memory-profiler) include
+a search feature that allows you to filter results from recording a method
+trace, memory allocations, or heap dump.
 ![](https://developer.android.com/static/studio/images/releases/cpu-profiler-method-filter_1x.png)
 
-To search, click **Filter** ![](https://developer.android.com/static/studio/images/buttons/profiler_filter.png) in the top-right corner of the pane, type your query, and press Enter.
+To search, click **Filter**
+![](https://developer.android.com/static/studio/images/buttons/profiler_filter.png) in the top-right corner of the pane, type
+your query, and press Enter.
 
-**Tip:** You can also open the search field by pressing Control + F (Command + F on Mac).
 
-In the CPU Profiler's **Flame Chart** tab, call stacks that include methods related to your search query are highlighted and moved to the left side of the chart.
+**Tip:** You can also open the search field by pressing Control + F
+(Command + F on Mac).
 
-For more information on filtering by method, class, or package name, see [Record and inspect method traces](https://developer.android.com/studio/profile/cpu-profiler#method_traces).
+In the CPU Profiler's **Flame Chart** tab, call stacks that include
+methods related to your search query are highlighted and moved to the left
+side of the chart.
+
+For more information on filtering by method, class, or package name, see
+[Record and inspect method traces](https://developer.android.com/studio/profile/cpu-profiler#method_traces).
 
 ### Request tab in the Network Profiler
 
-The [Network Profiler](https://developer.android.com/studio/profile/network-profiler) now includes a **Request** tab that provides details about network requests during the selected timeline. In previous versions, the Network Profiler only provided information about network responses.
+The [Network Profiler](https://developer.android.com/studio/profile/network-profiler)
+now includes a **Request** tab that provides details about network
+requests during the selected timeline. In previous versions, the Network
+Profiler only provided information about network responses.
 
 ### Thread View in the Network Profiler
 
-After selecting a portion of the timeline in the [Network Profiler](https://developer.android.com/studio/profile/network-profiler), you can select one of the following tabs to see more detail about the network activity during that timeframe:
+After selecting a portion of the timeline in the
+[Network Profiler](https://developer.android.com/studio/profile/network-profiler), you can select one of
+the following tabs to see more detail about the network activity during that
+timeframe:
 
 - **Connection View**: Provides the same information as previous versions of Android Studio---it lists files that were sent or received during the selected portion of the timeline across all of your app's CPU threads. For each request, you can inspect the size, type, status, and transmission duration.
 - **Thread View**: Displays network activity of each of your app's CPU threads. This view allows you to inspect which of your app's threads are responsible for each network request.
@@ -229,7 +337,9 @@ After selecting a portion of the timeline in the [Network Profiler](https://deve
 
 ## Layout Inspector
 
-The [Layout Inspector](https://developer.android.com/studio/debug/layout-inspector) gained new features, including some functionality previously provided by the deprecated Hierarchy Viewer and Pixel Perfect tools:
+The [Layout Inspector](https://developer.android.com/studio/debug/layout-inspector) gained new
+features, including some functionality previously provided by the deprecated
+Hierarchy Viewer and Pixel Perfect tools:
 
 - Zoom buttons and keyboard shortcuts for navigating and inspecting layouts
 - Reference grid overlay
@@ -244,16 +354,24 @@ The [Layout Inspector](https://developer.android.com/studio/debug/layout-inspect
 
 ## Layout Editor
 
-The **Palette** in the [Layout Editor](https://developer.android.com/studio/write/layout-editor#convert-view) has received many improvements:
+The **Palette** in the
+[Layout Editor](https://developer.android.com/studio/write/layout-editor#convert-view)
+has received many improvements:
 
 - Reorganization of categories for views and layouts.
 - New **Common** category for views and layouts, which you can add to with a **Favorite** command.
-- Improved [search for views and layouts](https://developer.android.com/studio/write/layout-editor#views-palette).
-- New commands for [opening documentation](https://developer.android.com/studio/write/layout-editor#palette-documentation) for a specific view or layout element.
+- Improved [search for views
+  and layouts](https://developer.android.com/studio/write/layout-editor#views-palette).
+- New commands for [opening
+  documentation](https://developer.android.com/studio/write/layout-editor#palette-documentation) for a specific view or layout element.
 
-You can use the new [**Convert view**](https://developer.android.com/studio/write/layout-editor#convert-view) command in the **Component tree** or design editor to convert a view or layout to another type of view or layout.
+You can use the new [**Convert view**](https://developer.android.com/studio/write/layout-editor#convert-view)
+command in the **Component tree** or design editor to convert a view or layout
+to another type of view or layout.
 
-You can now easily create constraints to items near the selected view using the new Create a connection ![](https://developer.android.com/static/studio/images/buttons/attributes-plus-icon_2x.png) buttons in the view inspector at the top of the **Attributes** window.
+You can now easily create constraints to items near the selected view using the
+new Create a connection ![](https://developer.android.com/static/studio/images/buttons/attributes-plus-icon_2x.png)
+buttons in the view inspector at the top of the **Attributes** window.
 
 <br />
 
@@ -261,9 +379,18 @@ You can now easily create constraints to items near the selected view using the 
 
 ## Run and Instant Run
 
-The behavior of the **Use same selection for future launches** option in the **Select deployment target** dialog has been made more consistent. If the **Use same selection** option is enabled, then the **Select deployment target** dialog opens only the first time that you use the **Run** command until the selected device is no longer connected.
+The behavior of the **Use same selection for future
+launches** option in the **Select deployment target**
+dialog has been made more consistent. If the **Use same
+selection** option is enabled, then the **Select deployment
+target** dialog opens only the first time that you use the
+**Run** command until the selected device is no longer
+connected.
 
-When targeting a device running Android 8.0 (API level 26) or higher, [Instant Run](https://developer.android.com/studio/run#instant-run) can deploy changes to resources without causing an application restart. This is possible because the resources are contained in a split APK.
+When targeting a device running Android 8.0 (API level 26) or higher,
+[Instant Run](https://developer.android.com/studio/run#instant-run) can deploy
+changes to resources without causing an application restart. This is
+possible because the resources are contained in a split APK.
 
 <br />
 
@@ -271,7 +398,10 @@ When targeting a device running Android 8.0 (API level 26) or higher, [Instant R
 
 ## Emulator
 
-For details of what's new and changed in the emulator since Android Studio 3.0, see the Android Emulator release notes from [version 27.0.2](https://developer.android.com/studio/releases/emulator#27-0-2) through [version 27.1.12](https://developer.android.com/studio/releases/emulator#27-1-12).
+For details of what's new and changed in the emulator since Android
+Studio 3.0, see the Android Emulator release notes from
+[version 27.0.2](https://developer.android.com/studio/releases/emulator#27-0-2)
+through [version 27.1.12](https://developer.android.com/studio/releases/emulator#27-1-12).
 
 Major improvements include the following:
 
@@ -283,17 +413,22 @@ Major improvements include the following:
 
 <br />
 
-## User interface and user experience improvements
+## User interface and user experience
+improvements
 
-### More tooltips, keyboard shortcuts, and helpful messages
+### More tooltips, keyboard shortcuts,
+and helpful messages
 
-We have added tooltips and helpful message overlays in many places throughout Android Studio.
+We have added tooltips and helpful message overlays in many places
+throughout Android Studio.
 
-To see keyboard shortcuts for many commands, just hold the mouse pointer over a button until the tooltip appears.
+To see keyboard shortcuts for many commands, just hold the mouse
+pointer over a button until the tooltip appears.
 
 ### Tools \> Android menu removed
 
-The **Tools \> Android** menu has been removed. Commands that were previously under this menu have been moved.
+The **Tools \> Android** menu has been removed. Commands
+that were previously under this menu have been moved.
 
 - Many commands moved to directly under the **Tools** menu.
 - The **Sync project with gradle files** command moved to the **File** menu.
@@ -303,10 +438,16 @@ The **Tools \> Android** menu has been removed. Commands that were previously un
 
 <br />
 
-## Device Monitor available from the command line
+## Device Monitor available
+from the command line
 
-In Android Studio 3.1, the Device Monitor serves less of a role than it previously did. In many cases, the functionality available through the Device Monitor is now provided by new and improved tools.
+In Android Studio 3.1, the Device Monitor serves less of a role than it
+previously did. In many cases, the functionality available through the
+Device Monitor is now provided by new and improved tools.
 
-See the [Device Monitor documentation](https://developer.android.com/studio/profile/monitor) for instructions for invoking the Device Monitor from the command line and for details of the tools available through the Device Monitor.
+See the
+[Device Monitor documentation](https://developer.android.com/studio/profile/monitor) for
+instructions for invoking the Device Monitor from the command line and for
+details of the tools available through the Device Monitor.
 
 <br />

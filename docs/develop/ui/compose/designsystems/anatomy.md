@@ -4,18 +4,28 @@ url: https://developer.android.com/develop/ui/compose/designsystems/anatomy
 source: md.txt
 ---
 
-Themes in Jetpack Compose are made up of a number of lower-level constructs and related APIs. These can be seen in the [source code](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/material3/material3/src/commonMain/kotlin/androidx/compose/material3/MaterialTheme.kt) of `MaterialTheme` and can also be applied in custom design systems.
+Themes in Jetpack Compose are made up of a number of lower-level constructs
+and related APIs. These can be seen in the
+[source code](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/material3/material3/src/commonMain/kotlin/androidx/compose/material3/MaterialTheme.kt)
+of `MaterialTheme` and can also be applied in custom design systems.
 
 ## Theme system classes
 
-A theme is typically made up of a number of subsystems that group common visual and behavioral concepts. These systems can be modeled with classes which have theming values.
+A theme is typically made up of a number of subsystems that group common visual and
+behavioral concepts. These systems can be modeled with classes which have
+theming values.
 
-For example, `MaterialTheme` includes [`ColorScheme`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/material3/material3/src/commonMain/kotlin/androidx/compose/material3/ColorScheme.kt) (color system), [`Typography`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/material3/material3/src/commonMain/kotlin/androidx/compose/material3/Typography.kt) (typography system), and [`Shapes`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/material3/material3/src/commonMain/kotlin/androidx/compose/material3/Shapes.kt) (shape system).
+For example, `MaterialTheme` includes
+[`ColorScheme`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/material3/material3/src/commonMain/kotlin/androidx/compose/material3/ColorScheme.kt)
+(color system),
+[`Typography`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/material3/material3/src/commonMain/kotlin/androidx/compose/material3/Typography.kt)
+(typography system), and
+[`Shapes`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:compose/material3/material3/src/commonMain/kotlin/androidx/compose/material3/Shapes.kt)
+(shape system).
 
 > [!NOTE]
 > **Note:** Classes should be annotated with [`Stable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/Stable) or [`@Immutable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/Immutable) to provide information to the Compose compiler. To learn more, check out the [Lifecycle of composables guide](https://developer.android.com/develop/ui/compose/lifecycle#skipping).
 
-<br />
 
 ```kotlin
 @Immutable
@@ -40,21 +50,23 @@ data class CustomSystem(
 )
 
 /* ... */
-   
 ```
 
 <br />
 
 ## Theme system composition locals
 
-Theme system classes are implicitly provided to the composition tree as [`CompositionLocal`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal) instances. This allows theming values to be statically referenced in composable functions.
+Theme system classes are implicitly provided to the composition tree as
+[`CompositionLocal`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/CompositionLocal)
+instances. This allows theming values to be statically referenced in composable
+functions.
 
-To learn more about `CompositionLocal`, check out the [Locally scoped data with CompositionLocal guide](https://developer.android.com/develop/ui/compose/compositionlocal).
+To learn more about `CompositionLocal`, check out the
+[Locally scoped data with CompositionLocal guide](https://developer.android.com/develop/ui/compose/compositionlocal).
 
 > [!NOTE]
 > **Note:** You can create a class's `CompositionLocal` with [`compositionLocalOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#compositionlocalof) or [`staticCompositionLocalOf`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#staticcompositionlocalof). These functions have a `defaultFactory` trailing lambda to provide fallback values of the same type that they're providing. It's a good idea to use reasonable defaults like `Color.Unspecified`, `TextStyle.Default`, etc.
 
-<br />
 
 ```kotlin
 val LocalColorSystem = staticCompositionLocalOf {
@@ -79,16 +91,19 @@ val LocalCustomSystem = staticCompositionLocalOf {
 }
 
 /* ... */
-   
 ```
 
 <br />
 
 ## Theme function
 
-The theme function is the entry point and primary API. It constructs instances of the theme system `CompositionLocal`s --- using real values and any logic required --- that are provided to the composition tree with [`CompositionLocalProvider`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#compositionlocalprovider). The `content` parameter allows nested composables to access theming values relative to the hierarchy.
+The theme function is the entry point and primary API. It constructs instances
+of the theme system `CompositionLocal`s --- using real values and any logic
+required --- that are provided to the composition tree with
+[`CompositionLocalProvider`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/package-summary#compositionlocalprovider).
+The `content` parameter allows nested composables to access theming values
+relative to the hierarchy.
 
-<br />
 
 ```kotlin
 @Composable
@@ -117,16 +132,16 @@ fun Theme(
         content = content
     )
 }
-   
 ```
 
 <br />
 
 ## Theme object
 
-Accessing theme systems is done using an object with convenience properties. For consistency, the object tends to be named the same as the theme function. The properties simply get the current composition local.
+Accessing theme systems is done using an object with convenience properties. For
+consistency, the object tends to be named the same as the theme function. The
+properties simply get the current composition local.
 
-<br />
 
 ```kotlin
 // Use with eg. Theme.colorSystem.color
@@ -142,7 +157,6 @@ object Theme {
         get() = LocalCustomSystem.current
     /* ... */
 }
-   
 ```
 
 <br />

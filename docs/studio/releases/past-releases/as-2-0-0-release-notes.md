@@ -12,11 +12,15 @@ source: md.txt
 
 <br />
 
-**Note:** If you are developing for the N Developer Preview, you should use Android Studio 2.1 Preview. Android Studio 2.0 does not support all the features required to target the N Preview.
+
+**Note:** If you are developing for the N Developer Preview, you
+should use Android Studio 2.1 Preview. Android Studio 2.0 does not support
+all the features required to target the N Preview.
 
 <br />
 
 <br />
+
 
 **Instant Run**:
 
@@ -59,12 +63,14 @@ source: md.txt
 
 **New additions to Lint:**
 
-- Inspection of `switch` statements using `https://developer.android.com/reference/androidx/annotation/IntDef` annotated integers to make sure all constants are handled. To quickly add any missing statements, use the intention action drop-down menu and select **Add Missing @IntDef Constants**.
+- Inspection of `switch` statements using `https://developer.android.com/reference/androidx/annotation/IntDef` annotated integers to make sure all constants are handled. To quickly add any missing statements, use the intention action drop-down menu and select **Add Missing @IntDef
+  Constants**.
 - Flags for incorrect attempts to use string interpolation to insert version numbers in the `build.gradle` file.
 - Flags for anonymous classes that extend the `https://developer.android.com/reference/android/app/Fragment` class.
 - Flags for native code in unsafe locations, such as the `res/` and `asset/` folders. This flag encourages storing native code in the `libs/` folder, which is then securely packaged into the application's `data/app-lib/` folder at install time. [AOSP: #169950](https://android-review.googlesource.com/#/c/169950/)
 - Flags for unsafe calls to `https://developer.android.com/reference/java/lang/Runtime#load(java.lang.String)` and `https://developer.android.com/reference/java/lang/System#load(java.lang.String)` calls. [AOSP: #179980](https://android-review.googlesource.com/#/c/179980/)
-- Find and remove any unused resources by selecting **Refactor \> Remove Unused Resources** from the menu bar. Unused resource detection now supports resources only referenced by unused resources, references in raw files such as `.html` image references, and `tools:keep` and `tools:discard` attributes used by the Gradle resource shrinker, while considering inactive source sets (such as resources used in other build flavors) and properly handling static field imports.
+- Find and remove any unused resources by selecting **Refactor \> Remove
+  Unused Resources** from the menu bar. Unused resource detection now supports resources only referenced by unused resources, references in raw files such as `.html` image references, and `tools:keep` and `tools:discard` attributes used by the Gradle resource shrinker, while considering inactive source sets (such as resources used in other build flavors) and properly handling static field imports.
 - Checks that implicit API references are supported on all platforms targeted by `minSdkVersion`.
 - Flags improper usage of `https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView` and `https://developer.android.com/reference/android/os/Parcelable`.
 - `https://developer.android.com/reference/androidx/annotation/IntDef`, `https://developer.android.com/reference/androidx/annotation/IntRange`, and `https://developer.android.com/reference/androidx/annotation/Size` inspections are now also checked for `int` arrays and varargs.

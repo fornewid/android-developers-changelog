@@ -4,13 +4,27 @@ url: https://developer.android.com/blog/authors/fahd-imtiaz
 source: md.txt
 ---
 
-6 posts ![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
+7 posts ![](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
 
 # Fahd Imtiaz
 
 Senior Product Manager
 
 Android Developer Experience
+- 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
+
+  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
+  4 min read
+  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
+  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
+  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  - +5 ↩
 - 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_Z1BKgnT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices)
@@ -50,13 +64,16 @@ Android Developer Experience
 
   [arrow_forward](https://developer.android.com/blog/posts/product-manager-guide-to-adapting-android-apps-across-devices) This includes the start of Android 16's rollout, with details for both developers and users, a Developer Preview for enhanced Android desktop experiences with connected displays, and updates for Android users across Google apps and more, plus the June Pixel Drop.
   6 min read
-- 20 May 2025 20 May 2025 ![](https://developer.android.com/static/blog/assets/yt_adaptive_b9097334d4_Z1poFG.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+<button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
-  ## [Google I/O 2025: Build adaptive Android apps that shine across form factors](https://developer.android.com/blog/posts/google-i-o-2025-build-adaptive-android-apps-that-shine-across-form-factors)
+#### Page 1
 
-  [arrow_forward](https://developer.android.com/blog/posts/google-i-o-2025-build-adaptive-android-apps-that-shine-across-form-factors) At Google I/O this year, we are exploring how adaptive development isn't just a good idea, but essential to building apps that shine across the expanding Android device ecosystem.
-  5 min read
-Stay in the loop
+###### of 2
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+[arrow_forward](https://developer.android.com/blog/authors/fahd-imtiaz/2) Stay in the loop
+
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

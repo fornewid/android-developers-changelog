@@ -6,7 +6,9 @@ source: md.txt
 
 <br />
 
-This guide explains how to filter through a list of strings based on text input in Jetpack Compose. Use this approach to dynamically update a list based on user search queries.
+This guide explains how to filter through a list of strings based on text input
+in Jetpack Compose. Use this approach to dynamically update a list based on user
+search queries.
 
 ## Version compatibility
 
@@ -19,9 +21,11 @@ Include the following dependencies in your `build.gradle`:
 
 ## Filter a list based on text input
 
-Together, the following snippets produce a list that updates in real time as the user types. This example uses a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel) to hold the list data and filtering logic, while the `FilterTextView()` function creates the UI that updates automatically whenever the filter text changes.
+Together, the following snippets produce a list that updates in real time as the
+user types. This example uses a [`ViewModel`](https://developer.android.com/reference/androidx/lifecycle/ViewModel)
+to hold the list data and filtering logic, while the `FilterTextView()` function
+creates the UI that updates automatically whenever the filter text changes.
 
-<br />
 
 ```kotlin
 class FilterTextViewModel : ViewModel() {
@@ -43,7 +47,6 @@ class FilterTextViewModel : ViewModel() {
         _filteredItems.value = items.filter { it.contains(input, ignoreCase = true) }
     }
 }
-   
 ```
 
 <br />
@@ -54,7 +57,6 @@ class FilterTextViewModel : ViewModel() {
 - The `ViewModel` holds both the original and filtered lists. It defines a list of items and a `MutableStateFlow` to hold the filtered items.
 - The `filterText` function filters the list based on the provided input string and updates the `filteredItems` state, which is passed back into the UI.
 
-<br />
 
 ```kotlin
 @Composable
@@ -92,7 +94,6 @@ fun FilterTextView(modifier: Modifier = Modifier, viewModel: FilterTextViewModel
         }
     }
 }
-   
 ```
 
 <br />
@@ -117,7 +118,8 @@ fun FilterTextView(modifier: Modifier = Modifier, viewModel: FilterTextViewModel
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover
+broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Request user input

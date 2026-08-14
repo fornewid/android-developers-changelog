@@ -6,7 +6,8 @@ source: md.txt
 
 <br />
 
-You can use a list with multiple item types to display mixed content types such as text, images, and interactive elements.
+You can use a list with multiple item types to display mixed content types such
+as text, images, and interactive elements.
 
 ## Results
 
@@ -14,17 +15,18 @@ You can use a list with multiple item types to display mixed content types such 
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or higher.
+This implementation requires that your project minSDK be set to API level 21 or
+higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/build-list-multiple-item-types_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/build-list-multiple-item-types_fe30e5b1b3bf57635bdc2152f1499c7d7bf124e4909c22a4e51155c557d1cd7f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Add multiple item types
 
-You can specify the content type for each item of the layout when you compose a list or a grid with multiple types of items:
+You can specify the content type for each item of the layout when you compose a
+list or a grid with multiple types of items:
 
-<br />
 
 ```kotlin
 @Composable
@@ -54,7 +56,6 @@ fun TextMessage(message: Text) {
 }
 
 data class SampleMessage(val text: String, val content: Any)
-   
 ```
 
 <br />
@@ -67,7 +68,8 @@ data class SampleMessage(val text: String, val content: Any)
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover
+broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display a list or grid

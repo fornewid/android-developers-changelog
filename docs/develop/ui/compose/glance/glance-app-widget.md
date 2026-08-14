@@ -4,11 +4,13 @@ url: https://developer.android.com/develop/ui/compose/glance/glance-app-widget
 source: md.txt
 ---
 
-The following sections describe how to update `GlanceAppWidget` and manage its state.
+The following sections describe how to update `GlanceAppWidget` and manage its
+state.
 
 ## Manage `GlanceAppWidget` state
 
-The provided `GlanceAppWidget` class is instantiated whenever the widget is created or requires an update, so it should be *stateless and passive*.
+The provided `GlanceAppWidget` class is instantiated whenever the widget is
+created or requires an update, so it should be *stateless and passive*.
 
 > [!IMPORTANT]
 > **Key Point:** App widgets live in a different process. While the defined UI content (meaning the underlying `RemoteViews`) is restored by the system, any state kept in-memory, for example in the app's scope, can be destroyed at any time.
@@ -20,11 +22,14 @@ The concept of state can be divided into the following:
 
 ### Use application state
 
-App widgets should be passive. Each application is responsible for managing the data layer and handling the states, such as idle, loading, and error reflecting in the widget UI.
+App widgets should be passive. Each application is responsible for managing the
+data layer and handling the states, such as idle, loading, and error reflecting
+in the widget UI.
 
-For example, the following code retrieves the destinations from the in-memory cache from the repository layer, provides the stored list of destinations, and displays a different UI depending on its state:
+For example, the following code retrieves the destinations from the in-memory
+cache from the repository layer, provides the stored list of destinations, and
+displays a different UI depending on its state:
 
-<br />
 
 ```kotlin
 class DestinationAppWidget : GlanceAppWidget() {
@@ -52,34 +57,36 @@ class DestinationAppWidget : GlanceAppWidget() {
         }
     }
 }
-   
 ```
 
 <br />
 
-Whenever the state or the data changes, it is the app's responsibility to notify and update the widget. See [Update GlanceAppWidget](https://developer.android.com/develop/ui/compose/glance/glance-app-widget#update-glance-appwidget) for more information.
+Whenever the state or the data changes, it is the app's responsibility to notify
+and update the widget. See [Update GlanceAppWidget](https://developer.android.com/develop/ui/compose/glance/glance-app-widget#update-glance-appwidget) for more information.
 
 > [!NOTE]
 > **Note:** See the [Optimizations for updating widget content](https://developer.android.com/guide/topics/appwidgets/advanced#update-widgets) section in the app widgets guide to understand how and when to update.
 
 ## Update `GlanceAppWidget`
 
-You can request to update your widget content using `GlanceAppWidget`. As explained in the [Manage `GlanceAppWidget` state](https://developer.android.com/develop/ui/compose/glance/glance-app-widget#manage-state) section, app widgets are hosted in a different process. Glance translates the content into actual `RemoteViews` and sends them to the host. To update the content, Glance must recreate the `RemoteViews` and send them again.
+You can request to update your widget content using `GlanceAppWidget`. As
+explained in the [Manage `GlanceAppWidget` state](https://developer.android.com/develop/ui/compose/glance/glance-app-widget#manage-state) section, app
+widgets are hosted in a different process. Glance translates the content into
+actual `RemoteViews` and sends them to the host. To update the content, Glance
+must recreate the `RemoteViews` and send them again.
 
-To send the update, call the `update` method of the `GlanceAppWidget` instance, providing the `context` and the `glanceId`:
+To send the update, call the `update` method of the `GlanceAppWidget` instance,
+providing the `context` and the `glanceId`:
 
-<br />
 
 ```kotlin
 MyAppWidget().update(context, glanceId)
-   
 ```
 
 <br />
 
 To obtain the `glanceId`, query the `GlanceAppWidgetManager`:
 
-<br />
 
 ```kotlin
 val manager = GlanceAppWidgetManager(context)
@@ -88,14 +95,12 @@ val glanceIds = manager.getGlanceIds(widget.javaClass)
 glanceIds.forEach { glanceId ->
     widget.update(context, glanceId)
 }
-   
 ```
 
 <br />
 
 Alternatively, use one of the `GlanceAppWidget update` extensions:
 
-<br />
 
 ```kotlin
 // Updates all placed instances of MyAppWidget
@@ -106,14 +111,14 @@ MyAppWidget().updateAll(context)
 MyAppWidget().updateIf<State>(context) { state ->
     state == State.Completed
 }
-   
 ```
 
 <br />
 
-These methods can be called from any part of your application. Because they are `suspend` functions, we recommend launching them outside of the main thread scope. In the following example, they are launched in a `CoroutineWorker`:
+These methods can be called from any part of your application. Because they are
+`suspend` functions, we recommend launching them outside of the main thread
+scope. In the following example, they are launched in a `CoroutineWorker`:
 
-<br />
 
 ```kotlin
 class DataSyncWorker(
@@ -127,7 +132,6 @@ class DataSyncWorker(
         return Result.success()
     }
 }
-   
 ```
 
 <br />

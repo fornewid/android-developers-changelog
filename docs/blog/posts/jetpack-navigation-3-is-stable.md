@@ -81,7 +81,6 @@ Nav3 Spotlight Week starts Dec 1st 2025.
 
 <br />
 
-
 As always, if you find any issues, please [file them here](https://issuetracker.google.com/issues/new?component=1750212&template=2102223).
 - [#Nav3](https://developer.android.com/blog/topics/nav3)
 - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
@@ -93,7 +92,8 @@ Written by:
 
   ###### Developer Relations Engineer
 
-  [read_more View profile](https://developer.android.com/blog/authors/don-turner) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/don-turner) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)
 Continue reading
 - [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z2lMDgd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -106,19 +106,31 @@ Continue reading
   - [#Compose](https://developer.android.com/blog/topics/compose)
   - [#Android 16](https://developer.android.com/blog/topics/android-16)
   - +2 ↩
-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_1w4qDC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Delivering safer, age-appropriate experiences on Google Play](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play)
+  ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
 
-  [arrow_forward](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play) Providing a safe online experience and protecting users from harm is a top priority at Google Play.
-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
-- 3 Authors 28 Jul 2026 28 Jul 2026 ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z1F9b9M.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release) Today, the Jetpack Compose August '26 release is stable!
+  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
+  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
 
-  [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
+  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
+  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
+  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
+  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
+  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
+  - [#Foldables](https://developer.android.com/blog/topics/foldables)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  - +5 ↩
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

@@ -4,19 +4,26 @@ url: https://developer.android.com/training/wearables/wff/text
 source: md.txt
 ---
 
-For digital clocks, you should aim to use `DigitalClock` where possible. For all other text or clocks that cannot be represented using `DigitalClock`, `PartText` is the container for text-based rendering.
+For digital clocks, you should aim to use `DigitalClock` where possible. For all
+other text or clocks that cannot be represented using `DigitalClock`,
+`PartText` is the container for text-based rendering.
 
-Depending on whether you want to show circular or regular text, the `PartText` should contain *either* a `Text` or a `TextCircular` element.
+Depending on whether you want to show circular or regular text, the `PartText`
+should contain *either* a `Text` or a `TextCircular` element.
 
 ### Work with fonts and bitmap fonts
 
 Using custom fonts allows your watch face to stand out with its own style.
 
-There are two ways to use custom fonts, both within `TimeText` and `PartText` containers.
+There are two ways to use custom fonts, both within `TimeText` and `PartText`
+containers.
 
-1. Specify a custom font `family` in the `Font` element. [A range of common formats](https://developer.android.com/training/wearables/wff/group/part/text/font?version=1) are supported, which must be placed in `res/font`
+1. Specify a custom font `family` in the `Font` element. [A range of common
+   formats](https://developer.android.com/training/wearables/wff/group/part/text/font?version=1) are
+   supported, which must be placed in `res/font`
 
-   For example, using the Pacifico font from Google Fonts, and placing the asset as res/font/pacifico.ttf:
+   For example, using the Pacifico font from Google Fonts, and placing the
+   asset as res/font/pacifico.ttf:
 
    <br />
 
@@ -26,12 +33,12 @@ There are two ways to use custom fonts, both within `TimeText` and `PartText` co
            <Font family="pacifico" size="96">Hello!</Font>
        </Text>
    </PartText>
-        
    ```
 
    <br />
 
-2. Alternatively, define a `BitmapFont` supplying bitmap images in `res/drawable`:
+2. Alternatively, define a `BitmapFont` supplying bitmap images in
+   `res/drawable`:
 
    <br />
 
@@ -47,12 +54,13 @@ There are two ways to use custom fonts, both within `TimeText` and `PartText` co
            <Word name="12" resource="digit12" width="80" height="100" />
        </BitmapFont>
    </BitmapFonts>
-        
    ```
 
    <br />
 
-Note how sequences of characters can be given a special treatment. For example, if "12" was to be represented with a joined 1 and 2, this could be achieved using a `Word` element.
+Note how sequences of characters can be given a special treatment. For example,
+if "12" was to be represented with a joined 1 and 2, this could be achieved
+using a `Word` element.
 
 To use the defined font:
 
@@ -64,14 +72,15 @@ To use the defined font:
         <BitmapFont family="myhandwriting" size="48" color="#FF00FF"/>
     </TimeText>
 </DigitalClock>
-   
 ```
 
 <br />
 
 ### Text effects
 
-Watch Face Format provides several text effects which can be applied, such as [`OutGlow`](https://developer.android.com/training/wearables/wff/group/part/text/decoration/out-glow) and [`Shadow`](https://developer.android.com/training/wearables/wff/group/part/text/decoration/shadow). To use these, apply them as subelements of the `Font` element:
+Watch Face Format provides several text effects which can be applied, such as
+[`OutGlow`](https://developer.android.com/training/wearables/wff/group/part/text/decoration/out-glow) and [`Shadow`](https://developer.android.com/training/wearables/wff/group/part/text/decoration/shadow). To use these, apply them as subelements of the
+`Font` element:
 
 <br />
 
@@ -79,14 +88,14 @@ Watch Face Format provides several text effects which can be applied, such as [`
 <Font family="pacifico" size="96" color="#e2a0ff">
     <OutGlow color="#e8ffb7" radius="30">Hello!</OutGlow>
 </Font>
-   
 ```
 
 <br />
 
 ### Work with templates
 
-Instead of static text, you may need to construct your text from data sources or expressions.
+Instead of static text, you may need to construct your text from data sources or
+expressions.
 
 The `Template` element lets you do this:
 
@@ -96,30 +105,32 @@ The `Template` element lets you do this:
 <Font family="pacifico" size="60" weight="BOLD" color="#ffffff">
     <Template>Day: %s<Parameter expression="[DAY_OF_WEEK_S]" /></Template>
 </Font>
-   
 ```
 
 <br />
 
 ### Work with resources
 
-If your static text is instead defined in a resource, such as in `res/values/strings.xml`, then it can be referenced as follows:
+If your static text is instead defined in a resource, such as in
+`res/values/strings.xml`, then it can be referenced as follows:
 
 <br />
 
 ```xml
 <!-- greeting defined in res/values/strings.xml -->
 <Font family="pacifico" size="60" weight="BOLD" color="#ffffff">greeting</Font>
-   
 ```
 
 <br />
 
-This also lets you localize your watch face using different [resource qualifiers](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources).
+This also lets you localize your watch face using different [resource
+qualifiers](https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources).
 
 ### Handle spacing
 
-Working with text spacing in XML can be challenging. Extra spacing around text can cause formatting problems, such as incorrect centering, or prevent your app from finding Android string resources.
+Working with text spacing in XML can be challenging. Extra spacing around text
+can cause formatting problems, such as incorrect centering, or prevent your app
+from finding Android string resources.
 
 To avoid these situations, wrap your `Font` contents in a `CDATA` element:
 
@@ -129,7 +140,6 @@ To avoid these situations, wrap your `Font` contents in a `CDATA` element:
 <Font family="pacifico" size="60" weight="BOLD" color="#ffffff">
     <![CDATA[Hello]]>
 </Font>
-   
 ```
 
 <br />
@@ -146,7 +156,6 @@ To create multiline text, use the `maxLines` attribute on `Text`:
         <![CDATA[Hello Wear OS world]]>
     </Font>
 </Text>
-   
 ```
 
 <br />

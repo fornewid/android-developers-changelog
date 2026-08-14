@@ -4,20 +4,21 @@ url: https://developer.android.com/develop/ui/compose/styles/examples
 source: md.txt
 ---
 
-The following documentation contains examples of using Styles to create certain kinds of components.
+The following documentation contains examples of using Styles to create certain
+kinds of components.
 
 > [!NOTE]
 > **Note:** These examples don't pull values from themes, as they are merely illustrative of what Styles can do. When using them within your projects, extract out the common themeable colors, shapes, and typography styles into your theme class.
 
 ## Buttons
 
-Styles can be used to create many different kinds of buttons that may be different from standard Material components.
+Styles can be used to create many different kinds of buttons that may be
+different from standard Material components.
 
 ### Base button
 
 Consider the following button defined as a base for different types of buttons:
 
-<br />
 
 ```kotlin
 @Composable
@@ -50,17 +51,16 @@ fun BaseButton(
         verticalAlignment = Alignment.CenterVertically
     )
 }
-   
 ```
 
 <br />
 
 ### Hover background translation button
 
-To define a button with a background that moves on hover, use the following code:
+To define a button with a background that moves on hover, use the following
+code:
 **Figure 1.** Button with background that translates on hover.
 
-<br />
 
 ```kotlin
 @Preview
@@ -116,17 +116,16 @@ fun HoverButtonExample() {
         }
     }
 }
-   
 ```
 
 <br />
 
 ### Rounded depth button with shadow animation
 
-To create a button with a depth press effect that translates the shadow up and down on `pressed`, the following is how it can be achieved:
+To create a button with a depth press effect that translates the shadow up and
+down on `pressed`, the following is how it can be achieved:
 **Figure 2.** Button with depth effect, translating the shadow layer on press.
 
-<br />
 
 ```kotlin
 @Preview
@@ -178,17 +177,16 @@ fun ShadowAnimationButton() {
         }
     }
 }
-   
 ```
 
 <br />
 
 ### Multiple layered styles with pressed animation
 
-The following code creates a button that has a depth pressed effect with Styles, that has multiple layers of styles, that all use the same `StyleState`:
+The following code creates a button that has a depth pressed effect with Styles,
+that has multiple layers of styles, that all use the same `StyleState`:
 **Figure 3.** Button with depth pressed effect and multiple style layers.
 
-<br />
 
 ```kotlin
 @Preview
@@ -248,7 +246,6 @@ fun MultipleStylesButton() {
         }
     }
 }
-   
 ```
 
 <br />

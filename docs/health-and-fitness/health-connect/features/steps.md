@@ -4,7 +4,9 @@ url: https://developer.android.com/health-and-fitness/health-connect/features/st
 source: md.txt
 ---
 
-Health Connect provides a *steps* data type for recording step counts using the [`StepsRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsRecord). Steps are a fundamental measurement in health and fitness tracking.
+Health Connect provides a *steps* data type for recording step counts using
+the [`StepsRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsRecord). Steps are a fundamental measurement in health
+and fitness tracking.
 
 <br />
 
@@ -18,34 +20,53 @@ Health Connect provides a *steps* data type for recording step counts using the 
 > [!WARNING]
 > **Warning:** Starting with the Health Connect update in June 2026, on-device steps are attributed to a device-specific **Synthetic Package Name (SPN)** instead of the generic `"android"` package name. See [Attribution change for on-device steps](https://developer.android.com/health-and-fitness/health-connect/features/steps#attribution-change) for details.
 
-With Android 14 (API level 34) and SDK Extension version 20 or higher, Health Connect provides on-device step counting. If any app has been granted the `READ_STEPS` permission, Health Connect starts capturing steps from the Android-powered device, and users see steps data automatically added to Health Connect **Steps** entries.
+With Android 14 (API level 34) and SDK Extension version 20 or higher,
+Health Connect provides on-device step counting. If any app has been granted
+the `READ_STEPS` permission, Health Connect starts capturing steps from the
+Android-powered device, and users see steps data automatically added to
+Health Connect **Steps** entries.
 
-To check if on-device step counting is available, verify that the device is running Android 14 (API level 34) and has at least SDK extension version 20:
+To check if on-device step counting is available, verify that the device is
+running Android 14 (API level 34) and has at least SDK extension version 20:
 
     val isStepTrackingAvailable =
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE &&
             SdkExtensions.getExtensionVersion(Build.VERSION_CODES.UPSIDE_DOWN_CAKE) >= 20
 
-If your app reads aggregated step counts using [`aggregate`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary) and doesn't filter by `DataOrigin`, on-device steps are automatically included in the total, and no changes are required for the June 2026 update.
+If your app reads aggregated step counts using
+[`aggregate`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/aggregate/package-summary) and doesn't filter by `DataOrigin`, on-device
+steps are automatically included in the total, and no changes are required for
+the June 2026 update.
 
 ### Attribution change for on-device steps
 
-Starting with the June 2026 update, steps tracked natively by Health Connect are attributed to a **Synthetic Package Name (SPN)** , such as `com.android.healthconnect.phone.jd5bdd37e1a8d3667a05d0abebfc4a89e`.
+Starting with the June 2026 update, steps tracked natively by Health
+Connect are attributed to a **Synthetic Package Name (SPN)** , such as
+`com.android.healthconnect.phone.jd5bdd37e1a8d3667a05d0abebfc4a89e`.
 
-Previously, built-in steps were attributed to the package name `android`. Historical step data recorded before June 2026 retains the `android` package name.
+Previously, built-in steps were attributed to the package name `android`.
+Historical step data recorded before June 2026 retains the `android` package
+name.
 
-SPNs are device-specific and scoped on a per-application basis to protect user privacy:
+SPNs are device-specific and scoped on a per-application basis to protect
+user privacy:
 
 - **Stable:** The SPN for the current device is stable for your application.
 - **Application-Scoped:** Different applications on the same device see different SPNs for on-device step data.
 
 #### Query for on-device steps
 
-Because SPNs are scoped and device-specific, you **must not** hardcode SPN values. Instead, use the `getCurrentDeviceDataSource()` API to retrieve the SPN for the current device.
+Because SPNs are scoped and device-specific, you **must not** hardcode SPN
+values. Instead, use the `getCurrentDeviceDataSource()` API to retrieve the
+SPN for the current device.
 
-While on-device step counting requires SDK extension version 20 or higher, the `getCurrentDeviceDataSource()` API is available on Android 14 (API level 34) with SDK extension version 11 or higher.
+While on-device step counting requires SDK extension version 20 or higher,
+the `getCurrentDeviceDataSource()` API is available on Android 14 (API level
+34) with SDK extension version 11 or higher.
 
-The `getCurrentDeviceDataSource()` API is not yet available in the Health Connect Jetpack library. The following examples use the Android framework API instead:
+The `getCurrentDeviceDataSource()` API is not yet available in the Health
+Connect Jetpack library. The following examples use the Android framework API
+instead:
 
     import android.content.Context
     import android.health.connect.HealthConnectManager
@@ -54,9 +75,17 @@ The `getCurrentDeviceDataSource()` API is not yet available in the Health Connec
     val deviceDataSource = healthConnectManager?.getCurrentDeviceDataSource()
     val currentDeviceSpn = deviceDataSource?.deviceDataOrigin?.packageName
 
-If your app needs to read on-device steps, or if it displays step data broken down by source application or device, you must query for records where the `DataOrigin` is `android` **or** matches the device's SPN. If your app shows attribution for step data, use [`metadata.device`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/Device) to identify the source device for individual records. For on-device steps identified by an SPN in aggregated data, you can use device metadata such as `model` or `manufacturer` from `DeviceDataSource` for attribution, or use a generic label like "Your phone" for on-device steps.
+If your app needs to read on-device steps, or if it displays step data
+broken down by source application or device, you must query for records
+where the `DataOrigin` is `android` **or** matches the device's SPN. If
+your app shows attribution for step data, use [`metadata.device`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/Device)
+to identify the source device for individual records. For on-device steps
+identified by an SPN in aggregated data, you can use device metadata such as
+`model` or `manufacturer` from `DeviceDataSource` for attribution, or use a
+generic label like "Your phone" for on-device steps.
 
-The following example shows how to read aggregated on-device step count data by filtering for both `android` and the current device SPN:
+The following example shows how to read aggregated on-device step count data
+by filtering for both `android` and the current device SPN:
 
     import android.content.Context
     import android.health.connect.HealthConnectManager
@@ -124,7 +153,10 @@ The following example shows how to read aggregated on-device step count data by 
 
 ## Check Health Connect availability
 
-Before attempting to use Health Connect, your app should verify that Health Connect is available on the user's device. Health Connect might not be pre-installed on all devices or could be disabled. You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)` method.
+Before attempting to use Health Connect, your app should verify that Health Connect is available
+on the user's device. Health Connect might not be pre-installed on all devices or could be disabled.
+You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)`
+method.
 
 #### How to check for Health Connect availability
 
@@ -158,7 +190,8 @@ fun checkHealthConnectAvailability(context: Context) {
 }
 ```
 
-Depending on the status returned by `getSdkStatus()`, you can guide the user to install or update Health Connect from the Google Play Store if necessary.
+Depending on the status returned by `getSdkStatus()`, you can guide the user
+to install or update Health Connect from the Google Play Store if necessary.
 
 ## Required permissions
 
@@ -167,9 +200,11 @@ Access to steps is protected by the following permissions:
 - `android.permission.health.READ_STEPS`
 - `android.permission.health.WRITE_STEPS`
 
-To add steps capability to your app, start by requesting permissions for the `Steps` data type.
+To add steps capability to your app, start by requesting
+permissions for the `Steps` data type.
 
-Here's the permission you need to declare to be able to write steps:
+Here's the permission you need to declare to be able to write
+steps:
 
     <application>
       <uses-permission
@@ -187,7 +222,13 @@ To read steps, you need to request the following permissions:
 
 ### Request permissions from the user
 
-After creating a client instance, your app needs to request permissions from the user. Users must be allowed to grant or deny permissions at any time. To do so, create a set of permissions for the required data types. Make sure that the permissions in the set are declared in your Android manifest first.
+After creating a client instance, your app needs to request permissions from
+the user. Users must be allowed to grant or deny permissions at any time.
+
+To do so, create a set of permissions for the required data types.
+Make sure that the permissions in the set are declared in your Android
+manifest first.
+
 
 ```kotlin
 val permissions =
@@ -195,7 +236,6 @@ val permissions =
         HealthPermission.getReadPermission(StepsRecord::class),
         HealthPermission.getWritePermission(StepsRecord::class)
     )
-   
 ```
 Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
 
@@ -216,7 +256,6 @@ val requestPermissionsLauncher = rememberLauncherForActivityResult(
         coroutineScope.launch { snackbarHostState.showSnackbar("Permissions denied.") }
     }
 }
-   
 ```
 Because users can grant or revoke permissions at any time, your app needs to check for permissions every time before using them and handle scenarios where permission is lost.
 
@@ -236,11 +275,13 @@ Each `StepsRecord` contains the following information:
 
 <br />
 
-The following aggregate values are available for `StepsRecord`:
+The following aggregate values are available for
+`StepsRecord`:
 
 - [`COUNT_TOTAL`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsRecord#COUNT_TOTAL())
 
-The following aggregate values are available for `StepsCadenceRecord`:
+The following aggregate values are available for
+`StepsCadenceRecord`:
 
 - [`RATE_AVG`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsCadenceRecord#RATE_AVG())
 - [`RATE_MAX`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsCadenceRecord#RATE_MAX())
@@ -254,9 +295,9 @@ The following sections show how to read and write `StepsRecord` data.
 
 ### Write steps data
 
-Your app can write step count data by inserting [`StepsRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsRecord) instances. The following example shows how to record 1000 steps taken by a user:
+Your app can write step count data by inserting [`StepsRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsRecord)
+instances. The following example shows how to record 1000 steps taken by a user:
 
-<br />
 
 ```kotlin
 val zoneOffset = ZoneOffset.systemDefault().rules.getOffset(startTime)
@@ -271,16 +312,16 @@ val stepsRecord = StepsRecord(
     )
 )
 healthConnectClient.insertRecords(listOf(stepsRecord))
-   
 ```
 
 <br />
 
 ### Read aggregate data
 
-The most common way to read step data is to aggregate the total steps over a time period. The following example shows how to read the total step count for a user within a certain time range:
+The most common way to read step data is to aggregate the total steps over a
+time period. The following example shows how to read the total step count for a
+user within a certain time range:
 
-<br />
 
 ```kotlin
 suspend fun readStepsAggregate(startTime: Instant, endTime: Instant): Long {
@@ -292,16 +333,15 @@ suspend fun readStepsAggregate(startTime: Instant, endTime: Instant): Long {
     )
     return response[StepsRecord.COUNT_TOTAL] ?: 0L
 }
-   
 ```
 
 <br />
 
 ### Read raw data
 
-The following example shows how to read raw [`StepsRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsRecord) data between a start and end time:
+The following example shows how to read raw [`StepsRecord`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsRecord) data
+between a start and end time:
 
-<br />
 
 ```kotlin
 val response = healthConnectClient.readRecords(
@@ -313,7 +353,6 @@ val response = healthConnectClient.readRecords(
 response.records.forEach { record ->
     /* Process records */
 }
-   
 ```
 
 <br />

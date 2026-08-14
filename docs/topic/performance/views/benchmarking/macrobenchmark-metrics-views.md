@@ -6,9 +6,13 @@ source: md.txt
 
 [Concepts and Jetpack Compose implementation](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-metrics)
 
-Metrics are the main type of information extracted from your benchmarks. They are passed to the [`measureRepeated`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/junit4/MacrobenchmarkRule#measureRepeated(kotlin.String,kotlin.collections.List,androidx.benchmark.macro.CompilationMode,androidx.benchmark.macro.StartupMode,kotlin.Int,kotlin.Function1,kotlin.Function1)) function as a `List`, which lets you specify multiple measured metrics at once. At least one type of metric is required for the benchmark to run.
+Metrics are the main type of information extracted from your benchmarks. They
+are passed to the [`measureRepeated`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/junit4/MacrobenchmarkRule#measureRepeated(kotlin.String,kotlin.collections.List,androidx.benchmark.macro.CompilationMode,androidx.benchmark.macro.StartupMode,kotlin.Int,kotlin.Function1,kotlin.Function1)) function as a `List`, which lets you
+specify multiple measured metrics at once. At least one type of metric is
+required for the benchmark to run.
 
-The following code snippet captures frame timing and custom trace section metrics:
+The following code snippet captures frame timing and custom trace section
+metrics:
 
 ### Kotlin
 
@@ -36,33 +40,47 @@ The following code snippet captures frame timing and custom trace section metric
         // ...
     );
 
-In this example, [`RV CreateView`](https://cs.android.com/search?q=TRACE_CREATE_VIEW_TAG&sq&ss=androidx/platform/frameworks/support) and [`RV OnBindView`](https://cs.android.com/search?q=TRACE_BIND_VIEW_TAG) are the IDs of traceable blocks that are defined in [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView). The [source code for the `createViewHolder()`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:recyclerview/recyclerview/src/main/java/androidx/recyclerview/widget/RecyclerView.java;l=7950-7964) method is an example of how you can define traceable blocks within your own code.
+In this example, [`RV CreateView`](https://cs.android.com/search?q=TRACE_CREATE_VIEW_TAG&sq&ss=androidx/platform/frameworks/support) and [`RV OnBindView`](https://cs.android.com/search?q=TRACE_BIND_VIEW_TAG) are the IDs of
+traceable blocks that are defined in [`RecyclerView`](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView). The [source code for
+the `createViewHolder()`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:recyclerview/recyclerview/src/main/java/androidx/recyclerview/widget/RecyclerView.java;l=7950-7964) method is an example of how you can define
+traceable blocks within your own code.
 
-[`StartupTimingMetric`](https://developer.android.com/topic/performance/views/benchmarking/macrobenchmark-metrics-views#startup-timing), [`TraceSectionMetric`](https://developer.android.com/topic/performance/views/benchmarking/macrobenchmark-metrics-views#trace-section), and [`FrameTimingMetric`](https://developer.android.com/topic/performance/views/benchmarking/macrobenchmark-metrics-views#frame-timing) are covered in detail later in this document. For a full list of metrics, check out subclasses of [`Metric`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/Metric).
+[`StartupTimingMetric`](https://developer.android.com/topic/performance/views/benchmarking/macrobenchmark-metrics-views#startup-timing), [`TraceSectionMetric`](https://developer.android.com/topic/performance/views/benchmarking/macrobenchmark-metrics-views#trace-section), and
+[`FrameTimingMetric`](https://developer.android.com/topic/performance/views/benchmarking/macrobenchmark-metrics-views#frame-timing) are covered in detail later in this document. For a
+full list of metrics, check out subclasses of [`Metric`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/Metric).
 
-Benchmark results are output to Android Studio, as shown in figure 1. If multiple metrics are defined, all of them are combined in the output.
+Benchmark results are output to Android Studio, as shown in figure 1. If
+multiple metrics are defined, all of them are combined in the output.
 ![Results of TraceSectionMetric and FrameTimingMetric.](https://developer.android.com/static/topic/performance/images/benchmark_images/macrobenchmark_results_frames_tracing.png) **Figure 1.** Results of `TraceSectionMetric` and `FrameTimingMetric`.
 
 ## StartupTimingMetric
 
-[`StartupTimingMetric`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/StartupTimingMetric) captures app startup timing metrics with the following values:
+[`StartupTimingMetric`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/StartupTimingMetric) captures app startup timing metrics with the
+following values:
 
 - `timeToInitialDisplayMs`: The amount of time from when the system receives a launch intent to when it renders the first frame of the destination [`Activity`](https://developer.android.com/reference/android/app/Activity).
 - `timeToFullDisplayMs`: The amount of time from when the system receives a launch intent to when the app reports fully drawn using the [`reportFullyDrawn()`](https://developer.android.com/reference/android/app/Activity#reportFullyDrawn()) method. The measurement stops at the completion of rendering the first frame after---or containing---the `reportFullyDrawn()` call. This measurement might not be available on Android 10 (API level 29) and earlier.
 
-`StartupTimingMetric` outputs the minimum, median, and maximum values from the startup iterations. To assess startup improvement, always focus on median values, since they provide the best estimate of typical user startup times. For more information about what contributes to app startup time, see [App startup time](https://developer.android.com/topic/performance/vitals/launch-time).
+`StartupTimingMetric` outputs the minimum, median, and maximum values from the
+startup iterations. To assess startup improvement, always focus on median
+values, since they provide the best estimate of typical user startup times. For
+more information about what contributes to app startup time, see [App startup
+time](https://developer.android.com/topic/performance/vitals/launch-time).
 ![StartupTimingMetric results](https://developer.android.com/static/topic/performance/images/benchmark_images/macrobenchmark_results_fully_drawn_startup.png) **Figure 2.** `StartupTimingMetric` results.
 
 ## FrameTimingMetric
 
-[`FrameTimingMetric`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/FrameTimingMetric) captures timing information from frames produced by a benchmark, such as scrolling or animation, and outputs the following values:
+[`FrameTimingMetric`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/FrameTimingMetric) captures timing information from frames produced by a
+benchmark, such as scrolling or animation, and outputs the following values:
 
 - `frameOverrunMs`: the amount of time a given frame misses its deadline by. Positive numbers indicate a dropped frame accompanied by visible jank or stutter. Negative numbers indicate how much faster a frame completed relative to the subsystem hardware deadline. Note: This metric is available only on Android 12 (API level 31) and later.
 - `frameDurationCpuMs`: the amount of time the frame takes to be produced on the CPU on both the UI thread and the `RenderThread`.
 
-These measurements are collected in a distribution of 50th, 90th, 95th, and 99th percentile.
+These measurements are collected in a distribution of 50th, 90th, 95th, and 99th
+percentile.
 
-For more information on how to identify and improve slow frames, see [Slow rendering](https://developer.android.com/topic/performance/vitals/render).
+For more information on how to identify and improve slow frames, see [Slow
+rendering](https://developer.android.com/topic/performance/vitals/render).
 ![FrameTimingMetric results](https://developer.android.com/static/topic/performance/images/benchmark_images/macrobenchmark_results_frames.png) **Figure 3.** `FrameTimingMetric` results.
 
 ## TraceSectionMetric
@@ -70,11 +88,20 @@ For more information on how to identify and improve slow frames, see [Slow rende
 > [!WARNING]
 > **Experimental:** This class is experimental.
 
-[`TraceSectionMetric`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/TraceSectionMetric) captures the number of times a specific trace section occurs and the absolute amount of time it takes to execute. For time tracking, it outputs the minimum, median, and maximum times in milliseconds.
+[`TraceSectionMetric`](https://developer.android.com/reference/kotlin/androidx/benchmark/macro/TraceSectionMetric) captures the number of times a specific trace section
+occurs and the absolute amount of time it takes to execute. For time tracking,
+it outputs the minimum, median, and maximum times in milliseconds.
 
-The target trace section is defined either by the function call [`trace(sectionName)`](https://developer.android.com/reference/kotlin/androidx/tracing/package-summary#trace(kotlin.String,kotlin.Function0)) or the lower-level block boundaries between [`Trace.beginSection(sectionName)`](https://developer.android.com/reference/kotlin/androidx/tracing/Trace#beginSection(java.lang.String)) and [`Trace.endSection()`](https://developer.android.com/reference/kotlin/androidx/tracing/Trace#endSection()) or their async variants. It always selects the first instance of a trace section captured during a measurement. It only outputs trace sections from your package by default; to include processes outside your package, set `targetPackageOnly = false`.
+The target trace section is defined either by the function call
+[`trace(sectionName)`](https://developer.android.com/reference/kotlin/androidx/tracing/package-summary#trace(kotlin.String,kotlin.Function0)) or the lower-level block boundaries between
+[`Trace.beginSection(sectionName)`](https://developer.android.com/reference/kotlin/androidx/tracing/Trace#beginSection(java.lang.String)) and [`Trace.endSection()`](https://developer.android.com/reference/kotlin/androidx/tracing/Trace#endSection()) or their
+async variants. It always selects the first instance of a trace section captured
+during a measurement. It only outputs trace sections from your package by
+default; to include processes outside your package, set `targetPackageOnly =
+false`.
 
-For more information about tracing, see [Overview of system tracing](https://developer.android.com/topic/performance/tracing) and [Define custom events](https://developer.android.com/topic/performance/tracing/custom-events).
+For more information about tracing, see [Overview of system tracing](https://developer.android.com/topic/performance/tracing) and
+[Define custom events](https://developer.android.com/topic/performance/tracing/custom-events).
 ![TraceSectionMetric](https://developer.android.com/static/topic/performance/images/benchmark_images/macrobenchmark_results_tracing.png) **Figure 4.** `TraceSectionMetric` results.
 
 ## Recommended for you

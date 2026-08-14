@@ -24,9 +24,6 @@ The transition framework includes the following features:
 - **Resource file support:** load view hierarchies and built-in animations from layout resource files.
 - **Lifecycle callbacks:** receive callbacks that provide control over the animation and hierarchy change process.
 
-For sample code that animates between layout changes, see
-[BasicTransition](https://github.com/android/animation-samples/tree/main/BasicTransition).
-
 The basic process to animate between two layouts is as follows:
 
 1. Create a [`Scene`](https://developer.android.com/reference/android/transition/Scene) object for the starting and ending layouts. However, the starting layout's scene is often determined automatically from the current layout.

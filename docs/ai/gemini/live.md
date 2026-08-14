@@ -4,7 +4,12 @@ url: https://developer.android.com/ai/gemini/live
 source: md.txt
 ---
 
-For applications that require real-time and low latency voice support, such as chatbots or agentic interactions, the **Gemini Live API** provides an optimized way to stream both input and output for a Gemini model. By using Firebase AI Logic, you can call the Gemini Live API directly from your Android app without the need for a backend integration. This guide shows you how to use the Gemini Live API in your Android app with Firebase AI Logic.
+For applications that require real-time and low latency voice support, such as
+chatbots or agentic interactions, the **Gemini Live API** provides an optimized
+way to stream both input and output for a Gemini model. By using Firebase AI
+Logic, you can call the Gemini Live API directly from your Android app without
+the need for a backend integration. This guide shows you how to use the Gemini
+Live API in your Android app with Firebase AI Logic.
 
 > [!NOTE]
 > **Note:** Using the Gemini Live API with Firebase AI Logic is in developer preview. Non-backward compatible changes are possible, and it has the following [limitations](https://firebase.google.com/docs/ai-logic/live-api/limits-and-specs).
@@ -13,11 +18,14 @@ For applications that require real-time and low latency voice support, such as c
 
 Before you begin, make sure your app targets **API level 23 or higher**.
 
-If you haven't already, set up a Firebase project and connect your app to Firebase. For details, see the [Firebase AI Logic documentation](https://firebase.google.com/docs/ai-logic/get-started?api=dev#set-up-firebase).
+If you haven't already, set up a Firebase project and connect your app to
+Firebase. For details, see the [Firebase AI Logic documentation](https://firebase.google.com/docs/ai-logic/get-started?api=dev#set-up-firebase).
 
 ## Set up your Android project
 
-Add the Firebase AI Logic library and App Check dependencies to your app-level `build.gradle.kts` or `build.gradle` file. Use the [Firebase Android BoM](https://firebase.google.com/docs/android/learn-more#bom) to manage library versions.
+Add the Firebase AI Logic library and App Check dependencies to your app-level
+`build.gradle.kts` or `build.gradle` file. Use the
+[Firebase Android BoM](https://firebase.google.com/docs/android/learn-more#bom) to manage library versions.
 
     dependencies {
       // Import the Firebase BoM
@@ -33,9 +41,14 @@ After adding the dependencies, sync your Android project with Gradle.
 
 ### Configure the App Check debug provider for local development
 
-Starting early July 2026, as part of the guided setup workflow for AI Logic in the Firebase console, Firebase App Check is automatically enforced to protect the Gemini API. For local development, you need to configure the App Check *debug provider* to bypass attestation while still maintaining the enforcement of App Check.
+Starting early July 2026, as part of the guided setup workflow for AI Logic
+in the Firebase console, Firebase App Check is automatically enforced to protect
+the Gemini API. For local development, you need to configure the
+App Check *debug provider* to bypass attestation while still maintaining the
+enforcement of App Check.
 
-1. In your debug build, configure App Check to use the debug provider factory:
+1. In your debug build, configure App Check to use the debug provider
+   factory:
 
    ### Kotlin
 
@@ -64,33 +77,44 @@ Starting early July 2026, as part of the guided setup workflow for AI Logic in t
 
 3. Register your debug token with App Check:
 
-   1. In the Firebase console, go to the **Security** \> **App Check** \> [**Apps** tab](https://console.firebase.google.com/project/_/appcheck/apps/?useAutoProject=true).
+   1. In the Firebase console, go to the
+      **Security** \> **App Check** \> [**Apps** tab](https://console.firebase.google.com/project/_/appcheck/apps/?useAutoProject=true).
 
-   2. Find your app, click the overflow menu (), and then select **Manage debug tokens**.
+   2. Find your app, click the overflow menu
+      (), and then select
+      **Manage debug tokens**.
 
    3. Follow the on-screen instructions to register your debug token.
 
-For details about the debug provider (including how to get a new debug token), check out the [official App Check docs](https://firebase.google.com/docs/app-check/android/debug-provider).
+For details about the debug provider (including how to get a new debug token),
+check out the [official App Check docs](https://firebase.google.com/docs/app-check/android/debug-provider).
 
 > [!CAUTION]
-> **Here are some critical points about the App Check debug provider:**
+> **Here are some critical points about the
+> App Check debug provider:**
 >
 > - **Keep your debug token and debug build private.** Don't commit your debug token to a public repository, and don't ship your debug token or debug build in production builds of your app.
-> - **Register your app with a production attestation provider before releasing to end users.** You'll need to [register your app with a production App Check attestation provider](https://firebase.google.com/docs/ai-logic/app-check) (for example, Play Integrity) so that your end-users can use your feature with App Check enforced.
+> - **Register your app with a production attestation provider before
+>   releasing to end users.** You'll need to [register your app with a production App Check attestation provider](https://firebase.google.com/docs/ai-logic/app-check) (for example, Play Integrity) so that your end-users can use your feature with App Check enforced.
 
 ## Integrate Firebase AI Logic and initialize a generative model
 
-Add the `RECORD_AUDIO` permission to the `AndroidManifest.xml` file of your application:
+Add the `RECORD_AUDIO` permission to the `AndroidManifest.xml` file of your
+application:
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
-Initialize the Gemini Developer API backend service and access the `LiveModel`. Use a model that supports the Live API, like `gemini-2.5-flash-native-audio-preview-12-2025`. See the Firebase documentation for [available Live API models](https://firebase.google.com/docs/ai-logic/live-api?api=dev#supported-models).
+Initialize the Gemini Developer API backend service and access the `LiveModel`.
+Use a model that supports the Live API, like
+`gemini-2.5-flash-native-audio-preview-12-2025`.
+See the Firebase documentation for [available Live API models](https://firebase.google.com/docs/ai-logic/live-api?api=dev#supported-models).
 
-To specify a voice, set the [voice name](https://firebase.google.com/docs/docs/ai-logic/live-api/configuration?api=dev#specify-response-voice) within the `speechConfig` object as part of the [model configuration](https://firebase.google.com/docs/docs/ai-logic/model-parameters?api=dev#config-gemini-live-api). If you don't specify a voice, the default is `Puck`.
+To specify a voice, set the [voice name](https://firebase.google.com/docs/docs/ai-logic/live-api/configuration?api=dev#specify-response-voice) within the
+`speechConfig` object as part of the [model configuration](https://firebase.google.com/docs/docs/ai-logic/model-parameters?api=dev#config-gemini-live-api). If
+you don't specify a voice, the default is `Puck`.
 
 ### Kotlin
 
-<br />
 
 ```kotlin
 // Initialize the `LiveModel`
@@ -101,7 +125,6 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).liveModel(
         speechConfig = SpeechConfig(voice = Voice("FENRIR"))
     }
 )
-      
 ```
 
 <br />
@@ -121,11 +144,11 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).liveModel(
             null
     );
 
-You can optionally define a persona or role the model plays by setting a system instruction:
+You can optionally define a persona or role the model plays by setting a system
+instruction:
 
 ### Kotlin
 
-<br />
 
 ```kotlin
 val systemInstruction = content {
@@ -140,7 +163,6 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).liveModel(
     },
     systemInstruction = systemInstruction,
 )
-      
 ```
 
 <br />
@@ -163,22 +185,26 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).liveModel(
             systemInstruction
     );
 
-You can further specialize the conversation with the model by using system instructions to provide context specific to your app (for example, user in-app activity history).
+You can further specialize the conversation with the model by using system
+instructions to provide context specific to your app (for example, user in-app
+activity history).
 
 ## Initialize a Live API session
 
-Once you create the `LiveModel` instance, call `model.connect()` to create a `LiveSession` object and establish a persistent connection with the model with low-latency streaming. `LiveSession` lets you to interact with the model by starting and stopping the voice session and also sending and receiving text.
+Once you create the `LiveModel` instance, call `model.connect()` to create a
+`LiveSession` object and establish a persistent connection with the model with
+low-latency streaming. `LiveSession` lets you to interact with the model by
+starting and stopping the voice session and also sending and receiving text.
 
-You can then call `startAudioConversation()` to start the conversation with the model:
+You can then call `startAudioConversation()` to start the conversation with the
+model:
 
 ### Kotlin
 
-<br />
 
 ```kotlin
 val session = model.connect()
 session.startAudioConversation()
-      
 ```
 
 <br />
@@ -200,30 +226,39 @@ session.startAudioConversation()
         }
     }, executor);
 
-In your conversations with the model, note that it doesn't handle interruptions. Also, the Live API is *bidirectional* so you use the same connection to send and receive content.
+In your conversations with the model, note that it doesn't handle interruptions.
+Also, the Live API is *bidirectional* so you use the same connection to send
+and receive content.
 
-You can also use the Gemini Live API to generate audio from different input modalities:
+You can also use the Gemini Live API to generate audio from different input
+modalities:
 
 - [Send text and audio input.](https://firebase.google.com/docs/ai-logic/live-api/capabilities?api=dev#text-in-audio-out)
 - Send video input (check out the [Firebase quickstart app](https://github.com/firebase/quickstart-android/tree/master/firebase-ai/app/src/main/java/com/google/firebase/quickstart/ai/feature/live)).
 
 ## Function calling: connect the Gemini Live API to your app
 
-To go one step further, you can also enable the model to interact directly with the logic of your app using function calling.
+To go one step further, you can also enable the model to interact directly with
+the logic of your app using function calling.
 
-Function calling (or tool calling) is a feature of generative AI implementations that allows the model to call functions at its own initiative to perform actions. If the function has an output, the model adds it to its context and uses it for subsequent generations.
+Function calling (or tool calling) is a feature of generative AI implementations
+that allows the model to call functions at its own initiative to perform
+actions. If the function has an output, the model adds it to its context and
+uses it for subsequent generations.
 ![Diagram illustrating how the Gemini Live API allows a user prompt
 to be interpreted by a model, triggering a predefined function with
 relevant arguments in an Android app, which then receives a confirmation
 response from the model.](https://developer.android.com/static/ai/assets/images/gemini-live-api.svg) **Figure 1:** Diagram illustrating how the Gemini Live API allows a user prompt to be interpreted by a model, triggering a predefined function with relevant arguments in an Android app, which then receives a confirmation response from the model.
 
-To implement function calling in your app, start by creating a `FunctionDeclaration` object for each function you want to expose to the model.
+To implement function calling in your app, start by creating a
+`FunctionDeclaration` object for each function you want to expose to the model.
 
-For example, to expose an `addList` function that appends a string to a list of strings to Gemini, start by creating a `FunctionDeclaration` variable with a name and a short description in plain English of the function and its parameter:
+For example, to expose an `addList` function that appends a string to a list of
+strings to Gemini, start by creating a `FunctionDeclaration` variable with a
+name and a short description in plain English of the function and its parameter:
 
 ### Kotlin
 
-<br />
 
 ```kotlin
 val itemList = mutableListOf<String>()
@@ -239,7 +274,6 @@ val addListFunctionDeclaration = FunctionDeclaration(
         "item" to Schema.string("A short string describing the item to add to the list")
     )
 )
-      
 ```
 
 <br />
@@ -257,11 +291,11 @@ val addListFunctionDeclaration = FunctionDeclaration(
         Collections.emptyList()
     );
 
-Then, pass this `FunctionDeclaration` as a `Tool` to the model when you instantiate it:
+Then, pass this `FunctionDeclaration` as a `Tool` to the model when you
+instantiate it:
 
 ### Kotlin
 
-<br />
 
 ```kotlin
 val addListTool = Tool.functionDeclarations(listOf(addListFunctionDeclaration))
@@ -275,7 +309,6 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).liveModel(
     systemInstruction = systemInstruction,
     tools = listOf(addListTool)
 )
-      
 ```
 
 <br />
@@ -294,11 +327,13 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).liveModel(
                    systemInstruction
             );
 
-Finally, implement a handler function to handle the tool call the model makes and pass it back the response. This handler function provided to the `LiveSession` when you call `startAudioConversation`, takes a `FunctionCallPart` parameter and returns `FunctionResponsePart`:
+Finally, implement a handler function to handle the tool call the model makes
+and pass it back the response. This handler function provided to the
+`LiveSession` when you call `startAudioConversation`, takes a `FunctionCallPart`
+parameter and returns `FunctionResponsePart`:
 
 ### Kotlin
 
-<br />
 
 ```kotlin
 session.startAudioConversation(::functionCallHandler)
@@ -331,7 +366,6 @@ fun functionCallHandler(functionCall: FunctionCallPart): FunctionResponsePart {
         }
     }
 }
-      
 ```
 
 <br />

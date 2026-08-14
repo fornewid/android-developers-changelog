@@ -4,15 +4,18 @@ url: https://developer.android.com/develop/ui/compose/animation/shared-elements/
 source: md.txt
 ---
 
-To customize how the shared element transition animation runs, there are a few parameters that can be used to change how the shared elements transition.
+To customize how the shared element transition animation runs, there are a few
+parameters that can be used to change how the shared elements transition.
 
 ## Animation spec
 
-To change the animation spec used for the size and position movement, you can specify a different `boundsTransform` parameter on `Modifier.sharedElement()`. This provides the initial `Rect` position and target `Rect` position.
+To change the animation spec used for the size and position movement, you can
+specify a different `boundsTransform` parameter on `Modifier.sharedElement()`.
+This provides the initial `Rect` position and target `Rect` position.
 
-For example, to make the text in the preceding example to move with an arc motion, specify the `boundsTransform` parameter to use a [`keyframes`](https://developer.android.com/develop/ui/compose/animation/customize#animationspec) spec:
+For example, to make the text in the preceding example to move with an arc
+motion, specify the `boundsTransform` parameter to use a [`keyframes`](https://developer.android.com/develop/ui/compose/animation/customize#animationspec) spec:
 
-<br />
 
 ```kotlin
 val textBoundsTransform = BoundsTransform { initialBounds, targetBounds ->
@@ -30,7 +33,6 @@ Text(
         boundsTransform = textBoundsTransform
     )
 )
-   
 ```
 
 <br />
@@ -40,13 +42,25 @@ You can use any `AnimationSpec`. This example uses a `keyframes` spec.
 
 ## Resize mode
 
-When animating between two shared bounds, you can set the `resizeMode` parameter to either `RemeasureToBounds` or `ScaleToBounds`. This parameter determines how the shared element transitions between the two states. `ScaleToBounds` first measures the child layout with the lookahead (or target) constraints. Then, the child's stable layout is scaled to fit in the shared bounds. `ScaleToBounds` can be thought of as a "graphical scale" between the states.
+When animating between two shared bounds, you can set the `resizeMode` parameter
+to either `RemeasureToBounds` or `ScaleToBounds`. This parameter determines how
+the shared element transitions between the two states. `ScaleToBounds` first
+measures the child layout with the lookahead (or target) constraints. Then, the
+child's stable layout is scaled to fit in the shared bounds.
+`ScaleToBounds` can be thought of as a "graphical scale" between the states.
 
-In contrast, `RemeasureToBounds` re-measures and re-layouts the child layout of `sharedBounds` with animated fixed constraints based on the target size. The re-measurement is triggered by the bounds size change, which could potentially be every frame.
+In contrast, `RemeasureToBounds` re-measures and re-layouts the child layout of
+`sharedBounds` with animated fixed constraints based on the target size. The
+re-measurement is triggered by the bounds size change, which could potentially
+be every frame.
 
-For `Text` composables, `ScaleToBounds` is recommended, as it avoids relayout and reflowing of text onto different lines. `RemeasureToBounds` is recommended for bounds that are different aspect ratios, and if you'd like fluid continuity between the two shared elements.
+For `Text` composables, `ScaleToBounds` is recommended, as it avoids relayout
+and reflowing of text onto different lines. `RemeasureToBounds` is recommended
+for bounds that are different aspect ratios, and if you'd like fluid continuity
+between the two shared elements.
 
-The difference between the two resize modes can be seen in the examples that follow:
+The difference between the two resize modes can be seen in the examples that
+follow:
 
 | `ScaleToBounds` | `RemeasureToBounds` |
 |---|---|
@@ -54,13 +68,19 @@ The difference between the two resize modes can be seen in the examples that fol
 
 ## Dynamically enable and disable shared elements
 
-By default, `sharedElement()` and `sharedBounds()` are configured to animate the layout changes whenever a matching key is found in the target state. However, you may want to disable this animation dynamically based on specific conditions, such as the direction of navigation or the current UI state.
+By default, `sharedElement()` and `sharedBounds()` are configured to animate the
+layout changes whenever a matching key is found in the target state. However,
+you may want to disable this animation dynamically based on specific conditions,
+such as the direction of navigation or the current UI state.
 
-To control whether the shared element transition occurs, you can customize the `SharedContentConfig` passed to `rememberSharedContentState()`. The `isEnabled` property determines if the shared element is active.
+To control whether the shared element transition occurs, you can customize the
+`SharedContentConfig` passed to `rememberSharedContentState()`. The `isEnabled`
+property determines if the shared element is active.
 
-The following example demonstrates how to define a configuration that only enables the shared transition when navigating between specific screens (e.g., only from A to B), while disabling it for others.
+The following example demonstrates how to define a configuration that only
+enables the shared transition when navigating between specific screens (e.g.,
+only from A to B), while disabling it for others.
 
-<br />
 
 ```kotlin
 SharedTransitionLayout {
@@ -108,18 +128,28 @@ SharedTransitionLayout {
         }
     }
 }
-   
 ```
 
 <br />
 
-By default, if a shared element is disabled during an ongoing animation, it still completes the current in-progress animation to prevent accidentally removing in-flight animations. If you need to remove the element while the animation is in progress, you can override `shouldKeepEnabledForOngoingAnimation` in the `SharedContentConfig` interface to return false.
+By default, if a shared element is disabled during an ongoing animation, it
+still completes the current in-progress animation to prevent accidentally
+removing in-flight animations. If you need to remove the element while the
+animation is in progress, you can override
+`shouldKeepEnabledForOngoingAnimation` in the `SharedContentConfig` interface to
+return false.
 
 ## Skip to final layout
 
-By default, when transitioning between two layouts, the layout size animates between its start and final state. This may be undesirable behavior when animating content such as text.
+By default, when transitioning between two layouts, the layout size animates
+between its start and final state. This may be undesirable behavior when
+animating content such as text.
 
-The following example illustrates the description text "Lorem Ipsum" entering the screen in two different ways. In the first example, the text reflows as it enters as the container grows in size. In the second example the text does not reflow as it grows. Adding `Modifier.skipToLookaheadSize()` prevents the reflow as it grows.
+The following example illustrates the description text "Lorem Ipsum" entering
+the screen in two different ways. In the first example, the text reflows as it
+enters as the container grows in size. In the second example the text does not
+reflow as it grows. Adding `Modifier.skipToLookaheadSize()` prevents the reflow
+as it grows.
 
 | No `Modifier.skipToLookaheadSize()` - notice the "Lorem Ipsum" text reflowing | `Modifier.skipToLookaheadSize()` - notice the "Lorem Ipsum" text keeps its final state at the start of the animation |
 |---|---|
@@ -127,16 +157,21 @@ The following example illustrates the description text "Lorem Ipsum" entering th
 
 ## Clip and overlays
 
-In order for shared elements to share between different composables, **the rendering of the composable is elevated** into a layer overlay when the transition is started to its match in the destination. The effect of this is that it'll escape the parent's bounds and its layer transformations (for example, the alpha and scale).
+In order for shared elements to share between different composables,
+**the rendering of the composable is elevated** into a layer overlay when the
+transition is started to its match in the destination. The effect of this is
+that it'll escape the parent's bounds and its layer transformations (for
+example, the alpha and scale).
 
-It will render on top of other non-shared UI elements. Once the transition is finished, the element will be dropped from the overlay to its own `DrawScope`.
+It will render on top of other non-shared UI elements. Once the transition is
+finished, the element will be dropped from the overlay to its own `DrawScope`.
 
 > [!IMPORTANT]
 > **Important:** In order to avoid the shared element fading in or out with its parents as it transitions to the target state, the shared element is rendered into the `SharedTransitionScope` overlay when a match is found.
 
-To clip a shared element to a shape, use the standard `Modifier.clip()` function. Place it after the `sharedElement()`:
+To clip a shared element to a shape, use the standard `Modifier.clip()`
+function. Place it after the `sharedElement()`:
 
-<br />
 
 ```kotlin
 Image(
@@ -151,24 +186,34 @@ Image(
         .clip(RoundedCornerShape(16.dp)),
     contentScale = ContentScale.Crop
 )
-   
 ```
 
 <br />
 
-If you need to ensure that a shared element never renders outside of a parent container, you can set `clipInOverlayDuringTransition` on `sharedElement()`. By default, for nested shared bounds, `clipInOverlayDuringTransition` uses the clip path from the parent `sharedBounds()`.
+If you need to ensure that a shared element never renders outside of a parent
+container, you can set `clipInOverlayDuringTransition` on `sharedElement()`. By
+default, for nested shared bounds, `clipInOverlayDuringTransition` uses the clip
+path from the parent `sharedBounds()`.
 
-To support keeping specific UI elements, such as a bottom bar or floating action button, always on top during a shared element transition, use [`Modifier.renderInSharedTransitionScopeOverlay()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).renderInSharedTransitionScopeOverlay(kotlin.Function0,kotlin.Float,kotlin.Function2)). By default, this modifier keeps the content in the overlay during the time when the shared transition is active.
+To support keeping specific UI elements, such as a bottom bar or floating action
+button, always on top during a shared element transition, use
+[`Modifier.renderInSharedTransitionScopeOverlay()`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).renderInSharedTransitionScopeOverlay(kotlin.Function0,kotlin.Float,kotlin.Function2)). By default, this
+modifier keeps the content in the overlay during the time when the shared
+transition is active.
 
-For example, in Jetsnack, the `BottomAppBar` needs to be placed on top of the shared element until such time as the screen is not visible. Adding the modifier onto the composable keeps it elevated.
+For example, in Jetsnack, the `BottomAppBar` needs to be placed on top of the
+shared element until such time as the screen is not visible. Adding the modifier
+onto the composable keeps it elevated.
 
 | Without `Modifier.renderInSharedTransitionScopeOverlay()` | With `Modifier.renderInSharedTransitionScopeOverlay()` |
 |---|---|
 |   |   |
 
-You might want your non-shared composable to animate away as well as remain on top of the other composables before the transition. In such cases, use `renderInSharedTransitionScopeOverlay().animateEnterExit()` to animate the composable out as the shared element transition runs:
+You might want your non-shared composable to animate away as well as
+remain on top of the other composables before the transition. In such cases, use
+`renderInSharedTransitionScopeOverlay().animateEnterExit()` to animate the
+composable out as the shared element transition runs:
 
-<br />
 
 ```kotlin
 JetsnackBottomBar(
@@ -185,20 +230,25 @@ JetsnackBottomBar(
             }
         )
 )
-   
 ```
 
 <br />
 
 **Figure 2.** Bottom app bar sliding in and out as the animation transitions.
 
-In the rare case that you'd like your shared element to not render in an overlay, you can set the `renderInOverlayDuringTransition` on `sharedElement()` to false.
+In the rare case that you'd like your shared element to not render in an
+overlay, you can set the `renderInOverlayDuringTransition` on `sharedElement()`
+to false.
 
 ## Notify sibling layouts of changes to shared element size
 
-By default, `sharedBounds()` and `sharedElement()` don't notify the parent container of any size changes as the layout transitions.
+By default, `sharedBounds()` and `sharedElement()` don't notify the parent
+container of any size changes as the layout transitions.
 
-In order to propagate size changes to the parent container as it transitions, change the `placeholderSize` parameter to `PlaceholderSize.AnimatedSize`. Doing so causes the item to grow or shrink. All other items in the layout respond to the change.
+In order to propagate size changes to the parent container as it transitions,
+change the `placeholderSize` parameter to `PlaceholderSize.AnimatedSize`. Doing
+so causes the item to grow or shrink. All other items in the layout respond to
+the change.
 
 | `PlaceholderSize.ContentSize` (default) | `PlaceholderSize.AnimatedSize` (Notice how the other items in the list move down in response to the one item growing) |
 |---|---|

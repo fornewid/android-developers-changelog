@@ -13,19 +13,27 @@ This guide covers the process of writing or updating data in Health Connect.
 
 ## Handle zero values
 
-Some data types like steps, distance, or calories might have a value of `0`. Only write zero values when it reflects true inactivity while the user was wearing the device. Don't write zero values if the device wasn't worn, data is missing, or the battery died. In such cases, omit the record to avoid misleading data.
+Some data types like steps, distance, or calories might have a value of `0`.
+Only write zero values when it reflects true inactivity while the user was
+wearing the device. Don't write zero values if the device wasn't worn, data is
+missing, or the battery died. In such cases, omit the record to avoid misleading
+data.
 
 ## Set up data structure
 
-Before writing data, we need to set up the records first. For more than 50 data types, each have their respective structures. See the [Jetpack reference](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/package-summary#classes) for more details about the data types available.
+Before writing data, we need to set up the records first. For more than 50 data
+types, each have their respective structures.
+See the [Jetpack reference](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/package-summary#classes) for more details about the data
+types available.
 
 ### Basic records
 
-The [Steps](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsRecord) data type in Health Connect captures the number of steps a user has taken between readings. Step counts represent a common measurement across health, fitness, and wellness platforms.
+The [Steps](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/StepsRecord) data type in Health Connect captures the number of steps a
+user has taken between readings. Step counts represent a common measurement
+across health, fitness, and wellness platforms.
 
 The following example shows how to set steps count data:
 
-<br />
 
 ```kotlin
 val zoneOffset = ZoneOffset.systemDefault().rules.getOffset(startTime)
@@ -40,7 +48,6 @@ val stepsRecord = StepsRecord(
     )
 )
 healthConnectClient.insertRecords(listOf(stepsRecord))
-   
 ```
 
 <br />
@@ -50,13 +57,18 @@ healthConnectClient.insertRecords(listOf(stepsRecord))
 
 ### Records with units of measurement
 
-Health Connect can store values along with their units of measurement to provide accuracy. One example is the [Nutrition](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/NutritionRecord) data type that is vast and comprehensive. It includes a wide variety of optional nutrient fields ranging from total carbohydrates to vitamins. Each data point represents the nutrients that were potentially consumed as part of a meal or food item.
+Health Connect can store values along with their units of measurement to provide
+accuracy. One example is the [Nutrition](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/NutritionRecord) data type that is vast and
+comprehensive. It includes a wide variety of optional nutrient fields ranging
+from total carbohydrates to vitamins. Each data point represents the nutrients
+that were potentially consumed as part of a meal or food item.
 
-In this data type, all of the nutrients are represented in units of [Mass](https://developer.android.com/reference/kotlin/androidx/health/connect/client/units/Mass), while `energy` is represented in a unit of [Energy](https://developer.android.com/reference/kotlin/androidx/health/connect/client/units/Energy).
+In this data type, all of the nutrients are represented in units of
+[Mass](https://developer.android.com/reference/kotlin/androidx/health/connect/client/units/Mass), while `energy` is represented in a unit of [Energy](https://developer.android.com/reference/kotlin/androidx/health/connect/client/units/Energy).
 
-The following example shows how to set nutrition data for a user who has eaten a banana:
+The following example shows how to set nutrition data for a user who has
+eaten a banana:
 
-<br />
 
 ```kotlin
 val endTime = Instant.now()
@@ -82,20 +94,22 @@ val banana = NutritionRecord(
         device = Device(type = Device.TYPE_PHONE)
     )
 )
-   
 ```
 
 <br />
 
 ### Records with series data
 
-Health Connect can store a list of series data. One example is the [Heart Rate](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord) data type that captures a series of heartbeat samples detected between readings.
+Health Connect can store a list of series data. One example is the
+[Heart Rate](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord) data type that captures a series of heartbeat samples
+detected between readings.
 
-In this data type, the parameter `samples` is represented by a list of [Heart Rate samples](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord.Sample). Each sample contains a `beatsPerMinute` value and a `time` value.
+In this data type, the parameter `samples` is represented by a list of
+[Heart Rate samples](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/HeartRateRecord.Sample). Each sample contains a `beatsPerMinute`
+value and a `time` value.
 
 The following example shows how to set heart rate series data:
 
-<br />
 
 ```kotlin
 val endTime = Instant.now()
@@ -116,14 +130,19 @@ val heartRateRecord = HeartRateRecord(
     metadata = Metadata.activelyRecorded(
         device = Device(type = Device.TYPE_WATCH)
     ))
-   
 ```
 
 <br />
 
 ## Request permissions from the user
 
-After creating a client instance, your app needs to request permissions from the user. Users must be allowed to grant or deny permissions at any time. To do so, create a set of permissions for the required data types. Make sure that the permissions in the set are declared in your Android manifest first.
+After creating a client instance, your app needs to request permissions from
+the user. Users must be allowed to grant or deny permissions at any time.
+
+To do so, create a set of permissions for the required data types.
+Make sure that the permissions in the set are declared in your Android
+manifest first.
+
 
 ```kotlin
 val permissions =
@@ -133,7 +152,6 @@ val permissions =
         HealthPermission.getReadPermission(StepsRecord::class),
         HealthPermission.getWritePermission(StepsRecord::class)
     )
-   
 ```
 Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
 
@@ -154,7 +172,6 @@ val requestPermissionsLauncher = rememberLauncherForActivityResult(
         coroutineScope.launch { snackbarHostState.showSnackbar("Permissions denied.") }
     }
 }
-   
 ```
 Because users can grant or revoke permissions at any time, your app needs to check for permissions every time before using them and handle scenarios where permission is lost.
 
@@ -162,11 +179,11 @@ Because users can grant or revoke permissions at any time, your app needs to che
 
 ## Write data
 
-One of the common workflows in Health Connect is writing data. To add records, use [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)).
+One of the common workflows in Health Connect is writing data. To add records,
+use [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)).
 
 The following example shows how to write data inserting step counts:
 
-<br />
 
 ```kotlin
 val zoneOffset = ZoneOffset.systemDefault().rules.getOffset(startTime)
@@ -181,18 +198,23 @@ val stepsRecord = StepsRecord(
     )
 )
 healthConnectClient.insertRecords(listOf(stepsRecord))
-   
 ```
 
 <br />
 
 ## Update data
 
-If you need to change one or more records, especially when you need to [sync](https://developer.android.com/guide/health-and-fitness/health-connect/develop/sync-data) your app datastore with data from Health Connect, you can update your data. There are two ways to update existing data which depends on the identifier used to find records.
+If you need to change one or more records, especially when you need to
+[sync](https://developer.android.com/guide/health-and-fitness/health-connect/develop/sync-data) your app datastore with data from Health Connect, you can update
+your data. There are two ways to update existing data which depends on the
+identifier used to find records.
 
 ### Metadata
 
-It is worth examining the `Metadata` class first as this is necessary when updating data. On creation, each [`Record`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/Record) in Health Connect has a [`metadata`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/Metadata) field. The following properties are relevant to synchronization:
+It is worth examining the `Metadata` class first as this is necessary when
+updating data. On creation, each [`Record`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/Record) in Health Connect has a
+[`metadata`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/Metadata) field. The following properties are relevant to
+synchronization:
 
 | Properties | Description |
 |---|---|
@@ -203,11 +225,13 @@ It is worth examining the `Metadata` class first as this is necessary when updat
 
 ### Update after reading by time range
 
-To update data, prepare the needed records first. Perform any changes to the records if necessary. Then, call [`updateRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#updateRecords(kotlin.collections.List)) to make the changes.
+To update data, prepare the needed records first. Perform any changes to the
+records if necessary. Then, call [`updateRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#updateRecords(kotlin.collections.List)) to make
+the changes.
 
-The following example shows how to update data. For this purpose, each record has its zone offset values adjusted into PST.
+The following example shows how to update data. For this purpose, each record
+has its zone offset values adjusted into PST.
 
-<br />
 
 ```kotlin
 suspend fun updateSteps(
@@ -244,20 +268,24 @@ suspend fun updateSteps(
         // Run error handling here
     }
 }
-   
 ```
 
 <br />
 
 ### Upsert through Client Record ID
 
-If you are using the optional Client Record ID and Client Record Version values, we recommend using [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)) instead of `updateRecords`.
+If you are using the optional Client Record ID and Client Record Version values,
+we recommend using [`insertRecords`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#insertRecords(kotlin.collections.List)) instead of `updateRecords`.
 
-The `insertRecords` function has the ability to upsert data. If the data exists in Health Connect based on the given set of Client Record IDs, it gets overwritten. Otherwise, it is written as new data. This scenario is useful whenever you need to [sync](https://developer.android.com/guide/health-and-fitness/health-connect/develop/sync-data) data from your app datastore to Health Connect.
+The `insertRecords` function has the ability to upsert data.
+If the data exists in Health Connect based on the given set of
+Client Record IDs, it gets overwritten. Otherwise, it is written as new data.
+This scenario is useful whenever you need to [sync](https://developer.android.com/guide/health-and-fitness/health-connect/develop/sync-data) data from
+your app datastore to Health Connect.
 
-The following example shows how to perform an upsert on data pulled from the app datastore:
+The following example shows how to perform an upsert on data pulled from
+the app datastore:
 
-<br />
 
 ```kotlin
  fun pullStepsFromDatastore(startTime: Instant, endTime: Instant) : ArrayList<StepsRecord> {
@@ -295,32 +323,34 @@ suspend fun upsertSteps(
         // Run error handling here
     }
 }
-   
 ```
 
 <br />
 
 After that, you can call these functions in your main thread.
 
-<br />
 
 ```kotlin
 upsertSteps(healthConnectClient, pullStepsFromDatastore(
     startTime = startTime,
     endTime = endTime
 ))
-   
 ```
 
 <br />
 
 #### Value check in Client Record Version
 
-If your process of upserting data includes the Client Record Version, Health Connect performs comparison checks in the [`clientRecordVersion`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/Metadata#clientRecordVersion()) values. If the version from the inserted data is higher than the version from the existing data, the upsert happens. Otherwise, the process ignores the change and the value remains the same.
+If your process of upserting data includes the Client Record Version, Health
+Connect performs comparison checks in the [`clientRecordVersion`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/metadata/Metadata#clientRecordVersion())
+values. If the version from the inserted data is higher than the
+version from the existing data, the upsert happens. Otherwise, the process
+ignores the change and the value remains the same.
 
-To include versioning in your data, you need to supply `Metadata.clientRecordVersion` with a `Long` value based on your versioning logic.
+To include versioning in your data, you need to supply
+`Metadata.clientRecordVersion` with a `Long` value based on your versioning
+logic.
 
-<br />
 
 ```kotlin
 val endTime = Instant.now()
@@ -338,18 +368,24 @@ val stepsRecord = StepsRecord(
         device = Device(type = Device.TYPE_WATCH)
     )
 )
-   
 ```
 
 <br />
 
-Upserts don't automatically increment `version` whenever there are changes, preventing any unexpected instances of overwriting data. With that, you have to manually supply it with a higher value.
+Upserts don't automatically increment `version` whenever there are changes,
+preventing any unexpected instances of overwriting data. With that, you have to
+manually supply it with a higher value.
 
 ## General guidance
 
-Your app should write all supported first-party data. Optionally, you can choose to have your app write data obtained from third-party sources. However, if your app has read data from Health Connect, that data shouldn't be written back into Health Connect.
+Your app should write all supported first-party data. Optionally, you can
+choose to have your app write data obtained from third-party sources. However,
+if your app has read data from Health Connect, that data shouldn't be
+written back into Health Connect.
 
-When writing data that has been imported or derived from another source, you are expected to correctly attribute its origin and source device metadata. To do this, you must supply the following metadata for each written record:
+When writing data that has been imported or derived from another source, you
+are expected to correctly attribute its origin and source device metadata.
+To do this, you must supply the following metadata for each written record:
 
 - **`recordingMethod`** : For automatically or manually recorded data, we expect the recording method to be updated to reflect the type of activity that has been recorded:
   - `RECORDING_METHOD_AUTOMATICALLY_RECORDED`: If the data was automatically recorded, for example, a fitness band automatically detected the user went for a run.
@@ -359,19 +395,30 @@ When writing data that has been imported or derived from another source, you are
 - **`device.manufacturer`**: The device's manufacturer, for example, "Fitbit".
 - **`device.model`**: The device's model, for example, "Charge 3".
 
-Setting metadata correctly is crucial for data transparency and helps users understand where their health information comes from. For complete details, refer to the Health Connect metadata guide.
+Setting metadata correctly is crucial for data transparency and helps
+users understand where their health information comes from. For complete
+details, refer to the Health Connect metadata guide.
 
-If data in your app has been imported from another app, then the responsibility falls onto the other app to write its own data to Health Connect.
+If data in your app has been imported from another app, then the responsibility
+falls onto the other app to write its own data to Health Connect.
 
-It's also a good idea to implement logic that handles write exceptions such as data being outside of bounds, or an internal system error. You can apply your backoff and retry strategies on a job scheduling mechanism. If writing to Health Connect is ultimately unsuccessful, make sure that your app can move past that point of export. Don't forget to log and report errors to aid diagnosis.
+It's also a good idea to implement logic that handles write exceptions such as
+data being outside of bounds, or an internal system error. You can apply your
+backoff and retry strategies on a job scheduling mechanism. If writing to
+Health Connect is ultimately unsuccessful, make sure that your app can move past
+that point of export. Don't forget to log and report errors to aid diagnosis.
 
-When tracking data, there are a couple of suggestions you can follow depending on the way your app writes data.
+When tracking data, there are a couple of suggestions you can
+follow depending on the way your app writes data.
 
 ### Time zone handling
 
-When writing time-based records, avoid setting offsets to **zoneOffset.UTC** by default because this can lead to inaccurate timestamps when users are in other zones. Instead, calculate the offset based on the device's actual location. You can retrieve the device's time zone using `ZoneId.systemDefault()`.
+When writing time-based records, avoid setting offsets to **zoneOffset.UTC**
+by default because this can lead to inaccurate timestamps when users are in
+other zones. Instead, calculate the offset based on the device's actual
+location. You can retrieve the device's time zone using
+`ZoneId.systemDefault()`.
 
-<br />
 
 ```kotlin
 val endTime = Instant.now()
@@ -395,7 +442,6 @@ while (sampleTime < endTime) {
 healthConnectClient.insertRecords(
     stepsRecords
 )
-   
 ```
 
 <br />
@@ -404,7 +450,9 @@ See the [documentation for `ZoneId`](https://developer.android.com/reference/kot
 
 ### Write frequency and granularity
 
-When writing data to Health Connect, use appropriate resolution. Using the appropriate resolution helps reduce storage load, while still maintaining consistent and accurate data. Data resolution encompasses two things:
+When writing data to Health Connect, use appropriate resolution. Using the
+appropriate resolution helps reduce storage load, while still maintaining
+consistent and accurate data. Data resolution encompasses two things:
 
 - **Frequency of writes** : How often your application write any new data into Health Connect.
   - Write data as frequently as possible when new data is available, while being mindful of device performance.
@@ -426,7 +474,10 @@ Follow these guidelines when writing data:
 - Restrict tasks to run only when the device is idle and is not low on battery.
 - For background tasks, use [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager) to schedule periodic tasks, with a maximum time period of 15 minutes.
 
-The following code uses WorkManager to schedule periodic background tasks, with a maximum time period of 15 minutes, and a flex interval of 5 minutes. This configuration is set using the [`PeriodicWorkRequest.Builder`](https://developer.android.com/reference/kotlin/androidx/work/PeriodicWorkRequest.Builder#Builder(java.lang.Class,kotlin.Long,java.util.concurrent.TimeUnit,kotlin.Long,java.util.concurrent.TimeUnit)) class.
+The following code uses WorkManager to schedule periodic background tasks, with
+a maximum time period of 15 minutes, and a flex interval of 5 minutes. This
+configuration is set using the
+[`PeriodicWorkRequest.Builder`](https://developer.android.com/reference/kotlin/androidx/work/PeriodicWorkRequest.Builder#Builder(java.lang.Class,kotlin.Long,java.util.concurrent.TimeUnit,kotlin.Long,java.util.concurrent.TimeUnit)) class.
 
     val constraints = Constraints.Builder()
         .requiresBatteryNotLow()
@@ -444,9 +495,12 @@ The following code uses WorkManager to schedule periodic background tasks, with 
 
 ### Active tracking
 
-This includes apps that perform event-based tracking such as exercise and sleep, or manual user input such as nutrition. These records are created when the app is in the foreground, or in rare events where it is used a few times in a day.
+This includes apps that perform event-based tracking such as exercise and sleep,
+or manual user input such as nutrition. These records are created when the app
+is in the foreground, or in rare events where it is used a few times in a day.
 
-Verify that your app doesn't keep Health Connect running for the entire duration of the event.
+Verify that your app doesn't keep Health Connect running for the entire
+duration of the event.
 
 Data must be written to Health Connect in one of two ways:
 
@@ -455,23 +509,44 @@ Data must be written to Health Connect in one of two ways:
 
 ## Best practices for granularity and frequency of writes
 
-When writing data to Health Connect, use appropriate resolution. Using the appropriate resolution helps reduce storage load, while still maintaining consistent and accurate data. Data resolution encompasses 2 things:
+When writing data to Health Connect, use appropriate resolution. Using the
+appropriate resolution helps reduce storage load, while still maintaining
+consistent and accurate data. Data resolution encompasses 2 things:
 
-1. **Frequency of writes**: how often your application pushes any new data into Health Connect. Write data as frequently as possible when new data is available, while being mindful of device performance. To avoid negatively impacting battery life and other performance aspects, the maximum interval between writes should be 15 minutes.
+1. **Frequency of writes**: how often your application pushes any new data into
+   Health Connect. Write data as frequently as possible when new data is
+   available, while being mindful of device performance. To avoid negatively
+   impacting battery life and other performance aspects, the maximum interval
+   between writes should be 15 minutes.
 
-2. **Granularity of written data**: how often the data that is pushed in was sampled. For example, write heart rate samples every 5s. Not every data type requires the same sample rate. There is little benefit to updating step count data every second, as opposed to a less frequent cadence such as every 60 seconds. However, higher sample rates may give users a more detailed and granular look at their health and fitness data. Sample rate frequencies should strike a balance between detail and performance.
+2. **Granularity of written data**: how often the data that is pushed in was
+   sampled. For example, write heart rate samples every 5s. Not every data type
+   requires the same sample rate. There is little benefit to updating step count
+   data every second, as opposed to a less frequent cadence such as every 60
+   seconds. However, higher sample rates may give users a more detailed and
+   granular look at their health and fitness data. Sample rate frequencies
+   should strike a balance between detail and performance.
 
 ### Structure records for series data
 
-For data types that use a series of samples, such as `HeartRateRecord`, it's important to structure your records correctly. Instead of creating a single, day-long record that is constantly updated, you should create multiple smaller records, each representing a specific time interval.
+For data types that use a series of samples, such as `HeartRateRecord`, it's
+important to structure your records correctly. Instead of creating a single,
+day-long record that is constantly updated, you should create multiple smaller
+records, each representing a specific time interval.
 
-For example, for heart rate data, you should create a new `HeartRateRecord` for each minute. Each record would have a start time and end time spanning that minute, and would contain all the heart rate samples captured during that minute.
+For example, for heart rate data, you should create a new `HeartRateRecord` for
+each minute. Each record would have a start time and end time spanning that
+minute, and would contain all the heart rate samples captured during that
+minute.
 
-During regular syncs with Health Connect (for example, every 15 minutes), your app should write all the one-minute records that have been created since the previous sync. This keeps records at a manageable size and improves the performance of querying and processing data.
+During regular syncs with Health Connect (for example, every 15 minutes), your
+app should write all the one-minute records that have been created since the
+previous sync. This keeps records at a manageable size and improves the
+performance of querying and processing data.
 
-The following example shows how to create a `HeartRateRecord` for a single minute, containing multiple samples:
+The following example shows how to create a `HeartRateRecord` for a single
+minute, containing multiple samples:
 
-<br />
 
 ```kotlin
 val startTime = Instant.now().truncatedTo(ChronoUnit.MINUTES)
@@ -500,14 +575,16 @@ val heartRateRecord = HeartRateRecord(
     metadata = Metadata.activelyRecorded(
         device = Device(type = Device.TYPE_WATCH)
     ))
-   
 ```
 
 <br />
 
 ### Write data monitored throughout the day
 
-For data collected on an ongoing basis, like steps, your application should write to Health Connect as frequently as possible when new data is available. To avoid negatively impacting battery life and other performance aspects, the maximum interval between writes should be 15 minutes.
+For data collected on an ongoing basis, like steps, your application should
+write to Health Connect as frequently as possible when new data is available.
+To avoid negatively impacting battery life and other performance aspects, the
+maximum interval between writes should be 15 minutes.
 
 |---|---|---|---|
 | **Data type** | **Unit** | **Expected** | **Example** |
@@ -528,9 +605,13 @@ For data collected on an ongoing basis, like steps, your application should writ
 > [!NOTE]
 > **Note:** As of version 1.1.0-rc01, **RecordingMethod** and **DeviceType** are mandatory requirements when writing data.
 
-Data should be written to Health Connect at the end of the workout or sleep session. For active tracking, such as exercise and sleep, or manual user input like nutrition, these records are created when the app is in the foreground, or in rare events where it is used a few times in a day.
+Data should be written to Health Connect at the end of the workout or sleep
+session. For active tracking, such as exercise and sleep, or manual user input
+like nutrition, these records are created when the app is in the foreground, or
+in rare events where it is used a few times in a day.
 
-Verify that your app doesn't keep Health Connect running for the entire duration of the event.
+Verify that your app doesn't keep Health Connect running for the entire duration
+of the event.
 
 Data must be written to Health Connect in one of two ways:
 
@@ -539,7 +620,9 @@ Data must be written to Health Connect in one of two ways:
 
 #### Exercise and sleep sessions
 
-At minimum, your application should follow the guidance in the **Expected** column in Table 2. Where possible, follow the guidance in the **Best** column.
+At minimum, your application should follow the guidance in the **Expected**
+column in Table 2. Where possible, follow the guidance in the
+**Best** column.
 
 The following table shows how to write data during an exercise:
 
@@ -570,16 +653,21 @@ Table 3 shows how to write data during or after a sleep session:
 
 #### Multi-sport events
 
-This approach uses existing data types and structures, and it verifies compatibility with current Health Connect implementations and data readers. This is a common approach taken by fitness platforms.
+This approach uses existing data types and structures, and it verifies
+compatibility with current Health Connect implementations and data readers.
+This is a common approach taken by fitness platforms.
 
 > [!NOTE]
 > **Note:** Health Connect doesn't automatically calculate the total duration of a multi-sport event. Data readers must calculate this by using the start time of the first activity and the end time of the last activity.
 
-Additionally, individual sessions such as swimming, biking, and running aren't inherently linked within Health Connect, and data readers must infer the relationship between these sessions based on their time proximity. Transitions between segments, such as from swimming to biking, aren't explicitly represented.
+Additionally, individual sessions such as swimming, biking, and running aren't
+inherently linked within Health Connect, and data readers must infer the
+relationship between these sessions based on their time proximity.
+Transitions between segments, such as from swimming to biking, aren't explicitly
+represented.
 
 The following example shows how to write data for a triathlon:
 
-<br />
 
 ```kotlin
 val swimStartTime = Instant.parse("2024-08-22T08:00:00Z")
@@ -623,18 +711,19 @@ val runSession = ExerciseSessionRecord(
 )
 
 healthConnectClient.insertRecords(listOf(swimSession, bikeSession, runSession))
-   
 ```
 
 <br />
 
 ## Handle exceptions
 
-Health Connect throws standard exceptions for CRUD operations when an issue is encountered. Your app should catch and handle each of these exceptions as appropriate.
+Health Connect throws standard exceptions for CRUD operations when an issue is
+encountered. Your app should catch and handle each of these exceptions as
+appropriate.
 
-Each method on `HealthConnectClient` lists the exceptions that can be thrown. In general, your app should handle the following exceptions:
+Each method on `HealthConnectClient` lists the exceptions that can be thrown.
+In general, your app should handle the following exceptions:
 
-<br />
 
 <br />
 

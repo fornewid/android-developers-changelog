@@ -4,13 +4,14 @@ url: https://developer.android.com/build/releases/agp-8-11-0-release-notes
 source: md.txt
 ---
 
-Android Gradle Plugin 8.11.0 is a major release that includes a variety of new features and improvements.
+Android Gradle Plugin 8.11.0 is a major release that includes a variety of new
+features and improvements.
 
 ## Compatibility
 
-The maximum API level that Android Gradle Plugin 8.11 supports is API level 36. Here is other compatibility info:
+The maximum API level that Android Gradle Plugin 8.11 supports is API level 36.
+Here is other compatibility info:
 
-<br />
 
 |   | Minimum version | Default version | Notes |
 |---:|:---:|:---:|:---:|
@@ -23,7 +24,6 @@ The maximum API level that Android Gradle Plugin 8.11 supports is API level 36. 
 
 ## Fixed issues
 
-<br />
 
 ### Android Gradle plugin 8.11.1
 

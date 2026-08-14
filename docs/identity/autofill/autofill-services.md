@@ -4,21 +4,37 @@ url: https://developer.android.com/identity/autofill/autofill-services
 source: md.txt
 ---
 
-An autofill service is an app that makes it easier for users to fill out forms by injecting data into the views of other apps. Autofill services can also retrieve user data from the views in an app and store it for use at a later time. Autofill services are usually provided by apps that manage user data, such as password managers.
+An autofill service is an app that makes it easier for users to fill out forms
+by injecting data into the views of other apps. Autofill services can also
+retrieve user data from the views in an app and store it for use at a later
+time. Autofill services are usually provided by apps that manage user data, such
+as password managers.
 
-Android makes filling out forms easier with the autofill framework available in Android 8.0 (API level 26) and higher. Users can take advantage of autofill features only if there is an app that provides autofill services on their device.
+Android makes filling out forms easier with the autofill framework available in
+Android 8.0 (API level 26) and higher. Users can take advantage of autofill
+features only if there is an app that provides autofill services on their
+device.
 
-This page shows how to implement an autofill service in your app. If you're looking for a code sample that shows how to implement a service, see the `AutofillFramework` sample in [Java](https://github.com/android/input-samples/tree/main/AutofillFramework) or [Kotlin](https://github.com/android/input-samples/tree/main/AutofillFrameworkKotlin). For further details about how autofill services work, see the reference pages for the [`AutofillService`](https://developer.android.com/reference/android/service/autofill/AutofillService) and [`AutofillManager`](https://developer.android.com/reference/android/view/autofill/AutofillManager) classes.
+This page shows how to implement an autofill service in your app. If you're
+looking for a code sample that shows how to implement a service, see the
+`AutofillFramework` sample in [Java](https://github.com/android/input-samples/tree/main/AutofillFramework) or
+[Kotlin](https://github.com/android/input-samples/tree/main/AutofillFrameworkKotlin). For further details about how autofill services work,
+see the reference pages for the [`AutofillService`](https://developer.android.com/reference/android/service/autofill/AutofillService) and
+[`AutofillManager`](https://developer.android.com/reference/android/view/autofill/AutofillManager) classes.
 
 > [!NOTE]
-> **Note:** Beginning with Android 11, the platform allows keyboards and other input-method editors (*IMEs* ) to display autofill suggestions inline, instead of using a pulldown menu. For more information on how your autofill service can support this functionality, see [Integrate autofill with keyboards](https://developer.android.com/guide/topics/text/ime-autofill).
+> **Note:** Beginning with Android 11, the platform allows keyboards and other input-method editors (*IMEs* ) to display autofill suggestions inline, instead of using a pulldown menu. For more information on how your autofill service can support this functionality, see [Integrate autofill with
+> keyboards](https://developer.android.com/guide/topics/text/ime-autofill).
 
 > [!NOTE]
 > **Note:** Autofill services must not use information for purposes other than providing suggestions.
 
 ## Manifest declarations and permissions
 
-Apps that provide autofill services must include a declaration that describes the implementation of the service. To specify the declaration, include a [`<service>`](https://developer.android.com/guide/topics/manifest/service-element) element in the [app manifest](https://developer.android.com/guide/topics/manifest/manifest-intro). The `<service>` element must include the following attributes and elements:
+Apps that provide autofill services must include a declaration that describes
+the implementation of the service. To specify the declaration, include a
+[`<service>`](https://developer.android.com/guide/topics/manifest/service-element) element in the [app manifest](https://developer.android.com/guide/topics/manifest/manifest-intro). The `<service>` element must
+include the following attributes and elements:
 
 - [`android:name`](https://developer.android.com/guide/topics/manifest/service-element#nm) attribute that points to the subclass of `AutofillService` in the app that implements the service.
 - [`android:permission`](https://developer.android.com/guide/topics/manifest/service-element#prmsn) attribute that declares the [`BIND_AUTOFILL_SERVICE`](https://developer.android.com/reference/android/Manifest.permission#BIND_AUTOFILL_SERVICE) permission.
@@ -39,7 +55,11 @@ The following example shows an autofill service declaration:
             android:resource="@xml/service_configuration" />
     </service>
 
-The `<meta-data>` element includes an [`android:resource`](https://developer.android.com/reference/android/R.styleable#AndroidManifestMetaData_resource) attribute that points to an XML resource with further details about the service. The `service_configuration` resource in the previous example specifies an activity that allows users to configure the service. The following example shows the `service_configuration` XML resource:
+The `<meta-data>` element includes an [`android:resource`](https://developer.android.com/reference/android/R.styleable#AndroidManifestMetaData_resource) attribute that
+points to an XML resource with further details about the service. The
+`service_configuration` resource in the previous example specifies an activity
+that allows users to configure the service. The following example shows the
+`service_configuration` XML resource:
 
     <autofill-service
       xmlns:android="http://schemas.android.com/apk/res/android"
@@ -49,21 +69,42 @@ For more information about XML resources, see [App resources overview](https://d
 
 ## Prompt to enable the service
 
-An app is used as the autofill service after it declares the `BIND_AUTOFILL_SERVICE` permission and the user enables it in the device settings. An app can verify whether it's the enabled service by calling the [`hasEnabledAutofillServices()`](https://developer.android.com/reference/android/view/autofill/AutofillManager#hasEnabledAutofillServices()) method of the `AutofillManager` class.
+An app is used as the autofill service after it declares the
+`BIND_AUTOFILL_SERVICE` permission and the user enables it in the device
+settings. An app can verify whether it's the enabled service by calling the
+[`hasEnabledAutofillServices()`](https://developer.android.com/reference/android/view/autofill/AutofillManager#hasEnabledAutofillServices()) method of the `AutofillManager` class.
 
-If the app isn't the current autofill service, then it can request the user to change the autofill settings by using the [`ACTION_REQUEST_SET_AUTOFILL_SERVICE`](https://developer.android.com/reference/android/provider/Settings#ACTION_REQUEST_SET_AUTOFILL_SERVICE) intent. The intent returns a value of [`RESULT_OK`](https://developer.android.com/reference/android/app/Activity#RESULT_OK) if the user selects an autofill service that matches the package of the caller.
+If the app isn't the current autofill service, then it can request the user to
+change the autofill settings by using the
+[`ACTION_REQUEST_SET_AUTOFILL_SERVICE`](https://developer.android.com/reference/android/provider/Settings#ACTION_REQUEST_SET_AUTOFILL_SERVICE) intent. The intent returns a value
+of [`RESULT_OK`](https://developer.android.com/reference/android/app/Activity#RESULT_OK) if the user selects an autofill service that matches the
+package of the caller.
 
 > [!NOTE]
 > **Note:** Be mindful of the frequency of requests to change the autofill settings that your app makes. Analyze the interactions users have with your app and request that they change the settings only in the appropriate scenarios.
 
 ## Fill out client views
 
-The autofill service receives requests to fill out client views when the user interacts with other apps. If the autofill service has user data that satisfies the request, then it sends the data in the response. The Android system shows an autofill UI with the available data, as shown in Figure 1:
+The autofill service receives requests to fill out client views when the user
+interacts with other apps. If the autofill service has user data that satisfies
+the request, then it sends the data in the response. The Android system shows an
+autofill UI with the available data, as shown in Figure 1:
 ![Autofill suggestion dropdown showing an available dataset](https://developer.android.com/static/images/guide/topics/text/autofill_sample_framed.png) **Figure 1.** Autofill UI displaying a dataset.
 
-The autofill framework defines a workflow to fill out views that is designed to minimize the time that the Android system is bound to the autofill service. In each request, the Android system sends an [`AssistStructure`](https://developer.android.com/reference/android/app/assist/AssistStructure) object to the service by calling the [`onFillRequest()`](https://developer.android.com/reference/android/service/autofill/AutofillService#onFillRequest(android.service.autofill.FillRequest,%20android.os.CancellationSignal,%20android.service.autofill.FillCallback)) method.
+The autofill framework defines a workflow to fill out views that is designed to
+minimize the time that the Android system is bound to the autofill service. In
+each request, the Android system sends an [`AssistStructure`](https://developer.android.com/reference/android/app/assist/AssistStructure) object to the
+service by calling the [`onFillRequest()`](https://developer.android.com/reference/android/service/autofill/AutofillService#onFillRequest(android.service.autofill.FillRequest,%20android.os.CancellationSignal,%20android.service.autofill.FillCallback)) method.
 
-The autofill service checks whether it can satisfy the request with user data that it previously stored. If it can satisfy the request, then the service packages the data in [`Dataset`](https://developer.android.com/reference/android/service/autofill/Dataset) objects. The service calls the [`onSuccess()`](https://developer.android.com/reference/android/service/autofill/FillCallback#onSuccess(android.service.autofill.FillResponse)) method, passing a [`FillResponse`](https://developer.android.com/reference/android/service/autofill/FillResponse) object that contains the `Dataset` objects. If the service doesn't have data to satisfy the request, it passes `null` to the `onSuccess()` method. The service calls the [`onFailure()`](https://developer.android.com/reference/android/service/autofill/FillCallback#onFailure(java.lang.CharSequence)) method instead if there's an error processing the request. For a detailed explanation of the workflow, see [the description on the `AutofillService` reference page](https://developer.android.com/reference/android/service/autofill/AutofillService#BasicUsage).
+The autofill service checks whether it can satisfy the request with user data
+that it previously stored. If it can satisfy the request, then the service
+packages the data in [`Dataset`](https://developer.android.com/reference/android/service/autofill/Dataset) objects. The service calls the
+[`onSuccess()`](https://developer.android.com/reference/android/service/autofill/FillCallback#onSuccess(android.service.autofill.FillResponse)) method, passing a [`FillResponse`](https://developer.android.com/reference/android/service/autofill/FillResponse) object that contains
+the `Dataset` objects. If the service doesn't have data to satisfy the request,
+it passes `null` to the `onSuccess()` method. The service calls the
+[`onFailure()`](https://developer.android.com/reference/android/service/autofill/FillCallback#onFailure(java.lang.CharSequence)) method instead if there's an error processing the request.
+For a detailed explanation of the workflow, see [the description on the
+`AutofillService` reference page](https://developer.android.com/reference/android/service/autofill/AutofillService#BasicUsage).
 
 > [!NOTE]
 > **Note:** Starting with Android 10, you can use the [`FillRequest.FLAG_COMPATIBILITY_MODE_REQUEST`](https://developer.android.com/reference/android/service/autofill/FillRequest#FLAG_COMPATIBILITY_MODE_REQUEST) flag to determine whether an autofill request was generated using compatibility mode.
@@ -161,7 +202,10 @@ The following code shows an example of the `onFillRequest()` method:
         String password;
     }
 
-A service can have more than one dataset that satisfies the request. In this case, the Android system shows multiple options---one for each dataset---in the autofill UI. The following code example shows how to provide multiple datasets in a response:
+A service can have more than one dataset that satisfies the request. In this
+case, the Android system shows multiple options---one for each
+dataset---in the autofill UI. The following code example shows how to
+provide multiple datasets in a response:
 
 ### Kotlin
 
@@ -199,13 +243,25 @@ A service can have more than one dataset that satisfies the request. In this cas
                     .build())
             .build();
 
-Autofill services can navigate the [`ViewNode`](https://developer.android.com/reference/android/app/assist/AssistStructure.ViewNode) objects in the `AssistStructure` to retrieve the autofill data required to fulfill the request. A service can retrieve autofill data using methods of the `ViewNode` class, such as [`getAutofillId()`](https://developer.android.com/reference/android/app/assist/AssistStructure.ViewNode#getAutofillId()).
+Autofill services can navigate the [`ViewNode`](https://developer.android.com/reference/android/app/assist/AssistStructure.ViewNode) objects in the
+`AssistStructure` to retrieve the autofill data required to fulfill the request.
+A service can retrieve autofill data using methods of the `ViewNode` class, such
+as [`getAutofillId()`](https://developer.android.com/reference/android/app/assist/AssistStructure.ViewNode#getAutofillId()).
 
-A service must be able to describe the contents of a view to check whether it can satisfy the request. Using the [`autofillHints`](https://developer.android.com/reference/android/R.styleable#View_autofillHints) attribute is the first approach that a service must use to describe the contents of a view. However, client apps must explicitly provide the attribute in their views before it is available to the service.
+A service must be able to describe the contents of a view to check whether it
+can satisfy the request. Using the [`autofillHints`](https://developer.android.com/reference/android/R.styleable#View_autofillHints) attribute is the first
+approach that a service must use to describe the contents of a view. However,
+client apps must explicitly provide the attribute in their views before it is
+available to the service.
 
-If a client app doesn't provide the `autofillHints` attribute, a service must use its own heuristics to describe the contents. The service can use methods from other classes, such as [`getText()`](https://developer.android.com/reference/android/widget/EditText#getText()) or [`getHint()`](https://developer.android.com/reference/com/google/android/material/textfield/TextInputLayout#getHint()), to get information about the contents of the view. For more information, see [Provide hints for autofill](https://developer.android.com/guide/topics/text/autofill-optimize#hints).
+If a client app doesn't provide the `autofillHints` attribute, a service must
+use its own heuristics to describe the contents. The service can use methods
+from other classes, such as [`getText()`](https://developer.android.com/reference/android/widget/EditText#getText()) or [`getHint()`](https://developer.android.com/reference/com/google/android/material/textfield/TextInputLayout#getHint()), to get
+information about the contents of the view. For more information, see [Provide
+hints for autofill](https://developer.android.com/guide/topics/text/autofill-optimize#hints).
 
-The following example shows how to traverse the `AssistStructure` and retrieve autofill data from a `ViewNode` object:
+The following example shows how to traverse the `AssistStructure` and retrieve
+autofill data from a `ViewNode` object:
 
 ### Kotlin
 
@@ -272,15 +328,23 @@ The following example shows how to traverse the `AssistStructure` and retrieve a
 
 ## Save user data
 
-An autofill service needs user data to fill out views in apps. When users manually fill out a view, they're prompted to save the data to the current autofill service, as shown in Figure 2.
+An autofill service needs user data to fill out views in apps. When users
+manually fill out a view, they're prompted to save the data to the current
+autofill service, as shown in Figure 2.
 ![System dialog prompting the user to save autofill data to the service](https://developer.android.com/static/images/guide/topics/text/autofill_save.png) **Figure 2.** Autofill save UI.
 
-To save the data, the service must indicate it is interested in storing the data for future use. Before the Android system sends a request to save the data, there is a fill request where the service has the opportunity to fill out the views. To indicate that it is interested in saving the data, the service includes a [`SaveInfo`](https://developer.android.com/reference/android/service/autofill/SaveInfo) object in the response to the fill request. The `SaveInfo` object contains at least the following data:
+To save the data, the service must indicate it is interested in storing the data
+for future use. Before the Android system sends a request to save the data,
+there is a fill request where the service has the opportunity to fill out the
+views. To indicate that it is interested in saving the data, the service
+includes a [`SaveInfo`](https://developer.android.com/reference/android/service/autofill/SaveInfo) object in the response to the fill request. The
+`SaveInfo` object contains at least the following data:
 
 - The type of user data that is saved. For a list of the available `SAVE_DATA` values, see [`SaveInfo`](https://developer.android.com/reference/android/service/autofill/SaveInfo).
 - The minimum set of views that need to be changed to trigger a save request. For example, a login form typically requires the user to update the `username` and `password` views to trigger a save request.
 
-A `SaveInfo` object is associated with a `FillResponse` object, as shown in the following code example:
+A `SaveInfo` object is associated with a `FillResponse` object, as shown in the
+following code example:
 
 ### Kotlin
 
@@ -331,7 +395,10 @@ A `SaveInfo` object is associated with a `FillResponse` object, as shown in the 
         // ...
     }
 
-The autofill service can implement logic to persist the user data in the `onSaveRequest()` method, which is usually called after the client activity finishes or when the client app calls [`commit()`](https://developer.android.com/reference/android/view/autofill/AutofillManager#commit()). The following code shows an example of the `onSaveRequest()` method:
+The autofill service can implement logic to persist the user data in the
+`onSaveRequest()` method, which is usually called after the client activity
+finishes or when the client app calls [`commit()`](https://developer.android.com/reference/android/view/autofill/AutofillManager#commit()). The following code shows
+an example of the `onSaveRequest()` method:
 
 ### Kotlin
 
@@ -362,24 +429,45 @@ The autofill service can implement logic to persist the user data in the `onSave
         callback.onSuccess();
     }
 
-Autofill services must encrypt sensitive data before persisting it. However, user data can include labels or data that isn't sensitive. For example, a user account can include a label that marks the data as a *work* or a *personal* account. Services must not encrypt labels. By not encrypting labels, services can use the labels in presentation views if the user hasn't authenticated. Then, services can substitute the labels with the actual data after the user authenticates.
+Autofill services must encrypt sensitive data before persisting it. However,
+user data can include labels or data that isn't sensitive. For example, a user
+account can include a label that marks the data as a *work* or a *personal*
+account. Services must not encrypt labels. By not encrypting labels, services
+can use the labels in presentation views if the user hasn't authenticated. Then,
+services can substitute the labels with the actual data after the user
+authenticates.
 
 ### Postpone the autofill save UI
 
-Starting with Android 10, if you use multiple screens to implement an autofill workflow---for example, one screen for the username field and another for the password---you can postpone the autofill save UI by using the [`SaveInfo.FLAG_DELAY_SAVE`](https://developer.android.com/reference/android/service/autofill/SaveInfo#FLAG_DELAY_SAVE) flag.
+Starting with Android 10, if you use multiple screens to implement an autofill
+workflow---for example, one screen for the username field and another for
+the password---you can postpone the autofill save UI by using the
+[`SaveInfo.FLAG_DELAY_SAVE`](https://developer.android.com/reference/android/service/autofill/SaveInfo#FLAG_DELAY_SAVE) flag.
 
-If this flag is set, the autofill save UI isn't triggered when the autofill context associated with the `SaveInfo` response is committed. Instead, you can use a separate activity within the same task to deliver future fill requests and then show the UI using a save request. For more information, see [`SaveInfo.FLAG_DELAY_SAVE`](https://developer.android.com/reference/android/service/autofill/SaveInfo#FLAG_DELAY_SAVE).
+If this flag is set, the autofill save UI isn't triggered when the autofill
+context associated with the `SaveInfo` response is committed. Instead, you can
+use a separate activity within the same task to deliver future fill requests and
+then show the UI using a save request. For more information, see
+[`SaveInfo.FLAG_DELAY_SAVE`](https://developer.android.com/reference/android/service/autofill/SaveInfo#FLAG_DELAY_SAVE).
 
 ## Require user authentication
 
-Autofill services can provide an additional level of security by requiring the user to authenticate before it can fill out views. The following scenarios are good candidates to implement user authentication:
+Autofill services can provide an additional level of security by requiring the
+user to authenticate before it can fill out views. The following scenarios are
+good candidates to implement user authentication:
 
 - The user data in the app needs to be unlocked using a primary password or a fingerprint scan.
 - A specific dataset needs to be unlocked, such as credit card details by using a card verification code (CVC).
 
-In a scenario where the service requires user authentication before unlocking the data, the service can present boilerplate data or a label and specify the [`Intent`](https://developer.android.com/reference/android/content/Intent) that handles authentication. If you need additional data to process the request after the authentication flow is done, you can add such data to the intent. Your authentication activity can then return the data to the `AutofillService` class in your app.
+In a scenario where the service requires user authentication before unlocking
+the data, the service can present boilerplate data or a label and specify the
+[`Intent`](https://developer.android.com/reference/android/content/Intent) that handles authentication. If you need additional data to
+process the request after the authentication flow is done, you can add such data
+to the intent. Your authentication activity can then return the data to the
+`AutofillService` class in your app.
 
-The following code example shows how to specify that the request requires authentication:
+The following code example shows how to specify that the request requires
+authentication:
 
 ### Kotlin
 
@@ -423,7 +511,11 @@ The following code example shows how to specify that the request requires authen
             .setAuthentication(autofillIds, intentSender, authPresentation)
             .build();
 
-Once the activity completes the authentication flow, it must call the [`setResult()`](https://developer.android.com/reference/android/app/Activity#setResult(int)) method, passing a `RESULT_OK` value, and set the [`EXTRA_AUTHENTICATION_RESULT`](https://developer.android.com/reference/android/view/autofill/AutofillManager#EXTRA_AUTHENTICATION_RESULT) extra to the `FillResponse` object that includes the populated dataset. The following code shows an example of how to return the result once the authentication flow completes:
+Once the activity completes the authentication flow, it must call the
+[`setResult()`](https://developer.android.com/reference/android/app/Activity#setResult(int)) method, passing a `RESULT_OK` value, and set the
+[`EXTRA_AUTHENTICATION_RESULT`](https://developer.android.com/reference/android/view/autofill/AutofillManager#EXTRA_AUTHENTICATION_RESULT) extra to the `FillResponse` object that
+includes the populated dataset. The following code shows an example of how to
+return the result once the authentication flow completes:
 
 ### Kotlin
 
@@ -501,7 +593,12 @@ Once the activity completes the authentication flow, it must call the [`setResul
 
     setResult(RESULT_OK, replyIntent);
 
-In the scenario where a credit card dataset needs to be unlocked, the service can display a UI asking for the CVC. You can hide the data until the dataset is unlocked by presenting boilerplate data, such as the name of the bank and the last four digits of the credit card number. The following example shows how to require authentication for a dataset and hide the data until the user provides the CVC:
+In the scenario where a credit card dataset needs to be unlocked, the service
+can display a UI asking for the CVC. You can hide the data until the dataset is
+unlocked by presenting boilerplate data, such as the name of the bank and the
+last four digits of the credit card number. The following example shows how to
+require authentication for a dataset and hide the data until the user provides
+the CVC:
 
 ### Kotlin
 
@@ -571,7 +668,12 @@ In the scenario where a credit card dataset needs to be unlocked, the service ca
                     .build())
             .build();
 
-Once the activity validates the CVC, it should call the `setResult()` method, passing a `RESULT_OK` value, and set the `EXTRA_AUTHENTICATION_RESULT` extra to a `Dataset` object that contains the credit card number and expiration date. The new dataset replaces the dataset that requires authentication, and the views are filled out immediately. The following code shows an example of how to return the dataset once the user provides the CVC:
+Once the activity validates the CVC, it should call the `setResult()` method,
+passing a `RESULT_OK` value, and set the `EXTRA_AUTHENTICATION_RESULT` extra to
+a `Dataset` object that contains the credit card number and expiration date. The
+new dataset replaces the dataset that requires authentication, and the views are
+filled out immediately. The following code shows an example of how to return the
+dataset once the user provides the CVC:
 
 ### Kotlin
 
@@ -626,15 +728,27 @@ Once the activity validates the CVC, it should call the `setResult()` method, pa
 
 ## Organize the data in logical groups
 
-Autofill services must organize the data in logical groups that isolate concepts from different domains. In this page, these logical groups are referred to as *partitions*. The following list shows typical examples of partitions and fields:
+Autofill services must organize the data in logical groups that isolate concepts
+from different domains. In this page, these logical groups are referred to as
+*partitions*. The following list shows typical examples of partitions and
+fields:
 
 - Credentials, which includes username and password fields.
 - Address, which includes street, city, state, and ZIP code fields.
 - Payment information, which includes credit card number, expiration date, and verification code fields.
 
-An autofill service that correctly partitions data is able to better protect the data of its users by not exposing data from more than one partition in a dataset. For example, a dataset that includes credentials doesn't need to include payment information. Organizing data in partitions allows your service to expose the minimum amount of relevant information required to satisfy a request.
+An autofill service that correctly partitions data is able to better protect the
+data of its users by not exposing data from more than one partition in a
+dataset. For example, a dataset that includes credentials doesn't need to
+include payment information. Organizing data in partitions allows your service
+to expose the minimum amount of relevant information required to satisfy a
+request.
 
-Organizing data in partitions enables services to fill activities that have views from multiple partitions while sending the minimum amount of relevant data to the client app. For example, consider an activity that includes views for username, password, street, and city, and an autofill service that has the following data:
+Organizing data in partitions enables services to fill activities that have
+views from multiple partitions while sending the minimum amount of relevant data
+to the client app. For example, consider an activity that includes views for
+username, password, street, and city, and an autofill service that has the
+following data:
 
 | Partition | Field 1 | Field 2 |
 |---|---|---|
@@ -643,13 +757,20 @@ Organizing data in partitions enables services to fill activities that have view
 | Address | work_street | work_city |
 | Address | personal_street | personal_city |
 
-The service can prepare a dataset that includes the credentials partition for both the work and personal accounts. When the user chooses a dataset, a subsequent autofill response can provide either the work or personal address, depending on the user's first choice.
+The service can prepare a dataset that includes the credentials partition for
+both the work and personal accounts. When the user chooses a dataset, a
+subsequent autofill response can provide either the work or personal address,
+depending on the user's first choice.
 
-A service can identify the field that originated the request by calling the [`isFocused()`](https://developer.android.com/reference/android/app/assist/AssistStructure.ViewNode) method while traversing the [`AssistStructure`](https://developer.android.com/reference/android/app/assist/AssistStructure) object. This allows the service to prepare a `FillResponse` with the appropriate partition data.
+A service can identify the field that originated the request by calling the
+[`isFocused()`](https://developer.android.com/reference/android/app/assist/AssistStructure.ViewNode) method while traversing the [`AssistStructure`](https://developer.android.com/reference/android/app/assist/AssistStructure) object.
+This allows the service to prepare a `FillResponse` with the appropriate
+partition data.
 
 ## SMS one-time code autofill
 
-Your autofill service can assist the user with filling one-time codes sent using the SMS Retriever API.
+Your autofill service can assist the user with filling one-time codes sent using
+the SMS Retriever API.
 
 To use this feature, the following requirements must be met:
 
@@ -657,27 +778,43 @@ To use this feature, the following requirements must be met:
 - The user grants consent for your autofill service to read one-time codes from SMS.
 - The application that you are providing autofill for is not already using the SMS Retriever API to read one-time codes.
 
-Your autofill service can use [`SmsCodeAutofillClient`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/phone/SmsCodeAutofillClient), available by calling `SmsCodeRetriever.getAutofillClient()` from Google Play services 19.0.56 or higher.
+Your autofill service can use [`SmsCodeAutofillClient`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/phone/SmsCodeAutofillClient), available by
+calling `SmsCodeRetriever.getAutofillClient()` from Google Play services 19.0.56
+or higher.
 
 The primary steps for using this API in an autofill service are:
 
 1. In the autofill service, use [`hasOngoingSmsRequest`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/phone/SmsCodeAutofillClient.html#hasOngoingSmsRequest(java.lang.String)) from `SmsCodeAutofillClient` to determine whether there are any requests active for the package name of the application you're autofilling. Your autofill service must only display a suggestion prompt if this returns `false`.
 2. In the autofill service, use [`checkPermissionState`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/phone/SmsCodeAutofillClient.html#checkPermissionState()) from `SmsCodeAutofillClient` to check whether the autofill service has permission to autofill one-time codes. This permission state can be `NONE`, `GRANTED`, or `DENIED`. The autofill service must display a suggestion prompt for `NONE` and `GRANTED` states.
 3. In the autofill authentication activity, use the `SmsRetriever.SEND_PERMISSION` permission to register a [`BroadcastReceiver`](https://developer.android.com/guide/components/broadcasts) listening for `SmsCodeRetriever.SMS_CODE_RETRIEVED_ACTION` to receive the SMS code result when it's available.
-4. Call [`startSmsCodeRetriever`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/phone/SmsCodeAutofillClient.html#startSmsCodeRetriever()) on `SmsCodeAutofillClient` to start listening for one-time codes sent using SMS. If the user grants permissions for your autofill service to retrieve one-time codes from SMS, this looks for SMS messages received in the last one to five minutes from now.
+4. Call [`startSmsCodeRetriever`](https://developers.google.com/android/reference/com/google/android/gms/auth/api/phone/SmsCodeAutofillClient.html#startSmsCodeRetriever()) on `SmsCodeAutofillClient` to start
+   listening for one-time codes sent using SMS. If the user grants permissions
+   for your autofill service to retrieve one-time codes from SMS, this looks
+   for SMS messages received in the last one to five minutes from now.
 
-   If your autofill service needs to request user permission to read one-time codes, then the `Task` returned by `startSmsCodeRetriever` might fail with a [`ResolvableApiException`](https://developers.google.com/android/reference/com/google/android/gms/common/api/ResolvableApiException) returned. If this happens, you need to call the `ResolvableApiException.startResolutionForResult()` method to display a consent dialog for the permission request.
-5. Receive the SMS code result from the intent and then return the SMS code as an autofill response.
+   If your autofill service needs to request user permission to read one-time
+   codes, then the `Task` returned by `startSmsCodeRetriever` might fail with a
+   [`ResolvableApiException`](https://developers.google.com/android/reference/com/google/android/gms/common/api/ResolvableApiException) returned. If this happens, you need to call
+   the `ResolvableApiException.startResolutionForResult()` method to display a
+   consent dialog for the permission request.
+5. Receive the SMS code result from the intent and then return the SMS code as
+   an autofill response.
 
 > [!NOTE]
 > **Note:** You can detect that the broadcast intent is from SMS Retriever API by adding the `com.google.android.gms.auth.api.phone.permission.SEND` permission to your receiver. This permission setting is available in Google Play services version 19.8.31 or higher.
 
 ## Enable autofill on Chrome
 
-Chrome allows third-party autofill services to natively autofill forms giving users a smoother and simpler user experience. To use third-party autofill services to autofill passwords, passkeys and other information like addresses and payment data, users must select **Autofill using another service** in Chrome settings.
+Chrome allows third-party autofill services to natively autofill forms giving
+users a smoother and simpler user experience. To use third-party autofill
+services to autofill passwords, passkeys and other information like addresses
+and payment data, users must select **Autofill using another service** in Chrome
+settings.
 ![Chrome settings showing the 'Autofill using another service' toggle enabled](https://developer.android.com/static/images/guide/topics/text/autofill-chrome.jpg) **Figure 3.** Chrome settings showing the "Autofill using another service" toggle enabled.
 
-To help users have the best autofill experience possible with your service and Chrome on Android, autofill service providers should encourage their users to specify their preferred service provider in Chrome settings.
+To help users have the best autofill experience possible with your service and
+Chrome on Android, autofill service providers should encourage their users to
+specify their preferred service provider in Chrome settings.
 
 To help users turn on the toggle, developers can:
 
@@ -686,7 +823,10 @@ To help users turn on the toggle, developers can:
 
 ### Specify the maximum Chrome versions for the compatibility mode
 
-Chrome stopped supporting the compatibility mode from version 137 in favor of Android Autofill. Keeping the compatibility mode can cause stability issues. Specify the maximum version of Chrome packages that support the compatibility mode for stability as follows.
+Chrome stopped supporting the compatibility mode from version 137 in favor of
+Android Autofill. Keeping the compatibility mode can cause stability issues.
+Specify the maximum version of Chrome packages that support the compatibility
+mode for stability as follows.
 
     <autofill-service>
       ...
@@ -699,7 +839,10 @@ Chrome stopped supporting the compatibility mode from version 137 in favor of An
 
 ### Read Chrome settings
 
-Any app can read whether Chrome uses the 3P autofill mode that allows it to use Android Autofill. Chrome uses Android's [`ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider) to communicate that information. Declare in your Android manifest which channels you want to read settings from:
+Any app can read whether Chrome uses the 3P autofill mode that allows it to use
+Android Autofill. Chrome uses Android's [`ContentProvider`](https://developer.android.com/reference/android/content/ContentProvider) to communicate
+that information. Declare in your Android manifest which channels you want to
+read settings from:
 
     <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
     <queries>
@@ -710,7 +853,8 @@ Any app can read whether Chrome uses the 3P autofill mode that allows it to use 
      <package android:name="com.android.chrome" />
     </queries>
 
-Then, use Android's [`ContentResolver`](https://developer.android.com/reference/android/content/ContentResolver) to request that information by building the content URI:
+Then, use Android's [`ContentResolver`](https://developer.android.com/reference/android/content/ContentResolver) to request that information by
+building the content URI:
 
 ### Kotlin
 
@@ -794,7 +938,9 @@ Then, use Android's [`ContentResolver`](https://developer.android.com/reference/
 
 ### Deep link to Chrome settings
 
-To deep link to the Chrome settings page where users can enable third-party autofill services, use an Android [`Intent`](https://developer.android.com/reference/android/content/Intent). Be sure to configure the action and categories as shown in this example:
+To deep link to the Chrome settings page where users can enable third-party
+autofill services, use an Android [`Intent`](https://developer.android.com/reference/android/content/Intent). Be sure to configure the
+action and categories as shown in this example:
 
 ### Kotlin
 
@@ -842,47 +988,82 @@ Use autofill in the following scenarios:
 
 ### Integrate with keyboard
 
-Beginning with Android 11, the platform allows keyboards and other input-method editors (*IMEs* ) to display autofill suggestions inline, instead of using a pulldown menu. For more information on how your autofill service can support this functionality, see [Integrate autofill with keyboards](https://developer.android.com/guide/topics/text/ime-autofill).
+Beginning with Android 11, the platform allows keyboards and other
+input-method editors (*IMEs* ) to display autofill suggestions inline, instead
+of using a pulldown menu. For more information on how your autofill service can
+support this functionality, see [Integrate autofill with keyboards](https://developer.android.com/guide/topics/text/ime-autofill).
 
 ### Paginate datasets
 
-A large autofill response can exceed the allowed transaction size of the [`Binder`](https://developer.android.com/reference/android/os/Binder) object that represents the remotable object required to process the request. To prevent the Android system from throwing an exception in these scenarios, you can keep the `FillResponse` small by adding no more than 20 `Dataset` objects at a time. If your response needs more datasets, you can add a dataset that lets users know that there's more information and retrieves the next group of datasets when selected. For more information, see [`addDataset(Dataset)`](https://developer.android.com/reference/android/service/autofill/FillResponse.Builder#addDataset(android.service.autofill.Dataset)).
+A large autofill response can exceed the allowed transaction size of the
+[`Binder`](https://developer.android.com/reference/android/os/Binder) object that represents the remotable object required to process
+the request. To prevent the Android system from throwing an exception in these
+scenarios, you can keep the `FillResponse` small by adding no more than 20
+`Dataset` objects at a time. If your response needs more datasets, you can add
+a dataset that lets users know that there's more information and retrieves the
+next group of datasets when selected. For more information, see
+[`addDataset(Dataset)`](https://developer.android.com/reference/android/service/autofill/FillResponse.Builder#addDataset(android.service.autofill.Dataset)).
 
 ### Save data split in multiple screens
 
-Apps often split user data across multiple screens within the same activity, such as for creating new user accounts. For example, the first screen might ask for a username, and a second screen for a password. In these situations, your autofill service must wait until the user enters data into all relevant fields before displaying the autofill save UI. Follow these steps to handle such scenarios:
+Apps often split user data across multiple screens within the same activity,
+such as for creating new user accounts. For example, the first screen might ask
+for a username, and a second screen for a password. In these situations, your
+autofill service must wait until the user enters data into all relevant fields
+before displaying the autofill save UI. Follow these steps to handle such
+scenarios:
 
 1. In the first fill request, add a [client state bundle](https://developer.android.com/reference/android/service/autofill/FillResponse.Builder#setClientState(android.os.Bundle)) in the response that contains the autofill IDs of the partial fields present in the screen.
 2. In the second fill request, retrieve the client state bundle, get the autofill IDs set in the previous request from the client state, and add these IDs and the [`FLAG_SAVE_ON_ALL_VIEWS_INVISIBLE`](https://developer.android.com/reference/android/service/autofill/SaveInfo#FLAG_SAVE_ON_ALL_VIEWS_INVISIBLE) flag to the `SaveInfo` object used in the second response.
-3. In the save request, use the proper [`FillContext`](https://developer.android.com/reference/android/service/autofill/FillContext) objects to get the value of each field. There is one fill context per fill request.
+3. In the save request, use the
+   proper [`FillContext`](https://developer.android.com/reference/android/service/autofill/FillContext) objects to get the value of each field. There is one
+   fill context per fill request.
 
    For more information, see [Save when data is split in multiple screens](https://developer.android.com/reference/android/service/autofill/AutofillService#MultipleStepsSave).
 
 ### Provide initialization and teardown logic for each request
 
-Every time there's an autofill request, the Android system binds to the service and calls its [`onConnected()`](https://developer.android.com/reference/android/service/autofill/AutofillService#onConnected()) method. Once the service processes the request, the Android system calls the [`onDisconnected()`](https://developer.android.com/reference/android/service/autofill/AutofillService#onDisconnected()) method and unbinds from the service. You can implement `onConnected()` to provide code that runs before processing a request and `onDisconnected()` to provide code that runs after processing a request.
+Every time there's an autofill request, the Android system binds to the service
+and calls its [`onConnected()`](https://developer.android.com/reference/android/service/autofill/AutofillService#onConnected()) method. Once the service processes the
+request, the Android system calls the [`onDisconnected()`](https://developer.android.com/reference/android/service/autofill/AutofillService#onDisconnected()) method and
+unbinds from the service. You can implement `onConnected()` to provide code
+that runs before processing a request and `onDisconnected()` to provide code
+that runs after processing a request.
 
 ### Customize the autofill save UI
 
-Autofill services can customize the autofill save UI to help users decide whether they want to let the service save their data. Services can provide additional information about what is saved either through text or through a customized view. Services can also change the appearance of the button that cancels the save request and get a notification when the user taps that button. For more information, see the [`SaveInfo`](https://developer.android.com/reference/android/service/autofill/SaveInfo) reference page.
+Autofill services can customize the autofill save UI to help users decide
+whether they want to let the service save their data. Services can provide
+additional information about what is saved either through text or through a
+customized view. Services can also change the appearance of the button that
+cancels the save request and get a notification when the user taps that button.
+For more information, see the [`SaveInfo`](https://developer.android.com/reference/android/service/autofill/SaveInfo) reference page.
 
 ### Compatibility mode
 
-The compatibility mode allows autofill services to use the [accessibility virtual structure](https://developer.android.com/guide/topics/ui/accessibility/service#query) for autofill purposes. It's particularly useful for providing autofill functionality in browsers that don't explicitly implement the autofill APIs.
+The compatibility mode allows autofill services to use the [accessibility
+virtual structure](https://developer.android.com/guide/topics/ui/accessibility/service#query) for autofill purposes. It's particularly useful for
+providing autofill functionality in browsers that don't explicitly implement
+the autofill APIs.
 
-To test your autofill service using compatibility mode, explicitly add the browser or app to the allowlist that requires compatibility mode. You can check which packages are already in the allowlist by running the following command:
+To test your autofill service using compatibility mode, explicitly add the
+browser or app to the allowlist that requires compatibility mode. You can check
+which packages are already in the allowlist by running the following command:
 
     $ adb shell settings get global autofill_compat_mode_allowed_packages
 
-If the package you're testing isn't listed, add it by running the following command, where `pkgX` is the package of the app:
+If the package you're testing isn't listed, add it by running the following
+command, where `pkgX` is the package of the app:
 
     $ adb shell settings put global autofill_compat_mode_allowed_packages pkg1[resId1]:pkg2[resId1,resId2]
 
-If the app is a browser, then use `resIdx` to specify the resource ID of the input field that contains the URL of the rendered page.
+If the app is a browser, then use `resIdx` to specify the resource ID of the
+input field that contains the URL of the rendered page.
 
 Compatibility mode has the following limitations:
 
 - A save request is triggered when the service uses the `FLAG_SAVE_ON_ALL_VIEWS_INVISIBLE` flag or the [`setTrigger()`](https://developer.android.com/reference/android/service/autofill/SaveInfo.Builder#setTriggerId(android.view.autofill.AutofillId)) method is called. `FLAG_SAVE_ON_ALL_VIEWS_INVISIBLE` is set by default when using compatibility mode.
 - The text value of the nodes might not be available in the [`onSaveRequest(SaveRequest, SaveCallback)`](https://developer.android.com/reference/android/service/autofill/AutofillService#onSaveRequest(android.service.autofill.SaveRequest,%20android.service.autofill.SaveCallback)) method.
 
-For more information about compatibility mode, including the limitations associated with it, see the [`AutofillService`](https://developer.android.com/reference/android/service/autofill/AutofillService#CompatibilityMode) class reference.
+For more information about compatibility mode, including the limitations
+associated with it, see the [`AutofillService`](https://developer.android.com/reference/android/service/autofill/AutofillService#CompatibilityMode) class reference.

@@ -4,15 +4,23 @@ url: https://developer.android.com/guide/practices/device-compatibility-mode
 source: md.txt
 ---
 
-Android activates a compatibility mode for apps that declare orientation or resizability restrictions. Compatibility mode ensures acceptable app behavior on large screen devices, foldable flip phones, and desktop environments but with suboptimal usability.
+Android activates a compatibility mode for apps that declare orientation or
+resizability restrictions. Compatibility mode ensures acceptable app behavior on
+large screen devices, foldable flip phones, and desktop environments but with
+suboptimal usability.
 
-[Per-app overrides](https://developer.android.com/guide/practices/device-compatibility-mode#per-app_overrides) enable device manufacturers, virtual device owners^[1](https://developer.android.com/guide/practices/device-compatibility-mode#fn1)^, and users to change app behavior to improve app layout or prevent apps from breaking on select devices.
+[Per-app overrides](https://developer.android.com/guide/practices/device-compatibility-mode#per-app_overrides) enable device manufacturers, virtual
+device owners^[1](https://developer.android.com/guide/practices/device-compatibility-mode#fn1)^, and users to change app behavior to improve app layout or
+prevent apps from breaking on select devices.
 
 ## Android 16
 
-Android 16 (API level 36) ignores screen orientation, aspect ratio, and app resizability restrictions to improve the layout of apps on form factors with smallest width \>= 600dp.
+Android 16 (API level 36) ignores screen orientation, aspect ratio, and app
+resizability restrictions to improve the layout of apps on form factors with
+smallest width \>= 600dp.
 
-The following per-app overrides are nonfunctional for apps that target API level 36:
+The following per-app overrides are nonfunctional for apps that target API level
+36:
 
 - [FORCE_RESIZE_APP](https://developer.android.com/guide/practices/device-compatibility-mode#force_resize_app)
 - [FORCE_NON_RESIZE_APP](https://developer.android.com/guide/practices/device-compatibility-mode#force_non_resize_app)
@@ -36,22 +44,27 @@ The following per-app overrides are nonfunctional for apps that target API level
 
 ### Opt out
 
-Your app can target API level 36 but opt out of the Android 16 behavior, in which case [OVERRIDE_ANY_ORIENTATION_TO_USER](https://developer.android.com/guide/practices/device-compatibility-mode#override_any_orientation_to_user) is not applicable.
+Your app can target API level 36 but opt out of the Android 16 behavior, in
+which case [OVERRIDE_ANY_ORIENTATION_TO_USER](https://developer.android.com/guide/practices/device-compatibility-mode#override_any_orientation_to_user)
+is not applicable.
 
 > [!WARNING]
 > **Warning:**
 >
 > - All overrides other than `OVERRIDE_ANY_ORIENTATION_TO_USER` are applicable even though your app opts out of the Android 16 behavior; and so, your app's screen orientation, aspect ratio, and resizability restrictions can still be overridden if device manufacturers have implemented the overrides.
-> - Users can override app aspect ratio in **Settings** even if your app opts out. See [User per-app overrides](https://developer.android.com/guide/practices/device-compatibility-mode#user_per-app_overrides).
+> - Users can override app aspect ratio in **Settings** even if your app opts out. See [User
+>   per-app overrides](https://developer.android.com/guide/practices/device-compatibility-mode#user_per-app_overrides).
 > - Desktop windowing:
 >   - Orientation restrictions are overridden despite your app opting out.
 >   - Resizability restrictions are respected if your app opts out. However, scaled resizing can be applied.
 
 #### Declare manifest property
 
-To opt out of the API level 36 behavior, declare the `PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY` manifest property.
+To opt out of the API level 36 behavior, declare the
+`PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY` manifest property.
 
-To opt out for a specific activity, set the property in the `<activity>` element:
+To opt out for a specific activity, set the property in the `<activity>`
+element:
 
     <activity ...>
         <property
@@ -69,45 +82,71 @@ To opt out for your entire app, set the property in the `<application>` element:
         ...
     </application>
 
-If your app targets Android 16 (API level 36) or higher, this [property doesn't lock the display orientation or prevent screen rotation](https://developer.android.com/about/versions/16/behavior-changes-16#ignore-orientation) on large displays.
+If your app targets Android 16 (API level 36) or higher, this [property
+doesn't lock the display orientation or prevent screen rotation](https://developer.android.com/about/versions/16/behavior-changes-16#ignore-orientation) on
+large displays.
 
 > [!WARNING]
 > **Warning:** The Android framework will eliminate the opt-out capability in API level 37. For apps that target API level 37 or higher, orientation, aspect ratio, and resizability restrictions will always be ignored on displays that are at least sw600dp.
 
 ## Reference devices
 
-The following devices may require per-app overrides because of unusual configurations or configurations that are not well supported by apps:
+The following devices may require per-app overrides because of unusual
+configurations or configurations that are not well supported by apps:
 
 - **Tablets:** The natural orientation of some tablets, such as Pixel Tablet, is landscape. A device is in its natural orientation when [`Display#getRotation()`](https://developer.android.com/reference/kotlin/android/view/Display#getRotation()) returns [`Surface.ROTATION_0`](https://developer.android.com/reference/kotlin/android/view/Surface#rotation_0). If apps assume `ROTATION_0` is portrait, app layouts and camera preview can be mismatched to the device display.
-- **Landscape foldables:** Some foldable devices, such as Pixel Fold, are in portrait orientation when folded, but landscape orientation when unfolded. If apps assume the unfolded orientation is portrait, [flickering loops](https://developer.android.com/guide/practices/device-compatibility-mode#flickering_loops) or layout issues are likely.
+- **Landscape foldables:** Some foldable devices, such as Pixel Fold, are in portrait orientation when folded, but landscape orientation when unfolded. If apps assume the unfolded orientation is portrait, [flickering
+  loops](https://developer.android.com/guide/practices/device-compatibility-mode#flickering_loops) or layout issues are likely.
 - **Foldable flip phones:** Unfolded flip phones are typically in portrait orientation. But, when folded, the phones usually have a small display in landscape orientation. Apps must identify and accommodate the different orientations of the displays.
 - **External displays:** Select devices can start a desktop windowing session on external, connected displays. Apps must query external displays for information such as screen size and resolution; otherwise, apps may make incorrect assumptions about the displays, which can lead to incorrect app behavior.
 - **Car displays:** Many, but not all, car displays are landscape. Developing [parked apps](https://developer.android.com/training/cars/parked) for car displays is similar to developing for tablets.
 
 ## Common compatibility issues
 
-Apps experience compatibility issues most often because of app orientation restrictions, resizability and aspect ratio restrictions, incorrect handling of camera preview orientation, and misused APIs.
+Apps experience compatibility issues most often because of app orientation
+restrictions, resizability and aspect ratio restrictions, incorrect handling of
+camera preview orientation, and misused APIs.
 
 ### Letterboxing
 
-Letterboxing positions the app in the center of the screen or, on large screens, to one side or the other for convenient access. Mattes (solid‑colored bars or blurred wallpaper) fill the unused display area along the sides or top and bottom of the app.
+Letterboxing positions the app in the center of the screen or, on large screens,
+to one side or the other for convenient access. Mattes (solid‑colored bars
+or blurred wallpaper) fill the unused display area along the sides or top and
+bottom of the app.
 
-Letterboxing happens often on large screen devices because the dimensions and aspect ratio of the device display are usually different from those of standard phones, for which most apps are designed.
+Letterboxing happens often on large screen devices because the dimensions and
+aspect ratio of the device display are usually different from those of standard
+phones, for which most apps are designed.
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/letterboxing.png) **Figure 1.** App restricted to portrait orientation is letterboxed on landscape tablet and foldable.
 
 #### Issue
 
-App doesn't support all display configurations because the app has fixed orientation, fixed aspect ratio, or is not resizable.
+App doesn't support all display configurations because the app has fixed
+orientation, fixed aspect ratio, or is not resizable.
 
-Configuration settings that control app orientation and resizability include the following:
+Configuration settings that control app orientation and resizability include the
+following:
 
-- [`screenOrientation`](https://developer.android.com/reference/android/R.attr#screenOrientation): Specifies a fixed orientation for an app. Apps can also set orientation at runtime by using [`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#setrequestedorientation).
+- [`screenOrientation`](https://developer.android.com/reference/android/R.attr#screenOrientation): Specifies a fixed orientation for
+  an app. Apps can also set orientation at runtime by using
+  [`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#setrequestedorientation).
 
-- [`resizeableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity): Indicates whether the system can resize apps to fit windows of varying dimensions. On Android 11 (API level 30) and lower, specifies whether apps support multi‑window mode. On Android 12 (API level 31) and higher, specifies whether apps support multi‑window mode on small screens (compact [window size class](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes)). On Android 12 and higher, apps support multi‑window mode on large screens (medium or expanded window size class) regardless of this setting.
+- [`resizeableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity): Indicates whether the system can
+  resize apps to fit windows of varying dimensions. On Android 11 (API level
+  30) and lower, specifies whether apps support multi‑window mode. On
+  Android 12 (API level 31) and higher, specifies whether apps support
+  multi‑window mode on small screens (compact
+  [window size class](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes)). On Android 12 and higher, apps
+  support multi‑window mode on large screens (medium or expanded window
+  size class) regardless of this setting.
 
-- [`maxAspectRatio`](https://developer.android.com/reference/android/R.attr#maxAspectRatio): Specifies the maximum aspect ratio supported by the app. Only apps with `resizeableActivity` set to `false` can set `maxAspectRatio`.
+- [`maxAspectRatio`](https://developer.android.com/reference/android/R.attr#maxAspectRatio): Specifies the maximum aspect ratio
+  supported by the app. Only apps with `resizeableActivity` set to `false` can
+  set `maxAspectRatio`.
 
-- [`minAspectRatio`](https://developer.android.com/reference/android/R.attr#minAspectRatio): Specifies the minimum aspect ratio supported by the app. Only apps with `resizeableActivity` set to `false` can set `minAspectRatio`.
+- [`minAspectRatio`](https://developer.android.com/reference/android/R.attr#minAspectRatio): Specifies the minimum aspect ratio
+  supported by the app. Only apps with `resizeableActivity` set to `false` can
+  set `minAspectRatio`.
 
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/letterboxing_issue.png)
 
@@ -115,18 +154,26 @@ Configuration settings that control app orientation and resizability include the
 
 #### Optimization
 
-App should support all device and [multi-window mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode) display orientations and sizes. Remove all orientation and fixed aspect ratio restrictions from your app layouts and app manifest file.
+App should support all device and [multi-window mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode) display
+orientations and sizes. Remove all orientation and fixed aspect ratio
+restrictions from your app layouts and app manifest file.
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/letterboxing_optimization.png)
 
 ### App supports all device orientations.
 
 #### Compatibility workaround
 
-If an app with fixed orientation or fixed aspect ratio runs in a window where the app does not directly support the window size or orientation, Android letterboxes the app to preserve continuity.
+If an app with fixed orientation or fixed aspect ratio runs in a window where
+the app does not directly support the window size or orientation, Android
+letterboxes the app to preserve continuity.
 
-Beginning with Android 12 (API level 31) and continuing with 12L (API level 32), the platform applies a variety of enhancements to letterboxed apps. Device manufacturers implement the UI enhancements. You don't need to do any additional development for your app to benefit from the improvements.
+Beginning with Android 12 (API level 31) and continuing with 12L (API level 32),
+the platform applies a variety of enhancements to letterboxed apps. Device
+manufacturers implement the UI enhancements. You don't need to do any additional
+development for your app to benefit from the improvements.
 
-Android 12 (API level 31) introduces the following aesthetic enhancements, which can be configured by device manufacturers:
+Android 12 (API level 31) introduces the following aesthetic enhancements, which
+can be configured by device manufacturers:
 
 - **Rounded corners:** The corners of the app window have a more refined look.
 - **System bar transparency:** Status and navigation bars, which overlay the app, are semitransparent, making icons on the bars always viewable over the letterbox background.
@@ -136,18 +183,29 @@ Android 12 (API level 31) introduces the following aesthetic enhancements, which
 
 12L (API level 32) adds the following functional improvements:
 
-- **Configurable positioning:** On large screens, device manufacturers can position the app to the left or right side of the display, making interaction easier.
+- **Configurable positioning:** On large screens, device manufacturers can
+  position the app to the left or right side of the display, making
+  interaction easier.
 
-- **Redesigned restart button:** Device manufacturers can give the restart button for [size compatibility mode](https://developer.android.com/guide/practices/device-compatibility-mode#size_compatibility_mode) a new look for better recognition by users.
+- **Redesigned restart button:** Device manufacturers can give the restart
+  button for [size compatibility mode](https://developer.android.com/guide/practices/device-compatibility-mode#size_compatibility_mode) a new look
+  for better recognition by users.
 
-Android 13 (API level 33) adds a user education dialog about positioning the letterboxed app on screen or including the letterbox in split‑screen mode:
+Android 13 (API level 33) adds a user education dialog about positioning the
+letterboxed app on screen or including the letterbox in split‑screen mode:
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/enhanced_letterboxing_user_dialog.png) **Figure 3.** Letterboxed app with user education dialog.
 
 ### Size compatibility mode
 
-Size compatibility mode is letterboxing that maintains the app aspect ratio and includes a restart control. The control enables users to restart the app and redraw the display. Android invokes size compatibility mode for apps that are nonresizable. When an activity moves to a display container that is incompatible with the activity's dimensions, the system may rescale the app to fill the device display in at least one dimension.
+Size compatibility mode is letterboxing that maintains the app aspect ratio and
+includes a restart control. The control enables users to restart the app and
+redraw the display. Android invokes size compatibility mode for apps that are
+nonresizable. When an activity moves to a display container that is incompatible
+with the activity's dimensions, the system may rescale the app to fill the
+device display in at least one dimension.
 
-Device configuration changes that can trigger size compatibility mode include the following:
+Device configuration changes that can trigger size compatibility mode include
+the following:
 
 - Device rotation
 - Foldable device folding or unfolding
@@ -155,41 +213,69 @@ Device configuration changes that can trigger size compatibility mode include th
 
 #### Issue
 
-Size compatibility mode typically applies to activities that are restricted in orientation or aspect ratio and are configured (or determined by the system) to be nonresizable.
+Size compatibility mode typically applies to activities that are restricted in
+orientation or aspect ratio and are configured (or determined by the system) to
+be nonresizable.
 
-Your app is considered to be resizable---and won't be placed in size compatibility mode---if it meets any of the following criteria:
+Your app is considered to be resizable---and won't be placed in size
+compatibility mode---if it meets any of the following criteria:
 
 - Is resizable with [`resizeableActivity="true"`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity)
 - Supports [picture-in-picture (PIP)](https://developer.android.com/develop/ui/views/picture-in-picture#declaring) mode
 - Is [embedded](https://developer.android.com/develop/ui/views/layout/activity-embedding)
 - Has the [`FORCE_RESIZE_APP`](https://developer.android.com/guide/practices/device-compatibility-mode#force_resize_app) per-app override applied by the device manufacturer (properties set by the app are ignored)
 
-If your app *does not* meet any of the conditions, it is considered not resizable and could be placed in size compatibility mode.
+If your app *does not* meet any of the conditions, it is considered not
+resizable and could be placed in size compatibility mode.
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/size_compatibility_mode_issue.gif)
 
 ### Nonresizable app crashes in multi-window mode.
 
 #### Optimization
 
-App should support all display sizes. Make your app resizable by setting the `android:resizeableActivity` attribute of the [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) or [`<application>`](https://developer.android.com/guide/topics/manifest/application-element#resizeableActivity) element to `true` in the app manifest. Design responsive/adaptive layouts for your app. For more information, see [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes) and [Support multi-window mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode#resizeableActivity).
+App should support all display sizes. Make your app resizable by setting the
+`android:resizeableActivity` attribute of the [`<activity>`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity)
+or [`<application>`](https://developer.android.com/guide/topics/manifest/application-element#resizeableActivity) element to `true` in the
+app manifest. Design responsive/adaptive layouts for your app. For more
+information, see
+[Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes) and [Support
+multi-window mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode#resizeableActivity).
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/size_compatibility_mode_optimization.gif)
 
 ### App works in all window sizes.
 
 #### Compatibility workaround
 
-Android places an app in size compatibility mode when the system determines the display of the letterboxed app can be improved by rescaling the app to fill the display window in at least one dimension. The system displays a restart control which recreates the app process, recreating the activity and redrawing the display. See also [Processes and threads overview](https://developer.android.com/guide/components/processes-and-threads).
+Android places an app in size compatibility mode when the system determines the
+display of the letterboxed app can be improved by rescaling the app to fill the
+display window in at least one dimension. The system displays a restart control
+which recreates the app process, recreating the activity and redrawing the
+display. See also [Processes and threads overview](https://developer.android.com/guide/components/processes-and-threads).
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/size_compatibility_mode_workaround.gif)
 
 ### Portrait-only app letterboxed in landscape orientation, rescaled by restart control.
 
 ### Display compatibility mode
 
-Display compatibility mode prevents an app from restarting when the app moves between different displays, which can trigger a configuration change such as a [color mode](https://developer.android.com/guide/topics/manifest/activity-element#colormode), [touchscreen availability](https://developer.android.com/guide/topics/manifest/activity-element#config), or [screen density](https://developer.android.com/guide/topics/manifest/activity-element#config) change.
+Display compatibility mode prevents an app from restarting when the app moves
+between different displays, which can trigger a configuration change such as a
+[color mode](https://developer.android.com/guide/topics/manifest/activity-element#colormode),
+[touchscreen availability](https://developer.android.com/guide/topics/manifest/activity-element#config), or
+[screen density](https://developer.android.com/guide/topics/manifest/activity-element#config) change.
 
-Display compatibility mode mode is enabled by default for games (based on the [`android:appCategory`](https://developer.android.com/guide/topics/manifest/application-element#appCategory) flag) to improve stability and continuity. Unlike size compatibility mode, display compatibility mode does not freeze the app's configuration. The app can still receive all configuration updates through APIs such as the [`onConfigurationChanged()`](https://developer.android.com/reference/kotlin/android/app/Activity#onconfigurationchanged) callback but is spared from a disruptive restart. This means games that properly support APIs such as onConfigurationChanged() can still responsively update their UI even if they are in display compatibility mode.
+Display compatibility mode mode is enabled by default for games (based on the
+[`android:appCategory`](https://developer.android.com/guide/topics/manifest/application-element#appCategory) flag) to improve stability and continuity.
+Unlike size compatibility mode, display compatibility mode does not freeze the
+app's configuration. The app can still receive all configuration updates through
+APIs such as the [`onConfigurationChanged()`](https://developer.android.com/reference/kotlin/android/app/Activity#onconfigurationchanged) callback but is spared from a
+disruptive restart. This means games that properly support APIs such as
+onConfigurationChanged() can still responsively update their UI even if
+they are in display compatibility mode.
 
-To opt out of display compatibility mode and handle configuration changes in your app, declare support for the configuration changes in the app's `AndroidManifest.xml` file, and handle the configuration changes in the onConfigurationChanged() callback.
+To opt out of display compatibility mode and handle configuration changes in
+your app, declare support for the configuration changes in the app's
+`AndroidManifest.xml` file, and handle the configuration changes in the
+onConfigurationChanged() callback.
 
     <activity
         android:name=".MyGameActivity"
@@ -199,17 +285,47 @@ To opt out of display compatibility mode and handle configuration changes in you
 
 ### Flickering loops
 
-When an app doesn't support all display orientations, it might repeatedly request new orientations when a configuration change occurs, creating an infinite loop that makes the display flicker or the app rotate endlessly.
+When an app doesn't support all display orientations, it might repeatedly
+request new orientations when a configuration change occurs, creating an
+infinite loop that makes the display flicker or the app rotate endlessly.
 
 #### Issue
 
-On Android 12 (API level 31) and higher, device manufacturers can configure their devices to ignore orientation restrictions specified by apps and instead enforce compatibility modes. For example, a foldable device could ignore an activity's [`android:screenOrientation="portrait"`](https://developer.android.com/guide/topics/manifest/activity-element#screen) setting when the activity is displayed on the device's landscape tablet-size, inner screen.
+On Android 12 (API level 31) and higher, device manufacturers can configure
+their devices to ignore orientation restrictions specified by apps and instead
+enforce compatibility modes. For example, a foldable device could ignore an
+activity's [`android:screenOrientation="portrait"`](https://developer.android.com/guide/topics/manifest/activity-element#screen)
+setting when the activity is displayed on the device's landscape tablet-size,
+inner screen.
 
-If an app's orientation restrictions are ignored, the app can programmatically set its orientation by calling [`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#setrequestedorientation). The call triggers an app restart if the app is not handling configuration changes (see [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes)). After the restart, the app's orientation restrictions are again ignored, the app repeats the call to `setRequestedOrientation()`, the call triggers an app restart, and so on in a self-perpetuating loop.
+If an app's orientation restrictions are ignored, the app can programmatically
+set its orientation by calling
+[`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#setrequestedorientation). The call
+triggers an app restart if the app is not handling configuration changes (see
+[Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes)). After the
+restart, the app's orientation restrictions are again ignored, the app repeats
+the call to `setRequestedOrientation()`, the call triggers an app restart, and
+so on in a self-perpetuating loop.
 
-Another way you might encounter this is when the [natural orientation](https://developer.android.com/reference/kotlin/androidx/browser/trusted/ScreenOrientation#NATURAL()) (the *usual* orientation as determined by Android) of a device screen is landscape (that is, calling [`Display#getRotation()`](https://developer.android.com/reference/kotlin/android/view/Display#getRotation()) returns [`Surface.ROTATION_0`](https://developer.android.com/reference/kotlin/android/view/Surface#rotation_0) while the device has a landscape aspect ratio). Historically, apps have assumed that `Display.getRotation() = Surface.ROTATION_0` means the device is in portrait orientation, but this is not always the case, for example, on the inner screen of some foldable devices and on some tablets.
+Another way you might encounter this is when the
+[natural orientation](https://developer.android.com/reference/kotlin/androidx/browser/trusted/ScreenOrientation#NATURAL()) (the *usual* orientation as
+determined by Android) of a device screen is landscape (that is, calling
+[`Display#getRotation()`](https://developer.android.com/reference/kotlin/android/view/Display#getRotation()) returns
+[`Surface.ROTATION_0`](https://developer.android.com/reference/kotlin/android/view/Surface#rotation_0) while the device has a landscape aspect
+ratio). Historically, apps have assumed that `Display.getRotation() =
+Surface.ROTATION_0` means the device is in portrait orientation, but this is not
+always the case, for example, on the inner screen of some foldable devices and
+on some tablets.
 
-An app in landscape orientation on a foldable inner display, might check the screen rotation, receive a value of `ROTATION_0`, assume the natural orientation of the device is portrait, and call `setRequestedOrientation(`[`ActivityInfo.SCREEN_ORIENTATION_PORTRAIT`](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo#screen_orientation_portrait) `)` to reconfigure the app layout. After the app restarts (in landscape orientation), it might again check the screen rotation, receive a value of `ROTATION_0`, call `setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)`, and continue the infinite loop.
+An app in landscape orientation on a foldable inner display, might check the
+screen rotation, receive a value of `ROTATION_0`, assume the natural orientation
+of the device is portrait, and call
+`setRequestedOrientation(`[`ActivityInfo.SCREEN_ORIENTATION_PORTRAIT`](https://developer.android.com/reference/kotlin/android/content/pm/ActivityInfo#screen_orientation_portrait)
+`)` to reconfigure the app layout. After the app restarts (in landscape
+orientation), it might again check the screen rotation, receive a value of
+`ROTATION_0`, call
+`setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)`, and
+continue the infinite loop.
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/flickering_loops_issue.gif)
 
 ### Landscape-only app on portrait display makes repeated calls to `Activity#setRequestedOrientation()`.
@@ -228,14 +344,21 @@ Apps should *not* do the following:
 
 #### Compatibility workaround
 
-Android ignores calls to `Activity#setRequestedOrientation()` in the following situations:
+Android ignores calls to `Activity#setRequestedOrientation()` in the following
+situations:
 
-- The activity has already relaunched from a previous call to the method or the camera compat force rotation treatment has been enabled (see [Camera preview](https://developer.android.com/guide/practices/device-compatibility-mode#camera_preview) below).
+- The activity has already relaunched from a previous call to the method or
+  the camera compat force rotation treatment has been enabled (see [Camera
+  preview](https://developer.android.com/guide/practices/device-compatibility-mode#camera_preview) below).
 
-  Device manufacturers can apply this behavior to an app with [`OVERRIDE_ENABLE_COMPAT_IGNORE_REQUESTED_ORIENTATION`](https://developer.android.com/guide/practices/device-compatibility-mode#override_enable_compat_ignore_requested_orientation).
-- The activity made more than two orientation requests in one second, which indicates a loop has occurred. Of the two requests in the loop, Android uses the one that maximizes the app display area.
+  Device manufacturers can apply this behavior to an app with
+  [`OVERRIDE_ENABLE_COMPAT_IGNORE_REQUESTED_ORIENTATION`](https://developer.android.com/guide/practices/device-compatibility-mode#override_enable_compat_ignore_requested_orientation).
+- The activity made more than two orientation requests in one second, which
+  indicates a loop has occurred. Of the two requests in the loop, Android uses
+  the one that maximizes the app display area.
 
-  Device manufacturers can apply this behavior to an app with [`OVERRIDE_ENABLE_COMPAT_IGNORE_ORIENTATION_REQUEST_WHEN_LOOP_DETECTED`](https://developer.android.com/guide/practices/device-compatibility-mode#override_enable_compat_ignore_orientation_request_when_loop_detected).
+  Device manufacturers can apply this behavior to an app with
+  [`OVERRIDE_ENABLE_COMPAT_IGNORE_ORIENTATION_REQUEST_WHEN_LOOP_DETECTED`](https://developer.android.com/guide/practices/device-compatibility-mode#override_enable_compat_ignore_orientation_request_when_loop_detected).
 - Virtual device owners have overridden the method call on select devices.
 
 > [!NOTE]
@@ -243,42 +366,75 @@ Android ignores calls to `Activity#setRequestedOrientation()` in the following s
 
 ### Camera preview
 
-The camera preview (or viewfinder) of camera apps can be misaligned or distorted on tablets, laptops, and foldable displays.
+The camera preview (or viewfinder) of camera apps can be misaligned or distorted
+on tablets, laptops, and foldable displays.
 
 See also [Camera preview in desktop windowing](https://developer.android.com/guide/practices/device-compatibility-mode#camera_preview_desktop_windowing).
 
 #### Issue
 
-The [Android Compatibility Definition Document](https://source.android.com/docs/compatibility/cdd) states that a camera image sensor "MUST be oriented so that the long dimension of the camera aligns with the screen's long dimension."
+The [Android Compatibility Definition Document](https://source.android.com/docs/compatibility/cdd) states that a
+camera image sensor "MUST be oriented so that the long dimension of the camera
+aligns with the screen's long dimension."
 
-Apps often assume that device orientation and camera sensor orientation are portrait---a reasonable assumption on standard mobile phones. But the natural orientation of tablets and laptops and their camera sensors can be landscape. Also, new form factors like foldables can have multiple natural orientations and multiple camera sensors in varying orientations.
+Apps often assume that device orientation and camera sensor orientation are
+portrait---a reasonable assumption on standard mobile phones. But the
+natural orientation of tablets and laptops and their camera sensors can be
+landscape. Also, new form factors like foldables can have multiple natural
+orientations and multiple camera sensors in varying orientations.
 
-Starting an activity with a camera orientation the app does not expect or switching between different cameras or device screens (for foldables) can cause a misaligned or distorted camera preview.
+Starting an activity with a camera orientation the app does not expect or
+switching between different cameras or device screens (for foldables) can cause
+a misaligned or distorted camera preview.
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/camera_preview_issue.png)
 
 ### Misaligned and distorted camera preview on large screen foldable.
 
 #### Optimization
 
-Camera apps must correctly identify and manage device orientation and camera sensor orientation to present a correctly aligned and scaled camera preview. Apps must calculate device rotation, sensor rotation, and screen or window aspect ratio, and then apply the results to the camera preview. For detailed guidance, see [Camera preview](https://developer.android.com/training/camera2/camera-preview) and [Introducing Camera Viewfinder](https://android-developers.googleblog.com/2022/11/introducing-camera-viewfinder.html).
+Camera apps must correctly identify and manage device orientation and camera
+sensor orientation to present a correctly aligned and scaled camera preview.
+Apps must calculate device rotation, sensor rotation, and screen or window
+aspect ratio, and then apply the results to the camera preview. For detailed
+guidance, see [Camera preview](https://developer.android.com/training/camera2/camera-preview) and [Introducing Camera
+Viewfinder](https://android-developers.googleblog.com/2022/11/introducing-camera-viewfinder.html).
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/camera_preview_optimization.png)
 
 ### Camera preview correctly aligned and scaled in all device orientations.
 
 #### Compatibility workaround
 
-A device is in natural orientation when [`Display#getRotation()`](https://developer.android.com/reference/kotlin/android/view/Display#getRotation()) returns [`Surface.ROTATION_0`](https://developer.android.com/reference/kotlin/android/view/Surface#rotation_0). The system calculates [`CameraCharacteristics.SENSOR_ORIENTATION`](https://developer.android.com/reference/kotlin/android/hardware/camera2/CameraCharacteristics#sensor_orientation) from the device's natural orientation. Android aligns the portrait window of portrait‑restricted apps with the natural orientation of the device, which is what most apps expect. Android also crops the camera sensor image when the sensor orientation is landscape and the camera preview is portrait. The specific workarounds include the following:
+A device is in natural orientation when [`Display#getRotation()`](https://developer.android.com/reference/kotlin/android/view/Display#getRotation())
+returns [`Surface.ROTATION_0`](https://developer.android.com/reference/kotlin/android/view/Surface#rotation_0). The system calculates
+[`CameraCharacteristics.SENSOR_ORIENTATION`](https://developer.android.com/reference/kotlin/android/hardware/camera2/CameraCharacteristics#sensor_orientation)
+from the device's natural orientation. Android aligns the portrait window of
+portrait‑restricted apps with the natural orientation of the device, which
+is what most apps expect. Android also crops the camera sensor image when the
+sensor orientation is landscape and the camera preview is portrait. The specific
+workarounds include the following:
 
-- **Force rotate camera previews for portrait-restricted apps:** Apps restricted to portrait orientation expect the device's natural orientation and the camera sensor orientation to be portrait. However, on Android 12 (API level 31) and higher, apps can run in multiple device orientations if device manufacturers ignore the orientation specification.
+- **Force rotate camera previews for portrait-restricted apps:** Apps
+  restricted to portrait orientation expect the device's natural orientation
+  and the camera sensor orientation to be portrait. However, on Android 12
+  (API level 31) and higher, apps can run in multiple device orientations if
+  device manufacturers ignore the orientation specification.
 
-  When a portrait-restricted app is connected to the camera, Android force rotates the app to align the app portrait window with the natural orientation of the device.
+  When a portrait-restricted app is connected to the camera, Android force
+  rotates the app to align the app portrait window with the natural
+  orientation of the device.
 
-  On some tablets (see [reference devices](https://developer.android.com/guide/practices/device-compatibility-mode#reference_devices)), the app portrait window is rotated to full screen portrait to align with the device's natural orientation. The app occupies the full screen after force rotation.
+  On some tablets (see [reference devices](https://developer.android.com/guide/practices/device-compatibility-mode#reference_devices)), the app
+  portrait window is rotated to full screen portrait to align with the
+  device's natural orientation. The app occupies the full screen after force
+  rotation.
   ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/camera_preview_workaround_tablet.gif)
 
   ### Tablet --- Force rotation of portrait-restricted app.
 
-  On the landscape inner screen of foldables (see [reference devices](https://developer.android.com/guide/practices/device-compatibility-mode#reference_devices)), portrait-only activities are rotated to landscape to align with the unfolded natural orientation. The app is letterboxed after force rotation.
+  On the landscape inner screen of foldables (see [reference
+  devices](https://developer.android.com/guide/practices/device-compatibility-mode#reference_devices)), portrait-only activities are rotated to
+  landscape to align with the unfolded natural orientation. The app is
+  letterboxed after force rotation.
   ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/camera_preview_workaround_foldable.gif)
 
   ### Foldable --- Force rotation of portrait-restricted app. The app is also letterboxed.
@@ -286,23 +442,44 @@ A device is in natural orientation when [`Display#getRotation()`](https://develo
   > [!NOTE]
   > **Note:** Force rotation does not happen if your app is responsive and handles portrait and landscape orientations.
 
-- **Inner front camera cropping:** The inner front camera sensor on some foldables is in landscape orientation. In addition to force rotating the camera preview on the foldable inner display, Android crops the inner front (landscape) camera field of view so that the sensor captures a view opposite the device orientation.
+- **Inner front camera cropping:** The inner front camera sensor on some
+  foldables is in landscape orientation. In addition to force rotating the
+  camera preview on the foldable inner display, Android crops the inner front
+  (landscape) camera field of view so that the sensor captures a view opposite
+  the device orientation.
 
-- **Force refresh camera previews:** The system cycles through activity methods `onStop()` and `onStart()` (by default) or `onPause()` and `onResume()` (applied by the [OVERRIDE_CAMERA_COMPAT_ENABLE_REFRESH_VIA_PAUSE](https://developer.android.com/guide/practices/device-compatibility-mode#override_camera_compat_enable_refresh_via_pause) per-app override) after force rotation to make sure the camera preview is properly displayed.
+- **Force refresh camera previews:** The system cycles through activity
+  methods `onStop()` and `onStart()` (by default) or `onPause()` and
+  `onResume()` (applied by the
+  [OVERRIDE_CAMERA_COMPAT_ENABLE_REFRESH_VIA_PAUSE](https://developer.android.com/guide/practices/device-compatibility-mode#override_camera_compat_enable_refresh_via_pause)
+  per-app override) after force rotation to make sure the camera preview is
+  properly displayed.
 
-- **Aspect ratio scaling:** The system dynamically changes the aspect ratio of the force rotated camera preview to a higher minimum aspect ratio, which ensures the camera preview is properly scaled.
+- **Aspect ratio scaling:** The system dynamically changes the aspect ratio of
+  the force rotated camera preview to a higher minimum aspect ratio, which
+  ensures the camera preview is properly scaled.
 
-App developers can override these workarounds if the apps handle camera preview correctly. See [Per-app overrides](https://developer.android.com/guide/practices/device-compatibility-mode#per-app_overrides).
+App developers can override these workarounds if the apps handle camera preview
+correctly. See [Per-app overrides](https://developer.android.com/guide/practices/device-compatibility-mode#per-app_overrides).
 
 ### Commonly misused APIs
 
-As Android has added support for features like multi‑window mode and devices like foldables, legacy APIs have been deprecated and replaced by up‑to‑date APIs that work for all display sizes and device form factors. However, the deprecated APIs are still available for backward compatibility.
+As Android has added support for features like multi‑window mode and
+devices like foldables, legacy APIs have been deprecated and replaced by
+up‑to‑date APIs that work for all display sizes and device form
+factors. However, the deprecated APIs are still available for backward
+compatibility.
 
-Some `View` APIs are designed for special purposes that are not always well understood by developers.
+Some `View` APIs are designed for special purposes that are not always well
+understood by developers.
 
 #### Issue
 
-Developers continue to use deprecated `Display` APIs and incorrectly assume the APIs return the app bounds instead of device display area bounds. Or developers mistakenly use special‑purpose view APIs to get general display metrics. The result is miscalculations when repositioning UI elements after app window resizing events, causing layout issues.
+Developers continue to use deprecated `Display` APIs and incorrectly assume the
+APIs return the app bounds instead of device display area bounds. Or developers
+mistakenly use special‑purpose view APIs to get general display metrics.
+The result is miscalculations when repositioning UI elements after app window
+resizing events, causing layout issues.
 
 **Deprecated and commonly misused Display APIs:**
 
@@ -314,7 +491,8 @@ Developers continue to use deprecated `Display` APIs and incorrectly assume the 
 - [`getWidth()`](https://developer.android.com/reference/kotlin/android/view/Display#getWidth())
 - [`getHeight()`](https://developer.android.com/reference/kotlin/android/view/Display#getHeight())
 
-For more information, see [Support multi-window mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode#window_metrics).
+For more information, see
+[Support multi-window mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode#window_metrics).
 
 **Misused view APIs:**
 
@@ -327,7 +505,9 @@ For more information, see [Support multi-window mode](https://developer.android.
 
 #### Optimization
 
-Never rely on physical display size for positioning UI elements. Migrate your app to APIs based on [`WindowMetrics`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowMetrics), including the following `WindowManager` APIs:
+Never rely on physical display size for positioning UI elements. Migrate your
+app to APIs based on [`WindowMetrics`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowMetrics), including the following
+`WindowManager` APIs:
 
 - Platform:
 
@@ -345,50 +525,85 @@ Never rely on physical display size for positioning UI elements. Migrate your ap
 
 #### Compatibility workaround
 
-Two overrides adjust the deprecated `Display` APIs and misused `View` APIs to return the app bounds: [`ALWAYS_SANDBOX_DISPLAY_APIS`](https://developer.android.com/guide/practices/device-compatibility-mode#always_sandbox_display_apis) for `Display` APIs; [`OVERRIDE_SANDBOX_VIEW_BOUNDS_APIS`](https://developer.android.com/guide/practices/device-compatibility-mode#override_sandbox_view_bounds_apis) for `View` APIs. `ALWAYS_SANDBOX_DISPLAY_APIS` is also applied by default to apps that qualify for size compatibility mode.
+Two overrides adjust the deprecated `Display` APIs and misused `View` APIs to
+return the app bounds:
+[`ALWAYS_SANDBOX_DISPLAY_APIS`](https://developer.android.com/guide/practices/device-compatibility-mode#always_sandbox_display_apis) for `Display`
+APIs; [`OVERRIDE_SANDBOX_VIEW_BOUNDS_APIS`](https://developer.android.com/guide/practices/device-compatibility-mode#override_sandbox_view_bounds_apis)
+for `View` APIs. `ALWAYS_SANDBOX_DISPLAY_APIS` is also applied by default to
+apps that qualify for size compatibility mode.
 
 ### Transparent activities
 
-Transparent activities are the result of transparent background styles, for example:
+Transparent activities are the result of transparent background styles, for
+example:
 
     <style name="Transparent" parent="AppTheme">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
-Themes related to dialogs, such as `Theme.MaterialComponents.Dialog`, can include styles that make activities transparent.
+Themes related to dialogs, such as `Theme.MaterialComponents.Dialog`, can
+include styles that make activities transparent.
 
-Transparent activities don't cover all the available display space, which makes them difficult to manage because the available display area can change based on configuration changes like device rotation, device folding and unfolding, and multi‑window mode.
+Transparent activities don't cover all the available display space, which makes
+them difficult to manage because the available display area can change based on
+configuration changes like device rotation, device folding and unfolding, and
+multi‑window mode.
 
 #### Issue
 
-A transparent activity should conform to the bounds of the first opaque activity below the transparent activity in the task activity stack. However, an opaque activity that launches a permission dialog can be a *trampoline* (an activity that launches another activity then disappears); and so, the system can't determine the bounds of the trampoline activity that launched the transparent permission dialog activity.
+A transparent activity should conform to the bounds of the first opaque activity
+below the transparent activity in the task activity stack. However, an opaque
+activity that launches a permission dialog can be a
+*trampoline* (an activity that launches another activity then disappears); and
+so, the system can't determine the bounds of the trampoline activity that
+launched the transparent permission dialog activity.
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/transparent_activities_issue.png)
 
 ### Dialog mispositioned because the activity was launched from a trampoline.
 
 #### Optimization
 
-Transparent activities inherit their constraints from the top-most opaque activity beneath them in a task's activity stack. The opaque activity must be available for the entire lifecycle of the transparent activity, from activity creation to destruction. For this reason, don't launch permission requests from trampoline activities.
+Transparent activities inherit their constraints from the top-most opaque
+activity beneath them in a task's activity stack. The opaque activity must be
+available for the entire lifecycle of the transparent activity, from activity
+creation to destruction. For this reason, don't launch permission requests from
+trampoline activities.
 
-If a trampoline activity launches a permission request, the user might not be able to see the permission dialog because the trampoline activity will have been destroyed before the user has had a chance to respond to the dialog, and the dimensions and position of the dialog activity might have been calculated incorrectly.
+If a trampoline activity launches a permission request, the user might not be
+able to see the permission dialog because the trampoline activity will have been
+destroyed before the user has had a chance to respond to the dialog, and the
+dimensions and position of the dialog activity might have been calculated
+incorrectly.
 
-Apps should always launch permission requests from activities that remain visible until the user has made a permission decision.
+Apps should always launch permission requests from activities that remain
+visible until the user has made a permission decision.
 
 ##### Rounded corners
 
-An activity can be transparent because of a style that specifies background transparency or because the contents of the activity don't fill the available display space. If a transparent activity fills the available display space, the system automatically applies rounded corners to the activity when configured to do so by the device manufacturer. But, if a transparent activity (like a permission dialog) doesn't fill the available space, it's up to you to decide whether or not to apply rounded corners.
+An activity can be transparent because of a style that specifies background
+transparency or because the contents of the activity don't fill the available
+display space. If a transparent activity fills the available display space, the
+system automatically applies rounded corners to the activity when configured to
+do so by the device manufacturer. But, if a transparent activity (like a
+permission dialog) doesn't fill the available space, it's up to you to decide
+whether or not to apply rounded corners.
 
-Permission dialogs don't fill the available display space because the dialog layout typically uses [LayoutParams.WRAP_CONTENT](https://developer.android.com/reference/android/view/ViewGroup.LayoutParams#WRAP_CONTENT) rather than [LayoutParams.MATCH_PARENT](https://developer.android.com/reference/android/view/ViewGroup.LayoutParams#MATCH_PARENT).
+Permission dialogs don't fill the available display space because the dialog
+layout typically uses [LayoutParams.WRAP_CONTENT](https://developer.android.com/reference/android/view/ViewGroup.LayoutParams#WRAP_CONTENT) rather than
+[LayoutParams.MATCH_PARENT](https://developer.android.com/reference/android/view/ViewGroup.LayoutParams#MATCH_PARENT).
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/transparent_activities_optimization.png)
 
 ### Dialog with rounded corners correctly positioned over visible launching activity.
 
 #### Compatibility workaround
 
-Keep activities that launch dialog activities visible until the user has responded to the dialog.
+Keep activities that launch dialog activities visible until the user has
+responded to the dialog.
 
-The system ensures that a transparent activity inherits all constraints from the first opaque activity beneath the transparent activity in the activity stack, including constraints related to:
+The system ensures that a transparent activity inherits all constraints from the
+first opaque activity beneath the transparent activity in the activity stack,
+including constraints related to:
 
 - Size compatibility mode
 - Orientation
@@ -396,74 +611,120 @@ The system ensures that a transparent activity inherits all constraints from the
 
 ### Unity games
 
-Unity games run on Android full screen or in multi‑window mode. However, many Unity games lose focus and stop drawing content when the app is placed in multi‑window mode.
+Unity games run on Android full screen or in multi‑window mode. However,
+many Unity games lose focus and stop drawing content when the app is placed in
+multi‑window mode.
 
 #### Issue
 
-Unity added a [`Resizable Window`](https://docs.unity3d.com/2019.4/Documentation/Manual/class-PlayerSettingsAndroid.html#resizable) option in Unity 2019.4 to support multi‑window mode on Android. However, the initial implementation did not react to the [activity lifecycle in multi-window mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode#lifecycle) correctly, causing UnityPlayer to suspend playback when the app loses focus. The player rendered a black screen or the last, frozen frame of the game. Gameplay resumed only when the user tapped the screen. Many apps using the Unity engine face this issue and render as a black window in multi‑window mode.
+Unity added a [`Resizable Window`](https://docs.unity3d.com/2019.4/Documentation/Manual/class-PlayerSettingsAndroid.html#resizable)
+option in Unity 2019.4 to support multi‑window mode on Android. However,
+the initial implementation did not react to the [activity lifecycle in
+multi-window mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode#lifecycle) correctly, causing
+UnityPlayer to suspend playback when the app loses focus. The player rendered a
+black screen or the last, frozen frame of the game. Gameplay resumed only when
+the user tapped the screen. Many apps using the Unity engine face this issue and
+render as a black window in multi‑window mode.
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/unity_games_issue.gif)
 
 ### Game loses focus in multi-window mode and renders as a black window.
 
 #### Optimization
 
-Upgrade Unity to 2019.4.40 or later and re‑export your game. Keep the `Resizable Window` option checked in the [Android Player settings](https://docs.unity3d.com/2019.4/Documentation/Manual/class-PlayerSettingsAndroid.html#resizable), otherwise the game pauses when not in focus even though the game is entirely visible in multi‑window mode.
+Upgrade Unity to 2019.4.40 or later and re‑export your game. Keep the
+`Resizable Window` option checked in the
+[Android Player settings](https://docs.unity3d.com/2019.4/Documentation/Manual/class-PlayerSettingsAndroid.html#resizable), otherwise
+the game pauses when not in focus even though the game is entirely visible in
+multi‑window mode.
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/unity_games_optimization.gif)
 
 ### Game renders content correctly in multi-window mode even when not in focus.
 
 #### Compatibility workaround
 
-Device manufacturers can apply the [`OVERRIDE_ENABLE_COMPAT_FAKE_FOCUS`](https://developer.android.com/guide/practices/device-compatibility-mode#override_enable_compat_fake_focus) per‑app override to provide a fake focus event to an app in multi‑window mode. The override enables the activity to redraw content and not be blacked out.
+Device manufacturers can apply the
+[`OVERRIDE_ENABLE_COMPAT_FAKE_FOCUS`](https://developer.android.com/guide/practices/device-compatibility-mode#override_enable_compat_fake_focus)
+per‑app override to provide a fake focus event to an app in
+multi‑window mode. The override enables the activity to redraw content and
+not be blacked out.
 
 ### Desktop windowing
 
-When apps run in a desktop windowing environment, they may encounter additional compatibility modes.
+When apps run in a desktop windowing environment, they may encounter
+additional compatibility modes.
 
-Apps with locked orientation are freely resizable. Even if an activity is locked to [portrait orientation](https://developer.android.com/guide/topics/manifest/activity-element#screen), users can still resize the app to landscape orientation.
+Apps with locked orientation are freely resizable. Even if an activity is locked
+to [portrait orientation](https://developer.android.com/guide/topics/manifest/activity-element#screen), users can still resize the app to landscape
+orientation.
 ![Animation of a portrait app being resized to landscape.](https://developer.android.com/static/images/guide/practices/compatibility-mode/windowing_free_resizing.gif)
 
 ### Apps with locked orientation can still be freely resized.
 
-However, if an activity is declared as nonresizable ([resizeableActivity = false](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity)), the activity UI scales while maintaining the same aspect ratio.
+However, if an activity is declared as nonresizable ([resizeableActivity =
+false](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity)), the activity UI scales while maintaining the
+same aspect ratio.
 ![Animation of app being resized. UI scales to fill the desktop window.](https://developer.android.com/static/images/guide/practices/compatibility-mode/windowing_non_resizable.gif)
 
 ### Activities declared as nonresizable have their UI scaled.
 
 ### Camera preview in desktop windowing
 
-When an app runs in desktop windowing, the display rotation and window orientation can be different from what they might encounter in fullscreen on standard phones.
+When an app runs in desktop windowing, the display rotation and window
+orientation can be different from what they might encounter in fullscreen on
+standard phones.
 
 #### Issue
 
-Apps often assume that device orientation and camera sensor orientation are portrait, which can result in misaligned or distorted camera preview.
+Apps often assume that device orientation and camera sensor orientation are
+portrait, which can result in misaligned or distorted camera preview.
 
 #### Optimization
 
-Camera apps must correctly identify and manage device orientation and camera sensor orientation to present a correctly aligned and scaled camera preview. Apps must calculate device rotation, sensor rotation, and window aspect ratio, and then apply the results to the camera preview, which should also respond to window configuration changes. For detailed guidance, see [Camera preview](https://developer.android.com/training/camera2/camera-preview).
+Camera apps must correctly identify and manage device orientation and camera
+sensor orientation to present a correctly aligned and scaled camera preview.
+Apps must calculate device rotation, sensor rotation, and window aspect ratio,
+and then apply the results to the camera preview, which should also respond to
+window configuration changes. For detailed guidance, see [Camera preview](https://developer.android.com/training/camera2/camera-preview).
 
 #### Compatibility workaround
 
-When fixed-orientation apps in desktop windowing start a camera preview, the system might trigger camera compatibility treatment to avoid stretched and sideways previews.
+When fixed-orientation apps in desktop windowing start a camera preview, the
+system might trigger camera compatibility treatment to avoid stretched and
+sideways previews.
 
-The treatment sandboxes the environment to match the requested orientation in the following ways:
+The treatment sandboxes the environment to match the requested orientation in
+the following ways:
 
-- **Letterbox the app window to the requested orientation:** This is to avoid stretching issues due to inappropriate scaling.
+- **Letterbox the app window to the requested orientation:** This is to avoid
+  stretching issues due to inappropriate scaling.
 
-- **Sandbox the display rotation:** The treatment simulates the device placed in the requested orientation. As the most common incorrect assumption for camera previews is that the app is running on a portrait device, display rotation is sandboxed to 0 degrees for apps requesting portrait orientation, and 90 degrees for devices requesting landscape orientation.
+- **Sandbox the display rotation:** The treatment simulates the device
+  placed in the requested orientation. As the most common incorrect assumption
+  for camera previews is that the app is running on a portrait device, display
+  rotation is sandboxed to 0 degrees for apps requesting portrait orientation, and
+  90 degrees for devices requesting landscape orientation.
 
-- **Camera cropping:** If the display rotation has changed, this is reflected on the camera feed: if a device is in landscape orientation and the treatment is triggered for an app requesting portrait orientation, camera field of view is cropped to resemble that of a portrait-oriented camera.
+- **Camera cropping:** If the display rotation has changed, this is reflected
+  on the camera feed: if a device is in landscape orientation and the treatment is
+  triggered for an app requesting portrait orientation, camera field of view is
+  cropped to resemble that of a portrait-oriented camera.
 
-- **Rotate and crop the camera feed:** The system cycles through activity methods `onStop()` and `onStart()` (by default) or `onPause()` and `onResume()` (applied by the OVERRIDE_CAMERA_COMPAT_ENABLE_REFRESH_VIA_PAUSE per-app override) after the treatment is applied to make sure the camera preview is properly displayed.
+- **Rotate and crop the camera feed:** The system cycles through activity
+  methods `onStop()` and `onStart()` (by default) or `onPause()` and `onResume()`
+  (applied by the OVERRIDE_CAMERA_COMPAT_ENABLE_REFRESH_VIA_PAUSE per-app override)
+  after the treatment is applied to make sure the camera preview is properly displayed.
 
 > [!NOTE]
 > **Note:** Simulating requested orientation does not happen if your app is responsive and handles portrait and landscape orientations.
 
-App developers can override these workarounds if the apps handle camera preview correctly. See [Per-app overrides](https://developer.android.com/guide/practices/device-compatibility-mode#per-app_overrides).
+App developers can override these workarounds if the apps handle camera preview
+correctly. See [Per-app overrides](https://developer.android.com/guide/practices/device-compatibility-mode#per-app_overrides).
 
 #### Resizing
 
-When a simulated requested orientation treatment is active, resizing the window scales the viewfinder UI while keeping its aspect ratio. The rest of the app window can be freely resized.
+When a simulated requested orientation treatment is active, resizing the window
+scales the viewfinder UI while keeping its aspect ratio. The rest of the
+app window can be freely resized.
 ![](https://developer.android.com/static/images/guide/practices/compatibility-mode/windowing_camera.gif)
 
 ### Resizing a window with a camera viewfinder
@@ -472,7 +733,8 @@ When a simulated requested orientation treatment is active, resizing the window 
 
 ## Test your app for compatibility issues
 
-To test your app and understand how it behaves on different form factors, take advantage of the following resources:
+To test your app and understand how it behaves on different form factors, take
+advantage of the following resources:
 
 - **Device streaming:** To test your app on production devices (including [reference devices](https://developer.android.com/guide/practices/device-compatibility-mode#reference_devices)) hosted in Google data centers, see [Android Device Streaming, powered by Firebase](https://developer.android.com/studio/preview/android-device-streaming)
 - **Emulators in Android Studio:** For information on creating emulators for reference devices, see [Create and manage virtual devices](https://developer.android.com/studio/run/managing-avds)
@@ -480,9 +742,9 @@ To test your app and understand how it behaves on different form factors, take a
 
 ### Is letterboxed
 
-Verify that each activity can use all of the display space available to the app. First, declare the following code in your test folder:
+Verify that each activity can use all of the display space available to the app.
+First, declare the following code in your test folder:
 
-<br />
 
 ### Kotlin
 
@@ -502,7 +764,6 @@ fun isLetterboxed(activity: AppCompatActivity): Boolean {
         currentBounds.width() < maxBounds.width()
     }
 }
-      
 ```
 
 ### Java
@@ -523,14 +784,13 @@ public boolean isLetterboxed(AppCompatActivity activity) {
         ? currentBounds.height() < maxBounds.height()
         : currentBounds.width() < maxBounds.width();
 }
-      
 ```
 
 <br />
 
-Then run a test to assert the behavior and make sure the target activity is not letterboxed:
+Then run a test to assert the behavior and make sure the target activity is not
+letterboxed:
 
-<br />
 
 ### Kotlin
 
@@ -544,7 +804,6 @@ fun activity_launched_notLetterBoxed() {
         assertFalse(it.isLetterboxed())
     }
 }
-      
 ```
 
 ### Java
@@ -562,27 +821,41 @@ public void activity_launched_notLetterBoxed() {
             });
         }
 }
-      
 ```
 
 <br />
 
-Ideally, run this kind of test only until it passes and asserts that your app's activities take up the entire display space available to the app. Test your app on all device types to ensure consistent behavior.
+Ideally, run this kind of test only until it passes and asserts that your app's
+activities take up the entire display space available to the app. Test your app
+on all device types to ensure consistent behavior.
 
 ## Per-app overrides
 
-Android provides overrides that change the configured behavior of apps. For example, the [`FORCE_RESIZE_APP`](https://developer.android.com/guide/practices/device-compatibility-mode#force_resize_app) override instructs the system to bypass size compatibility mode and resize the app to fit display dimensions even if [`resizeableActivity="false"`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) is specified in the app manifest.
+Android provides overrides that change the configured behavior of apps. For
+example, the [`FORCE_RESIZE_APP`](https://developer.android.com/guide/practices/device-compatibility-mode#force_resize_app) override instructs the
+system to bypass size compatibility mode and resize the app to fit display
+dimensions even if [`resizeableActivity="false"`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) is
+specified in the app manifest.
 
-Device manufacturers apply overrides to select apps---or all apps---on specific devices. On Android 14 (API level 34) and higher, users can apply overrides to apps through device settings. On Android 16 (API level 36) and higher, virtual device owners apply overrides on select devices the virtual device owners manage.
+Device manufacturers apply overrides to select apps---or all apps---on
+specific devices. On Android 14 (API level 34) and higher, users
+can apply overrides to apps through device settings. On Android 16 (API level
+36) and higher, virtual device owners apply overrides on select devices the
+virtual device owners manage.
 
 > [!NOTE]
 > **Note:** Per-app overrides are intended to fix broken app behavior or improve the user experience.
 
 ### User per-app overrides
 
-On Android 14 and higher, a settings menu enables users to change the aspect ratio of apps. Large screen devices such as the [reference devices](https://developer.android.com/guide/practices/device-compatibility-mode#reference_devices) implement the menu.
+On Android 14 and higher, a settings menu enables users to change the aspect
+ratio of apps. Large screen devices such as the [reference
+devices](https://developer.android.com/guide/practices/device-compatibility-mode#reference_devices) implement the menu.
 
-The menu contains a list of all apps installed on the device. Users choose an app and then set the app aspect ratio to 3:4, 1:1, full screen, or other value configured by the device manufacturer. Users can also reset the aspect ratio to the app default, which is specified in the app manifest.
+The menu contains a list of all apps installed on the device. Users choose an
+app and then set the app aspect ratio to 3:4, 1:1, full screen, or other value
+configured by the device manufacturer. Users can also reset the aspect ratio to
+the app default, which is specified in the app manifest.
 
 > [!NOTE]
 > **Note:** If users override the app aspect ratio to full screen, the app becomes resizable and able to enter multi‑window mode, as if the app had been configured with the manifest attribute [`resizeableActivity="true"`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity).
@@ -591,7 +864,8 @@ Apps can opt out of the compatibility override by setting the following [`Packag
 
 - **PROPERTY_COMPAT_ALLOW_USER_ASPECT_RATIO_OVERRIDE**
 
-  To opt out of the user aspect ratio compatibility override, add the property to your app manifest and set the value to `false`:
+  To opt out of the user aspect ratio compatibility override, add the property
+  to your app manifest and set the value to `false`:
 
       <application>
           <property
@@ -600,12 +874,15 @@ Apps can opt out of the compatibility override by setting the following [`Packag
               android:value="false" />
       </application>
 
-  Your app will be excluded from the list of apps in device settings. Users won't be able to override the app's aspect ratio.
+  Your app will be excluded from the list of apps in device settings. Users
+  won't be able to override the app's aspect ratio.
 
   Setting the property to `true` has no effect.
 - **PROPERTY_COMPAT_ALLOW_USER_ASPECT_RATIO_FULLSCREEN_OVERRIDE**
 
-  To opt out of the full-screen option of the user aspect ratio compatibility override, add the property to your app manifest and set the value to `false`:
+  To opt out of the full-screen option of the user aspect ratio compatibility
+  override, add the property to your app manifest and set the value to
+  `false`:
 
       <application>
           <property
@@ -613,7 +890,9 @@ Apps can opt out of the compatibility override by setting the following [`Packag
               android:value="false" />
       </application>
 
-  The full-screen option is removed from the list of aspect ratio options in device settings. Users won't be able to apply the full-screen override to your app.
+  The full-screen option is removed from the list of aspect ratio options in
+  device settings. Users won't be able to apply the full-screen override to
+  your app.
 
   > [!CAUTION]
   > **Caution:** If [`PROPERTY_COMPAT_ALLOW_USER_ASPECT_RATIO_OVERRIDE`](https://developer.android.com/guide/practices/device-compatibility-mode#aspect_ratio_override) is `false`, this property has no effect.
@@ -623,32 +902,46 @@ Apps can opt out of the compatibility override by setting the following [`Packag
 > [!NOTE]
 > **Note:** To implement the property tags, your app must include the Jetpack [WindowManager](https://developer.android.com/jetpack/androidx/releases/window) library dependency.
 
-**Optimize your app for all screens:** Don't set aspect ratio restrictions in your app. Use [window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes) to support different layouts based on the amount of available display space.
+**Optimize your app for all screens:** Don't set aspect ratio restrictions in
+your app. Use [window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes) to support different
+layouts based on the amount of available display space.
 
 ### Device per-app overrides
 
-Device manufacturers and virtual device owners (select trusted and privileged apps) apply overrides on a per‑app basis on specific devices, including tablets, foldables, ChromeOS devices, and car displays. The [reference devices](https://developer.android.com/guide/practices/device-compatibility-mode#reference_devices) may apply some of the overrides to a variety of apps by default.
+Device manufacturers and virtual device owners (select trusted and privileged
+apps) apply overrides on a per‑app basis on specific devices, including
+tablets, foldables, ChromeOS devices, and car displays. The [reference
+devices](https://developer.android.com/guide/practices/device-compatibility-mode#reference_devices) may apply some of the overrides to a variety of
+apps by default.
 
-Apps can opt out of most overrides (see the [Per-app overrides](https://developer.android.com/guide/practices/device-compatibility-mode#device_manufacturer_overrides_table) table below).
+Apps can opt out of most overrides (see the [Per-app
+overrides](https://developer.android.com/guide/practices/device-compatibility-mode#device_manufacturer_overrides_table) table below).
 
-You can test your app with overrides enabled or disabled using the compatibility framework (see [Compatibility framework tools](https://developer.android.com/guide/app-compatibility/test-debug)). When enabled, overrides apply to the entire app.
+You can test your app with overrides enabled or disabled using the compatibility
+framework (see [Compatibility framework tools](https://developer.android.com/guide/app-compatibility/test-debug)).
+When enabled, overrides apply to the entire app.
 
-You can also use the [Android Debug Bridge (adb)](https://developer.android.com/tools/adb) to enable or disable overrides and determine which overrides apply to your app.
+You can also use the [Android Debug Bridge (adb)](https://developer.android.com/tools/adb) to enable or disable
+overrides and determine which overrides apply to your app.
 
 Enable or disable overrides as follows:
 
     adb shell am compat enable/disable <override name/id> <package>
 
-For the [reference devices](https://developer.android.com/guide/practices/device-compatibility-mode#reference_devices), check which overrides apply to your app:
+For the [reference devices](https://developer.android.com/guide/practices/device-compatibility-mode#reference_devices), check which overrides apply to
+your app:
 
     adb shell dumpsys platform_compat | grep <package name>
 
 > [!NOTE]
-> **Note:** If `dumpsys platform_compat` returns `true` for `OVERRIDE_CAMERA_COMPAT_DISABLE_FORCE_ROTATION`, your app is *not* force rotated, as mentioned in [Camera preview compatibility workaround](https://developer.android.com/guide/practices/device-compatibility-mode#camera_preview_workaround).
+> **Note:** If `dumpsys platform_compat` returns `true` for `OVERRIDE_CAMERA_COMPAT_DISABLE_FORCE_ROTATION`, your app is *not* force rotated, as mentioned in [Camera preview compatibility
+> workaround](https://developer.android.com/guide/practices/device-compatibility-mode#camera_preview_workaround).
 >
 > If `dumpsys platform_compat` returns `false` for `OVERRIDE_CAMERA_LANDSCAPE_TO_PORTRAIT`, your app is *not* inner front camera cropped (see [Camera preview compatibility workaround](https://developer.android.com/guide/practices/device-compatibility-mode#camera_preview_workaround)).
 
-The following table lists available overrides along with guidance on how to optimize your app so the app does not need to rely on overrides. You can add property flags to your app manifest to opt out of some overrides.
+The following table lists available overrides along with guidance on how to
+optimize your app so the app does not need to rely on overrides. You can add
+property flags to your app manifest to opt out of some overrides.
 
 | Per-app overrides ||||
 | Type | Name | ID | Description |
@@ -722,24 +1015,30 @@ To remove the override:
 
 ### FORCE_RESIZE_APP
 
-Forces the packages to which the override is applied to be resizable and able to enter multi‑window mode. Applies to all displays sizes.
+Forces the packages to which the override is applied to be resizable and able to
+enter multi‑window mode. Applies to all displays sizes.
 
 #### How apps can achieve same result as override
 
-In the app manifest, set the [`android:resizeableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) attribute to `true`.
+In the app manifest, set the [`android:resizeableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity)
+attribute to `true`.
 
 #### How to optimize apps
 
-Use responsive/adaptive layouts to enable apps to adapt to all display sizes and aspect ratios. See [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes).
+Use responsive/adaptive layouts to enable apps to adapt to all display sizes and
+aspect ratios. See
+[Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes).
 
 > [!TIP]
 > **Tip:** To support resizing while disabling multi‑window mode with `android:resizeableActivity=false`, add the following `<meta-data>` tag to the app manifest:
 >
-> `<meta-data android:name="android.supports_size_changes" android:value="true" />`
+> `<meta-data
+> android:name="android.supports_size_changes" android:value="true" />`
 
 #### How to disable or opt out of override
 
-Set the property flag `PROPERTY_COMPAT_ALLOW_RESIZEABLE_ACTIVITY_OVERRIDES` to `false`.
+Set the property flag `PROPERTY_COMPAT_ALLOW_RESIZEABLE_ACTIVITY_OVERRIDES` to
+`false`.
 
 #### Property flags to adjust override
 
@@ -760,19 +1059,27 @@ To remove the override:
 
 ### FORCE_NON_RESIZE_APP
 
-Forces the packages to which the override is applied to be nonresizable and enter size compatibility mode on configuration changes. Applies to all display sizes.
+Forces the packages to which the override is applied to be nonresizable and
+enter size compatibility mode on configuration changes. Applies to all display
+sizes.
 
 #### How apps can achieve same result as override
 
-Set both the `android:resizeableActivity` attribute and `android.supports_size_changes` metadata flag to `false` in the app manifest, and declare either an orientation or aspect ratio restriction.
+Set both the `android:resizeableActivity` attribute and
+`android.supports_size_changes` metadata flag to `false` in the app manifest,
+and declare either an orientation or aspect ratio restriction.
 
 #### How to optimize apps
 
-All apps that behave well if resized should either have `android:resizeableActivity` or `android.supports_size_changes` set to `true`. Other apps should be improved to behave well when resized. See [android:resizeableActivity](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity).
+All apps that behave well if resized should either have
+`android:resizeableActivity` or `android.supports_size_changes` set to `true`.
+Other apps should be improved to behave well when resized. See
+[android:resizeableActivity](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity).
 
 #### How to disable or opt out of override
 
-Set the property flag `PROPERTY_COMPAT_ALLOW_RESIZEABLE_ACTIVITY_OVERRIDES` to `false`.
+Set the property flag `PROPERTY_COMPAT_ALLOW_RESIZEABLE_ACTIVITY_OVERRIDES` to
+`false`.
 
 #### Property flags to adjust override
 
@@ -801,11 +1108,17 @@ Set [`android:minAspectRatio`](https://developer.android.com/reference/android/R
 
 #### How to optimize apps
 
-Don't set aspect ratio restrictions in your app. Make sure your app [supports different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes). Use window size classes to support different layouts based on the amount of space your app has on the screen. See the [Compose `WindowSizeClass` API](https://developer.android.com/reference/kotlin/androidx/compose/material3/windowsizeclass/WindowSizeClass) and [View `WindowSizeClass` API](https://developer.android.com/reference/kotlin/androidx/window/core/layout/WindowSizeClass).
+Don't set aspect ratio restrictions in your app. Make sure your app [supports
+different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes). Use window size
+classes to support different layouts based on the amount of space your app has
+on the screen. See the
+[Compose `WindowSizeClass` API](https://developer.android.com/reference/kotlin/androidx/compose/material3/windowsizeclass/WindowSizeClass) and [View
+`WindowSizeClass` API](https://developer.android.com/reference/kotlin/androidx/window/core/layout/WindowSizeClass).
 
 #### How to disable or opt out of override
 
-Specify an aspect ratio restriction or set the property flag `PROPERTY_COMPAT_ALLOW_MIN_ASPECT_RATIO_OVERRIDE` to `false`.
+Specify an aspect ratio restriction or set the property flag
+`PROPERTY_COMPAT_ALLOW_MIN_ASPECT_RATIO_OVERRIDE` to `false`.
 
 #### Property flags to adjust override
 
@@ -826,7 +1139,9 @@ To remove the override:
 
 ### OVERRIDE_MIN_ASPECT_RATIO_PORTRAIT_ONLY
 
-Restricts app settings that force a given minimum aspect ratio for activities with portrait‑only orientation. Enabled by default and only takes effect if `OVERRIDE_MIN_ASPECT_RATIO` is also enabled.
+Restricts app settings that force a given minimum aspect ratio for activities
+with portrait‑only orientation. Enabled by default and only takes effect
+if `OVERRIDE_MIN_ASPECT_RATIO` is also enabled.
 
 #### How apps can achieve same result as override
 
@@ -954,7 +1269,8 @@ To remove the override:
 
 ### OVERRIDE_MIN_ASPECT_RATIO_TO_ALIGN_WITH_SPLIT_SCREEN
 
-Enables the use of split-screen aspect ratio. Allows an app to use all the available space in split-screen mode, avoiding letterboxing.
+Enables the use of split-screen aspect ratio. Allows an app to use all the
+available space in split-screen mode, avoiding letterboxing.
 
 #### How apps can achieve same result as override
 
@@ -986,7 +1302,8 @@ To remove the override:
 
 ### OVERRIDE_MIN_ASPECT_RATIO_EXCLUDE_PORTRAIT_FULLSCREEN
 
-Disables the minimum aspect ratio override in portrait full screen to use all available screen space.
+Disables the minimum aspect ratio override in portrait full screen to use all
+available screen space.
 
 #### How apps can achieve same result as override
 
@@ -1026,15 +1343,29 @@ Enables the following overrides to override any orientation:
 
 #### How apps can achieve same result as override
 
-Set the [`activity:screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element#screen) manifest attribute, or use the [`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#setrequestedorientation) API.
+Set the [`activity:screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element#screen) manifest attribute,
+or use the [`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#setrequestedorientation) API.
 
 #### How to optimize apps
 
-Your app should support all orientations. An orientation change is a configuration change, which can be handled either of two ways: letting the system destroy and recreate the app, or managing the configuration changes yourself. If you manage configuration changes yourself, the app state can be retained by using `ViewModel`. In very limited cases, you can decide to lock the orientation on small displays only, although doing so might not scale as well as letting the user rotate the app as needed. On Android 12L and higher versions, fixed orientation can be overridden by device configuration. For more information about handling configuration changes and supporting all orientations, see [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes), [ViewModel overview](https://developer.android.com/topic/libraries/architecture/viewmodel), and [App orientation restricted on phones but not on large screen devices](https://developer.android.com/guide/topics/large-screens/large-screen-cookbook#restricted_app_orientation).
+Your app should support all orientations. An orientation change is a
+configuration change, which can be handled either of two ways: letting the
+system destroy and recreate the app, or managing the configuration changes
+yourself. If you manage configuration changes yourself, the app state can be
+retained by using `ViewModel`. In very limited cases, you can decide to lock the
+orientation on small displays only, although doing so might not scale as well as
+letting the user rotate the app as needed. On Android 12L and higher versions,
+fixed orientation can be overridden by device configuration. For more
+information about handling configuration changes and supporting all
+orientations, see [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes),
+[ViewModel overview](https://developer.android.com/topic/libraries/architecture/viewmodel), and [App orientation restricted on
+phones but not on large screen devices](https://developer.android.com/guide/topics/large-screens/large-screen-cookbook#restricted_app_orientation).
 
 #### How to disable or opt out of override
 
-Set the property flag [`PROPERTY_COMPAT_ALLOW_ORIENTATION_OVERRIDE`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_ALLOW_ORIENTATION_OVERRIDE) to `false`.
+Set the property flag
+[`PROPERTY_COMPAT_ALLOW_ORIENTATION_OVERRIDE`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_ALLOW_ORIENTATION_OVERRIDE)
+to `false`.
 
 #### Property flags to adjust override
 
@@ -1055,25 +1386,38 @@ To remove the override:
 
 ### OVERRIDE_ANY_ORIENTATION_TO_USER
 
-Enables app to fill the available display space. Overrides any orientation, resizability, and aspect ratio restrictions specified in the app manifest. Also ignores any calls to [`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#setrequestedorientation) or [`Activity#getRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#getrequestedorientation).
+Enables app to fill the available display space. Overrides any orientation,
+resizability, and aspect ratio restrictions specified in the app manifest. Also
+ignores any calls to
+[`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#setrequestedorientation) or
+[`Activity#getRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#getrequestedorientation).
 
 #### How apps can achieve same result as override
 
-- Do *not* set the [`android:screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element#screen) manifest attribute, or set the attribute to `"user"`.
+- Do *not* set the [`android:screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element#screen) manifest
+  attribute, or set the attribute to `"user"`.
 
-- Set the [`android:resizeableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) manifest attribute to `true`.
+- Set the [`android:resizeableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) manifest
+  attribute to `true`.
 
   > [!NOTE]
   > **Note:** Settings for [`android:minAspectRatio`](https://developer.android.com/reference/android/R.attr#minAspectRatio) and [`android:maxAspectRatio`](https://developer.android.com/reference/android/R.attr#maxAspectRatio) are ignored if `resizeableActivity` is set to `true`.
 
-- On small screens, to support app resizing while disabling multi‑window mode with `android:resizeableActivity=false`, set the `android.supports_size_changes` metadata flag to `true`. Do *not* set `minAspectRatio` and `maxAspectRatio`.
+- On small screens, to support app resizing while disabling multi‑window
+  mode with `android:resizeableActivity=false`, set the
+  `android.supports_size_changes` metadata flag to `true`. Do *not* set
+  `minAspectRatio` and `maxAspectRatio`.
 
   > [!NOTE]
   > **Note:** On Android 12 (API level 31), all apps run in multi-window mode on large screens (medium or expanded [window size class](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes)) regardless of app configuration. See [Support multi-window mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode#resizeableActivity).
 
 #### How to optimize apps
 
-Enable your app to support all orientations; don't set a `screenOrientation` specification in your app's manifest. Support app resizability, multi‑window mode, and all display aspect ratios by setting the `android:resizeableActivity` attribute in your app's manifest to `true`. See [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes).
+Enable your app to support all orientations; don't set a `screenOrientation`
+specification in your app's manifest. Support app resizability,
+multi‑window mode, and all display aspect ratios by setting the
+`android:resizeableActivity` attribute in your app's manifest to `true`. See
+[Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes).
 
 #### How to disable or opt out of override
 
@@ -1097,7 +1441,9 @@ To remove the override:
 
 ### OVERRIDE_UNDEFINED_ORIENTATION_TO_PORTRAIT
 
-Enables portrait orientation for all activities in the package. Unless [OVERRIDE_ANY_ORIENTATION](https://developer.android.com/guide/practices/device-compatibility-mode#override_any_orientation) is enabled, the override is used only when no other fixed orientation has been specified by the activity.
+Enables portrait orientation for all activities in the package. Unless
+[OVERRIDE_ANY_ORIENTATION](https://developer.android.com/guide/practices/device-compatibility-mode#override_any_orientation) is enabled, the override
+is used only when no other fixed orientation has been specified by the activity.
 
 #### How apps can achieve same result as override
 
@@ -1129,7 +1475,10 @@ To remove the override:
 
 ### OVERRIDE_UNDEFINED_ORIENTATION_TO_NOSENSOR
 
-Enables [nosensor](https://developer.android.com/guide/topics/manifest/activity-element#screen) orientation for all activities in the package. Unless [OVERRIDE_ANY_ORIENTATION](https://developer.android.com/guide/practices/device-compatibility-mode#override_any_orientation) is enabled, the override is used only when no other fixed orientation has been specified by the activity.
+Enables [nosensor](https://developer.android.com/guide/topics/manifest/activity-element#screen) orientation for all activities in the
+package. Unless [OVERRIDE_ANY_ORIENTATION](https://developer.android.com/guide/practices/device-compatibility-mode#override_any_orientation) is
+enabled, the override is used only when no other fixed orientation has been
+specified by the activity.
 
 #### How apps can achieve same result as override
 
@@ -1161,7 +1510,10 @@ To remove the override:
 
 ### OVERRIDE_LANDSCAPE_ORIENTATION_TO_REVERSE_LANDSCAPE
 
-Enables [reverseLandscape](https://developer.android.com/guide/topics/manifest/activity-element#screen) orientation for all activities in the package. Unless [OVERRIDE_ANY_ORIENTATION](https://developer.android.com/guide/practices/device-compatibility-mode#override_any_orientation) is enabled, the override is used only when no other fixed orientation has been specified by the activity.
+Enables [reverseLandscape](https://developer.android.com/guide/topics/manifest/activity-element#screen) orientation for all activities in
+the package. Unless [OVERRIDE_ANY_ORIENTATION](https://developer.android.com/guide/practices/device-compatibility-mode#override_any_orientation) is
+enabled, the override is used only when no other fixed orientation has been
+specified by the activity.
 
 #### How apps can achieve same result as override
 
@@ -1193,7 +1545,12 @@ To remove the override:
 
 ### OVERRIDE_ORIENTATION_ONLY_FOR_CAMERA
 
-Limits [OVERRIDE_UNDEFINED_ORIENTATION_TO_PORTRAIT](https://developer.android.com/guide/practices/device-compatibility-mode#override_undefined_orientation_to_portrait), [OVERRIDE_UNDEFINED_ORIENTATION_TO_NOSENSOR](https://developer.android.com/guide/practices/device-compatibility-mode#override_undefined_orientation_to_nosensor), and [OVERRIDE_LANDSCAPE_ORIENTATION_TO_REVERSE_LANDSCAPE](https://developer.android.com/guide/practices/device-compatibility-mode#override_landscape_orientation_to_reverse_landscape) overrides to take effect only when camera connection is active.
+Limits
+[OVERRIDE_UNDEFINED_ORIENTATION_TO_PORTRAIT](https://developer.android.com/guide/practices/device-compatibility-mode#override_undefined_orientation_to_portrait),
+[OVERRIDE_UNDEFINED_ORIENTATION_TO_NOSENSOR](https://developer.android.com/guide/practices/device-compatibility-mode#override_undefined_orientation_to_nosensor),
+and
+[OVERRIDE_LANDSCAPE_ORIENTATION_TO_REVERSE_LANDSCAPE](https://developer.android.com/guide/practices/device-compatibility-mode#override_landscape_orientation_to_reverse_landscape)
+overrides to take effect only when camera connection is active.
 
 #### How apps can achieve same result as override
 
@@ -1225,7 +1582,8 @@ To remove the override:
 
 ### OVERRIDE_USE_DISPLAY_LANDSCAPE_NATURAL_ORIENTATION
 
-Restricts display orientation to landscape natural orientation when the following conditions are met:
+Restricts display orientation to landscape natural orientation when the
+following conditions are met:
 
 - Activity is full screen
 - Opt out component property `PROPERTY_COMPAT_ALLOW_DISPLAY_ORIENTATION_OVERRIDE` isn't enabled
@@ -1242,7 +1600,9 @@ See [`OVERRIDE_ANY_ORIENTATION`](https://developer.android.com/guide/practices/d
 
 #### How to disable or opt out of override
 
-Set the property flag [`PROPERTY_COMPAT_ALLOW_DISPLAY_ORIENTATION_OVERRIDE`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_ALLOW_DISPLAY_ORIENTATION_OVERRIDE) to `false`.
+Set the property flag
+[`PROPERTY_COMPAT_ALLOW_DISPLAY_ORIENTATION_OVERRIDE`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_ALLOW_DISPLAY_ORIENTATION_OVERRIDE)
+to `false`.
 
 #### Property flags to adjust override
 
@@ -1263,11 +1623,15 @@ To remove the override:
 
 ### OVERRIDE_ENABLE_COMPAT_IGNORE_REQUESTED_ORIENTATION
 
-Enables compat policy that skips updating app orientation in response to app calling [`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#setrequestedorientation) when app is relaunching or has an active camera compat treatment.
+Enables compat policy that skips updating app orientation in response to app
+calling [`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#setrequestedorientation) when app
+is relaunching or has an active camera compat treatment.
 
 #### How apps can achieve same result as override
 
-Set property flag [`PROPERTY_COMPAT_IGNORE_REQUESTED_ORIENTATION`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_IGNORE_REQUESTED_ORIENTATION) to `true`.
+Set property flag
+[`PROPERTY_COMPAT_IGNORE_REQUESTED_ORIENTATION`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_IGNORE_REQUESTED_ORIENTATION)
+to `true`.
 
 #### How to optimize apps
 
@@ -1275,7 +1639,9 @@ See [`OVERRIDE_ANY_ORIENTATION`](https://developer.android.com/guide/practices/d
 
 #### How to disable or opt out of override
 
-Set property flag [`PROPERTY_COMPAT_IGNORE_REQUESTED_ORIENTATION`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_IGNORE_REQUESTED_ORIENTATION) to `false`.
+Set property flag
+[`PROPERTY_COMPAT_IGNORE_REQUESTED_ORIENTATION`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_IGNORE_REQUESTED_ORIENTATION)
+to `false`.
 
 #### Property flags to adjust override
 
@@ -1296,7 +1662,10 @@ To remove the override:
 
 ### OVERRIDE_ENABLE_COMPAT_IGNORE_ORIENTATION_REQUEST_WHEN_LOOP_DETECTED
 
-Enables the compatibility policy that ignores an app's requested orientation in response to the app calling [`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#setrequestedorientation) more than twice in one second if an activity is not letterboxed for fixed orientation.
+Enables the compatibility policy that ignores an app's requested orientation in
+response to the app calling
+[`Activity#setRequestedOrientation()`](https://developer.android.com/reference/kotlin/android/app/Activity#setrequestedorientation) more than twice
+in one second if an activity is not letterboxed for fixed orientation.
 
 #### How apps can achieve same result as override
 
@@ -1308,7 +1677,9 @@ See [`OVERRIDE_ANY_ORIENTATION`](https://developer.android.com/guide/practices/d
 
 #### How to disable or opt out of override
 
-Set property flag `PROPERTY_COMPAT_ALLOW_IGNORING_ORIENTATION_REQUEST_WHEN_LOOP_DETECTED` to `false`.
+Set property flag
+`PROPERTY_COMPAT_ALLOW_IGNORING_ORIENTATION_REQUEST_WHEN_LOOP_DETECTED` to
+`false`.
 
 #### Property flags to adjust override
 
@@ -1329,7 +1700,8 @@ To remove the override:
 
 ### OVERRIDE_RESPECT_REQUESTED_ORIENTATION
 
-Excludes packages from ignore orientation request behavior that can be enabled by device manufacturers for a display area or the whole display.
+Excludes packages from ignore orientation request behavior that can be enabled
+by device manufacturers for a display area or the whole display.
 
 #### How apps can achieve same result as override
 
@@ -1341,7 +1713,10 @@ See [`OVERRIDE_ANY_ORIENTATION`](https://developer.android.com/guide/practices/d
 
 #### How to disable or opt out of override
 
-No opt-out. Disabling the override can be dangerous if the app is not compatible with a device that has the device manufacturer ignore orientation request setting enabled. Contact [Android Developer Relations](mailto:android-devrel-ops@google.com) to disable the override.
+No opt-out. Disabling the override can be dangerous if the app is not compatible
+with a device that has the device manufacturer ignore orientation request
+setting enabled. Contact [Android Developer
+Relations](mailto:android-devrel-ops@google.com) to disable the override.
 
 #### Property flags to adjust override
 
@@ -1361,15 +1736,24 @@ To remove the override:
 
 ### NEVER_SANDBOX_DISPLAY_APIS
 
-Forces packages to never have [`Display`](https://developer.android.com/reference/kotlin/android/view/Display) API sandboxing applied for a letterboxed or size compatibility mode activity. The `Display` APIs continue to provide display area bounds.
+Forces packages to never have [`Display`](https://developer.android.com/reference/kotlin/android/view/Display) API sandboxing applied
+for a letterboxed or size compatibility mode activity. The `Display` APIs
+continue to provide display area bounds.
 
 #### How apps can achieve same result as override
 
-Declare activities resizable by either setting the [`android:resizeableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) manifest attribute to `true` or the `android.supports_size_changes` metadata flag to `true`.
+Declare activities resizable by either setting the
+[`android:resizeableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) manifest attribute to `true`
+or the `android.supports_size_changes` metadata flag to `true`.
 
 #### How to optimize apps
 
-Apps that declare they are fully resizable should never rely upon display size to position UI elements. Migrate your app to up‑to‑date APIs that provide `WindowMetrics`. If you are using Jetpack Compose, take advantage of the [`WindowSizeClass`](https://developer.android.com/reference/kotlin/androidx/compose/material3/windowsizeclass/WindowSizeClass) API to draw the UI based on how much screen area the app has on the current display. See [Use window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes).
+Apps that declare they are fully resizable should never rely upon display size
+to position UI elements. Migrate your app to up‑to‑date APIs that
+provide `WindowMetrics`. If you are using Jetpack Compose, take advantage of the
+[`WindowSizeClass`](https://developer.android.com/reference/kotlin/androidx/compose/material3/windowsizeclass/WindowSizeClass) API to draw the UI based on how much screen
+area the app has on the current display. See
+[Use window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes).
 
 #### How to disable or opt out of override
 
@@ -1393,15 +1777,21 @@ To remove the override:
 
 ### ALWAYS_SANDBOX_DISPLAY_APIS
 
-Forces packages to always have [`Display`](https://developer.android.com/reference/kotlin/android/view/Display) API sandboxing applied regardless of windowing mode. The `Display` APIs always provide the app bounds.
+Forces packages to always have [`Display`](https://developer.android.com/reference/kotlin/android/view/Display) API sandboxing applied
+regardless of windowing mode. The `Display` APIs always provide the app bounds.
 
 #### How apps can achieve same result as override
 
-Declare activities nonresizable by either setting the [`android:resizeableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) attribute to `false` or the `android.supports_size_changes` metadata flag to `false`.
+Declare activities nonresizable by either setting the
+[`android:resizeableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity) attribute to `false` or the
+`android.supports_size_changes` metadata flag to `false`.
 
 #### How to optimize apps
 
-Apps that declare they are fully resizable should never rely on display size to position UI elements. Migrate your app from deprecated APIs to up‑to‑date APIs that provide `WindowMetrics`. See [`WindowMetricsCalculator`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowMetricsCalculator).
+Apps that declare they are fully resizable should never rely on display size to
+position UI elements. Migrate your app from deprecated APIs to
+up‑to‑date APIs that provide `WindowMetrics`. See
+[`WindowMetricsCalculator`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowMetricsCalculator).
 
 #### How to disable or opt out of override
 
@@ -1432,15 +1822,21 @@ Forces packages to sandbox the following [`View`](https://developer.android.com/
 
 #### How apps can achieve same result as override
 
-Resolve the issue in application code by using APIs that provide the bounds of the app window and offsets relative to the app window rather than the bounds of the device display and offsets relative to the device display.
+Resolve the issue in application code by using APIs that provide the bounds of
+the app window and offsets relative to the app window rather than the bounds of
+the device display and offsets relative to the device display.
 
 #### How to optimize apps
 
-Apps should use `View` APIs, taking into account the possibility of letterboxing and multi-window mode being applied to the app. See [`WindowMetricsCalculator`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowMetricsCalculator).
+Apps should use `View` APIs, taking into account the possibility of letterboxing
+and multi-window mode being applied to the app. See
+[`WindowMetricsCalculator`](https://developer.android.com/reference/kotlin/androidx/window/layout/WindowMetricsCalculator).
 
 #### How to disable or opt out of override
 
-Set property flag [`PROPERTY_COMPAT_ALLOW_SANDBOXING_VIEW_BOUNDS_APIS`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_ALLOW_SANDBOXING_VIEW_BOUNDS_APIS) to `false`.
+Set property flag
+[`PROPERTY_COMPAT_ALLOW_SANDBOXING_VIEW_BOUNDS_APIS`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_ALLOW_SANDBOXING_VIEW_BOUNDS_APIS)
+to `false`.
 
 #### Property flags to adjust override
 
@@ -1465,15 +1861,23 @@ Disables force rotation. Improves the user experience on some apps.
 
 #### How apps can achieve same result as override
 
-Set property flag [`PROPERTY_CAMERA_COMPAT_ALLOW_FORCE_ROTATION`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_CAMERA_COMPAT_ALLOW_FORCE_ROTATION) to `false`.
+Set property flag
+[`PROPERTY_CAMERA_COMPAT_ALLOW_FORCE_ROTATION`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_CAMERA_COMPAT_ALLOW_FORCE_ROTATION)
+to `false`.
 
 #### How to optimize apps
 
-Do not rely on cached camera sensor orientation or device information. For camera compatibility guidance, see [Introducing Camera Viewfinder](https://android-developers.googleblog.com/2022/11/introducing-camera-viewfinder.html) and [Support resizable surfaces in your camera app](https://developer.android.com/codelabs/android-camera2-preview#0).
+Do not rely on cached camera sensor orientation or device information. For
+camera compatibility guidance, see
+[Introducing Camera Viewfinder](https://android-developers.googleblog.com/2022/11/introducing-camera-viewfinder.html) and [Support
+resizable surfaces in your camera
+app](https://developer.android.com/codelabs/android-camera2-preview#0).
 
 #### How to disable or opt out of override
 
-Set property flag [`PROPERTY_CAMERA_COMPAT_ALLOW_FORCE_ROTATION`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_CAMERA_COMPAT_ALLOW_FORCE_ROTATION) to `true`.
+Set property flag
+[`PROPERTY_CAMERA_COMPAT_ALLOW_FORCE_ROTATION`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_CAMERA_COMPAT_ALLOW_FORCE_ROTATION)
+to `true`.
 
 #### Property flags to adjust override
 
@@ -1498,15 +1902,23 @@ Disables simulating requested orientation treatment for camera. Improves the use
 
 #### How apps can achieve same result as override
 
-Set property flag [`PROPERTY_CAMERA_COMPAT_ALLOW_SIMULATE_REQUESTED_ORIENTATION`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_CAMERA_COMPAT_ALLOW_SIMULATE_REQUESTED_ORIENTATION) to `false`.
+Set property flag
+[`PROPERTY_CAMERA_COMPAT_ALLOW_SIMULATE_REQUESTED_ORIENTATION`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_CAMERA_COMPAT_ALLOW_SIMULATE_REQUESTED_ORIENTATION)
+to `false`.
 
 #### How to optimize apps
 
-Do not rely on cached camera sensor orientation or device information. For camera compatibility guidance, see [Introducing Camera Viewfinder](https://android-developers.googleblog.com/2022/11/introducing-camera-viewfinder.html) and [Support resizable surfaces in your camera app](https://developer.android.com/codelabs/android-camera2-preview#0).
+Do not rely on cached camera sensor orientation or device information. For
+camera compatibility guidance, see
+[Introducing Camera Viewfinder](https://android-developers.googleblog.com/2022/11/introducing-camera-viewfinder.html) and [Support
+resizable surfaces in your camera
+app](https://developer.android.com/codelabs/android-camera2-preview#0).
 
 #### How to disable or opt out of override
 
-As this property disables the compatibility treatment, you can improve the user experience by taking into account dynamic display rotation changes, sensor orientation of the device, and window and preview size.
+As this property disables the compatibility treatment, you can improve the user
+experience by taking into account dynamic display rotation changes, sensor
+orientation of the device, and window and preview size.
 
 #### Property flags to adjust override
 
@@ -1527,19 +1939,25 @@ To remove the override, which allows simulating requested orientation to happen:
 
 ### OVERRIDE_CAMERA_COMPAT_DISABLE_REFRESH
 
-Disables activity refresh after force rotation. Improves the user experience when refresh causes state loss in apps.
+Disables activity refresh after force rotation. Improves the user experience
+when refresh causes state loss in apps.
 
 #### How apps can achieve same result as override
 
-Set property flag [`PROPERTY_CAMERA_COMPAT_ALLOW_REFRESH`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_CAMERA_COMPAT_ALLOW_REFRESH) to `false`.
+Set property flag
+[`PROPERTY_CAMERA_COMPAT_ALLOW_REFRESH`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_CAMERA_COMPAT_ALLOW_REFRESH)
+to `false`.
 
 #### How to optimize apps
 
-See [OVERRIDE_CAMERA_COMPAT_DISABLE_FORCE_ROTATION](https://developer.android.com/guide/practices/device-compatibility-mode#override_camera_compat_disable_force_rotation).
+See
+[OVERRIDE_CAMERA_COMPAT_DISABLE_FORCE_ROTATION](https://developer.android.com/guide/practices/device-compatibility-mode#override_camera_compat_disable_force_rotation).
 
 #### How to disable or opt out of override
 
-Set property flag [`PROPERTY_CAMERA_COMPAT_ALLOW_REFRESH`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_CAMERA_COMPAT_ALLOW_REFRESH) to `true`.
+Set property flag
+[`PROPERTY_CAMERA_COMPAT_ALLOW_REFRESH`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_CAMERA_COMPAT_ALLOW_REFRESH)
+to `true`.
 
 #### Property flags to adjust override
 
@@ -1560,19 +1978,26 @@ To remove the override, which allows activity refresh:
 
 ### OVERRIDE_CAMERA_COMPAT_ENABLE_REFRESH_VIA_PAUSE
 
-Makes the packages it is applied to do activity refresh using an `onResume()` → `onPause()` → `onResume()` cycle rather than `onResume()` → `onStop()` → `onResume()` after camera compatibility force rotation.
+Makes the packages it is applied to do activity refresh using an `onResume()`
+→ `onPause()` → `onResume()` cycle rather than `onResume()` →
+`onStop()` → `onResume()` after camera compatibility force rotation.
 
 #### How apps can achieve same result as override
 
-Set property flag [`PROPERTY_CAMERA_COMPAT_ENABLE_REFRESH_VIA_PAUSE`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_CAMERA_COMPAT_ENABLE_REFRESH_VIA_PAUSE) to `true`.
+Set property flag
+[`PROPERTY_CAMERA_COMPAT_ENABLE_REFRESH_VIA_PAUSE`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_CAMERA_COMPAT_ENABLE_REFRESH_VIA_PAUSE)
+to `true`.
 
 #### How to optimize apps
 
-See [OVERRIDE_CAMERA_COMPAT_DISABLE_FORCE_ROTATION](https://developer.android.com/guide/practices/device-compatibility-mode#override_camera_compat_disable_force_rotation).
+See
+[OVERRIDE_CAMERA_COMPAT_DISABLE_FORCE_ROTATION](https://developer.android.com/guide/practices/device-compatibility-mode#override_camera_compat_disable_force_rotation).
 
 #### How to disable or opt out of override
 
-Set property flag [`PROPERTY_CAMERA_COMPAT_ENABLE_REFRESH_VIA_PAUSE`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_CAMERA_COMPAT_ENABLE_REFRESH_VIA_PAUSE) to `false`.
+Set property flag
+[`PROPERTY_CAMERA_COMPAT_ENABLE_REFRESH_VIA_PAUSE`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_CAMERA_COMPAT_ENABLE_REFRESH_VIA_PAUSE)
+to `false`.
 
 #### Property flags to adjust override
 
@@ -1593,19 +2018,26 @@ To remove the override:
 
 ### OVERRIDE_CAMERA_LANDSCAPE_TO_PORTRAIT
 
-Forces camera output to be cropped to the opposite orientation when portrait camera orientation doesn't align with the natural device orientation. Many apps don't handle this situation and display stretched images otherwise.
+Forces camera output to be cropped to the opposite orientation when portrait
+camera orientation doesn't align with the natural device orientation. Many apps
+don't handle this situation and display stretched images otherwise.
 
 #### How apps can achieve same result as override
 
-Set property flag [`PROPERTY_COMPAT_OVERRIDE_LANDSCAPE_TO_PORTRAIT`](https://developer.android.com/reference/android/content/pm/PackageManager#PROPERTY_COMPAT_OVERRIDE_LANDSCAPE_TO_PORTRAIT) to `true`.
+Set property flag
+[`PROPERTY_COMPAT_OVERRIDE_LANDSCAPE_TO_PORTRAIT`](https://developer.android.com/reference/android/content/pm/PackageManager#PROPERTY_COMPAT_OVERRIDE_LANDSCAPE_TO_PORTRAIT)
+to `true`.
 
 #### How to optimize apps
 
-See [OVERRIDE_CAMERA_COMPAT_DISABLE_FORCE_ROTATION](https://developer.android.com/guide/practices/device-compatibility-mode#override_camera_compat_disable_force_rotation).
+See
+[OVERRIDE_CAMERA_COMPAT_DISABLE_FORCE_ROTATION](https://developer.android.com/guide/practices/device-compatibility-mode#override_camera_compat_disable_force_rotation).
 
 #### How to disable or opt out of override
 
-Set property flag [`PROPERTY_COMPAT_OVERRIDE_LANDSCAPE_TO_PORTRAIT`](https://developer.android.com/reference/android/content/pm/PackageManager#PROPERTY_COMPAT_OVERRIDE_LANDSCAPE_TO_PORTRAIT) to `false`.
+Set property flag
+[`PROPERTY_COMPAT_OVERRIDE_LANDSCAPE_TO_PORTRAIT`](https://developer.android.com/reference/android/content/pm/PackageManager#PROPERTY_COMPAT_OVERRIDE_LANDSCAPE_TO_PORTRAIT)
+to `false`.
 
 #### Property flags to adjust override
 
@@ -1626,21 +2058,35 @@ To remove the override, which removes inner front camera cropping:
 
 ### OVERRIDE_DISABLE_MEDIA_PROJECTION_SINGLE_APP_OPTION
 
-Prevents apps from opting out of app screen sharing (see [Media projection](https://developer.android.com/media/grow/media-projection#partial_screen_sharing_opt_out)). Implemented when apps misuse the [`createConfigForDefaultDisplay()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionConfig#createconfigfordefaultdisplay) API to force full‑screen capture and jeopardize user privacy by exposing the contents of notifications, which are captured with full‑screen but not app screen sharing, and all apps regardless of windowing mode.
+Prevents apps from opting out of app screen sharing (see
+[Media projection](https://developer.android.com/media/grow/media-projection#partial_screen_sharing_opt_out)). Implemented when apps misuse the
+[`createConfigForDefaultDisplay()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionConfig#createconfigfordefaultdisplay) API to force
+full‑screen capture and jeopardize user privacy by exposing the contents
+of notifications, which are captured with full‑screen but not app screen
+sharing, and all apps regardless of windowing mode.
 
 #### How apps can achieve same result as override
 
-Allow the default media projection behavior (implemented in Android 14, API level 34, with [`createScreenCaptureIntent()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionManager#createscreencaptureintent)), which enables users to decide whether to share the full screen or a single app window regardless of windowing mode. Or call [`createScreenCaptureIntent(MediaProjectionConfig)`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionManager#createscreencaptureintent_1) with a [`MediaProjectionConfig`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionConfig) argument returned from a call to [`createConfigForUserChoice()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionConfig#createconfigforuserchoice).
+Allow the default media projection behavior (implemented in Android 14, API
+level 34, with [`createScreenCaptureIntent()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionManager#createscreencaptureintent)),
+which enables users to decide whether to share the full screen or a single app
+window regardless of windowing mode. Or call
+[`createScreenCaptureIntent(MediaProjectionConfig)`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionManager#createscreencaptureintent_1)
+with a [`MediaProjectionConfig`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionConfig) argument returned from a
+call to [`createConfigForUserChoice()`](https://developer.android.com/reference/kotlin/android/media/projection/MediaProjectionConfig#createconfigforuserchoice).
 
 #### How to optimize apps
 
-Allow users to select whether to share the entire device display or an app window during media projection, which as of Android 14 is the default behavior.
+Allow users to select whether to share the entire device display or an app
+window during media projection, which as of Android 14 is the default behavior.
 
-Make your app resizable ([`resizeableActivity="true"`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity)) to support multi‑window mode.
+Make your app resizable ([`resizeableActivity="true"`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity)) to
+support multi‑window mode.
 
 #### How to disable or opt out of override
 
-Because of the seriousness of user privacy, your app cannot disable or opt out of this override.
+Because of the seriousness of user privacy, your app cannot disable or opt out
+of this override.
 
 #### Property flags to adjust override
 
@@ -1648,11 +2094,13 @@ None.
 
 #### adb commands to test override
 
-To apply the override, which cancels the app's opt out of partial screen sharing (that is, enables partial screen sharing):
+To apply the override, which cancels the app's opt out of partial screen sharing
+(that is, enables partial screen sharing):
 
     adb shell am compat enable OVERRIDE_DISABLE_MEDIA_PROJECTION_SINGLE_APP_OPTION <package>
 
-To remove the override, which allows the app's opt out of partial screen sharing:
+To remove the override, which allows the app's opt out of partial screen
+sharing:
 
     adb shell am compat disable OVERRIDE_DISABLE_MEDIA_PROJECTION_SINGLE_APP_OPTION <package>
 
@@ -1660,21 +2108,33 @@ To remove the override, which allows the app's opt out of partial screen sharing
 
 ### OVERRIDE_ENABLE_COMPAT_FAKE_FOCUS
 
-Enables sending fake focus for unfocused apps in split‑screen mode. Some game engines wait to get focus before drawing the content of the app; and so, fake focus helps apps avoid staying blacked out when they are resumed and do not yet have focus.
+Enables sending fake focus for unfocused apps in split‑screen mode. Some
+game engines wait to get focus before drawing the content of the app; and so,
+fake focus helps apps avoid staying blacked out when they are resumed and do not
+yet have focus.
 
 #### How apps can achieve same result as override
 
-Set property flag [`PROPERTY_COMPAT_ENABLE_FAKE_FOCUS`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_ENABLE_FAKE_FOCUS) to `true`.
+Set property flag
+[`PROPERTY_COMPAT_ENABLE_FAKE_FOCUS`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_ENABLE_FAKE_FOCUS) to
+`true`.
 
 #### How to optimize apps
 
-You can avoid this issue if your app handles multiple orientations and configuration changes well. Enable your app to support all device form factors and app windowing modes by following the [Adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality).
+You can avoid this issue if your app handles multiple orientations and
+configuration changes well. Enable your app to support all device form factors
+and app windowing modes by following the [Adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality).
 
-If you run the Unity game engine, upgrade to version 2019.4.40 or later and re‑export your game. Keep the **Resizable Window** option checked in the [Android Player](https://docs.unity3d.com/2019.4/Documentation/Manual/class-PlayerSettingsAndroid.html#resizable) settings.
+If you run the Unity game engine, upgrade to version 2019.4.40 or later and
+re‑export your game. Keep the **Resizable Window** option checked in
+the [Android Player](https://docs.unity3d.com/2019.4/Documentation/Manual/class-PlayerSettingsAndroid.html#resizable)
+settings.
 
 #### How to disable or opt out of override
 
-Set property flag [`PROPERTY_COMPAT_ENABLE_FAKE_FOCUS`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_ENABLE_FAKE_FOCUS) to `false`.
+Set property flag
+[`PROPERTY_COMPAT_ENABLE_FAKE_FOCUS`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_ENABLE_FAKE_FOCUS) to
+`false`.
 
 #### Property flags to adjust override
 
@@ -1695,7 +2155,9 @@ To remove the override:
 
 ### OVERRIDE_EXCLUDE_CAPTION_INSETS_FROM_APP_BOUNDS
 
-When the override is enabled, the activity receives configuration that includes caption bar insets. Normally, caption bar insets are not included in the configuration.
+When the override is enabled, the activity receives configuration that includes
+caption bar insets. Normally, caption bar insets are not included in the
+configuration.
 
 #### How apps can achieve same result as override
 
@@ -1711,7 +2173,9 @@ You can avoid this issue if your app enables edge‑to‑edge display.
 
 #### How to disable or opt out of override
 
-Set property flag [`PROPERTY_COMPAT_ALLOW_EXCLUDE_CAPTION_INSETS`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_ALLOW_EXCLUDE_CAPTION_INSETS) to `false`.
+Set property flag
+[`PROPERTY_COMPAT_ALLOW_EXCLUDE_CAPTION_INSETS`](https://developer.android.com/reference/android/view/WindowManager#PROPERTY_COMPAT_ALLOW_EXCLUDE_CAPTION_INSETS) to
+`false`.
 
 #### Property flags to adjust override
 

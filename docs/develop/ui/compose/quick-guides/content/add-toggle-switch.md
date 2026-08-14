@@ -6,26 +6,32 @@ source: md.txt
 
 <br />
 
-The [`Switch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Switch.composable#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)) component lets users toggle between two states: checked and unchecked. Use a switch to let the user to do one of the following:
+The [`Switch`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Switch.composable#Switch(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.SwitchColors,androidx.compose.foundation.interaction.MutableInteractionSource)) component lets users toggle between two states: checked
+and unchecked. Use a switch to let the user to do one of the
+following:
 
 - Toggle a setting on or off.
 - Enable or disable a feature.
 - Select an option.
 
-The component has two parts: the thumb and the track. The thumb is the draggable part of the switch, and the track is the background. The user can drag the thumb to the left or right to change the state of the switch. They can also tap the switch to check and clear it.
+The component has two parts: the thumb and the track. The thumb is the draggable
+part of the switch, and the track is the background. The user can drag the thumb
+to the left or right to change the state of the switch. They can also tap the
+switch to check and clear it.
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or higher.
+This implementation requires that your project minSDK be set to API level 21 or
+higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_fe30e5b1b3bf57635bdc2152f1499c7d7bf124e4909c22a4e51155c557d1cd7f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Implement a switch
 
 The following example is a minimal implementation of the `Switch` composable:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_9ba08efc53c4facd8e4452a78a614777287d20ab4ea53f9aab5bd8e35664318c.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_f178079e406c60479e4a0f2d8aecf17bfdf7244738fbbf1d42d683db1bb7c326.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -33,18 +39,24 @@ The following example is a minimal implementation of the `Switch` composable:
 
 ## Create a custom thumb
 
-You can pass any composable for the `thumbContent` parameter to create a custom thumb. The following is an example of a switch that uses a custom icon for its thumb:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_5f5a60d60c2f7bfb1d03366640c64e4ab3f1d1b19af2081499245effbc4c1c0f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+You can pass any composable for the `thumbContent` parameter to create a custom
+thumb. The following is an example of a switch that uses a custom icon for its
+thumb:
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_f1a6e35f68df883c31095ad01f4c01943c9e38999b5ebb960fd46b3ad5504875.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
-The unchecked appearance is the same as the example in the preceding section. However, when checked, this implementation appears as follows:
+The unchecked appearance is the same as the example in
+the preceding section. However, when checked, this implementation appears as
+follows:
 ![A switch that uses the thumbContent parameter to display a custom icon when checked.](https://developer.android.com/static/develop/ui/compose/images/components/switch-icon.png) **Figure 3.** A switch with a custom checked icon.
 
 ## Use custom colors
 
-Use the `colors` parameter to change the color of a switch's thumb and track, taking into account whether the switch is checked.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_253d9b3480a46123adc6d2d80337b64799762c39be95dcbc1b9723e87a915094.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+Use the `colors` parameter to
+change the color of a switch's thumb and track, taking into account whether the
+switch is checked.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/add-toggle-switch_db7e0d9f38fa7e81a6d07640889e31e23ca389e90b632521f9f0ad3d64cad2b0.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -65,7 +77,8 @@ Use the `colors` parameter to change the color of a switch's thumb and track, ta
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover
+broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display interactive components

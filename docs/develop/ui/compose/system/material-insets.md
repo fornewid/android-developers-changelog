@@ -4,14 +4,19 @@ url: https://developer.android.com/develop/ui/compose/system/material-insets
 source: md.txt
 ---
 
-For ease of use, many of the built-in Material 3 composables ([`androidx.compose.material3`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary)) handle insets themselves, based on how the composables are placed in your app according to the Material specifications.
+For ease of use, many of the built-in Material 3 composables
+([`androidx.compose.material3`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary))
+handle insets themselves, based on how the composables are placed in your app
+according to the Material specifications.
 
 > [!NOTE]
 > **Note:** Material 2 Components ([`androidx.compose.material`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary)) don't automatically handle insets themselves. However, you can get access to the insets and apply them manually. In [`androidx.compose.material 1.6.0`](https://developer.android.com/jetpack/androidx/releases/compose-material#1.6.0-alpha03) and later use the `windowInsets` parameter to apply the insets manually for [`BottomAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material/BottomAppBar.composable#BottomAppBar(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.PaddingValues,kotlin.Function1)), [`TopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material/TopAppBar.composable#TopAppBar(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.PaddingValues,kotlin.Function1)), [`BottomNavigation`](https://developer.android.com/reference/kotlin/androidx/compose/material/BottomNavigation.composable#BottomNavigation(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,kotlin.Function1)), and [`NavigationRail`](https://developer.android.com/reference/kotlin/androidx/compose/material/NavigationRail.composable#NavigationRail(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.unit.Dp,kotlin.Function1,kotlin.Function1)). Likewise, use the `contentWindowInsets` parameter for [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable#Scaffold(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)). Otherwise, apply the insets manually as padding.
 
 ## Inset handling composables
 
-The following is a list of the [Material Components](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary) that automatically handle insets.
+The following is a list of the [Material
+Components](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary) that
+automatically handle insets.
 
 ## App bars
 
@@ -27,9 +32,12 @@ The following is a list of the [Material Components](https://developer.android.c
 
 ### Scaffold
 
-By default, [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Scaffold.composable#Scaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.material3.FabPosition,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) provides insets as parameter `PaddingValues` for you to consume and use. `Scaffold` does not apply the insets to content; this responsibility is yours. For example, to consume these insets with a `LazyColumn` inside a `Scaffold`:
+By default,
+[`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Scaffold.composable#Scaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.material3.FabPosition,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1))
+provides insets as parameter `PaddingValues` for you to consume and use.
+`Scaffold` does not apply the insets to content; this responsibility is yours.
+For example, to consume these insets with a `LazyColumn` inside a `Scaffold`:
 
-<br />
 
 ```kotlin
 Scaffold { innerPadding ->
@@ -42,23 +50,30 @@ Scaffold { innerPadding ->
         // ..
     }
 }
-   
 ```
 
 <br />
 
-The following video shows a `LazyColumn` within a `Scaffold` with edge-to-edge display disabled and enabled:
+The following video shows a `LazyColumn` within a `Scaffold` with edge-to-edge
+display disabled and enabled:
 Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/develop/ui/compose/images/layouts/insets/LazyColumn_E2E.mp4) and watch it with a video player.
 
-Using the `PaddingValues` parameter in `Scaffold` is generally enough to inset your UI away from the system UI and display cutouts. Avoid using additional inset handling approaches like rulers, padding modifiers, or inset size modifiers if using `Scaffold` to avoid applying too much padding to your UI.
+Using the `PaddingValues` parameter in `Scaffold` is generally enough to inset
+your UI away from the system UI and display cutouts. Avoid using additional
+inset handling approaches like rulers, padding modifiers, or inset size
+modifiers if using `Scaffold` to avoid applying too much padding to your UI.
 
 ## Override default insets
 
-You can change the `windowInsets` parameter passed to the composable to configure the composable's behavior. This parameter can be a different type of window inset to apply instead, or disabled by passing an empty instance: `WindowInsets(0, 0, 0, 0)`.
+You can change the `windowInsets` parameter passed to the composable to
+configure the composable's behavior. This parameter can be a different type of
+window inset to apply instead, or disabled by passing an empty instance:
+`WindowInsets(0, 0, 0, 0)`.
 
-For example, to disable the inset handling on [`LargeTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LargeTopAppBar.composable), set the `windowInsets` parameter to an empty instance:
+For example, to disable the inset handling on
+[`LargeTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/LargeTopAppBar.composable),
+set the `windowInsets` parameter to an empty instance:
 
-<br />
 
 ```kotlin
 LargeTopAppBar(
@@ -67,7 +82,6 @@ LargeTopAppBar(
         Text("Hi")
     }
 )
-   
 ```
 
 <br />

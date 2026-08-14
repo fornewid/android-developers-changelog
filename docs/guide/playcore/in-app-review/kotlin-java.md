@@ -4,11 +4,15 @@ url: https://developer.android.com/guide/playcore/in-app-review/kotlin-java
 source: md.txt
 ---
 
-This guide describes how to integrate in-app reviews in your app using either Kotlin or Java. There are separate integration guides if you are using [native code](https://developer.android.com/guide/playcore/in-app-review/native), [Unity](https://developer.android.com/guide/playcore/in-app-review/unity) or [Unreal Engine](https://developer.android.com/guide/playcore/in-app-review/unreal-engine).
+This guide describes how to integrate in-app reviews in your app using either
+Kotlin or Java. There are separate integration guides if you are using [native
+code](https://developer.android.com/guide/playcore/in-app-review/native), [Unity](https://developer.android.com/guide/playcore/in-app-review/unity) or [Unreal Engine](https://developer.android.com/guide/playcore/in-app-review/unreal-engine).
 
 ## Set up your development environment
 
-The Play In-App Review Library is a part of the [Google Play Core libraries](https://developer.android.com/guide/playcore). Include the following Gradle dependency to integrate the Play In-App Review Library.
+The Play In-App Review Library is a part of the [Google Play Core libraries](https://developer.android.com/guide/playcore).
+Include the following Gradle dependency to integrate the Play In-App Review
+Library.
 
 ### Groovy
 
@@ -44,7 +48,9 @@ dependencies {
 
 ## Create the ReviewManager
 
-The [`ReviewManager`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewManager) is the interface that lets your app start an in-app review flow. Obtain it by creating an instance using the [`ReviewManagerFactory`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewManagerFactory).
+The [`ReviewManager`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewManager) is the interface that lets your app start an in-app
+review flow. Obtain it by creating an instance using the
+[`ReviewManagerFactory`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewManagerFactory).
 
 ### Kotlin
 
@@ -60,7 +66,12 @@ ReviewManager manager = ReviewManagerFactory.create(context)
 
 ## Request a ReviewInfo object
 
-Follow the guidance about [when to request in-app reviews](https://developer.android.com/guide/playcore/in-app-review#when-to-request) to determine good points in your app's user flow to prompt the user for a review (for example, when the user completes a level in a game). When your app reaches one of these points, use the [`ReviewManager`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewManager) instance to create a request task. If successful, the API returns the [`ReviewInfo`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewInfo) object needed to start the in-app review flow.
+Follow the guidance about [when to request in-app reviews](https://developer.android.com/guide/playcore/in-app-review#when-to-request) to determine good
+points in your app's user flow to prompt the user for a review (for example,
+when the user completes a level in a game). When your app reaches one of these
+points, use the [`ReviewManager`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewManager) instance to create a request task. If
+successful, the API returns the [`ReviewInfo`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewInfo) object needed to start the
+in-app review flow.
 
 ### Kotlin
 
@@ -98,7 +109,9 @@ request.addOnCompleteListener(task -> {
 
 ## Launch the in-app review flow
 
-Use the [`ReviewInfo`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewInfo) instance to launch the in-app review flow. Wait until the user has completed the in-app review flow before your app continues its normal user flow (such as advancing to the next level).
+Use the [`ReviewInfo`](https://developer.android.com/reference/com/google/android/play/core/review/ReviewInfo) instance to launch the in-app review flow. Wait until
+the user has completed the in-app review flow before your app continues its
+normal user flow (such as advancing to the next level).
 
 ### Kotlin
 
@@ -127,4 +140,5 @@ flow.addOnCompleteListener(task -> {
 
 ## Next steps
 
-[Test your app's in-app review flow](https://developer.android.com/guide/playcore/in-app-review/test) to verify that your integration is working correctly.
+[Test your app's in-app review flow](https://developer.android.com/guide/playcore/in-app-review/test) to verify that your integration is
+working correctly.

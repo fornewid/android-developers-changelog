@@ -4,11 +4,16 @@ url: https://developer.android.com/training/cars/apps/iot
 source: md.txt
 ---
 
-IoT apps enable users to take relevant actions on connected devices from within the car. Examples include controlling the state of certain devices, such as opening a garage door, flipping home light switches, or enabling home security.
+IoT apps enable users to take relevant actions on connected devices from within
+the car. Examples include controlling the state of certain devices, such as
+opening a garage door, flipping home light switches, or enabling home security.
 
 ## Declare category support in your manifest
 
-Your app must declare the `androidx.car.app.category.IOT` [car app category](https://developer.android.com/training/cars/apps/library/set-up-project#supported-app-categories) in the intent filter of its [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService).
+Your app must declare the `androidx.car.app.category.IOT`
+[car app category](https://developer.android.com/training/cars/apps/library/set-up-project#supported-app-categories)
+in the intent filter of its
+[`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService).
 
     <application>
         ...
@@ -26,11 +31,16 @@ Your app must declare the `androidx.car.app.category.IOT` [car app category](htt
 
 ## Implement your app's functionality
 
-To implement your app, see [Using the Android for Cars App Library](https://developer.android.com/training/cars/apps) on how Car App Library apps are built. Also, be sure to read the [Car App Quality Guidelines for IOT apps](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=iot#app_categories) , because your app will be reviewed against these guidelines.
+To implement your app, see
+[Using the Android for Cars App Library](https://developer.android.com/training/cars/apps) on how Car App
+Library apps are built. Also, be sure to read the
+[Car App Quality Guidelines for IOT apps](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=iot#app_categories)
+, because your app will be reviewed against these guidelines.
 
-For IoT apps, the [`GridTemplate`](https://developer.android.com/reference/androidx/car/app/model/GridTemplate) is a good choice for displaying a list of devices and letting users interact with them, as shown in the following sample:
+For IoT apps, the [`GridTemplate`](https://developer.android.com/reference/androidx/car/app/model/GridTemplate)
+is a good choice for displaying a list of devices and letting users
+interact with them, as shown in the following sample:
 
-<br />
 
 ```kotlin
 val listBuilder = ItemList.Builder()
@@ -69,7 +79,6 @@ return GridTemplate.Builder()
     )
     .setSingleList(listBuilder.build())
     .build()
-   
 ```
 
 <br />

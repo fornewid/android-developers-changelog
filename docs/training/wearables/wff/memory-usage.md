@@ -4,7 +4,9 @@ url: https://developer.android.com/training/wearables/wff/memory-usage
 source: md.txt
 ---
 
-Wear OS improves battery life by tracking memory use. Watch faces using the Watch Face Format have memory limits, as per the [Wear OS app quality guidelines](https://developer.android.com/docs/quality-guidelines/wear-app-quality#memory-usage):
+Wear OS improves battery life by tracking memory use. Watch faces using the
+Watch Face Format have memory limits, as per the [Wear OS app quality
+guidelines](https://developer.android.com/docs/quality-guidelines/wear-app-quality#memory-usage):
 
 - Ambient mode: 10 MB maximum memory use.
 - Interactive mode: 100 MB maximum memory use.
@@ -14,7 +16,8 @@ Wear OS improves battery life by tracking memory use. Watch faces using the Watc
 
 ## Memory usage calculation
 
-To compute memory usage for an image or bitmap font in a watch face using the Watch Face Format, the system does the following:
+To compute memory usage for an image or bitmap font in a watch face using the
+Watch Face Format, the system does the following:
 
 1. Decompress the image or font.
 2. Check if the following optimizations apply:
@@ -33,7 +36,8 @@ Based on the resulting bounding box, the size is computed as follows:
 
 ### Interactive mode
 
-To compute memory usage for interactive mode, the system sums the following values:
+To compute memory usage for interactive mode, the system sums the following
+values:
 
 1. The unprocessed size of any [vector fonts](https://developer.android.com/guide/topics/resources/font-resource)
 2. The estimated usage of the system's default font
@@ -41,11 +45,15 @@ To compute memory usage for interactive mode, the system sums the following valu
 
 ### Configurations
 
-For watch faces with [configurations](https://developer.android.com/training/wearables/wff/user-configuration/user-configurations), the system attempts to calculate the total size of the watch face resources across different configurations. If the number of combinations is very large, the system may overestimate how many resources are used simultaneously.
+For watch faces with [configurations](https://developer.android.com/training/wearables/wff/user-configuration/user-configurations), the system attempts to calculate the
+total size of the watch face resources across different configurations. If the
+number of combinations is very large, the system may overestimate how many
+resources are used simultaneously.
 
 ### Ambient mode and layers
 
-The system assumes ambient mode uses up to three full-screen layers, two of which are static. The layers include:
+The system assumes ambient mode uses up to three full-screen layers, two of
+which are static. The layers include:
 
 1. The watch face background. The system treats this as one image, regardless of how many images the background comprises.
 2. Moving parts like hands, digital displays, or dynamic elements.
@@ -64,25 +72,33 @@ Use the following optimizations to reduce memory usage.
 
 Crop your images and [`BitmapFont`](https://developer.android.com/training/wearables/wff/group/part/text/bitmap-font) objects to match the display size.
 
-Wear OS draws watch faces with all images decompressed. A mostly blank full-screen image might consume 3 KB on disk, but 750 KB or more on a 450-pixel x 450-pixel screen.
+Wear OS draws watch faces with all images decompressed. A mostly blank
+full-screen image might consume 3 KB on disk, but 750 KB or more on a
+450-pixel x 450-pixel screen.
 
 ### Use consistent bitmap font heights
 
-When using a `BitmapFont`, ensure all images for a character have the same height. Likewise, ensure all images for words have the same height.
+When using a `BitmapFont`, ensure all images for a character have the same
+height. Likewise, ensure all images for words have the same height.
 
 ### Use consistent frame sizes in animations
 
-Instead of moving an image across a watch face, update the elements in the image and keep the bounding box position fixed. For example, to animate a circle on your watch face, change its color instead of rolling it.
+Instead of moving an image across a watch face, update the elements in the image
+and keep the bounding box position fixed. For example, to animate a circle on
+your watch face, change its color instead of rolling it.
 
 This technique shrinks the size of the animation's calculated bounding box.
 
 ### Deduplicate images
 
-To display an image multiple times, include only one image resource and reference it multiple times.
+To display an image multiple times, include only one image resource and
+reference it multiple times.
 
 ### Show progress using arcs
 
-To simulate a progress bar finishing after 1 minute or 1 hour, don't use 60 images. Use an [`Arc`](https://developer.android.com/training/wearables/wff/group/part/draw/shape/arc) object with an expression controlling its length, as shown here:
+To simulate a progress bar finishing after 1 minute or 1 hour, don't use 60
+images. Use an [`Arc`](https://developer.android.com/training/wearables/wff/group/part/draw/shape/arc) object with an expression controlling its length, as
+shown here:
 
 <br />
 
@@ -97,20 +113,24 @@ To simulate a progress bar finishing after 1 minute or 1 hour, don't use 60 imag
         <Stroke cap="ROUND" color="#654456" thickness="10" />
     </Arc>
 </PartDraw>
-   
 ```
 
 <br />
 
-To display a noncontinuous line, for example to achieve a retro digital watch style look, use a dash property for a [`Stroke`](https://developer.android.com/training/wearables/wff/group/part/draw/style/stroke) object or a semitransparent mask image overlay.
+To display a noncontinuous line, for example to achieve a retro digital watch
+style look, use a dash property for a [`Stroke`](https://developer.android.com/training/wearables/wff/group/part/draw/style/stroke) object or a semitransparent
+mask image overlay.
 
 ### Place watch hands and complications at the end of the source file
 
-XML nodes are drawn in the order listed in the source XML. By putting watch hands and complications at the end, you enable the system to eliminate an entire layer from the ambient mode memory calculation.
+XML nodes are drawn in the order listed in the source XML. By putting watch
+hands and complications at the end, you enable the system to eliminate an entire
+layer from the ambient mode memory calculation.
 
 ## Evaluate the memory usage of your watch face
 
-To measure the memory usage of your watch face, use the memory footprint evaluator tool, available in the [`watchface`](https://github.com/google/watchface) repository on GitHub.
+To measure the memory usage of your watch face, use the memory footprint
+evaluator tool, available in the [`watchface`](https://github.com/google/watchface) repository on GitHub.
 
 ## Recommended for you
 

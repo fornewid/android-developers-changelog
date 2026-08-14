@@ -6,13 +6,18 @@ source: md.txt
 
 <br />
 
-The [`Card`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable acts as a Material Design container for your UI. Cards present a single coherent piece of content, such as:
+The [`Card`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable acts as a Material Design container for your UI.
+Cards present a single coherent piece of content, such as:
 
 - A product in a shopping app.
 - A news story in a news app.
 - A message in a communications app.
 
-The focus on portraying a single piece of content distinguishes `Card` from other containers. For example, `Scaffold` provides general structure to a whole screen. Card is a smaller UI element inside a larger layout, whereas a layout component such as `Column` or `Row` provides a simpler and more generic API.
+The focus on portraying a single piece of content distinguishes
+`Card` from other containers. For example, `Scaffold` provides general structure
+to a whole screen. Card is a smaller UI element inside a larger
+layout, whereas a layout component such as `Column` or `Row` provides a simpler
+and more generic API.
 
 This topic shows you how to implement four types of cards:
 
@@ -23,15 +28,18 @@ This topic shows you how to implement four types of cards:
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or higher.
+This implementation requires that your project minSDK be set to API level 21 or
+higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_fe30e5b1b3bf57635bdc2152f1499c7d7bf124e4909c22a4e51155c557d1cd7f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a basic card
 
-`Card` behaves much like other containers in Compose. You declare its content by calling other composables within it. For example, consider how `Card` contains a call to `Text` in the following minimal example:
+`Card` behaves much like other containers in Compose. You declare its content by
+calling other composables within it. For example, consider how `Card` contains a
+call to `Text` in the following minimal example:
 <iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_9318545804b83cf468e54d7362d169a8e14248dc90ffdd8ab27f58f2a586ce36.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 > [!NOTE]
@@ -39,8 +47,9 @@ This implementation requires that your project minSDK be set to API level 21 or 
 
 ## Create a filled card
 
-The key here is the use of the `colors` property to change the filled color:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_012ce09d675e8bc9c3d1049a8c331a7d9c15f84f9c89d9ccfacf76144313c412.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+The key here is the use of the `colors` property to change the filled
+color:
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_3b9a71ea103b1d1c6187dce6c5478d6d4b6d467d77053ad78aa886130bee481b.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -48,10 +57,12 @@ The key here is the use of the `colors` property to change the filled color:
 
 ## Create an elevated card
 
-The following snippet demonstrates how to implement an elevated card. Use the dedicated [`ElevatedCard`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedCard.composable#ElevatedCard(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,kotlin.Function1)) composable.
+The following snippet demonstrates how to implement an elevated card. Use the
+dedicated [`ElevatedCard`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedCard.composable#ElevatedCard(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,kotlin.Function1)) composable.
 
-You can use the `elevation` property to control the appearance of elevation and the resulting shadow.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_73ad5bd53b6ac38e4490753792146cdff890be5d31520d67a87299c3c8e23367.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+You can use the `elevation` property to control the appearance of elevation and
+the resulting shadow.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_a170819d80230b3954a4b14649ec6771d4913ce91980df9287949376ea438726.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -59,8 +70,9 @@ You can use the `elevation` property to control the appearance of elevation and 
 
 ## Create an outlined card
 
-The following is an example of an outlined card. Use the dedicated [`OutlinedCard`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedCard.composable#OutlinedCard(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_ade231b3696a1865c2d63117cd4996b2b1140118ebf77046be30767b4bcd247f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+The following is an example of an outlined card. Use the dedicated
+[`OutlinedCard`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedCard.composable#OutlinedCard(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_ff034b6241a09a97ad17b34b7cfdb7f8d15b18eb515e461207a6128b2e7a38a4.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -68,7 +80,9 @@ The following is an example of an outlined card. Use the dedicated [`OutlinedCar
 
 ## Key points
 
-See the [reference](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) for the API definition of `Card`. It defines several parameters that you can use to customize the appearance and behavior of the component.
+See the [reference](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable#Card(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) for the API definition of `Card`. It defines several
+parameters that you can use to customize the appearance and behavior of the
+component.
 
 Some key parameters include:
 
@@ -77,11 +91,16 @@ Some key parameters include:
 - **`enabled`** : If you pass `false` for this parameter, the card appears as disabled and does not respond to user input.
 - **`onClick`** : Ordinarily, a `Card` does not accept click events. As such, the primary overload you would like to note is that which defines an `onClick` parameter. Use this overload when you want your implementation of `Card` to respond to clicks from the user.
 
-Cards don't come with inherent scroll or dismiss actions, but can integrate into composables offering these features. For example, to implement swipe to dismiss on a card, integrate it with the [`SwipeToDismissBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable) composable. To integrate with scroll, use scroll modifiers such as [`verticalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)). See the [`Scroll` documentation](https://developer.android.com/develop/ui/compose/touch-input/scroll/scroll-modifiers) for more information.
+Cards don't come with inherent scroll or dismiss actions, but can integrate into
+composables offering these features. For example, to implement swipe to dismiss
+on a card, integrate it with the [`SwipeToDismissBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SwipeToDismissBox.composable) composable. To integrate
+with scroll, use scroll modifiers such as [`verticalScroll`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/verticalScroll.modifier#(androidx.compose.ui.Modifier).verticalScroll(androidx.compose.foundation.ScrollState,kotlin.Boolean,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean)). See the [`Scroll`
+documentation](https://developer.android.com/develop/ui/compose/touch-input/scroll/scroll-modifiers) for more information.
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover
+broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display interactive components

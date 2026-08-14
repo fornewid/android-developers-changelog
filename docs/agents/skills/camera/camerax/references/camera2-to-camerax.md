@@ -4,9 +4,13 @@ url: https://developer.android.com/agents/skills/camera/camerax/references/camer
 source: md.txt
 ---
 
-Camera2 offers granular control but introduces boilerplate: managing `CameraDevice` states, `CameraCaptureSession` lifecycles, background threads, `HandlerThread`, and manual orientation calculations.
+Camera2 offers granular control but introduces boilerplate: managing
+`CameraDevice` states, `CameraCaptureSession` lifecycles, background threads,
+`HandlerThread`, and manual orientation calculations.
 
-CameraX simplifies this by binding high-level `UseCase`s such as `Preview`, `ImageCapture`, and `ImageAnalysis` directly to Android lifecycles, handling thread management and device-specific workarounds automatically.
+CameraX simplifies this by binding high-level `UseCase`s such as `Preview`,
+`ImageCapture`, and `ImageAnalysis` directly to Android lifecycles, handling
+thread management and device-specific workarounds automatically.
 
 *** ** * ** ***
 
@@ -23,9 +27,10 @@ Migrating to CameraX removes manual setup code:
 
 ## Initialize `ProcessCameraProvider`
 
-Request the `ProcessCameraProvider` and bind your use cases to the `LifecycleOwner` activity or fragment. This replaces the `CameraManager.openCamera` flow.
+Request the `ProcessCameraProvider` and bind your use cases to the
+`LifecycleOwner` activity or fragment. This replaces the
+`CameraManager.openCamera` flow.
 
-<br />
 
 ```kotlin
 val context = LocalContext.current
@@ -57,7 +62,6 @@ LaunchedEffect(context, lifecycleOwner) {
     imageAnalysis
   )
 }
-   
 ```
 
 <br />
@@ -66,17 +70,17 @@ LaunchedEffect(context, lifecycleOwner) {
 
 ## Implement the preview and tap-to-focus
 
-CameraX handles surface configuration automatically. Choose based on your UI toolkit:
+CameraX handles surface configuration automatically. Choose based on your UI
+toolkit:
 
 ### Option A: For Android Views
 
-Use `androidx.camera.view.PreviewView` in your layout, and bind it to the `Preview` use case.
+Use `androidx.camera.view.PreviewView` in your layout, and bind it to the
+`Preview` use case.
 
-<br />
 
 ```kotlin
 preview.setSurfaceProvider(previewView.surfaceProvider)
-   
 ```
 
 <br />
@@ -85,7 +89,6 @@ preview.setSurfaceProvider(previewView.surfaceProvider)
 
 Use `androidx.camera.compose.CameraXViewfinder`.
 
-<br />
 
 ```kotlin
 var surfaceRequest by remember { mutableStateOf<SurfaceRequest?>(null) }
@@ -94,7 +97,6 @@ val preview = remember {
     setSurfaceProvider { request -> surfaceRequest = request }
   }
 }
-   
 ```
 
 <br />
@@ -103,9 +105,10 @@ val preview = remember {
 
 ## Capture a photo
 
-Replace `ImageReader` capture flows and `CaptureRequest.Builder.TEMPLATE_STILL_CAPTURE` with the `ImageCapture` use case. CameraX handles the rotation natively using the returned `ImageProxy`.
+Replace `ImageReader` capture flows and
+`CaptureRequest.Builder.TEMPLATE_STILL_CAPTURE` with the `ImageCapture` use
+case. CameraX handles the rotation natively using the returned `ImageProxy`.
 
-<br />
 
 ```kotlin
 imageCapture.takePicture(
@@ -137,7 +140,6 @@ imageCapture.takePicture(
     }
   }
 )
-   
 ```
 
 <br />
@@ -146,9 +148,9 @@ imageCapture.takePicture(
 
 ## Implement image analysis
 
-If you were using `ImageReader` in Camera2 to access raw frames, e.g., for QR scanning or ML,, replace it with the CameraX `ImageAnalysis` use case.
+If you were using `ImageReader` in Camera2 to access raw frames, e.g., for QR
+scanning or ML,, replace it with the CameraX `ImageAnalysis` use case.
 
-<br />
 
 ```kotlin
 imageAnalysis.setAnalyzer(cameraExecutor) { imageProxy ->
@@ -161,7 +163,6 @@ imageAnalysis.setAnalyzer(cameraExecutor) { imageProxy ->
     imageProxy.close()
   }
 }
-   
 ```
 
 <br />
@@ -170,9 +171,10 @@ imageAnalysis.setAnalyzer(cameraExecutor) { imageProxy ->
 
 ## Use Camera2 interop
 
-If your app requires specific Camera2 configuration options, such as custom exposure modes or flash settings, that aren't exposed directly in CameraX, use `Camera2Interop` to apply them to your CameraX use cases.
+If your app requires specific Camera2 configuration options, such as custom
+exposure modes or flash settings, that aren't exposed directly in CameraX,
+use `Camera2Interop` to apply them to your CameraX use cases.
 
-<br />
 
 ```kotlin
 // Use Camera2Interop to set Camera2-specific capture options
@@ -184,7 +186,6 @@ extender.setCaptureRequestOption(
   CaptureRequest.FLASH_MODE,
   CaptureRequest.FLASH_MODE_TORCH
 )
-   
 ```
 
 <br />

@@ -4,7 +4,8 @@ url: https://developer.android.com/training/app-links
 source: md.txt
 ---
 
-Android deep links let you bring users directly into your app content from links they have tapped, such as from web browsing, search, notifications and more.
+Android deep links let you bring users directly into your app content from links
+they have tapped, such as from web browsing, search, notifications and more.
 
 Android supports two general types of app linking to meet different needs:
 
@@ -13,11 +14,16 @@ Android supports two general types of app linking to meet different needs:
 
 ## Android 15 update
 
-With Android 15, App Links are even more powerful with the introduction of Dynamic App Links. With the new dynamic capabilities, you can refine your app's deep link behaviors on the fly, with fine-grained control over URL matching, and without needing to release a new version of your app.
+With Android 15, App Links are even more powerful with the introduction of
+Dynamic App Links. With the new dynamic capabilities, you can refine your app's
+deep link behaviors on the fly, with fine-grained control over URL matching, and
+without needing to release a new version of your app.
 
 ## In this guide
 
-This guide explains how to create and test deep links, then covers how to implement App Links to deliver the best user experience for deep links to your website or domain.
+This guide explains how to create and test deep links, then covers how to
+implement App Links to deliver the best user experience for deep links to your
+website or domain.
 
 You should already be familiar with the following guides:
 

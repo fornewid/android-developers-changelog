@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
 source: md.txt
 ---
 
-When creating a Glimmer Icon component, refer to the following source code in `IconSizes.kt` for setting icon sizes:
+When creating a Glimmer Icon component, refer to the following source code in
+`IconSizes.kt` for setting icon sizes:
 
-<br />
 
 ```kotlin
 /*
@@ -79,8 +79,6 @@ public class IconSizes(
         return "IconSizes(small=$small, medium=$medium, large=$large)"
     }
 }
-
-   
 ```
 
 <br />

@@ -4,12 +4,15 @@ url: https://developer.android.com/media/media3/inspector
 source: md.txt
 ---
 
-The `androidx.media3.inspector` module lets you *inspect* media files by extracting information from them. You don't need to instantiate a full player, which makes the module ideal for *non-playback* scenarios.
+The `androidx.media3.inspector` module lets you *inspect* media files by
+extracting information from them. You don't need to instantiate a full player,
+which makes the module ideal for *non-playback* scenarios.
 
 This module includes the following APIs:
 
 - [`MetadataRetriever`](https://developer.android.com/reference/androidx/media3/inspector/MetadataRetriever): Retrieves high-level [**metadata**](https://developer.android.com/media/media3/inspector/retrieve-metadata).
-- [`FrameExtractor`](https://developer.android.com/reference/androidx/media3/inspector/frame/FrameExtractor): Extracts individual [**decoded video frames and thumbnails**](https://developer.android.com/media/media3/inspector/extract-frames).
+- [`FrameExtractor`](https://developer.android.com/reference/androidx/media3/inspector/frame/FrameExtractor): Extracts individual [**decoded video frames and
+  thumbnails**](https://developer.android.com/media/media3/inspector/extract-frames).
 - [`MediaExtractorCompat`](https://developer.android.com/reference/androidx/media3/inspector/MediaExtractorCompat): Extracts raw, [**encoded media samples**](https://developer.android.com/media/media3/inspector/extract-samples).
 
 ## Getting started
@@ -26,7 +29,8 @@ Add the dependencies for the required modules:
     implementation "androidx.media3:media3-inspector:1.11.0"
     implementation "androidx.media3:media3-inspector-frame:1.11.0"
 
-If you are migrating your app from platform APIs, these features provide equivalent functionality:
+If you are migrating your app from platform APIs, these features provide
+equivalent functionality:
 
 | **Functionality** | **Platform API** | **Media3 API** |
 |---|---|---|

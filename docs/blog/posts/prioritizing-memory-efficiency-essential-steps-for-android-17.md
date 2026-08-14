@@ -220,21 +220,24 @@ Written by:
 
   ###### Developer Relations Engineer
 
-  [read_more View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
 -
 
   ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai)
 
   ###### Developer Relations Engineer
 
-  [read_more View profile](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
 -
 
   ## [Fung Lam](https://developer.android.com/blog/authors/fung-lam)
 
   ###### Developer Relations Engineer
 
-  [read_more View profile](https://developer.android.com/blog/authors/fung-lam) ![View Fung Lam's profile](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_Z1o4ef9.webp) ![View Fung Lam's profile](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_Z1o4ef9.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/fung-lam) ![View Fung Lam's profile](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_Z1o4ef9.webp) ![View Fung Lam's profile](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_Z1o4ef9.webp)
 Continue reading
 - [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_Z1IAO0P.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
@@ -258,5 +261,8 @@ Continue reading
   - [#R8](https://developer.android.com/blog/topics/r8)
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

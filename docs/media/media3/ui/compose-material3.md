@@ -4,9 +4,11 @@ url: https://developer.android.com/media/media3/ui/compose-material3
 source: md.txt
 ---
 
-The `media3-ui-compose-material3` library provides a [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) Composable that shows player controls, progress bar and current media content. It handles both the state management and the Material3 styling internally. For more information on which library to use, see the [Media3 Compose overview](https://developer.android.com/media/media3/ui/compose).
+The `media3-ui-compose-material3` library provides a [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) Composable that
+shows player controls, progress bar and current media content. It handles both
+the state management and the Material3 styling internally. For more information
+on which library to use, see the [Media3 Compose overview](https://developer.android.com/media/media3/ui/compose).
 
-<br />
 
 ```kotlin
 // The library provides styled UI components
@@ -15,12 +17,10 @@ Row {
   PlayPauseButton(player)
   SeekForwardButton(player)
 }
-   
 ```
 
 <br />
 
-<br />
 
 ```kotlin
 // You can rearrange the composables into a layout that suits your needs
@@ -40,19 +40,19 @@ fun PlayerProgressControlsCenterAligned(player: Player) {
     DurationText(player)
   }
 }
-
-   
 ```
 
 <br />
 
 ### Customize the Material3 Components
 
-While `media3-ui-compose-material3` provides components that follow Material3 Design, you still have full control over theming. You can customize colors, typography, and shapes by wrapping your player UI in a `MaterialTheme`.
+While `media3-ui-compose-material3` provides components that follow Material3
+Design, you still have full control over theming. You can customize colors,
+typography, and shapes by wrapping your player UI in a `MaterialTheme`.
 
-For example, to change the color of the [`PlayPauseButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/PlayPauseButton.composable#PlayPauseButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)), you can provide a custom `colorScheme`:
+For example, to change the color of the [`PlayPauseButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/PlayPauseButton.composable#PlayPauseButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)), you can provide a
+custom `colorScheme`:
 
-<br />
 
 ```kotlin
 MaterialTheme(
@@ -65,14 +65,15 @@ MaterialTheme(
   // The PlayPauseButton will now use the custom colors
   PlayPauseButton(player)
 }
-   
 ```
 
 <br />
 
 ### Available Material3 Components
 
-The `media3-ui-compose-material3` library provides a set of prebuilt composables for common player controls. Here are some of the components you can use directly in your app:
+The `media3-ui-compose-material3` library provides a set of prebuilt composables
+for common player controls. Here are some of the components you can use directly
+in your app:
 
 | Component | Description |
 |---|---|
@@ -91,9 +92,12 @@ The `media3-ui-compose-material3` library provides a set of prebuilt composables
 | [`RemainingDurationText`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/indicator/RemainingDurationText.composable#RemainingDurationText(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlinx.coroutines.CoroutineScope)) | A text composable that displays the remaining duration. |
 | [`ProgressSlider`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/indicator/ProgressSlider.composable#ProgressSlider(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function0,kotlinx.coroutines.CoroutineScope,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource)) | A slider that shows playback progress and allows the user to seek. |
 
-*This is not an exhaustive list. Refer to the library's API reference for all available components.*
+*This is not an exhaustive list. Refer to the library's API reference for all
+available components.*
 
-Two other prebuilt Composables you are likely to need are related to the surface management and they live in the `media3-ui-compose` module because they don't possess Material theming.
+Two other prebuilt Composables you are likely to need are related to the surface
+management and they live in the `media3-ui-compose` module because they don't
+possess Material theming.
 
 | Component | Description |
 |---|---|

@@ -4,7 +4,12 @@ url: https://developer.android.com/media/media3/exoplayer/dash
 source: md.txt
 ---
 
-ExoPlayer supports DASH with multiple container formats. Media streams must be demuxed, meaning that video, audio, and text must be defined in distinct `AdaptationSet` elements in the DASH manifest (CEA-608 is an exception as described in the table below). The contained audio and video sample formats must also be supported (see the [sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats) section for details).
+ExoPlayer supports DASH with multiple container formats. Media streams must be
+demuxed, meaning that video, audio, and text must be defined in distinct
+`AdaptationSet` elements in the DASH manifest (CEA-608 is an exception as
+described in the table below). The contained audio and video sample formats must
+also be supported (see the
+[sample formats](https://developer.android.com/media/media3/exoplayer/supported-formats#sample-formats) section for details).
 
 | Feature | Supported | Comments |
 |---|---|---|
@@ -47,7 +52,6 @@ To play a DASH stream, you need to depend on the DASH module.
 
 You can then create a `MediaItem` for a DASH MPD URI and pass it to the player.
 
-<br />
 
 ### Kotlin
 
@@ -58,7 +62,6 @@ val player = ExoPlayer.Builder(context).build()
 player.setMediaItem(MediaItem.fromUri(dashUri))
 // Prepare the player.
 player.prepare()
-      
 ```
 
 ### Java
@@ -70,20 +73,22 @@ ExoPlayer player = new ExoPlayer.Builder(context).build();
 player.setMediaItem(MediaItem.fromUri(dashUri));
 // Prepare the player.
 player.prepare();
-      
 ```
 
 <br />
 
-If your URI doesn't end with `.mpd`, you can pass `MimeTypes.APPLICATION_MPD` to `setMimeType` of `MediaItem.Builder` to explicitly indicate the type of the content.
+If your URI doesn't end with `.mpd`, you can pass `MimeTypes.APPLICATION_MPD`
+to `setMimeType` of `MediaItem.Builder` to explicitly indicate the type of the
+content.
 
-ExoPlayer will automatically adapt between representations defined in the manifest, taking into account both available bandwidth and device capabilities.
+ExoPlayer will automatically adapt between representations defined in the
+manifest, taking into account both available bandwidth and device capabilities.
 
 ## Using DashMediaSource
 
-For more customization options, you can create a `DashMediaSource` and pass it directly to the player instead of a `MediaItem`.
+For more customization options, you can create a `DashMediaSource` and pass it
+directly to the player instead of a `MediaItem`.
 
-<br />
 
 ### Kotlin
 
@@ -98,7 +103,6 @@ val player = ExoPlayer.Builder(context).build()
 player.setMediaSource(mediaSource)
 // Prepare the player.
 player.prepare()
-      
 ```
 
 ### Java
@@ -115,16 +119,19 @@ ExoPlayer player = new ExoPlayer.Builder(context).build();
 player.setMediaSource(mediaSource);
 // Prepare the player.
 player.prepare();
-      
 ```
 
 <br />
 
 ## Accessing the manifest
 
-You can retrieve the current manifest by calling `Player.getCurrentManifest`. For DASH you should cast the returned object to `DashManifest`. The `onTimelineChanged` callback of `Player.Listener` is also called whenever the manifest is loaded. This will happen once for a on-demand content, and possibly many times for live content. The following code snippet shows how an app can do something whenever the manifest is loaded.
+You can retrieve the current manifest by calling `Player.getCurrentManifest`.
+For DASH you should cast the returned object to `DashManifest`. The
+`onTimelineChanged` callback of `Player.Listener` is also called whenever
+the manifest is loaded. This will happen once for a on-demand content, and
+possibly many times for live content. The following code snippet shows how an app
+can do something whenever the manifest is loaded.
 
-<br />
 
 ### Kotlin
 
@@ -142,7 +149,6 @@ player.addListener(
     }
   }
 )
-      
 ```
 
 ### Java
@@ -160,11 +166,11 @@ player.addListener(
         }
       }
     });
-      
 ```
 
 <br />
 
 ## Customizing playback
 
-ExoPlayer provides multiple ways for you to tailor playback experience to your app's needs. See the [Customization page](https://developer.android.com/guide/topics/media/exoplayer/customization) for examples.
+ExoPlayer provides multiple ways for you to tailor playback experience to your
+app's needs. See the [Customization page](https://developer.android.com/guide/topics/media/exoplayer/customization) for examples.

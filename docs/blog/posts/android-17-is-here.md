@@ -228,7 +228,6 @@ With Android 17, we're making it safer to enter passwords, PINs, and other secre
 Users can still easily customize these display settings to match their preferences (availability may vary by device manufacturer).
 
 These enhanced privacy protections are automatically supported byAndroid's built-in SDK components and will be supported in Compose 1.12 for `SecureTextFields`.   
-
 ![Hide First Letter.gif](https://developer.android.com/static/blog/assets/Hide_First_Letter_274ffb63c2_p6kOS.webp) Smarter password protection for physical inputs
 
 ## Media and camera features that empower creators and delight users
@@ -294,7 +293,8 @@ Written by:
 
   ###### Vice President, Product Management, Android Developer
 
-  [read_more View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
 Continue reading
 - [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -320,5 +320,8 @@ Continue reading
   - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

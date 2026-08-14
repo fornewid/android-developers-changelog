@@ -8,6 +8,7 @@ source: md.txt
 
 <br />
 
+
 **2.2.3 (December 2016)**
 
 <br />
@@ -53,6 +54,7 @@ source: md.txt
 
 <br />
 
+
 **2.2.2 (October 2016)**
 
 <br />
@@ -80,6 +82,7 @@ source: md.txt
 <br />
 
 <br />
+
 
 **2.2.1 (October 2016)**
 
@@ -111,7 +114,8 @@ source: md.txt
 
 <br />
 
-- All new **[Layout Editor](https://developer.android.com/studio/write/layout-editor)** with tools custom-built to support [ConstraintLayout](https://developer.android.com/training/constraint-layout).
+- All new **[Layout
+  Editor](https://developer.android.com/studio/write/layout-editor)** with tools custom-built to support [ConstraintLayout](https://developer.android.com/training/constraint-layout).
 
     <li>New <strong><a href=
     "http://tools.android.com/tech-docs/layout-inspector">Layout
@@ -230,7 +234,8 @@ source: md.txt
 
 <br />
 
-- Updated the IDE codebase from IntelliJ 15 to **IntelliJ 2016.1**
+- Updated the IDE codebase from IntelliJ 15 to **IntelliJ
+  2016.1**
 - Instant Run now requires the platform SDK corresponding to the target device API level to be installed.
 - Instant Run will automatically disabled if user is running the app under a work profile or as a secondary user.
 - Fixed many reliability issues for **[Instant Run](https://developer.android.com/studio/run#instant-run)** where changes were not getting deployed or the app would crash:

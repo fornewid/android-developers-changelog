@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
 source: md.txt
 ---
 
-When implementing Glimmer styles, refer to the following source code in `GlimmerTheme.kt`:
+When implementing Glimmer styles, refer to the following source code in
+`GlimmerTheme.kt`:
 
-<br />
 
 ```kotlin
 /*
@@ -183,8 +183,6 @@ private val _localGlimmerTheme: ProvidableCompositionLocal<GlimmerTheme> =
     staticCompositionLocalOf {
         GlimmerTheme()
     }
-
-   
 ```
 
 <br />

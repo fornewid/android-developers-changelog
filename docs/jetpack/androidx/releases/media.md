@@ -14,9 +14,12 @@ source: md.txt
 
 ## Declaring dependencies
 
-To add a dependency on Media, you must add the Google Maven repository to your project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) for more information.
+To add a dependency on Media, you must add the Google Maven repository to your
+project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
+for more information.
 
-Add the dependencies for the artifacts you need in the `build.gradle` file for your app or module:
+Add the dependencies for the artifacts you need in the `build.gradle` file for
+your app or module:
 
 ### Groovy
 
@@ -38,11 +41,16 @@ For more information about dependencies, see [Add build dependencies](https://de
 
 ## Feedback
 
-Your feedback helps make Jetpack better. Let us know if you discover new issues or have ideas for improving this library. Please take a look at the [existing issues](https://issuetracker.google.com/issues?q=componentid:461042+status:open) in this library before you create a new one. You can add your vote to an existing issue by clicking the star button.
+Your feedback helps make Jetpack better. Let us know if you discover new issues or have
+ideas for improving this library. Please take a look at the
+[existing issues](https://issuetracker.google.com/issues?q=componentid:461042+status:open)
+in this library before you create a new one. You can add your vote to an existing issue by
+clicking the star button.
 
 [Create a new issue](https://issuetracker.google.com/issues/new?component=461042&template=1238510)
 
-See the [Issue Tracker documentation](https://developers.google.com/issue-tracker) for more information.
+See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+for more information.
 
 ## Media Version 1.8
 

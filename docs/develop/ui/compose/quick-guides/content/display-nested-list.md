@@ -6,11 +6,13 @@ source: md.txt
 
 <br />
 
-You can display nested scrolling items within a list to present complex layouts, such as product catalogs, media galleries, news feeds, and more.
+You can display nested scrolling items within a list to present complex layouts,
+such as product catalogs, media galleries, news feeds, and more.
 
 ## Results
 
-The following video shows the resulting behaviors of nested horizontal lists within a vertical scrolling list.
+The following video shows the resulting behaviors of nested horizontal lists
+within a vertical scrolling list.
 
 <br />
 
@@ -18,17 +20,18 @@ The following video shows the resulting behaviors of nested horizontal lists wit
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or higher.
+This implementation requires that your project minSDK be set to API level 21 or
+higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-nested-list_3cd32266d83a15b60159fec64731a2678f0d198e500719acd092b58794237433.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-nested-list_94202f5991230ac15cd69a891de59941eda1010bb8acdee757c65b4dad5beb1e.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Implement nested horizontal scrolling in vertical list
 
-The following code produces a list that scrolls two ways. The rows of the list scroll horizontally; the list as a whole---a single column---scrolls vertically.
+The following code produces a list that scrolls two ways. The rows of the list
+scroll horizontally; the list as a whole---a single column---scrolls vertically.
 
-<br />
 
 ```kotlin
 @Composable
@@ -49,14 +52,14 @@ fun NestedScrollingRowsList(urls: List<String>) {
         }
     }
 }
-   
 ```
 
 <br />
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover
+broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display a list or grid

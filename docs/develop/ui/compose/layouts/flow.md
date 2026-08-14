@@ -6,7 +6,15 @@ source: md.txt
 
 [Video](https://www.youtube.com/watch?v=QaMjBZCXHiI)
 
-[`FlowRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowRow.composable) and [`FlowColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowColumn.composable) are composables that are similar to `Row` and `Column`, but differ in that items flow into the next line when the container runs out of space. This creates multiple rows or columns. The number of items in a line can also be controlled by setting `maxItemsInEachRow` or `maxItemsInEachColumn`. You can often use `FlowRow` and `FlowColumn` to build responsive layouts--- content will not be cut off if items are too large for one dimension, and using a combination of `maxItemsInEach*` with `Modifier.weight(weight)` can help build layouts that fill/expand the width of a row or column when needed.
+[`FlowRow`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowRow.composable) and [`FlowColumn`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowColumn.composable)
+are composables that are similar to `Row` and `Column`, but differ in that items
+flow into the next line when the container runs out of space. This creates
+multiple rows or columns. The number of items in a line can also be controlled
+by setting `maxItemsInEachRow` or `maxItemsInEachColumn`. You can often use
+`FlowRow` and `FlowColumn` to build responsive layouts--- content will not be cut
+off if items are too large for one dimension, and using a combination of
+`maxItemsInEach*` with `Modifier.weight(weight)` can help build layouts that
+fill/expand the width of a row or column when needed.
 
 The typical example is for a chip or filtering UI:
 ![5 chips in a FlowRow, showing the overflow to the next line when there is no
@@ -14,9 +22,9 @@ more space available.](https://developer.android.com/static/develop/ui/compose/i
 
 ## Basic usage
 
-To use `FlowRow` or `FlowColumn`, create these composables and place the items inside it that should follow the standard flow:
+To use `FlowRow` or `FlowColumn`, create these composables and place the items
+inside it that should follow the standard flow:
 
-<br />
 
 ```kotlin
 @Composable
@@ -29,22 +37,26 @@ private fun FlowRowSimpleUsageExample() {
         ChipItem("£50 pn")
     }
 }
-   
 ```
 
 <br />
 
-This snippet results in the UI shown above, with items automatically flowing to the next row when there is no more space in the first row.
+This snippet results in the UI shown above, with items automatically flowing to
+the next row when there is no more space in the first row.
 
 ## Features of flow layout
 
-Flow layouts have the following features and properties that you can use to create different layouts in your app.
+Flow layouts have the following features and properties that you can use to
+create different layouts in your app.
 
 ### Main axis arrangement: horizontal or vertical arrangement
 
-The main axis is the axis on which items are laid out (for example, in `FlowRow`, items are arranged horizontally). The `horizontalArrangement` parameter in `FlowRow` controls the way free space is distributed between items.
+The main axis is the axis on which items are laid out (for example, in
+`FlowRow`, items are arranged horizontally). The `horizontalArrangement`
+parameter in `FlowRow` controls the way free space is distributed between items.
 
-The following table shows examples of setting `horizontalArrangement` on items for `FlowRow`:
+The following table shows examples of setting `horizontalArrangement` on items
+for `FlowRow`:
 
 |---|---|
 | Horizontal arrangement set on `FlowRow` | Result |
@@ -55,13 +67,19 @@ The following table shows examples of setting `horizontalArrangement` on items f
 | [`Arrangement.SpaceAround`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement#SpaceAround()) | ![Items arranged with space around them](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_arrangement_space_around.png) |
 | [`Arrangement.spacedBy(8.dp)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement#spacedBy(androidx.compose.ui.unit.Dp)) | ![Items spaced by a certain dp](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_arrangement_spaced_by.png) |
 
-For `FlowColumn`, similar options are available with `verticalArrangement`, with the default of `Arrangement.Top`.
+For `FlowColumn`, similar options are available with `verticalArrangement`, with
+the default of `Arrangement.Top`.
 
 ### Cross axis arrangement
 
-The cross axis is the axis in the opposite direction to the main axis. For example, in `FlowRow`, this is the vertical axis. To change how the overall contents inside the container are arranged in the cross axis, use `verticalArrangement` for `FlowRow`, and `horizontalArrangement` for `FlowColumn`.
+The cross axis is the axis in the opposite direction to the main axis. For
+example, in `FlowRow`, this is the vertical axis. To change how the overall
+contents inside the container are arranged in the cross axis, use
+`verticalArrangement` for `FlowRow`, and `horizontalArrangement` for
+`FlowColumn`.
 
-For `FlowRow`, the following table shows examples of setting different `verticalArrangement` on the items:
+For `FlowRow`, the following table shows examples of setting different
+`verticalArrangement` on the items:
 
 |---|---|
 | **Vertical arrangement set on `FlowRow`** | **Result** |
@@ -69,13 +87,19 @@ For `FlowRow`, the following table shows examples of setting different `vertical
 | [`Arrangement.Bottom`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement#Bottom()) | ![Container bottom arrangement](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_container_arrangement_bottom.png) |
 | [`Arrangement.Center`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Arrangement#Center()) | ![Container center arrangement](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_container_arrangement_center.png) |
 
-For `FlowColumn`, similar options are available with `horizontalArrangement`. The default cross axis arrangement is `Arrangement.Start`.
+For `FlowColumn`, similar options are available with `horizontalArrangement`.
+The default cross axis arrangement is `Arrangement.Start`.
 
 ### Individual item alignment
 
-You may want to position individual items within the row with different alignments. This is different from `verticalArrangement` and `horizontalArrangement` as it aligns items *within the current line* . You can apply this with `Modifier.align()`.
+You may want to position individual items within the row with different
+alignments. This is different from `verticalArrangement` and
+`horizontalArrangement` as it aligns items *within the current line* . You can
+apply this with `Modifier.align()`.
 
-For example, when items in a `FlowRow` are different heights, the row takes the height of the biggest item and applies `Modifier.align(alignmentOption)` to the items:
+For example, when items in a `FlowRow` are different heights, the row takes the
+height of the biggest item and applies `Modifier.align(alignmentOption)` to the
+items:
 
 |---|---|
 | **Vertical alignment set on `FlowRow`** | **Result** |
@@ -83,13 +107,18 @@ For example, when items in a `FlowRow` are different heights, the row takes the 
 | [`Alignment.Bottom`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Alignment#Bottom()) | ![Items aligned to the bottom](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_item_alignment_bottom.png) |
 | [`Alignment.CenterVertically`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Alignment#CenterVertically()) | ![Items aligned to the center](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_item_alignment_center.png) |
 
-For `FlowColumn`, similar options are available. The default alignment is `Alignment.Start`.
+For `FlowColumn`, similar options are available. The default alignment is
+`Alignment.Start`.
 
 ### Max items in row or column
 
-The parameters `maxItemsInEachRow` or `maxItemsInEachColumn` define the maximum items in the main axis to allow in one line before wrapping to the next. The default is `Int.MAX_INT`, which allows as many items as possible, as long as their sizes allow them to fit into the line.
+The parameters `maxItemsInEachRow` or `maxItemsInEachColumn` define the maximum
+items in the main axis to allow in one line before wrapping to the next. The
+default is `Int.MAX_INT`, which allows as many items as possible, as long as
+their sizes allow them to fit into the line.
 
-For example, setting a `maxItemsInEachRow` forces the initial layout to only have 3 items:
+For example, setting a `maxItemsInEachRow` forces the initial layout to only
+have 3 items:
 
 |---|---|
 | No max set | `maxItemsInEachRow = 3` |
@@ -97,20 +126,30 @@ For example, setting a `maxItemsInEachRow` forces the initial layout to only hav
 
 ### Item weights
 
-Weight grows an item based on its factor and the available space on the line it was placed in. Importantly, there is a difference between `FlowRow` and `Row` with how weights are used to calculate the width of an item. For `Rows`, weight is based on *all items* in the `Row`. With `FlowRow`, weight is based on the *items in the line that an item is placed in* , not all the items in the `FlowRow` container.
+Weight grows an item based on its factor and the available space on the line it
+was placed in. Importantly, there is a difference between `FlowRow` and `Row`
+with how weights are used to calculate the width of an item. For `Rows`, weight
+is based on *all items* in the `Row`. With `FlowRow`, weight is based on the
+*items in the line that an item is placed in* , not all the items in the
+`FlowRow` container.
 
-For example, if you have 4 items that all fall on a line, each with different weights of `1f, 2f, 1f`, and `3f`, the total weight is `7f`. The remaining space in a row or column will be divided by `7f`. Then, each item width will be calculated using: `weight * (remainingSpace / totalWeight)`.
+For example, if you have 4 items that all fall on a line, each with different
+weights of `1f, 2f, 1f`, and `3f`, the total weight is `7f`. The remaining space
+in a row or column will be divided by `7f`. Then, each item width will be
+calculated using: `weight * (remainingSpace / totalWeight)`.
 
-You can use a combination of `Modifier.weight` and max items with `FlowRow` or `FlowColumn` to create a grid-like layout. This approach is useful for creating responsive layouts that adjust to the sizing of your device.
+You can use a combination of `Modifier.weight` and max items with `FlowRow` or
+`FlowColumn` to create a grid-like layout. This approach is useful for creating
+responsive layouts that adjust to the sizing of your device.
 
-There are a few different examples of what you can achieve using weights. One example is a grid where items are equally sized, as shown below:
+There are a few different examples of what you can achieve using weights. One
+example is a grid where items are equally sized, as shown below:
 ![Grid created with flow row](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_layout_grid_blue.png) **Figure 2.** Using `FlowRow` to create a grid
 
 <br />
 
 To create a grid of equal item sizes, you can do the following:
 
-<br />
 
 ```kotlin
 val rows = 3
@@ -130,22 +169,27 @@ FlowRow(
         Spacer(modifier = itemModifier)
     }
 }
-   
 ```
 
 <br />
 
-Importantly, if you add another item and repeat it 10 times instead of 9, the last item takes up the entire last column, as the total weight for the whole row is `1f`:
+Importantly, if you add another item and repeat it 10 times instead of 9, the
+last item takes up the entire last column, as the total weight for the whole row
+is `1f`:
 ![Last item full size on grid](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_layout_grid_last_item_large.png) **Figure 3.** Using `FlowRow` to create a grid with the last item taking up full width
 
-You can combine weights with other `Modifiers` such as `Modifier.width(exactDpAmount), Modifier.aspectRatio(aspectRatio)`, or `Modifier.fillMaxWidth(fraction)`. These modifiers all work in conjunction to allow for responsive sizing of items within a `FlowRow` (or `FlowColumn`).
+You can combine weights with other `Modifiers` such as
+`Modifier.width(exactDpAmount), Modifier.aspectRatio(aspectRatio)`, or
+`Modifier.fillMaxWidth(fraction)`. These modifiers all work in conjunction to
+allow for responsive sizing of items within a `FlowRow` (or `FlowColumn`).
 
-You can also create an alternating grid of different item sizes, where two items take up half the width each, and one item takes up the full width of the next column:
+You can also create an alternating grid of different item sizes, where two items
+take up half the width each, and one item takes up the full width of the next
+column:
 ![Alternating grid with flow row](https://developer.android.com/static/develop/ui/compose/images/layouts/flow/flow_row_alternating_grid.png) **Figure 4.** `FlowRow` with alternating sizes of rows
 
 You can achieve this with the following code:
 
-<br />
 
 ```kotlin
 FlowRow(
@@ -167,18 +211,21 @@ FlowRow(
         }
     }
 }
-   
 ```
 
 <br />
 
 ### Fractional sizing
 
-Using `Modifier.fillMaxWidth(fraction)`, you can specify the size of the container that an item should take up. This is different from how `Modifier.fillMaxWidth(fraction)` works when applied to `Row` or `Column`, in that `Row/Column` items take up a percentage of the remaining width, rather than the whole container's width.
+Using `Modifier.fillMaxWidth(fraction)`, you can specify the size of the
+container that an item should take up. This is different from how
+`Modifier.fillMaxWidth(fraction)` works when applied to `Row` or `Column`, in
+that `Row/Column` items take up a percentage of the remaining width, rather than
+the whole container's width.
 
-For example, the following code produces different results when using `FlowRow` vs `Row`:
+For example, the following code produces different results when using `FlowRow`
+vs `Row`:
 
-<br />
 
 ```kotlin
 FlowRow(
@@ -207,7 +254,6 @@ FlowRow(
             .background(Color.Magenta)
     )
 }
-   
 ```
 
 <br />
@@ -218,11 +264,16 @@ FlowRow(
 
 ### `fillMaxColumnWidth()` and `fillMaxRowHeight()`
 
-Applying either [`Modifier.fillMaxColumnWidth()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowColumnScope#(androidx.compose.ui.Modifier).fillMaxColumnWidth(kotlin.Float)) or [`Modifier.fillMaxRowHeight()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowRowScope#(androidx.compose.ui.Modifier).fillMaxRowHeight(kotlin.Float)) to an item inside a `FlowColumn` or `FlowRow` ensures that items in the same column or row take up the same width or height as the biggest item in the column/row.
+Applying either [`Modifier.fillMaxColumnWidth()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowColumnScope#(androidx.compose.ui.Modifier).fillMaxColumnWidth(kotlin.Float)) or
+[`Modifier.fillMaxRowHeight()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/FlowRowScope#(androidx.compose.ui.Modifier).fillMaxRowHeight(kotlin.Float)) to an item inside a `FlowColumn` or `FlowRow`
+ensures that items in the same column or row take up the same width or height as
+the biggest item in the column/row.
 
-For example, this example uses `FlowColumn` to display the list of Android desserts. You can see the difference in each item's width when `Modifier.fillMaxColumnWidth()` is applied to the items versus when it's not and the items wrap.
+For example, this example uses `FlowColumn` to display the list of Android
+desserts. You can see the difference in each item's width when
+`Modifier.fillMaxColumnWidth()` is applied to the items versus when it's not
+and the items wrap.
 
-<br />
 
 ```kotlin
 FlowColumn(
@@ -250,7 +301,6 @@ FlowColumn(
         }
     }
 }
-   
 ```
 
 <br />

@@ -8,6 +8,8 @@ source: md.txt
 
 # Android Studio v0.8.14 (October 2014)
 
-See [tools.android.com](http://tools.android.com/recent/androidstudio0814inbetachannel) for a full list of changes.
+See
+[tools.android.com](http://tools.android.com/recent/androidstudio0814inbetachannel)
+for a full list of changes.
 
 <br />

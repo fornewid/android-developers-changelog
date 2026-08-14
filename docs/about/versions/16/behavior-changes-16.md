@@ -6,72 +6,135 @@ source: md.txt
 
 <br />
 
-Like previous releases, Android 16 includes behavior changes that might affect your app. The following behavior changes apply exclusively to apps that are targeting Android 16 or higher. If your app is targeting Android 16 or higher, you should modify your app to support these behaviors, where applicable.
+Like previous releases, Android 16 includes behavior changes that might affect
+your app. The following behavior changes apply exclusively to apps that are
+targeting Android 16 or higher. If your app is targeting Android 16 or higher,
+you should modify your app to support these behaviors, where applicable.
 
-Be sure to also review the list of [behavior changes that affect all apps running on Android 16](https://developer.android.com/about/versions/16/behavior-changes-all) regardless of your app's [`targetSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target).
+Be sure to also review the list of [behavior changes that affect all apps
+running on Android 16](https://developer.android.com/about/versions/16/behavior-changes-all) regardless of your app's [`targetSdkVersion`](https://developer.android.com/guide/topics/manifest/uses-sdk-element#target).
 
 ## User experience and system UI
 
-Android 16 (API level 36) includes the following changes that are intended to create a more consistent, intuitive user experience.
+Android 16 (API level 36) includes the following changes that are intended
+to create a more consistent, intuitive user experience.
 
 ### Edge to edge opt-out going away
 
-[Android 15 enforced edge-to-edge](https://developer.android.com/about/versions/15/behavior-changes-15#edge-to-edge) for apps targeting Android 15 (API level 35), but your app could opt-out by setting [`R.attr#windowOptOutEdgeToEdgeEnforcement`](https://developer.android.com/reference/android/R.attr#windowOptOutEdgeToEdgeEnforcement) to `true`. For apps targeting Android 16 (API level 36), `R.attr#windowOptOutEdgeToEdgeEnforcement` is deprecated and disabled, and your app can't opt-out of going edge-to-edge.
+[Android 15 enforced edge-to-edge](https://developer.android.com/about/versions/15/behavior-changes-15#edge-to-edge) for apps targeting Android 15 (API
+level 35), but your app could opt-out by setting
+[`R.attr#windowOptOutEdgeToEdgeEnforcement`](https://developer.android.com/reference/android/R.attr#windowOptOutEdgeToEdgeEnforcement) to `true`. For apps
+targeting Android 16 (API level 36),
+`R.attr#windowOptOutEdgeToEdgeEnforcement` is deprecated and disabled, and your
+app can't opt-out of going edge-to-edge.
 
 - If your app targets Android 16 (API level 36) and is running on an Android 15 device, `R.attr#windowOptOutEdgeToEdgeEnforcement` continues to work.
 - If your app targets Android 16 (API level 36) and is running on an Android 16 device, `R.attr#windowOptOutEdgeToEdgeEnforcement` is disabled.
 
-For testing in Android 16, ensure your app supports edge-to-edge and remove any use of `R.attr#windowOptOutEdgeToEdgeEnforcement` so that your app also supports edge-to-edge on an Android 15 device. To support edge-to-edge, see the [Compose](https://developer.android.com/develop/ui/compose/layouts/insets) and [Views](https://developer.android.com/develop/ui/views/layout/edge-to-edge) guidance.
+For testing in Android 16, ensure your app supports edge-to-edge and
+remove any use of `R.attr#windowOptOutEdgeToEdgeEnforcement` so that your app
+also supports edge-to-edge on an Android 15 device. To support edge-to-edge,
+see the [Compose](https://developer.android.com/develop/ui/compose/layouts/insets) and [Views](https://developer.android.com/develop/ui/views/layout/edge-to-edge) guidance.
 
 ### Migration or opt-out required for predictive back
 
-For apps targeting Android 16 (API level 36) or higher and running on an Android 16 or higher device, the predictive back system animations (back-to-home, cross-task, and cross-activity) are enabled by default. Additionally, `onBackPressed` is not called and [`KeyEvent.KEYCODE_BACK`](https://developer.android.com/reference/android/view/KeyEvent#KEYCODE_BACK) is not dispatched anymore.
+For apps targeting Android 16 (API level 36) or higher and running on an
+Android 16 or higher device, the predictive back system animations
+(back-to-home, cross-task, and cross-activity) are enabled by default.
+Additionally, `onBackPressed` is not called and
+[`KeyEvent.KEYCODE_BACK`](https://developer.android.com/reference/android/view/KeyEvent#KEYCODE_BACK) is not dispatched anymore.
 
-If your app intercepts the back event and you haven't migrated to predictive back yet, [update your app to use supported back navigation APIs](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#update-custom), or temporarily opt out by setting the [`android:enableOnBackInvokedCallback`](https://developer.android.com/guide/topics/manifest/activity-element#enableOnBackInvokedCallback) attribute to `false` in the `<application>` or `<activity>` tag of your app's `AndroidManifest.xml` file.
+If your app intercepts the back event and you haven't migrated to predictive
+back yet, [update your app to use supported back navigation APIs](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#update-custom), or
+temporarily opt out by setting the
+[`android:enableOnBackInvokedCallback`](https://developer.android.com/guide/topics/manifest/activity-element#enableOnBackInvokedCallback) attribute to `false` in the
+`<application>` or `<activity>` tag of your app's `AndroidManifest.xml` file.
 The predictive back-to-home animation. The predictive cross-activity animation. The predictive cross-task animation.
 
 ### Elegant font APIs deprecated and disabled
 
-Apps targeting Android 15 (API level 35) have the [`elegantTextHeight`](https://developer.android.com/reference/android/R.attr#elegantTextHeight) [`TextView`](https://developer.android.com/reference/android/widget/TextView) attribute set to `true` by default, replacing the compact font with one that is much more readable. You could override this by setting the `elegantTextHeight` attribute to `false`.
+Apps targeting Android 15 (API level 35) have the
+[`elegantTextHeight`](https://developer.android.com/reference/android/R.attr#elegantTextHeight)
+[`TextView`](https://developer.android.com/reference/android/widget/TextView) attribute set to `true` by
+default, replacing the compact font with one that is much more readable. You
+could override this by setting the `elegantTextHeight` attribute to `false`.
 
-Android 16 deprecates the [`elegantTextHeight`](https://developer.android.com/reference/android/R.attr#elegantTextHeight) attribute, and the attribute will be ignored once your app targets Android 16. The "UI fonts" controlled by these APIs are being discontinued, so you should adapt any layouts to ensure consistent and future proof text rendering in Arabic, Lao, Myanmar, Tamil, Gujarati, Kannada, Malayalam, Odia, Telugu or Thai.
+Android 16 deprecates the
+[`elegantTextHeight`](https://developer.android.com/reference/android/R.attr#elegantTextHeight) attribute,
+and the attribute will be ignored once your app targets Android 16. The "UI
+fonts" controlled by these APIs are being discontinued, so you should adapt any
+layouts to ensure consistent and future proof text rendering in Arabic, Lao,
+Myanmar, Tamil, Gujarati, Kannada, Malayalam, Odia, Telugu or Thai.
 ![](https://developer.android.com/static/about/versions/15/images/elegant-text-height-before.png) `elegantTextHeight` behavior for apps targeting Android 14 (API level 34) and lower, or for apps targeting Android 15 (API level 35) that overrode the default by setting the `elegantTextHeight` attribute to `false`. ![](https://developer.android.com/static/about/versions/15/images/elegant-text-height-after.png) `elegantTextHeight` behavior for apps targeting Android 16 (API level 36), or for apps targeting Android 15 (API level 35) that didn't override the default by setting the `elegantTextHeight` attribute to `false`.
 
 ## Core functionality
 
-Android 16 (API level 36) includes the following changes that modify or expand various core capabilities of the Android system.
+Android 16 (API level 36) includes the following changes that modify or
+expand various core capabilities of the Android system.
 
 ### Fixed rate work scheduling optimization
 
-Prior to targeting Android 16, when [`scheduleAtFixedRate`](https://developer.android.com/reference/java/util/concurrent/ScheduledExecutorService#scheduleAtFixedRate(java.lang.Runnable,%20long,%20long,%20java.util.concurrent.TimeUnit)) missed a task execution due to being outside a valid [process lifecycle](https://developer.android.com/guide/components/activities/process-lifecycle), **all** missed executions immediately execute when the app returns to a valid lifecycle.
+Prior to targeting Android 16, when [`scheduleAtFixedRate`](https://developer.android.com/reference/java/util/concurrent/ScheduledExecutorService#scheduleAtFixedRate(java.lang.Runnable,%20long,%20long,%20java.util.concurrent.TimeUnit))
+missed a task execution due to being outside a valid
+[process lifecycle](https://developer.android.com/guide/components/activities/process-lifecycle), **all** missed executions immediately
+execute when the app returns to a valid lifecycle.
 
-When targeting Android 16, at most **one** missed execution of [`scheduleAtFixedRate`](https://developer.android.com/reference/java/util/concurrent/ScheduledExecutorService#scheduleAtFixedRate(java.lang.Runnable,%20long,%20long,%20java.util.concurrent.TimeUnit)) is immediately executed when the app returns to a valid lifecycle. This behavior change is expected to improve app performance. Test this behavior in your app to check if your app is impacted. You can also test by using the [app compatibility framework](https://developer.android.com/guide/app-compatibility/test-debug) and enabling the `STPE_SKIP_MULTIPLE_MISSED_PERIODIC_TASKS` compat flag.
+When targeting Android 16, at most **one** missed execution of
+[`scheduleAtFixedRate`](https://developer.android.com/reference/java/util/concurrent/ScheduledExecutorService#scheduleAtFixedRate(java.lang.Runnable,%20long,%20long,%20java.util.concurrent.TimeUnit)) is immediately executed when the app
+returns to a valid lifecycle. This behavior change is expected to improve app
+performance. Test this behavior in your app to check if your app is impacted.
+You can also test by using the [app compatibility framework](https://developer.android.com/guide/app-compatibility/test-debug)
+and enabling the `STPE_SKIP_MULTIPLE_MISSED_PERIODIC_TASKS` compat flag.
 
 ## Device form factors
 
-Android 16 (API level 36) includes the following changes for apps when displayed on large screen devices.
+Android 16 (API level 36) includes the following changes for apps when
+displayed on large screen devices.
 
 ### Adaptive layouts
 
-With Android apps now running on a variety of devices (such as phones, tablets, foldables, desktops, cars, and TVs) and windowing modes on large screens (such as split screen and desktop windowing), developers should build Android apps that adapt to any screen and window size, regardless of device orientation. Paradigms like restricting orientation and resizability are too restrictive in today's multidevice world.
+With Android apps now running on a variety of devices (such as phones, tablets,
+foldables, desktops, cars, and TVs) and windowing modes on large screens (such
+as split screen and desktop windowing), developers should build Android apps
+that adapt to any screen and window size, regardless of device orientation.
+Paradigms like restricting orientation and resizability are too restrictive in
+today's multidevice world.
 
 #### Ignore orientation, resizability, and aspect ratio restrictions
 
-For apps targeting Android 16 (API level 36), orientation, resizability, and aspect ratio restrictions no longer apply on displays with smallest width \>= 600dp. Apps fill the entire display window, regardless of aspect ratio or a user's preferred orientation, and pillarboxing isn't used.
+For apps targeting Android 16 (API level 36), orientation, resizability,
+and aspect ratio restrictions no longer apply on displays with smallest width \>=
+600dp. Apps fill the entire display window, regardless of aspect ratio or a
+user's preferred orientation, and pillarboxing isn't used.
 
-This change introduces a new standard platform behavior. [Android is moving toward a model](https://android-developers.googleblog.com/2025/01/orientation-and-resizability-changes-in-android-16.html) where apps are expected to adapt to various orientations, display sizes, and aspect ratios. Restrictions like fixed orientation or limited resizability hinder app adaptability. [Make your app adaptive](https://developer.android.com/adaptive-apps) to deliver the best possible user experience.
+This change introduces a new standard platform behavior. [Android is moving
+toward a model](https://android-developers.googleblog.com/2025/01/orientation-and-resizability-changes-in-android-16.html) where apps are expected to adapt to various
+orientations, display sizes, and aspect ratios. Restrictions like fixed
+orientation or limited resizability hinder app adaptability. [Make your app
+adaptive](https://developer.android.com/adaptive-apps) to deliver the best possible user experience.
 
-You can also test this behavior by using the [app compatibility framework](https://developer.android.com/guide/app-compatibility/test-debug) and enabling the `UNIVERSAL_RESIZABLE_BY_DEFAULT` compat flag.
+You can also test this behavior by using the
+[app compatibility framework](https://developer.android.com/guide/app-compatibility/test-debug) and enabling the
+`UNIVERSAL_RESIZABLE_BY_DEFAULT` compat flag.
 
 #### Common breaking changes
 
-Ignoring orientation, resizability, and aspect ratio restrictions might impact your app's UI on some devices, especially elements that were designed for small layouts locked in portrait orientation: for example, issues like stretched layouts and off-screen animations and components. Any assumptions about aspect ratio or orientation can cause visual issues with your app. [Learn more](https://developer.android.com/develop/ui/compose/layouts/adaptive) about how to avoid them and improve your app's adaptive behaviour.
+Ignoring orientation, resizability, and aspect ratio restrictions might impact
+your app's UI on some devices, especially elements that were designed for small
+layouts locked in portrait orientation: for example, issues like stretched
+layouts and off-screen animations and components. Any assumptions about aspect
+ratio or orientation can cause visual issues with your app.
+[Learn more](https://developer.android.com/develop/ui/compose/layouts/adaptive) about how to avoid them and improve your app's adaptive
+behaviour.
 
-Allowing device rotation results in more activity re-creation, which can result in losing user state if not properly preserved. Learn how to correctly save UI state in [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states).
+Allowing device rotation results in more activity re-creation, which can result
+in losing user state if not properly preserved. Learn how to correctly save UI
+state in [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states).
 
 #### Implementation details
 
-The following manifest attributes and runtime APIs are ignored across large screen devices in full-screen and multi-window modes:
+The following manifest attributes and runtime APIs are ignored across large
+screen devices in full-screen and multi-window modes:
 
 - [`screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element#screen)
 - [`resizableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity)
@@ -80,7 +143,8 @@ The following manifest attributes and runtime APIs are ignored across large scre
 - [`setRequestedOrientation()`](https://developer.android.com/reference/android/app/Activity#setRequestedOrientation(int))
 - [`getRequestedOrientation()`](https://developer.android.com/reference/android/app/Activity#getRequestedOrientation())
 
-The following values for `screenOrientation`, `setRequestedOrientation()`, and `getRequestedOrientation()` are ignored:
+The following values for `screenOrientation`, `setRequestedOrientation()`, and
+`getRequestedOrientation()` are ignored:
 
 - `portrait`
 - `reversePortrait`
@@ -91,13 +155,19 @@ The following values for `screenOrientation`, `setRequestedOrientation()`, and `
 - `sensorLandscape`
 - `userLandscape`
 
-Regarding display resizability, `android:resizeableActivity="false"`, `android:minAspectRatio`, and `android:maxAspectRatio` have no effect.
+Regarding display resizability, `android:resizeableActivity="false"`,
+`android:minAspectRatio`, and `android:maxAspectRatio` have no effect.
 
-For apps targeting Android 16 (API level 36), app orientation, resizability, and aspect ratio constraints are ignored on large screens by default. Every app that isn't fully ready can temporarily override this behavior by opting out, which results in the previous behavior of being placed in compatibility mode.
+For apps targeting Android 16 (API level 36), app orientation,
+resizability, and aspect ratio constraints are ignored on large screens by
+default. Every app that isn't fully ready can temporarily override this
+behavior by opting out, which results in the previous behavior of being placed
+in compatibility mode.
 
 #### Exceptions
 
-The Android 16 orientation, resizability, and aspect ratio restrictions don't apply in the following situations:
+The Android 16 orientation, resizability, and aspect ratio restrictions don't
+apply in the following situations:
 
 - Games (based on the [`android:appCategory`](https://developer.android.com/guide/topics/manifest/application-element#appCategory) flag)
 - Users explicitly opting in to the app's default behavior in aspect ratio settings of the device
@@ -105,14 +175,16 @@ The Android 16 orientation, resizability, and aspect ratio restrictions don't ap
 
 #### Opt out temporarily
 
-To opt out a specific activity, declare the `PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY` manifest property:
+To opt out a specific activity, declare the
+`PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY` manifest property:
 
     <activity ...>
       <property android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY" android:value="true" />
       ...
     </activity>
 
-If too many parts of your app aren't ready for Android 16, you can opt out completely by applying the same property at the application level:
+If too many parts of your app aren't ready for Android 16, you can opt out
+completely by applying the same property at the application level:
 
     <application ...>
       <property android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY" android:value="true" />
@@ -123,38 +195,53 @@ If too many parts of your app aren't ready for Android 16, you can opt out compl
 
 ## Health and fitness
 
-Android 16 (API level 36) includes the following changes related to health and fitness data.
+Android 16 (API level 36) includes the following changes related to health
+and fitness data.
 
 ### Health and fitness permissions
 
-For apps targeting Android 16 (API level 36) or higher, [`BODY_SENSORS`](https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS) permissions use more granular permissions under `android.permissions.health`, which [Health Connect](https://developer.android.com/health-and-fitness/guides/health-connect) also uses. As of Android 16, any API previously requiring `BODY_SENSORS` or `BODY_SENSORS_BACKGROUND` requires the corresponding `android.permissions.health` permission instead. This affects the following data types, APIs, and foreground service types:
+For apps targeting Android 16 (API level 36) or higher,
+[`BODY_SENSORS`](https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS) permissions use more granular permissions
+under `android.permissions.health`, which [Health Connect](https://developer.android.com/health-and-fitness/guides/health-connect)
+also uses. As of Android 16, any API previously requiring `BODY_SENSORS`
+or `BODY_SENSORS_BACKGROUND` requires the corresponding
+`android.permissions.health` permission instead. This affects the following data
+types, APIs, and foreground service types:
 
 - [`HEART_RATE_BPM`](https://developer.android.com/reference/kotlin/androidx/health/services/client/data/DataType#HEART_RATE_BPM()) from Health Services on Wear OS
 - [`Sensor.TYPE_HEART_RATE`](https://developer.android.com/reference/android/hardware/Sensor#TYPE_HEART_RATE) from Android Sensor Manager
 - [`heartRateAccuracy`](https://developer.android.com/reference/androidx/wear/protolayout/expression/PlatformHealthSources#heartRateAccuracy()) and [`heartRateBpm`](https://developer.android.com/reference/androidx/wear/protolayout/expression/PlatformHealthSources#heartRateBpm()) from `ProtoLayout` on Wear OS
 - [`FOREGROUND_SERVICE_TYPE_HEALTH`](https://developer.android.com/develop/background-work/services/fgs/service-types#health) where the respective `android.permission.health` permission is needed in place of `BODY_SENSORS`
 
-If your app uses these APIs, it should request the respective granular permissions:
+If your app uses these APIs, it should request the respective granular
+permissions:
 
 - For while-in-use monitoring of Heart Rate, SpO2, or Skin Temperature: request the granular permission under `android.permissions.health`, such as [`READ_HEART_RATE`](https://developer.android.com/reference/android/health/connect/HealthPermissions#READ_HEART_RATE) instead of [`BODY_SENSORS`](https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS).
 - For background sensor access: request [`READ_HEALTH_DATA_IN_BACKGROUND`](https://developer.android.com/reference/android/health/connect/HealthPermissions#READ_HEALTH_DATA_IN_BACKGROUND) instead of [`BODY_SENSORS_BACKGROUND`](https://developer.android.com/reference/android/Manifest.permission#BODY_SENSORS_BACKGROUND).
 
-These permissions are the same as those that guard access to reading data from [Health Connect](https://developer.android.com/health-and-fitness/guides/health-connect), the Android datastore for health, fitness, and wellness data.
+These permissions are the same as those that guard access to reading data from
+[Health Connect](https://developer.android.com/health-and-fitness/guides/health-connect), the Android datastore for health,
+fitness, and wellness data.
 
 #### Mobile apps
 
-Mobile apps migrating to use the `READ_HEART_RATE` and other granular permissions must also [declare an activity](https://developer.android.com/health-and-fitness/guides/health-connect/develop/get-started#show-privacy-policy) to display the app's privacy policy. This is the same requirement as Health Connect.
+Mobile apps migrating to use the `READ_HEART_RATE` and other granular
+permissions must also [declare an activity](https://developer.android.com/health-and-fitness/guides/health-connect/develop/get-started#show-privacy-policy) to display
+the app's privacy policy. This is the same requirement as Health Connect.
 
 > [!IMPORTANT]
 > **Important:** Failure to provide the rationale for mobile apps will result in the permission being revoked.
 
 ## Connectivity
 
-Android 16 (API level 36) includes the following changes in Bluetooth stack to improve connectivity with peripheral devices.
+Android 16 (API level 36) includes the following changes in Bluetooth stack
+to improve connectivity with peripheral devices.
 
 ### New intents to handle bond loss and encryption changes
 
-As part of the [Improved bond loss handling](https://developer.android.com/about/versions/16/behavior-changes-all#improved-bond-loss-handling), Android 16 also introduces 2 new intents to provide apps with greater awareness of bond loss and encryption changes.
+As part of the [Improved bond loss handling](https://developer.android.com/about/versions/16/behavior-changes-all#improved-bond-loss-handling), Android 16 also
+introduces 2 new intents to provide apps with greater awareness of bond loss and
+encryption changes.
 
 Apps targeting Android 16 can now:
 
@@ -163,26 +250,45 @@ Apps targeting Android 16 can now:
 
 #### Adapting to varying OEM implementations
 
-While Android 16 introduces these new intents, their implementation and broadcasting can vary across different device manufacturers (OEMs). To ensure your app provides a consistent and reliable experience across all devices, developers should design their bond loss handling to gracefully adapt to these potential variations.
+While Android 16 introduces these new intents, their implementation and
+broadcasting can vary across different device manufacturers (OEMs). To ensure
+your app provides a consistent and reliable experience across all devices,
+developers should design their bond loss handling to gracefully adapt to these
+potential variations.
 
 We recommend the following app behaviors:
 
 - If the [`ACTION_KEY_MISSING`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#ACTION_KEY_MISSING) intent is broadcast:
 
-  The ACL (Asynchronous Connection-Less) link will be disconnected by the system, but the bond information for the device will be retained (as described [here](https://developer.android.com/about/versions/16/behavior-changes-all#improved-bond-loss-handling)).
+  The ACL (Asynchronous Connection-Less) link will be disconnected by the
+  system, but the bond information for the device will be retained (as
+  described [here](https://developer.android.com/about/versions/16/behavior-changes-all#improved-bond-loss-handling)).
 
-  Your app should use this intent as the primary signal for bond loss detection and guiding the user to confirm the remote device is in range before initiating device forgetting or re-pairing.
+  Your app should use this intent as the primary signal for bond loss
+  detection and guiding the user to confirm the remote device is in range
+  before initiating device forgetting or re-pairing.
 
-  If a device disconnects after [`ACTION_KEY_MISSING`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#ACTION_KEY_MISSING) is received, your app should be cautious about reconnecting, as the device may no longer be bonded with the system.
+  If a device disconnects after [`ACTION_KEY_MISSING`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#ACTION_KEY_MISSING) is received,
+  your app should be cautious about reconnecting, as the device may no longer
+  be bonded with the system.
 - If the [`ACTION_KEY_MISSING`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#ACTION_KEY_MISSING) intent is NOT broadcast:
 
-  The ACL link will remain connected, and the bond information for the device will be removed by the system, same to behavior in Android 15.
+  The ACL link will remain connected, and the bond information for the device
+  will be removed by the system, same to behavior in Android 15.
 
-  In this scenario, your app should continue its existing bond loss handling mechanisms as in previous Android releases, to detect and manage bond loss events.
+  In this scenario, your app should continue its existing bond loss handling
+  mechanisms as in previous Android releases, to detect and manage bond loss
+  events.
 
 ### New way to remove bluetooth bond
 
-All apps targeting Android 16 are now able to unpair bluetooth devices using a public API in [`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager). If a companion device is being managed as a CDM association, then the app can trigger bluetooth bond removal by using the new [`removeBond(int)`](https://developer.android.com/reference/android/companion/CompanionDeviceManager#removeBond(int)) API on the associated device. The app can monitor the bond state changes by listening to the bluetooth device broadcast event [`ACTION_BOND_STATE_CHANGED`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#ACTION_BOND_STATE_CHANGED).
+All apps targeting Android 16 are now able to unpair bluetooth devices using a
+public API in [`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager). If a companion device is
+being managed as a CDM association, then the app can trigger
+bluetooth bond removal by using the new [`removeBond(int)`](https://developer.android.com/reference/android/companion/CompanionDeviceManager#removeBond(int)) API
+on the associated device. The app can monitor the bond state changes by
+listening to the bluetooth device broadcast event
+[`ACTION_BOND_STATE_CHANGED`](https://developer.android.com/reference/android/bluetooth/BluetoothDevice#ACTION_BOND_STATE_CHANGED).
 
 ## Security
 
@@ -190,40 +296,66 @@ Android 16 (API level 36) includes the following security changes.
 
 ### MediaStore version lockdown
 
-For apps targeting Android 16 or higher, [`MediaStore#getVersion()`](https://developer.android.com/reference/android/provider/MediaStore#getVersion(android.content.Context)) will now be unique to each app. This eliminates identifying properties from the version string to prevent abuse and usage for fingerprinting techniques. Apps shouldn't make any assumptions around the format of this version. Apps should already handle version changes when using this API and in most cases shouldn't need to change their current behavior, unless the developer has attempted to infer additional information that is beyond the intended scope of this API.
+For apps targeting Android 16 or higher, [`MediaStore#getVersion()`](https://developer.android.com/reference/android/provider/MediaStore#getVersion(android.content.Context)) will now
+be unique to each app. This eliminates identifying properties from the version
+string to prevent abuse and usage for fingerprinting techniques. Apps shouldn't
+make any assumptions around the format of this version. Apps should already
+handle version changes when using this API and in most cases shouldn't need to
+change their current behavior, unless the developer has attempted to infer
+additional information that is beyond the intended scope of this API.
 
 ### Safer Intents
 
-The Safer Intents feature is a multi-phase security initiative designed to improve the security of Android's intent resolution mechanism. The goal is to protect apps from malicious actions by adding checks during intent processing and filtering intents that don't meet specific criteria.
+The Safer Intents feature is a multi-phase security initiative designed to
+improve the security of Android's intent resolution mechanism.
+The goal is to protect apps from malicious actions by adding checks during
+intent processing and filtering intents that don't meet specific criteria.
 
-In [Android 15](https://developer.android.com/about/versions/15/behavior-changes-15#safer-intents) the feature focused on the sending app. Now with Android 16, control shifts to the receiving app, allowing developers to opt-in to strict intent resolution using their app manifest.
+In [Android 15](https://developer.android.com/about/versions/15/behavior-changes-15#safer-intents) the feature focused on the sending app.
+Now with Android 16, control shifts to the receiving app, allowing
+developers to opt-in to strict intent resolution using their app manifest.
 
 Two key changes are being implemented:
 
-1. Explicit Intents Must Match the Target Component's Intent Filter: If an intent explicitly targets a component, it should match that component's intent filter.
+1. Explicit Intents Must Match the Target Component's Intent Filter:
+   If an intent explicitly targets a component, it should match that component's
+   intent filter.
 
-2. Intents Without an Action Cannot Match any Intent Filter: Intents that don't have an action specified shouldn't be resolved to any intent filter.
+2. Intents Without an Action Cannot Match any Intent Filter: Intents that
+   don't have an action specified shouldn't be resolved to any intent filter.
 
-These changes only apply when multiple apps are involved and don't affect intent handling within a single app.
+These changes only apply when multiple apps are involved and don't affect
+intent handling within a single app.
 
 #### Impact
 
-The opt-in nature means that developers must explicitly enable it in their app manifest for it to take effect. As a result, the feature's impact will be limited to apps whose developers:
+The opt-in nature means that developers must explicitly enable it in their
+app manifest for it to take effect.
+As a result, the feature's impact will be limited to apps whose developers:
 
 - Are aware of the Safer Intents feature and its benefits.
 - Actively choose to incorporate stricter intent handling practices into their apps.
 
-This opt-in approach minimizes the risk of breaking existing apps that may rely on the current less-secure intent resolution behavior.
+This opt-in approach minimizes the risk of breaking existing apps that may rely
+on the current less-secure intent resolution behavior.
 
-While the initial impact in Android 16 may be limited, the Safer Intents initiative has a roadmap for broader impact in future Android releases. The plan is to eventually make strict intent resolution the default behavior.
+While the initial impact in Android 16 may be limited, the Safer Intents
+initiative has a roadmap for broader impact in future Android releases.
+The plan is to eventually make strict intent resolution the default behavior.
 
-The Safer Intents feature has the potential to significantly enhance the security of the Android ecosystem by making it more difficult for malicious apps to exploit vulnerabilities in the intent resolution mechanism.
+The Safer Intents feature has the potential to significantly enhance the
+security of the Android ecosystem by making it more difficult for
+malicious apps to exploit vulnerabilities in the intent resolution mechanism.
 
-However, the transition to opt-out and mandatory enforcement must be carefully managed to address potential compatibility issues with existing apps.
+However, the transition to opt-out and mandatory enforcement must be
+carefully managed to address potential compatibility issues with existing apps.
 
 #### Implementation
 
-Developers need to explicitly enable stricter intent matching using the [`intentMatchingFlags`](https://developer.android.com/guide/topics/manifest/application-element#intentMatchingFlags) attribute in their app manifest. Here is an example where the feature is opt-in for the entire app, but disabled/opt-out on a receiver:
+Developers need to explicitly enable stricter intent matching using the
+[`intentMatchingFlags`](https://developer.android.com/guide/topics/manifest/application-element#intentMatchingFlags) attribute in their app manifest.
+Here is an example where the feature is opt-in for the entire app,
+but disabled/opt-out on a receiver:
 
     <application android:intentMatchingFlags="enforceIntentFilter">
         <receiver android:name=".MyBroadcastReceiver" android:exported="true" android:intentMatchingFlags="none">
@@ -249,7 +381,13 @@ More on the supported flags:
 
 #### Testing and Debugging
 
-When the enforcement is active, apps should function correctly if the intent caller has properly populated the intent. However, blocked intents will trigger warning log messages like `"Intent does not match component's intent filter:"` and `"Access blocked:"` with the tag `"PackageManager."` This indicates a potential issue that could impact the app and requires attention.
+When the enforcement is active, apps should function correctly if the intent
+caller has properly populated the intent.
+However, blocked intents will trigger warning log messages like
+`"Intent does not match component's intent filter:"` and `"Access blocked:"`
+with the tag `"PackageManager."`
+This indicates a potential issue that could impact the app and requires
+attention.
 
 Logcat filter:
 
@@ -257,38 +395,70 @@ Logcat filter:
 
 ### GPU syscall filtering
 
-To harden the Mali GPU surface, Mali GPU IOCTLs that have been deprecated or are intended solely for GPU development have been blocked in production builds. Additionally, IOCTLs used for GPU profiling have been restricted to the shell process or debuggable applications. Refer to the SAC update for more details on the platform-level policy.
+To harden the Mali GPU surface, Mali GPU IOCTLs that have been deprecated or are
+intended solely for GPU development have been blocked in production builds.
+Additionally, IOCTLs used for GPU profiling have been restricted to the shell
+process or debuggable applications. Refer to the SAC update for more details on
+the platform-level policy.
 
-This change takes place on Pixel devices using the Mali GPU (Pixel 6-9). Arm has provided official categorization of their IOCTLs in `Documentation/ioctl-categories.rst` of their [r54p2 release](https://developer.android.com/about/versions/16/dynamic-sections/changes/16/%22https:/developer.arm.com/downloads/-/Mali%205th%20Gen%20GPU%20Architecture#%22). This list will continue to be maintained in future driver releases.
+This change takes place on Pixel devices using the Mali GPU (Pixel 6-9). Arm
+has provided official categorization of their IOCTLs in
+`Documentation/ioctl-categories.rst` of their [r54p2 release](https://developer.android.com/about/versions/16/dynamic-sections/changes/16/%22https:/developer.arm.com/downloads/-/Mali%205th%20Gen%20GPU%20Architecture#%22). This
+list will continue to be maintained in future driver releases.
 
-This change does not impact supported graphics APIs (including Vulkan and OpenGL), and is not expected to impact developers or existing applications. GPU profiling tools such as the Streamline Performance Analyzer and the Android GPU Inspector won't be affected.
+This change does not impact supported graphics APIs (including Vulkan and
+OpenGL), and is not expected to impact developers or existing applications.
+GPU profiling tools such as the Streamline Performance Analyzer and the Android
+GPU Inspector won't be affected.
 
 #### Testing
 
-If you see a SELinux denial similar to the following, it is likely your application has been impacted by this change:
+If you see a SELinux denial similar to the following, it is likely your
+application has been impacted by this change:
 
     06-30 10:47:18.617 20360 20360 W roidJUnitRunner: type=1400 audit(0.0:85): avc:  denied  { ioctl }
     for  path="/dev/mali0" dev="tmpfs" ino=1188 ioctlcmd=0x8023
     scontext=u:r:untrusted_app_25:s0:c512,c768 tcontext=u:object_r:gpu_device:s0 tclass=chr_file
     permissive=0 app=com.google.android.selinux.pts
 
-If your application needs to use blocked IOCTLs, please file a bug and assign it to android-partner-security@google.com.
+If your application needs to use blocked IOCTLs, please file a bug and assign it
+to android-partner-security@google.com.
 
 #### FAQ
 
-1. **Does this policy change apply to all OEMs?** This change will be opt-in, but available to any OEMs who would like to use this hardening method. Instructions for implementing the change can be found in the implementation documentation.
+1. **Does this policy change apply to all OEMs?**
+   This change will be opt-in, but available to any OEMs who would like to use this
+   hardening method. Instructions for implementing the change can be found in the
+   implementation documentation.
 
-2. **Is it mandatory to make changes in the OEM codebase to implement this, or does it come with a new AOSP release by default?** The platform-level change will come with a new AOSP release by default. Vendors may opt-in to this change in their codebase if they would like to apply it.
+2. **Is it mandatory to make changes in the OEM codebase to implement this, or does it come with a new AOSP release by default?**
+   The platform-level change will come with a new AOSP release by default. Vendors
+   may opt-in to this change in their codebase if they would like to apply it.
 
-3. **Are SoCs responsible for keeping the IOCTL list up to date? For example, if my device uses an ARM Mali GPU, would I need to reach out to ARM for any of the changes?** Individual SoCs must update their IOCTL lists per device upon driver release. For example, ARM will update their published IOCTL list upon driver updates. However, OEMs should make sure that they incorporate the updates in their SEPolicy, and add any selected custom IOCTLs to the lists as needed.
+3. **Are SoCs responsible for keeping the IOCTL list up to date? For example, if my device uses an ARM Mali GPU, would I need to reach out to ARM for any of the changes?**
+   Individual SoCs must update their IOCTL lists per device upon driver release.
+   For example, ARM will update their published IOCTL list upon driver updates.
+   However, OEMs should make sure that they incorporate the updates in their
+   SEPolicy, and add any selected custom IOCTLs to the lists as needed.
 
-4. **Does this change apply to all Pixel in-market devices automatically, or is a user action required to toggle something to apply this change?** This change applies to all Pixel in-market devices using the Mali GPU (Pixel 6-9). No user action is required to apply this change.
+4. **Does this change apply to all Pixel in-market devices automatically, or is a user action required to toggle something to apply this change?**
+   This change applies to all Pixel in-market devices using the Mali GPU
+   (Pixel 6-9). No user action is required to apply this change.
 
-5. **Will use of this policy impact the performance of the kernel driver?** This policy was tested on the Mali GPU using GFXBench, and no measurable change to GPU performance was observed.
+5. **Will use of this policy impact the performance of the kernel driver?**
+   This policy was tested on the Mali GPU using GFXBench, and no measurable change
+   to GPU performance was observed.
 
-6. **Is it necessary for the IOCTL list to align with the current userspace and kernel driver versions?** Yes, the list of allowed IOCTLs must be synchronized with the IOCTLs supported by both the userspace and kernel drivers. If the IOCTLs in the user space or kernel driver are updated, the SEPolicy IOCTL list must be updated to match.
+6. **Is it necessary for the IOCTL list to align with the current userspace and kernel driver versions?**
+   Yes, the list of allowed IOCTLs must be synchronized with the IOCTLs supported
+   by both the userspace and kernel drivers. If the IOCTLs in the user space or
+   kernel driver are updated, the SEPolicy IOCTL list must be updated to match.
 
-7. **ARM has categorized IOCTLs as 'restricted' / 'instrumentation', but we want to use some of them in production use-cases, and/or deny others.** Individual OEMs/SoCs are responsible for deciding on how to categorize the IOCTLs they use, based on the configuration of their userspace Mali libraries. ARM's list can be used to help decide on these, but each OEM/SoC's use-case may be different.
+7. **ARM has categorized IOCTLs as 'restricted' / 'instrumentation', but we want to use some of them in production use-cases, and/or deny others.**
+   Individual OEMs/SoCs are responsible for deciding on how to categorize the
+   IOCTLs they use, based on the configuration of their userspace Mali libraries.
+   ARM's list can be used to help decide on these, but each OEM/SoC's use-case may
+   be different.
 
 ## Privacy
 
@@ -296,24 +466,38 @@ Android 16 (API level 36) includes the following privacy changes.
 
 ### Local Network Permission
 
-Devices on the LAN can be accessed by any app that has the `INTERNET` permission. This makes it easy for apps to connect to local devices but it also has privacy implications such as forming a fingerprint of the user, and being a proxy for location.
+Devices on the LAN can be accessed by any app that has the `INTERNET` permission.
+This makes it easy for apps to connect to local devices but it also has privacy
+implications such as forming a fingerprint of the user, and being a proxy for
+location.
 
-The Local Network Protections project aims to protect the user's privacy by gating access to the local network behind a new runtime permission.
+The Local Network Protections project aims to protect the user's privacy by
+gating access to the local network behind a new runtime permission.
 
 #### Release plan
 
-This change will be deployed between two releases, **25Q2 and 26Q2** respectively. It is imperative that developers follow this guidance for **25Q2** and share feedback because these protections **will be enforced at a later Android release**. Moreover, they will need to update scenarios which depend on implicit local network access by using the following guidance and prepare for user rejection and revocation of the new permission.
+This change will be deployed between two releases, **25Q2 and 26Q2**
+respectively.
+It is imperative that developers follow this guidance for **25Q2** and share
+feedback because these protections **will be enforced at a later Android release**.
+Moreover, they will need to update scenarios which depend on implicit local
+network access by using the following guidance and prepare for user rejection
+and revocation of the new permission.
 
 #### Impact
 
-At the current stage, LNP is an opt-in feature which means only the apps that opt in will be affected. The goal of the opt-in phase is for app developers to understand which parts of their app depend on implicit local network access such that they can prepare to permission guard them for the next release.
+At the current stage, LNP is an opt-in feature which means only the apps that
+opt in will be affected. The goal of the opt-in phase is for app developers to
+understand which parts of their app depend on implicit local network access
+such that they can prepare to permission guard them for the next release.
 
 Apps will be affected if they access the user's local network using:
 
 - Direct or library use of raw sockets on local network addresses (e.g. mDNS or SSDP service discovery protocol)
 - Use of framework level classes that access the local network (e.g. NsdManager)
 
-Traffic **to** and **from** a local network address requires local network access permission. The following table lists some common cases:
+Traffic **to** and **from** a local network address requires local network
+access permission. The following table lists some common cases:
 
 | App Low Level Network Operation | Local Network Permission Required |
 |---|---|
@@ -322,7 +506,12 @@ Traffic **to** and **from** a local network address requires local network acces
 | Sending a UDP unicast, multicast, broadcast | yes |
 | Receiving an incoming UDP unicast, multicast, broadcast | yes |
 
-These restrictions are implemented deep in the networking stack, and thus they apply to **all networking APIs**. This includes sockets created in native or managed code, networking libraries like Cronet and OkHttp, and any APIs implemented on top of those. Trying to resolve services on the local network (i.e. those with a .local suffix) will require local network permission.
+These restrictions are implemented deep in the networking stack,
+and thus they apply to **all networking APIs**. This includes sockets created
+in native or managed code, networking libraries like Cronet and OkHttp,
+and any APIs implemented on top of those. Trying to resolve services on the
+local network (i.e. those with a .local suffix) will require local network
+permission.
 
 > [!NOTE]
 > **Note:** Traffic originating from Android Webviews that require local network access will inherit permission state from the host app
@@ -347,19 +536,25 @@ To opt into local network restrictions, do the following:
 
 4. **Reboot The device**
 
-Now your app's access to the local network is restricted and any attempt to access the local network will lead to socket errors. If you are using APIs that perform local network operations outside of your app process (ex: NsdManager), **they won't be impacted during the opt-in phase.**
+Now your app's access to the local network is restricted and any attempt to
+access the local network will lead to socket errors. If you are using APIs that
+perform local network operations outside of your app process (ex: NsdManager),
+**they won't be impacted during the opt-in phase.**
 
 To restore access, you must grant your app permission to `NEARBY_WIFI_DEVICES`.
 
 1. Ensure the app declares the `NEARBY_WIFI_DEVICES` permission in its manifest.
-2. Go to **Settings \> Apps \> \[Application Name\] \> Permissions \> Nearby devices \> Allow**.
+2. Go to **Settings \> Apps \> \[Application Name\] \> Permissions \> Nearby devices \>
+   Allow**.
 
 > [!NOTE]
 > **Note:** In a future Android release, this feature will be guarded by a *new* permission in the Nearby devices permission group
 
-Now your app's access to the local network should be restored and all your scenarios should work as they did prior to opting the app in.
+Now your app's access to the local network should be restored and all your
+scenarios should work as they did prior to opting the app in.
 
-Once enforcement for local network protection begins, here is how the app network traffic will be impacted.
+Once enforcement for local network protection begins, here is how the app
+network traffic will be impacted.
 
 | Permission | Outbound LAN Request | Outbound/Inbound Internet Request | Inbound LAN Request |
 |---|---|---|---|
@@ -372,7 +567,8 @@ Use the following command to toggle-off the App-Compat flag
 
 #### Errors
 
-Errors arising from these restrictions will be returned to the calling socket whenever it invokes send or a send variant to a local network address.
+Errors arising from these restrictions will be returned to the calling socket
+whenever it invokes send or a send variant to a local network address.
 
 Example errors:
 
@@ -382,7 +578,9 @@ Example errors:
 
 #### Local Network Definition
 
-A local network in this project refers to an IP network that utilizes a broadcast-capable network interface, such as Wi-Fi or Ethernet, but excludes cellular (WWAN) or VPN connections.
+A local network in this project refers to an IP network that utilizes a
+broadcast-capable network interface, such as Wi-Fi or Ethernet, but excludes
+cellular (WWAN) or VPN connections.
 
 The following are considered local networks:
 
@@ -401,8 +599,13 @@ The following are considered local networks:
 - Stub networks like Thread
 - Multiple-subnets (TBD)
 
-Additionally, both multicast addresses (224.0.0.0/4, ff00::/8) and the IPv4 broadcast address (255.255.255.255) are classified as local network addresses.
+Additionally, both multicast addresses (224.0.0.0/4, ff00::/8) and the IPv4
+broadcast address (255.255.255.255) are classified as local network addresses.
 
 ### App-owned photos
 
-When prompted for photo and video permissions by an app targeting SDK 36 or higher on devices running Android 16 or higher, users who choose to limit access to selected media will see any photos owned by the app pre-selected in the photo picker. Users can deselect any of these pre-selected items, which will revoke the app's access to those photos and videos.
+When prompted for photo and video permissions by an app targeting SDK 36 or
+higher on devices running Android 16 or higher, users who choose to limit access
+to selected media will see any photos owned by the app pre-selected in the photo
+picker. Users can deselect any of these pre-selected items, which will revoke
+the app's access to those photos and videos.

@@ -4,13 +4,19 @@ url: https://developer.android.com/develop/ui/compose/testing/synchronization
 source: md.txt
 ---
 
-Compose tests are synchronized by default with your UI. When you call an assertion or an action with the [`ComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule), the test is synchronized beforehand, waiting until the UI tree is idle.
+Compose tests are synchronized by default with your UI. When you call an
+assertion or an action with the [`ComposeTestRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule), the test is synchronized
+beforehand, waiting until the UI tree is idle.
 
-Normally, you don't have to take any action. However, there are some edge cases you should know about.
+Normally, you don't have to take any action. However, there are some edge cases
+you should know about.
 
-When a test is synchronized, your Compose app is advanced in time using a virtual clock. This means Compose tests don't run in real time, so they can pass as fast as possible.
+When a test is synchronized, your Compose app is advanced in time using a
+virtual clock. This means Compose tests don't run in real time, so they can pass
+as fast as possible.
 
-However, if you don't use the methods that synchronize your tests, no recomposition will occur and the UI will appear to be paused.
+However, if you don't use the methods that synchronize your tests, no
+recomposition will occur and the UI will appear to be paused.
 
     @Test
     fun counterTest() {
@@ -29,38 +35,58 @@ However, if you don't use the methods that synchronize your tests, no recomposit
         composeTestRule.onNodeWithText("1").assertExists()
     }
 
-Note that this requirement only applies to Compose hierarchies and not to the rest of the app.
+Note that this requirement only applies to Compose hierarchies and not to the
+rest of the app.
 
 ### Disable automatic synchronization
 
-When you call an assertion or action through the `ComposeTestRule` such as `assertExists()`, your test is synchronized with the Compose UI. In some cases you might want to stop this synchronization and control the clock yourself. For example, you can control time to take accurate screenshots of an animation at a point where the UI would still be busy. To disable automatic synchronization, set the `autoAdvance` property in the `mainClock` to `false`:
+When you call an assertion or action through the `ComposeTestRule` such as
+`assertExists()`, your test is synchronized with the Compose UI. In some cases
+you might want to stop this synchronization and control the clock yourself. For
+example, you can control time to take accurate screenshots of an animation at a
+point where the UI would still be busy. To disable automatic synchronization,
+set the `autoAdvance` property in the `mainClock` to `false`:
 
     composeTestRule.mainClock.autoAdvance = false
 
-Typically you will then advance the time yourself. You can advance exactly one frame with `advanceTimeByFrame()` or by a specific duration with `advanceTimeBy()`:
+Typically you will then advance the time yourself. You can advance exactly one
+frame with `advanceTimeByFrame()` or by a specific duration with
+`advanceTimeBy()`:
 
     composeTestRule.mainClock.advanceTimeByFrame()
     composeTestRule.mainClock.advanceTimeBy(milliseconds)
 
 > [!NOTE]
-> **Note:** [`MainTestClock`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/MainTestClock) is responsible for driving all the recompositions, animations, and gestures. The API doesn't control [Android's measure and draw passes](https://developer.android.com/guide/topics/ui/how-android-draws).
+> **Note:** [`MainTestClock`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/MainTestClock) is responsible for driving all the recompositions, animations, and gestures. The API doesn't control [Android's measure and draw
+> passes](https://developer.android.com/guide/topics/ui/how-android-draws).
 
 ### Idle resources
 
-Compose can synchronize tests and the UI so that every action and assertion is done in an idle state, waiting or advancing the clock as needed. However, some asynchronous operations whose results affect the UI state can be run in the background while the test is unaware of them.
+Compose can synchronize tests and the UI so that every action and assertion is
+done in an idle state, waiting or advancing the clock as needed. However, some
+asynchronous operations whose results affect the UI state can be run in the
+background while the test is unaware of them.
 
-Create and register these *idling resources* in your test so that they're taken into account when deciding whether the app under test is busy or idle. You don't have to take action unless you need to register additional idling resources, for example, if you run a background job that is not synchronized with Espresso or Compose.
+Create and register these *idling resources* in your test so that they're taken
+into account when deciding whether the app under test is busy or idle. You don't
+have to take action unless you need to register additional idling resources, for
+example, if you run a background job that is not synchronized with Espresso or
+Compose.
 
-This API is very similar to Espresso's [Idling Resources](https://developer.android.com/training/testing/espresso/idling-resource) to indicate whether the subject under test is idle or busy. Use the Compose test rule to register the implementation of the [`IdlingResource`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/IdlingResource).
+This API is very similar to Espresso's [Idling Resources](https://developer.android.com/training/testing/espresso/idling-resource) to indicate whether
+the subject under test is idle or busy. Use the Compose test rule to register
+the implementation of the [`IdlingResource`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/IdlingResource).
 
     composeTestRule.registerIdlingResource(idlingResource)
     composeTestRule.unregisterIdlingResource(idlingResource)
 
 ### Manual synchronization
 
-In certain cases, you have to synchronize the Compose UI with other parts of your test or the app you're testing.
+In certain cases, you have to synchronize the Compose UI with other parts of
+your test or the app you're testing.
 
-The [`waitForIdle()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule#waitForIdle()) function waits for Compose to be idle, but the function depends on the `autoAdvance` property:
+The [`waitForIdle()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule#waitForIdle()) function waits for Compose to be idle, but the function
+depends on the `autoAdvance` property:
 
     composeTestRule.mainClock.autoAdvance = true // Default
     composeTestRule.waitForIdle() // Advances the clock until Compose is idle.
@@ -68,21 +94,27 @@ The [`waitForIdle()`](https://developer.android.com/reference/kotlin/androidx/co
     composeTestRule.mainClock.autoAdvance = false
     composeTestRule.waitForIdle() // Only waits for idling resources to become idle.
 
-Note that in both cases, `waitForIdle()` also waits for pending [draw and layout passes](https://developer.android.com/guide/topics/ui/how-android-draws#:%7E:text=When%20an%20Activity%20receives%20focus,and%20draw%20the%20layout%20tree.).
+Note that in both cases, `waitForIdle()` also waits for pending [draw and layout
+passes](https://developer.android.com/guide/topics/ui/how-android-draws#:%7E:text=When%20an%20Activity%20receives%20focus,and%20draw%20the%20layout%20tree.).
 
-Also, you can advance the clock until a certain condition is met with [`advanceTimeUntil()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/MainTestClock#advanceTimeUntil(kotlin.Long,kotlin.Function0)).
+Also, you can advance the clock until a certain condition is met with
+[`advanceTimeUntil()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/MainTestClock#advanceTimeUntil(kotlin.Long,kotlin.Function0)).
 
     composeTestRule.mainClock.advanceTimeUntil(timeoutMs) { condition }
 
-Note that the given condition should be checking the state that can be affected by this clock (it only works with Compose state).
+Note that the given condition should be checking the state that can be affected
+by this clock (it only works with Compose state).
 
 ### Wait for conditions
 
-Any condition that depends on external work, such as data loading or Android's measure or draw (that is, measure or draw external to Compose), should use a more general concept such as [`waitUntil()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule#waitUntil(kotlin.Long,kotlin.Function0)):
+Any condition that depends on external work, such as data loading or Android's
+measure or draw (that is, measure or draw external to Compose), should use a
+more general concept such as [`waitUntil()`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule#waitUntil(kotlin.Long,kotlin.Function0)):
 
     composeTestRule.waitUntil(timeoutMs) { condition }
 
-You can also use any of the [`waitUntil` helpers](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule#waitUntilAtLeastOneExists(androidx.compose.ui.test.SemanticsMatcher,kotlin.Long)):
+You can also use any of the
+[`waitUntil` helpers](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/ComposeTestRule#waitUntilAtLeastOneExists(androidx.compose.ui.test.SemanticsMatcher,kotlin.Long)):
 
     composeTestRule.waitUntilAtLeastOneExists(matcher, timeoutMs)
 

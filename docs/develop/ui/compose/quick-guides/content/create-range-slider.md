@@ -6,7 +6,8 @@ source: md.txt
 
 <br />
 
-The [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) composable lets users make selections from a range of values. You might use a slider to let the user do the following:
+The [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) composable lets users make selections from a range of
+values. You might use a slider to let the user do the following:
 
 - Adjust settings that use a range of values, such as volume, and brightness.
 - Filter data in a graph, as when setting a price range.
@@ -26,16 +27,19 @@ This topic shows the following slider implementations:
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or higher.
+This implementation requires that your project minSDK be set to API level 21 or
+higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_fe30e5b1b3bf57635bdc2152f1499c7d7bf124e4909c22a4e51155c557d1cd7f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a basic slider
 
-The following example is a straightforward slider. That allows the user to select a value from `0.0` to `1.0`. Because the user can select any value in that range, the slider is *continuous*.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_cee374561057ebb292b124ae45d1ffa18d83fb5644530d54c73a1cf84f2e12e7.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+The following example is a straightforward slider. That allows the user to
+select a value from `0.0` to `1.0`. Because the user can select any value in
+that range, the slider is *continuous*.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_fa57fb3b55c6cb1bf0c2ec784c648ea8988bd8ab4fa05a78485a25bb6c3dc79f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -43,8 +47,10 @@ The following example is a straightforward slider. That allows the user to selec
 
 ## Create an advanced slider
 
-The following snippet implements a slider that has three steps, with a range from `0.0` to `50.0`. Because the thumb snaps to each step, this slider is *discrete*.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_640b1e979d0f5e86af117cd48d1292eac4eca99de405c27eec99320cb1bc9fb4.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+The following snippet implements a slider that has three steps, with a range
+from `0.0` to `50.0`. Because the thumb snaps to each step, this slider is
+*discrete*.
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_ace2c0c169f849e4401a83b54722db7500544367d371b065e53d9fca566f1982.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -55,10 +61,13 @@ The following snippet implements a slider that has three steps, with a range fro
 
 ## Range slider
 
-You can also use the dedicated [`RangeSlider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/RangeSlider.composable#RangeSlider(kotlin.ranges.ClosedFloatingPointRange,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.ranges.ClosedFloatingPointRange,kotlin.Int,kotlin.Function0,androidx.compose.material3.SliderColors)) composable. This allows the user to select two values. This can be useful in cases such as when the user wishes to select a minimum and maximum price.
+You can also use the dedicated [`RangeSlider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/RangeSlider.composable#RangeSlider(kotlin.ranges.ClosedFloatingPointRange,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.ranges.ClosedFloatingPointRange,kotlin.Int,kotlin.Function0,androidx.compose.material3.SliderColors)) composable. This allows the user to
+select two values. This can be useful in cases such as when the user wishes to
+select a minimum and maximum price.
 
-The following example is a relatively straightforward example of a continuous range slider:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_779dac18f95b165fb845b4b9241186d46d139644475d93b28c62386cd88b4213.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+The following example is a relatively straightforward example of a continuous
+range slider:
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-range-slider_2d67ae8de2c7b4317b230d854971ab3e5671107780311114843f55fb8008083e.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Results
 
@@ -66,23 +75,27 @@ The following example is a relatively straightforward example of a continuous ra
 
 ## Key points
 
-See the [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) reference for a full API definition. Some of the key parameters for the `Slider` composable are the following:
+See the [`Slider`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Slider.composable#Slider(androidx.compose.material3.SliderState,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function1,kotlin.Function1)) reference for a full API definition. Some of the key
+parameters for the `Slider` composable are the following:
 
 - **`value`**: The current value of the slider.
 - **`onValueChange`**: A lambda that gets called every time the value is changed.
 - **`enabled`**: A boolean value that indicates if the user can interact with the slider.
 
-When implementing a more complex slider, you can additionally make use of the following parameters.
+When implementing a more complex slider, you can additionally make use of the
+following parameters.
 
 - **`colors`** : An instance of `SliderColors` that lets you control the colors of the slider.
 - **`valueRange`**: The range of values that the slider can take.
 - **`steps`**: The number of notches on the slider to which the thumb snaps.
 
-You can also pass `Slider` a `thumb` and `track` composable to more thoroughly customize the appearance of the component.
+You can also pass `Slider` a `thumb` and `track` composable to more
+thoroughly customize the appearance of the component.
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover
+broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display interactive components

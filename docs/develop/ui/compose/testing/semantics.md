@@ -4,7 +4,11 @@ url: https://developer.android.com/develop/ui/compose/testing/semantics
 source: md.txt
 ---
 
-UI tests in Compose use *semantics* to interact with the UI hierarchy. Semantics, as the name implies, give meaning to a piece of UI. In this context, a "piece of UI" (or element) can mean anything from a single composable to a full screen. The *semantics tree* is generated alongside the UI hierarchy and describes the hierarchy.
+UI tests in Compose use *semantics* to interact with the UI hierarchy.
+Semantics, as the name implies, give meaning to a piece of UI. In this context,
+a "piece of UI" (or element) can mean anything from a single composable to a
+full screen. The *semantics tree* is generated alongside the UI hierarchy and
+describes the hierarchy.
 
 You can learn more about semantics generally in [Semantics in Compose](https://developer.android.com/develop/ui/compose/accessibility/semantics).
 
@@ -12,13 +16,19 @@ You can learn more about semantics generally in [Semantics in Compose](https://d
 
 **Figure 1.** A typical UI hierarchy and its semantics tree.
 
-The semantics framework is primarily used for accessibility, so tests take advantage of the information exposed by semantics about the UI hierarchy. Developers decide what and how much to expose.
+The semantics framework is primarily used for accessibility, so tests take
+advantage of the information exposed by semantics about the UI hierarchy.
+Developers decide what and how much to expose.
 
 ![A button containing a graphic and text](https://developer.android.com/static/develop/ui/compose/images/testing-button.png)
 
 **Figure 2.** A typical button containing an icon and text.
 
-For example, given a button like this that consists of an icon and a text element, the default semantics tree only contains the text label "Like". This is because some composables, such as `Text`, already expose some properties to the semantics tree. You can add properties to the semantics tree by using a `Modifier`.
+For example, given a button like this that consists of an icon and a text
+element, the default semantics tree only contains the text label "Like". This is
+because some composables, such as `Text`, already expose some properties to the
+semantics tree. You can add properties to the semantics tree by using a
+`Modifier`.
 
     MyButton(
         modifier = Modifier.semantics { contentDescription = "Add to favorites" }

@@ -6,7 +6,11 @@ source: md.txt
 
 <br />
 
-Create a paging list so that users can scroll to access content too large to fit on a single screen. Horizontal paging lists can help users navigate through content such as images, slideshows, or product carousels. Vertical paging lists are useful for content-heavy apps where users may need to scroll through a large number of items, such as articles.
+Create a paging list so that users can scroll to access content too large to fit
+on a single screen. Horizontal paging lists can help users navigate through
+content such as images, slideshows, or product carousels. Vertical paging lists
+are useful for content-heavy apps where users may need to scroll through a large
+number of items, such as articles.
 
 ## Results
 
@@ -14,15 +18,18 @@ Create a paging list so that users can scroll to access content too large to fit
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or higher.
+This implementation requires that your project minSDK be set to API level 21 or
+higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-paging-list_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-paging-list_fe30e5b1b3bf57635bdc2152f1499c7d7bf124e4909c22a4e51155c557d1cd7f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a paging list
 
-You can configure a horizontal or vertical paging list, depending on the orientation required for your app. The following code creates a horizontal paging list displaying 10 items:
+You can configure a horizontal or vertical paging list, depending on the
+orientation required for your app. The following code creates a horizontal
+paging list displaying 10 items:
 <iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-paging-list_83694a786ac67369f732bff19b8263d803403d6cf705736277c33d58f2785257.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Key points about the code
@@ -34,7 +41,8 @@ You can configure a horizontal or vertical paging list, depending on the orienta
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover
+broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display a list or grid

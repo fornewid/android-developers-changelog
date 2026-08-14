@@ -8,21 +8,32 @@ Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. L
 
 <br />
 
-This page includes details for optional widget enhancements that are available starting in Android 12 (API level 31). These features are optional, but they're straightforward to implement and improve your users' widget experience.
+This page includes details for optional widget enhancements that are available
+starting in Android 12 (API level 31). These features are optional, but they're
+straightforward to implement and improve your users' widget experience.
 
-For additional ways to see how to enhance your widget, see the Compose guide [Enhance your Widget](https://developer.android.com/develop/ui/compose/glance/enhance).
+For additional ways to see how to enhance your widget, see the Compose guide
+[Enhance your Widget](https://developer.android.com/develop/ui/compose/glance/enhance).
 
 ## Use dynamic colors
 
-Starting in Android 12, a widget can use the device theme colors for buttons, backgrounds, and other components. This provides smoother transitions and consistency across different widgets.
+Starting in Android 12, a widget can use the device theme colors
+for buttons, backgrounds, and other components. This provides smoother
+transitions and consistency across different widgets.
 
 There are two ways to achieve dynamic colors:
 
-- Use the system's default theme (`@android:style/Theme.DeviceDefault.DayNight`) in the root layout.
+- Use the system's default theme
+  (`@android:style/Theme.DeviceDefault.DayNight`) in the root layout.
 
-- Use the Material 3 theme (`Theme.Material3.DynamicColors.DayNight`) from the [Material Components for Android](https://github.com/material-components/material-components-android) library, available starting in [Material Components for Android v1.6.0](https://github.com/material-components/material-components-android/releases/tag/1.6.0).
+- Use the Material 3 theme (`Theme.Material3.DynamicColors.DayNight`) from the
+  [Material Components for
+  Android](https://github.com/material-components/material-components-android)
+  library, available starting in [Material Components for Android
+  v1.6.0](https://github.com/material-components/material-components-android/releases/tag/1.6.0).
 
-Once the theme is set in the root layout, you can use common color attributes in the root or any of its children to pick up the dynamic colors.
+Once the theme is set in the root layout, you can use common color attributes in
+the root or any of its children to pick up the dynamic colors.
 
 Some examples of color attributes you can use are the following:
 
@@ -31,7 +42,9 @@ Some examples of color attributes you can use are the following:
 - `?attr/onPrimary`
 - `?attr/onPrimaryContainer`
 
-In the following example using the Material 3 theme, the device's theme color is "purplish." The accent color and widget background adapt for light and dark modes, as shown in figures 1 and 2.
+In the following example using the Material 3 theme, the device's theme color is
+"purplish." The accent color and widget background adapt for light and dark
+modes, as shown in figures 1 and 2.
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -58,7 +71,10 @@ In the following example using the Material 3 theme, the device's theme color is
 
 ### Backward compatibility for dynamic colors
 
-Dynamic colors are only available in devices running Android 12 or higher. To provide a custom theme for lower versions, create a default theme with your custom colors and a new qualifier (`values-v31`) using the default theme attributes.
+Dynamic colors are only available in devices running Android 12
+or higher. To provide a custom theme for lower versions, create a default theme
+with your custom colors and a new qualifier (`values-v31`) using the default
+theme attributes.
 
 Here is an example using the Material 3 theme:
 
@@ -95,17 +111,32 @@ Here is an example using the Material 3 theme:
 
 ## Enable voice support
 
-[App Actions](https://developers.google.com/assistant/app) let Google Assistant display widgets in response to relevant user voice commands. By configuring your widget to respond to [built-in intents (BIIs)](https://developer.android.com/guide/app-actions/intents), your app can proactively display widgets on Assistant surfaces such as Android and Android Auto. Users have the option to [pin widgets](https://developer.android.com/guide/app-actions/widgets#pinning) displayed by Assistant to their launcher, encouraging future engagement.
+[App Actions](https://developers.google.com/assistant/app) let Google Assistant
+display widgets in response to relevant user voice commands. By configuring your
+widget to respond to [built-in intents (BIIs)](https://developer.android.com/guide/app-actions/intents), your
+app can proactively display widgets on Assistant surfaces such as Android and
+Android Auto. Users have the option to
+[pin widgets](https://developer.android.com/guide/app-actions/widgets#pinning) displayed by Assistant to
+their launcher, encouraging future engagement.
 
-For example, you can configure the workout summary widget for your exercise app to fulfill the user voice commands that trigger the [`GET_EXERCISE_OBSERVATION`](https://developer.android.com/reference/app-actions/built-in-intents/health-and-fitness/get-exercise-observation) BII. Assistant proactively displays your widget when users trigger this BII by making requests like, *"Hey Google, how many miles did I run this week on ExampleApp?"*
+For example, you can configure the workout summary widget for your exercise app
+to fulfill the user voice commands that trigger the
+[`GET_EXERCISE_OBSERVATION`](https://developer.android.com/reference/app-actions/built-in-intents/health-and-fitness/get-exercise-observation)
+BII. Assistant proactively displays your widget when users trigger this BII by
+making requests like, *"Hey Google, how many miles did I run this week on
+ExampleApp?"*
 
-There are dozens of BIIs covering several categories of user interaction, letting almost any Android app enhance their widgets for voice. To get started, see [Integrate App Actions with Android widgets](https://developer.android.com/guide/app-actions/widgets).
+There are dozens of BIIs covering several categories of user interaction,
+letting almost any Android app enhance their widgets for voice. To get started,
+see [Integrate App Actions with Android widgets](https://developer.android.com/guide/app-actions/widgets).
 
 ## Enable smoother transitions
 
-Starting in Android 12, launchers provide a smoother transition when a user launches your app from a widget.
+Starting in Android 12, launchers provide a smoother transition
+when a user launches your app from a widget.
 
-To enable this improved transition, use `@android:id/background` or `android.R.id.background` to identify your background element:
+To enable this improved transition, use `@android:id/background` or
+`android.R.id.background` to identify your background element:
 
     // Top-level layout of the widget.
     <LinearLayout
@@ -113,13 +144,18 @@ To enable this improved transition, use `@android:id/background` or `android.R.i
     </LinearLayout>
 
 > [!WARNING]
-> **Warning:** Avoid using [broadcast trampolines](https://developer.android.com/about/versions/12/behavior-changes-12#notification-trampolines). Starting in Android 12, an app can still launch an activity from a broadcast receiver or service if it's initiated from a widget click's [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent). However, the new app animation isn't used for apps launched from a broadcast receiver or service, which leads to a poor user experience.
+> **Warning:** Avoid using [broadcast
+> trampolines](https://developer.android.com/about/versions/12/behavior-changes-12#notification-trampolines). Starting in Android 12, an app can still launch an activity from a broadcast receiver or service if it's initiated from a widget click's [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent). However, the new app animation isn't used for apps launched from a broadcast receiver or service, which leads to a poor user experience.
 
-Your app can use `@android:id/background` on previous versions of Android without breaking, but it is ignored.
+Your app can use `@android:id/background` on previous versions of Android
+without breaking, but it is ignored.
 
 ## Use runtime modification of RemoteViews
 
-Starting in Android 12, you can take advantage of several `RemoteViews` methods that provide for runtime modification of `RemoteViews` attributes. See the [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews) API reference for the full list of added methods.
+Starting in Android 12, you can take advantage of several
+`RemoteViews` methods that provide for runtime modification of `RemoteViews`
+attributes. See the [`RemoteViews`](https://developer.android.com/reference/android/widget/RemoteViews) API
+reference for the full list of added methods.
 
 The following code example shows how to use a few of these methods.
 

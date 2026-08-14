@@ -6,17 +6,19 @@ source: md.txt
 
 <br />
 
-<br />
 
 Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
 
 <br />
 
-In Jetpack Compose Glimmer, an [`IconButton`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/IconButton.composable) is a compact, interactive component used for exposing supplementary actions with a single tap.
+In Jetpack Compose Glimmer, an [`IconButton`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/IconButton.composable) is a compact, interactive
+component used for exposing supplementary actions with a single tap.
 
-Icon buttons appear smaller than standard buttons, but they maintain a physical boundary to ensure ease of interaction on display glasses.
+Icon buttons appear smaller than standard buttons, but they maintain a physical
+boundary to ensure ease of interaction on display glasses.
 
-For other use cases, there are also [standard buttons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/buttons) and [toggle buttons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/toggle-buttons).
+For other use cases, there are also [standard buttons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/buttons) and [toggle
+buttons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/toggle-buttons).
 ![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_buttons_anatomy_icon.png) An example of some different styles of icon buttons in Jetpack Compose Glimmer. These examples show five icon button states: Enabled (1), Focused (2), Pressed (3), Disabled (4), Disabled and focused (5).
 
 ## Sizes and dimensions
@@ -29,7 +31,8 @@ For other use cases, there are also [standard buttons](https://developer.android
 
 ## States
 
-Icon buttons in Jetpack Compose Glimmer change their appearance to communicate their state.
+Icon buttons in Jetpack Compose Glimmer change their appearance to communicate
+their state.
 
 - **Enabled**: The default interactive state.
 - **Focused** : Applies [`GlimmerTheme.depthEffectLevels.level1`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/DepthEffectLevels#level1()) and a focused border highlight.
@@ -51,14 +54,14 @@ The following defaults apply to icon buttons:
 
 The following code creates an icon button with default characteristics:
 
-<br />
 
 ```kotlin
 @Composable
 fun IconButtonSample() {
-    IconButton(onClick = {}) { Icon(FavoriteIcon, "Localized description") }
+    IconButton(onClick = { /* Handle action */ }) {
+        Icon(FavoriteIcon, contentDescription = "Localized description")
+    }
 }
-   
 ```
 
 <br />

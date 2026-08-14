@@ -6,7 +6,8 @@ source: md.txt
 
 ## 1. Structural analysis \& mapping
 
-**Identify the precise mapping** between XML elements and Compose equivalents. You must determine:
+**Identify the precise mapping** between XML elements and Compose equivalents.
+You must determine:
 
 - The exact `@Composable` functions (e.g., `ConstraintLayout`, `Column`, `LazyColumn`) that replace the XML tag hierarchy.
 - The specific parameters and `Modifier` extensions required to replicate XML attributes (e.g., `layout_width`, `padding`, `elevation`).
@@ -14,7 +15,9 @@ source: md.txt
 
 ## 2. Migration execution
 
-**Convert the XML layout code to Jetpack Compose**, ensuring the visual hierarchy and layout logic are preserved while leveraging Compose's declarative nature.
+**Convert the XML layout code to Jetpack Compose**, ensuring the visual
+hierarchy and layout logic are preserved while leveraging Compose's declarative
+nature.
 
 ## 3. Theming \& design system integrity
 
@@ -26,7 +29,8 @@ source: md.txt
 
 ## 4. Component layering \& reusability
 
-Evaluate if the XML layout serves as a foundation-level design system component (reused across the app with a distinct role). If it is:
+Evaluate if the XML layout serves as a foundation-level design system component
+(reused across the app with a distinct role). If it is:
 
 - **Create a reusable composable:** Do not just inline the code. Define a new standalone `@Composable`.
 - **Parameterization:** Expose specific parameters for variable data (text, colors, styles) and use `Modifier` for layout-specific customizations.
@@ -46,7 +50,6 @@ Example before migration:
 
 Example after migration:
 
-<br />
 
 ```kotlin
 @Composable
@@ -76,7 +79,6 @@ fun RoundedBorderlessButton(
         )
     }
 }
-   
 ```
 
 <br />

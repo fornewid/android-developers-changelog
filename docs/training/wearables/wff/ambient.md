@@ -4,13 +4,20 @@ url: https://developer.android.com/training/wearables/wff/ambient
 source: md.txt
 ---
 
-All watch faces should have not only an interactive mode, but also ambient mode. The Wear OS App Quality guidelines specify that only [15% of pixels are illuminated in ambient mode](https://developer.android.com/docs/quality-guidelines/wear-app-quality#wff).
+All watch faces should have not only an interactive mode, but also ambient mode.
+The Wear OS App Quality guidelines specify that only [15% of pixels are
+illuminated in ambient mode](https://developer.android.com/docs/quality-guidelines/wear-app-quality#wff).
 
-Typically, the watch spends much more time in ambient mode, and during this time, conserving power is a priority.
+Typically, the watch spends much more time in ambient mode, and during this
+time, conserving power is a priority.
 
-Well designed ambient displays contain only essential information, and they minimize the number of pixels that are illuminated.
+Well designed ambient displays contain only essential information, and they
+minimize the number of pixels that are illuminated.
 
-The recommended approach for implementing a component that alters in appearance between ambient and interactive modes is to add two elements, each with a `Variant`. Adding this at the `Part*` or `Group` level makes it possible keep the number of `Variant` elements to a minimum.
+The recommended approach for implementing a component that alters in appearance
+between ambient and interactive modes is to add two elements, each with a
+`Variant`. Adding this at the `Part*` or `Group` level makes it possible keep
+the number of `Variant` elements to a minimum.
 
 <br />
 
@@ -24,7 +31,6 @@ The recommended approach for implementing a component that alters in appearance 
     <Variant mode="AMBIENT" target="alpha" value="255" />
     <!-- Components to show in ambient mode -->
 </Group>
-   
 ```
 
 <br />

@@ -4,18 +4,25 @@ url: https://developer.android.com/identity/sign-in/credential-provider
 source: md.txt
 ---
 
-Credential Manager refers to a set of APIs introduced in Android 14 that support multiple sign-in methods such as username-password, passkeys, and federated sign-in solutions (such as Sign-in with Google). When the Credential Manager API is invoked, the Android system aggregates credentials from all credential providers installed on the device. This document describes the set of APIs that provide integration endpoints for these credential providers.
+Credential Manager refers to a set of APIs introduced in Android 14 that support
+multiple sign-in methods such as username-password, passkeys, and federated
+sign-in solutions (such as Sign-in with Google). When the Credential Manager API
+is invoked, the Android system aggregates credentials from all credential
+providers installed on the device. This document describes the set of APIs that
+provide integration endpoints for these credential providers.
 
 > [!NOTE]
 > **Note:** This guide is intended for credential providers, such as password manager apps, to add support for the Credential Manager API on Android devices that run Android 14 and higher. If you want to integrate your app with Credential Manager to use credentials from password managers, such as Google Password Manager, read the guide on how to [sign-in your user with Credential Manager](https://developer.android.com/training/sign-in/passkeys) instead.
 
 ## Setup
 
-Before you implement functionality in your credential provider, complete the setup steps shown in the following sections.
+Before you implement functionality in your credential provider, complete the
+setup steps shown in the following sections.
 
 ### Declare dependencies
 
-Add the following dependencies to your app module's build script, to use the [latest version](https://developer.android.com/jetpack/androidx/releases/credentials) of the Credential Manager library:
+Add the following dependencies to your app module's build script, to use the
+[latest version](https://developer.android.com/jetpack/androidx/releases/credentials) of the Credential Manager library:
 
 ### Kotlin
 
@@ -35,7 +42,10 @@ dependencies {
 
 ### Declare service element in manifest file
 
-In your app's manifest file `AndroidManifest.xml`, include a `<service>` declaration for a service class that extends the [`CredentialProviderService`](https://developer.android.com/reference/androidx/credentials/provider/CredentialProviderService) class from the androidx.credentials library, as shown in the following example.
+In your app's manifest file `AndroidManifest.xml`, include a `<service>`
+declaration for a service class that extends the
+[`CredentialProviderService`](https://developer.android.com/reference/androidx/credentials/provider/CredentialProviderService) class from the androidx.credentials library, as
+shown in the following example.
 
     <service android:name=".MyCredentialProviderService"
         android:enabled="true"
@@ -52,14 +62,23 @@ In your app's manifest file `AndroidManifest.xml`, include a `<service>` declara
             android:resource="@xml/provider"/>
     </service>
 
-The permission and the intent filter shown in the previous example are integral for the Credential Manager flow to work as expected. The permission is needed so that only the Android system can bind to this service. The intent filter is used for discoverability of this service as a credential provider to be used by Credential Manager.
+The permission and the intent filter shown in the previous example are integral
+for the Credential Manager flow to work as expected. The permission is needed so
+that only the Android system can bind to this service. The intent filter is used
+for discoverability of this service as a credential provider to be used by
+Credential Manager.
 
 > [!NOTE]
 > **Note:** The credential service is combined with any [autofill service](https://developer.android.com/guide/topics/text/autofill-services) that's defined in the same package, so if there's an autofill icon already defined, the system re-uses the autofill icon to display on the Settings page.
 
 ### Declare supported credential types
 
-In your `res/xml` directory, create a new file called `provider.xml`. In this file, declare the credential types your service supports, through constants defined for each credential type in the library. In the following example, the service supports traditional passwords as well as passkeys, constants for which are defined as [`TYPE_PASSWORD_CREDENTIAL`](https://developer.android.com/reference/kotlin/androidx/credentials/PasswordCredential#TYPE_PASSWORD_CREDENTIAL()) and [`TYPE_PUBLIC_KEY_CREDENTIAL`](https://developer.android.com/reference/kotlin/androidx/credentials/PublicKeyCredential#TYPE_PUBLIC_KEY_CREDENTIAL()):
+In your `res/xml` directory, create a new file called `provider.xml`. In this
+file, declare the credential types your service supports, through constants
+defined for each credential type in the library. In the following example, the
+service supports traditional passwords as well as passkeys, constants for which
+are defined as [`TYPE_PASSWORD_CREDENTIAL`](https://developer.android.com/reference/kotlin/androidx/credentials/PasswordCredential#TYPE_PASSWORD_CREDENTIAL()) and
+[`TYPE_PUBLIC_KEY_CREDENTIAL`](https://developer.android.com/reference/kotlin/androidx/credentials/PublicKeyCredential#TYPE_PUBLIC_KEY_CREDENTIAL()):
 
     <credential-provider xmlns:android="http://schemas.android.com/apk/res/android">
         <capabilities>
@@ -68,7 +87,10 @@ In your `res/xml` directory, create a new file called `provider.xml`. In this fi
         </capabilities>
     </credential-provider>
 
-On previous API levels, credential providers integrate with APIs like autofill for passwords and other data. These providers can use the same internal infrastructure to store the existing credential types, while expanding it to support others, including passkeys.
+On previous API levels, credential providers integrate with APIs like autofill
+for passwords and other data. These providers can use the same internal
+infrastructure to store the existing credential types, while expanding it to
+support others, including passkeys.
 
 > [!NOTE]
 > **Note:** For passkeys, [private keys must be encrypted](https://security.googleblog.com/2022/10/SecurityofPasskeysintheGooglePasswordManager.html).
@@ -84,7 +106,10 @@ Credential Manager interacts with credential providers in two phases:
 
 ### Handle queries for passkey creation
 
-When a client app wishes to [create a passkey](https://developer.android.com/training/sign-in/passkeys#create-passkey) and store it with a credential provider, they call the [`createCredential`](https://developer.android.com/training/sign-in/passkeys#create-passkey) API. To handle this request in your credential provider service such that the passkey is actually stored in your storage, complete the steps shown in the following sections.
+When a client app wishes to [create a passkey](https://developer.android.com/training/sign-in/passkeys#create-passkey) and store it with a
+credential provider, they call the [`createCredential`](https://developer.android.com/training/sign-in/passkeys#create-passkey) API. To handle this
+request in your credential provider service such that the passkey is actually
+stored in your storage, complete the steps shown in the following sections.
 
 1. Override the `onBeginCreateCredentialRequest()` method in your service extended from [`CredentialProviderService`](https://developer.android.com/reference/android/service/credentials/CredentialProviderService).
 2. Handle the [`BeginCreateCredentialRequest`](https://developer.android.com/reference/android/service/credentials/BeginCreateCredentialRequest) by constructing a corresponding [`BeginCreateCredentialResponse`](https://developer.android.com/reference/android/service/credentials/BeginCreateCredentialResponse) and passing it through the callback.
@@ -176,14 +201,16 @@ Your [`PendingIntent`](https://developer.android.com/reference/android/app/Pendi
 5. Validate the `requestJson`. The example below uses local data classes like `PublicKeyCredentialCreationOptions` to convert the input JSON to a structured class as per the WebAuthn spec. As a credential provider, you can replace this with your own parser.
 6. Check the [asset-link](https://developer.android.com/training/sign-in/passkeys#add-support-dal) for the calling app if the call originates from a native Android app.
 7. Surface an authentication prompt. The example below uses the Android [Biometric](https://www.w3.org/TR/webauthn-2/#credential-id) API.
-8. When authentication is successful, generate a `credentialId` and a [key pair](https://www.w3.org/TR/webauthn-2/#credential-id).
+8. When authentication is successful, generate a `credentialId` and a [key
+   pair](https://www.w3.org/TR/webauthn-2/#credential-id).
 9. Save the [private key](https://www.w3.org/TR/webauthn-2/#credential-private-key) in your local database against `callingAppInfo.packageName`.
 10. Construct a [Web Authentication API JSON response](https://www.w3.org/TR/webauthn-2/#sctn-api) that consists of the [public key](https://www.w3.org/TR/webauthn-2/#credential-public-key) and the `credentialId`. The example below uses local utility classes like `AuthenticatorAttestationResponse` and `FidoPublicKeyCredential` that help construct a JSON based on the earlier mentioned spec.As a credential provider, you can replace these classes with your own builders.
 11. Construct a `CreatePublicKeyCredentialResponse` with the JSON generated above.
 12. Set `CreatePublicKeyCredentialResponse` as an extra on an `Intent` through [`PendingIntentHander.setCreateCredentialResponse()`](https://developer.android.com/reference/kotlin/androidx/credentials/provider/PendingIntentHandler#setCreateCredentialResponse(android.content.Intent,androidx.credentials.CreateCredentialResponse)), and set that intent to the result of the Activity.
 13. Finish the Activity.
 
-The code example below illustrates these steps. This code needs to be handled in your Activity class once `onCreate()` is invoked.
+The code example below illustrates these steps. This code needs to be handled in
+your Activity class once `onCreate()` is invoked.
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
@@ -356,9 +383,13 @@ The following example illustrates how to implement these steps:
 
 ### Handle entry selection for password creation requests
 
-When the user selects a populated `CreateEntry`, the corresponding `PendingIntent` executes and brings up the associated Activity. Access the associated intent passed in `onCreate` and pass it into the `PendingIntentHander` class to get the `ProviderCreateCredentialRequest` method.
+When the user selects a populated `CreateEntry`, the corresponding
+`PendingIntent` executes and brings up the associated Activity. Access the
+associated intent passed in `onCreate` and pass it into the
+`PendingIntentHander` class to get the `ProviderCreateCredentialRequest` method.
 
-The example below illustrates how to implement this process. This code needs to be handled in your Activity's `onCreate()` method.
+The example below illustrates how to implement this process. This code needs to
+be handled in your Activity's `onCreate()` method.
 
     val createRequest = PendingIntentHandler.retrieveProviderCreateCredentialRequest(intent)
     val accountId = intent.getStringExtra(CredentialsRepo.EXTRA_KEY_ACCOUNT_ID)
@@ -396,9 +427,12 @@ User sign-in is handled with the following steps:
 > [!NOTE]
 > **Note:** Credential providers should skip the validation check that compares the requesting origin against the Relying Party ID (RP ID). This check is redundant and causes valid [Related Origin Requests](https://web.dev/articles/webauthn-related-origin-requests) (ROR) requests to be rejected when the origins differ, leading to failures for relying parties utilizing ROR. If you must maintain additional validation related to the RP ID, the logic must explicitly refer to and respect the ROR definition.
 
-To handle this request in your credential provider service, complete the following steps:
+To handle this request in your credential provider service, complete the
+following steps:
 
-1. Override the `onBeginGetCredentialRequest()` method to handle the request. Note that if your credentials are locked, you can immediately set an `AuthenticationAction` on the response and invoke the callback.
+1. Override the `onBeginGetCredentialRequest()` method to handle the request.
+   Note that if your credentials are locked, you can immediately set an
+   `AuthenticationAction` on the response and invoke the callback.
 
        private val unlockEntryTitle = "Authenticate to continue"
 
@@ -427,7 +461,9 @@ To handle this request in your credential provider service, complete the followi
            }
        }
 
-   Providers that require unlocking the credentials before returning any `credentialEntries`, must set up a pending intent that navigates the user to the app's unlock flow:
+   Providers that require unlocking the credentials before returning any
+   `credentialEntries`, must set up a pending intent that navigates the user to
+   the app's unlock flow:
 
        private fun createUnlockPendingIntent(): PendingIntent {
            val intent = Intent(UNLOCK_INTENT).setPackage(PACKAGE_NAME)
@@ -440,7 +476,10 @@ To handle this request in your credential provider service, complete the followi
            )
        }
 
-2. Retrieve credentials from your local database and set them up using `CredentialEntries` to be shown on the selector. For passkeys, you can set `credentialId` as an extra on the intent so as to know which credential it maps to when the user selects this entry.
+2. Retrieve credentials from your local database and set them up using
+   `CredentialEntries` to be shown on the selector. For passkeys, you can set
+   `credentialId` as an extra on the intent so as to know which credential it
+   maps to when the user selects this entry.
 
        companion object {
            // These intent actions are specified for corresponding activities
@@ -481,7 +520,8 @@ To handle this request in your credential provider service, complete the followi
            return BeginGetCredentialResponse(credentialEntries)
        }
 
-3. Query credentials from your database, create passkey and password entries to populate.
+3. Query credentials from your database, create passkey and password entries to
+   populate.
 
        private fun populatePasskeyData(
            callingAppInfo: CallingAppInfo?,
@@ -555,7 +595,9 @@ To handle this request in your credential provider service, complete the followi
            )
        }
 
-4. Once you query and populate the credentials, now you need to handle the selection phase for the credentials being selected by the user, whether it is a passkey or a password.
+4. Once you query and populate the credentials, now you need to handle the
+   selection phase for the credentials being selected by the user, whether it
+   is a passkey or a password.
 
 ### Handling user selection for passkeys
 
@@ -563,7 +605,8 @@ To handle this request in your credential provider service, complete the followi
 2. Extract the [`GetPublicKeyCredentialOption`](https://developer.android.com/reference/androidx/credentials/GetPublicKeyCredentialOption) from the request retrieved above. Subsequently, extract the `requestJson` and `clientDataHash` from this option.
 3. Extract the `credentialId` from the intent extra, which was populated by the credential provider when the corresponding`PendingIntent` was set up.
 4. Extract the passkey from your local database using the request parameters accessed above.
-5. Assert that the passkey is valid with extracted metadata, and user verification.
+5. Assert that the passkey is valid with extracted metadata, and user
+   verification.
 
        val getRequest = PendingIntentHandler.retrieveProviderGetCredentialRequest(intent)
        val publicKeyRequest = getRequest?.credentialOptions?.first() as GetPublicKeyCredentialOption
@@ -592,11 +635,20 @@ To handle this request in your credential provider service, complete the followi
            privateKey
        )
 
-6. To validate the user, surface a Biometric prompt (or other assertion method). The code snippet below uses the Android Biometric API.
+6. To validate the user, surface a Biometric prompt (or other assertion
+   method). The code snippet below uses the Android Biometric API.
 
-7. Once the authentication succeeds, construct a JSON response based on the [W3 Web Authentication Assertion spec](https://www.w3.org/TR/webauthn-2/#authenticatorassertionresponse). In the code snippet below, helper data classes like `AuthenticatorAssertionResponse` are used to take in structured parameters and convert them into the required JSON format. The response contains a [digital signature](https://en.wikipedia.org/wiki/Digital_signature) from the private key of a WebAuthn credential. The relying party's server can verify this signature to authenticate a user before signing in.
+7. Once the authentication succeeds, construct a JSON response based on the [W3
+   Web Authentication Assertion spec](https://www.w3.org/TR/webauthn-2/#authenticatorassertionresponse). In the code snippet
+   below, helper data classes like `AuthenticatorAssertionResponse` are used to
+   take in structured parameters and convert them into the required JSON
+   format. The response contains a [digital signature](https://en.wikipedia.org/wiki/Digital_signature) from the
+   private key of a WebAuthn credential. The relying party's server can verify
+   this signature to authenticate a user before signing in.
 
-8. Construct a [`PublicKeyCredential`](https://developer.android.com/reference/kotlin/androidx/credentials/PublicKeyCredential) using the JSON generated above and set it on a final [`GetCredentialResponse`](https://developer.android.com/reference/androidx/credentials/GetCredentialResponse). Set this final response on the result of this activity.
+8. Construct a [`PublicKeyCredential`](https://developer.android.com/reference/kotlin/androidx/credentials/PublicKeyCredential) using the JSON generated above and
+   set it on a final [`GetCredentialResponse`](https://developer.android.com/reference/androidx/credentials/GetCredentialResponse). Set this final response on
+   the result of this activity.
 
 The following example illustrates how these steps can be implemented:
 
@@ -670,7 +722,8 @@ The following example illustrates how these steps can be implemented:
 ### Handling user selection for password authentication
 
 1. In your corresponding activity, access the intent passed in to `onCreate` and extract the [`ProviderGetCredentialRequest`](https://developer.android.com/reference/androidx/credentials/provider/ProviderGetCredentialRequest) using `PendingIntentHandler`.
-2. Use [`GetPasswordOption`](https://developer.android.com/reference/androidx/credentials/GetPasswordOption) in the request to retrieve password credentials for the incoming package name.
+2. Use [`GetPasswordOption`](https://developer.android.com/reference/androidx/credentials/GetPasswordOption) in the request to retrieve password
+   credentials for the incoming package name.
 
        val getRequest = PendingIntentHandler.retrieveProviderGetCredentialRequest(intent)
 
@@ -703,11 +756,25 @@ The following example illustrates how these steps can be implemented:
 
 ## Handle selection of an authentication action entry
 
-As [mentioned earlier](https://developer.android.com/identity/sign-in/credential-provider#handle-user-sign-in), a credential provider can set an `AuthenticationAction` if the credentials are locked. If the user selects this entry, the Activity corresponding to the intent action set in the `PendingIntent` is invoked. Credential providers can then surface a biometric authentication flow or similar mechanism to unlock the credentials. On success, the credential provider must construct a `BeginGetCredentialResponse`, [similar to how user sign-in handling is described above](https://developer.android.com/identity/sign-in/credential-provider#handle-user-sign-in), as the credentials are now unlocked. This response must then be set through the [`PendingIntentHandler.setBeginGetCredentialResponse()`](https://developer.android.com/reference/androidx/credentials/provider/PendingIntentHandler#setBeginGetCredentialResponse(android.content.Intent,androidx.credentials.provider.BeginGetCredentialResponse)) method before the prepared intent is set as the result and the Activity is finished.
+As [mentioned earlier](https://developer.android.com/identity/sign-in/credential-provider#handle-user-sign-in), a credential provider can set an
+`AuthenticationAction` if the credentials are locked. If the user selects this
+entry, the Activity corresponding to the intent action set in the
+`PendingIntent` is invoked. Credential providers can then surface a biometric
+authentication flow or similar mechanism to unlock the credentials. On success,
+the credential provider must construct a `BeginGetCredentialResponse`, [similar
+to how user sign-in handling is described above](https://developer.android.com/identity/sign-in/credential-provider#handle-user-sign-in), as the credentials are now
+unlocked. This response must then be set through the
+[`PendingIntentHandler.setBeginGetCredentialResponse()`](https://developer.android.com/reference/androidx/credentials/provider/PendingIntentHandler#setBeginGetCredentialResponse(android.content.Intent,androidx.credentials.provider.BeginGetCredentialResponse)) method before the
+prepared intent is set as the result and the Activity is finished.
 
 ## Clear credential requests
 
-A client app may request that any state maintained for credential selection must be cleared, such as a credential provider may remember the previously selected credential and only return that next time. A client app calls this API and expects that sticky selection to be cleared. Your credential provider service can handle this request by overriding the [`onClearCredentialStateRequest()`](https://developer.android.com/reference/androidx/credentials/provider/CredentialProviderService#onClearCredentialStateRequest(androidx.credentials.provider.ProviderClearCredentialStateRequest,android.os.CancellationSignal,android.os.OutcomeReceiver)) method:
+A client app may request that any state maintained for credential selection must
+be cleared, such as a credential provider may remember the previously selected
+credential and only return that next time. A client app calls this API and
+expects that sticky selection to be cleared. Your credential provider service
+can handle this request by overriding the
+[`onClearCredentialStateRequest()`](https://developer.android.com/reference/androidx/credentials/provider/CredentialProviderService#onClearCredentialStateRequest(androidx.credentials.provider.ProviderClearCredentialStateRequest,android.os.CancellationSignal,android.os.OutcomeReceiver)) method:
 
     override fun onClearCredentialStateRequest(
         request: ProviderClearCredentialStateRequest,
@@ -719,7 +786,13 @@ A client app may request that any state maintained for credential selection must
 
 ## Add capability to link to your provider's settings page
 
-To allow your users to open your provider's settings from the **Passwords, passkeys, \& autofill** screen, credential provider apps should implement the `credential-provider` `settingsActivity` manifest attribute in `res/xml/provider.xml`. This attribute lets you use an intent to open your app's own settings screen if a user clicks on a provider name in the **Passwords, passkeys, \& autofill** list of services. Set the value of this attribute to the name of the activity to be launched from the settings screen.
+To allow your users to open your provider's settings from the **Passwords,
+passkeys, \& autofill** screen, credential provider apps should implement the
+`credential-provider` `settingsActivity` manifest attribute in
+`res/xml/provider.xml`. This attribute lets you use an intent to open your app's
+own settings screen if a user clicks on a provider name in the **Passwords,
+passkeys, \& autofill** list of services. Set the value of this attribute to the
+name of the activity to be launched from the settings screen.
 
     <credential-provider
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -737,23 +810,53 @@ To allow your users to open your provider's settings from the **Passwords, passk
 
 ## Settings intents
 
-**Open settings** : The [`android.settings.CREDENTIAL_PROVIDER`](https://developer.android.com/reference/android/provider/Settings#ACTION_CREDENTIAL_PROVIDER) intent brings up a settings screen where the user can select their preferred and additional credential providers.
+**Open settings** : The [`android.settings.CREDENTIAL_PROVIDER`](https://developer.android.com/reference/android/provider/Settings#ACTION_CREDENTIAL_PROVIDER) intent
+brings up a settings screen where the user can select their preferred and
+additional credential providers.
 ![The Passwords, passkeys, and autofill settings screen](https://developer.android.com/static/identity/sign-in/images/passwords-passkeys-autofill.png) **Figure 2:** The Passwords, passkeys, and autofill settings screen.
 
-**Preferred credential service** : The [`ACTION_REQUEST_SET_AUTOFILL_SERVICE`](https://developer.android.com/reference/android/provider/Settings#ACTION_REQUEST_SET_AUTOFILL_SERVICE) intent redirects your user to the preferred provider selection screen. The selected provider on this screen becomes the preferred credentials and autofill provider.
+**Preferred credential service** : The
+[`ACTION_REQUEST_SET_AUTOFILL_SERVICE`](https://developer.android.com/reference/android/provider/Settings#ACTION_REQUEST_SET_AUTOFILL_SERVICE) intent redirects your user to the
+preferred provider selection screen. The selected provider on this screen
+becomes the preferred credentials and autofill provider.
 ![Diagram showing the change and open button functions](https://developer.android.com/static/identity/sign-in/images/preferred-service.png) **Figure 3:** The Preferred service for passwords, passkeys, and autofill settings screen.
 
 ## Obtain an allowlist of privileged apps
 
-Privileged apps such as web browsers make Credential Manager calls on behalf of other relying parties by setting the `origin` parameter in the Credential Manager [`GetCredentialRequest()`](https://developer.android.com/reference/androidx/credentials/GetCredentialRequest#GetCredentialRequest(kotlin.collections.List,kotlin.String,kotlin.Boolean,android.content.ComponentName,kotlin.Boolean)) and [`CreatePublicKeyCredentialRequest()`](https://developer.android.com/reference/androidx/credentials/CreatePublicKeyCredentialRequest#CreatePublicKeyCredentialRequest(kotlin.String,kotlin.ByteArray,kotlin.Boolean,kotlin.String,kotlin.Boolean)) methods. To process these requests, the credential provider retrieves the `origin` using the [`getOrigin()`](https://developer.android.com/reference/android/credentials/GetCredentialRequest.Builder#setOrigin(java.lang.String)) API.
+Privileged apps such as web browsers make Credential Manager calls on behalf of
+other relying parties by setting the `origin` parameter in the Credential
+Manager [`GetCredentialRequest()`](https://developer.android.com/reference/androidx/credentials/GetCredentialRequest#GetCredentialRequest(kotlin.collections.List,kotlin.String,kotlin.Boolean,android.content.ComponentName,kotlin.Boolean)) and
+[`CreatePublicKeyCredentialRequest()`](https://developer.android.com/reference/androidx/credentials/CreatePublicKeyCredentialRequest#CreatePublicKeyCredentialRequest(kotlin.String,kotlin.ByteArray,kotlin.Boolean,kotlin.String,kotlin.Boolean)) methods. To process these requests,
+the credential provider retrieves the `origin` using the [`getOrigin()`](https://developer.android.com/reference/android/credentials/GetCredentialRequest.Builder#setOrigin(java.lang.String))
+API.
 
-To retrieve the `origin`, the credential provider app needs to pass in a list of privileged and trusted callers to the `androidx.credentials.provider.CallingAppInfo's getOrigin()` API. This allowlist must be a valid JSON object. The `origin` is returned if the `packageName` and the certificate fingerprints obtained from `signingInfo` match those of an app found in the `privilegedAllowlist` passed to the `getOrigin()` API. After the `origin` value is obtained, the provider app should consider this a privileged call and set this [`origin` on the client data](https://www.w3.org/TR/webauthn-2/#dom-collectedclientdata-origin) in the [`AuthenticatorResponse`](https://www.w3.org/TR/webauthn-2/#authenticatorresponse), instead of computing the `origin` using the calling app's signature.
+To retrieve the `origin`, the credential provider app needs to pass in a list of
+privileged and trusted callers to the
+`androidx.credentials.provider.CallingAppInfo's getOrigin()` API. This allowlist
+must be a valid JSON object. The `origin` is returned if the `packageName` and
+the certificate fingerprints obtained from `signingInfo` match those of an app
+found in the `privilegedAllowlist` passed to the `getOrigin()` API. After the
+`origin` value is obtained, the provider app should consider this a privileged
+call and set this [`origin` on the client data](https://www.w3.org/TR/webauthn-2/#dom-collectedclientdata-origin)
+in the [`AuthenticatorResponse`](https://www.w3.org/TR/webauthn-2/#authenticatorresponse), instead of computing the
+`origin` using the calling app's signature.
 
-If you retrieve an `origin`, use the `clientDataHash` that's provided directly in [`CreatePublicKeyCredentialRequest()`](https://developer.android.com/reference/kotlin/androidx/credentials/CreatePublicKeyCredentialRequest#clientDataHash()) or [`GetPublicKeyCredentialOption()`](https://developer.android.com/reference/kotlin/androidx/credentials/GetPublicKeyCredentialOption#clientDataHash()) instead of assembling and hashing `clientDataJSON` during the signature request. To avoid JSON parsing issues, set a placeholder value for `clientDataJSON` in the attestation and assertion response. Google Password Manager uses an openly-available [allowlist](https://www.gstatic.com/gpm-passkeys-privileged-apps/apps.json) for calls to `getOrigin()`. As a credential provider, you can use this list or provide your own in the JSON format described by the API. It is up to the provider to select which list is used. To get privileged access with third party credential providers, refer to the documentation provided by the third party.
+If you retrieve an `origin`, use the `clientDataHash` that's provided directly
+in [`CreatePublicKeyCredentialRequest()`](https://developer.android.com/reference/kotlin/androidx/credentials/CreatePublicKeyCredentialRequest#clientDataHash()) or
+[`GetPublicKeyCredentialOption()`](https://developer.android.com/reference/kotlin/androidx/credentials/GetPublicKeyCredentialOption#clientDataHash()) instead of assembling and hashing
+`clientDataJSON` during the signature request. To avoid JSON parsing issues, set
+a placeholder value for `clientDataJSON` in the attestation and assertion
+response. Google Password Manager uses an openly-available
+[allowlist](https://www.gstatic.com/gpm-passkeys-privileged-apps/apps.json) for calls to `getOrigin()`. As a credential
+provider, you can use this list or provide your own in the JSON format described
+by the API. It is up to the provider to select which list is used. To get
+privileged access with third party credential providers, refer to the
+documentation provided by the third party.
 
 ## Enable providers on a device
 
-Users must enable the provider through **device settings \> Passwords \& Accounts \> Your Provider \> Enable or Disable**.
+Users must enable the provider through
+**device settings \> Passwords \& Accounts \> Your Provider \> Enable or Disable**.
 
 > [!NOTE]
 > **Note:** Different OEMs could have these settings implemented differently. On Android 14 or higher, call the [`createSettingsPendingIntent()`](https://developer.android.com/reference/kotlin/androidx/credentials/CredentialManager#createSettingsPendingIntent()) API to return a pending intent when invoked, shows a screen that allows a user to enable your Credential Manager provider.

@@ -4,9 +4,9 @@ url: https://developer.android.com/training/testing/fundamentals
 source: md.txt
 ---
 
-This page outlines the core tenets of testing Android apps, including the central best practices and their benefits.
+This page outlines the core tenets of testing Android apps, including the
+central best practices and their benefits.
 
-<br />
 
 ## Android skills
 
@@ -22,15 +22,24 @@ Use the Testing setup [Android skill](https://developer.android.com/tools/agents
 
 ## Benefits of testing
 
-Testing is an integral part of the app development process. By running tests against your app consistently, you can verify your app's correctness, functional behavior, and usability before you release it publicly.
+Testing is an integral part of the app development process. By running tests
+against your app consistently, you can verify your app's correctness, functional
+behavior, and usability before you release it publicly.
 
-You can *manually* test your app by navigating through it. You might use different devices and emulators, change the system language, and try to generate every user error or traverse every user flow.
+You can *manually* test your app by navigating through it. You might use
+different devices and emulators, change the system language, and try to generate
+every user error or traverse every user flow.
 
-However, manual testing scales poorly, and it can be easy to overlook regressions in your app's behavior. *Automated testing* involves using tools that perform tests for you, which is faster, more repeatable, and generally gives you more actionable feedback about your app earlier in the development process.
+However, manual testing scales poorly, and it can be easy to overlook
+regressions in your app's behavior. *Automated testing* involves using tools
+that perform tests for you, which is faster, more repeatable, and generally
+gives you more actionable feedback about your app earlier in the development
+process.
 
 ## Types of tests in Android
 
-Mobile applications are complex and must work well in many environments. As such, there are many types of tests.
+Mobile applications are complex and must work well in many environments. As
+such, there are many types of tests.
 
 ### Subject
 
@@ -51,7 +60,8 @@ Tests also vary depending on *size* , or *degree of isolation*:
 
 ![Tests can be either small, medium, or big.](https://developer.android.com/static/training/testing/fundamentals/test-scopes.png) **Figure 1**: Test scopes in a typical application.
 
-There are many ways to classify tests. However, the most important distinction for app developers is where tests run.
+There are many ways to classify tests. However, the most important distinction
+for app developers is where tests run.
 
 ## Instrumented versus local tests
 
@@ -62,14 +72,17 @@ You can run tests on an Android device or on another computer:
 
 ![Tests can run as instrumented tests on a device, or local tests on your development machine.](https://developer.android.com/static/training/testing/fundamentals/instru-vs-local.png) **Figure 2**: Different types of tests depending on where they run.
 
-Not all unit tests are local, and not all end-to-end tests run on a device. For example:
+Not all unit tests are local, and not all end-to-end tests run on a device. For
+example:
 
 - **Big local test** : You can use an Android simulator that runs locally, such as [Robolectric](https://developer.android.com/training/testing/local-tests/robolectric).
 - **Small instrumented test**: You can verify that your code works well with a framework feature, such as a SQLite database. You might run this test on multiple devices to check the integration with multiple versions of SQLite.
 
 ### Examples
 
-The following snippets demonstrate how to interact with the UI in an *instrumented UI test* that clicks on an element and verifies that another element is displayed.
+The following snippets demonstrate how to interact with the UI in an
+*instrumented UI test* that clicks on an element and verifies that another
+element is displayed.
 
 ### Espresso
 
@@ -89,7 +102,8 @@ The following snippets demonstrate how to interact with the UI in an *instrument
     // Then the Welcome screen is displayed
     composeTestRule.onNodeWithText("Welcome").assertIsDisplayed()
 
-This snippet shows part of a *unit test* for a ViewModel (local, host-side test):
+This snippet shows part of a *unit test* for a ViewModel (local, host-side
+test):
 
     // Given an instance of MyViewModel
     val viewModel = MyViewModel(myFakeDataRepository)
@@ -102,18 +116,24 @@ This snippet shows part of a *unit test* for a ViewModel (local, host-side test)
 
 ## Testable architecture
 
-With a testable app architecture, the code follows a structure that allows you to easily test different parts of it in isolation. Testable architectures have other advantages, such as better readability, maintainability, scalability, and reusability.
+With a testable app architecture, the code follows a structure that allows you
+to easily test different parts of it in isolation. Testable architectures have
+other advantages, such as better readability, maintainability, scalability, and
+reusability.
 
 An architecture that is *not testable* produces the following:
 
 - Bigger, slower, more flaky tests. Classes that can't be unit-tested might have to be covered by bigger integration tests or UI tests.
 - Fewer opportunities for testing different scenarios. Bigger tests are slower, so testing all possible states of an app might be unrealistic.
 
-To learn more about architecture guidelines, see the [guide to app architecture](https://developer.android.com/jetpack/guide).
+To learn more about architecture guidelines, see the [guide to app
+architecture](https://developer.android.com/jetpack/guide).
 
 ### Approaches to decoupling
 
-If you can extract part of a function, class, or module from the rest, testing it is easier, and more effective. This practice is known as decoupling, and it is the concept most important to testable architecture.
+If you can extract part of a function, class, or module from the rest, testing
+it is easier, and more effective. This practice is known as decoupling, and it
+is the concept most important to testable architecture.
 
 Common decoupling techniques include the following:
 
@@ -124,6 +144,8 @@ Common decoupling techniques include the following:
 
 ## Next steps
 
-Now that you know why you should test and the two main types of tests, you can read [What to test](https://developer.android.com/training/testing/fundamentals/what-to-test) or learn about [Testing strategies](https://developer.android.com/training/testing/fundamentals/strategies)
+Now that you know why you should test and the two main types of tests, you can
+read [What to test](https://developer.android.com/training/testing/fundamentals/what-to-test) or learn about [Testing strategies](https://developer.android.com/training/testing/fundamentals/strategies)
 
-Alternatively, if you want to create your first test and learn by doing, check out the [Testing codelabs](https://developer.android.com/codelabs/advanced-android-kotlin-training-testing-basics).
+Alternatively, if you want to create your first test and learn by doing, check
+out the [Testing codelabs](https://developer.android.com/codelabs/advanced-android-kotlin-training-testing-basics).

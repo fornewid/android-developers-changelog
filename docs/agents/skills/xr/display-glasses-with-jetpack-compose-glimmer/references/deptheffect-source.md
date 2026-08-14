@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
 source: md.txt
 ---
 
-When simulating depth on AI glasses using shadows, refer to the following source code in `DepthEffect.kt`:
+When simulating depth on AI glasses using shadows, refer to the following source
+code in `DepthEffect.kt`:
 
-<br />
 
 ```kotlin
 /*
@@ -225,8 +225,6 @@ internal class DepthEffectNode(private var depthEffect: DepthEffect, private var
                 .createDropShadowPainter(shape, depthEffect.layer2)
                 .also { layer2ShadowPainter = it }
 }
-
-   
 ```
 
 <br />

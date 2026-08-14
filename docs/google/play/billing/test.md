@@ -4,11 +4,14 @@ url: https://developer.android.com/google/play/billing/test
 source: md.txt
 ---
 
-You should be testing your integration throughout development. To test during the development phase, we recommend leveraging *license testers* and [*Play Billing Lab*](https://play.google.com/store/apps/details?id=com.google.android.apps.play.billingtestcompanion) to run through the scenarios described in this section.
+You should be testing your integration throughout development. To test during
+the development phase, we recommend leveraging *license testers* and [*Play
+Billing Lab*](https://play.google.com/store/apps/details?id=com.google.android.apps.play.billingtestcompanion) to run through the scenarios described in this section.
 
 ## License Testers
 
-To configure license testers, see [Test in-app billing with application licensing](https://support.google.com/googleplay/android-developer/answer/6062777).
+To configure license testers, see [Test in-app billing with application
+licensing](https://support.google.com/googleplay/android-developer/answer/6062777).
 
 Using license testers provide the following benefits:
 
@@ -24,23 +27,33 @@ Here are some additional details about the test purchase process:
 - Taxes are not computed for test purchases.
 - Google Play indicates a test purchase by displaying a notice across the center of the purchase dialog.
 
-You can confirm the account that is making a purchase by expanding the purchase dialog. Note the following:
+You can confirm the account that is making a purchase by expanding the purchase
+dialog. Note the following:
 
 - Test accounts must be on the tester's Android-powered device.
 - If the device has more than one account, the purchase is made with the account that downloaded the app.
 - If none of the accounts have downloaded the app, the purchase is made with the first account.
 
-Use Google Play [test tracks](https://support.google.com/googleplay/android-developer/answer/3131213) for pre-distribution validation, such as allowing your QA team to qualify new releases. With test tracks, license testers can install and evaluate unreleased versions of your app from Google Play. Regular users can make real purchases using standard payment methods.
+Use Google Play [test tracks](https://support.google.com/googleplay/android-developer/answer/3131213) for pre-distribution validation, such as
+allowing your QA team to qualify new releases. With test tracks, license
+testers can install and evaluate unreleased versions of your app
+from Google Play. Regular users can make real purchases using
+standard payment methods.
 
 > [!NOTE]
 > **Note:** Users incur actual charges for their test track purchases unless the user is a license tester. Draft apps and internal test track releases are subject to [spend limits](https://developer.android.com/google/play/billing/test#spend-limits).
 
-To test your Google Play Billing Library integration using test tracks, do the following:
+To test your Google Play Billing Library integration using test tracks, do
+the following:
 
 1. Publish your app to a [test track](https://support.google.com/googleplay/android-developer/answer/3131213). Note that after you publish an app to a testing track, it can take a few hours for the app to be available for testers.
 2. Ensure each tester [opts-in to your app's test](https://support.google.com/googleplay/android-developer/answer/3131213). On your test's opt-in URL, your testers see an explanation of what it means to be a tester along with a link to opt-in.
 
-You can test your integration on any Android-powered hardware device running Android 1.6 or higher. The most current version of the Google Play application must be installed on the device. For general information about how to set up a device for use in developing Android applications, see [Using Hardware Devices](https://developer.android.com/tools/device).
+You can test your integration on any Android-powered hardware device running
+Android 1.6 or higher. The most current version of the Google Play application
+must be installed on the device. For general information about how to set up a
+device for use in developing Android applications, see [Using Hardware
+Devices](https://developer.android.com/tools/device).
 
 > [!NOTE]
 > **Note:**
@@ -50,11 +63,15 @@ You can test your integration on any Android-powered hardware device running And
 
 ## Play Billing Lab
 
-Play Billing Lab is an Android app that helps developers test their integration with Google Play's billing system. It provides a convenient way for developers to test billing features, integrate faster, and launch with higher confidence. You can download and install Play Billing Lab from the [Play Store](https://play.google.com/store/apps/details?id=com.google.android.apps.play.billingtestcompanion).
+Play Billing Lab is an Android app that helps developers test their integration
+with Google Play's billing system. It provides a convenient way for developers
+to test billing features, integrate faster, and launch with higher confidence.
+You can download and install Play Billing Lab from the [Play Store](https://play.google.com/store/apps/details?id=com.google.android.apps.play.billingtestcompanion).
 
 Play Billing Lab lets you to do the following in your testing:
 
-- Change [Play Country](https://support.google.com/googleplay/answer/7431675) from within Play Billing Lab and apply the settings to your test. This enables [testing custom user-experiences in different countries/regions](https://developer.android.com/google/play/billing/test#regions) regardless of where the tester is physically testing
+- Change [Play Country](https://support.google.com/googleplay/answer/7431675) from within Play Billing Lab and apply the settings to your test. This enables [testing custom user-experiences in different
+  countries/regions](https://developer.android.com/google/play/billing/test#regions) regardless of where the tester is physically testing
 - [Test trial or introductory offers](https://developer.android.com/google/play/billing/test#trial-offers) repeatedly with the same account
 - [Test subscription price changes](https://developer.android.com/google/play/billing/test#price-changes) without affecting other active subscribers
 - [Accelerate subscription state transition](https://developer.android.com/google/play/billing/test#subscription-state-transition) to accelerate subscription renewals, or move your test subscription into grace period or account hold state with one click to speed up your testing
@@ -72,32 +89,48 @@ Play Billing Lab lets you to do the following in your testing:
 
 ### Test consumable products
 
-When testing consumable products, test a variety of situations, including the following:
+When testing consumable products, test a variety of situations, including the
+following:
 
 - A successful purchase where the user receives an item. With a license tester, you can use the **Test instrument, always approves** payment method.
-- A purchase where the payment method failed to be charged, and the user shouldn't receive the item. With a license tester you can use the **Test instrument, always declines** payment method.
+- A purchase where the payment method failed to be charged, and the user shouldn't receive the item. With a license tester you can use the **Test
+  instrument, always declines** payment method.
 - Ensure items can be purchased multiple times.
 
-Verify that purchases are properly acknowledged as described in [processing purchases](https://developer.android.com/google/play/billing/integrate#process). For purchases from license testers, a purchase will be refunded after 3 minutes if your app does not acknowledge the purchase and you will receive an email about the cancellation. You can also check the **Orders** tab in the Google Play Console to see if an order was refunded after 3 minutes.
+Verify that purchases are properly acknowledged as described in [processing
+purchases](https://developer.android.com/google/play/billing/integrate#process). For purchases from license testers, a purchase will be refunded
+after 3 minutes if your app does not acknowledge the purchase and you will
+receive an email about the cancellation. You can also check the **Orders** tab
+in the Google Play Console to see if an order was refunded after 3 minutes.
 
 ### Test non-consumable products
 
-Non-consumables should be tested the same as consumables, but you should verify an item cannot be purchased again within your app. Be sure to verify purchase acknowledgement for both non-consumables and consumables (when applicable) since the logic to process each the two types of purchases vary.
+Non-consumables should be tested the same as consumables, but you should verify
+an item cannot be purchased again within your app. Be sure to verify purchase
+acknowledgement for both non-consumables and consumables (when applicable) since
+the logic to process each the two types of purchases vary.
 
 > [!NOTE]
 > **Note:** To perform multiple test purchases for the same non-consumable product, you can [refund and revoke purchases using Google Play Console](https://support.google.com/googleplay/android-developer/answer/2741495).
 
 ### Test pending purchases
 
-Test a pending purchase where the item should be granted when the purchase state becomes `PURCHASED`. License testers have access to two test instruments for delayed forms of payment where the payment automatically completes or cancels after a couple of minutes.
+Test a pending purchase where the item should be granted when the purchase state
+becomes `PURCHASED`. License testers have access to two test instruments for
+delayed forms of payment where the payment automatically completes or cancels
+after a couple of minutes.
 
-1. Make a purchase with a delayed form of payment **Slow test card, declines after a few minutes**, as shown in figure 3. Restart the app, validate that the purchase has not been granted.
+1. Make a purchase with a delayed form of payment **Slow test card, declines
+   after a few minutes**, as shown in figure 3. Restart the app, validate that
+   the purchase has not been granted.
 
    ![test a purchase with a declined slow test card](https://developer.android.com/static/images/google/play/billing/test-delayed-payment-methods-decline.png) **Figure 3.** Test a purchase with a declined slow test card.
 
    <br />
 
-2. Make a purchase with a delayed form of payment **Slow test card, approves after a few minutes**, as shown in figure 4. Wait a few minutes, validate that the purchase has been granted.
+2. Make a purchase with a delayed form of payment **Slow test card, approves
+   after a few minutes**, as shown in figure 4. Wait a few minutes, validate
+   that the purchase has been granted.
 
    ![test a purchase with an approved slow test card](https://developer.android.com/static/images/google/play/billing/test-delayed-payment-methods-approve.png) **Figure 4.** Test a purchase with an approved slow test card.
 
@@ -107,26 +140,46 @@ You can find more information at [Handling pending transactions](https://develop
 
 ### Test user-initiated chargebacks
 
-License testers have access to a test instrument that lets them simulate a user-initiated chargeback.
+License testers have access to a test instrument that lets them simulate a
+user-initiated chargeback.
 
-1. Make a purchase with the test instrument **Test card, approves then charges back** , as shown in figure 5. Soon afterwards, your system should be made aware of the test purchase being delivered and charged back through applicable surfaces. For example, you should receive a [PendingRefundReviewNotification](https://developer.android.com/google/play/billing/rtdn-reference#pending-refund-review) moments after making the purchase.
+1. Make a purchase with the test instrument **Test card, approves then charges
+   back** , as shown in figure 5. Soon afterwards, your system should be made
+   aware of the test purchase being delivered and charged back through
+   applicable surfaces. For example, you should receive a [PendingRefundReviewNotification](https://developer.android.com/google/play/billing/rtdn-reference#pending-refund-review) moments after making the purchase.
 
    ![test user-initiated chargebacks](https://developer.android.com/static/images/google/play/billing/charge-then-charge-back-test-instrument.png) **Figure 5.** Test a purchase with a test card that approves then charges back.
 
 ## Test subscription-specific features
 
-The purchase flows for one-time products and subscriptions are similar, but subscriptions have additional scenarios, such as successful or declined subscription renewals. To test renewals, you can use the **Test card, always approves** and **Test card, always declines** payment methods that are available for license testers, as shown in figure 1. Use these payment instruments to test scenarios beyond the successful subscription scenario.
+The purchase flows for one-time products and subscriptions are similar, but
+subscriptions have additional scenarios, such as successful or declined
+subscription renewals. To test renewals, you can use the
+**Test card, always approves** and **Test card, always declines** payment
+methods that are available for license testers, as shown in figure 1. Use these
+payment instruments to test scenarios beyond the successful subscription
+scenario.
 
 > [!CAUTION]
 > **Caution:** The resubscribe and pause features are always enabled in license tester accounts even if they're disabled in the Play Console. Test these features in license testers, confirm that they work, and then enable them in the console for all users. To test your app's behavior when these features are disabled, you must use a non-license-tester account.
 
-Similar to one-time products, verify that purchases are properly acknowledged as described in [processing purchases](https://developer.android.com/google/play/billing/integrate#process). For purchases from license testers, a purchase is refunded after 3 minutes if your app does not acknowledge the purchase, and you receive an email about the cancellation. You can also check the **Orders** tab in Google Play Console to see if an order was refunded after 3 minutes.
+Similar to one-time products, verify that purchases are properly acknowledged as
+described in [processing purchases](https://developer.android.com/google/play/billing/integrate#process). For purchases from license testers, a
+purchase is refunded after 3 minutes if your app does not acknowledge the
+purchase, and you receive an email about the cancellation. You can also check
+the **Orders** tab in Google Play Console to see if an order was
+refunded after 3 minutes.
 
 ### Renewal periods
 
-Test subscriptions renew more quickly than actual subscriptions, and test subscriptions can renew a maximum of six times, not counting free trials and introductory periods.
+Test subscriptions renew more quickly than actual subscriptions, and test
+subscriptions can renew a maximum of six times, not counting free trials and
+introductory periods.
 
-The following table lists the testing renewal times for subscriptions of various durations. These times are approximate. You may see small variations in the precise time of an event. To compensate for variation, call the API to view the current status after every subscription expiration date.
+The following table lists the testing renewal times for subscriptions of various
+durations. These times are approximate. You may see small variations in the
+precise time of an event. To compensate for variation, call the API to view the
+current status after every subscription expiration date.
 
 |---|---|
 | **Production subscription period** | **Test subscription renewal** |
@@ -136,7 +189,9 @@ The following table lists the testing renewal times for subscriptions of various
 | 6 months | 15 minutes |
 | 1 year | 30 minutes |
 
-Time-based subscription features such as free trials are also shortened for testing. The following table identifies the testing time periods associated with time-based subscription features:
+Time-based subscription features such as free trials are also shortened for
+testing. The following table identifies the testing time periods associated with
+time-based subscription features:
 
 |---|---|
 | **Feature** | **Test period** |
@@ -152,7 +207,10 @@ Time-based subscription features such as free trials are also shortened for test
 
 ### Accelerate subscription state transition
 
-You can also use Play Billing Lab and license testers to accelerate the [test subscriptions renewal periods](https://developer.android.com/google/play/billing/test#renewals) to speed up your subscription testing or move the test subscription to grace period or account hold state to test [payment decline](https://developer.android.com/google/play/billing/subscriptions#payment-declines) scenarios with the following steps:
+You can also use Play Billing Lab and license testers to accelerate the [test
+subscriptions renewal periods](https://developer.android.com/google/play/billing/test#renewals) to speed up your subscription testing or move
+the test subscription to grace period or account hold state to test [payment
+decline](https://developer.android.com/google/play/billing/subscriptions#payment-declines) scenarios with the following steps:
 
 1. Click **Manage** on the **Subscription settings** card in the **Dashboard**.
 2. Choose the active subscription you want to test.
@@ -161,7 +219,8 @@ You can also use Play Billing Lab and license testers to accelerate the [test su
 
 ![subscription state transition](https://developer.android.com/static/images/google/play/billing/play-billing-lab-subscription-state-transition.png) **Figure 6.** Test subscription state transition.
 
-Once you've selected the target subscription state in the drop-down menu, the test subscription state will update shortly afterward.
+Once you've selected the target subscription state in the drop-down menu, the
+test subscription state will update shortly afterward.
 
 Note that:
 
@@ -173,12 +232,18 @@ Note that:
 
 ### Trial Offers
 
-With the Play Billing Lab trial offer testing feature, a license tester can test and use free trial or introductory offers an unlimited number of times by checking the **Test free trial or introductory offer** checkbox and applying the change. This removes the need to create multiple accounts to test a trial offer only available to new subscribers.
+With the Play Billing Lab trial offer testing feature, a license tester can test
+and use free trial or introductory offers an unlimited number of times by
+checking the **Test free trial or introductory offer** checkbox and applying the
+change. This removes the need to create multiple accounts to test a trial offer
+only available to new subscribers.
 ![test trial offers](https://developer.android.com/static/images/google/play/billing/trial-offers-testing.png) **Figure 7.** Test trial offers.
 
 ### Price changes
 
-You can also use Play Billing Lab and license testers to test [subscription price changes](https://developer.android.com/google/play/billing/price-changes) without affecting other active subscribers with the following steps:
+You can also use Play Billing Lab and license testers to test [subscription
+price changes](https://developer.android.com/google/play/billing/price-changes) without affecting other active subscribers with the following
+steps:
 
 1. Click **Manage** on the **Subscription settings** card in the **Dashboard**.
 2. Choose the active subscription you want to test.
@@ -188,7 +253,11 @@ You can also use Play Billing Lab and license testers to test [subscription pric
 
 ![test subscription price change](https://developer.android.com/static/images/google/play/billing/play-billing-lab-price-change.png) **Figure 8.** Test subscription price change.
 
-After applying your changes, the price is updated starting from the next renewal only for the tester. Other active subscribers won't be affected. All the license testers rules apply to the test subscription. The tester can then test their app for downstream processes triggered by the price change, such as price change notifications.
+After applying your changes, the price is updated starting from the next renewal
+only for the tester. Other active subscribers won't be affected. All the license
+testers rules apply to the test subscription. The tester can then test their app
+for downstream processes triggered by the price change, such as price change
+notifications.
 
 Keep the following considerations in mind when planning test periods:
 
@@ -199,7 +268,8 @@ Keep the following considerations in mind when planning test periods:
   - Notification times are calculated backward from the first charge date.
   - The final notification is always 1 minute before the charge, regardless of billing period.
 
-The following table shows test billing and notification periods for several actual billing periods:
+The following table shows test billing and notification periods for several
+actual billing periods:
 
 |---|---|---|---|
 | **Actual base plan billing period** | **Test billing period** | **Test notification period (opt-in and opt-out regions with 30 day notice)** | **Test notification period (opt-out regions with 60 day notice)** |
@@ -214,9 +284,12 @@ The following table shows test billing and notification periods for several actu
 > [!NOTE]
 > **Note:** The price step-up consent feature is available only to the subscriptions in the South Korea (KR) region.
 
-Information related to a price step-up that requires user consent will be available to you in the [`purchases.subscriptionsv2.get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) API.
+Information related to a price step-up that requires user consent will be
+available to you in the [`purchases.subscriptionsv2.get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get) API.
 
-Google Play sends two push and email price step-up notifications to the relevant users (including license testers) before the step-up is live. The notification period for testing is as follows:
+Google Play sends two push and email price step-up notifications to the relevant
+users (including license testers) before the step-up is live. The notification
+period for testing is as follows:
 
 |---|---|
 | **Notification schedule** | **Test notification period** |
@@ -225,7 +298,8 @@ Google Play sends two push and email price step-up notifications to the relevant
 
 ### Test cases
 
-Expand the following section by clicking **Show/Hide** to show testing scenarios you should use to verify your subscription integration.
+Expand the following section by clicking **Show/Hide** to show testing scenarios
+you should use to verify your subscription integration.
 <button type="button" class="button-red button expand-control">Show/Hide</button>
 
 #### Monthly subscription
@@ -335,7 +409,8 @@ Expand the following section by clicking **Show/Hide** to show testing scenarios
 | 12:10 |   | Exit grace period; enter account hold | User should lose access to in-app subscription content |
 | 12:20 |   | Subscription is canceled due to involuntary churn |   |
 
-#### Yearly subscription with grace period and account hold; user recovers during account hold
+#### Yearly subscription with grace period and account hold; user
+recovers during account hold
 
 | Time | User action | System event | Expected testing outcome |
 |---|---|---|---|
@@ -361,7 +436,8 @@ Expand the following section by clicking **Show/Hide** to show testing scenarios
 | 12:35 |   | Exit grace period; enter account hold | User should lose access to in-app subscription content |
 | 12:45 |   | Subscription is canceled due to involuntary churn |   |
 
-#### Monthly subscription with account hold and no grace period; user recovers
+#### Monthly subscription with account hold and no grace period; user
+recovers
 
 | Time | User action | System event | Expected testing outcome |
 |---|---|---|---|
@@ -387,15 +463,22 @@ Expand the following section by clicking **Show/Hide** to show testing scenarios
 
 ## Test pending transactions
 
-You should test pending transactions are handled correctly and entitlements are updated accordingly when the purchase state becomes `PURCHASED`. License testers have access to two test instruments for delayed forms of payment where the payment automatically completes or cancels after a couple of minutes.
+You should test pending transactions are handled correctly and entitlements are
+updated accordingly when the purchase state becomes `PURCHASED`. License testers
+have access to two test instruments for delayed forms of payment where the
+payment automatically completes or cancels after a couple of minutes.
 
-1. Make a purchase with a delayed form of payment **Slow test card, declines after a few minutes**, as shown in figure 9. Restart the app, validate that the purchase has not been granted.
+1. Make a purchase with a delayed form of payment **Slow test card, declines
+   after a few minutes**, as shown in figure 9. Restart the app, validate that
+   the purchase has not been granted.
 
    ![test a purchase with a declined slow test card](https://developer.android.com/static/images/google/play/billing/test-delayed-payment-methods-decline.png) **Figure 9.** Test a purchase with a declined slow test card.
 
    <br />
 
-2. Make a purchase with a delayed form of payment **Slow test card, approves after a few minutes**, as shown in figure 10. Wait a few minutes, validate that the purchase has been granted.
+2. Make a purchase with a delayed form of payment **Slow test card, approves
+   after a few minutes**, as shown in figure 10. Wait a few minutes, validate
+   that the purchase has been granted.
 
    ![test a purchase with an approved slow test card](https://developer.android.com/static/images/google/play/billing/test-delayed-payment-methods-approve.png) **Figure 10.** Test a purchase with an approved slow test card.
 
@@ -403,7 +486,9 @@ You should test pending transactions are handled correctly and entitlements are 
 
 ## Test promo codes
 
-You can use the Google Play Console to [create codes for your own testing](https://support.google.com/googleplay/android-developer/answer/6321495). Keep in mind that you may only create 500 promo codes per quarter across all managed products in an app.
+You can use the Google Play Console to [create codes for your own
+testing](https://support.google.com/googleplay/android-developer/answer/6321495). Keep in mind that you may only create 500 promo codes per quarter
+across all managed products in an app.
 
 You should test the following promo code redemption scenarios:
 
@@ -411,17 +496,21 @@ You should test the following promo code redemption scenarios:
 - When the promo code is redeemed in the Google Play Store app.
 - When the promo code is redeemed at <https://play.google.com/store> using the **Redeem** button in the left-hand navigation.
 
-Within these scenarios, you should test redeeming codes in as many ways as possible. Perform the following tests at a minimum:
+Within these scenarios, you should test redeeming codes in as many ways as
+possible. Perform the following tests at a minimum:
 
 - Redemption before the app is installed.
 - Redemption while the app is running in the foreground. Note that for this test, you need another device to test using the Google Play Store app. Be sure to test redemptions from different screens in your app.
 - Redemption with [multi-window mode](https://developer.android.com/guide/topics/ui/multi-window), where both your app and the Google Play Store app are being displayed at the same time.
 
-For each test, make sure that the item is correctly detected and that the user is notified.
+For each test, make sure that the item is correctly detected and that the user
+is notified.
 
 ## Test the purchase experience in different regions
 
-You can test the purchase experience in different regions with the [Play Billing Lab](https://developer.android.com/google/play/billing/test#play-billing-lab) app. To use the Play Billing Lab, you must be a license tester. Use the following steps to test:
+You can test the purchase experience in different regions with the
+[Play Billing Lab](https://developer.android.com/google/play/billing/test#play-billing-lab) app. To use the Play Billing Lab, you must be a
+license tester. Use the following steps to test:
 
 1. Register the app billing user as a license tester.
 2. Log into Play Billing Lab app with the same user.
@@ -430,14 +519,16 @@ You can test the purchase experience in different regions with the [Play Billing
 
    ![test purchase experience in different regions](https://developer.android.com/static/images/google/play/billing/play-billing-lab-country.png) **Figure 11.** Test purchase experience in different regions.
 
-[Play Billing Lab](https://developer.android.com/google/play/billing/test#play-billing-lab) lets you test offer regional eligibility and the user experience in any region, regardless of where you are physically testing.
+[Play Billing Lab](https://developer.android.com/google/play/billing/test#play-billing-lab) lets you test offer regional eligibility and the user
+experience in any region, regardless of where you are physically testing.
 
 > [!NOTE]
 > **Note:** Gmail accounts created for testing purposes shouldn't be used to make purchases using real instruments on Google Play. This includes other apps and purchases such as Google Books.
 
 ## Test the purchase experience using real payment methods
 
-You can test the purchase experience with real payment methods with the [Play Billing Lab](https://developer.android.com/google/play/billing/test#play-billing-lab) Android app.
+You can test the purchase experience with real payment methods with the [Play
+Billing Lab](https://developer.android.com/google/play/billing/test#play-billing-lab) Android app.
 
 > [!NOTE]
 > **Note:**
@@ -454,7 +545,8 @@ Use the following steps to test real payment methods:
 
 ## Spend limits for unpublished apps
 
-Apps that are in the draft stage or published to the internal test track, are subject to spend limits.
+Apps that are in the draft stage or published to the internal test track,
+are subject to spend limits.
 
 Google Play enforces limits on the following:
 
@@ -464,7 +556,8 @@ Google Play enforces limits on the following:
 
 These limits reset every 24 hours.
 
-If a user exceeds any of these limits while testing your app, they will see an error message in the purchase cart, and the transaction will be blocked.
+If a user exceeds any of these limits while testing your app, they will see
+an error message in the purchase cart, and the transaction will be blocked.
 
 > [!NOTE]
 > **Note:** If your testing requires higher limits, ensure your app is published to a [closed, open, or production track](https://support.google.com/googleplay/android-developer/answer/9859751).

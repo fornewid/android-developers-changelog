@@ -4,20 +4,20 @@ url: https://developer.android.com/develop/ui/compose/text/configure-layout
 source: md.txt
 ---
 
-This page describes how to configure your text layout with parameters like `maxLines` and `overflow`.
+This page describes how to configure your text layout with parameters like
+`maxLines` and `overflow`.
 
 ## Limit visible lines
 
-To limit the number of visible lines in a `Text` composable, set the `maxLines` parameter:
+To limit the number of visible lines in a `Text` composable, set the `maxLines`
+parameter:
 
-<br />
 
 ```kotlin
 @Composable
 fun LongText() {
     Text("hello ".repeat(50), maxLines = 2)
 }
-   
 ```
 
 <br />
@@ -26,16 +26,16 @@ fun LongText() {
 
 ## Indicate text overflow
 
-When limiting a long text, you may want to indicate a [`TextOverflow`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/TextOverflow), which is only shown if the displayed text is truncated. To do so, set the `textOverflow` parameter:
+When limiting a long text, you may want to indicate a [`TextOverflow`](https://developer.android.com/reference/kotlin/androidx/compose/ui/text/style/TextOverflow),
+which is only shown if the displayed text is truncated. To do so, set the
+`textOverflow` parameter:
 
-<br />
 
 ```kotlin
 @Composable
 fun OverflowedText() {
     Text("Hello Compose ".repeat(50), maxLines = 2, overflow = TextOverflow.Ellipsis)
 }
-   
 ```
 
 <br />

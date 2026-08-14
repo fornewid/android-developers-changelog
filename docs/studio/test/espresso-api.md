@@ -4,9 +4,17 @@ url: https://developer.android.com/studio/test/espresso-api
 source: md.txt
 ---
 
-Use the Espresso Device API to test your app when the device undergoes common configuration changes, such as rotation and screen unfolding. The Espresso Device API is the recommended tool for simulating device-level actions alongside your Jetpack Compose testing rules. If you're new to writing UI tests for Jetpack Compose, see [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing).
+Use the Espresso Device API to test your app when the device undergoes common
+configuration changes, such as rotation and screen unfolding. The Espresso
+Device API is the recommended tool for simulating device-level actions
+alongside your Jetpack Compose testing rules. If you're new to writing UI tests
+for Jetpack Compose, see [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing).
 
-The Espresso Device API lets you simulate configuration changes on a virtual device and executes your tests synchronously, so only one UI action or assertion happens at a time and your test results are more reliable. If you're new to writing UI tests with Espresso, see its [documentation](https://developer.android.com/training/testing/espresso).
+The Espresso
+Device API lets you simulate configuration changes on a virtual device and
+executes your tests synchronously, so only one UI action or assertion happens at
+a time and your test results are more reliable. If you're new to writing UI
+tests with Espresso, see its [documentation](https://developer.android.com/training/testing/espresso).
 
 To use the Espresso Device API, you need the following:
 
@@ -19,12 +27,15 @@ To use the Espresso Device API, you need the following:
 
 To set up your project so it supports the Espresso Device API, do the following:
 
-1. To let the test pass commands to the test device, add the `INTERNET` and `ACCESS_NETWORK_STATE` permissions to the manifest file in the `androidTest` source set:
+1. To let the test pass commands to the test device, add the `INTERNET` and
+   `ACCESS_NETWORK_STATE` permissions to the manifest file in the
+   `androidTest` source set:
 
          <uses-permission android:name="android.permission.INTERNET" />
          <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-2. Enable the `enableEmulatorControl` experimental flag in the `gradle.properties` file:
+2. Enable the `enableEmulatorControl` experimental flag in the
+   `gradle.properties` file:
 
          android.experimental.androidTest.enableEmulatorControl=true
 
@@ -51,7 +62,8 @@ To set up your project so it supports the Espresso Device API, do the following:
      }
      
    ```
-4. In the module-level build script, import the Espresso Device library into your project:
+4. In the module-level build script, import the Espresso Device library into
+   your project:
 
    ### Kotlin
 
@@ -71,13 +83,18 @@ To set up your project so it supports the Espresso Device API, do the following:
 
 ## Test against common configuration changes
 
-The Espresso Device API has multiple screen orientation and foldable states that you can use to simulate device configuration changes. The following examples show how to trigger these device states and verify the resulting UI changes using Compose test rules.
+The Espresso Device API has multiple screen orientation and foldable states that
+you can use to simulate device configuration changes. The following examples
+show how to trigger these device states and verify the resulting UI changes
+using Compose test rules.
 
 ### Test against screen rotation
 
-Here's an example of how to test what happens to your app when the device screen rotates:
+Here's an example of how to test what happens to your app when the device screen
+rotates:
 
-1. First, define your Compose test rule and set the device to a consistent starting state (like portrait mode):
+1. First, define your Compose test rule and set the device to a consistent
+   starting state (like portrait mode):
 
        import androidx.compose.ui.test.assertIsDisplayed
        import androidx.compose.ui.test.assertDoesNotExist
@@ -100,7 +117,8 @@ Here's an example of how to test what happens to your app when the device screen
            val screenOrientationRule = ScreenOrientationRule(ScreenOrientation.PORTRAIT)
        }
 
-2. Create a test that sets the device to landscape orientation during test execution:
+2. Create a test that sets the device to landscape orientation during test
+   execution:
 
        @Test
        fun myRotationTest() {
@@ -110,7 +128,8 @@ Here's an example of how to test what happens to your app when the device screen
          ...
        }
 
-3. After the screen rotates, use `composeTestRule` to check that your composables adapt to the new state as expected.
+3. After the screen rotates, use `composeTestRule` to check that your
+   composables adapt to the new state as expected.
 
        @Test
        fun myRotationTest() {
@@ -123,9 +142,12 @@ Here's an example of how to test what happens to your app when the device screen
 
 ### Test against screen unfolding
 
-Here's an example of how to test what happens to your app if it's on a foldable device and the screen unfolds:
+Here's an example of how to test what happens to your app if it's on a foldable
+device and the screen unfolds:
 
-1. First, test with the device in the folded state by calling `onDevice().setClosedMode()`. Make sure that your composables adapt to the compact screen width.
+1. First, test with the device in the folded state by calling
+   `onDevice().setClosedMode()`. Make sure that your composables adapt to the
+   compact screen width.
 
        @Test
        fun myUnfoldedTest() {
@@ -135,7 +157,9 @@ Here's an example of how to test what happens to your app if it's on a foldable 
          ...
        }
 
-2. To transition to a fully unfolded state, call `onDevice().setFlatMode()`. Check that the composables adapt to the expanded size class.
+2. To transition to a fully unfolded state, call
+   `onDevice().setFlatMode()`. Check that the composables adapt to the
+   expanded size class.
 
        @Test
        fun myUnfoldedTest() {
@@ -148,9 +172,16 @@ Here's an example of how to test what happens to your app if it's on a foldable 
 
 ## Specify what devices your tests need
 
-If you're running a test that performs folding actions on a device that isn't foldable, the test will likely fail. To execute only the tests that are relevant to the running device, use the `@RequiresDeviceMode` annotation. The test runner automatically skips running tests on devices that don't support the configuration being tested. You can add the device requirement rule to each test or an entire test class.
+If you're running a test that performs folding actions on a device that isn't
+foldable, the test will likely fail. To execute only the tests that are relevant
+to the running device, use the `@RequiresDeviceMode` annotation. The test runner
+automatically skips running tests on devices that don't support the
+configuration being tested. You can add the device requirement rule to each test
+or an entire test class.
 
-For example, to specify that a test should only be run on devices that support unfolding to a flat configuration, add the following `@RequiresDeviceMode` code to your test:
+For example, to specify that a test should only be run on devices that support
+unfolding to a flat configuration, add the following `@RequiresDeviceMode` code
+to your test:
 
     @Test
     @RequiresDeviceMode(mode = FLAT)

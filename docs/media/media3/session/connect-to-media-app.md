@@ -11,7 +11,9 @@ There are two ways to connect to a Media app:
 
 ## `MediaController`
 
-A media controller interacts with a media session to query and control a media app's playback. In Media3, the [`MediaController`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController) API implements the `Player` interface. Examples of client apps that use a media controller include:
+A media controller interacts with a media session to query and control a media
+app's playback. In Media3, the [`MediaController`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController) API implements the `Player`
+interface. Examples of client apps that use a media controller include:
 
 - [Android system media controls](https://developer.android.com/media/implement/surfaces/mobile)
 - Android Wear OS companion app
@@ -19,19 +21,21 @@ A media controller interacts with a media session to query and control a media a
 - Voice assistants, like [Google Assistant](https://developer.android.com/media/implement/assistant)
 - The [Media Controller Test app](https://developer.android.com/media/optimize/mct)
 
-A media controller can also be useful within a media app, for example if the player and media session live in a `Service` separate from the `Activity` or `Fragment` with the UI.
+A media controller can also be useful within a media app, for example if the
+player and media session live in a `Service` separate from the `Activity` or
+`Fragment` with the UI.
 
 ### Create a `MediaController`
 
-To create a `MediaController`, start by creating a `SessionToken` for the corresponding `MediaSession`. The `onStart()` method of your `Activity` or `Fragment` can be a good place for this.
+To create a `MediaController`, start by creating a `SessionToken` for the
+corresponding `MediaSession`. The `onStart()` method of your `Activity` or
+`Fragment` can be a good place for this.
 
-<br />
 
 ### Kotlin
 
 ```kotlin
 val sessionToken = SessionToken(context, ComponentName(context, PlaybackService::class.java))
-      
 ```
 
 ### Java
@@ -39,14 +43,14 @@ val sessionToken = SessionToken(context, ComponentName(context, PlaybackService:
 ```java
 SessionToken sessionToken =
     new SessionToken(context, new ComponentName(context, PlaybackService.class));
-      
 ```
 
 <br />
 
-Using this `SessionToken` to then build a `MediaController` connects the controller to the given session. This takes place asynchronously, so you should listen for the result and use it when available.
+Using this `SessionToken` to then build a `MediaController` connects the
+controller to the given session. This takes place asynchronously, so you should
+listen for the result and use it when available.
 
-<br />
 
 ### Kotlin
 
@@ -58,7 +62,6 @@ controllerFuture.addListener(
   },
   MoreExecutors.directExecutor(),
 )
-      
 ```
 
 ### Java
@@ -71,7 +74,6 @@ controllerFuture.addListener(
       // MediaController is available here with controllerFuture.get()
     },
     MoreExecutors.directExecutor());
-      
 ```
 
 <br />
@@ -84,18 +86,29 @@ controllerFuture.addListener(
 
 ### Use a `MediaController`
 
-`MediaController` implements the `Player` interface, so you can use the commands defined in the interface to control playback of the connected `MediaSession`. This is to say that calling `play()` on a `MediaController` will send the command to the connected `MediaSession`, which will subsequently delegate the command to its underlying `Player`.
+`MediaController` implements the `Player` interface, so you can use the commands
+defined in the interface to control playback of the connected `MediaSession`.
+This is to say that calling `play()` on a `MediaController` will send the
+command to the connected `MediaSession`, which will subsequently delegate the
+command to its underlying `Player`.
 
 > [!TIP]
 > **Tip:** A media controller implements the `Player` interface, and as such you can use it within your UI as a `Player`.
 
-You can add a `Player.Listener` to the controller to listen for changes in the `Player` state. Refer to the [Player events](https://developer.android.com/media/media3/exoplayer/listening-to-player-events#listening-to-player-events) guide for more details on using a `Player.Listener`.
+You can add a `Player.Listener` to the controller to listen for changes in the
+`Player` state. Refer to the [Player events](https://developer.android.com/media/media3/exoplayer/listening-to-player-events#listening-to-player-events) guide for more details on using a
+`Player.Listener`.
 
-The `MediaController.Listener` interface defines additional callbacks for events and custom commands from the connected `MediaSession`. Examples are [`onCustomCommand()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController.Listener#onCustomCommand(androidx.media3.session.MediaController,androidx.media3.session.SessionCommand,android.os.Bundle)) when the session sends a custom command, [`onAvailableSessionCommandsChanged()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController.Listener#onAvailableSessionCommandsChanged(androidx.media3.session.MediaController,androidx.media3.session.SessionCommands)) when the session changes the available session commands or [`onDisconnected()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController.Listener#onDisconnected(androidx.media3.session.MediaController)) when the controller is disconnected from the session.
+The `MediaController.Listener` interface defines additional callbacks for events
+and custom commands from the connected `MediaSession`. Examples are
+[`onCustomCommand()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController.Listener#onCustomCommand(androidx.media3.session.MediaController,androidx.media3.session.SessionCommand,android.os.Bundle)) when the session sends a custom command,
+[`onAvailableSessionCommandsChanged()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController.Listener#onAvailableSessionCommandsChanged(androidx.media3.session.MediaController,androidx.media3.session.SessionCommands)) when the session changes the available
+session commands or [`onDisconnected()`](https://developer.android.com/reference/kotlin/androidx/media3/session/MediaController.Listener#onDisconnected(androidx.media3.session.MediaController)) when the controller is disconnected
+from the session.
 
-A `MediaController.Listener` can be set when building the controller with a `Builder`:
+A `MediaController.Listener` can be set when building the controller with a
+`Builder`:
 
-<br />
 
 ### Kotlin
 
@@ -119,7 +132,6 @@ val controllerFuture =
       }
     )
     .buildAsync()
-      
 ```
 
 ### Java
@@ -142,40 +154,41 @@ ListenableFuture<MediaController> controllerFuture =
               }
             })
         .buildAsync();
-      
 ```
 
 <br />
 
-As with other components, remember to release the `MediaController` when it is no longer needed, such as in the `onStop()` method of an `Activity` or `Fragment`.
+As with other components, remember to release the `MediaController` when it is
+no longer needed, such as in the `onStop()` method of an `Activity` or
+`Fragment`.
 
-<br />
 
 ### Kotlin
 
 ```kotlin
 MediaController.releaseFuture(controllerFuture)
-      
 ```
 
 ### Java
 
 ```java
 MediaController.releaseFuture(controllerFuture);
-      
 ```
 
 <br />
 
-Releasing the controller will still deliver all pending commands sent to the session and only unbind from the session service either once these commands have been handled or after a timeout period, whichever occurs first.
+Releasing the controller will still deliver all pending commands sent to the
+session and only unbind from the session service either once these commands have
+been handled or after a timeout period, whichever occurs first.
 
 ## `MediaBrowser`
 
-A `MediaBrowser` builds on top of the capabilities offered by a `MediaController` to also enable browsing the media library offered by a media app's `MediaLibraryService`.
+A `MediaBrowser` builds on top of the capabilities offered by a
+`MediaController` to also enable browsing the media library offered by a media
+app's `MediaLibraryService`.
 
 ### Create a `MediaBrowser`
 
-<br />
 
 ### Kotlin
 
@@ -187,7 +200,6 @@ browserFuture.addListener(
   },
   MoreExecutors.directExecutor(),
 )
-      
 ```
 
 ### Java
@@ -200,16 +212,15 @@ browserFuture.addListener(
       // MediaBrowser is available here with browserFuture.get()
     },
     MoreExecutors.directExecutor());
-      
 ```
 
 <br />
 
 ### Use a `MediaBrowser`
 
-To start browsing the media app's content library, first retrieve the root node with `getLibraryRoot()`:
+To start browsing the media app's content library, first retrieve the root node
+with `getLibraryRoot()`:
 
-<br />
 
 ### Kotlin
 
@@ -222,7 +233,6 @@ rootFuture.addListener(
   },
   MoreExecutors.directExecutor(),
 )
-      
 ```
 
 ### Java
@@ -236,14 +246,14 @@ rootFuture.addListener(
       // Root node MediaItem is available here with rootFuture.get().value
     },
     MoreExecutors.directExecutor());
-      
 ```
 
 <br />
 
-You can then navigate through the media library by retrieving the children of a `MediaItem` in the library with `getChildren()`. For example, to retrieve the children of the root node `MediaItem`:
+You can then navigate through the media library by retrieving the children of a
+`MediaItem` in the library with `getChildren()`. For example, to retrieve the
+children of the root node `MediaItem`:
 
-<br />
 
 ### Kotlin
 
@@ -257,7 +267,6 @@ childrenFuture.addListener(
   },
   MoreExecutors.directExecutor(),
 )
-      
 ```
 
 ### Java
@@ -271,18 +280,24 @@ childrenFuture.addListener(
       // childrenFuture.get().value
     },
     MoreExecutors.directExecutor());
-      
 ```
 
 <br />
 
 ## Display playback controls for another media app
 
-When displaying UI controls with buttons for another media app, it's important to follow the declared [media button preferences](https://developer.android.com/media/media3/session/control-playback#commands) of that app.
+When displaying UI controls with buttons for another media app, it's important
+to follow the declared [media button preferences](https://developer.android.com/media/media3/session/control-playback#commands) of that
+app.
 
-To resolve the app's preferences with the constraints and requirements of your UI, use `CommandButton.DisplayConstraints`. You can define the limits and restrictions of your UI can do, and the [`resolve()`](https://developer.android.com/reference/kotlin/androidx/media3/session/CommandButton.DisplayConstraints#resolve(java.util.List%3Candroidx.media3.session.CommandButton%3E,androidx.media3.common.Player)) method provides a definite list of buttons to display with their icon, position and intended action. If a user clicks one of these buttons, you can use `CommandButton.executeAction` to trigger the associated action in the media app.
+To resolve the app's preferences with the constraints and requirements of your
+UI, use `CommandButton.DisplayConstraints`. You can define the limits and
+restrictions of your UI can do, and the [`resolve()`](https://developer.android.com/reference/kotlin/androidx/media3/session/CommandButton.DisplayConstraints#resolve(java.util.List%3Candroidx.media3.session.CommandButton%3E,androidx.media3.common.Player)) method
+provides a definite list of buttons to display with their icon, position and
+intended action. If a user clicks one of these buttons, you can use
+`CommandButton.executeAction` to trigger the associated action in the media
+app.
 
-<br />
 
 ### Kotlin
 
@@ -302,7 +317,6 @@ for (button in resolvedButtons) {
     onClick = { button.executeAction(controller) },
   )
 }
-      
 ```
 
 ### Java
@@ -325,7 +339,6 @@ for (CommandButton button : resolvedButtons) {
       /* icon= */ getIconRes(button.icon),
       /* onClick= */ () -> button.executeAction(controller));
 }
-      
 ```
 
 <br />

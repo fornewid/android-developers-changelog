@@ -32,7 +32,6 @@ fun dataShouldBeHelloWorld() = runTest {
     val data = fetchData()
     assertEquals("Hello world", data)
 }
-   
 ```
 
 In general, you should have one invocation of `runTest` per test, and using an [expression body](https://kotlinlang.org/docs/functions.html#single-expression-functions) is recommended.
@@ -84,7 +83,6 @@ fun standardTest() = runTest {
 
     assertEquals(listOf("Alice", "Bob"), userRepo.getAllUsers()) // ❌ Fails
 }
-   
 ```
 
 There are several ways to yield the test coroutine to let queued-up coroutines run. All of these calls let other coroutines run on the test thread before returning:
@@ -106,7 +104,6 @@ fun standardTest() = runTest {
 
     assertEquals(listOf("Alice", "Bob"), userRepo.getAllUsers()) // ✅ Passes
 }
-   
 ```
 
 > [!NOTE]
@@ -136,7 +133,6 @@ fun unconfinedTest() = runTest(UnconfinedTestDispatcher()) {
 
     assertEquals(listOf("Alice", "Bob"), userRepo.getAllUsers()) // ✅ Passes
 }
-   
 ```
 
 In this example, the launch calls will start their new coroutines eagerly on the `UnconfinedTestDispatcher`, which means that each call to launch will only return after the registration is completed.
@@ -164,7 +160,6 @@ fun yieldingTest() = runTest(UnconfinedTestDispatcher()) {
 
     assertEquals(listOf("Alice", "Bob"), userRepo.getAllUsers()) // ❌ Fails
 }
-   
 ```
 
 ## Injecting test dispatchers
@@ -177,9 +172,16 @@ In tests, replace these dispatchers with instances of `TestDispatchers`. This ha
 - You can control how new coroutines are scheduled and executed
 - TestDispatchers use a scheduler for virtual time, which skips delays automatically and lets you advance time manually
 
-Using [dependency injection](https://developer.android.com/training/dependency-injection) to provide dispatchers to your classes makes it easy to replace the real dispatchers in tests. In these examples, we'll inject a `CoroutineDispatcher`, but you can also inject the broader [`CoroutineContext`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-coroutine-context/) type, which allows for even more flexibility during tests.
+Using [dependency injection](https://developer.android.com/training/dependency-injection) to provide
+dispatchers to your classes makes it easy to replace the real dispatchers in
+tests. In these examples, we'll inject a `CoroutineDispatcher`, but you can also
+inject the broader
+[`CoroutineContext`](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.coroutines/-coroutine-context/)
+type, which allows for even more flexibility during tests.
 
-For classes that start coroutines, you can also inject a `CoroutineScope` instead of a dispatcher, as detailed in the [Injecting a scope](https://developer.android.com/kotlin/coroutines/test#inject-scope) section.
+For classes that start coroutines, you can also inject a `CoroutineScope`
+instead of a dispatcher, as detailed in the [Injecting a scope](https://developer.android.com/kotlin/coroutines/test#inject-scope)
+section.
 
 > [!IMPORTANT]
 > **Key Point:** In tests, replace real dispatchers with instances of `TestDispatchers` to ensure that all code runs on the single test thread.
@@ -214,7 +216,6 @@ class Repository(private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO)
         "Hello world"
     }
 }
-   
 ```
 
 In tests, you can inject a `TestDispatcher` implementation to replace the `IO` dispatcher.
@@ -241,7 +242,6 @@ class RepositoryTest {
         assertEquals("Hello world", data)
     }
 }
-   
 ```
 
 New coroutines started on a `TestDispatcher` can be advanced manually as shown above with `initialize`. Note, however, that this would not be possible or desirable in production code. Instead, this method should be redesigned to be either suspending (for sequential execution), or to return a `Deferred` value (for concurrent execution).
@@ -256,7 +256,6 @@ class BetterRepository(private val ioDispatcher: CoroutineDispatcher = Dispatche
         // ...
     }
 }
-   
 ```
 
 This lets you safely `await` the completion of this code in both tests and production code:
@@ -271,7 +270,6 @@ fun repoInitWorks() = runTest {
     assertEquals(true, repository.initialized.get())
     // ...
 }
-   
 ```
 
 > [!NOTE]
@@ -301,7 +299,6 @@ class HomeViewModel : ViewModel() {
         }
     }
 }
-   
 ```
 
 To replace the `Main` dispatcher with a `TestDispatcher` in all cases, use the [`Dispatchers.setMain`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/set-main.html) and [`Dispatchers.resetMain`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/reset-main.html) functions.
@@ -322,7 +319,6 @@ class HomeViewModelTest {
         }
     }
 }
-   
 ```
 
 **If the `Main` dispatcher has been replaced with a `TestDispatcher`, any newly-created `TestDispatchers` will automatically use the scheduler from the `Main` dispatcher** , including the `StandardTestDispatcher` created by `runTest` if no other dispatcher is passed to it.
@@ -359,7 +355,6 @@ class HomeViewModelTestUsingRule {
         assertEquals("Greetings!", viewModel.message.value)
     }
 }
-   
 ```
 
 This rule implementation uses an `UnconfinedTestDispatcher` by default, but a `StandardTestDispatcher` can be passed in as a parameter if the `Main` dispatcher shouldn't execute eagerly in a given test class.
@@ -380,7 +375,6 @@ class DispatcherTypesTest {
         val standardRepo = Repository(StandardTestDispatcher())
     }
 }
-   
 ```
 
 ## Creating dispatchers outside a test
@@ -402,7 +396,6 @@ class RepositoryTestWithRule {
         // ...
     }
 }
-   
 ```
 
 If you're replacing the `Main` dispatcher as shown in the previous section, `TestDispatchers` created *after* the `Main` dispatcher has been replaced will automatically share its scheduler.
@@ -429,7 +422,6 @@ class RepositoryTestWithRule {
         // Test the repository...
     }
 }
-   
 ```
 
 Note that both `runTest` and `TestDispatchers` created within the test will still automatically share the scheduler of the `Main` dispatcher.
@@ -452,7 +444,6 @@ class RepositoryTest {
         // Test the repository...
     }
 }
-   
 ```
 
 In this sample, the scheduler from the first dispatcher is passed to `runTest`. This will create a new `StandardTestDispatcher` for the `TestScope` using that scheduler. You could also pass in the dispatcher to `runTest` directly to run the test coroutine on that dispatcher.
@@ -472,7 +463,6 @@ class SimpleExampleTest {
         // ...
     }
 }
-   
 ```
 
 > [!CAUTION]
@@ -491,7 +481,6 @@ class ExampleTest {
         // ...
     }
 }
-   
 ```
 
 > [!IMPORTANT]
@@ -499,9 +488,14 @@ class ExampleTest {
 
 ## Injecting a scope
 
-If you have a class that creates coroutines that you need to control during tests, you can inject a coroutine scope into that class, replacing it with a `TestScope` in tests.
+If you have a class that creates coroutines that you need to control during
+tests, you can inject a coroutine scope into that class, replacing it with a
+`TestScope` in tests.
 
-In the following example, the `UserState` class depends on a `UserRepository` to register new users and to fetch the list of registered users. As these calls to `UserRepository` are suspending function calls, `UserState` uses the injected `CoroutineScope` to start a new coroutine inside its `registerUser` function.
+In the following example, the `UserState` class depends on a `UserRepository`
+to register new users and to fetch the list of registered users. As these calls
+to `UserRepository` are suspending function calls, `UserState` uses the injected
+`CoroutineScope` to start a new coroutine inside its `registerUser` function.
 
 ```kotlin
 class UserState(
@@ -518,10 +512,10 @@ class UserState(
         }
     }
 }
-   
 ```
 
-To test this class, you can pass in the `TestScope` from `runTest` when creating the `UserState` object:
+To test this class, you can pass in the `TestScope` from `runTest` when creating
+the `UserState` object:
 
 ```kotlin
 class UserStateTest {
@@ -536,13 +530,14 @@ class UserStateTest {
         assertEquals(listOf("Mona"), userState.users.value)
     }
 }
-   
 ```
 
 > [!TIP]
 > **Tip:** If your class creates coroutines that don't complete on their own and should be canceled at the end of the test, you can inject [`TestScope.backgroundScope`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-test-scope/background-scope.html) instead of the `TestScope` itself.
 
-To inject a scope outside of the test function, for example into an object under test that's created as a property in the test class, see [Creating your own TestScope](https://developer.android.com/kotlin/coroutines/test#creating-your-own-testscope).
+To inject a scope outside of the test function, for example into an object under
+test that's created as a property in the test class, see
+[Creating your own TestScope](https://developer.android.com/kotlin/coroutines/test#creating-your-own-testscope).
 
 ## Additional resources
 

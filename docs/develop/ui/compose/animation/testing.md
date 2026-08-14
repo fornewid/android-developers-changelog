@@ -4,13 +4,20 @@ url: https://developer.android.com/develop/ui/compose/animation/testing
 source: md.txt
 ---
 
-Compose offers `ComposeTestRule` that lets you write tests for animations in a deterministic manner with full control over the test clock. This lets you verify intermediate animation values. In addition, a test can run quicker than the actual duration of the animation.
+Compose offers `ComposeTestRule` that lets you write tests for animations
+in a deterministic manner with full control over the test clock. This lets you
+verify intermediate animation values. In addition, a test can run quicker
+than the actual duration of the animation.
 
-`ComposeTestRule` exposes its test clock as `mainClock`. You can set the `autoAdvance` property to false to control the clock in your test code. After initiating the animation you want to test, the clock can be moved forward with `advanceTimeBy`.
+`ComposeTestRule` exposes its test clock as `mainClock`. You can set the
+`autoAdvance` property to false to control the clock in your test code. After
+initiating the animation you want to test, the clock can be moved forward with
+`advanceTimeBy`.
 
-One thing to note here is that `advanceTimeBy` doesn't move the clock exactly by the specified duration. Rather, it rounds it up to the nearest duration that is a multiplier of the frame duration.
+One thing to note here is that `advanceTimeBy` doesn't move the clock exactly by
+the specified duration. Rather, it rounds it up to the nearest duration that is
+a multiplier of the frame duration.
 
-<br />
 
 ```kotlin
 @get:Rule
@@ -39,7 +46,6 @@ fun testAnimationWithClock() {
     // `assertAgainGolden` needs to be implemented in your code.
     rule.onRoot().captureToImage().assertAgainstGolden()
 }
-   
 ```
 
 <br />

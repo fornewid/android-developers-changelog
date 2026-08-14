@@ -50,7 +50,6 @@ In **Material Design for XR** , new components automatically adapt spatially via
 
 <br />
 
-
 And in **ARCore for Jetpack XR** , new perception capabilities have been added, including [face tracking](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/face) with 68 blendshape values unlocking a world of facial gestures. You can also use [eye tracking](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Eye) to power virtual avatars, and [depth maps](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/depth) to enable more-realistic interactions with a user's environment.
 
 For devices like Project Aura from XREAL, we are introducing the [XR Glasses emulator](https://developer.android.com/studio/releases/emulator) in Android Studio. This essential tool is designed to give you accurate content visualization, while matching real device specifications for Field of View (FoV), Resolution, and DPI to accelerate your development.
@@ -71,7 +70,8 @@ Written by:
 
   ###### Vice President, Product Management, Android Developer
 
-  [read_more View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
 Continue reading
 - [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -96,5 +96,8 @@ Continue reading
   - [#Android](https://developer.android.com/blog/topics/android)
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

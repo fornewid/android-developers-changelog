@@ -169,14 +169,16 @@ Written by:
 
   ###### Senior Developer Relations Engineer
 
-  [read_more View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
 -
 
   ## [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis)
 
   ###### Developer Relations Engineer
 
-  [read_more View profile](https://developer.android.com/blog/authors/mozart-louis) ![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp) ![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/mozart-louis) ![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp) ![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)
 Continue reading
 - [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Apr 2026 17 Apr 2026 ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_gOJm.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
@@ -190,13 +192,17 @@ Continue reading
 
   [arrow_forward](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash) Today, we're expanding the Gemini 3 model family with the release of Gemini 3 Flash, frontier intelligence built for speed at a fraction of the cost.
   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) • 2 min read
-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_1w4qDC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Delivering safer, age-appropriate experiences on Google Play](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play)
+  ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
 
-  [arrow_forward](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play) Providing a safe online experience and protecting users from harm is a top priority at Google Play.
-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
+  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release) Today, the Jetpack Compose August '26 release is stable!
+  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
 Stay in the loop
 
-Get the latest Android development insights delivered to your inbox weekly.
-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+
+Get the latest Android development insights delivered to your inbox
+weekly.
+[mail
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

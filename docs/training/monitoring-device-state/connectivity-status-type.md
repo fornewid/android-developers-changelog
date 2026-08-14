@@ -4,15 +4,25 @@ url: https://developer.android.com/training/monitoring-device-state/connectivity
 source: md.txt
 ---
 
-The [`ConnectivityManager`](https://developer.android.com/reference/android/net/ConnectivityManager) provides an API that enables you to request that the device connect to a network based on various conditions that include device capabilities and data transport options.
+The [`ConnectivityManager`](https://developer.android.com/reference/android/net/ConnectivityManager) provides
+an API that enables you to request that the device connect to a network based on
+various conditions that include device capabilities and data transport options.
 
-The callback implementation provides information to your app about the device's connection status as well as the capabilities of the currently connected network. The API enables you to determine whether the device is currently connected to a network that satisfies your app's requirements.
+The callback implementation provides information to your app about the device's
+connection status as well as the capabilities of the currently connected
+network. The API enables you to determine whether the device is currently
+connected to a network that satisfies your app's requirements.
 
 ## Configure a network request
 
-To specify the transport type of the network, such as Wi-Fi or cellular connection, and the currently connected network's capabilities, such as internet connection, you must configure a network request.
+To specify the transport type of the network, such as Wi-Fi or cellular
+connection, and the currently connected network's capabilities, such as internet
+connection, you must configure a network request.
 
-Declare a [`NetworkRequest`](https://developer.android.com/reference/android/net/NetworkRequest) that describes your app's network connection needs. The following code creates a request for a network that is connected to the internet and uses a Wi-Fi, ethernet, or cellular connection for the transport type.
+Declare a [`NetworkRequest`](https://developer.android.com/reference/android/net/NetworkRequest) that
+describes your app's network connection needs. The following code creates a
+request for a network that is connected to the internet and uses a Wi-Fi,
+ethernet, or cellular connection for the transport type.
 
 ### Kotlin
 
@@ -36,13 +46,23 @@ NetworkRequest networkRequest = new NetworkRequest.Builder()
         .build();
 ```
 
-Note that some connections can be significantly more expensive than others (for example, a mobile connection is typically expensive). Use [`NetworkCapabilities#NET_CAPABILITY_NOT_METERED`](https://developer.android.com/reference/android/net/NetworkCapabilities#NET_CAPABILITY_NOT_METERED) to determine whether the connection is expensive. When on a metered connection, try to reduce your app's data consumption, or delay it until the device has a non-metered connection.
+Note that some connections can be significantly more expensive than others (for
+example, a mobile connection is typically expensive). Use
+[`NetworkCapabilities#NET_CAPABILITY_NOT_METERED`](https://developer.android.com/reference/android/net/NetworkCapabilities#NET_CAPABILITY_NOT_METERED)
+to determine whether the connection is expensive. When on a metered connection,
+try to reduce your app's data consumption, or delay it until the device has a
+non-metered connection.
 
 ## Configure a network callback
 
-When you register the `NetworkRequest` with the `ConnectivityManager`, you must implement a [`NetworkCallback`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback) to receive notifications about changes in the connection status and network capabilities.
+When you register the `NetworkRequest` with the `ConnectivityManager`, you must
+implement a
+[`NetworkCallback`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback)
+to receive notifications about changes in the connection status and network
+capabilities.
 
-The most commonly implemented functions in the `NetworkCallback` include the following:
+The most commonly implemented functions in the `NetworkCallback` include the
+following:
 
 - [`onAvailable()`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback#onAvailable(android.net.Network)) indicates that the device is connected to a new network that satisfies the capabilities and transport type requirements specified in the `NetworkRequest`.
 - [`onLost()`](https://developer.android.com/reference/android/net/ConnectivityManager.NetworkCallback#onLost(android.net.Network)) indicates that the device has lost connection to the network.
@@ -97,7 +117,11 @@ private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityMa
 
 ## Register for network updates
 
-After you declare the `NetworkRequest` and `NetworkCallback`, use the [`requestNetwork()`](https://developer.android.com/reference/android/net/ConnectivityManager#requestNetwork(android.net.NetworkRequest,%20android.net.ConnectivityManager.NetworkCallback)) or [`registerNetworkCallback()`](https://developer.android.com/reference/android/net/ConnectivityManager#registerNetworkCallback(android.net.NetworkRequest,%20android.net.ConnectivityManager.NetworkCallback)) functions to search for a network to connect from the device that satisfies the `NetworkRequest`. The status is then reported to the `NetworkCallback`.
+After you declare the `NetworkRequest` and `NetworkCallback`, use the
+[`requestNetwork()`](https://developer.android.com/reference/android/net/ConnectivityManager#requestNetwork(android.net.NetworkRequest,%20android.net.ConnectivityManager.NetworkCallback))
+or [`registerNetworkCallback()`](https://developer.android.com/reference/android/net/ConnectivityManager#registerNetworkCallback(android.net.NetworkRequest,%20android.net.ConnectivityManager.NetworkCallback))
+functions to search for a network to connect from the device that satisfies the
+`NetworkRequest`. The status is then reported to the `NetworkCallback`.
 
 ### Kotlin
 

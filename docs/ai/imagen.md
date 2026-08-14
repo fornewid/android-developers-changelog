@@ -7,9 +7,14 @@ source: md.txt
 > [!WARNING]
 > **Warning:** All Imagen models are deprecated and will shut down as early as June 30, 2026. As a replacement, you can migrate your apps to use [Gemini Image models](https://developer.android.com/ai/gemini/developer-api#generate-images) (the "Nano Banana" models).
 
-Imagen is an image generation model. It can be used to generate custom avatars for user profiles or to integrate personalized visual assets into existing screen flows to increase user engagement.
+Imagen is an image generation model. It can be used to generate
+custom avatars for user profiles or to integrate personalized visual assets into
+existing screen flows to increase user engagement.
 
-You can access [Imagen models](https://firebase.google.com/docs/ai-logic/models) from your Android app using the [Firebase AI Logic SDK](https://firebase.google.com/docs/ai-logic/generate-images-imagen). Imagen models are available using either of Google's [API providers](https://developer.android.com/ai/gemini#api-providers): Gemini Developer API (recommended for most developers) and Agent Platform Gemini API (formerly Vertex AI).
+You can access [Imagen models](https://firebase.google.com/docs/ai-logic/models) from your Android app using the
+[Firebase AI Logic SDK](https://firebase.google.com/docs/ai-logic/generate-images-imagen). Imagen models are available using either
+of Google's [API providers](https://developer.android.com/ai/gemini#api-providers): Gemini Developer API (recommended for most
+developers) and Agent Platform Gemini API (formerly Vertex AI).
 ![A diagram illustrating a Firebase AI Logic integration architecture
 to access the Gemini Developer API. An Android App utilizes the Firebase
 Android SDK to connect to Firebase. Firebase then interacts with the
@@ -24,14 +29,18 @@ cloud.](https://developer.android.com/static/ai/assets/images/firebase-ai-logic-
 
 ## Experiment with prompts
 
-Creating the ideal prompts often takes multiple attempts. You can experiment with image prompts in [Google AI Studio](https://aistudio.google.com/gen-media), an IDE for prompt design and prototyping. For tips on how to improve your prompts, review the [prompt and image attribute guide](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/img-gen-prompt-guide).
+Creating the ideal prompts often takes multiple attempts. You can experiment
+with image prompts in [Google AI Studio](https://aistudio.google.com/gen-media), an IDE for prompt
+design and prototyping. For tips on how to improve your prompts, review the
+[prompt and image attribute guide](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/img-gen-prompt-guide).
 ![A screenshot of the Google AI Studio interface,
 displaying four generated images of a T-Rex with a blue backpack in a
 prehistoric forest.](https://developer.android.com/static/ai/assets/images/t-rex-imagen.png) **Figure 2.** Google AI Studio can help you refine your image generation prompts.
 
 ## Set up a Firebase project and connect your app
 
-Follow the steps in the Firebase documentation to [add Firebase to your Android project](https://firebase.google.com/docs/android/setup).
+Follow the steps in the Firebase documentation to
+[add Firebase to your Android project](https://firebase.google.com/docs/android/setup).
 
 ## Add the Gradle dependency
 
@@ -48,14 +57,17 @@ Add the following dependencies to your `build.gradle` file:
 
 ## Generate an image
 
-To generate an image in your Android app, start by instantiating an `ImagenModel` with an optional configuration.
+To generate an image in your Android app, start by instantiating an
+`ImagenModel` with an optional configuration.
 
-You can use the [`generationConfig`](https://firebase.google.com/docs/ai-logic/model-parameters#imagen) parameter to define a negative prompt, the number of images, the output image aspect ratio, the image format and add a watermark. You can use the [`safetySettings`](https://firebase.google.com/docs/ai-logic/safety-settings#imagen) parameter to configure the safety and person filters.
+You can use the [`generationConfig`](https://firebase.google.com/docs/ai-logic/model-parameters#imagen) parameter to define a negative prompt,
+the number of images, the output image aspect ratio, the image format and add a
+watermark. You can use the [`safetySettings`](https://firebase.google.com/docs/ai-logic/safety-settings#imagen) parameter to configure the
+safety and person filters.
 
 > [!NOTE]
 > **Note:** Refer to the Firebase documentation for up-to-date information about [available Imagen models](https://firebase.google.com/docs/ai-logic/models).
 
-<br />
 
 ### Kotlin
 
@@ -77,7 +89,6 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).imagenModel(
         personFilterLevel = ImagenPersonFilterLevel.BLOCK_ALL
     ),
 )
-      
 ```
 
 ### Java
@@ -99,14 +110,13 @@ ImagenModelFutures model = ImagenModelFutures.from(
                         ImagenSafetyFilterLevel.BLOCK_LOW_AND_ABOVE,
                         ImagenPersonFilterLevel.BLOCK_ALL))
 );
-      
 ```
 
 <br />
 
-Once your `ImagenModel` is instantiated, you can generate images by calling `generateImages`:
+Once your `ImagenModel` is instantiated, you can generate images by calling
+`generateImages`:
 
-<br />
 
 ### Kotlin
 
@@ -116,7 +126,6 @@ val imageResponse = model.generateImages(
 )
 val image = imageResponse.images.first()
 val bitmapImage = image.asBitmap()
-      
 ```
 
 ### Java
@@ -140,14 +149,14 @@ try {
 } catch (ExecutionException | InterruptedException e) {
     e.printStackTrace();
 }
-      
 ```
 
 <br />
 
 ## Edit images with Imagen
 
-The Firebase AI Logic SDKs offer advanced image editing capabilities through the Imagen model, allowing you to:
+The Firebase AI Logic SDKs offer advanced image editing capabilities through the
+Imagen model, allowing you to:
 
 - [**Edit images based on masks**](https://developer.android.com/ai/imagen#mask-based-editing), which includes actions such as inserting or removing objects, extending image content beyond its original boundaries, and changing backgrounds.
 - [**Customize images**](https://developer.android.com/ai/imagen#customization) through the application of specific styles (patterns, textures, or artist styles), by focusing on various subjects (such as products, people, or animals), or by adhering to different controls (such as hand-drawn sketch, a canny edge image, or a face mesh).
@@ -157,31 +166,38 @@ The Firebase AI Logic SDKs offer advanced image editing capabilities through the
 
 ### Model initialization
 
-To use the Imagen editing features, specify an Imagen model that supports image editing, such as `imagen-3.0-capability-001`:
+To use the Imagen editing features, specify an Imagen model that supports image
+editing, such as `imagen-3.0-capability-001`:
 
-<br />
 
 ```kotlin
 val imagenModel = Firebase.ai(backend = GenerativeBackend.vertexAI())
     .imagenModel("imagen-3.0-capability-001")
-   
 ```
 
 <br />
 
 ### Mask-based editing
 
-Imagen's mask-based editing allows for modifications to images by defining specific areas for the model to manipulate. This capability enables a range of actions, including creating and applying masks, inserting or removing objects, and expanding image content beyond the original boundaries.
+Imagen's mask-based editing allows for modifications to images by defining
+specific areas for the model to manipulate. This capability enables a range of
+actions, including creating and applying masks, inserting or removing objects,
+and expanding image content beyond the original boundaries.
 
 #### Create a mask
 
-To perform mask-based editing such as inserting or removing objects you need to define the area that needs to be edited by the model, the *mask*.
+To perform mask-based editing such as inserting or removing objects you need to
+define the area that needs to be edited by the model, the *mask*.
 
-To create a mask, you can have the model auto-generate it by using `ImagenBackgroundMask()` or `ImagenSemanticMask()`, passing a [class ID](https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/imagen-api-customization#segment-ids).
+To create a mask, you can have the model auto-generate it by using
+`ImagenBackgroundMask()` or `ImagenSemanticMask()`, passing a [class
+ID](https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/imagen-api-customization#segment-ids).
 
-You can also manually draw the mask on screen, by generating a mask bitmap and converting it into a `ImagenRawMask`. Using `detectDragGestures` and `Canvas`, you can implement a mask-drawing user interface with Jetpack Compose in your app as follows:
+You can also manually draw the mask on screen, by generating a mask bitmap and
+converting it into a `ImagenRawMask`. Using `detectDragGestures` and `Canvas`,
+you can implement a mask-drawing user interface with Jetpack Compose in your app
+as follows:
 
-<br />
 
 ```kotlin
 //import androidx.compose.ui.graphics.Color as ComposeColor
@@ -273,14 +289,12 @@ fun ImagenEditingMaskEditor(
         }
     }
 }
-   
 ```
 
 <br />
 
 You can then create the mask bitmap by drawing the paths on the canvas:
 
-<br />
 
 ```kotlin
 // import android.graphics.Color as AndroidColor
@@ -304,23 +318,28 @@ private fun createMaskBitmap(
 
     return maskBitmap
 }
-   
 ```
 
 <br />
 
-Make sure the mask is the same size as the source image. See the [Imagen AI Catalog Samples](https://github.com/android/ai-samples/tree/main/samples/imagen-editing) for more details.
+Make sure the mask is the same size as the source image. See the [Imagen AI
+Catalog Samples](https://github.com/android/ai-samples/tree/main/samples/imagen-editing) for more details.
 
 > [!NOTE]
 > **Note:** When performing mask-based edits, we recommend dilating the mask by 1-2% to create smoother, more convincing borders. This can be achieved by adjusting the `strokeWidth` property of the `paint` object.
 
 #### Insert objects
 
-You can insert a new object or content into an existing image, also called *inpainting*. The model will generate and insert the new content into the specified masked area.
+You can insert a new object or content into an existing image, also called
+*inpainting*. The model will generate and insert the new content into the
+specified masked area.
 
-To achieve this, use the `editImage()` function. You'll need to provide the original image, a [mask](https://developer.android.com/ai/imagen?tab=t.gaj0xg8c26y0#heading=h.u6pnz49k9z58), and a text prompt describing the content you want to insert. Additionally, pass an `ImagenEditingConfig` object, ensuring its `editMode` property is set to `ImagenEditMode.INPAINT_INSERTION`.
+To achieve this, use the `editImage()` function. You'll need to provide the
+original image, a [mask](https://developer.android.com/ai/imagen?tab=t.gaj0xg8c26y0#heading=h.u6pnz49k9z58), and a text prompt
+describing the content you want to insert. Additionally, pass an
+`ImagenEditingConfig` object, ensuring its `editMode` property is set to
+`ImagenEditMode.INPAINT_INSERTION`.
 
-<br />
 
 ```kotlin
 suspend fun insertFlowersIntoImage(
@@ -342,16 +361,19 @@ suspend fun insertFlowersIntoImage(
     )
     return editedImage
 }
-   
 ```
 
 <br />
 
 #### Remove objects
 
-Inpainting lets you remove unwanted objects from an image. To do this, use the `editImage` function. You'll need to provide the original image and a [mask](https://developer.android.com/ai/imagen?tab=t.gaj0xg8c26y0#heading=h.u6pnz49k9z58) that highlights the object you want to remove. Optionally, you can include a text prompt to describe the object, which can assist the model in accurate identification. Additionally, you must set the `editMode` within the `ImagenEditingConfig` to `ImagenEditMode.INPAINT_REMOVAL`.
+Inpainting lets you remove unwanted objects from an image. To do this, use
+the `editImage` function. You'll need to provide the original image and a
+[mask](https://developer.android.com/ai/imagen?tab=t.gaj0xg8c26y0#heading=h.u6pnz49k9z58) that highlights the object you want to
+remove. Optionally, you can include a text prompt to describe the object, which
+can assist the model in accurate identification. Additionally, you must set the
+`editMode` within the `ImagenEditingConfig` to `ImagenEditMode.INPAINT_REMOVAL`.
 
-<br />
 
 ```kotlin
 suspend fun removeBallFromImage(
@@ -376,16 +398,19 @@ suspend fun removeBallFromImage(
 
     return editedImage
 }
-   
 ```
 
 <br />
 
 #### Expand image content
 
-You can expand an image beyond its original boundaries, known as *outpainting* , by using the `outpaintImage()` function. This function requires the original image and the necessary [`Dimensions`](https://firebase.google.com/docs/reference/kotlin/com/google/firebase/ai/type/Dimensions) of the expanded image. Optionally, you can include a descriptive prompt for the expansion and specify the [`ImagenImagePlacement`](https://firebase.google.com/docs/reference/kotlin/com/google/firebase/ai/type/ImagenImagePlacement) of the original image within the new generated image:
+You can expand an image beyond its original boundaries, known as *outpainting* ,
+by using the `outpaintImage()` function. This function requires the original
+image and the necessary [`Dimensions`](https://firebase.google.com/docs/reference/kotlin/com/google/firebase/ai/type/Dimensions) of the expanded image.
+Optionally, you can include a descriptive prompt for the expansion and specify
+the [`ImagenImagePlacement`](https://firebase.google.com/docs/reference/kotlin/com/google/firebase/ai/type/ImagenImagePlacement) of the original image within the
+new generated image:
 
-<br />
 
 ```kotlin
 suspend fun expandImage(originalImage: Bitmap, imagenModel: ImagenModel): ImagenGenerationResponse<ImagenInlineImage> {
@@ -403,16 +428,18 @@ suspend fun expandImage(originalImage: Bitmap, imagenModel: ImagenModel): Imagen
 
     return editedImage
 }
-   
 ```
 
 <br />
 
 #### Replace the background
 
-You can replace the background of an image while preserving the foreground subject. To do this, use the `editImage` function. Pass the original image, an `ImagenBackgroundMask` object (containing a text prompt for the new background), and an `ImagenEditingConfig` with its `editMode` property set to `ImagenEditMode.INPAINT_INSERTION`.
+You can replace the background of an image while preserving the foreground
+subject. To do this, use the `editImage` function. Pass the original image, an
+`ImagenBackgroundMask` object (containing a text prompt for the new background),
+and an `ImagenEditingConfig` with its `editMode` property set to
+`ImagenEditMode.INPAINT_INSERTION`.
 
-<br />
 
 ```kotlin
 suspend fun replaceBackground(model: ImagenModel, originalImage: Bitmap): ImagenGenerationResponse<ImagenInlineImage> {
@@ -431,22 +458,30 @@ suspend fun replaceBackground(model: ImagenModel, originalImage: Bitmap): Imagen
 
     return editedImage
 }
-   
 ```
 
 <br />
 
 ### Customization
 
-You can use the **customization capability** from Imagen to generate or edit images based on reference images that specify a subject, control, or style. This is accomplished by providing a text prompt along with one or more reference images to guide the model.
+You can use the **customization capability** from Imagen to generate or edit
+images based on reference images that specify a subject, control, or style. This
+is accomplished by providing a text prompt along with one or more reference
+images to guide the model.
 
 #### Customize based on a subject
 
-You can generate new images of a specific subject from a reference image (for example, a product, person, or animal). Simply provide a text prompt and at least one reference image of the subject. For instance, you could upload a picture of your pet and generate a new image of it in an entirely different environment.
+You can generate new images of a specific subject from a reference image (for
+example, a product, person, or animal). Simply provide a text prompt and at
+least one reference image of the subject. For instance, you could upload a
+picture of your pet and generate a new image of it in an entirely different
+environment.
 
-To do this, define the subject reference using `ImagenSubjectReference` and then pass it to `editImage` along with your prompt. Additionally, include an `ImagenEditingConfig` that specifies the number of `editSteps`; a higher `editSteps` value generally leads to better quality results:
+To do this, define the subject reference using `ImagenSubjectReference` and then
+pass it to `editImage` along with your prompt. Additionally, include an
+`ImagenEditingConfig` that specifies the number of `editSteps`; a higher
+`editSteps` value generally leads to better quality results:
 
-<br />
 
 ```kotlin
 suspend fun customizeCatImage(model: ImagenModel, referenceCatImage: Bitmap): ImagenGenerationResponse<ImagenInlineImage> {
@@ -474,18 +509,22 @@ suspend fun customizeCatImage(model: ImagenModel, referenceCatImage: Bitmap): Im
 
     return editedImage
 }
-   
 ```
 
 <br />
 
 #### Customize based on a control
 
-This technique generates a new image based on a **control reference image** , such as a hand-drawn sketch ("scribble"), a [Canny edge image](https://en.wikipedia.org/wiki/Canny_edge_detector), or a face mesh. The model uses the control image as a structural guide for the new image's layout and composition, while the text prompt provides details like color and texture.
+This technique generates a new image based on a **control reference image** ,
+such as a hand-drawn sketch ("scribble"), a [Canny edge image](https://en.wikipedia.org/wiki/Canny_edge_detector),
+or a face mesh. The model uses the control image as a structural guide for the
+new image's layout and composition, while the text prompt provides details like
+color and texture.
 
-Define a control reference with `ImagenControlReference` and provide it to `editImage` along with a prompt and `ImagenEditingConfig` with the number of `editSteps` (a higher value can improve quality):
+Define a control reference with `ImagenControlReference` and provide it to
+`editImage` along with a prompt and `ImagenEditingConfig` with the number of
+`editSteps` (a higher value can improve quality):
 
-<br />
 
 ```kotlin
 suspend fun customizeCatImageByControl(model: ImagenModel, referenceImage: Bitmap): ImagenGenerationResponse<ImagenInlineImage> {
@@ -509,18 +548,22 @@ suspend fun customizeCatImageByControl(model: ImagenModel, referenceImage: Bitma
 
     return editedImage
 }
-   
 ```
 
 <br />
 
 #### Customize based on a style
 
-You can generate or edit an image to match a specific **style** from a reference image, like its pattern, texture, or design. The model uses the reference image to understand the required aesthetic and applies it to the new image described in the text prompt. For example, you could generate an image of a cat in the style of a famous painting by providing an image of that painting.
+You can generate or edit an image to match a specific **style** from a reference
+image, like its pattern, texture, or design. The model uses the reference image
+to understand the required aesthetic and applies it to the new image described
+in the text prompt. For example, you could generate an image of a cat in the
+style of a famous painting by providing an image of that painting.
 
-Define a style reference with `ImagenStyleReference` and provide it to `editImage` along with a prompt and `ImagenEditingConfig` with the number of `editSteps` (a higher value can improve quality):
+Define a style reference with `ImagenStyleReference` and provide it to
+`editImage` along with a prompt and `ImagenEditingConfig` with the number of
+`editSteps` (a higher value can improve quality):
 
-<br />
 
 ```kotlin
 suspend fun customizeImageByStyle(model: ImagenModel, referenceVanGoghImage: Bitmap): ImagenGenerationResponse<ImagenInlineImage> {
@@ -547,12 +590,12 @@ suspend fun customizeImageByStyle(model: ImagenModel, referenceVanGoghImage: Bit
 
     return editedImage
 }
-   
 ```
 
 <br />
 
 ## Next steps
 
-- Learn more about Firebase AI Logic in the [Firebase documentation](https://firebase.google.com/docs/ai-logic/).
+- Learn more about Firebase AI Logic in the [Firebase
+  documentation](https://firebase.google.com/docs/ai-logic/).
 - Explore the [Android AI Sample Catalog](https://github.com/android/ai-samples).

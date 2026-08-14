@@ -4,7 +4,10 @@ url: https://developer.android.com/develop/ui/compose/system/test-cutouts
 source: md.txt
 ---
 
-Be sure to test all of your app's screens and experiences. Test on devices with different types of cutouts, if possible. If you don't have a device with a cutout, you can simulate common cutout configurations on any device or emulator running Android 9 or higher by doing the following:
+Be sure to test all of your app's screens and experiences. Test on devices with
+different types of cutouts, if possible. If you don't have a device with a
+cutout, you can simulate common cutout configurations on any device or emulator
+running Android 9 or higher by doing the following:
 
 1. Enable [**Developer options**](https://developer.android.com/studio/debug/dev-options).
 2. In the **Developer options** screen, go to the **Drawing** section and select **Simulate a display with a cutout**.

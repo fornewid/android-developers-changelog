@@ -4,18 +4,21 @@ url: https://developer.android.com/develop/ui/compose/components/bottom-sheets-p
 source: md.txt
 ---
 
-You can partially show a [bottom sheet](https://developer.android.com/develop/ui/compose/components/bottom-sheets) and then let the user either make it full screen or dismiss it.
+You can partially show a [bottom sheet](https://developer.android.com/develop/ui/compose/components/bottom-sheets) and then let the user either make it
+full screen or dismiss it.
 
-To do so, pass your [`ModalBottomSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalBottomSheet.composable) an instance of [`SheetState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SheetState) with `skipPartiallyExpanded` set to `false`.
+To do so, pass your [`ModalBottomSheet`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ModalBottomSheet.composable) an instance of [`SheetState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SheetState)
+with `skipPartiallyExpanded` set to `false`.
 
 > [!NOTE]
-> **Note:** `ModalBottomSheet` is experimental. File any issues on the [issue tracker](https://issuetracker.google.com/issues/new?component=856989&template=1425922).
+> **Note:** `ModalBottomSheet` is experimental. File any issues on the [issue
+> tracker](https://issuetracker.google.com/issues/new?component=856989&template=1425922).
 
 ## Example
 
-This example demonstrates how you can use the `sheetState` property of `ModalBottomSheet` to display the sheet only partially at first:
+This example demonstrates how you can use the `sheetState` property of
+`ModalBottomSheet` to display the sheet only partially at first:
 
-<br />
 
 ```kotlin
 @Composable
@@ -49,7 +52,6 @@ fun PartialBottomSheet() {
         }
     }
 }
-   
 ```
 
 <br />

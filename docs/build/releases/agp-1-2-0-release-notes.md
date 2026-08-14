@@ -8,9 +8,7 @@ source: md.txt
 
 # Android plugin for Gradle, revision 1.2.0 (April 2015)
 
-
 Dependencies:
-
 General Notes:
 :
     - Enhanced support for running unit tests with Gradle.

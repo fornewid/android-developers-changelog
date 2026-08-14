@@ -4,14 +4,20 @@ url: https://developer.android.com/health-and-fitness/health-connect/aggregate-d
 source: md.txt
 ---
 
-Aggregating data in Health Connect includes basic aggregations or aggregating data into buckets. The following workflows show you how to do both.
+Aggregating data in Health Connect includes basic aggregations or aggregating
+data into buckets. The following workflows show you how to do both.
 
 > [!TIP]
-> **Tip:** For further guidance on aggregating data, take a look at the [Android Developer video for reading and writing data](https://www.youtube.com/watch?v=NAx7Gv_Hk7E&t=149) in Health Connect.
+> **Tip:** For further guidance on aggregating data, take a look at the [Android
+> Developer video for reading and writing data](https://www.youtube.com/watch?v=NAx7Gv_Hk7E&t=149) in Health Connect.
 
 ## Basic aggregation
 
-To use basic aggregation on your data, use the [`aggregate`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#aggregate(androidx.health.connect.client.request.AggregateRequest)) function on your [`HealthConnectClient`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient) object. It accepts an [`AggregateRequest`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/request/AggregateRequest) object where you add the metric types and the time range as its parameters. How basic aggregates are called depends on the metric types used.
+To use basic aggregation on your data, use the [`aggregate`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#aggregate(androidx.health.connect.client.request.AggregateRequest)) function
+on your [`HealthConnectClient`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient) object. It accepts an
+[`AggregateRequest`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/request/AggregateRequest) object where you add the metric types
+and the time range as its parameters. How basic aggregates are called depends on
+the metric types used.
 
 ### Cumulative aggregation
 
@@ -19,7 +25,6 @@ Cumulative aggregation computes the total value.
 
 The following example shows you how to aggregate data for a data type:
 
-<br />
 
 ```kotlin
 suspend fun readDistanceAggregate(startTime: Instant, endTime: Instant): Number {
@@ -31,18 +36,18 @@ suspend fun readDistanceAggregate(startTime: Instant, endTime: Instant): Number 
     )
     return response[DistanceRecord.DISTANCE_TOTAL]?.inMeters ?: 0L
 }
-   
 ```
 
 <br />
 
 ### Filter by data origin
 
-You can also filter aggregate data by its origin. For example, only including data written by a specific app.
+You can also filter aggregate data by its origin. For example, only including
+data written by a specific app.
 
-The following example shows how to use `dataOriginFilter` and [`AggregateRequest`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/request/AggregateRequest) to aggregate steps from a specific app:
+The following example shows how to use `dataOriginFilter` and
+[`AggregateRequest`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/request/AggregateRequest) to aggregate steps from a specific app:
 
-<br />
 
 ```kotlin
 suspend fun aggregateStepsFromSpecificApp(
@@ -65,18 +70,17 @@ suspend fun aggregateStepsFromSpecificApp(
         // Run error handling here
     }
 }
-   
 ```
 
 <br />
 
 ### Statistical aggregation
 
-Statistical aggregation computes the minimum, maximum, or average values of records with samples.
+Statistical aggregation computes the minimum, maximum, or average values of
+records with samples.
 
 The following example shows how to use statistical aggregation:
 
-<br />
 
 ```kotlin
 suspend fun readHeartRateAggregate(startTime: Instant, endTime: Instant): Pair<Long, Long> {
@@ -91,24 +95,31 @@ suspend fun readHeartRateAggregate(startTime: Instant, endTime: Instant): Pair<L
 
     return maximumHeartRate to minimumHeartRate
 }
-   
 ```
 
 <br />
 
 ## Buckets
 
-Health Connect can also let you aggregate data into *buckets* . The two types of buckets you can use include **duration** and **period**.
+Health Connect can also let you aggregate data into *buckets* . The two types of
+buckets you can use include **duration** and **period**.
 
-Once called, they return a list of buckets. Note that the list can be sparse, so a bucket is not included in the list if it doesn't contain any data.
+Once called, they return a list of buckets. Note that the list can be sparse, so
+a bucket is not included in the list if it doesn't contain any data.
 
 ### Duration
 
-In this case, aggregated data is split into buckets within a fixed length of time, such as a minute or an hour. To aggregate data into buckets, use [`aggregateGroupByDuration`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#aggregateGroupByDuration(androidx.health.connect.client.request.AggregateGroupByDurationRequest)). It accepts an [`AggregateGroupByDurationRequest`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/request/AggregateGroupByDurationRequest) object where you add the metric types, the time range, and the [`Duration`](https://developer.android.com/reference/java/time/Duration) as parameters. You can use pairs of [`Instant`](https://developer.android.com/reference/java/time/Instant) or [`LocalDateTime`](https://developer.android.com/reference/java/time/LocalDateTime) objects for `startTime` and `endTime` in `TimeRangeFilter`.
+In this case, aggregated data is split into buckets within a fixed length of
+time, such as a minute or an hour. To aggregate data into buckets, use
+[`aggregateGroupByDuration`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#aggregateGroupByDuration(androidx.health.connect.client.request.AggregateGroupByDurationRequest)). It accepts an
+[`AggregateGroupByDurationRequest`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/request/AggregateGroupByDurationRequest) object where you add the
+metric types, the time range, and the [`Duration`](https://developer.android.com/reference/java/time/Duration) as parameters.
+You can use pairs of [`Instant`](https://developer.android.com/reference/java/time/Instant) or
+[`LocalDateTime`](https://developer.android.com/reference/java/time/LocalDateTime) objects for `startTime` and `endTime` in
+`TimeRangeFilter`.
 
 The following shows an example of aggregating steps into minute-long buckets:
 
-<br />
 
 ```kotlin
 suspend fun aggregateStepsIntoMinutes(
@@ -133,18 +144,20 @@ suspend fun aggregateStepsIntoMinutes(
         // Run error handling here
     }
 }
-   
 ```
 
 <br />
 
 ### Period
 
-In this case, aggregated data is split into buckets within a date-based amount of time, such as a week or a month. To aggregate data into buckets, use [`aggregateGroupByPeriod`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#aggregateGroupByPeriod(androidx.health.connect.client.request.AggregateGroupByPeriodRequest)). It accepts an [`AggregateGroupByPeriodRequest`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/request/AggregateGroupByPeriodRequest) object where you add the metric types, the time range, and the [`Period`](https://developer.android.com/reference/java/time/Period) as parameters.
+In this case, aggregated data is split into buckets within a date-based amount
+of time, such as a week or a month. To aggregate data into buckets, use
+[`aggregateGroupByPeriod`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#aggregateGroupByPeriod(androidx.health.connect.client.request.AggregateGroupByPeriodRequest)). It accepts an
+[`AggregateGroupByPeriodRequest`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/request/AggregateGroupByPeriodRequest) object where you add the
+metric types, the time range, and the [`Period`](https://developer.android.com/reference/java/time/Period) as parameters.
 
 The following shows an example of aggregating steps into monthly buckets:
 
-<br />
 
 ```kotlin
 suspend fun aggregateStepsIntoMonths(
@@ -169,7 +182,6 @@ suspend fun aggregateStepsIntoMonths(
         // Run error handling here
     }
 }
-   
 ```
 
 <br />
@@ -179,39 +191,72 @@ suspend fun aggregateStepsIntoMonths(
 
 ## Read restrictions
 
-By default, all applications can read data from Health Connect for up to 30 days prior to when any permission was first granted.
+By default, all applications can read data from Health Connect for up to 30 days
+prior to when any permission was first granted.
 
-If you need to extend read permissions beyond any of the [default restrictions](https://developer.android.com/health-and-fitness/guides/health-connect/develop/read-data#read-previously-written-data), request the [`PERMISSION_READ_HEALTH_DATA_HISTORY`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/permission/HealthPermission#PERMISSION_READ_HEALTH_DATA_HISTORY()). Otherwise, without this permission, an attempt to read records older than 30 days results in an error.
+If you need to extend read permissions beyond any of the
+[default restrictions](https://developer.android.com/health-and-fitness/guides/health-connect/develop/read-data#read-previously-written-data), request the
+[`PERMISSION_READ_HEALTH_DATA_HISTORY`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/permission/HealthPermission#PERMISSION_READ_HEALTH_DATA_HISTORY()).
+Otherwise, without this permission, an attempt to read records older than
+30 days results in an error.
 
 ### Permissions history for a deleted app
 
-If a user deletes your app, all permissions, including the history permission, are revoked. If the user reinstalls your app and grants permission again, the same [default restrictions](https://developer.android.com/health-and-fitness/guides/health-connect/develop/read-data#read-previously-written-data) apply, and your app can read data from Health Connect for up to 30 days prior to that new date.
+If a user deletes your app, all permissions, including the history permission,
+are revoked. If the user reinstalls your app and grants permission again,
+the same [default restrictions](https://developer.android.com/health-and-fitness/guides/health-connect/develop/read-data#read-previously-written-data) apply, and your
+app can read data from Health Connect for up to 30 days prior to that new date.
 
-For example, suppose the user deletes your app on May 10, 2023 and then reinstalls the app on May 15, 2023, and grants read permissions. The earliest date your app can now read data from by default is **April 15, 2023**.
+For example, suppose
+the user deletes your app on May 10, 2023 and then reinstalls
+the app on May 15, 2023, and grants read permissions. The earliest date
+your app can now read data from by default
+is **April 15, 2023**.
 
 ## Aggregate data affected by user-selected apps priorities
 
-End users can set priority for the Sleep and Activity apps that they have integrated with Health Connect. Only end users can alter these priority lists. When you perform an aggregate read, the Aggregate API accounts for any duplicate data and keeps only the data from the app with the highest priority. Duplicate data could exist if the user has multiple apps writing the same kind of data---such as the number of steps taken or the distance covered---at the same time.
+End users can set priority for the Sleep and Activity apps that they have
+integrated with Health Connect. Only end users can alter these priority
+lists. When you perform an aggregate read, the Aggregate API accounts for
+any duplicate data and keeps only the data from the app with the highest
+priority. Duplicate data could exist if the user has multiple apps writing
+the same kind of data---such as the number of steps taken or the distance
+covered---at the same time.
 ![Figure showing Reorder app priorities](https://developer.android.com/static/health-and-fitness/health-connect/images/reorder_apps_priorities.svg) **Figure 1**: Reorder app priorities
-
 
 ![Figure showing reorder app priorities](https://developer.android.com/static/health-and-fitness/health-connect/images/reorder_apps_priorities.svg)
 
-For information on how end users can prioritize their apps, see [Manage Health Connect data](https://support.google.com/android/answer/12990553).
+For information on how end users can prioritize their apps,
+see [Manage Health Connect data](https://support.google.com/android/answer/12990553).
 
-The user can add or remove apps as well as change their priorities. A user might want to remove an app that is writing duplicate data so that the data totals on the Health Connect screen are identical to the app they have given the highest priority. The data totals are updated in real time.
+The user can add or remove apps as well as change their priorities. A user might
+want to remove an app that is writing duplicate data so that the data totals on
+the Health Connect screen are identical to the app they have
+given the highest priority. The data totals are updated in real time.
 
-Even though the Aggregate API calculates Activity and Sleep apps' data by deduping data according to how the user has set priorities, you can still build your own logic to calculate the data separately for each app writing that data.
+Even though the Aggregate API calculates Activity and Sleep apps' data by
+deduping data according to how the user has
+set priorities, you can still build your
+own logic to calculate the data separately for each app writing that data.
 
-Only the Activity and Sleep data types are deduped by Health Connect, and the data totals shown are the values after the dedupe has been performed by the Aggregate API. These totals show the most recent full day where data exists for steps and distance. For other types of data, the aggregated results combine all data of the type in Health Connect from all apps which wrote the data.
+Only the Activity and Sleep data types are deduped by Health Connect, and
+the data totals shown are the values after the dedupe has been performed
+by the Aggregate API. These totals show the most recent full day where
+data exists for steps and distance. For other types of data, the
+aggregated results combine all data of the type in Health Connect from all
+apps which wrote the data.
 
 ## Background reads
 
-You can request that your application run in the background and read data from Health Connect. If you request the [Background Read](https://developer.android.com/health-and-fitness/guides/health-connect/develop/read-data#background-read-example) permission, your user can grant your app access to read data in the background.
+You can request that your application run in the background and read data from
+Health Connect. If you request the
+[Background Read](https://developer.android.com/health-and-fitness/guides/health-connect/develop/read-data#background-read-example)
+permission, your user can grant your app access to read data in the background.
 
 ## Supported aggregate data types by record
 
-This table lists all the supported aggregate data types by Health Connect record.
+This table lists all the supported aggregate data types by Health Connect
+record.
 
 <br />
 

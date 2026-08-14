@@ -6,7 +6,10 @@ source: md.txt
 
 <br />
 
-You can fit an image to a clipped shape, and draw shadows around the perimeter of the shape to impart a three-dimensional feel. This technique is useful for creating designs such as avatars and product thumbnails, or displaying logos with custom shapes.
+You can fit an image to a clipped shape, and draw shadows around the perimeter
+of the shape to impart a three-dimensional feel. This technique is useful for
+creating designs such as avatars and product thumbnails, or displaying
+logos with custom shapes.
 
 To display an image clipped to a shape, you must do the following:
 
@@ -19,17 +22,18 @@ To display an image clipped to a shape, you must do the following:
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or higher.
+This implementation requires that your project minSDK be set to API level 21 or
+higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/clipped-image_e98fd8ee68a72bf051341ec7b6a7ea4bb796091ebfefc0e8414d1a455131b8d1.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/clipped-image_510c9da243ccd798de23e61f98928d70cc53fcaa7009f618986dfdcc3ba06fff.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a shape
 
-The following code creates a custom shape that can dynamically draw and render a rounded polygon:
+The following code creates a custom shape that can dynamically draw and render
+a rounded polygon:
 
-<br />
 
 ```kotlin
 fun RoundedPolygon.getBounds() = calculateBounds().let { Rect(it[0], it[1], it[2], it[3]) }
@@ -55,7 +59,6 @@ class RoundedPolygonShape(
         return Outline.Generic(path)
     }
 }
-   
 ```
 
 <br />
@@ -69,9 +72,9 @@ class RoundedPolygonShape(
 
 ## Clip the image to a shape
 
-The following code crops the image to a hexagon, and adds a subtle drop shadow to provide a sense of depth:
+The following code crops the image to a hexagon, and adds a subtle drop
+shadow to provide a sense of depth:
 
-<br />
 
 ```kotlin
 val hexagon = remember {
@@ -95,7 +98,6 @@ Box(
         modifier = Modifier.align(Alignment.Center)
     )
 }
-   
 ```
 
 <br />
@@ -108,7 +110,8 @@ Box(
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover
+broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Display images

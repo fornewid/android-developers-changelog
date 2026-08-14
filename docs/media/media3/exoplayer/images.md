@@ -4,7 +4,10 @@ url: https://developer.android.com/media/media3/exoplayer/images
 source: md.txt
 ---
 
-ExoPlayer supports the following image formats. See [Image Loading Libraries](https://developer.android.com/media/media3/exoplayer/images#image-loading-libraries) for how to integrate with external libraries that may provide support for a different set of formats.
+ExoPlayer supports the following image formats. See
+[Image Loading Libraries](https://developer.android.com/media/media3/exoplayer/images#image-loading-libraries)
+for how to integrate with external libraries that may provide support for a
+different set of formats.
 
 | Image format | Supported | Notes |
 |---|---|---|
@@ -21,9 +24,10 @@ ExoPlayer supports the following image formats. See [Image Loading Libraries](ht
 
 ## Using MediaItem
 
-To play an image as part of a playlist, create a `MediaItem` with the image URI and pass it to the player. The `MediaItem` must have a `imageDurationMs` to specify for how long the image should be displayed.
+To play an image as part of a playlist, create a `MediaItem` with the image URI
+and pass it to the player. The `MediaItem` must have a `imageDurationMs` to
+specify for how long the image should be displayed.
 
-<br />
 
 ### Kotlin
 
@@ -34,7 +38,6 @@ val player = ExoPlayer.Builder(context).build()
 player.setMediaItem(MediaItem.Builder().setUri(imageUri).setImageDurationMs(2000).build())
 // Prepare the player.
 player.prepare()
-      
 ```
 
 ### Java
@@ -46,7 +49,6 @@ ExoPlayer player = new ExoPlayer.Builder(context).build();
 player.setMediaItem(new MediaItem.Builder().setUri(imageUri).setImageDurationMs(2000).build());
 // Prepare the player.
 player.prepare();
-      
 ```
 
 <br />
@@ -60,9 +62,9 @@ Motion photos are files combining a still image with a short video.
 
 ## Using ProgressiveMediaSource
 
-For more customization options, you can create a `ProgressiveMediaSource` and pass it directly to the player instead of a `MediaItem`.
+For more customization options, you can create a `ProgressiveMediaSource` and
+pass it directly to the player instead of a `MediaItem`.
 
-<br />
 
 ### Kotlin
 
@@ -79,7 +81,6 @@ val player = ExoPlayer.Builder(context).build()
 player.setMediaSource(mediaSource)
 // Prepare the player.
 player.prepare()
-      
 ```
 
 ### Java
@@ -98,18 +99,20 @@ ExoPlayer player = new ExoPlayer.Builder(context).build();
 player.setMediaSource(mediaSource);
 // Prepare the player.
 player.prepare();
-      
 ```
 
 <br />
 
 ## Customizing playback
 
-ExoPlayer provides multiple ways for you to tailor playback experience to your app's needs. See the [Customization page](https://developer.android.com/guide/topics/media/exoplayer/customization) for examples.
+ExoPlayer provides multiple ways for you to tailor playback experience to your
+app's needs. See the [Customization page](https://developer.android.com/guide/topics/media/exoplayer/customization) for examples.
 
 ## Image Loading Libraries
 
-Images are often managed by external image loading libraries, for example [Glide](https://bumptech.github.io/glide/) or [Coil](https://coil-kt.github.io/coil/).
+Images are often managed by external image loading libraries, for example
+[Glide](https://bumptech.github.io/glide/) or
+[Coil](https://coil-kt.github.io/coil/).
 
 Integrating these libraries into the playback pipeline requires 3 steps:
 
@@ -119,9 +122,10 @@ Integrating these libraries into the playback pipeline requires 3 steps:
 
 ### MediaItem with externally loaded image MIME type
 
-The `MediaItem` added to the `Player` must define the `APPLICATION_EXTERNALLY_LOADED_IMAGE` MIME type explicitly to use the image loading library code paths:
+The `MediaItem` added to the `Player` must define the
+`APPLICATION_EXTERNALLY_LOADED_IMAGE` MIME type explicitly to use the image
+loading library code paths:
 
-<br />
 
 ### Kotlin
 
@@ -131,7 +135,6 @@ val mediaItem =
     .setUri(imageUri)
     .setMimeType(MimeTypes.APPLICATION_EXTERNALLY_LOADED_IMAGE)
     .build()
-      
 ```
 
 ### Java
@@ -142,18 +145,19 @@ MediaItem mediaItem =
         .setUri(imageUri)
         .setMimeType(MimeTypes.APPLICATION_EXTERNALLY_LOADED_IMAGE)
         .build();
-      
 ```
 
 <br />
 
 ### Image decoder using an image loading library
 
-The image renderer needs an `ExternallyLoadedImageDecoder` to retrieve the `Bitmap` from the `Uri`. This decoder can be provided by overriding `DefaultRenderersFactory.getImageDecoderFactory`.
+The image renderer needs an `ExternallyLoadedImageDecoder` to retrieve the
+`Bitmap` from the `Uri`. This decoder can be provided by overriding
+`DefaultRenderersFactory.getImageDecoderFactory`.
 
-The following example uses Glide to load an image, limiting the output to the display size to avoid creating very large `Bitmap` objects:
+The following example uses Glide to load an image, limiting the output to
+the display size to avoid creating very large `Bitmap` objects:
 
-<br />
 
 ### Kotlin
 
@@ -178,7 +182,6 @@ val player: Player =
       }
     )
     .build()
-      
 ```
 
 ### Java
@@ -204,18 +207,21 @@ Player player =
               }
             })
         .build();
-      
 ```
 
 <br />
 
 ### Image preloading with an image loading library
 
-During playback, the player requests to preload the next image once the previous item in the playlist has fully loaded. When using an external image loading library, you must specify an `ExternalLoader` to trigger this preloading. If no preloading is possible or required, this loader still needs to be provided, but can do nothing.
+During playback, the player requests to preload the next image once the previous
+item in the playlist has fully loaded. When using an external image loading
+library, you must specify an `ExternalLoader` to trigger this preloading. If no
+preloading is possible or required, this loader still needs to be provided, but
+can do nothing.
 
-The following example uses Glide to ensure that the requested image is preloaded to disk:
+The following example uses Glide to ensure that the requested image is preloaded
+to disk:
 
-<br />
 
 ### Kotlin
 
@@ -238,7 +244,6 @@ val player: Player =
       DefaultMediaSourceFactory(context).setExternalImageLoader(glidePreloader)
     )
     .build()
-      
 ```
 
 ### Java
@@ -259,7 +264,6 @@ Player player =
         .setMediaSourceFactory(
             new DefaultMediaSourceFactory(context).setExternalImageLoader(glidePreloader))
         .build();
-      
 ```
 
 <br />

@@ -4,7 +4,9 @@ url: https://developer.android.com/develop/ui/compose/components/badges
 source: md.txt
 ---
 
-Use a [badge](https://m3.material.io/components/badges/overview) to display a small visual element to denote status or a numeric value on another composable. Here are a few common scenarios where you might use a badge:
+Use a [badge](https://m3.material.io/components/badges/overview) to display a small visual element to denote status
+or a numeric value on another composable. Here are a few common scenarios where
+you might use a badge:
 
 - **Notifications**: Display the number of unread notifications on an app icon or notification bell.
 - **Messages**: Indicate new or unread messages within a chat application.
@@ -16,7 +18,9 @@ Use a [badge](https://m3.material.io/components/badges/overview) to display a sm
 
 ## API surface
 
-Use the [`BadgedBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/BadgedBox.composable#BadgedBox(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) composable to implement badges in your application. It is ultimately a container. You control its appearance with these two main parameters:
+Use the [`BadgedBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/BadgedBox.composable#BadgedBox(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) composable to implement badges in your application. It
+is ultimately a container. You control its appearance with these two main
+parameters:
 
 - `content`: The composable content that the `BadgedBox` contains. Typically `Icon`.
 - `badge`: The composable that appears as the badge over the content. Typically the dedicated [`Badge`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Badge.composable#Badge(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)) composable.
@@ -25,7 +29,6 @@ Use the [`BadgedBox`](https://developer.android.com/reference/kotlin/androidx/co
 
 This code snippet shows a basic implementation of `BadgedBox`:
 
-<br />
 
 ```kotlin
 @Composable
@@ -41,12 +44,12 @@ fun BadgeExample() {
         )
     }
 }
-   
 ```
 
 <br />
 
-This example displays a badge that overlaps the provided `Icon` composable. Note the following in the code:
+This example displays a badge that overlaps the provided `Icon` composable. Note
+the following in the code:
 
 - [`BadgedBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/BadgedBox.composable#BadgedBox(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) serves as the overall container.
 - The argument for the `badge` parameter of `BadgedBox` is [`Badge`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Badge.composable#Badge(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)). Because `Badge` has no arguments of its own, the app displays the default badge, which is a small red circle.
@@ -60,9 +63,9 @@ This is how it appears:
 
 ## Detailed example
 
-The following snippet demonstrates how you can display values in the badge that respond to user actions.
+The following snippet demonstrates how you can display values in the badge that
+respond to user actions.
 
-<br />
 
 ```kotlin
 @Composable
@@ -94,12 +97,12 @@ fun BadgeInteractiveExample() {
         }
     }
 }
-   
 ```
 
 <br />
 
-This example implements a shopping cart icon with a badge that displays the number of items in the user's cart.
+This example implements a shopping cart icon with a badge that displays the
+number of items in the user's cart.
 
 - The [`BadgedBox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/BadgedBox.composable#BadgedBox(kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) displays only when the item count is over 0.
 - The arguments for `containerColor` and `contentColor` control the appearance of the badge.

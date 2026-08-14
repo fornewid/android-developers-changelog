@@ -4,9 +4,15 @@ url: https://developer.android.com/topic/libraries/architecture/paging/v3-overvi
 source: md.txt
 ---
 
-# Paging library overview Part of [Android Jetpack](https://developer.android.com/jetpack).
+# Paging library overview
+Part of [Android Jetpack](https://developer.android.com/jetpack).
 
-The Paging library helps you load and display pages of data from a larger dataset from local storage or over a network. This approach lets your app use both network bandwidth and system resources more efficiently. The components of the Paging library are designed to fit into the recommended [Android app architecture](https://developer.android.com/jetpack/docs/guide), integrate cleanly with other [Jetpack](https://developer.android.com/jetpack) components, and provide first-class Kotlin support.
+The Paging library helps you load and display pages of data from a larger
+dataset from local storage or over a network. This approach lets your app use
+both network bandwidth and system resources more efficiently. The components of
+the Paging library are designed to fit into the recommended [Android app
+architecture](https://developer.android.com/jetpack/docs/guide), integrate cleanly with other
+[Jetpack](https://developer.android.com/jetpack) components, and provide first-class Kotlin support.
 
 ## Benefits of using the Paging library
 
@@ -19,7 +25,8 @@ The Paging library includes the following features:
 
 ## Setup
 
-To import Paging components into your Android app, add the following dependencies to your app's `build.gradle` file:
+To import Paging components into your Android app, add the following
+dependencies to your app's `build.gradle` file:
 
 ### Kotlin
 
@@ -49,7 +56,8 @@ dependencies {
 
 ## Library architecture
 
-The Paging library's components operate in three layers of your app:
+The Paging library's components operate in three
+layers of your app:
 
 - The repository layer
 - The `ViewModel` layer
@@ -59,27 +67,48 @@ The Paging library's components operate in three layers of your app:
 Then the Pager component exposes a Flow of PagingData to the
 lazy layout components in the UI layer.](https://developer.android.com/static/topic/libraries/architecture/images/paging3-library-architecture.svg) **Figure 1.** An example of how the Paging library fits into your app architecture.
 
-This section describes the Paging library components that operate at each layer and how they work together to load and display paged data.
+This section describes the Paging library components that operate at each layer
+and how they work together to load and display paged data.
 
 ### Repository layer
 
-The primary Paging library component in the repository layer is [`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource). Each `PagingSource` object defines a source of data and how to retrieve data from that source. A `PagingSource` object can load data from any single source, including network sources and local databases.
+The primary Paging library component in the repository layer is
+[`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource). Each
+`PagingSource` object defines a source of data and how to retrieve data from
+that source. A `PagingSource` object can load data from any single source,
+including network sources and local databases.
 
-Another Paging library component that you might use is [`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator). A `RemoteMediator` object handles paging from a layered data source, such as a network data source with a local database cache.
+Another Paging library component that you might use is
+[`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator). A
+`RemoteMediator` object handles paging from a layered data source, such as a
+network data source with a local database cache.
 
 ### ViewModel layer
 
-The [`Pager`](https://developer.android.com/reference/kotlin/androidx/paging/Pager) component provides a public API for constructing instances of `PagingData` that are exposed in reactive streams, based on a `PagingSource` object and a [`PagingConfig`](https://developer.android.com/reference/kotlin/androidx/paging/PagingConfig) configuration object.
+The [`Pager`](https://developer.android.com/reference/kotlin/androidx/paging/Pager) component provides a
+public API for constructing instances of `PagingData` that are exposed in
+reactive streams, based on a `PagingSource` object and a
+[`PagingConfig`](https://developer.android.com/reference/kotlin/androidx/paging/PagingConfig) configuration
+object.
 
-The component that connects the `ViewModel` layer to the UI is [`PagingData`](https://developer.android.com/reference/kotlin/androidx/paging/PagingData). A `PagingData` object is a container for a snapshot of paginated data. It queries a [`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource) object and stores the result.
+The component that connects the `ViewModel` layer to the UI is
+[`PagingData`](https://developer.android.com/reference/kotlin/androidx/paging/PagingData). A `PagingData`
+object is a container for a snapshot of paginated data. It queries a
+[`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource) object and
+stores the result.
 
 ### UI layer
 
-The primary Paging UI API is [`collectAsLazyPagingItems()`](https://developer.android.com/reference/kotlin/androidx/paging/compose/collectAsLazyPagingItems.composable). It exposes paged items as a list of data that can be easily consumed by Compose's lazy layout components, like `LazyColumn` and `LazyRow`.
+The primary Paging UI API is [`collectAsLazyPagingItems()`](https://developer.android.com/reference/kotlin/androidx/paging/compose/collectAsLazyPagingItems.composable). It exposes paged
+items as a list of data that can be easily consumed by Compose's lazy layout
+components, like `LazyColumn` and `LazyRow`.
 
-Add the `androidx.paging:paging-compose` library to use Compose-compatible APIs that let the UI automatically react to data loads, updates, and errors without the need for adapters or diffing logic. Use the [`collectAsLazyPagingItems()`](https://developer.android.com/reference/kotlin/androidx/paging/compose/collectAsLazyPagingItems.composable) extension function on a `Flow<PagingData>` to pass in the returned [`LazyPagingItems`](https://developer.android.com/reference/kotlin/androidx/paging/compose/LazyPagingItems) to `items()` in a `LazyColumn`.
+Add the `androidx.paging:paging-compose` library to use Compose-compatible APIs
+that let the UI automatically react to data loads, updates, and errors without
+the need for adapters or diffing logic. Use the
+[`collectAsLazyPagingItems()`](https://developer.android.com/reference/kotlin/androidx/paging/compose/collectAsLazyPagingItems.composable) extension function on a `Flow<PagingData>`
+to pass in the returned [`LazyPagingItems`](https://developer.android.com/reference/kotlin/androidx/paging/compose/LazyPagingItems) to `items()` in a `LazyColumn`.
 
-<br />
 
 ```kotlin
 @Composable
@@ -100,7 +129,6 @@ fun MessageList(pager: Pager<Int, Message>) {
         }
     }
 }
-   
 ```
 
 <br />

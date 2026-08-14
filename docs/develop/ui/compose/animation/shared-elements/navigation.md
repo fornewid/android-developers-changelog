@@ -6,11 +6,16 @@ source: md.txt
 
 **Figure 1.** Navigation with shared elements.
 
-Shared elements make transitions between screens smoother and more engaging by creating a visual connection that guides the user. This guide demonstrates how to use the shared element APIs with both the [Navigation 3](https://developer.android.com/guide/navigation/navigation-3) and [Navigation 2](https://developer.android.com/guide/navigation) Jetpack libraries.
+Shared elements make transitions between screens smoother and more engaging by
+creating a visual connection that guides the user. This guide demonstrates how
+to use the shared element APIs with both the [Navigation 3](https://developer.android.com/guide/navigation/navigation-3) and [Navigation
+2](https://developer.android.com/guide/navigation) Jetpack libraries.
 
-The following snippet includes `DetailsScreen` and `HomeScreen` composables that serve as the destinations users can navigate between. Within each screen, the [`sharedElement`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).sharedElement(androidx.compose.animation.SharedTransitionScope.SharedContentState,androidx.compose.animation.AnimatedVisibilityScope,androidx.compose.animation.BoundsTransform,androidx.compose.animation.SharedTransitionScope.PlaceholderSize,kotlin.Boolean,kotlin.Float,androidx.compose.animation.SharedTransitionScope.OverlayClip)) modifier is used on both the image and the text so that each of those elements independently animates between screens.
+The following snippet includes `DetailsScreen` and `HomeScreen` composables that
+serve as the destinations users can navigate between. Within each screen, the
+[`sharedElement`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope#(androidx.compose.ui.Modifier).sharedElement(androidx.compose.animation.SharedTransitionScope.SharedContentState,androidx.compose.animation.AnimatedVisibilityScope,androidx.compose.animation.BoundsTransform,androidx.compose.animation.SharedTransitionScope.PlaceholderSize,kotlin.Boolean,kotlin.Float,androidx.compose.animation.SharedTransitionScope.OverlayClip)) modifier is used on both the image and the text so that
+each of those elements independently animates between screens.
 
-<br />
 
 ```kotlin
 @Composable
@@ -100,18 +105,21 @@ fun HomeScreen(
         }
     }
 }
-   
 ```
 
 <br />
 
 ## Navigation 3
 
-To use the shared element APIs with Navigation 3, you must first wrap your app's [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.composable) in a [`SharedTransitionLayout`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionLayout.composable). You can then pass the provided [`SharedTransitionScope`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope) to the screen composables.
+To use the shared element APIs with Navigation 3, you must first wrap your app's
+[`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.composable) in a [`SharedTransitionLayout`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionLayout.composable). You can then pass the
+provided [`SharedTransitionScope`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope) to the screen composables.
 
-For the [`AnimatedVisibilityScope`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibilityScope), use the [`LocalNavAnimatedContentScope`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/package-summary#LocalNavAnimatedContentScope()) composition local that provides the [`AnimatedContentScope`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContentScope) from the [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContent.composable) that `NavDisplay` uses internally to animate between scenes.
+For the [`AnimatedVisibilityScope`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedVisibilityScope), use the
+[`LocalNavAnimatedContentScope`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/package-summary#LocalNavAnimatedContentScope()) composition local that provides the
+[`AnimatedContentScope`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContentScope) from the [`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/AnimatedContent.composable) that `NavDisplay`
+uses internally to animate between scenes.
 
-<br />
 
 ```kotlin
 @Composable
@@ -151,18 +159,20 @@ fun SharedElement_Nav3() {
             })
     }
 }
-   
 ```
 
 <br />
 
 ## Navigation 2
 
-To use the shared element APIs with Navigation 2, you must first wrap your app's [`NavHost`](https://developer.android.com/reference/kotlin/androidx/navigation/compose/NavHost.composable) in a `SharedTransitionLayout`. You can then pass the provided `SharedTransitionScope` to the screen composables.
+To use the shared element APIs with Navigation 2, you must first wrap your app's
+[`NavHost`](https://developer.android.com/reference/kotlin/androidx/navigation/compose/NavHost.composable) in a `SharedTransitionLayout`. You can then pass the provided
+`SharedTransitionScope` to the screen composables.
 
-The `content` parameter of the [`composable`](https://developer.android.com/reference/kotlin/androidx/navigation/NavGraphBuilder#(androidx.navigation.NavGraphBuilder).composable(kotlin.collections.Map,kotlin.collections.List,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function2)) builder uses `AnimatedContentScope` as a receiver, so you can use `this@composable` to reference that scope.
+The `content` parameter of the [`composable`](https://developer.android.com/reference/kotlin/androidx/navigation/NavGraphBuilder#(androidx.navigation.NavGraphBuilder).composable(kotlin.collections.Map,kotlin.collections.List,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function2)) builder uses
+`AnimatedContentScope` as a receiver, so you can use `this@composable` to
+reference that scope.
 
-<br />
 
 ```kotlin
 @Composable
@@ -198,7 +208,6 @@ fun SharedElement_Nav2() {
         }
     }
 }
-   
 ```
 
 <br />
@@ -207,7 +216,8 @@ fun SharedElement_Nav2() {
 
 To use [predictive back](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture) with shared elements, follow these steps:
 
-1. All versions of Navigation 3 support predictive back. For Navigation 2, use the `2.8.0-alpha02` release of [`navigation-compose`](https://developer.android.com/jetpack/androidx/releases/navigation) or newer:
+1. All versions of Navigation 3 support predictive back. For Navigation 2, use
+   the `2.8.0-alpha02` release of [`navigation-compose`](https://developer.android.com/jetpack/androidx/releases/navigation) or newer:
 
        [versions]
        androidx-navigation = "2.8.0-alpha02" # Or newer
@@ -219,9 +229,14 @@ To use [predictive back](https://developer.android.com/guide/navigation/custom-b
            implementation(libs.androidx.navigation.compose)
        }
 
-2. Predictive back animations are enabled by default on devices running Android 15 (API level 35) or higher. For devices running Android 14 (API level 34), you need to enable the [Predictive back setting](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#dev-option) in developer options.
+2. Predictive back animations are enabled by default on devices running Android
+   15 (API level 35) or higher. For devices running Android 14 (API level 34),
+   you need to enable the [Predictive back setting](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#dev-option) in developer options.
 
-3. If your app targets Android 14 or lower, you must add `android:enableOnBackInvokedCallback="true"` to the `<application>` or specific `<activity>` elements in your `AndroidManifest.xml` file. You don't need this flag if your app targets Android 15 or higher.
+3. If your app targets Android 14 or lower, you must add
+   `android:enableOnBackInvokedCallback="true"` to the `<application>` or
+   specific `<activity>` elements in your `AndroidManifest.xml` file. You don't
+   need this flag if your app targets Android 15 or higher.
 
        <manifest xmlns:android="http://schemas.android.com/apk/res/android">
          <application

@@ -10,37 +10,80 @@ source: md.txt
 > [!IMPORTANT]
 > **Important:** On devices that run Android 14 (API level 34) or higher, all apps use [Recoverable GWP-ASan](https://developer.android.com/ndk/guides/gwp-asan#recoverable) by default.
 
-GWP-ASan is a native memory allocator feature that helps find [use-after-free](https://cwe.mitre.org/data/definitions/416.html) and [heap-buffer-overflow](https://cwe.mitre.org/data/definitions/122.html) bugs. Its informal name is a recursive acronym,"**G** WP-ASan **W** ill **P** rovide **A** llocation **SAN** ity". Unlike [HWASan](https://source.android.com/devices/tech/debug/hwasan) or [Malloc Debug](https://android.googlesource.com/platform/bionic/+/master/libc/malloc_debug/README.md), GWP-ASan does not require source or recompilation (that is, works with prebuilts), and works on both 32- and 64-bit processes (although 32-bit crashes have [less debugging information](https://developer.android.com/ndk/guides/gwp-asan#allocation-deallocation-traces-are-missing)). This topic outlines the actions you need to take to enable this feature in your app. GWP-ASan is available on apps that target Android 11 (API level 30) or higher.
+GWP-ASan is a native memory allocator feature that helps find
+[use-after-free](https://cwe.mitre.org/data/definitions/416.html)
+and
+[heap-buffer-overflow](https://cwe.mitre.org/data/definitions/122.html)
+bugs. Its informal name is a recursive acronym,"**G** WP-ASan **W** ill
+**P** rovide **A** llocation **SAN** ity". Unlike
+[HWASan](https://source.android.com/devices/tech/debug/hwasan) or
+[Malloc Debug](https://android.googlesource.com/platform/bionic/+/master/libc/malloc_debug/README.md),
+GWP-ASan does not require source or recompilation (that is, works with
+prebuilts), and works on both 32- and 64-bit processes (although 32-bit crashes
+have [less debugging information](https://developer.android.com/ndk/guides/gwp-asan#allocation-deallocation-traces-are-missing)).
+This topic outlines the actions you need to take to enable this feature in your
+app. GWP-ASan is available on apps that target Android 11 (API level 30) or higher.
 
 ## Overview
 
-GWP-ASan is enabled on some randomly-selected system applications and platform executables upon process start-up (or when the zygote forks). Enable GWP-ASan in your own app to help you find memory-related bugs, and to prepare your app for [ARM Memory Tagging Extension (MTE) support](https://community.arm.com/developer/ip-products/processors/b/processors-ip-blog/posts/enhancing-memory-safety). The allocation sampling mechanisms also provide reliability against [queries of death](https://landing.google.com/sre/sre-book/chapters/addressing-cascading-failures/).
+GWP-ASan is enabled on some randomly-selected system applications and platform
+executables upon process start-up (or when the zygote forks). Enable GWP-ASan in
+your own app to help you find memory-related bugs, and to prepare your app for
+[ARM Memory Tagging Extension (MTE) support](https://community.arm.com/developer/ip-products/processors/b/processors-ip-blog/posts/enhancing-memory-safety).
+The allocation sampling mechanisms also provide reliability against
+[queries of death](https://landing.google.com/sre/sre-book/chapters/addressing-cascading-failures/).
 
-Once enabled, GWP-ASan intercepts a randomly-chosen subset of heap allocations, and places them into a special region that catches difficult-to-detect heap memory corruption bugs. Given enough users, even this low sampling rate will find heap memory safety bugs that aren't being found through regular testing. For example, GWP-ASan has found [a significant number of bugs](https://bugs.chromium.org/p/chromium/issues/list?q=Hotlist%3DGWP-ASan&can=1) in the Chrome browser (many of which are still under restricted view).
+Once enabled, GWP-ASan intercepts a randomly-chosen subset of heap allocations,
+and places them into a special region that catches difficult-to-detect heap
+memory corruption bugs. Given enough users, even this low sampling rate will
+find heap memory safety bugs that aren't being found through regular testing.
+For example, GWP-ASan has found
+[a significant number of bugs](https://bugs.chromium.org/p/chromium/issues/list?q=Hotlist%3DGWP-ASan&can=1)
+in the Chrome browser (many of which are still under restricted view).
 
-GWP-ASan collects additional information about all of the allocations that it intercepts. This information is available when GWP-ASan detects a memory safety violation and is automatically placed into the native crash report, which can aid significantly in debugging (see [Example](https://developer.android.com/ndk/guides/gwp-asan#example)).
+GWP-ASan collects additional information about all of the allocations that it
+intercepts. This information is available when GWP-ASan detects a memory safety
+violation and is automatically placed into the native crash report, which can
+aid significantly in debugging (see [Example](https://developer.android.com/ndk/guides/gwp-asan#example)).
 
-GWP-ASan is designed to not incur any significant CPU overhead. GWP-ASan introduces a small, fixed RAM overhead when enabled. This overhead is decided by the Android system and is currently approximately 70 kibibytes (KiB) for each affected process.
+GWP-ASan is designed to not incur any significant CPU overhead. GWP-ASan
+introduces a small, fixed RAM overhead when enabled. This overhead is decided by
+the Android system and is currently approximately 70 kibibytes (KiB) for each
+affected process.
 
 ## Opt-in your app
 
-GWP-ASan may be enabled by apps on a per-process level by using the `android:gwpAsanMode` tag in the app manifest. The following options are supported:
+GWP-ASan may be enabled by apps on a per-process level by using the
+`android:gwpAsanMode` tag in the app manifest. The following options are
+supported:
 
-- Always disabled (`android:gwpAsanMode="never"`): This setting completely disables GWP-ASan in your app and is the default for non-system apps.
+- Always disabled (`android:gwpAsanMode="never"`): This setting completely
+  disables GWP-ASan in your app and is the default for non-system apps.
 
-- Default (`android:gwpAsanMode="default"` or unspecified): Android 13 (API level 33) and lower - GWP-ASan is disabled. Android 14 (API level 34) and higher - [Recoverable GWP-ASan](https://developer.android.com/ndk/guides/gwp-asan#recoverable) is enabled.
+- Default (`android:gwpAsanMode="default"` or unspecified): Android 13 (API
+  level 33) and lower - GWP-ASan is disabled. Android 14 (API level 34) and
+  higher - [Recoverable GWP-ASan](https://developer.android.com/ndk/guides/gwp-asan#recoverable) is enabled.
 
-- Always enabled (`android:gwpAsanMode="always"`): This setting enables GWP-ASan in your app, which includes the following:
+- Always enabled (`android:gwpAsanMode="always"`): This setting enables
+  GWP-ASan in your app, which includes the following:
 
-  1. The operating system reserves a fixed amount of RAM for GWP-ASan operations, approximately \~70KiB for each affected process. (Enable GWP-ASan if your app is not critically sensitive to increases in memory usage.)
+  1. The operating system reserves a fixed amount of RAM for GWP-ASan
+     operations, approximately \~70KiB for each affected process. (Enable
+     GWP-ASan if your app is not critically sensitive to increases in memory
+     usage.)
 
-  2. GWP-ASan intercepts a randomly-chosen subset of heap allocations and places them into a special region that reliably detects memory safety violations.
+  2. GWP-ASan intercepts a randomly-chosen subset of heap allocations and
+     places them into a special region that reliably detects memory safety
+     violations.
 
-  3. When a memory safety violation occurs in the special region, GWP-ASan terminates the process.
+  3. When a memory safety violation occurs in the special region, GWP-ASan
+     terminates the process.
 
-  4. GWP-ASan provides additional information about the fault in the crash report.
+  4. GWP-ASan provides additional information about the fault in the crash
+     report.
 
-To enable GWP-ASan globally for your app, add the following to your `AndroidManifest.xml` file:
+To enable GWP-ASan globally for your app, add the following to your
+`AndroidManifest.xml` file:
 
 ```xml
 <application android:gwpAsanMode="always">
@@ -48,7 +91,10 @@ To enable GWP-ASan globally for your app, add the following to your `AndroidMani
 </application>
 ```
 
-Additionally, GWP-ASan can be explicitly enabled or disabled for specific subprocesses of your app. You can target activities and services using processes that are explicitly opted-in or opted-out of GWP-ASan. See the following for an example:
+Additionally, GWP-ASan can be explicitly enabled or disabled for specific
+subprocesses of your app. You can target activities and services using processes
+that are explicitly opted-in or opted-out of GWP-ASan. See the following for an
+example:
 
 ```xml
 <application>
@@ -77,7 +123,11 @@ Additionally, GWP-ASan can be explicitly enabled or disabled for specific subpro
 
 ## Recoverable GWP-ASan
 
-Android 14 (API level 34) and higher support Recoverable GWP-ASan, which helps developers find heap-buffer-overflow and heap-use-after-free bugs in production without degrading user experience. When `android:gwpAsanMode` is unspecified in an `AndroidManifest.xml`, the app uses Recoverable GWP-ASan.
+Android 14 (API level 34) and higher support Recoverable GWP-ASan, which helps
+developers find heap-buffer-overflow and heap-use-after-free bugs in
+production without degrading user experience. When `android:gwpAsanMode` is
+unspecified in an `AndroidManifest.xml`, the app uses Recoverable
+GWP-ASan.
 
 Recoverable GWP-ASan differs from the base GWP-ASan in the following ways:
 
@@ -87,25 +137,52 @@ Recoverable GWP-ASan differs from the base GWP-ASan in the following ways:
 4. Recoverable GWP-ASan is disabled after the crash report is dumped. Therefore, an app can get only a single Recoverable GWP-ASan report per app launch.
 5. If a custom signal handler is installed in the app, it's never called for a SIGSEGV signal that's indicative of a Recoverable GWP-ASan fault.
 
-Because Recoverable GWP-ASan crashes indicate real instances of memory corruption on end-user devices, we highly recommend triaging and fixing bugs identified by Recoverable GWP-ASan with a high priority.
+Because Recoverable GWP-ASan crashes indicate real instances of memory
+corruption on end-user devices, we highly recommend triaging and fixing bugs
+identified by Recoverable GWP-ASan with a high priority.
 
 ## Developer support
 
-These sections outline issues that might occur when using GWP-ASan and how to address them.
+These sections outline issues that might occur when using GWP-ASan and how to
+address them.
 
 ### Allocation/deallocation traces are missing
 
-If you are diagnosing a native crash that appears to be missing allocation/deallocation frames, your application is likely missing [frame pointers](https://en.wikipedia.org/wiki/Call_stack#Stack_and_frame_pointers). GWP-ASan uses frame pointers to record allocation and deallocation traces for performance reasons, and is unable to unwind the stack trace if they are not present.
+If you are diagnosing a native crash that appears to be missing
+allocation/deallocation frames, your application is likely missing
+[frame pointers](https://en.wikipedia.org/wiki/Call_stack#Stack_and_frame_pointers).
+GWP-ASan uses frame pointers to record allocation and deallocation traces for
+performance reasons, and is unable to unwind the stack trace if they are not
+present.
 
-Frame pointers are on by default for arm64 devices, and off by default for arm32 devices. Because applications don't have control over libc, it is (in general) not possible for GWP-ASan to collect allocation/deallocation traces for 32-bit executables or apps. 64-bit applications should ensure that they are **not** built with `-fomit-frame-pointer` so that GWP-ASan can collect allocation and deallocation stack traces.
+Frame pointers are on by default for arm64 devices, and off by default for arm32
+devices. Because applications don't have control over libc, it is (in general)
+not possible for GWP-ASan to collect allocation/deallocation traces for 32-bit
+executables or apps. 64-bit applications should ensure that they are **not**
+built with `-fomit-frame-pointer` so that GWP-ASan can collect allocation and
+deallocation stack traces.
 
 ### Reproducing safety violations
 
-GWP-ASan is designed to catch heap memory safety violations on user devices. GWP-ASan provides as much context as possible about the crash (access trace of the violation, cause string, and allocation/deallocation traces), but it might still be hard to deduce how the violation occurred. Unfortunately, as the bug detection is probabilistic, GWP-ASan reports are often tricky to reproduce on a local device.
+GWP-ASan is designed to catch heap memory safety violations on user devices.
+GWP-ASan provides as much context as possible about the crash (access trace of
+the violation, cause string, and allocation/deallocation traces), but it might
+still be hard to deduce how the violation occurred. Unfortunately, as the bug
+detection is probabilistic, GWP-ASan reports are often tricky to reproduce on a
+local device.
 
-In these instances, if the bug affects 64-bit devices, you should use [HWAddressSanitizer](https://developer.android.com/ndk/guides/hwasan) (HWASan). HWASan detects memory safety violations reliably on stack, heap, and globals. Running your application with HWASan might reliably reproduce the same result that's being reported by GWP-ASan.
+In these instances, if the bug affects 64-bit devices, you should use
+[HWAddressSanitizer](https://developer.android.com/ndk/guides/hwasan) (HWASan). HWASan detects memory safety
+violations reliably on stack, heap, and globals. Running your application with
+HWASan might reliably reproduce the same result that's being reported by
+GWP-ASan.
 
-In cases where running your application under HWASan is insufficient to root-cause a bug, you should try to [fuzz](https://source.android.com/preview/devices/tech/debug/libfuzzer) the code in question. You can target your fuzzing efforts based on information in the GWP-ASan report, which can reliably detect and reveal underlying code health problems.
+In cases where running your application under HWASan is insufficient to
+root-cause a bug, you should try to
+[fuzz](https://source.android.com/preview/devices/tech/debug/libfuzzer) the code
+in question. You can target your fuzzing efforts based on information in the
+GWP-ASan report, which can reliably detect and reveal underlying code health
+problems.
 
 ## Example
 
@@ -141,7 +218,11 @@ This example native code has a heap use-after-free bug:
       return reinterpret_cast<jstring>(env->NewGlobalRef(return_string));
     }
 
-For a test run using the example code above, GWP-ASan successfully caught the illegal usage and triggered the crash report below. GWP-ASan has automatically enhanced the report by providing information about the type of crash, the allocation metadata, and the associated allocation and deallocation stack traces.
+For a test run using the example code above, GWP-ASan successfully caught the
+illegal usage and triggered the crash report below. GWP-ASan has automatically
+enhanced the report by providing information about the type of crash, the
+allocation metadata, and the associated allocation and deallocation stack
+traces.
 
     *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
     Build fingerprint: 'google/sargo/sargo:10/RPP3.200320.009/6360804:userdebug/dev-keys'
@@ -186,4 +267,7 @@ For a test run using the example code above, GWP-ASan successfully caught the il
 
 ## More information
 
-To learn more about the implementation details of GWP-ASan, see the [LLVM documentation](http://llvm.org/docs/GwpAsan.html). To learn more about Android native crash reports, see [Diagnosing Native Crashes](https://source.android.com/devices/tech/debug/native-crash).
+To learn more about the implementation details of GWP-ASan, see the
+[LLVM documentation](http://llvm.org/docs/GwpAsan.html). To learn
+more about Android native crash reports, see
+[Diagnosing Native Crashes](https://source.android.com/devices/tech/debug/native-crash).

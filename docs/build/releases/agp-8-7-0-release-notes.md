@@ -4,13 +4,14 @@ url: https://developer.android.com/build/releases/agp-8-7-0-release-notes
 source: md.txt
 ---
 
-Android Gradle Plugin 8.7.0 is a major release that includes a variety of new features and improvements.
+Android Gradle Plugin 8.7.0 is a major release that includes a variety of new
+features and improvements.
 
 ## Compatibility
 
-The maximum API level that Android Gradle plugin 8.7 supports is API level 35. Here is other compatibility info:
+The maximum API level that Android Gradle plugin 8.7 supports is API level 35.
+Here is other compatibility info:
 
-<br />
 
 |   | Minimum version | Default version | Notes |
 |---:|:---:|:---:|:---:|
@@ -23,13 +24,18 @@ The maximum API level that Android Gradle plugin 8.7 supports is API level 35. H
 
 ## Lint behavior change
 
-Starting with Android Gradle Plugin 8.7.0-alpha08, if there is a `LintError` when running lint using Gradle, the lint analysis task throws an exception. This change prevents rare errors from being cached in the build cache.
+Starting with Android Gradle Plugin 8.7.0-alpha08, if there is a `LintError`
+when running lint using Gradle, the lint analysis task throws an exception.
+This change prevents rare errors from being cached in the build cache.
 
-Unfortunately, this change breaks builds for projects with genuine `LintError` instances in their lint baseline files. The error message contains information about which lint checks are causing the problem. In some cases, updating the corresponding library dependency might resolve the problem. If not, you can disable the problematic lint check until the library author fixes it.
+Unfortunately, this change breaks builds for projects with genuine `LintError`
+instances in their lint baseline files. The error message contains information
+about which lint checks are causing the problem. In some cases, updating the
+corresponding library dependency might resolve the problem. If not, you can
+disable the problematic lint check until the library author fixes it.
 
 ## Fixed issues
 
-<br />
 
 ### Android Gradle plugin 8.7.3
 

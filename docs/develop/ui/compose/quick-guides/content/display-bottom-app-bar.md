@@ -6,7 +6,9 @@ source: md.txt
 
 <br />
 
-Create a bottom app bar to help users navigate and access functions in your app. Follow this guidance to add a bottom app bar to your app by using the [`BottomAppBar`](https://developer.android.com/reference/com/google/android/material/bottomappbar/BottomAppBar) composable.
+Create a bottom app bar to help users navigate and access functions in your app.
+Follow this guidance to add a bottom app bar to your app by using the
+[`BottomAppBar`](https://developer.android.com/reference/com/google/android/material/bottomappbar/BottomAppBar) composable.
 
 ## Results
 
@@ -14,17 +16,18 @@ Create a bottom app bar to help users navigate and access functions in your app.
 
 ## Version compatibility
 
-This implementation requires that your project minSDK be set to API level 21 or higher.
+This implementation requires that your project minSDK be set to API level 21 or
+higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-bottom-app-bar_6e81414f3575f8a3a76ab3b1da0549d245412fc7ba9f1b12e651aa303e1862b5.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-bottom-app-bar_c8de5120f6fd47df0aab45b8badf5d8fc40563c32fdc0b1973c9263e49b1b22e.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a bottom app bar
 
-Use the following code to create a bottom app bar containing four icon buttons, and a floating action button:
+Use the following code to create a bottom app bar containing four icon buttons,
+and a floating action button:
 
-<br />
 
 ```kotlin
 @Composable
@@ -73,7 +76,6 @@ fun BottomAppBarExample() {
         )
     }
 }
-   
 ```
 
 <br />
@@ -94,7 +96,8 @@ You can pass composables for the following key parameters:
 
 ## Collections that contain this guide
 
-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
+This guide is part of these curated Quick Guide collections that cover
+broader Android development goals:
 ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
 
 ### Create a home screen scaffold

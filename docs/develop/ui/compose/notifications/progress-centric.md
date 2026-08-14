@@ -6,13 +6,19 @@ source: md.txt
 
 ![top shade progress-centric notification](https://developer.android.com/static/images/ui/notifications/progress-centric.png) **Figure 1.** A progress-centric notification at the top of the shade.
 
-Android 16 introduces a new notification template to help users seamlessly track user-initiated start-to-end journeys. These notifications have upgraded visibility on system surfaces and top ranking in the notification drawer.
+Android 16 introduces a new notification template to help users seamlessly track
+user-initiated start-to-end journeys. These notifications have upgraded
+visibility on system surfaces and top ranking in the notification drawer.
 
-Use [`Notification.ProgressStyle`](https://developer.android.com/reference/android/app/Notification.ProgressStyle) to stylize progress-centric notifications. Key use cases include rideshare, delivery, and navigation. Within that class, you can denote states and milestones in a user journey using Points and Segments.
+Use [`Notification.ProgressStyle`](https://developer.android.com/reference/android/app/Notification.ProgressStyle) to stylize progress-centric notifications.
+Key use cases include rideshare, delivery, and navigation. Within
+that class, you can denote states and milestones in a user
+journey using Points and Segments.
 
 ## Relevant classes
 
-The following classes contain the different APIs that you use to construct a `ProgressStyle` notification:
+The following classes contain the different APIs that you use to construct a
+`ProgressStyle` notification:
 
 - [`Notification.ProgressStyle`](https://developer.android.com/reference/android/app/Notification.ProgressStyle)
 - [`Notification.ProgressStyle.Point`](https://developer.android.com/reference/android/app/Notification.ProgressStyle.Point)
@@ -20,7 +26,8 @@ The following classes contain the different APIs that you use to construct a `Pr
 
 ## Anatomy and customization
 
-The following images show the different parts that make up `ProgressStyle` notifications:
+The following images show the different parts that make up `ProgressStyle`
+notifications:
 ![](https://developer.android.com/static/about/versions/16/images/progress-style-anatomy.png) **Figure 2.**
 
 |---|---|
@@ -35,7 +42,8 @@ The following images show the different parts that make up `ProgressStyle` notif
 
 ## Best practices
 
-Use the right APIs and follow best practices to provide the best user experience for progress updates.
+Use the right APIs and follow best practices to provide the best user experience
+for progress updates.
 
 - Set the right fields to meet promoted visibility in the notification shade.
 - Use the right visual elements to guide users. For example, rideshare apps should set a vehicle image and use the most accurate color of the vehicle in the notification using [`Notification#setLargeIcon`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setLargeIcon(android.graphics.drawable.Icon)).
@@ -44,7 +52,8 @@ Use the right APIs and follow best practices to provide the best user experience
 - Use [segments](https://developer.android.com/partners/android-16/live-notifications/android/app/Notification.ProgressStyle.Segment) and [points](https://developer.android.com/partners/android-16/live-notifications/android/app/Notification.ProgressStyle.Point) to denote states. For example, segments can colorize the state and duration of traffic in a rideshare journey. Points represent states for milestones such as food preparation, delivery, and passenger pickup.
 - [Update](https://developer.android.com/develop/ui/compose/notifications/create-notification#update-notification) the progress experience to accurately reflect the actual progression of the journey. For example, changes in traffic conditions can be reflected in changes in segment colors and updates in text.
 
-The following code snippet shows how a `ProgressStyle` notification could be used for a rideshare context:
+The following code snippet shows how a `ProgressStyle` notification could be
+used for a rideshare context:
 
     var ps =
         Notification.ProgressStyle()

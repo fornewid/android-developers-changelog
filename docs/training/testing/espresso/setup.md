@@ -4,11 +4,14 @@ url: https://developer.android.com/training/testing/espresso/setup
 source: md.txt
 ---
 
-This guide covers installing Espresso using the SDK Manager and building it using Gradle. Android Studio is recommended.
+This guide covers installing Espresso using the SDK Manager and building it
+using Gradle. Android Studio is recommended.
 
 ## Set up your test environment
 
-To avoid flakiness, we highly recommend that you turn off system animations on the virtual or physical devices used for testing. On your device, under **Settings \> Developer options**, disable the following 3 settings:
+To avoid flakiness, we highly recommend that you turn off system animations on
+the virtual or physical devices used for testing. On your device, under
+**Settings \> Developer options**, disable the following 3 settings:
 
 - Window animation scale
 - Transition animation scale
@@ -41,7 +44,8 @@ androidTestImplementation('androidx.test:rules:1.6.1')
 
 ## Set the instrumentation runner
 
-Add to the same `build.gradle` file the following line in `android.defaultConfig`:
+Add to the same `build.gradle` file the following line in
+`android.defaultConfig`:
 
 ### Groovy
 
@@ -113,9 +117,14 @@ dependencies {
 
 ## Analytics
 
-In order to make sure we are on the right track with each new release, the test runner collects analytics. More specifically, it uploads a hash of the package name of the application under test for each invocation. This allows us to measure both the count of unique packages using Espresso as well as the volume of usage.
+In order to make sure we are on the right track with each new release, the test
+runner collects analytics. More specifically, it uploads a hash of the package
+name of the application under test for each invocation. This allows us to
+measure both the count of unique packages using Espresso as well as the volume
+of usage.
 
-If you do not wish to upload this data, you can opt out by including the `disableAnalytics` argument in your instrumentation command:
+If you do not wish to upload this data, you can opt out by including the
+`disableAnalytics` argument in your instrumentation command:
 
 ```bash
 adb shell am instrument -e disableAnalytics true
@@ -123,7 +132,8 @@ adb shell am instrument -e disableAnalytics true
 
 ## Add the first test
 
-Android Studio creates tests by default in `src/androidTest/java/com.example.package/`.
+Android Studio creates tests by default in
+`src/androidTest/java/com.example.package/`.
 
 Example JUnit4 test using Rules:
 

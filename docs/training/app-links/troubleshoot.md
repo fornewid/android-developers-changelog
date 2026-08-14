@@ -4,7 +4,10 @@ url: https://developer.android.com/training/app-links/troubleshoot
 source: md.txt
 ---
 
-This guide describes common issues and how to troubleshoot them. You can also use the troubleshooting tools in the Play Console Deep Links page or the Android Studio App Links Assistant. For more information, see [App Links developer tools](https://developer.android.com/training/app-links/tools).
+This guide describes common issues and how to troubleshoot them. You can
+also use the troubleshooting tools in the Play Console Deep Links page or the
+Android Studio App Links Assistant. For more information, see
+[App Links developer tools](https://developer.android.com/training/app-links/tools).
 
 ## App link opens in the browser instead of the app
 
@@ -20,50 +23,54 @@ This guide describes common issues and how to troubleshoot them. You can also us
 
 - Problem: You've updated the rules in your `assetlinks.json` file, but the new links are not being handled by the app.
 - **Solution** :
-  - **Force re-verification** : The most reliable way to test changes is to force a re-fetch with `adb shell pm verify-app-links --re-verify. <your-package-name>`.
+  - **Force re-verification** : The most reliable way to test changes is to force a re-fetch with `adb shell pm verify-app-links --re-verify.
+    <your-package-name>`.
   - **Check for typos**: Carefully review your pattern matchers in your rules for any syntax errors.
   - **Check manifest filter rules**: review the intent filter rules in the app manifest to make sure that the link path is not being filtered out. If the link is being filtered out, make the intent filter in the app manifest less restrictive.
 
 ## Fix common implementation errors
 
-If you can't verify your Android App Links, check for the following common errors. This section uses `example.com` as a placeholder domain name; when performing these checks, substitute `example.com` with your server's actual domain name.
-
+If you can't verify your Android App Links, check for the following common
+errors. This section uses `example.com` as a placeholder domain name; when
+performing these checks, substitute `example.com` with your server's actual
+domain name.
 
 Incorrect intent filter set up
-:
-    Check to see whether you include a URL that your app doesn't own in an `<intent-filter>` element.
-
+:   Check to see whether you include a URL that your app doesn't own in an
+    `<intent-filter>` element.
 
 Incorrect server configuration
 
-:   Check to your server's JSON configuration, and make sure the SHA value is correct.
+:   Check to your server's JSON configuration, and make sure the SHA value is
+    correct.
 
-    Also, check that `example.com.` (with the trailing period) serves the same content as `example.com`.
-
+    Also, check that `example.com.` (with the trailing period) serves the same
+    content as `example.com`.
 
 Server-side redirects
 
-:   The system doesn't verify **any** Android App Links for your app if you set up a redirect such as the following:
+:   The system doesn't verify **any** Android App Links for your app if you set up
+    a redirect such as the following:
 
     - `http://example.com` to `https://example.com`
     - `example.com` to `www.example.com`
 
     This behavior protects your app's security.
 
-
 Server robustness
 
 :   Check whether your client apps can connect to your server.
 
-
 Non-verifiable links
 
-:   For testing purposes, you might intentionally add non-verifiable links. Keep in mind that, on Android 11 and lower, these links cause the system to not verify **all** Android App Links for your app.
-
+:   For testing purposes, you might intentionally add non-verifiable links. Keep
+    in mind that, on Android 11 and lower, these links cause the
+    system to not verify **all** Android App Links for your app.
 
 Incorrect signature in assetlinks.json
 
-:   Verify that your signature is correct and matches the signature used to sign your app. Common mistakes include:
+:   Verify that your signature is correct and matches the signature used to sign
+    your app. Common mistakes include:
 
     - Signing the app with a debug certificate and only having the release signature in `assetlinks.json`.
     - Having a lower case signature in `assetlinks.json`. The signature should be in upper case.
@@ -71,4 +78,7 @@ Incorrect signature in assetlinks.json
 
 ## Capture a bug report
 
-For complex issues that are difficult to reproduce, [capture a bug report](https://developer.android.com/studio/debug/bug-report) and analyze it. This can provide valuable insights into the verification process and any system-level errors.
+For complex issues that are difficult to reproduce,
+[capture a bug report](https://developer.android.com/studio/debug/bug-report) and analyze it. This can
+provide valuable insights into the verification process and any system-level
+errors.

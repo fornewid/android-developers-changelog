@@ -4,7 +4,8 @@ url: https://developer.android.com/develop/ui/compose/components/checkbox
 source: md.txt
 ---
 
-Checkboxes let users select one or more items from a list. You might use a checkbox to let the user do the following:
+Checkboxes let users select one or more items from a list. You might use a
+checkbox to let the user do the following:
 
 - Turn an item on or off.
 - Select from multiple options in a list.
@@ -34,14 +35,14 @@ The following image demonstrates the three states of a checkbox.
 
 ## Implementation
 
-You can use the [`Checkbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Checkbox.composable#Checkbox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource)) composable to create a checkbox in your app. There are just a few key parameters to keep in mind:
+You can use the [`Checkbox`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Checkbox.composable#Checkbox(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.CheckboxColors,androidx.compose.foundation.interaction.MutableInteractionSource)) composable to create a checkbox in your app.
+There are just a few key parameters to keep in mind:
 
 - `checked`: The boolean that captures whether the checkbox is checked or unchecked.
 - `onCheckedChange()`: The function that the app calls when the user taps the checkbox.
 
 The following snippet demonstrates how to use the `Checkbox` composable:
 
-<br />
 
 ```kotlin
 @Composable
@@ -64,14 +65,14 @@ fun CheckboxMinimalExample() {
         if (checked) "Checkbox is checked" else "Checkbox is unchecked"
     )
 }
-   
 ```
 
 <br />
 
 ### Explanation
 
-This code creates a checkbox that is initially unchecked. When the user clicks on the checkbox, the `onCheckedChange` lambda updates the `checked` state.
+This code creates a checkbox that is initially unchecked. When the user clicks
+on the checkbox, the `onCheckedChange` lambda updates the `checked` state.
 
 ### Result
 
@@ -83,9 +84,11 @@ And this is how the same checkbox appears when checked:
 
 ## Advanced example
 
-The following is a more complex example of how you can implement checkboxes in your app. In this snippet, there is a parent checkbox and a series of child checkboxes. When the user taps the parent checkbox, the app checks all child checkboxes.
+The following is a more complex example of how you can implement checkboxes in
+your app. In this snippet, there is a parent checkbox and a series of child
+checkboxes. When the user taps the parent checkbox, the app checks all child
+checkboxes.
 
-<br />
 
 ```kotlin
 @Composable
@@ -139,7 +142,6 @@ fun CheckboxParentExample() {
         Text("All options selected")
     }
 }
-   
 ```
 
 <br />
@@ -168,10 +170,12 @@ The following are several points you should note from this example:
 This example produces the following component when all checkboxes are unchecked.
 ![A series of unchecked labeled checkboxes with a label.](https://developer.android.com/static/develop/ui/compose/images/components/checkbox-parent-unchecked.png) **Figure 4.** Unchecked checkboxes
 
-Likewise, this is how the component appears when all options are checked, as when the user taps select all:
+Likewise, this is how the component appears when all options are checked, as
+when the user taps select all:
 ![A series of checked labeled checkboxes with a label. The first is marked 'select all'. There is a text component beneath them that reads 'all options selected.'](https://developer.android.com/static/develop/ui/compose/images/components/checkbox-parent-checked.png) **Figure 5.** Checked checkboxes
 
-When only one option is checked the parent checkbox displays the indeterminate state:
+When only one option is checked the parent checkbox displays the indeterminate
+state:
 ![A series of unchecked labeled checkboxes with a label. All but one is unchecked. The checkbox labeled 'select all' is indeterminate, displaying a dash.](https://developer.android.com/static/develop/ui/compose/images/components/checkbox-parent-indeterminate.png) **Figure 6.** Indeterminate checkbox
 
 ### Additional resources

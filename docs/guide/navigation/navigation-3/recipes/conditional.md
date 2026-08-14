@@ -182,7 +182,6 @@ fun <T : NavKey> rememberNavBackStack(vararg elements: T): NavBackStack<T> {
         NavBackStack(*elements)
     }
 }
-   
 ```
 
 ```
@@ -234,5 +233,4 @@ class Navigator(
 
     fun goBack() = backStack.removeLastOrNull()
 }
-   
 ```

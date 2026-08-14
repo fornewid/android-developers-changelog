@@ -7,7 +7,8 @@ source: md.txt
 > [!TIP]
 > **Tip:** Another way to get started is to work through [the ExoPlayer codelab](https://codelabs.developers.google.com/codelabs/exoplayer-intro/).
 
-For simple use cases, getting started with `ExoPlayer` consists of implementing the following steps:
+For simple use cases, getting started with `ExoPlayer` consists of implementing
+the following steps:
 
 1. Add ExoPlayer as a dependency to your project.
 2. Create an `ExoPlayer` instance.
@@ -15,15 +16,19 @@ For simple use cases, getting started with `ExoPlayer` consists of implementing 
 4. Prepare the player with a `MediaItem` to play.
 5. Release the player when done.
 
-These steps are described in more detail below. For a complete example, refer to `PlayerActivity` in the [main demo app](https://github.com/androidx/media/tree/release/demos/main/).
+These steps are described in more detail below. For a complete example, refer to
+`PlayerActivity` in the [main demo app](https://github.com/androidx/media/tree/release/demos/main/).
 
 ## Add ExoPlayer as a dependency
 
 ### Add ExoPlayer modules
 
-The easiest way to get started using AndroidX Media3 is to add gradle dependencies on the libraries you need in the `build.gradle` file of your app module.
+The easiest way to get started using AndroidX Media3 is to add gradle
+dependencies on the libraries you need in the `build.gradle` file of your app
+module.
 
-For example, to depend on ExoPlayer with DASH playback support and UI components you can add dependencies on the modules like this:
+For example, to depend on ExoPlayer with DASH playback support and UI components
+you can add dependencies on the modules like this:
 
 ### Kotlin
 
@@ -39,15 +44,22 @@ For example, to depend on ExoPlayer with DASH playback support and UI components
     implementation "androidx.media3:media3-ui:1.11.0"
     implementation("androidx.media3:media3-ui-compose-material3:1.11.0")
 
-where 1.11.0 is your preferred version (the latest version can be found by consulting the [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)). All modules must be of the same version.
+where 1.11.0 is your preferred version (the latest version can be found by
+consulting the [release notes](https://github.com/androidx/media/tree/release/RELEASENOTES.md)). All modules must be of the same version.
 
-AndroidX Media3 has library modules that depend on external libraries to provide additional functionality. Some are available from the Maven repository, whereas others must be built manually. Browse the [libraries directory](https://github.com/androidx/media/tree/main/libraries) and see individual READMEs for details.
+AndroidX Media3 has library modules that depend on
+external libraries to provide additional functionality. Some are
+available from the Maven repository, whereas others must be built manually.
+Browse the [libraries directory](https://github.com/androidx/media/tree/main/libraries) and see individual READMEs for details.
 
-More information on the library modules that are available can be found on the [Google Maven AndroidX Media page](https://maven.google.com/web/index.html#androidx.media3).
+More information on the library modules that are available can be found on the
+[Google Maven AndroidX Media page](https://maven.google.com/web/index.html#androidx.media3).
 
 ### Turn on Java 8 support
 
-If not enabled already, you need to turn on at least Java 8 support in all `build.gradle` files that depend on ExoPlayer, by adding the following to the `android` section:
+If not enabled already, you need to turn on at least Java 8 support in all
+`build.gradle` files that depend on ExoPlayer, by adding the following to the
+`android` section:
 
     compileOptions {
       targetCompatibility JavaVersion.VERSION_1_8
@@ -55,49 +67,60 @@ If not enabled already, you need to turn on at least Java 8 support in all `buil
 
 ## Create the player
 
-You can create an `ExoPlayer` instance using `ExoPlayer.Builder`, which provides a range of customization options. The following code is the simplest example of creating an instance.
+You can create an `ExoPlayer` instance using `ExoPlayer.Builder`, which provides
+a range of customization options. The following code is the simplest example of
+creating an instance.
 
-<br />
 
 ### Kotlin
 
 ```kotlin
 val player = ExoPlayer.Builder(context).build()
-      
 ```
 
 ### Java
 
 ```java
 ExoPlayer player = new ExoPlayer.Builder(context).build();
-      
 ```
 
 <br />
 
 ### A note on threading
 
-ExoPlayer instances must be accessed from a single application thread. For the vast majority of cases, this should be the application's main thread. Using the application's main thread is a requirement when using ExoPlayer's UI components or the IMA extension.
+ExoPlayer instances must be accessed from a single application thread. For the
+vast majority of cases, this should be the application's main thread. Using the
+application's main thread is a requirement when using ExoPlayer's UI components
+or the IMA extension.
 
-The thread on which an ExoPlayer instance must be accessed can be explicitly specified by passing a `Looper` when creating the player. If no `Looper` is specified, then the `Looper` of the thread that the player is created on is used, or if that thread does not have a `Looper`, the `Looper` of the application's main thread is used. In all cases, the `Looper` of the thread from which the player must be accessed can be queried using `Player.getApplicationLooper`.
+The thread on which an ExoPlayer instance must be accessed can be explicitly
+specified by passing a `Looper` when creating the player. If no `Looper` is
+specified, then the `Looper` of the thread that the player is created on is
+used, or if that thread does not have a `Looper`, the `Looper` of the
+application's main thread is used. In all cases, the `Looper` of the thread from
+which the player must be accessed can be queried using
+`Player.getApplicationLooper`.
 
 > [!NOTE]
 > **Note:** If you see `IllegalStateException` being thrown with the message "Player is accessed on the wrong thread", then some code in your app is accessing an `ExoPlayer` instance on the wrong thread (the exception's stack trace shows you where).
 
-For more information about ExoPlayer's threading model, see the ["Threading model" section of the ExoPlayer Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer).
+For more information about ExoPlayer's threading model, see the
+["Threading model" section of the ExoPlayer Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/ExoPlayer).
 
 ## Attach the player to a view
 
-The `media3-ui` library provides a range of prebuilt UI components for media playback. These include `PlayerView`, which encapsulates a `PlayerControlView`, a `SubtitleView`, and a `Surface` onto which video is rendered. A `PlayerView` can be included in your application's layout xml. For example, to bind the player to the view:
+The `media3-ui` library provides a range of prebuilt UI components for media
+playback. These include `PlayerView`, which encapsulates a `PlayerControlView`,
+a `SubtitleView`, and a `Surface` onto which video is rendered. A `PlayerView`
+can be included in your application's layout xml. For example, to bind the
+player to the view:
 
-<br />
 
 ### Kotlin
 
 ```kotlin
 // Bind the player to the view.
 playerView.player = player
-       
 ```
 
 ### Java
@@ -105,36 +128,48 @@ playerView.player = player
 ```java
 // Bind the player to the view.
 playerView.setPlayer(player);
-      
 ```
 
 <br />
 
-Use of Media3's prebuilt UI components is optional. For video apps that implement their own UI, the target `SurfaceView`, `TextureView`, `SurfaceHolder` or `Surface` can be set using Player's `setVideoSurfaceView`, `setVideoTextureView`, `setVideoSurfaceHolder`, and `setVideoSurface` methods respectively. The `Listener.onCues` callback can be used to receive captions that should be rendered during playback and `setImageOutput` can be used to receive decoded images.
+Use of Media3's prebuilt UI components is optional. For video apps that
+implement their own UI, the target `SurfaceView`, `TextureView`, `SurfaceHolder`
+or `Surface` can be set using Player's `setVideoSurfaceView`,
+`setVideoTextureView`, `setVideoSurfaceHolder`, and `setVideoSurface` methods
+respectively. The `Listener.onCues` callback can be used to receive captions
+that should be rendered during playback and `setImageOutput` can be used to
+receive decoded images.
 
-For a more comfortable user experience, consider adding the `keepScreenOn` attribute. You can investigate other actions that keep the device awake in the [background work pages](https://developer.android.com/develop/background-work/background-tasks/awake).
+For a more comfortable user experience, consider adding the `keepScreenOn`
+attribute. You can investigate other actions that keep the device awake in the
+[background work pages](https://developer.android.com/develop/background-work/background-tasks/awake).
 
     android:keepScreenOn="true"
 
-If your app uses Jetpack Compose for its UI, you can use the `Player` Composable from the `media3-ui-compose-material3` library. The `Player` displays video and includes pre-populated values for playback controls slots. To attach a `androidx.media3.common.Player` object to a `androidx.media3.ui.compose.material3.Player` Composable, just pass it as an argument:
+If your app uses Jetpack Compose for its UI, you can use the `Player` Composable
+from the `media3-ui-compose-material3` library. The `Player` displays video and
+includes pre-populated values for playback controls slots. To attach a
+`androidx.media3.common.Player` object to a
+`androidx.media3.ui.compose.material3.Player` Composable, just pass it as an
+argument:
 
-<br />
 
 ```kotlin
 // Bind the player to the composable.
 Player(player = player)
-   
 ```
 
 <br />
 
-Read more about using Media3 UI components and their customisation on the [UI page](https://developer.android.com/guide/topics/media/ui/overview).
+Read more about using Media3 UI components and their customisation on the [UI
+page](https://developer.android.com/guide/topics/media/ui/overview).
 
 ## Populate the playlist and preparing the player
 
-In ExoPlayer, every piece of media is represented by a `MediaItem`. To play a piece of media, you need to build a corresponding `MediaItem`, add it to the player, prepare the player, and call `play` to start the playback:
+In ExoPlayer, every piece of media is represented by a `MediaItem`. To play a
+piece of media, you need to build a corresponding `MediaItem`, add it to the
+player, prepare the player, and call `play` to start the playback:
 
-<br />
 
 ### Kotlin
 
@@ -147,7 +182,6 @@ player.setMediaItem(mediaItem)
 player.prepare()
 // Start the playback.
 player.play()
-      
 ```
 
 ### Java
@@ -161,14 +195,13 @@ player.setMediaItem(mediaItem);
 player.prepare();
 // Start the playback.
 player.play();
-      
 ```
 
 <br />
 
-ExoPlayer supports playlists directly, so it's possible to prepare the player with multiple media items to be played one after the other:
+ExoPlayer supports playlists directly, so it's possible to prepare the player
+with multiple media items to be played one after the other:
 
-<br />
 
 ### Kotlin
 
@@ -183,7 +216,6 @@ player.addMediaItem(secondItem)
 player.prepare()
 // Start the playback.
 player.play()
-      
 ```
 
 ### Java
@@ -199,19 +231,23 @@ player.addMediaItem(secondItem);
 player.prepare();
 // Start the playback.
 player.play();
-      
 ```
 
 <br />
 
-The playlist can be updated during playback without the need to prepare the player again. Read more about populating and manipulating the playlist on the [Playlists page](https://developer.android.com/guide/topics/media/exoplayer/playlists). Read more about the different options available when building media items, such as clipping and attaching subtitle files, on the [Media items page](https://developer.android.com/guide/topics/media/exoplayer/media-items).
+The playlist can be updated during playback without the need to prepare the
+player again. Read more about populating and manipulating the playlist on the
+[Playlists page](https://developer.android.com/guide/topics/media/exoplayer/playlists). Read more about the different options available when
+building media items, such as clipping and attaching subtitle files, on the
+[Media items page](https://developer.android.com/guide/topics/media/exoplayer/media-items).
 
 > [!NOTE]
 > **Note:** Media3 ExoPlayer converts media items to `MediaSource` instances that it needs internally. Read more about this process and how it can be customized on the [Media sources page](https://developer.android.com/guide/topics/media/exoplayer/media-sources). You can provide a `MediaSource` directly to the player using `ExoPlayer.setMediaSource(s)` and `ExoPlayer.addMediaSource(s)`.
 
 ## Control the player
 
-Once the player has been prepared, playback can be controlled by calling methods on the player. Here are some of the most commonly used methods:
+Once the player has been prepared, playback can be controlled by calling methods
+on the player. Here are some of the most commonly used methods:
 
 - `play` and `pause` start and pause playback.
 - `seekTo` allows seeking within the media.
@@ -220,8 +256,12 @@ Once the player has been prepared, playback can be controlled by calling methods
 - `setShuffleModeEnabled` controls playlist shuffling.
 - `setPlaybackParameters` adjusts playback speed and audio pitch.
 
-If the player is bound to a `PlayerView` or `PlayerControlView`, then user interaction with these components will cause corresponding methods on the player to be invoked.
+If the player is bound to a `PlayerView` or `PlayerControlView`,
+then user interaction with these components will cause corresponding methods on
+the player to be invoked.
 
 ## Release the player
 
-It's important to release the player when it's no longer needed, so as to free up limited resources such as video decoders for use by other applications. This can be done by calling `ExoPlayer.release`.
+It's important to release the player when it's no longer needed, so as to free
+up limited resources such as video decoders for use by other applications. This
+can be done by calling `ExoPlayer.release`.

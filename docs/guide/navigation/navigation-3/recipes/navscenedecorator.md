@@ -101,7 +101,6 @@ class ResponsiveNavigationSceneDecoratorActivity : ComponentActivity() {
         }
     }
 }
-   
 ```
 
 ```
@@ -239,7 +238,6 @@ class ResponsiveNavigationSceneDecoratorStrategy<T : Any>(
     }
 
 }
-   
 ```
 
 ```
@@ -514,7 +512,6 @@ fun NavRail(
         }
     }
 }
-   
 ```
 
 ```
@@ -723,8 +720,6 @@ private class WindowInsetsOverlapNode(
         }
     }
 }
-
-   
 ```
 
 ```
@@ -828,7 +823,6 @@ fun NavigationState.toEntries(
 
     return stacksInUse.flatMap { decoratedEntries[it] ?: emptyList() }.toMutableStateList()
 }
-   
 ```
 
 ```
@@ -878,5 +872,4 @@ class Navigator(val state: NavigationState) {
         }
     }
 }
-   
 ```

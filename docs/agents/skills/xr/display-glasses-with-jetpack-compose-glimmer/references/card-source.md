@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
 source: md.txt
 ---
 
-When creating a Glimmer Card component, refer to the following source code in `Card.kt`:
+When creating a Glimmer Card component, refer to the following source code in
+`Card.kt`:
 
-<br />
 
 ```kotlin
 /*
@@ -552,8 +552,6 @@ private const val HeaderMaximumAspectRatio = 1.6f
 
 /** How far the action button is inset from the underlying card's edge */
 private val ActionInset = 16.dp
-
-   
 ```
 
 <br />

@@ -4,7 +4,8 @@ url: https://developer.android.com/develop/ui/compose/components/segmented-butto
 source: md.txt
 ---
 
-Use a segmented button to let users choose from a set of options, side-by-side. There are two types of segmented buttons:
+Use a segmented button to let users choose from a set of options, side-by-side.
+There are two types of segmented buttons:
 
 - **Single-select button**: Lets users choose one option.
 - **Multi-select button** : Lets users choose between two and five items. For more complex choices, or more than five items, use [chips](https://developer.android.com/develop/ui/compose/components/chip).
@@ -13,7 +14,10 @@ Use a segmented button to let users choose from a set of options, side-by-side. 
 
 ## API surface
 
-Use the [`SingleChoiceSegmentedButtonRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SingleChoiceSegmentedButtonRow.composable#SingleChoiceSegmentedButtonRow(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,kotlin.Function1)) and [`MultiChoiceSegmentedButtonRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MultiChoiceSegmentedButtonRow.composable#MultiChoiceSegmentedButtonRow(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,kotlin.Function1)) layouts to create segmented buttons. These layouts position and size [`SegmentedButton`s](https://developer.android.com/reference/kotlin/androidx/compose/material3/SegmentedButton.composable#(androidx.compose.material3.MultiChoiceSegmentedButtonRowScope).SegmentedButton(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.graphics.Shape,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SegmentedButtonColors,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0,kotlin.Function0)) correctly, and share the following key parameters:
+Use the [`SingleChoiceSegmentedButtonRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SingleChoiceSegmentedButtonRow.composable#SingleChoiceSegmentedButtonRow(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,kotlin.Function1)) and
+[`MultiChoiceSegmentedButtonRow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MultiChoiceSegmentedButtonRow.composable#MultiChoiceSegmentedButtonRow(androidx.compose.ui.Modifier,androidx.compose.ui.unit.Dp,kotlin.Function1)) layouts to create segmented buttons. These
+layouts position and size [`SegmentedButton`s](https://developer.android.com/reference/kotlin/androidx/compose/material3/SegmentedButton.composable#(androidx.compose.material3.MultiChoiceSegmentedButtonRowScope).SegmentedButton(kotlin.Boolean,kotlin.Function1,androidx.compose.ui.graphics.Shape,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.material3.SegmentedButtonColors,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0,kotlin.Function0)) correctly,
+and share the following key parameters:
 
 - `space`: Adjusts the overlap between the buttons.
 - `content`: Contains the content of the segmented button row, which is typically a sequence of `SegmentedButton`s.
@@ -22,7 +26,6 @@ Use the [`SingleChoiceSegmentedButtonRow`](https://developer.android.com/referen
 
 This example shows how to create a single-select segmented button:
 
-<br />
 
 ```kotlin
 @Composable
@@ -44,7 +47,6 @@ fun SingleChoiceSegmentedButton(modifier: Modifier = Modifier) {
         }
     }
 }
-   
 ```
 
 <br />
@@ -66,9 +68,9 @@ fun SingleChoiceSegmentedButton(modifier: Modifier = Modifier) {
 
 ## Create a multi-select segmented button
 
-This example shows how to create a multi-choice segmented button with icons that lets users select multiple options:
+This example shows how to create a multi-choice segmented button with icons that
+lets users select multiple options:
 
-<br />
 
 ```kotlin
 @Composable
@@ -113,7 +115,6 @@ fun MultiChoiceSegmentedButton(modifier: Modifier = Modifier) {
         }
     }
 }
-   
 ```
 
 <br />

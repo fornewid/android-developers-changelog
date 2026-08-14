@@ -4,13 +4,14 @@ url: https://developer.android.com/build/releases/agp-8-4-0-release-notes
 source: md.txt
 ---
 
-Android Gradle plugin 8.4.0 is a major release that includes a variety of new features and improvements.
+Android Gradle plugin 8.4.0 is a major release that includes a variety of new
+features and improvements.
 
 ## Compatibility
 
-The maximum API level that Android Gradle plugin 8.4 supports is API level 34. Here is other compatibility info:
+The maximum API level that Android Gradle plugin 8.4 supports is API level 34.
+Here is other compatibility info:
 
-<br />
 
 |   | Minimum version | Default version | Notes |
 |---:|:---:|:---:|:---:|
@@ -27,7 +28,8 @@ The following are new features in Android Gradle plugin 8.4.
 
 <br />
 
-The following is a list of the patch releases in Android Studio Jellyfish and Android Gradle plugin 8.4.
+The following is a list of the patch releases in Android Studio Jellyfish
+and Android Gradle plugin 8.4.
 
 <br />
 
@@ -46,48 +48,67 @@ The following is a list of the patch releases in Android Studio Jellyfish and An
 
 <br />
 
-**Important security update:** A [security vulnerability](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37051) in the [GitHub plugin](https://plugins.jetbrains.com/plugin/13115-github) available in Android Studio Iguana \| 2023.2.1 and higher could expose access tokens to unauthorized parties.
+**Important security update:** A
+[security vulnerability](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-37051)
+in the
+[GitHub plugin](https://plugins.jetbrains.com/plugin/13115-github)
+available in Android Studio Iguana \| 2023.2.1 and higher could expose access
+tokens to unauthorized parties.
 
 <br />
 
 <br />
 
-**The fix:** Jetbrains has [resolved the issue in IntelliJ platform products](https://blog.jetbrains.com/security/2024/06/updates-for-security-issue-affecting-intellij-based-ides-2023-1-and-github-plugin/), and the fix is now available in [Android Studio Jellyfish \| 2023.3.1 Patch 2 (2023.3.1.20)](https://developer.android.com/studio).
+**The fix:** Jetbrains has
+[resolved the issue in IntelliJ platform products](https://blog.jetbrains.com/security/2024/06/updates-for-security-issue-affecting-intellij-based-ides-2023-1-and-github-plugin/),
+and the fix is now available in
+[Android Studio Jellyfish \| 2023.3.1 Patch 2 (2023.3.1.20)](https://developer.android.com/studio).
 
 <br />
 
 <br />
 
-If you already have an Android Studio build on the [stable channel](https://developer.android.com/studio/intro/update#channels), you can get the update by clicking **Help \> Check for Updates** (or **Android Studio \> Check for Updates** on macOS). Otherwise, [download the latest stable build](https://developer.android.com/studio).
+If you already have an Android Studio build on the
+[stable channel](https://developer.android.com/studio/intro/update#channels), you can
+get the update by clicking **Help \> Check for Updates** (or **Android
+Studio \> Check for Updates** on macOS). Otherwise,
+[download the latest stable build](https://developer.android.com/studio).
 
 <br />
 
-Furthermore, if you've actively used GitHub pull request functionality in the IDE, we strongly advise that you revoke any GitHub tokens being used by the plugin. Given that the plugin can use OAuth integration or personal access tokens (PATs), please check both and revoke as necessary:
+Furthermore, if you've actively used GitHub pull request functionality in
+the IDE, we strongly advise that you revoke any GitHub tokens being used by
+the plugin. Given that the plugin can use OAuth integration or personal
+access tokens (PATs), please check both and revoke as necessary:
 
 <br />
 
 <br />
 
-- To revoke access for OAuth integration, go to **[Applications](https://github.com/settings/applications) \> Authorized OAuth Apps** and revoke access for the **JetBrains IDE Integration** token.
+- To revoke access for OAuth integration, go to **[Applications](https://github.com/settings/applications)
+  \> Authorized OAuth Apps** and revoke access for the **JetBrains IDE Integration** token.
 - To revoke access for PATs, go to [Personal access tokens](https://github.com/settings/tokens) and delete the token issued for the GitHub plugin. The default token name is **IntelliJ IDEA GitHub integration plugin**, but you might be using a custom name.
 
 <br />
 
 <br />
 
-After revoking access for the token(s), you need to set up the plugin again get all the plugin features, including Git operations, to work again.
+After revoking access for the token(s), you need to set up the plugin again
+get all the plugin features, including Git operations, to work again.
 
 <br />
 
 <br />
 
-We apologize for any inconvenience and urge all users to update immediately to safeguard their code and data.
+We apologize for any inconvenience and urge all users to update immediately
+to safeguard their code and data.
 
 <br />
 
 <br />
 
-This minor update also includes [these bug fixes](https://developer.android.com/studio/releases/fixed-bugs/studio/2023.3.1#android-studio-jellyfish-|-2023.3.1-patch-2).
+This minor update also includes
+[these bug fixes](https://developer.android.com/studio/releases/fixed-bugs/studio/2023.3.1#android-studio-jellyfish-|-2023.3.1-patch-2).
 
 <br />
 
@@ -99,17 +120,29 @@ This minor update also includes [these bug fixes](https://developer.android.com/
 
 <br />
 
-This minor update includes [these bug fixes](https://developer.android.com/studio/releases/fixed-bugs/studio/2023.3.1#android-studio-jellyfish-|-2023.3.1-patch-1).
+This minor update includes
+[these bug fixes](https://developer.android.com/studio/releases/fixed-bugs/studio/2023.3.1#android-studio-jellyfish-|-2023.3.1-patch-1).
 
 <br />
 
 ## Library classes are shrunk
 
-Starting with Android Gradle Plugin 8.4, if an Android library project is minified, shrunk program classes will be published for inter-project publishing. This means that if an app depends on the shrunk version of the Android library subprojects, the APK will include shrunk Android library classes. You may need to adjust [library keep rules](https://developer.android.com/build/shrink-code#keep-code) in case there are missing classes in the APK.
+Starting with Android Gradle Plugin 8.4, if an Android library project is
+minified, shrunk program classes will be published for inter-project publishing.
+This means that if an app depends on the shrunk version of the Android library
+subprojects, the APK will include shrunk Android library classes. You may need
+to adjust [library keep rules](https://developer.android.com/build/shrink-code#keep-code) in case there are
+missing classes in the APK.
 
-In case you are building and publishing an AAR, local jars that your library depends on will be included unshrunk in the AAR, which means [code shrinker](https://developer.android.com/build/shrink-code) won't run on them.
+In case you are building and publishing an AAR, local jars that your library
+depends on will be included unshrunk in the AAR, which means
+[code shrinker](https://developer.android.com/build/shrink-code) won't run on them.
 
-To revert to previous behavior, set `android.disableMinifyLocalDependenciesForLibraries` in the `gradle.properties` file and [file a bug](https://issuetracker.google.com/issues/new?component=192708&template=840533&pli=1). Future versions of AGP will remove this flag remove this flag.
+To revert to previous behavior, set
+`android.disableMinifyLocalDependenciesForLibraries` in the `gradle.properties`
+file and
+[file a bug](https://issuetracker.google.com/issues/new?component=192708&template=840533&pli=1).
+Future versions of AGP will remove this flag remove this flag.
 
 ## Fixed issues
 
