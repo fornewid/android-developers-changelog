@@ -1,0 +1,49 @@
+diff --git a/docs/develop/ui/compose/components/scaffold.md b/docs/develop/ui/compose/components/scaffold.md
+index ed29d4fc..88f0461f 100644
+--- a/docs/develop/ui/compose/components/scaffold.md
++++ b/docs/develop/ui/compose/components/scaffold.md
+@@ -6,11 +6,17 @@ source: md.txt
+ 
+ # Scaffold
+ 
+-In Material Design, a scaffold is a fundamental structure that provides a standardized platform for complex user interfaces. It holds together different parts of the UI, such as app bars and floating action buttons, giving apps a coherent look and feel.
++In Material Design, a scaffold is a fundamental structure that provides a
++standardized platform for complex user interfaces. It holds together different
++parts of the UI, such as app bars and floating action buttons, giving apps a
++coherent look and feel.
+ 
+ ## Example
+ 
+-The [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Scaffold.composable#Scaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.material3.FabPosition,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable provides a straightforward API you can use to quickly assemble your app's structure according to Material Design guidelines. `Scaffold` accepts several composables as parameters. Among these are the following:
++The [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Scaffold.composable#Scaffold(androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.material3.FabPosition,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable provides a straightforward API you can use to
++quickly assemble your app's structure according to Material Design guidelines.
++`Scaffold` accepts several composables as parameters. Among these are the
++following:
+ 
+ - `topBar`: The app bar across the top of the screen.
+ - `bottomBar`: The app bar across the bottom of the screen.
+@@ -19,11 +25,13 @@ The [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose
+ > [!NOTE]
+ > **Note:** For more detailed examples on how you can implement both top and bottom app bars, see the app bars page.
+ 
+-You can also pass `Scaffold` content as you would to other containers. It passes `PaddingValues` to the `content` lambda that you should apply to your content's root composable to constrain its size.
++You can also pass `Scaffold` content as you would to other containers. It passes
++`PaddingValues` to the `content` lambda that you should apply to your
++content's root composable to constrain its size.
+ 
+-The following example shows a complete `Scaffold` implementation. It contains a top app bar, a bottom app bar, and a floating action button.
++The following example shows a complete `Scaffold` implementation. It contains a
++top app bar, a bottom app bar, and a floating action button.
+ 
+-<br />
+ 
+ ```kotlin
+ @Composable
+@@ -80,7 +88,6 @@ fun ScaffoldExample() {
+         }
+     }
+ }
+-   
+ ```
+ 
+ <br />

@@ -1,0 +1,27 @@
+diff --git a/docs/blog/posts/increasing-app-discovery-and-engagement-on-google-tv.md b/docs/blog/posts/increasing-app-discovery-and-engagement-on-google-tv.md
+index 22cc3610..d464e2e4 100644
+--- a/docs/blog/posts/increasing-app-discovery-and-engagement-on-google-tv.md
++++ b/docs/blog/posts/increasing-app-discovery-and-engagement-on-google-tv.md
+@@ -90,7 +90,8 @@ Written by:
+ 
+   ###### Developer Relations Engineer
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/paul-lammertsma) ![View Paul Lammertsma's profile](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp) ![View Paul Lammertsma's profile](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/paul-lammertsma) ![View Paul Lammertsma's profile](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp) ![View Paul Lammertsma's profile](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)
+ Continue reading
+ - [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -122,5 +123,8 @@ Continue reading
+   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

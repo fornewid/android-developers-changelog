@@ -1,0 +1,20 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included.md b/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included.md
+index c96fcb21..3b336d1b 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included.md
++++ b/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included.md
+@@ -48,6 +48,7 @@ To learn more about using a specific component, see the following guides:
+ 
+ - [Buttons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/buttons)
+ - [Cards](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/cards)
++- [Horizontal pagers](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/pager)
+ - [Icons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/icons)
+ - [Icon buttons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/icon-buttons)
+ - [Lists](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/lists)
+@@ -57,6 +58,7 @@ To learn more about using a specific component, see the following guides:
+ - [Toggle buttons](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/toggle-buttons)
+ - [Title Chips](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/title-chips)
+ - [Vertical stacks](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/vertical-stacks)
++- [Voice input indicator](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/voice-input-indicator)
+ 
+ If one of these high-level components doesn't work for your use case, you can
+ use a [`surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/surface.composable) to build a custom component. Surfaces are the most-basic

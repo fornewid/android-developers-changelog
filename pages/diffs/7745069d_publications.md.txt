@@ -1,0 +1,25 @@
+diff --git a/docs/develop/sensors-and-location/sensors/publications.md b/docs/develop/sensors-and-location/sensors/publications.md
+index 4ed2984a..a25fc880 100644
+--- a/docs/develop/sensors-and-location/sensors/publications.md
++++ b/docs/develop/sensors-and-location/sensors/publications.md
+@@ -41,7 +41,7 @@ measurements.
+ - Ng, H.F., Hsu, L.-T., Lee, M.J.L., Feng, J., Naeimi, T., Beheshti, M., \& Rizzo, J.-R. (2022). Real-time loosely coupled 3DMA GNSS/Doppler measurements integration using a graph optimization and its performance assessments in urban canyons of New York. Sensors, 22(17), 6533. <https://www.mdpi.com/1424-8220/22/17/6533>
+ - Odolinski, R., Yang, H., Hsu, L.-T., Khider, M., Fu, G. M., \& Dusha, D. (2024). Evaluation of the multi-GNSS, dual-frequency RTK positioning performance for recent Android smartphone models in a phone-to-phone setup. Proceedings of the International Technical Meeting of the Institute of Navigation (ION). (pp. 42-53). doi: 10.33012/2024.19575 <https://dx.doi.org/10.33012/2024.19575>
+ - Paziewski, J., Fortunato, M., Mazzoni, A. \& Odolinski, R. (2021). An analysis of multi-GNSS observations tracked by recent Android smartphones and smartphone-only relative positioning results, Measurement, Volume 175, 2021, <https://doi.org/10.1016/j.measurement.2021.109162.>
+-- Riley, S., Landau, H., Gomez, V., Mishukova, N., Lentz, W. \& Clare, A. (2018). Positioning with Android: GNSS observables. GPS World. January 17, 2018. [https://www.gpsworld.com/positioning-with-android-gnss-observables](https://www.gpsworld.com/positioning-with-android-gnss-observables/)
++- Riley, S., Landau, H., Gomez, V., Mishukova, N., Lentz, W. \& Clare, A. (2018). Positioning with Android: GNSS observables. GPS World. January 17, 2018. <https://www.gpsworld.com/positioning-with-android-gnss-observables>
+ - Suzuki, T. (2023). Precise Position Estimation Using Smartphone Raw GNSS Data Based on Two-Step Optimization. Sensors 23.3 (2023): 1205. <https://www.mdpi.com/1424-8220/23/3/1205>
+ - Siddakatte, R., Broumandan, A., \& Lachapelle, G. (2017). Performance evaluation of smartphone GNSS measurements with different antenna configurations. In Proceedings of the international navigation conference. <https://schulich.ucalgary.ca/labs/position-location-and-navigation/files/position-location-and-navigation/siddakatte2017conference_c.pdf>
+ - Tao, X., Liu, W., Wang, Y., Li, L., Zhu, F., \& Zhang, X. (2023). Smartphone RTK positioning with multi-frequency and multi-constellation raw observations: GPS L1/L5, Galileo E1/E5a, BDS B1I/B1C/B2a. Journal of Geodesy, 97(5), 43. <https://link.springer.com/article/10.1007/s00190-023-01731-3>
+@@ -62,4 +62,8 @@ measurements.
+ - Rustamov, A., Minetto, A., \& Dovis, F. (2023). Improving GNSS spoofing awareness in smartphones via statistical processing of raw measurements. IEEE Open Journal of the Communications Society, 4, 873-891. <https://ieeexplore.ieee.org/abstract/document/10081330>
+ - Spens, N., Lee, D. K., Nedelkov, F., \& Akos, D. (2022). Detecting GNSS jamming and spoofing on Android devices. NAVIGATION: Journal of the Institute of Navigation, 69(3). <https://navi.ion.org/content/navi/69/3/navi.537.full.pdf>
+ - Strizic, L., Akos, D. M., \& Lo, S. (2018, February). Crowdsourcing GNSS jammer detection and localization. In Proceedings of the 2018 International Technical Meeting of The Institute of Navigation (pp. 626-641). <https://www.ion.org/publications/pdf.cfm?articleID=15546>
+-- Wang, Z., Li, H., Wen, J., \& Lu, M. (2021). Prototype Development of an Online Spoofer Localization System Using Raw GNSS Measurements of Android Smartphones. In Proceedings of the 34th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2021) (pp. 1989-1999). <https://www.ion.org/publications/pdf.cfm?articleID=17995>
+\ No newline at end of file
++- Wang, Z., Li, H., Wen, J., \& Lu, M. (2021). Prototype Development of an Online Spoofer Localization System Using Raw GNSS Measurements of Android Smartphones. In Proceedings of the 34th International Technical Meeting of the Satellite Division of The Institute of Navigation (ION GNSS+ 2021) (pp. 1989-1999). <https://www.ion.org/publications/pdf.cfm?articleID=17995>
++
++## Field studies
++
++- Merry, K., Bettinger, P., \& Lowe, R. C. (2026). Smartphone GNSS Accuracy Approaches Mapping-Grade Receiver Capabilities in Forest Conditions, and Submeter Accuracy may be Possible using an External Antenna. Forest Science. <https://link.springer.com/article/10.1007/s44391-026-00081-9>
+\ No newline at end of file

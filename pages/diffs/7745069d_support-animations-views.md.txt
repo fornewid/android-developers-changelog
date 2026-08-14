@@ -1,0 +1,53 @@
+diff --git a/docs/guide/navigation/custom-back/support-animations-views.md b/docs/guide/navigation/custom-back/support-animations-views.md
+index 80f350b0..6a44d7ad 100644
+--- a/docs/guide/navigation/custom-back/support-animations-views.md
++++ b/docs/guide/navigation/custom-back/support-animations-views.md
+@@ -4,13 +4,25 @@ url: https://developer.android.com/guide/navigation/custom-back/support-animatio
+ source: md.txt
+ ---
+ 
+-You can create custom in-app property animations and transitions, custom cross-activity animations, and custom cross-fragment animations with predictive back gestures using Views or Compose. To try the Compose way, see [Add support for predictive back animations](https://developer.android.com/guide/navigation/custom-back/support-animations).
++You can create custom in-app property animations and transitions, custom
++cross-activity animations, and custom cross-fragment animations with predictive
++back gestures using Views or Compose. To try the Compose way, see
++[Add support for predictive back animations](https://developer.android.com/guide/navigation/custom-back/support-animations).
+ 
+ ## Add custom transitions using the Progress API
+ 
+-With AndroidX Activity 1.8.0-alpha01 or higher, you can use the Predictive Back Progress APIs to develop custom animations for the predictive back gesture in your app. Progress APIs are helpful in animating views but have limitations when animating transitions between fragments. Within [`OnBackPressedCallback`](https://developer.android.com/reference/kotlin/androidx/activity/OnBackPressedCallback) we've introduced the [`handleOnBackProgressed`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback#handleOnBackPressed()), [`handleOnBackCancelled`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback#handleOnBackCancelled()) and [`handleOnBackStarted`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback#handleOnBackStarted(androidx.activity.BackEventCompat)) methods to animate objects while the user swipes back. Use these methods if you need to customize more than the default animations provided by the system, or the Material Component animations.
++With AndroidX Activity 1.8.0-alpha01 or higher, you can use the Predictive Back
++Progress APIs to develop custom animations for the predictive back gesture in
++your app. Progress APIs are helpful in animating views but have limitations when
++animating transitions between fragments. Within [`OnBackPressedCallback`](https://developer.android.com/reference/kotlin/androidx/activity/OnBackPressedCallback)
++we've introduced the [`handleOnBackProgressed`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback#handleOnBackPressed()), [`handleOnBackCancelled`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback#handleOnBackCancelled())
++and [`handleOnBackStarted`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback#handleOnBackStarted(androidx.activity.BackEventCompat)) methods to animate objects while the user swipes
++back. Use these methods if you need to customize more than the default
++animations provided by the system, or the Material Component animations.
+ 
+-We expect most apps to use the backward compatible AndroidX APIs, but there are also similar platform APIs within the [`OnBackAnimationCallback`](https://developer.android.com/reference/kotlin/android/window/OnBackAnimationCallback) interface available to test in Android 14 and higher.
++We expect most apps to use the backward compatible AndroidX APIs, but there are
++also similar platform APIs within the [`OnBackAnimationCallback`](https://developer.android.com/reference/kotlin/android/window/OnBackAnimationCallback)
++interface available to test in Android 14 and higher.
+ 
+ > [!NOTE]
+ > **Note:** Learn how to [design custom in-app transitions and animations.](https://developer.android.com/design/ui/mobile/guides/patterns/predictive-back).
+@@ -19,7 +31,8 @@ We expect most apps to use the backward compatible AndroidX APIs, but there are
+ 
+ Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/about/versions/14/images/predictive-back-transitions.mp4) and watch it with a video player.
+ 
+-The Progress APIs can be used with AndroidX Transitions 1.5.0-alpha01 or higher on Android 14 and higher to create Predictive Back transitions.
++The Progress APIs can be used with AndroidX Transitions 1.5.0-alpha01 or higher
++on Android 14 and higher to create Predictive Back transitions.
+ 
+ 1. Use [`TransitionManager#controlDelayedTransition`](https://developer.android.com/reference/androidx/transition/TransitionManager#controlDelayedTransition(android.view.ViewGroup,androidx.transition.Transition)) instead of `beginDelayedTransition` to play transitions as the user swipes back.
+ 2. Create the transition within `handleOnBackStarted`.
+@@ -27,7 +40,8 @@ The Progress APIs can be used with AndroidX Transitions 1.5.0-alpha01 or higher
+ 4. Finish the transition after the user has committed the back gesture in `handleOnBackPressed`.
+ 5. Finally, reset the state of the transition within `handleOnBackCancelled`.
+ 
+-The following video, Kotlin code, and XML demonstrate a custom transition between two boxes implemented with `OnBackPressedCallback`:
++The following video, Kotlin code, and XML demonstrate a custom transition
++between two boxes implemented with `OnBackPressedCallback`:
+ 
+ ```kotlin
+     class MyFragment : Fragment() {

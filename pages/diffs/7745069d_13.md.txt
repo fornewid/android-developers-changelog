@@ -1,0 +1,67 @@
+diff --git a/docs/blog/categories/product-news/13.md b/docs/blog/categories/product-news/13.md
+index 507135e6..322b3979 100644
+--- a/docs/blog/categories/product-news/13.md
++++ b/docs/blog/categories/product-news/13.md
+@@ -9,6 +9,24 @@ source: md.txt
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![View Garan Jenkin's profile](https://developer.android.com/static/blog/assets/Garan_Jenkin_0529dbfef9_Z2crRat.webp)](https://developer.android.com/blog/authors/garan-jenkin) 18 Dec 2025 18 Dec 2025 ![](https://developer.android.com/static/blog/assets/Androidify_Watch_e91b9acf51_Z84c6L.webp)
++
++  ## [Bringing Androidify to Wear OS with Watch Face Push](https://developer.android.com/blog/posts/bringing-androidify-to-wear-os-with-watch-face-push)
++
++  [arrow_forward](https://developer.android.com/blog/posts/bringing-androidify-to-wear-os-with-watch-face-push) A few months ago we relaunched Androidify as an app for generating personalized Android bots. Androidify transforms your selfie photo into a playful Android bot using Gemini and Imagen.
++  [Garan Jenkin](https://developer.android.com/blog/authors/garan-jenkin) • 3 min read
++- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_O0qYl.webp)
++
++  ## [Build smarter apps with Gemini 3 Flash](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash)
++
++  [arrow_forward](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash) Today, we're expanding the Gemini 3 model family with the release of Gemini 3 Flash, frontier intelligence built for speed at a fraction of the cost.
++  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) • 2 min read
++- [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp)](https://developer.android.com/blog/authors/donovan-mcmurray) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/Brighten_Real_Time_0d4c07ef35_U1qMY.webp)
++
++  ## [Brighten Your Real-Time Camera Feeds with Low Light Boost](https://developer.android.com/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost)
++
++  [arrow_forward](https://developer.android.com/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost) Today, we're diving into Low Light Boost (LLB), a powerful feature designed to brighten real-time camera streams
++  [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray) • 7 min read
+ - [![View Sam Bright's profile](https://developer.android.com/static/blog/assets/Sam_Bright_Headshot_2023_ca4877d69c_1VeLdh.webp)](https://developer.android.com/blog/authors/sam-bright) 15 Dec 2025 15 Dec 2025 ![](https://developer.android.com/static/blog/assets/image_8_8d65429579_7b1Fx.webp)
+ 
+   ## [Notes from Google Play: A look back at the tools that powered your growth in 2025](https://developer.android.com/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025)
+@@ -27,24 +45,6 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/enhancing-android-security-stop-malware-from-snooping-on-your-app-data) Security is foundational to Android. We partner with you to keep the platform safe and protect user data by offering powerful security tools and features, like Credential Manager and FLAG_SECURE.
+   [Bennet Manuel](https://developer.android.com/blog/authors/bennet-manuel), [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford) • 2 min read
+-- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/ron-aquino) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/251210_Header_v01_de706a19ce_ZIQ3n5.webp)
+-
+-  ## [Building a safer Android and Google Play, together](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together) Earlier this year, we reiterated our commitment to keeping Android and Google Play safe for everyone and maintaining a thriving environment where users can trust the apps they download and your business can flourish.
+-  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe), [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino) • 3 min read
+-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/buildfor_A_Iglassesxr_5141a407fc_7gpQN.webp)
+-
+-  ## [Build for AI Glasses with the Android XR SDK Developer Preview 3 and unlock new features for immersive experiences](https://developer.android.com/blog/posts/build-for-ai-glasses-with-the-android-xr-sdk-developer-preview-3-and-unlock-new-features-for-immersive-experiences)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/build-for-ai-glasses-with-the-android-xr-sdk-developer-preview-3-and-unlock-new-features-for-immersive-experiences) To support the expanding selection of XR devices, we are announcing Android XR SDK Developer Preview 3!
+-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
+-- [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 04 Dec 2025 04 Dec 2025 ![](https://developer.android.com/static/blog/assets/as_Otter2_96831eedef_Z19EUHu.webp)
+-
+-  ## [Android Studio Otter 2 Feature Drop is stable!](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable) The Android Studio Otter 2 Feature Drop is here to supercharge your productivity.
+-  [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 3 min read
+ [arrow_back](https://developer.android.com/blog/categories/product-news/12)
+ 
+ #### Page 13
+@@ -53,5 +53,8 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+ 
+ [arrow_forward](https://developer.android.com/blog/categories/product-news/14) Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

@@ -1,0 +1,30 @@
+diff --git a/docs/build/releases/agp-8-10-0-release-notes.md b/docs/build/releases/agp-8-10-0-release-notes.md
+index 55d4d7d3..8fa12559 100644
+--- a/docs/build/releases/agp-8-10-0-release-notes.md
++++ b/docs/build/releases/agp-8-10-0-release-notes.md
+@@ -4,13 +4,14 @@ url: https://developer.android.com/build/releases/agp-8-10-0-release-notes
+ source: md.txt
+ ---
+ 
+-Android Gradle Plugin 8.10.0 is a major release that includes a variety of new features and improvements.
++Android Gradle Plugin 8.10.0 is a major release that includes a variety of new
++features and improvements.
+ 
+ ## Compatibility
+ 
+-The maximum API level that Android Gradle Plugin 8.10 supports is API level 36. Here is other compatibility info:
++The maximum API level that Android Gradle Plugin 8.10 supports is API level 36.
++Here is other compatibility info:
+ 
+-<br />
+ 
+ |   | Minimum version | Default version | Notes |
+ |---:|:---:|:---:|:---:|
+@@ -29,7 +30,6 @@ Android Gradle plugin 8.10.0 contains the following notable API changes:
+ 
+ ## Fixed issues
+ 
+-<br />
+ 
+ ### Android Gradle plugin 8.10.1
+ 

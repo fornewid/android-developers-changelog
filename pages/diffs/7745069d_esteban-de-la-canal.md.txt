@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/esteban-de-la-canal.md b/docs/blog/authors/esteban-de-la-canal.md
+index 324bc00a..2e93e59f 100644
+--- a/docs/blog/authors/esteban-de-la-canal.md
++++ b/docs/blog/authors/esteban-de-la-canal.md
+@@ -19,5 +19,8 @@ Android Developer Tools
+   4 min read
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

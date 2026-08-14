@@ -1,0 +1,14 @@
+diff --git a/docs/build/releases/agp-1-1-1-release-notes.md b/docs/build/releases/agp-1-1-1-release-notes.md
+index cf7b4583..4bd16c29 100644
+--- a/docs/build/releases/agp-1-1-1-release-notes.md
++++ b/docs/build/releases/agp-1-1-1-release-notes.md
+@@ -6,9 +6,7 @@ source: md.txt
+ 
+ # Android plugin for Gradle, revision 1.1.1 (February 2015)
+ 
+-
+ Dependencies:
+-
+ General Notes:
+ :
+     - Modified build variants so only variants that package a [Wear](https://developer.android.com/training/wearables/apps) app trigger Wear-specific build tasks.

@@ -1,0 +1,22 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2026.1.3.md b/docs/studio/releases/fixed-bugs/studio/2026.1.3.md
+index 40ea24c1..e8e87c22 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2026.1.3.md
++++ b/docs/studio/releases/fixed-bugs/studio/2026.1.3.md
+@@ -6,7 +6,7 @@ source: md.txt
+ 
+ ### Android Studio Quail 3 \| 2026.1.3 Patch 1
+ 
+-*This release includes minor fixes and improvements.*
++Fixed Issues **Gemini** [Issue #540709807](https://issuetracker.google.com/issues/540709807) S0 CRITICAL: Data Loss - AI Agent executed malformed shell command deleting drive contents [Issue #536042551](https://issuetracker.google.com/issues/536042551) There are errors when tried to use Agent mode with Gemini Flash 3 model in latest update. AI Commit Message window incorrectly prompts for Gemini sign-in despite user already being authenticated
+ 
+ ### Android Studio Quail 3 \| 2026.1.3
+ 
+@@ -42,7 +42,7 @@ Fixed Issues **Database Inspector** [Issue #528792471](https://issuetracker.goog
+ 
+ - Android Gradle Plugin 9.4.0-alpha02
+ 
+-Fixed Issues **Android Gradle Plugin** [Issue #499166350](https://issuetracker.google.com/issues/499166350) AGP SigningConfig is too eager [Issue #257765153](https://issuetracker.google.com/issues/257765153) "Unable to get provider" (ClassNotFoundException) when running \`./gradlew :app:connectedDebugAndroidTest\` with a provider defined in a dynamic feature module **Autofill** [Issue #40465169](https://issuetracker.google.com/issues/40465169) Set basic information for new profiles and credit cards. **Compose Preview** [Issue #405146647](https://issuetracker.google.com/issues/405146647) Shape of DropdownMenu not previewed properly [Issue #265313645](https://issuetracker.google.com/issues/265313645) The preview of Composables with strings with \` \` placeholders always show the \`xliff\` metadata **Import/Sync** [Issue #486826364](https://issuetracker.google.com/issues/486826364) \`java.lang.String is not an interface\`: unable to sync Gradle project using \`matchingFallbacks\` AGP DSL **Preview** [Issue #392042065](https://issuetracker.google.com/issues/392042065) Animated Vector Drawable preview tool not working
++Fixed Issues **Android Gradle Plugin** [Issue #499166350](https://issuetracker.google.com/issues/499166350) AGP SigningConfig is too eager [Issue #257765153](https://issuetracker.google.com/issues/257765153) "Unable to get provider" (ClassNotFoundException) when running \`./gradlew :app:connectedDebugAndroidTest\` with a provider defined in a dynamic feature module **Autofill** [Issue #40465169](https://issuetracker.google.com/issues/40465169) Set basic information for new profiles and credit cards. **Compose Preview** [Issue #405146647](https://issuetracker.google.com/issues/405146647) Shape of DropdownMenu not previewed properly [Issue #265313645](https://issuetracker.google.com/issues/265313645) The preview of Composables with strings with \`\` placeholders always show the \`xliff\` metadata **Import/Sync** [Issue #486826364](https://issuetracker.google.com/issues/486826364) \`java.lang.String is not an interface\`: unable to sync Gradle project using \`matchingFallbacks\` AGP DSL **Preview** [Issue #392042065](https://issuetracker.google.com/issues/392042065) Animated Vector Drawable preview tool not working
+ 
+ ### Android Studio Quail 3 \| 2026.1.3 Canary 1
+ 

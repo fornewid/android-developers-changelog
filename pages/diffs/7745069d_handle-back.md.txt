@@ -1,0 +1,133 @@
+diff --git a/docs/guide/navigation/navigation-event/handle-back.md b/docs/guide/navigation/navigation-event/handle-back.md
+index 6ebe390b..4c970450 100644
+--- a/docs/guide/navigation/navigation-event/handle-back.md
++++ b/docs/guide/navigation/navigation-event/handle-back.md
+@@ -4,9 +4,10 @@ url: https://developer.android.com/guide/navigation/navigation-event/handle-back
+ source: md.txt
+ ---
+ 
+-You can extend the abstract class `NavigationEventHandler` to handle navigation events across platforms. This class provides methods corresponding to the lifecycle of a navigation gesture.
++You can extend the abstract class `NavigationEventHandler` to handle navigation
++events across platforms. This class provides methods corresponding to the
++lifecycle of a navigation gesture.
+ 
+-<br />
+ 
+ ```kotlin
+ val myHandler = object: NavigationEventHandler<NavigationEventInfo>(
+@@ -30,42 +31,43 @@ val myHandler = object: NavigationEventHandler<NavigationEventInfo>(
+         // Cancel the back event
+     }
+ }
+-   
+ ```
+ 
+ <br />
+ 
+ The `addHandler` function connects the handler to the dispatcher:
+ 
+-<br />
+ 
+ ```kotlin
+ navigationEventDispatcher.addHandler(myHandler)
+-   
+ ```
+ 
+ <br />
+ 
+ Call `myHandler.remove()` to remove the handler from the dispatcher:
+ 
+-<br />
+ 
+ ```kotlin
+ myHandler.remove()
+-   
+ ```
+ 
+ <br />
+ 
+-Handlers are invoked based on priority, and then by recency. All [`PRIORITY_OVERLAY`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher#PRIORITY_OVERLAY()) handlers are called before any [`PRIORITY_DEFAULT`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher#PRIORITY_DEFAULT()) handlers. Within each priority group, handlers are invoked in a Last-In, First-Out (LIFO) order --- the most recently added handler is called first.
++Handlers are invoked based on priority, and then by recency. All
++[`PRIORITY_OVERLAY`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher#PRIORITY_OVERLAY()) handlers are called before any [`PRIORITY_DEFAULT`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventDispatcher#PRIORITY_DEFAULT())
++handlers. Within each priority group, handlers are invoked in a Last-In,
++First-Out (LIFO) order --- the most recently added handler is called first.
+ 
+ ## Intercept back with Jetpack Compose
+ 
+-For Jetpack Compose, the library provides a utility composable to manage the dispatcher hierarchy.
++For Jetpack Compose, the library provides a utility composable to manage the
++dispatcher hierarchy.
+ 
+-The `NavigationBackHandler` composable creates a `NavigationEventHandler` for its content and links it to the `LocalNavigationEventDispatcherOwner`. It uses Compose's `DisposableEffect` to automatically call the dispatcher's `dispose()` method when the composable leaves the screen, safely managing resources.
++The `NavigationBackHandler` composable creates a `NavigationEventHandler` for
++its content and links it to the `LocalNavigationEventDispatcherOwner`. It uses
++Compose's `DisposableEffect` to automatically call the dispatcher's `dispose()`
++method when the composable leaves the screen, safely managing resources.
+ 
+-<br />
+ 
+ ```kotlin
+ @Composable
+@@ -77,14 +79,13 @@ public fun NavigationBackHandler(
+ ){
+ 
+ }
+-   
+ ```
+ 
+ <br />
+ 
+-This function lets you control event handling precisely within localized UI subtrees.
++This function lets you control event handling precisely within localized UI
++subtrees.
+ 
+-<br />
+ 
+ ```kotlin
+ @Composable
+@@ -116,12 +117,14 @@ fun HandlingBackWithTransitionState(
+         }
+     )
+ }
+-   
+ ```
+ 
+ <br />
+ 
+-This example shows how to observe predictive back gesture updates using [`NavigationEventTransitionState`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventTransitionState). The `progress` value can be used to update UI elements in response to the back gesture, while handling completion and cancellation through `NavigationBackHandler`.
++This example shows how to observe predictive back gesture updates using
++[`NavigationEventTransitionState`](https://developer.android.com/reference/kotlin/androidx/navigationevent/NavigationEventTransitionState). The `progress` value can be used to
++update UI elements in response to the back gesture, while handling completion
++and cancellation through `NavigationBackHandler`.
+ 
+ ### Access the back gesture or swipe edge in Compose
+ 
+@@ -130,14 +133,16 @@ This example shows how to observe predictive back gesture updates using [`Naviga
+ 
+ **Figure 1** . A predictive back animation built with `NavigationEvent` and Compose.
+ 
+-To animate the screen while the user swipes back, you'll need to (a) check if the `NavigationEventTransitionState` is `InProgress`, and (b) observe the progress and swipe edge state with `rememberNavigationEventState`:
++To animate the screen while the user swipes back, you'll need to (a) check if
++the `NavigationEventTransitionState` is `InProgress`, and (b) observe the
++progress and swipe edge state with `rememberNavigationEventState`:
+ 
+ - `progress`: A Float from `0.0` to `1.0` indicating how far the user has swiped.
+ - `swipeEdge`: An integer constant (`EDGE_LEFT` or `EDGE_RIGHT`) indicating where the gesture started.
+ 
+-The following snippet is a simplified example of how to implement a scale and shift animation:
++The following snippet is a simplified example of how to implement a scale and
++shift animation:
+ 
+-<br />
+ 
+ ```kotlin
+ object Routes {
+@@ -213,7 +218,6 @@ fun ScreenB(
+         // Rest of UI
+     }
+ }
+-   
+ ```
+ 
+ <br />
+\ No newline at end of file

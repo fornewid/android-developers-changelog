@@ -1,0 +1,26 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/icon-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/icon-source.md
+index b5a2dc25..8910c0ce 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/icon-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/icon-source.md
+@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
+ source: md.txt
+ ---
+ 
+-When creating a Glimmer Icon component, refer to the following source code in `Icon.kt`:
++When creating a Glimmer Icon component, refer to the following source code in
++`Icon.kt`:
+ 
+-<br />
+ 
+ ```kotlin
+ /*
+@@ -390,8 +390,6 @@ private class IconColorFilterNode(
+         }
+     }
+ }
+-
+-   
+ ```
+ 
+ <br />
+\ No newline at end of file

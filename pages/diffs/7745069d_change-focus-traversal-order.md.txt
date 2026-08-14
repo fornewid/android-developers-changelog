@@ -1,0 +1,90 @@
+diff --git a/docs/develop/ui/compose/touch-input/focus/change-focus-traversal-order.md b/docs/develop/ui/compose/touch-input/focus/change-focus-traversal-order.md
+index f6ebcb17..01b1d25d 100644
+--- a/docs/develop/ui/compose/touch-input/focus/change-focus-traversal-order.md
++++ b/docs/develop/ui/compose/touch-input/focus/change-focus-traversal-order.md
+@@ -4,24 +4,27 @@ url: https://developer.android.com/develop/ui/compose/touch-input/focus/change-f
+ source: md.txt
+ ---
+ 
+-The [Default focus traversal order](https://developer.android.com/develop/ui/compose/touch-input/focus) section described how Compose automatically adds focus traversal behavior to your elements, for both one-dimensional (`tab` key) and two-dimensional (arrow keys) navigation. In some cases, you might need to override this default behavior and be more explicit about the required traversal order.
++The [Default focus traversal order](https://developer.android.com/develop/ui/compose/touch-input/focus) section described how Compose
++automatically adds focus traversal behavior to your elements, for both
++one-dimensional (`tab` key) and two-dimensional (arrow keys) navigation. In some
++cases, you might need to override this default behavior and be more explicit
++about the required traversal order.
+ 
+ ## Override one-dimensional traversal order
+ 
+-To change the default focus traversal order for one-dimensional navigation, you create a set of references, one for each focusable composable:
++To change the default focus traversal order for one-dimensional navigation, you
++create a set of references, one for each focusable composable:
+ 
+-<br />
+ 
+ ```kotlin
+ val (first, second, third, fourth) = remember { FocusRequester.createRefs() }
+-   
+ ```
+ 
+ <br />
+ 
+-Then, use the [`focusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/focusRequester.modifier#(androidx.compose.ui.Modifier).focusRequester(androidx.compose.ui.focus.FocusRequester)) modifier to associate each of them with a composable:
++Then, use the [`focusRequester`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/focusRequester.modifier#(androidx.compose.ui.Modifier).focusRequester(androidx.compose.ui.focus.FocusRequester)) modifier to associate each of them with a
++composable:
+ 
+-<br />
+ 
+ ```kotlin
+ Column {
+@@ -35,14 +38,12 @@ Column {
+         TextButton({}, Modifier.focusRequester(fourth)) { Text("Fourth field") }
+     }
+ }
+-   
+ ```
+ 
+ <br />
+ 
+ You can now use the [`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/focusProperties.modifier#(androidx.compose.ui.Modifier).focusProperties(kotlin.Function1)) modifier to specify a custom traversal order:
+ 
+-<br />
+ 
+ ```kotlin
+ Column {
+@@ -84,16 +85,18 @@ Column {
+         }
+     }
+ }
+-   
+ ```
+ 
+ <br />
+ 
+ ## Override two-dimensional traversal order
+ 
+-It is also possible to add fine-grained control over the focus traversal order for two-dimensional navigation with the arrow keys. For each element, you can override the default navigation destination for each of the directions by adding the [`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/focusProperties.modifier#(androidx.compose.ui.Modifier).focusProperties(kotlin.Function1)) modifier and specifying the item that would come up, down, or any other direction:
++It is also possible to add fine-grained control over the focus traversal order
++for two-dimensional navigation with the arrow keys. For each element, you can
++override the default navigation destination for each of the directions by adding
++the [`focusProperties`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/focusProperties.modifier#(androidx.compose.ui.Modifier).focusProperties(kotlin.Function1)) modifier and specifying the item that would come up,
++down, or any other direction:
+ 
+-<br />
+ 
+ ```kotlin
+ TextButton(
+@@ -105,12 +108,12 @@ TextButton(
+             right = second
+         }
+ ) {}
+-   
+ ```
+ 
+ <br />
+ 
+-This technique not only effectively uses keyboard arrows, but would work with D-Pads and sticks on wired and wireless controllers.
++This technique not only effectively uses keyboard arrows, but would work with
++D-Pads and sticks on wired and wireless controllers.
+ 
+ ## Recommended for you
+ 

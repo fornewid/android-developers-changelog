@@ -1,0 +1,23 @@
+diff --git a/docs/games/pgs/integrate-gamestats.md b/docs/games/pgs/integrate-gamestats.md
+index d09521ac..88e68a61 100644
+--- a/docs/games/pgs/integrate-gamestats.md
++++ b/docs/games/pgs/integrate-gamestats.md
+@@ -154,12 +154,12 @@ In case you don't want to use the filter condition, keep the cell as blank.
+ 
+ ##### Example table
+ 
+-| Stat ID | Event Name | Property Name | Aggregation | Stat Display Name | Stat Description | Filter Property (optional) | Filter Operator (optional) | Filter Value (optional) | Is Competitive | minLimit | maxLimit | Icon filename | Sequence number | Good value direction | unit |
+-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+-| 1 | matchCompleted | duration | MAX | Longest Match Survival | This denotes the survival time of a player in any match | isWinner | = | TRUE | TRUE | 0 | 50 | stat1.png | 1 | Decreasing | seconds |
+-| 2 | matchCompleted | isWinner | COUNT | Matches Won | This denotes the number of matches a player has won | isWinner | = | TRUE | TRUE | 0 | 50 | stat3.png | 2 | Increasing |   |
+-| 3 | matchCompleted | kills | SUM | 1-on-1 match kills | Number of kills made across 1-on-1 matches | matchType | = | "1-on-1" | FALSE |   |   | stat4.png | 4 | Increasing |   |
+-| 4 | itemCollected | coinsAmount | SUM | Total Gold Collected | Player collects coins while playing in a match | weaponType | = | "sword" | FALSE |   |   | stat2.png | 3 | Increasing |   |
++| Stat ID | Event Name | Property Name | Aggregation | Stat Display Name | Stat Description | Filter Property (optional) | Filter Operator (optional) | Filter Value (optional) | Is Competitive | minLimit | maxLimit | Icon filename | Good value direction | unit |
++|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
++| 1 | matchCompleted | duration | MAX | Longest Match Survival | This denotes the survival time of a player in any match | isWinner | = | TRUE | TRUE | 0 | 50 | stat1.png | Decreasing | seconds |
++| 2 | matchCompleted | isWinner | COUNT | Matches Won | This denotes the number of matches a player has won | isWinner | = | TRUE | TRUE | 0 | 50 | stat3.png | Increasing |   |
++| 3 | matchCompleted | kills | SUM | 1-on-1 match kills | Number of kills made across 1-on-1 matches | matchType | = | "1-on-1" | FALSE |   |   | stat4.png | Increasing |   |
++| 4 | itemCollected | coinsAmount | SUM | Total Gold Collected | Player collects coins while playing in a match | weaponType | = | "sword" | FALSE |   |   | stat2.png | Increasing |   |
+ 
+ ### ProgressionStatConfig.csv format
+ 

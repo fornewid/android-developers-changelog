@@ -1,0 +1,51 @@
+diff --git a/docs/training/cars/apps/library/text-string-variants.md b/docs/training/cars/apps/library/text-string-variants.md
+index 2bc0f86e..307201bf 100644
+--- a/docs/training/cars/apps/library/text-string-variants.md
++++ b/docs/training/cars/apps/library/text-string-variants.md
+@@ -4,33 +4,36 @@ url: https://developer.android.com/training/cars/apps/library/text-string-varian
+ source: md.txt
+ ---
+ 
+-Different car screen sizes may show different amounts of text. With Car App API level 2 and later, you can specify multiple variants of a text string to best fit the screen. To see where text variants are accepted, look for templates and components that take a [`CarText`](https://developer.android.com/reference/androidx/car/app/model/CarText).
++Different car screen sizes may show different amounts of text. With Car App API
++level 2 and later, you can specify multiple variants of a text string to best
++fit the screen. To see where text variants are accepted, look for templates and
++components that take a [`CarText`](https://developer.android.com/reference/androidx/car/app/model/CarText).
+ 
+-You can add text string variants to a `CarText` with the [`CarText.Builder.addVariant()`](https://developer.android.com/reference/androidx/car/app/model/CarText.Builder#addVariant(java.lang.CharSequence)) method:
++You can add text string variants to a `CarText` with the
++[`CarText.Builder.addVariant()`](https://developer.android.com/reference/androidx/car/app/model/CarText.Builder#addVariant(java.lang.CharSequence)) method:
+ 
+-<br />
+ 
+ ```kotlin
+ val itemTitle = CarText.Builder("This is a very long string")
+     .addVariant("Shorter string")
+     .build()
+-   
+ ```
+ 
+ <br />
+ 
+-You can then use this `CarText`---for example, as the primary text of a [`GridItem`](https://developer.android.com/reference/androidx/car/app/model/GridItem).
++You can then use this `CarText`---for example, as the primary text of a
++[`GridItem`](https://developer.android.com/reference/androidx/car/app/model/GridItem).
+ 
+-<br />
+ 
+ ```kotlin
+ val gridItem = GridItem.Builder()
+     .setTitle(itemTitle)
+     .setImage(CarIcon.APP_ICON)
+     .build()
+-   
+ ```
+ 
+ <br />
+ 
+-Add strings in the order of from most to least preferred. For example, from longest to shortest. The host picks the appropriate-length string depending on the amount of space available on the car screen.
+\ No newline at end of file
++Add strings in the order of from most to least preferred. For example, from
++longest to shortest. The host picks the appropriate-length string depending
++on the amount of space available on the car screen.
+\ No newline at end of file

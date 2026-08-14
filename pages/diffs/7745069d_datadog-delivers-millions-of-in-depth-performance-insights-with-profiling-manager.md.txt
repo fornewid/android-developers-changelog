@@ -1,0 +1,45 @@
+diff --git a/docs/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager.md b/docs/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager.md
+index edf69081..74761d49 100644
+--- a/docs/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager.md
++++ b/docs/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager.md
+@@ -65,21 +65,24 @@ Written by:
+ 
+   ###### Developer Relations Engineer
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
+ -
+ 
+   ## [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov)
+ 
+   ###### Product Manager
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/arti-arutiunov) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/arti-arutiunov) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp) ![View Arti Arutiunov's profile](https://developer.android.com/static/blog/assets/arti_a_profile_blog_bbf00f0087_1Nh5K.webp)
+ -
+ 
+   ## [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov)
+ 
+   ###### Staff Software Engineer
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/nikita-ogorodnikov) ![View Nikita Ogorodnikov's profile](https://developer.android.com/static/blog/assets/nickolay_profile_blog_4e456d6b31_Z1NuT0q.webp) ![View Nikita Ogorodnikov's profile](https://developer.android.com/static/blog/assets/nickolay_profile_blog_4e456d6b31_Z1NuT0q.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/nikita-ogorodnikov) ![View Nikita Ogorodnikov's profile](https://developer.android.com/static/blog/assets/nickolay_profile_blog_4e456d6b31_Z1NuT0q.webp) ![View Nikita Ogorodnikov's profile](https://developer.android.com/static/blog/assets/nickolay_profile_blog_4e456d6b31_Z1NuT0q.webp)
+ Continue reading
+ - [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+ 
+@@ -110,5 +113,8 @@ Continue reading
+   - +1 ↩
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

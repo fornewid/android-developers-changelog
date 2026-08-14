@@ -1,0 +1,17 @@
+diff --git a/docs/blog/categories/community.md b/docs/blog/categories/community.md
+index 597d4350..3d19513f 100644
+--- a/docs/blog/categories/community.md
++++ b/docs/blog/categories/community.md
+@@ -56,5 +56,8 @@ Discover stories from our users, spotlight features, and the collaborative proje
+ 
+ [arrow_forward](https://developer.android.com/blog/categories/community/2) Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

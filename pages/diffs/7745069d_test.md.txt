@@ -1,0 +1,352 @@
+diff --git a/docs/kotlin/flow/test.md b/docs/kotlin/flow/test.md
+index a90829a6..fba10081 100644
+--- a/docs/kotlin/flow/test.md
++++ b/docs/kotlin/flow/test.md
+@@ -4,7 +4,8 @@ url: https://developer.android.com/kotlin/flow/test
+ source: md.txt
+ ---
+ 
+-The way you test units or modules that communicate with [flow](https://developer.android.com/kotlin/flow) depends on whether the subject under test uses the flow as input or output.
++The way you test units or modules that communicate with [flow](https://developer.android.com/kotlin/flow)
++depends on whether the subject under test uses the flow as input or output.
+ 
+ - If the subject under test observes a flow, you can generate flows within fake dependencies that you can control from tests.
+ - If the unit or module exposes a flow, you can read and verify one or multiple items emitted by a flow in the test.
+@@ -14,7 +15,10 @@ The way you test units or modules that communicate with [flow](https://developer
+ 
+ ## Creating a fake producer
+ 
+-When the subject under test is a consumer of a flow, one common way to test it is by replacing the producer with a fake implementation. For example, given a class that observes a repository that takes data from two data sources in production:
++When the subject under test is a consumer of a flow, one common way to test it
++is by replacing the producer with a fake implementation. For example, given a
++class that observes a repository that takes data from two data sources in
++production:
+ 
+ <br />
+ 
+@@ -22,7 +26,8 @@ When the subject under test is a consumer of a flow, one common way to test it i
+ 
+ <br />
+ 
+-To make the test deterministic, you can replace the repository and its dependencies with a fake repository that always emits the same fake data:
++To make the test deterministic, you can replace the repository and its
++dependencies with a fake repository that always emits the same fake data:
+ 
+ <br />
+ 
+@@ -32,7 +37,6 @@ To make the test deterministic, you can replace the repository and its dependenc
+ 
+ To emit a predefined series of values in a flow, use the `flow` builder:
+ 
+-<br />
+ 
+ ```kotlin
+ class MyFakeRepository : MyRepository {
+@@ -40,14 +44,13 @@ class MyFakeRepository : MyRepository {
+         emit(ITEM_1)
+     }
+ }
+-   
+ ```
+ 
+ <br />
+ 
+-In the test, this fake repository is injected, replacing the real implementation:
++In the test, this fake repository is injected, replacing the real
++implementation:
+ 
+-<br />
+ 
+ ```kotlin
+ @Test
+@@ -57,19 +60,20 @@ fun myTest() {
+     // Trigger and verify
+     // ...
+ }
+-   
+ ```
+ 
+ <br />
+ 
+-Now that you have control over the outputs of the subject under test, you can verify that it works correctly by checking its outputs.
++Now that you have control over the outputs of the subject under test, you can
++verify that it works correctly by checking its outputs.
+ 
+ > [!NOTE]
+ > **Note:** You can use a similar fake repository for bigger tests such as UI tests. Replacing modules for testing depends on how you inject dependencies. See the [Hilt testing guide](https://developer.android.com/training/dependency-injection/hilt-testing) to learn how to replace modules in tests using Hilt.
+ 
+ ## Asserting flow emissions in a test
+ 
+-If the subject under test is exposing a flow, the test needs to make assertions on the elements of the data stream.
++If the subject under test is exposing a flow, the test needs to make assertions
++on the elements of the data stream.
+ 
+ Let's assume that the previous example's repository exposes a flow:
+ 
+@@ -79,11 +83,13 @@ Let's assume that the previous example's repository exposes a flow:
+ 
+ <br />
+ 
+-With certain tests, you'll only need to check the first emission or a finite number of items coming from the flow.
++With certain tests, you'll only need to check the first emission or a finite
++number of items coming from the flow.
+ 
+-You can consume the first emission to the flow by calling `first()`. This function waits until the first item is received and then sends the cancellation signal to the producer.
++You can consume the first emission to the flow by calling `first()`. This
++function waits until the first item is received and then sends the cancellation
++signal to the producer.
+ 
+-<br />
+ 
+ ```kotlin
+ @Test
+@@ -97,14 +103,14 @@ fun myRepositoryTest() = runTest {
+     // Then check it's the expected item
+     assertEquals(ITEM_1, firstItem)
+ }
+-   
+ ```
+ 
+ <br />
+ 
+-If the test needs to check multiple values, calling `toList()` causes the flow to wait for the source to emit all its values and then returns those values as a list. This works only for finite data streams.
++If the test needs to check multiple values, calling `toList()` causes the flow
++to wait for the source to emit all its values and then returns those values as a
++list. This works only for finite data streams.
+ 
+-<br />
+ 
+ ```kotlin
+ @Test
+@@ -116,14 +122,14 @@ fun myRepositoryTestList() = runTest {
+     // When all messages are emitted then they should be ALL_MESSAGES
+     assertEquals(ALL_MESSAGES, messages)
+ }
+-   
+ ```
+ 
+ <br />
+ 
+-For data streams that require a more complex collection of items or don't return a finite number of items, you can use the `Flow` API to pick and transform items. Here are some examples:
++For data streams that require a more complex collection of items or don't return
++a finite number of items, you can use the `Flow` API to pick and transform
++items. Here are some examples:
+ 
+-<br />
+ 
+ ```kotlin
+ // Take the second item
+@@ -139,20 +145,24 @@ outputFlow.single()
+ // Verify that the flow emits exactly N elements (optional predicate)
+ outputFlow.count()
+ outputFlow.count(predicate)
+-   
+ ```
+ 
+ <br />
+ 
+ ### Continuous collection during a test
+ 
+-Collecting a flow using `toList()` as seen in the previous example uses `collect()` internally, and suspends until the entire result list is ready to be returned.
++Collecting a flow using `toList()` as seen in the previous example uses
++`collect()` internally, and suspends until the entire result list is ready to be
++returned.
+ 
+-To interleave actions that cause the flow to emit values and assertions on the values that were emitted, you can continuously collect values from a flow during a test.
++To interleave actions that cause the flow to emit values and assertions on the
++values that were emitted, you can continuously collect values from a flow during
++a test.
+ 
+-For example, take the following `Repository` class to be tested, and an accompanying fake data source implementation that has an `emit` method to produce values dynamically during the test:
++For example, take the following `Repository` class to be tested, and an
++accompanying fake data source implementation that has an `emit` method to
++produce values dynamically during the test:
+ 
+-<br />
+ 
+ ```kotlin
+ class Repository(private val dataSource: DataSource) {
+@@ -166,14 +176,14 @@ class FakeDataSource : DataSource {
+     suspend fun emit(value: Int) = flow.emit(value)
+     override fun counts(): Flow<Int> = flow
+ }
+-   
+ ```
+ 
+ <br />
+ 
+-When using this fake in a test, you can create a collecting coroutine that will continuously receive the values from the `Repository`. In this example, we're collecting them into a list and then performing assertions on its contents:
++When using this fake in a test, you can create a collecting coroutine that will
++continuously receive the values from the `Repository`. In this example, we're
++collecting them into a list and then performing assertions on its contents:
+ 
+-<br />
+ 
+ ```kotlin
+ @OptIn(ExperimentalCoroutinesApi::class)
+@@ -196,20 +206,29 @@ fun continuouslyCollect() = runTest {
+ 
+     assertEquals(3, values.size) // Assert the number of items collected
+ }
+-   
+ ```
+ 
+ <br />
+ 
+-Because the flow exposed by the `Repository` here never completes, the `toList` call that's collecting it never returns. Starting the collecting coroutine in [`TestScope.backgroundScope`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-test-scope/background-scope.html) ensures that the coroutine gets cancelled before the end of the test. Otherwise, `runTest` would keep waiting for its completion, causing the test to stop responding and eventually fail.
++Because the flow exposed by the `Repository` here never completes, the `toList`
++call that's collecting it never returns. Starting the collecting coroutine in
++[`TestScope.backgroundScope`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-test-scope/background-scope.html)
++ensures that the coroutine gets cancelled before the end of the test. Otherwise,
++`runTest` would keep waiting for its completion, causing the test to stop
++responding and eventually fail.
+ 
+-Notice how [`UnconfinedTestDispatcher`](https://developer.android.com/kotlin/coroutines/test#unconfinedtestdispatcher) is used for the collecting coroutine here. This ensures that the collecting coroutine is launched eagerly and is ready to receive values after `launch` returns.
++Notice how
++[`UnconfinedTestDispatcher`](https://developer.android.com/kotlin/coroutines/test#unconfinedtestdispatcher)
++is used for the collecting coroutine here. This ensures that the collecting
++coroutine is launched eagerly and is ready to receive values after `launch`
++returns.
+ 
+ #### Using Turbine
+ 
+-The third-party [Turbine](https://github.com/cashapp/turbine) library offers a convenient API for creating a collecting coroutine, as well as other convenience features for testing Flows:
++The third-party [Turbine](https://github.com/cashapp/turbine)
++library offers a convenient API for creating a collecting coroutine, as well
++as other convenience features for testing Flows:
+ 
+-<br />
+ 
+ ```kotlin
+ @Test
+@@ -229,24 +248,34 @@ fun usingTurbine() = runTest {
+         assertEquals(30, awaitItem())
+     }
+ }
+-   
+ ```
+ 
+ <br />
+ 
+-See the [library's documentation](https://github.com/cashapp/turbine) for more details.
++See the
++[library's documentation](https://github.com/cashapp/turbine) for
++more details.
+ 
+ ## Testing StateFlows
+ 
+-[`StateFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow#stateflow) is an observable data holder, which can be collected to observe the values it holds over time as a stream. Note that this stream of values is conflated, which means that if values are set in a `StateFlow` rapidly, collectors of that `StateFlow` are not guaranteed to receive all intermediate values, only the most recent one.
++[`StateFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow#stateflow) is an observable
++data holder, which can be collected to observe the values it holds over time as
++a stream. Note that this stream of values is conflated, which means that if
++values are set in a `StateFlow` rapidly, collectors of that `StateFlow` are not
++guaranteed to receive all intermediate values, only the most recent one.
+ 
+-In tests, if you keep conflation in mind, you can collect a `StateFlow`'s values as you can collect any other flow, including with Turbine. Attempting to collect and assert on all intermediate values can be desirable in some test scenarios.
++In tests, if you keep conflation in mind, you can collect a `StateFlow`'s values
++as you can collect any other flow, including with Turbine. Attempting to collect
++and assert on all intermediate values can be desirable in some test scenarios.
+ 
+-However, we generally recommend treating `StateFlow` as a data holder and asserting on its `value` property instead. This way, tests validate the current state of the object at a given point in time, and don't depend on whether or not conflation happens.
++However, we generally recommend treating `StateFlow` as a data holder and
++asserting on its `value` property instead. This way, tests validate the current
++state of the object at a given point in time, and don't depend on whether or not
++conflation happens.
+ 
+-For example, take this `ViewModel` that collects values from a `Repository` and exposes them to the UI in a `StateFlow`:
++For example, take this `ViewModel` that collects values from a `Repository` and
++exposes them to the UI in a `StateFlow`:
+ 
+-<br />
+ 
+ ```kotlin
+ class MyViewModel(private val myRepository: MyRepository) : ViewModel() {
+@@ -261,7 +290,6 @@ class MyViewModel(private val myRepository: MyRepository) : ViewModel() {
+         }
+     }
+ }
+-   
+ ```
+ 
+ <br />
+@@ -271,7 +299,6 @@ class MyViewModel(private val myRepository: MyRepository) : ViewModel() {
+ 
+ A fake implementation for this `Repository` might look like this:
+ 
+-<br />
+ 
+ ```kotlin
+ class FakeRepository : MyRepository {
+@@ -279,14 +306,14 @@ class FakeRepository : MyRepository {
+     suspend fun emit(value: Int) = flow.emit(value)
+     override fun scores(): Flow<Int> = flow
+ }
+-   
+ ```
+ 
+ <br />
+ 
+-When testing the `ViewModel` with this fake, you can emit values from the fake to trigger updates in the `StateFlow` of the `ViewModel`, and then assert on the updated `value`:
++When testing the `ViewModel` with this fake, you can emit values from the fake
++to trigger updates in the `StateFlow` of the `ViewModel`, and then assert on the
++updated `value`:
+ 
+-<br />
+ 
+ ```kotlin
+ @Test
+@@ -307,35 +334,39 @@ fun testHotFakeRepository() = runTest {
+     fakeRepository.emit(3)
+     assertEquals(3, viewModel.score.value) // Assert on the latest value
+ }
+-   
+ ```
+ 
+ <br />
+ 
+ ### Working with StateFlows created by stateIn
+ 
+-In the previous section, the `ViewModel` uses a `MutableStateFlow` to store the latest value emitted by a flow from the `Repository`. This is a common pattern, usually implemented in a simpler way by using the [`stateIn`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/state-in.html) operator, which converts a cold flow into a hot `StateFlow`:
++In the previous section, the `ViewModel` uses a `MutableStateFlow` to store the
++latest value emitted by a flow from the `Repository`. This is a common pattern,
++usually implemented in a simpler way by using the
++[`stateIn`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/state-in.html)
++operator, which converts a cold flow into a hot `StateFlow`:
+ 
+-<br />
+ 
+ ```kotlin
+ class MyViewModelWithStateIn(myRepository: MyRepository) : ViewModel() {
+     val score: StateFlow<Int> = myRepository.scores()
+         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), 0)
+ }
+-   
+ ```
+ 
+ <br />
+ 
+-The `stateIn` operator has a `SharingStarted` parameter, which determines when it becomes active and starts consuming the underlying flow. Options such as `SharingStarted.Lazily` and `SharingStarted.WhileSubscribed` are frequently used in view models.
++The `stateIn` operator has a `SharingStarted` parameter, which determines when
++it becomes active and starts consuming the underlying flow. Options such as
++`SharingStarted.Lazily` and `SharingStarted.WhileSubscribed` are frequently used
++in view models.
+ 
+ > [!CAUTION]
+ > **Caution:** When testing a `StateFlow` created with such options, there must be at least one collector present during the test. Otherwise the `stateIn` operator doesn't start collecting the underlying flow, and the `StateFlow`'s value will never be updated.
+ 
+-Even if you're asserting on the `value` of the `StateFlow` in your test, you'll need to create a collector. This can be an empty collector:
++Even if you're asserting on the `value` of the `StateFlow` in your test, you'll
++need to create a collector. This can be an empty collector:
+ 
+-<br />
+ 
+ ```kotlin
+ @OptIn(ExperimentalCoroutinesApi::class)
+@@ -359,7 +390,6 @@ fun testLazilySharingViewModel() = runTest {
+     fakeRepository.emit(3)
+     assertEquals(3, viewModel.score.value)
+ }
+-   
+ ```
+ 
+ <br />

@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/robbie-mclachlan.md b/docs/blog/authors/robbie-mclachlan.md
+index ad209c73..33f3d4ca 100644
+--- a/docs/blog/authors/robbie-mclachlan.md
++++ b/docs/blog/authors/robbie-mclachlan.md
+@@ -55,5 +55,8 @@ Developer Marketing
+ 
+ [arrow_forward](https://developer.android.com/blog/authors/robbie-mclachlan/2) Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

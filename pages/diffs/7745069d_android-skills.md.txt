@@ -1,0 +1,17 @@
+diff --git a/docs/blog/topics/android-skills.md b/docs/blog/topics/android-skills.md
+index 699fe287..b155f159 100644
+--- a/docs/blog/topics/android-skills.md
++++ b/docs/blog/topics/android-skills.md
+@@ -16,5 +16,8 @@ source: md.txt
+   - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

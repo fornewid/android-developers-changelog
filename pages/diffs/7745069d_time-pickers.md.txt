@@ -1,0 +1,124 @@
+diff --git a/docs/develop/ui/compose/components/time-pickers.md b/docs/develop/ui/compose/components/time-pickers.md
+index 6ccf470f..b23d560b 100644
+--- a/docs/develop/ui/compose/components/time-pickers.md
++++ b/docs/develop/ui/compose/components/time-pickers.md
+@@ -4,7 +4,9 @@ url: https://developer.android.com/develop/ui/compose/components/time-pickers
+ source: md.txt
+ ---
+ 
+-[Time pickers](https://m3.material.io/components/time-pickers/overview) provide a way for users to select a time. You can use the [`TimePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePicker.composable#TimePicker(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors,androidx.compose.material3.TimePickerLayoutType)) and [`TimeInput`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimeInput.composable#TimeInput(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors)) composables to implement a time picker in your app.
++[Time pickers](https://m3.material.io/components/time-pickers/overview) provide a way for users to select a time. You can
++use the [`TimePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePicker.composable#TimePicker(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors,androidx.compose.material3.TimePickerLayoutType)) and [`TimeInput`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimeInput.composable#TimeInput(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors)) composables to implement a time
++picker in your app.
+ 
+ > [!NOTE]
+ > **Note:** `TimePicker` and `TimeInput` are experimental. File any issues on the [issue tracker](https://issuetracker.google.com/issues/new?component=856989&template=1425922).
+@@ -16,12 +18,14 @@ There are two types of time picker:
+ - **Dial**: Lets users set a time by moving a handle around a dial.
+ - **Input**: Lets users set a time using their keyboard.
+ 
+-The following image provides an example of a dial time picker on the left, and an input time picker on the right:
++The following image provides an example of a dial time picker on the left, and
++an input time picker on the right:
+ ![A dial and an input time picker.](https://developer.android.com/static/develop/ui/compose/images/components/timepickers.png) **Figure 1.** A dial and an input time picker.
+ 
+ ## API surface
+ 
+-To implement a time picker, use either the `TimePicker` or `TimeInput` composable:
++To implement a time picker, use either the `TimePicker` or `TimeInput`
++composable:
+ 
+ - [`TimePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePicker.composable#TimePicker(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors,androidx.compose.material3.TimePickerLayoutType)): Implements a dial time picker.
+ - [`TimeInput`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimeInput.composable#TimeInput(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors)): Implements an input time picker.
+@@ -31,17 +35,20 @@ To implement a time picker, use either the `TimePicker` or `TimeInput` composabl
+ 
+ ### State
+ 
+-For both `TimePicker` and `TimeInput`, you must also pass a [`TimePickerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePickerState). This lets you set the default selected time that appears on the picker. It also captures the time that the user has selected using the picker.
++For both `TimePicker` and `TimeInput`, you must also pass a
++[`TimePickerState`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePickerState). This lets you set the default selected time that appears
++on the picker. It also captures the time that the user has selected using the
++picker.
+ 
+ ### Dialog
+ 
+-Time pickers appear in dialogs. The examples in this guide don't use dialogs. For examples that do use dialogs, see the [Dialogs for time pickers](https://developer.android.com/develop/ui/compose/components/time-pickers-dialogs) guide.
++Time pickers appear in dialogs. The examples in this guide don't use dialogs.
++For examples that do use dialogs, see the [Dialogs for time pickers](https://developer.android.com/develop/ui/compose/components/time-pickers-dialogs) guide.
+ 
+ ## Dial time picker
+ 
+ This snippet demonstrates how to implement a basic dial time picker.
+ 
+-<br />
+ 
+ ```kotlin
+ @Composable
+@@ -69,7 +76,6 @@ fun DialExample(
+         }
+     }
+ }
+-   
+ ```
+ 
+ <br />
+@@ -77,7 +83,8 @@ fun DialExample(
+ Consider the following in this snippet:
+ 
+ - `Calendar.getInstance()` initializes the `TimePickerState` with the current time.
+-  - This example uses `java.util.Calendar`. Enable [Java 8+ API desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring) in your project to alternatively use `java.time.LocalTime` on all Android versions.
++  - This example uses `java.util.Calendar`. Enable [Java
++    8+ API desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring) in your project to alternatively use `java.time.LocalTime` on all Android versions.
+ - The `TimePicker` composable displays the time picker, taking `timePickerState` as a parameter.
+ - The implementation includes two buttons: one to confirm the selection and another to dismiss the picker.
+ 
+@@ -88,7 +95,6 @@ This implementation appears as follows:
+ 
+ This snippet demonstrates how to implement a basic input style time picker.
+ 
+-<br />
+ 
+ ```kotlin
+ @Composable
+@@ -116,7 +122,6 @@ fun InputExample(
+         }
+     }
+ }
+-   
+ ```
+ 
+ <br />
+@@ -131,11 +136,13 @@ This implementation appears as follows:
+ 
+ ## Use the state
+ 
+-To make use of the time that the user has selected in a time picker, pass the appropriate `TimePickerState` to your `onConfirm` function. The parent composable can then access the selected time through `TimePickerState.hour` and `TimePickerState.minute`.
++To make use of the time that the user has selected in a time picker, pass the
++appropriate `TimePickerState` to your `onConfirm` function. The parent
++composable can then access the selected time through `TimePickerState.hour` and
++`TimePickerState.minute`.
+ 
+ The following snippet demonstrates how to do this:
+ 
+-<br />
+ 
+ ```kotlin
+ @Composable
+@@ -163,7 +170,6 @@ fun DialUseStateExample(
+         }
+     }
+ }
+-   
+ ```
+ 
+ <br />
+@@ -197,7 +203,8 @@ You could then call the composable like this:
+         Text("No time selected.")
+     }
+ 
+-For more detail, see the [full implementation in the snippets app](https://github.com/android/snippets/blob/main/compose/snippets/src/main/java/com/example/compose/snippets/components/TimePickers.kt).
++For more detail, see the [full implementation in the snippets
++app](https://github.com/android/snippets/blob/main/compose/snippets/src/main/java/com/example/compose/snippets/components/TimePickers.kt).
+ 
+ ## Additional resources
+ 

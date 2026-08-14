@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/thomas-ezan.md b/docs/blog/authors/thomas-ezan.md
+index 351b63e8..a67c9ff8 100644
+--- a/docs/blog/authors/thomas-ezan.md
++++ b/docs/blog/authors/thomas-ezan.md
+@@ -55,5 +55,8 @@ Senior Developer Relations Engineer
+ 
+ [arrow_forward](https://developer.android.com/blog/authors/thomas-ezan/2) Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

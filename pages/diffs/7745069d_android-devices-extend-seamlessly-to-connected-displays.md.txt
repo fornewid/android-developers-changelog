@@ -1,0 +1,121 @@
+diff --git a/docs/blog/posts/android-devices-extend-seamlessly-to-connected-displays.md b/docs/blog/posts/android-devices-extend-seamlessly-to-connected-displays.md
+index 4882ec33..b6fc7cf9 100644
+--- a/docs/blog/posts/android-devices-extend-seamlessly-to-connected-displays.md
++++ b/docs/blog/posts/android-devices-extend-seamlessly-to-connected-displays.md
+@@ -10,11 +10,9 @@ source: md.txt
+ 
+ 7 min read ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_1A0pVS.webp) 03 Mar 2026 [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) Developer Relations Engineer, Android We are excited to announce a major milestone in bringing mobile and desktop computing closer together on Android: connected display support has reached general availability with the [Android 16 QPR3](https://developer.android.com/about/versions/16/qpr3/release-notes) release!  
+ 
+-
+ As shown at [Google I/O 2025](https://www.youtube.com/watch?v=MmeJSLAnB-M), connected displays allow users to connect their Android devices to an external monitor and instantly access a desktop windowing environment. Apps can be used in free-form or maximized windows and users can multitask just like they would on a desktop OS.
+ 
+ Google and Samsung have collaborated to bring a seamless and powerful desktop windowing experience to devices across the Android ecosystem running Android 16 while connected to an external display.   
+-
+ This is now generally available on supported devices\* to users who can connect their supported Pixel and Samsung phones to external monitors, enabling new opportunities for building more engaging and more productive app experiences that adapt across form factors.
+ 
+ ### **How does it work?**
+@@ -37,7 +35,6 @@ In the Android 16 QPR3 release, we finalized the windowing behaviors, taskbar in
+ 
+ <br />
+ 
+-
+ If your app is built with [adaptive design principles](https://m3.material.io/foundations/adaptive-design), it will automatically have the desktop look and feel, and users will feel right at home. If the app is locked to portrait or assumes a touch-only interface, now is the time to modernize.
+ 
+ In particular, pay attention to these key best practices for optimal app experiences on connected displays:
+@@ -54,10 +51,8 @@ We provide several tools to help you build the desktop experience. Let's recap t
+ 
+ The biggest update in [Jetpack WindowManager 1.5.0](https://developer.android.com/jetpack/androidx/releases/window#1.5.0) is the addition of two new width window size classes: Large and Extra-large.  
+ 
+-
+ Window size classes are our official, opinionated set of viewport breakpoints that help you design and develop adaptive layouts. With 1.5.0, we're extending this guidance for screens that go beyond the size of typical tablets.  
+ 
+-
+ Here are the new width breakpoints:
+ 
+ - Large: For widths between 1200dp and 1600dp
+@@ -94,16 +89,12 @@ if(sizeClass.isWidthAtLeastBreakpoint(
+ 
+ [Navigation 3](https://developer.android.com/guide/navigation/navigation-3) is the latest addition to the Jetpack collection. Navigation 3, which just reached its first stable release, is a powerful navigation library designed to work with Compose.  
+ 
+-
+ Navigation 3 is also a great tool for building adaptive layouts by allowing multiple destinations to be displayed at the same time and allowing seamless switching between those layouts.  
+ 
+-
+ This system for managing your app's UI flow is based on Scenes. A [Scene](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/Scene) is a layout that displays one or more destinations at the same time. A [SceneStrategy](https://developer.android.com/reference/androidx/navigation3/ui/SceneStrategy) determines whether it can create a Scene. Chaining SceneStrategy instances together allows you to create and display different scenes for different screen sizes and device configurations.  
+ 
+-
+ For out-of-the-box canonical layouts, like list-detail and supporting pane, you can [use the Scenes from the Compose Material 3 Adaptive library](https://developer.android.com/guide/navigation/navigation-3/custom-layouts#display-list-detail) (available in [version 1.3 and above](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#compose_material3_adaptive_version_13_2)).  
+ 
+-
+ It's also easy to build your own custom Scenes by [modifying the Scene recipes](https://github.com/android/nav3-recipes?tab=readme-ov-file#create-custom-scenes) or starting from scratch. For example, let's consider a Scene that displays three panes side by side:
+ 
+ ```
+@@ -173,7 +164,6 @@ NavDisplay(...,
+ 
+ If there isn't enough space to display three or two panes---both our custom scene strategies return `null`. In this case, `NavDisplay` falls back to displaying the last entry in the back stack in a single pane using `SinglePaneScene`.   
+ 
+-
+ By using scenes and strategies, you can add one, two, and three pane layouts to your app!
+ ![adaptivepane.gif](https://developer.android.com/static/blog/assets/adaptivepane_c2f34f0b31_2qrog2.webp)
+ 
+@@ -214,27 +204,42 @@ Written by:
+ 
+   ###### Developer Relations Engineer, Android
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/francesco-romano) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/francesco-romano) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)
+ Continue reading
+ - [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) 10 Oct 2025 10 Oct 2025 ![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Z20PMAS.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Jetpack WindowManager 1.5 is stable](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) We're excited to announce that Jetpack WindowManager 1.5.0 is now stable! This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
+-  [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 2 min read
+-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Delivering safer, age-appropriate experiences on Google Play](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play)
++  [arrow_forward](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) We're excited to announce that Jetpack WindowManager 1.5.0 is now stable!
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play) Providing a safe online experience and protecting users from harm is a top priority at Google Play.
+-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
+-- 3 Authors 28 Jul 2026 28 Jul 2026 ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z1F9b9M.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
+-  [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
++  This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
++  [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 2 min read
++- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_1w4qDC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
++
++  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release) Today, the Jetpack Compose August '26 release is stable!
++  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
++  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
++- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
++
++  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
++  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
++  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
++  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
++  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
++  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
++  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
++  - [#Foldables](https://developer.android.com/blog/topics/foldables)
++  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
++  - +5 ↩
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

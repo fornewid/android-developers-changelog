@@ -1,0 +1,156 @@
+diff --git a/docs/training/cars/communication/templated-messaging.md b/docs/training/cars/communication/templated-messaging.md
+index 3c746efd..59909c0e 100644
+--- a/docs/training/cars/communication/templated-messaging.md
++++ b/docs/training/cars/communication/templated-messaging.md
+@@ -6,23 +6,34 @@ source: md.txt
+ 
+ Templated messaging experiences are in beta At this time, anyone can publish communication apps with templated messaging experiences to internal testing and closed testing tracks on the Play Store. Publishing to open testing and production tracks will be permitted at a later date. [Nominate yourself to be an early access partner →](https://forms.gle/VsXEdDEBidxw8q8u8) ![](https://developer.android.com/static/images/picto-icons/test-tube-2.svg)
+ 
+-In addition to the basic notification-powered messaging experience for reading and replying to messages, Android Auto supports richer messaging experiences built using the [Android for Cars App Library](https://developer.android.com/training/cars/apps).
++In addition to the basic notification-powered messaging experience for reading
++and replying to messages, Android Auto supports richer messaging experiences
++built using the [Android for Cars App Library](https://developer.android.com/training/cars/apps).
+ 
+ ## Support notification-powered messaging experiences
+ 
+-All apps that support templated messaging experiences must also [extend messaging notifications for Android Auto](https://developer.android.com/training/cars/communication/notification-messaging). This integration allows users to read and reply to messages without having to open the templated app.
++All apps that support templated messaging experiences must also [extend
++messaging notifications for Android Auto](https://developer.android.com/training/cars/communication/notification-messaging). This
++integration allows users to read and reply to messages without having to open
++the templated app.
+ 
+ ## Build a templated messaging experience
+ 
+-Follow the guidance in [Use the Android for Cars App Library](https://developer.android.com/training/cars/apps) and [Add support for Android Auto to your templated app](https://developer.android.com/training/cars/apps/auto) to get started building your app's templated experience. Then, refer to the guidance on this page to understand the specific requirements for templated messaging apps.
++Follow the guidance in [Use the Android for Cars App Library](https://developer.android.com/training/cars/apps) and [Add
++support for Android Auto to your templated app](https://developer.android.com/training/cars/apps/auto) to get started
++building your app's templated experience. Then, refer to the guidance on this
++page to understand the specific requirements for templated messaging apps.
+ 
+ ### Configure your app's manifest files
+ 
+-To inform Android Auto of your app's capabilities, your app must do the following:
++To inform Android Auto of your app's capabilities, your app must do the
++following:
+ 
+ #### Declare category support in your manifest
+ 
+-Your app needs to declare the `androidx.car.app.category.MESSAGING` [car app category](https://developer.android.com/training/cars/apps#supported-app-categories) in the intent filter of its [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService).
++Your app needs to declare the `androidx.car.app.category.MESSAGING` [car app
++category](https://developer.android.com/training/cars/apps#supported-app-categories) in the intent filter of its
++[`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService).
+ 
+     <application>
+         ...
+@@ -43,7 +54,9 @@ Your app needs to declare the `androidx.car.app.category.MESSAGING` [car app cat
+ 
+ #### Set the minimum car app API level
+ 
+-Because the [`ConversationItem`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationItem) API is only supported on Car API 7 or higher, you should also set the `minCarApiLevel` metadata to that value. See [Car App API Level](https://developer.android.com/training/cars/apps#api-level) for more information.
++Because the [`ConversationItem`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationItem) API is only supported on
++Car API 7 or higher, you should also set the `minCarApiLevel` metadata to that
++value. See [Car App API Level](https://developer.android.com/training/cars/apps#api-level) for more information.
+ 
+     <application ...>
+         ...
+@@ -55,14 +68,19 @@ Because the [`ConversationItem`](https://developer.android.com/reference/android
+ 
+ #### Declare Android Auto support
+ 
+-In the `automotive_app_desc.xml` file that you use to [declare Android Auto support](https://developer.android.com/training/cars/apps/auto#declare-android-auto-support), verify that both the `notification` and `template` capabilities are declared:
++In the `automotive_app_desc.xml` file that you use to [declare Android Auto
++support](https://developer.android.com/training/cars/apps/auto#declare-android-auto-support), verify that both the `notification` and
++`template` capabilities are declared:
+ 
+     <automotiveApp>
+         <uses name="notification" />
+         <uses name="template" />
+     </automotiveApp>
+ 
+-If your app can be set as the [default SMS handler](https://developer.android.com/reference/android/provider/Telephony#creating-an-sms-app), make sure to include the following `<uses>` element. If you don't, a default handler built-in to Android Auto will be used to handle incoming SMS/MMS messages, which can lead to duplicate notifications.
++If your app can be set as the [default SMS handler](https://developer.android.com/reference/android/provider/Telephony#creating-an-sms-app),
++make sure to include the following `<uses>` element. If you don't, a default
++handler built-in to Android Auto will be used to handle incoming SMS/MMS
++messages, which can lead to duplicate notifications.
+ 
+     <automotiveApp>
+         ...
+@@ -71,11 +89,16 @@ If your app can be set as the [default SMS handler](https://developer.android.co
+ 
+ ### Display conversations
+ 
+-To display an overview of a user's conversations, you can display a list of [`ConversationItem`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationItem) objects in a [`ListTemplate`](https://developer.android.com/reference/androidx/car/app/model/ListTemplate) or [`SectionedItemTemplate`](https://developer.android.com/reference/androidx/car/app/model/SectionedItemTemplate).
++To display an overview of a user's conversations, you can display a list of
++[`ConversationItem`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationItem) objects in a
++[`ListTemplate`](https://developer.android.com/reference/androidx/car/app/model/ListTemplate) or
++[`SectionedItemTemplate`](https://developer.android.com/reference/androidx/car/app/model/SectionedItemTemplate).
+ 
+-For a good user experience, we recommend providing at most the 5-10 most recent or most important conversations, with no more than the 5 most recent messages for each conversation. This helps improve loading performance, lets users see the most relevant content, and reduces interaction time.
++For a good user experience, we recommend providing at most the 5-10 most
++recent or most important conversations, with no more than the 5 most recent
++messages for each conversation. This helps improve loading performance, lets
++users see the most relevant content, and reduces interaction time.
+ 
+-<br />
+ 
+ ```kotlin
+ class MyMessagingScreen(carContext: CarContext) : Screen(carContext) {
+@@ -122,32 +145,47 @@ class MyMessagingScreen(carContext: CarContext) : Screen(carContext) {
+             .build()
+     }
+ }
+-   
+ ```
+ 
+ <br />
+ 
+-Each `ConversationItem` automatically displays actions for playing a message and marking it as read as and for replying. Those actions are handled by the [`ConversationCallbackDelegate`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationCallbackDelegate) you supply when building the `ConversationItem`.
++Each `ConversationItem` automatically displays actions for playing a message
++and marking it as read as and for replying. Those actions are handled by the
++[`ConversationCallbackDelegate`](https://developer.android.com/reference/androidx/car/app/messaging/model/ConversationCallbackDelegate) you supply when
++building the `ConversationItem`.
+ 
+ > [!TIP]
+ > **Tip:** You can re-use the logic for marking messages as read and replying that enables your app's notification-powered experience.
+ 
+-If your app provides [conversation shortcuts](https://developer.android.com/develop/ui/views/notifications/conversations#api-shortcuts), verify that the ID provided when building the `ConversationItem` is the same as the ID for that conversation's shortcut.
++If your app provides [conversation shortcuts](https://developer.android.com/develop/ui/views/notifications/conversations#api-shortcuts), verify
++that the ID provided when building the `ConversationItem` is the same as the
++ID for that conversation's shortcut.
+ 
+ #### Update conversations
+ 
+-As users send and receive messages, you should refresh your app's screens to include the new messages by calling [`invalidate()`](https://developer.android.com/reference/androidx/car/app/Screen#invalidate()). See [Refresh the contents of a template](https://developer.android.com/training/cars/apps#refresh-template).
++As users send and receive messages, you should refresh your app's screens to
++include the new messages by calling [`invalidate()`](https://developer.android.com/reference/androidx/car/app/Screen#invalidate()). See [Refresh
++the contents of a template](https://developer.android.com/training/cars/apps#refresh-template).
+ 
+-For the best user experience, we recommend keeping refresh times to 500 milliseconds or fewer. If refreshing frequently takes longer, you can display a loading state while you load the incoming messages.
++For the best user experience, we recommend keeping refresh times to 500
++milliseconds or fewer. If refreshing frequently takes longer, you can display a
++loading state while you load the incoming messages.
+ 
+ #### Set notification importance appropriately
+ 
+-To reduce distractions, your app should lower the importance of incoming notifications when a user is using your viewing a corresponding conversation so the notifications don't appear as heads up notifications (HUNs).
++To reduce distractions, your app should lower the importance of incoming
++notifications when a user is using your viewing a corresponding conversation
++so the notifications don't appear as heads up notifications (HUNs).
+ 
+-You can track if a conversation is visible by observing the lifecycle of the `Screen` that displays it. See [The lifecycle of a screen](https://developer.android.com/training/cars/apps#screen-lifecycle).
++You can track if a conversation is visible by observing the lifecycle of the
++`Screen` that displays it. See [The lifecycle of a screen](https://developer.android.com/training/cars/apps#screen-lifecycle).
+ 
+-To prevent a notification from appearing as a HUN, set the priority to [`IMPORTANCE_DEFAULT`](https://developer.android.com/reference/androidx/core/app/NotificationManagerCompat#IMPORTANCE_DEFAULT) or lower.
++To prevent a notification from appearing as a HUN, set the priority to
++[`IMPORTANCE_DEFAULT`](https://developer.android.com/reference/androidx/core/app/NotificationManagerCompat#IMPORTANCE_DEFAULT) or lower.
+ 
+ ## Distribute templated messaging apps
+ 
+-Because apps that support templated messaging experiences can only be published to Internal Testing and Closed Testing tracks on Google Play, you shouldn't promote builds that include support to Open Testing or Production tracks, as submissions containing builds on those tracks will be rejected.
+\ No newline at end of file
++Because apps that support templated messaging experiences can only be published
++to Internal Testing and Closed Testing tracks on Google Play, you shouldn't
++promote builds that include support to Open Testing or Production tracks, as
++submissions containing builds on those tracks will be rejected.
+\ No newline at end of file

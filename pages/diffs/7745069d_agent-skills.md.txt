@@ -1,0 +1,17 @@
+diff --git a/docs/blog/topics/agent-skills.md b/docs/blog/topics/agent-skills.md
+index d1b9dd74..548c0afa 100644
+--- a/docs/blog/topics/agent-skills.md
++++ b/docs/blog/topics/agent-skills.md
+@@ -19,5 +19,8 @@ source: md.txt
+   - +2 ↩
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

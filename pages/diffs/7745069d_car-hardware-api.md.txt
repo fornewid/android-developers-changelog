@@ -1,0 +1,102 @@
+diff --git a/docs/training/cars/apps/library/car-hardware-api.md b/docs/training/cars/apps/library/car-hardware-api.md
+index 2d9e9814..08fa0f9a 100644
+--- a/docs/training/cars/apps/library/car-hardware-api.md
++++ b/docs/training/cars/apps/library/car-hardware-api.md
+@@ -4,17 +4,27 @@ url: https://developer.android.com/training/cars/apps/library/car-hardware-api
+ source: md.txt
+ ---
+ 
+-Starting with Car App API level 3, you can use Car App Library APIs to access vehicle properties and sensors.
++Starting with Car App API level 3, you can use Car App Library APIs to access
++vehicle properties and sensors.
+ 
+ ## Requirements
+ 
+-To use the APIs with Android Auto, start by adding a dependency on `androidx.car.app:app-projected` to the `build.gradle` file for your Android Auto module. For Android Automotive OS, add a dependency on `androidx.car.app:app-automotive` to the `build.gradle` file for your Android Automotive OS module.
++To use the APIs with Android Auto, start by adding a dependency on
++`androidx.car.app:app-projected` to the `build.gradle` file for your Android
++Auto module. For Android Automotive OS, add a dependency on
++`androidx.car.app:app-automotive` to the `build.gradle` file for your Android
++Automotive OS module.
+ 
+-Additionally, in your `AndroidManifest.xml` file, you must [declare the relevant permissions](https://developer.android.com/training/permissions/declaring) to request the car data you want to use. The user must also [grant](https://developer.android.com/training/permissions/requesting) these permissions to you. You can use the [same code](https://developer.android.com/training/cars/apps/library/request-permissions) on Android Auto and Android Automotive OS, rather than creating platform-dependent flows. However, the required permissions differ.
++Additionally, in your `AndroidManifest.xml` file, you must [declare the relevant
++permissions](https://developer.android.com/training/permissions/declaring) to request the car data you want to use. The user must also
++[grant](https://developer.android.com/training/permissions/requesting) these permissions to you. You can use the [same code](https://developer.android.com/training/cars/apps/library/request-permissions) on Android
++Auto and Android Automotive OS, rather than creating platform-dependent flows.
++However, the required permissions differ.
+ 
+ ## CarInfo
+ 
+-This table describes the properties provided in the [`CarInfo`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo) APIs and the permissions you must request to use them.
++This table describes the properties provided in the [`CarInfo`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo) APIs and the
++permissions you must request to use them.
+ 
+ | Methods | Properties | Permissions: Android Auto | Permissions: AAOS | Car App API |
+ |---|---|---|---|---|
+@@ -26,9 +36,9 @@ This table describes the properties provided in the [`CarInfo`](https://develope
+ | [`addSpeedListener`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#addSpeedListener(java.util.concurrent.Executor,%20androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.Speed>)) [`removeSpeedListener`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#removeSpeedListener(androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.Speed>)) | Raw speed, display speed (shown on car's cluster display) | `com.google.android.gms.permission.CAR_SPEED` | `android.car.permission.CAR_SPEED` `android.car.permission.READ_CAR_DISPLAY_UNITS` | 3 |
+ | [`addMileageListener`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#addMileageListener(java.util.concurrent.Executor,%20androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.Mileage>)) [`removeMileageListener`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo#removeMileageListener(androidx.car.app.hardware.common.OnCarDataAvailableListener<androidx.car.app.hardware.info.Mileage>)) | Odometer distance | `com.google.android.gms.permission.CAR_MILEAGE` | *Data not available to Android Automotive OS apps installed from Google Play.* | 3 |
+ 
+-For example, to get the remaining range, instantiate a `CarInfo` object, then create and register an `OnCarDataAvailableListener`:
++For example, to get the remaining range, instantiate a
++`CarInfo` object, then create and register an `OnCarDataAvailableListener`:
+ 
+-<br />
+ 
+ ```kotlin
+ val carInfo = carContext.getCarService(CarHardwareManager::class.java).carInfo
+@@ -45,20 +55,24 @@ carInfo.addEnergyLevelListener(carContext.mainExecutor, listener)
+ // ...
+ // Unregister the listener when you no longer need updates
+ carInfo.removeEnergyLevelListener(listener)
+-   
+ ```
+ 
+ <br />
+ 
+-Don't assume that the car's data is available at all times. If you get an error, check the [status](https://developer.android.com/reference/androidx/car/app/hardware/common/CarValue#getStatus()) of the value you requested to better understand why the data you requested couldn't be retrieved. To learn more about the `CarInfo` class definition, see the [reference documentation](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo).
++Don't assume that the car's data is available at all times. If you get an error,
++check the [status](https://developer.android.com/reference/androidx/car/app/hardware/common/CarValue#getStatus()) of the value you requested to better understand why the
++data you requested couldn't be retrieved. To learn more about the `CarInfo`
++class definition, see the [reference documentation](https://developer.android.com/reference/androidx/car/app/hardware/info/CarInfo).
+ 
+ ## CarSensors
+ 
+-The [`CarSensors`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarSensors) class gives you access to the vehicle's accelerometer, gyroscope, compass, and location data. The availability of these values might depend on the OEM. The format for the data from the accelerometer, gyroscope, and compass is the same as you would get from the [`SensorManager` API](https://developer.android.com/reference/android/hardware/SensorManager).
++The [`CarSensors`](https://developer.android.com/reference/androidx/car/app/hardware/info/CarSensors) class gives you access to the vehicle's accelerometer,
++gyroscope, compass, and location data. The availability of these values might
++depend on the OEM. The format for the data from the accelerometer, gyroscope,
++and compass is the same as you would get from the [`SensorManager` API](https://developer.android.com/reference/android/hardware/SensorManager).
+ 
+ For example, to check the vehicle's heading:
+ 
+-<br />
+ 
+ ```kotlin
+ val carSensors = carContext.getCarService(CarHardwareManager::class.java).carSensors
+@@ -75,16 +89,19 @@ carSensors.addCompassListener(CarSensors.UPDATE_RATE_NORMAL, carContext.mainExec
+ // ...
+ // Unregister the listener when you no longer need updates
+ carSensors.removeCompassListener(listener)
+-   
+ ```
+ 
+ <br />
+ 
+-To access location data from the car, you must also declare and request the `android.permission.ACCESS_FINE_LOCATION` permission.
++To access location data from the car, you must also declare and request the
++`android.permission.ACCESS_FINE_LOCATION` permission.
+ 
+ > [!CAUTION]
+ > **Caution:** On Android Automotive OS, `CarSensors` data returns [`STATUS_UNIMPLEMENTED`](https://developer.android.com/reference/androidx/car/app/hardware/common/CarValue#STATUS_UNIMPLEMENTED()). Instead, use standard Android APIs to access the data, such as `SensorManager` or [`LocationManager`](https://developer.android.com/reference/android/location/LocationManager).
+ 
+ ## Test
+ 
+-To simulate sensor data when testing on Android Auto, see the [Sensors](https://developer.android.com/training/cars/testing/dhu#sensors) and [Sensor configuration](https://developer.android.com/training/cars/testing/dhu#sensor-configuration) sections of the Desktop Head Unit guide. To simulate sensor data when testing on Android Automotive OS, see [Emulate hardware state](https://developer.android.com/training/cars/testing/emulator#emulate-state) in the Android Automotive OS emulator guide.
+\ No newline at end of file
++To simulate sensor data when testing on Android Auto, see the
++[Sensors](https://developer.android.com/training/cars/testing/dhu#sensors) and [Sensor configuration](https://developer.android.com/training/cars/testing/dhu#sensor-configuration) sections of the Desktop Head Unit
++guide. To simulate sensor data when testing on Android Automotive OS, see
++[Emulate hardware state](https://developer.android.com/training/cars/testing/emulator#emulate-state) in the Android Automotive OS emulator guide.
+\ No newline at end of file

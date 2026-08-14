@@ -1,0 +1,68 @@
+diff --git a/docs/develop/ui/compose/components/navigation-rail.md b/docs/develop/ui/compose/components/navigation-rail.md
+index 8b9d504c..643175f8 100644
+--- a/docs/develop/ui/compose/components/navigation-rail.md
++++ b/docs/develop/ui/compose/components/navigation-rail.md
+@@ -4,7 +4,8 @@ url: https://developer.android.com/develop/ui/compose/components/navigation-rail
+ source: md.txt
+ ---
+ 
+-Rails provide access to destinations in apps that run on devices with large screens. You should use navigation rails for:
++Rails provide access to destinations in apps that run on devices with large
++screens. You should use navigation rails for:
+ 
+ - Top-level destinations that need to be accessible anywhere in an app
+ - Three to seven main destinations
+@@ -12,11 +13,14 @@ Rails provide access to destinations in apps that run on devices with large scre
+ 
+ ![A vertical navigation rail on the left side of a screen with four destinations (All Files, Recent, Photos, and Library), each with an associated icon, and a floating action button.](https://developer.android.com/static/develop/ui/compose/images/components/navigation-rail.png) **Figure 1.** A navigation rail with four destinations and a floating action button.
+ 
+-This page shows you how to display rails in your app with related screens and basic navigation.
++This page shows you how to display rails in your app with related screens and
++basic navigation.
+ 
+ ## API surface
+ 
+-Use the [`NavigationRail`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationRail.composable#NavigationRail(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable with [`NavigationRailItem`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationRailItem.composable#NavigationRailItem(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.NavigationRailItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) to implement a rail in your application. The `NavigationRailItem` represents a single rail item in the rail column.
++Use the [`NavigationRail`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationRail.composable#NavigationRail(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1,androidx.compose.foundation.layout.WindowInsets,kotlin.Function1)) composable with [`NavigationRailItem`](https://developer.android.com/reference/kotlin/androidx/compose/material3/NavigationRailItem.composable#NavigationRailItem(kotlin.Boolean,kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Boolean,kotlin.Function0,kotlin.Boolean,androidx.compose.material3.NavigationRailItemColors,androidx.compose.foundation.interaction.MutableInteractionSource)) to
++implement a rail in your application. The `NavigationRailItem` represents a
++single rail item in the rail column.
+ 
+ `NavigationRailItem` includes the following key parameters:
+ 
+@@ -27,12 +31,12 @@ Use the [`NavigationRail`](https://developer.android.com/reference/kotlin/androi
+ 
+ ## Example: Rail-based navigation
+ 
+-The following snippet implements a navigation rail so users can navigate between different screens in an app:
++The following snippet implements a navigation rail so users can navigate between
++different screens in an app:
+ 
+ > [!NOTE]
+ > **Note:** The [full source code](https://github.com/android/snippets/blob/main/compose/snippets/src/main/java/com/example/compose/snippets/components/Navigation.kt) includes the code that establishes the basic navigation structure for the following example.
+ 
+-<br />
+ 
+ ```kotlin
+ @Composable
+@@ -63,7 +67,6 @@ fun NavigationRailExample(modifier: Modifier = Modifier) {
+         AppNavHost(navController, startDestination)
+     }
+ }
+-   
+ ```
+ 
+ <br />
+@@ -72,9 +75,11 @@ fun NavigationRailExample(modifier: Modifier = Modifier) {
+ 
+ - `NavigationRail` displays a vertical column of rail items, with each item corresponding to a `Destination`.
+ - `val navController = rememberNavController()` creates and remembers an instance of [`NavHostController`](https://developer.android.com/reference/androidx/navigation/NavHostController), which manages the navigation within a [`NavHost`](https://developer.android.com/reference/androidx/navigation/NavHost).
+-- `var selectedDestination by rememberSaveable { mutableIntStateOf(startDestination.ordinal) }` manages the state of the selected rail item.
++- `var selectedDestination by rememberSaveable {
++  mutableIntStateOf(startDestination.ordinal) }` manages the state of the selected rail item.
+   - `startDestination.ordinal` gets the numerical index (position) of the `Destination.SONGS` enum entry.
+-- When a rail item is clicked, `navController.navigate(route = destination.route)` is called to navigate to the corresponding screen.
++- When a rail item is clicked, `navController.navigate(route =
++  destination.route)` is called to navigate to the corresponding screen.
+ - The `onClick` lambda of the `NavigationRailItem` updates the `selectedDestination` state to visually highlight the clicked rail item.
+ - It calls the `AppNavHost` composable, passing the `navController` and `startDestination`, to display the actual content of the selected screen.
+ 

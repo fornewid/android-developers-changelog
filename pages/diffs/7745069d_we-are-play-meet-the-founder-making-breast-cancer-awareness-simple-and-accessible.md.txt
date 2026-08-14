@@ -1,0 +1,50 @@
+diff --git a/docs/blog/posts/we-are-play-meet-the-founder-making-breast-cancer-awareness-simple-and-accessible.md b/docs/blog/posts/we-are-play-meet-the-founder-making-breast-cancer-awareness-simple-and-accessible.md
+index 9dbb6479..f116f87a 100644
+--- a/docs/blog/posts/we-are-play-meet-the-founder-making-breast-cancer-awareness-simple-and-accessible.md
++++ b/docs/blog/posts/we-are-play-meet-the-founder-making-breast-cancer-awareness-simple-and-accessible.md
+@@ -13,14 +13,12 @@ source: md.txt
+ *** ** * ** ***
+ 
+ In our latest [#WeArePlay](https://play.google.com/console/about/weareplay/) film, which celebrates the people behind apps and games on Google Play, we meet Corrine, the founder of [Know Your Lemons](https://play.google.com/store/apps/details?id=com.knowyourlemons.app&gl=US). After losing family and friends to breast cancer, she used her skills as a designer to create a simple, visual, and accessible way to educate people about breast cancer. Discover how her award-winning app is changing the conversation around breast cancer and saving lives worldwide.  
+-
+ [Video](https://www.youtube.com/watch?v=pGMUe3_Xn2g)
+ 
+ ### Your mission is deeply personal. What inspired you to create the app and use lemons?
+ 
+ In my early 20s, I lost both my grandmothers and a close friend to breast cancer, which made me look for information about the disease. As a graphic designer, I knew I could improve the educational materials available by creating something more effective.  
+ 
+-
+ That's where the lemons come in. I was searching for a universal symbol and discovered that lemons have features like nipples and pores, like a breast. The idea was perfected when a radiologist explained that a cancerous lump is usually hard, like a lemon seed. It gave us a simple, friendly, and visually clear way to talk about a scary topic and explain the 12 signs of breast cancer so that everyone can understand.
+ ![IMAGE 1 - 11_US_KNOW YOUR LEMONS_APP.jpg](https://developer.android.com/static/blog/assets/IMAGE_1_11_US_KNOW_YOUR_LEMONS_APP_34d55888b1_CI2RU.webp)
+ 
+@@ -37,7 +35,6 @@ We also heard of a boyfriend who found our visual of the 12 signs of breast canc
+ 
+ To spread our mission, we use a two-part approach that combines powerful technology with a human touch.  
+ 
+-
+ First, the Know Your Lemons app acts as a complete guide in your pocket. It has our visual self-exam guide that makes finding a lump easier. To bring that education to life, we have over 1,200 trained volunteers called "Lemonistas". They go into their communities to teach hands-on classes using digital presentations and physical props, like a model of a lemon with a lump inside. Our partners in Tanzania, for example, have seen women come to their clinic at stage one or two instead of stage four. They estimate that 12 lives were saved in 18 months, which shows how our tools in the hands of passionate volunteers can make a life-saving difference.
+ 
+ ### How has being on Google Play helped your mission?
+@@ -57,7 +54,8 @@ Written by:
+ 
+   ###### Brand Marketing Manager
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/robbie-mclachlan) ![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp) ![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/robbie-mclachlan) ![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp) ![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)
+ Continue reading
+ - [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 25 Mar 2026 25 Mar 2026 ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp) [Community](https://developer.android.com/blog/categories/community)
+ 
+@@ -79,5 +77,8 @@ Continue reading
+   [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

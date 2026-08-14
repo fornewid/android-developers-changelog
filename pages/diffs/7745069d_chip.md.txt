@@ -1,0 +1,134 @@
+diff --git a/docs/develop/ui/compose/components/chip.md b/docs/develop/ui/compose/components/chip.md
+index 875720d7..4bc675bf 100644
+--- a/docs/develop/ui/compose/components/chip.md
++++ b/docs/develop/ui/compose/components/chip.md
+@@ -4,7 +4,9 @@ url: https://developer.android.com/develop/ui/compose/components/chip
+ source: md.txt
+ ---
+ 
+-The `Chip` component is a compact, interactive UI element. It represents complex entities like a contact or tag, often with an icon and label. It can be checkable, dismissible, or clickable.
++The `Chip` component is a compact, interactive UI element. It represents complex
++entities like a contact or tag, often with an icon and label. It can be
++checkable, dismissible, or clickable.
+ 
+ The four types of chips and where you might use them are as follows:
+ 
+@@ -17,7 +19,9 @@ The four types of chips and where you might use them are as follows:
+ 
+ ## API surface
+ 
+-There are four composables that correspond to the four types of chips. The following sections outline these composables and their differences in detail. However, they share the following parameters:
++There are four composables that correspond to the four types of chips. The
++following sections outline these composables and their differences in detail.
++However, they share the following parameters:
+ 
+ - **`label`**: The string that appears on the chip.
+ - **`icon`** : The icon displayed at the start of the chip. Some of the specific composables have a separate `leadingIcon` and `trailingIcon` parameter.
+@@ -25,9 +29,11 @@ There are four composables that correspond to the four types of chips. The follo
+ 
+ ## Assist chip
+ 
+-The [`AssistChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AssistChip.composable) composable provides a straightforward way to create an assist chip that nudges the user in a particular direction. One distinguishing feature is its `leadingIcon` parameter that lets you display an icon on the left side of the chip. The following example demonstrates how you can implement it:
++The [`AssistChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/AssistChip.composable) composable provides a straightforward way to create an
++assist chip that nudges the user in a particular direction. One distinguishing
++feature is its `leadingIcon` parameter that lets you display an icon on the left
++side of the chip. The following example demonstrates how you can implement it:
+ 
+-<br />
+ 
+ ```kotlin
+ @Composable
+@@ -44,7 +50,6 @@ fun AssistChipExample() {
+         }
+     )
+ }
+-   
+ ```
+ 
+ <br />
+@@ -54,9 +59,10 @@ This implementation appears as follows.
+ 
+ ## Filter chip
+ 
+-The [`FilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilterChip.composable) composable requires you to track whether or not the chip is selected. The following example demonstrates how you can show a leading checked icon only when the user has selected the chip:
++The [`FilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/FilterChip.composable) composable requires you to track whether or not the chip
++is selected. The following example demonstrates how you can show a leading
++checked icon only when the user has selected the chip:
+ 
+-<br />
+ 
+ ```kotlin
+ @Composable
+@@ -82,7 +88,6 @@ fun FilterChipExample() {
+         },
+     )
+ }
+-   
+ ```
+ 
+ <br />
+@@ -95,14 +100,17 @@ And appears as follows when selected:
+ 
+ ## Input chip
+ 
+-You can use the [`InputChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/InputChip.composable) composable to create chips that result from user interaction. For example, in an email client, when the user is writing an email, an input chip might represent a contact the user has added to the "To:" field.
++You can use the [`InputChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/InputChip.composable) composable to create chips that result from
++user interaction. For example, in an email client, when the user is writing an
++email, an input chip might represent a contact the user has added to the "To:"
++field.
+ 
+-The following implementation demonstrates an input chip that is already in a selected state. The user dismisses the chip when they press it.
++The following implementation demonstrates an input chip that is already in a
++selected state. The user dismisses the chip when they press it.
+ 
+ > [!NOTE]
+ > **Note:** Consider how you might use a chip like this in the preceding email use case, with a name passed in for the `label` parameter, and a function that performs the necessary network calls for `onDismiss`.
+ 
+-<br />
+ 
+ ```kotlin
+ @Composable
+@@ -136,7 +144,6 @@ fun InputChipExample(
+         },
+     )
+ }
+-   
+ ```
+ 
+ <br />
+@@ -146,11 +153,14 @@ This implementation appears as follows.
+ 
+ ## Suggestion chip
+ 
+-The [`SuggestionChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SuggestionChip.composable) composable is the most basic of the composables listed on this page, both in its API definition and its common use cases. Suggestion chips present dynamically generated hints. For example, in an AI chat app, you might use suggestion chips to present possible responses to the most recent message.
++The [`SuggestionChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/SuggestionChip.composable) composable is the most basic of the composables listed
++on this page, both in its API definition and its common use cases. Suggestion
++chips present dynamically generated hints. For example, in an AI chat app, you
++might use suggestion chips to present possible responses to the most recent
++message.
+ 
+ Consider this implementation of `SuggestionChip`:
+ 
+-<br />
+ 
+ ```kotlin
+ @Composable
+@@ -160,7 +170,6 @@ fun SuggestionChipExample() {
+         label = { Text("Suggestion chip") }
+     )
+ }
+-   
+ ```
+ 
+ <br />
+@@ -173,7 +182,9 @@ This implementation appears as follows:
+ 
+ ## Elevated chip
+ 
+-All the examples in this document use the base composables that take a flat appearance. If you want a chip that has an elevated appearance, use one of the three following composables:
++All the examples in this document use the base composables that take a flat
++appearance. If you want a chip that has an elevated appearance, use one of the
++three following composables:
+ 
+ - [`ElevatedAssistChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedAssistChip.composable)
+ - [`ElevatedFilterChip`](https://developer.android.com/reference/kotlin/androidx/compose/material3/ElevatedFilterChip.composable)

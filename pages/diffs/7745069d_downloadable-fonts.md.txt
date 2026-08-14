@@ -1,0 +1,146 @@
+diff --git a/docs/develop/ui/views/text-and-emoji/downloadable-fonts.md b/docs/develop/ui/views/text-and-emoji/downloadable-fonts.md
+index 678ac7ab..627dba04 100644
+--- a/docs/develop/ui/views/text-and-emoji/downloadable-fonts.md
++++ b/docs/develop/ui/views/text-and-emoji/downloadable-fonts.md
+@@ -6,7 +6,9 @@ source: md.txt
+ 
+ Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. Learn how to use text in Compose. [Downloadable Fonts →](https://developer.android.com/jetpack/compose/text/fonts#downloadable-fonts) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+-The Downloadable Fonts feature lets APIs request fonts from a provider application instead of bundling files into the app or letting the app download fonts. Downloadable Fonts is available on devices running Android API versions 14 and higher through the AndroidX Core library.
++The Downloadable Fonts feature lets APIs request fonts from a provider application instead of
++bundling files into the app or letting the app download fonts. Downloadable Fonts is available on
++devices running Android API versions 14 and higher through the AndroidX Core library.
+ 
+ Downloadable Fonts offers the following benefits:
+ 
+@@ -17,12 +19,14 @@ For hands-on experience with Downloadable Fonts, see the [DownloadableFonts](htt
+ 
+ ### How does Downloadable Fonts work?
+ 
+-A font provider is an application that retrieves fonts and caches them locally so other apps can request and share fonts. The following figure illustrates the process.
++A font provider is an application that retrieves fonts and caches them locally so other apps can
++request and share fonts. The following figure illustrates the process.
+ ![An images showing the main components in Emoji compat process](https://developer.android.com/static/guide/topics/ui/images/look-and-feel/downloadable-fonts/downloadable-fonts-process.png) **Figure 1.** Downloadable Fonts process.
+ 
+ ### The basics
+ 
+-You can use the Downloadable Fonts feature in the following ways, which are discussed in detail' in later sections:
++You can use the Downloadable Fonts feature in the following ways, which are discussed in detail'
++in later sections:
+ 
+ - [Using Android Studio and Google Play Services](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#via-android-studio)
+ - [Programmatically](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#programmatically)
+@@ -30,7 +34,9 @@ You can use the Downloadable Fonts feature in the following ways, which are disc
+ 
+ ### Use Downloadable Fonts with Android Studio and Google Play services
+ 
+-You can set your application to download fonts by using Android Studio 3.0 or higher. To help you get started with Downloadable Fonts features, you can use the font provider from Google Play services.
++You can set your application to download fonts by using Android Studio 3.0 or higher. To help you
++get started with Downloadable Fonts features, you can use the font provider from Google Play
++services.
+ 
+ > [!NOTE]
+ > **Note:** A device must have Google Play services version 11 or higher to use the Google Fonts provider.
+@@ -44,14 +50,19 @@ You can set your application to download fonts by using Android Studio 3.0 or hi
+ 
+ ### Use Downloadable Fonts programmatically
+ 
+-As of Android 8.0 (API level 26), AndroidX Core provides full support for Downloadable Fonts. For more information about using the AndroidX Core library, see the [Downloadable Fonts AndroidX Core library section](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#via-support-lib) on this page.
++As of Android 8.0 (API level 26), AndroidX Core provides full support for Downloadable Fonts. For
++more information about using the AndroidX Core library, see the
++[Downloadable Fonts AndroidX Core library section](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#via-support-lib) on this page.
+ 
+ To use the Downloadable Fonts feature programmatically, interact with two key classes:
+ 
+ - **`https://developer.android.com/reference/kotlin/androidx/core/provider/FontRequest`**: this class lets you create a font request.
+ - **`https://developer.android.com/reference/androidx/core/provider/FontsContractCompat`** : this class lets you create a new `https://developer.android.com/reference/android/graphics/Typeface` object based on the font request.
+ 
+-Your app retrieves fonts from the font provider by using the `FontsContract` API. Each provider has its own set of restrictions on the Android versions and query language it supports. For more information on the Android versions and query format, refer to your provider's documentation.
++Your app retrieves fonts from the font provider by using the `FontsContract` API. Each
++provider has its own set of restrictions on the Android versions and query language it supports. For
++more information on the Android versions and query format, refer to your provider's
++documentation.
+ 
+ To download a font, complete the following steps:
+ 
+@@ -147,22 +158,37 @@ FontsContract.FontRequestCallback callback =
+ FontsContract.requestFonts(context, request, handler, null, callback);
+ ```
+ 
+-For more information about how to download a font from a font provider, see the [DownloadableFonts](https://github.com/android/user-interface-samples/tree/main/DownloadableFonts) sample app.
++For more information about how to download a font from a font provider, see the
++[DownloadableFonts](https://github.com/android/user-interface-samples/tree/main/DownloadableFonts)
++sample app.
+ 
+ ### Use Downloadable Fonts with AndroidX Core
+ 
+-The AndroidX Core provides support for the Downloadable Fonts feature on devices running Android API versions 14 or higher. The `https://developer.android.com/reference/androidx/core/provider/package-summary` package contains `FontsContractCompat` and `FontRequest` classes to implement the backward-compatible Downloadable Fonts feature support. The AndroidX classes contain methods similar to the framework methods, and the process for downloading fonts is similar to the one described in the section on this page about [using Downloadable Fonts programmatically](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#programmatically).
+-
+-To download fonts using AndroidX, import the `FontsContractCompat` and `FontRequest` classes from the `androidx.core.provider` package. Create instances of these classes instead of `https://developer.android.com/reference/android/provider/FontsContract` and `android.graphics.fonts.FontRequest` framework classes.
++The AndroidX Core provides support for the Downloadable Fonts feature on devices running Android
++API versions 14 or higher. The
++`https://developer.android.com/reference/androidx/core/provider/package-summary`
++package contains `FontsContractCompat` and `FontRequest` classes to implement
++the backward-compatible Downloadable Fonts feature support. The AndroidX classes contain methods
++similar to the framework methods, and the process for downloading fonts is similar to the one
++described in the section on this page about
++[using Downloadable Fonts programmatically](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#programmatically).
++
++To download fonts using AndroidX, import the `FontsContractCompat` and
++`FontRequest` classes from the `androidx.core.provider` package. Create
++instances of these classes instead of
++`https://developer.android.com/reference/android/provider/FontsContract` and
++`android.graphics.fonts.FontRequest` framework classes.
+ 
+ > [!NOTE]
+ > **Note:** You *must* provide a certificate when you request fonts through the AndroidX Core library. This is applicable even for the preinstalled font providers.
+ 
+ #### Add AndroidX Core dependency
+ 
+-To use the `FontsContractCompat` and `FontRequest` classes, you must modify your app project's classpath dependencies within your development environment.
++To use the `FontsContractCompat` and `FontRequest` classes, you must modify
++your app project's classpath dependencies within your development environment.
+ 
+-To add AndroidX Core to your application project, add the following dependency to your app's `build.gradle` file:
++To add AndroidX Core to your application project, add the following dependency to your app's
++`build.gradle` file:
+ 
+ ### Groovy
+ 
+@@ -184,7 +210,10 @@ dependencies {
+ 
+ ### Use Downloadable Fonts as resources in XML
+ 
+-Android 8.0 (API level 26) and AndroidX Core offer a faster and more convenient way to declare a custom font as a resource in the XML layout. This means that there is no need to bundle the font as an asset. You can define a custom font for your entire theme, which accelerates usability for multiple weights and styles, such as bold, medium, or light, when provided.
++Android 8.0 (API level 26) and AndroidX Core offer a faster and more convenient way to declare a
++custom font as a resource in the XML layout. This means that there is no need to bundle the font as
++an asset. You can define a custom font for your entire theme, which accelerates usability for
++multiple weights and styles, such as bold, medium, or light, when provided.
+ 
+ 1. Create a new XML file in the `res/font` folder.
+ 2. Add a `<font-family>` root element and set the font-related attributes, as shown in the following sample XML file:
+@@ -202,7 +231,12 @@ Android 8.0 (API level 26) and AndroidX Core offer a faster and more convenient
+ 
+ ### Pre-declare fonts in the manifest
+ 
+-Layout inflation and resource retrieval are synchronous tasks. By default, the first attempt to retrieve fonts triggers a request to the font provider, and therefore increases the first layout time. To avoid the delay, you can pre-declare fonts that need to be retrieved in your manifest. After the system retrieves the font from the provider, it is available immediately. If font retrieval takes longer than expected, the system aborts the fetching process and uses the default font.
++Layout inflation and resource retrieval are synchronous tasks. By default, the first attempt to
++retrieve fonts triggers a request to the font provider, and therefore increases the first layout
++time. To avoid the delay, you can pre-declare fonts that need to be retrieved in your manifest.
++After the system retrieves the font from the provider, it is available immediately. If font
++retrieval takes longer than expected, the system aborts the fetching process and uses the default
++font.
+ 
+ To pre-declare fonts in the manifest, complete the following steps:
+ 
+@@ -226,7 +260,9 @@ res/values/arrays.xml
+ 
+ ### Add certificates
+ 
+-When a font provider isn't preinstalled, or if you are using the AndroidX Core library, declare the certificates the font provider is signed with. The system uses the certificates to verify the font provider's identity.
++When a font provider isn't preinstalled, or if you are using the AndroidX Core library, declare
++the certificates the font provider is signed with. The system uses the certificates to verify the
++font provider's identity.
+ 
+ > [!NOTE]
+ > **Note** : Android Studio can automatically populate the values for the Google Play services provider if you use the font selector tool in Android Studio. For more information about using Android Studio for downloading fonts, see the [Use Downloadable Fonts with Android Studio and Google Play services](https://developer.android.com/develop/ui/views/text-and-emoji/downloadable-fonts#via-android-studio) section on this page.

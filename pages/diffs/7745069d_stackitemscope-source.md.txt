@@ -1,0 +1,26 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stackitemscope-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stackitemscope-source.md
+index cbbd2c5b..4a1cb6e3 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stackitemscope-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stackitemscope-source.md
+@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
+ source: md.txt
+ ---
+ 
+-When creating a Glimmer Stack component, refer to the following source code in `StackItemScope.kt` for setting the stack item scope:
++When creating a Glimmer Stack component, refer to the following source code in
++`StackItemScope.kt` for setting the stack item scope:
+ 
+-<br />
+ 
+ ```kotlin
+ /*
+@@ -441,8 +441,6 @@ private val SurfaceLow = Color(0xFF4F4F4F)
+ private const val MaxItemScrimAlpha = 0.5f
+ private const val MinWidestPointSearchResolution = 20
+ private const val MaxWidestPointSearchResolution = 200
+-
+-   
+ ```
+ 
+ <br />
+\ No newline at end of file

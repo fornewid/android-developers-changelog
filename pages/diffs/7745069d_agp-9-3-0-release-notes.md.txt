@@ -1,0 +1,76 @@
+diff --git a/docs/build/releases/agp-9-3-0-release-notes.md b/docs/build/releases/agp-9-3-0-release-notes.md
+index d37fbbfc..fe2fceeb 100644
+--- a/docs/build/releases/agp-9-3-0-release-notes.md
++++ b/docs/build/releases/agp-9-3-0-release-notes.md
+@@ -6,13 +6,14 @@ source: md.txt
+ 
+ <br />
+ 
+-Android Gradle plugin 9.3 is a minor release that includes a variety of new features and improvements.
++Android Gradle plugin 9.3 is a minor release that includes a variety of new
++features and improvements.
+ 
+ ## Compatibility
+ 
+-The maximum API level that Android Gradle plugin 9.3 supports is API level 37. Here is other compatibility info:
++The maximum API level that Android Gradle plugin 9.3 supports is API level 37.
++Here is other compatibility info:
+ 
+-<br />
+ 
+ |   | Minimum version | Default version | Notes |
+ |---:|:---:|:---:|:---:|
+@@ -25,17 +26,23 @@ The maximum API level that Android Gradle plugin 9.3 supports is API level 37. H
+ 
+ ## Standalone R8 Configuration Analyzer Gradle task
+ 
+-Android Gradle plugin 9.3 introduces a dedicated Gradle task for running the [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer) in isolation. The R8 Configuration Analyzer helps you optimize your app's code shrinking and obfuscation rules.
++Android Gradle plugin 9.3 introduces a dedicated Gradle task for running the [R8
++Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer) in isolation. The R8 Configuration Analyzer helps
++you optimize your app's code shrinking and obfuscation rules.
+ 
+     ./gradlew :app:analyzeReleaseR8Config
+ 
+-The `:app:analyzeReleaseR8Config` task generates the report without completing the APK or Bundle compilation pipeline. This provides a shorter feedback loop, which speeds up developer iteration when refining keep rules. Alternatively, you can generate the report automatically by running an R8 release build (such as `assembleRelease` or `bundleRelease`).
++The `:app:analyzeReleaseR8Config` task generates the report without completing
++the APK or Bundle compilation pipeline. This provides a shorter feedback loop,
++which speeds up developer iteration when refining keep rules. Alternatively,
++you can generate the report automatically by running an R8 release build (such
++as `assembleRelease` or `bundleRelease`).
+ 
+-For more information, see [Run the standalone Gradle task for generating report](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer#run-standalone-task).
++For more information, see [Run the standalone Gradle task for generating
++report](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer#run-standalone-task).
+ 
+ ## Fixed issues
+ 
+-<br />
+ 
+ ### Android Gradle plugin 9.3.1
+ 
+@@ -123,7 +130,12 @@ Fixed Issues **Android Gradle Plugin** [Issue #497456771](https://issuetracker.g
+ 
+ ## Updated optimization DSL to configure R8 keep rules
+ 
+-Introduces an [updated optimization DSL](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#optimization-dsl) to configure keep rules for R8 optimization, supported by app modules and library module tests. To configure optimization with the updated DSL, use the new `optimization` block. For apps, configure the `optimization` block within a build type (such as `release` or `debug`) in the app-level build script. The updated optimization DSL makes R8 configuration simpler:
++Introduces an [updated optimization DSL](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#optimization-dsl) to configure keep rules for R8
++optimization, supported by app modules and library module tests. To configure
++optimization with the updated DSL, use the new `optimization` block. For apps,
++configure the `optimization` block within a build type (such as `release` or
++`debug`) in the app-level build script. The updated optimization DSL makes R8
++configuration simpler:
+ 
+ - Turning on optimization enables both code optimization and optimized resource shrinking.
+ - You no longer need to specify the default Android keep rules file.
+@@ -132,4 +144,8 @@ Note that the [legacy DSL](https://developer.android.com/topic/performance/app-o
+ 
+ ## Introduction of source sets to define keep rules
+ 
+-Place keep rules in the `src/<variant>/keepRules/` source set, with the file-suffix `.keep`. Source sets for keep rules are supported by the updated optimization DSL and the legacy DSL. Using source sets for keep rules is supported in app modules, library modules, and as a way to define consumer rules in Kotlin Multiplatform (KMP) modules.
+\ No newline at end of file
++Place keep rules in the `src/<variant>/keepRules/` source set, with the
++file-suffix `.keep`. Source sets for keep rules are supported by the updated
++optimization DSL and the legacy DSL. Using source sets for keep rules is
++supported in app modules, library modules, and as a way to define consumer rules
++in Kotlin Multiplatform (KMP) modules.
+\ No newline at end of file

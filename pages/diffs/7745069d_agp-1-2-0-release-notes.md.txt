@@ -1,0 +1,14 @@
+diff --git a/docs/build/releases/agp-1-2-0-release-notes.md b/docs/build/releases/agp-1-2-0-release-notes.md
+index 4d75d842..e831bcbb 100644
+--- a/docs/build/releases/agp-1-2-0-release-notes.md
++++ b/docs/build/releases/agp-1-2-0-release-notes.md
+@@ -8,9 +8,7 @@ source: md.txt
+ 
+ # Android plugin for Gradle, revision 1.2.0 (April 2015)
+ 
+-
+ Dependencies:
+-
+ General Notes:
+ :
+     - Enhanced support for running unit tests with Gradle.

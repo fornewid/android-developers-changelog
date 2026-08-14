@@ -1,0 +1,109 @@
+diff --git a/docs/blog/latest/5.md b/docs/blog/latest/5.md
+index 208cf2cf..6ae73cd6 100644
+--- a/docs/blog/latest/5.md
++++ b/docs/blog/latest/5.md
+@@ -7,6 +7,24 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Sameer Samat's profile](https://developer.android.com/static/blog/assets/sameer_samat_a8edc4d0ef_Z1LfvLq.webp)](https://developer.android.com/blog/authors/sameer-samat) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Ecosystem_208dfb20df_6DzUd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [A new era for choice and openness](https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness)
++
++  [arrow_forward](https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness) Android has always driven innovation in the industry through its unique flexibility and openness.
++  [Sameer Samat](https://developer.android.com/blog/authors/sameer-samat) • 3 min read
++- [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) 03 Mar 2026 03 Mar 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Go from prompt to working prototype with Android Studio Panda 2](https://developer.android.com/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2)
++
++  [arrow_forward](https://developer.android.com/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2) Android Studio Panda 2 is now stable and ready for you to use in production.
++  [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) • 3 min read
++- [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) 03 Mar 2026 03 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_1A0pVS.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Android devices extend seamlessly to connected displays](https://developer.android.com/blog/posts/android-devices-extend-seamlessly-to-connected-displays)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-devices-extend-seamlessly-to-connected-displays) We are excited to announce a major milestone in bringing mobile and desktop computing closer together on Android: connected display support has reached general availability with the Android 16 QPR3 release!
++  [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 7 min read
+ - [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 02 Mar 2026 02 Mar 2026 ![](https://developer.android.com/static/blog/assets/supercharge_99f4219536_Z2aoaib.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Supercharge your Android development with 6 expert tips for Gemini in Android Studio](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio)
+@@ -114,24 +132,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   - [#Compose](https://developer.android.com/blog/topics/compose)
+   - [#Android 16](https://developer.android.com/blog/topics/android-16)
+   - +2 ↩
+-- [![View Garan Jenkin's profile](https://developer.android.com/static/blog/assets/Garan_Jenkin_0529dbfef9_Z2crRat.webp)](https://developer.android.com/blog/authors/garan-jenkin) 18 Dec 2025 18 Dec 2025 ![](https://developer.android.com/static/blog/assets/Androidify_Watch_e91b9acf51_Z84c6L.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Bringing Androidify to Wear OS with Watch Face Push](https://developer.android.com/blog/posts/bringing-androidify-to-wear-os-with-watch-face-push)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/bringing-androidify-to-wear-os-with-watch-face-push) A few months ago we relaunched Androidify as an app for generating personalized Android bots. Androidify transforms your selfie photo into a playful Android bot using Gemini and Imagen.
+-  [Garan Jenkin](https://developer.android.com/blog/authors/garan-jenkin) • 3 min read
+-- [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp)](https://developer.android.com/blog/authors/donovan-mcmurray) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/Brighten_Real_Time_0d4c07ef35_U1qMY.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Brighten Your Real-Time Camera Feeds with Low Light Boost](https://developer.android.com/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost) Today, we're diving into Low Light Boost (LLB), a powerful feature designed to brighten real-time camera streams
+-  [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray) • 7 min read
+-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_O0qYl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Build smarter apps with Gemini 3 Flash](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash) Today, we're expanding the Gemini 3 model family with the release of Gemini 3 Flash, frontier intelligence built for speed at a fraction of the cost.
+-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) • 2 min read
+ [arrow_back](https://developer.android.com/blog/latest/4)
+ 
+ #### Page 5
+@@ -147,26 +147,30 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+ - [#Compose](https://developer.android.com/blog/topics/compose)
+ - [#Performance](https://developer.android.com/blog/topics/performance)
++- [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+ - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ - [#R8](https://developer.android.com/blog/topics/r8)
+ - [#Android 17](https://developer.android.com/blog/topics/android-17)
+-- [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+ - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+ - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
++- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+ - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
+ - [#Google Play](https://developer.android.com/blog/topics/google-play)
++- [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+ - [#Memory](https://developer.android.com/blog/topics/memory)
+ - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+ - [#Widgets](https://developer.android.com/blog/topics/widgets)
++- [#made by google](https://developer.android.com/blog/topics/made-by-google)
+ - [#Idling Resources](https://developer.android.com/blog/topics/idling-resources)
+ - [#identity](https://developer.android.com/blog/topics/identity)
+ - [#Nav3](https://developer.android.com/blog/topics/nav3)
+ - [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
+ - [#Android 16](https://developer.android.com/blog/topics/android-16)
++- [#Foldables](https://developer.android.com/blog/topics/foldables)
+ - [#beta](https://developer.android.com/blog/topics/beta)
+ - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
+ - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+@@ -177,7 +181,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
+ - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
+ - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
+-- [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+ - [#On-device](https://developer.android.com/blog/topics/on-device)
+ - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development)
+ - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
+@@ -192,10 +195,12 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+ - [#Media3](https://developer.android.com/blog/topics/media3)
+ - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
++- [#pixel watch](https://developer.android.com/blog/topics/pixel-watch)
++- [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
++- [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
++- [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+-- [#Foldables](https://developer.android.com/blog/topics/foldables)
+-- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Large Screens](https://developer.android.com/blog/topics/large-screens)
+ - [#Layouts](https://developer.android.com/blog/topics/layouts)
+ - [#Window Size Classes](https://developer.android.com/blog/topics/blog-topic)

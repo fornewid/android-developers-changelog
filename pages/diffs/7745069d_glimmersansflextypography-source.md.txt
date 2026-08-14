@@ -1,0 +1,26 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmersansflextypography-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmersansflextypography-source.md
+index 0b932d6f..007c10f6 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmersansflextypography-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/glimmersansflextypography-source.md
+@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
+ source: md.txt
+ ---
+ 
+-When creating a `Typography` instance with the Google Sans Flex configuration, refer to the following source code in `GoogleSansFlexTypography.kt`:
++When creating a `Typography` instance with the Google Sans Flex configuration,
++refer to the following source code in `GoogleSansFlexTypography.kt`:
+ 
+-<br />
+ 
+ ```kotlin
+ /*
+@@ -271,8 +271,6 @@ private val DefaultLineHeightStyle: LineHeightStyle =
+ 
+ private fun FontFamily(font: GoogleFont, variationSettings: FontVariation.Settings): FontFamily =
+     FontFamily(Font(googleFont = font, variationSettings = variationSettings))
+-
+-   
+ ```
+ 
+ <br />
+\ No newline at end of file

@@ -1,0 +1,26 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/surface-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/surface-source.md
+index 87d9d62f..c228f211 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/surface-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/surface-source.md
+@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
+ source: md.txt
+ ---
+ 
+-When using surfaces to build a custom component, refer to the following source code in `Surface.kt`:
++When using surfaces to build a custom component, refer to the following source
++code in `Surface.kt`:
+ 
+-<br />
+ 
+ ```kotlin
+ /*
+@@ -1265,8 +1265,6 @@ private fun getBlurShader(isVertical: Boolean): String {
+         }
+     """
+ }
+-
+-   
+ ```
+ 
+ <br />
+\ No newline at end of file

@@ -1,0 +1,26 @@
+diff --git a/docs/studio/releases/past-releases/as-0-2-release-notes.md b/docs/studio/releases/past-releases/as-0-2-release-notes.md
+index f76577c4..eafc0d94 100644
+--- a/docs/studio/releases/past-releases/as-0-2-release-notes.md
++++ b/docs/studio/releases/past-releases/as-0-2-release-notes.md
+@@ -9,7 +9,9 @@ source: md.txt
+ # Android Studio v0.2.x (July 2013)
+ 
+ - Merged in the latest IntelliJ codebase changes. Includes fixes for issues reported by Studio users such as tweaks to Linux font sizes and font rendering.
+-- Android Gradle plug-in updated to 0.5.0. **Caution:** This new version is not backwards compatible. When opening a project that uses an older version of the plug-in, Studio will show an error stating **Gradle \<project_name\> project refresh failed.**
++- Android Gradle plug-in updated to 0.5.0. **Caution:** This new version is not backwards compatible.
++  When opening a project that uses an older version of the plug-in, Studio will show an error
++  stating **Gradle \<project_name\> project refresh failed.**
+ 
+   The updated Gradle plug-in includes the following changes:
+   - Fixed IDE model to contain the output file even if it's customized through the DSL. Also fixed the DSL to get/set the output file on the variant object so that it's not necessary to use `variant.packageApplication or variant.zipAlign`
+@@ -20,7 +22,9 @@ source: md.txt
+ 
+   All Gradle plugin release notes are available are here: <http://tools.android.com/tech-docs/new-build-system>.
+ - Gradle errors from aapt no longer point to merged output files in the build/ folder, they point back to the real source locations.
+-- Parallel Builds. It's now possible to use Gradle's parallel builds. Please be aware that parallel builds are in "incubation" (see [Gradle's documentation](http://www.gradle.org/docs/current/userguide/gradle_command_line.html).) This feature is off by default. To enable it, go to **Preferences** \> **Compiler** and check the box *Compile independent modules in parallel*.
++- Parallel Builds. It's now possible to use Gradle's parallel builds. Please be aware that parallel builds are in "incubation" (see [Gradle's
++  documentation](http://www.gradle.org/docs/current/userguide/gradle_command_line.html).) This feature is off by default. To enable it, go to **Preferences** \> **Compiler** and check the box *Compile
++  independent modules in parallel*.
+ - Further work on the new resource repository used for layout rendering, resource folding in the editor, and more:
+   - Basic support for .aar library dependencies (e.g. using a library without a local copy of the sources). Still not working for resource XML validation and navigation in source editors.
+   - Cycle detection in resource references.

@@ -1,0 +1,263 @@
+diff --git a/docs/health-and-fitness/health-connect/features/training-plans.md b/docs/health-and-fitness/health-connect/features/training-plans.md
+index 90b2d9e6..56319fb3 100644
+--- a/docs/health-and-fitness/health-connect/features/training-plans.md
++++ b/docs/health-and-fitness/health-connect/features/training-plans.md
+@@ -11,11 +11,17 @@ source: md.txt
+ 
+ <br />
+ 
+-Health Connect provides a *planned exercise* data type to enable training apps to write training plans and enable workout apps to read training plans. Recorded exercises (workouts) can be read back for personalized performance analysis to help users achieve their training goals.
++Health Connect provides a *planned exercise* data type to enable training apps
++to write training plans and enable workout apps to read training plans. Recorded
++exercises (workouts) can be read back for personalized performance analysis to
++help users achieve their training goals.
+ 
+ ## Check Health Connect availability
+ 
+-Before attempting to use Health Connect, your app should verify that Health Connect is available on the user's device. Health Connect might not be pre-installed on all devices or could be disabled. You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)` method.
++Before attempting to use Health Connect, your app should verify that Health Connect is available
++on the user's device. Health Connect might not be pre-installed on all devices or could be disabled.
++You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)`
++method.
+ 
+ #### How to check for Health Connect availability
+ 
+@@ -49,7 +55,8 @@ fun checkHealthConnectAvailability(context: Context) {
+ }
+ ```
+ 
+-Depending on the status returned by `getSdkStatus()`, you can guide the user to install or update Health Connect from the Google Play Store if necessary.
++Depending on the status returned by `getSdkStatus()`, you can guide the user
++to install or update Health Connect from the Google Play Store if necessary.
+ 
+ ## Feature availability
+ 
+@@ -77,9 +84,11 @@ Access to planned exercise is protected by the following permissions:
+ - `android.permission.health.READ_PLANNED_EXERCISE`
+ - `android.permission.health.WRITE_PLANNED_EXERCISE`
+ 
+-To add planned exercise capability to your app, start by requesting permissions for the `PlannedExerciseSession` data type.
++To add planned exercise capability to your app, start by requesting
++permissions for the `PlannedExerciseSession` data type.
+ 
+-Here's the permission you need to declare to be able to write planned exercise:
++Here's the permission you need to declare to be able to write
++planned exercise:
+ 
+     <application>
+       <uses-permission
+@@ -97,7 +106,13 @@ To read planned exercise, you need to request the following permissions:
+ 
+ ### Request permissions from the user
+ 
+-After creating a client instance, your app needs to request permissions from the user. Users must be allowed to grant or deny permissions at any time. To do so, create a set of permissions for the required data types. Make sure that the permissions in the set are declared in your Android manifest first.
++After creating a client instance, your app needs to request permissions from
++the user. Users must be allowed to grant or deny permissions at any time.
++
++To do so, create a set of permissions for the required data types.
++Make sure that the permissions in the set are declared in your Android
++manifest first.
++
+ 
+ ```kotlin
+ val permissions =
+@@ -109,7 +124,6 @@ val permissions =
+         HealthPermission.getReadPermission(ExerciseSessionRecord::class),
+         HealthPermission.getWritePermission(ExerciseSessionRecord::class)
+     )
+-   
+ ```
+ Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
+ 
+@@ -130,7 +144,6 @@ val requestPermissionsLauncher = rememberLauncherForActivityResult(
+         coroutineScope.launch { snackbarHostState.showSnackbar("Permissions denied.") }
+     }
+ }
+-   
+ ```
+ Because users can grant or revoke permissions at any time, your app needs to check for permissions every time before using them and handle scenarios where permission is lost.
+ 
+@@ -138,9 +151,14 @@ Because users can grant or revoke permissions at any time, your app needs to che
+ 
+ ### Related permissions
+ 
+-Training plans are linked to *exercise sessions*. Therefore, the user must give permission to use each record type related to a training plan in order to fully utilize this feature of Health Connect.
++Training plans are linked to *exercise sessions*. Therefore, the user must give
++permission to use each record type related to a training plan in order to fully
++utilize this feature of Health Connect.
+ 
+-For example, if a training plan measures a user's heart rate during a series of runs, the following permissions might need to be declared by the developer and granted by the user in order to write the exercise session and read the results for later evaluation:
++For example, if a training plan measures a user's heart rate during a series
++of runs, the following permissions might need to be declared by the developer
++and granted by the user in order to write the exercise session and read the
++results for later evaluation:
+ 
+ - `android.permission.health.READ_EXERCISE`
+ - `android.permission.health.READ_EXERCISE_ROUTES`
+@@ -149,7 +167,11 @@ For example, if a training plan measures a user's heart rate during a series of
+ - `android.permission.health.WRITE_EXERCISE_ROUTE`
+ - `android.permission.health.WRITE_HEART_RATE`
+ 
+-However, often the app that creates training plans and evaluates performance against plans isn't the same as the app that consumes training plans and writes actual exercise data. Depending on the type of app, not all read and write permissions would be needed. For example, you may only need these permissions for each type of app:
++However, often the app that creates training plans and evaluates performance
++against plans isn't the same as the app that consumes training plans and writes
++actual exercise data. Depending on the type of app, not all read and write
++permissions would be needed. For example, you may only need these permissions
++for each type of app:
+ 
+ | Training plan app | Workout app |
+ |---|---|
+@@ -173,7 +195,9 @@ However, often the app that creates training plans and evaluates performance aga
+ 
+ ### Information included in a planned exercise block record
+ 
+-A planned exercise block contains a list of exercise steps, to support repetition of different groups of steps (for example, do a sequence of arm curls, burpies, and crunches five times in a row).
++A planned exercise block contains a list of exercise steps, to support
++repetition of different groups of steps (for example, do a sequence of arm
++curls, burpies, and crunches five times in a row).
+ 
+ - Description of the block.
+ - A list of [planned exercise steps](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/PlannedExerciseStep).
+@@ -189,7 +213,6 @@ A planned exercise block contains a list of exercise steps, to support repetitio
+ 
+ ## Supported aggregations
+ 
+-<br />
+ 
+ There are no supported aggregations for this data type.
+ 
+@@ -197,7 +220,8 @@ There are no supported aggregations for this data type.
+ 
+ ## Example usage
+ 
+-Suppose a user plans a 90 minute run two days from now. This run will feature three laps around a lake with a target heart rate between 90 and 110 bpm.
++Suppose a user plans a 90 minute run two days from now. This run will feature
++three laps around a lake with a target heart rate between 90 and 110 bpm.
+ 
+ 1. A planned exercise session with the following is defined by the user in a training plan app:
+    1. Planned start and end of the run
+@@ -213,13 +237,17 @@ Suppose a user plans a 90 minute run two days from now. This run will feature th
+ 
+ ### Plan exercises and set targets
+ 
+-A user may plan their exercise in the future and set targets. Write this to Health Connect as a *planned exercise session*.
++A user may plan their exercise in the future and set targets. Write this to
++Health Connect as a *planned exercise session*.
+ 
+-In the example described in [Example usage](https://developer.android.com/health-and-fitness/health-connect/features/training-plans#example-usage), the user plans a 90 minute run two days from now. This run will feature three laps around a lake with a target heart rate between 90 and 110 bpm.
++In the example described in [Example usage](https://developer.android.com/health-and-fitness/health-connect/features/training-plans#example-usage),
++the user plans a 90 minute run two days from now. This run will feature three
++laps around a lake with a target heart rate between 90 and 110 bpm.
+ 
+-A snippet like this may be found in the form handler for an app that logs planned exercise sessions to Health Connect. It could also be found in the ingest point for integrations, say with a service that offers training.
++A snippet like this may be found in the form handler for an app that logs
++planned exercise sessions to Health Connect. It could also be found in the
++ingest point for integrations, say with a service that offers training.
+ 
+-<br />
+ 
+ ```kotlin
+ // Verify the user has granted all necessary permissions for this task
+@@ -280,22 +308,27 @@ try {
+     // Handle API failures, database errors, or system issues safely without crashing
+     Log.e("HealthConnect", "Failed to insert planned exercise session record", e)
+ }
+-   
+ ```
+ 
+ <br />
+ 
+ ### Log exercise and activity data
+ 
+-Two days later, the user logs the actual exercise session. Write this to Health Connect as an *exercise session*.
++Two days later, the user logs the actual exercise session. Write this to Health
++Connect as an *exercise session*.
+ 
+-In this example, the user's session duration matched the planned duration exactly.
++In this example, the user's session duration matched the planned duration
++exactly.
+ 
+-The following snippet might be found in the form handler for an app that logs exercise sessions to Health Connect. It might also be found in data ingest and export handlers for a wearable capable of detecting and logging exercise sessions.
++The following snippet might be found in the form handler for an app that logs
++exercise sessions to Health Connect. It might also be found in data ingest and
++export handlers for a wearable capable of detecting and logging exercise
++sessions.
+ 
+-`insertedPlannedExerciseSessionId` here is reused from the previous example. In a real app, the ID would be determined by the user selecting a planned exercise session from a list of existing sessions.
++`insertedPlannedExerciseSessionId` here is reused from the previous example. In
++a real app, the ID would be determined by the user selecting a planned exercise
++session from a list of existing sessions.
+ 
+-<br />
+ 
+ ```kotlin
+ // Verify the user has granted all necessary permissions for this task
+@@ -333,16 +366,17 @@ val exerciseSessionRecord = ExerciseSessionRecord(
+ )
+ val insertedExerciseSessions =
+     healthConnectClient.insertRecords(listOf(exerciseSessionRecord))
+-   
+ ```
+ 
+ <br />
+ 
+-A wearable also logs their heart rate throughout the run. The following snippet could be used to generate records within the target range.
++A wearable also logs their heart rate throughout the run. The following snippet
++could be used to generate records within the target range.
+ 
+-In a real app, the primary pieces of this snippet might be found in the handler for a message from a wearable, which would write measurement to Health Connect upon collection.
++In a real app, the primary pieces of this snippet might be found in the handler
++for a message from a wearable, which would write measurement to Health Connect
++upon collection.
+ 
+-<br />
+ 
+ ```kotlin
+ // Verify the user has granted all necessary permissions for this task
+@@ -377,18 +411,20 @@ val heartRateRecord = HeartRateRecord(
+     )
+ )
+ val insertedHeartRateRecords = healthConnectClient.insertRecords(listOf(heartRateRecord))
+-   
+ ```
+ 
+ <br />
+ 
+ ### Evaluate performance targets
+ 
+-The day after the user's workout, you can retrieve the logged exercise, check for any planned exercise targets, and evaluate additional data types to determine if set targets were met.
++The day after the user's workout, you can retrieve the logged exercise, check
++for any planned exercise targets, and evaluate additional data types to
++determine if set targets were met.
+ 
+-A snippet like this would likely be found in a periodic job to evaluate performance targets or when loading a list of exercises and displaying a notification about performance targets in an app.
++A snippet like this would likely be found in a periodic job to evaluate
++performance targets or when loading a list of exercises and displaying a
++notification about performance targets in an app.
+ 
+-<br />
+ 
+ ```kotlin
+     // Verify the user has granted all necessary permissions for this task
+@@ -455,7 +491,6 @@ A snippet like this would likely be found in a periodic job to evaluate performa
+         }
+     }
+ }
+-   
+ ```
+ 
+ <br />
+@@ -522,9 +557,11 @@ Here's an example of how to read an exercise session:
+ 
+ ### Write subtype data
+ 
+-Sessions can also be comprised of optional subtype data, that enrich the session with additional information.
++Sessions can also be comprised of optional subtype data, that enrich the
++session with additional information.
+ 
+-For example, exercise sessions can include the `ExerciseSegment`, `ExerciseLap` and `ExerciseRoute` classes:
++For example, exercise sessions can include the `ExerciseSegment`, `ExerciseLap`
++and `ExerciseRoute` classes:
+ 
+     val segments = listOf(
+       ExerciseSegment(

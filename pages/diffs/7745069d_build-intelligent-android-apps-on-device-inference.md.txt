@@ -1,0 +1,37 @@
+diff --git a/docs/blog/posts/build-intelligent-android-apps-on-device-inference.md b/docs/blog/posts/build-intelligent-android-apps-on-device-inference.md
+index f8bb204e..90b60bf1 100644
+--- a/docs/blog/posts/build-intelligent-android-apps-on-device-inference.md
++++ b/docs/blog/posts/build-intelligent-android-apps-on-device-inference.md
+@@ -37,8 +37,7 @@ To build with on-device, we use **Gemini Nano** , Google's most efficient model
+ Using ML Kit's**Prompt API**, we can take advantage of Gemini Nano 4's new model capabilities to prototype our on-device features. We'll create a prompt that includes the itinerary of a trip and ask the model to generate a summary along with any preparation tips.
+ 
+ Finding the optimal prompt usually requires some iteration, and the AICore app is perfect for this step in the process. After opting into the [developer preview option for AICore](https://developers.google.com/ml-kit/genai/aicore-dev-preview), we can download preview models such as Gemini Nano 4 to test prompts and see the model's expected outputs. With a few iterations on the prompt, we were able to improve the speed of the response from 13 seconds to under 2 seconds! Check out the final code implementation and prompt here.
+-
+-\[ASSET HERE - FILE TOO LARGE ATM\]
++![Screen Recording 2026-07-02 at 12.28.51 PM (1) (1)_compressed.gif](https://developer.android.com/static/blog/assets/Screen_Recording_2026_07_02_at_12_28_51_PM_1_1_compressed_dfe3f28d2a_Z1MuTQu.webp) The first iteration of our prompt generated way too many tokens, and optimizing it helped keep responses quick and to the point.
+ 
+ ### Local processing for sensitive user input
+ 
+@@ -180,7 +179,8 @@ Written by:
+ 
+   ###### Developer Relations Engineer
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)
+ Continue reading
+ - 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_21AGRW.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+@@ -205,5 +205,8 @@ Continue reading
+   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

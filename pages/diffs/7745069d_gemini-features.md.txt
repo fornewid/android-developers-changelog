@@ -1,0 +1,17 @@
+diff --git a/docs/blog/topics/gemini-features.md b/docs/blog/topics/gemini-features.md
+index 8994af25..b3929cc9 100644
+--- a/docs/blog/topics/gemini-features.md
++++ b/docs/blog/topics/gemini-features.md
+@@ -18,5 +18,8 @@ source: md.txt
+   - +1 ↩
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

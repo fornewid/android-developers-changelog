@@ -1,0 +1,17 @@
+diff --git a/docs/blog/topics/jetpack-navigation.md b/docs/blog/topics/jetpack-navigation.md
+index 71a23555..841319ae 100644
+--- a/docs/blog/topics/jetpack-navigation.md
++++ b/docs/blog/topics/jetpack-navigation.md
+@@ -27,5 +27,8 @@ source: md.txt
+   - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

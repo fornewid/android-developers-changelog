@@ -1,0 +1,77 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/display-layered-image.md b/docs/develop/ui/compose/quick-guides/content/display-layered-image.md
+index 9382a8a3..842d3a04 100644
+--- a/docs/develop/ui/compose/quick-guides/content/display-layered-image.md
++++ b/docs/develop/ui/compose/quick-guides/content/display-layered-image.md
+@@ -6,7 +6,10 @@ source: md.txt
+ 
+ <br />
+ 
+-You can blend or overlay source images to display layered images on a canvas. For example, you can replicate how the Android Framework generates app icons by combining separate background and foreground drawables. To display layered images, you must do the following:
++You can blend or overlay source images to display layered images on a canvas.
++For example, you can replicate how the Android Framework generates app icons by
++combining separate background and foreground drawables. To display layered
++images, you must do the following:
+ 
+ - Layer images on a canvas.
+ - Overlay the source.
+@@ -17,17 +20,18 @@ You can blend or overlay source images to display layered images on a canvas. Fo
+ 
+ ## Version compatibility
+ 
+-This implementation requires that your project minSDK be set to API level 21 or higher.
++This implementation requires that your project minSDK be set to API level 21 or
++higher.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-layered-image_51ace60ddb8aee597d9caf4fe4928c5adfe5f5a8f7c26c1cdb5d5f596d888f94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-layered-image_fe30e5b1b3bf57635bdc2152f1499c7d7bf124e4909c22a4e51155c557d1cd7f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Layer images on a canvas
+ 
+-The following code layers two source images on top of each other, rendering a blended image on the canvas:
++The following code layers two source images on top of each other, rendering a
++blended image on the canvas:
+ 
+-<br />
+ 
+ ```kotlin
+ class OverlayImagePainter constructor(
+@@ -80,7 +84,6 @@ class OverlayImagePainter constructor(
+         return srcSize
+     }
+ }
+-   
+ ```
+ 
+ <br />
+@@ -93,9 +96,9 @@ class OverlayImagePainter constructor(
+ 
+ ## Overlay source image
+ 
+-With this custom painter `Painter`, you can overlay an image on top of the source image as follows:
++With this custom painter `Painter`, you can overlay an image on top of the
++source image as follows:
+ 
+-<br />
+ 
+ ```kotlin
+ val rainbowImage = ImageBitmap.imageResource(id = R.drawable.rainbow)
+@@ -109,7 +112,6 @@ Image(
+     contentScale = ContentScale.Crop,
+     modifier = Modifier.wrapContentSize()
+ )
+-   
+ ```
+ 
+ <br />
+@@ -121,7 +123,8 @@ Image(
+ 
+ ## Collections that contain this guide
+ 
+-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
++This guide is part of these curated Quick Guide collections that cover
++broader Android development goals:
+ ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
+ 
+ ### Display images

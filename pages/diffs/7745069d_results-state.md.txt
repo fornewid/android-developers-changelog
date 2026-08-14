@@ -1,0 +1,44 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/results-state.md b/docs/guide/navigation/navigation-3/recipes/results-state.md
+index 2b4dbdef..91fcafd1 100644
+--- a/docs/guide/navigation/navigation-3/recipes/results-state.md
++++ b/docs/guide/navigation/navigation-3/recipes/results-state.md
+@@ -47,7 +47,6 @@ import androidx.lifecycle.ViewModel
+ class HomeViewModel : ViewModel() {
+     var person by mutableStateOf<Person?>(null)
+ }
+-   
+ ```
+ 
+ ```
+@@ -77,7 +76,6 @@ data object Home : NavKey
+ 
+ @Serializable
+ class PersonDetailsForm : NavKey
+-    
+ ```
+ 
+ ```
+@@ -103,7 +101,6 @@ import kotlinx.serialization.Serializable
+ 
+ @Serializable
+ data class Person(val name: String, val favoriteColor: String)
+-   
+ ```
+ 
+ ```
+@@ -189,7 +186,6 @@ fun PersonDetailsScreen(
+         }
+     }
+ }
+-   
+ ```
+ 
+ ```
+@@ -273,6 +269,4 @@ class ResultStateActivity : ComponentActivity() {
+         }
+     }
+ }
+-
+-   
+ ```
+\ No newline at end of file

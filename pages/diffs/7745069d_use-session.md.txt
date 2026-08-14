@@ -1,0 +1,84 @@
+diff --git a/docs/media/camera/lowlight/low-light-boost-gp/use-session.md b/docs/media/camera/lowlight/low-light-boost-gp/use-session.md
+index 22afc80a..ee1cf6ff 100644
+--- a/docs/media/camera/lowlight/low-light-boost-gp/use-session.md
++++ b/docs/media/camera/lowlight/low-light-boost-gp/use-session.md
+@@ -26,11 +26,17 @@ Use a low light boost session to turn Google Low Light Boost on and off.
+       implementation 'com.google.android.gms:play-services-tasks:18.3.0'
+     }
+ 
+-`LowLightBoostSession` is provided by the Google Play services [`com.google.android.gms.cameralowlight`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/package-summary) package. See the Google Play services documentation for information on [accessing Google Play services APIs](https://developers.google.com/android/guides/api-client).
++`LowLightBoostSession` is provided by the Google Play services
++[`com.google.android.gms.cameralowlight`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/package-summary) package. See the Google
++Play services documentation for information on [accessing Google Play services
++APIs](https://developers.google.com/android/guides/api-client).
+ 
+ ## Create a callback object
+ 
+-When you [create the low light boost session](https://developer.android.com/media/camera/lowlight/low-light-boost-gp/use-session#create-session), you'll need to pass it an object that implements the [`LowLightBoostCallback`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostCallback) interface. This object's functions are called when the session is disconnected or destroyed. The following code shows how to create a callback:
++When you [create the low light boost session](https://developer.android.com/media/camera/lowlight/low-light-boost-gp/use-session#create-session), you'll need to pass it an
++object that implements the [`LowLightBoostCallback`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostCallback) interface.
++This object's functions are called when the session is disconnected or
++destroyed. The following code shows how to create a callback:
+ 
+ ### Kotlin
+ 
+@@ -73,7 +79,8 @@ When you [create the low light boost session](https://developer.android.com/medi
+ 
+ ## Create a session
+ 
+-To create a low light session, call the method [`LowLightBoostClient.createSession`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostClient#createSession(com.google.android.gms.cameralowlight.LowLightBoostOptions,com.google.android.gms.cameralowlight.LowLightBoostCallback)).
++To create a low light session, call the method
++[`LowLightBoostClient.createSession`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostClient#createSession(com.google.android.gms.cameralowlight.LowLightBoostOptions,com.google.android.gms.cameralowlight.LowLightBoostCallback)).
+ 
+ ### Kotlin
+ 
+@@ -144,8 +151,10 @@ To create a low light session, call the method [`LowLightBoostClient.createSessi
+ 
+ ### Key points about this code
+ 
+-- You pass a [`LowLightBoostOptions`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostOptions) object to `createSession()` to configure the session. This object specifies such things as the [target surface](https://developer.android.com/reference/android/view/Surface), the ID of the camera to use, and the dimensions of the preview.
+-- This code assumes you have already opened a connection to a Camera2 camera, and used that information to set the values of `cameraId, previewWidth, previewHeight`. For more information, see the [Camera2 documentation](https://developer.android.com/media/camera/camera2).
++- You pass a [`LowLightBoostOptions`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostOptions) object to `createSession()` to configure the session. This object specifies such things as the [target
++  surface](https://developer.android.com/reference/android/view/Surface), the ID of the camera to use, and the dimensions of the preview.
++- This code assumes you have already opened a connection to a Camera2 camera, and used that information to set the values of `cameraId, previewWidth,
++  previewHeight`. For more information, see the [Camera2 documentation](https://developer.android.com/media/camera/camera2).
+ - `enableLowLightBoost` is a boolean value specifying whether low light boost should start on or off.
+ - `createLowLightBoostCallback` is a method you write to create the callback object. This object is called when the session is disconnected or destroyed.
+ - The method `LowLightBoostClient.createSession()` returns a [`Task`](https://developers.google.com/android/reference/com/google/android/gms/tasks/Task) object. You use this object to set up success and failure listeners. [Capture the video inside the success listener.](https://developer.android.com/media/camera/lowlight/low-light-boost-gp/use-session#preview)
+@@ -153,7 +162,10 @@ To create a low light session, call the method [`LowLightBoostClient.createSessi
+ 
+ ## Pass in the capture results
+ 
+-Google Low Light Boost needs certain camera metadata to know the correct amount of brightening to apply. You must pass in the [`TotalCaptureResult`](https://developer.android.com/reference/android/hardware/camera2/TotalCaptureResult) to the [`processCaptureResult()`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostSession#processCaptureResult(android.hardware.camera2.TotalCaptureResult)) method. You can get the `TotalCaptureResult` in the [`onCaptureCompleted()`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession.CaptureCallback#onCaptureCompleted(android.hardware.camera2.CameraCaptureSession,%20android.hardware.camera2.CaptureRequest,%20android.hardware.camera2.TotalCaptureResult)) callback method.
++Google Low Light Boost needs certain camera metadata to know the correct amount
++of brightening to apply. You must pass in the [`TotalCaptureResult`](https://developer.android.com/reference/android/hardware/camera2/TotalCaptureResult) to the
++[`processCaptureResult()`](https://developers.google.com/android/reference/com/google/android/gms/cameralowlight/LowLightBoostSession#processCaptureResult(android.hardware.camera2.TotalCaptureResult)) method. You can get the `TotalCaptureResult` in
++the [`onCaptureCompleted()`](https://developer.android.com/reference/android/hardware/camera2/CameraCaptureSession.CaptureCallback#onCaptureCompleted(android.hardware.camera2.CameraCaptureSession,%20android.hardware.camera2.CaptureRequest,%20android.hardware.camera2.TotalCaptureResult)) callback method.
+ 
+ ### Kotlin
+ 
+@@ -195,7 +207,11 @@ Google Low Light Boost needs certain camera metadata to know the correct amount
+ 
+ ## Start camera preview
+ 
+-Once you have created a low light session, you can start the camera preview stream. You should do this inside the `onSuccess()` callback you pass to the low light session, as described in [Create a session](https://developer.android.com/media/camera/lowlight/low-light-boost-gp/use-session#create-session). The following code shows how to capture video:
++Once you have created a low light session, you can start the camera preview
++stream. You should do
++this inside the `onSuccess()` callback you pass to the low light session, as
++described in [Create a session](https://developer.android.com/media/camera/lowlight/low-light-boost-gp/use-session#create-session). The following code shows how to capture
++video:
+ 
+ ### Kotlin
+ 
+@@ -257,7 +273,10 @@ Once you have created a low light session, you can start the camera preview stre
+ 
+ ## Release the session
+ 
+-When the camera is no longer active, release the low light boost session by calling `LowLightBoostSession.release()`. In particular, you should make sure to release the session when your activity is destroyed. You can do this by calling the method in your activity's `onDestroy()` method:
++When the camera is no longer active, release the low light boost session by
++calling `LowLightBoostSession.release()`. In particular, you should make sure to
++release the session when your activity is destroyed. You can do this by calling
++the method in your activity's `onDestroy()` method:
+ 
+ ### Kotlin
+ 

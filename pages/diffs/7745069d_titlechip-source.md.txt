@@ -1,0 +1,26 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/titlechip-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/titlechip-source.md
+index 16a128ee..c826778e 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/titlechip-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/titlechip-source.md
+@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
+ source: md.txt
+ ---
+ 
+-When creating a Glimmer Title Chip component, refer to the following source code in `TitleChip.kt`:
++When creating a Glimmer Title Chip component, refer to the following source code
++in `TitleChip.kt`:
+ 
+-<br />
+ 
+ ```kotlin
+ /*
+@@ -132,8 +132,6 @@ private val MinimumHeight = 44.dp
+ 
+ /** Default maximum width for a [TitleChip] */
+ private val MaximumWidth = 352.dp
+-
+-   
+ ```
+ 
+ <br />
+\ No newline at end of file

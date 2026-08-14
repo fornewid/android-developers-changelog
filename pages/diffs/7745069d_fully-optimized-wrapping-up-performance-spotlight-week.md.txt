@@ -1,0 +1,44 @@
+diff --git a/docs/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md b/docs/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md
+index a8753269..7f2abfc1 100644
+--- a/docs/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md
++++ b/docs/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week.md
+@@ -45,7 +45,6 @@ We continue to make Jetpack Compose more performant for you in **Jetpack Compose
+ 
+ You can't manage what you don't measure. Our **Performance Leveling Guide** breaks down your measurement journey into five steps, starting with easily available data and building up to advanced local tooling.  
+ 
+-
+ Starting at **level 1** , we'll teach you how to use readily available data from [**Android Vitals**](https://developer.android.com/topic/performance/vitals), which provides you with field data on ANRs, crashes, and excessive battery usage.
+ 
+ We'll also teach you how to level up. For example, we'll demonstrate how to reach **level 3** with local performance testingusing [**Jetpack Macrobenchmark**](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview) and the new [**UiAutomator 2.4 API**](https://developer.android.com/training/testing/other-components/ui-automator) to accurately measure and verify any change in your app's performance.
+@@ -96,14 +95,16 @@ Written by:
+ 
+   ###### Developer Relations Engineer
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
+ -
+ 
+   ## [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton)
+ 
+   ###### Product Manager
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/sara-hamilton) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/sara-hamilton) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+ Continue reading
+ - [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_2su32q.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+ 
+@@ -131,5 +132,8 @@ Continue reading
+   - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

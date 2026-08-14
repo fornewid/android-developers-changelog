@@ -1,0 +1,57 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/display-animated-image.md b/docs/develop/ui/compose/quick-guides/content/display-animated-image.md
+index f8db1b75..34cc78ae 100644
+--- a/docs/develop/ui/compose/quick-guides/content/display-animated-image.md
++++ b/docs/develop/ui/compose/quick-guides/content/display-animated-image.md
+@@ -6,7 +6,10 @@ source: md.txt
+ 
+ <br />
+ 
+-You can create a more interactive and engaging user experience in your app by loading a drawable file to display animated images. Animated images are useful for creating loading indicators, success or error indicators, facilitating game development, and various other UI functions.
++You can create a more interactive and engaging user experience in your app by
++loading a drawable file to display animated images. Animated images are useful
++for creating loading indicators, success or error indicators, facilitating game
++development, and various other UI functions.
+ 
+ ## Results
+ 
+@@ -14,17 +17,18 @@ You can create a more interactive and engaging user experience in your app by lo
+ 
+ ## Version compatibility
+ 
+-This implementation requires that your project minSDK be set to API level 21 or higher.
++This implementation requires that your project minSDK be set to API level 21 or
++higher.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-animated-image_1845b7e6c3a44d8ee062f41abace08580baa3a92050f2aee506e809e1cd7eb9e.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-animated-image_b38ea08a7bbe6a89de0904f2fb34e6f6164502da0861845e67acbf580157808c.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Display an animated image
+ 
+-The following code displays an animated vector that automatically toggles between two states:
++The following code displays an animated vector that automatically toggles
++between two states:
+ 
+-<br />
+ 
+ ```kotlin
+ @Composable
+@@ -40,7 +44,6 @@ fun AnimatedVectorDrawable() {
+         contentScale = ContentScale.Crop
+     )
+ }
+-   
+ ```
+ 
+ <br />
+@@ -53,7 +56,8 @@ fun AnimatedVectorDrawable() {
+ 
+ ## Collections that contain this guide
+ 
+-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
++This guide is part of these curated Quick Guide collections that cover
++broader Android development goals:
+ ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
+ 
+ ### Display images

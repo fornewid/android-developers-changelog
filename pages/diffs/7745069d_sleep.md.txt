@@ -1,0 +1,198 @@
+diff --git a/docs/health-and-fitness/health-connect/experiences/sleep.md b/docs/health-and-fitness/health-connect/experiences/sleep.md
+index fbae64b7..cd7be9a4 100644
+--- a/docs/health-and-fitness/health-connect/experiences/sleep.md
++++ b/docs/health-and-fitness/health-connect/experiences/sleep.md
+@@ -11,18 +11,21 @@ source: md.txt
+ 
+ <br />
+ 
+-If you're looking to build a sleep tracking experience in your app, you can use Health Connect to do things like:
++If you're looking to build a sleep tracking experience in your app, you can use
++Health Connect to do things like:
+ 
+ - Write sleep sessions
+ - Write sleep stage data
+ - Write sleep data such as heart rate, oxygen saturation, and respiratory rate
+ - Read sleep data from other apps
+ 
+-This guide describes how to build these sleep features, covering data types, background execution, permissions, recommended workflows, and best practices.
++This guide describes how to build these sleep features, covering data types,
++background execution, permissions, recommended workflows, and best practices.
+ 
+ ## Overview: Building a Comprehensive Sleep Tracker
+ 
+-You can build a comprehensive sleep tracking experience using Health Connect by following these core steps:
++You can build a comprehensive sleep tracking experience using Health Connect by
++following these core steps:
+ 
+ - Correctly implementing permissions based on Health Permissions.
+ - Recording sessions using `SleepSessionRecord`.
+@@ -30,7 +33,8 @@ You can build a comprehensive sleep tracking experience using Health Connect by
+ - Managing background execution properly to verify continuous data capture overnight.
+ - Reading session data for post-sleep summaries and analysis.
+ 
+-This workflow enables interoperability with other Health Connect apps and verifies user-controlled data access.
++This workflow enables interoperability with other Health Connect apps and
++verifies user-controlled data access.
+ 
+ ## Before you begin
+ 
+@@ -38,11 +42,16 @@ Before implementing sleep features:
+ 
+ - [Integrate Health Connect](https://developer.android.com/health-and-fitness/health-connect/get-started#step-1) using the appropriate dependency.
+ - [Create a `HealthConnectClient`](https://developer.android.com/health-and-fitness/health-connect/get-started#step-2) instance.
+-- Verify your app implements runtime [permission flows based on Health Permissions](https://developer.android.com/health-and-fitness/health-connect/get-started#declare-permissions).
++- Verify your app implements runtime [permission flows based on Health
++  Permissions](https://developer.android.com/health-and-fitness/health-connect/get-started#declare-permissions).
+ 
+ ## Key concepts
+ 
+-Health Connect represents sleep data using a few core components. A `SleepSessionRecord` acts as the central record for sleep, containing details like start or end times and sleep stages. During a session, various data types such as `HeartRateRecord` or `OxygenSaturationRecord` can be recorded.
++Health Connect represents sleep data using a few core components. A
++`SleepSessionRecord` acts as the central record for sleep,
++containing details like start or end times and sleep stages. During a
++session, various data types such as `HeartRateRecord` or
++`OxygenSaturationRecord` can be recorded.
+ 
+ ### Sleep sessions
+ 
+@@ -68,11 +77,15 @@ Each data type is stored as an individual record.
+ 
+ ## Development considerations
+ 
+-Sleep tracking apps often need to run for extended periods, frequently in the background when the screen is off. When building your sleep features, it's important to consider how to manage background execution and request the necessary permissions for sleep data.
++Sleep tracking apps often need to run for extended periods, frequently
++in the background when the screen is off. When building your sleep
++features, it's important to consider how to manage background execution
++and request the necessary permissions for sleep data.
+ 
+ ### Background execution
+ 
+-Sleep tracking apps commonly run overnight with the screen off. When in this state, you should use:
++Sleep tracking apps commonly run overnight with the screen off. When in this
++state, you should use:
+ 
+ - Foreground services for data collection
+ - `WorkManager` for deferred write or syncing
+@@ -82,16 +95,21 @@ Maintain continuity by keeping session ID consistent across all writes.
+ 
+ ### Permissions
+ 
+-Your app must request the relevant Health Connect permissions before reading or writing sleep data. For a complete list of data types, see [Health Connect data types](https://developer.android.com/health-and-fitness/health-connect/data-types). Common permissions for sleep include sleep sessions and metrics like heart rate or oxygen saturation.
++Your app must request the relevant Health Connect permissions before reading or
++writing sleep data. For a complete list of data types, see
++[Health Connect data types](https://developer.android.com/health-and-fitness/health-connect/data-types). Common permissions for sleep include sleep
++sessions and metrics like heart rate or oxygen saturation.
+ 
+ Access to sleep is protected by the following permissions:
+ 
+ - `android.permission.health.READ_SLEEP`
+ - `android.permission.health.WRITE_SLEEP`
+ 
+-To add sleep capability to your app, start by requesting permissions for the `SleepSession` data type.
++To add sleep capability to your app, start by requesting
++permissions for the `SleepSession` data type.
+ 
+-Here's the permission you need to declare to be able to write sleep:
++Here's the permission you need to declare to be able to write
++sleep:
+ 
+     <application>
+       <uses-permission
+@@ -107,9 +125,16 @@ To read sleep, you need to request the following permissions:
+     ...
+     </application>
+ 
+-The following shows an example of how to request permissions for a sleep session that includes heart rate, oxygen saturation, and respiratory rate data:
++The following shows an example of how to request permissions for a sleep
++session that includes heart rate, oxygen saturation, and respiratory rate data:
++
++After creating a client instance, your app needs to request permissions from
++the user. Users must be allowed to grant or deny permissions at any time.
++
++To do so, create a set of permissions for the required data types.
++Make sure that the permissions in the set are declared in your Android
++manifest first.
+ 
+-After creating a client instance, your app needs to request permissions from the user. Users must be allowed to grant or deny permissions at any time. To do so, create a set of permissions for the required data types. Make sure that the permissions in the set are declared in your Android manifest first.
+ 
+ ```kotlin
+ val permissions =
+@@ -123,7 +148,6 @@ val permissions =
+         HealthPermission.getReadPermission(RespiratoryRateRecord::class),
+         HealthPermission.getWritePermission(RespiratoryRateRecord::class)
+     )
+-   
+ ```
+ Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
+ 
+@@ -144,7 +168,6 @@ val requestPermissionsLauncher = rememberLauncherForActivityResult(
+         coroutineScope.launch { snackbarHostState.showSnackbar("Permissions denied.") }
+     }
+ }
+-   
+ ```
+ Because users can grant or revoke permissions at any time, your app needs to check for permissions every time before using them and handle scenarios where permission is lost.
+ 
+@@ -154,11 +177,23 @@ Because users can grant or revoke permissions at any time, your app needs to che
+ 
+ This section describes the recommended workflow for recording sleep data.
+ 
+-To align data types like `HeartRateRecord` or `OxygenSaturationRecord` with a sleep session, record them with timestamps that fall between the session's `startTime` and `endTime`. Health Connect doesn't use a session identifier to link sleep sessions with granular data. Instead, association is implicit through overlapping time intervals. When reading sleep data, you can use a session's time range to query for associated data types, as shown in [Reading sleep data](https://developer.android.com/health-and-fitness/health-connect/experiences/sleep#reading-sleep-data).
++To align data types like `HeartRateRecord` or `OxygenSaturationRecord` with a
++sleep session, record them with timestamps that fall between the session's
++`startTime` and `endTime`. Health Connect doesn't use a session identifier to
++link sleep sessions with granular data. Instead, association is implicit through
++overlapping time intervals. When reading sleep data, you can use a session's
++time range to query for associated data types, as shown in
++[Reading sleep data](https://developer.android.com/health-and-fitness/health-connect/experiences/sleep#reading-sleep-data).
+ 
+ ### Write a session
+ 
+-While granular data such as heart rate can be recorded throughout a sleep session, the `SleepSessionRecord` itself must only be written to Health Connect once the session has finished, for example when the user wakes up. The record must include the session `startTime`, `endTime`, and a list of `SleepSessionRecord.Stage` objects recorded during the session, as `SleepSessionRecord` requires `endTime` to be after `startTime`.
++While granular data such as heart rate can be recorded throughout a sleep
++session, the `SleepSessionRecord` itself must only be written to Health
++Connect once the session has finished, for example when the user wakes up. The
++record must include the
++session `startTime`, `endTime`, and a list of `SleepSessionRecord.Stage`
++objects recorded during the session, as `SleepSessionRecord` requires `endTime`
++to be after `startTime`.
+ 
+ To write a sleep session:
+ 
+@@ -202,13 +237,21 @@ Example:
+ 
+ ## Reading sleep data
+ 
+-Apps can read sleep sessions and their associated data to summarize activity, provide health insights, or sync data with an external server. For example, you can read a `SleepSessionRecord` and then query the `HeartRateRecord` that occurred during that same time interval.
++Apps can read sleep sessions and their associated data to summarize activity,
++provide health insights, or sync data with an external server. For example, you
++can read a `SleepSessionRecord` and then query the `HeartRateRecord`
++that occurred during that same time interval.
+ 
+ ### Read session with associated data
+ 
+-You can read sleep sessions using a `ReadRecordsRequest` with `SleepSessionRecord` as the record type, filtered by a time range. To read associated data for a given session, make a second request for the selected data type, such as `HeartRateRecord`---filtering by the `startTime` and `endTime` of the sleep session.
++You can read sleep sessions using a `ReadRecordsRequest` with
++`SleepSessionRecord` as the record type, filtered by a time range. To read
++associated data for a given session, make a second request for the selected
++data type, such as `HeartRateRecord`---filtering by the `startTime` and `endTime`
++of the sleep session.
+ 
+-The following example shows how to read sleep sessions with associated heart rate data for a given time range:
++The following example shows how to read sleep sessions with associated heart
++rate data for a given time range:
+ 
+     suspend fun readSleepSessionsWithAssociatedData(
+         healthConnectClient: HealthConnectClient,
+@@ -279,7 +322,9 @@ Follow these guidelines to improve data reliability and user experience:
+ 
+ ## Testing
+ 
+-To verify data correctness and a high-quality user experience, follow these testing strategies and refer to the official [Test top use cases](https://developer.android.com/health-and-fitness/health-connect/test/test-cases) documentation.
++To verify data correctness and a high-quality user experience, follow these
++testing strategies and refer to the official [Test top use cases](https://developer.android.com/health-and-fitness/health-connect/test/test-cases)
++documentation.
+ 
+ ### Verification tools
+ 

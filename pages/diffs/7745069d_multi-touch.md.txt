@@ -1,0 +1,36 @@
+diff --git a/docs/develop/ui/compose/touch-input/pointer-input/multi-touch.md b/docs/develop/ui/compose/touch-input/pointer-input/multi-touch.md
+index 56bb7cb3..fc39ff78 100644
+--- a/docs/develop/ui/compose/touch-input/pointer-input/multi-touch.md
++++ b/docs/develop/ui/compose/touch-input/pointer-input/multi-touch.md
+@@ -4,9 +4,10 @@ url: https://developer.android.com/develop/ui/compose/touch-input/pointer-input/
+ source: md.txt
+ ---
+ 
+-To detect multitouch gestures used for panning, zooming and rotating, you can use the `transformable` modifier. This modifier does not transform elements by itself, it only detects the gestures.
++To detect multitouch gestures used for panning, zooming and rotating, you can
++use the `transformable` modifier. This modifier does not transform elements by
++itself, it only detects the gestures.
+ 
+-<br />
+ 
+ ```kotlin
+ @Composable
+@@ -38,14 +39,16 @@ private fun TransformableSample() {
+             .fillMaxSize()
+     )
+ }
+-   
+ ```
+ 
+ <br />
+ 
+ ![A UI element responding to multitouch gestures—panning, zooming, and rotating](https://developer.android.com/static/develop/ui/compose/images/gestures-multitouch.gif)
+ 
+-If you need to combine zooming, panning and rotation with other gestures, you can use the [`PointerInputScope.detectTransformGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.input.pointer.PointerInputScope).detectTransformGestures(kotlin.Boolean,kotlin.Function4)) detector.
++If you need to combine zooming, panning and rotation with other gestures, you
++can use the
++[`PointerInputScope.detectTransformGestures`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/package-summary#(androidx.compose.ui.input.pointer.PointerInputScope).detectTransformGestures(kotlin.Boolean,kotlin.Function4))
++detector.
+ 
+ ## Recommended for you
+ 

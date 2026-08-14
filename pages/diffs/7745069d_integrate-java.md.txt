@@ -1,0 +1,347 @@
+diff --git a/docs/guide/playcore/asset-delivery/integrate-java.md b/docs/guide/playcore/asset-delivery/integrate-java.md
+index 3ee38722..f5f0fd39 100644
+--- a/docs/guide/playcore/asset-delivery/integrate-java.md
++++ b/docs/guide/playcore/asset-delivery/integrate-java.md
+@@ -4,20 +4,28 @@ url: https://developer.android.com/guide/playcore/asset-delivery/integrate-java
+ source: md.txt
+ ---
+ 
+-Use the steps in this guide to access your app's asset packs from your Java code.
++Use the steps in this guide to access your app's asset packs from your Java
++code.
+ 
+ ## Build for Kotlin and Java
+ 
+-Use the following steps to build Play Asset Delivery into your project's Android App Bundle. You don't need to use Android Studio to perform these steps.
++Use the following steps to build Play Asset Delivery into your project's Android
++App Bundle. You don't need to use Android Studio to perform these steps.
+ 
+ > [!NOTE]
+ > **Note:** For a guided tutorial, see the [Using Play Asset Delivery in native games Codelab](https://codelabs.developers.google.com/codelabs/native-gamepad).
+ 
+-1. Update the version of the Android Gradle plugin in your project's `build.gradle` file to `4.0.0` or later.
++1. Update the version of the Android Gradle plugin in your project's
++   `build.gradle` file to `4.0.0` or later.
+ 
+-2. In the top-level directory of your project, create a directory for the asset pack. This directory name is used as the asset pack name. Asset pack names must start with a letter and can only contain letters, numbers, and underscores.
++2. In the top-level directory of your project, create a directory for the asset
++   pack. This directory name is used as the asset pack name. Asset pack names
++   must start with a letter and can only contain letters, numbers, and
++   underscores.
+ 
+-3. In the asset pack directory, create a `build.gradle` file and add the following code. Make sure to specify the name of the asset pack and only one delivery type:
++3. In the asset pack directory, create a `build.gradle` file and add the
++   following code. Make sure to specify the name of the asset pack and only one
++   delivery type:
+ 
+    ### Groovy
+ 
+@@ -50,7 +58,8 @@ Use the following steps to build Play Asset Delivery into your project's Android
+      }
+    }
+    ```
+-4. In the project's app `build.gradle` file, add the name of every asset pack in your project as shown below:
++4. In the project's app `build.gradle` file, add the name of every asset pack
++   in your project as shown below:
+ 
+    ### Groovy
+ 
+@@ -71,7 +80,8 @@ Use the following steps to build Play Asset Delivery into your project's Android
+        assetPacks += listOf(":asset-pack-name", ":asset-pack2-name")
+    }
+    ```
+-5. In the project's `settings.gradle` file, include all asset packs in your project as shown below:
++5. In the project's `settings.gradle` file, include all asset packs in your
++   project as shown below:
+ 
+    ### Groovy
+ 
+@@ -90,21 +100,27 @@ Use the following steps to build Play Asset Delivery into your project's Android
+    include(":asset-pack-name")
+    include(":asset-pack2-name")
+    ```
+-6. In the asset pack directory, create the following subdirectory: `src/main/assets`.
++6. In the asset pack directory, create the following subdirectory:
++   `src/main/assets`.
+ 
+-7. Place assets in the `src/main/assets` directory. You can create subdirectories in here as well. The directory structure for your app should now look like the following:
++7. Place assets in the `src/main/assets` directory. You can create
++   subdirectories in here as well. The directory structure for your app should
++   now look like the following:
+ 
+    - `build.gradle`
+    - `settings.gradle`
+    - `app/`
+    - `asset-pack-name/build.gradle`
+    - `asset-pack-name/src/main/assets/your-asset-directories`
+-8. [Build the Android App Bundle with Gradle](https://developer.android.com/studio/build/building-cmdline#build_bundle). In the generated app bundle, the root-level directory now includes the following:
++8. [Build the Android App Bundle with Gradle](https://developer.android.com/studio/build/building-cmdline#build_bundle).
++   In the generated app bundle, the root-level directory now includes the
++   following:
+ 
+    - `asset-pack-name/manifest/AndroidManifest.xml`: Configures the asset pack's identifier and delivery mode
+    - `asset-pack-name/assets/your-asset-directories`: Directory that contains all assets delivered as part of the asset pack
+ 
+-   Gradle generates the manifest for each asset pack and outputs the `assets/` directory for you.
++   Gradle generates the manifest for each asset pack and outputs the `assets/`
++   directory for you.
+ 9. (Optional) Include the [Play Asset Delivery Library](https://developer.android.com/guide/playcore#java-kotlin-asset-delivery) if you plan to use fast-follow and on-demand delivery
+ 
+    ### Groovy
+@@ -125,29 +141,38 @@ Use the following steps to build Play Asset Delivery into your project's Android
+ 
+    <br />
+ 
+-10. (Optional) Configure your app bundle to support different [texture compression formats](https://developer.android.com/guide/playcore/asset-delivery/texture-compression).
++10. (Optional) Configure your app bundle to support different [texture
++    compression formats](https://developer.android.com/guide/playcore/asset-delivery/texture-compression).
+ 
+ > [!NOTE]
+ > **Note:** You must run your app as an app bundle rather than as a standalone APK to access the bundled assets. Or, you can edit the default run/debug configuration to deliver the app as an APK rather than a bundle. See [Build and test your Android App Bundle](https://developer.android.com/guide/app-bundle/test#deploy-using-studio).
+ 
+ ## Integrate with the Play Asset Delivery API
+ 
+-The [Play Asset Delivery Java API](https://developer.android.com/reference/com/google/android/play/core/assetpacks/package-summary) provides the [`AssetPackManager`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager) class for requesting asset packs, managing downloads, and accessing the assets. Make sure to [Add the Play Asset Delivery Library](https://developer.android.com/guide/playcore#java-kotlin-asset-delivery) into your project first.
++The [Play Asset Delivery Java API](https://developer.android.com/reference/com/google/android/play/core/assetpacks/package-summary)
++provides the
++[`AssetPackManager`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager)
++class for requesting asset packs, managing downloads, and accessing the assets. Make sure to [Add the Play Asset Delivery Library](https://developer.android.com/guide/playcore#java-kotlin-asset-delivery) into your project first.
+ 
+-You implement this API according to the delivery type of the asset pack you wish to access. These steps are shown in the following flowchart.
++You implement this API according to the delivery type of the asset pack you wish
++to access. These steps are shown in the following flowchart.
+ 
+ > [!NOTE]
+ > **Note:** You use a different API to access `install-time` asset packs than `fast-follow` and `on-demand` asset packs.
+ 
+ ![Asset pack flow diagram for the Java programming language](https://developer.android.com/static/images/app-bundle/asset-pack-flow-java.png)
+ 
++
+ **Figure 1.** Flow diagram for accessing asset packs
+ 
+ <br />
+ 
+ ## Install-time delivery
+ 
+-Asset packs configured as `install-time` are immediately available at app launch. Use the Java [AssetManager API](https://developer.android.com/reference/android/content/res/AssetManager) to access assets served in this mode:
++Asset packs configured as `install-time` are immediately available at app
++launch. Use the Java
++[AssetManager API](https://developer.android.com/reference/android/content/res/AssetManager) to access assets
++served in this mode:
+ 
+ ### Kotlin
+ 
+@@ -171,11 +196,18 @@ InputStream is = assetManager.open("asset-name");
+ 
+ ## Fast-follow and on-demand delivery
+ 
+-The following sections show how to get information about asset packs before downloading them, how to call the API to start the download, and then how to access the downloaded packs. These sections apply to `fast-follow` and `on-demand` asset packs.
++The following sections show how to get information about asset packs before
++downloading them, how to call the API to start the download, and then how to
++access the downloaded packs. These sections apply to `fast-follow` and
++`on-demand` asset packs.
+ 
+ ### Check status
+ 
+-Each asset pack is stored in a separate folder in the app's internal storage. Use the [`getPackLocation()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#getpacklocation) method to determine the root folder of an asset pack. This method returns the following values:
++Each asset pack is stored in a separate folder in the app's internal storage.
++Use the
++[`getPackLocation()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#getpacklocation)
++method to determine the root folder of an asset pack. This method returns the
++following values:
+ 
+ | Return value | Status |
+ |---|---|
+@@ -187,7 +219,12 @@ Each asset pack is stored in a separate folder in the app's internal storage. Us
+ 
+ ### Get download information about asset packs
+ 
+-Apps are required to disclose the size of the download before fetching the asset pack. Use the [`requestPackStates()`](https://developer.android.com/reference/com/google/android/play/core/ktx/package-summary#requestpackstates) or the [`getPackStates()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#getpackstates) method to determine the size of the download and whether the pack is already downloading.
++Apps are required to disclose the size of the download before fetching the asset
++pack. Use the
++[`requestPackStates()`](https://developer.android.com/reference/com/google/android/play/core/ktx/package-summary#requestpackstates)
++or the [`getPackStates()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#getpackstates)
++method to determine the size of the download and whether the pack is already
++downloading.
+ 
+ ### Kotlin
+ 
+@@ -201,7 +238,13 @@ suspend fun requestPackStates(packNames: List<String>): AssetPackStates
+ Task<AssetPackStates> getPackStates(List<String> packNames)
+ ```
+ 
+-`requestPackStates()` is a suspend function returning an [`AssetPackStates`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackStates) object while the `getPackStates()` is an asynchronous method that returns a `Task<AssetPackStates>`. The [`packStates()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackStates#packstates) method of an `AssetPackStates` object returns a `Map<String, AssetPackState>`. This map contains the state of each requested asset pack, keyed by its name:
++`requestPackStates()` is a suspend function returning an
++[`AssetPackStates`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackStates)
++object while the `getPackStates()` is an asynchronous method that returns a `Task<AssetPackStates>`. The
++[`packStates()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackStates#packstates)
++method of an `AssetPackStates` object returns a `Map<String,
++AssetPackState>`. This map contains the state of each requested asset
++pack, keyed by its name:
+ 
+ ### Kotlin
+ 
+@@ -254,19 +297,35 @@ assetPackManager
+             })
+ ```
+ 
+-The following [`AssetPackState`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackState) methods provide the size of the asset pack, the downloaded amount so far (if requested), and the amount already transferred to the app:
++The following
++[`AssetPackState`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackState)
++methods provide the size of the asset pack, the downloaded amount so far (if
++requested), and the amount already transferred to the app:
+ 
+ - [`totalBytesToDownload()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackState#totalbytestodownload)
+ - [`bytesDownloaded()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackState#bytesdownloaded)
+ - [`transferProgressPercentage()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackState#transferprogresspercentage)
+ 
+-To get the status of an asset pack, use the [`status()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackState#status) method, which returns the status as an integer that corresponds to a constant field in the [`AssetPackStatus`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/model/AssetPackStatus) class. An asset pack that's not installed yet has the status `AssetPackStatus.NOT_INSTALLED`.
++To get the status of an asset pack, use the
++[`status()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackState#status)
++method, which returns the status as an integer that corresponds to a constant
++field in the
++[`AssetPackStatus`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/model/AssetPackStatus)
++class. An asset pack that's not installed yet has the status
++`AssetPackStatus.NOT_INSTALLED`.
+ 
+-If a request fails, use the [`errorCode()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackState#errorcode) method, whose return value corresponds to a constant field in the [`AssetPackErrorCode`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/model/AssetPackErrorCode) class.
++If a request fails, use the
++[`errorCode()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackState#errorcode)
++method, whose return value corresponds to a constant field in the
++[`AssetPackErrorCode`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/model/AssetPackErrorCode)
++class.
+ 
+ ### Install
+ 
+-Use the [`requestFetch()`](https://developer.android.com/reference/com/google/android/play/core/ktx/package-summary#requestfetch) or [`fetch()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#fetch) method to download an asset pack for the first time or call for the update of an asset pack to complete:
++Use the [`requestFetch()`](https://developer.android.com/reference/com/google/android/play/core/ktx/package-summary#requestfetch) or
++[`fetch()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#fetch)
++method to download an asset pack for the first time or call for the update of an
++asset pack to complete:
+ 
+ ### Kotlin
+ 
+@@ -280,14 +339,23 @@ suspend fun AssetPackManager.requestFetch(packs: List<String>): AssetPackStates
+ Task<AssetPackStates> fetch(List<String> packNames)
+ ```
+ 
+-This method returns an [`AssetPackStates`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackStates) object containing a list of packs and their initial download states and sizes. If an asset pack requested via `requestFetch()` or `fetch()` is already downloading, the download status is returned and no additional download is started.
++This method returns an
++[`AssetPackStates`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackStates)
++object containing a list of packs and their initial download states and sizes.
++If an asset pack requested via `requestFetch()` or `fetch()` is already downloading, the download
++status is returned and no additional download is started.
+ 
+ > [!NOTE]
+ > **Note:** In most cases, you implement a `listener` to track the download and installation process as covered in the next section.
+ 
+ ### Monitor download states
+ 
+-You should implement an [`AssetPackStateUpdatedListener`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackStateUpdateListener) to track the installation progress of asset packs. The status updates are broken down per pack to support tracking the status of individual asset packs. You can start using available asset packs before all other downloads for your request have completed.
++You should implement an
++[`AssetPackStateUpdatedListener`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackStateUpdateListener)
++to track the installation progress of asset
++packs. The status updates are broken down per pack to support tracking the
++status of individual asset packs. You can start using available asset packs
++before all other downloads for your request have completed.
+ 
+ ### Kotlin
+ 
+@@ -308,13 +376,29 @@ void unregisterListener(AssetPackStateUpdatedListener listener)
+ 
+ #### Large downloads
+ 
+-If the download is larger than 200 MB and the user is not on Wi-Fi, the download does not start until the user explicitly gives their consent to proceed with the download using a mobile data connection. Similarly, if the download is large and the user loses Wi-Fi, the download is paused and explicit consent is required to proceed using a mobile data connection. A paused pack has state `WAITING_FOR_WIFI`. To trigger the UI flow to prompt the user for consent, use the [`showConfirmationDialog()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#showConfirmationDialog(androidx.activity.result.ActivityResultLauncher%3Candroidx.activity.result.IntentSenderRequest%3E)) method.
++If the download is larger than 200 MB and the user is not on Wi-Fi, the download
++does not start until the user explicitly gives their consent to proceed with the
++download using a mobile data connection. Similarly, if the download is large and
++the user loses Wi-Fi, the download is paused and explicit consent is required to
++proceed using a mobile data connection. A paused pack has state
++`WAITING_FOR_WIFI`. To trigger the UI flow to prompt the user for consent, use
++the [`showConfirmationDialog()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#showConfirmationDialog(androidx.activity.result.ActivityResultLauncher%3Candroidx.activity.result.IntentSenderRequest%3E))
++method.
+ 
+-Note that if the app does not call this method, the download is paused and will resume automatically only when the user is back on a Wi-Fi connection.
++Note that if the app does not call this method, the download is paused and will
++resume automatically only when the user is back on a Wi-Fi connection.
+ 
+ #### Required user confirmation
+ 
+-If a pack has the `REQUIRES_USER_CONFIRMATION` status, the download won't proceed until the user accepts the dialog that is shown with [`showConfirmationDialog()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#showConfirmationDialog(androidx.activity.result.ActivityResultLauncher%3Candroidx.activity.result.IntentSenderRequest%3E)). This status can occur when the app is not recognized by Play---for example, if the app was side-loaded. Note that calling [`showConfirmationDialog()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#showConfirmationDialog(androidx.activity.result.ActivityResultLauncher%3Candroidx.activity.result.IntentSenderRequest%3E)) in this case will cause the app to be updated. After the update, you will need to request the assets again.
++If a pack has the `REQUIRES_USER_CONFIRMATION` status, the download won't
++proceed until the user accepts the dialog that is shown with
++[`showConfirmationDialog()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#showConfirmationDialog(androidx.activity.result.ActivityResultLauncher%3Candroidx.activity.result.IntentSenderRequest%3E)).
++This status can occur when the app is not recognized by Play---for example, if
++the app was side-loaded.
++Note that calling
++[`showConfirmationDialog()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#showConfirmationDialog(androidx.activity.result.ActivityResultLauncher%3Candroidx.activity.result.IntentSenderRequest%3E))
++in this case will cause the app to be updated. After the update, you will need
++to request the assets again.
+ 
+ The following is an example implementation of a listener:
+ 
+@@ -444,13 +528,26 @@ assetPackStateUpdateListener = new AssetPackStateUpdateListener() {
+ }
+ ```
+ 
+-Alternatively, you can use the [`getPackStates()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#getpackstates) method to get the status of current downloads. [`AssetPackStates`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackStates) contains the download progress, download status, and any failure error codes.
++Alternatively, you can use the
++[`getPackStates()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#getpackstates)
++method to get the status of current downloads.
++[`AssetPackStates`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackStates)
++contains the download progress, download status, and any failure error codes.
+ 
+ ### Access asset packs
+ 
+-You can access an asset pack using file system calls after the download request reaches the [`COMPLETED`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/model/AssetPackStatus#completed) state. Use the [`getPackLocation()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#getpacklocation) method to get the root folder of the asset pack.
++You can access an asset pack using file system calls after the download request
++reaches the
++[`COMPLETED`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/model/AssetPackStatus#completed)
++state. Use the
++[`getPackLocation()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#getpacklocation)
++method to get the root folder of the asset pack.
+ 
+-Assets are stored in the `assets` directory within the asset pack root directory. You can get the path to the `assets` directory by using the convenience method [`assetsPath()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackLocation#assetspath). Use the following method to get the path to a specific asset:
++Assets are stored in the `assets` directory within the asset pack root
++directory. You can get the path to the `assets` directory by using the
++convenience method
++[`assetsPath()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackLocation#assetspath).
++Use the following method to get the path to a specific asset:
+ 
+ ### Kotlin
+ 
+@@ -491,16 +588,28 @@ The following are some additional API methods you may want to use in your app.
+ 
+ ### Cancel request
+ 
+-Use [`cancel()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#cancel) to cancel an active asset pack request. Note that this request is a best-effort operation.
++Use
++[`cancel()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#cancel)
++to cancel an active asset pack request. Note that this request is a best-effort
++operation.
+ 
+ ### Remove an asset pack
+ 
+-Use [`requestRemovePack()`](https://developer.android.com/reference/com/google/android/play/core/ktx/package-summary#requestremovepack) or [`removePack()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#removepack) to schedule the removal of an asset pack.
++Use
++[`requestRemovePack()`](https://developer.android.com/reference/com/google/android/play/core/ktx/package-summary#requestremovepack)
++or
++[`removePack()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#removepack)
++to schedule the removal of an asset pack.
+ 
+ ### Get locations of multiple asset packs
+ 
+-Use [`getPackLocations()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#getpacklocations) to query the status of multiple asset packs in bulk, which returns a map of asset packs and their locations. The map returned by `getPackLocations()` contains an entry for each pack that is currently downloaded and up-to-date.
++Use
++[`getPackLocations()`](https://developer.android.com/reference/com/google/android/play/core/assetpacks/AssetPackManager#getpacklocations)
++to query the status of multiple asset packs in bulk, which returns a map of
++asset packs and their locations. The map returned by `getPackLocations()`
++contains an entry for each pack that is currently downloaded and up-to-date.
+ 
+ ## Next step
+ 
+-[Test Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery/test) locally and from Google Play.
+\ No newline at end of file
++[Test Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery/test) locally and from
++Google Play.
+\ No newline at end of file

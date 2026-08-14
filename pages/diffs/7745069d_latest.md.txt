@@ -1,0 +1,153 @@
+diff --git a/docs/blog/latest.md b/docs/blog/latest.md
+index 418e6220..75d623a0 100644
+--- a/docs/blog/latest.md
++++ b/docs/blog/latest.md
+@@ -7,6 +7,37 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_1w4qDC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
++
++  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release) Today, the Jetpack Compose August '26 release is stable!
++  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
++  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
++- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
++
++  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
++  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
++  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
++  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
++  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
++  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
++  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
++  - [#Foldables](https://developer.android.com/blog/topics/foldables)
++  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
++  - +5 ↩
++- [![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_Derb5.webp)](https://developer.android.com/blog/authors/chiara-chiappini) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Bring_one_handed_gestures_Strapi_defff06599_Z1FDx9g.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Bring one-handed gestures to your Wear OS app](https://developer.android.com/blog/posts/bring-one-handed-gestures-to-your-wear-os-app)
++
++  [arrow_forward](https://developer.android.com/blog/posts/bring-one-handed-gestures-to-your-wear-os-app) First introduced on Pixel Watch with Wear OS 6.1, one-handed gestures made quick interactions effortless, such as starting and stopping a timer, accepting calls, and controlling media.
++  [Chiara Chiappini](https://developer.android.com/blog/authors/chiara-chiappini) • 3 min read
++  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
++  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
++  - [#pixel watch](https://developer.android.com/blog/topics/pixel-watch)
++  - +1 ↩
+ - [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+   ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+@@ -53,6 +84,13 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices) Today at Galaxy Unpacked, Samsung unveiled its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
+   [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
++- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++
++  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
++
++  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
++  [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
++  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ - [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+   ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
+@@ -74,13 +112,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
+   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 8 min read
+   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+-
+-  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
+-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
+-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ - [![View Wei Wang's profile](https://developer.android.com/static/blog/assets/weiwa_web_6a7b6f6114_Z1kCd5W.webp)](https://developer.android.com/blog/authors/wei-wang) 20 Jul 2026 20 Jul 2026 ![](https://developer.android.com/static/blog/assets/Upcoming_Changes_to_the_Nearby_Connections_API_Strapi_11b1de50e2_K0lSy.webp) [Documentation](https://developer.android.com/blog/categories/documentation)
+ 
+   ## [Upcoming Changes to the Nearby Connections API](https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api)
+@@ -129,27 +160,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
+   [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
+-- 3 Authors 17 Jun 2026 17 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Geospatial_V02_Strapi_5c55395a9c_UkzvN.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Building a Mixed-Reality Tour Guide with Android XR, the Geospatial API, and Gemini](https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini) At this year's Google I/O, we announced an update for spatial experiences: the Geospatial API is now available as a preview in ARCore for Jetpack XR.
+-  [Coco Fatus](https://developer.android.com/blog/authors/coco-fatus), [Alon Hetzroni](https://developer.android.com/blog/authors/alon-hetzroni), [Azin Mehrnoosh](https://developer.android.com/blog/authors/blog-author-1) • 6 min read
+-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
+-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
+-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
+-- [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1R62M0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates) From augmented overlays to fully immersive environments, the Android XR ecosystem is expanding rapidly, with the Samsung Galaxy XR already available today.
+-  [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 2 min read
+-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+-  - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
+ <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
+ 
+ #### Page 1
+@@ -165,26 +175,30 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+ - [#Compose](https://developer.android.com/blog/topics/compose)
+ - [#Performance](https://developer.android.com/blog/topics/performance)
++- [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+ - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ - [#R8](https://developer.android.com/blog/topics/r8)
+ - [#Android 17](https://developer.android.com/blog/topics/android-17)
+-- [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+ - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+ - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
++- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+ - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
+ - [#Google Play](https://developer.android.com/blog/topics/google-play)
++- [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+ - [#Memory](https://developer.android.com/blog/topics/memory)
+ - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+ - [#Widgets](https://developer.android.com/blog/topics/widgets)
++- [#made by google](https://developer.android.com/blog/topics/made-by-google)
+ - [#Idling Resources](https://developer.android.com/blog/topics/idling-resources)
+ - [#identity](https://developer.android.com/blog/topics/identity)
+ - [#Nav3](https://developer.android.com/blog/topics/nav3)
+ - [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
+ - [#Android 16](https://developer.android.com/blog/topics/android-16)
++- [#Foldables](https://developer.android.com/blog/topics/foldables)
+ - [#beta](https://developer.android.com/blog/topics/beta)
+ - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
+ - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+@@ -195,7 +209,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
+ - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
+ - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
+-- [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+ - [#On-device](https://developer.android.com/blog/topics/on-device)
+ - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development)
+ - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
+@@ -210,10 +223,12 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+ - [#Media3](https://developer.android.com/blog/topics/media3)
+ - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
++- [#pixel watch](https://developer.android.com/blog/topics/pixel-watch)
++- [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
++- [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
++- [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+-- [#Foldables](https://developer.android.com/blog/topics/foldables)
+-- [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Large Screens](https://developer.android.com/blog/topics/large-screens)
+ - [#Layouts](https://developer.android.com/blog/topics/layouts)
+ - [#Window Size Classes](https://developer.android.com/blog/topics/blog-topic)

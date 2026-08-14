@@ -1,0 +1,46 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/dynamicfeature.md b/docs/guide/navigation/navigation-3/recipes/dynamicfeature.md
+index 832558f9..7ab27409 100644
+--- a/docs/guide/navigation/navigation-3/recipes/dynamicfeature.md
++++ b/docs/guide/navigation/navigation-3/recipes/dynamicfeature.md
+@@ -267,7 +267,6 @@ object OnDemandModule : DynamicModule(
+         }
+     }
+ }
+-   
+ ```
+ 
+ ```
+@@ -479,8 +478,6 @@ class DynamicFeatureManager(context: Context) {
+         clearSessionState()
+     }
+ }
+-
+-   
+ ```
+ 
+ ```
+@@ -525,7 +522,6 @@ inline fun <reified K : AppNavKey> EntryProviderScope<NavKey>.appEntry(
+ ) {
+     addEntryProvider(K::class, clazzContentKey, { metadata }, content)
+ }
+-   
+ ```
+ 
+ ```
+@@ -655,8 +651,6 @@ private fun getStatusTitle(status: InstallStatus): String {
+         else -> ""
+     }
+ }
+-
+-   
+ ```
+ 
+ ````
+@@ -728,6 +722,4 @@ fun EntryProviderScope<NavKey>.buildDynamicEntries(
+         build()
+     }
+ }
+-
+-   
+ ````
+\ No newline at end of file

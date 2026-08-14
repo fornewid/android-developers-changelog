@@ -1,0 +1,179 @@
+diff --git a/docs/media/media3/session/player.md b/docs/media/media3/session/player.md
+index 38628a83..89e2177d 100644
+--- a/docs/media/media3/session/player.md
++++ b/docs/media/media3/session/player.md
+@@ -4,7 +4,10 @@ url: https://developer.android.com/media/media3/session/player
+ source: md.txt
+ ---
+ 
+-A player is the component of your app that facilitates playback of media items. The Media3 [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player) interface sets up an outline for functionality generally handled by a player. This includes:
++A player is the component of your app that facilitates playback of media items.
++The Media3 [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player) interface
++sets up an outline for functionality generally handled by a player. This
++includes:
+ 
+ - Affecting playback controls, such as playing, pausing, and seeking
+ - Querying properties of the currently playing media, such as the playback position
+@@ -12,7 +15,8 @@ A player is the component of your app that facilitates playback of media items.
+ - Configuring playback properties, such as shuffling, repeating, speed, and volume
+ - Rendering video to the screen
+ 
+-Media3 also provides an implementation of the `Player` interface, called [`ExoPlayer`](https://developer.android.com/guide/topics/media/exoplayer).
++Media3 also provides an implementation of the `Player` interface, called
++[`ExoPlayer`](https://developer.android.com/guide/topics/media/exoplayer).
+ 
+ > [!TIP]
+ > **Tip:** If you're looking to implement a media player app using ExoPlayer, check out the [Create a basic media player app using Media3 ExoPlayer](https://developer.android.com/media/implement/playback-app) guide.
+@@ -31,18 +35,29 @@ Several components in Media3 implement the Player interface, for example:
+ | [`RemoteCastPlayer`](https://developer.android.com/reference/kotlin/androidx/media3/cast/RemoteCastPlayer) | A `Player` implementation for controlling playback on a remote Cast receiver app. |
+ | [`CastPlayer`](https://developer.android.com/reference/kotlin/androidx/media3/cast/CastPlayer) | A `Player` implementation for controlling both local and remote Cast playback. |
+ 
+-Although a `MediaSession` doesn't implement the `Player` interface, it requires a `Player` when creating one. Its purpose is to provide access to the `Player` from other processes or threads.
++Although a `MediaSession` doesn't implement the `Player` interface, it requires
++a `Player` when creating one. Its purpose is to provide access to the `Player`
++from other processes or threads.
+ 
+ ### Media3 playback architecture
+ 
+-If you have access to a `Player`, you should call its methods directly to issue playback commands. You can advertise your playback and grant external sources playback control by implementing a `MediaSession`. These external sources implement a `MediaController`, which facilitates connecting to a media session and issuing playback command requests.
+-
+-When playing media in the background, you need to house your media session and player within a `MediaSessionService` or `MediaLibraryService` that runs as a foreground service. If you do so, you can separate your player from the Activity in your app that contains the UI for playback control. This may necessitate that you use a media controller.
++If you have access to a `Player`, you should call its methods directly to issue
++playback commands. You can advertise your playback and grant external sources
++playback control by implementing a `MediaSession`. These external sources
++implement a `MediaController`, which facilitates connecting to a media session
++and issuing playback command requests.
++
++When playing media in the background, you need to house your media session and
++player within a `MediaSessionService` or `MediaLibraryService` that runs as a
++foreground service. If you do so, you can separate your player from the Activity
++in your app that contains the UI for playback control. This may necessitate that
++you use a media controller.
+ ![A diagram showing how Media3 playback components fit into a media app architecture.](https://developer.android.com/static/guide/topics/media/images/backgroundplayback.png) **Figure 1** : The `Player` interface plays a key role in the architecture of Media3.
+ 
+ ## Player state
+ 
+-The state of a media player implementing the `Player` interface consists primarily of 4 categories of information:
++The state of a media player implementing the `Player` interface consists
++primarily of 4 categories of information:
+ 
+ 1. Playback state
+    - Retrieve with [`getPlaybackState()`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#getPlaybackState()).
+@@ -60,18 +75,27 @@ The state of a media player implementing the `Player` interface consists primari
+    - [`isPlayingAd`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#isPlayingAd()): An indication of whether an inserted ad is playing.
+    - [Current playback position](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#getCurrentPosition()): The current playback position within the current `MediaItem` or inserted ad.
+ 
+-In addition, the `Player` interface allows access to the [available tracks](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#getCurrentTracks()), [media metadata](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#getMediaMetadata()), [playback speed](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#getPlaybackParameters()), [volume](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#getVolume()) and other auxiliary properties of the playback.
++In addition, the `Player` interface allows access to the
++[available tracks](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#getCurrentTracks()),
++[media metadata](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#getMediaMetadata()),
++[playback speed](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#getPlaybackParameters()),
++[volume](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#getVolume()) and other
++auxiliary properties of the playback.
+ 
+ > [!NOTE]
+ > **Note:** `Player` instances don't have to support all features of the interface. You can check the [available commands](https://developer.android.com/reference/kotlin/androidx/media3/common/Player#isCommandAvailable(int)) to see which feature is supported and which method is allowed to be called.
+ 
+ ### Listen for changes
+ 
+-Use a [`Player.Listener`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.Listener) to listen for changes in a `Player`. See the ExoPlayer documentation on [Player events](https://developer.android.com/guide/topics/media/exoplayer/listening-to-player-events) for details on how to create and use a listener.
++Use a [`Player.Listener`](https://developer.android.com/reference/kotlin/androidx/media3/common/Player.Listener)
++to listen for changes in a `Player`. See the ExoPlayer documentation on
++[Player events](https://developer.android.com/guide/topics/media/exoplayer/listening-to-player-events) for
++details on how to create and use a listener.
+ 
+-Note that the listener interface doesn't include any callbacks to track normal playback progression. To continuously monitor playback progress, such as to set up a progress bar UI, you should query the current position at proper intervals.
++Note that the listener interface doesn't include any callbacks to track normal
++playback progression. To continuously monitor playback progress, such as to set
++up a progress bar UI, you should query the current position at proper intervals.
+ 
+-<br />
+ 
+ ### Kotlin
+ 
+@@ -85,7 +109,6 @@ fun checkPlaybackPosition(delayMs: Long): Boolean =
+     },
+     delayMs,
+   )
+-      
+ ```
+ 
+ ### Java
+@@ -100,14 +123,14 @@ boolean checkPlaybackPosition(long delayMs) {
+       },
+       delayMs);
+ }
+-      
+ ```
+ 
+ <br />
+ 
+ ## Control playback
+ 
+-The `Player` interface offers many ways to manipulate the state and control playback:
++The `Player` interface offers many ways to manipulate the state and control
++playback:
+ 
+ - [Basic playback controls](https://developer.android.com/guide/topics/media/exoplayer/hello-world#populate-playlist) like `play()`, `pause()`, `prepare()` and `stop()`.
+ - [Playlist operations](https://developer.android.com/guide/topics/media/exoplayer/playlists) like `addMediaItem()` or `removeMediaItem()`.
+@@ -121,14 +144,17 @@ The `Player` interface offers many ways to manipulate the state and control play
+ 
+ ## Custom `Player` implementations
+ 
+-To create a custom player, you can extend the [`SimpleBasePlayer`](https://developer.android.com/reference/androidx/media3/common/SimpleBasePlayer) included in Media3. This class provides a base implementation of the `Player` interface to reduce the number of methods you need to implement to a minimum.
++To create a custom player, you can extend the
++[`SimpleBasePlayer`](https://developer.android.com/reference/androidx/media3/common/SimpleBasePlayer)
++included in Media3. This class provides a base implementation of the `Player`
++interface to reduce the number of methods you need to implement to a minimum.
+ 
+-Start by overriding the `getState()` method. This method should populate the current player state when called, including:
++Start by overriding the `getState()` method. This method should populate the
++current player state when called, including:
+ 
+ - The set of available commands
+ - Playback properties, such as whether the player should start playing when the playback state is `STATE_READY`, the index of the currently playing media item, and the playback position within the current item
+ 
+-<br />
+ 
+ ### Kotlin
+ 
+@@ -144,7 +170,6 @@ class CustomPlayer(looper: Looper) : SimpleBasePlayer(looper) {
+       .build()
+   }
+ }
+-      
+ ```
+ 
+ ### Java
+@@ -166,15 +191,25 @@ private static final class CustomPlayer extends SimpleBasePlayer {
+         .build();
+   }
+ }
+-      
+ ```
+ 
+ <br />
+ 
+-`SimpleBasePlayer` will enforce that the `State` is created with a valid combination of state values. It will also handle listeners and informing listeners of state changes. If you need to manually trigger a state update, call [`invalidateState()`](https://developer.android.com/reference/androidx/media3/common/SimpleBasePlayer#invalidateState()).
++`SimpleBasePlayer` will enforce that the `State` is created with a valid
++combination of state values. It will also handle listeners and informing
++listeners of state changes. If you need to manually trigger a state update,
++call [`invalidateState()`](https://developer.android.com/reference/androidx/media3/common/SimpleBasePlayer#invalidateState()).
+ 
+-Beyond the `getState()` method, you only need to implement methods that are used for commands your player declares to be available. Find the overridable handler method that corresponds to the functionality you want to implement. For example, override the [`handleSeek()`](https://developer.android.com/reference/androidx/media3/common/SimpleBasePlayer#handleSeek(int,long,int)) method to support operations like [`COMMAND_SEEK_IN_CURRENT_MEDIA_ITEM`](https://developer.android.com/reference/androidx/media3/common/Player#COMMAND_SEEK_IN_CURRENT_MEDIA_ITEM()) and [`COMMAND_SEEK_TO_NEXT_MEDIA_ITEM`](https://developer.android.com/reference/androidx/media3/common/Player#COMMAND_SEEK_TO_NEXT_MEDIA_ITEM()).
++Beyond the `getState()` method, you only need to implement methods that are used
++for commands your player declares to be available. Find the overridable handler
++method that corresponds to the functionality you want to implement. For example,
++override the [`handleSeek()`](https://developer.android.com/reference/androidx/media3/common/SimpleBasePlayer#handleSeek(int,long,int))
++method to support operations like [`COMMAND_SEEK_IN_CURRENT_MEDIA_ITEM`](https://developer.android.com/reference/androidx/media3/common/Player#COMMAND_SEEK_IN_CURRENT_MEDIA_ITEM())
++and [`COMMAND_SEEK_TO_NEXT_MEDIA_ITEM`](https://developer.android.com/reference/androidx/media3/common/Player#COMMAND_SEEK_TO_NEXT_MEDIA_ITEM()).
+ 
+ ### Modify `Player` implementations
+ 
+-Instead of creating a completely custom `Player`, you can use `ForwardingSimpleBasePlayer` to modify the state and behavior of an existing `Player`. See the guide on the [Customization page](https://developer.android.com/media/media3/exoplayer/customization#player-operations) for more details.
+\ No newline at end of file
++Instead of creating a completely custom `Player`, you can use
++`ForwardingSimpleBasePlayer` to modify the state and behavior of an existing
++`Player`. See the guide on the [Customization page](https://developer.android.com/media/media3/exoplayer/customization#player-operations) for
++more details.
+\ No newline at end of file

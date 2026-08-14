@@ -1,0 +1,174 @@
+diff --git a/docs/ndk/guides/rootless-debug-gles.md b/docs/ndk/guides/rootless-debug-gles.md
+index cd36a81f..d4f55242 100644
+--- a/docs/ndk/guides/rootless-debug-gles.md
++++ b/docs/ndk/guides/rootless-debug-gles.md
+@@ -4,9 +4,12 @@ url: https://developer.android.com/ndk/guides/rootless-debug-gles
+ source: md.txt
+ ---
+ 
+-On devices running Android 10 (API level 29) and higher, OpenGL ES (GLES) layering is available. A debuggable app can load GLES layers from its APK, from its base directory, or from a selected layer APK.
++On devices running Android 10 (API level 29) and higher, OpenGL ES (GLES) layering is
++available. A debuggable app can load GLES layers from its APK, from its base
++directory, or from a selected layer APK.
+ 
+-GLES layer usage is similar to [Vulkan validation layer](https://developer.android.com/ndk/guides/graphics/validation-layer) usage.
++GLES layer usage is similar to
++[Vulkan validation layer](https://developer.android.com/ndk/guides/graphics/validation-layer) usage.
+ 
+ ## Requirements
+ 
+@@ -17,38 +20,67 @@ GLES layers are supported only on GLES versions 2.0+.
+ 
+ ## Layer initialization
+ 
+-After populating standard entry points, the EGL Loader instantiates a GLES `LayerLoader`. If debug layers are enabled, the `LayerLoader` scans specified directories for layers, like the [Vulkan loader](https://developer.android.com/ndk/guides/graphics/validation-layer#ilp) does.
++After populating standard entry points, the EGL Loader instantiates a GLES
++`LayerLoader`. If debug layers are enabled, the `LayerLoader` scans specified
++directories for layers, like the
++[Vulkan loader](https://developer.android.com/ndk/guides/graphics/validation-layer#ilp) does.
+ 
+-If layering is enabled, the `LayerLoader` searches for and enumerates a specified layer list. The layer list is specified by colon separated filenames.
++If layering is enabled, the `LayerLoader` searches for and enumerates a specified
++layer list. The layer list is specified by colon separated filenames.
+ 
+-The `LayerLoader` traverses the layers in the order you specify, so the first layer is directly below the application. For each layer, the `LayerLoader` tracks the `AndroidGLESLayer_Initialize` and `AndroidGLESLayer_GetProcAddress` entry points. The layers *must* provide these interfaces to be loadable.
++The `LayerLoader` traverses the layers in the order you specify, so the first
++layer is directly below the application. For each layer, the `LayerLoader`
++tracks the `AndroidGLESLayer_Initialize` and
++`AndroidGLESLayer_GetProcAddress` entry points. The layers *must* provide these
++interfaces to be loadable.
+ 
+ ```c++
+ typedef void* (*PFNEGLGETNEXTLAYERPROCADDRESSPROC)(void*, const char*);
+ void* AndroidGLESLayer_Initialize(void* layer_id, PFNEGLGETNEXTLAYERPROCADDRESSPROC get_next_layer_proc_address))
+ ```
+ 
+-`AndroidGLESLayer_Initialize()` provides an identifier for the layer to use (`layer_id`) and an entry point that can be called to look up functions below the layer. The entry point can be used as shown in the following code sample:
++`AndroidGLESLayer_Initialize()` provides an identifier for the layer to use
++(`layer_id`) and an entry point that can be called to look up functions below
++the layer. The entry point can be used as shown in the following code sample:
+ 
+ ```c++
+ const char* func = "eglFoo";
+ void* gpa = get_next_layer_proc_address(layer_id, func);
+ ```
+ 
+-`AndroidGLESLayer_GetProcAddress` takes the address of the next call in the chain that the layer should call when finished. If there is only one layer, `next` points directly to the driver for most functions.
++`AndroidGLESLayer_GetProcAddress` takes the address of the next call in the
++chain that the layer should call when finished. If there is only one layer,
++`next` points directly to the driver for most functions.
+ 
+ ```c++
+ typedef __eglMustCastToProperFunctionPointerType EGLFuncPointer;
+ void* AndroidGLESLayer_GetProcAddress(const char *funcName, EGLFuncPointer next)
+ ```
+ 
+-For each layer that the GLES `LayerLoader` finds, it calls `AndroidGLESLayer_Initialize`, walks `libEGL`'s function lists, and calls `AndroidGLESLayer_GetProcAddress` for all known functions. It is up to the layer to determine how to track the next address. If the layer intercepts a function, it tracks the function's address. If the layer doesn't intercept a function, `AndroidGLESLayer_GetProcAddress` returns the same function address it was passed. The `LayerLoader` then updates the function hook list to point to the layer's entry point.
+-
+-The layers aren't required to do anything with the information `AndroidGLESLayer_Initialize` and `get_next_layer_proc_address` provide, but providing the data makes it easier for existing layers, like [Android GPU Inspector](https://developer.android.com/agi) and [RenderDoc](https://renderdoc.org/), to support Android. With that data, a layer can look up functions independently instead of waiting for calls to `AndroidGLESLayer_GetProcAddress`. If the layers choose to initialize themselves before the loader has queried all the entry points, they must use `get_next_layer_proc_address`. `eglGetProcAddress` must be passed down the chain to the platform.
++For each layer that the GLES `LayerLoader` finds, it calls
++`AndroidGLESLayer_Initialize`, walks `libEGL`'s function lists, and calls
++`AndroidGLESLayer_GetProcAddress` for all known functions. It is up to the layer
++to determine how to track the next address. If the layer intercepts a function,
++it tracks the function's address. If the layer doesn't intercept a function,
++`AndroidGLESLayer_GetProcAddress` returns the same function address it was
++passed. The `LayerLoader` then updates the function hook list to point to the
++layer's entry point.
++
++The layers aren't required to do anything with the information
++`AndroidGLESLayer_Initialize` and `get_next_layer_proc_address` provide, but
++providing the data makes it easier for existing layers, like
++[Android GPU Inspector](https://developer.android.com/agi) and
++[RenderDoc](https://renderdoc.org/), to support
++Android. With that data, a layer can look up functions independently instead of
++waiting for calls to `AndroidGLESLayer_GetProcAddress`. If the layers choose to
++initialize themselves before the loader has queried all the entry points, they
++must use `get_next_layer_proc_address`. `eglGetProcAddress` must
++be passed down the chain to the platform.
+ 
+ ## Place layers
+ 
+-The GLES `LayerLoader` searches for layers in the following locations, in order of priority:
++The GLES `LayerLoader` searches for layers in the following locations, in order
++of priority:
+ 
+ **1. System location for root**
+ 
+@@ -77,7 +109,8 @@ libGLTrace.so
+ 
+ **3. External APK**
+ 
+-Determine the ABI of your target application, then install an APK containing the layers you wish to load:
++Determine the ABI of your target application, then install an APK containing
++the layers you wish to load:
+ 
+ ```bash
+ adb install --abi armeabi-v7a layers.apk
+@@ -104,18 +137,25 @@ META-INF/MANIFEST.MF
+ 
+ ## Enable layers
+ 
+-You can enable GLES layers either per app or globally. Per-app settings persist across reboots, while global properties are cleared on reboot.
++You can enable GLES layers either per app or globally. Per-app settings persist
++across reboots, while global properties are cleared on reboot.
+ 
+-Android's security model and policies differ significantly from other platforms. In order to load external layers, one of the following must be true:
++Android's security model and policies differ
++significantly from other platforms. In order to load external layers, one of the
++following must be true:
+ 
+-- The target app's manifest file includes the following [meta-data element](https://developer.android.com/guide/topics/manifest/meta-data-element) (only applies to apps that target Android 11 (API level 30) or higher):
++- The target app's manifest file includes the following
++  [meta-data element](https://developer.android.com/guide/topics/manifest/meta-data-element) (only applies
++  to apps that target Android 11 (API level 30) or higher):
+ 
+   `<meta-data android:name="com.android.graphics.injectLayers.enable" android:value="true" />`
+ 
+   You should use this option to profile your application.
+-- The target app is debuggable. This option gives you more debug information, but might negatively affect the performance of your app.
++- The target app is debuggable. This option gives you more debug information,
++  but might negatively affect the performance of your app.
+ 
+-- The target app is run on a userdebug build of the operating system which grants root access.
++- The target app is run on a userdebug build of the operating system which
++  grants root access.
+ 
+ To enable layers per app:
+ 
+@@ -160,7 +200,8 @@ adb shell setprop debug.gles.layers <layer1:layer2:layerN>
+ 
+ ## Create a layer
+ 
+-Layers must expose the following two functions described in [EGL Loader initialization](https://developer.android.com/ndk/guides/rootless-debug-gles#egl-loader):
++Layers must expose the following two functions described in
++[EGL Loader initialization](https://developer.android.com/ndk/guides/rootless-debug-gles#egl-loader):
+ 
+ ```c++
+ AndroidGLESLayer_Initialize
+@@ -169,7 +210,9 @@ AndroidGLESLayer_GetProcAddress
+ 
+ ### Passive layers
+ 
+-For a layer that only intercepts a handful of functions, a passively initialized layer is optimal. The passively initialized layer waits for GLES `LayerLoader` to initialize the function it needs.
++For a layer that only intercepts a handful of functions, a
++passively initialized layer is optimal. The passively initialized layer waits
++for GLES `LayerLoader` to initialize the function it needs.
+ 
+ The following code sample shows how to create a passive layer.
+ 
+@@ -235,7 +278,14 @@ extern "C" {
+ 
+ ### Active layers
+ 
+-For more formalized layers that need to fully initialize up front, or layers that need to look up extensions not known to the EGL Loader, active layer initialization is required. The layer uses the `get_next_layer_proc_address` that `AndroidGLESLayer_Initialize` provides to look up a function. The layer must still respond to `AndroidGLESLayer_GetProcAddress` requests from the loader so the platform knows where to route calls. The following code sample shows how to create an active layer.
++For more formalized layers that need to fully initialize up front, or layers
++that need to look up extensions not known to the EGL Loader, active layer
++initialization is required. The layer uses
++the `get_next_layer_proc_address` that `AndroidGLESLayer_Initialize` provides to
++look up a function. The layer must still respond to
++`AndroidGLESLayer_GetProcAddress` requests from the loader so the platform knows
++where to route calls. The following code sample shows how to create an active
++layer.
+ 
+ ```c++
+ namespace {

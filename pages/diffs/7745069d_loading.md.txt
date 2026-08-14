@@ -1,0 +1,69 @@
+diff --git a/docs/develop/ui/compose/graphics/images/loading.md b/docs/develop/ui/compose/graphics/images/loading.md
+index 6c85505d..f61570a0 100644
+--- a/docs/develop/ui/compose/graphics/images/loading.md
++++ b/docs/develop/ui/compose/graphics/images/loading.md
+@@ -6,23 +6,34 @@ source: md.txt
+ 
+ ## Load an image from the disk
+ 
+-Use the [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable) composable to display a graphic on screen. To load an image (for example: PNG, JPEG, WEBP) or vector resource from the disk, use the [`painterResource`](https://developer.android.com/develop/ui/compose/quick-guides/content/load-images?hl=en) API with your image reference. You don't need to know the type of the asset, just use `painterResource` in `Image` or `paint` modifiers.
++Use the [`Image`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Image.composable) composable to display a graphic on screen. To load an image
++(for example: PNG, JPEG, WEBP) or vector resource from the disk, use the
++[`painterResource`](https://developer.android.com/develop/ui/compose/quick-guides/content/load-images?hl=en) API with your image reference. You don't need to know the type
++of the asset, just use `painterResource` in `Image` or `paint` modifiers.
+ 
+ `DrawScope`:
+ 
++
+ ```kotlin
+ Image(
+     painter = painterResource(id = R.drawable.dog),
+     contentDescription = stringResource(id = R.string.dog_content_description)
+ )
+-   
+ ```
+ 
+ <br />
+ 
+-To ensure that your app is [accessible](https://developer.android.com/develop/ui/compose/accessibility), supply a `contentDescription` for visual elements on screen. TalkBack reads out the content description, so you must ensure that the text is meaningful if read out loud and translated. In the preceding example, a `stringResource()` is used to load up the translated content description from the `strings.xml` file. If your visual element on screen is purely for visual decoration, set your `contentDescription` to `null` for the screen reader to ignore it.
++To ensure that your app is [accessible](https://developer.android.com/develop/ui/compose/accessibility), supply a `contentDescription` for visual
++elements on screen. TalkBack reads out the content description, so you must
++ensure that the text is meaningful if read out loud and translated. In the
++preceding example, a `stringResource()` is used to load up the translated
++content description from the `strings.xml` file. If your visual element on
++screen is purely for visual decoration, set your `contentDescription` to `null`
++for the screen reader to ignore it.
+ 
+-If you need lower-level `ImageBitmap` specific functionality, you can use `ImageBitmap.imageResource()` to load up a Bitmap. For more information on ImageBitmaps, read the [ImageBitmap versus ImageVector](https://developer.android.com/develop/ui/compose/graphics/images/compare) section.
++If you need lower-level `ImageBitmap` specific functionality, you can use
++`ImageBitmap.imageResource()` to load up a Bitmap. For more information on
++ImageBitmaps, read the [ImageBitmap versus ImageVector](https://developer.android.com/develop/ui/compose/graphics/images/compare) section.
+ 
+ ### Drawable support
+ 
+@@ -35,18 +46,21 @@ If you need lower-level `ImageBitmap` specific functionality, you can use `Image
+ 
+ ## Load an image from the internet
+ 
+-To load an image from the internet, there are several third-party libraries available to help you handle the process. Image loading libraries do a lot of the heavy lifting for you; they handle both caching (so you don't download the image multiple times) and networking logic to download the image and display it on screen.
++To load an image from the internet, there are several third-party libraries
++available to help you handle the process. Image loading libraries do a lot of
++the heavy lifting for you; they handle both caching (so you don't download the
++image multiple times) and networking logic to download the image and display it
++on screen.
+ 
+-For example, to load an image with [Coil](https://github.com/coil-kt/coil#jetpack-compose) from Instacart, add the library to your gradle file, and use an `AsyncImage` to load an image from a URL:
++For example, to load an image with [Coil](https://github.com/coil-kt/coil#jetpack-compose)
++from Instacart, add the library to your gradle file, and use an `AsyncImage` to load an image from a URL:
+ 
+-<br />
+ 
+ ```kotlin
+ AsyncImage(
+     model = "https://example.com/image.jpg",
+     contentDescription = "Translated description of what the image contains"
+ )
+-   
+ ```
+ 
+ <br />

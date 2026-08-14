@@ -1,0 +1,400 @@
+diff --git a/docs/studio/run/rundebugconfig.md b/docs/studio/run/rundebugconfig.md
+index 7a1ef0c5..4475dfe6 100644
+--- a/docs/studio/run/rundebugconfig.md
++++ b/docs/studio/run/rundebugconfig.md
+@@ -4,7 +4,11 @@ url: https://developer.android.com/studio/run/rundebugconfig
+ source: md.txt
+ ---
+ 
+-When you run, debug, or test your code, Android Studio uses a run/debug configuration to determine how to perform the operation. Typically, the [initially-created configuration](https://developer.android.com/studio/run/rundebugconfig#initially-created-config) is sufficient to run or debug an app. However, you can modify and create new configurations, and modify the configuration templates to suit your development process as described on this page.
++When you run, debug, or test your code, Android Studio uses a run/debug
++configuration to determine how to perform the operation. Typically, the
++[initially-created configuration](https://developer.android.com/studio/run/rundebugconfig#initially-created-config) is sufficient to run or
++debug an app. However, you can modify and create new configurations, and modify the configuration
++templates to suit your development process as described on this page.
+ 
+ For more information, also see the following IntelliJ documentation:
+ 
+@@ -12,25 +16,48 @@ For more information, also see the following IntelliJ documentation:
+ 
+ ## About run/debug configurations
+ 
+-Run/debug configurations specify details such as app installation, launch, and test options. You can define a configuration for one-time use, or save it for future use. After you save it, you can select the configuration from the **Select Run/Debug Configuration** drop-down list within the [toolbar](https://developer.android.com/studio/intro#user-interface). Android Studio saves configurations as part of the project.
++Run/debug configurations specify details such as
++app installation, launch, and test options.
++You can define a configuration for one-time use, or save it for future use.
++After you save it, you can select the configuration from the
++**Select Run/Debug Configuration** drop-down list within the [toolbar](https://developer.android.com/studio/intro#user-interface).
++Android Studio saves configurations as part of the project.
+ 
+ ### Initially-created run/debug configuration
+ 
+-When you first create a project, Android Studio creates a run/debug configuration for the main activity based on the [Android App template](https://developer.android.com/studio/run/rundebugconfig#android-application). To run or debug your project, you must always have at least one run/debug configuration defined. For this reason, we recommend that you don't delete the initially-created configuration.
++
++When you first create a project, Android Studio creates a run/debug
++configuration for the main activity based on the [Android App template](https://developer.android.com/studio/run/rundebugconfig#android-application). To run or debug
++your project, you must always have at least one run/debug configuration defined.
++For this reason, we recommend that you don't delete the initially-created configuration.
+ 
+ ### Project scope and version control
+ 
+-Run/debug configurations and template changes apply to the current project only. You can share a run/debug configuration (but not a template) through your version control system. For more information about how to share a configuration, see [Name and Share Configuration Options](https://developer.android.com/studio/run/rundebugconfig#nameshare).
++
++Run/debug configurations and template changes apply to the current project only.
++You can share a run/debug configuration (but not a template) through your
++version control system. For more information about how to share a configuration,
++see [Name and Share Configuration Options](https://developer.android.com/studio/run/rundebugconfig#nameshare).
+ 
+ ## Open the Run/Debug Configurations dialog
+ 
+-To open the Run/Debug Configurations dialog, select **Run** \> **Edit Configurations** . The **Run/Debug Configurations** dialog appears, as shown in figure 1.
++
++To open the Run/Debug Configurations dialog,
++select **Run** \> **Edit Configurations** . The
++**Run/Debug Configurations** dialog appears, as shown in figure
++1.
++
+ 
+ ![](https://developer.android.com/static/studio/images/rdc-rundebugconfg_2-3_2x.png)
+ 
+ **Figure 1** . The **Run/Debug Configurations** dialog
+ 
+-The left panel of the dialog groups your defined configurations by template type, and allows you to [edit configuration templates](https://developer.android.com/studio/run/rundebugconfig#editing-template) at the bottom. You can edit the selected configuration in the right panel. Resize the dialog to see any hidden items.
++
++The left panel of the dialog groups your defined configurations by template type, and
++allows you to [edit configuration templates](https://developer.android.com/studio/run/rundebugconfig#editing-template) at the bottom.
++You can edit the selected configuration in the right panel.
++Resize the dialog to see any hidden items.
++
+ 
+ In this dialog, you can:
+ 
+@@ -41,21 +68,46 @@ In this dialog, you can:
+ 
+ ## Create a new run/debug configuration
+ 
+-You can define new run/debug configurations from the **Run/Debug Configurations** dialog, the **Project** window, or the Code Editor. The new configuration must be based on a [configuration template](https://developer.android.com/studio/run/rundebugconfig#config-templates).
+ 
+-The Run/Debug Configurations dialog displays your run/debug configurations and the available configuration templates. You can start a new configuration directly from a template, or from a copy of another configuration. You can then change the field values as needed.
++You can define new run/debug configurations from the **Run/Debug
++Configurations** dialog, the **Project** window, or the Code
++Editor. The new configuration must be based on a [configuration template](https://developer.android.com/studio/run/rundebugconfig#config-templates).
++
++
++The Run/Debug Configurations dialog displays your run/debug configurations and the available
++configuration templates. You can start a new configuration directly from a template, or from a
++copy of another configuration. You can then change the field values as needed.
+ 
+-Alternatively, you can right-click an item in the **Project** window to automatically create a configuration specific to that item. For example, if you want to run a particular activity, you can right-click the activity Java file and select **Run** . Depending on the item, Android Studio uses an [Android App](https://developer.android.com/studio/run/rundebugconfig#android-application), [Android Instrumented Tests](https://developer.android.com/studio/run/rundebugconfig#android-tests), or [JUnit](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-junit.html) configuration template to create the configuration.
+ 
+-In the Code Editor, you can easily create a test and run/debug configuration for a class or method, and then execute it.
++Alternatively, you can right-click an item in the **Project**
++window to automatically create a configuration specific to that item. For
++example, if you want to run a particular activity, you can right-click the
++activity Java file and select **Run** . Depending on the item,
++Android Studio uses an [Android App](https://developer.android.com/studio/run/rundebugconfig#android-application),
++[Android Instrumented Tests](https://developer.android.com/studio/run/rundebugconfig#android-tests), or [JUnit](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-junit.html)
++configuration template to create the configuration.
+ 
+-When you create a configuration outside of the **Run/Debug Configurations** dialog, the configuration is temporary unless you save it. By default, you can have up to five temporary configurations in the project before Android Studio starts to remove them. To change this default, open Android Studio settings, and change **Advanced Settings \> Run/Debug \> Temporary configurations limit** . For more information about temporary configurations, see [Creating and Saving Temporary Run/Debug Configurations](https://www.jetbrains.com/help/idea/2026.1/creating-and-saving-temporary-run-debug-configurations.html).
++
++In the Code Editor, you can easily create a test and run/debug configuration for
++a class or method, and then execute it.
++
++
++When you create a configuration outside of the **Run/Debug
++Configurations** dialog, the configuration is temporary
++unless you save it. By default, you can have up to five temporary configurations
++in the project before Android Studio starts to remove them. To change this
++default, open Android Studio settings, and change
++**Advanced Settings \> Run/Debug \> Temporary configurations limit** .
++For more information about temporary configurations, see
++[Creating and Saving Temporary Run/Debug Configurations](https://www.jetbrains.com/help/idea/2026.1/creating-and-saving-temporary-run-debug-configurations.html).
+ 
+ ### Start a configuration based on a template
+ 
++
+ To define a run/debug configuration based on a template, follow these steps:
+ 
+-1. [Open the Run/Debug Configurations dialog](https://developer.android.com/studio/run/rundebugconfig#opening).
++1. [Open the Run/Debug
++   Configurations dialog](https://developer.android.com/studio/run/rundebugconfig#opening).
+ 2. Click **Add New Configuration** ![](https://developer.android.com/static/studio/images/rdc-iaddnewconfig_2-1.png).
+ 3. Select a [configuration template](https://developer.android.com/studio/run/rundebugconfig#config-templates).
+ 4. Type a name in the **Name** field.
+@@ -65,9 +117,12 @@ To define a run/debug configuration based on a template, follow these steps:
+ 
+ ### Start a configuration from a copy
+ 
+-To define a run/debug configuration starting from a copy of another configuration, follow these steps:
+ 
+-1. [Open the Run/Debug Configurations dialog](https://developer.android.com/studio/run/rundebugconfig#opening).
++To define a run/debug configuration starting from a copy of another
++configuration, follow these steps:
++
++1. [Open the Run/Debug
++   Configurations dialog](https://developer.android.com/studio/run/rundebugconfig#opening).
+ 2. Select an existing run/debug configuration in the left pane.
+ 3. Click **Copy Configuration** ![](https://developer.android.com/static/studio/images/rdc-icopyconfig_2-1.png).
+ 4. Type a name in the **Name** field.
+@@ -75,16 +130,23 @@ To define a run/debug configuration starting from a copy of another configuratio
+ 6. Be sure to correct any errors displayed at the bottom of the dialog.
+ 7. Click **Apply** or **OK**.
+ 
+-### Define a configuration for an item in the project
++### Define a configuration for an item in
++the project
++
+ 
+-Android Studio can create a run/debug configuration for some items displayed in the **Project** window. The configuration is based on a configuration template, as follows:
++Android Studio can create a run/debug configuration for some items
++displayed in the **Project** window. The configuration is based on
++a configuration template, as follows:
+ 
+ - Activity Java file: The [Android App](https://developer.android.com/studio/run/rundebugconfig#android-application) template.
+-- Package: [Android Instrumented Tests](https://developer.android.com/studio/run/rundebugconfig#android-tests) or [Android JUnit](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-junit.html) template, depending on your [source set](https://developer.android.com/studio/build/build-variants#sourcesets). If you select an [instrumented test](https://developer.android.com/training/testing/unit-testing), then it uses the Android Instrumented Tests template. If you select a [local unit test](https://developer.android.com/training/testing/unit-testing), then it uses the Android JUnit template. For a local unit test, you can optionally run with code coverage. For more information, see [Code Coverage](https://www.jetbrains.com/help/idea/2026.1/code-coverage.html).
++- Package: [Android Instrumented Tests](https://developer.android.com/studio/run/rundebugconfig#android-tests) or [Android JUnit](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-junit.html) template, depending on your [source set](https://developer.android.com/studio/build/build-variants#sourcesets). If you select an [instrumented test](https://developer.android.com/training/testing/unit-testing), then it uses the Android Instrumented Tests template. If you select a [local unit test](https://developer.android.com/training/testing/unit-testing), then it uses the Android JUnit template. For a local unit test, you can optionally run with code coverage. For more information, see [Code
++  Coverage](https://www.jetbrains.com/help/idea/2026.1/code-coverage.html).
++
+ 
+ To create a run/debug configuration for an item in your project, follow these steps:
+ 
+-1. Open a project in [Android or Project view](https://developer.android.com/studio/projects#ProjectFiles).
++1. Open a project in [Android
++   or Project view](https://developer.android.com/studio/projects#ProjectFiles).
+ 2. In the **Project** window, right-click a testable item and select either **Run <var translate="no">filename</var>** or **Debug <var translate="no">filename</var>**. Android Studio creates a temporary run/debug configuration and launches your app.
+ 3. Open the **Select Run/Debug Configuration** drop-down list in the toolbar.
+ 4. Select **Save Configuration** from the options next to the configuration that you want to save.   
+@@ -92,25 +154,41 @@ To create a run/debug configuration for an item in your project, follow these st
+ 
+    **Figure 2**. Save the configuration
+ 
+-**Note:** If you right-click and run or debug the same item (but not an activity), Android Studio creates a new configuration.
++**Note:** If you right-click and run or debug the same item (but not an
++activity), Android Studio creates a new configuration.
++
++### Define a test configuration for a class
++or method
+ 
+-### Define a test configuration for a class or method
+ 
+-Android Studio lets you define a test run configuration for a class or method, and then execute it. For example, if you create a new class, you can create and run a test for it. If the test passes, you can then run the tests for the rest of the project to make sure that your new code doesn't break anything somewhere else.
++Android Studio lets you define a test run configuration for a class or method,
++and then execute it. For example, if you create a new class, you can create
++and run a test for it. If the test passes, you can then run the tests for the
++rest of the project to make sure that your new code doesn't break anything
++somewhere else.
++
++
++Android Studio uses the [Android Instrumented Tests](https://developer.android.com/studio/run/rundebugconfig#android-tests) or [Android JUnit](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-junit.html)
++template, depending on your [source
++set](https://developer.android.com/studio/build/build-variants#sourcesets). For a local unit test, you can optionally run with [code
++coverage](https://www.jetbrains.com/help/idea/2026.1/code-coverage.html).
+ 
+-Android Studio uses the [Android Instrumented Tests](https://developer.android.com/studio/run/rundebugconfig#android-tests) or [Android JUnit](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-junit.html) template, depending on your [source set](https://developer.android.com/studio/build/build-variants#sourcesets). For a local unit test, you can optionally run with [code coverage](https://www.jetbrains.com/help/idea/2026.1/code-coverage.html).
+ 
+ To create a run/debug configuration for a class or method in your Java code, follow these steps:
+ 
+-1. Open a project in [Android or Project view](https://developer.android.com/studio/projects#ProjectFiles).
++1. Open a project in [Android
++   or Project view](https://developer.android.com/studio/projects#ProjectFiles).
+ 2. Open a Java file in the Code Editor.
+ 3. Select a class or method in the code, and then press Control+Shift+T (Command+Shift+T).
+ 4. Select **Create New Test** from the menu that appears.
+-5. In the **[Create Test](https://www.jetbrains.com/help/idea/2026.1/create-test.html)** dialog, optionally change or set the values and click **OK**.
++5. In the **[Create
++   Test](https://www.jetbrains.com/help/idea/2026.1/create-test.html)** dialog, optionally change or set the values and click **OK**.
+ 6. In the **Choose Destination Directory** dialog, select where in the project you want Android Studio to place the test. You can specify the location by directory structure or by selecting a neighboring class.
+ 7. Click **OK** .
+ 
+-   The new test appears in the **Project** window in the corresponding test source set.
++
++   The new test appears in the **Project** window in the corresponding
++   test source set.
+ 8. To run the test, do one of the following:
+    - In the **Project** window, right-click the test and select **Run** or **Debug**.
+    - In the Code Editor, right-click a class definition or method name in the test file and select **Run** or **Debug** to test all methods in the class.
+@@ -122,7 +200,10 @@ To create a run/debug configuration for a class or method in your Java code, fol
+ 
+ ## Run or debug an app using a saved configuration
+ 
+-If you've saved a run/debug configuration, you can select it before you run or debug your app.
++
++If you've saved a run/debug configuration, you can select it before you run or
++debug your app.
++
+ 
+ To use a saved run/debug configuration, follow these steps:
+ 
+@@ -133,9 +214,11 @@ To use a saved run/debug configuration, follow these steps:
+ 
+ ## Edit a run/debug configuration
+ 
++
+ To edit a run/debug configuration, follow these steps:
+ 
+-1. [Open the Run/Debug Configurations dialog](https://developer.android.com/studio/run/rundebugconfig#opening).
++1. [Open the Run/Debug
++   Configurations dialog](https://developer.android.com/studio/run/rundebugconfig#opening).
+ 2. Select a configuration in the left pane.
+ 3. Modify the configuration, as needed.
+ 4. Be sure to correct any errors displayed at the bottom of the dialog.
+@@ -143,33 +226,51 @@ To edit a run/debug configuration, follow these steps:
+ 
+ ## Edit a run/debug configuration template
+ 
+-You can edit the configuration templates provided by Android Studio to suit your development process. When you edit a template, it doesn't affect existing configurations that use the template. So, for example, if you need to create a number of configurations of a certain type, you can edit the template and then change it back when you're done.
+ 
+-Although you can't create new templates, you can create configurations to use similar to a template. You can [copy a configuration](https://developer.android.com/studio/run/rundebugconfig#starting-copy) and edit the copy to create new configurations.
++You can edit the configuration templates provided by Android Studio to suit your
++development process. When you edit a template, it doesn't affect existing
++configurations that use the template. So, for example, if you need to create a
++number of configurations of a certain type, you can edit the template and then
++change it back when you're done.
++
++
++Although you can't create new templates, you can create configurations to use
++similar to a template. You can [copy a configuration](https://developer.android.com/studio/run/rundebugconfig#starting-copy)
++and edit the copy to create new configurations.
++
+ 
+ To edit a template, follow these steps:
+ 
+-1. [Open the Run/Debug Configurations dialog](https://developer.android.com/studio/run/rundebugconfig#opening).
++1. [Open the Run/Debug
++   Configurations dialog](https://developer.android.com/studio/run/rundebugconfig#opening).
+ 2. Click **Edit configuration templates...**.
+ 3. Select a configuration template.
+ 4. Modify the configuration, as needed.
+ 5. Be sure to correct any errors displayed at the bottom of the dialog.
+ 6. Click **Apply** or **OK**.
+ 
+-## Sort and group configurations
++## Sort and group
++configurations
++
++
++In the **Run/Debug Configurations** dialog, you can order your
++configurations to find them quickly. You can sort the items in the
++folder alphabetically, and create new folders to group configurations.
+ 
+-In the **Run/Debug Configurations** dialog, you can order your configurations to find them quickly. You can sort the items in the folder alphabetically, and create new folders to group configurations.
+ 
+ To sort configurations alphabetically, follow these steps:
+ 
+-1. [Open the Run/Debug Configurations dialog](https://developer.android.com/studio/run/rundebugconfig#opening).
++1. [Open the Run/Debug
++   Configurations dialog](https://developer.android.com/studio/run/rundebugconfig#opening).
+ 2. Select a folder that contains configurations.
+ 3. Click **Sort Configurations** ![](https://developer.android.com/static/studio/images/rdc-isortconfig_2-1.png).
+ 4. Click **OK** to close the dialog.
+ 
++
+ To group configurations in folders, follow these steps:
+ 
+-1. [Open the Run/Debug Configurations dialog](https://developer.android.com/studio/run/rundebugconfig#opening).
++1. [Open the Run/Debug
++   Configurations dialog](https://developer.android.com/studio/run/rundebugconfig#opening).
+ 2. Select a folder that contains configurations.
+ 3. Click **Create New Folder** ![](https://developer.android.com/static/studio/images/rdc-icreatenewfolder_2-1.png).
+ 4. Type a name in the **Folder Name** field.
+@@ -179,7 +280,8 @@ To group configurations in folders, follow these steps:
+ - Order the folders and configurations in the same template category by dragging them into position.
+ - Click **OK** to close the dialog.
+ 
+-## Define before-launch operations
++## Define before-launch
++operations
+ 
+ - You can specify tasks to execute before applying the run/debug configuration. The tasks are performed in the order they appear in the list.
+ - **Note:** Defining before launch tasks is an advanced feature. Instead of using this feature, we recommend that you put any preparation logic as tasks in your `build.gradle` file so they'll be executed when you build from the command line.
+@@ -189,9 +291,12 @@ To group configurations in folders, follow these steps:
+   3. To order the tasks, drag them or select a task and click **Up** ![](https://developer.android.com/static/studio/images/rdc-imoveup_2-1.png) and **Down** ![](https://developer.android.com/static/studio/images/rdc-imovedown_2-1.png) to move it up or down in the list.
+   4. Select **Show this page** if you want to display the run/debug configuration settings before applying them.
+ 
+-     This option is deselected by default.
++
++     This option is deselected by
++     default.
+   5. Select **Active tool window** if you want the [Run](https://www.jetbrains.com/help/idea/2026.1/run-tool-window.html) or [Debug](https://www.jetbrains.com/help/idea/2026.1/debug-tool-window.html) tool window to be activated when you run or debug your app.
+ 
++
+      This option is selected by default.
+ - To remove a task from the list, follow these steps:
+   1. Select a task.
+@@ -214,6 +319,8 @@ To group configurations in folders, follow these steps:
+ | Gradle-aware Make | Compile the project and run Gradle. |
+ | App Engine Gradle builder | The App Engine Gradle builder task syncs the project and then builds the module. |
+ 
++- 
++
+ ## Configuration templates
+ 
+ - Android Studio provides configuration templates to help you get started quickly. The following sections describe the templates that apply to Android development with Android Studio:
+@@ -230,8 +337,10 @@ To group configurations in folders, follow these steps:
+   - [Compound](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-compound.html)
+   - [Gradle](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-gradle.html)
+   - [Groovy](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-groovy.html)
+-  - [JAR Application](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-jar-application.html)
+-  - [Java Scratch](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-java-scratch.html)
++  - [JAR
++    Application](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-jar-application.html)
++  - [Java
++    Scratch](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-java-scratch.html)
+   - [JUnit](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-junit.html)
+   - [Kotlin](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-kotlin.html)
+   - [Kotlin Script](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-kotlin-script.html)
+@@ -247,6 +356,7 @@ To group configurations in folders, follow these steps:
+ ### Android App
+ 
+ - You can run or debug Android apps and activities on virtual or hardware devices by using configurations based on this template.
++- 
+ 
+ #### General tab
+ 
+@@ -286,7 +396,8 @@ To group configurations in folders, follow these steps:
+   - **Remove** ![](https://developer.android.com/static/studio/images/rdc-iremove_2-1.png) - Select a directory or command, and then click this button to remove the item.
+   - **Up** ![](https://developer.android.com/static/studio/images/rdc-imoveup_2-1.png) - Select a directory or command, and then click this button to move the item up in the list.
+   - **Down** ![](https://developer.android.com/static/studio/images/rdc-imovedown_2-1.png) - Select a directory or command, and then click this button to move the item down in the list.
+-- See [Debug Your App](https://developer.android.com/studio/debug) for more information about debugging in Android Studio.
++- See [Debug Your
++  App](https://developer.android.com/studio/debug) for more information about debugging in Android Studio.
+ 
+ | Field | Description |
+ |---|---|
+@@ -304,9 +415,12 @@ To group configurations in folders, follow these steps:
+ 
+ ### Android Tests
+ 
+-- The test template that you should use depends on your [source set](https://developer.android.com/studio/build/build-variants#sourcesets). The Android Instrumented Tests template is for an [instrumented test](https://developer.android.com/training/testing/unit-testing). The Android JUnit template is for a local unit test.
+-- **Note:** If you're using Firebase Test Lab to test on a variety of devices, you can use the Android JUnit template to define your instrumented tests. For more information, see [Run Your Tests with Firebase Test Lab](https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests#run-ctl).
+-- The following tab descriptions cover the tabs and fields for the Android Instrumented test template. For information about the tabs and fields for the Android JUnit test template, see the IntelliJ [Run/Debug Configuration: JUnit](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-junit.html) page.
++- The test template that you should use depends on your [source set](https://developer.android.com/studio/build/build-variants#sourcesets). The Android Instrumented Tests template is for an [instrumented
++  test](https://developer.android.com/training/testing/unit-testing). The Android JUnit template is for a local unit test.
++- **Note:** If you're using Firebase Test Lab to test on a variety of devices, you can use the Android JUnit template to define your instrumented tests. For more information, see [Run Your Tests
++  with Firebase Test Lab](https://developer.android.com/training/testing/unit-testing/instrumented-unit-tests#run-ctl).
++- The following tab descriptions cover the tabs and fields for the Android Instrumented test template. For information about the tabs and fields for the Android JUnit test template, see the IntelliJ [Run/Debug
++  Configuration: JUnit](https://www.jetbrains.com/help/idea/2026.1/run-debug-configuration-junit.html) page.
+ 
+ #### General tab
+ 
+@@ -342,7 +456,8 @@ To group configurations in folders, follow these steps:
+   - **Remove** ![](https://developer.android.com/static/studio/images/rdc-iremove_2-1.png) - Select a directory or command, and then click this button to remove the item.
+   - **Up** ![](https://developer.android.com/static/studio/images/rdc-imoveup_2-1.png) - Select a directory or command, and then click this button to move the item up in the list.
+   - **Down** ![](https://developer.android.com/static/studio/images/rdc-imovedown_2-1.png) - Select a directory or command, and then click this button to move the item down in the list.
+-- See [Debug Your App](https://developer.android.com/studio/debug) for more information about debugging in Android Studio.
++- See [Debug Your
++  App](https://developer.android.com/studio/debug) for more information about debugging in Android Studio.
+ 
+ | Field | Description |
+ |---|---|
+@@ -357,7 +472,8 @@ To group configurations in folders, follow these steps:
+ ### App Engine DevAppServer
+ 
+ - This run/debug configuration applies to the Google Cloud Platform. When you follow these steps and sync your project to the `build.gradle` file, Android Studio creates an App Engine DevAppServer configuration for you.
+-- Note that the IntellJ IDEA [App Engine Server](https://www.jetbrains.com/help/pycharm/2026.1/run-debug-configuration-app-engine-server.html) template is a different template that's not available in Android Studio.
++- Note that the IntellJ IDEA [App
++  Engine Server](https://www.jetbrains.com/help/pycharm/2026.1/run-debug-configuration-app-engine-server.html) template is a different template that's not available in Android Studio.
+ 
+ | Field | Description |
+ |---|---|

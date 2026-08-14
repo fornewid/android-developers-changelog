@@ -1,0 +1,17 @@
+diff --git a/docs/blog/topics/android/3.md b/docs/blog/topics/android/3.md
+index 03f5cd90..17e20149 100644
+--- a/docs/blog/topics/android/3.md
++++ b/docs/blog/topics/android/3.md
+@@ -24,5 +24,8 @@ source: md.txt
+ 
+ <button class="adb--button adb--standard adb--filled adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_forward </button> Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

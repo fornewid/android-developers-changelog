@@ -1,0 +1,46 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/modular-koin.md b/docs/guide/navigation/navigation-3/recipes/modular-koin.md
+index 53f9d4b1..82a470e0 100644
+--- a/docs/guide/navigation/navigation-3/recipes/modular-koin.md
++++ b/docs/guide/navigation/navigation-3/recipes/modular-koin.md
+@@ -72,8 +72,6 @@ private fun ProfileScreen() {
+         )
+     }
+ }
+-
+-   
+ ```
+ 
+ ```
+@@ -189,8 +187,6 @@ private fun ConversationDetailScreen(
+         }
+     }
+ }
+-
+-   
+ ```
+ 
+ ```
+@@ -210,7 +206,6 @@ class Navigator(startDestination: Any) {
+         backStack.removeLastOrNull()
+     }
+ }
+-   
+ ```
+ 
+ ```
+@@ -228,7 +223,6 @@ val appModule = module {
+         }
+     }
+ }
+-   
+ ```
+ 
+ ```
+@@ -296,6 +290,4 @@ class KoinModularActivity : ComponentActivity(), AndroidScopeComponent, KoinComp
+     }
+ 
+ }
+-
+-   
+ ```
+\ No newline at end of file

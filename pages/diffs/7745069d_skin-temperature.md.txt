@@ -1,0 +1,124 @@
+diff --git a/docs/health-and-fitness/health-connect/features/skin-temperature.md b/docs/health-and-fitness/health-connect/features/skin-temperature.md
+index 4b830797..cc8c2738 100644
+--- a/docs/health-and-fitness/health-connect/features/skin-temperature.md
++++ b/docs/health-and-fitness/health-connect/features/skin-temperature.md
+@@ -6,11 +6,16 @@ source: md.txt
+ 
+ > This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12).
+ 
+-Health Connect provides a *skin temperature* data type to measure peripheral body temperature. This measurement is a particularly useful signal for detecting sleep quality, reproductive health, and the potential onset of illness.
++Health Connect provides a *skin temperature* data type to measure peripheral
++body temperature. This measurement is a particularly useful signal for detecting
++sleep quality, reproductive health, and the potential onset of illness.
+ 
+ ## Check Health Connect availability
+ 
+-Before attempting to use Health Connect, your app should verify that Health Connect is available on the user's device. Health Connect might not be pre-installed on all devices or could be disabled. You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)` method.
++Before attempting to use Health Connect, your app should verify that Health Connect is available
++on the user's device. Health Connect might not be pre-installed on all devices or could be disabled.
++You can check for availability using the `https://developer.android.com/reference/kotlin/androidx/health/connect/client/HealthConnectClient#getSdkStatus(android.content.Context,kotlin.String)`
++method.
+ 
+ #### How to check for Health Connect availability
+ 
+@@ -44,7 +49,8 @@ fun checkHealthConnectAvailability(context: Context) {
+ }
+ ```
+ 
+-Depending on the status returned by `getSdkStatus()`, you can guide the user to install or update Health Connect from the Google Play Store if necessary.
++Depending on the status returned by `getSdkStatus()`, you can guide the user
++to install or update Health Connect from the Google Play Store if necessary.
+ 
+ ## Feature availability
+ 
+@@ -75,9 +81,11 @@ Access to skin temperature is protected by the following permissions:
+ - `android.permission.health.READ_SKIN_TEMPERATURE`
+ - `android.permission.health.WRITE_SKIN_TEMPERATURE`
+ 
+-To add skin temperature capability to your app, start by requesting permissions for the `SkinTemperature` data type.
++To add skin temperature capability to your app, start by requesting
++permissions for the `SkinTemperature` data type.
+ 
+-Here's the permission you need to declare to be able to write skin temperature:
++Here's the permission you need to declare to be able to write
++skin temperature:
+ 
+     <application>
+       <uses-permission
+@@ -95,7 +103,13 @@ To read skin temperature, you need to request the following permissions:
+ 
+ ### Request permissions from the user
+ 
+-After creating a client instance, your app needs to request permissions from the user. Users must be allowed to grant or deny permissions at any time. To do so, create a set of permissions for the required data types. Make sure that the permissions in the set are declared in your Android manifest first.
++After creating a client instance, your app needs to request permissions from
++the user. Users must be allowed to grant or deny permissions at any time.
++
++To do so, create a set of permissions for the required data types.
++Make sure that the permissions in the set are declared in your Android
++manifest first.
++
+ 
+ ```kotlin
+ val permissions =
+@@ -103,7 +117,6 @@ val permissions =
+         HealthPermission.getReadPermission(SkinTemperatureRecord::class),
+         HealthPermission.getWritePermission(SkinTemperatureRecord::class)
+     )
+-   
+ ```
+ Use [`getGrantedPermissions`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#getGrantedPermissions()) to see if your app already has the required permissions granted. If not, use [`createRequestPermissionResultContract`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/PermissionController#createRequestPermissionResultContract(kotlin.String)) to request those permissions. This displays the Health Connect permissions screen.
+ 
+@@ -124,7 +137,6 @@ val requestPermissionsLauncher = rememberLauncherForActivityResult(
+         coroutineScope.launch { snackbarHostState.showSnackbar("Permissions denied.") }
+     }
+ }
+-   
+ ```
+ Because users can grant or revoke permissions at any time, your app needs to check for permissions every time before using them and handle scenarios where permission is lost.
+ 
+@@ -132,7 +144,8 @@ Because users can grant or revoke permissions at any time, your app needs to che
+ 
+ ## Information included in a skin temperature record
+ 
+-Skin temperature measurements are organized into *records*. Each record consists of the following information:
++Skin temperature measurements are organized into *records*. Each record consists
++of the following information:
+ 
+ - **Baseline temperature**, in degrees Celsius or degrees Fahrenheit. This is an optional value that is most useful for visualization in your app's UI.
+ - A **list of deltas** in skin temperature, each showing the change in skin temperature since the last measurement. If the baseline temperature is provided, these deltas should use the same temperature units.
+@@ -142,7 +155,8 @@ Skin temperature measurements are organized into *records*. Each record consists
+ 
+ <br />
+ 
+-The following aggregate values are available for `SkinTemperatureRecord`:
++The following aggregate values are available for
++`SkinTemperatureRecord`:
+ 
+ - [`TEMPERATURE_DELTA_AVG`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/SkinTemperatureRecord#TEMPERATURE_DELTA_AVG())
+ - [`TEMPERATURE_DELTA_MAX`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/SkinTemperatureRecord#TEMPERATURE_DELTA_MAX())
+@@ -152,11 +166,13 @@ The following aggregate values are available for `SkinTemperatureRecord`:
+ 
+ ## Example usage
+ 
+-The following code snippets show how to read and write skin temperature measurements.
++The following code snippets show how to read and write skin temperature
++measurements.
+ 
+ ### Read skin temperature record
+ 
+-The following code snippet demonstrates how to read a skin temperature measurements using the Jetpack library:
++The following code snippet demonstrates how to read a skin temperature
++measurements using the Jetpack library:
+ 
+     suspend fun readSkinTemperatures() {
+         // Error handling, permission check, and feature availability check
+@@ -181,7 +197,8 @@ The following code snippet demonstrates how to read a skin temperature measureme
+ 
+ ### Write a skin temperature record
+ 
+-The following code snippet shows how to write skin temperature measurements using the Jetpack library:
++The following code snippet shows how to write skin temperature
++measurements using the Jetpack library:
+ 
+ 
+     suspend fun writeSkinTemperatures(): InsertRecordsResponse {

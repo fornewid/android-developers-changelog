@@ -1,0 +1,74 @@
+diff --git a/docs/media/media3/transformer/videocompositorsettings.md b/docs/media/media3/transformer/videocompositorsettings.md
+index fed4d1df..5479631d 100644
+--- a/docs/media/media3/transformer/videocompositorsettings.md
++++ b/docs/media/media3/transformer/videocompositorsettings.md
+@@ -7,10 +7,14 @@ source: md.txt
+ > [!WARNING]
+ > **Beta:** `VideoCompositorSettings` is actively in development, and the API can change in future Media3 releases.
+ 
+-Users might want to edit multiple media assets together such that more than one media item appears at the same time in the final video. This includes arranging items in layouts such as picture-in-picture, side-by-side, or a grid. Here are some examples of such projects:
++Users might want to edit multiple media assets together such that more than one
++media item appears at the same time in the final video. This includes arranging
++items in layouts such as picture-in-picture, side-by-side, or a grid. Here are
++some examples of such projects:
+ ![Video with picture-in-picture layout](https://developer.android.com/static/guide/topics/media/transformer/images/pip.gif) Media items arranged in a picture-in-picture layout. ![Video with grid layout](https://developer.android.com/static/guide/topics/media/transformer/images/grid.gif) Media items arranged in a 2x2 grid layout.
+ 
+-You can explore an implementation of these layouts in the [Composition demo app](https://github.com/androidx/media/tree/release/demos/composition).
++You can explore an implementation of these layouts in the
++[Composition demo app](https://github.com/androidx/media/tree/release/demos/composition).
+ 
+ ## Implement a `VideoCompositorSettings`
+ 
+@@ -21,9 +25,16 @@ The [`VideoCompositorSettings`](https://developer.android.com/reference/androidx
+ 
+ ### Configure the presentation of a sequence with an `OverlaySettings`
+ 
+-Your implementation of `getOverlaySettings()` should return an instance of the [`OverlaySettings`](https://developer.android.com/reference/androidx/media3/common/OverlaySettings) interface for each sequence in your project. The `inputId` parameter identifies which sequence the settings will be applied to. To build an instance, you can use the [`StaticOverlaySettings`](https://developer.android.com/reference/androidx/media3/effect/StaticOverlaySettings) class included in Media3. See the [`StaticOverlaySettings.Builder`](https://developer.android.com/reference/androidx/media3/effect/StaticOverlaySettings.Builder) reference page for a full list of configuration options, which includes visual modifications like alpha transparency and HDR luminance, positional modifications like anchor point and location within the frame, and transformations like rotation and scale.
++Your implementation of `getOverlaySettings()` should return an instance of the
++[`OverlaySettings`](https://developer.android.com/reference/androidx/media3/common/OverlaySettings) interface for each sequence in your project. The
++`inputId` parameter identifies which sequence the settings will be applied to.
++To build an instance, you can use the [`StaticOverlaySettings`](https://developer.android.com/reference/androidx/media3/effect/StaticOverlaySettings) class
++included in Media3. See the [`StaticOverlaySettings.Builder`](https://developer.android.com/reference/androidx/media3/effect/StaticOverlaySettings.Builder) reference page
++for a full list of configuration options, which includes visual modifications
++like alpha transparency and HDR luminance, positional modifications like anchor
++point and location within the frame, and transformations like rotation and
++scale.
+ 
+-<br />
+ 
+ ```kotlin
+ override fun getOverlaySettings(inputId: Int, presentationTimeUs: Long): OverlaySettings {
+@@ -43,14 +54,14 @@ override fun getOverlaySettings(inputId: Int, presentationTimeUs: Long): Overlay
+     else -> StaticOverlaySettings.Builder().build()
+   }
+ }
+-   
+ ```
+ 
+ <br />
+ 
+-Using the `presentationTimeUs` parameter of the `getOverlaySettings()` method, you can modify these settings based on the position of the video, as demonstrated by the moving picture-in-picture example earlier on this page.
++Using the `presentationTimeUs` parameter of the `getOverlaySettings()` method,
++you can modify these settings based on the position of the video, as
++demonstrated by the moving picture-in-picture example earlier on this page.
+ 
+-<br />
+ 
+ ```kotlin
+ override fun getOverlaySettings(inputId: Int, presentationTimeUs: Long): OverlaySettings {
+@@ -72,11 +83,11 @@ override fun getOverlaySettings(inputId: Int, presentationTimeUs: Long): Overlay
+     StaticOverlaySettings.Builder().build()
+   }
+ }
+-   
+ ```
+ 
+ <br />
+ 
+ ## Feedback
+ 
+-If you have any feedback or feature requests for video compositing use-cases, file an issue on the [Media3 GitHub repository](https://github.com/androidx/media/issues).
+\ No newline at end of file
++If you have any feedback or feature requests for video compositing use-cases,
++file an issue on the [Media3 GitHub repository](https://github.com/androidx/media/issues).
+\ No newline at end of file

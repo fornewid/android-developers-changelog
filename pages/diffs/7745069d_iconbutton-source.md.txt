@@ -1,0 +1,26 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/iconbutton-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/iconbutton-source.md
+index 15729c56..2d8a3910 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/iconbutton-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/iconbutton-source.md
+@@ -4,9 +4,9 @@ url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack
+ source: md.txt
+ ---
+ 
+-When creating a Glimmer Icon component, refer to the following source code in `IconButton.kt` for icon buttons:
++When creating a Glimmer Icon component, refer to the following source code in
++`IconButton.kt` for icon buttons:
+ 
+-<br />
+ 
+ ```kotlin
+ /*
+@@ -133,8 +133,6 @@ public object IconButtonDefaults {
+     internal val iconSize: Dp
+         get() = GlimmerTheme.iconSizes.small
+ }
+-
+-   
+ ```
+ 
+ <br />
+\ No newline at end of file

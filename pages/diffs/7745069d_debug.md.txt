@@ -1,0 +1,161 @@
+diff --git a/docs/training/wearables/tiles/debug.md b/docs/training/wearables/tiles/debug.md
+index 69d0eb47..2b2c37ea 100644
+--- a/docs/training/wearables/tiles/debug.md
++++ b/docs/training/wearables/tiles/debug.md
+@@ -4,22 +4,35 @@ url: https://developer.android.com/training/wearables/tiles/debug
+ source: md.txt
+ ---
+ 
+-Tiles are not apps, and so are deployed and launched using different mechanisms. When a device has [developer options](https://developer.android.com/studio/debug/dev-options) enabled (emulators have these features enabled by default), additional features supporting tile development become available for use in both [Android Studio](https://developer.android.com/studio) and [`adb`](https://developer.android.com/tools/adb).
++Tiles are not apps, and so are deployed and launched using different mechanisms.
++When a device has [developer options](https://developer.android.com/studio/debug/dev-options) enabled (emulators have these features
++enabled by default), additional features supporting tile development become
++available for use in both [Android Studio](https://developer.android.com/studio) and [`adb`](https://developer.android.com/tools/adb).
+ 
+ ## Deploy tiles
+ 
+-To deploy your tile, you can install your app on a physical device or emulator using [Android Studio](https://developer.android.com/studio), as described in [Build and run your app](https://developer.android.com/studio/run). Then, following the same steps as regular users, manually [add the tile to the tiles carousel](https://support.google.com/wearos/answer/9314375).
++To deploy your tile, you can install your app on a physical device or emulator
++using [Android Studio](https://developer.android.com/studio), as described in [Build and run your app](https://developer.android.com/studio/run). Then,
++following the same steps as regular users, manually [add the tile to the tiles
++carousel](https://support.google.com/wearos/answer/9314375).
+ 
+-During active development, you might find it easier and faster to use Android Studio's ["Wear OS Tile" Run/Debug Configuration](https://developer.android.com/studio/run/rundebugconfig) feature. This method deploys and activates your tile automatically, allowing for immediate interaction without additional manual steps.
++During active development, you might find it easier and faster to use Android
++Studio's ["Wear OS Tile" Run/Debug Configuration](https://developer.android.com/studio/run/rundebugconfig) feature. This method
++deploys and activates your tile automatically, allowing for immediate
++interaction without additional manual steps.
+ 
+ ### Create configuration automatically
+ 
+-The easiest way to deploy and run a tile is to use the "run service" icon in the gutter. This automatically creates a run configuration if it doesn't already exist. See [Wear OS run/debug configurations](https://developer.android.com/studio/run/rundebugconfig#wear-os-configs) for more information.
++The easiest way to deploy and run a tile is to use the "run service" icon in the
++gutter. This automatically creates a run configuration if it doesn't already
++exist. See [Wear OS run/debug configurations](https://developer.android.com/studio/run/rundebugconfig#wear-os-configs) for more information.
+ ![Screenshot with red arrow pointing to "▷" in the gutter](https://developer.android.com/static/training/wearables/images/as-gutter-run.png) Click "▷" in the gutter ![Screenshot showing red arrow pointing to run configuration dropdown, and the "TestTileService" configuration option outlined in red](https://developer.android.com/static/training/wearables/images/as-run-command.png) A "run configuration" is automatically created
+ 
+ ### Create configuration manually
+ 
+-If automatic configuration doesn't work, or you want more control over the result, see the following instructions. The screenshots are from Android Studio Meerkat (2024.3.1).
++If automatic configuration doesn't work, or you want more control over the
++result, see the following instructions. The screenshots are from Android Studio
++Meerkat (2024.3.1).
+ 
+ 1. Select the "⋮" ("hamburger") option from the title bar.
+ 
+@@ -33,20 +46,26 @@ If automatic configuration doesn't work, or you want more control over the resul
+ 4. Select "Wear OS Tile" as the type of the new configuration.
+ 
+    ![Screenshot with red arrow pointing to the "Wear OS Tile" configuration option.](https://developer.android.com/static/training/wearables/images/as-wear-os-tile.png)
+-5. Enter a name for your configuration and select the module and tile as appropriate.
++5. Enter a name for your configuration and select the module and tile as
++   appropriate.
+ 
+    ![Screenshot with three red arrows pointing to areas of the dialog window.](https://developer.android.com/static/training/wearables/images/as-edit-configuration.png)
+-6. Tap "OK". Your configuration will appear in the title bar. Tap the "▷" ("run") button and your tile will be deployed and activated.
++6. Tap "OK". Your configuration will appear in the title bar. Tap the "▷"
++   ("run") button and your tile will be deployed and activated.
+ 
+ ## Preview tiles in Android Studio
+ 
+-Starting in Android Studio Koala Feature Drop, you can view snapshots of your Wear OS app's tiles. This panel is particularly useful if your tile's appearance changes in response to conditions, such as different content depending on the device's display size, or a sports event reaching halftime.
++Starting in Android Studio Koala Feature Drop, you can view snapshots of your
++Wear OS app's tiles. This panel is particularly useful if your tile's appearance
++changes in response to conditions, such as different content depending on the
++device's display size, or a sports event reaching halftime.
+ ![Group names in the preview panel match the group name given in the
+ preview annotation](https://developer.android.com/static/studio/images/design/wear-tiles-preview-panel.png) Tiles preview panel in Android Studio.
+ 
+ ### Add dependencies
+ 
+-Include the following dependencies in your app's `build.gradle.kts` or `build.gradle` file:
++Include the following dependencies in your app's `build.gradle.kts` or
++`build.gradle` file:
+ 
+     dependencies {
+         implementation("androidx.wear.tiles:tiles-tooling-preview:1.6.2")
+@@ -56,7 +75,10 @@ Include the following dependencies in your app's `build.gradle.kts` or `build.gr
+ 
+ ### Configure tile previews
+ 
+-To see a preview of your tile's appearance on different Wear OS display sizes, add the `@Preview` annotation, and pass in the `device` parameter. Note that this `@Preview` annotation is from a different package than the one you use for [composable previews](https://developer.android.com/develop/ui/compose/tooling/previews).
++To see a preview of your tile's appearance on different Wear OS display sizes,
++add the `@Preview` annotation, and pass in the `device` parameter. Note that
++this `@Preview` annotation is from a different package than the one you use for
++[composable previews](https://developer.android.com/develop/ui/compose/tooling/previews).
+ 
+ <br />
+ 
+@@ -68,7 +90,6 @@ fun tilePreview(context: Context) = TilePreviewData { request ->
+         buildMyTileLayout(context, request.deviceConfiguration)
+     ).build()
+ }
+-   
+ ```
+ 
+ <br />
+@@ -78,7 +99,9 @@ fun tilePreview(context: Context) = TilePreviewData { request ->
+ 
+ ### Add and register resources
+ 
+-If your tile uses Android resources, you will need to register them within the `onTileResourceRequest` parameter of `TilePreviewData`, as shown in the following code snippet:
++If your tile uses Android resources, you will need to register them within the
++`onTileResourceRequest` parameter of `TilePreviewData`, as shown in the
++following code snippet:
+ 
+ <br />
+ 
+@@ -100,16 +123,17 @@ fun previewWithResources(context: Context) = TilePreviewData(
+         ).build()
+     }
+ )
+-   
+ ```
+ 
+ <br />
+ 
+ ### Show specific values from platform data sources
+ 
+-If your tile uses platform data---such as heart rate, calories, distance, and steps---the tile shows default values for them.
++If your tile uses platform data---such as heart rate, calories, distance, and
++steps---the tile shows default values for them.
+ 
+-To show a specific value, set the `platformDataValues` parameter when creating the `TilePreviewData` object, as shown in the following code snippet:
++To show a specific value, set the `platformDataValues` parameter when creating
++the `TilePreviewData` object, as shown in the following code snippet:
+ 
+ <br />
+ 
+@@ -126,16 +150,18 @@ fun previewWithPlatformOverride(context: Context) = TilePreviewData(
+         ).build()
+     }
+ )
+-   
+ ```
+ 
+ <br />
+ 
+ ## Manipulate tiles using adb
+ 
+-[`adb`](https://developer.android.com/tools/adb) can be used to programmatically install, remove and activate tiles during development.
++[`adb`](https://developer.android.com/tools/adb) can be used to programmatically install, remove and activate tiles
++during development.
+ 
+-In the following commands, `ComponentName` is a string composed of the package name and a class inside that package, for example `com.example.wear.tiles/com.example.wear.tiles.PreviewTileService`.
++In the following commands, `ComponentName` is a string composed of the package
++name and a class inside that package, for example
++`com.example.wear.tiles/com.example.wear.tiles.PreviewTileService`.
+ 
+ ### add-tile
+ 
+@@ -147,7 +173,9 @@ Example output:
+ 
+     Broadcast completed: result=1, data="Index=[0]"
+ 
+-If a tile already exists in the carousel, it's removed and reinserted in the same location. Otherwise, it's inserted at `Index[0]`. Also, if the carousel is at its maximum capacity, the last tile is removed to make room for the new tile.
++If a tile already exists in the carousel, it's removed and reinserted in the
++same location. Otherwise, it's inserted at `Index[0]`. Also, if the carousel is
++at its maximum capacity, the last tile is removed to make room for the new tile.
+ 
+ ### show-tile
+ 

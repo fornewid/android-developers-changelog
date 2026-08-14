@@ -1,0 +1,17 @@
+diff --git a/docs/blog/topics/adaptive-and-differentiated.md b/docs/blog/topics/adaptive-and-differentiated.md
+index 630e5aa5..d8b65e10 100644
+--- a/docs/blog/topics/adaptive-and-differentiated.md
++++ b/docs/blog/topics/adaptive-and-differentiated.md
+@@ -22,5 +22,8 @@ source: md.txt
+   - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

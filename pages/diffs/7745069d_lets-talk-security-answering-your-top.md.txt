@@ -1,0 +1,35 @@
+diff --git a/docs/blog/posts/lets-talk-security-answering-your-top.md b/docs/blog/posts/lets-talk-security-answering-your-top.md
+index 785dae38..250d9d8c 100644
+--- a/docs/blog/posts/lets-talk-security-answering-your-top.md
++++ b/docs/blog/posts/lets-talk-security-answering-your-top.md
+@@ -14,7 +14,6 @@ Developer feedback is essential as we build this process. One of the most import
+ 
+ <br />
+ 
+-
+ We're committed to answering your top questions, which you can find regularly updated in our [guides](https://developer.android.com/developer-verification/guides) and [FAQ](https://support.google.com/android-developer-console/answer/16561738), and we've compiled the most frequent answers below. For a deeper discussion on developer identification, check out our conversation on [Android Developer Backstage](https://www.youtube.com/watch?v=A7DEhW-mjdc&feature=youtu.be).
+ 
+ [Video](https://www.youtube.com/watch?v=A7DEhW-mjdc)
+@@ -54,7 +53,8 @@ Written by:
+ 
+   ###### Director, Product Management
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/matthew-forsythe) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp) ![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)
+ Continue reading
+ - [![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp)](https://developer.android.com/blog/authors/daniel-galpin) 20 Oct 2025 20 Oct 2025 ![](https://developer.android.com/static/blog/assets/Now_In_Android121_f4ff784252_Z2dFDgg.webp) [Community](https://developer.android.com/blog/categories/community)
+ 
+@@ -84,5 +84,8 @@ Continue reading
+   - [#Google Play](https://developer.android.com/blog/topics/google-play)
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

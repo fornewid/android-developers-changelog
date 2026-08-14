@@ -1,0 +1,369 @@
+diff --git a/docs/studio/run/managing-avds.md b/docs/studio/run/managing-avds.md
+index 85a361b6..30205bde 100644
+--- a/docs/studio/run/managing-avds.md
++++ b/docs/studio/run/managing-avds.md
+@@ -4,35 +4,51 @@ url: https://developer.android.com/studio/run/managing-avds
+ source: md.txt
+ ---
+ 
+-An Android Virtual Device (AVD) is a configuration that defines the characteristics of an Android phone, tablet, Wear OS, Android TV, or Automotive OS device that you want to simulate in the [Android Emulator](https://developer.android.com/studio/run/emulator). The Device Manager is a tool you can launch from Android Studio that helps you create and manage AVDs.
++An Android Virtual Device (AVD) is a configuration that defines the
++characteristics of an Android phone, tablet, Wear OS, Android TV, or
++Automotive OS device that you want to simulate in the
++[Android Emulator](https://developer.android.com/studio/run/emulator).
++The Device Manager is a tool you can launch from Android Studio that
++helps you create and manage AVDs.
+ 
+ To open the new **Device Manager**, do one of the following:
+ 
+-- From the Android Studio Welcome screen, select **More Actions \> Virtual Device Manager**.
++- From the Android Studio Welcome screen, select **More Actions \> Virtual
++  Device Manager**.
+ 
+ ![Opening the Device Manager from the Welcome screen](https://developer.android.com/static/studio/images/run/device-manager-welcome-screen.png)
+ 
+-- After opening a project, select **View \> Tool Windows \> Device Manager** from the main menu bar, then click the **+** , and then click **Create Virtual Device**.
++- After opening a project, select **View \> Tool Windows \> Device Manager** from the main menu bar, then click the **+** , and then click **Create
++  Virtual Device**.
+ 
+ ![New Device Manager window](https://developer.android.com/static/studio/images/run/tools-new-device-manager.png)
+ 
+-After creating your devices, you will be able to see a list of all the devices on the device manager panel.
++After creating your devices, you will be able to see a list of all the devices
++on the device manager panel.
+ 
+ ![Device Manager list](https://developer.android.com/static/studio/images/run/device-manager.png)
+ 
+-If you want to use virtual devices to run your automated instrumented tests in a scalable and self-managed way, consider using [Gradle Managed Devices](https://developer.android.com/studio/test/gradle-managed-devices).
++If you want to use virtual devices to run your automated instrumented
++tests in a scalable and self-managed way, consider using [Gradle Managed
++Devices](https://developer.android.com/studio/test/gradle-managed-devices).
+ 
+ ## About AVDs
+ 
+-An AVD contains a hardware profile, system image, storage area, skin, and other properties.
++An AVD contains a hardware profile, system image, storage area, skin,
++and other properties.
+ 
+-We recommend that you create an AVD for each system image that your app could potentially support based on the [`<uses-sdk>`](https://developer.android.com/guide/topics/manifest/uses-sdk-element) setting in your manifest.
++We recommend that you create an AVD for each system image that your app
++could potentially support based on the
++[`<uses-sdk>`](https://developer.android.com/guide/topics/manifest/uses-sdk-element) setting in your manifest.
+ 
+ ### Hardware profile
+ 
+ <br />
+ 
+-The hardware profile defines the characteristics of a device as shipped from the factory. The Device Manager comes pre-loaded with certain hardware profiles, such as Pixel devices, and you can define or customize the hardware profiles as needed.
++The hardware profile defines the characteristics of a device as
++shipped from the factory. The Device Manager comes pre-loaded with certain
++hardware profiles, such as Pixel devices, and you can define or customize the
++hardware profiles as needed.
+ 
+ <br />
+ 
+@@ -40,13 +56,19 @@ The hardware profile defines the characteristics of a device as shipped from the
+ 
+ <br />
+ 
+-A device definition labeled with the Google Play logo in the **Play Store** column includes both the Google Play Store app and access to Google Play services, including a **Google Play** tab in the **Extended controls** dialog that provides a convenient button for updating Google Play services on the device.
++A device definition labeled with the Google Play logo in the
++**Play Store** column includes both the Google Play Store app and
++access to Google Play services, including a **Google Play** tab in the
++**Extended controls** dialog that provides a convenient button for updating
++Google Play services on the device.
+ 
+ <br />
+ 
+ <br />
+ 
+-Devices with this logo *and* a device type of "Phone" are also [CTS](https://source.android.com/compatibility/cts/) compliant and might use system images that include the Play Store app.
++Devices with this logo *and* a device type of "Phone" are also
++[CTS](https://source.android.com/compatibility/cts/) compliant
++and might use system images that include the Play Store app.
+ 
+ <br />
+ 
+@@ -54,7 +76,9 @@ Devices with this logo *and* a device type of "Phone" are also [CTS](https://sou
+ 
+ <br />
+ 
+-A system image labeled with **Google APIs** includes access to [Google Play services](https://developers.google.com/android/guides/overview).
++A system image labeled with **Google APIs** includes access to
++[Google Play
++services](https://developers.google.com/android/guides/overview).
+ 
+ <br />
+ 
+@@ -63,31 +87,53 @@ dialog](https://developer.android.com/static/studio/images/run/system-image-devi
+ 
+ <br />
+ 
+-The **Recommended** tab lists recommended system images. The other tabs include a more complete list. The right pane describes the selected system image.
++The **Recommended** tab lists recommended system images. The
++other tabs include a more complete list. The right pane describes the
++selected system image.
+ 
+-If you see a download icon next to a system image, that image isn't currently installed on your development machine. Click the icon to download the system image. You must be connected to the internet to download system images.
++If you see a download icon next to a system image, that image isn't
++currently installed on your development machine. Click the icon to download
++the system image. You must be connected to the internet to download system
++images.
+ 
+ <br />
+ 
+ <br />
+ 
+-The API level of the target device is important, because your app doesn't run on a system image with an API level that's lower than the one required by your app, as specified in the [`minSdk`](https://developer.android.com/reference/tools/gradle-api/9.3/com/android/build/api/dsl/BaseFlavor#minSdk()) attribute in the app manifest file. For more information about the relationship between system API level and `minSdk`, see [Version your app](https://developer.android.com/studio/publish/versioning).
++The API level of the target device is important, because your app
++doesn't run on a system image with an API level that's lower than the one
++required by your app, as specified in the
++[`minSdk`](https://developer.android.com/reference/tools/gradle-api/9.3/com/android/build/api/dsl/BaseFlavor#minSdk()) attribute in the app manifest file. For more
++information about the relationship between system API level and
++`minSdk`, see [Version your app](https://developer.android.com/studio/publish/versioning).
+ 
+ <br />
+ 
+ <br />
+ 
+-If your app declares a [`<uses-library>`](https://developer.android.com/guide/topics/manifest/uses-library-element) element in the manifest file, the app requires a system image that includes that external library. To run your app on an emulator, create an AVD that includes the required library. To do so, you might need to use an add-on component for the AVD platform; for example, the Google APIs add-on contains the Google Maps library.
++If your app declares a
++[`<uses-library>`](https://developer.android.com/guide/topics/manifest/uses-library-element) element in the manifest file, the app
++requires a system image that includes that external library.
++To run your app on an emulator, create an AVD that includes the required
++library. To do so, you might need to use an add-on component for the AVD
++platform; for example, the Google APIs add-on contains the Google Maps
++library.
+ 
+ <br />
+ 
+ <br />
+ 
+-To ensure app security and a consistent experience with physical devices, system images with the Google Play Store included are signed with a release key, which means that you can't get elevated privileges (root) with these images.
++To ensure app security and a consistent experience with physical devices,
++system images with the Google Play Store included are signed with a release
++key, which means that you can't get elevated privileges (root) with these
++images.
+ 
+ <br />
+ 
+-If you require elevated privileges (root) to aid with app troubleshooting, you can use the Android Open Source Project (AOSP) system images that don't include Google apps or services. Then you can use the `adb root` and `adb unroot` commands to switch between normal and elevated privileges:
++If you require elevated privileges (root) to aid with app troubleshooting, you
++can use the Android Open Source Project (AOSP) system images that don't include
++Google apps or services. Then you can use the `adb root` and `adb unroot`
++commands to switch between normal and elevated privileges:
+ 
+ <br />
+ 
+@@ -118,7 +164,10 @@ If you require elevated privileges (root) to aid with app troubleshooting, you c
+ 
+ <br />
+ 
+-The AVD has a dedicated storage area on your development machine. It stores the device user data, such as installed apps and settings, as well as an emulated SD card. If needed, you can use the Device Manager to wipe user data so the device has the same data as if it were new.
++The AVD has a dedicated storage area on your development machine. It stores
++the device user data, such as installed apps and settings, as well as
++an emulated SD card. If needed, you can use the Device Manager to wipe user
++data so the device has the same data as if it were new.
+ 
+ <br />
+ 
+@@ -126,7 +175,9 @@ The AVD has a dedicated storage area on your development machine. It stores the
+ 
+ <br />
+ 
+-An emulator skin specifies the appearance of a device. The Device Manager provides some predefined skins. You can also define your own or use skins provided by third parties.
++An emulator skin specifies the appearance of a device. The Device Manager
++provides some predefined skins. You can also define your own or use skins
++provided by third parties.
+ 
+ <br />
+ 
+@@ -134,7 +185,10 @@ An emulator skin specifies the appearance of a device. The Device Manager provid
+ 
+ <br />
+ 
+-Make sure your AVD definition includes the device features your app depends on. See the sections about [hardware profile properties](https://developer.android.com/studio/run/managing-avds#hpproperties) and [AVD properties](https://developer.android.com/studio/run/managing-avds#avdproperties) for lists of features you can define in your AVDs.
++Make sure your AVD definition includes the device features your app depends
++on. See the sections about [hardware profile properties](https://developer.android.com/studio/run/managing-avds#hpproperties)
++and [AVD properties](https://developer.android.com/studio/run/managing-avds#avdproperties) for lists of features you can
++define in your AVDs.
+ 
+ <br />
+ 
+@@ -152,10 +206,15 @@ To create a new AVD:
+    The **Select Hardware** window appears.
+    ![](https://developer.android.com/static/studio/images/run/select-hardware-window.png)
+ 
+-   Notice that only some hardware profiles include **Play Store** . These profiles are fully [CTS](https://source.android.com/compatibility/cts/) compliant and might use system images that include the Play Store app.
++   Notice that only some hardware profiles include **Play
++   Store** . These profiles are fully [CTS](https://source.android.com/compatibility/cts/) compliant and might
++   use system images that include the Play Store app.
+ 3. Select a hardware profile, then click **Next** .
+ 
+-   If you don't see the hardware profile you want, you can [create](https://developer.android.com/studio/run/managing-avds#createhp) or [import](https://developer.android.com/studio/run/managing-avds#importexporthp) a hardware profile, as described in other sections on this page.
++   If you don't see the hardware profile you want, you can
++   [create](https://developer.android.com/studio/run/managing-avds#createhp)
++   or [import](https://developer.android.com/studio/run/managing-avds#importexporthp) a hardware profile, as described in
++   other sections on this page.
+ 
+    The **System Image** window appears.
+    ![](https://developer.android.com/static/studio/images/run/system-image-device-configuration.png)
+@@ -164,14 +223,16 @@ To create a new AVD:
+ ![](https://developer.android.com/static/studio/images/run/verify-configuration.png)
+ 6. Change the [AVD properties](https://developer.android.com/studio/run/managing-avds#avdproperties) as needed, and then click **Finish** .
+ 
+-   Click **Show Advanced Settings** to show more settings, such as the skin.
++   Click **Show Advanced Settings** to show more
++   settings, such as the skin.
+ 7. The new AVD appears in the **Virtual** tab of the Device Manager and the target device menu.
+ 
+ To create an AVD starting with a copy:
+ 
+ 1. From the **Virtual** tab of the Device Manager, click **Menu** ![](https://developer.android.com/static/images/tools/studio-advmgr-actions-overflow-icon.png) and select **Duplicate** .
+ 
+-   The [**Verify Configuration**](https://developer.android.com/studio/run/managing-avds#verifyconfigpage) window appears.
++   The [**Verify Configuration**](https://developer.android.com/studio/run/managing-avds#verifyconfigpage)
++   window appears.
+ 2. Click **Previous** if you need to make changes on the [System Image](https://developer.android.com/studio/run/managing-avds#systemimagepage) or [Select Hardware](https://developer.android.com/studio/run/managing-avds#selecthardwarepage) windows.
+ 3. Make any changes you need, and then click **Finish** .
+ 
+@@ -179,19 +240,29 @@ To create an AVD starting with a copy:
+ 
+ ## Create a hardware profile
+ 
+-The Device Manager provides predefined hardware profiles for common devices so you can easily add them to your AVD definitions. If you need to define a different device, you can create a new hardware profile.
++The Device Manager provides predefined hardware profiles for common devices
++so you can easily add them to your AVD definitions. If
++you need to define a different device, you can create a new hardware profile.
+ 
+-You can define a new hardware profile from the beginning or copy a hardware profile as a starting point. The preloaded hardware profiles aren't editable.
++You can define a new hardware profile from the beginning
++or copy a hardware profile as a starting point. The preloaded
++hardware profiles aren't editable.
+ 
+ To create a new hardware profile from the beginning:
+ 
+ 1. In the [Select Hardware](https://developer.android.com/studio/run/managing-avds#selecthardwarepage) window, click **New Hardware Profile**.
+-2. In the **Configure Hardware Profile** window, change the [hardware profile properties](https://developer.android.com/studio/run/managing-avds#hpproperties) as needed.
++2. In the **Configure Hardware Profile** window, change the
++   [hardware profile properties](https://developer.android.com/studio/run/managing-avds#hpproperties) as
++   needed.
+ 
+    ![The Configure hardware profile dialog](https://developer.android.com/static/studio/images/run/new-configure-hardware-profile.png)
+ 3. Click **Finish** .
+ 
+-   Your new hardware profile appears in the **Select Hardware** window. You can [create an AVD](https://developer.android.com/studio/run/managing-avds#createavd) that uses the hardware profile by clicking **Next** or click **Cancel** to return to the **Virtual** tab or target device menu.
++   Your new hardware profile appears in the **Select Hardware** window.
++   You can [create an AVD](https://developer.android.com/studio/run/managing-avds#createavd)
++   that uses the hardware profile
++   by clicking **Next** or click **Cancel** to return
++   to the **Virtual** tab or target device menu.
+ 
+ To create a hardware profile using a copy as a starting point:
+ 
+@@ -211,7 +282,8 @@ To create a hardware profile using a copy as a starting point:
+ 
+ <br />
+ 
+-You can perform the following operations on an AVD from the Device Manager's **Virtual** tab:
++You can perform the following operations on an AVD from the Device Manager's
++**Virtual** tab:
+ 
+ - To edit an AVD, click **Edit this AVD** ![](https://developer.android.com/static/studio/images/buttons/avd-edit.png) and make your changes.
+ - To delete an AVD, click **Menu** ![](https://developer.android.com/static/images/tools/studio-advmgr-actions-overflow-icon.png) and select **Delete**.
+@@ -224,7 +296,9 @@ You can perform the following operations on an AVD from the Device Manager's **V
+ 
+ <br />
+ 
+-You can't edit or delete the preloaded hardware profiles, but you can perform the following operations on other hardware profiles from the **Select Hardware** window:
++You can't edit or delete the preloaded hardware profiles, but
++you can perform the following operations on other hardware profiles
++from the **Select Hardware** window:
+ 
+ - To edit a hardware profile, select it and click **Edit Device** . You can also right-click a hardware profile and select **Edit**. Next, make your changes.
+ - To delete a hardware profile, right-click it and select **Delete**.
+@@ -235,7 +309,8 @@ You can't edit or delete the preloaded hardware profiles, but you can perform th
+ 
+ <br />
+ 
+-From the **Virtual** tab, you can perform the following operations on an emulator:
++From the **Virtual** tab, you can
++perform the following operations on an emulator:
+ 
+ - To run an emulator that uses an AVD, click **Launch** ![](https://developer.android.com/static/images/tools/as-avd-start.png).
+ - To stop a running emulator, click **Menu** ![](https://developer.android.com/static/images/tools/studio-advmgr-actions-overflow-icon.png) and select **Stop**.
+@@ -245,7 +320,8 @@ From the **Virtual** tab, you can perform the following operations on an emulato
+ 
+ ## Import and export hardware profiles
+ 
+-From the **Select Hardware** window, you can import and export hardware profiles as follows:
++From the **Select Hardware** window,
++you can import and export hardware profiles as follows:
+ 
+ <br />
+ 
+@@ -256,9 +332,16 @@ From the **Select Hardware** window, you can import and export hardware profiles
+ 
+ ## AVD properties
+ 
+-The AVD configuration specifies the interaction between the development computer and the emulator as well as properties you want to override in the hardware profile. You can specify the following properties for AVD configurations in the **Verify Configuration** window. The properties labeled **(Advanced)** are only displayed if you click **Show Advanced Settings**.
++The AVD configuration specifies the interaction between the development
++computer and the emulator as well as properties you want to override in the
++hardware profile. You can specify the following properties for AVD
++configurations in the **Verify Configuration** window.
++The properties labeled **(Advanced)** are only displayed if you
++click **Show Advanced Settings**.
+ 
+-AVD configuration properties override hardware profile properties, and emulator properties that you set while the emulator is running override them both.
++AVD configuration properties override hardware profile properties, and
++emulator properties that you set while the emulator is running override them
++both.
+ 
+ **Table 1.** AVD configuration properties
+ 
+@@ -285,13 +368,19 @@ AVD configuration properties override hardware profile properties, and emulator
+ 
+ ## Hardware profile properties
+ 
+-You can specify the following properties for hardware profiles in the **Configure Hardware Profile** window. AVD configuration properties override hardware profile properties, and emulator properties that you set while the emulator is running override them both.
++You can specify the following properties for hardware profiles in the
++**Configure Hardware Profile** window. AVD configuration properties
++override hardware profile properties, and emulator properties that you set
++while the emulator is running override them both.
+ 
+-The predefined hardware profiles included with the Device Manager aren't editable. However, you can copy the profiles and edit the copies.
++The predefined hardware profiles included with the Device Manager aren't
++editable. However, you can copy the profiles and edit the copies.
+ 
+-Some properties are disabled for some device types. For example, the "Round" property is only available on Wear OS devices.
++Some properties are disabled for some device types. For example, the "Round"
++property is only available on Wear OS devices.
+ 
+-**Table 2.** Hardware profile configuration properties
++**Table 2.** Hardware profile
++configuration properties
+ 
+ | Hardware profile property | Description |
+ |---|---|
+@@ -314,7 +403,11 @@ Some properties are disabled for some device types. For example, the "Round" pro
+ 
+ ## Create an emulator skin
+ 
+-An Android emulator skin is a collection of files that define the visual and control elements of an emulator display. If the skin definitions available in the AVD settings don't meet your requirements, you can create your own custom skin definition and then apply it to your AVD.
++An Android emulator skin is a collection of files that define the visual
++and control elements of
++an emulator display. If the skin definitions available in the AVD settings
++don't meet your requirements,
++you can create your own custom skin definition and then apply it to your AVD.
+ 
+ Each emulator skin contains:
+ 
+@@ -367,4 +460,5 @@ To create and use a custom skin:
+ 
+ <br />
+ 
+-For more detailed information about creating emulator skins, see the [Android Emulator Skin File Specification](https://android.googlesource.com/platform/external/qemu/+/emu-master-dev/android/docs/ANDROID-SKIN-FILES.TXT) in the tools source code.
+\ No newline at end of file
++For more detailed information about creating emulator skins, see the
++[Android Emulator Skin File Specification](https://android.googlesource.com/platform/external/qemu/+/emu-master-dev/android/docs/ANDROID-SKIN-FILES.TXT) in the tools source code.
+\ No newline at end of file

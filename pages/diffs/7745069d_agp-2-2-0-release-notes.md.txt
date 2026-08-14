@@ -1,0 +1,45 @@
+diff --git a/docs/build/releases/agp-2-2-0-release-notes.md b/docs/build/releases/agp-2-2-0-release-notes.md
+index 26817583..8dad8e5a 100644
+--- a/docs/build/releases/agp-2-2-0-release-notes.md
++++ b/docs/build/releases/agp-2-2-0-release-notes.md
+@@ -8,17 +8,21 @@ source: md.txt
+ 
+ # Android Gradle Plugin 2.2.0 (September 2016)
+ 
+-
+ Dependencies:
+-
+ New:
+ :
+     - Uses Gradle 2.14.1, which includes performance improvements and new features, and fixes a security vulnerability that allows local privilege escalation when using the Gradle daemon. For more details, see the [Gradle release notes](https://docs.gradle.org/2.14.1/release-notes).
+-    - Using the [`externalNativeBuild {}`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.ExternalNativeBuild.html) DSL, Gradle now lets you link to your native sources and compile native libraries using CMake or ndk-build. After building your native libraries, Gradle packages them into your APK. To learn more about using CMake and ndk-build with Gradle, read [Add C and C++ Code to Your Project](https://developer.android.com/studio/projects/add-native-code).
+-    - When you [run a build from the command line](https://developer.android.com/studio/build/building-cmdline), Gradle now attempts to auto-download any missing SDK components or updates that your project depends on. To learn more, read [Auto-download missing packages with Gradle](https://developer.android.com/studio/intro/update#download-with-gradle).
+-    - A new experimental caching feature lets Gradle speed up build times by pre-dexing, storing, and reusing the pre-dexed versions of your libraries. To learn more about using this experimental feature, read the [Build Cache](https://developer.android.com/studio/build/build-cache) guide.
+-    - Improves build performance by adopting a new default packaging pipeline which handles zipping, signing, and [zipaligning](https://developer.android.com/studio/command-line/zipalign) in one task. You can revert to using the older packaging tools by adding `android.useOldPackaging=true` to your `gradle.properties` file. While using the new packaging tool, the `zipalignDebug` task is not available. However, you can create one yourself by calling the `createZipAlignTask(String taskName, File inputFile, File outputFile)` method.
+-    - APK signing now uses [APK Signature Scheme v2](https://developer.android.com/about/versions/nougat/android-7.0#apk_signature_v2) in addition to traditional JAR signing. All Android platforms accept the resulting APKs. Any modification to these APKs after signing invalidates their v2 signatures and prevents installation on a device. To disable this feature, add the following to your module-level `build.gradle` file:
++    - Using the [`externalNativeBuild {}`](https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.ExternalNativeBuild.html) DSL, Gradle now lets you link to your native sources and compile native libraries using CMake or ndk-build. After building your native libraries, Gradle packages them into your APK. To learn more about using CMake and ndk-build with Gradle, read [Add C and C++ Code to Your
++      Project](https://developer.android.com/studio/projects/add-native-code).
++    - When you [run a
++      build from the command line](https://developer.android.com/studio/build/building-cmdline), Gradle now attempts to auto-download any missing SDK components or updates that your project depends on. To learn more, read [Auto-download
++      missing packages with Gradle](https://developer.android.com/studio/intro/update#download-with-gradle).
++    - A new experimental caching feature lets Gradle speed up build times by pre-dexing, storing, and reusing the pre-dexed versions of your libraries. To learn more about using this experimental feature, read the [Build
++      Cache](https://developer.android.com/studio/build/build-cache) guide.
++    - Improves build performance by adopting a new default packaging pipeline which handles zipping, signing, and [zipaligning](https://developer.android.com/studio/command-line/zipalign) in one task. You can revert to using the older packaging tools by adding `android.useOldPackaging=true` to your `gradle.properties` file. While using the new packaging tool, the `zipalignDebug` task is not available. However, you can create one yourself by calling the `createZipAlignTask(String taskName, File inputFile, File
++      outputFile)` method.
++    - APK signing now uses [APK Signature Scheme
++      v2](https://developer.android.com/about/versions/nougat/android-7.0#apk_signature_v2) in addition to traditional JAR signing. All Android platforms accept the resulting APKs. Any modification to these APKs after signing invalidates their v2 signatures and prevents installation on a device. To disable this feature, add the following to your module-level `build.gradle` file:
+ 
+       ### Groovy
+ 
+@@ -99,7 +103,10 @@ Changes:
+             
+         ```
+ 
+-        If you want to apply an annotation processor at compile time but not include it in your APK, use the `annotationProcessor` dependency scope:
++
++        If you want to apply an annotation processor at compile
++        time but not include it in your APK, use the
++        `annotationProcessor` dependency scope:
+ 
+         ### Groovy
+ 

@@ -1,0 +1,46 @@
+diff --git a/docs/blog/posts/the-second-beta-of-android-17.md b/docs/blog/posts/the-second-beta-of-android-17.md
+index ece1d32c..f5b25b9d 100644
+--- a/docs/blog/posts/the-second-beta-of-android-17.md
++++ b/docs/blog/posts/the-second-beta-of-android-17.md
+@@ -10,7 +10,6 @@ source: md.txt
+ 
+ 6 min read ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp) 26 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today we're releasing the second beta of [Android 17](https://developer.android.com/about/versions/17), continuing our work to build a platform that prioritizes privacy, security, and refined performance. This update delivers a range of new capabilities, including the EyeDropper API and a privacy-preserving Contacts Picker. We're also adding advanced ranging, cross-device handoff APIs, and more.  
+ 
+-
+ This release continues the shift in our release cadence, following this annual major SDK release in Q2 with a minor SDK update.
+ 
+ ### **User Experience \& System UI**
+@@ -131,10 +130,8 @@ If the app has the permission to read SMS messages but is not the intended recip
+ 
+ For SMS messages containing an OTP that do not use the WebOTP or SMS Retriever formats, the OTP SMS will only be accessible after three hours for most apps. This change only applies to apps that target Android 17 (API level 37) or higher.  
+ 
+-
+ Certain apps such as the default SMS, assistant app, along with connected device companion apps, etc will be exempt from this delay.  
+ 
+-
+ All apps that rely on reading SMS messages for OTP extraction should transition to using [SMS Retriever](https://developer.android.com/identity/sms-retriever) or [SMS User Consent](https://developers.google.com/identity/sms-retriever/user-consent/overview) APIs to ensure continued functionality.
+ 
+ ### The Android 17 schedule
+@@ -179,7 +176,8 @@ Written by:
+ 
+   ###### Vice President, Product Management, Android Developer
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+ Continue reading
+ - [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -204,5 +202,8 @@ Continue reading
+   - [#Android](https://developer.android.com/blog/topics/android)
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

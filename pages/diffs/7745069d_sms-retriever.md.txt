@@ -1,0 +1,127 @@
+diff --git a/docs/identity/sms-retriever.md b/docs/identity/sms-retriever.md
+index ff2d974e..35a3f891 100644
+--- a/docs/identity/sms-retriever.md
++++ b/docs/identity/sms-retriever.md
+@@ -4,9 +4,15 @@ url: https://developer.android.com/identity/sms-retriever
+ source: md.txt
+ ---
+ 
+-To automatically verify phone numbers, you must implement both the client and server portions of the verification flow. This document describes how to implement the client portion in an Android app.
++To automatically verify phone numbers, you must implement both the client and
++server portions of the verification flow. This document describes how to
++implement the client portion in an Android app.
+ 
+-To start the phone number verification flow in an Android app, you send the phone number to your verification server and call the SMS Retriever API to begin listening for an SMS message containing a one-time code for your app. After you receive the message, you send the one-time code back to your server to complete the verification process.
++To start the phone number verification flow in an Android app, you send the
++phone number to your verification server and call the SMS Retriever API to begin
++listening for an SMS message containing a one-time code for your app. After you
++receive the message, you send the one-time code back to your server to complete
++the verification process.
+ 
+ To prepare your app, complete the steps in the following sections.
+ 
+@@ -19,7 +25,9 @@ Make sure that your app's build file uses the following values:
+ 
+ ## Configure your app
+ 
+-In your project-level `build.gradle` file, include [Google's Maven repository](https://maven.google.com/web/index.html) and [Maven central repository](https://search.maven.org/artifact) in both your `buildscript` and `allprojects` sections:
++In your project-level `build.gradle` file, include
++[Google's Maven repository](https://maven.google.com/web/index.html) and [Maven central repository](https://search.maven.org/artifact) in both your
++`buildscript` and `allprojects` sections:
+ 
+     buildscript {
+         repositories {
+@@ -35,7 +43,8 @@ In your project-level `build.gradle` file, include [Google's Maven repository](h
+         }
+     }
+ 
+-Add the [Google Play services](http://developer.google.com/android) dependency for the SMS Retriever API to your [module's Gradle build file](https://developer.android.com/studio/build#module-level), which is commonly `app/build.gradle`:
++Add the [Google Play services](http://developer.google.com/android) dependency for the SMS Retriever API to your
++[module's Gradle build file](https://developer.android.com/studio/build#module-level), which is commonly `app/build.gradle`:
+ 
+     dependencies {
+       implementation 'com.google.android.gms:play-services-auth:21.6.0'
+@@ -44,7 +53,10 @@ Add the [Google Play services](http://developer.google.com/android) dependency f
+ 
+ ## Obtain the user's phone number
+ 
+-You can obtain the user's phone number in whatever way is appropriate for your app. Often, it is the best user experience to use the hint picker to prompt the user to choose from the phone numbers stored on the device and thereby avoid having to manually type a phone number. To use the hint picker:
++You can obtain the user's phone number in whatever way is appropriate for your
++app. Often, it is the best user experience to use the hint picker to prompt the
++user to choose from the phone numbers stored on the device and thereby avoid
++having to manually type a phone number. To use the hint picker:
+ 
+     // Construct a request for phone numbers and show the picker
+     private void requestHint() {
+@@ -72,7 +84,9 @@ You can obtain the user's phone number in whatever way is appropriate for your a
+ 
+ ## Start the SMS retriever
+ 
+-When you are ready to verify the user's phone number, get an instance of the `SmsRetrieverClient` object, call `startSmsRetriever`, and attach success and failure listeners to the SMS retrieval task:
++When you are ready to verify the user's phone number, get an instance of the
++`SmsRetrieverClient` object, call `startSmsRetriever`, and attach success and
++failure listeners to the SMS retrieval task:
+ 
+     // Get an instance of SmsRetrieverClient, used to start listening for a matching
+     // SMS message.
+@@ -101,19 +115,28 @@ When you are ready to verify the user's phone number, get an instance of the `Sm
+       }
+     });
+ 
+-The SMS retrieval task listens for up to five minutes for an SMS message that contains a unique string that identifies your app.
++The SMS retrieval task listens for up to five minutes for an SMS message that
++contains a unique string that identifies your app.
+ 
+ ## Send the phone number to your server
+ 
+-After you have obtained the user's phone number and started to listen for SMS messages, send the user's phone number to your verification server using any method (usually with an HTTPS POST request).
++After you have obtained the user's phone number and started to listen for SMS
++messages, send the user's phone number to your verification server using any
++method (usually with an HTTPS POST request).
+ 
+-Your server generates a verification message and sends it by SMS to the phone number you specified. See [Perform SMS Verification on the Server](https://developers.google.com/identity/sms-retriever/verify).
++Your server generates a verification message and sends it by SMS to the phone
++number you specified. See [Perform SMS Verification on the Server](https://developers.google.com/identity/sms-retriever/verify).
+ 
+ ## Receive verification messages
+ 
+-When a verification message is received on the user's device, Play services explicitly broadcasts to your app a `SmsRetriever.SMS_RETRIEVED_ACTION` Intent, which contains the text of the message. Use a `BroadcastReceiver` to receive this verification message.
++When a verification message is received on the user's device, Play services
++explicitly broadcasts to your app a `SmsRetriever.SMS_RETRIEVED_ACTION` Intent,
++which contains the text of the message. Use a `BroadcastReceiver` to receive
++this verification message.
+ 
+-In the `BroadcastReceiver`'s `onReceive` handler, get the text of the verification message (and optionally the sender address) from the Intent's extras:
++In the `BroadcastReceiver`'s `onReceive` handler, get the text of the
++verification message (and optionally the sender address) from the Intent's
++extras:
+ 
+     /**
+       *   BroadcastReceiver to wait for SMS messages. This can be registered either
+@@ -152,7 +175,8 @@ To register this `BroadcastReceiver`, use the following:
+ - **Intent filter:** `com.google.android.gms.auth.api.phone.SMS_RETRIEVED` (the value of the `SmsRetriever.SMS_RETRIEVED_ACTION` constant)
+ - **Permission:** `com.google.android.gms.auth.api.phone.permission.SEND` (the value of the `SmsRetriever.SEND_PERMISSION` constant)
+ 
+-You can register the receiver in your app's `AndroidManifest.xml` file, as in the following example, or dynamically using `Context.registerReceiver`.
++You can register the receiver in your app's `AndroidManifest.xml` file, as in
++the following example, or dynamically using `Context.registerReceiver`.
+ 
+     <receiver android:name=".MySMSBroadcastReceiver" android:exported="true"
+               android:permission="com.google.android.gms.auth.api.phone.permission.SEND">
+@@ -169,9 +193,13 @@ You can register the receiver in your app's `AndroidManifest.xml` file, as in th
+ 
+ ## Send the one-time code from the verification message to your server
+ 
+-Now that you have the text of the verification message, use a regular expression or some other logic to get the one-time code from the message. The format of the one-time code depends on how you implemented them in your server.
++Now that you have the text of the verification message, use a regular expression
++or some other logic to get the one-time code from the message. The format of the
++one-time code depends on how you implemented them in your server.
+ 
+-Finally, send the one-time code to your server over a secure connection. When your server receives the one-time code, it records that the phone number has been verified.
++Finally, send the one-time code to your server over a secure connection. When
++your server receives the one-time code, it records that the phone number has
++been verified.
+ 
+ > [!IMPORTANT]
+ > **Important:** You must perform verification of the one-time code on your server, and not in your client app.
+\ No newline at end of file

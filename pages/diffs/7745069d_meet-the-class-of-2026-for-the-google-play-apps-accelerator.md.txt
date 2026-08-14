@@ -1,0 +1,43 @@
+diff --git a/docs/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator.md b/docs/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator.md
+index ac0bf9c6..d751a56f 100644
+--- a/docs/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator.md
++++ b/docs/blog/posts/meet-the-class-of-2026-for-the-google-play-apps-accelerator.md
+@@ -10,7 +10,6 @@ source: md.txt
+ 
+ 1 min read ![](https://developer.android.com/static/blog/assets/Meet_The_Class_2_bb4f1ec5bd_Z1MklPk.webp) 25 Mar 2026 [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) Brand Marketing Manager , Developer Marketing The wait is over! We are incredibly excited to share the [Google Play Apps Accelerator](https://rsvp.withgoogle.com/events/play-apps-accelerator) class of 2026. We've handpicked a group of high-potential studios from across the globe to embark on a 12-week journey designed to supercharge their success.  
+ 
+-
+ Here's what's in store for the program's first ever class:
+ 
+ - Curated learning: virtual masterclasses and workshops led by industry trailblazers.
+@@ -27,7 +26,6 @@ Without further ado, join us in congratulating them!
+ 
+ Congratulations again to all the founders selected, we can't wait to see your apps grow on our platform.  
+ 
+-
+ The Google Play Apps Accelerator is part of our mission to help businesses of all sizes grow on Google Play and reach their full potential. [Discover more](https://play.google.com/console/about/programs/) about Google Play's programs, resources and tools.
+ Written by:
+ 
+@@ -37,7 +35,8 @@ Written by:
+ 
+   ###### Brand Marketing Manager
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/robbie-mclachlan) ![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp) ![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/robbie-mclachlan) ![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp) ![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)
+ Continue reading
+ - [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) [Community](https://developer.android.com/blog/categories/community)
+ 
+@@ -59,5 +58,8 @@ Continue reading
+   [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

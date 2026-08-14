@@ -1,0 +1,75 @@
+diff --git a/docs/blog/posts/goodbye-mobile-only-hello-adaptive.md b/docs/blog/posts/goodbye-mobile-only-hello-adaptive.md
+index acde6d43..8f7d8cb4 100644
+--- a/docs/blog/posts/goodbye-mobile-only-hello-adaptive.md
++++ b/docs/blog/posts/goodbye-mobile-only-hello-adaptive.md
+@@ -22,7 +22,6 @@ This engagement signals a necessary shift in development: [goodbye mobile apps,
+ 
+ <br />
+ 
+-
+ To help you build for that future, we spent this year releasing tools that make[adaptive the default way to build](https://developer.android.com/develop/ui/compose/build-adaptive-apps). Here are three key updates from 2025 designed to help you build these experiences.
+ 
+ ### **Standardizing adaptive behavior with Android 16**
+@@ -52,7 +51,6 @@ Built for Compose, [Nav3](https://developer.android.com/guide/navigation/navigat
+ 
+ <br />
+ 
+-
+ This year delivered the tools you need, from optimizing for expansive layouts to the granular controls of [WindowManager](https://developer.android.com/jetpack/androidx/releases/window#version_15_2) and [Navigation 3](https://developer.android.com/guide/navigation/navigation-3). And, Android 16 began the shift toward truly flexible UI, with updates coming next year to deliver excellent adaptive experiences across all form factors. To learn more about [adaptive development principles](https://android-developers.googleblog.com/2025/05/adaptiveapps-io25.html) and get started, head over to [d.android.com/adaptive-apps](http://d.android.com/adaptive-apps).
+ 
+ The tools are ready, and the users are waiting. We can't wait to see what you build!
+@@ -70,7 +68,8 @@ Written by:
+ 
+   ###### Senior Product Manager
+ 
+-  [read_more View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
++  [read_more
++  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
+ Continue reading
+ - [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+@@ -82,23 +81,30 @@ Continue reading
+   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+   - +1 ↩
++- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
++
++  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
++  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
++  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
++  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
++  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
++  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
++  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
++  - [#Foldables](https://developer.android.com/blog/topics/foldables)
++  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
++  - +5 ↩
+ - [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_Z1BKgnT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices)
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices) Today at Galaxy Unpacked, Samsung unveiled its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
+   [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
+-- [![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp)](https://developer.android.com/blog/authors/john-zoeller) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Developer_Blog_2_1_1440x720_6_64da0326e3_Z1M1YEl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [What's New in Wear OS 7](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7) We are excited to introduce Wear OS 7, a major update that brings a new era of power efficiency and intelligence to users and developers alike.
+-  [John Zoeller](https://developer.android.com/blog/authors/john-zoeller) • 9 min read
+-  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
+-  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+-  - [#Compose](https://developer.android.com/blog/topics/compose)
+-  - +1 ↩
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

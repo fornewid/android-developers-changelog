@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/jean-pierre-pralle.md b/docs/blog/authors/jean-pierre-pralle.md
+index 5f8b0ed7..dd99f182 100644
+--- a/docs/blog/authors/jean-pierre-pralle.md
++++ b/docs/blog/authors/jean-pierre-pralle.md
+@@ -19,5 +19,8 @@ Credential Manager
+   3 min read
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

@@ -1,0 +1,57 @@
+diff --git a/docs/build/releases/agp-9-1-0-release-notes.md b/docs/build/releases/agp-9-1-0-release-notes.md
+index ea5307f1..8c50fa81 100644
+--- a/docs/build/releases/agp-9-1-0-release-notes.md
++++ b/docs/build/releases/agp-9-1-0-release-notes.md
+@@ -6,7 +6,8 @@ source: md.txt
+ 
+ <br />
+ 
+-Android Gradle plugin 9.1 is a minor release that includes a variety of new features and improvements.
++Android Gradle plugin 9.1 is a minor release that includes a variety of new
++features and improvements.
+ 
+ ## Compatibility
+ 
+@@ -14,7 +15,6 @@ Android Gradle plugin 9.1.1 supports Android API level 37.0 and below.
+ 
+ Here is other compatibility info:
+ 
+-<br />
+ 
+ |   | Minimum version | Default version | Notes |
+ |---:|:---:|:---:|:---:|
+@@ -31,15 +31,23 @@ The following R8 changes are included in AGP 9.1.0.
+ 
+ ### Enable repackaging to unnamed (default) package when compiling to DEX
+ 
+-R8 now repackages classes into the unnamed (default) package when compiling to DEX by default. This effectively adds the rule `-repackageclasses` to builds that use neither `-flattenpackagehierarchy` or `-repackageclasses` explicitly.
++R8 now repackages classes into the unnamed (default) package when compiling
++to DEX by default. This effectively adds the rule `-repackageclasses` to
++builds that use neither `-flattenpackagehierarchy` or
++`-repackageclasses` explicitly.
+ 
+-Repackaging by default ensures consistency with obfuscation, optimization and shrinking, which are all opt-out rather than opt-in, and thereby mitigates suboptimal configurations that are not explicitly opting in to repackaging.
++Repackaging by default ensures consistency with obfuscation, optimization and
++shrinking, which are all opt-out rather than opt-in, and thereby
++mitigates suboptimal configurations that are not explicitly opting in to
++repackaging.
+ 
+ In order to opt out of this behavior, use the new `-dontrepackage` rule.
+ 
+ ### Support named levels for -maximumremovedandroidloglevel
+ 
+-When using `-maximumremovedandroidloglevel`, you can now specify the log level names instead of the numbers. The following table shows the names and the corresponding numeric log level.
++When using `-maximumremovedandroidloglevel`, you can now specify the log
++level names instead of the numbers. The following table shows the names
++and the corresponding numeric log level.
+ 
+ | Name | Level |
+ |---|---|
+@@ -55,7 +63,6 @@ You must specify the log level names in all caps.
+ 
+ ## Fixed issues
+ 
+-<br />
+ 
+ ### Android Gradle plugin 9.1.0-rc01
+ 

@@ -1,0 +1,108 @@
+diff --git a/docs/training/data-storage/room/relationships/nested.md b/docs/training/data-storage/room/relationships/nested.md
+index 0e85c77f..a00932e3 100644
+--- a/docs/training/data-storage/room/relationships/nested.md
++++ b/docs/training/data-storage/room/relationships/nested.md
+@@ -4,14 +4,21 @@ url: https://developer.android.com/training/data-storage/room/relationships/nest
+ source: md.txt
+ ---
+ 
+-Sometimes, you might need to query a set of three or more tables that are all related to each other. In that case, you define *nested relationships* between the tables.
++Sometimes, you might need to query a set of three or more tables that are all
++related to each other. In that case, you define *nested relationships* between
++the tables.
+ 
+ > [!CAUTION]
+ > **Caution:** Querying data with nested relationships requires Room to manipulate a large volume of data and can affect performance. Use as few nested relationships as possible in your queries.
+ 
+-Suppose that in the music streaming app example, you want to query all the users, all the playlists for each user, and all the songs in each playlist for each user. Users have a [one-to-many relationship](https://developer.android.com/training/data-storage/room/relationships/one-to-many) with playlists, and playlists have a [many-to-many relationship](https://developer.android.com/training/data-storage/room/relationships/many-to-many) with songs. The following code example shows the classes that represent these entities as well as the cross-reference table for the many-to-many relationship between playlists and songs:
++Suppose that in the music streaming app example, you want to query all the
++users, all the playlists for each user, and all the songs in each playlist for
++each user. Users have a [one-to-many relationship](https://developer.android.com/training/data-storage/room/relationships/one-to-many) with playlists, and
++playlists have a [many-to-many relationship](https://developer.android.com/training/data-storage/room/relationships/many-to-many) with songs. The following code
++example shows the classes that represent these entities as well as the
++cross-reference table for the many-to-many relationship between playlists and
++songs:
+ 
+-<br />
+ 
+ ```kotlin
+ @Entity
+@@ -40,14 +47,15 @@ data class PlaylistSongCrossRef(
+     val playlistId: Long,
+     val songId: Long
+ )
+-   
+ ```
+ 
+ <br />
+ 
+-First, model the relationship between two of the tables in your set as you normally do, using a data class and the [`@Relation`](https://developer.android.com/reference/kotlin/androidx/room3/Relation) annotation. The following example shows a `PlaylistWithSongs` class that models a many-to-many relationship between the `Playlist` entity class and the `Song` entity class:
++First, model the relationship between two of the tables in your set as you
++normally do, using a data class and the [`@Relation`](https://developer.android.com/reference/kotlin/androidx/room3/Relation) annotation. The
++following example shows a `PlaylistWithSongs` class that models a many-to-many
++relationship between the `Playlist` entity class and the `Song` entity class:
+ 
+-<br />
+ 
+ ```kotlin
+ data class PlaylistWithSongs(
+@@ -59,14 +67,17 @@ data class PlaylistWithSongs(
+     )
+     val songs: List<Song>
+ )
+-   
+ ```
+ 
+ <br />
+ 
+-After you define a data class that represents this relationship, create another data class that models the relationship between another table from your set and the first relationship class, "nesting" the existing relationship within the new one. The following example shows a `UserWithPlaylistsAndSongs` class that models a one-to-many relationship between the `User` entity class and the `PlaylistWithSongs` relationship class:
++After you define a data class that represents this relationship, create another
++data class that models the relationship between another table from your set and
++the first relationship class, "nesting" the existing relationship within the new
++one. The following example shows a `UserWithPlaylistsAndSongs` class that models
++a one-to-many relationship between the `User` entity class and the
++`PlaylistWithSongs` relationship class:
+ 
+-<br />
+ 
+ ```kotlin
+ data class UserWithPlaylistsAndSongs(
+@@ -78,27 +89,31 @@ data class UserWithPlaylistsAndSongs(
+     )
+     val playlists: List<PlaylistWithSongs>
+ )
+-   
+ ```
+ 
+ <br />
+ 
+-The `UserWithPlaylistsAndSongs` class indirectly models the relationships between all three of the entity classes: `User`, `Playlist`, and `Song`. This is illustrated in figure 1.
++The `UserWithPlaylistsAndSongs` class indirectly models the relationships
++between all three of the entity classes: `User`, `Playlist`, and `Song`. This is
++illustrated in figure 1.
+ ![UserWithPlaylistsAndSongs models the relationship between User and
+ PlaylistWithSongs, which in turn models the relationship between Playlist
+ and Song.](https://developer.android.com/static/images/training/data-storage/room_nested_relationships.png) **Figure 1.** Diagram of relationship classes in the music streaming app example.
+ 
+-If your set has more tables, create a class to model the relationship between each remaining table and the previous relationship class. This process creates a chain of nested relationships among all tables you want to query.
++If your set has more tables, create a class to model the relationship between
++each remaining table and the previous relationship class. This process creates
++a chain of nested relationships among all tables you want to query.
+ 
+-Finally, add a function to the data access object (DAO) class to expose the query function that your app needs. This function requires Room to run multiple queries, so add the [`@Transaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transaction) annotation so that the whole operation runs atomically:
++Finally, add a function to the data access object (DAO) class to expose the
++query function that your app needs. This function requires Room to run
++multiple queries, so add the [`@Transaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transaction) annotation so that the whole
++operation runs atomically:
+ 
+-<br />
+ 
+ ```kotlin
+ @Transaction
+ @Query("SELECT * FROM User")
+ suspend fun getUsersWithPlaylistsAndSongs(): List<UserWithPlaylistsAndSongs>
+-    
+ ```
+ 
+ <br />
+\ No newline at end of file

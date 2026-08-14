@@ -1,0 +1,150 @@
+diff --git a/docs/training/data-storage/room/prepopulate.md b/docs/training/data-storage/room/prepopulate.md
+index 75f226fc..b54fbd56 100644
+--- a/docs/training/data-storage/room/prepopulate.md
++++ b/docs/training/data-storage/room/prepopulate.md
+@@ -4,56 +4,72 @@ url: https://developer.android.com/training/data-storage/room/prepopulate
+ source: md.txt
+ ---
+ 
+-If you want your app to start with a database that's already loaded with a specific set of data, you can prepopulate the database. In Room, you can use APIs to prepopulate a database at initialization with contents from a prepackaged database file in the device's file system.
++If you want your app to start with a database that's already loaded with a
++specific set of data, you can prepopulate the database. In Room, you can use
++APIs to prepopulate a database at initialization with contents from a
++prepackaged database file in the device's file system.
+ 
+ > [!NOTE]
+ > **Note:** [In-memory Room databases](https://developer.android.com/reference/kotlin/androidx/room3/Room#inmemorydatabasebuilder) don't support prepopulating the database using [`createFromAsset`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.Builder#createfromasset) or [`createFromFile`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.Builder#createfromfile).
+ 
+ ## Prepopulate from an app asset
+ 
+-To prepopulate a Room database from a prepackaged database file that's located anywhere in your app's `assets/` directory, call the [`createFromAsset`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.Builder#createfromasset) function from your `RoomDatabase.Builder` object before calling [`build`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.Builder#build):
++To prepopulate a Room database from a prepackaged database file that's located
++anywhere in your app's `assets/` directory, call the [`createFromAsset`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.Builder#createfromasset)
++function from your `RoomDatabase.Builder` object before calling [`build`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.Builder#build):
+ 
+-<br />
+ 
+ ```kotlin
+ Room.databaseBuilder<AppDatabase>(appContext, "sample.db")
+     .createFromAsset("database/myapp.db")
+     .build()
+-   
+ ```
+ 
+ <br />
+ 
+-The `createFromAsset` function accepts a string argument that contains a relative path from the `assets/` directory to the prepackaged database file.
++The `createFromAsset` function accepts a string argument that contains a
++relative path from the `assets/` directory to the prepackaged database file.
+ 
+ > [!NOTE]
+ > **Note:** When prepopulating from an asset, Room validates the database to ensure that its schema matches the schema of the prepackaged database. To use your database's schema as a reference when you create the prepackaged database file, [export the schema](https://developer.android.com/training/data-storage/room/migrating-db-versions#export-schemas).
+ 
+ ## Prepopulate from the file system
+ 
+-To prepopulate a Room database from a prepackaged database file that's located anywhere in the device's file system *except* your app's `assets/` directory, call the [`createFromFile`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.Builder#createfromfile) function from your `RoomDatabase.Builder` object before calling [`build`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.Builder#build):
++To prepopulate a Room database from a prepackaged database file that's located
++anywhere in the device's file system *except* your app's `assets/` directory,
++call the [`createFromFile`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.Builder#createfromfile) function from your `RoomDatabase.Builder`
++object before calling [`build`](https://developer.android.com/reference/kotlin/androidx/room3/RoomDatabase.Builder#build):
+ 
+-<br />
+ 
+ ```kotlin
+ Room.databaseBuilder<AppDatabase>(appContext, "sample.db")
+     .createFromFile(File("mypath"))
+     .build()
+-   
+ ```
+ 
+ <br />
+ 
+-The `createFromFile` function accepts a [`File`](https://developer.android.com/reference/java/io/File) argument for the prepackaged database file. Room creates a copy of the designated file rather than opening it directly, so make sure your app has read permissions on the file.
++The `createFromFile` function accepts a [`File`](https://developer.android.com/reference/java/io/File) argument for the
++prepackaged database file. Room creates a copy of the designated file rather
++than opening it directly, so make sure your app has read permissions on the
++file.
+ 
+ > [!NOTE]
+ > **Note:** When prepopulating from the file system, Room validates the database to ensure that its schema matches the schema of the prepackaged database. To use your database's schema as a reference when you create the prepackaged database file, [export the schema](https://developer.android.com/training/data-storage/room/migrating-db-versions#export-schemas).
+ 
+ ## Handle migrations that include prepackaged databases
+ 
+-Prepackaged database files can also change the way your Room database handles fallback migrations. Ordinarily, when [destructive migrations](https://developer.android.com/training/data-storage/room/migrating-db-versions#handle-missing-migrations) are enabled and Room must perform a migration without a migration path, Room drops all tables in the database and creates an empty database with the specified schema for the target version. However, if you include a prepackaged database file with the same number as the target version, Room populates the newly recreated database with the contents of the prepackaged database file after performing the destructive migration.
++Prepackaged database files can also change the way your Room database handles
++fallback migrations. Ordinarily, when [destructive migrations](https://developer.android.com/training/data-storage/room/migrating-db-versions#handle-missing-migrations) are enabled
++and Room must perform a migration without a migration path, Room drops all
++tables in the database and creates an empty database with the specified schema
++for the target version. However, if you include a prepackaged database file with
++the same number as the target version, Room populates the newly recreated
++database with the contents of the prepackaged database file after performing
++the destructive migration.
+ 
+-For more information about Room database migrations, see [Migrate your Room database](https://developer.android.com/training/data-storage/room/migrating-db-versions).
++For more information about Room database migrations, see
++[Migrate your Room database](https://developer.android.com/training/data-storage/room/migrating-db-versions).
+ 
+ The following sections present a few examples of how this works in practice.
+ 
+@@ -67,7 +83,6 @@ Suppose the following:
+ - There's no implemented migration path from version 2 to version 3.
+ - Destructive migrations are enabled.
+ 
+-<br />
+ 
+ ```kotlin
+ // Database class definition declaring version 3.
+@@ -82,7 +97,6 @@ fun createFallbackDb(appContext: Context) {
+         .fallbackToDestructiveMigration()
+         .build()
+ }
+-   
+ ```
+ 
+ <br />
+@@ -96,9 +110,9 @@ Here's what happens in this situation:
+ 
+ ### Example: Implemented migration with a prepackaged database
+ 
+-Suppose instead that your app implements a migration path from version 2 to version 3:
++Suppose instead that your app implements a migration path from version 2 to
++version 3:
+ 
+-<br />
+ 
+ ```kotlin
+ // Database class definition declaring version 3.
+@@ -120,7 +134,6 @@ fun createImplementedDb(appContext: Context) {
+         .addMigrations(MIGRATION_2_3)
+         .build()
+ }
+-   
+ ```
+ 
+ <br />
+@@ -132,7 +145,8 @@ Here's what happens in this situation:
+ 
+ ### Example: Multi-step migration with a prepackaged database
+ 
+-Prepackaged database files can also affect migrations that consist of multiple steps. Consider the following case:
++Prepackaged database files can also affect migrations that consist of multiple
++steps. Consider the following case:
+ 
+ - Your app defines a Room database on version 4.
+ - The database instance that's already installed on the device is on version 2.
+@@ -140,7 +154,6 @@ Prepackaged database files can also affect migrations that consist of multiple s
+ - There's an implemented migration path from version 3 to version 4, but not from version 2 to version 3.
+ - Destructive migrations are enabled.
+ 
+-<br />
+ 
+ ```kotlin
+ // Database class definition declaring version 4.
+@@ -162,7 +175,6 @@ fun createMultiStepDb(appContext: Context) {
+         .fallbackToDestructiveMigration()
+         .build()
+ }
+-   
+ ```
+ 
+ <br />

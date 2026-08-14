@@ -1,0 +1,17 @@
+diff --git a/docs/blog/authors/jolanda-verhoef.md b/docs/blog/authors/jolanda-verhoef.md
+index 1a14bb23..b756d13d 100644
+--- a/docs/blog/authors/jolanda-verhoef.md
++++ b/docs/blog/authors/jolanda-verhoef.md
+@@ -35,5 +35,8 @@ Developer Relations Engineer
+   - +1 ↩
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

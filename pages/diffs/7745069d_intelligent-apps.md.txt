@@ -1,0 +1,17 @@
+diff --git a/docs/blog/topics/intelligent-apps.md b/docs/blog/topics/intelligent-apps.md
+index a4d57a9a..d20a7a90 100644
+--- a/docs/blog/topics/intelligent-apps.md
++++ b/docs/blog/topics/intelligent-apps.md
+@@ -36,5 +36,8 @@ source: md.txt
+   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ Stay in the loop
+ 
+-Get the latest Android development insights delivered to your inbox weekly.
+-[mail Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++
++Get the latest Android development insights delivered to your inbox
++weekly.
++[mail
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

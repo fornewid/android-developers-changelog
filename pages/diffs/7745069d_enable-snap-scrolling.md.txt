@@ -1,0 +1,55 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/enable-snap-scrolling.md b/docs/develop/ui/compose/quick-guides/content/enable-snap-scrolling.md
+index 3f91da42..fdabd6ad 100644
+--- a/docs/develop/ui/compose/quick-guides/content/enable-snap-scrolling.md
++++ b/docs/develop/ui/compose/quick-guides/content/enable-snap-scrolling.md
+@@ -6,7 +6,8 @@ source: md.txt
+ 
+ <br />
+ 
+-You can display a button to let a user snap scroll to a specific point in a list, saving time and increasing user engagement.
++You can display a button to let a user snap scroll to a specific point in a
++list, saving time and increasing user engagement.
+ 
+ ## Results
+ 
+@@ -14,17 +15,18 @@ You can display a button to let a user snap scroll to a specific point in a list
+ 
+ ## Version compatibility
+ 
+-This implementation requires that your project minSDK be set to API level 21 or higher.
++This implementation requires that your project minSDK be set to API level 21 or
++higher.
+ 
+ ### Dependencies
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/enable-snap-scrolling_511c23f7dff0ca34c1957f6498806bce922c1588762a060a20a1c615f7473fcd.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/enable-snap-scrolling_c4bdd682fba0fa4543c096a8e62236afddec252741259dba72e0e91908653043.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ## Create a button to enable snap scrolling
+ 
+-Use the following code to create a button for smooth snap scrolling in a vertical lazy list with 10 items:
++Use the following code to create a button for smooth snap scrolling in a
++vertical lazy list with 10 items:
+ 
+-<br />
+ 
+ ```kotlin
+ @Composable
+@@ -49,7 +51,6 @@ fun MessageList(modifier: Modifier = Modifier) {
+         Text(text = "Go top")
+     }
+ }
+-   
+ ```
+ 
+ <br />
+@@ -61,7 +62,8 @@ fun MessageList(modifier: Modifier = Modifier) {
+ 
+ ## Collections that contain this guide
+ 
+-This guide is part of these curated Quick Guide collections that cover broader Android development goals:
++This guide is part of these curated Quick Guide collections that cover
++broader Android development goals:
+ ![](https://developer.android.com/static/images/quick-guides/collection-illustration.png) ![](https://developer.android.com/static/images/picto-icons/collection.svg)
+ 
+ ### Display a list or grid
