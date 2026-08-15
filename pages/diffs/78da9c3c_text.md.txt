@@ -1,0 +1,54 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/text.md b/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/text.md
+index 37ff2565..d6d610e3 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/text.md
++++ b/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/text.md
+@@ -21,12 +21,18 @@ the content color provided by the nearest surface that it's sitting on.
+ 
+ ## Example: Create a text heading in a box
+ 
+-    @Composable
+-    fun TextSample() {
+-          Text(
+-          text = "This is a sample heading",
+-          style = GlimmerTheme.typography.titleLarge )
+-    }
++
++```kotlin
++@Composable
++fun TextSample() {
++    Text(
++        text = "Hello Glimmer",
++        style = GlimmerTheme.typography.titleLarge
++    )
++}
++```
++
++<br />
+ 
+ ### Key points about the code
+ 
+@@ -60,15 +66,10 @@ displayed on display glasses.
+ To use Google Sans Flex, [add the `glimmer-google-fonts` library to your app's
+ dependencies](https://developer.android.com/develop/xr/jetpack-xr-sdk/set-up-sdk#augmented), then apply the font globally to the `GlimmerTheme`:
+ 
+-
+-```kotlin
+-@Composable
+-fun GoogleSansFlexTypographySample() {
+-    val typography = createGoogleSansFlexTypography()
+-    GlimmerTheme(typography = typography) {
+-        Text("Hello World", style = GlimmerTheme.typography.titleLarge)
+-    }
+-}
+-```
+-
+-<br />
+\ No newline at end of file
++    @Composable
++    fun GoogleSansFlexTypographySample() {
++        val typography = createGoogleSansFlexTypography()
++        GlimmerTheme(typography = typography) {
++            Text("Hello World", style = GlimmerTheme.typography.titleLarge)
++        }
++    }
+\ No newline at end of file

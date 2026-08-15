@@ -1,0 +1,13 @@
+diff --git a/docs/distribute/marketing-tools/inline-installs-sdk.md b/docs/distribute/marketing-tools/inline-installs-sdk.md
+index c8ef7137..42fe8b90 100644
+--- a/docs/distribute/marketing-tools/inline-installs-sdk.md
++++ b/docs/distribute/marketing-tools/inline-installs-sdk.md
+@@ -18,7 +18,7 @@ their apps.
+ For the inline install half sheet interface to appear in an app:
+ 
+ - The minimum Google Play version must be **40.4**.
+-- The Android API level must be **23 or higher**.
++- The Android API level must be **24 or higher**.
+ 
+ ## Process architecture
+ 

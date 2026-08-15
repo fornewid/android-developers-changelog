@@ -1,0 +1,19 @@
+diff --git a/docs/jetpack/androidx/releases/paging.md b/docs/jetpack/androidx/releases/paging.md
+index b1f210d1..86eb83e1 100644
+--- a/docs/jetpack/androidx/releases/paging.md
++++ b/docs/jetpack/androidx/releases/paging.md
+@@ -113,6 +113,14 @@ May 06, 2026
+ 
+ `androidx.paging:paging-*:3.5.0` is released. Version 3.5.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e1d643601cb239f3506da86f62e3b5619294e6e0..d0f5daa3f889fbbaad88763d8e0bc8dfbf90f03f/paging).
+ 
++**Important changes since 3.4.0:**
++
++- Added `Flow<PagingData>.asItemSnapshotListFlow` operator to convert `Flow<PagingData>` into a `Flow<ItemSnapshotList>`. This means loaded data can now be accessed outside of the UI layer, allowing you to combine `Flow<ItemSnapshotList>` with other data sources, cache and modify paged data locally, or expose paged data as part of a UI state and more.
++
++- Added extension functions `Pager.append` and `Pager.prepend` to manually load more data without scrolling.
++
++- Added extension functions `Pager.refresh` and `Paging.retry` to recover from load errors when using `asItemSnapshotListFlow` API.
++
+ ### Version 3.5.0-rc01
+ 
+ April 22, 2026

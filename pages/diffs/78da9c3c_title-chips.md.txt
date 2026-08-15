@@ -1,0 +1,46 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/title-chips.md b/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/title-chips.md
+index f6af33f1..a5dc1efe 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/title-chips.md
++++ b/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/title-chips.md
+@@ -27,13 +27,30 @@ The following code creates a basic title chip:
+ 
+ ```kotlin
+ @Composable
+-fun TitleChipSample() {
++fun BasicTitleChipSample() {
+     TitleChip { Text("Messages") }
+ }
+ ```
+ 
+ <br />
+ 
++## Basic example: Create a title chip with an icon
++
++The following code creates a title chip with an icon:
++
++
++```kotlin
++@Composable
++fun TitleChipWithIconSample() {
++    TitleChip {
++        Icon(FavoriteIcon, contentDescription = "Favorite")
++        Text("Favorites")
++    }
++}
++```
++
++<br />
++
+ ## Example: Create a title chip with a card
+ 
+ To use a title chip with another component, place the title chip
+@@ -46,7 +63,9 @@ the composable. The following code creates a title chip with a card:
+ fun TitleChipWithCardSample() {
+     Column(horizontalAlignment = Alignment.CenterHorizontally) {
+         TitleChip { Text("Title Chip") }
++
+         Spacer(Modifier.height(TitleChipDefaults.associatedContentSpacing))
++
+         Card(
+             title = { Text("Title") },
+             subtitle = { Text("Subtitle") },
