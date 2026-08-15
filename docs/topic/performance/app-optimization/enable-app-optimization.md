@@ -195,6 +195,8 @@ removed.
 To enable the new optimized resource shrinking pipeline for AGP 8.12 or 8.13,
 add the following to your project's `gradle.properties` file:
 
+    android.r8.optimizedResourceShrinking=true
+
 If you are using AGP 9.0.0 or a newer version, you don't need to set
 `android.r8.optimizedResourceShrinking=true`. Optimized resource shrinking is
 automatically applied when `isShrinkResources = true` is enabled in your build
@@ -205,7 +207,7 @@ configuration.
 To enable R8 to use its [full optimization capabilities](https://developer.android.com/topic/performance/app-optimization/full-mode), remove the
 following line from your project's `gradle.properties` file, if it exists:
 
-`bash android.enableR8.fullMode=false # Remove this line from your codebase.`
+    android.enableR8.fullMode=false
 
 Note that enabling app optimization makes stack traces difficult to understand,
 especially if R8 renames class or method names. To get stack traces that
@@ -243,3 +245,15 @@ the Android Gradle Plugin (AGP) and the R8 compiler.
 | 8.6 | **Improved retracing:** Includes filename and line number retracing by default for all `minSdk` levels (previously required `minSdk` 26+ in version 8.2). Updating R8 helps ensure that stack traces from obfuscated builds are readily and clearly readable. This version improves how line numbers and source files are mapped, making it easier for tools like the Android Studio Logcat to automatically retrace crashes to the original source code. |
 | 8.0 | **Full mode by default:** [R8 full mode](https://developer.android.com/topic/performance/app-optimization/full-mode) provides significantly more powerful optimization. It is enabled by default. You can opt out using `android.enableR8.fullMode=false`. |
 | 7.0 | **Full mode available:** Introduced as an opt-in feature using `android.enableR8.fullMode=true`. Full mode applies more powerful optimizations by making stricter assumptions about how your code uses reflection and other dynamic features. While it reduces app size and improves performance, it might require additional keep rules to prevent necessary code from being stripped. |
+
+## Use R8 with other build systems
+
+While AGP is the recommended and officially supported build system for Android
+apps, you might use an alternative build system like [Bazel](https://bazel.build/). If
+you're using Bazel, you can integrate R8 into your build pipeline to shrink,
+obfuscate, and optimize your app.
+
+For information about building an Android app using Bazel, see the [Android
+Bazel tutorial](https://bazel.build/start/android-app) and the official [rules_android
+repository](https://github.com/bazelbuild/rules_android). Note that Bazel isn't [officially supported](https://developer.android.com/build#other-build-systems)
+for Android app development.

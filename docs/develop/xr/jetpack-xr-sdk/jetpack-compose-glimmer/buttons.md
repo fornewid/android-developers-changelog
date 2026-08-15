@@ -72,34 +72,22 @@ The following defaults apply to standard buttons:
 > [!NOTE]
 > **Note:** Any modifier passed to the `Button` composable is applied to the outer layout. While [`ButtonSize`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ButtonSize) sets the default minimum height, you can also apply custom size modifiers to control the button's final layout, such as [`Modifier.fillMaxWidth`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/fillMaxWidth.modifier).
 
-## Example: Button with text
+## Example: Button with text and icons
 
-The following code creates a standard button with text:
+A basic button includes only a text label, but you can also add icons to the
+start (using `leadingIcon`) or end (using `trailingIcon`) of the text to provide
+additional context.
 
-
-```kotlin
-@Composable
-fun ButtonSample() {
-    Button(onClick = {}) { Text("Send") }
-}
-```
-
-<br />
-
-## Example: Buttons with leading and trailing icons
-
-You can also add icons to the start (using `leadingIcon`) or end (using
-`trailingIcon`) of the text to provide additional context.
-
-The following code creates a button with a leading icon:
+The following code creates a button with both a leading and trailing icon:
 
 
 ```kotlin
-@Composable
-fun ButtonWithLeadingIconSample() {
-    Button(onClick = {}, leadingIcon = { Icon(FavoriteIcon, "Localized description") }) {
-        Text("Send")
-    }
+Button(
+    onClick = { /* Handle navigation or action */ },
+    leadingIcon = { Icon(FavoriteIcon, contentDescription = null) },
+    trailingIcon = { Icon(SendIcon, contentDescription = null) }
+) {
+    Text("Text Label", style = GlimmerTheme.typography.titleSmall)
 }
 ```
 

@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr2/release-notes
 source: md.txt
 ---
 
+### Beta 3
+
+|---|---|
+| **Release date** | August 14, 2026 |
+| **Builds** | CP41.260731.005.A2 CP41.260731.005.B1 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-08-05 |
+| **Google Play services** | 26.26.34 |
+
 ### Beta 2
 
 |---|---|
@@ -11,7 +20,7 @@ source: md.txt
 | **Builds** | CP41.260717.006 |
 | **Emulator support** | x86 (64-bit), ARM (v8-A) |
 | **Security patch level** | 2026-07-05 |
-| **Google Play services** | 26.23.34 |
+| **Google Play services** | 26.24.35 |
 
 ### Beta 1
 
@@ -22,20 +31,7 @@ source: md.txt
 | **Security patch level** | 2026-07-05 |
 | **Google Play services** | 26.23.34 |
 
-### Android 17 QPR 2 Beta 2 (July 2026)
-
-Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
-update the platform with fixes and improvements that are then rolled out to
-supported devices. These releases happen on a quarterly cadence through
-*Quarterly Platform Releases* (QPRs), which are delivered both to AOSP and to
-Google Pixel devices as part of *Feature Drops*.
-
-Although these updates don't include app-impacting API changes, we provide
-images of the latest QPR beta builds so you can test your app with these builds
-as needed (for example, if there are upcoming features that might impact the
-user experience of your app).
-
-### Android 17 QPR 2 Beta 1 (July 2026)
+### Android 17 QPR 2 Beta 3 (August 2026)
 
 Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
 update the platform with fixes and improvements that are then rolled out to
@@ -51,7 +47,21 @@ user experience of your app).
 Android 17 QPR2 includes a minor SDK release. This incremental update has no
 planned behavior changes, minimizing the need for compatibility testing.
 You can the current SDK changes in the
-[API diff report](https://developer.android.com/sdk/api_diff/37.1/changes).
+[API diff report](https://developer.android.com/sdk/api_diff/37.2/changes).
+
+#### Hardening against call forwarding fraud
+
+Android 17 QPR2 Beta 3 introduces new security restrictions on programmatic call forwarding to protect users from fraud. The system now parses and selectively restricts call-forwarding USSD codes (such as `*21*`) executed via the [`TelephonyManager.sendUssdRequest()` API](https://developer.android.com/reference/android/telephony/TelephonyManager#sendUssdRequest(java.lang.String,%20android.telephony.TelephonyManager.UssdResponseCallback,%20android.os.Handler)).
+
+- **API Restriction:** The `sendUssdRequest()` API is no longer accessible for call-forwarding codes using only the `CALL_PHONE` permission. Standard apps attempting to execute these codes in the background will be blocked and receive a `USSD_ERROR_NOT_ALLOWED` callback.
+- **System Confirmation:** To combat social engineering scams, users manually dialing call-forwarding codes in the system dialer will now see a new OS-level confirmation dialog before the command is executed.
+- **Non-Call Forwarding USSD:** Non-call forwarding enabling USSD requests (such as mobile money transfers and account checks) are unaffected by this change.
+- **Mitigation:** If your app is affected, verify that it handles the `USSD_ERROR_NOT_ALLOWED` failure callback gracefully. For apps requiring call-forwarding setup that do not qualify for an exempted role, migrate your flow to use the `ACTION_DIAL` intent to pre-fill the dialer, allowing the user to manually confirm the action.
+
+### Top Issues fixed in Beta 3 (August 2026)
+
+- *Opening the notification shade and Quick Settings menu caused visual corruption and an unexpected device restart. ([**Issue #535249652**](https://issuetracker.google.com/issues/535249652), [**Issue #543124160**](https://issuetracker.google.com/issues/543124160))*
+- *The Device Health and Support tool erroneously displayed false battery capacity degradation warnings to users. ([**Issue #535421490**](https://issuetracker.google.com/issues/535421490), [**Issue #538943170**](https://issuetracker.google.com/issues/538943170), [**Issue #535504630**](https://issuetracker.google.com/issues/535504630))*
 
 ### Top Issues fixed in Beta 1 (July 2026)
 

@@ -41,20 +41,22 @@ The following code sets up handling for swipes and clicks on a focusable `Box`:
 
 ```kotlin
 @Composable
-@Sampled
 fun OnIndirectPointerGestureSample() {
+    var lastGesture by remember { mutableStateOf("None") }
+
     Box(
         modifier =
             Modifier.fillMaxSize()
                 .onIndirectPointerGesture(
                     enabled = true,
-                    onSwipeForward = { /* onSwipeForward */ },
-                    onSwipeBackward = { /* onSwipeBackward */ },
-                    onClick = { /* onClick */ },
+                    onSwipeForward = { lastGesture = "Forward" },
+                    onSwipeBackward = { lastGesture = "Backward" },
+                    onClick = { lastGesture = "Click" },
                 )
-                .focusTarget()
+                .focusTarget(),
+        contentAlignment = Alignment.Center,
     ) {
-        // App()
+        Text("Last Gesture: $lastGesture")
     }
 }
 ```
@@ -64,4 +66,4 @@ fun OnIndirectPointerGestureSample() {
 ### Key points about the code
 
 - `onIndirectPointerGesture` requires focus, so the [`focusTarget`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/focusTarget.modifier) is also applied to make the `Box` focusable. You can use `focusTarget` or another focus-enabling modifier such as [`surface`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/surface.composable#(androidx.compose.ui.Modifier).surface(kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.xr.glimmer.SurfaceDepthEffect,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.interaction.MutableInteractionSource)). Without focus, the modifier can't act upon indirect pointer events.
-- This example implements both the `onSwipeForward` and `onClick` callbacks, so swipe and click gestures that are detected are intercepted and consumed, and don't reach outwards to parent containers. However, you can also leave a specific callback null to pass through a gesture to an `onIndirectPointerGesture` modifier in a parent container. -
+- This example implements both the `onSwipeForward` and `onClick` callbacks, so swipe and click gestures that are detected are intercepted and consumed, and don't reach outwards to parent containers. However, you can also leave a specific callback null to pass through a gesture to an `onIndirectPointerGesture` modifier in a parent container.

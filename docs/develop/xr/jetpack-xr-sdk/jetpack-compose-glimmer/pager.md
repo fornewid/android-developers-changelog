@@ -21,7 +21,7 @@ By default, only one page is prominently displayed at a time.
 To provide a polished experience, the pager uses snap animations to ensure that
 a page always settles exactly into the viewport boundaries after a user's
 scrolling gesture ends.
-![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_pager_opacity_do.png) **Figure 1.** An example of \`GlimmerHorizontalPager\`.
+![](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_pager_opacity_do.png) **Figure 1.** An example of `GlimmerHorizontalPager`.
 
 ## Key parameters and layout options
 

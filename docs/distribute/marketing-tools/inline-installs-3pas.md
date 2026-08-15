@@ -108,9 +108,9 @@ To show an installation status overlay with the inline install flow, you will ne
 
 For the inline install flow with persistent affordance to appear:
 
-- The target device's minimum Google Play Store version must be **52.5** or higher.
+- The target device's minimum Google Play Store version must be **52.6** or higher.
 - The Android API level must be **24** (Android M) or higher.
-- Integrate with [HSDP SDK](https://maven.google.com/web/index.html#com.google.android.play:hsdp) with version **2.0.2 (coming soon)** or higher.
+- Integrate with [HSDP SDK](https://maven.google.com/web/index.html#com.google.android.play:hsdp) with version **2.1.0** or higher.
 
 ### Integration example
 

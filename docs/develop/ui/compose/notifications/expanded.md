@@ -126,7 +126,7 @@ The result looks like the following figure:
 ![An expanded inbox-style notification](https://developer.android.com/static/images/ui/notifications/expanded_inbox_style_2.png) Figure 3. An expanded inbox-style notification.
 
 > [!NOTE]
-> **Note:** For more information about how to group multiple notifications, see [Group notifications](https://developer.android.com/develop/ui/compose/notifications#group-notifications).
+> **Note:** For more information about how to group multiple notifications, see [Group notifications](https://developer.android.com/develop/ui/compose/notifications#bundle).
 
 ## Show a conversation in a notification
 

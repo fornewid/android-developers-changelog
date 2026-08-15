@@ -18,7 +18,7 @@ their apps.
 For the inline install half sheet interface to appear in an app:
 
 - The minimum Google Play version must be **40.4**.
-- The Android API level must be **23 or higher**.
+- The Android API level must be **24 or higher**.
 
 ## Process architecture
 

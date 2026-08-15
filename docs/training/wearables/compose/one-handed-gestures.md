@@ -205,13 +205,13 @@ Bridge (`adb`) and the `IWearGestureService` system service.
 
 ### Trigger gesture events using ADB
 
-To simulate the **Double Pinch** (`Primary` action) gesture, run the following
-ADB shell command:
+To simulate the **Double Pinch** gesture (which is the `Primary` action on Pixel
+watches), run the following ADB shell command:
 
     adb shell cmd IWearGestureService gesture 1
 
-To simulate the **Wrist Turn** (`Dismiss` action) gesture, run the following ADB
-shell command:
+To simulate the **Wrist Turn** gesture (which is the `Dismiss` action on Pixel
+watches), run the following ADB shell command:
 
     adb shell cmd IWearGestureService gesture 2
 

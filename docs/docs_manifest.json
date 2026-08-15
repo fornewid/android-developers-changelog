@@ -3374,8 +3374,8 @@
     },
     "jetpack/androidx/versions.md": {
       "original_url": "https://developer.android.com/jetpack/androidx/versions",
-      "hash": "a36efa94aa82456fa1101d79630b41eb398ee83ee7a390d437ecd7c9fdf755f2",
-      "last_updated": "2026-08-07T15:21:36.240219",
+      "hash": "0500f4888f95cdc316b7474689557042b589b0bd900a9b98641e1cc14bed5bc0",
+      "last_updated": "2026-08-15T15:08:43.707005",
       "fetch_method": "md.txt"
     },
     "games/pgs/quality.md": {
@@ -4724,8 +4724,8 @@
     },
     "distribute/marketing-tools/inline-installs.md": {
       "original_url": "https://developer.android.com/distribute/marketing-tools/inline-installs",
-      "hash": "0b435578ed661e7a1e3eae7ba5134539840b9dd78cb9edbd92f55983092a495c",
-      "last_updated": "2026-04-10T15:16:38.955538",
+      "hash": "dcf265059a5027f25638c5f7bd8df91f7ca4c5841fd5f57cbf5259196d476e33",
+      "last_updated": "2026-08-15T15:03:15.567181",
       "fetch_method": "md.txt"
     },
     "security/fraud-prevention/activities.md": {
@@ -5696,8 +5696,8 @@
     },
     "develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/buttons.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/buttons",
-      "hash": "9678e0d37e490ae4368997480f514c0b3694aaafb508ebb091604c40d126bd06",
-      "last_updated": "2026-08-14T15:17:44.214946",
+      "hash": "88a5904a86ed86c451b068c6a9e25844156bd9b3ed5e720df267e0975fcc64d4",
+      "last_updated": "2026-08-15T15:05:27.558931",
       "fetch_method": "md.txt"
     },
     "topic/performance/app-optimization/additional-rule-types.md": {
@@ -6128,8 +6128,8 @@
     },
     "develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/icons.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/icons",
-      "hash": "bbb08144cb4a441c76eeebf0c931ce95f43722a8a9f16b050600d0a6acccd3c4",
-      "last_updated": "2026-08-14T15:16:22.519157",
+      "hash": "671ffcb6f30554776b0a10db429247ea6269f0aa21c55cfe02526c33b0346815",
+      "last_updated": "2026-08-15T15:03:58.356027",
       "fetch_method": "md.txt"
     },
     "identity/legacy/gsi.md": {
@@ -6470,8 +6470,8 @@
     },
     "develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/title-chips.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/title-chips",
-      "hash": "f443ef46281a5976382bd5ff53b520e0a7f9aac256d1792b9d5ddfc9ca9de216",
-      "last_updated": "2026-08-14T15:15:47.896428",
+      "hash": "71c891d74b0068ee39ca41613509bf8db96cf27284f32ac27a2d70eb88a07f1b",
+      "last_updated": "2026-08-15T15:03:20.685711",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/optimize-environment-assets.md": {
@@ -7226,8 +7226,8 @@
     },
     "privacy-and-security/safetynet/safebrowsing.md": {
       "original_url": "https://developer.android.com/privacy-and-security/safetynet/safebrowsing",
-      "hash": "f514a4ea18fd3eea4d34094f5a785f0cf5272d81b20e062776249bd12139ff8b",
-      "last_updated": "2026-04-10T15:17:17.236028",
+      "hash": "92778e623b51eccf62d2747335af93e22d912d1e99afda4073d424c16b4080ae",
+      "last_updated": "2026-08-15T15:08:45.732189",
       "fetch_method": "md.txt"
     },
     "about/versions/12/deprecations.md": {
@@ -7760,8 +7760,8 @@
     },
     "develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/text.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/text",
-      "hash": "2dcc45edb1cc061836548d5c4ee0f15f25ce198285e9462d11753b67d66f940c",
-      "last_updated": "2026-08-14T15:15:43.610404",
+      "hash": "c53043e60f3d2f14379cad16a3c7d86449c2f0968724c2fcc25d5e4ee647796c",
+      "last_updated": "2026-08-15T15:03:08.945806",
       "fetch_method": "md.txt"
     },
     "about/versions/15/summary.md": {
@@ -9434,8 +9434,8 @@
     },
     "distribute/marketing-tools/inline-installs-sdk.md": {
       "original_url": "https://developer.android.com/distribute/marketing-tools/inline-installs-sdk",
-      "hash": "813b03d73e775e7de356172f37fcfbfe4d23afb93a1372e530bfd8151dec5cd9",
-      "last_updated": "2026-06-27T15:28:35.631908",
+      "hash": "9b28bf6bb6d8d7db6b3cbd707b1ec8776ccded4b1bf2d66a82d43e32b8100dce",
+      "last_updated": "2026-08-15T15:05:58.436041",
       "fetch_method": "md.txt"
     },
     "work/versions/android-7.0.md": {
@@ -9596,8 +9596,8 @@
     },
     "topic/performance/app-optimization/enable-app-optimization.md": {
       "original_url": "https://developer.android.com/topic/performance/app-optimization/enable-app-optimization",
-      "hash": "4a2c80802b89ecf227ea43127454419b89033b6a30b2005e2ac0c75819d2f1c7",
-      "last_updated": "2026-08-04T15:51:42.170148",
+      "hash": "e6f40891180aa53d7172af03b17f154f037a198f1ffa1d093d55d5d3966752b4",
+      "last_updated": "2026-08-15T15:08:50.947632",
       "fetch_method": "md.txt"
     },
     "privacy-and-security/risks/unsafe-use-of-deeplinks.md": {
@@ -12194,8 +12194,8 @@
     },
     "develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/cards.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/cards",
-      "hash": "f3934ff2facd20faf89f96c09ac5fb32b07ec05603407dc7f22e0dd486e0b0c0",
-      "last_updated": "2026-05-20T10:37:11.972683",
+      "hash": "7d3a70d071a050ca27beda8e81cd3d8e17ea24d40d6c93717ac7c16763cf1576",
+      "last_updated": "2026-08-15T15:06:56.452082",
       "fetch_method": "md.txt"
     },
     "develop/ui/views/theming/dynamic-colors.md": {
@@ -19610,8 +19610,8 @@
     },
     "jetpack/androidx/releases/paging.md": {
       "original_url": "https://developer.android.com/jetpack/androidx/releases/paging",
-      "hash": "22c273736c95769bae75cbae8e5f5f37702348a227932ab1daebf87f9efb7e62",
-      "last_updated": "2026-08-12T15:19:15.524571",
+      "hash": "91d0ef7ece25173555ea08e97616a439a2fabd0757f3f1bcd8759e3bfdb4c0d8",
+      "last_updated": "2026-08-15T15:03:25.491863",
       "fetch_method": "md.txt"
     },
     "kotlin/samples.md": {
@@ -20642,8 +20642,8 @@
     },
     "guide/navigation/custom-back.md": {
       "original_url": "https://developer.android.com/guide/navigation/custom-back",
-      "hash": "9b8c37702a5b886b606a61b5d1cb368e6210708f8ac3573c291dd0a20d69219d",
-      "last_updated": "2026-08-07T15:19:45.359597",
+      "hash": "926b403873b3b1f218a0805f100b8719b331442b2ea88bd16790772b6c1ce126",
+      "last_updated": "2026-08-15T15:06:53.536892",
       "fetch_method": "md.txt"
     },
     "training/wearables/tiles.md": {
@@ -23888,8 +23888,8 @@
     },
     "studio/preview/features.md": {
       "original_url": "https://developer.android.com/studio/preview/features",
-      "hash": "06c8048bfe898d15e5f84a5cf10b73d65a06a92211105ced0058b72af0f954ee",
-      "last_updated": "2026-08-14T15:16:30.039069",
+      "hash": "2c18e167fe62c362078d1c5a4eae6600a07c447f5f0f8deea31b49891b001295",
+      "last_updated": "2026-08-15T15:03:45.533805",
       "fetch_method": "md.txt"
     },
     "studio/releases/past-releases/as-3-1-0-release-notes.md": {
@@ -28550,8 +28550,8 @@
     },
     "develop/ui/compose/notifications/expanded.md": {
       "original_url": "https://developer.android.com/develop/ui/compose/notifications/expanded",
-      "hash": "493911188466ef140385154d4005833160c2cc29115e46b9003a94f5e0558a98",
-      "last_updated": "2026-08-14T15:15:52.480185",
+      "hash": "d16e8ec55508491a359e855a009796022510f01e05dfa2b0a0f82c450b60ecbe",
+      "last_updated": "2026-08-15T15:03:09.293773",
       "fetch_method": "md.txt"
     },
     "blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature.md": {
@@ -29930,8 +29930,8 @@
     },
     "develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/list-items.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/list-items",
-      "hash": "5e5500a712016b8bb85b60d416c700a09be1ccf8cd505548eb38ed8ab3904e22",
-      "last_updated": "2026-08-14T15:16:12.725728",
+      "hash": "e172be3300977976264c0f9a8ca7fd3fc3bfb75e3e2e55e890c5dd5ebaefe6f0",
+      "last_updated": "2026-08-15T15:03:51.906106",
       "fetch_method": "md.txt"
     },
     "blog/posts/android-xr-updates-for-unity-unreal-and-godot.md": {
@@ -29984,8 +29984,8 @@
     },
     "develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/indirect-pointer.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/indirect-pointer",
-      "hash": "0f7076c86a8161b4d541911507e9d2998b4f7ef08b049824ccd079c85552597c",
-      "last_updated": "2026-05-20T10:35:43.406405",
+      "hash": "e2a335687697f1e8700559b0ec77a38415c542e2bd04c07138586f176ce07c4d",
+      "last_updated": "2026-08-15T15:05:30.968892",
       "fetch_method": "md.txt"
     },
     "design/ui/cars/guides/components/section-header/section-header.md": {
@@ -30032,8 +30032,8 @@
     },
     "develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/surfaces.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/surfaces",
-      "hash": "9fbf30b016e4faa23eec8b16759bbfca15134c96beb63b059feea0f01a6cbc3f",
-      "last_updated": "2026-08-14T15:17:44.770366",
+      "hash": "f3878cb8b5ee9184b7257493cdad92714c970acca06b69058140bcd6f99eed23",
+      "last_updated": "2026-08-15T15:05:27.105657",
       "fetch_method": "md.txt"
     },
     "design/ui/cars/guides/components/spotlight-section/spotlight-section.md": {
@@ -31436,8 +31436,8 @@
     },
     "about/versions/17/qpr2.md": {
       "original_url": "https://developer.android.com/about/versions/17/qpr2",
-      "hash": "8cfdecab4f3467353f9d4f4afdc38a419dfdc758f73d020260571ac75d190f90",
-      "last_updated": "2026-08-04T15:47:03.484322",
+      "hash": "a8b51d25f6c25583b0c056a15dadfb744a7dc028852c0782d139c451b93eecff",
+      "last_updated": "2026-08-15T15:03:51.433896",
       "fetch_method": "md.txt"
     },
     "games/engines/unity/unity-mcp-antigravity.md": {
@@ -31454,8 +31454,8 @@
     },
     "about/versions/17/qpr2/release-notes.md": {
       "original_url": "https://developer.android.com/about/versions/17/qpr2/release-notes",
-      "hash": "1d99e01221f9723ca229d19f4facda864df09bff8d3a1ac540744e31fb422dbe",
-      "last_updated": "2026-08-14T15:17:06.922655",
+      "hash": "25e80692a00e42706c85b2e76eb762db5aee9a7132f44af141ec2b483da31a59",
+      "last_updated": "2026-08-15T15:04:43.647624",
       "fetch_method": "md.txt"
     },
     "about/versions/17/qpr2/gsi-release-notes.md": {
@@ -31490,8 +31490,8 @@
     },
     "about/versions/17/qpr2/download.md": {
       "original_url": "https://developer.android.com/about/versions/17/qpr2/download",
-      "hash": "e6df5cc3347e5ff6ef60d6786f732fbcd53fd4c7a3fa5fce2efebc37f150fe06",
-      "last_updated": "2026-08-14T15:18:33.935054",
+      "hash": "b1a3e6cd5cb45d1d48131a68566e51d2a76a29b500ffa2ae85842140161e19d0",
+      "last_updated": "2026-08-15T15:06:02.132188",
       "fetch_method": "md.txt"
     },
     "about/versions/17/qpr2/download-ota.md": {
@@ -31568,8 +31568,8 @@
     },
     "distribute/marketing-tools/inline-installs-3pas.md": {
       "original_url": "https://developer.android.com/distribute/marketing-tools/inline-installs-3pas",
-      "hash": "2d19cd4263c8f8e84adc2a8c636c5b86eabec93a4249f2194efedfe336bd50b3",
-      "last_updated": "2026-07-22T15:31:43.056704",
+      "hash": "f27c721761122124099c281deb401db640ddf25693d17d05eb9a8f67d3bb309e",
+      "last_updated": "2026-08-15T15:03:44.442112",
       "fetch_method": "md.txt"
     },
     "agents/skills/build-system/agp/agp-9-upgrade/skill.md": {
@@ -32486,8 +32486,8 @@
     },
     "training/wearables/compose/one-handed-gestures.md": {
       "original_url": "https://developer.android.com/training/wearables/compose/one-handed-gestures",
-      "hash": "a6936596dc72b978f1d5cc8871affed3302c3e7da68937b2e334f080ecbddafc",
-      "last_updated": "2026-08-13T15:24:05.092684",
+      "hash": "c45a00a2e52dd7e662ae573c6266f7558417d99449dc0cd00668f713e5fa0749",
+      "last_updated": "2026-08-15T15:07:24.499733",
       "fetch_method": "md.txt"
     },
     "develop/adaptive-apps/cookbook/grid-table-layout.md": {
@@ -32564,8 +32564,8 @@
     },
     "develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/pager.md": {
       "original_url": "https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/pager",
-      "hash": "f809d8e444238d76c8d17dbc36f5e75c08649065da8aad9d00cdda4005333544",
-      "last_updated": "2026-08-14T15:21:00.981337",
+      "hash": "1cd666efe71293e61945e39853cd4a2b48d7ad28d7a5cf06b87ced97ba0613d5",
+      "last_updated": "2026-08-15T15:08:52.398105",
       "fetch_method": "md.txt"
     },
     "blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google.md": {
@@ -32573,7 +32573,13 @@
       "hash": "bc1694649ca88af12c0e95371af149137b3510cb71815baa0226658002a04446",
       "last_updated": "2026-08-14T15:21:05.713676",
       "fetch_method": "md.txt"
+    },
+    "develop/xr/unreal/reference.md": {
+      "original_url": "https://developer.android.com/develop/xr/unreal/reference",
+      "hash": "3509cd74d3ff8c96858cfd0abc82a358d17a02e5d8ce1519dac85e54939ebde0",
+      "last_updated": "2026-08-15T15:03:10.695940",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-08-14T15:21:17.854789"
+  "last_updated": "2026-08-15T15:08:56.639679"
 }

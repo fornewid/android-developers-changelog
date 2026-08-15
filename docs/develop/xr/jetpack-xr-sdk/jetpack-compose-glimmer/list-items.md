@@ -30,6 +30,20 @@ provide different visual emphasis.
 List items use `headlineContent` slot for their primary text to align with
 `Card` and `TitleChip` components that are used for other items.
 
+## Example: Basic list item
+
+The following code creates a basic list item:
+
+
+```kotlin
+@Composable
+fun ListItemSample() {
+    ListItem { Text("This is a list item") }
+}
+```
+
+<br />
+
 ## Example: List item with a supporting label and icons
 
 The following code creates a list item with a supporting label and both leading
@@ -38,13 +52,12 @@ and trailing icons:
 
 ```kotlin
 @Composable
-private fun ListItemWithSupportingLabelAndIcons() {
+fun ListItemWithIconsSample() {
     ListItem(
-        supportingLabel = { Text("Supporting Label") },
-        leadingIcon = { Icon(FavoriteIcon, "Localized description") },
-        trailingIcon = { Icon(FavoriteIcon, "Localized description") },
+        leadingIcon = { Icon(FavoriteIcon, contentDescription = "Favorite") },
+        trailingIcon = { Icon(FavoriteIcon, contentDescription = "Favorite") }
     ) {
-        Text("Primary Label")
+        Text("This is a list item with icons")
     }
 }
 ```
