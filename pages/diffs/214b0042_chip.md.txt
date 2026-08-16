@@ -1,0 +1,16 @@
+diff --git a/docs/develop/ui/compose/components/chip.md b/docs/develop/ui/compose/components/chip.md
+index 4bc675bf..7269081e 100644
+--- a/docs/develop/ui/compose/components/chip.md
++++ b/docs/develop/ui/compose/components/chip.md
+@@ -167,9 +167,9 @@ Consider this implementation of `SuggestionChip`:
+ fun SuggestionChipExample() {
+     SuggestionChip(
+         onClick = { Log.d("Suggestion chip", "hello world") },
+-        label = { Text("Suggestion chip") }
++        label = { Text("Sun chip") }
+     )
+-}
++}Chip.kt
+ ```
+ 
+ <br />

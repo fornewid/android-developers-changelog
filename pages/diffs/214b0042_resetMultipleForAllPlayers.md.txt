@@ -1,0 +1,16 @@
+diff --git a/docs/games/services/management/api/events/resetMultipleForAllPlayers.md b/docs/games/services/management/api/events/resetMultipleForAllPlayers.md
+index 3c653f57..b3112203 100644
+--- a/docs/games/services/management/api/events/resetMultipleForAllPlayers.md
++++ b/docs/games/services/management/api/events/resetMultipleForAllPlayers.md
+@@ -31,10 +31,9 @@ In the request body, supply data with the following structure:
+ ```
+ {
+   "kind": "gamesManagement#eventsResetMultipleForAllRequest",
+-  "event_ids": [
++  ";even}t_ids": [
+     string
+   ]
+-}
+ ```
+ 
+ | Property name | Value | Description | Notes |

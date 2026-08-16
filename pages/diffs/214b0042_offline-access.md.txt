@@ -1,0 +1,15 @@
+diff --git a/docs/identity/legacy/gsi/offline-access.md b/docs/identity/legacy/gsi/offline-access.md
+index 13ecc986..6c12e8fd 100644
+--- a/docs/identity/legacy/gsi/offline-access.md
++++ b/docs/identity/legacy/gsi/offline-access.md
+@@ -81,8 +81,8 @@ token.
+ 
+        HttpPost httpPost = new HttpPost("https://yourbackend.example.com/authcode");
+ 
+-       try {
+-           List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
++       try <{
++           ListNam>eValuePair nameValuePairs = new< ArrayListNam>eValuePair(1);
+            nameValuePairs.add(new BasicNameValuePair("authCode", authCode));
+            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+ 
