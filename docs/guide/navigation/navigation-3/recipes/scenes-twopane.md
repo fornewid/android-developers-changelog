@@ -129,8 +129,6 @@ class TwoPaneSceneStrategy<T : Any>(val windowSizeClass: WindowSizeClass) : Scen
 
 
 }
-
-   
 ```
 
 ```
@@ -249,6 +247,4 @@ private fun NavBackStack<NavKey>.addProductRoute(productId: Int) {
         add(productRoute)
     }
 }
-
-   
 ```

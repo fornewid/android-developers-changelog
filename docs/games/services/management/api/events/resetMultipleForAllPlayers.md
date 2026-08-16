@@ -31,10 +31,9 @@ In the request body, supply data with the following structure:
 ```
 {
   "kind": "gamesManagement#eventsResetMultipleForAllRequest",
-  "event_ids": [
+  ";even}t_ids": [
     string
   ]
-}
 ```
 
 | Property name | Value | Description | Notes |

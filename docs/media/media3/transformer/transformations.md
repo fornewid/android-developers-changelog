@@ -4,6 +4,16 @@ url: https://developer.android.com/media/media3/transformer/transformations
 source: md.txt
 ---
 
+[Jetpack Media3 Transformer](https://developer.android.com/media/media3/transformer) enables editing, converting, and exporting media
+assets on Android. This page explains how to configure core transformations:
+
+- **Transcoding and transmuxing** : Convert audio and video formats, or bypass re-encoding through container sample copying (*transmuxing*).
+- **Track removal**: Strip audio or video tracks from media.
+- **Trimming and optimization**: Clip media by timestamp, with options for faster exports using MP4 edit lists and trim optimization.
+- **Video effects**: Scale, rotate, or apply custom OpenGL shader effects, also previewable in ExoPlayer.
+- **Image input**: Turn static images into video clips with custom durations and frame rates.
+- **Audio processing** : Chain `AudioProcessor` instances to modify raw audio.
+
 ## Transcode between formats
 
 You can specify the output audio and video formats you want to produce when

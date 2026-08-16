@@ -356,7 +356,6 @@ private class SurfaceNode(
     // avoid inconsistent areas of coverage due to the transparency of the
     // highlight.
     private var borderLogic: BorderLogic? = null
-    private var borderWidthProvider: (() -> Dp)? = null
 
     // Border shader / brush
     var borderShader: Shader? = null
@@ -599,8 +598,6 @@ private class SurfaceNode(
         drawOutline(outline, color = compositeBackground)
 
         val borderLogic = borderLogic ?: BorderLogic().also { borderLogic = it }
-        val borderWidthProvider =
-            borderWidthProvider ?: { calculateSolidBorderWidth() }.also { borderWidthProvider = it }
         val borderLayerProvider =
             borderLayerProvider
                 ?: {
@@ -614,7 +611,7 @@ private class SurfaceNode(
 
         borderLogic.drawBorder(
             this,
-            borderWidthProvider,
+            calculateSolidBorderWidth(),
             SolidColor(borderColor),
             borderLayerProvider,
             outline,
@@ -759,8 +756,6 @@ private class SurfaceNode(
         val borderShaderBrush =
             borderShaderBrush ?: ShaderBrush(borderShader!!).also { borderShaderBrush = it }
         val borderLogic = borderLogic ?: BorderLogic().also { borderLogic = it }
-        val borderWidthProvider =
-            borderWidthProvider ?: { calculateBorderWidth() }.also { borderWidthProvider = it }
         val borderLayerProvider =
             borderLayerProvider
                 ?: {
@@ -772,7 +767,7 @@ private class SurfaceNode(
                     .also { borderLayerProvider = it }
         borderLogic.drawBorder(
             this,
-            borderWidthProvider,
+            calculateBorderWidth(),
             borderShaderBrush,
             borderLayerProvider,
             outline,

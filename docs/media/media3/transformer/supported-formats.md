@@ -62,6 +62,11 @@ also supports tone-mapping on some devices, including all devices running
 Android 13 or higher that can capture HDR video. To enable tone-mapping using
 `MediaCodec` call `setHdrMode(HDR_MODE_TONE_MAP_HDR_TO_SDR_USING_MEDIACODEC)`.
 
+Transformer also supports advanced transcoding scenarios such as the following:
+
+- **Ultra HDR to HDR video:** You can convert Ultra HDR image inputs into HDR video, preserving the image's dynamic range and wide color gamut so still photos match the peak brightness and vibrancy of HDR video in mixed timelines.
+- **Dolby Vision transcoding and transmuxing:** Transformer supports transmuxing the backward-compatible base layer (such as HEVC) from Dolby Vision (profile 8) media without re-encoding, or transcoding it with tone-mapping into standard SDR formats.
+
 ### Handling slow motion media
 
 Slow-motion videos include metadata indicating the speed at which each section

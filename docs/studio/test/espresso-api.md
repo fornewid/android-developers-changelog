@@ -6,15 +6,14 @@ source: md.txt
 
 Use the Espresso Device API to test your app when the device undergoes common
 configuration changes, such as rotation and screen unfolding. The Espresso
-Device API is the recommended tool for simulating device-level actions
+Device API is the recommended tool for performing device-level actions
 alongside your Jetpack Compose testing rules. If you're new to writing UI tests
 for Jetpack Compose, see [Testing your Compose layout](https://developer.android.com/develop/ui/compose/testing).
 
-The Espresso
-Device API lets you simulate configuration changes on a virtual device and
-executes your tests synchronously, so only one UI action or assertion happens at
-a time and your test results are more reliable. If you're new to writing UI
-tests with Espresso, see its [documentation](https://developer.android.com/training/testing/espresso).
+The Espresso Device API lets you trigger configuration changes on a
+virtual device and execute your tests synchronously, so only one UI action or
+assertion happens at a time and your test results are more reliable. If you're
+new to writing UI tests with Espresso, see its [documentation](https://developer.android.com/training/testing/espresso).
 
 To use the Espresso Device API, you need the following:
 
@@ -27,12 +26,16 @@ To use the Espresso Device API, you need the following:
 
 To set up your project so it supports the Espresso Device API, do the following:
 
-1. To let the test pass commands to the test device, add the `INTERNET` and
-   `ACCESS_NETWORK_STATE` permissions to the manifest file in the
-   `androidTest` source set:
+1. To let the test pass commands to the test device, add the required network
+   permissions to the manifest file in the `androidTest` source set:
 
          <uses-permission android:name="android.permission.INTERNET" />
          <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+   If your test targets **Android 17 (API level 37) or higher** , you must also
+   declare the `ACCESS_LOCAL_NETWORK` permission:
+
+         <uses-permission android:name="android.permission.ACCESS_LOCAL_NETWORK" />
 
 2. Enable the `enableEmulatorControl` experimental flag in the
    `gradle.properties` file:
@@ -69,7 +72,7 @@ To set up your project so it supports the Espresso Device API, do the following:
 
    ```kotlin
    dependencies {
-     androidTestImplementation("androidx.test.espresso:espresso-device:1.0.1")
+     androidTestImplementation("androidx.test.espresso:espresso-device:1.1.0")
    }
    ```
 
@@ -77,24 +80,28 @@ To set up your project so it supports the Espresso Device API, do the following:
 
    ```groovy
    dependencies {
-     androidTestImplementation 'androidx.test.espresso:espresso-device:1.0.1'
+     androidTestImplementation 'androidx.test.espresso:espresso-device:1.1.0'
    }
    ```
 
 ## Test against common configuration changes
 
 The Espresso Device API has multiple screen orientation and foldable states that
-you can use to simulate device configuration changes. The following examples
+you can use to trigger device configuration changes. The following examples
 show how to trigger these device states and verify the resulting UI changes
 using Compose test rules.
 
 ### Test against screen rotation
 
+To test screen rotation, you can use the `ScreenOrientationRule` class to define
+the device orientation during your test.
+
 Here's an example of how to test what happens to your app when the device screen
 rotates:
 
-1. First, define your Compose test rule and set the device to a consistent
-   starting state (like portrait mode):
+1. First, define your Compose test rule and use the `ScreenOrientationRule`
+   class to set the device to a consistent starting state (like portrait
+   mode):
 
        import androidx.compose.ui.test.assertIsDisplayed
        import androidx.compose.ui.test.assertDoesNotExist
@@ -115,6 +122,29 @@ rotates:
            // 2. Define the Espresso Device rule for a consistent starting state
            @get:Rule
            val screenOrientationRule = ScreenOrientationRule(ScreenOrientation.PORTRAIT)
+       }
+
+   If your test targets Android 17 (API level 37) or higher, the
+   Espresso Device API requires the `ACCESS_LOCAL_NETWORK` permission. You must
+   ensure this permission is granted before the `ScreenOrientationRule`
+   rule runs. Use JUnit's `RuleChain` to run the `GrantPermissionRule`
+   rule first:
+
+   <br />
+
+       import androidx.test.rule.GrantPermissionRule
+       import org.junit.rules.RuleChain
+
+       class MyConfigurationTest {
+           val grantPermissionRule = GrantPermissionRule.grant(android.Manifest.permission.ACCESS_LOCAL_NETWORK)
+           val composeTestRule = createComposeRule()
+           val screenOrientationRule = ScreenOrientationRule(ScreenOrientation.PORTRAIT)
+
+           @get:Rule
+           val chain = RuleChain
+               .outerRule(grantPermissionRule)
+               .around(composeTestRule)
+               .around(screenOrientationRule)
        }
 
 2. Create a test that sets the device to landscape orientation during test

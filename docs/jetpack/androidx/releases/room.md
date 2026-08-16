@@ -6,11 +6,7 @@ source: md.txt
 
 # Room
 
-[User Guide](https://developer.android.com/training/data-storage/room) [Codelab](https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/#0) API Reference  
-[androidx.room](https://developer.android.com/reference/kotlin/androidx/room/package-summary)  
-[androidx.room.migration](https://developer.android.com/reference/kotlin/androidx/room/migration/package-summary)  
-[androidx.room.testing](https://developer.android.com/reference/kotlin/androidx/room/testing/package-summary)  
-The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
+[User Guide](https://developer.android.com/training/data-storage/room) [Codelab](https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/#0) The Room persistence library provides an abstraction layer over SQLite to allow for more robust database access while harnessing the full power of SQLite.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
@@ -1107,7 +1103,9 @@ July 21, 2021
       fun getArtistAndAlbums(): Map<Artist, List<Album>>
 
   The multimap result can also be wrapped in the supported async return types, such as `LiveData`, Rx's `Observable`, or coroutines `Flow`.
-  | **Note:** In version 2.4.0-alpha04, only multimaps with POJOs as type parameters are supported, but in a future version String and primitives will also be supported.
+
+  > [!NOTE]
+  > **Note:** In version 2.4.0-alpha04, only multimaps with POJOs as type parameters are supported, but in a future version String and primitives will also be supported.
 
 **Room-Paging**
 

@@ -72,9 +72,7 @@ fun PasswordTextField() {
                         .clickable { showPassword = !showPassword }
                 )
             }
-        }
-    )
-}
+       nippets.kt
 ```
 
 <br />

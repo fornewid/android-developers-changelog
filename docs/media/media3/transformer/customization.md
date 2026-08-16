@@ -47,3 +47,10 @@ You can set a custom muxer for writing media containers by calling
 `Transformer.setMuxerFactory`. For example, if you implement your own muxer at
 the application level, you can write a wrapper that implements the `Muxer`
 interface and then use `setMuxerFactory` to inject it into Transformer.
+
+If your custom muxer supports writing negative timestamps in MP4 edit lists, you
+should ensure that
+[`Muxer.Factory#supportsWritingNegativeTimestampsInEditList`](https://developer.android.com/reference/androidx/media3/muxer/Muxer.Factory#supportsWritingNegativeTimestampsInEditList()) returns
+`true`. This enables Transformer to perform optimizations, such as trim-only
+edits using MP4 edit lists, without needing to re-encode the video. For the
+default `InAppMp4Muxer`, this is already supported.
