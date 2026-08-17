@@ -2750,8 +2750,8 @@
     },
     "google/play/age-signals/notify-significant-changes.md": {
       "original_url": "https://developer.android.com/google/play/age-signals/notify-significant-changes",
-      "hash": "fb7a56888206aa3ce83435b5482eba1efd20004cdd436d2b91dadeeee630467c",
-      "last_updated": "2026-08-01T15:25:35.284348",
+      "hash": "b51b7e2a551fdf934cd5743e0e8b9d3ba03a395d660a22e4759d48520bc54a73",
+      "last_updated": "2026-08-17T15:09:57.972045",
       "fetch_method": "md.txt"
     },
     "games/playgames/native-pc/setup.md": {
@@ -13880,8 +13880,8 @@
     },
     "studio/nightly.md": {
       "original_url": "https://developer.android.com/studio/nightly",
-      "hash": "2ee8d3c68de463811366740dbebd260eefe94b132719c04dbc54e1d7159751e2",
-      "last_updated": "2026-08-13T15:21:04.930322",
+      "hash": "ac75e3ed25559a0db976919e193c1ac747c9c4a94ae60085eafa69b9a5745e96",
+      "last_updated": "2026-08-17T15:07:20.388597",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/arcore/hands.md": {
@@ -32579,7 +32579,19 @@
       "hash": "3509cd74d3ff8c96858cfd0abc82a358d17a02e5d8ce1519dac85e54939ebde0",
       "last_updated": "2026-08-15T15:03:10.695940",
       "fetch_method": "md.txt"
+    },
+    "studio/releases/fixed-bugs/studio/2026.2.1.md": {
+      "original_url": "https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.1",
+      "hash": "20677ab88ff7bf82d3620e3420b8ecb986a1c92c93e17d666e671792110f88ec",
+      "last_updated": "2026-08-17T15:06:24.587103",
+      "fetch_method": "html-scrape"
+    },
+    "develop/ui/views/layout/webapps/navigate.md": {
+      "original_url": "https://developer.android.com/develop/ui/views/layout/webapps/navigate",
+      "hash": "f3221f562a55fcdc8bd7dae3b3ebbb7e2eb6cde8ed586e174c24c7796c069d6e",
+      "last_updated": "2026-08-17T15:11:03.604351",
+      "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-08-16T15:10:08.081498"
+  "last_updated": "2026-08-17T15:12:21.713680"
 }
