@@ -1,0 +1,18 @@
+diff --git a/docs/google/play/age-signals/notify-significant-changes.md b/docs/google/play/age-signals/notify-significant-changes.md
+index 272bd5e4..a05f36d3 100644
+--- a/docs/google/play/age-signals/notify-significant-changes.md
++++ b/docs/google/play/age-signals/notify-significant-changes.md
+@@ -52,11 +52,11 @@ You can submit a significant change on the [Age signals](https://play.google.com
+ Play Console. To submit a significant change, you will need to provide:
+ 
+ - **Effective from date (required):** A future date when the change takes effect. Changes are effective from 00:00 UTC.
+-- **Description (optional):** A short description of the update. The description you provide will be shown verbatim to parents. You can provide the description in all languages that your app supports.
++- **Description (required):** A short description of the update. The description you provide will be shown verbatim to parents. You are required to provide this description in English (en-US), and you can optionally provide the description in all other languages that your app supports.
+ 
+ You can submit up to 3 significant changes up to 90 days in advance. Significant
+ changes must be more than 2 days apart from each other. You can view significant
+-changes that you previously submitted in the Play Console activity log.
++changes that you previously submitted in the Play Console.
+ 
+ > [!TIP]
+ > **Tip:** Bookmark the [Age signals](https://play.google.com/console/developers/app/age-signals) page in your Google Play Console to return to it at any time.
