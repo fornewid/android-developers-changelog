@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 You create a media browser service by extending the supported
-[`MediaBrowserServiceCompat`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat) or [`MediaLibraryService`](https://developer.android.com/media/media3/session/serve-content) classes. Android
+[`MediaBrowserServiceCompat`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserCompat) or [`MediaLibraryService`](https://developer.android.com/media/media3/session/serve-content) classes. Android
 Auto and Android Automotive OS (AAOS) can then use your service to:
 
 - Browse your app's content hierarchy to present a menu to the user.
