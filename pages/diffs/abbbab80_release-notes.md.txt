@@ -1,0 +1,44 @@
+diff --git a/docs/about/versions/17/qpr1/release-notes.md b/docs/about/versions/17/qpr1/release-notes.md
+index eaaf9be7..5e0e45ec 100644
+--- a/docs/about/versions/17/qpr1/release-notes.md
++++ b/docs/about/versions/17/qpr1/release-notes.md
+@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr1/release-notes
+ source: md.txt
+ ---
+ 
++### Beta 9
++
++|---|---|
++| **Release date** | August 17, 2026 |
++| **Builds** | CP31.260623.012 |
++| **Emulator support** | x86 (64-bit), ARM (v8-A) |
++| **Security patch level** | 2026-07-05 |
++| **Google Play services** | 26.22.36 |
++
+ ### Beta 8
+ 
+ |---|---|
+@@ -76,7 +85,7 @@ source: md.txt
+ | **Security patch level** | 2026-04-05 |
+ | **Google Play services** | 26.11.36 |
+ 
+-### Android 17 QPR 1 Beta 8 (July 2026)
++### Android 17 QPR 1 Beta 9 (August 2026)
+ 
+ Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
+ update the platform with fixes and improvements that are then rolled out to
+@@ -97,6 +106,14 @@ locked, the [API diff report](https://developer.android.com/sdk/api_diff/37.1/ch
+ changes, and you can now incorporate new Android 17 QPR1 capabilities
+ into your apps.
+ 
++### Top Issues fixed in Beta 9 (August 2026)
++
++- *Swiping the bottom gesture bar to switch between apps failed after invoking Circle to Search by updating system gesture handling to properly reset navigation focus. ([**Issue #529422135**](https://issuetracker.google.com/issues/529422135))*
++- *Unexpected loud noise plays during media playback and notification interactions. ([**Issue #509007703**](https://issuetracker.google.com/issues/509007703), [**Issue #508456570**](https://issuetracker.google.com/issues/508456570), [**Issue #512158576**](https://issuetracker.google.com/issues/512158576), [**Issue #514265107**](https://issuetracker.google.com/issues/514265107), [**Issue #520904833**](https://issuetracker.google.com/issues/520904833), [**Issue #519636478**](https://issuetracker.google.com/issues/519636478), [**Issue #517242741**](https://issuetracker.google.com/issues/517242741), [**Issue #519578674**](https://issuetracker.google.com/issues/519578674), [**Issue #519191172**](https://issuetracker.google.com/issues/519191172), [**Issue #507873728**](https://issuetracker.google.com/issues/507873728), [**Issue #519418933**](https://issuetracker.google.com/issues/519418933), [**Issue #517194839**](https://issuetracker.google.com/issues/517194839), [**Issue #516440003**](https://issuetracker.google.com/issues/516440003), [**Issue #514606256**](https://issuetracker.google.com/issues/514606256), [**Issue #514047990**](https://issuetracker.google.com/issues/514047990), [**Issue #513681197**](https://issuetracker.google.com/issues/513681197), [**Issue #512813456**](https://issuetracker.google.com/issues/512813456), [**Issue #512212036**](https://issuetracker.google.com/issues/512212036), [**Issue #500342049**](https://issuetracker.google.com/issues/500342049), [**Issue #498147587**](https://issuetracker.google.com/issues/498147587), [**Issue #505780177**](https://issuetracker.google.com/issues/505780177), [**Issue #523640480**](https://issuetracker.google.com/issues/523640480), [**Issue #524719397**](https://issuetracker.google.com/issues/524719397), [**Issue #523304213**](https://issuetracker.google.com/issues/523304213), [**Issue #531669961**](https://issuetracker.google.com/issues/531669961), [**Issue #534620345**](https://issuetracker.google.com/issues/534620345), [**Issue #536625907**](https://issuetracker.google.com/issues/536625907), [**Issue #536292570**](https://issuetracker.google.com/issues/536292570), [**Issue #538400224**](https://issuetracker.google.com/issues/538400224), [**Issue #541204384**](https://issuetracker.google.com/issues/541204384), [**Issue #541243460**](https://issuetracker.google.com/issues/541243460), [**Issue #541257484**](https://issuetracker.google.com/issues/541257484), [**Issue #539706747**](https://issuetracker.google.com/issues/539706747), [**Issue #540327575**](https://issuetracker.google.com/issues/540327575), [**Issue #539563805**](https://issuetracker.google.com/issues/539563805))*
++- *Devices can enter a continuous reboot loop every 20 to 30 seconds. ([**Issue #507915695**](https://issuetracker.google.com/issues/507915695))*
++- *Taskbar icons unexpectedly disappeared when launching apps or entering bubble mode on foldable devices. ([**Issue #535467363**](https://issuetracker.google.com/issues/535467363))*
++- *An issue causing intermittent battery drain. ([**Issue #536626112**](https://issuetracker.google.com/issues/536626112))*
++
+ ### Top Issues fixed in Beta 8 (July 2026)
+ 
+ - *An audio framework buffer management issue that caused unexpected, loud audio corruption and static during media playback and notification interactions. ([**Issue #509007703**](https://issuetracker.google.com/issues/509007703), [**Issue #508456570**](https://issuetracker.google.com/issues/508456570), [**Issue #512158576**](https://issuetracker.google.com/issues/512158576), [**Issue #514265107**](https://issuetracker.google.com/issues/514265107), [**Issue #520904833**](https://issuetracker.google.com/issues/520904833), [**Issue #519636478**](https://issuetracker.google.com/issues/519636478), [**Issue #517242741**](https://issuetracker.google.com/issues/517242741), [**Issue #519578674**](https://issuetracker.google.com/issues/519578674), [**Issue #519191172**](https://issuetracker.google.com/issues/519191172), [**Issue #507873728**](https://issuetracker.google.com/issues/507873728), [**Issue #519418933**](https://issuetracker.google.com/issues/519418933), [**Issue #517194839**](https://issuetracker.google.com/issues/517194839), [**Issue #516440003**](https://issuetracker.google.com/issues/516440003), [**Issue #514606256**](https://issuetracker.google.com/issues/514606256), [**Issue #514047990**](https://issuetracker.google.com/issues/514047990), [**Issue #513681197**](https://issuetracker.google.com/issues/513681197), [**Issue #512813456**](https://issuetracker.google.com/issues/512813456), [**Issue #512212036**](https://issuetracker.google.com/issues/512212036), [**Issue #500342049**](https://issuetracker.google.com/issues/500342049), [**Issue #498147587**](https://issuetracker.google.com/issues/498147587), [**Issue #505780177**](https://issuetracker.google.com/issues/505780177), [**Issue #523640480**](https://issuetracker.google.com/issues/523640480), [**Issue #524719397**](https://issuetracker.google.com/issues/524719397), [**Issue #523304213**](https://issuetracker.google.com/issues/523304213), [**Issue #531669961**](https://issuetracker.google.com/issues/531669961), [**Issue #534620345**](https://issuetracker.google.com/issues/534620345), [**Issue #536625907**](https://issuetracker.google.com/issues/536625907), [**Issue #536292570**](https://issuetracker.google.com/issues/536292570), [**Issue #538400224**](https://issuetracker.google.com/issues/538400224), [**Issue #541204384**](https://issuetracker.google.com/issues/541204384), [**Issue #541243460**](https://issuetracker.google.com/issues/541243460), [**Issue #541257484**](https://issuetracker.google.com/issues/541257484))*
