@@ -92,3 +92,54 @@ Button(
 ```
 
 <br />
+
+## Button groups
+
+The [`ButtonGroup`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ButtonGroup.composable) composable lets you group buttons into a scrollable row
+that acts as a focus controller. As the user scrolls, focus automatically moves
+to highlight the button corresponding to the current scroll position.
+![](https://developer.android.com/static/images/xr/button-group-scroll.gif) An example of a button group scrolling and focusing features.
+
+## Example: Button groups
+
+
+```kotlin
+ButtonGroup(modifier = Modifier.fillMaxWidth()) {
+    Button(onClick = {}) { Text("Button 1") }
+    Button(onClick = {}) { Text("Button 2") }
+    Button(onClick = {}) { Text("Button 3") }
+    Button(onClick = {}) { Text("Button 4") }
+    Button(onClick = {}) { Text("Button 5") }
+}
+```
+
+<br />
+
+## Focus control in button groups
+
+You can move the focus to any button in a group to manually control the
+selection.
+
+Customize and control scrolling behavior using the `ButtonGroup` state:
+
+1. Declare the state with `rememberButtonGroupState`.
+2. Pass it to the `ButtonGroup` composable.
+3. Call [`animateScrollToItem`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ButtonGroupState#animateScrollToItem(kotlin.Int,androidx.compose.animation.core.FiniteAnimationSpec)) (or [`scrollToItem`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ButtonGroupState#scrollToItem(kotlin.Int)) for instant scrolling) to scroll to a specific item and automatically move focus to it.
+
+The following code moves the focus from one button to another upon click:
+
+
+```kotlin
+val scope = rememberCoroutineScope()
+val state = rememberButtonGroupState()
+ButtonGroup(modifier = Modifier.fillMaxWidth(), state = state) {
+    Button(onClick = { scope.launch { state.animateScrollToItem(1) } }) {
+        Text("Select last item")
+    }
+    Button(onClick = { scope.launch { state.animateScrollToItem(0) } }) {
+        Text("Select first item")
+    }
+}
+```
+
+<br />

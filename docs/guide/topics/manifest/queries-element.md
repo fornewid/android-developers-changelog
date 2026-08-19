@@ -9,13 +9,13 @@ syntax:
 
     ```xml
     <queries>
-        <package android:name=&quot;stri>ng&qu<ot; /
-    >    intent
-          <  ...
-     >   /i<ntent
-        provider android:authoritie>s="l<ist">; /
+        <package android:name="string" />
+        <intent>
+            ...
+        </intent>
+        <provider android:authorities="list" />
         ...
-    /queries
+    </queries>
     ```
 
 contained in:

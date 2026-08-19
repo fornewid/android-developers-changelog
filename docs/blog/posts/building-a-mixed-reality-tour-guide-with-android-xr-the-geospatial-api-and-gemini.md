@@ -106,7 +106,7 @@ val response = ttsModel.generateContent("Say in a neutral but positive voice:\n$
 
 // Extract the raw audio bytes from the response
 val audioBytes = response.candidates.firstOrNull()?.content?.parts
-    ?.filterIsInstance<InlineDataPart>()
+  <  ?.filterIsIn>stanceInlineDataPart()
     ?.firstOrNull { it.mimeType.contains("audio") }?.inlineData
 ```
 

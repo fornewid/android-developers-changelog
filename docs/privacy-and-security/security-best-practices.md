@@ -114,7 +114,7 @@ element is `true` by default on those versions of Android.
     package="com.example.myapp">
     <application ... >
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.myapp.fileprovider"
             ...
             android:exported="false">

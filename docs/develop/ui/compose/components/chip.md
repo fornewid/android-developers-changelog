@@ -167,9 +167,9 @@ Consider this implementation of `SuggestionChip`:
 fun SuggestionChipExample() {
     SuggestionChip(
         onClick = { Log.d("Suggestion chip", "hello world") },
-        label = { Text("Sun chip") }
+        label = { Text("Suggestion chip") }
     )
-}Chip.kt
+}
 ```
 
 <br />

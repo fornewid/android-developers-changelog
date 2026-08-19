@@ -26,7 +26,8 @@ The [`GlimmerTheme`](https://developer.android.com/reference/kotlin/androidx/xr/
 
 ### Example: Get shapes from GlimmerTheme and apply them to components
 
-First, get the defined the defined shapes from [`GlimmerTheme.shapes`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/GlimmerTheme#shapes()):
+First, get the defined shapes from [`GlimmerTheme.shapes`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/GlimmerTheme#shapes()), and then apply
+those shapes to some components:
 
 
 ```kotlin
@@ -39,18 +40,15 @@ fun ShapesSample() {
         item { ShapeItem("large", shape = shapes.large) }
     }
 }
-```
 
-<br />
-
-Next, you can apply these shapes to some components:
-
-
-```kotlin
 @Composable
 private fun ShapeItem(name: String, shape: Shape, modifier: Modifier = Modifier) {
+    val interactionSource = remember { MutableInteractionSource() }
     Box(
-        modifier.aspectRatio(2.5f).fillMaxWidth().surface(shape = shape),
+        modifier
+            .aspectRatio(2.5f)
+            .fillMaxWidth()
+            .surface(interactionSource = interactionSource, shape = shape),
         contentAlignment = Alignment.Center,
     ) {
         Text(name)
@@ -70,10 +68,29 @@ the theme's structure while adjusting specific radii for your app's brand.
 
 The following code overrides specific shape values:
 
+
+```kotlin
+@Composable
+fun CustomShapesSample() {
     val customShapes = GlimmerTheme.shapes.copy(
         small = RoundedCornerShape(12.dp),
         medium = RoundedCornerShape(20.dp)
     )
+
+    val interactionSource = remember { MutableInteractionSource() }
+    Box(
+        Modifier
+            .aspectRatio(2.5f)
+            .fillMaxWidth()
+            .surface(interactionSource = interactionSource, shape = customShapes.small),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text("custom small")
+    }
+}
+```
+
+<br />
 
 ### Default values
 

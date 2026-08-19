@@ -8,7 +8,7 @@ syntax:
 :
 
     ```xml
-    <action android:name=&quot;stri>ng" /
+    <action android:name="string" />
     ```
 
 contained in:
@@ -44,7 +44,7 @@ attributes:
 
 
         ```xml
-        <action android:name="com.example.project.TRANSMOGRI>FY" /
+        <action android:name="com.example.project.TRANSMOGRIFY" />
         ```
 
 introduced in:

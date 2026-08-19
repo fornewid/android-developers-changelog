@@ -81,8 +81,8 @@ token.
 
        HttpPost httpPost = new HttpPost("https://yourbackend.example.com/authcode");
 
-       try <{
-           ListNam>eValuePair nameValuePairs = new< ArrayListNam>eValuePair(1);
+       try {
+           List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
            nameValuePairs.add(new BasicNameValuePair("authCode", authCode));
            httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 

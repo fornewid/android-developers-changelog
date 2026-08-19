@@ -8,6 +8,7 @@ source: md.txt
 
 By making Android safer, we're protecting an environment for developers and users to confidently create and connect. This extra layer of security helps deter bad actors and makes it harder for them to repeatedly spread harm. **Next milestone: September 30, 2026**
 
+
 These protections begin for users installing apps from [participating stores](https://developer.android.com/developer-verification/guides) (Google Play, HONOR App Market, OPPO App Market, Galaxy Store, Palm Store, V-Appstore, GetApps) in Brazil, Indonesia, Singapore, and Thailand, on certified devices running Android 7+. In 2027, we'll expand this globally to all apps on certified devices.
 
 ## Choose your verification path
@@ -53,7 +54,11 @@ Visit the [Android Developer Console Help Center](https://support.google.com/and
 
 ## Latest News
 
-[![](http://developer.android.com/static/developer-verification/assets/blogicon.png)](http://android-developers.googleblog.com/2026/06/android-developer-verification.html) Blog
+[![](http://developer.android.com/static/developer-verification/assets/latestnewsheadericon.png)](https://developer.android.com/developer-verification/guides/limited-distribution) Guide
+
+### [Limited distribution accounts are now available](https://developer.android.com/developer-verification/guides/limited-distribution)
+
+Learn how students, teachers, and hobbyists can share apps with up to 20 devices without a government-issued ID or registration fee. [![](http://developer.android.com/static/developer-verification/assets/blogicon.png)](http://android-developers.googleblog.com/2026/06/android-developer-verification.html) Blog
 
 ### [Android developer verification: Building a safer ecosystem together](http://android-developers.googleblog.com/2026/06/android-developer-verification.html)
 

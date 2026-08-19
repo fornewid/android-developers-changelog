@@ -48,9 +48,9 @@ capability will soon be expanded to all third-party Android app stores.
 
 Complete these steps:
 
-1. **Sign up** for an Android Developer Console account if you distribute apps
-   outside of Google Play. You will automatically be registered if you
-   distribute your app through Google Play.
+1. [**Sign up** for an Android Developer Console account](https://android.google.com/developerconsole) if you
+   distribute apps outside of Google Play. You will automatically be
+   registered if you distribute your app through Google Play.
 
 2. **Verify your identity**: Provide information and documentation to confirm
    your identity as an individual or an organization.

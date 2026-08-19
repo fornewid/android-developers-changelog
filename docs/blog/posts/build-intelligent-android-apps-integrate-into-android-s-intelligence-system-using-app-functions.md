@@ -70,7 +70,7 @@ data class TripSerializable(
     /** The trip's end date in milliseconds. */
     val endDate: Long,
     /** A list of participants. */
-    val participants: List<String>,
+    va<l part>icipants: ListString,
 )
 ```
 

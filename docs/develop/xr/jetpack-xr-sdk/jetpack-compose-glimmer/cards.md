@@ -54,9 +54,9 @@ The following defaults apply to cards:
   - Subtitle: [`caption`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Typography#caption())
   - Main content: [`bodySmall`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Typography#bodySmall())
 
-## Example: Complex card with multiple slots
+## Example: Basic card
 
-The following code shows how to use multiple slots together to build a card.
+The following code shows the minimal code needed to build a card:
 
 
 ```kotlin
@@ -65,7 +65,90 @@ Card { Text("This is a card") }
 
 <br />
 
+## Example: Card with multiple slots
+
+The following code shows how to use multiple slots together to build a card:
+
+
+```kotlin
+Card(
+    title = { Text("Card Title", style = GlimmerTheme.typography.titleMedium) },
+    subtitle = { Text("Sub-heading text", style = GlimmerTheme.typography.titleSmall) },
+    leadingIcon = { Icon(FavoriteIcon, contentDescription = "Favorite") },
+    trailingIcon = { Icon(BookmarkIcon, contentDescription = "Bookmark") },
+    header = {
+        Image(
+            painter = myHeaderImage,
+            contentDescription = "Header image",
+            contentScale = ContentScale.FillWidth
+        )
+    },
+) {
+    Text("This is a complete card")
+}
+```
+
+<br />
+
 ### Key points about the code
 
 - Shows how to use various card elements, such as [`title`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Card.composable), [`subtitle`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Card.composable), and [`leadingIcon`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Card.composable), to customize the card's content and structure.
 - Uses the [`Card`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/Card.composable#Card(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.foundation.BorderStroke,androidx.compose.foundation.layout.PaddingValues,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) overload with `onClick` to make the entire card surface interactive.
+
+## Action cards
+
+If you want to include an action button with a card, use an
+[`ActionCard`](https://developer.android.com/reference/kotlin/androidx/xr/glimmer/ActionCard.composable). Action cards have the same elements as standard cards and
+also include an additional `action` parameter that defines the bottom button.
+![](https://developer.android.com/static/images/design/ui/xr/guides/actioncard.png) **Figure 2.** An example of an `ActionCard` in Jetpack Compose Glimmer.
+
+### Example: Basic action card
+
+This code shows how to create an `ActionCard`:
+
+
+```kotlin
+ActionCard(
+    action = {
+        Button(onClick = {}, trailingIcon = { Icon(FavoriteIcon, "Localized description") }) {
+            Text("Send")
+        }
+    }
+) {
+    Text("This is a card with a title, leading icon, header image, and action")
+}
+```
+
+<br />
+
+### Example: Action card with an icon
+
+This code shows how to create a more complex `ActionCard` with icons:
+
+
+```kotlin
+ActionCard(
+    title = { Text("Card Title", style = GlimmerTheme.typography.titleMedium) },
+    subtitle = { Text("Sub-heading text", style = GlimmerTheme.typography.titleSmall) },
+    leadingIcon = { Icon(FavoriteIcon, contentDescription = "Favorite") },
+    header = {
+        Image(
+            painter = myHeaderImage,
+            contentDescription = "Header image",
+            contentScale = ContentScale.FillWidth
+        )
+    },
+    action = {
+        Button(onClick = { /* Handle action */ }) {
+            Text("Action")
+        }
+    }
+) {
+    Text(
+        "This is the main body content of the card, utilizing theme-tokens for consistent styling.",
+        style = GlimmerTheme.typography.bodyMedium
+    )
+}
+```
+
+<br />

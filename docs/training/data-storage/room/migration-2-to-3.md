@@ -175,22 +175,25 @@ You can construct a `RoomRawQuery` at runtime:
         }
     )
 
-- **Convert transaction APIs** : Replace Android-only `withTransaction` and `runInTransaction` blocks with `withWriteTransaction` or `withReadTransaction`:
+- **Convert transaction APIs** : Replace Android-only `withTransaction` and `runInTransaction` blocks with `useWriterConnection` and `immediateTransaction`:
 
     // Before (withTransaction)
     db.withTransaction {
         // perform database operations
     }
 
-    // After (withWriteTransaction - Room 2.8)
-    import androidx.room.withWriteTransaction
+    // After (useWriterConnection - Room 2.8)
+    import androidx.room.useWriterConnection
+    import androidx.room.immediateTransaction
 
-    db.withWriteTransaction {
-        // perform database operations
+    db.useWriterConnection { connection ->
+        connection.immediateTransaction {
+            // perform database operations
+        }
     }
 
-If you need direct low-level access to the transaction connection, you can
-also use `useWriterConnection` with `immediateTransaction`.
+> [!NOTE]
+> **Note:** Once you adopt Room 3.0, you can clean up these calls to use `withWriteTransaction` or `withReadTransaction`.
 
 - **Avoid direct usage of `SupportSQLiteDatabase`** : If you have extensive legacy code that still requires `SupportSQLiteDatabase` and you can't migrate it yet, use the `androidx.room:room-sqlite-wrapper` compatibility artifact:
 

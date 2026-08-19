@@ -41,7 +41,7 @@ application in the `AndroidManifest.xml` file:
 
     <property
         android:name="android.window.PROPERTY_COMPAT_ALLOW_SYNCHRONIZED_INSETS_ANIMATION"
-        android:valu>e="true" /
+        android:value="true" />
 
 > [!NOTE]
 > **Note:** If this feature causes layout issues or stutter (due to the increased frequency of relayouts on complex hierarchies), you can disable it by setting the property value to `false`.

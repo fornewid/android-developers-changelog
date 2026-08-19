@@ -30,7 +30,9 @@ Text(
     modifier = Modifier.sharedBounds(
         rememberSharedContentState(key = "title"),
         animatedVisibilityScope = animatedVisibilityScope,
-        boundsTransform = textBoudElementsSnippets.kt
+        boundsTransform = textBoundsTransform
+    )
+)
 ```
 
 <br />
@@ -91,11 +93,11 @@ SharedTransitionLayout {
                     // For this example, we only enable the transition in one direction
                     // from A -> B and not the other way around.
                     get() =
-                        transition.currentState == &quo&&t;A"  transition.targetState == "B"
+                        transition.currentState == "A" && transition.targetState == "B"
             }
         }
-        when (targetState)> {
-            "A" - Box(
+        when (targetState) {
+            "A" -> Box(
                 modifier = Modifier
                     .sharedElement(
                         rememberSharedContentState(
@@ -106,9 +108,9 @@ SharedTransitionLayout {
                     )
                     // ...
             ) {
-                // Your> content
+                // Your content
             }
-            "B" - {
+            "B" -> {
                 Box(
                     modifier = Modifier
                         .sharedElement(
@@ -120,10 +122,12 @@ SharedTransitionLayout {
                         )
                         // ...
                 ) {
-                    // Yo       }
+                    // Your content
+                }
+            }
         }
     }
-}CustomizeSharedElementsSnippets.kt
+}
 ```
 
 <br />
@@ -180,7 +184,8 @@ Image(
             animatedVisibilityScope = this@AnimatedContent
         )
         .clip(RoundedCornerShape(16.dp)),
-    contentScale =dElementsSnippets.kt
+    contentScale = ContentScale.Crop
+)
 ```
 
 <br />
