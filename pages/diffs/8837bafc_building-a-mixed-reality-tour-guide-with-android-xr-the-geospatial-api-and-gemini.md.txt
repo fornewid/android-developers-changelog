@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini.md b/docs/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini.md
+index 3c442278..6b80b0c5 100644
+--- a/docs/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini.md
++++ b/docs/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini.md
+@@ -106,7 +106,7 @@ val response = ttsModel.generateContent("Say in a neutral but positive voice:\n$
+ 
+ // Extract the raw audio bytes from the response
+ val audioBytes = response.candidates.firstOrNull()?.content?.parts
+-    ?.filterIsInstance<InlineDataPart>()
++  <  ?.filterIsIn>stanceInlineDataPart()
+     ?.firstOrNull { it.mimeType.contains("audio") }?.inlineData
+ ```
+ 

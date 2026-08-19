@@ -1,0 +1,25 @@
+diff --git a/docs/guide/topics/manifest/manifest-element.md b/docs/guide/topics/manifest/manifest-element.md
+index fd73a3b1..6025fc87 100644
+--- a/docs/guide/topics/manifest/manifest-element.md
++++ b/docs/guide/topics/manifest/manifest-element.md
+@@ -9,14 +9,15 @@ syntax:
+ 
+     ```xml
+     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+-              n>package="string";
++              package="string"
+               android:sharedUserId="string"
+-              android:sharedUserLabel="string resource" <https://developer.android.com/guide/topics/manifest/manifest-element#uidmaxsdk&g*t;*
++              android:sharedUserLabel="string resource" 
+               android:sharedUserMaxSdkVersion="integer"
+-      https://developer.android.com/guide/topics/manifest/manifest-element#vnamepan>andro*id:ver*sionCode="integhttps://developer.android.com/guide/topics/manifest/manifest-element#install    android:versionName="string"
+-       >       an<dr>oid:installLocation=["auto" | "internalOnly" | "preferExternal"] 
++              android:versionCode="integer"
++              android:versionName="string"
++              android:installLocation=["auto" | "internalOnly" | "preferExternal"] >
+         ...
+-    /manifest
++    </manifest>
+     ```
+ 
+ contained in:

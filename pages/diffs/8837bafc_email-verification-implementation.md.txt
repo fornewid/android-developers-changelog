@@ -1,0 +1,26 @@
+diff --git a/docs/identity/digital-credentials/email-verification-implementation.md b/docs/identity/digital-credentials/email-verification-implementation.md
+index 135c50af..c1441391 100644
+--- a/docs/identity/digital-credentials/email-verification-implementation.md
++++ b/docs/identity/digital-credentials/email-verification-implementation.md
+@@ -205,12 +205,15 @@ additional metadata as well along with verified email:
+     /*
+     // Example of the raw JSON response from credential.credentialJson:
+     {
+-      "vp_token": {
+-        // This key matches the 'id' you set in your dcql_query
+-        "user_info_query": [
+-          // The SD-JWT string (Issuer JWT ~ Disclosures ~ Key Binding JWT)
+-          "eyJhbGciOiJ...~WyI...IiwgImVtYWlsIiwgInVzZXJAZXhhbXBsZS5jb20iXQ~...~eyJhbGciOiJ..."
+-        ]
++      "protocol": "openid4vp-v1-unsigned",
++      "data": {
++        "vp_token": {
++          // This key matches the 'id' you set in your dcql_query
++          "user_info_query": [
++            // The SD-JWT string (Issuer JWT ~ Disclosures ~ Key Binding JWT)
++            "eyJhbGciOiJ...~WyI...IiwgImVtYWlsIiwgInVzZXJAZXhhbXBsZS5jb20iXQ~...~eyJhbGciOiJ..."
++          ]
++        }
+       }
+     }
+ 

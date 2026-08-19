@@ -1,0 +1,31 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/create-card-as-container.md b/docs/develop/ui/compose/quick-guides/content/create-card-as-container.md
+index 0c88feaf..fa469031 100644
+--- a/docs/develop/ui/compose/quick-guides/content/create-card-as-container.md
++++ b/docs/develop/ui/compose/quick-guides/content/create-card-as-container.md
+@@ -49,7 +49,7 @@ call to `Text` in the following minimal example:
+ 
+ The key here is the use of the `colors` property to change the filled
+ color:
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_347fb6f4ddb30b04ac1b22fb5ad6e706b3782ca1918bb40af4d9078fedbfc380.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_f29e37f28588ae367b1096aaee5a556fd69f3d642747896ae9eca4754f64345b.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+@@ -62,7 +62,7 @@ dedicated [`ElevatedCard`](https://developer.android.com/reference/kotlin/androi
+ 
+ You can use the `elevation` property to control the appearance of elevation and
+ the resulting shadow.
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_ba76ad0d18032a3abcdc2f736b0ae6702f2e750fcd563f15ce532ab50b208ed5.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_2d96b6456b003db399bc1afb8d25635a85fd1e469f9c0faecfc7d014a28c9657.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 
+@@ -72,7 +72,7 @@ the resulting shadow.
+ 
+ The following is an example of an outlined card. Use the dedicated
+ [`OutlinedCard`](https://developer.android.com/reference/kotlin/androidx/compose/material3/OutlinedCard.composable#OutlinedCard(androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Shape,androidx.compose.material3.CardColors,androidx.compose.material3.CardElevation,androidx.compose.foundation.BorderStroke,kotlin.Function1)) composable.
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_7d428ea60c6567269b464d523c720274eb36806c3c287b117f3663d59684b48b.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-card-as-container_1841c472442362dc88ede39b4345edd6db9cfd7b7af76cfddaeb3a115d3cff0d.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+ 
+ ### Results
+ 

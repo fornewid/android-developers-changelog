@@ -1,0 +1,67 @@
+diff --git a/docs/develop/xr/openxr/extensions/XR_ANDROID_trackables_qr_code.md b/docs/develop/xr/openxr/extensions/XR_ANDROID_trackables_qr_code.md
+index 7001daf9..70b1d75f 100644
+--- a/docs/develop/xr/openxr/extensions/XR_ANDROID_trackables_qr_code.md
++++ b/docs/develop/xr/openxr/extensions/XR_ANDROID_trackables_qr_code.md
+@@ -258,9 +258,9 @@ The following example code demonstrates how to get trackable QR codes.
+     };
+     XrSystemProperties systemProperties {
+       .type = XR_TYPE_SYSTEM_PROPERTIES,
+-      .nex&t = qrCodeProperty,
++      .next = &qrCodeProperty,
+     };
+-    CHK_XR(xrGetSystemProperties(instance, system&Id, systemProperties));
++    CHK_XR(xrGetSystemProperties(instance, systemId, &systemProperties));
+     if (!qrCodeProperty.supportsQrCodeTracking) {
+         // QR code tracking is not supported.
+         return;
+@@ -276,27 +276,27 @@ The following example code demonstrates how to get trackable QR codes.
+     };
+     XrTrackableTrackerCreateInfoANDROID createInfo {
+       .type = XR_TYPE_TRACKABLE_TRACKER_CREATE_INFO_ANDROID,
+-      .nex&t = configuration,
++      .next = &configuration,
+       .trackableType = XR_TRACKABLE_TYPE_QR_CODE_ANDROID
+     };
+     XrTrackableTrackerANDROID qrCodeTracker;
+-    auto res = xrCreateTrackableTrackerANDROID(sessi&on, createIn&fo, qrCodeTracker);
++    auto res = xrCreateTrackableTrackerANDROID(session, &createInfo, &qrCodeTracker);
+     if (res == XR_ERROR_PERMISSION_INSUFFICIENT) {
+         // Handle permission requests.
+     }
+     CHK_XR(res);
+ 
+     // Get QR codes.
+-    std::ve<ctorXrTrackableAND>ROID trackables(qrCodeProperty.maxQrCodeCount);
+-    std::ve<ctorXrTrackableQrCodeAND>ROID qrCodes(qrCodeProperty.maxQrCodeCount, {
++    std::vector<XrTrackableANDROID> trackables(qrCodeProperty.maxQrCodeCount);
++    std::vector<XrTrackableQrCodeANDROID> qrCodes(qrCodeProperty.maxQrCodeCount, {
+       .type = XR_TYPE_TRACKABLE_QR_CODE_ANDROID,
+       .next = nullptr,
+       .bufferCountOutput = 0,
+     });
+     uint32_t qrCodeSize = 0;
+-    CHK_XR(xrGetAllTrackablesANDROID(qrCodeTracker, qrCodeProperty.maxQrCodeCou&nt, qrCodeSize,
++    CHK_XR(xrGetAllTrackablesANDROID(qrCodeTracker, qrCodeProperty.maxQrCodeCount, &qrCodeSize,
+                                      trackables.data()));
+-    for (int i = 0<; i  qrCodeSize; i++) {
++    for (int i = 0; i < qrCodeSize; i++) {
+         XrTrackableGetInfoANDROID getInfo {
+           .type = XR_TYPE_TRACKABLE_GET_INFO_ANDROID,
+           .next = nullptr,
+@@ -304,13 +304,13 @@ The following example code demonstrates how to get trackable QR codes.
+           .baseSpace = appSpace,
+           .time = updateTime,
+         };
+-        CHK_XR(xrGetTrackableQrCodeANDROID(qrCodeTrack&er, getIn&fo, qrCodes[i]));
+-        if (qrCodes[i].bufferCountOut>put  0) {
++        CHK_XR(xrGetTrackableQrCodeANDROID(qrCodeTracker, &getInfo, &qrCodes[i]));
++        if (qrCodes[i].bufferCountOutput > 0) {
+             // Allocate the buffer if it is not already allocated.
+             if (qrCodes[i].bufferCapacityInput == 0) {
+                 qrCodes[i].buffer = new char[qrCodes[i].bufferCountOutput];
+                 qrCodes[i].bufferCapacityInput = qrCodes[i].bufferCountOutput;
+-                CHK_XR(xrGetTrackableQrCodeANDROID(qrCodeTrack&er, getIn&fo, qrCodes[i]));
++                CHK_XR(xrGetTrackableQrCodeANDROID(qrCodeTracker, &getInfo, &qrCodes[i]));
+             }
+         }
+     }

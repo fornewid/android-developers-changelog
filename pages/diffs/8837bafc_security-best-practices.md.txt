@@ -1,0 +1,13 @@
+diff --git a/docs/privacy-and-security/security-best-practices.md b/docs/privacy-and-security/security-best-practices.md
+index 31b9ebc4..ce3d1055 100644
+--- a/docs/privacy-and-security/security-best-practices.md
++++ b/docs/privacy-and-security/security-best-practices.md
+@@ -114,7 +114,7 @@ element is `true` by default on those versions of Android.
+     package="com.example.myapp">
+     <application ... >
+         <provider
+-            android:name="android.support.v4.content.FileProvider"
++            android:name="androidx.core.content.FileProvider"
+             android:authorities="com.example.myapp.fileprovider"
+             ...
+             android:exported="false">
