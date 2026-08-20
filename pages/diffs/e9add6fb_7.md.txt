@@ -1,0 +1,96 @@
+diff --git a/docs/blog/latest/7.md b/docs/blog/latest/7.md
+index d1f28ff7..d0f66cc1 100644
+--- a/docs/blog/latest/7.md
++++ b/docs/blog/latest/7.md
+@@ -7,6 +7,24 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/sara-hamilton) 21 Nov 2025 21 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_2b3WAh.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
++
++  ## [Fully Optimized: Wrapping up Performance Spotlight Week](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week)
++
++  [arrow_forward](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week) From the foundational powers of the R8 optimizer and Profile Guided Optimizations, to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the low effort, high impact tools you need to build a performant app.
++  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton) • 3 min read
++- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 20 Nov 2025 20 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week8_4d6efcacbe_ZI6a5e.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++
++  ## [Leveling Guide for your Performance Journey](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey)
++
++  [arrow_forward](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey) The performance leveling guide features 5 levels. We'll start with level 1, which introduces minimal adoption effort performance tooling, and we'll go up to level 5, ideal for apps that have the resourcing to maintain a bespoke performance framework.
++  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 8 min read
++- 3 Authors 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week11_efe6dd10be_Z1PApe6.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++
++  ## [Deeper Performance Considerations](https://developer.android.com/blog/posts/deeper-performance-considerations)
++
++  [arrow_forward](https://developer.android.com/blog/posts/deeper-performance-considerations) We're covering Profile Guided Optimization, Jetpack Compose performance improvements and considerations on working behind the scenes.
++  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Breana Tate](https://developer.android.com/blog/authors/breana-tate), [Jossi Wolf](https://developer.android.com/blog/authors/jossi-wolf) • 8 min read
+ - [![View Dom Elliott's profile](https://developer.android.com/static/blog/assets/dom_elliot_d78b0628db_flDQk.webp)](https://developer.android.com/blog/authors/dom-elliott)[![View Eric Lynch's profile](https://developer.android.com/static/blog/assets/Eric_Lynch_bb0a252f52_Z1St4R.webp)](https://developer.android.com/blog/authors/eric-lynch) 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/SS_Alt_Playbrand_Integrity_API_21cd2391d2_Z1L3CHW.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Stronger threat detection, simpler integration: Protect your growth with the Play Integrity API](https://developer.android.com/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api)
+@@ -113,24 +131,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/how-calm-reimagined-mindfulness-for-android-xr) Calm is a leading mental health and wellness company with over 180 million downloads. When they started their development for Android XR, their core engineering team was able to build their first functional XR orbiter menus on Day 1 and a core experience in just two weeks.
+   [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva) • 4 min read
+-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/tas_Fall25_36a55155b3_Zalyay.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [New agentic experiences for Android Studio, new AI APIs, the first Android XR device and more, in our Fall episode of The Android Show](https://developer.android.com/blog/posts/new-agentic-experiences-for-android-studio-new-ai-ap-is-the-first-android-xr-device-and-more-in-our-fall-episode-of-the-android-show)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/new-agentic-experiences-for-android-studio-new-ai-ap-is-the-first-android-xr-device-and-more-in-our-fall-episode-of-the-android-show) We're in an important moment where AI changes everything, from how we work to the expectations that users have for your apps, and our goal on Android is to transform this AI evolution into opportunities for you and your users.
+-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 5 min read
+-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/platime_53a39a9cc7_ZmGlDX.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+-
+-  ## [New tools and programs to accelerate your success on Google Play](https://developer.android.com/blog/posts/new-tools-and-programs-to-accelerate-your-success-on-google-play)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/new-tools-and-programs-to-accelerate-your-success-on-google-play) Last month, we shared new updates showcasing our evolving vision for Google Play: a place where people can discover the content and experiences they love and where you can build and grow sustainable businesses. Our commitment to your success is at the heart of our continued investments.
+-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 4 min read
+-- 3 Authors 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_8769e675f9_Z1GfWxl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [ML Kit's Prompt API: Unlock Custom On-Device Gemini Nano Experiences](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences) AI is making it easier to create personalized app experiences that transform content into the right format for users. We previously enabled developers to integrate with Gemini Nano through ML Kit GenAI APIs tailored for specific use cases like summarization and image description.
+-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [Chengji Yan](https://developer.android.com/blog/authors/chengji-yan), [Penny Li](https://developer.android.com/blog/authors/penny-li) • 2 min read
+ [arrow_back](https://developer.android.com/blog/latest/6)
+ 
+ #### Page 7
+@@ -146,18 +146,19 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+ - [#Compose](https://developer.android.com/blog/topics/compose)
+ - [#Performance](https://developer.android.com/blog/topics/performance)
+-- [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Android XR](https://developer.android.com/blog/topics/android-xr)
++- [#Android 17](https://developer.android.com/blog/topics/android-17)
++- [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ - [#R8](https://developer.android.com/blog/topics/r8)
+-- [#Android 17](https://developer.android.com/blog/topics/android-17)
++- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+ - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+ - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+ - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+-- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
++- [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+ - [#Google Play](https://developer.android.com/blog/topics/google-play)
+ - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+ - [#Memory](https://developer.android.com/blog/topics/memory)
+@@ -172,7 +173,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Foldables](https://developer.android.com/blog/topics/foldables)
+ - [#beta](https://developer.android.com/blog/topics/beta)
+ - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
+-- [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+ - [#Developer Preview](https://developer.android.com/blog/topics/developer-preview)
+ - [#Unity](https://developer.android.com/blog/topics/unity)
+ - [#Play Console](https://developer.android.com/blog/topics/play-console)
+@@ -198,6 +198,10 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
+ - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
+ - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
++- [#Jetpack XR SDK](https://developer.android.com/blog/topics/jetpack-xr-sdk)
++- [#App Memory Limits](https://developer.android.com/blog/topics/app-memory-limits)
++- [#Android Vitals](https://developer.android.com/blog/topics/android-vitals)
++- [#Multi-Process Architecture](https://developer.android.com/blog/topics/multi-process-architecture)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Large Screens](https://developer.android.com/blog/topics/large-screens)

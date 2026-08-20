@@ -1,0 +1,107 @@
+diff --git a/docs/blog/latest.md b/docs/blog/latest.md
+index 75d623a0..a11dfe42 100644
+--- a/docs/blog/latest.md
++++ b/docs/blog/latest.md
+@@ -7,6 +7,35 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_Z1URmUI.webp)](https://developer.android.com/blog/authors/blair-harmon) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1hkk5a.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Preparing your app for broader memory limits](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits)
++
++  [arrow_forward](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits) A great user experience is central to Android's mission, and delivering on that promise requires keeping devices fast, responsive, and reliable.
++  [Blair Harmon](https://developer.android.com/blog/authors/blair-harmon) • 2 min read
++  - [#App Memory Limits](https://developer.android.com/blog/topics/app-memory-limits)
++  - [#Android Vitals](https://developer.android.com/blog/topics/android-vitals)
++  - [#Multi-Process Architecture](https://developer.android.com/blog/topics/multi-process-architecture)
++  - [#Android 17](https://developer.android.com/blog/topics/android-17)
++  - [#Performance](https://developer.android.com/blog/topics/performance)
++  - +3 ↩
++- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
++
++  ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
++
++  [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
++  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
++  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
++- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_XR_beta_release_Strapi_a23ed1d892_Z1YdYO1.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Jetpack XR SDK core libraries reach beta: The next milestone for Android XR](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr)
++
++  [arrow_forward](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr) Since introducing the Android XR SDK, developers have transformed their ideas into innovative immersive experiences across headsets and wired XR glasses.
++  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Greg Underwood](https://developer.android.com/blog/authors/greg-underwood), [Yasmine Evjen](https://developer.android.com/blog/authors/yasmine-evjen) • 2 min read
++  - [#Jetpack XR SDK](https://developer.android.com/blog/topics/jetpack-xr-sdk)
++  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
++  - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
++  - +1 ↩
+ - [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_1w4qDC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
+@@ -142,24 +171,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   [arrow_forward](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa) Google Play is launching the first Indie Games Fund in Africa, investing $1 million to empower 10 indie game studios across Sub-Saharan Africa.
+   [Steph Pio](https://developer.android.com/blog/authors/steph-pio) • 1 min read
+   - [#Google Play](https://developer.android.com/blog/topics/google-play)
+-- [![View Tibian Elsheikh's profile](https://developer.android.com/static/blog/assets/unnamed_7_643878a583_gdebU.webp)](https://developer.android.com/blog/authors/tibian-elsheikh)[![View Jeffrey Jose's profile](https://developer.android.com/static/blog/assets/unnamed_8_3d27b8b0cb_ZRl3Ng.webp)](https://developer.android.com/blog/authors/jeffrey-jose) 29 Jun 2026 29 Jun 2026 ![](https://developer.android.com/static/blog/assets/Eclipsa_Video_V01_White_Strapi_10c5296e18_R3bTD.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Eclipsa Video: HDR That Looks Right on Every Screen](https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen) We've all been there: You're scrolling through your favorite social media feed in a dim room, and suddenly an HDR video pops up. It's so intensely bright that you have to squint, or maybe you find yourself turning down your screen brightness just to read the caption.
+-  [Tibian Elsheikh](https://developer.android.com/blog/authors/tibian-elsheikh), [Jeffrey Jose](https://developer.android.com/blog/authors/jeffrey-jose) • 2 min read
+-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
+-  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
+-- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 18 Jun 2026 18 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2x_325a484212_1BGPPB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Android developer verification: Building a safer ecosystem together](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-building-a-safer-ecosystem-together) Last year, we introduced Android developer verification to strengthen ecosystem security and stop malicious actors from hiding behind anonymity to release harmful apps.
+-  [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
+ <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
+ 
+ #### Page 1
+@@ -175,18 +186,19 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+ - [#Compose](https://developer.android.com/blog/topics/compose)
+ - [#Performance](https://developer.android.com/blog/topics/performance)
+-- [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Android XR](https://developer.android.com/blog/topics/android-xr)
++- [#Android 17](https://developer.android.com/blog/topics/android-17)
++- [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ - [#R8](https://developer.android.com/blog/topics/r8)
+-- [#Android 17](https://developer.android.com/blog/topics/android-17)
++- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+ - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+ - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+ - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+-- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
++- [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+ - [#Google Play](https://developer.android.com/blog/topics/google-play)
+ - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+ - [#Memory](https://developer.android.com/blog/topics/memory)
+@@ -201,7 +213,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Foldables](https://developer.android.com/blog/topics/foldables)
+ - [#beta](https://developer.android.com/blog/topics/beta)
+ - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
+-- [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+ - [#Developer Preview](https://developer.android.com/blog/topics/developer-preview)
+ - [#Unity](https://developer.android.com/blog/topics/unity)
+ - [#Play Console](https://developer.android.com/blog/topics/play-console)
+@@ -227,6 +238,10 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
+ - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
+ - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
++- [#Jetpack XR SDK](https://developer.android.com/blog/topics/jetpack-xr-sdk)
++- [#App Memory Limits](https://developer.android.com/blog/topics/app-memory-limits)
++- [#Android Vitals](https://developer.android.com/blog/topics/android-vitals)
++- [#Multi-Process Architecture](https://developer.android.com/blog/topics/multi-process-architecture)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Large Screens](https://developer.android.com/blog/topics/large-screens)

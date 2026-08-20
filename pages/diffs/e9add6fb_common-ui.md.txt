@@ -1,0 +1,12 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/common-ui.md b/docs/guide/navigation/navigation-3/recipes/common-ui.md
+index c07532d5..6fa70bc5 100644
+--- a/docs/guide/navigation/navigation-3/recipes/common-ui.md
++++ b/docs/guide/navigation/navigation-3/recipes/common-ui.md
+@@ -203,6 +203,4 @@ class TopLevelBackStack<T: Any>(startKey: T) {
+     }
+ }
+ 
+-
+-   
+ ```
+\ No newline at end of file

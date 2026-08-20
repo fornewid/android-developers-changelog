@@ -1,0 +1,64 @@
+diff --git a/docs/blog/authors.md b/docs/blog/authors.md
+index 998bce33..e30199f1 100644
+--- a/docs/blog/authors.md
++++ b/docs/blog/authors.md
+@@ -6,6 +6,15 @@ source: md.txt
+ 
+ # Authors
+ 
++-
++
++  ## [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz)
++
++  ###### Software Engineer
++
++  [read_more
++  1 post](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz) [read_more
++  1 post](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz) ![View Ulises Uriel Verduzco Díaz 's profile](https://developer.android.com/static/blog/assets/IMG_20260209_160438_447c913f52_1MR7JL.webp) ![View Ulises Uriel Verduzco Díaz 's profile](https://developer.android.com/static/blog/assets/IMG_20260209_160438_447c913f52_1MR7JL.webp)
+ -
+ 
+   ## [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando)
+@@ -22,8 +31,8 @@ source: md.txt
+   ###### Developer Relations Engineer
+ 
+   [read_more
+-  3 posts](https://developer.android.com/blog/authors/ajesh-pai) [read_more
+-  3 posts](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
++  4 posts](https://developer.android.com/blog/authors/ajesh-pai) [read_more
++  4 posts](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
+ -
+ 
+   ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan)
+@@ -67,8 +76,8 @@ source: md.txt
+   ###### Developer Relations Engineer
+ 
+   [read_more
+-  1 post](https://developer.android.com/blog/authors/amy-zeppenfeld) [read_more
+-  1 post](https://developer.android.com/blog/authors/amy-zeppenfeld) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)
++  2 posts](https://developer.android.com/blog/authors/amy-zeppenfeld) [read_more
++  2 posts](https://developer.android.com/blog/authors/amy-zeppenfeld) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)
+ -
+ 
+   ## [Andrei Shikov](https://developer.android.com/blog/authors/andrei-shikov)
+@@ -78,20 +87,11 @@ source: md.txt
+   [read_more
+   1 post](https://developer.android.com/blog/authors/andrei-shikov) [read_more
+   1 post](https://developer.android.com/blog/authors/andrei-shikov) ![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_EPI3Y.webp) ![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_EPI3Y.webp)
+--
+-
+-  ## [Andrew Lewis](https://developer.android.com/blog/authors/andrew-lewis)
+-
+-  ###### Software Engineer
+-
+-  [read_more
+-  1 post](https://developer.android.com/blog/authors/andrew-lewis) [read_more
+-  1 post](https://developer.android.com/blog/authors/andrew-lewis) ![View Andrew Lewis's profile](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp) ![View Andrew Lewis's profile](https://developer.android.com/static/blog/assets/andrew_lewis_1f4294eade_ZLA0xp.webp)
+ <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
+ 
+ #### Page 1
+ 
+-###### of 14
++###### of 15
+ 
+ [arrow_forward](https://developer.android.com/blog/authors/2) Stay in the loop
+ 

@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions.md b/docs/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions.md
+index 52400dc7..4e35c4f3 100644
+--- a/docs/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions.md
++++ b/docs/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions.md
+@@ -70,7 +70,7 @@ data class TripSerializable(
+     /** The trip's end date in milliseconds. */
+     val endDate: Long,
+     /** A list of participants. */
+-    va<l part>icipants: ListString,
++    val participants: List<String>,
+ )
+ ```
+ 

@@ -1,0 +1,86 @@
+diff --git a/docs/blog/categories/product-news/19.md b/docs/blog/categories/product-news/19.md
+index 733b027d..a59e65ee 100644
+--- a/docs/blog/categories/product-news/19.md
++++ b/docs/blog/categories/product-news/19.md
+@@ -1,63 +1,37 @@
+ ---
+-title: Product News  |  Android Developers' Blog
++title: https://developer.android.com/blog/categories/product-news/19
+ url: https://developer.android.com/blog/categories/product-news/19
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-![](/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_Z1EpVf1.webp)
++![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_Z1EpVf1.webp)
+ 
+ # Product News
+ 
+-Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we’re evolving.
+-
+-* [![View Matthew McCullough's profile](/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](/blog/authors/matthew-mccullough)
+-
+-  12
++Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 20 May 2025 20 May 2025 ![](https://developer.android.com/static/blog/assets/IO_25_Blog_Hero_Template_Art_Long_01_126026f6a9_Z2cQC8F.webp)
+ 
+-  Dec
+-  2024
++  ## [Updates to the Android XR SDK: Introducing Developer Preview 2](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2)
+ 
+-  12
++  [arrow_forward](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2) Since launching the Android XR SDK Developer Preview alongside Samsung, Qualcomm, and Unity last year, we've been blown away by all of the excitement we've been hearing from the broader Android community.
++  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
++  - [#Android](https://developer.android.com/blog/topics/android)
++- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 12 Dec 2024 12 Dec 2024 ![](https://developer.android.com/static/blog/assets/Android_XR_Unlocked_2a393b1726_2cbGb7.webp)
+ 
+-  Dec
+-  2024
++  ## [Introducing Android XR SDK Developer Preview](https://developer.android.com/blog/posts/introducing-android-xr-sdk-developer-preview)
+ 
+-  ![](/static/blog/assets/Android_XR_Unlocked_2a393b1726_2cbGb7.webp)
+-
+-  ## [Introducing Android XR SDK Developer Preview](/blog/posts/introducing-android-xr-sdk-developer-preview)
+-
+-  [arrow\_forward](/blog/posts/introducing-android-xr-sdk-developer-preview)
+-
+-  Today, we're launching the developer preview of the Android XR SDK - a comprehensive development kit for Android XR. It's the newest platform in the Android family built for extended reality (XR) headsets (and glasses in the future!).
+-
+-  [Matthew McCullough](/blog/authors/matthew-mccullough)
+-  •
+-  5 min read
+-
+-[arrow\_back](/blog/categories/product-news/18)
++  [arrow_forward](https://developer.android.com/blog/posts/introducing-android-xr-sdk-developer-preview) Today, we're launching the developer preview of the Android XR SDK - a comprehensive development kit for Android XR. It's the newest platform in the Android family built for extended reality (XR) headsets (and glasses in the future!).
++  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 5 min read
++[arrow_back](https://developer.android.com/blog/categories/product-news/18)
+ 
+ #### Page 19
+ 
+ ###### of 19
+ 
+-arrow\_forward
++<button class="adb--button adb--standard adb--filled adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_forward </button> Stay in the loop
+ 
+-Stay in the loop
+ 
+ Get the latest Android development insights delivered to your inbox
+ weekly.
+-
+ [mail
+-Subscribe](/subscribe)
+-
+-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

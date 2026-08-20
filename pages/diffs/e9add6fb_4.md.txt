@@ -1,0 +1,98 @@
+diff --git a/docs/blog/latest/4.md b/docs/blog/latest/4.md
+index e8ba89f7..18c06a1f 100644
+--- a/docs/blog/latest/4.md
++++ b/docs/blog/latest/4.md
+@@ -7,6 +7,26 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/android_studio_gemma4_73370772af_2lUopR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Android Studio supports Gemma 4: our most capable local model for agentic coding](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
++  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 2 min read
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
++- [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
++
++  [arrow_forward](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3) Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
++  [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) • 3 min read
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
++- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang)[![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp)](https://developer.android.com/blog/authors/david-chou) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z15e7FP.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Announcing Gemma 4 in the AICore Developer Preview](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
++
++  [arrow_forward](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview) At Google, we're committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we're thrilled to announce the release of our latest state-of-the-art open model: Gemma 4.
++  [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [David Chou](https://developer.android.com/blog/authors/david-chou) • 3 min read
+ - [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/Gemma_Android_2x1_2x_a6d27254c4_Z10SxJJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Gemma 4: The new standard for local agentic intelligence on Android](https://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
+@@ -115,24 +135,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/instagram-and-facebook-deliver-instant-playback-and-boost-user-engagement-with-media3-preload-manager) In the dynamic world of social media, user attention is won or lost quickly. Meta apps (Facebook and Instagram) are among the world's largest social platforms and serve billions of users globally.
+   [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
+-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 05 Mar 2026 05 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Bench_f2e4dd4fda_2816Hg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Elevating AI-assisted Android development and improving LLMs with Android Bench](https://developer.android.com/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/elevating-ai-assisted-android-development-and-improving-ll-ms-with-android-bench) We want to make it faster and easier for you to build high-quality Android apps, and one way we're helping you be more productive is by putting AI at your fingertips.
+-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 2 min read
+-- [![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp)](https://developer.android.com/blog/authors/breana-tate)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/whoop2_fcb73fdc54_bqwCk.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+-
+-  ## [How WHOOP decreased excessive partial wake lock sessions by over 90%](https://developer.android.com/blog/posts/how-whoop-decreased-excessive-partial-wake-lock-sessions)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/how-whoop-decreased-excessive-partial-wake-lock-sessions) Building an Android app for a wearable means the real work starts when the screen turns off.
+-  [Breana Tate](https://developer.android.com/blog/authors/breana-tate), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
+-- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_Z1IAO0P.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+-
+-  ## [Battery Technical Quality Enforcement is Here: How to Optimize Common Wake Lock Use Cases](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases) In recognition that excessive battery drain is top of mind for Android users, Google has been taking significant steps to help developers build more power-efficient apps.
+-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 8 min read
+ [arrow_back](https://developer.android.com/blog/latest/3)
+ 
+ #### Page 4
+@@ -148,18 +150,19 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+ - [#Compose](https://developer.android.com/blog/topics/compose)
+ - [#Performance](https://developer.android.com/blog/topics/performance)
+-- [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Android XR](https://developer.android.com/blog/topics/android-xr)
++- [#Android 17](https://developer.android.com/blog/topics/android-17)
++- [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ - [#R8](https://developer.android.com/blog/topics/r8)
+-- [#Android 17](https://developer.android.com/blog/topics/android-17)
++- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+ - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+ - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+ - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+-- [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
++- [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+ - [#Google Play](https://developer.android.com/blog/topics/google-play)
+ - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+ - [#Memory](https://developer.android.com/blog/topics/memory)
+@@ -174,7 +177,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Foldables](https://developer.android.com/blog/topics/foldables)
+ - [#beta](https://developer.android.com/blog/topics/beta)
+ - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
+-- [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+ - [#Developer Preview](https://developer.android.com/blog/topics/developer-preview)
+ - [#Unity](https://developer.android.com/blog/topics/unity)
+ - [#Play Console](https://developer.android.com/blog/topics/play-console)
+@@ -200,6 +202,10 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
+ - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
+ - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
++- [#Jetpack XR SDK](https://developer.android.com/blog/topics/jetpack-xr-sdk)
++- [#App Memory Limits](https://developer.android.com/blog/topics/app-memory-limits)
++- [#Android Vitals](https://developer.android.com/blog/topics/android-vitals)
++- [#Multi-Process Architecture](https://developer.android.com/blog/topics/multi-process-architecture)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Large Screens](https://developer.android.com/blog/topics/large-screens)

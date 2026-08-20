@@ -1,0 +1,16 @@
+diff --git a/docs/latest-updates.md b/docs/latest-updates.md
+index 7049e161..f8edacfd 100644
+--- a/docs/latest-updates.md
++++ b/docs/latest-updates.md
+@@ -150,9 +150,9 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
+ 
+ Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio) Canary
+ 
+-### [Rabbit 1 \| 2026.2.1 Canary 1](https://developer.android.com/studio/preview)
++### [Rabbit 1 \| 2026.2.1 Canary 2](https://developer.android.com/studio/preview)
+ 
+-August 17, 2026 Stable
++August 20, 2026 Stable
+ 
+ ### [Quail 3 \| 2026.1.3 Patch 1](https://developer.android.com/studio/releases)
+ 

@@ -1,0 +1,23 @@
+diff --git a/docs/blog/topics/performance.md b/docs/blog/topics/performance.md
+index 946a0b7f..a68da045 100644
+--- a/docs/blog/topics/performance.md
++++ b/docs/blog/topics/performance.md
+@@ -6,6 +6,18 @@ source: md.txt
+ 
+ # #Performance
+ 
++- [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_Z1URmUI.webp)](https://developer.android.com/blog/authors/blair-harmon) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1hkk5a.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Preparing your app for broader memory limits](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits)
++
++  [arrow_forward](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits) A great user experience is central to Android's mission, and delivering on that promise requires keeping devices fast, responsive, and reliable.
++  [Blair Harmon](https://developer.android.com/blog/authors/blair-harmon) • 2 min read
++  - [#App Memory Limits](https://developer.android.com/blog/topics/app-memory-limits)
++  - [#Android Vitals](https://developer.android.com/blog/topics/android-vitals)
++  - [#Multi-Process Architecture](https://developer.android.com/blog/topics/multi-process-architecture)
++  - [#Android 17](https://developer.android.com/blog/topics/android-17)
++  - [#Performance](https://developer.android.com/blog/topics/performance)
++  - +3 ↩
+ - 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+ 
+   ## [Datadog delivers millions of in-depth performance insights with ProfilingManager](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager)

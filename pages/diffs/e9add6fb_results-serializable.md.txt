@@ -1,0 +1,53 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/results-serializable.md b/docs/guide/navigation/navigation-3/recipes/results-serializable.md
+index 07b7e2ee..7d5d922f 100644
+--- a/docs/guide/navigation/navigation-3/recipes/results-serializable.md
++++ b/docs/guide/navigation/navigation-3/recipes/results-serializable.md
+@@ -74,7 +74,6 @@ import androidx.lifecycle.ViewModel
+ class HomeViewModel : ViewModel() {
+     var person by mutableStateOf<Person?>(null)
+ }
+-   
+ ```
+ 
+ ```
+@@ -104,7 +103,6 @@ data object Home : NavKey
+ 
+ @Serializable
+ class PersonDetailsForm : NavKey
+-    
+ ```
+ 
+ ```
+@@ -130,7 +128,6 @@ import kotlinx.serialization.Serializable
+ 
+ @Serializable
+ data class Person(val name: String, val favoriteColor: String)
+-   
+ ```
+ 
+ ```
+@@ -216,7 +213,6 @@ fun PersonDetailsScreen(
+         }
+     }
+ }
+-   
+ ```
+ 
+ ```
+@@ -325,8 +321,6 @@ inline fun <reified T> ResultEventBus.conflateAsSerializableState(
+     stateSerializer = serializer<T>(),
+     configuration = configuration,
+ )
+-
+-   
+ ```
+ 
+ ```
+@@ -410,6 +404,4 @@ class ResultSerializableActivity : ComponentActivity() {
+         }
+     }
+ }
+-
+-   
+ ```
+\ No newline at end of file

@@ -1,0 +1,29 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/passingarguments.md b/docs/guide/navigation/navigation-3/recipes/passingarguments.md
+index 42a02e86..bf026dcb 100644
+--- a/docs/guide/navigation/navigation-3/recipes/passingarguments.md
++++ b/docs/guide/navigation/navigation-3/recipes/passingarguments.md
+@@ -139,8 +139,6 @@ class RouteBViewModel @AssistedInject constructor(
+         fun create(navKey: RouteB): RouteBViewModel
+     }
+ }
+-
+-   
+ ```
+ 
+ # Passing Arguments to ViewModels (Basic)
+@@ -265,8 +263,6 @@ class RouteBViewModel(
+         }
+     }
+ }
+-
+-   
+ ```
+ 
+ # Passing Arguments to ViewModels (Koin)
+@@ -378,5 +374,4 @@ fun ScreenB(viewModel: RouteBViewModel) {
+ }
+ 
+ class RouteBViewModel(val navKey: RouteB) : ViewModel()
+-   
+ ```
+\ No newline at end of file

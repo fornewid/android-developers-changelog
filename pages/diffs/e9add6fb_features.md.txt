@@ -1,0 +1,132 @@
+diff --git a/docs/studio/preview/features.md b/docs/studio/preview/features.md
+index ec4e1948..a85e40ed 100644
+--- a/docs/studio/preview/features.md
++++ b/docs/studio/preview/features.md
+@@ -32,7 +32,8 @@ respective channels.
+ |---|---|
+ | Android Studio Quail 3 | Stable |
+ | Android Gradle plugin 9.3.0 | Stable |
+-| Android Studio Quail 4 | Canary |
++| Android Studio Quail 4 | RC |
++| Android Studio Rabbit 1 | Canary |
+ 
+ <br />
+ 
+@@ -86,43 +87,6 @@ services. This integration lets you build robust, full-stack Android apps withou
+ leaving your IDE.
+ ![The agent guiding a user through Firebase Auth and Firestore setup in the IDE.](https://developer.android.com/static/studio/images/build-full-stack-apps-with-firebase-agent-mode.png) The agent guiding a user through Firebase integration in the chat interface.
+ 
+-### Build Android apps in Google AI Studio
+-
+-[Google AI Studio](https://ai.dev/apps?features=build_android_app) supports [full Android app
+-development capabilities](http://android-developers.googleblog.com/2026/05/build-android-apps-google-ai-studio.html). You can generate new Android
+-apps from natural language prompts, preview them instantly using an embedded Android
+-Emulator, and deploy them directly to your physical devices over USB using ADB.
+-
+-When you're ready to test with users, Google AI Studio can publish directly to the
+-Google Play Console. The tool automatically handles the app record creation,
+-bundles the package, and uploads it to an internal testing track.
+-
+-For advanced editing and production readiness, you can export your Google AI Studio
+-project as a ZIP file and open it seamlessly in Android Studio.
+-![The Google AI Studio interface with an embedded emulator showing a generated app.](https://developer.android.com/static/studio/images/build-android-app-ai-studio.png) Google AI Studio with build mode and embedded Android Emulator.
+-
+-### Android CLI
+-
+-Android CLI enables you to build apps using any AI agent, LLM, or development
+-environment of your choice. It is [designed to help AI agents build
+-faster](https://android-developers.googleblog.com/2026/04/build-android-apps-3x-faster-using-any-agent.html) and use fewer tokens compared to generic LLM tools.
+-
+-You can ground your agent with the Android Knowledge Base and Android skills to
+-ensure they follow recommended best practices. Furthermore, Android CLI enables
+-your agent to call into the IDE to do advanced tasks such as find symbol
+-declarations and analyze files for issues.
+-
+-In addition, Android CLI is integrated into
+-[Google Antigravity 2.0](http://d.android.com/tools/agents).
+-![Diagram of an agent using the Android CLI to interact with the Android Studio IDE.](https://developer.android.com/static/studio/images/android-cli-quail-2-c1.png) Using the Android CLI to bridge agents with Android Studio tools and knowledge.
+-
+-### Compose Preview Screenshot Testing tool
+-
+-Use the Compose Preview Screenshot Testing tool to test your Compose UIs and
+-prevent regressions. The new tool helps you generate HTML reports that let you
+-visually detect any changes to your app's UI. Learn more at [Compose Preview
+-Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing).
+-
+ ### Recomposition state reads in the Layout Inspector
+ 
+ We've made it easier to diagnose high
+@@ -162,17 +126,6 @@ Follow these steps to try out these features.
+ 
+    ![](https://developer.android.com/static/studio/images/design/explain-with-ai-state.png) Sample result of "Explain with AI" for state reads in Layout Inspector
+ 
+-### Publish to Google Play for testing
+-
+-Android Studio now gives you the ability to upload new releases of your app
+-directly to Google Play Console test tracks. You can do this by selecting
+-a new option to continue to 'Publish for Testing' at the end of the Generate
+-Signed App Bundle flow. This integration supports uploading an initial
+-release of a brand-new app to a Play Console internal test track. You can
+-also use this feature to upload releases of existing apps to other types of
+-test tracks. You need to be registered on Google Play Console to take
+-advantage of this functionality.
+-
+ ### Gemma 4 integration
+ 
+ You can now run the powerful Gemma 4 model directly within Android Studio for AI
+@@ -192,6 +145,31 @@ through custom transition states and verify predictive back gesture behavior
+ directly within [Compose Interactive Preview](https://developer.android.com/develop/ui/compose/tooling/previews#preview-interactive).
+ ![](https://developer.android.com/static/studio/releases/assistant/2026.1.4/interactive-preview.gif)
+ 
++## Android Studio Rabbit 1
++
++The following are new features in Android Studio Rabbit 1.
++
++To see what's been fixed in this version of Android Studio, see the [closed
++issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.1).
++
++### Compose Preview Screenshot Testing tool
++
++Use the Compose Preview Screenshot Testing tool to test your Compose UIs and
++prevent regressions. The new tool helps you generate HTML reports that let you
++visually detect any changes to your app's UI. Learn more at [Compose Preview
++Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing).
++
++### Publish to Google Play for testing
++
++Android Studio now gives you the ability to upload new releases of your app
++directly to Google Play Console test tracks. You can do this by selecting
++a new option to continue to 'Publish for Testing' at the end of the Generate
++Signed App Bundle flow. This integration supports uploading an initial
++release of a brand-new app to a Play Console internal test track. You can
++also use this feature to upload releases of existing apps to other types of
++test tracks. You need to be registered on Google Play Console to take
++advantage of this functionality.
++
+ ### Android Studio is part of the Gemini Enterprise bundle
+ 
+ Android Studio is now included in the
+@@ -247,4 +225,20 @@ higher. If the issue persists, you need to contact your admin to make
+ configuration changes:
+ 
+ - If no licenses appear during setup, contact your admin to request access. We recommend setting up auto-assignment of licenses.
+-- If you can't access the latest Gemini models in Android Studio, contact your admin to enable preview models.
+\ No newline at end of file
++- If you can't access the latest Gemini models in Android Studio, contact your admin to enable preview models.
++
++### Model Assignment
++
++The Model Assignment feature lets you pick different AI models for different
++types of tasks in Android Studio. For example, you can assign a large, pro-tier
++model for complex reasoning tasks in Agent Mode, and a faster, lightweight model
++for simpler, latency-sensitive tasks like commit message generation or next edit
++prediction. This lets you balance quality, speed, and quota usage across
++features.
++![](https://developer.android.com/static/studio/preview/images/model-assignment.png)
++
++To configure this, go to **File** (**Android Studio** on macOS) **\> Settings \> Tools \>
++AI \> Model Providers** , select the **Model Assignment** tab, and use the dropdowns
++to assign a model to each feature category. You can also change the model directly
++from the model selector dropdown in the Agent Mode panel---the Model Assignment
++settings for **Thinking** features will automatically update to reflect your selection.
+\ No newline at end of file

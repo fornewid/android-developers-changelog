@@ -1,0 +1,35 @@
+diff --git a/docs/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates.md b/docs/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates.md
+index c93141f3..616bd321 100644
+--- a/docs/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates.md
++++ b/docs/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates.md
+@@ -92,6 +92,16 @@ Continue reading
+   - [#Unity](https://developer.android.com/blog/topics/unity)
+   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+   - +3 ↩
++- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_XR_beta_release_Strapi_a23ed1d892_Z1YdYO1.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Jetpack XR SDK core libraries reach beta: The next milestone for Android XR](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr)
++
++  [arrow_forward](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr) Since introducing the Android XR SDK, developers have transformed their ideas into innovative immersive experiences across headsets and wired XR glasses.
++  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Greg Underwood](https://developer.android.com/blog/authors/greg-underwood), [Yasmine Evjen](https://developer.android.com/blog/authors/yasmine-evjen) • 2 min read
++  - [#Jetpack XR SDK](https://developer.android.com/blog/topics/jetpack-xr-sdk)
++  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
++  - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
++  - +1 ↩
+ - [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins)[![View Ryan Bartley's profile](https://developer.android.com/static/blog/assets/Ryan_Bartley_35cf836cd8_ZgTUAO.webp)](https://developer.android.com/blog/authors/ryan-bartley) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Android XR Updates for Unity, Unreal, and Godot](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot)
+@@ -102,13 +112,6 @@ Continue reading
+   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+   - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development)
+   - +1 ↩
+-- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_1w4qDC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release) Today, the Jetpack Compose August '26 release is stable!
+-  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
+-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ Stay in the loop
+ 
+ 

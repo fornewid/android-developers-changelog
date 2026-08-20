@@ -1,0 +1,84 @@
+diff --git a/docs/developer-verification/guides/android-developer-console.md b/docs/developer-verification/guides/android-developer-console.md
+index 3c364fe1..ab4003f3 100644
+--- a/docs/developer-verification/guides/android-developer-console.md
++++ b/docs/developer-verification/guides/android-developer-console.md
+@@ -17,44 +17,14 @@ verification requirements and no fee.
+ 
+ ## Choose how to distribute your apps
+ 
+-Your apps can still be sideloaded. Your user's experience depends on the path you choose.
++Your apps can still be sideloaded. Your user's experience depends on the path
++you choose.
+ 
+ ## Complete identity verification
+ 
+-You must provide official documentation to verify your identity. The
+-requirements vary based on whether you register as an individual or an
+-organization. Completing this process typically takes about 10 minutes if you
+-have all of the required information ready.
+-
+-#### Required information for full distribution accounts
+-
+-- **Legal name and address**: Individuals must submit a government-issued
+-  photo ID and proof of address document as part of the verification program.
+-  An example of acceptable ID and proof of address documents for individuals
+-  in the United States are:
+-
+-  - Passport
+-  - State identification
+-  - Driving license
+-  - Permanent resident card or Green card
+-  - Government issued photo ID with address listed
+-  - Utility bill for electricity, water, gas, internet, cable TV
+-  - Insurance statement (home insurance, health insurance, and so on)
+-  - Credit card or bank statement
+-- **Contact details**: A private email address and phone number, verified with
+-  a one-time password (OTP).
+-
+-#### Additional requirements for organizations
+-
+-- **D-U-N-S number**: A unique 9-digit identifier for your organization provided by Dun \& Bradstreet that is used globally to establish your business's legal identity. If your organization does not have one, you can get one at no cost from the Dun \& Bradstreet website.
+-- **Verified website**: Your organization's website must be verified using Google Search Console.
+-- **Official organization documents** : The following are examples of what organizations in the United States must provide. The documents required in your location may be different.
+-  - Any document, notice, or letter either issued by the IRS or stamped by the IRS that states your Organization name. Some examples are CP575, 147C, CP299, 988, 937, 1050, 5822 etc.
+-  - Forms submitted to the IRS will only be accepted if a copy of the form is available on the IRS website. Some examples are Forms 8871 and 990.
+-  - Certificate of Business Incorporation issued by the state where you conduct business activities that states your Organization name
+-  - Your most recent SEC filing (for example, 10-K, 10-Q or 8-K forms) that state the Organization name
+-  - Business credit reports that state your Organization name from Experian, Equifax, or TransUnion
+-  - Only for government departments and agencies: an official letter including full name, address and date
++There are different requirements for different account types. Review the [full
++distribution account](https://developer.android.com/developer-verification/guides/full-distribution) and [limited distribution account](https://developer.android.com/developer-verification/guides/limited-distribution) guides to
++determine which is best for you.
+ 
+ ## Register your package names
+ 
+@@ -80,16 +50,6 @@ Both APIs support **OAuth delegation**, allowing third-party platforms (such as
+ alternative Android app stores) to perform these operations securely on your
+ behalf.
+ 
+-## Transfer your package names
+-
+-You can also transfer package names between developer accounts. Transfers are
+-managed through the **Settings** page. The following are required to initiate a
+-transfer:
+-
+-- **Verified status:** Both the source and target accounts must be verified and in good standing.
+-- **Registered key:** The package name must have a registered key and be installable.
+-- **Required info:** You need the target developer ID, order IDs for both accounts, and a stated reason for the transfer.
+-
+ ## Handle duplicate package names
+ 
+ If multiple developers use the same package name, the right to register is
+@@ -149,9 +109,4 @@ names (or request exceptions).
+ | G | com.test.3 | 31 | 10 |
+ 
+ In this scenario, all developers with keys are eligible. Once one developer
+-registers the package name, the other would need to request permission.
+-
+-## Review
+-
+-Download the [guide to Android Developer Console](https://developer.android.com/static/developer-verification/guides/pdf-guides/adc-guide.pdf) for a step-by-step
+-walkthrough of the console and its features.
+\ No newline at end of file
++registers the package name, the other would need to request permission.
+\ No newline at end of file
