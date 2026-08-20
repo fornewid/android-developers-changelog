@@ -37,12 +37,16 @@ Use title chips as a tapable action prompt, since they do not have a focus state
 ![Design elements should be anchored to the bottom of the frame](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_titlechips_equivalent.png)
 Title chips can be compared to a static mobile app bar.
 
+**A** Title chip
+
+**B** App Bar in Mobile app
+
 ### Within a layout
 
 The title chip is a read-only component, by default.
 
 
-Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_titlechip_default.mp4) and watch it with a video player. \>Chips scroll with the layout Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_titlechip_sticky.mp4) and watch it with a video player. Alternatively, chips can be fixed within the layout.
+Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_titlechip_default.mp4) and watch it with a video player. Chips scroll with the layout. Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/images/design/ui/glasses/guides/glasses_components_titlechip_sticky.mp4) and watch it with a video player. Alternatively, chips can be fixed within the layout.
 
 <br />
 

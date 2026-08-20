@@ -92,6 +92,4 @@ class BasicActivity : ComponentActivity() {
         }
     }
 }
-
-   
 ```

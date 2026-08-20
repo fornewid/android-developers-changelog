@@ -148,6 +148,4 @@ class MaterialSupportingPaneActivity : ComponentActivity() {
         }
     }
 }
-
-   
 ```

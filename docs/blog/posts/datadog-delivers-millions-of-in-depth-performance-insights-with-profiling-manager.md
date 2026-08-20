@@ -91,6 +91,13 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature) Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 2 min read
   - [#Android](https://developer.android.com/blog/topics/android)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+
+  ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
+
+  [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
 - [![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z1s2HD7.webp)](https://developer.android.com/blog/authors/jonathan-starup)[![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_EPI3Y.webp)](https://developer.android.com/blog/authors/andrei-shikov) 27 Jul 2026 27 Jul 2026 ![](https://developer.android.com/static/blog/assets/0707_Faster_Kotlin_coroutines_on_Android_with_R8_Strapi_5b162a2623_ZM78f7.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How R8 made Kotlin Coroutines on Android 2x faster](https://developer.android.com/blog/posts/how-r8-made-kotlin-coroutines-on-android-2x-faster)
@@ -100,16 +107,6 @@ Continue reading
   - [#Compose](https://developer.android.com/blog/topics/compose)
   - [#R8](https://developer.android.com/blog/topics/r8)
   - [#coroutines](https://developer.android.com/blog/topics/coroutines)
-  - +1 ↩
-- 3 Authors 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
-
-  ## [Prioritizing Memory Efficiency: Essential Steps for Android 17](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17)
-
-  [arrow_forward](https://developer.android.com/blog/posts/prioritizing-memory-efficiency-essential-steps-for-android-17) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever.
-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Fung Lam](https://developer.android.com/blog/authors/fung-lam) • 10 min read
-  - [#Memory](https://developer.android.com/blog/topics/memory)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Performance](https://developer.android.com/blog/topics/performance)
   - +1 ↩
 Stay in the loop
 

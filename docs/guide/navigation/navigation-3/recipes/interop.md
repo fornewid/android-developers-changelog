@@ -51,7 +51,6 @@ class MyCustomFragment : Fragment() {
         }
     }
 }
-   
 ```
 
 ```
@@ -122,5 +121,4 @@ class InteropActivity : FragmentActivity() {
         }
     }
 }
-   
 ```

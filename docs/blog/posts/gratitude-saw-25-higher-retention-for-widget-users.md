@@ -109,6 +109,13 @@ Continue reading
 
   [arrow_forward](https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio) Ultrahuman is a consumer health-tech startup that provides daily well-being insights to users based on biometric data from the company's wearables, like the RING Air and the M1 Live Continuous Glucose Monitor (CGM).
   [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 2 min read
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+
+  ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
+
+  [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
+  [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
 - [![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z1s2HD7.webp)](https://developer.android.com/blog/authors/jonathan-starup)[![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_EPI3Y.webp)](https://developer.android.com/blog/authors/andrei-shikov) 27 Jul 2026 27 Jul 2026 ![](https://developer.android.com/static/blog/assets/0707_Faster_Kotlin_coroutines_on_Android_with_R8_Strapi_5b162a2623_ZM78f7.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How R8 made Kotlin Coroutines on Android 2x faster](https://developer.android.com/blog/posts/how-r8-made-kotlin-coroutines-on-android-2x-faster)
@@ -118,16 +125,6 @@ Continue reading
   - [#Compose](https://developer.android.com/blog/topics/compose)
   - [#R8](https://developer.android.com/blog/topics/r8)
   - [#coroutines](https://developer.android.com/blog/topics/coroutines)
-  - +1 ↩
-- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
-
-  ## [Datadog delivers millions of in-depth performance insights with ProfilingManager](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager)
-
-  [arrow_forward](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager) Performance regressions are notoriously hard to reproduce, making regressions a massive bottleneck for mobile developers.
-  [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan), [Arti Arutiunov](https://developer.android.com/blog/authors/arti-arutiunov), [Nikita Ogorodnikov](https://developer.android.com/blog/authors/nikita-ogorodnikov) • 4 min read
-  - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#Performance](https://developer.android.com/blog/topics/performance)
   - +1 ↩
 Stay in the loop
 

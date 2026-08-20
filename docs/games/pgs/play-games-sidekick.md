@@ -119,6 +119,47 @@ steps to enable Play Store developer options on the device:
 [![The toggle to turn on Play Games Sidekick on the Google Play
 Store app.](https://developer.android.com/static/images/games/pgs/playstoresidekick.png)](https://developer.android.com/static/images/games/pgs/playstoresidekick.png) The toggle to turn on Play Games Sidekick on the Google Play Store app (click to enlarge).
 
+### Configure snooze duration for entry point
+
+By default, the Play Games Sidekick entry point displays immediately. You can
+snooze the ingame entry point for a configured custom duration in the
+<var translate="no">XML_RESOURCE_FILE</var>.
+
+1. In the `AndroidManifest.xml` file, add the following `<meta-data>` element
+   to the `<application>` element:
+
+   ```xml
+   <manifest>
+    <application>
+     <meta-data
+     android:name="com.google.android.finsky.deku.OVERLAY_CONFIG"
+     android:resource="@xml/XML_RESOURCE_FILE"/>
+    </application>
+
+   </manifest>
+   ```
+2. Specify the snooze duration in the <var translate="no">XML_RESOURCE_FILE</var>.
+
+   Sample file (res/xml/<var translate="no">XML_RESOURCE_FILE</var>.xml):
+
+   ```xml
+   <?xml version="1.0" encoding="utf-8"?>
+   <deku-config>
+     <!-- Entrypoint default position overrides -->
+     <default-entrypoint-position orientation="landscape" value="MIDDLE_LEFT" />
+     <default-entrypoint-position orientation="portrait" value="TOP_RIGHT" />
+
+     <!-- Custom Snooze Period -->
+     <snooze duration_seconds="300" />
+
+     <!-- Extensible: Add new configuration fields here as needed -->
+   </deku-config>
+   ```
+
+Custom snooze duration is capped at 30 minutes. If you specify a value that
+exceeds this threshold, the system automatically defaults to the 30-minute
+limit.
+
 ## Automatically add Sidekick to all bundle uploads
 
 When you create a release and make Sidekick default on for your

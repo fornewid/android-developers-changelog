@@ -30,7 +30,7 @@ Use the Edge-to-Edge [Android skill](https://developer.android.com/tools/agents/
 ## 1. Enable edge-to-edge display
 
 To enable edge-to-edge on previous Android versions, call
-[`enableEdgeToEdge()`](https://developer.android.com/reference/androidx/core/view/WindowCompat#enableEdgeToEdge(android.view.Window)) in your `Activity.onCreate()` method:
+[`enableEdgeToEdge()`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity#(androidx.activity.ComponentActivity).enableEdgeToEdge(androidx.activity.SystemBarStyle,androidx.activity.SystemBarStyle)) in your `Activity.onCreate()` method:
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

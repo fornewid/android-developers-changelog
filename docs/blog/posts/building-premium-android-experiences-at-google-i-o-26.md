@@ -66,6 +66,18 @@ Written by:
   [read_more
   View profile](https://developer.android.com/blog/authors/ataul-munim) ![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp) ![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)
 Continue reading
+- [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_Z1URmUI.webp)](https://developer.android.com/blog/authors/blair-harmon) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1hkk5a.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Preparing your app for broader memory limits](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits)
+
+  [arrow_forward](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits) A great user experience is central to Android's mission, and delivering on that promise requires keeping devices fast, responsive, and reliable.
+  [Blair Harmon](https://developer.android.com/blog/authors/blair-harmon) • 2 min read
+  - [#App Memory Limits](https://developer.android.com/blog/topics/app-memory-limits)
+  - [#Android Vitals](https://developer.android.com/blog/topics/android-vitals)
+  - [#Multi-Process Architecture](https://developer.android.com/blog/topics/multi-process-architecture)
+  - [#Android 17](https://developer.android.com/blog/topics/android-17)
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - +3 ↩
 - [![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_Derb5.webp)](https://developer.android.com/blog/authors/chiara-chiappini) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Bring_one_handed_gestures_Strapi_defff06599_Z1FDx9g.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Bring one-handed gestures to your Wear OS app](https://developer.android.com/blog/posts/bring-one-handed-gestures-to-your-wear-os-app)
@@ -86,13 +98,6 @@ Continue reading
   - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
   - [#Compose](https://developer.android.com/blog/topics/compose)
   - +1 ↩
-- [![View Eser Erdem's profile](https://developer.android.com/static/blog/assets/Eser_Blue_ae0cb5cc85_Z1jraMn.webp)](https://developer.android.com/blog/authors/eser-erdem) 24 Mar 2026 24 Mar 2026 ![](https://developer.android.com/static/blog/assets/AAOS_SDV_Hero_dark_6dfe605408_bCiba.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Beyond Infotainment: Extending Android Automotive OS for Software-defined Vehicles](https://developer.android.com/blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles)
-
-  [arrow_forward](https://developer.android.com/blog/posts/beyond-infotainment-extending-android-automotive-os-for-software-defined-vehicles) At Google we're deeply committed to the automotive industry--not just as a technology provider, but as a partner in the industry's transformation.
-  [Eser Erdem](https://developer.android.com/blog/authors/eser-erdem) • 3 min read
-  - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
 Stay in the loop
 
 

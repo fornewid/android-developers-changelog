@@ -185,6 +185,4 @@ private fun swipeRight(): ContentTransform =
 
 private fun swipeDown(): ContentTransform =
     slideInVertically(initialOffsetY = { -it }) togetherWith slideOutVertically(targetOffsetY = { it })
-
-   
 ```

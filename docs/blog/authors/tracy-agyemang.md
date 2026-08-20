@@ -4,11 +4,18 @@ url: https://developer.android.com/blog/authors/tracy-agyemang
 source: md.txt
 ---
 
-10 posts ![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
+11 posts ![](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
 
 # Tracy Agyemang
 
 Product Marketing Manager
+- 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+
+  ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
+
+  [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
+  4 min read
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
 - 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
@@ -48,12 +55,6 @@ Product Marketing Manager
 
   [arrow_forward](https://developer.android.com/blog/posts/how-whoop-decreased-excessive-partial-wake-lock-sessions) Building an Android app for a wearable means the real work starts when the screen turns off.
   4 min read
-- 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Zjh724.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
-
-  ## [How Uber is reducing manual logins by 4 million per year with the Restore Credentials API](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api)
-
-  [arrow_forward](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api) Uber leveraged the Android Restore Credentials API to streamline new device sign-in, projecting a reduction of 4 million manual logins per year and increasing user retention.
-  5 min read
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1

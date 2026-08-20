@@ -154,6 +154,9 @@ identity.
 To support this functionality on devices powered by Google Play services, don't
 declare the `READ_SMS` permission. Instead, use the [SMS Retriever API](https://developers.google.com/identity/sms-retriever/overview).
 
+> [!NOTE]
+> **Note:** The SMS Retriever API will not work in situations where your app doesn't control the format of the SMS message used for authentication. In this case, use the [SMS User Consent API](https://developers.google.com/identity/sms-retriever/user-consent/overview) to streamline SMS verification by allowing the app to prompt the user to grant access to the content of only a single SMS message.
+
 On other devices, if your app targets Android 8.0 (API level 26) or higher,
 generate an app-specific token using [`createAppSpecificSmsToken()`](https://developer.android.com/reference/android/telephony/SmsManager#createAppSpecificSmsToken(android.app.PendingIntent)). Pass
 this token to another app or service that can send a verification SMS message.

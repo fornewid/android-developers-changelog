@@ -215,27 +215,28 @@ Continue reading
 
   This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
   [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 2 min read
-- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_1w4qDC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_Z1URmUI.webp)](https://developer.android.com/blog/authors/blair-harmon) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1hkk5a.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
+  ## [Preparing your app for broader memory limits](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits)
 
-  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release) Today, the Jetpack Compose August '26 release is stable!
-  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+  [arrow_forward](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits) A great user experience is central to Android's mission, and delivering on that promise requires keeping devices fast, responsive, and reliable.
+  [Blair Harmon](https://developer.android.com/blog/authors/blair-harmon) • 2 min read
+  - [#App Memory Limits](https://developer.android.com/blog/topics/app-memory-limits)
+  - [#Android Vitals](https://developer.android.com/blog/topics/android-vitals)
+  - [#Multi-Process Architecture](https://developer.android.com/blog/topics/multi-process-architecture)
+  - [#Android 17](https://developer.android.com/blog/topics/android-17)
+  - [#Performance](https://developer.android.com/blog/topics/performance)
+  - +3 ↩
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_XR_beta_release_Strapi_a23ed1d892_Z1YdYO1.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
+  ## [Jetpack XR SDK core libraries reach beta: The next milestone for Android XR](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr)
 
-  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
-  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
-  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
-  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
-  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
-  - [#Foldables](https://developer.android.com/blog/topics/foldables)
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-  - +5 ↩
+  [arrow_forward](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr) Since introducing the Android XR SDK, developers have transformed their ideas into innovative immersive experiences across headsets and wired XR glasses.
+  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Greg Underwood](https://developer.android.com/blog/authors/greg-underwood), [Yasmine Evjen](https://developer.android.com/blog/authors/yasmine-evjen) • 2 min read
+  - [#Jetpack XR SDK](https://developer.android.com/blog/topics/jetpack-xr-sdk)
+  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
+  - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+  - +1 ↩
 Stay in the loop
 
 
