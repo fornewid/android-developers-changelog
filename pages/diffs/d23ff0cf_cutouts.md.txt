@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/system/cutouts.md b/docs/develop/ui/compose/system/cutouts.md
+index 73b0d2f5..dd2431db 100644
+--- a/docs/develop/ui/compose/system/cutouts.md
++++ b/docs/develop/ui/compose/system/cutouts.md
+@@ -14,7 +14,7 @@ higher. However, device manufacturers can also support display cutouts on
+ devices running Android 8.1 or lower.
+ 
+ This page describes how to implement support for devices with cutouts in
+-Compose, including how to work with the *cutout area*--- that is, the edge-to-edge
++Compose, including how to work with the *cutout area*---that is, the edge-to-edge
+ rectangle on the display surface that contains the cutout.
+ 
+ ## Default case

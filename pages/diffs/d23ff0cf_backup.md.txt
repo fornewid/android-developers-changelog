@@ -1,0 +1,25 @@
+diff --git a/docs/identity/data/backup.md b/docs/identity/data/backup.md
+index 04a78291..5123520b 100644
+--- a/docs/identity/data/backup.md
++++ b/docs/identity/data/backup.md
+@@ -30,8 +30,9 @@ and settings data, as described in the following sections.
+ You can help maintain existing user engagement by transferring the user's
+ account when they get started with a new device.
+ 
+-- For details on transferring authentication credentials and authorization
+-  tokens, see [Block Store](https://developers.google.com/identity/blockstore/android).
++- **[Restore Credentials](https://developer.android.com/identity/credentials/restore-credentials)**: The recommended way to automatically restore
++  user sign-in state and accounts when users set up a new device, eliminating
++  manual login friction.
+ 
+ - To explore Google sign-in solutions to facilitate user sign-in to your app,
+   see [Google Identity](https://developers.google.com/identity).
+@@ -86,7 +87,7 @@ title or a hash of the ringtone.
+ 
+ Android provides the following ways for apps to back up their data to the cloud:
+ 
+-- [Auto Backup for Apps](https://developer.android.com/guide/topics/data/autobackup)
++- [Auto Backup for Apps](https://developer.android.com/guide/topics/data/autobackup) (Recommended)
+ - [Key-value backup](https://developer.android.com/guide/topics/data/keyvaluebackup)
+ - [Large Backups API](https://developer.android.com/identity/data/large-backups) (by approval for large-scale app developers)
+ 

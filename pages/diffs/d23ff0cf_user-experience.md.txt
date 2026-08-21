@@ -1,0 +1,13 @@
+diff --git a/docs/quality/user-experience.md b/docs/quality/user-experience.md
+index 52fc54e8..8bf82a73 100644
+--- a/docs/quality/user-experience.md
++++ b/docs/quality/user-experience.md
+@@ -26,7 +26,7 @@ experience. For example:
+ - Use [edge-to-edge layouts](https://developer.android.com/develop/ui/views/layout/edge-to-edge) for an [immersive experience](https://developer.android.com/design/ui/mobile/guides/layout-and-content/immersive-content)
+ - If your app has embedded videos, support multitasking with [picture-in-picture](https://developer.android.com/develop/ui/views/picture-in-picture), including [polished transitions](https://developer.android.com/design/ui/mobile/guides/home-screen/picture-in-picture)
+ - Enable content sharing with [Android Sharesheets](https://developer.android.com/develop/ui/compose/sharing/send), which has built-in support for share targets
+-- Support [backup and restore](https://developer.android.com/guide/topics/data/backup) so that user data and settings are preserved if users add a new device, replace an existing device, or reinstall your app
++- Support [backup and restore](https://developer.android.com/guide/topics/data/backup) and [Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials) so that user sign-in state, data, and settings are preserved if users add a new device, replace an existing device, or reinstall your app
+ 
+ > [!NOTE]
+ > **Note:** Follow the recommended [UX design guidelines](https://developer.android.com/design/ui) and [adaptive app quality

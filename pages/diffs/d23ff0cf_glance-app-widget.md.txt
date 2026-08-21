@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/glance/glance-app-widget.md b/docs/develop/ui/compose/glance/glance-app-widget.md
+index b61ff46e..c6d0590b 100644
+--- a/docs/develop/ui/compose/glance/glance-app-widget.md
++++ b/docs/develop/ui/compose/glance/glance-app-widget.md
+@@ -23,7 +23,7 @@ The concept of state can be divided into the following:
+ ### Use application state
+ 
+ App widgets should be passive. Each application is responsible for managing the
+-data layer and handling the states, such as idle, loading, and error reflecting
++data layer and handling the states, such as idle, loading, and error reflected
+ in the widget UI.
+ 
+ For example, the following code retrieves the destinations from the in-memory

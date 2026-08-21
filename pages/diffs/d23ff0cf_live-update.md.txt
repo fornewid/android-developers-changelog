@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/compose/notifications/live-update.md b/docs/develop/ui/compose/notifications/live-update.md
+index e14791ff..014a9458 100644
+--- a/docs/develop/ui/compose/notifications/live-update.md
++++ b/docs/develop/ui/compose/notifications/live-update.md
+@@ -22,7 +22,7 @@ Your notification must meet the following requirements to qualify as a live
+ update:
+ 
+ - Must be Standard Style, [`BigTextStyle`](https://developer.android.com/reference/android/app/Notification.BigTextStyle), [`CallStyle`](https://developer.android.com/reference/android/app/Notification.CallStyle), [`ProgressStyle`](https://developer.android.com/reference/android/app/Notification.ProgressStyle), or [`MetricStyle`](https://developer.android.com/reference/android/app/Notification.MetricStyle).
+-- Must request the following non-runtime permission in the android manifest [`android.permission.POST_PROMOTED_NOTIFICATIONS`](https://developer.android.com/reference/android/Manifest.permission#POST_PROMOTED_NOTIFICATIONS).
++- Must request the following non-runtime permission in the Android manifest [`android.permission.POST_PROMOTED_NOTIFICATIONS`](https://developer.android.com/reference/android/Manifest.permission#POST_PROMOTED_NOTIFICATIONS).
+ - Must request promotion using [`EXTRA_REQUEST_PROMOTED_ONGOING`](https://developer.android.com/reference/android/app/Notification#EXTRA_REQUEST_PROMOTED_ONGOING) or [`NotificationCompat.Builder#setRequestPromotedOngoing`](https://developer.android.com/reference/android/app/Notification.Builder#setRequestPromotedOngoing(boolean)).
+ - Must be [`ongoing`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean)) (set [`FLAG_ONGOING_EVENT`](https://developer.android.com/reference/android/app/Notification.Builder#setOngoing(boolean))).
+ - Must have a `contentTitle` set.
+@@ -42,7 +42,7 @@ notification:
+ - `Settings.ACTION_MANAGE_APP_PROMOTED_NOTIFICATIONS` is the intent action that allows apps to send users to Settings to enable this feature.
+ 
+ > [!NOTE]
+-> **Note:** Original Equipment Manufacturers (OEMs) can enforce additional criteria for Live update eligibility. Check their respective documentation for details.
++> **Note:** Original Equipment Manufacturers (OEMs) can enforce additional criteria for Live Update eligibility. Check their respective documentation for details.
+ 
+ ## Usage criteria
+ 

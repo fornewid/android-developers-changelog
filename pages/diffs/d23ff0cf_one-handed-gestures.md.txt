@@ -1,0 +1,110 @@
+diff --git a/docs/training/wearables/compose/one-handed-gestures.md b/docs/training/wearables/compose/one-handed-gestures.md
+index 7f0dcd70..8f83b292 100644
+--- a/docs/training/wearables/compose/one-handed-gestures.md
++++ b/docs/training/wearables/compose/one-handed-gestures.md
+@@ -8,7 +8,7 @@ Compose for Wear OS Material version <button value="2.5">2.5</button> <button va
+ 
+ *** ** * ** ***
+ 
+-Beginning with Wear OS 7 (API level 37), a one-handed gestures
++On Wear OS 7 (API level 37) and higher, a one-handed gesture
+ framework, along with an API that's part of Compose for Wear OS,
+ lets users interact with your app touch-free.
+ 
+@@ -187,7 +187,7 @@ By explicitly setting `priority = OneHandedGesturePriority.Clickable`
+ on an inner button and `priority = OneHandedGesturePriority.Scrollable`
+ on its parent list, the system can show this gesture-priority behavior.
+ When the user triggers the primary action by the one-handed gesture, it
+-first scrolls the list down until the button is visible. Then, it
++first scrolls the list down until the button is visible, and then
+ captures the button's click action.
+ 
+ ## Test and debug gestures with ADB
+@@ -198,22 +198,31 @@ Bridge (`adb`) and the `IWearGestureService` system service.
+ 
+ ### Enable gesture simulation
+ 
+-1. Verify that your Wear OS device is running Wear OS 7 (API level 37) and higher.
+-2. If testing on a physical device that's not on the wrist or on a charger, override the off-body sensor state so the device remains active:
++Before simulating gestures using ADB, configure your device settings and
++constraint overrides:
+ 
+-    adb shell cmd sensorservice set-off-body-state 0
++1. Verify that your Wear OS device is running Wear OS 7 (API level 37)
++   and higher:
++
++       adb shell getprop ro.build.version.sdk
++
++2. If you're testing on a physical device that isn't on your wrist or is
++   resting on a charger, override the off-body constraint so the gesture
++   framework remains active:
++
++       adb shell cmd IWearGestureService override-constraints offbody-state
+ 
+ ### Trigger gesture events using ADB
+ 
+-To simulate the **Double Pinch** gesture (which is the `Primary` action on Pixel
++To simulate the **Double pinch** gesture (which is the `Primary` action on Pixel
+ watches), run the following ADB shell command:
+ 
+-    adb shell cmd IWearGestureService gesture 1
++    adb shell cmd IWearGestureService gesture DoublePinch
+ 
+-To simulate the **Wrist Turn** gesture (which is the `Dismiss` action on Pixel
++To simulate the **Wrist turn** gesture (which is the `Dismiss` action on Pixel
+ watches), run the following ADB shell command:
+ 
+-    adb shell cmd IWearGestureService gesture 2
++    adb shell cmd IWearGestureService gesture WristTurn
+ 
+ ### Reset gesture hint tracking
+ 
+@@ -222,11 +231,45 @@ hints based on the global cadence setting (such as **Always** or
+ **Daily**). When debugging your app's gesture indicators, reset this
+ tracking history so hints appear again for your package:
+ 
+-    adb shell cmd IWearGestureService hint clear <your_package_name>
++- **On `userdebug` builds or emulators:**
++
++      adb shell cmd IWearGestureService hint clear <your_package_name>
++
++- **On retail (`user`) builds:**
++
++  On commercial devices without root access, `hint clear` is blocked by
++  system permissions. Clear the app's local data to reset hint discovery:
++
++      adb shell pm clear <your_package_name>
++
++### Restore default constraints
++
++To reset all debug constraint overrides when you're finished testing:
++
++    adb shell cmd IWearGestureService override-constraints reset
++
++### Troubleshoot gesture injection
++
++If your app doesn't receive simulated gestures:
++
++1. Verify that the watch screen is awake and turned ON. The gesture
++   framework does not dispatch gestures to applications while the screen
++   is off or in ambient mode. To wake the display using ADB, run:
++
++       adb shell input keyevent KEYCODE_WAKEUP
++
++2. Check whether your app is registered as an active gesture subscriber and
++   currently holds window focus:
++
++       adb shell cmd IWearGestureService get-active-gestures -readable
+ 
+-To reset the off-body sensor state when finished testing:
++   When your app's gesture screen is in the foreground and the screen is
++   awake, this command returns `[DoublePinch]` or `[DoublePinch, WristTurn]`.
++   If an empty list (`[]`) is returned, check whether your window has focus or
++   if off-body constraints are blocking activation.
++3. Inspect the internal gesture service state and active subscriber tokens:
+ 
+-    adb shell cmd sensorservice reset-off-body-state
++       adb shell dumpsys IWearGestureService
+ 
+ ## Additional resources
+ 

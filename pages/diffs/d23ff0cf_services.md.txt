@@ -1,0 +1,13 @@
+diff --git a/docs/studio/services.md b/docs/studio/services.md
+index c5f9bb25..0c6da3d8 100644
+--- a/docs/studio/services.md
++++ b/docs/studio/services.md
+@@ -20,7 +20,7 @@ As an admin, you have the ability to control the Cloud services available to
+ users in your organization. For some Cloud services, this can be
+ done through the [Google Admin Console](https://support.google.com/a/answer/55955?ref_topic=2413312&sjid=9410998059586788964-EU):
+ 
+-- [Google Cloud](https://support.google.com/a/answer/9197205?sjid=15762865756081758884-EU): If disabled, it would prevent developers in your organization from using services such as Firebase Device Streaming, Firebase Crashlytics, or Gemini Code Assist.
++- [Google Cloud](https://support.google.com/a/answer/9197205?sjid=15762865756081758884-EU): If disabled, it would prevent developers in your organization from using services such as Firebase Device Streaming, Firebase Crashlytics, or Gemini Enterprise.
+ 
+ Additionally, you can limit access to Cloud services through permissions. For
+ example, you can limit which developers can access Play Vitals data through

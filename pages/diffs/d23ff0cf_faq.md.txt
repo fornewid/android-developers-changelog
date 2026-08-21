@@ -1,0 +1,13 @@
+diff --git a/docs/health-and-fitness/health-connect/migration/fit/faq.md b/docs/health-and-fitness/health-connect/migration/fit/faq.md
+index b541e247..9ff8353b 100644
+--- a/docs/health-and-fitness/health-connect/migration/fit/faq.md
++++ b/docs/health-and-fitness/health-connect/migration/fit/faq.md
+@@ -44,7 +44,7 @@ We encourage Fit REST API users to migrate to the Android Health APIs. See
+ which one best fits your needs and users:
+ 
+ - **Health Connect**: Health Connect unifies data across Android's portfolio of devices and apps into an ecosystem, providing a common health platform for Android developers. Health Connect provides an API for reading and writing the user's health and fitness data, standardizes the data schema upon storage, and centralizes permissions control.
+-- **Fitbit Web API**: The Fitbit Web API is a platform-agnostic interface to integrate with the Fitbit ecosystem. It gives users the ability to store, share, and manage their data directly in the cloud. In the Fitbit Web API, the user's data is tied to their Fitbit account instead of their device. This means the Fitbit Web API is account-centric instead of device-centric.
++- **Google Health API**: The Google Health API is a platform-agnostic interface to integrate with the Google Health ecosystem. It gives users the ability to store, share, and manage their data directly in the cloud. In the Google Health API, the user's data is tied to their Google Account instead of their device. This means the Google Health API is account-centric instead of device-centric.
+ 
+ ## How do I get help?
+ 

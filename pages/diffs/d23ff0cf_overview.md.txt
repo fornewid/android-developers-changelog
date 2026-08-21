@@ -1,0 +1,98 @@
+diff --git a/docs/studio/gemini/overview.md b/docs/studio/gemini/overview.md
+index 4a5c9d4a..80bb8284 100644
+--- a/docs/studio/gemini/overview.md
++++ b/docs/studio/gemini/overview.md
+@@ -17,48 +17,61 @@ UIs, fix Gradle build errors, analyze crashes through integrations with Logcat
+ and App Quality Insights, and more.
+ [Video](https://www.youtube.com/watch?v=zGK1vIX87vw)
+ 
+-Gemini in Android Studio is available in the following editions:
++Gemini in Android Studio is available for individual developers and businesses:
+ 
+-- [No-cost tier](https://developer.android.com/studio/gemini/get-started)
+-- [Business tier](https://developer.android.com/studio/gemini/get-started-businesses), available through a subscription to [Gemini Code Assist](https://developers.google.com/gemini-code-assist/docs/overview) or membership in the [Google Developer Program](https://developers.google.com/program).
+-  - Standard tier
+-  - Enterprise tier
++- [Individual tier](https://developer.android.com/studio/gemini/feature-comparison#individuals)
++  - Free
++  - [API key](https://developer.android.com/studio/gemini/add-api-key)
++  - [Google One membership](https://one.google.com/intl/en_us/about/google-ai-plans/)
++- [Business tier](https://developer.android.com/studio/gemini/feature-comparison#businesses)
+ 
+-If you're interested in agent-driven development for Android using agents outside
+-of Android Studio, use [Android CLI](https://developer.android.com/tools/agents/android-cli).
++  Available through a subscription to [Gemini Enterprise](https://cloud.google.com/gemini-enterprise) or membership in
++  the [Google Developer Program](https://developers.google.com/program).
++
++> [!NOTE]
++> **Note:** If you're interested in agent-driven development for Android using agents outside of Android Studio, use [Android CLI](https://developer.android.com/tools/agents/android-cli).
+ 
+ ## What is the right tier for me?
+ 
+-If you're an individual freelance developer, student, or hobbyist we recommend
+-using [Gemini in Android Studio](https://developer.android.com/studio/gemini/get-started), available at no
+-cost. This includes access to a lightweight version of Gemini 2.5 Pro with a
+-smaller context window, which is appropriate for most tasks. If you need
+-to execute more complex tasks that would benefit from Gemini 2.5 Pro's full 1M
+-token context window, you can [add a Gemini API key](https://developer.android.com/studio/gemini/add-api-key)
+-and pay per-token.
+-
+-If you're a professional developer who works as part of a team, ask your
+-administrator to consider subscribing to the [business tier](https://developer.android.com/studio/gemini/get-started-businesses). Gemini for
+-businesses includes additional features that make it easier to collaborate with
+-your teammates while incorporating your company's best practices and standards,
+-including but not limited to:
+-
+-- Expanded 1M token context window
+-- [IP indemnification](https://cloud.google.com/gemini/docs/discover/works#how-gemini-protects)
+-- [VPC-SC and Private Google Access](https://developers.google.com/gemini-code-assist/docs/configure-vpc-service-controls)
+-- Integration with tools such as Firebase, Colab Enterprise, BigQuery data insights, Cloud Run, and Database Studio.
+-- Analytics to track your team's usage and productivity impact.
+-- (Enterprise tier only) Customized code suggestions from your codebases in external tools such as GitHub.
+-
+-For more details about the different offerings, see
+-[Feature comparison](https://developer.android.com/studio/gemini/feature-comparison).
++Choose the product tier and edition that are right for you.
++
++### Individuals
++
++If you're an individual freelance developer, student, or hobbyist, we recommend
++the Gemini in Android Studio [free edition](https://developer.android.com/studio/gemini/feature-comparison#individuals). At no cost, you get access to a
++lightweight version of Gemini with a small context window, which is appropriate
++for most tasks. If you need to execute more complex tasks that would benefit
++from Gemini Pro's full 1M token context window, you can
++[add a Gemini API key](https://developer.android.com/studio/gemini/add-api-key) and pay per token.
++
++Or you can [subscribe to Google One](https://one.google.com/about/) and get 2 TB or more of cloud
++storage, higher rate limits, and additional benefits such as Gemini in Google
++Docs and Gmail, access to Veo, and higher usage limits on products like Nano
++Banana and NotebookLM. [Find the right Google One plan for you](https://one.google.com/intl/en_us/about/google-ai-plans/#compare-plans).
++
++> [!NOTE]
++> **Note:** If you already subscribe to Google One, you automatically get the Gemini in Android Studio added capabilities and benefits at no additional cost.
++
++### Businesses
++
++If you're a professional developer who works as part of a team, ask your admin
++to consider subscribing to the [business tier](https://developer.android.com/studio/gemini/feature-comparison#businesses). The business tier includes
++additional features that make it easier to collaborate with your teammates while
++incorporating your company's best practices and standards, including but not
++limited to:
++
++- Higher quota
++- Centralized administrative controls
++- Data residency and security, including VPC Service Controls
++
++For more details about the different offerings, see [Feature comparison](https://developer.android.com/studio/gemini/feature-comparison).
+ 
+ ## What's new in Gemini in Android Studio
+ 
+ Gemini in Android Studio is under active development and updates frequently! You
+ can learn about the latest AI features and other preview features by checking
+-out the [Android Studio preview release notes](https://developer.android.com/studio/preview/features) and by
+-[downloading a preview](https://developer.android.com/studio/preview).
++out the [Android Studio preview release notes](https://developer.android.com/studio/preview/features) and by [downloading a
++preview](https://developer.android.com/studio/preview).
+ 
+ ## Permissions
+ 

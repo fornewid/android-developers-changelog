@@ -1,0 +1,84 @@
+diff --git a/docs/studio/gemini/feature-comparison.md b/docs/studio/gemini/feature-comparison.md
+index 47d8c8ef..683659f4 100644
+--- a/docs/studio/gemini/feature-comparison.md
++++ b/docs/studio/gemini/feature-comparison.md
+@@ -4,31 +4,51 @@ url: https://developer.android.com/studio/gemini/feature-comparison
+ source: md.txt
+ ---
+ 
+-The following table summarizes the features included in the different editions
+-of Gemini in Android Studio, to help you [choose the product tier](https://developer.android.com/studio/gemini/overview#choose-tier) that's
+-right for you:
++Gemini in Android Studio is available in different editions for different use
++cases. [Choose the product tier](https://developer.android.com/studio/gemini/overview#choose-tier) and edition that are right for you.
++
++## Individual
++
++The individual tier is most suitable for student, hobbyist, open source, and
++freelance developers. The tier includes a free option and membership in Google
++One. The following table lists some key features available in the individual
++tier.
+ 
+ > [!NOTE]
+-> **Note:** You can get Gemini in Android Studio for businesses by subscribing to [Gemini Code Assist](https://codeassist.google/#compare-gemini-code-assist-offerings) or getting membership in the [Google Developer
+-> Program](https://developers.google.com/program).
+-
+-|   | Gemini in Android Studio Free | Gemini in Android Studio for businesses Gemini Code Assist Standard Starting at $19 per month [See detailed pricing](https://codeassist.google/#compare-gemini-code-assist-offerings) | Gemini in Android Studio for businesses Gemini Code Assist Enterprise Starting at $45 per month [See detailed pricing](https://codeassist.google/#compare-gemini-code-assist-offerings) |
+-| Most suitable for | Individuals: students, hobbyists, open source, and freelance developers | Developers and IT administrators who work in a business | Developers and IT administrators who work in a business |
+-| Core AI features - Chat with Gemini - Agent Mode (preview) - Add an MCP server (preview) | Included | Included | Included |
+-| Code assistance - Code completion - Code transformation - Explain code - Suggest improvements - Prompt Library - Rules | Included | Included | Included |
+-| Rethink variable names | Included | Included | Included |
+-| Android UI development - Generate Compose previews (preview) - Transform UI (preview) | Included | Included | Included |
+-| Generate unit tests | Included | Included | Included |
+-| Documentation generation - Generate documentation - Write commit messages | Included | Included | Included |
+-| Context management - File attachment (preview) - Configure context sharing with `.aiexclude` files | Included | Included | Included |
+-| Android integrations - Fix build errors - Get help with Logcat crashes - Analyze crashes in App Quality Insights | Included | Included | Included |
+-| Add an API key in Agent Mode | Included | Not applicable, business users have Gemini 2.5 Pro by default | Not applicable, business users have Gemini 2.5 Pro by default |
+-| Refine code when doing code transformation | Included |   |   |
+-| Image attachment (preview) | Included |   |   |
+-| Test with Journeys with Gemini (preview) | Included |   |   |
+-| Integration with external tools (preview) |   | Included | Included |
+-| Intellectual property and compliance: - [IP indemnification](https://cloud.google.com/gemini/docs/discover/works#how-gemini-protects) - [VPC-SC and Private Google Access](https://developers.google.com/gemini-code-assist/docs/configure-vpc-service-controls) |   | Included | Included |
+-| Gemini in the following surfaces: - Firebase - Colab Enterprise - Databases - BigQuery - Cloud Run |   | Included | Included |
+-| [Customized code suggestions](https://developers.google.com/gemini-code-assist/docs/code-customization-overview) from your code bases in GitHub, GitLab, and Bitbucket |   |   | Included |
+-| Gemini in the following surfaces: - Apigee - Application Integration - Cloud Assist |   |   | Included |
+-|---|---|---|---|
+\ No newline at end of file
++> Google One AI Pro and AI Ultra memberships include additional benefits such as higher rate limits, Gemini in Google Docs and Gmail, higher usage limits on products such as Nano Banana and NotebookLM, and 2 TB or more of cloud storage. [Find the right Google One plan for you](https://one.google.com/intl/en_us/about/google-ai-plans/#compare-plans).
++>
++> If you already subscribe to Google One, you automatically get the Gemini in Android Studio added benefits at no cost.
++
++| Gemini in Android Studio | Free | API key | Google One AI Pro | Google One AI Ultra |
++| Rate limits | Limited | Higher | Higher | Highest |
++| Context window | Limited | Pay per token | Expanded | Expanded |
++| Data used for AI training (See [Data and privacy](https://developer.android.com/studio/gemini/data-and-privacy)) | Yes | No | No | No |
++| Core AI features including - Agent Mode - Next Edit Prediction - Automate dependency updates - Add an MCP server - Skills | Included | Included | Included | Included |
++| Add an API key | Included | Included | Not applicable; Google One members have Gemini Pro and Flash by default ||
++| Configure context sharing with `.aiexclude` files | Included | Included | Included | Included |
++| Android UI development - Generate Compose previews - Transform UI - Generate UI with image attachments | Included | Included | Included | Included |
++| Android integrations - Fix build errors - Get help with Logcat crashes - Analyze crashes in App Quality Insights | Included | Included | Included | Included |
++| Test with Journeys with Gemini | Included | Included | Included | Included |
++|---|---|---|---|---|
++
++### Next steps
++
++See [Get started with Gemini in Android Studio](https://developer.android.com/studio/gemini/get-started).
++
++## Business
++
++The business tier is for IT administrators and professional developers who work
++in a business. You can get access to the business tier by subscribing to [Gemini
++Enterprise](https://cloud.google.com/gemini-enterprise) or joining the [Google Developer Program](https://developers.google.com/program). The business tier
++includes all the features in the individual tier, in addition to
++enterprise-grade features including those listed in the following table.
++
++| Business tier | Gemini Enterprise Standard/Plus editions |
++| Enterprise governance Operate under your project's existing Google Cloud Terms of Service with centralized administrative controls. | Included |
++| Data residency and security - [Private UI access](https://docs.cloud.google.com/gemini/enterprise/docs/private-ui-access) - [VPC Service Controls](https://docs.cloud.google.com/gemini/enterprise/docs/use-vpc-service-controls) | Included |
++| Consolidated billing Pay-as-you-go directly with your existing Google Cloud Billing account with unified invoicing. | Included |
++|---|---|
++
++### Next steps
++
++See [Get started with the Gemini business tier](https://developer.android.com/studio/gemini/get-started-businesses).
+\ No newline at end of file

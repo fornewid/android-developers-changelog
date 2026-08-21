@@ -1,0 +1,13 @@
+diff --git a/docs/studio/gemini/automate-dependency-updates.md b/docs/studio/gemini/automate-dependency-updates.md
+index 79b71442..6221ba07 100644
+--- a/docs/studio/gemini/automate-dependency-updates.md
++++ b/docs/studio/gemini/automate-dependency-updates.md
+@@ -7,7 +7,7 @@ source: html-scrape
+ * [Android Developers](https://developer.android.com/)
+ * [Develop](https://developer.android.com/develop)
+ * [Android Studio](https://developer.android.com/studio)
+-* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
++* [Android Studio AI agent](https://developer.android.com/ai-in-android)
+ 
+ # Automate dependency updates Stay organized with collections Save and categorize content based on your preferences.
+ 

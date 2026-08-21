@@ -1,0 +1,13 @@
+diff --git a/docs/training/tv/playback/compose/browse.md b/docs/training/tv/playback/compose/browse.md
+index cd586c0b..7847c348 100644
+--- a/docs/training/tv/playback/compose/browse.md
++++ b/docs/training/tv/playback/compose/browse.md
+@@ -217,7 +217,7 @@ fun FeaturedCarousel(
+ 
+ <br />
+ 
+-`Carousel` can be an item of a lazy list, such as `TvLazyColumn`.
++`Carousel` can be an item of a lazy list, such as `LazyColumn`.
+ The following snippet shows `FeaturedCarousel` composable on top of the
+ all `SectionRow` composables:
+ 

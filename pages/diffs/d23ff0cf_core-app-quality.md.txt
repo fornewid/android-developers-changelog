@@ -1,0 +1,32 @@
+diff --git a/docs/docs/quality-guidelines/core-app-quality.md b/docs/docs/quality-guidelines/core-app-quality.md
+index d39d2156..e536e2ff 100644
+--- a/docs/docs/quality-guidelines/core-app-quality.md
++++ b/docs/docs/quality-guidelines/core-app-quality.md
+@@ -174,6 +174,13 @@ Applications published on the Google Play Store must also follow the Google Play
+ | Sensitive_Data_Logging | [T-Sensitive_Data_Logging](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-Sensitive_Data_Logging) | [No personal or sensitive user data](https://developer.android.com/privacy-and-security/security-tips#user-data) is logged to the system log or an app-specific log. |
+ | Hardware_IDs | [T-Hardware_IDs](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-Hardware_IDs) | App does not use any [non-resettable hardware IDs](https://developer.android.com/training/articles/user-data-ids), such as the IMEI, for identification purposes. |
+ 
++#### Data backup and restoration
++
++| ID | Tests | Description |
++|---|---|---|
++| App_Data_Backup | [T-App_Data_Backup](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-App_Data_Backup) | App preserves user data, settings, and app state across cloud backups and device-to-device (D2D) transfers. Implement [Auto Backup](https://developer.android.com/identity/data/autobackup) and configure `android:dataExtractionRules` to ensure seamless data restoration when setting up a new device or reinstalling the app. |
++| App_Logins_Restoration | [T-App_Logins_Restoration](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-App_Logins_Restoration) | App automatically restores user accounts and sign-in state when a user sets up a new device. Implement [Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials) using Credential Manager to re-authenticate users automatically without forcing manual login or account recovery flows. |
++
+ #### Identity
+ 
+ | ID | Tests | Description |
+@@ -433,6 +440,13 @@ Test for privacy and security protections expected by users.
+ | T-Sensitive_Data_Logging | [Sensitive_Data_Logging](https://developer.android.com/docs/quality-guidelines/core-app-quality#Sensitive_Data_Logging) | Use all major app features while monitoring the device log. Verify that no private user information is logged. |
+ | T-Hardware_IDs | [Hardware_IDs](https://developer.android.com/docs/quality-guidelines/core-app-quality#Hardware_IDs) | Use all major app features. Verify that the app does not use any hardware IDs such as the IMEI for identification purposes. |
+ 
++#### Data backup and restoration
++
++| ID | Feature | Description |
++|---|---|---|
++| T-App_Data_Backup | [App_Data_Backup](https://developer.android.com/docs/quality-guidelines/core-app-quality#App_Data_Backup) | Configure local preferences, databases, and app settings on a primary device. Perform a cloud backup or device-to-device (D2D) transfer to a new device. Launch the app on the target device after transfer and verify that local preferences, database state, and user settings are restored accurately according to your Auto Backup rules. For detailed testing procedures, see [Test backup and restore](https://developer.android.com/identity/data/testingbackup). |
++| T-App_Logins_Restoration | [App_Logins_Restoration](https://developer.android.com/docs/quality-guidelines/core-app-quality#App_Logins_Restoration) | Set up a signed-in session on a primary device using passkeys, passwords, or Google Sign-In. Perform a cloud backup or device-to-device (D2D) transfer to a new device. Launch the app on the target device after transfer and verify that authentication is restored automatically using Restore Credentials without displaying sign-in screens or requiring account recovery. For detailed testing procedures, see [Testing Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials-implementation#test-your-implementation). |
++
+ #### Identity
+ 
+ | ID | Feature | Description |

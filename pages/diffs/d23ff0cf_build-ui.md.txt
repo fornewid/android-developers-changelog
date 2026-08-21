@@ -1,0 +1,15 @@
+diff --git a/docs/develop/ui/compose/glance/build-ui.md b/docs/develop/ui/compose/glance/build-ui.md
+index d9c6593b..dd3170e6 100644
+--- a/docs/develop/ui/compose/glance/build-ui.md
++++ b/docs/develop/ui/compose/glance/build-ui.md
+@@ -276,8 +276,8 @@ size when the `AppWidget` is created or updated. The system then selects the
+ > [!NOTE]
+ > **Note:** The best fitting size is one of the provided `DpSize` that fits within the available bounding box with minimal distortion. If none fits, the smallest one is used.
+ 
+-For example, in our destination `AppWidget`, you can define three sizes and its
+-content:
++For example, in our destination `AppWidget`, you can define three sizes and
++their content:
+ 
+ 
+ ```kotlin

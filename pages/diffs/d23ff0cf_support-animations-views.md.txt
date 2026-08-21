@@ -1,0 +1,13 @@
+diff --git a/docs/guide/navigation/custom-back/support-animations-views.md b/docs/guide/navigation/custom-back/support-animations-views.md
+index 6a44d7ad..b4441634 100644
+--- a/docs/guide/navigation/custom-back/support-animations-views.md
++++ b/docs/guide/navigation/custom-back/support-animations-views.md
+@@ -25,7 +25,7 @@ also similar platform APIs within the [`OnBackAnimationCallback`](https://develo
+ interface available to test in Android 14 and higher.
+ 
+ > [!NOTE]
+-> **Note:** Learn how to [design custom in-app transitions and animations.](https://developer.android.com/design/ui/mobile/guides/patterns/predictive-back).
++> **Note:** Learn how to [design custom in-app transitions and animations](https://developer.android.com/design/ui/mobile/guides/patterns/predictive-back).
+ 
+ ### Use the Progress APIs with AndroidX Transitions
+ 
