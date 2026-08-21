@@ -26,7 +26,7 @@ The following actions are described on this page:
 ## Launch an activity
 
 To launch an activity on user interaction, provide the
-[`actionStartActivity`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/action/package-summary#actionStartActivity(android.content.Intent,%20androidx.glance.action.ActionParameters))(..) function to a `Button` or other composable using the
+[`actionStartActivity`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/action/package-summary#actionStartActivity(android.content.Intent,%20androidx.glance.action.ActionParameters)) function to a `Button` or other composable using the
 `GlanceModifier.clickable` modifier.
 
 Provide one of the following in `actionStartActivity`:

@@ -11,7 +11,7 @@ ongoing call notifications. The template supports large-format notifications
 that include caller information and required actions such as answering or
 declining calls.
 
-Because incoming and ongoing calls are high priority events, these notifications
+Because incoming and ongoing calls are high-priority events, these notifications
 receive top priority in the notification shade. This ranking also enables the
 system to forward these prioritized calls to other devices.
 

@@ -232,7 +232,7 @@ user swipes back:
 - Use `OnBackInvokedCallback` with [`PRIORITY_SYSTEM_NAVIGATION_OBSERVER`](https://developer.android.com/reference/android/window/OnBackInvokedDispatcher#PRIORITY_SYSTEM_NAVIGATION_OBSERVER) on devices running Android 16 and higher. This creates an observer-callback that doesn't consume the back event. For example, you may register this callback when the user swipes back from the root activity, or in other words, when the user has left your app. In this case, you can log the back event or run other business logic, and the back-to-home animation will still play.
 - For activity-to-activity cases or fragment-to-activity cases, log if `isFinishing` within `onDestroy` is `true` within the Activity lifecycle.
 - For fragment-to-fragment cases, log if `isRemoving` within `onDestroy` is true within the Fragment's view lifecycle. Or log using `onBackStackChangeStarted` or `onBackStackChangeCommitted` methods within `FragmentManager.OnBackStackChangedListener`.
-- For the Compose case, log within the `onCleared()` callback of a `ViewModel` associated with the Compose destination. This is the best signal for knowing when a compose destination is popped off the back stack and destroyed.
+- For the Compose case, log within the `onCleared()` callback of a `ViewModel` associated with the Compose destination. This is the best signal for knowing when a Compose destination is popped off the back stack and destroyed.
 
 ### Create single responsibility callbacks
 

@@ -510,7 +510,7 @@ functions.
 
 1. **Expose DataStore through a ViewModel.**
    Pass your repository (which wraps the DataStore) into your `ViewModel` and
-   convert the `Flow` to a `StateFlow` so the UI can easily observe it, as shown in
+   convert the `Flow` to a `StateFlow` so the UI can observe it, as shown in
    the following snippet:
 
        class SettingsViewModel(
@@ -724,6 +724,31 @@ method:
        },
        corruptionHandler = ReplaceFileCorruptionHandler { Settings(lastUpdate = 0) }
     )
+
+## Device backup and restore
+
+Preferences DataStore files (`*.preferences_pb`) and Proto DataStore files are
+stored in the app's `files/datastore/` directory. By default, these files are
+included in Android [Auto Backup](https://developer.android.com/topic/data-management/backup/auto-backup) and device-to-device (D2D) transfers.
+
+### Configure backup rules for DataStore
+
+If your DataStore contains non-sensitive preferences (such as user theme or
+feature flags) alongside sensitive data, separate them into distinct DataStore
+files and configure `res/xml/data_extraction_rules.xml`:
+
+    <data-extraction-rules>
+        <cloud-backup>
+            <!-- Include general settings -->
+            <include domain="file" path="datastore/user_settings.preferences_pb"/>
+            <!-- Exclude sensitive local state -->
+            <exclude domain="file" path="datastore/secure_state.preferences_pb"/>
+        </cloud-backup>
+        <device-to-device>
+            <!-- Transfer settings during device-to-device transfer -->
+            <include domain="file" path="datastore/"/>
+        </device-to-device>
+    </data-extraction-rules>
 
 ## Provide feedback
 

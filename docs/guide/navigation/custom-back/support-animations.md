@@ -34,7 +34,8 @@ Jetpack Compose for creating custom in-app transitions. This feature is
 available in `androidx.activity:activity-compose:1.8.0-alpha01` or higher.
 
 `PredictiveBackHandler` provides a callback lambda that exposes a
-`Flow<BackEventCompat>` which emits events as the user swipes back from edge.
+`Flow<BackEventCompat>` which emits events as the user swipes back from the
+edge.
 These events provide information about user touch position, swipe edge, and
 most importantly `progress`, which can be used to animate components away as
 part of handling the back gesture.

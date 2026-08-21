@@ -44,9 +44,20 @@ installed.
 ### Set up for agents
 
 To help agents understand and use Android CLI, run `init` to install the
-`android-cli` skill:
+`android-cli` skill.
+
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/devtools/android-cli)
+
+### Android CLI
+
+To install the Android CLI skill, run:
 
     android init
+
+<br />
 
 ## Data collected
 

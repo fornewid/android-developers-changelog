@@ -25,7 +25,7 @@ also similar platform APIs within the [`OnBackAnimationCallback`](https://develo
 interface available to test in Android 14 and higher.
 
 > [!NOTE]
-> **Note:** Learn how to [design custom in-app transitions and animations.](https://developer.android.com/design/ui/mobile/guides/patterns/predictive-back).
+> **Note:** Learn how to [design custom in-app transitions and animations](https://developer.android.com/design/ui/mobile/guides/patterns/predictive-back).
 
 ### Use the Progress APIs with AndroidX Transitions
 

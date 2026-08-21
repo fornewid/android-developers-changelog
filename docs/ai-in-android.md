@@ -1,16 +1,217 @@
 ---
-title: https://developer.android.com/studio/install
-url: https://developer.android.com/studio/install
+title: https://developer.android.com/ai-in-android
+url: https://developer.android.com/ai-in-android
 source: md.txt
 ---
 
-> [!NOTE]
-> **Note:** Service integrations, such as Gemini in Android Studio and Firebase Crashlytics, are only available in the latest stable channel version of Android Studio and major versions (including their patches) released in the previous 10 months. Currently, the oldest supported version is **Otter 2 Feature Drop** . If you are using an older version of Android Studio, you will need to update to access Cloud services. For more information, see [Android Studio and
-> Cloud services compatibility](https://developer.android.com/studio/releases#service-compat).
+![](http://developer.android.com/static/images/gemini-in-android/gias-hero-image.png)
 
-Set up Android Studio in just a few clicks. First, check the system
-requirements. Then download the latest version of Android Studio.
+### Build better apps faster with AI in Android Studio
 
+
+Designed for Android developers, built natively into your workflow. The Android Studio AI
+agent can help you build, debug, and scale your Android apps faster.
+Download Not Available
+
+Your current device is not supported.  
+
+[See the system requirements](https://developer.android.com/studio/install).
+![](http://developer.android.com/static/images/picto-icons/tools-2.svg)
+
+### Build your way
+
+You have the flexibility to use AI the way that works best for you. Select our built-in Gemini models, or plug in the models of your choice. You can run tasks in parallel, set up rules, and more. ![](http://developer.android.com/static/images/logos/android.svg)
+
+### Designed for Android
+
+Build high-quality apps faster with the only AI assistance designed for Android development. From crafting Compose UIs to diagnosing Logcat errors, Gradle sync failures, and crashes, get precise, context-aware support at every stage. ![](http://developer.android.com/static/images/logos/gemini.svg)
+
+### Stay in your flow
+
+Having agentic AI in your IDE minimizes context switching, so you can stay focused on building. Get smart, purpose-built guidance without having to jump out to a browser or reference a separate tool.
+
+## Your models. Your API keys. Your choice.
+
+Android Studio's AI agent connects your IDE to the models and agents that best fit your development workflow. Set up AI assistance in the way that best matches your team's requirements, preferred LLMs, and budget: ![](http://developer.android.com/static/images/logos/gemini.svg)
+
+### Gemini included
+
+Instant access to Gemini models upon login. ![](http://developer.android.com/static/images/gemini-in-android/api-keys.svg)
+
+### Bring your own API keys
+
+Provide your own API keys for Anthropic, OpenAI, Google AI Studio, or any other compatible provider. ![](http://developer.android.com/static/images/picto-icons/android-ktx.svg)
+
+### Local on-device LLMs
+
+Run 100% offline using Gemma, or use other local models through Ollama or LM Studio.
+
+## Key features to support your development
+
+[See the docs](http://developer.android.com/studio/gemini/overview) [![](http://developer.android.com/static/images/gemini-in-android/ai-agent.png)](http://developer.android.com/studio/gemini/agent-mode)
+
+### [Get more done with the AI agent](http://developer.android.com/studio/gemini/agent-mode)
+
+Deeply integrated into the editor, the AI agent plans complex, multi-step tasks across your codebase. It suggests edits, iteratively fixes bugs, and validates changes directly in the Android emulator. For manual coding, Next Edit Prediction provides intelligent code completions anywhere in your file as you type. [Learn more](http://developer.android.com/studio/gemini/agent-mode) [![](http://developer.android.com/static/images/gemini-in-android/android-skills.png)](http://developer.android.com/tools/agents/android-skills)
+
+### [Android skills](http://developer.android.com/tools/agents/android-skills)
+
+Android Studio now features built-in support for Android skills, expanding the AI agent's capabilities to handle complex, specialized tasks. Whether you're optimizing app performance with Perfetto, migrating legacy XML to Jetpack Compose, or building adaptive layouts for any screen, the AI agent automatically pulls in the relevant skills to match your needs. With new skills being added continuously, you can focus on building high-quality apps while the agent handles the heavy lifting. [Learn more](http://developer.android.com/tools/agents/android-skills) [![](http://developer.android.com/static/images/gemini-in-android/compose-ui.png)](http://developer.android.com/studio/gemini/generate-compose-previews)
+
+### [Compose UI tools](http://developer.android.com/studio/gemini/generate-compose-previews)
+
+Android Studio's AI agent understands Compose, helping you build high-fidelity UIs with ease. You can describe UI changes in natural language, ask the AI agent to generate Compose Previews, or even have the AI make your UI precisely match a provided design mockup. [Learn more](http://developer.android.com/studio/gemini/generate-compose-previews) [![](http://developer.android.com/static/images/gemini-in-android/journey-editor.png)](http://developer.android.com/tools/agents/android-cli/journeys)
+
+### [Intelligent debugging and profiling tools](http://developer.android.com/tools/agents/android-cli/journeys)
+
+Proactively identify and resolve your app's issues with built-in tools. Automatically detect memory leaks using LeakCanary, get intelligent analysis and fixes for crash reports through App Quality Insights, and use Journeys to build complex AI-assisted UI tests. [Learn more](http://developer.android.com/tools/agents/android-cli/journeys)
+
+## Most used features
+
+[See all features](http://developer.android.com/studio/gemini/features)
+- ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Integrated Android skills
+- ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Journeys with Gemini
+- ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Natural language Compose UI transformations
+- ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Design-to-code tooling for Compose
+- ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Compose Preview generation
+- ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Automated Perfetto performance analysis
+- ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Planning Mode
+- ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) App Quality Insights
+- ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Memory leak detection with LeakCanary
+- ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Emulator integration
+- ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Create projects with AI
+- ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Next Edit Prediction
+- ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) MCP support and one-click marketplace
+- ![](http://developer.android.com/static/images/gemini-in-android/gemini-tick.svg) Robust permissions management
+
+## Why enterprise developers choose AI in Android Studio
+
+Unite the cutting-edge AI power of Gemini with the native developer tools of Android Studio and the security and scale of Google Cloud. Build, debug, and deploy production Android apps with total confidence. ![](http://developer.android.com/static/images/picto-icons/professional.svg)
+
+### Enterprise ready
+
+Android Studio integrates natively with Google Cloud Enterprise controls, offering workspace context scoping and administrative policy enforcement so your team can delegate complex coding tasks with confidence. ![](http://developer.android.com/static/images/picto-icons/security.svg)
+
+### Private
+
+By logging in with your enterprise Google Cloud credentials, your organization inherits Google Cloud's industry-standard data privacy protections, ensuring your proprietary source code and prompt data are never used for model training. ![](http://developer.android.com/static/images/picto-icons/monetize.svg)
+
+### Flexibile
+
+Gemini Enterprise provides flexible per seat costs with admin management for quota and overages, and still gives your team the flexibility to use other models as needed for your workflow.
+
+## Compare offerings
+
+#### For individuals
+
+### No cost
+
+
+Experience the Android Studio AI agent without a subscription plan
+[Get started](https://developer.android.com/studio/gemini/get-started)
+
+*** ** * ** ***
+
+Plan includes:
+
+checkAccess to Google's Gemini and Gemma models in Android Studio with limited quota and tokens.
+
+#### Google AI Pro
+
+
+Build Android apps with higher access to Gemini models
+[Get plan](https://one.google.com/about/google-ai-plans/)
+
+*** ** * ** ***
+
+Everything in Individual and:
+
+checkMore generous rate limits
+
+#### Google AI Ultra
+
+
+Leverage the Android Studio AI agent with even higher access to Gemini models
+[Get plan](https://one.google.com/about/google-ai-plans/)
+
+*** ** * ** ***
+
+Everything in Pro and:
+
+checkMore generous rate limits
+
+#### Gemini Enterprise plan
+
+
+Google Cloud customers can now access the AI agent in Android Studio
+[Get started](https://developer.android.com/studio/gemini/get-started-businesses)
+
+*** ** * ** ***
+
+Plan includes:
+
+checkAccess under Google Cloud Terms of Service
+
+checkGoogle Cloud project integration
+
+checkConsumption-based API pricing
+
+checkIncluded in Gemini Enterprise app subscriptions\*
+
+*\*Rolling out to select customers*
+![](http://developer.android.com/static/images/picto-icons/professional.svg)
+
+## Gemini Enterprise
+
+Access Gemini Enterprise benefits in Android Studio. Build better apps faster with coding assistance, chats, and code generation, all with Google Cloud's security.
+
+### [Gemini Enterprise documentation](https://docs.cloud.google.com/gemini/enterprise/docs)
+
+[View documentation](https://docs.cloud.google.com/gemini/enterprise/docs)
+
+### [Gemini Enterprise pricing](https://cloud.google.com/gemini-enterprise)
+
+[Compare offerings](https://cloud.google.com/gemini-enterprise)
+
+### [Contact sales](https://cloud.google.com/contact/gemini-enterprise)
+
+[Learn more](https://cloud.google.com/contact/gemini-enterprise) ![](http://developer.android.com/static/images/logos/gemini-blue.svg)
+
+## Android Studio with your Google AI plan
+
+Developers with Google AI subscriptions can leverage additional benefits in Android Studio.
+
+### [Get access to additional quota](https://one.google.com/intl/en_us/about/google-ai-plans/#code)
+
+[View coding benefits](https://one.google.com/intl/en_us/about/google-ai-plans/#code)
+
+### [Get more out of Agent Mode with a larger context window](http://developer.android.com/studio/gemini/agent-mode)
+
+[Learn more](http://developer.android.com/studio/gemini/agent-mode)
+
+## See how Gemini in Android Studio supercharged development for these developers
+
+![](http://developer.android.com/static/images/gemini-in-android/case-study-entri.png) Case study
+
+### Entri
+
+Entri cut UI development time by 40% with Gemini in Android Studio [Read more](https://android-developers.googleblog.com/2025/09/entri-cut-ui-development-time-gemini-android-studio.html) [Watch video](https://www.youtube.com/watch?v=zpAy91KUkfg) ![](http://developer.android.com/static/images/gemini-in-android/case-study-gratitude.png) Case study
+
+### Gratitude
+
+Gratitude's developers released 2X the amount of innovative experiments with Android Studio AI agent [Read more](https://android-developers.googleblog.com/2025/09/gratitudes-developers-released-2x.html) ![](http://developer.android.com/static/images/gemini-in-android/case-study-pocket-fm.png) Case study
+
+### Pocket FM
+
+Pocket FM cuts 50% in development time with Gemini in Android Studio [Watch video](https://www.youtube.com/watch?v=WUxdpFas6HM) ![](http://developer.android.com/static/images/gemini-in-android/case-study-ultrahuman.png) Case study
+
+### Ultrahuman
+
+Ultrahuman launches features 15% faster with Gemini in Android Studio [Read more](https://android-developers.googleblog.com/2026/01/ultrahuman-launches-features-15-faster.html) ![](http://developer.android.com/static/images/logos/gemini-blue.svg)
+
+## Boost your productivity with Android Studio's AI agent
+
+[Download Android Studio arrow_right_alt](http://developer.android.com/studio)
 
 ## Download Android Studio Quail 3 \| 2026.1.3 Patch 1
 
@@ -766,190 +967,3 @@ for
 Windows](https://dl.google.com/android/repository/commandlinetools-win-15859902_latest.zip)
 
 *commandlinetools-win-15859902_latest.zip*
-Download Not Available
-
-Your current device is not supported.  
-
-[See the system requirements](https://developer.android.com/studio/install).
-
-The Android Emulator lets you test your apps across a wide range of device
-configurations and Android API levels without needing a physical device. For
-this reason, it's the preferred method for testing your Android apps. To learn
-more, see [Run apps on the Android Emulator](https://developer.android.com/studio/run/emulator).
-
-However, you can also use Android Studio without the Emulator by using a modern
-physical [Android Device](https://www.android.com/phones/help-me-choose/) or
-the [Android Device Streaming Service](https://developer.android.com/studio/run/android-device-streaming)
-to deploy and test apps.
-
-If your system has limited resources, you might consider our cloud-based IDE
-solution, [Android Studio on IDX](https://idx.google.com/android-studio), which offers a powerful development
-environment without the need for high-end local hardware.
-
-**Minimum for Android Studio, and Android Studio with the Android Emulator.**
-
-The minimum requirements listed allow you to get started with Android
-Studio and typically apply to the following use cases:
-
-- Creating and supporting smaller projects and samples.
-
-- Creating a single Android Virtual Device (AVD).
-
-- Deploying an app to a single AVD, to a local physical device, or to
-  [Android Device Streaming](https://developer.android.com/studio/run/android-device-streaming) devices. This doesn't include XR AVDs.
-
-> [!NOTE]
-> **Note:** Some minimum requirements differ depending on whether you want to run Android Studio alone or Android Studio with the Android Emulator. In those cases, both requirements are listed and labelled accordingly with either **Studio** or **Studio \& Emulator**.
-
-**Recommended to run Android Studio and the Android Emulator.**
-
-These are the recommended system specifications to run Android Studio and the
-Android Emulator. This typically covers the following use cases:
-
-- Professional development on larger, more complex codebases.
-
-> [!NOTE]
-> **Note:** Larger projects require higher RAM and CPU specs for compilation and loading in the IDE.
-
-- Creating multiple Android Virtual Devices (AVD), including XR devices.
-
-> [!NOTE]
-> **Note:** You might need up to 6GB of additional storage for each additional AVD created.
-
-- Running multiple AVDs simultaneously, including XR devices.
-
-> [!NOTE]
-> **Note:** Running multiple AVDs simultaneously requires approximately 4GB of memory per AVD. The exact amount might vary depending on your system.
-
-## Windows
-
-> [!NOTE]
-> **Note:** Windows machines with ARM-based CPUs aren't currently supported.
-
-Here are the system requirements for Windows:
-
-| Requirement | Minimum | Recommended |
-|---|---|---|
-| OS | 64-bit Microsoft Windows 10 | Latest 64-bit version of Windows |
-| RAM | **Studio:** 8 GB **Studio \& Emulator:** 16GB | 32GB |
-| CPU | Virtualization support Required (Intel VT-x or AMD-V, enabled in BIOS). CPU microarchitecture after 2017. [Intel 8th Gen Core](https://www.intel.com/content/www/us/en/processors/processor-numbers.html) i5 / AMD Zen Ryzen (e.g., Intel i5-8xxx, Ryzen 1xxx). | Virtualization support Required (Intel VT-x or AMD-V, enabled in BIOS). Latest CPU microarchitecture. Look for CPUs from the Intel Core i5, i7, or i9 series and or the suffixes H/HK/HX for laptop or suffixes S/F/K for desktop, or the AMD Ryzen 5, 6, 7, or 9 series. Please be aware that Intel® Core™ N-Series and U-Series processors are not recommended due to insufficient performance. |
-| Disk space | **Studio:** 8 GB of free space. **Studio \& Emulator:** 16GB of free space | Solid state drive with 32 GB or more |
-| Screen resolution | 1280 x 800 | 1920 x 1080 |
-| GPU | **Studio:** None **Studio \& Emulator:** GPU with 4GB VRAM such as Nvidia Geforce 10 series or newer, or AMD Radeon RX 5000 or newer with the latest drivers | GPU with 8GB VRAM such as Nvidia Geforce 20 series or newer, or AMD Radeon RX6600 or newer with the latest drivers. |
-
-To install Android Studio on Windows, follow these steps:
-
-- If you downloaded an `EXE` file (recommended), double-click to launch it.
-
-- If you downloaded a `Zip` file:
-
-  1. Unpack the `Zip`.
-  2. Copy the **android-studio** folder into your **Program Files** folder.
-  3. Open the **android-studio \> bin** folder.
-  4. Launch `studio64.exe` (for 64-bit machines) or `studio.exe` (for 32-bit machines).
-  5. Follow the **Setup Wizard** in Android Studio and install any recommended SDK packages.
-
-The following video shows each step of the setup procedure for the recommended
-`.exe` download:
-
-Android Studio notifies you with a dialog when new tools and other APIs become
-available. To manually check for updates, click **Help \> Check for Update**.
-
-## Mac
-
-Here are the system requirements for Mac:
-
-| Requirement | Minimum | Recommended |
-|---|---|---|
-| OS | macOS 12 | Latest 64-bit version of macOS |
-| RAM | **Studio:** 8 GB **Studio \& Emulator:** 16GB | 32 GB |
-| CPU | Apple M1 chip, or 6th generation Intel Core or newer. e.g. 2016 MacBook Pro with i7-4770HQ processor or higher. We are phasing out support for Mac with Intel chips | Latest Apple Silicon |
-| Disk space | **Studio:** 8 GB of free space. **Studio \& Emulator:** 16GB of free space. | Solid state drive with 32 GB or more of free space. |
-| Screen resolution | 1280 x 800 | 1920 x 1080 |
-| GPU | Integrated | Integrated |
-
-To install Android Studio on your Mac, follow these steps:
-
-1. Launch the Android Studio DMG file.
-2. Drag Android Studio into the Applications folder, then launch Android Studio.
-3. Choose whether to import previous Android Studio settings, then click **OK**.
-4. Complete the Android Studio **Setup Wizard**, which includes downloading the Android SDK components that are required for development.
-
-The following video shows each step of the recommended setup procedure:
-
-Android Studio notifies you with a dialog when new tools and other APIs become
-available. To manually check for updates, click **Android Studio \> Check for
-Updates**.
-
-## Linux
-
-> [!NOTE]
-> **Note:** Linux machines with ARM-based CPUs aren't currently supported.
-
-Here are the system requirements for Linux:
-
-| Requirement | Minimum | Recommended |
-|---|---|---|
-| OS | Any 64-bit Linux distribution that supports Gnome, KDE, or Unity DE; GNU C Library (glibc) 2.31 or later. | Latest 64-bit version of Linux |
-| RAM | **Studio:** 8 GB **Studio \& Emulator:** 16GB | 32 GB RAM or more |
-| CPU | Virtualization support Required (Intel VT-x or AMD-V, enabled in BIOS). CPU microarchitecture after 2017 [Intel 8th Gen Core](https://www.intel.com/content/www/us/en/processors/processor-numbers.html) i5 / AMD Zen Ryzen (e.g., Intel i5-8xxx, Ryzen 1xxx). | Virtualization support Required (Intel VT-x or AMD-V, enabled in BIOS). Latest CPU microarchitecture Look for CPUs from the Intel Core i5, i7, or i9 series and or the suffixes H/HK/HX for laptop or suffixes S/F/K for desktop, or the AMD Ryzen 5, 6, 7, or 9 series. Please be aware that Intel Core N-Series and U-Series processors are not recommended due to insufficient performance. |
-| Disk space | **Studio:** 8 GB of free space. **Studio \& Emulator:** 16GB of free space. | Solid state drive with 32 GB or more |
-| Screen resolution | 1280 x 800 | 1920 x 1080 |
-| GPU | **Studio:** None **Studio \& Emulator:** GPU with 4GB VRAM such as Nvidia Geforce 10 series or newer, or AMD Radeon RX 5000 or newer with the latest drivers | GPU with 8GB VRAM uch as Nvidia Geforce 20 series or newer, or AMD Radeon RX 6600 or newer with the latest drivers |
-
-To install Android Studio on Linux, follow these steps:
-
-1. Unpack the `.tar.gz` file you downloaded to an appropriate location for your applications, such as within `/usr/local/` for your user profile or `/opt/` for shared users.
-
-
-   For a 64-bit version of Linux, first install the
-   [required libraries for 64-bit machines](https://developer.android.com/studio/install#64bit-libs).
-2. To launch Android Studio, open a terminal, navigate to the `android-studio/bin/` directory, and execute `studio`.
-3. Select whether you want to import previous Android Studio settings, then click **OK**.
-4. Complete the Android Studio **Setup Wizard**, which includes downloading the Android SDK components that are required for development.
-
-**Tip:**
-To make Android Studio available in your list of applications, select
-**Tools \> Create Desktop Entry** from the Android Studio menu bar.
-
-### Required libraries for 64-bit machines
-
-If you are running a 64-bit version of Ubuntu, you need to install some 32-bit
-libraries with the following command:
-
-```
-sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
-```
-
-If you are running 64-bit Fedora, the command is:
-
-```
-sudo yum install zlib.i686 ncurses-libs.i686 bzip2-libs.i686
-```
-
-The following video shows each step of the recommended setup procedure:
-
-Android Studio notifies you with a dialog when new tools and other APIs become
-available. To manually check for updates, click **Help \> Check for Update**.
-
-## ChromeOS
-
-For the system requirements to support Android Studio and the Android Emulator,
-see [Android development](https://chromeos.dev/en/android-environment#install-android-studio-on-chrome-os) in the ChromeOS documentation.
-
-To install Android Studio on ChromeOS, follow these steps:
-
-1. Install [Linux for ChromeOS](https://support.google.com/chromebook/answer/9145439).
-2. Open the **Files** app and locate the DEB package in the **Downloads** folder under **My files**.
-3. Copy or move the DEB package to **Linux Files**.
-4. In the ChromeOS Linux terminal, run `sudo apt install
-   ./android-studio-panda2-cros.deb` (where the actual filename might differ based on the version of Android Studio you downloaded).
-   - If you have installed Android Studio before, select whether you want to import previous Android Studio settings, then click **OK**.
-5. Once the installation is complete, launch Android Studio from the Launcher or from the ChromeOS Linux terminal. In the default installation directory `/opt/android-studio/bin`, run `studio`.
-
-Android Studio notifies you with a dialog when new tools and other APIs become
-available. To manually check for updates, click **Help \> Check for Update**.
-
-> [!NOTE]
-> **Note:** Android Studio on ChromeOS currently supports deploying your app only to a connected hardware device. To learn more, read [Run apps on a hardware
-> device](https://developer.android.com/studio/run/device).

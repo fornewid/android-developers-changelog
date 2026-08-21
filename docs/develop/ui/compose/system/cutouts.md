@@ -14,7 +14,7 @@ higher. However, device manufacturers can also support display cutouts on
 devices running Android 8.1 or lower.
 
 This page describes how to implement support for devices with cutouts in
-Compose, including how to work with the *cutout area*--- that is, the edge-to-edge
+Compose, including how to work with the *cutout area*---that is, the edge-to-edge
 rectangle on the display surface that contains the cutout.
 
 ## Default case

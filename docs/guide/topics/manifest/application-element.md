@@ -123,9 +123,14 @@ attributes
 
     :   Whether to let the application participate in the backup
         and restore infrastructure. If this attribute is set to `"false"`, no
-        backup or restore of the application is ever performed, even by a
-        full-system backup that otherwise causes all application data to save
-        using `adb`. The default value of this attribute is `"true"`.
+        backup or restore of the application is ever performed, disabling all cloud backups
+        and device-to-device (D2D) transfers, even by a full-system backup that otherwise
+        causes all application data to save using `adb`. The default value of this
+        attribute is `"true"`. If your app processes sensitive data, you can keep
+        this attribute set to `"true"` and configure
+        [`android:dataExtractionRules`](https://developer.android.com/guide/topics/manifest/application-element#dataExtractionRules) to safely
+        exclude sensitive keys or temporary caches while preserving user preferences and
+        continuity.
 
         **Note:**For apps targeting Android 12 (API level 31) or higher, this behavior
         varies. On devices from some device manufacturers, you can't disable device-to-device migration

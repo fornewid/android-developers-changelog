@@ -7,7 +7,7 @@ source: html-scrape
 * [Android Developers](https://developer.android.com/)
 * [Develop](https://developer.android.com/develop)
 * [Android Studio](https://developer.android.com/studio)
-* [Gemini in Android Studio](https://developer.android.com/gemini-in-android)
+* [Android Studio AI agent](https://developer.android.com/ai-in-android)
 
 # Accelerate coding with AI code completion Stay organized with collections Save and categorize content based on your preferences.
 

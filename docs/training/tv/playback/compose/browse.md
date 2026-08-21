@@ -217,7 +217,7 @@ fun FeaturedCarousel(
 
 <br />
 
-`Carousel` can be an item of a lazy list, such as `TvLazyColumn`.
+`Carousel` can be an item of a lazy list, such as `LazyColumn`.
 The following snippet shows `FeaturedCarousel` composable on top of the
 all `SectionRow` composables:
 

@@ -820,6 +820,9 @@ When the consent period has begun or the user has provided
 consent, you will receive a [SubscriptionNotification](https://developer.android.com/google/play/billing/rtdn-reference#sub) message with type
 `SUBSCRIPTION_PRICE_STEP_UP_CONSENT_UPDATED`.
 
+> [!NOTE]
+> **Note:** If the consent period starts at signup (for example, a 7-day free trial), the consent-start RTDN is suppressed to avoid duplicate notifications. You will only receive `SUBSCRIPTION_PURCHASED` upon purchase, followed by `SUBSCRIPTION_PRICE_STEP_UP_CONSENT_UPDATED` once the user actually provides consent.
+
 #### Difference between price step-up and price change
 
 A `price step-up` refers to an increase in the subscription price, due to a

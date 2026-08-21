@@ -276,8 +276,8 @@ size when the `AppWidget` is created or updated. The system then selects the
 > [!NOTE]
 > **Note:** The best fitting size is one of the provided `DpSize` that fits within the available bounding box with minimal distortion. If none fits, the smallest one is used.
 
-For example, in our destination `AppWidget`, you can define three sizes and its
-content:
+For example, in our destination `AppWidget`, you can define three sizes and
+their content:
 
 
 ```kotlin
