@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/connectivity/bluetooth/ble-audio/over
 source: md.txt
 ---
 
-> [!NOTE]
-> **Note:** [`isLeAudioSupported()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#isLeAudioSupported()) and [`isLeAudioBroadcastSourceSupported()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#isLeAudioBroadcastSourceSupported()) will return `True` if the device supports BLE Audio.
-
 [Video](https://www.youtube.com/watch?v=cXl9fUyW6FM)
 
 Bluetooth Low Energy Audio (LEA) ensures that users can receive high fidelity audio without sacrificing battery life, and lets them seamlessly switch between different use cases. Android 13 (API level 33) includes built-in support for LEA.
@@ -78,8 +75,8 @@ The following APIs and methods are required to support BLE Audio hearables:
 
 ### Bluetooth Adapter
 
-- [`isLeAudioSupported()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#isLeAudioSupported%28%29) returns if the platform's hardware supports LEA.
-- [`isLeAudioBroadcastSourceSupported()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#isLeAudioBroadcastSourceSupported()) returns if the platform's hardware supports LEA.
+- [`isLeAudioSupported()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#isLeAudioSupported()): Returns a [`@BluetoothStatusCodes`](https://developer.android.com/reference/android/bluetooth/BluetoothStatusCodes) constant (`FEATURE_SUPPORTED`, `FEATURE_NOT_SUPPORTED`, or an error code) indicating whether the device hardware supports LE Audio.
+- [`isLeAudioBroadcastSourceSupported()`](https://developer.android.com/reference/android/bluetooth/BluetoothAdapter#isLeAudioBroadcastSourceSupported()): Returns a [`@BluetoothStatusCodes`](https://developer.android.com/reference/android/bluetooth/BluetoothStatusCodes) constant (`FEATURE_SUPPORTED`, `FEATURE_NOT_SUPPORTED`, or an error code) indicating whether the device hardware supports LE Audio broadcast source.
 
 ## Guides based on use case
 

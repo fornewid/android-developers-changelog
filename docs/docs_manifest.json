@@ -9758,8 +9758,8 @@
     },
     "develop/connectivity/bluetooth/ble-audio/overview.md": {
       "original_url": "https://developer.android.com/develop/connectivity/bluetooth/ble-audio/overview",
-      "hash": "2bfd0a848770c3fa54703a593971daff44e00a505b178b86be65b8a18a751b3f",
-      "last_updated": "2026-04-10T15:17:44.285247",
+      "hash": "ccb586eb7825030adc3956334a7dfc3fe61fdf01582e3ac1c7742c17bb4e9f30",
+      "last_updated": "2026-08-22T15:07:30.838357",
       "fetch_method": "md.txt"
     },
     "studio/write/annotations.md": {
@@ -32732,8 +32732,8 @@
     },
     "games/optimize/memory-reduction.md": {
       "original_url": "https://developer.android.com/games/optimize/memory-reduction",
-      "hash": "1e6080044c46867e4a968e87f8b15ae3840b73c0fbfeda22dcb40a0371248fe5",
-      "last_updated": "2026-08-20T15:15:35.793214",
+      "hash": "a4d983ec8c132b34857e8af46961c7b21fb7d4c1797d544e70f9ecaa0b070dd5",
+      "last_updated": "2026-08-22T15:08:12.739944",
       "fetch_method": "md.txt"
     },
     "blog/topics/multi-process-architecture.md": {
@@ -32761,5 +32761,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-08-21T15:14:46.407636"
+  "last_updated": "2026-08-22T15:08:52.806150"
 }
