@@ -2642,8 +2642,8 @@
     },
     "guide/practices/page-sizes.md": {
       "original_url": "https://developer.android.com/guide/practices/page-sizes",
-      "hash": "67eb4008ee146dd68f91ccc9fc8bba1772319b725206bc923542386e91aac49b",
-      "last_updated": "2026-08-05T15:44:34.686430",
+      "hash": "507a2f7b170929b2f26a7a64e969868153681d26f35271cdeb4bdada2dd2daf6",
+      "last_updated": "2026-08-23T15:05:58.050186",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/quick-guides/collections/optimize-for-large-screens.md": {
@@ -32761,5 +32761,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-08-22T15:08:52.806150"
+  "last_updated": "2026-08-23T15:09:19.335928"
 }

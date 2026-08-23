@@ -101,21 +101,11 @@ Android Studio warns you proactively if your prebuilt libraries or APKs aren't
 16 KB compliant. Use the [APK
 Analyzer](https://developer.android.com/guide/practices/page-sizes#identify-native-code) tool to review which libraries need to be
 updated or if any code changes are required.
-
-    <figure>
-      <img src="/images/guide/practices/studio-align-warnings.png"
-           class="no-filter" width="300"
-           alt="Studio warning notifications about alignment issues in a project">
-    </figure>
+![Studio warning notifications about alignment issues in a project](https://developer.android.com/static/images/guide/practices/studio-align-warnings.png)
 
 [Lint in Android Studio](https://developer.android.com/studio/write/lint) also highlights native libraries that
 aren't 16 KB aligned.
-
-    <figure>
-      <img src="/images/guide/practices/studio-align-lint.png"
-           class="no-filter"
-           alt="Studio linter warning about a non-aligned native library">
-    </figure>
+![Studio linter warning about a non-aligned native library](https://developer.android.com/static/images/guide/practices/studio-align-lint.png)
 
 ### Check the alignment of ELF segments for shared libraries
 
