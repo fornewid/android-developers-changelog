@@ -1,78 +1,89 @@
 ---
-title: https://developer.android.com/courses/quizzes/jetpack-compose-for-android-developers-3/jetpack-compose-for-android-developers-3
+title: Architecture and state  |  Android Developers
 url: https://developer.android.com/courses/quizzes/jetpack-compose-for-android-developers-3/jetpack-compose-for-android-developers-3
-source: md.txt
+source: html-scrape
 ---
 
-# Architecture and state
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # Architecture and state
 
-<br />
+Return to pathway
 
-Return to pathway  
-1.
 
-   ## In Compose, there is no way to update the UI after it's been drawn without changing state.
 
-   True  
-   False  
-2.
+1. ## In Compose, there is no way to update the UI after it’s been drawn without changing state.
 
-   ## Which of the following is true about unidirectional data flow (UDF):
+   True
 
-   Choose as many answers as you see fit.  
-   It's difficult to test state and the UI that displays in isolation.  
-   There is only one source of truth for the state of a composable.  
-   Not all state updates are immediately reflected in the UI.  
-   It's less likely that you'll create bugs due to inconsistent states  
-3.
+   False
+2. ## Which of the following is true about unidirectional data flow (UDF):
 
-   ## Compose has a special state-tracking system in place that schedules recompositions for any composables that read a particular state.
+   Choose as many answers as you see fit.
 
-   True  
-   False  
-4.
+   It’s difficult to test state and the UI that displays in isolation.
 
-   ## When state changes, a recomposition is triggered to:
+   There is only one source of truth for the state of a composable.
 
-   Choose as many answers as you see fit.  
-   Display the new data on the screen  
-   Recompose just those composable functions that need to change  
-   Recompose the entire UI  
-   Update the properties of a view  
-5.
+   Not all state updates are immediately reflected in the UI.
 
-   ## State is always mutated inside the scope of a composable function.
+   It’s less likely that you’ll create bugs due to inconsistent states
+3. ## Compose has a special state-tracking system in place that schedules recompositions for any composables that read a particular state.
 
-   True  
-   False  
-6.
+   True
 
-   ## Store objects in the composition by using the ___ composable function, which can be used to store both mutable and immutable objects.
+   False
+4. ## When state changes, a recomposition is triggered to:
 
-   `remember`  
-   `mutable`  
-   `mutableStateOf`  
-   `mutableListOf`  
-7.
+   Choose as many answers as you see fit.
 
-   ## The`NavController`component does which of the following:
+   Display the new data on the screen
 
-   Choose as many answers as you see fit.  
-   Keeps track of back stack composable entries  
-   Displays the current destination of the graph  
-   Enables back stack manipulation  
-   Navigates between destination states  
-8.
+   Recompose just those composable functions that need to change
 
-   ## A ___ takes you directly to a specific destination within the app.
+   Recompose the entire UI
 
-   Route  
-   Deep link  
-   Named argument  
-   Back stack  
+   Update the properties of a view
+5. ## State is always mutated inside the scope of a composable function.
+
+   True
+
+   False
+6. ## Store objects in the composition by using the \_\_\_ composable function, which can be used to store both mutable and immutable objects.
+
+   `remember`
+
+   `mutable`
+
+   `mutableStateOf`
+
+   `mutableListOf`
+7. ## The `NavController` component does which of the following:
+
+   Choose as many answers as you see fit.
+
+   Keeps track of back stack composable entries
+
+   Displays the current destination of the graph
+
+   Enables back stack manipulation
+
+   Navigates between destination states
+8. ## A \_\_\_ takes you directly to a specific destination within the app.
+
+   Route
+
+   Deep link
+
+   Named argument
+
+   Back stack
 
 Submit answers
 
-*error_outline*An error occurred when grading the quiz. Please try again.
+*error\_outline*
+An error occurred when grading the quiz. Please try again.

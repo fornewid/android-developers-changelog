@@ -139,7 +139,9 @@ shows how to specify an `itemId`:
 
 
 ```kotlin
-items(items = peopleList, itemId = { person -> person.id.hashCode().toLong() }) { person ->
+items(
+    items = peopleList,
+    itemId = { person -> person.id.hashCode().toLong() }) { person ->
     Text(person.name)
 }
 ```
@@ -566,7 +568,7 @@ RadioButton(
         uncheckedColor = ColorProvider(day = Color.Red, night = Color.Blue)
     ),
 
-)
+    )
 ```
 
 <br />

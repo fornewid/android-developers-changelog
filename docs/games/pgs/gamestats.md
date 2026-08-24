@@ -4,7 +4,11 @@ url: https://developer.android.com/games/pgs/gamestats
 source: md.txt
 ---
 
-Game Stats are cumulative statistics about your game that players can view on their [Gamer profile](https://play.google.com/games/profile). These stats let players track lifetime progress, see highlight moments, and compare with other players, and power Google Play features such as Quests, Social Challenges and more in the future.
+Game Stats are cumulative statistics about your game that players can view on
+their [Gamer profile](https://play.google.com/games/profile). These stats let
+players track lifetime progress, see highlight moments, and compare with other
+players, and power Google Play features such as Quests, Social Challenges and
+more in the future.
 
 Game stats must:
 
@@ -17,11 +21,20 @@ Game stats must:
 > [!NOTE]
 > **Note:** Only a maximum of 50 stats can be configured for a game.
 
+The image shows Game Stats in the Gamer Profile on the **You** tab.
+This user interface (UI) in the **You** tab is available only for testing
+purposes. The Game Stats UI will be available in September 2026.
+[![Game Stats on the You tab](https://developer.android.com/static/images/games/pgs/gamestats.png)](https://developer.android.com/static/images/games/pgs/gamestats.png) Game Stats with highlights on the You tab.
+
 ## Integration steps
 
-Send data using Game Stats API as player events for repetitive stats and a predefined event `progressUpdate` for the progression stat. You will also need to configure the logic for calculating the stats that would appear on Gamer profile and their display information.
+Send data using Game Stats API as player events for repetitive stats
+and a predefined event `progressUpdate` for the progression stat. You will also
+need to configure the logic for calculating the stats that would appear on Gamer
+profile and their display information.
 
-**Player Events** represent distinct in-game moments, game loop completions, or progression milestones.
+**Player Events** represent distinct in-game moments, game loop completions, or
+progression milestones.
 
 A player event is defined and modeled as follows:
 
@@ -62,13 +75,16 @@ The integration consists of the following steps:
 
 ## Plan the schema
 
-You can send two types of data using the Game Stats API: player events and a predefined event for player progression stats.
+You can send two types of data using the Game Stats API: player events
+and a predefined event for player progression stats.
 
-The following examples illustrate how player events look across various game types:
+The following examples illustrate how player events look across various game
+types:
 
 ### Player Events
 
-Player Events are defined by distinct in-game moments, game loop completions, or progression milestones.
+Player Events are defined by distinct in-game moments, game loop completions, or
+progression milestones.
 
 - **Define events** as specific in-game moments, game loop completions, or progression milestones:
   - Game loop completions, such as a completed match or run.
@@ -98,11 +114,23 @@ Player Events are defined by distinct in-game moments, game loop completions, or
 
 ### `progressUpdate` Event
 
-If your game has a primary progression mechanic, then use this event to send the current progress of the player. The event has one predefined property called "currentProgress" of type `INT` or `STRING`. You are expected to send the current value of player progress in the primary progression mechanic using this property. If you use this event, the predefined property "currentProgress" must be present and a progression stat must be defined using this property.
+If your game has a primary progression mechanic, then use this event to send the
+current progress of the player. The event has one predefined property called
+"currentProgress" of type `INT` or `STRING`. You are expected to send the
+current value of player progress in the primary progression mechanic using this
+property. If you use this event, the predefined property "currentProgress" must
+be present and a progression stat must be defined using this property.
 
-You can send current value for other progression systems in your game like `lifetime highest score` or `current coin balance` as other properties of this event.
+You can send current value for other progression systems in your game like
+`lifetime highest score` or `current coin balance` as other properties of this
+event.
 
-Since players could compare their profiles by the current progress within the game, it is important that there is no delay in getting the current progress value after the first integration. In order to represent the accurate current progress to players, you should send the `progressUpdate` event at the start of each game session as well as whenever there is an update to the current progress.
+Since players could compare their profiles by the current progress within the
+game, it is important that there is no delay in getting the current progress
+value after the first integration. In order to represent the accurate current
+progress to players, you should send the `progressUpdate` event at the start of
+each game session as well as whenever there is an update to the current
+progress.
 
 ##### Examples
 
@@ -118,12 +146,16 @@ Since players could compare their profiles by the current progress within the ga
 
 ## Configure your stats
 
-You will need to configure your repetitive and progression stats by defining the computation logic and display information about each stat. Examples of repetitive stats from different Game Genres are included below. Repetitive stats are usually stats that update repeatedly for any player across a very few (3-4) game sessions and are associated with the core game loop.
+You will need to configure your repetitive and progression stats by defining the
+computation logic and display information about each stat. Examples of
+repetitive stats from different Game Genres are included below. Repetitive stats
+are usually stats that update repeatedly for any player across a very few (3-4)
+game sessions and are associated with the core game loop.
 
 | **Game Name** | **Game stat display name** | **Event Property** | **Calculation logic \[aggregation\]** | **Filter** |
 |---|---|---|---|---|
 | 3D Endless Runner | Runs completed | Any property of the event run_completed | Count | All values \[no filter\] |
-| 3D Endless Runner | Coins collected | Coins_collected property of the event run_completed | Sum | NA |
+| 3D Endless Runner | Coins collected | Coins_collected property of the event run_completed | Sum | N/A |
 | 3D Endless Runner | Keys Collected | Keys_collected property of the event run_completed | Sum | N/A |
 | 3D Endless Runner | Highest Run Score | Score property of the event run_completed | Max | N/A |
 | 3D Endless Runner | High coins Runs completed | Coins_collected property of the event run_completed | Count | Value \> 5000 |
@@ -135,15 +167,15 @@ You will need to configure your repetitive and progression stats by defining the
 | Open World Action RPG | Areas Explored | Perc_progress property of area_exploration_progress event | Count | Value = 100 |
 | Open World Action RPG | Swords unlocked | Weapon_type property of the event weapon_unlocked | Count | Value = "sword" |
 | Open World Action RPG | Enemies defeated | Enemies_defeated property of the event area_exploration_progress | Sum | N/A |
-| Open World Action RPG | Health Potions Collected | Enhancement_ores property of the event chest_unlocked | Sum | NA |
+| Open World Action RPG | Health Potions Collected | Enhancement_ores property of the event chest_unlocked | Sum | N/A |
 | Casual Puzzle | Levels completed | Any property of the event level_completed | Count | All values \[no filter\] |
 | Casual Puzzle | Levels completed in first try | Num_try property of the event level_completed | Count | Value = 1 |
-| Casual Puzzle | Color Boosters Used | Color_booster_used property of the event level_completed | Sum | NA |
-| Casual Puzzle | Bomb Boosters Used | Bomb_booster_used property of the event level_completed | Sum | NA |
-| Casual Puzzle | Cards collected | Total_cards property of the event cards_collected | Sum | NA |
+| Casual Puzzle | Color Boosters Used | Color_booster_used property of the event level_completed | Sum | N/A |
+| Casual Puzzle | Bomb Boosters Used | Bomb_booster_used property of the event level_completed | Sum | N/A |
+| Casual Puzzle | Cards collected | Total_cards property of the event cards_collected | Sum | N/A |
 | Arcade Racing | Races won | Rank property of the event race_completed | Count | Value = 1 |
 | Arcade Racing | Fastest race | race_time property of the event race_completed | Min | N/A |
-| Arcade Racing | NOS used | NOS_used property of the event race_completed | Sum | NA |
+| Arcade Racing | NOS used | NOS_used property of the event race_completed | Sum | N/A |
 | Arcade Racing | Races finished with Mustang | Car_type property of the event race_completed | Count | Value = "Mustang" |
 | Arcade Racing | Car upgrades | Any property of the event car_upgraded | Count | All values \[no filter\] |
 | Third person Battle Royale Shooter | Matches Won | Any property of the event match_completed | Count | Match_result = TRUE |
@@ -160,15 +192,18 @@ You will need to configure your repetitive and progression stats by defining the
 
 ## Integration details
 
-The API endpoints and SDK are available for early feedback and will be Generally Available (GA) starting August 2026. See [timeline](https://developer.android.com/games/pgs/gamestats#timeline)
-
-This section shows how to construct events and send them in both client side and server side integrations.
+This section shows how to construct events and send them in both client side and
+server side integrations.
 
 ### When should you send data
 
-**Player Events** represent in-game actions related to game loop completions or specific in-game moments. Submit these events as soon as they occur. For example, submit the game loop completion event as soon as the loop completes.
+**Player Events** represent in-game actions related to game loop completions
+or specific in-game moments. Submit these events as soon as they occur. For
+example, submit the game loop completion event as soon as the loop completes.
 
-**`progressUpdate` Event** represents the current progress level of a player. The data for progression stat should be sent using this event in the following situations:
+**`progressUpdate` Event** represents the current progress level of a player.
+The data for progression stat should be sent using this event in the following
+situations:
 
 1. Whenever there is an update to current progress send the latest value immediately
 2. Whenever a player launches the game so as to ensure the presence of this stat for a player at all times.
@@ -179,11 +214,13 @@ There are two paths of integration - client and server to server.
 
 ### Server to server integration
 
-A public API endpoint lets you send events in the request payload using the following configurations:
+A public API endpoint lets you send events in the request payload using the
+following configurations:
 
 ##### HTTP request
 
-`POST https://games.googleapis.com/games/v1/players/{playerId}/gameStats: batchRecordEvents`
+`POST https://games.googleapis.com/games/v1/players/{playerId}/gameStats:
+batchRecordEvents`
 
 ##### Path parameters
 
@@ -193,7 +230,9 @@ A public API endpoint lets you send events in the request payload using the foll
 
 #### Authorization and Authentication
 
-Server-to-server API calls follow standard [Server-side access to Play Games Services](https://developer.android.com/games/pgs/android/server-access) guidelines using OAuth 2.0. Requests must include a Bearer token authorized with the `https://www.googleapis.com/auth/games` scope.
+Server-to-server API calls follow standard [Server-side access to Play Games
+Services](https://developer.android.com/games/pgs/android/server-access) guidelines using OAuth 2.0. Requests must include a Bearer token
+authorized with the `https://www.googleapis.com/auth/games` scope.
 
 ##### Events: Request Body
 
@@ -232,9 +271,7 @@ See [`BatchRecordEventsRequest`](https://developer.android.com/games/services/we
   "eventName": string,
   "eventProperties": {
     // keys (e.g., "matchId", "score")
-    "
-    "
-    : {
+    "": {
        object (PropertyValue)
     }
   },
@@ -283,9 +320,7 @@ See [`BatchRecordEventsRequest`](https://developer.android.com/games/services/we
   "eventId": string,
   "eventName": "progressUpdate",
   "eventProperties": {
-    "
-    "
-    : {
+    "": {
        object (PropertyValue)
 // Must have at least one property "currentProgress"  of  type  INT  or  STRING
     }
@@ -357,7 +392,8 @@ If successful, returns an HTTP 200 OK status with an empty JSON object.
 
 ### Client implementations
 
-To learn about the Game Stats client implementation for your platform, see the following resources:
+To learn about the Game Stats client implementation for your platform, see the
+following resources:
 
 - [Android](https://developer.android.com/games/pgs/android/gamestats)
 - [Unity](https://developer.android.com/games/pgs/unity/gamestats)
@@ -367,4 +403,4 @@ To learn about the Game Stats client implementation for your platform, see the f
 
 | **Date** | **Game Stats API Integration** | **Game Stats configuration** |
 |---|---|---|
-| September 2026 | N/A | - Players start seeing game stats on their Gamer profile. - Test the draft stats configuration for test accounts. |
+| September 2026 | N/A | Players start seeing game stats on their Gamer profile. |
