@@ -1,0 +1,45 @@
+diff --git a/docs/develop/background-work/background-tasks/broadcasts.md b/docs/develop/background-work/background-tasks/broadcasts.md
+index ea28f705..f09014fb 100644
+--- a/docs/develop/background-work/background-tasks/broadcasts.md
++++ b/docs/develop/background-work/background-tasks/broadcasts.md
+@@ -565,6 +565,40 @@ request the permission as follows:
+ 
+     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+ 
++## Avoid broadcasts within the same process
++
++Broadcasts are designed as an interprocess communication (IPC) mechanism for
++sending messages across different apps or between the system and apps.
++Sending a broadcast from a process to a receiver running within the same
++process is very inefficient, creates unnecessary system overhead, and is
++strongly discouraged.
++
++Two common scenarios where apps send broadcasts to themselves include:
++
++- **Communicating between components in the same process** : For example,
++  passing events or data between activities, fragments, services, or
++  background threads. Instead of sending broadcasts, use standard in-process
++  communication mechanisms such as the [observer pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) or reactive
++  streams:
++
++  - **Kotlin Flows ([`SharedFlow` and `StateFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow))**: A modern, idiomatic solution in Kotlin for emitting and observing event streams or state updates across coroutines and components in your app.
++  - **Shared [`ViewModel`](https://developer.android.com/topic/libraries/architecture/viewmodel)**: Facilitates data and event sharing between different UI components (such as fragments or composables) within the same activity.
++  - **Callbacks and listeners**: Standard interface callbacks or function references passed directly between components or registered with a central repository or controller.
++- **Handling system events, jobs, or alarms** : For example, receiving a
++  scheduled job, alarm, or system callback, and then sending a broadcast to
++  trigger the actual work. Instead of sending a broadcast, complete the work
++  directly within that job (such as a [`JobService`](https://developer.android.com/reference/android/app/job/JobService) or
++  [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent) worker), alarm handler, or system callback component, or
++  delegate directly to your app's business logic classes.
++
++If the system detects a self-broadcast, it may try to optimize delivery by
++redirecting it within the process. However, this is still less efficient than
++the in-process communication alternatives described earlier, and you should
++use those alternatives instead.
++
++For more information on designing communication between app components, see
++the [Guide to app architecture](https://developer.android.com/topic/architecture).
++
+ ## Security considerations
+ 
+ Here are some security considerations for sending and receiving broadcasts:

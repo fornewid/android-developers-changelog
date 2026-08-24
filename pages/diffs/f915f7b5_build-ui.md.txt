@@ -1,0 +1,24 @@
+diff --git a/docs/develop/ui/compose/glance/build-ui.md b/docs/develop/ui/compose/glance/build-ui.md
+index dd3170e6..609f9288 100644
+--- a/docs/develop/ui/compose/glance/build-ui.md
++++ b/docs/develop/ui/compose/glance/build-ui.md
+@@ -139,7 +139,9 @@ shows how to specify an `itemId`:
+ 
+ 
+ ```kotlin
+-items(items = peopleList, itemId = { person -> person.id.hashCode().toLong() }) { person ->
++items(
++    items = peopleList,
++    itemId = { person -> person.id.hashCode().toLong() }) { person ->
+     Text(person.name)
+ }
+ ```
+@@ -566,7 +568,7 @@ RadioButton(
+         uncheckedColor = ColorProvider(day = Color.Red, night = Color.Blue)
+     ),
+ 
+-)
++    )
+ ```
+ 
+ <br />

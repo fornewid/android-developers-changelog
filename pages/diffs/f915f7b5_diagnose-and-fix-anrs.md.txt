@@ -1,0 +1,221 @@
+diff --git a/docs/topic/performance/anrs/diagnose-and-fix-anrs.md b/docs/topic/performance/anrs/diagnose-and-fix-anrs.md
+index 2c9b5707..1a4b5ecb 100644
+--- a/docs/topic/performance/anrs/diagnose-and-fix-anrs.md
++++ b/docs/topic/performance/anrs/diagnose-and-fix-anrs.md
+@@ -65,9 +65,9 @@ Console](https://developer.android.com/distribute/console) or [Firebase Crashlyt
+ frames suspected of causing the ANR.
+ 
+ > [!NOTE]
+-> **Note:** Ignore input dispatch ANR clusters that say "nativePollOnce" or "main thread idle." These usually correspond to ANRs where the stack dump was taken too late. They're generally not actionable so can be ignored. In general, the actual ANR issues will be present in other clusters, so real issues are not being hidden. See [nativePollOnce](https://developer.android.com/topic/performance/anrs/diagnose-and-fix-anrs#nativepollonce) for more details.
++> **Note:** Ignore input dispatch ANR clusters that say "nativePollOnce" or "main thread idle." These usually correspond to ANRs where the stack dump was taken too late or system resource constraints. They're generally not actionable so can be ignored. In general, the actual ANR issues will be present in other clusters, so real issues aren't being hidden. See [nativePollOnce](https://developer.android.com/topic/performance/anrs/diagnose-and-fix-anrs#nativepollonce) for more details.
+ 
+-The following flow chart shows how to determine the cause of an input timeout
++The following flowchart shows how to determine the cause of an input timeout
+ dispatch ANR.
+ ![](https://developer.android.com/static/topic/performance/images/debug-input-dispatch-anr.png) **Figure 1.** How to debug an input dispatch ANR.
+ 
+@@ -199,7 +199,7 @@ the receiver runs on, and then the specific code that is missing or running
+ slowly.
+ 
+ > [!NOTE]
+-> **Note:** Don't ignore broadcast receiver ANR clusters that say "nativePollOnce" or "main thread idle." The stacks in the ANR signature in Google Play Console and Firebase Crashlytics are usually built from the main thread; however, the broadcast receiver might run on a non-main thread or call `goAsync()`. So, these clusters are still actionable by looking at the relevant threads in the stack dump.
++> **Note:** Don't ignore broadcast receiver ANR clusters that say "nativePollOnce" or "main thread idle." The stacks in the ANR signature in Google Play Console and Firebase Crashlytics are usually built from the main thread; however, the broadcast receiver might not be started due to sync barrier leak, run on a non-main thread or call `goAsync()`. So, these clusters are still actionable by looking at the relevant threads in the stack dump or by checking your codebase for view threading violations. See [nativePollOnce](https://developer.android.com/topic/performance/anrs/diagnose-and-fix-anrs#nativepollonce) for more details.
+ 
+ The following flow chart shows how to determine the cause of a broadcast
+ receiver ANR.
+@@ -311,10 +311,10 @@ Crashlytics, you can often determine the cause of the ANR based on what the main
+ thread is doing.
+ 
+ > [!NOTE]
+-> **Note:** Ignore execute service ANR clusters that say "nativePollOnce" or "main thread idle." These usually correspond to ANRs where the stack dump is taken too late, and are generally not actionable. The actual ANR issues are usually present in other clusters, so real issues aren't being hidden. See [nativePollOnce](https://developer.android.com/topic/performance/anrs/diagnose-and-fix-anrs#nativepollonce) for more details.
++> **Note:** Don't ignore execute service ANR clusters that say "nativePollOnce" or "main thread idle." These usually correspond to ANRs where the stack dump was taken too late or system resource constraints; however, the service might not be started due to sync barrier leak. So, these clusters are still actionable by checking your codebase for view threading violations. See [nativePollOnce](https://developer.android.com/topic/performance/anrs/diagnose-and-fix-anrs#nativepollonce) for more details.
+ 
+ The following flow chart describes how to debug an execute service ANR.
+-![](https://developer.android.com/static/topic/performance/images/debug-execute-service-anr.png) **Figure 6.** How to debug an execute service ANR.
++![](https://developer.android.com/static/topic/performance/images/debug-execute-service-anr-updated.png) **Figure 6.** How to debug an execute service ANR.
+ 
+ If you've determined that the execute service ANR is actionable, follow these
+ steps to help resolve the issue:
+@@ -451,19 +451,135 @@ check what's happening on the main thread. If it's an issue with
+ `JobService.setNotification()`, make sure to call it as quickly as possible.
+ Don't do a lot of work before providing the notification.
+ 
+-## Mystery ANRs
++## View Threading Violation
+ 
+-Sometimes it's unclear why an ANR is occurring, or there is insufficient
+-information to debug it in the cluster signature and ANR report. In these cases,
+-there are still some steps you can take to determine whether the ANR is
+-actionable.
+ 
+-### Message queue idle or nativePollOnce
++Try the Compose way Jetpack Compose is the recommended UI toolkit for Android. [Build UI in Compose →](https://developer.android.com/jetpack/compose) ![](https://developer.android.com/static/images/android-compose-ui-logo.png)
+ 
+-If you see the frame `android.os.MessageQueue.nativePollOnce` in the
+-stacks, it often indicates that the suspected unresponsive thread was actually
+-idle and waiting for looper messages. In Google Play Console, the ANR details
+-look like this:
++<br />
++
++If your app modifies a view on a background thread, it can trigger a race
++condition in the view hierarchy's internal state. This violation can block the
++main (UI) thread from executing any synchronous messages, leading to critical
++stability issues:
++
++- **Silent UI Freezes**: The app's UI stops responding to user input.
++- **Crashes** : The app may crash with an `illegalStateException`.
++- **ANRs**: The system may trigger an ANR timeout.
++
++This threading violation is one of the root causes behind ANR stack traces where
++the main thread appears idle (e.g. captured in "nativePollOnce" or "main thread
++idle").
++
++### Sync Barrier Leak
++
++Views can be invalidated either indirectly by mutating their state (for example,
++calling `TextView.setText`, `View.setVisibility`) or directly by calling
++`View.invalidate` or `View.requestLayout`. When a view is invalidated,
++`ViewRootImpl` schedules a traversal to perform measurement, layout, and drawing
++to update the UI state.
++
++1. **Scheduling Traversals** : `ViewRootImpl` schedules a traversal---a layout and drawing pass---by posting a synchronization barrier to the UI thread's `MessageQueue`. This barrier pauses normal message processing so that the UI layout can take priority.
++2. **Race Condition** : When multiple threads attempt to invalidate a view concurrently, they race to schedule this traversal. Both threads may successfully insert a **synchronization barrier**, but the framework only stores the token for one of them.
++3. **UI Freeze**: When the traversal executes, it removes only the single saved barrier. The secondary, "leaked" barriers remain in the queue indefinitely, permanently blocking the UI thread from processing any synchronous messages.
++
++As a result, the UI freezes. Since the `MessageQueue` cannot process any
++synchronous messages past the leaked barriers, the main thread enters an idle
++state. This issue typically surfaces as an ANR with `nativePollOnce` in the
++stack trace.
++
++To avoid view threading violations, follow these best practices:
++
++- Only interact with `View` objects---including reading properties like `width` or `height` or setting properties like a `TextView's text`---on the thread where you created the view hierarchy. This is almost always the main or UI thread.
++- If you can't guarantee that you're running on the UI thread when accessing views, assume it's unsafe to do so. For example, if you're using `Coroutines` for background work, you must switch to the main dispatcher before manipulating `View` objects.
++
++
++```kotlin
++lifecycleOwner.lifecycleScope.launch(Dispatchers.IO) {
++    val data = myRepository.getData()
++    withContext(Dispatchers.Main) { // Switch context to Main
++        myTextView.text = data.title
++    }
++}
++```
++
++<br />
++
++To help you follow best practices, Android offers several ways to access the UI
++thread from other threads:
++
++- [`ContextCompat#getMainExecutor(android.content.Context)`](https://developer.android.com/reference/androidx/core/content/ContextCompat#getMainExecutor(android.content.Context))
++- [`View.post(Runnable)`](https://developer.android.com/reference/android/view/View#post(java.lang.Runnable))
++- [`Activity.runOnUiThread(Runnable)`](https://developer.android.com/reference/android/app/Activity#runOnUiThread(java.lang.Runnable))
++
++Popular image loaders, reactive extensions frameworks, event bus libraries and
++other threading solutions typically offer ways to observe certain events on the
++main thread. This is useful for observers and event listeners that need to get
++and set the state of views.
++
++> [!NOTE]
++> **Note:** This synchronization barrier leak is fixed in Android 17, meaning apps with view threading violations will no longer cause a leaked sync barrier. However, these apps will still incur the same symptoms on Android 16 and lower. Furthermore, modifying views outside the main thread can lead to other undocumented side effects in your app logic. We strongly recommend testing your app and ensuring all view interactions are strictly confined to the UI thread.
++
++### How to Debug
++
++Android 17 introduces new tools to help you identify, trace, and resolve view
++threading violations during development.
++
++**1. Compatibility framework tools**
++
++Compatibility framework tools let app developers turn behavior changes on and
++off individually using [developer options or ADB](https://developer.android.com/guide/app-compatibility/test-debug). You can toggle view
++threading violation behavior changes using the following steps:
++
++1. Install a debuggable version of your app on a device running Android 17 or higher.
++2. Open your device's Settings app and navigate to **System \> Advanced \> Developer options \> App Compatibility Changes.**
++3. Select your app from the list.
++4. From the list of changes, find and toggle on the `ENFORCE_THREAD_CHECKS_ON_VIEW_ROOT_IMPL_APIS` switch.
++
++You can also toggle the flag on or off using ADB:
++
++    $ adb shell am compat enable ENFORCE_THREAD_CHECKS_ON_VIEW_ROOT_IMPL_APIS <your.package.name>
++    $ adb shell am compat disable ENFORCE_THREAD_CHECKS_ON_VIEW_ROOT_IMPL_APIS <your.package.name>
++
++Enabling this flag forces the app to throw an exception and crash whenever a
++View API is called from the wrong thread, helping you catch and fix view
++threading violation issues.
++
++**2. CalledFromWrongThreadListener API**
++
++You can also implement the global
++[`View#registerCalledFromWrongThreadListener`](https://developer.android.com/reference/kotlin/android/view/View#registerCalledFromWrongThreadListener(android.view.View.CalledFromWrongThreadListener)) API to detect improper thread
++access programmatically.
++
++- **Telemetry \& Tracking**: This listener allows your app to receive callbacks when a View API is invoked from an incorrect thread, making it easier to log telemetry and track down bugs.
++- **Inline Execution**: The listener is called inline, allowing you to capture and inspect the exact stack trace at the moment the violation occurs.
++
++    android {
++       //...
++       compileSdk = 37
++    }
++
++
++```kotlin
++val listener = object : View.CalledFromWrongThreadListener {
++    override fun onCalledFromWrongThread() {
++        // Handle the issue, e.g. crash if this is a dev build, or log an event
++        // e.g. Log.d(TAG, "CalledFromWrongThread: ${Exception().stackTraceToString()}")
++        // Unregister the listener to avoid redundant notifications for the same issue
++        View.unregisterCalledFromWrongThreadListener(this)
++    }
++}
++View.registerCalledFromWrongThreadListener(listener)
++```
++
++<br />
++
++## nativePollOnce
++
++If you see the frame "nativePollOnce" or "message queue idle" in the ANR stacks,
++it often indicates that the suspected unresponsive thread was actually idle and
++waiting for looper messages. In Google Play Console, the ANR details look like
++this:
+ 
+     Native method - android.os.MessageQueue.nativePollOnce
+     Executing service com.example.app/com.example.app.MyService
+@@ -485,14 +601,30 @@ For example, if the main thread is idle the stacks look like this:
+ 
+ There are several reasons why the suspected unresponsive thread can be idle:
+ 
+-- **Late stack dump**. The thread recovered during the short period between the ANR triggering and the stacks being dumped. The latency in Pixels on Android 13 is around 100ms, but can exceed 1s. The latency in Pixels on Android 14 is usually under 10ms.
+-- **Thread misattribution** . The thread used to build the ANR signature was not the actual unresponsive thread that caused the ANR. In this case, try to determine if the ANR is one of the following types:
+-  - [Broadcast receiver timeout](https://developer.android.com/topic/performance/anrs/diagnose-and-fix-anrs#broadcast-receiver-anr)
+-  - [Content provider not responding](https://developer.android.com/topic/performance/anrs/diagnose-and-fix-anrs#content-provider-anr)
+-  - [No focused window](https://developer.android.com/topic/performance/anrs/diagnose-and-fix-anrs#no-focused-window-anr)
+ - **System-wide issue**. The process wasn't scheduled due to heavy system load or an issue in the system server.
++- **Late stack dump**. The thread recovered during the short period between the ANR triggering and the stacks being dumped. The latency in Pixels on Android 13 is around 100ms, but can exceed 1s. The latency in Pixels on Android 14 is usually under 10ms.
++- **Thread misattribution.** The thread used to build the ANR signature wasn't the actual unresponsive thread that caused the ANR.
++- **[View Threading Violation](https://developer.android.com/topic/performance/anrs/diagnose-and-fix-anrs#view-threading-violation).** If your app modifies a view on a background thread, it can trigger a race condition in view's internals that blocks UI thread tasks from running
++
++Because the underlying triggers of a "nativePollOnce" ANR vary by ANR type,
++diagnosing the specific ANR category can help identify actionable steps to
++resolve the issue within your app.
++
++| Category | Cause | Suggested fix |
++|---|---|---|
++| Input dispatch timeout | System-wide issue Late stack dump | No action required. |
++| No focused window | System-wide issue Late stack dump View Threading Violation | Check the codebase for view threading violations. |
++| Broadcast receiver timeout | Late stack dump System-wide issue Thread misattribution View Threading Violation | Inspect the relevant threads in the stack dump. Check the codebase for view threading violations. |
++| Execute Service timeout | Late stack dump System-wide issue View Threading Violation | Check the codebase for view threading violations. |
++| Content provider not responding | Late stack dump System-wide issue Thread misattribution | Inspect the relevant threads in the stack dump. |
++
++Here are the recommended steps to analyze nativePollOnce ANRs.
++
++1. **Heavy system load:** Assess overall device resource pressure like system-wide CPU, memory or I/O starvation as the primary cause of the unresponsiveness.
++2. **Thread misattribution:** Audit worker and binder threads for deadlocks, lock contention affecting the main thread or hanging background threads processing asynchronous components (e.g., `goAsync()`).
++3. **View Threading Violations:** Scan background threads for unlawful UI view hierarchy modifications, which can orphan a sync barrier in the MessageQueue and permanently block all synchronous messages.
+ 
+-### No stack frames
++## No stack frames
+ 
+ Some ANR reports don't include the stacks with the ANR, which means that the
+ stack dumping failed when generating the ANR report. There are a couple of

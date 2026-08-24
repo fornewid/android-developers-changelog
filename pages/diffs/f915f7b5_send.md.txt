@@ -1,0 +1,47 @@
+diff --git a/docs/develop/ui/compose/sharing/send.md b/docs/develop/ui/compose/sharing/send.md
+index 79bbdb4f..f19d6fa1 100644
+--- a/docs/develop/ui/compose/sharing/send.md
++++ b/docs/develop/ui/compose/sharing/send.md
+@@ -344,41 +344,8 @@ override fun onReceive(context: Context?, intent: Intent) {
+     } ?: Log.i(TAG, "chooserResult is null")
+ }
+ ```
+-See the [platform share sample](https://github.com/android/platform-samples/tree/main/samples/user-interface/share) for more information:
+ 
+-### Add custom actions to the sharesheet
+-
+-On Android 14 (API Level 34) and later, apps can add custom actions to the Android Sharesheet.
+-Create a `https://developer.android.com/reference/android/service/chooser/ChooserAction`
+-with
+-`https://developer.android.com/reference/android/service/chooser/ChooserAction.Builder`.
+-You can specify a `PendingIntent` as the action invoked when the icon is clicked. Create
+-an array containing all of your custom actions and specify it as
+-`https://developer.android.com/reference/android/content/Intent#EXTRA_CHOOSER_CUSTOM_ACTIONS`
+-of the share `Intent`.
+-
+-```kotlin
+-fun customActions(context: Context, text: String) {
+-    val sendIntent = Intent(ACTION_SEND)
+-        .setType("text/plain")
+-        .putExtra(Intent.EXTRA_TEXT, text)
+-    val shareIntent = Intent.createChooser(sendIntent, null)
+-    val customActions = arrayOf(
+-        ChooserAction.Builder(
+-            Icon.createWithResource(context, R.drawable.ic_logo),
+-            "Custom",
+-            PendingIntent.getBroadcast(
+-                context,
+-                1,
+-                Intent(Intent.ACTION_VIEW),
+-                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_CANCEL_CURRENT
+-            )
+-        ).build()
+-    )
+-    shareIntent.putExtra(Intent.EXTRA_CHOOSER_CUSTOM_ACTIONS, customActions)
+-    context.startActivity(shareIntent)
+-}
+-```
++See the [platform share sample](https://github.com/android/platform-samples/tree/main/samples/user-interface/share) for more information.
+ 
+ ## Use the Android intent resolver
+ 
