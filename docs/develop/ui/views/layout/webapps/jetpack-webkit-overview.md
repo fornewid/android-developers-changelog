@@ -29,7 +29,7 @@ functionality:
 - **Enables modern authentication** : WebView can seamlessly handle modern web
   authentication standards like [WebAuthn](https://webauthn.guide), enabling passkey-based sign-ins.
   The `androidx.webkit` library gives you full control over this integration
-  using the [`WebSettingsCompat.setWebAuthenticationSupport()`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#setWebAuthenticationSupport(android.webkit.WebSettings,int)) method, which
+  using the [`WebSettingsCompat.setWebAuthenticationSupport`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#setWebAuthenticationSupport(android.webkit.WebSettings,int)) method, which
   you can use to configure the level of support your app requires.
 
 - **Improves performance** : Fine-tune WebView's performance using APIs such
@@ -40,16 +40,20 @@ functionality:
 
 - **Increases stability** : Recover stalled or unresponsive renderer processes
   without crashing. For more information, see
-  [`WebViewRenderProcess#terminate()`](https://developer.android.com/reference/androidx/webkit/WebViewRenderProcess#terminate()).
+  [`WebViewRenderProcess#terminate`](https://developer.android.com/reference/androidx/webkit/WebViewRenderProcess#terminate()).
 
 - **Offers granular control over browsing data** : To delete browsing data stored
   by WebView for specific origins, use the [`WebStorageCompat`](https://developer.android.com/reference/kotlin/androidx/webkit/WebStorageCompat) class.
 
-- **Improves state and memory efficiency** : Safely serialize navigation state
-  within the 1MB transaction budget and avoid `TransactionTooLargeException`
-  crashes using size-limited state serialization with
-  [`WebViewCompat.saveState()`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#saveState(android.webkit.WebView,android.os.Bundle,int)). For more information, see [Manage
-  WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state).
+- **Provides enhanced page navigation** : Replace `WebView.loadUrl` with
+  `WebViewCompat.navigate` for fine-grained navigation control, history entry
+  replacement, saved state header support, and correlated lifecycle tracking
+  using `NavigationListener`. For more information, see [Enhanced page
+  navigation with WebViewCompat.navigate](https://developer.android.com/develop/ui/views/layout/webapps/navigate).
+
+- **Optimizes state management** : Protect against `TransactionTooLargeException`
+  by setting maximum byte limits during state serialization. For more
+  information, see [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state).
 
 ## Understand the components
 
@@ -210,6 +214,36 @@ entries, protecting against transaction overflows.
 
 For more information, see [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state).
 
+### Navigate pages and track lifecycle
+
+To navigate web pages with support for history entry replacement, saved state
+header support, and correlated lifecycle callbacks, use `WebViewCompat.navigate`
+instead of `WebView.loadUrl`.
+
+**Without Jetpack WebKit**
+
+Uses `WebView.loadUrl`, which doesn't support history entry replacement or
+correlated lifecycle callback tracking.
+
+    webView.loadUrl("https://www.example.com")
+
+**With Jetpack WebKit**
+
+Uses `WebViewCompat.navigate` with `NavigationParameters` to replace history
+entries, preserve custom headers in saved state, and track navigation states.
+
+    if (WebViewFeature.isFeatureSupported(WebViewFeature.WEBVIEW_NAVIGATE_EXPERIMENTAL_V1)) {
+      val params = NavigationParameters.Builder()
+          .setShouldReplaceCurrentEntry(true)
+          .build()
+      val navigation = WebViewCompat.navigate(webView, "https://www.example.com", params)
+    } else {
+      webView.loadUrl("https://www.example.com")
+    }
+
+For more information about navigation tracking and parameter configuration, see
+[Enhanced page navigation with WebViewCompat.navigate](https://developer.android.com/develop/ui/views/layout/webapps/navigate).
+
 ## Integrate Jetpack Webkit into your code
 
 Using Jetpack Webkit augments the capabilities of the standard WebView class,
@@ -322,5 +356,5 @@ We recommend the following pattern for using a modern WebView API:
 
 This pattern helps ensure the application is robust. Because the feature check
 runs first, the application doesn't crash if the feature isn't available. The
-performance overhead of the [`WebViewFeature#isFeatureSupported()`](https://developer.android.com/reference/androidx/webkit/WebViewFeature#isFeatureSupported(java.lang.String)) check is
+performance overhead of the [`WebViewFeature#isFeatureSupported`](https://developer.android.com/reference/androidx/webkit/WebViewFeature#isFeatureSupported(java.lang.String)) check is
 negligible.

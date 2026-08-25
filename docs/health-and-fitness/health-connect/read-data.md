@@ -276,6 +276,9 @@ However, be careful to avoid rate-limiting concerns.
 It is recommended to use `pageToken` for reading records to retrieve all
 available data from the requested time period.
 
+> [!NOTE]
+> **Note:** Depending on the specific system or Health Connect APK version (such as on Android 12 and 13 or across specific IPC serialization boundaries), `ReadRecordsResponse.pageToken` can return an empty string `""` instead of `null` when pagination is complete. To reliably check whether pagination is complete, use `isNullOrEmpty()` rather than checking only for `null`.
+
 The following example shows how to read all records until all page tokens have
 been exhausted:
 

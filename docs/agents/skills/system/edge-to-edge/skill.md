@@ -172,7 +172,7 @@ applied twice, once with innerPadding, which contains IME insets from the passed
 
 ```kotlin
 // WRONG
-Scaffold( contentWindowInsets = WindowInsets.safeDrawing ) { innerPadding ->
+Scaffold(contentWindowInsets = WindowInsets.safeDrawing) { innerPadding ->
     Column(
         modifier = Modifier
             .padding(innerPadding)

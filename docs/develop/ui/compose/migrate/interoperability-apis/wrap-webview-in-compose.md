@@ -90,7 +90,8 @@ fun PersistentWebView(url: String) {
 <br />
 
 > [!CAUTION]
-> **Caution:** While this approach persists navigation history and scroll state, the DOM state is lost when the `Activity` is recreated.
+> **Caution:** While this approach persists navigation history and scroll state, the DOM state is lost when the `Activity` is recreated. Because `WebView` runs a Chromium-based native engine across multiple processes, failing to clean up and destroy `WebView` instances when leaving the composition causes cumulative `Activity` and native memory leaks. For more information, see [Manage and
+> diagnose WebView memory](https://developer.android.com/develop/ui/views/layout/webapps/manage-webview-memory).
 
 ## Handle back navigation
 
@@ -402,3 +403,9 @@ If you prefer to avoid embedding `WebView`, Android provides other options for
 displaying web content, like [Chrome Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/guide-get-started). See [Use web content
 within your Android app](https://developer.android.com/develop/ui/views/layout/webapps) to understand how to choose the correct approach
 for your use cases (like browsing or authentication).
+
+## Additional resources
+
+- [Manage and diagnose WebView memory](https://developer.android.com/develop/ui/views/layout/webapps/manage-webview-memory)
+- [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state)
+- [Debug web apps](https://developer.android.com/develop/ui/views/layout/webapps/debugging)

@@ -36,6 +36,25 @@ pillars tailored to these engine behaviors:
 
 For more information, see [Unity memory optimization](https://developer.android.com/games/engines/unity/unity-reduce-memory).
 
+## Reduce memory in Unreal Engine
+
+In Unreal Engine, high-fidelity rendering pipelines and complex object
+dependency graphs can significantly drive up both anonymous RSS and file-backed
+memory pressure. In particular, relying on hard references and deep Blueprint
+inheritance hierarchies forces unused connected assets to be loaded into memory.
+Furthermore, excessive shader permutations, unoptimized texture streaming pools,
+and uncompressed ELF relocation tables contribute to high baseline memory
+footprints, increasing the risk of low memory killer (LMK) terminations.
+
+Therefore, Unreal Engine memory optimization must be approached through three
+core pillars tailored to these engine behaviors:
+
+- Decouple data and logic, replacing hard or strong references with soft or weak references.
+- Strip unused mobile lighting features and permutation options to minimize pipeline state objects (PSOs) and redundant render targets, while applying ASTC compression and customizing texture streaming pools with device profiles.
+- Enable RELR and APS Relocation Table Compression to shrink the ELF binary size and reduce the runtime physical memory footprint.
+
+For more information, see [Unreal memory optimization](https://developer.android.com/games/engines/unreal/unreal-reduce-memory).
+
 ## Multi-process optimization
 
 Memory usage of cached processes is excluded from memory limits accounting
@@ -43,8 +62,8 @@ because it has no impact on active apps. Running the service in a separate
 isolated process helps the main process transition to a cached state as quickly
 as possible, thereby improving the health of your game.
 
-For more information, see [how to track process state and memory](https://developer.android.com/topic/performance/memory#track), [how to
-isolate a service process with Unity](https://developer.android.com/games/engines/unity/unity-perceptible-service), and [how to isolate a service process
+For more information, see [How to track process state and memory](https://developer.android.com/topic/performance/memory#track), [How to
+isolate a service process with Unity](https://developer.android.com/games/engines/unity/unity-perceptible-service), and [How to isolate a service process
 with Unreal](https://developer.android.com/games/engines/unreal/unreal-perceptible-service).
 
 ## Reduce memory usage in user-perceived services

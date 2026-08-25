@@ -50,10 +50,11 @@ and gain access to privileged data or features.
 
 ### java.security.SecureRandom
 
-**Recommended** for security uses. If the Linux kernel version is 5.17+ *or*
-blocking the thread is acceptable, wait for enough entropy to accumulate before
-you generate the random numbers (i.e. use `/dev/random`). To do so, call
-`getInstanceStrong()`:
+**Recommended** for security uses. On Android,
+`SecureRandom.getInstanceStrong()` is equivalent to obtaining a
+`SHA1PRNG` from `AndroidOpenSSL`. It doesn't map
+to a blocking `/dev/random` implementation. To use it,
+call `getInstanceStrong()`:
 
 ### Kotlin
 

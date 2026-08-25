@@ -383,7 +383,9 @@ situations.
 > [!WARNING]
 > **Warning:** To maintain app stability, don't change the renderer priority policy for a `WebView` object unless you also use the [Termination Handling API](https://developer.android.com/develop/ui/views/layout/webapps/managing-webview#termination-handle) to specify how the `WebView` reacts when its associated renderer goes away.
 
-To learn more about how the system handles low-memory situations, see
+To learn more about diagnosing and optimizing your app's memory footprint when using web content, see
+[Manage and diagnose WebView memory](https://developer.android.com/develop/ui/views/layout/webapps/manage-webview-memory).
+To learn more about how the system handles low-memory situations across processes, see
 [Processes and app
 lifecycle](https://developer.android.com/guide/topics/processes/process-lifecycle).
 

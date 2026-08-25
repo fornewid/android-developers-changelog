@@ -34,6 +34,11 @@ subclasses for the best results.
 Using `https://developer.android.com/reference/android/widget/RemoteViews`
 strips notifications of custom layouts, and the wearable only displays the text and icons.
 
+**Note:**
+Full-screen intent notifications (`https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setFullScreenIntent(android.app.PendingIntent,boolean)`)
+and the `https://developer.android.com/reference/android/Manifest.permission#USE_FULL_SCREEN_INTENT`
+permission are not supported on Wear OS.
+
 ## Recommended notifications for wearables
 
 

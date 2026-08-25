@@ -6,6 +6,19 @@ source: md.txt
 
 This page describes how to create, sign in with, and delete a restore key.
 
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/identity/restore-credentials)
+
+### Restore Credentials
+
+Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to implement Restore Credentials backup and restore flows using Credential Manager. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add --skill restore-credentials
+
+<br />
+
 ## Version compatibility
 
 Credential Manager's Restore Credentials works on devices running Android 9 and

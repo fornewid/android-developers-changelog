@@ -24,9 +24,9 @@ The benefits of the Restore Credentials feature include:
 
 - **Seamless user experience**: Users can begin using the app immediately on their new device without needing to manually sign in.
 - **Immediate engagement**: You can engage users with notifications or other prompts as soon as they start using their new device.
-- **Support for multiple authentication mechanisms** : It works with all the authentication mechanisms supported by Credential Manager, including:
+- **Support for multiple authentication mechanisms** : It works with multiple authentication mechanisms, including:
   - [Passkeys](https://developer.android.com/identity/passkeys)
-  - Passwords
+  - [Passwords](https://developer.android.com/identity/passwords)
   - [Sign in with Google](https://developer.android.com/identity/sign-in/credential-manager-siwg)
 
 ## Process overview

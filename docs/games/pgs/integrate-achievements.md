@@ -13,8 +13,7 @@ import, and manage them.
 
 - Review the [design high quality achievements](https://developer.android.com/games/pgs/achievements#design-achievements) guidelines.
 
-- Review the terminology in
-  [achievements basics](https://developer.android.com/games/pgs/achievements#achievements-basics).
+- Review the terminology in [achievements basics](https://developer.android.com/games/pgs/achievements#achievements-basics).
 
 ### Create or import new achievements
 
@@ -339,7 +338,7 @@ Here's how to find quick statistics for individual achievements:
 - Go to **Settings\> Game projects**.
 - Select a game.
 - On the left-hand menu, click **Achievements**.
-- On your **Achievements** page, you can find statistics to understand whether your players are unlocking the achievements. For those whose achievements are not hidden, you can see what percentage are unlocking them. For early stage achievements, the unlock percentage is typically closer to 100%.
+- On your **Achievements** page, you can find statistics to understand whether your players are unlocking the achievements.
 
 You can also track time series performance of achievements in the
 **Grow users \> Play Games Services \> Game statistics** page.

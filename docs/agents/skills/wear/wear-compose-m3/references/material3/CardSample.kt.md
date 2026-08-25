@@ -89,7 +89,7 @@ fun NonClickableCardSample() {
 
 @Sampled
 @Composable
-fun CardWithOnLongClickS>ample(onLongClickHandler: () - Unit) {
+fun CardWithOnLongClickSample(onLongClickHandler: () -> Unit) {
     Card(
         onClick = { /* Do something */ },
         onLongClick = onLongClickHandler,
