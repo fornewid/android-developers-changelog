@@ -1,0 +1,35 @@
+diff --git a/docs/blog/latest/2.md b/docs/blog/latest/2.md
+index bbbfb504..f8ff3126 100644
+--- a/docs/blog/latest/2.md
++++ b/docs/blog/latest/2.md
+@@ -116,6 +116,13 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+   - [#Game engine development](https://developer.android.com/blog/topics/game-engine-development)
+   - +1 ↩
++- 3 Authors 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [What's new in Android for Cars: Unifying platforms and unlocking premium experiences](https://developer.android.com/blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences)
++
++  [arrow_forward](https://developer.android.com/blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences) We're thrilled to see developers continuing to bring their apps and experiences to Android for Cars! Over the past year, we've continued to see strong growth and momentum in the app ecosystem on Android Auto and cars with Google built-in.
++  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert), [Noam Gefen](https://developer.android.com/blog/authors/noam-gefen), [Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers) • 3 min read
++  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_ZDTMlF.webp)](https://developer.android.com/blog/authors/simona-milanovic)[![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)](https://developer.android.com/blog/authors/ben-trengrove) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Android CLI Now Stable 1.0: Accelerate developing for Android using any agent](https://developer.android.com/blog/posts/android-cli-now-stable-1-accelerate-developing-for-android-using-any-agent)
+@@ -170,16 +177,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+   - +1 ↩
+-- [![View Paul Lammertsma's profile](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)](https://developer.android.com/blog/authors/paul-lammertsma) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Increasing app discovery and engagement on Google TV](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv) We're excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
+-  [Paul Lammertsma](https://developer.android.com/blog/authors/paul-lammertsma) • 3 min read
+-  - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
+-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+-  - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
+-  - +1 ↩
+ [arrow_back](https://developer.android.com/blog/latest)
+ 
+ #### Page 2

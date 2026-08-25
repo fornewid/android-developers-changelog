@@ -1,0 +1,13 @@
+diff --git a/docs/agents/skills/wear/wear-compose-m3/references/material3/CardSample.kt.md b/docs/agents/skills/wear/wear-compose-m3/references/material3/CardSample.kt.md
+index f842b516..cedafe41 100644
+--- a/docs/agents/skills/wear/wear-compose-m3/references/material3/CardSample.kt.md
++++ b/docs/agents/skills/wear/wear-compose-m3/references/material3/CardSample.kt.md
+@@ -89,7 +89,7 @@ fun NonClickableCardSample() {
+ 
+ @Sampled
+ @Composable
+-fun CardWithOnLongClickS>ample(onLongClickHandler: () - Unit) {
++fun CardWithOnLongClickSample(onLongClickHandler: () -> Unit) {
+     Card(
+         onClick = { /* Do something */ },
+         onLongClick = onLongClickHandler,

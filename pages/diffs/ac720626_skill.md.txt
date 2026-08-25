@@ -1,0 +1,13 @@
+diff --git a/docs/agents/skills/system/edge-to-edge/skill.md b/docs/agents/skills/system/edge-to-edge/skill.md
+index 03ccc106..1bfe73d4 100644
+--- a/docs/agents/skills/system/edge-to-edge/skill.md
++++ b/docs/agents/skills/system/edge-to-edge/skill.md
+@@ -172,7 +172,7 @@ applied twice, once with innerPadding, which contains IME insets from the passed
+ 
+ ```kotlin
+ // WRONG
+-Scaffold( contentWindowInsets = WindowInsets.safeDrawing ) { innerPadding ->
++Scaffold(contentWindowInsets = WindowInsets.safeDrawing) { innerPadding ->
+     Column(
+         modifier = Modifier
+             .padding(innerPadding)

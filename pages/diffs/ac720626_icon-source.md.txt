@@ -1,0 +1,21 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/icon-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/icon-source.md
+index 8910c0ce..becacd30 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/icon-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/icon-source.md
+@@ -357,7 +357,6 @@ private class IconColorFilterNode(
+                 val layer = obtainGraphicsLayer()
+                 layer.apply { record { drawContent() } }
+                 var cachedTintColor = Color.Unspecified
+-                var cachedColorFilter: ColorFilter? = null
+                 onDrawWithContent {
+                     val tintColor =
+                         if (useContentColor) {
+@@ -367,7 +366,7 @@ private class IconColorFilterNode(
+                         }
+                     if (cachedTintColor != tintColor) {
+                         cachedTintColor = tintColor
+-                        cachedColorFilter =
++                        val cachedColorFilter =
+                             if (tintColor.isSpecified) ColorFilter.tint(tintColor) else null
+                         layer.colorFilter = cachedColorFilter
+                     }

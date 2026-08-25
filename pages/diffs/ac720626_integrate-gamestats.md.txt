@@ -1,0 +1,90 @@
+diff --git a/docs/games/pgs/integrate-gamestats.md b/docs/games/pgs/integrate-gamestats.md
+index 88e68a61..d6151951 100644
+--- a/docs/games/pgs/integrate-gamestats.md
++++ b/docs/games/pgs/integrate-gamestats.md
+@@ -33,13 +33,57 @@ After you create an event, you need to set up stats:
+ 
+ To verify that the Game Stats work as intended, follow the steps to test them:
+ 
+-- Set up an [internal test track](https://support.google.com/googleplay/android-developer/answer/9845334).
++- In the Play Console, set up an [internal test track](https://support.google.com/googleplay/android-developer/answer/9845334).
+ - [Add test accounts](https://developer.android.com/games/pgs/console/publish) to your game project for testers.
+ - Create Play Games Services profile for one of the test account using Play Games App.
+ - Open the game using the same test account for which you created the Play Games Services profile.
+ - Verify that Play Games Services "Welcome toast" is shown on the screen as a confirmation of successful automatic authentication on game launch.
+ - The test account user can play the game to trigger the events. Check the API response to know if the events have been recorded.
+ 
++### Manage Game Stats visibility on your device for testing
++
++Once the game is available to your testers in the Play Console, follow these
++steps to view the [Game Stats](https://developer.android.com/games/pgs/gamestats) on your device:
++
++1. Clear the cache:
++
++   1. Open the **Settings** app on your device.
++   2. Tap **Apps**.
++   3. Tap **Google Play Store**.
++   4. Tap **Storage and cache**.
++   5. Tap **Clear cache**.
++2. Open Google Play Store app.
++
++3. Go to **You** tab and tap on the Gamer profile at the top.
++
++4. Go to **Game Stats** section.
++
++5. Select **All** in the time range.
++
++6. If the game doesn't appear in the current fold, tap **See All Games**.
++
++7. Find your game and you see your stats.
++
++> [!NOTE]
++> **Note:** Because the user interface in the **You** tab is available only for testing purposes, testers have to wait up to 3 days to see the stats after adding internal test accounts in Play Console.
++
++### View the logs on your device
++
++To verify that the Game Stats work as designed, turn on logs in your device:
++
++1. [Enable adb debugging on your device](https://developer.android.com/tools/adb#Enabling) and run the
++   following commands in a terminal:
++
++   ```bash
++   adb shell setprop log.tag.Games VERBOSE
++   adb logcat -v time | grep -iE "EventService|GameStats|RecordEvent"
++   ```
++2. A successful log message is shown in the following example:
++
++   ```
++   Successfully submitted GameStats event
++   ```
++
+ ## Publish the Game Stats
+ 
+ Once you finish testing, you must publish your game.
+@@ -136,6 +180,7 @@ These fields are described in the following table:
+ | CSV column headers | Required or Optional | Accepted values |
+ |---|---|---|
+ | Stat Id | Required | Maximum of 100 characters Must consist only of letters, numbers, and underscores. Must be unique across all stats in the game. |
++| Event Name | Required | Maximum of 50 characters Must reference the Event Name defined in the [PlayerGameEvent.csv format](https://developer.android.com/games/pgs/integrate-gamestats#player-game-event-format). |
+ | Event Property Name | Required | Maximum of 50 characters |
+ | Stat Display Name | Required | Maximum of 50 characters Default display name for the stat (default locale). Must be unique across stats. |
+ | Stat Description | Required | Maximum of 500 characters Default description for the stat. |
+@@ -177,7 +222,6 @@ These fields are described in the following table:
+ | CSV column headers | Required or Optional | Accepted values |
+ |---|---|---|
+ | Stat Id | Required | Maximum of 100 characters Must consist only of letters, numbers, and underscores. Must be unique across all stats in the game. |
+-| Event Name | Required | Maximum of 50 characters Must reference the Event Name defined in the [PlayerGameEvent.csv format](https://developer.android.com/games/pgs/integrate-gamestats#player-game-event-format). |
+ | Event Property Name | Required | Maximum of 50 characters Must be a Property Name defined in the [PlayerGameEvent.csv](https://developer.android.com/games/pgs/integrate-gamestats#player-game-event-format). |
+ | Stat Display Name | Required | Must be a unique name. |
+ | Stat Description | Required | Maximum of 50 characters Default description for the stat. |
+@@ -220,8 +264,8 @@ These fields are described in the following table:
+ 
+ ### Icon files
+ 
+-Icons you reference in `.csv` file must exist in the
+-current zip archive you import.
++Icons you reference in CSV file must exist in the
++current ZIP archive you import.
+ 
+ Icon validation rules are:
+ 

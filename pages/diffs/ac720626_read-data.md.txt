@@ -1,0 +1,14 @@
+diff --git a/docs/health-and-fitness/health-connect/read-data.md b/docs/health-and-fitness/health-connect/read-data.md
+index 0876ec4d..6b504bc0 100644
+--- a/docs/health-and-fitness/health-connect/read-data.md
++++ b/docs/health-and-fitness/health-connect/read-data.md
+@@ -276,6 +276,9 @@ However, be careful to avoid rate-limiting concerns.
+ It is recommended to use `pageToken` for reading records to retrieve all
+ available data from the requested time period.
+ 
++> [!NOTE]
++> **Note:** Depending on the specific system or Health Connect APK version (such as on Android 12 and 13 or across specific IPC serialization boundaries), `ReadRecordsResponse.pageToken` can return an empty string `""` instead of `null` when pagination is complete. To reliably check whether pagination is complete, use `isNullOrEmpty()` rather than checking only for `null`.
++
+ The following example shows how to read all records until all page tokens have
+ been exhausted:
+ 

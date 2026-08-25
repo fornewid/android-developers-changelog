@@ -1,0 +1,65 @@
+diff --git a/docs/ndk/downloads.md b/docs/ndk/downloads.md
+index 58636287..700ef5d1 100644
+--- a/docs/ndk/downloads.md
++++ b/docs/ndk/downloads.md
+@@ -40,19 +40,19 @@ android {
+ | Mac | <button class="devsite-dialog-button button-white button-regular" data-modal-dialog-id="ndk_mac64_dmg_download">android-ndk-r29-darwin.dmg</button> | 1156294030 | 0eecb29cfe791e039740e2a8bcf0af02b7132bd8 |
+ | Linux 64-bit (x86) | <button class="devsite-dialog-button button-white button-regular" data-modal-dialog-id="ndk_linux64_download">android-ndk-r29-linux.zip</button> | 783549481 | 87e2bb7e9be5d6a1c6cdf5ec40dd4e0c6d07c30b |
+ 
+-## Latest Pre-Release Version (r30 beta 2)
++## Latest Pre-Release Version (r30 RC 1)
+ 
+ ```
+ android {
+-    ndkVersion "30.0.15729638-beta2"
++    ndkVersion "30.0.16138531-rc1"
+ }
+ ```
+ 
+ | Platform | Package | Size (Bytes) | SHA1 Checksum |
+ |---|---|---|---|
+-| Windows 64-bit | <button class="devsite-dialog-button button-white button-regular" data-modal-dialog-id="ndk_beta_win64_download">android-ndk-r30-beta2-windows.zip</button> | 727029070 | 5b5e308db4cfd7a51f5524f464dedec20682b5ed |
+-| Mac | <button class="devsite-dialog-button button-white button-regular" data-modal-dialog-id="ndk_beta_mac64_dmg_download">android-ndk-r30-beta2-darwin.dmg</button> | 1071947863 | 0efa8b1a835abba43bc4dfa2a000d81efe7e355e |
+-| Linux 64-bit (x86) | <button class="devsite-dialog-button button-white button-regular" data-modal-dialog-id="ndk_beta_linux64_download">android-ndk-r30-beta2-linux.zip</button> | 737229785 | 069427047d18cc6e44369cd7b8e711bfc2c7a3b5 |
++| Windows 64-bit | <button class="devsite-dialog-button button-white button-regular" data-modal-dialog-id="ndk_beta_win64_download">android-ndk-r30-beta3-windows.zip</button> | 728090945 | b89c9a0d141382a8311669a01db4af88b4067a8d |
++| Mac | <button class="devsite-dialog-button button-white button-regular" data-modal-dialog-id="ndk_beta_mac64_dmg_download">android-ndk-r30-beta3-darwin.dmg</button> | 1073208771 | 4de0d5905ef7ba1dcc5f104e3bb2f3b00dc7ee22 |
++| Linux 64-bit (x86) | <button class="devsite-dialog-button button-white button-regular" data-modal-dialog-id="ndk_beta_linux64_download">android-ndk-r30-beta3-linux.zip</button> | 738755979 | f66e852ac01a57f74bcf6fd96dcea04dda5ea392 |
+ 
+ 
+ For additional information about what's new and changed in this release, see
+@@ -349,9 +349,9 @@ This is the Android Software Development Kit License Agreement
+ 
+ 14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download the Android NDK Beta for Windows (64-bit) </button> [Download the Android NDK Beta
+ for
+-Windows (64-bit)](https://dl.google.com/android/repository/android-ndk-r30-beta2-windows.zip)
++Windows (64-bit)](https://dl.google.com/android/repository/android-ndk-r30-beta3-windows.zip)
+ 
+-*android-ndk-r30-beta2-windows.zip*
++*android-ndk-r30-beta3-windows.zip*
+ 
+ ## Download the Android NDK Beta
+ 
+@@ -417,9 +417,9 @@ This is the Android Software Development Kit License Agreement
+ 
+ 14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download the Android NDK Beta for Mac </button> [Download the Android NDK Beta
+ for
+-Mac](https://dl.google.com/android/repository/android-ndk-r30-beta2-darwin.dmg)
++Mac](https://dl.google.com/android/repository/android-ndk-r30-beta3-darwin.dmg)
+ 
+-*android-ndk-r30-beta2-darwin.dmg*
++*android-ndk-r30-beta3-darwin.dmg*
+ 
+ ## Download the Android NDK Beta
+ 
+@@ -485,9 +485,9 @@ This is the Android Software Development Kit License Agreement
+ 
+ 14.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of the SDK (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to the SDK. 14.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google. 14.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable. 14.4 You acknowledge and agree that each member of the group of companies of which Google is the parent will be third party beneficiaries to the License Agreement and that such other companies will be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company will be third party beneficiaries to the License Agreement. 14.5 EXPORT RESTRICTIONS. THE SDK IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO THE SDK. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE. 14.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google will be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party. 14.7 The License Agreement, and your relationship with Google under the License Agreement, will be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google will still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction. *April 28, 2026* I have read and agree with the above terms and conditions <button class="button button-disabled"> Download the Android NDK Beta for Linux </button> [Download the Android NDK Beta
+ for
+-Linux](https://dl.google.com/android/repository/android-ndk-r30-beta2-linux.zip)
++Linux](https://dl.google.com/android/repository/android-ndk-r30-beta3-linux.zip)
+ 
+-*android-ndk-r30-beta2-linux.zip*
++*android-ndk-r30-beta3-linux.zip*
+ 
+ ## Download the Android NDK
+ 

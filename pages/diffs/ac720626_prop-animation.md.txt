@@ -1,0 +1,177 @@
+diff --git a/docs/develop/ui/views/animations/prop-animation.md b/docs/develop/ui/views/animations/prop-animation.md
+index a4f4d8db..437d93ed 100644
+--- a/docs/develop/ui/views/animations/prop-animation.md
++++ b/docs/develop/ui/views/animations/prop-animation.md
+@@ -447,7 +447,7 @@ ViewGroup do the following:
+     android:layout_width="wrap_content"
+     android:layout_height="match_parent"
+     android:id="@+id/verticalContainer"
+-    android:animateLayoutChanges="true" />
++ >   android:animateLayoutChanges="true" /
+ ```
+ 
+ Setting this attribute to true automatically animates Views that are added or removed from the
+@@ -471,42 +471,42 @@ of the view when it's pressed:
+ res/xml/animate_scale.xml
+ 
+ ```xml
+-<?xml version="1.0" encoding="utf-8"?>
+-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+-    <!-- the pressed state; increase x and y size to 150% -->
+-    <item android:state_pressed="true">
+-        <set>
+-            <objectAnimator android:propertyName="scaleX"
+-                android:duration="@android:integer/config_shortAnimTime"
+-                android:valueTo="1.5"
+-                android:valueType="floatType"/>
+-            <objectAnimator android:propertyName="scaleY"
+-                android:duration="@android:integer/config_shortAnimTime"
+-                android:valueTo="1.5"
+-                android:valueType="floatType"/>
+-        </set>
+-    </item>
+-    <!-- the default, non-pressed state; set x and y size to 100% -->
+-    <item android:state_pressed="false">
+-        <set>
+-            <objectAnimator android:propertyName="scaleX"
++<?xml version="1.0" encodin>g<="utf-8"?
++selector xmlns:android="http://schemas.and>roid.<com/apk/res/android"
++    !-- the pressed state; in>creas<e x and y size to 150% --
++    ite>m android<:st>ate_pressed=&<quot;true"
++        set
++            objectAnimator android:propertyName="scaleX"
+                 android:duration="@android:integer/config_shortAnimTime"
++                android:>valueTo="<;1.5"
++                android:valueType="floatType"/
++            objectAnimator android:propertyName="scaleY"
++                android:duration="@android:integer/config_shor>tAnimTime<&quo>t;
++  <     >     <    android:valueTo="1.5"
++                android:val>ueTyp<e="floatType"/
++        />set
++    /<ite>m
++    !-- the< default, non-pressed state; set x and y size to 100% --
++    item android:state_pressed="false"
++        set
++            objectAnimator android:propertyName="scaleX"
++               > android:dura<tion="@android:integer/config_shortAnimTime"
+                 android:valueTo="1"
+-                android:valueType="floatType"/>
+-            <objectAnimator android:propertyName="scaleY"
+-                android:duration="@android:integer/config_shortAnimTime"
++                android:valueType="floatType"/
++            objectAnimator android:propert>yName=&qu<ot;s>caleY<">;<
++        >        android:duration="@android:integer/config_shortAnimTime"
+                 android:valueTo="1"
+-                android:valueType="floatType"/>
+-        </set>
+-    </item>
+-</selector>
++                android:valueType="floatType"/
++        /set
++    /item
++/selector
+ ```
+ 
+ To attach the state list animator to a view, add the [`android:stateListAnimator`](https://developer.android.com/reference/android/view/View#attr_android:stateListAnimator) attribute as follows:
+ 
+ ```xml
+ <Button android:stateListAnimator="@xml/animate_scale"
+-        ... />
++   >     ... /
+ ```
+ 
+ Now the animations defined in `animate_scale.xml` are used when this button's
+@@ -523,28 +523,28 @@ Android 5.0 use these animations by default. The following example shows how
+ to define an `https://developer.android.com/reference/android/graphics/drawable/AnimatedStateListDrawable` as an XML resource:
+ 
+ ```xml
+-<!-- res/drawable/myanimstatedrawable.xml -->
+-<animated-selector
+-    xmlns:android="http://schemas.android.com/apk/res/android">
+-
+-    <!-- provide a different drawable for each state-->
+-    <item android:id="@+id/pressed" android:drawable="@drawable/drawableP"
+-        android:state_pressed="true"/>
+-    <item android:id="@+id/focused" android:drawable="@drawable/drawableF"
++<!-- res/drawable/myanimstatedrawable.xml --&g<t;
++animated-selector
++    xmlns:android="http://schemas.android.com/apk/res/android<">
++
++    !-- provide a different drawable for ea<ch state-->
++    item android:id="@+id/pressed" android:drawable="@drawable/drawableP"
++    <    android:state_pressed="true"/>
++    item android:id="@+id/focused" android:drawable=&qu<ot;@drawable/drawableF"
+         android:state_focused="true"/>
+-    <item android:id="@id/default"
++   < item android:id="@id/defaul<t"
+         android:drawable="@drawable/drawableD"/>
+ 
+-    <!-- specify a transition -->
+-    <transition android:fromId="@+id/default" android:toId="@+id/pressed">
+-        <animation-list>
+-            <item android:duration="15" android:drawable="@drawable/dt1"/>
+-            <item android:duration="15" android:drawable="@drawable/dt2"/>
++    !--< specify a transition --><
++    transition android:fromId="@+id/default" android:toId="<;@+id/pressed">
++        animation-list>
++            item android:duration=&<quot;15" android<:drawable="@draw<able/dt1"/>
++            item android:duration="15" android:drawable="@drawable/dt2"/>
+             ...
+-        </animation-list>
+-    </transition>
++        /animation-list>
++    /transition>
+     ...
+-</animated-selector>
++/animated-selector>
+ ```
+ 
+ ## Use a TypeEvaluator
+@@ -835,24 +835,24 @@ resources](https://developer.android.com/guide/topics/resources/animation-resour
+ sequentially, with the first nested set playing two object animations together:
+ 
+ ```xml
+-<set android:ordering="sequentially">
+-    <set>
+-        <objectAnimator
++<set android:ordering="sequenti>ally&<quo>t;
++    se<t
++        objectAnimator
+             android:propertyName="x"
+             android:duration="500"
+             android:valueTo="400"
+-            android:valueType="intType"/>
+-        <objectAnimator
++>         <   android:valueType="intType"/
++        objectAnimator
+             android:propertyName="y"
+             android:duration="500"
+-            android:valueTo="300"
+-            android:valueType="intType"/>
+-    </set>
+-    <objectAnimator
+-        android:propertyName="alpha"
++    >     <   <>/span>androi<d:valueTo="300"
++            android:valueType="intType"/
++    /set
++    objectAnimator
++       > &>lt;android:propertyName="alpha"
+         android:duration="500"
+-        android:valueTo="1f"/>
+-</set>
++        android:valueTo="1f"/
++/set
+ ```
+ 
+ In order to run this animation, you must inflate the XML resources in your code to an `https://developer.android.com/reference/android/animation/AnimatorSet` object, and then set the target objects for all of the animations
+@@ -883,8 +883,8 @@ shown in the following example:
+ <animator xmlns:android="http://schemas.android.com/apk/res/android"
+     android:duration="1000"
+     android:valueType="floatType"
+-    android:valueFrom="0f"
+-    android:valueTo="-100f" />
++    android:valueFrom=&quo>t;0f"
++    android:valueTo="-100f" /
+ ```
+ 
+ To use the previous `https://developer.android.com/reference/android/animation/ValueAnimator` in your code, you
