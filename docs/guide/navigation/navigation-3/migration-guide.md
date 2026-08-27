@@ -103,7 +103,7 @@ project. The core dependencies are provided for you to copy.
 **lib.versions.toml**
 
     [versions]
-    nav3Core = "1.1.6"
+    nav3Core = "1.1.7"
 
     # If your screens depend on ViewModels, add the Nav3 Lifecycle ViewModel add-on library
     lifecycleViewmodelNav3 = "2.11.0"

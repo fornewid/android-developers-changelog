@@ -841,7 +841,7 @@ July 16, 2025
 
 **New Features**
 
-- Account for screen rotation when calculating the location of physical buttons relative to the screen. ([87a57e](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3396375))
+- Account for screen rotation when calculating the location of physical buttons relative to the screen. ([87a57e](https://android-review.googlesource.com/c/platform/frameworks/support/+/3396375))
 
 **API Changes**
 

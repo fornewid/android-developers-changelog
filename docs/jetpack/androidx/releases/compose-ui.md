@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 29, 2026 | [1.11.4](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.11.4) | [1.12.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0-rc01) | - | - |
+| August 26, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0) | - | - | [1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-alpha02) |
 
 ## Structure
 
@@ -98,7 +98,210 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
+## Version 1.13
+
+### Version 1.13.0-alpha02
+
+August 26, 2026
+
+`androidx.compose.ui:ui-*:1.13.0-alpha02` is released. Version 1.13.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e9a673661e45bb2eaea8dd43632ce3e1ea6a2094..cacfa1bb2b4c8b6d14a18888c64fe470c368f4f7/compose/ui).
+
+**API Changes**
+
+- Added new semantics property `BackgroundColor` for Modifier.background ([I7eec3](https://android-review.googlesource.com/#/q/I7eec3e7856bbe392416cb4dbe023a8f3622c1224), [b/518049030](https://issuetracker.google.com/issues/518049030))
+- You can now create `Vertices` from existing primitive arrays. ([Ifaba8](https://android-review.googlesource.com/#/q/Ifaba874e35ec100a9db51e986d93a94af7224eb4), [b/496412761](https://issuetracker.google.com/issues/496412761))
+- `VectorPainter` will now share internal graphics resources (`ImageBitmap`) when rendering the same `ImageVector` across multiple composables. This reduces redundant texture uploads and memory usage, improving performance in scenarios like lists using repeated icons. This optimization can be disabled via `ComposeUiFlags.isVectorDrawCacheSharingEnabled`. ([I35639](https://android-review.googlesource.com/#/q/I3563956f7c9bd7322946b25ae165a66289abcaad), [b/331283180](https://issuetracker.google.com/issues/331283180))
+- Add `requestFocusForChildInLocalBounds` helper ([Ib1a48](https://android-review.googlesource.com/#/q/Ib1a485a91e8612ef1e2f70f67d9ea71a6a6a6964))
+
+### Version 1.13.0-alpha01
+
+August 12, 2026
+
+`androidx.compose.ui:ui-*:1.13.0-alpha01` is released. Version 1.13.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/963bf914f78b389bdddef0da7f36bee19d897274..e9a673661e45bb2eaea8dd43632ce3e1ea6a2094/compose/ui).
+
+**API Changes**
+
+- Adds the `isVelocityTrackerMinSampleSizeFixEnabled` feature flag ([Ic9b51](https://android-review.googlesource.com/#/q/Ic9b51b17b70b7f1cf46546ce0676671a8e889e78), [b/533444810](https://issuetracker.google.com/issues/533444810), [b/533775739](https://issuetracker.google.com/issues/533775739), [b/523705159](https://issuetracker.google.com/issues/523705159))
+- Removed obsolete `ExperimentalVelocityTrackerApi` annotation class. ([I6f9c6](https://android-review.googlesource.com/#/q/I6f9c6c85e7adffaca203806b0a202e0ef4ac6b60), [b/483449576](https://issuetracker.google.com/issues/483449576))
+- Remove isClearNestedScrollCoroutineScopeFixEnabled flag ([Iedfd7](https://android-review.googlesource.com/#/q/Iedfd7dbc2135c79f85b42fab5196f8f2fdb8e986), [b/506963276](https://issuetracker.google.com/issues/506963276))
+- `TextFieldState` now saves and restores text style information. `AnnotatedString.Annotation.Saver` is now public to allow saving and restoring of `AnnotatedString.Annotation` objects. ([I8b533](https://android-review.googlesource.com/#/q/I8b53310e091fb8dbf3b967a3d05160a7ee7bc161), [b/135556699](https://issuetracker.google.com/issues/135556699))
+- Introduced `TestFailurePolicy` and `TestFailureHandler` in `ComposeTestConfig` to support custom failure event handlers and failure artifact context in Compose UI tests. ([Ib1a85](https://android-review.googlesource.com/#/q/Ib1a85f1a40aedd450a481d5da06403e568f20109), [b/414802953](https://issuetracker.google.com/issues/414802953), [b/291106656](https://issuetracker.google.com/issues/291106656), [b/430644575](https://issuetracker.google.com/issues/430644575))
+- Added `SemanticsProperties`.alpha to expose the resolved composite parent-child alpha values of layout nodes for testing. ([Ifddb6](https://android-review.googlesource.com/#/q/Ifddb6fbc7390507bdb5a3e8e2e5c226bec8b4dc1), [b/524035059](https://issuetracker.google.com/issues/524035059))
+- Deprecated the `createComposeRule`, `createAndroidComposeRule`, and `createEmptyComposeRule` overloads in the `ui-test-junit4` v2 package that take individual parameters. Use the overloads accepting `ComposeUiTestConfig` or the parameterless overloads, which use a default `ComposeUiTestConfig`. Note that a default `ComposeUiTestConfig` sets the initial input mode to `InputMode.Touch` at the start of each test. This might cause existing tests expecting keyboard mode (`InputMode.Keyboard`) to fail. To fix affected tests, pass `ComposeUiTestConfig(inputMode = InputMode.Keyboard)` explicitly and remove any manual setup logic for input modes. Alternatively, you can set `AndroidComposeUiTestFlags.isInputModeSetForDeviceTests = false` to temporarily disable setting the default input mode at the start of each test and retain legacy behavior while migrating your tests. This flag will be removed in the future, so if only a small number of tests fail, it is recommended to resolve the tests directly by changing their configuration instead. ([Idfb86](https://android-review.googlesource.com/#/q/Idfb86eba076ecc987afbe28d6e91627b292db871), [b/504195741](https://issuetracker.google.com/issues/504195741))
+- No-argument calls to `createComposeRule` and `createAndroidComposeRule` (e.g., `createComposeRule()` or `createAndroidComposeRule<MyActivity>()`) now use a default `ComposeUiTestConfig`, which sets the initial input mode to `InputMode.Touch` at the start of each test, ensuring the device is in a clean state and preventing previous input mode changes from leaking across tests. However, this new default touch mode might cause existing tests expecting keyboard mode (`InputMode.Keyboard`) to fail. To fix affected tests, pass `ComposeUiTestConfig(inputMode = InputMode.Keyboard)` explicitly and remove any manual setup logic for input modes. Alternatively, you can set `AndroidComposeUiTestFlags.isInputModeSetForDeviceTests = false` to temporarily disable setting the default input mode at the start of each test and retain legacy behavior while migrating your tests. This flag will be removed in the future, so if only a small number of tests fail, it is recommended to resolve the tests directly by changing their configuration instead. ([Idc4dd](https://android-review.googlesource.com/#/q/Idc4ddba595fdc7cfc86e382bff45e20e812f6f0a), [b/267253920](https://issuetracker.google.com/issues/267253920), [b/504195741](https://issuetracker.google.com/issues/504195741))
+- Annotated overridable empty base methods across Compose with `@EmptySuper` to denote that overriding implementations should not invoke super. ([Id407b](https://android-review.googlesource.com/#/q/Id407ba2271cefe08c55717409ca22dbf23922c9e))
+- `ExposedDropdownMenu` is now an extension function on `ExposedDropdownMenuBoxScope` instead of a member. You may need to update your code with a new import. ([Ie8a65](https://android-review.googlesource.com/#/q/Ie8a65e982bcc6ee222ce0a84ed63ad9445760f6d), [b/356452026](https://issuetracker.google.com/issues/356452026))
+- Added `blurBehindRadius`, `backgroundBlurRadius`, `scrimAlpha`, and `windowShape` properties to `DialogProperties`, as well as `blurBehindRadius` and `scrimAlpha` to `PopupProperties`. Developers can now configure background blur, window blur, and scrim opacity directly on Dialogs and Popups. Setting `windowShape` allows clipping dialog window background blurs to rounded corners. ([I5d437](https://android-review.googlesource.com/#/q/I5d437de649109da7be323959113eefa5f1f4fb3b))
+- Removed feature flag - Compose buttons now correctly retain accessibility focus and do not flicker when explore by touch is active, as hover events are correctly marked as handled. ([Ib1c80](https://android-review.googlesource.com/#/q/Ib1c806c95d9248e1be830b8063d998fd3c56dbdb))
+- Added merge overloads to `FontVariation.Settings` for merging other settings collections or overriding settings inline. ([I6340c](https://android-review.googlesource.com/#/q/I6340ccd6a8231ecf47cc0afab5edfe892212fe49))
+- Exposed `variationSettings` on the Font interface, defaulting to the new `FontVariation.Empty`. Optimized the `FontVariation.Settings` vararg constructor to use `asList()` to avoid array copy allocations. ([I9c22f](https://android-review.googlesource.com/#/q/I9c22f780554fe88217cfd2c426ca63ff8b72556b))
+- Updated `NestedScrollDispatcher.coroutineScope` property to safely return a cancelled `CoroutineScope` when unattached or detached. ([I9b112](https://android-review.googlesource.com/#/q/I9b1120913c72b7e950bf0bc90107da4fd008f846), [b/535290281](https://issuetracker.google.com/issues/535290281))
+- Deprecated the `runComposeUiTest`, `runAndroidComposeUiTest`, and `AndroidComposeUiTestEnvironment` overloads that take individual `effectContext`, `runTestContext`, and `testTimeout` parameters. Use the overloads accepting `ComposeUiTestConfig` or the parameterless overloads, which use a default `ComposeUiTestConfig`. Note that a default `ComposeUiTestConfig` sets the initial input mode to `InputMode.Touch` at the start of each test. This might cause existing tests expecting keyboard mode (`InputMode.Keyboard`) to fail. To fix affected tests, pass `ComposeUiTestConfig(inputMode = InputMode.Keyboard)` explicitly and remove any manual setup logic for input modes. Alternatively, you can set `AndroidComposeUiTestFlags.isInputModeSetForDeviceTests = false` to temporarily disable setting the default input mode at the start of each test and retain legacy behavior while migrating your tests. This flag will be removed in the future, so if only a small number of tests fail, it is recommended to resolve the tests directly by changing their configuration instead. ([Ia6d55](https://android-review.googlesource.com/#/q/Ia6d55228f699fee4e278ce25372b711fba1a8c4f), [b/504195741](https://issuetracker.google.com/issues/504195741))
+- Calls to `runComposeUiTest`, `runAndroidComposeUiTest`, and `AndroidComposeUiTestEnvironment` with only a trailing lambda now use a default `ComposeUiTestConfig`, which sets the initial input mode to `InputMode.Touch` at the start of each test, ensuring the device is in a clean state and preventing previous input mode changes from leaking across tests. However, this new default touch mode might cause existing tests expecting keyboard mode (`InputMode.Keyboard`) to fail. To fix affected tests, pass `ComposeUiTestConfig(inputMode = InputMode.Keyboard)` explicitly and remove any manual setup logic for input modes. Alternatively, you can set `AndroidComposeUiTestFlags.isInputModeSetForDeviceTests = false` to temporarily disable setting the default input mode at the start of each test and retain legacy behavior while migrating your tests. This flag will be removed in the future, so if only a small number of tests fail, it is recommended to resolve the tests directly by changing their configuration instead. ([I8c85d](https://android-review.googlesource.com/#/q/I8c85d4d1fcd75741bd6f26f14a6f1c6ce75075ce), [b/504195741](https://issuetracker.google.com/issues/504195741))
+- Added @`CheckResult` to `SemanticsNodeInteraction.isDisplayed`() and `isNotDisplayed`() to ensure their return values are asserted, preventing silent test failures when developers mistakenly use them instead of assertion APIs. ([I1b447](https://android-review.googlesource.com/#/q/I1b447087e19fde4f9a64dd462e68bb21d14d463a), [b/508178494](https://issuetracker.google.com/issues/508178494))
+- The flag `AndroidComposeUiFlag.isDelayAndroidViewsHandlerCreationEnabled` will cause the `ViewGroup` that contains `AndroidView`s to only be instantiated when an `AndroidView` is added to improve performance of `ComposeView`s that don't have `AndroidView`s. When the flag is disabled, the containing `ViewGroup` is instantiated and attached when the `ComposeView` is attached to the window. ([I306a3](https://android-review.googlesource.com/#/q/I306a380190e5f47c94a886d0911d7d3f5d30a6bf), [b/524283041](https://issuetracker.google.com/issues/524283041))
+- Introduce `coroutineScopeOrNull()` in `NestedScrollDispatcher`, an alternative API to access the dispatcher's parent coroutine scope. ([I18c0f](https://android-review.googlesource.com/#/q/I18c0f6c699f5ecdb9c59a2551a2c75d7efe3ae02))
+- Change `clearCallbacks` to `runAndClearCallbacks` to make sure that cleanup actions are always executed. ([If4720](https://android-review.googlesource.com/#/q/If4720427a3a2ed4e26dd6f7eb914202b8a3be1ef), [b/526700075](https://issuetracker.google.com/issues/526700075))
+- `ComposeTestConfig` has been renamed to `ComposeUiTestConfig` and moved from the v2 package to the parent `androidx.compose.ui.test` package. ([I1d2a1](https://android-review.googlesource.com/#/q/I1d2a1c786ca9aff9c67cbe91dfbbba3afab24a74), [b/504195741](https://issuetracker.google.com/issues/504195741))
+- Added a `timeoutMillis` parameter (defaulting to 2000 ms) to `SemanticsNodeInteraction.captureToImage`() to allow configuring a custom timeout when waiting for redraw passes. ([Ib7d62](https://android-review.googlesource.com/#/q/Ib7d628be4c9d7a697514c58e91b958099cd99494), [b/249501063](https://issuetracker.google.com/issues/249501063))
+- Adds historical information to indirect pointer input changes ([Ie62d2](https://android-review.googlesource.com/#/q/Ie62d2a9bc5fc23c69fd39a0b03a7731511218f15), [b/526961645](https://issuetracker.google.com/issues/526961645))
+- Added a new `hintText` semantic property to represent hint text in text fields, improving accessibility support by mapping to `AccessibilityNodeInfo`.`hintText`. ([Ib65da](https://android-review.googlesource.com/#/q/Ib65da8c1f8179c1dfd5f2528b54209c155888ae3), [b/448376876](https://issuetracker.google.com/issues/448376876))
+- Optimized `CompositionLocal` resolution by resolving them dynamically from `LocalOwner` and `LocalAndroidComposeView` on-demand, which can be toggled using `ComposeUiFlags.isMinimalistLocalsEnabled`. ([I2bf6d](https://android-review.googlesource.com/#/q/I2bf6d14d06a9f539dbe87ee365e8eab12e634fe5))
+- `androidx.benchmark` now has a `minSdk` of 24. ([Ic2a85](https://android-review.googlesource.com/#/q/Ic2a8500af8a2bf092fcc1b27d9a599aa5f3b81d7))
+- Added an experimental flag `isPropagateHideFromAccessibilityToMergingChildrenEnabled` to `AndroidComposeUiFlags` to control propagation of `hideFromAccessibility` to merging children. ([Ie41ff](https://android-review.googlesource.com/#/q/Ie41ffbb2b8effa431a286ae3a0e35cac94a50b3d), [b/483506400](https://issuetracker.google.com/issues/483506400))
+- Promoted `ComposeUiTest` and related testing APIs (including `ComposeTestRule` and `waitUntil` variants) from Experimental to stable. ([Iaec77](https://android-review.googlesource.com/#/q/Iaec777f6d138a876a9e94c96537081c52a10257d), [b/471148519](https://issuetracker.google.com/issues/471148519), [b/485124363](https://issuetracker.google.com/issues/485124363))
+- Fixed `TalkBack` navigation order in merged traversal groups. If necessary, this change can be reverted by disabling `AndroidComposeUiFlags.isTraversalGroupSortingEnabled`. ([I5ae09](https://android-review.googlesource.com/#/q/I5ae095f25b46bf51f8eee0bb6b431a59650b6229), [b/285043826](https://issuetracker.google.com/issues/285043826))
+- Removes experimental outdated `IndirectPointerEvent` helper function. ([I05dee](https://android-review.googlesource.com/#/q/I05deed7e712f7a964d434a92e5fdba45a143798c), [b/499336763](https://issuetracker.google.com/issues/499336763), [b/501098299](https://issuetracker.google.com/issues/501098299), [b/501098376](https://issuetracker.google.com/issues/501098376), [b/513249467](https://issuetracker.google.com/issues/513249467))
+- Replace experimental @AnimationToolingApi with @RestrictTo API that has stricter tracking guarantees. ([Ia4fd1](https://android-review.googlesource.com/#/q/Ia4fd1311bd4c978d73c8af53208152879143b603), [b/524317805](https://issuetracker.google.com/issues/524317805))
+- Added the `onDescendants()` selector to find all semantics nodes within the subtree of a given node. ([Id6b9b](https://android-review.googlesource.com/#/q/Id6b9bfe2370212edeab9ced9c2851765af643884), [b/444588117](https://issuetracker.google.com/issues/444588117))
+- Deprecated `waitUntilNodeCount`, `waitUntilAtLeastOneExists`, `waitUntilExactlyOneExists`, and `waitUntilDoesNotExist` helper APIs that do not accept `useUnmergedTree`. Added new overloads that accept `useUnmergedTree` to support waiting for nodes in the unmerged semantics tree. ([If675f](https://android-review.googlesource.com/#/q/If675f2e50e38a998214fcf62f8ba2870ecebfe61), [b/268432145](https://issuetracker.google.com/issues/268432145))
+- Added a `tolerance` parameter to `SemanticsNodeInteraction` size and position assertions (`assertWidthIsEqualTo`, `assertHeightIsEqualTo`, `assertTouchWidthIsEqualTo`, `assertTouchHeightIsEqualTo`, `assertPositionInRootIsEqualTo`, `assertTopPositionInRootIsEqualTo`, `assertLeftPositionInRootIsEqualTo`) to allow developers to configure the comparison threshold, improving test robustness across different screen densities. ([I3a477](https://android-review.googlesource.com/#/q/I3a477e0a563e098c1aa9dbb75fe5affca1b27055), [b/202752461](https://issuetracker.google.com/issues/202752461))
+- Compose testing now supports main-thread synchronization. You can now safely invoke synchronization APIs (such as `waitForIdle`() and `runOnIdle`()) and execute Compose assertions or actions directly within UI/main thread callbacks. ([I0247a](https://android-review.googlesource.com/#/q/I0247ab70a12a59fb5a0f7108b6e1b3c9e246414f), [b/498478569](https://issuetracker.google.com/issues/498478569))
+- Introduced a new configuration model (`ComposeTestConfig`) for Compose test APIs to simplify parameter management and enhance scalability. Added support for configuring input mode (Touch/Keyboard) directly via `ComposeTestConfig`, ensuring automatic setup and reset to prevent test flakiness due to state leakage. Added new overloads for `run*ComposeUiTest` and `create*ComposeRule` that accept the `ComposeTestConfig` object. ([Ia3da9](https://android-review.googlesource.com/#/q/Ia3da96e5a84078ddbd6a209941f9d44ff7757572), [b/267253920](https://issuetracker.google.com/issues/267253920), [b/504195741](https://issuetracker.google.com/issues/504195741))
+- Fixed a crash in Compose Preview when using `PreviewParameterProvider` with Media Query properties (`Posture`, `PointerPrecision`, etc.) by changing their underlying representation from `String` to `Int`. ([Ic8f92](https://android-review.googlesource.com/#/q/Ic8f920992acb07e68bde7a4b7038850e73275cc9), [b/489939558](https://issuetracker.google.com/issues/489939558))
+- Added an `includeInputText` parameter to `hasTextExactly` and `assertTextEquals` to enable exact matching on raw input text alongside visual text. ([Iee329](https://android-review.googlesource.com/#/q/Iee3294c1de1ae07a6e67f8f46c7a5ee875e6c128), [b/519026043](https://issuetracker.google.com/issues/519026043))
+
+**Bug Fixes**
+
+- Optimized `SaveableStateRegistry.performSave()` to prevent `HashMap` allocations. Uses `ScatterMap` internally. ([I7d510](https://android-review.googlesource.com/#/q/I7d510485f5cab4972f6510ae1b54e6ba26e7265e))
+- Populated text colors in AccessibilityNodeInfo.ExtraRenderingInfo for Text Composables. ([I11c94](https://android-review.googlesource.com/#/q/I11c9428b30d35780735514f15847a9aa33c92fad), [b/518049030](https://issuetracker.google.com/issues/518049030))
+- Fixed an issue where accessing `NestedScrollDispatcher.coroutineScopeOrNull` during layout node detachment threw an `IllegalStateException` instead of returning `null`. ([I55634](https://android-review.googlesource.com/#/q/I55634aa105e0e2acde209ee126b844470c2ccb7e), [b/533444810](https://issuetracker.google.com/issues/533444810))
+- Optimized file-level initialization of `compose:ui` top-level value class properties by using dynamic getters. ([I34184](https://android-review.googlesource.com/#/q/I341847ebbb5da100cea88fa79609c0e03a3cb4af))
+- Optimized companion object initialization of `ui-unit` value classes (`TextUnit`) by using dynamic getters. ([If4a99](https://android-review.googlesource.com/#/q/If4a99dcd48522ee0431d8985393a8ec8e4de42d0))
+- Optimized companion object initialization of `ui-graphics` value classes (`BlendMode`, `Color`, etc.) by using dynamic getters. ([Iaa86a](https://android-review.googlesource.com/#/q/Iaa86a09be4cc6bd14675835fd1406cc7feb027f7))
+- Optimized companion object initialization of `compose:ui:ui` value classes (`Key`, `CompositingStrategy`, etc.) by using dynamic getters. ([I1a340](https://android-review.googlesource.com/#/q/I1a34088c147f081f31de01acbdd461037c4d7515))
+- Optimized companion object initialization of `compose:ui` text value classes (`TextAlign`, `TextOverflow`, `ImeAction`, etc.) by using dynamic getters. ([I776e0](https://android-review.googlesource.com/#/q/I776e065bb94ad519ebf4e218d1b192c72633ac81))
+- Optimized companion object initialization of `compose:ui` tooling and test value classes (`AnimatedVisibilityState`, `MouseButton`, `ScrollWheel`) by using dynamic getters. ([I23e1b](https://android-review.googlesource.com/#/q/I23e1bbb7635b79ef740275e41cd727132e085839))
+- Optimized companion object initialization of `compose:ui` unit value classes (`Dp`, `DpOffset`, `TextUnitType`, etc.) by using dynamic getters. ([If5eb5](https://android-review.googlesource.com/#/q/If5eb5f879de621d4dd249ff981d918635b2ae97d))
+- Optimized companion object initialization of `compose:ui` geometry value classes (`Offset`, `Size`, `CornerRadius`) by using dynamic getters. ([I3b110](https://android-review.googlesource.com/#/q/I3b11023d9efa5c7bd4999126e6f01447f19ce946))
+- Optimized companion object initialization of `compose:ui` value classes (`Role`, `FocusDirection`, `PointerEventType`, etc.) by using dynamic getters. ([Ie35dd](https://android-review.googlesource.com/#/q/Ie35dd3a2d55fe2b1d3b342d6d3af14b1e2995816))
+- Correctly handle `BaselineShift.None` and `BaselineShift.Unspecified`, and `BaselineShift(0f)` to avoid unnecessary slow layout passes. ([I4350c](https://android-review.googlesource.com/#/q/I4350c991f6600519147e60890371c20acff33b67))
+- Fixed an issue where Dp values containing negative zero (-0.0) behaves differently in comparisons or equality checks from floating point comparisons or equality checks. ([I7dbcf](https://android-review.googlesource.com/#/q/I7dbcfdfc5aed8ce26536adbd990029c5f3e67b18), [b/525506543](https://issuetracker.google.com/issues/525506543))
+- Cleans up API information ([Ia8066](https://android-review.googlesource.com/#/q/Ia8066818f7e33220445aaeafa9ecc0668cc4818b))
+
+**External Contribution**
+
+- `Alignment.topRatio`, `Trim.isTrimFirstLineTop()` and `Trim.isTrimLastLineBottom()` are public APIs now ([I84f62](https://android-review.googlesource.com/#/q/I84f62b48e93f8ec56b7a070977ac8b5f4a342be3))
+
 ## Version 1.12
+
+### Version 1.12.0
+
+August 12, 2026
+
+`androidx.compose.ui:ui-*:1.12.0` is released. Version 1.12.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/854220f44ea8ea80fee824a6c5a045f39bede289..963bf914f78b389bdddef0da7f36bee19d897274/compose/ui).
+
+### Downloadable Variable Fonts \& Zero-Config Setup (ui-text-google-fonts)
+
+• Variable Fonts \& Zero-Config GMS certificates!
+
+        import androidx.compose.ui.text.font.FontFamily                                                                                                                                                                         
+        import androidx.compose.ui.text.font.FontVariation                                                                                                                                                                      
+        import androidx.compose.ui.text.googlefonts.Font                                                                                                                                                                        
+        import androidx.compose.ui.text.googlefonts.GoogleFont                                                                                                                                                                  
+                                                                                                                                                                                                                                
+        val fontFamily = FontFamily(                                                                                                                                                                                            
+            Font(                                                                                                                                                                                                               
+                googleFont = GoogleFont("Google Sans Flex"),                                                                                                                                                                    
+                // Automatically uses default GMS certificates!                                                                                                                                                                 
+                variationSettings = FontVariation.Settings(                                                                                                                                                                     
+                    FontVariation.weight(900),                                                                                                                                                                                  
+                    FontVariation.slant(0f)                                                                                                                                                                                     
+                )                                                                                                                                                                                                               
+            )                                                                                                                                                                                                                   
+        )
+
+    ──────                                                                                                                                                                                                                  
+
+### Wide Color Gamut (WCG) Support (ui-graphics)
+
+WCG Preservation:
+\* Non-sRGB color spaces (e.g., AdobeRgb, DisplayP3) set on Paint or Shader are preserved on API 29+.
+\* Falls back to sRGB on older API levels.
+
+        import androidx.compose.ui.graphics.Color                                                                                                                                                                               
+        import androidx.compose.ui.graphics.Paint                                                                                                                                                                               
+        import androidx.compose.ui.graphics.colorspace.ColorSpaces                                                                                                                                                              
+                                                                                                                                                                                                                                
+        val wcgColor = Color(0.9f, 0.5f, 0.1f, colorSpace = ColorSpaces.AdobeRgb)                                                                                                                                               
+        val paint = Paint().apply {                                                                                                                                                                                             
+            color = wcgColor // Preserved on API 29+                                                                                                                                                                            
+        }
+
+    ──────                                                                                                                                                                                                                  
+
+### Hardware-Accelerated Mesh Gradients (ui)
+
+• Painter API: Modifier.meshGradient is replaced by MeshGradientPainter, which uses hardware-accelerated Canvas.drawMesh.  
+
+• Usage: Use MeshGradientPainter inside Modifier.paint.
+
+    import androidx.compose.ui.draw.paint                                                                                                                                                                                   
+    import androidx.compose.ui.geometry.Offset                                                                                                                                                                              
+    import androidx.compose.ui.graphics.Color                                                                                                                                                                               
+    import androidx.compose.ui.graphics.MeshGradientPainter                                                                                                                                                                 
+
+    val meshPainter = remember {                                                                                                                                                                                            
+        MeshGradientPainter(rows = 1, columns = 1, hasBicubicColor = true) {                                                                                                                                                
+            setVertex(0, 0, Offset(0f, 0f), Color.Red)                                                                                                                                                                      
+            setVertex(0, 1, Offset(1f, 0f), Color.Blue)                                                                                                                                                                     
+            setVertex(1, 0, Offset(0f, 1f), Color.Green)                                                                                                                                                                    
+            setVertex(1, 1, Offset(1f, 1f), Color.Yellow)                                                                                                                                                                   
+        }                                                                                                                                                                                                                   
+    }                                                                                                                                                                                                                       
+    Box(Modifier.fillMaxSize().paint(meshPainter))                                                                                                                                                                          
+    ──────                                                                                                                                                                                                                  
+
+### 4. Credential Manager Integration (ui)
+
+Autofill:
+\* Adds low level credentialRequest semantics property for API 34+ text fields.
+
+        import androidx.compose.ui.semantics.credentialRequest                                                                                                                                                                  
+        import androidx.compose.ui.semantics.CredentialRequestData                                                                                                                                                              
+        import androidx.compose.ui.semantics.semantics                                                                                                                                                                          
+                                                                                                                                                                                                                                
+        BasicTextField(                                                                                                                                                                                                         
+            value = value,                                                                                                                                                                                                      
+            onValueChange = onValueChange,                                                                                                                                                                                      
+            modifier = Modifier.semantics {                                                                                                                                                                                     
+                if (Build.VERSION.SDK_INT >= 34) {                                                                                                                                                                              
+                    credentialRequest = CredentialRequestData(request, callback)                                                                                                                                                
+                }                                                                                                                                                                                                               
+            }                                                                                                                                                                                                                   
+        ) 
+
+    ──────                                                                                                                                                                                                                  
+
+### 5. Automatic Interaction Sounds (ui)
+
+Click and Nav sounds:
+\* Support Android-compatible click and nav sounds using platform sound configuration.
+\* Opt-out: Use SoundEffectOnInteraction wrapper to disable sounds for a subtree.
+
+        import androidx.compose.ui.platform.SoundEffectOnInteraction                                                                                                                                                            
+                                                                                                                                                                                                                                
+        // Opt-out of sounds for everything inside                                                                                                                                                                              
+        SoundEffectOnInteraction(enabled = false) {                                                                                                                                                                             
+            Button(onClick = {}) {                                                                                                                                                                                              
+                Text("Silent Button")                                                                                                                                                                                           
+            }                                                                                                                                                                                                                   
+        }                                                                                                                                                                                                                       
+
+### 6. Espresso Integration for Hybrid UIs (ui-test)  
+
+Scope Compose interactions to the View hierarchy matched by an Espresso ViewInteraction.
+
+        import androidx.compose.ui.test.junit4.onRootWithViewInteraction                                                                                                                                                        
+        import androidx.test.espresso.Espresso.onView                                                                                                                                                                           
+                                                                                                                                                                                                                                
+        // Match RecyclerView row using Espresso                                                                                                                                                                                
+        val specificRow = onView(allOf(withId(R.id.row), hasDescendant(withText("Item #5"))))                                                                                                                                   
+                                                                                                                                                                                                                                
+        // Scope Compose interactions to that row                                                                                                                                                                               
+        composeTestRule.onRootWithViewInteraction(specificRow)                                                                                                                                                                  
+            .onNodeWithTag("fav_icon")                                                                                                                                                                                          
+            .performClick()
 
 ### Version 1.12.0-rc01
 

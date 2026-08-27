@@ -18,7 +18,7 @@ This table lists all the artifacts in the `androidx.security` group.
 | security-app-authenticator-testing | [1.0.0](https://developer.android.com/jetpack/androidx/releases/security#security-app-authenticator-testing-1.0.0) | - | - | - |
 | security-identity-credential | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/security#security-identity-credential-1.0.0-alpha03) |
 
-This library was last updated on: August 12, 2026
+This library was last updated on: August 26, 2026
 
 ## Declaring dependencies
 
@@ -47,6 +47,12 @@ for more information.
 ## Security-State-Provider
 
 ### Version 1.0
+
+#### Version 1.0.0-rc01
+
+August 26, 2026
+
+`androidx.security:security-state-provider:1.0.0-rc01` is released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/384f3c27346bf5812f359330dc2310f0cbb66402..7da5e1e5b7d0e34b80e24ddfbcf8af70fdf2dcc4/security/security-state-provider).
 
 #### Version 1.0.0-beta02
 
@@ -126,6 +132,12 @@ September 24, 2025
 ## Security-State
 
 ### Version 1.1
+
+#### Version 1.1.0-rc01
+
+August 26, 2026
+
+`androidx.security:security-state:1.1.0-rc01` is released. Version 1.1.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/384f3c27346bf5812f359330dc2310f0cbb66402..7da5e1e5b7d0e34b80e24ddfbcf8af70fdf2dcc4/security/security-state).
 
 #### Version 1.1.0-beta03
 

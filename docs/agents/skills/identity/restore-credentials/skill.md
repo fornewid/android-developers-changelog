@@ -41,6 +41,10 @@ If `allowBackup` in the manifest is set to true, implement both. Otherwise, only
 implement tier 2 (Foreground Restoration). Do **NOT** change the value of
 `allowBackup` in the manifest.
 
+If you added a `BackupAgent` to the app, you **MUST** also set
+`android:fullBackupOnly="true"` in the manifest. Do **NOT** do this if there
+already existed a `BackupAgent` in the app before your implementation.
+
 ## DOs and DON'Ts
 
 **DO:**
@@ -48,6 +52,7 @@ implement tier 2 (Foreground Restoration). Do **NOT** change the value of
 - Do check `AndroidManifest.xml` for the value of allowBackup to determine what you have to implement.
 - Do implement a fallback for createCredential: always try calling it first with `isCloudBackupEnabled` set to true. If an `E2eeUnavailableException` is thrown, catch it and retry the call with `isCloudBackupEnabled` set to `false`.
 - Do implement a `BackupAgent` (subclass of `android.app.backup.BackupAgent`) if `allowBackup` is true in the manifest.
+- Do set `android:fullBackupOnly="true"` in the manifest if you added a `BackupAgent` to the app.
 - Call `clearCredentialState()` when the user signs out. This is a mandatory security measure to log the user out fully.
 - Do attempt to get the restore key on the first launch of the app on a new device and also within the `BackupAgent.onRestoreFinished()` callback if your app uses it.
 - Do ensure that a restore credential is created even if the user is already logged in.

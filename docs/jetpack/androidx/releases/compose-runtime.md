@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 12, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0) | - | - | [1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-alpha01) |
+| August 26, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0) | - | - | [1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-alpha02) |
 
 ## Structure
 
@@ -103,6 +103,17 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.13
+
+### Version 1.13.0-alpha02
+
+August 26, 2026
+
+`androidx.compose.runtime:runtime-*:1.13.0-alpha02` is released. Version 1.13.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e9a673661e45bb2eaea8dd43632ce3e1ea6a2094..449c5b3007e5870f6c89fe2f8ee8c0557b6e5c6c/compose/runtime).
+
+**API Changes**
+
+- Added `withLocalRetainedValuesStore`, which lets you return values from the content lambda. ([I8e871](https://android-review.googlesource.com/#/q/I8e871d907df66a2be49269c3e1f123d7c7db2acb), [b/542168593](https://issuetracker.google.com/issues/542168593))
+- Added nullable overloads of `rememberSerializable` for `MutableState`. ([I77b83](https://android-review.googlesource.com/#/q/I77b834338f1d8fda735dd60b1b719bbd0f23137b), [b/543285462](https://issuetracker.google.com/issues/543285462))
 
 ### Version 1.13.0-alpha01
 

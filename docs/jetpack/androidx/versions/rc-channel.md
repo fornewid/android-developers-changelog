@@ -16,6 +16,13 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## August 26, 2026
+
+- [Benchmark Version 1.5.0-rc02](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-rc02)
+- [Car App Version 1.8.0-rc01](https://developer.android.com/jetpack/androidx/releases/car-app#1.8.0-rc01)
+- [Security-state Version 1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/security#security-state-1.1.0-rc01)
+- [Security-state-provider Version 1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/security#security-state-provider-1.0.0-rc01)
+
 ## August 12, 2026
 
 - [Benchmark Version 1.5.0-rc01](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-rc01)

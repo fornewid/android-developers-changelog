@@ -14,12 +14,12 @@ vulnerabilities like password fatigue, credential stuffing, and phishing.
 
 ## Required implementation
 
-To qualify for AEP, your app must successfully offer at least one approved
-phishing-resistant authentication method (Passkeys or an approved Single Sign-On
-provider) at sign-in in a similar prominent way.
+To qualify for AEP, your app must successfully offer at least one approved phishing-resistant authentication method (Passkeys or an approved Single Sign-On provider) at sign-in in a similar prominent way.
 
-- For Passkeys, this is verified by creating and retrieving Passkeys through the Credential Manager API.
-- Apps using Sign-in with Google must be integrated through the Credential [Manager API](https://developer.android.com/identity/sign-in/legacy-gsi-migration). While other approved SSO providers are accepted, Sign-in with Google is recommended because it offers a modern authentication flow that protects users from phishing while providing a consistent, cross-platform experience.
+| ID | Guideline |
+|---|---|
+| AEP-PR-GAA | For Passkeys, this is verified by creating and retrieving Passkeys through the Credential Manager API. |
+| AEP-PR-GAB | Apps using Sign-in with Google must be integrated through the Credential [Manager API](https://developer.android.com/identity/sign-in/legacy-gsi-migration). While other approved SSO providers are accepted, Sign-in with Google is recommended because it offers a modern authentication flow that protects users from phishing while providing a consistent, cross-platform experience. |
 
 ## Guideline applicability
 
@@ -30,12 +30,10 @@ This guideline applies to:
 
 ## Exemptions
 
-This guideline does not apply to apps that don't support user authentication or
-a signed-in state.
-
-Additionally, you can submit alternative federated identity providers for
-evaluation here if you believe they should be considered alongside the [accepted
-providers](https://developer.android.com/distribute/aep/aep-req-phishing-resistant-auth#accepted-federated).
+| ID | Exemption |
+|---|---|
+| AEP-PR-EAA | This guideline does not apply to apps that don't support user authentication or a signed-in state. |
+| AEP-PR-EAB | Additionally, you can submit alternative federated identity providers for evaluation here if you believe they should be considered alongside the [accepted providers](https://developer.android.com/distribute/aep/aep-req-phishing-resistant-auth#accepted-federated). |
 
 ## Accepted Federated Identity Providers for SSO
 

@@ -30,7 +30,7 @@ and settings data, as described in the following sections.
 You can help maintain existing user engagement by transferring the user's
 account when they get started with a new device.
 
-- **[Restore Credentials](https://developer.android.com/identity/credentials/restore-credentials)**: The recommended way to automatically restore
+- **[Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials)**: The recommended way to automatically restore
   user sign-in state and accounts when users set up a new device, eliminating
   manual login friction.
 

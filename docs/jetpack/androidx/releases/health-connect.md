@@ -10,7 +10,7 @@ Allows developers to read or write user's health and fitness records.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 12, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0) | - | - | [1.2.0-alpha05](https://developer.android.com/jetpack/androidx/releases/health-connect#1.2.0-alpha05) |
+| August 26, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0) | - | - | [1.2.0-alpha06](https://developer.android.com/jetpack/androidx/releases/health-connect#1.2.0-alpha06) |
 
 ## Requesting access to data types
 
@@ -30,7 +30,7 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement health connects
-    implementation "androidx.health.connect:connect-client:1.2.0-alpha05"
+    implementation "androidx.health.connect:connect-client:1.2.0-alpha06"
 }
 ```
 
@@ -39,7 +39,7 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement health connects
-    implementation("androidx.health.connect:connect-client:1.2.0-alpha05")
+    implementation("androidx.health.connect:connect-client:1.2.0-alpha06")
 }
 ```
 
@@ -126,6 +126,16 @@ The entry point to the library is the `FakeHealthConnectClient` class, which you
 - Add Stub overrides for `FakeHealthConnectClient` [e8469](https://android-review.googlesource.com/#/q/1b6e46ddae7d887376c989f01714283c32bedf24)
 
 ## Version 1.2
+
+### Version 1.2.0-alpha06
+
+August 26, 2026
+
+`androidx.health.connect:connect-client:1.2.0-alpha06`, `androidx.health.connect:connect-client-external-protobuf:1.2.0-alpha06`, and `androidx.health.connect:connect-client-proto:1.2.0-alpha06` are released. Version 1.2.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/384f3c27346bf5812f359330dc2310f0cbb66402..a41b2afd796cd2eaaa72ab9f0ffd43933f1ee292/health/connect).
+
+**Bug Fixes**
+
+- Updated Health Connect release and dev signing certificates.
 
 ### Version 1.2.0-alpha05
 

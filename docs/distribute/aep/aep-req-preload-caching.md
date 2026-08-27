@@ -13,7 +13,9 @@ premium user experience. Implementation through Jetpack Media3 is recommended.
 
 To qualify for AEP, your app must adhere to the following requirements:
 
-- Asset transitions must occur in less than 50 ms.
+| ID | Guideline |
+|---|---|
+| AEP-PL-GAA | Asset transitions must occur in less than 50 ms. |
 
 ## Guideline applicability
 
@@ -26,9 +28,11 @@ This guideline applies to:
 
 The following exemptions apply for this guideline:
 
-- Apps where the user must actively navigate to and select their next video from a distinct UI (such as a grid, list, or recommendation menu) after the current video completes.
-- Apps where the core use case is live, peer-to-peer, or server-mediated streaming (such as chat apps and live-streaming apps). These videos are real-time and hence cannot be cached.
-- Apps can use an equivalent alternative framework that provides similar quality, user capabilities, stability and compatibility across the ecosystem. [Contact support](https://developer.android.com/distribute/aep/aep-get-support) if you have a suitable framework for consideration.
+| ID | Exemption |
+|---|---|
+| AEP-PL-EAA | Apps where the user must actively navigate to and select their next video from a distinct UI (such as a grid, list, or recommendation menu) after the current video completes. |
+| AEP-PL-EAB | Apps where the core use case is live, peer-to-peer, or server-mediated streaming (such as chat apps and live-streaming apps). These videos are real-time and hence cannot be cached. |
+| AEP-PL-EAC | Apps can use an equivalent alternative framework that provides similar quality, user capabilities, stability and compatibility across the ecosystem. [Contact support](https://developer.android.com/distribute/aep/aep-get-support) if you have a suitable framework for consideration. |
 
 ## Feature documentation and resources
 
@@ -36,6 +40,7 @@ The following resources provide implementation guidance and technical details on
 the **Preload Caching** feature. These resources are for your reference only and
 don't contain additional program requirements.
 
+- [Use a preload manager for faster response](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager)
 - [Introducing preloading with Media3](https://android-developers.googleblog.com/2025/09/introducing-preloading-with-media3.html)
 - [A deep dive into Media3's PreloadManager](https://android-developers.googleblog.com/2025/09/a-deep-dive-into-media3-preloadmanager.html)
 - [Instagram and Facebook deliver instant playback with Media3](https://android-developers.googleblog.com/2026/03/instagram-and-facebook-deliver-instant.html)

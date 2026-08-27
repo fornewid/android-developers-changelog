@@ -44,9 +44,10 @@ full control over how the codecs are set up.
 ## Custom muxers
 
 You can set a custom muxer for writing media containers by calling
-`Transformer.setMuxerFactory`. For example, if you implement your own muxer at
-the application level, you can write a wrapper that implements the `Muxer`
-interface and then use `setMuxerFactory` to inject it into Transformer.
+`Transformer.Builder.setMuxerFactory`. For example, if you implement your own
+muxer at the application level, you can write a wrapper that implements the
+`Muxer` interface and then use `setMuxerFactory` to inject it into
+`Transformer.Builder`.
 
 If your custom muxer supports writing negative timestamps in MP4 edit lists, you
 should ensure that

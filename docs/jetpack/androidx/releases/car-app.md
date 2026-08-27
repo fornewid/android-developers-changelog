@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/car-app#1.7.0) | - | [1.8.0-beta01](https://developer.android.com/jetpack/androidx/releases/car-app#1.8.0-beta01) | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app#1.9.0-alpha01) |
+| August 26, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/car-app#1.7.0) | [1.8.0-rc01](https://developer.android.com/jetpack/androidx/releases/car-app#1.8.0-rc01) | - | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app#1.9.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -99,6 +99,14 @@ Version 1.9.0-alpha01 contains [these commits](https://android.googlesource.com/
 - Added experimental support for subtitles in Header and a new Background model. ([I66b5b](https://android-review.googlesource.com/#/q/I66b5b6dbea58075b54e998c0d243341d6edb3803))
 
 ## Version 1.8
+
+### Version 1.8.0-rc01
+
+August 26, 2026
+
+`androidx.car.app:app-*:1.8.0-rc01` is released and has the same features as 1.8.0-beta01. Version 1.8.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..eae9dacb0c63a2b6bd7e781577d625ab229bbd8b/car/app).
+
+- This release includes a security fix. If you are using a lower version, please update to use this version.
 
 ### Version 1.8.0-beta01
 

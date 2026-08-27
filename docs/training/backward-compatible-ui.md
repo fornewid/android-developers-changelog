@@ -4,11 +4,9 @@ url: https://developer.android.com/training/backward-compatible-ui
 source: md.txt
 ---
 
-# Create backward-compatible UIs
-
 This class demonstrates how to use UI components and APIs available in newer versions of Android in a backward-compatible way, ensuring that your application still runs on previous versions of the platform.
 
-Throughout this class, the new[Action Bar Tabs](https://developer.android.com/guide/topics/ui/actionbar#Tabs)feature introduced in Android 3.0 (API level 11) serves as the guiding example, but you can apply these techniques to other UI components and API features.
+Throughout this class, the new [Action Bar Tabs](https://developer.android.com/guide/topics/ui/actionbar#Tabs) feature introduced in Android 3.0 (API level 11) serves as the guiding example, but you can apply these techniques to other UI components and API features.
 
 ## Lessons
 

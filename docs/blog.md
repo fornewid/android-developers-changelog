@@ -29,6 +29,20 @@ Tools and resources to help you build faster and easier.
 
 ## The Latest
 
+- [![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_9wUet.webp)](https://developer.android.com/blog/authors/ron-aquino) 25 Aug 2026 25 Aug 2026 ![](https://developer.android.com/static/blog/assets/Ensuring_a_safe_Gen_AI_ecosystem_on_Google_Play_Scrapi_a8fa6da415_ZsHups.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Ensuring Safety in the Generative AI Ecosystem: Protecting Users from Non-Consensual Intimate Content](https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content)
+
+  At Google Play, user safety and developer success go hand in hand. We continue to see growth in apps with AI generated features, and indeed, adding generative AI into your apps is a great way to unlock incredible creative possibilities.
+  [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino) • 4 min read
+- 3 Authors 24 Aug 2026 24 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_1_Strapi_6f49d09922_ZVXnJg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [AAOS SDV - Secure by Design](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design)
+
+  At Google, we believe our products should be secure by design, which is why we built the Android Automotive Operating System for Software Defined Vehicle (AAOS SDV) on existing, market-proven platforms, leveraging virtualization technologies like Cuttlefish.
+  [Markus Vill](https://developer.android.com/blog/authors/markus-vill), [Sean Keys](https://developer.android.com/blog/authors/sean-keys), [István Nádor](https://developer.android.com/blog/authors/istvan-nador) • 5 min read
+  - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
+  - [#Security](https://developer.android.com/blog/topics/security)
 - [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_Z1URmUI.webp)](https://developer.android.com/blog/authors/blair-harmon) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1hkk5a.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Preparing your app for broader memory limits](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits)
@@ -65,26 +79,6 @@ Tools and resources to help you build faster and easier.
   Today, the Jetpack Compose August '26 release is stable!
   [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
   - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- [![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_Derb5.webp)](https://developer.android.com/blog/authors/chiara-chiappini) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Bring_one_handed_gestures_Strapi_defff06599_Z1FDx9g.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Bring one-handed gestures to your Wear OS app](https://developer.android.com/blog/posts/bring-one-handed-gestures-to-your-wear-os-app)
-
-  First introduced on Pixel Watch with Wear OS 6.1, one-handed gestures made quick interactions effortless, such as starting and stopping a timer, accepting calls, and controlling media.
-  [Chiara Chiappini](https://developer.android.com/blog/authors/chiara-chiappini) • 3 min read
-  - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
-  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
-  - [#pixel watch](https://developer.android.com/blog/topics/pixel-watch)
-  - +1 ↩
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
-
-  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
-
-  Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
-  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
-  - [#Media3](https://developer.android.com/blog/topics/media3)
-  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
-  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
-  - +1 ↩
 [arrow_forward
 See all latest posts](https://developer.android.com/blog/latest) ![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_Z1EpVf1.webp)
 

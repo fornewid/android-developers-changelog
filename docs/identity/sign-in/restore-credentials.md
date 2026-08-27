@@ -23,6 +23,8 @@ This guide assumes you're familiar with the following concepts:
 The benefits of the Restore Credentials feature include:
 
 - **Seamless user experience**: Users can begin using the app immediately on their new device without needing to manually sign in.
+- **Increased user retention and reduced support costs**: Automatic sign-in during device upgrades prevents user drop-off and significantly lowers support costs associated with abandoned accounts and password recovery flows.
+- **Enhanced security**: Silent credential restoration eliminates extra login screens and manual account recovery prompts, reducing vulnerability to phishing and credential theft attacks.
 - **Immediate engagement**: You can engage users with notifications or other prompts as soon as they start using their new device.
 - **Support for multiple authentication mechanisms** : It works with multiple authentication mechanisms, including:
   - [Passkeys](https://developer.android.com/identity/passkeys)
@@ -65,6 +67,15 @@ either from the following options:
 After the restore key is available on the new device, you can use it to sign in
 the user.
 ![The flow to restore credentials from an old device to a new device requires no user interaction](https://developer.android.com/static/identity/sign-in/images/restore-credentials-flow-on-devices.png) **Figure 1:**Process overview to restore credentials
+
+## Pair Restore Credentials with App Data Backup
+
+Apart from logging in the user, your app should transfer the user's local
+settings, offline drafts, and dark theme preferences to deliver a complete,
+zero-friction device transition:
+
+- **Restore identity**: Use Restore Credentials to silently re-authenticate account access.
+- **Restore state and preferences** : Configure [Auto Backup (`dataExtractionRules`)](https://developer.android.com/topic/data-management/backup/auto-backup) to preserve user preferences, local databases, and app state across cloud and cable device transfers.
 
 ## Handle multiple system profiles and app accounts
 

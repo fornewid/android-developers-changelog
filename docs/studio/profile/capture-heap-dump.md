@@ -36,7 +36,8 @@ memory. Then when the user returns to your app, the app process must restart
 completely.
 
 For information about programming practices that can reduce your app's memory
-use, read [Manage your app's memory](https://developer.android.com/topic/performance/memory).
+use, read
+\[Manage your app's memory\][memory](https://developer.android.com/topic/performance/memory/manage-app-memory).
 
 ## Heap dump overview
 

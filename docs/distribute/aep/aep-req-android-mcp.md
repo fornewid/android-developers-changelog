@@ -29,11 +29,11 @@ Program**.
 
 To qualify for AEP, your app must adhere to the following requirements:
 
-- The app must use the [AppFunctions
-  APIs](https://developer.android.com/reference/android/app/appfunctions/package-summary) to implement at least one relevant use case.
-- We highly recommend Implementation through the [AppFunctions Jetpack
-  SDK](https://developer.android.com/reference/androidx/appfunctions/package-summary) to ensure a convenient and type-safe integration.
-- Pass all mandatory integration tests.
+| ID | Guideline |
+|---|---|
+| AEP-AM-GAA | The app must use the [AppFunctions APIs](https://developer.android.com/reference/android/app/appfunctions/package-summary) to implement at least one relevant use case. |
+| AEP-AM-GAB | We highly recommend Implementation through the [AppFunctions Jetpack SDK](https://developer.android.com/reference/androidx/appfunctions/package-summary) to ensure a convenient and type-safe integration. |
+| AEP-AM-GAC | Pass all mandatory integration tests. |
 
 ## Guideline applicability
 
@@ -55,8 +55,9 @@ This guideline is applicable to apps with any of the following use cases:
 
 ## Exemptions
 
-This guideline is not applicable to apps that don't support the previously
-described use cases.
+| ID | Exemption |
+|---|---|
+| AEP-AM-EAA | This guideline is not applicable to apps that don't support the previously described use cases. |
 
 ## Feature documentation and resources
 

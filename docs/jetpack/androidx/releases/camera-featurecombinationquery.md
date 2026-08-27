@@ -10,7 +10,7 @@ Query camera capabilities.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 12, 2026 | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.6.1) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.7.0-alpha03) |
+| August 26, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.7.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -82,6 +82,14 @@ March 11, 2026
 `androidx.camera.featurecombinationquery:featurecombinationquery:1.7.0-alpha01` and `androidx.camera.featurecombinationquery:featurecombinationquery-play-services:1.7.0-alpha01` are released. Version 1.7.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0dc6fa695e63a0bbc17f07b7368ba2567fb47d01..1a508f033de883ba2853b9f9ae1853eec7010638/camera/featurecombinationquery).
 
 ## Version 1.6
+
+### Version 1.6.2
+
+Bump version to align with `android.camerax`.
+
+August 26, 2026
+
+`androidx.camera.featurecombinationquery:featurecombinationquery:1.6.2` and `androidx.camera.featurecombinationquery:featurecombinationquery-play-services:1.6.2` are released. Version 1.6.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/987b9ac8585b31424a397206c492196dd163997b..9046f07948c1e7a89aaec581463730f4d666611b/camera/featurecombinationquery).
 
 ### Version 1.6.1
 

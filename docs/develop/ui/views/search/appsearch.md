@@ -39,7 +39,7 @@ application's `build.gradle` file:
 
 ```groovy
 dependencies {
-    def appsearch_version = "1.1.0"
+    def appsearch_version = "1.2.0-alpha02"
 
     implementation "androidx.appsearch:appsearch:$appsearch_version"
     // Use kapt instead of annotationProcessor if writing Kotlin classes
@@ -61,7 +61,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val appsearch_version = "1.1.0"
+    val appsearch_version = "1.2.0-alpha02"
 
     implementation("androidx.appsearch:appsearch:$appsearch_version")
     // Use annotationProcessor instead of kapt if writing Java classes

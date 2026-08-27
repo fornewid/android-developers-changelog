@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 12, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0) | - | - | [1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-alpha01) |
+| August 26, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0) | - | - | [1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-alpha02) |
 
 ## Structure
 
@@ -99,6 +99,21 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.13
+
+### Version 1.13.0-alpha02
+
+August 26, 2026
+
+`androidx.compose.foundation:foundation-*:1.13.0-alpha02` is released. Version 1.13.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e9a673661e45bb2eaea8dd43632ce3e1ea6a2094..c3e81656586bd411121465da4b871be2fa24e89c/compose/foundation).
+
+**API Changes**
+
+- Promoted Grid layout APIs (`Grid`, `GridScope`, `GridConfigurationScope`, `GridFlow`, `Fr`, `GridTrackSize`, `GridTrackSpec`, `Modifier.gridItem`) to stable. ([I43ac4](https://android-review.googlesource.com/#/q/I43ac441e7b6f41d49099db58610657ecb12104ac), [b/462550392](https://issuetracker.google.com/issues/462550392))
+- Added new semantics property `BackgroundColor` for Modifier.background ([I7eec3](https://android-review.googlesource.com/#/q/I7eec3e7856bbe392416cb4dbe023a8f3622c1224), [b/518049030](https://issuetracker.google.com/issues/518049030))
+- Removed `ExperimentalFlexBoxApi` annotation and renamed pixel-based properties in `FlexConfigScope` with a `Px` suffix for clarity. ([I5b24e](https://android-review.googlesource.com/#/q/I5b24e210dabf09326833dd1bbe96ca5ce18bdf20), [b/543092286](https://issuetracker.google.com/issues/543092286))
+- Only keep around cached items when not in a lookahead pass. Introduced flag `isKeepAroundDuringLookaheadDisabled`. To return to the old behaviour set the flag to `false`. ([I110e9](https://android-review.googlesource.com/#/q/I110e9ddcebde92b244ee11d7af426bd3c9165a31))
+- Added `isLazyLayoutItemAnimatorVisibleBoundsFixEnabled` compose flag. When enabled, visible item index bounds are calculated before placement animations run in `LazyList` and `LazyGrid` measure. ([I56150](https://android-review.googlesource.com/#/q/I5615036dfe93817912cdd87822973084dff37e99))
+- Fix consumption on initial pass in Draggable. This ensures that if a down event is consumed on initial pass, dragging starts immediately in the main pass. This behavior change is gated behind the feature flag `ComposeFoundationFlags`.`isDraggableInitialPassConsumptionFixEnabled`. ([I6a77f](https://android-review.googlesource.com/#/q/I6a77fa35639d31a932f336f77306d67869d50864), [b/532946466](https://issuetracker.google.com/issues/532946466))
 
 ### Version 1.13.0-alpha01
 
@@ -689,7 +704,7 @@ August 13, 2025
 
 - Lint checks shipped with Compose now require a minimum AGP version of 8.8.2. If you are unable to upgrade AGP, you can instead upgrade Lint on its own by using `android.experimental.lint.version=8.8.2` (or a newer version) in your `gradle.properties`. To run Compose lint checks inside the IDE, Android Studio Ladybug or newer is required.
 - Breaking change: `clickable`, `combinedClickable`,`selectable`, `toggleable`, and `triStateToggleable` overloads without an Indication parameter now only support `IndicationNodeFactory` instances provided using `LocalIndication`. This change will apply when you recompile your usages of these modifiers using this version of Compose. Binary / transitive dependencies are not affected. If you are providing a deprecated Indication implementation to `LocalIndication`, and using these APIs, this will introduce a crash at runtime. This behavior change is needed to enable improved performance, and allow Composable functions using these modifiers to skip during recomposition. You can use `ComposeFoundationFlags.isNonComposedClickableEnabled=false` to temporarily opt-out of this behavior change, to enable upgrading Compose without being blocked on this migration. This flag will be removed after one stable release. To resolve, migrate any deprecated Indication implementations to use `IndicationNodeFactory` instead. You can also use the overloads with an explicit Indication parameter - these overloads will continue to support non-`IndicationNodeFactory` instances of Indication, although this is not recommended for performance reasons. ([I6bcdc](https://android-review.googlesource.com/#/q/I6bcdc6ff82dd6ff5ea1a97688d5a1426b719df20), [b/316914333](https://issuetracker.google.com/issues/316914333))
-- Introduced `isFlingCancellationWithNestedScrollFixEnabled` to fix an issue with fling propagation in nested scrolling. In this CL we are restoring the fling continuation behavior removed in [I9326a](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3260391). We will still cancel the fling animation in case the child is removed from composition. ([I467f4](https://android-review.googlesource.com/#/q/I467f4a8974a752d63bd3d6ab62e6eb751f5e2ccc), [b/405910180](https://issuetracker.google.com/issues/405910180), [b/419049142](https://issuetracker.google.com/issues/419049142), [b/416784125](https://issuetracker.google.com/issues/416784125))
+- Introduced `isFlingCancellationWithNestedScrollFixEnabled` to fix an issue with fling propagation in nested scrolling. In this CL we are restoring the fling continuation behavior removed in [I9326a](https://android-review.googlesource.com/c/platform/frameworks/support/+/3260391). We will still cancel the fling animation in case the child is removed from composition. ([I467f4](https://android-review.googlesource.com/#/q/I467f4a8974a752d63bd3d6ab62e6eb751f5e2ccc), [b/405910180](https://issuetracker.google.com/issues/405910180), [b/419049142](https://issuetracker.google.com/issues/419049142), [b/416784125](https://issuetracker.google.com/issues/416784125))
 - Re-add usage of `scrollAnimationSpec` in `ContentInViewNode`. The behavior was removed during the `scrollAnimationSpec` deprecation which caused use cases to be broken. ([I1436a](https://android-review.googlesource.com/#/q/I1436a3212c8f637935259243253f70db1163e584), [b/403301605](https://issuetracker.google.com/issues/403301605))
 - Stabilized `LazyLayout`. ([If5db4](https://android-review.googlesource.com/#/q/If5db4170daec197e39612bcfb5f8b5d4cdd8db52)), `LazyLayoutPrefetchState` and it's scheduling method `schedulePrecomposition` and `schedulePrecompositionAndPremeasure`. ([I4362f](https://android-review.googlesource.com/#/q/I4362f3417ebe652d967463a474e4ba799967930d), [b/252853717](https://issuetracker.google.com/issues/252853717)) and `LazyLayoutItemProvider` ([Icce09](https://android-review.googlesource.com/#/q/Icce09a01e2668ea0a93678ec84d189aa4769e26c),[b/261565751](https://issuetracker.google.com/issues/261565751))
 - Allow Compose to trigger `ViewTreeObserver.OnScrollChanged`. This behavior is introduced under the flag `isOnScrollChangedCallbackEnabled`. We also introduced an extension function of `DelegatableNode dispatchOnScrollChanged`. ([I34b9d](https://android-review.googlesource.com/#/q/I34b9d923ff1fb4a4e27a53e583a7b082bc99b158), [b/238109286](https://issuetracker.google.com/issues/238109286))

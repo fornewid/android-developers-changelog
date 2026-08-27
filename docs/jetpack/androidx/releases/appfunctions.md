@@ -10,7 +10,7 @@ Allows apps to share functionality and data with AI assistants, enabling them to
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | - | - | - | [1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha10) |
+| August 26, 2026 | - | - | - | [1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha11) |
 
 ## Declaring dependencies
 
@@ -25,11 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.appfunctions:appfunctions:1.0.0-alpha10"
-    implementation "androidx.appfunctions:appfunctions-service:1.0.0-alpha10"
+    implementation "androidx.appfunctions:appfunctions:1.0.0-alpha11"
     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
     // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
-    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-alpha10"
+    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-alpha11"
 }
 ```
 
@@ -37,11 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.appfunctions:appfunctions:1.0.0-alpha10")
-    implementation("androidx.appfunctions:appfunctions-service:1.0.0-alpha10")
+    implementation("androidx.appfunctions:appfunctions:1.0.0-alpha11")
     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
     // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
-    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha10")
+    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha11")
 }
 ```
 
@@ -63,6 +61,25 @@ for more information.
 There are no release notes for this artifact.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha11
+
+August 26, 2026
+
+`androidx.appfunctions:appfunctions:1.0.0-alpha11`, `androidx.appfunctions:appfunctions-compiler:1.0.0-alpha11`, and `androidx.appfunctions:appfunctions-testing:1.0.0-alpha11` are released. Version 1.0.0-alpha11 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/673c70767fb204c629acc6d6e1b5e5e1ea80075e..212831d6b3196011d8f8b10e59ab6026371bc5d6/appfunctions).
+
+**API Changes**
+
+- Add `@AppFunctionSignature` as experimental public API. The API supports dynamic AppFunction registration via Jetpack. ([I72e23](https://android-review.googlesource.com/#/q/I72e23761b6f0c4e21d3ce11c75810f6cc7222e26), [b/501032667](https://issuetracker.google.com/issues/501032667))
+- Add `AppFunctionState` and `AppFunctionManager#getAppFunctionStates`. This replaces `AppFunctionMetadata#isEnabled`. The metadata is now completely separated from the state. ([I8e490](https://android-review.googlesource.com/#/q/I8e4908eeac1d617a64cf809a47792b005aec1c6d), [b/494238383](https://issuetracker.google.com/issues/494238383))
+- `Add getAppFunctionActivityStates`. ([I41093](https://android-review.googlesource.com/#/q/I4109379174eff35b7b171883cc17de0f3ec14762), [b/542075714](https://issuetracker.google.com/issues/542075714))
+- Add `ExtensionsAppFunctionService` to support apps working with sidecar. ([I7cf10](https://android-review.googlesource.com/#/q/I7cf10c88661d47ad1f3a1880f601eb81bb9c2d5a), [b/524941402](https://issuetracker.google.com/issues/524941402))
+- Update `observeAppFunctions` API to match platform API. ([Ifa6fb](https://android-review.googlesource.com/#/q/Ifa6fbb753a36d7bb916bade1e5574fcb825a26c5), [b/494238381](https://issuetracker.google.com/issues/494238381))
+
+**Bug Fixes**
+
+- Fix the issue that missing runtime metadata could cause app to crash when calling `setAppFunctionEnabled` during OOBE. ([Ibe229](https://android-review.googlesource.com/#/q/Ibe229b8534c6b515d7f477ecf645796088904589), [b/536750020](https://issuetracker.google.com/issues/536750020))
+- Temporary disable data validation when using `AppFunctionData#serialize` API until the metadata is coming from the same source of the truth. ([I6c95](https://android-review.googlesource.com/#/q/I6c953455a0b2d11a4b3347b1343e87980b0c0f18), [b/545200019](https://issuetracker.google.com/issues/545200019))
 
 ### Version 1.0.0-alpha10
 
@@ -157,9 +174,9 @@ November 05, 2025
 
 **Bug Fixes**
 
-- Fix the issue that ignoring nullable required field would fail when constructing `AppFunctionData` ([I52195](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3791966))
-- Fix the issue that using `List<PendingIntent>` with `AppFunction` would fail at compile time ([Iebde7](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3795955))
-- Fix the issue that `ByteArray`'s metadata was generated incorrectly as `List<ByteArray>` ([I2e499](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3810704))
+- Fix the issue that ignoring nullable required field would fail when constructing `AppFunctionData` ([I52195](https://android-review.googlesource.com/c/platform/frameworks/support/+/3791966))
+- Fix the issue that using `List<PendingIntent>` with `AppFunction` would fail at compile time ([Iebde7](https://android-review.googlesource.com/c/platform/frameworks/support/+/3795955))
+- Fix the issue that `ByteArray`'s metadata was generated incorrectly as `List<ByteArray>` ([I2e499](https://android-review.googlesource.com/c/platform/frameworks/support/+/3810704))
 
 ### Version 1.0.0-alpha05
 

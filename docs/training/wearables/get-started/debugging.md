@@ -38,8 +38,9 @@ test hardware-specific features like sensors.
 #### Connect over Wi-Fi
 
 Wear OS supports wireless debugging, which lets you debug your app over a
-Wi-Fi network. To use wireless debugging, enable developer options and wireless debugging on the watch, pair your
-development computer using a pairing code, and then connect to the watch.
+Wi-Fi network. To use wireless debugging, enable developer options and wireless
+debugging on the watch, pair your development computer using a pairing code, and
+then connect to the watch.
 
 For detailed, step-by-step instructions, see [Debug Wear OS over Wi-Fi](https://developer.android.com/training/wearables/get-started/debug-wifi).
 

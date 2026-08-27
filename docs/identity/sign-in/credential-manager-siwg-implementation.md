@@ -118,6 +118,9 @@ The request `googleIdOption` object is configured as follows:
 Check if the user has an authorized account on the device by calling the
 `getCredential` method:
 
+> [!NOTE]
+> **Note:** To avoid a potential memory leak, pass in a `MutableContextWrapper` of your foreground `Activity` to the `getCredential()` call. Credential Manager handles updating the context during `Activity` reconstruction.
+
     val request: GetCredentialRequest = GetCredentialRequest.Builder()
         .addCredentialOption(googleIdOption)
         .build()

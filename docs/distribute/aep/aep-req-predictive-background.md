@@ -16,8 +16,10 @@ To qualify for AEP, your app must support the back-to-home gesture from your
 main activities. To achieve this, **keep back-to-home Predictive Back system
 animations enabled** by:
 
-- Ensuring [`android:enableOnBackInvokedCallback="true`](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#opt-out)" in your AndroidManifest.xml for launcher activities.
-- Allowing the system to execute the back-to-home animation. If your launcher activity intercepts back events, use `OnBackInvokedDispatcher` with the `PRIORITY_SYSTEM_NAVIGATION_OBSERVER` to observe the events without blocking the animation.
+| ID | Guideline |
+|---|---|
+| AEP-PB-GAA | Ensuring [`android:enableOnBackInvokedCallback="true"`](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#opt-out) in your AndroidManifest.xml for launcher activities. |
+| AEP-PB-GAB | Allowing the system to execute the back-to-home animation. If your launcher activity intercepts back events, use `OnBackInvokedDispatcher` with the `PRIORITY_SYSTEM_NAVIGATION_OBSERVER` to observe the events without blocking the animation. |
 
 ## Guideline applicability
 

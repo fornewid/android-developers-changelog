@@ -90,11 +90,11 @@ Deploy and manage your custom ML and GenAI models for on-device AI features effi
 
 ## Accelerate your development
 
-AI-powered tools can automate repetitive tasks, suggest code, debug errors, and more---which lets you focus on higher-level problem-solving and innovation. [![](http://developer.android.com/static/images/logos/android-studio-round.svg)](http://developer.android.com/gemini-in-android)
+AI-powered tools can automate repetitive tasks, suggest code, debug errors, and more---which lets you focus on higher-level problem-solving and innovation. [![](http://developer.android.com/static/images/logos/android-studio-round.svg)](http://developer.android.com/ai-in-android)
 
-### [Gemini in Android Studio](http://developer.android.com/gemini-in-android)
+### [Gemini in Android Studio](http://developer.android.com/ai-in-android)
 
-Gemini in Android Studio is your coding companion for Android development. It can generate code, find relevant resources, learn best practices, troubleshoot errors, and save time. [Learn more](http://developer.android.com/gemini-in-android) [![](http://developer.android.com/static/images/logos/android.svg)](http://developer.android.com/tools/agents)
+Gemini in Android Studio is your coding companion for Android development. It can generate code, find relevant resources, learn best practices, troubleshoot errors, and save time. [Learn more](http://developer.android.com/ai-in-android) [![](http://developer.android.com/static/images/logos/android.svg)](http://developer.android.com/tools/agents)
 
 ### [Android CLI](http://developer.android.com/tools/agents)
 

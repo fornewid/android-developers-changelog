@@ -14,9 +14,11 @@ interruptible, eliminating rigid transitions.
 
 To qualify for AEP, your app must adhere to the following requirements:
 
-- The app must not have 0ms visual transitions during primary navigation or state changes, including immediate screen replacements or instantaneous layout shifts.
-- All core app interactions, navigations, and transient views must utilize visual transitions with a duration greater than 0 ms.
-- Maintain user context through interpolation methods such as cross-fades, standard easing, shared element transitions, or physics-based spring animations.
+| ID | Guideline |
+|---|---|
+| AEP-PM-GAA | The app must not have 0ms visual transitions during primary navigation or state changes, including immediate screen replacements or instantaneous layout shifts. |
+| AEP-PM-GAB | All core app interactions, navigations, and transient views must utilize visual transitions with a duration greater than 0 ms. |
+| AEP-PM-GAC | Maintain user context through interpolation methods such as cross-fades, standard easing, shared element transitions, or physics-based spring animations. |
 
 **Tip** : If you are using Jetpack Compose to develop the app's UI, use the
 [`spring() AnimationSpec`](https://developer.android.com/develop/ui/compose/animation/customize#animationspec) for positional and state changes, and tune the

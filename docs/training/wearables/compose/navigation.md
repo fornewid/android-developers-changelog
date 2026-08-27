@@ -8,6 +8,8 @@ Compose for Wear OS Material version <button value="2.5">2.5</button> <button va
 
 *** ** * ** ***
 
+<br />
+
 The [Navigation component](https://developer.android.com/guide/navigation) in Android Jetpack provides
 support for Jetpack Compose applications. You can navigate between composables
 while taking advantage of the Navigation component's infrastructure and

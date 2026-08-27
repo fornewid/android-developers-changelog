@@ -19,6 +19,18 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
 
+## August 26, 2026
+
+- [Camera Featurecombinationquery Version 1.6.2](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.6.2)
+- [Camera Version 1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2)
+- [Camera Viewfinder Version 1.6.2](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.2)
+- [Glance Version 1.2.0](https://developer.android.com/jetpack/androidx/releases/glance#1.2.0)
+- [Navigation Version 2.10.0](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0)
+- [Navigation3 Version 1.1.7](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.7)
+- [Room3 Version 3.0.2](https://developer.android.com/jetpack/androidx/releases/room3#3.0.2)
+- [Tracing Version 2.0.1](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.1)
+- [Transition Transition-ktx Version 1.7.1](https://developer.android.com/jetpack/androidx/releases/transition#1.7.1)
+
 ## August 12, 2026
 
 - [Appcompat Version 1.8.0](https://developer.android.com/jetpack/androidx/releases/appcompat#1.8.0)

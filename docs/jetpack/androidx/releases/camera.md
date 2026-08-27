@@ -13,20 +13,20 @@ This table lists all the artifacts in the `androidx.camera` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| camera-camera2 | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
-| camera-core | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
-| camera-compose | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
-| camera-effects | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
-| camera-extensions | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
+| camera-camera2 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
+| camera-core | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
+| camera-compose | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
+| camera-effects | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
+| camera-extensions | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
 | camera-feature-combination-query | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
 | camera-feature-combination-query-play-services | - | - | - | [1.5.0-alpha06](https://developer.android.com/jetpack/androidx/releases/camera#1.5.0-alpha06) |
-| camera-lifecycle | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
-| camera-mlkit-vision | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
-| camera-view | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
+| camera-lifecycle | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
+| camera-mlkit-vision | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
+| camera-view | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
 | camera-viewfinder | - | - | [1.3.0-beta02](https://developer.android.com/jetpack/androidx/releases/camera#1.3.0-beta02) | [1.4.0-alpha07](https://developer.android.com/jetpack/androidx/releases/camera#1.4.0-alpha07) |
-| camera-video | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha02) |
+| camera-video | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03) |
 
-This library was last updated on: July 01, 2026
+This library was last updated on: August 26, 2026
 
 ## Device testing
 
@@ -49,7 +49,7 @@ your app or module:
 ```groovy
 dependencies {
   // CameraX core library using the camera2 implementation
-  def camerax_version = "1.7.0-alpha02"
+  def camerax_version = "1.7.0-alpha03"
   // The following line is optional, as the core library is included indirectly by camera-camera2
   implementation "androidx.camera:camera-core:${camerax_version}"
   implementation "androidx.camera:camera-camera2:${camerax_version}"
@@ -71,7 +71,7 @@ dependencies {
 ```kotlin
 dependencies {
     // CameraX core library using the camera2 implementation
-    val camerax_version = "1.7.0-alpha02"
+    val camerax_version = "1.7.0-alpha03"
     // The following line is optional, as the core library is included indirectly by camera-camera2
     implementation("androidx.camera:camera-core:${camerax_version}")
     implementation("androidx.camera:camera-camera2:${camerax_version}")
@@ -140,6 +140,30 @@ May 14, 2024
 
 ## Version 1.7
 
+### Version 1.7.0-alpha03
+
+August 12, 2026
+
+`androidx.camera:camera-*:1.7.0-alpha03` is released. Version 1.7.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/01f3396e92df911805f22836f27c7057324e40ff..bb117e26ce89b888d6f928ff7b604913a1da43f2/camera).
+
+**API Changes**
+
+- Deprecated legacy Camera2Interop APIs (`Camera2Interop.Extender`, `Camera2CameraControl`, `Camera2CameraInfo`, and `CaptureRequestOptions`) in favor of `Camera2Interop` configurator factory methods and Kotlin extension functions. ([Ib0845](https://android-review.googlesource.com/#/q/Ib084541e51100bde3afc9e2936f4ac318e468685), [b/529609261](https://issuetracker.google.com/issues/529609261))
+- Added Kotlin DSL `camera2Interop` extension blocks for `preview`, `imageAnalysis`, `videoCapture`, `imageCapture`, and `SessionConfig.Builder`, as well as `CameraControl.applyCamera2InteropAsync` extension function. ([I51af9](https://android-review.googlesource.com/#/q/I51af9f5ba6610b2004db2387d8389a3df9d331d4), [b/529609261](https://issuetracker.google.com/issues/529609261))
+- Added new `Camera2Interop` configurator factory methods (`forUseCase`, `forImageCapture`, `forSessionConfig`, `forCameraControl`) and corresponding `setInterop` / `applyInteropAsync` methods on `Preview.Builder`, `ImageCapture.Builder`, `ImageAnalysis.Builder`, `VideoCapture.Builder`, `SessionConfig.Builder`, and `CameraControl`. ([I0007b](https://android-review.googlesource.com/#/q/I0007be820431fb2f1f3097e32fb1464de87ee493), [b/529609261](https://issuetracker.google.com/issues/529609261))
+- Added helper methods to `Camera2Interop` and equivalent Kotlin extension properties (`CameraInfo.cameraId`, `CameraInfo.cameraCharacteristics`, and `String.toCameraSelector()`) to retrieve Camera2 camera ID and characteristics from `CameraInfo`. ([I11803](https://android-review.googlesource.com/#/q/I118033c739e656b9991e40a8c3d82bf559655d06), [b/529609261](https://issuetracker.google.com/issues/529609261))
+- Added `Preview.setMirrorMode`, `Preview.getMirrorMode` and `VideoCapture.setMirrorMode` to public APIs, and removed the `ExperimentalMirrorMode` annotation. ([I4ed60](https://android-review.googlesource.com/#/q/I4ed60c216e3af602b136402499806ea85b9d881a), [b/519794349](https://issuetracker.google.com/issues/519794349), [b/470629643](https://issuetracker.google.com/issues/470629643))
+- Added Kotlin DSL builders `preview` { ... }, `imageCapture` { ... }, `imageAnalysis` { ... }, and `videoCapture` { ... } for creating `UseCases`. ([I91df9](https://android-review.googlesource.com/#/q/I91df9571b9c9a3216fa778c17b7a89d816c75958), [b/530013719](https://issuetracker.google.com/issues/530013719))
+- Modified ImagePlane.buffer to be non-nullable ByteBuffer. ([I98593](https://android-review.googlesource.com/#/q/I9859312ceb34b89e32a39924a8549c3ccdf0bb89))
+- Deprecated the property getters on `SessionConfig.Builder`, `HighSpeedVideoSessionConfig.Builder`, and `ExtensionSessionConfig.Builder` in Kotlin DSL to enforce write-only properties. ([I2875b](https://android-review.googlesource.com/#/q/I2875bd26ff72f5832b67bc3678e7f6e247a46669), [b/534570559](https://issuetracker.google.com/issues/534570559))
+
+**Bug Fixes**
+
+- Fixed an issue where binding multiple `Preview` use cases with an `OverlayEffect` caused one Preview stream delivery failure. ([I7a383](https://android-review.googlesource.com/#/q/I7a383e469a5f657b7af9524c4c87b9d093ec32ad), [b/532577546](https://issuetracker.google.com/issues/532577546), [b/532924417](https://issuetracker.google.com/issues/532924417))
+- Fixed an issue where `Recording.pause()` and `Recording.resume()` failed when switching cameras during a persistent video recording. ([I71004](https://android-review.googlesource.com/#/q/I710042e26ed0b49bf485193c517d66adf1919223), [b/532327691](https://issuetracker.google.com/issues/532327691), [b/367121726](https://issuetracker.google.com/issues/367121726))
+- Fixed HAL crashes when using Zero-Shutter Lag (ZSL) while zooming across physical camera boundaries on multi-camera devices. ([I1c374](https://android-review.googlesource.com/#/q/I1c3746c0abcfc151332777dbc1b74f2a1720be50), [b/527782712](https://issuetracker.google.com/issues/527782712), [b/514757157](https://issuetracker.google.com/issues/514757157))
+- Fixed an issue where HDR video recording could fail on Samsung Galaxy S25, S26, and Fold 7 devices. ([Ic0827](https://android-review.googlesource.com/#/q/Ic0827a330651fcf77177f269010dff1f52c54c37), [b/529618629](https://issuetracker.google.com/issues/529618629))
+
 ### Version 1.7.0-alpha02
 
 July 01, 2026
@@ -192,6 +216,16 @@ March 11, 2026
 
 ## Camera Version 1.6
 
+### Version 1.6.2
+
+August 26, 2026
+
+`androidx.camera:camera-*:1.6.2` is released. Version 1.6.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/987b9ac8585b31424a397206c492196dd163997b..9046f07948c1e7a89aaec581463730f4d666611b/camera).
+
+**Bug Fixes**
+
+- Fixed a compilation crash on newer JDK versions when resolving transitively imported JSpecify type annotations on `CameraX` internal fields. ([I00bb4](https://android-review.googlesource.com/#/q/I00bb407877f4e608a23754eaff9a8f9cf572e6d1), [b/543937345](https://issuetracker.google.com/issues/543937345))
+
 ### Version 1.6.1
 
 May 06, 2026
@@ -233,7 +267,7 @@ March 25, 2026
 - Fixed a crash that occurs on certain Android 17 (API 37) devices or higher. When these devices expose new dynamic range profiles (e.g., [STANDARD_SMPTE_2094_50(ID 8192)](https://developer.android.com/reference/android/hardware/camera2/params/DynamicRangeProfiles#STANDARD_SMPTE_2094_50)) that were unknown to CameraX version 1.5.1 and earlier, the library previously failed to handle these IDs appropriately, resulting in a `NullPointerException` or `IllegalArgumentException` during `ProcessCameraProvider.bindToLifecycle()`. This fix allows CameraX to gracefully ignore unrecognized dynamic range profiles, preventing the crash and maintaining forward compatibility. **Please update your CameraX dependency to version 1.5.2 or 1.6.0 (or higher) to avoid this issue on devices exposing these new profiles** . For more details, see [issue 519796838](https://issuetracker.google.com/519796838#comment2). ([Ibd7b5](https://android-review.googlesource.com/#/q/Ibd7b5f532f7af0f43415aaef09cc9ce5f26763f6))
 - The feature group API now provides consistent results when `PREVIEW_STABILIZATION` is used with `VideoCapture`. This corrects a bug that caused inconsistent results when a Preview use case was not also active. ([Ifed82](https://android-review.googlesource.com/#/q/Ifed82d0d9ce2cfdb407523535d9e4c8c4a51f46d), [b/449913903](https://issuetracker.google.com/issues/449913903))
 - Fixed an issue where unsupported preferred features were incorrectly made available. Features are now correctly filtered when their required use cases are not met. ([I38db8](https://android-review.googlesource.com/#/q/I38db88ca0ae9c2cd87b49ceffddd7980b3178576), [b/449532342](https://issuetracker.google.com/issues/449532342))
-- Fixed glitchy video result on Samsung Galaxy S6. ([I612d9](https://android-review.git.corp.google.com/#/q/I612d902c2aa36dfd5b77a53a59a5646cadf96272), [b/235127608](https://issuetracker.google.com/issues/235127608))
+- Fixed glitchy video result on Samsung Galaxy S6. ([I612d9](https://android-review.googlesource.com/#/q/I612d902c2aa36dfd5b77a53a59a5646cadf96272), [b/235127608](https://issuetracker.google.com/issues/235127608))
 - Fixed an issue where `CameraInfo#isFeatureGroupSupported` could incorrectly return true for `PREVIEW_STABILIZATION` if the `SessionConfig` in the query was already configured with other features. ([I2c355c](https://android-review.googlesource.com/#/q/I2c355c533f737d1797a7427d37661781cd1480b2), [b/437816469](https://issuetracker.google.com/issues/437816469))
 - Excluded problematic YUV format output sizes from Samsung Z Fold 4 device. The received images have distortion issue when using those output sizes. ([I776bf](https://android-review.googlesource.com/#/q/I776bf1f9447fba5b6354b597fb8067d25419756a), [b/460322307](https://issuetracker.google.com/issues/460322307))
 - Fixed a device-specific issue on Samsung A53 where image capture with torch enabled would fail sometimes if `VideoCapture` use case is bound. ([I0f183](https://android-review.googlesource.com/#/q/I0f183808184febdcb203e8f5658e7663d8dc44b9), [b/458197367](https://issuetracker.google.com/issues/458197367))
@@ -318,7 +352,7 @@ October 22, 2025
 
 - The feature group API now provides consistent results when `PREVIEW_STABILIZATION` is used with `VideoCapture`. This corrects a bug that caused inconsistent results when a `Preview` use case was not also active. ([Ifed82](https://android-review.googlesource.com/#/q/Ifed82d0d9ce2cfdb407523535d9e4c8c4a51f46d), [b/449913903](https://issuetracker.google.com/issues/449913903))
 - Fixed an issue where unsupported preferred features were incorrectly made available. Features are now correctly filtered when their required use cases are not met. ([I38db8](https://android-review.googlesource.com/#/q/I38db88ca0ae9c2cd87b49ceffddd7980b3178576), [b/449532342](https://issuetracker.google.com/issues/449532342))
-- Fixed glitchy video result on Samsung Galaxy S6. ([I612d9](https://android-review.git.corp.google.com/#/q/I612d902c2aa36dfd5b77a53a59a5646cadf96272), [b/235127608](https://issuetracker.google.com/issues/235127608))
+- Fixed glitchy video result on Samsung Galaxy S6. ([I612d9](https://android-review.googlesource.com/#/q/I612d902c2aa36dfd5b77a53a59a5646cadf96272), [b/235127608](https://issuetracker.google.com/issues/235127608))
 - Fixed an issue where `CameraInfo#isFeatureGroupSupported` could incorrectly return true for `PREVIEW_STABILIZATION` if the `SessionConfig` in the query was already configured with other features. ([I2c355c](https://android-review.googlesource.com/#/q/I2c355c533f737d1797a7427d37661781cd1480b2), [b/437816469](https://issuetracker.google.com/issues/437816469))
 
 ## Camera Version 1.5
@@ -363,8 +397,8 @@ October 08, 2025
 - Excludes problematic YUV_420_888 output sizes for Nokia 7 Plus that will cause the silent fail problem without any error messages reported. ([I3af47](https://android-review.googlesource.com/#/q/I3af47fafb152e0b4227731740cd1434578abca96), [b/436524501](https://issuetracker.google.com/issues/436524501))
 - Fixed an issue where `CameraInfo#isFeatureGroupSupported` could incorrectly return true for the `PREVIEW_STABILIZATION` feature. This could sometimes occur when querying with a `SessionConfig` that was already configured with other features. ([I2c355](https://android-review.googlesource.com/#/q/I2c355c533f737d1797a7427d37661781cd1480b2), [b/437816469](https://issuetracker.google.com/issues/437816469))
 - Improved `CameraXViewfinder` stability on older API levels and devices with `SurfaceView` issues by defaulting to `TextureView` in such scenarios. This fallback mechanism is the new default but can be programmatically overridden. ([Ieb476](https://android-review.googlesource.com/#/q/Ieb4763c1e6102059a553900fea0557e1a443f6bb), [b/437496463](https://issuetracker.google.com/issues/437496463))
-- Fixed a memory leak in `PreviewView` where it could prevent its Activity from being garbage collected. This happens if a new `SurfaceRequest` arrives before the previous one is handled. ([I4aa0b](https://android-review.git.corp.google.com/q/I4aa0b3b2d742268394c7bfeb66be3ab448a278b5),[b/443112512](https://issuetracker.google.com/issues/443112512))
-- Fixed high-speed/slow-motion recording failed on Huawei P smart, Infinix Hot 40i and Realme C53. ([40a668e](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3756548), [b/442984200](https://issuetracker.google.com/issues/442984200))
+- Fixed a memory leak in `PreviewView` where it could prevent its Activity from being garbage collected. This happens if a new `SurfaceRequest` arrives before the previous one is handled. ([I4aa0b](https://android-review.googlesource.com/q/I4aa0b3b2d742268394c7bfeb66be3ab448a278b5),[b/443112512](https://issuetracker.google.com/issues/443112512))
+- Fixed high-speed/slow-motion recording failed on Huawei P smart, Infinix Hot 40i and Realme C53. ([40a668e](https://android-review.googlesource.com/c/platform/frameworks/support/+/3756548), [b/442984200](https://issuetracker.google.com/issues/442984200))
 
 ### Version 1.5.0
 
@@ -395,7 +429,7 @@ August 13, 2025
 - Moving the default minSdk from API 21 to API 23 ([Ibdfca](https://android-review.googlesource.com/#/q/Ibdfca5942dbb414ca07594ba240093db14aad4df), [b/380448311](https://issuetracker.google.com/issues/380448311), [b/435705964](https://issuetracker.google.com/issues/435705964), [b/435705223](https://issuetracker.google.com/issues/435705223))
 - Removed the 10-bit output restriction for the low-light boost auto-exposure mode. Applications can now simultaneously enable both features on supported devices. ([I5a638](https://android-review.googlesource.com/#/q/I5a638d6de82aab011d9533acda0bbfc37c200562))
 - Resolved an issue that caused devices with `UniSoc` chipsets to hang when capturing an image. The problem occurred when `VideoCapture`, `Preview`, and `ImageCapture` were used simultaneously with all streams set to a 1280x720 resolution. ([Ia00c4](https://android-review.googlesource.com/#/q/Ia00c4df593e44451ecc67726addbc4cf294c295d), [b/380802479](https://issuetracker.google.com/issues/380802479))
-- Fixed preview black screen when no high-speed frame rate is set for high-speed/slow-motion recording. ([cdf0ff2e9](https://android-review.git.corp.google.com/q/cdf0ff2e98fdebd426e35278658d67918af00c48))
+- Fixed preview black screen when no high-speed frame rate is set for high-speed/slow-motion recording. ([cdf0ff2e9](https://android-review.googlesource.com/q/cdf0ff2e98fdebd426e35278658d67918af00c48))
 - Improve error handling and logging in `getViewportAspectRatioInt` ([82fca18](https://android-review.googlesource.com/#/q/82fca18eb145bd4043963e47c4c3c00a194972d4))
 
 ### Version 1.5.0-beta02

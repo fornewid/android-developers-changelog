@@ -9,8 +9,12 @@ usable, accessible, and consistent products.
 
 ## Required implementation
 
-To qualify for AEP, apps must use the [Compose Material 3](https://developer.android.com/jetpack/androidx/releases/compose-material3) library or the
-[Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library for Wear OS devices.
+To qualify for AEP, your app must adhere to the following requirements:
+
+| ID | Guideline |
+|---|---|
+| AEP-MU-GAA | Apps must use the [Compose Material 3](https://developer.android.com/jetpack/androidx/releases/compose-material3) library. |
+| AEP-MU-GAB | For Wear OS devices, apps must use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. |
 
 ## Guideline applicability
 

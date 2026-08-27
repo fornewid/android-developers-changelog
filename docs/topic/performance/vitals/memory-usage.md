@@ -44,7 +44,7 @@ Android vitals shares your app's memory usage broken down by the following
 - **Cached**: The app is in a cached state. This state is highly sensitive to system memory pressure such as LMKs. Because the OS can evict this process state at will, this state is provided only for debug purposes.
 
 To understand how these process states correlate with `onTrimMemory` callbacks,
-consult the guidance on [releasing memory in response to events](https://developer.android.com/topic/performance/memory#release).
+consult the guidance on [releasing memory in response to events](https://developer.android.com/topic/performance/memory/manage-app-memory#release).
 
 Android vitals also breaks down your app's memory usage by RAM buckets.
 The memory usage metric is displayed as a timeline of daily percentile values,
@@ -140,9 +140,9 @@ and debugging memory usage:
 
 Consult these sections to learn more about improving your app's memory usage:
 
-- [Reduce your app's code and resource footprint](https://developer.android.com/topic/performance/memory#reduce-footprint)
-- [Monitor available memory and memory usage](https://developer.android.com/topic/performance/memory#monitor)
-- [Use more memory-efficient code constructs](https://developer.android.com/topic/performance/memory#code)
+- [Reduce your app's code and resource footprint](https://developer.android.com/topic/performance/memory/manage-app-memory#reduce-footprint)
+- [Monitor available memory and memory usage](https://developer.android.com/topic/performance/memory/manage-app-memory#monitor)
+- [Use more memory-efficient code constructs](https://developer.android.com/topic/performance/memory/manage-app-memory#code)
 
 For detailed guidance on fixing memory issues, consult the [Manage your app's
 memory](https://developer.android.com/topic/performance/memory) guide.

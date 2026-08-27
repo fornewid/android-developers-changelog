@@ -14,8 +14,10 @@ creation experience compared to other platforms.
 
 To qualify for AEP, your app must adhere to the following requirements:
 
-- Emoji rendered in any input fields, such as text boxes or floating text elements, match those shown in the default keyboard of the device or in other system surfaces, such as notifications.
-- If the emoji is expandable by way of enlarging the text view, the app uses the highest-available emoji font size for the appropriate surface (e.g. rendering up to 192 pixels by 192 pixels). This ensures crisp UI and parity with other platforms.
+| ID | Guideline |
+|---|---|
+| AEP-SE-GAA | Emoji rendered in any input fields, such as text boxes or floating text elements, match those shown in the default keyboard of the device or in other system surfaces, such as notifications. |
+| AEP-SE-GAB | If the emoji is expandable by way of enlarging the text view, the app uses the highest-available emoji font size for the appropriate surface (e.g. rendering up to 192 pixels by 192 pixels). This ensures crisp UI and parity with other platforms. |
 
 ## Guideline applicability
 

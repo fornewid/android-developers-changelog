@@ -13,10 +13,10 @@ This table lists all the artifacts in the `androidx.annotation` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| annotation | [1.10.0](https://developer.android.com/jetpack/androidx/releases/annotation#1.10.0) | - | - | [1.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0-alpha01) |
+| annotation | [1.10.0](https://developer.android.com/jetpack/androidx/releases/annotation#1.10.0) | - | - | [1.11.0-alpha02](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0-alpha02) |
 | annotation-experimental | [1.6.0](https://developer.android.com/jetpack/androidx/releases/annotation#annotation-experimental-1.6.0) | - | - | - |
 
-This library was last updated on: July 15, 2026
+This library was last updated on: August 26, 2026
 
 ## Declaring dependencies
 
@@ -65,6 +65,12 @@ for more information.
 ## Annotation
 
 ### Version 1.11
+
+#### Version 1.11.0-alpha02
+
+August 26, 2026
+
+`androidx.annotation:annotation-*:1.11.0-alpha02` is released. Version 1.11.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e37cf4eae99bdc35def1209921d658612e2edbc3..f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea/annotation/annotation).
 
 #### Version 1.11.0-alpha01
 

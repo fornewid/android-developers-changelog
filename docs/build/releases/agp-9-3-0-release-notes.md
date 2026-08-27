@@ -44,6 +44,10 @@ report](https://developer.android.com/topic/performance/app-optimization/r8-conf
 ## Fixed issues
 
 
+### Android Gradle plugin 9.3.2
+
+Fixed Issues **Lint** [Issue #522845800](https://issuetracker.google.com/issues/522845800) AGP 9.3 lint crashes on JDK 17 --- NoSuchMethodError: java.util.List.removeLast() in bundled intellij-core JavaDocParser
+
 ### Android Gradle plugin 9.3.1
 
 | Fixed Issues ||

@@ -310,7 +310,7 @@ android {
 
 dependencies {
     ...
-    androidTestImplementation "androidx.room3:room3-testing:3.0.1"
+    androidTestImplementation "androidx.room3:room3-testing:3.0.2"
 }
 ```
 
@@ -328,7 +328,7 @@ android {
 
 dependencies {
     ...
-    testImplementation("androidx.room3:room3-testing:3.0.1")
+    testImplementation("androidx.room3:room3-testing:3.0.2")
 }
 ```
 

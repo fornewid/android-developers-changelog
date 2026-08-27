@@ -62,7 +62,28 @@ the following Gradle property:
 
 ### For AGP 9.2 and earlier
 
-For **AGP 9.2 and earlier** , set the
+For **AGP 9.2 and earlier** , update your local copy of R8 to the latest version
+by adding it as a classpath dependency to your project's `settings.gradle` or
+`settings.gradle.kts` file:
+
+    pluginManagement {
+        repositories {
+            google()
+            mavenCentral()
+        }
+        buildscript {
+            dependencies {
+                // Update to a more recent R8 version.
+                classpath("com.android.tools:r8:9.4.14")
+            }
+        }
+    }
+
+This uses the latest version of R8 including the latest configuration
+analyzer, and can just be done temporarily when analyzing your R8
+configuration.
+
+Now you can set the
 `com.android.tools.r8.dumpkeepradiushtmltodirectory` system property when
 running a Gradle task with a build enabled with R8.
 

@@ -68,6 +68,7 @@ release APK that consumes these profiles.
 
 **When generating profile files (for example, `benchmark`):**
 
+When capturing a Baseline Profile with a test, your app must not be obfuscated.
 To make sure the generated profile rules accurately match your code's method
 signatures, you must turn off obfuscation and optimization (R8) for the build
 variant used for profile generation. This variant must be different from your
@@ -75,19 +76,33 @@ release build variant, which has obfuscation and optimization enabled. You
 achieve this by setting `isMinifyEnabled = false` for the profile generation
 build variant. If you aren't using the Baseline Profile Gradle plugin, you
 should also make sure that `-dontobfuscate` and `-dontoptimize` are applied. The
-[Baseline Profile Gradle
-Plugin](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile)
-automatically handles this configuration for you.
+[Baseline Profile Gradle Plugin](https://developer.android.com/topic/performance/baselineprofiles/create-baselineprofile) automatically handles this configuration
+for you.
+
+You can verify that your app wasn't obfuscated during profile generation by
+opening your generated text profile file (for example, `baseline-prof.txt`) and
+checking that the class and method names are unobfuscated.
 
 **When building your final release APK:**
 
-Your release build should always have `isMinifyEnabled = true` to benefit from
-obfuscation, minification, and optimization. R8 automatically rewrites the rules
-from your unobfuscated profile files to match the obfuscated and optimized code
-in your release APK. For [DEX layout
-optimization](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations)
-(driven by Startup Profiles) to be effective, your release app must be
-obfuscated and use R8 with all optimizations enabled.
+When building your release app, your app should be obfuscated. Your release
+build must have `isMinifyEnabled = true` to benefit from obfuscation,
+minification, and optimization. R8 automatically rewrites the rules from your
+unobfuscated profile files to match the obfuscated and optimized code in your
+release APK. The build takes advantage of the unobfuscated text file by
+transforming the rules correctly.
+
+If you want [DEX layout optimization](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations) (driven by Startup Profiles) to work,
+your release app must be obfuscated and use R8 with all optimizations enabled.
+
+**Advanced (non-Gradle) workflows:**
+
+If you use an advanced, non-Gradle workflow (such as Bazel, Buck, or custom CI
+automation pipelines) to generate your profiles, you must still follow the same
+principles. Your app must not be obfuscated or optimized when capturing the
+profile. However, when you build your release app, you must obfuscate it. R8
+processes the unobfuscated text rules file and correctly transforms the rules to
+apply to the obfuscated release app.
 
 ### Minimum recommended stable versions
 
@@ -281,11 +296,11 @@ ongoing developments for workarounds:
   Baseline Profile Gradle plugin 1.2.3 or AGP 8.3, at minimum
   ([issue #313992099](https://issuetracker.google.com/313992099)).
 
-- If you generate Baseline Profiles with the command
-  `./gradlew app:generateBaselineProfile`, the benchmarks in the test module
-  also run, and the results are discarded. If this happens, you can generate
-  only the Baseline Profiles by running the command with
-  `-P android.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile`.
+- If you generate Baseline Profiles with the command `./gradlew
+  app:generateBaselineProfile`, the benchmarks in the test module also run,
+  and the results are discarded. If this happens, you can generate only the
+  Baseline Profiles by running the command with `-P
+  android.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile`.
   This issue has been fixed in AGP 8.2.
 
 - The command to generate Baseline Profiles for all build types---

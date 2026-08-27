@@ -15,33 +15,47 @@ Developer Reporting API](https://developers.google.com/play/developer/reporting)
 
 Developers should monitor Android vitals to improve the user experience,
 especially the core vitals: **user-perceived crash rate** ,
-**user-perceived ANR rate** , and **excessive partial wake locks**.
+**user-perceived ANR rate** , **excessive partial wake locks** , **memory usage** ,
+and **bitmap memory usage**.
 
 ## Core vitals and bad behaviors
 
-Your app's core vitals affect your app's visibility on Google Play.
-User-perceived crash rate and user-perceived ANR rate have an **overall** bad
-behavior threshold and a **per-device** bad behavior threshold.
+Your app's core vitals affect your app's visibility on Google Play. In addition
+to core vitals, Android vitals alerts you to items such as DEX Code
+Optimization that require attention and may also affect your app's visibility on
+Google Play. User-perceived crash rate and user-perceived ANR rate have an
+**overall** bad behavior threshold and a **per-device** bad behavior threshold.
 
 Excessive partial wake locks only has an overall bad behavior threshold and
 excessive battery usage on wear OS has an overall and
 per watch model threshold.
+
+The memory usage metric has different thresholds for each device RAM tier and
+app state, and differs for apps and games. Bitmap memory usage is the same
+across device RAM tiers, but has different thresholds for each app state.
 
 ### FAQs
 
 #### What are core vitals?
 
 Core vitals are the most important metrics in Android vitals, and affect the
-visibility of your app on Google Play. The core vitals are
-**user-perceived crash rate** , **user-perceived ANR rate** , and
-**excessive partial wake locks** for all apps,
-and **excessive battery usage** for watch face apps.
+visibility of your app on Google Play. The core vitals are:
+
+**Stability:** **User-perceived crash rate** and **user-perceived ANR rate** for
+all apps.
+
+**Battery:** **Excessive partial wake locks** for all apps, and **excessive
+battery usage** for watch face apps.
+
+**Memory:** **Memory usage (Anonymous RSS + Swap)** and **bitmap memory usage**
+for all mobile apps.
+
+> [!NOTE]
+> **Note:** Apps exceeding the thresholds for memory usage, bitmap memory usage, or code optimization may see store visibility impact starting from **February 2027** . For specifics on these metrics, see [Memory usage](https://developer.android.com/topic/performance/vitals/memory-usage), [Bitmap memory usage](https://developer.android.com/topic/performance/vitals/bitmap-memory-usage), and [Enable app optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization).
 
 #### What are the bad behavior thresholds?
 
-The crash, ANR, and battery usage core vitals have two bad behavior thresholds:
-one for all sessions across devices and one per device. These thresholds are
-shown in Android vitals.
+##### Stability \& Battery Vitals
 
 | BAD BEHAVIOR THRESHOLD To maximize your title's visibility on Google Play, please keep it under these thresholds. ||||
 |   | Overall (average across devices) | Per phone model | Per watch model |
@@ -51,8 +65,48 @@ shown in Android vitals.
 | Excessive battery usage | 1% | - | 1% |
 | Excessive partial wake locks | 5% | - | - |
 
+##### Memory Vitals
+
 > [!NOTE]
-> **Note:** Apps with excessive partial wake locks may see store visibility impact **starting from March 1, 2026** . For specifics on what partial wake lock use is considered excessive, see [Excessive partial wake locks](https://developer.android.com/topic/performance/vitals/excessive-wakelock).
+> **Note:** The Total Memory Range for each tier defines the usable memory available to apps (inclusive of the lowest value). Usable RAM may vary across devices due to hardware carve-outs and discrepancies between advertised physical RAM and actual usable memory available to the Android OS. Query [ActivityManager.MemoryInfo.totalMem](https://developer.android.com/reference/android/app/ActivityManager.MemoryInfo#totalMem) to log device total memory, and associate the value with the user's device profile in your analytics pipeline.
+
+**Apps**
+
+| BAD BEHAVIOR THRESHOLD To maximize your title's visibility on Google Play, please keep it under these thresholds. ||||||
+|   | Physical RAM (Total Memory Range) | App State ||||
+|   | Physical RAM (Total Memory Range) | Foreground | User-Perceived Services | Background | Cached |
+|---|---|---|---|---|---|
+| Memory usage (Anonymous RSS + Swap) | 0 - 4 GB (0 - 3200 MB) | - | - | - | - |
+| Memory usage (Anonymous RSS + Swap) | 4 GB (3200 - 4800 MB) | 2.00 GB | 1.00 GB | 1.00 GB | - |
+| Memory usage (Anonymous RSS + Swap) | 6 GB (4800 - 6800 MB) | 2.25 GB | 1.25 GB | 1.25 GB | - |
+| Memory usage (Anonymous RSS + Swap) | 8 GB (6800 - 9216 MB) | 2.25 GB | 1.50 GB | 1.50 GB | - |
+| Memory usage (Anonymous RSS + Swap) | 12 GB (9216 - 14336 MB) | 3.25 GB | 1.75 GB | 1.75 GB | - |
+| Memory usage (Anonymous RSS + Swap) | 16 GB (14336 - 18432 MB) | 4.25 GB | 2.00 GB | 2.00 GB | - |
+| Memory usage (Anonymous RSS + Swap) | 16 GB + (Above 18432 MB) | - | - | - | - |
+| Bitmap memory usage | - | - | 200 MB | 200 MB | 400 MB |
+
+**Games**
+
+| BAD BEHAVIOR THRESHOLD To maximize your title's visibility on Google Play, please keep it under these thresholds. ||||||
+|   | Physical RAM (Total Memory Range) | App State ||||
+|   | Physical RAM (Total Memory Range) | Foreground | User-Perceived Services | Background | Cached |
+|---|---|---|---|---|---|
+| Memory usage (Anonymous RSS + Swap) | 0 - 4 GB (0 - 3200 MB) | - | - | - | - |
+| Memory usage (Anonymous RSS + Swap) | 4 GB (3200 - 4800 MB) | 2.25 GB | 2.00 GB | 2.00 GB | - |
+| Memory usage (Anonymous RSS + Swap) | 6 GB (4800 - 6800 MB) | 2.75 GB | 2.50 GB | 2.50 GB | - |
+| Memory usage (Anonymous RSS + Swap) | 8 GB (6800 - 9216 MB) | 3.50 GB | 2.75 GB | 2.75 GB | - |
+| Memory usage (Anonymous RSS + Swap) | 12 GB (9216 - 14336 MB) | 4.00 GB | 3.20 GB | 3.20 GB | - |
+| Memory usage (Anonymous RSS + Swap) | 16 GB (14336 - 18432 MB) | 5.00 GB | 3.50 GB | 3.50 GB | - |
+| Memory usage (Anonymous RSS + Swap) | 16 GB + (Above 18432 MB) | - | - | - | - |
+| Bitmap memory usage | - | - | 200 MB | 200 MB | 400 MB |
+
+##### DEX Code Optimization
+
+| **BAD BEHAVIOR THRESHOLD** To maximize your title's visibility on Google Play, please keep it above these thresholds. |||
+| Criteria | Requirement | Minimum threshold |
+|:---:|---|---|
+| Apps with \> 10 MB DEX code | Optimization, Obfuscation, and Shrinking | 25% |
+| Games with \> 50 MB DEX code | Optimization, Obfuscation, and Shrinking | 25% |
 
 #### How do core vitals affect my title's visibility on Play?
 
@@ -81,6 +135,10 @@ technical issues in your app or game.
 [Excessive battery usage](https://developer.android.com/topic/performance/vitals/excessive-battery-usage)  
 
 [Excessive partial wake locks](https://developer.android.com/topic/performance/vitals/excessive-wakelock)  
+
+[Memory usage (Anonymous RSS + swap)](https://developer.android.com/topic/performance/vitals/memory-usage)  
+
+[Bitmap memory usage](https://developer.android.com/topic/performance/vitals/bitmap-memory-usage)  
 
 ##### All other vitals:
 

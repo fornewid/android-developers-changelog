@@ -154,25 +154,27 @@ Follow these steps to trigger Gemini Live in the glasses emulator:
 > **Note:** If you encounter issues while using Gemini Live, see the [troubleshooting
 > steps](https://developer.android.com/develop/xr/jetpack-xr-sdk/run/emulator/glasses-troubleshoot#issues-gemini-live).
 
-### Use custom photo environments
+### Use custom environments
 
-You can test using photos of real environments to help you evaluate how your
-augmented experiences would render in those scenarios using [Jetpack Compose
-Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer).
+You can test using photos of real environments or webcam camera input to help
+you evaluate how your augmented experiences would render in those scenarios
+using [Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer).
 
 While the [default theme](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included#theme) is pre-optimized for light and dark environments,
 brand-specific customizations require careful re-testing. Test carefully so that
 your UI maintains high visibility and contrast on optical see-through displays,
 regardless of the user's environment.
 
-To use a custom still image as the background within the emulator:
+To use a custom still image or webcam camera input as the background within
+the emulator:
 
 1. Select **Environments** from the emulator controls.
-2. In the drop-down menu, select **Custom Environment**.
+2. In the drop-down menu, select **Custom Environment** for custom still
+   images, or **Camera** for webcam camera input.
 
-   ![Select a custom photo environment image in Android Studio.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/display-glasses-recent-environments.png)
-3. Pick an image to use or select a previously-used image from the **Recent
-   Environments** list.
+   ![Select a custom photo environment image or webcam camera input in Android Studio.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/display-glasses-environment-camera-input.png)
+3. For custom environments, pick an image to use or select a previously-used
+   image from the **Recent Environments** list.
 
    ![While you preview your app's UI, the custom environment appears in the
    background.](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/run/display-glasses-custom-environment.png)

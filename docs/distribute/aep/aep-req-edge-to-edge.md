@@ -11,12 +11,14 @@ fundamental to a high-quality feel.
 
 ## Required implementation
 
-To qualify for AEP, you app must adhere to the following requirements:
+To qualify for AEP, your app must adhere to the following requirements:
 
-- The core interactive UI doesn't intersect system bars on the home-screen.
-- The app draws behind transparent status bars and gesture navigation bars.
-- The app doesn't have existing Play Console warnings or alerts related to edge-to-edge.
-- To attain a contemporary, bezel-less aesthetic look, system bars should be rendered as transparent rather than solid.
+| ID | Guideline |
+|---|---|
+| AEP-EE-GAA | The core interactive UI doesn't intersect system bars on the home-screen. |
+| AEP-EE-GAB | The app draws behind transparent status bars and gesture navigation bars. |
+| AEP-EE-GAC | The app doesn't have existing Play Console warnings or alerts related to edge-to-edge. |
+| AEP-EE-GAD | To attain a contemporary, bezel-less aesthetic look, system bars should be rendered as transparent rather than solid. |
 
 ## Guideline applicability
 
@@ -34,5 +36,5 @@ the **Edge-to-Edge** feature. These resources are for your reference only and
 don't contain additional program requirements.
 
 - [Edge-to-Edge enforcement](https://developer.android.com/about/versions/15/behavior-changes-15#edge-to-edge)
-- [Display content edge-to-edge in views](https://developer.android.com/develop/ui/views/layout/edge-to-edge)
+- [Display content edge-to-edge](https://developer.android.com/develop/ui/compose/system/setup-e2e)
 - [About window insets](https://developer.android.com/develop/ui/compose/layouts/insets)

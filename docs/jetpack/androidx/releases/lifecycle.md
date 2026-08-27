@@ -13,10 +13,10 @@ This table lists all the artifacts in the `androidx.lifecycle` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| lifecycle-\* | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha01) |
-| lifecycle-viewmodel-navigation3 | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha01) |
+| lifecycle-\* | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha02) |
+| lifecycle-viewmodel-navigation3 | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha02) |
 
-This library was last updated on: August 12, 2026
+This library was last updated on: August 26, 2026
 
 ## Declaring dependencies
 
@@ -54,7 +54,7 @@ your app or module:
         implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
 
         // ViewModel integration with Navigation3
-        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha01"
+        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha02"
 
         // Annotation processor
         kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
@@ -101,7 +101,7 @@ your app or module:
         implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
 
         // ViewModel integration with Navigation3
-        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha01")
+        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha02")
 
         // Annotation processor
         kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
@@ -224,6 +224,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 2.12
+
+### Version 2.12.0-alpha02
+
+August 26, 2026
+
+`androidx.lifecycle:lifecycle-*:2.12.0-alpha02` is released. Version 2.12.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/384f3c27346bf5812f359330dc2310f0cbb66402..f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea/lifecycle).
+
+**API Changes**
+
+- `AutoRecreated` and `runOnNextRecreation` are deprecated in favor of `SavedStateProvider` and `SavedStateRestorer`. ([Iadc00](https://android-review.googlesource.com/#/q/Iadc007bb0fcc0699e6ee7e9cfe9df0b81e3ac83b))
 
 ### Version 2.12.0-alpha01
 

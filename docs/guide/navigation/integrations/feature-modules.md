@@ -22,7 +22,7 @@ To support feature modules, use the following dependencies in your app module's 
 
 ```groovy
 dependencies {
-    def nav_version = "2.9.8"
+    def nav_version = "2.10.0"
 
     api "androidx.navigation:navigation-fragment-ktx:$nav_version"
     api "androidx.navigation:navigation-ui-ktx:$nav_version"
@@ -34,7 +34,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val nav_version = "2.9.8"
+    val nav_version = "2.10.0"
 
     api("androidx.navigation:navigation-fragment-ktx:$nav_version")
     api("androidx.navigation:navigation-ui-ktx:$nav_version")

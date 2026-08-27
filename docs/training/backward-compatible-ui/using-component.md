@@ -165,7 +165,7 @@ public void onCreate(Bundle savedInstanceState) {
 
 When running the application, this code inflates the correct activity layout and instantiates either a `TabHelperHoneycomb` or `TabHelperEclair` object. The concrete class that's actually used is opaque to the activity, since they share the common `TabHelper` interface.
 
-Below are two screenshots of this implementation running on an Android 2.3 and Android 4.0 device.
-![Example screenshot of tabs running on an Android 2.3 device (using TabHelperEclair).](https://developer.android.com/static/images/training/backward-compatible-ui-gb.png) ![Example screenshots of tabs running on an Android 4.0 device (using TabHelperHoneycomb).](https://developer.android.com/static/images/training/backward-compatible-ui-ics.png)
+Two screenshots follow showing this implementation running on an Android 2.3 and Android 4.0 device.
+![Example of tabs running on an Android 2.3 device (using TabHelperEclair).](https://developer.android.com/static/images/training/backward-compatible-ui-gb.png) ![Example of tabs running on an Android 4.0 device (using TabHelperHoneycomb).](https://developer.android.com/static/images/training/backward-compatible-ui-ics.png)
 
 **Figure 1.** Example screenshots of backward-compatible tabs running on an Android 2.3 device (using `TabHelperEclair`) and an Android 4.0 device (using `TabHelperHoneycomb`).

@@ -144,7 +144,7 @@ bootclasspath and is not available to apps by default.
 To continue using the Apache HTTP client, apps that target Android 9 and above
 can add the following to their `AndroidManifest.xml`:
 
-    <uses-library android:name="org.apache.http.legacy" android:require>d="false"/
+    <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
 > [!NOTE]
 > **Note:** The `android:required="false"` attribute is required for apps that have a minimum SDK of 23 or lower, because on devices with API levels lower than 24, the `org.apache.http.legacy` library is not available. (On those devices, the Apache HTTP classes are available on the bootclasspath.)

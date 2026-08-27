@@ -6,11 +6,18 @@ source: md.txt
 
 *** ** * ** ***
 
-Each version of an AndroidX library passes through four release channels while being developed. This page lists the components in all four channels. To view the entire release history for a particular component back thru January 2018, select it in the left-side menu. See the [Archive](https://developer.android.com/jetpack/androidx/releases/archive) section for release notes prior to 2018.
+Each version of an AndroidX library passes through four release channels while
+being developed. This page lists the components in all four channels. To view
+the entire release history for a particular component back thru January 2018,
+select it in the left-side menu. See the
+[Archive](https://developer.android.com/jetpack/androidx/releases/archive) section for release notes prior
+to 2018.
 
-To view the current versions for every component, see the [versions page](https://developer.android.com/jetpack/androidx/versions).
+To view the current versions for every component,
+see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
-The first stable release of AndroidX 1.0.0 suitable for use in production was released on September 21, 2018.
+The first stable release of AndroidX 1.0.0 suitable for use in
+production was released on September 21, 2018.
 
 > [!NOTE]
 > **Note:** the Jetpack team started signing Jetpack libraries in June 2023. For more information, see [verifying Jetpack dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies).
@@ -23,6 +30,94 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
 ## Latest Release
 
 These Jetpack libraries have been recently updated.
+
+## August 26, 2026
+
+- [Activity Version 1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/activity#1.14.0-alpha01)
+- [Annotation Version 1.11.0-alpha02](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0-alpha02)
+- [AppSearch Version 1.2.0-alpha02](https://developer.android.com/jetpack/androidx/releases/appsearch#1.2.0-alpha02)
+- [Appfunctions Appfunctions-compiler Appfunctions-testing Version 1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha11)
+- [Benchmark Version 1.5.0-rc02](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-rc02)
+- [Camera Featurecombinationquery Version 1.6.2](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.6.2)
+- [Camera Version 1.6.2](https://developer.android.com/jetpack/androidx/releases/camera#1.6.2)
+- [Camera Viewfinder Version 1.6.2](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.2)
+- [Car App Version 1.8.0-rc01](https://developer.android.com/jetpack/androidx/releases/car-app#1.8.0-rc01)
+- [Compose Animation Version 1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-alpha02)
+- [Compose Foundation Version 1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-alpha02)
+- [Compose Material 3 Version 1.5.0-alpha27](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha27)
+- [Compose Material Version 1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-alpha02)
+- [Compose Material3 Adaptive Version 1.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.4.0-alpha01)
+- [Compose Remote Version 1.0.0-alpha18](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha18)
+- [Compose Remote Foundation Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-remote-foundation#foundation-1.0.0-alpha01)
+- [Compose Runtime Version 1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-alpha02)
+- [Compose UI Version 1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-alpha02)
+- [Connect-client Connect-client-external-protobuf Connect-client-proto Version 1.2.0-alpha06](https://developer.android.com/jetpack/androidx/releases/health-connect#1.2.0-alpha06)
+- [Core-pip Version 1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/core#core-pip-1.0.0-alpha04)
+- [Core-telecom Version 1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/core#core-telecom-1.1.0-beta01)
+- [Emoji2 Version 1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/emoji2#1.7.0-alpha01)
+- [Glance Adaptive Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/glance-adaptive#1.0.0-alpha01)
+- [Glance Version 1.2.0](https://developer.android.com/jetpack/androidx/releases/glance#1.2.0)
+- [Glimmer Glimmer-google-fonts Version 1.0.0-alpha18](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha18)
+- [Lifecycle Version 2.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha02)
+- [Navigation Version 2.10.0](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0)
+- [Navigation3 Version 1.1.7](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.7)
+- [Navigation3 Version 1.2.0-beta01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-beta01)
+- [Pdf Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-beta01)
+- [Room3 Version 3.0.2](https://developer.android.com/jetpack/androidx/releases/room3#3.0.2)
+- [Savedstate Version 1.6.0-alpha02](https://developer.android.com/jetpack/androidx/releases/savedstate#1.6.0-alpha02)
+- [Security-state Version 1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/security#security-state-1.1.0-rc01)
+- [Security-state-provider Version 1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/security#security-state-provider-1.0.0-rc01)
+- [Text-Vertical Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-beta01)
+- [Tracing Version 2.0.1](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.1)
+- [Transition Transition-ktx Version 1.7.1](https://developer.android.com/jetpack/androidx/releases/transition#1.7.1)
+- [Wear Compose Remote Version 1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha10)
+- [Wear Compose Version 1.7.0-beta02](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-beta02)
+- [Wear Wear-core Wear-tooling-preview Version 1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha17)
+
+## August 12, 2026
+
+- [Appcompat Version 1.8.0](https://developer.android.com/jetpack/androidx/releases/appcompat#1.8.0)
+- [Benchmark Version 1.5.0-rc01](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-rc01)
+- [Camera Featurecombinationquery Version 1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.7.0-alpha03)
+- [Camera Version 1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera#1.7.0-alpha03)
+- [Camera Viewfinder Version 1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha03)
+- [Compose Animation Version 1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0)
+- [Compose Animation Version 1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-alpha01)
+- [Compose Foundation Version 1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0)
+- [Compose Foundation Version 1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-alpha01)
+- [Compose Material 3 Version 1.5.0-alpha26](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha26)
+- [Compose Material Version 1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.0)
+- [Compose Material Version 1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-alpha01)
+- [Compose Material3 Adaptive Version 1.3.0](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0)
+- [Compose Remote Version 1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha17)
+- [Compose Runtime Version 1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0)
+- [Compose Runtime Version 1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-alpha01)
+- [Compose UI Version 1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0)
+- [Compose UI Version 1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-alpha01)
+- [Connect-client Connect-client-external-protobuf Connect-client-proto Version 1.2.0-alpha05](https://developer.android.com/jetpack/androidx/releases/health-connect#1.2.0-alpha05)
+- [Connect-testing Version 1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/health-connect#connect-testing-1.0.0-alpha04)
+- [Fragment Version 1.9.0](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0)
+- [Glance Wear Version 1.0.0-alpha16](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha16)
+- [Glimmer Glimmer-google-fonts Version 1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha17)
+- [Ink Version 1.1.0-alpha07](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha07)
+- [Lifecycle Version 2.12.0-alpha01](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha01)
+- [Navigation Version 2.10.0-rc01](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-rc01)
+- [Navigation3 Version 1.1.6](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.6)
+- [Navigationevent Version 1.2.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha04)
+- [Paging Version 3.5.1](https://developer.android.com/jetpack/androidx/releases/paging#3.5.1)
+- [Savedstate Version 1.6.0-alpha01](https://developer.android.com/jetpack/androidx/releases/savedstate#1.6.0-alpha01)
+- [Security-state Version 1.1.0-beta03](https://developer.android.com/jetpack/androidx/releases/security#security-state-1.1.0-beta03)
+- [Security-state-provider Version 1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/security#security-state-provider-1.0.0-beta02)
+- [Tracing Version 2.0.0](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0)
+- [Wear Compose Remote Version 1.0.0-alpha09](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha09)
+- [Wear Compose Version 1.7.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-beta01)
+- [Webkit Version 1.17.0](https://developer.android.com/jetpack/androidx/releases/webkit#webkit-1.17.0)
+- [WorkManager Version 2.12.0-rc01](https://developer.android.com/jetpack/androidx/releases/work#2.12.0-rc01)
+- [Xr Arcore Version 1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-beta02)
+- [Xr Compose Version 1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha17)
+- [Xr Projected Version 1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha11)
+- [Xr Runtime Version 1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-beta02)
+- [Xr Scenecore Version 1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-beta02)
 
 ## August 05, 2026
 
@@ -57,7 +152,7 @@ These Jetpack libraries have been recently updated.
 - [RecyclerView Version 1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/recyclerview#recyclerview-selection-1.3.0-rc01)
 - [Remote-material3 Version 1.0.0-alpha08](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#remote-material3-1.0.0-alpha08)
 - [Room3 Version 3.0.1](https://developer.android.com/jetpack/androidx/releases/room3#3.0.1)
-- [Text Version 1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/text#1.0.0-alpha06)
+- [Text-Vertical Version 1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-alpha06)
 - [Tracing Version 2.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.0-rc01)
 - [Wear Compose Version 1.7.0-alpha07](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha07)
 - [Wear Protolayout Version 1.4.2](https://developer.android.com/jetpack/androidx/releases/wear-protolayout#1.4.2)
@@ -939,7 +1034,7 @@ These Jetpack libraries have been recently updated.
 - [Navigationevent Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.0.0-beta01)
 - [Room Version 2.8.2](https://developer.android.com/jetpack/androidx/releases/room#2.8.2)
 - [Savedstate Version 1.4.0-beta01](https://developer.android.com/jetpack/androidx/releases/savedstate#1.4.0-beta01)
-- [Text Vertical Version 1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/text#1.0.0-alpha02)
+- [Text Vertical Version 1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-alpha02)
 - [Wear-core Version 1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear#wear-core-1.0.0-rc01)
 - [Wear Compose Version 1.6.0-alpha03](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.0-alpha03)
 - [Wear Compose Version 1.5.3](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.5.3)
@@ -1060,7 +1155,7 @@ These Jetpack libraries have been recently updated.
 - [SavedState Version 1.4.0-alpha03](https://developer.android.com/jetpack/androidx/releases/savedstate#1.4.0-alpha03)
 - [SavedState Version 1.3.2](https://developer.android.com/jetpack/androidx/releases/savedstate#1.3.2)
 - [Sqlite Version 2.6.0-rc02](https://developer.android.com/jetpack/androidx/releases/sqlite#2.6.0-rc02)
-- [Text Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/text#1.0.0-alpha01)
+- [Text-Vertical Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-alpha01)
 - [Wear-Input Wear-Input-Testing Version 1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear#1.2.0-rc01)
 - [Wear-Ongoing Version 1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear#wear-ongoing-1.1.0-rc01)
 - [Wear Compose Version 1.5.0](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.5.0)

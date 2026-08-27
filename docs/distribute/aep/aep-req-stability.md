@@ -13,31 +13,34 @@ the intended device categories to maintain a high-quality ecosystem.
 
 To qualify for AEP, your app must adhere to the following requirements:
 
-**Stability requirements**:
+### Stability requirements
 
-|---|---|---|
-| **Android vitals** | [**Reference Devices**](https://developer.android.com/distribute/aep/aep-req-stability#reference-device) | **4GB+ RAM Android Devices** |
-| [**Crashes**](https://developer.android.com/games/optimize/vitals/crash) | \<1% average crash rate | \<2% average crash rate |
-| [**ANRs**](https://developer.android.com/games/optimize/vitals/anr) | \<2% average ANR rate | \<3% average ANR rate |
-| [**Jank**](https://developer.android.com/topic/performance/vitals/render) | \<2% Excessive Slow Frames | N/A |
+| ID | Android vitals | Device category | Threshold |
+|---|---|---|---|
+| AEP-SR-GAA | [**Crashes**](https://developer.android.com/games/optimize/vitals/crash) | [Reference Devices](https://developer.android.com/distribute/aep/aep-req-stability#reference-device) | \<1% average crash rate |
+| AEP-SR-GAB | [**Crashes**](https://developer.android.com/games/optimize/vitals/crash) | 4GB+ RAM Android Devices | \<2% average crash rate |
+| AEP-SR-GAC | [**ANRs**](https://developer.android.com/games/optimize/vitals/anr) | [Reference Devices](https://developer.android.com/distribute/aep/aep-req-stability#reference-device) | \<2% average ANR rate |
+| AEP-SR-GAD | [**ANRs**](https://developer.android.com/games/optimize/vitals/anr) | 4GB+ RAM Android Devices | \<3% average ANR rate |
+| AEP-SR-GAE | [**Jank**](https://developer.android.com/topic/performance/vitals/render) | [Reference Devices](https://developer.android.com/distribute/aep/aep-req-stability#reference-device) | \<2% Excessive Slow Frames |
 
 > [!NOTE]
-> **Note:** The [bad behaviour thresholds](https://developer.android.com/topic/performance/vitals#what_are_the_bad_behavior_thresholds) that affect visibility within the Play Store are **not** the same as the Apps Experience program. The values documented here are used to determine eligibility of the Apps Experience program.
+> **Note:** The [bad behaviour thresholds](https://developer.android.com/topic/performance/vitals#what_are_the_bad_behavior_thresholds) that affect visibility within the Play Store are **not** the same as the Apps Experience program. The values documented here are used to determine eligibility of the Apps Experience program. To reduce volatility, these thresholds will be enforced based on the trailing 28 days of data considering only devices within the approved set for which your app has at least 1,500 sessions in the last 28 days.
 
-To reduce volatility, these thresholds will be enforced based on the trailing 28
-days of data considering only devices within the approved set for which your app
-has at least 1,500 sessions in the last 28 days.
+### Memory usage requirements
 
-**Memory usage requirements**:
+To deliver a premium experience, [Android17](https://android-developers.googleblog.com/2026/06/Android-17.html) introduced optimized memory
+handling and stricter platform requirements, which is accompanied by new,
+actionable memory telemetry in the Play Console.
 
-To deliver a premium experience, [Android 17](https://android-developers.googleblog.com/2026/06/Android-17.html) is introducing
-optimized memory handling and stricter platform requirements later this
-year--accompanied by new, actionable memory telemetry in the Play Console.
-Because **meeting these standard memory limits will be required for the Apps
-Experience Program** , we strongly encourage [implementing these memory
-optimization strategies](https://android-developers.googleblog.com/2026/06/prioritizing-memory-efficiency-steps-for-android-17.html) early to ensure app stability and a
-great user experience. More detailed compliance criteria to maintain your
-program status will be shared in the coming months.
+**Effective February 2027** , [Play requires](https://android-developers.googleblog.com/2026/08/app-quality-memory-optimization-secure-onboarding.html) apps and games to meet
+established [bad-behavior thresholds](https://support.google.com/googleplay/android-developer/answer/17492799) for dynamic memory usage
+(anonymous RSS + swap), bitmap usage, and code optimization across all
+Android versions. Developers can now monitor these memory metrics and bad
+behavior thresholds within [Android vitals](https://play.google.com/console/developers/app/vitals/metrics/overview).
+
+| ID | Guideline |
+|---|---|
+| AEP-SR-GAF | Once enforcement for these memory thresholds are in effect, apps must comply with all memory thresholds to qualify for or maintain AEP eligibility. You can find the memory thresholds and enforcement timeline [here](https://support.google.com/googleplay/android-developer/answer/17492799). |
 
 ## Guideline applicability
 
@@ -52,6 +55,9 @@ additional program requirements.
 
 - [Android Vitals - Diagnose and fix vital issues](https://developer.android.com/topic/performance/vitals/lmk)
 - [Managing your app's memory - Proactively reduce memory used by your app](https://developer.android.com/topic/performance/memory)
+- [Play Console Technical Quality Requirements](https://support.google.com/googleplay/android-developer/answer/17492799)
+- [Elevating app quality: Reducing memory usage and improving device
+  migration](https://android-developers.googleblog.com/2026/08/app-quality-memory-optimization-secure-onboarding.html)
 
 ## Reference Device List
 

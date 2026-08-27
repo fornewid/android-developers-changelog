@@ -13,7 +13,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 12, 2026 | [2.9.8](https://developer.android.com/jetpack/androidx/releases/navigation#2.9.8) | [2.10.0-rc01](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-rc01) | - | - |
+| August 26, 2026 | [2.10.0](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -33,7 +33,7 @@ plugins {
 }
   
 dependencies {
-  def nav_version = "2.9.8"
+  def nav_version = "2.10.0"
 
   // Jetpack Compose Integration
   implementation "androidx.navigation:navigation-compose:$nav_version"
@@ -62,7 +62,7 @@ plugins {
 }
 
 dependencies {
-  val nav_version = "2.9.8"
+  val nav_version = "2.10.0"
 
   // Jetpack Compose integration
   implementation("androidx.navigation:navigation-compose:$nav_version")
@@ -95,7 +95,7 @@ buildscript {
         google()
     }
     dependencies {
-        def nav_version = "2.9.8"
+        def nav_version = "2.10.0"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }
@@ -109,7 +109,7 @@ buildscript {
         google()
     }
     dependencies {
-        val nav_version = "2.9.8"
+        val nav_version = "2.10.0"
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
     }
 }
@@ -176,6 +176,22 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Navigation Version 2.10
+
+### Version 2.10.0
+
+August 26, 2026
+
+`androidx.navigation:navigation-*:2.10.0` is released. Version 2.10.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/75fb15aa8f834f82fc4658d3f3c8b76f6a9e5b24..7f6e165ae798474547242c98f2b0a7be7e84b763/navigation).
+
+**Important changes since 2.9.0:**
+
+- `NavHost` now provides an overload that accepts `predictivePopEnterTransition` and `predictivePopExitTransition` parameters to allow for custom transition during the predictive back gesture.
+- `handleDeepLink` was modified to ensure only recognized deep links are handled while all others will be ignored. If this causes an error in your app, consider the possibility of swapping over to navigating via deep links defined in your navigation graph. For Robolectric tests you may need to use the `setPackage` method to a trusted packaged.
+- `NavBackStackEntryInfo` was added to expose back stack snapshots during navigation events. This enables richer custom predictive back animations.
+
+**Additional Platform Support**
+
+- The `navigation-common`, `navigation-runtime`, and `navigation-testing` modules added support for `desktop`, `linux`, `macOS`, `iOS`, `javascript`, `WASM`, `watchos`, and `tvos`.
 
 ### Version 2.10.0-rc01
 

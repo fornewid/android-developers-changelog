@@ -15,8 +15,10 @@ experience and is critical for maintaining parity in modern media-centric apps.
 
 To qualify for AEP, your app must adhere to the following requirements:
 
-- Implement [Cast using Media3](https://developer.android.com/media/media3/cast), ensuring the Cast icon is visible in the media player UI and successfully initiates a connection to a Cast-enabled device.
-- Verify Output Switcher integration (available out-of-the-box in Media3). Ensure the device chip in media session and lock screen notification correctly handles player transfers when the output route changes from one device to another.
+| ID | Guideline |
+|---|---|
+| AEP-CS-GAA | Implement [Cast using Media3](https://developer.android.com/media/media3/cast), ensuring the Cast icon is visible in the media player UI and successfully initiates a connection to a Cast-enabled device. |
+| AEP-CS-GAB | Verify Output Switcher integration (available out-of-the-box in Media3). Ensure the device chip in media session and lock screen notification correctly handle player transfers when the output route changes from one device to another. |
 
 ## Guideline applicability
 
@@ -31,8 +33,10 @@ This guideline applies to:
 
 The following exemptions apply for this guideline:
 
-- Video calling apps and apps that offer exclusively short-form portrait video.
-- Apps can use an equivalent alternative framework that provides similar quality, user capabilities, stability and compatibility across the ecosystem. [Contact support](https://developer.android.com/distribute/aep/aep-get-support) if you have a suitable framework for consideration.
+| ID | Exemption |
+|---|---|
+| AEP-CS-EAA | Video calling apps and apps that offer exclusively short-form portrait video. |
+| AEP-CS-EAB | Apps can use an equivalent alternative framework that provides similar quality, user capabilities, stability, and compatibility across the ecosystem. [Contact support](https://developer.android.com/distribute/aep/aep-get-support) if you have a suitable framework for consideration. |
 
 ## Feature documentation and resources
 

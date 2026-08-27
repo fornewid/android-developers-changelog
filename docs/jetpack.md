@@ -94,6 +94,7 @@ Explore how modern Android architecture is implemented in a real world app [View
 | [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | Build Jetpack Compose UIs with ready to use Material Design Components. This is the higher level entry point of Compose, designed to provide components that match those described at www.material.io. |
 | [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | Build Jetpack Compose UIs with Material Design 3 Components, the next evolution of Material Design. Material 3 includes updated theming and components and Material You personalization features like dynamic color, and is designed to be cohesive with the new Android 12 visual style and system UI. |
 | [compose.material3.adaptive](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive) | Use the Material 3 adaptive library to create adaptive UIs that adapt automatically according to window configurations like window size classes or device postures. The library provides default scaffold implementations and building block composables to create your own custom experiences. |
+| [compose.remote.foundation](https://developer.android.com/jetpack/androidx/releases/compose_remote_foundation) | TODO |
 | [compose.remote](https://developer.android.com/jetpack/androidx/releases/compose-remote) | Remote Compose is a framework to create UI for remote surfaces |
 | [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | Fundamental building blocks of Compose's programming model and state management, and core runtime for the Compose Compiler Plugin to target. |
 | [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | Fundamental components of compose UI needed to interact with the device, including layout, drawing, and input. |
@@ -119,6 +120,7 @@ Explore how modern Android architecture is implemented in a real world app [View
 | [enterprise](https://developer.android.com/jetpack/androidx/releases/enterprise) | Create enterprise-ready applications. |
 | [exifinterface](https://developer.android.com/jetpack/androidx/releases/exifinterface) | Read and write image file EXIF tags. |
 | [games](https://developer.android.com/jetpack/androidx/releases/games) | Use the Android Game SDK natively in your app to perform complex games tasks, like Frame Pacing. |
+| [glance.adaptive](https://developer.android.com/jetpack/androidx/releases/glance_adaptive) | TODO |
 | [glance](https://developer.android.com/jetpack/androidx/releases/glance) | Build layouts for remote surfaces using a Jetpack Compose-style API. |
 | [glance.wear](https://developer.android.com/jetpack/androidx/releases/glance-wear) | Glance Wear is a library for building Widgets for Wear OS |
 | [graphics](https://developer.android.com/jetpack/androidx/releases/graphics) | Leverage graphics facilities across multiple Android platform releases |

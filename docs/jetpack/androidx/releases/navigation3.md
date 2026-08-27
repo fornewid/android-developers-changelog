@@ -10,7 +10,7 @@ Navigation 3 is a new navigation library designed to work with Compose.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 29, 2026 | [1.1.5](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.5) | - | - | [1.2.0-alpha07](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha07) |
+| August 26, 2026 | [1.1.7](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.7) | - | [1.2.0-beta01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-beta01) | - |
 
 ## Declaring dependencies
 
@@ -25,8 +25,8 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation3:navigation3-runtime:1.2.0-alpha07"
-    implementation "androidx.navigation3:navigation3-ui:1.2.0-alpha07"
+    implementation "androidx.navigation3:navigation3-runtime:1.2.0-beta01"
+    implementation "androidx.navigation3:navigation3-ui:1.2.0-beta01"
 }
 ```
 
@@ -34,8 +34,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation3:navigation3-runtime:1.2.0-alpha07")
-    implementation("androidx.navigation3:navigation3-ui:1.2.0-alpha07")
+    implementation("androidx.navigation3:navigation3-runtime:1.2.0-beta01")
+    implementation("androidx.navigation3:navigation3-ui:1.2.0-beta01")
 }
 ```
 
@@ -57,6 +57,23 @@ for more information.
 There are no release notes for this artifact.
 
 ## Navigation3 Version 1.2
+
+### Version 1.2.0-beta01
+
+August 26, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0-beta01` is released. Version 1.2.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..7747cbed26ca24ff0d275c4fd6cd35316de858ae/navigation3).
+
+**API Changes**
+
+- Refactored `DeepLinkRequest.extras` from `Map<String, Any>` to a new type safe map-like class `RequestExtras` which stores pairs of `RequestExtrasKey<T>` to `T`. `RequestExtras` can be instantiated with the `requestExtras` DSL. ([Ic929d](https://android-review.googlesource.com/#/q/Ic929ddc59d55173a6f35155a61ca336a1975658b), [b/543883369](https://issuetracker.google.com/issues/543883369))
+
+**Bug Fixes**
+
+- Fixed an issue where predictive back gestures that are triggered during a forward transition does not animate in response to swipe progress. The predictive back will now animate and complete properly. ([Icdcb0](https://android-review.googlesource.com/#/q/Icdcb0b769208613ffd299938a892dda8f33fcc6b), [b/456218398](https://issuetracker.google.com/issues/456218398))
+- Added a lint check for ensuring `Scene` implementations are either data classes, or implement equals and hashcode to ensure that the same `Scene` is used when appropriate. ([Ibdf0d](https://android-review.googlesource.com/#/q/Ibdf0d07a44751876faa5d65f9e44636d301a3a96), [b/542316099](https://issuetracker.google.com/issues/542316099))
+- `NavEntry.contentKey` now defaults to a composite of `key.toString()` and `key::class.toString()`. This ensures that data objects that share the same name but implement different interfaces will no longer have the same `contentKey`. However, JS platform's `key::class` only returns simple class name instead of fully qualified name, so JS platform should still implement custom `contentKey` for data objects with duplicate names. ([I1fbbb](https://android-review.googlesource.com/#/q/I1fbbb4eabf2e1ab60a7789d8a7abb66d29d7f286), [b/512534342](https://issuetracker.google.com/issues/512534342))
+- Fixed `IllegalArgumentException` thrown by `SaveableStateProvider` for duplicate keys used during rapid back navigation when multiple pop transitions are in-flight. ([I4d728](https://android-review.googlesource.com/#/q/I4d728a85e74fdc35e26ea621b809c03813f0806d), [b/516312097](https://issuetracker.google.com/issues/516312097))
 
 ### Version 1.2.0-alpha07
 
@@ -222,6 +239,27 @@ April 08, 2026
 - Accessing `LocalNavAnimatedContentScope` from an `OverlayScene` will no longer cause an `IllegalStateException` as `OverlayScenes` are now provided with a no-op `LocalAnimatedContentScope`. ([I2f00c](https://android-review.googlesource.com/#/q/I2f00c9c916cb77cfb85bb736ed8efc9ccedbd512), [b/486067688](https://issuetracker.google.com/issues/486067688))
 
 ## Navigation3 Version 1.1
+
+### Version 1.1.7
+
+August 26, 2026
+
+`androidx.navigation3:navigation3-*:1.1.7` is released. Version 1.1.7 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/bc33726aa2025e67bbf11ac9142b3e33e29596a3..e4c75cb32a85803fd367372061035e6e358ad650/navigation3).
+
+**Bug Fixes**
+
+- Fixed an issue where predictive back gestures that are triggered during a forward transition does not animate in response to swipe progress. The predictive back will now animate and complete properly. ([Icdcb0](https://android-review.googlesource.com/#/q/Icdcb0b769208613ffd299938a892dda8f33fcc6b), [b/456218398](https://issuetracker.google.com/issues/456218398))
+
+### Version 1.1.6
+
+August 12, 2026
+
+`androidx.navigation3:navigation3-*:1.1.6` is released. Version 1.1.6 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5ff1c339d0aff2ca5a06b8ee0de282ba9cd95268..bc33726aa2025e67bbf11ac9142b3e33e29596a3/navigation3).
+
+**Bug Fixes**
+
+- `NavEntry.contentKey` now defaults to a composite of `key.toString()` and `key::class.toString()`. This ensures that data objects that share the same name but implement different interfaces will no longer have the same `contentKey`. However, JS platform's `key::class` only returns simple class name instead of fully qualified name, so JS platform should still implement custom `contentKey` for data objects with duplicate names. ([I1fbbb](https://android-review.googlesource.com/#/q/I1fbbb4eabf2e1ab60a7789d8a7abb66d29d7f286), [b/512534342](https://issuetracker.google.com/issues/512534342))
+- Fixed `IllegalArgumentException` thrown by `SaveableStateHolder` for key reuse when multiple pop transitions are in-flight simulatenously due to rapid popping from the back stack. ([I4d728](https://android-review.googlesource.com/#/q/I4d728a85e74fdc35e26ea621b809c03813f0806d), [b/516312097](https://issuetracker.google.com/issues/516312097))
 
 ### Version 1.1.5
 

@@ -13,6 +13,10 @@ To qualify for AEP, enable your launcher icon to dynamically adjust its tint by
 including a \<monochrome\> drawable layer within the adaptive icon XML of
 your application.
 
+| ID | Guideline |
+|---|---|
+| AEP-TI-GAA | To qualify for AEP, enable your launcher icon to dynamically adjust its tint by including a \<monochrome\> drawable layer within the adaptive icon XML of your application. |
+
 ## Guideline applicability
 
 This guideline applies:

@@ -18,9 +18,16 @@ Wear OS users can choose between various input options from Remote Input. These 
 - Smart Reply
 - Default IME
 
-![](https://developer.android.com/static/wear/images/new_input_methods.png)
+![Sample input methods.](https://developer.android.com/static/wear/images/new_input_methods.png) **Figure 1.** Sample input methods.
 
-Create an input method for Wear
+Wear OS comes with a system default IME and also
+lets third-party developers create custom IMEs.
+The IME APIs used for Wear OS devices are the same as for other form factors, though usage is slightly
+different due to the limited screen size.
+
+This document provides guidance to help you create a Wear-OS-specific IME.
+
+## Create an input method for Wear
 
 The Android platform provides a standard framework for creating IMEs. To create
 a Wear-OS-specific IME, you need to optimize your IME for a wearable's limited screen size.
@@ -36,16 +43,13 @@ Then add the Google Play filters in the following sections to your manifest file
 If you are developing an IME for Wear OS, remember that the
 feature is supported only on Android 6.0 (API level 23) and higher.
 To ensure that your IME can be installed only on wearables that support input
-methods beyond voice, add the following to your app's manifest:  
-
-```xml
-<uses-sdk android:minSdkVersion="23" />
-```
+methods beyond voice, set the `minSdkVersion` value in your app's
+`build.gradle.kts` file to `23` or higher.
 
 #### Device feature sets
 
 To control how your app is filtered from devices that don't support
-Wear OS IMEs, such as iPhones, add the following to your app's manifest:  
+Wear OS IMEs, such as iPhones, add the following to your app's manifest:
 
 ```xml
 <uses-feature android:required="true" android:name="android.hardware.type.watch" />
@@ -55,10 +59,8 @@ Wear OS IMEs, such as iPhones, add the following to your app's manifest:
 
 Wear OS provides user settings on the watch that let the user enable multiple
 IMEs from the list of installed IMEs. Once the user enables your IME, they
-can invoke your IME from the following places:
-
-- A notification or an app using the [RemoteInput](https://developer.android.com/reference/androidx/core/app/RemoteInput) API.
-- Wear OS apps with an [`EditText`](https://developer.android.com/reference/android/widget/EditText) field. Touching a text field places the cursor in the field and automatically displays the IME on focus.
+can invoke your IME from a notification or an app using the
+[`RemoteInput`](https://developer.android.com/reference/androidx/core/app/RemoteInput) API.
 
 ## General IME considerations
 

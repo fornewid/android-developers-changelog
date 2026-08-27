@@ -31,7 +31,7 @@ Google Play Games on PC. Here's the status of key features:
 |   | Windows Authenticode | Planned (Aug 2026) | Support for Authenticode submission. |
 |   | Reporting \& Analytics | Planned (Aug 2026) | Visits, installs, engagement, and revenue reporting. |
 | **Billing \& Payments** | Seamless Purchase Flow | **Available** | In-game checkout within the game client. |
-|   | Client-side verification | **Available** | Client-side billing verification (requires [allowlisting](https://issuetracker.google.com/issues/new?component=175792)). |
+|   | Client-side verification | **Available** | Client-side billing verification (requires [allowlisting](http://play.google.com/console/developers/create-support-ticket?form=35)). |
 |   | Purchase callbacks | **Available** | Callbacks for billing verification. |
 |   | Extended status callbacks | Planned (Aug 2026) | Callbacks for pending, user cancellation, etc. |
 | **Essential Features** | Unity Wrapper Plugin | **Available** | Plugin for Unity supporting Init, Integrity, and Billing. |

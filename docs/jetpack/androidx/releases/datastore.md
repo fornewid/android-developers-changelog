@@ -278,11 +278,11 @@ April 22, 2026
 
 **New Features**
 
-- Added support for Origin Private File System (OPFS) in DataStore for web platforms. This implementation introduces `WebOpfsStorage` and includes architectural support for asynchronous file I/O, cross-tab notifications using the `BroadcastChannel` API, and distributed locking via the native `Web Locks API` for exclusive write access. [Id7f5807](https://android-review.googlesource.com/q/Id7f5807b6d5abd94ac268b91dcbe5f19e2ff8ef5) [b/316376114](https://buganizer.corp.google.com/issues/316376114)
+- Added support for Origin Private File System (OPFS) in DataStore for web platforms. This implementation introduces `WebOpfsStorage` and includes architectural support for asynchronous file I/O, cross-tab notifications using the `BroadcastChannel` API, and distributed locking via the native `Web Locks API` for exclusive write access. [Id7f5807](https://android-review.googlesource.com/q/Id7f5807b6d5abd94ac268b91dcbe5f19e2ff8ef5) [b/316376114](https://issuetracker.google.com/issues/316376114)
 
 **API Changes**
 
-- Introduced `WebLocalStorage` and `WebSessionStorage` APIs for explicit storage type management in Web environments. [I35fa259b](https://android-review.googlesource.com/q/I35fa259b5d5940d599e8dce0efe79d9a15886895) [b/316376114](https://buganizer.corp.google.com/issues/316376114)
+- Introduced `WebLocalStorage` and `WebSessionStorage` APIs for explicit storage type management in Web environments. [I35fa259b](https://android-review.googlesource.com/q/I35fa259b5d5940d599e8dce0efe79d9a15886895) [b/316376114](https://issuetracker.google.com/issues/316376114)
 
 ### Version 1.3.0-alpha07
 

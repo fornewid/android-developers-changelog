@@ -12,7 +12,9 @@ On devices that support backup and run Wear OS 4 or higher, users can back up
 their data to the cloud in order to transfer data off that device, and they can
 restore data from the cloud to transfer data onto a new Wear OS device. For
 example, users can [perform backup and restore on Google Pixel Watch](https://support.google.com/googlepixelwatch/answer/13579590#zippy=%2Cpair-your-phone-with-a-new-pixel-watch).
-| **Note:** Cloud backup and restore, where the user restores data to a new Wear OS device, is different from [transferring Wear OS data to a new mobile device](https://developer.android.com/training/wearables/data/transfer-to-new-mobile), where the user connects their existing Wear OS device to a new mobile device.
+
+> [!NOTE]
+> **Note:** Cloud backup and restore, where the user restores data to a new Wear OS device, is different from [transferring Wear OS data to a new mobile device](https://developer.android.com/training/wearables/data/transfer-to-new-mobile), where the user connects their existing Wear OS device to a new mobile device.
 
 ## Simulate cloud transfer using local storage
 
@@ -24,7 +26,9 @@ these steps:
    specify the [additional set of backup rules](https://developer.android.com/guide/topics/data/autobackup#include-exclude-android-11) to support devices that target
    API level 29 or lower.
 
-   | **Note:** If you implement a custom [`BackupAgent`](https://developer.android.com/guide/topics/data/autobackup#ImplementingBackupAgent), you should avoid calling the [Data Layer](https://developer.android.com/training/wearables/data/data-layer) inside your backup agent's methods because it may not work correctly if called there.
+   > [!NOTE]
+   > **Note:** If you implement a custom [`BackupAgent`](https://developer.android.com/guide/topics/data/autobackup#ImplementingBackupAgent), you should avoid calling the [Data Layer](https://developer.android.com/training/wearables/data/data-layer) inside your backup agent's methods because it may not work correctly if called there.
+
 2. Connect your device that's running Wear OS 4 or higher to your development
    machine using a [Wi-Fi connection](https://developer.android.com/training/wearables/get-started/debugging#wifi-debugging).
 
@@ -56,11 +60,13 @@ separately, and the two apps don't contribute to each other's size limit.
 
 Any data in the `DataStore` -- **Files \> DataStore** -- is backed up by default
 unless you explicitly exclude the corresponding files and directories.
-| **Caution:** Partial backups aren't supported. If the total size of the files and directories within a Wear OS backup is greater than 25 MB, then no data from the Wear OS app is backed up.
+
+> [!CAUTION]
+> **Caution:** Partial backups aren't supported. If the total size of the files and directories within a Wear OS backup is greater than 25 MB, then no data from the Wear OS app is backed up.
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
 - [Save simple data with SharedPreferences](https://developer.android.com/training/data-storage/shared-preferences)
 - [DataStore (Kotlin Multiplatform)](https://developer.android.com/kotlin/multiplatform/datastore)
-- [Working with Proto DataStore](https://developer.android.com/codelabs/android-proto-datastore)
+- [Working with Proto DataStore](https://developer.android.com/codelabs/android-proto-datastore/index.lab)

@@ -10,7 +10,7 @@ Glance Wear is a library for building Widgets for Wear OS
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 29, 2026 | - | - | - | [1.0.0-alpha15](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha15) |
+| August 26, 2026 | - | - | - | [1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha17) |
 
 ## Declaring dependencies
 
@@ -25,9 +25,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.wear:wear:1.0.0-alpha15"
+    implementation "androidx.glance.wear:wear:1.0.0-alpha17"
 
-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha15"
+    implementation "androidx.glance.wear:wear-core:1.0.0-alpha17"
 }
 ```
 
@@ -35,9 +35,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.wear:wear:1.0.0-alpha15")
+    implementation("androidx.glance.wear:wear:1.0.0-alpha17")
 
-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha15")
+    implementation("androidx.glance.wear:wear-core:1.0.0-alpha17")
 }
 ```
 
@@ -57,6 +57,32 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Glance Wear Version 1.0
+
+### Version 1.0.0-alpha17
+
+August 26, 2026
+
+`androidx.glance.wear:wear:1.0.0-alpha17`, `androidx.glance.wear:wear-core:1.0.0-alpha17`, and `androidx.glance.wear:wear-tooling-preview:1.0.0-alpha17` are released. Version 1.0.0-alpha17 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/384f3c27346bf5812f359330dc2310f0cbb66402..dbfd25ce92ea92b4960bf8613bbdb777c6357845/glance/wear).
+
+**New features**
+
+- Added lint checks in Glance Wear to enforce that each `<container>` in a `<wearwidget-provider>` XML for Widget Metadata explicitly specifies a type attribute that is supported and does not define duplicate types. ([I52c9a](https://android-review.googlesource.com/#/q/I52c9a35567634046882911f939a7c56f5a0ed0d5), [b/464458215](https://issuetracker.google.com/issues/464458215))
+
+### Version 1.0.0-alpha16
+
+August 12, 2026
+
+`androidx.glance.wear:wear:1.0.0-alpha16`, `androidx.glance.wear:wear-core:1.0.0-alpha16`, and `androidx.glance.wear:wear-tooling-preview:1.0.0-alpha16` are released. Version 1.0.0-alpha16 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..384f3c27346bf5812f359330dc2310f0cbb66402/glance/wear).
+
+**New features**
+
+- Added Lint validation for `<wearwidget-provider>` XML metadata to ensure required configuration elements (such as `container` and `previewImage`) are present. ([Ia9983](https://android-review.googlesource.com/#/q/Ia99833b17e492bfb49f34fa513c6e34f2138f7f5), [b/464458215](https://issuetracker.google.com/issues/464458215))
+- Added Lint error warning for setting black or transparent background to a Wear Widget ([Idedb0](https://android-review.googlesource.com/#/q/Idedb0242b97a17aeda7c917c6973fb317939706e), [b/529269573](https://issuetracker.google.com/issues/529269573))
+- Enabled `CORE_TEXT` Remote Compose operation for Wear Widgets profile. This allows `RemoteText` to use variable font features, such as font axes, line heights, etc., on supported Host renderers, with automatic fallback when its not supported.
+
+**Fixes**
+
+- Updated KDocs for `AssociateWithGlanceWearWidget` annotation per developers' feedback
 
 ### Version 1.0.0-alpha15
 

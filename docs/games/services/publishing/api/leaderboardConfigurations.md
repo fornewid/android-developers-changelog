@@ -14,177 +14,176 @@ This is a JSON template for an leaderboard configuration resource.
 
 ```
 {
-  "kind": "gamesConfiguration#leaderboardConfiguration",
-  "token": string,
+  "kind": "gamesConfiguration#leaderboardConfiguration";,
+  ";token": string,
   "id": string,
-  "scoreOrder": string,
-  "scoreMin": long,
+  "scoreOrder&quot;: string,
+ { "scoreMin": long,
   "scoreMax": long,
-  "draft": {
+  "draft"{: 
     "kind": "gamesConfiguration#leaderboardConfigurationDetail",
-    "name": {
+   { "name": 
       "kind": "gamesConfiguration#localizedStringBundle",
-      "translations": [
-        {
-          "kind": "gamesConfiguration#localizedString",
-          "locale": string,
-          "value": string
-        }
+      "translati}ons": [
+}        
+          &quot;kind": &quot;gamesConfiguration#localiz{edString",
+          &quot;locale": strin{g,
+          &quo{t;value": string
+        
       ]
-    },
+    ,
     "iconUrl": string,
-    "sortRank": integer,
-    "scoreFormat": {
+    "sortRank":{ integer,
+    "scoreFormat": 
       "numberFormatType": string,
-      "suffix": {
-        "zero": {
-          "kind": "gamesConfiguration#localizedStringBundle",
+      &quot;suffix": 
+        &quot;zero"}: 
+          "ki}nd": "g{amesConfiguration#localizedStringBundle",
           "translations": [
+            
+     {         "kind": "gamesConfiguration#localizedString",
+              &quot;locale": string,
+              &quo}t;value": string}
+            
+   {       ]
+        ,
+        "one": 
+          "kind": "gamesConfiguration#local{izedStringBundle",
+          "translations": [
+            
+              &quot;kind": "gamesConfiguration#loc}alizedString",
+ }             &quo{t;locale": string,
+              "value": string
+            
+          ]
+        ,
+    {    "two": 
+          "kind": "gamesConfiguration#localizedStringBundle",
+          &quot;translations&qu}ot;: [
+            
+ }             "{;kind": "gamesConfiguration#localizedString",
+              "locale": string,
+{              "value": string
+            
+          ]
+        ,
+        &quot;few": 
+          ";kind&quot;: "}gamesConfiguration#lo}calizedStringBundle{",
+          "translations": [
+            
+              "kind": "gamesC{onfiguration#localizedString",
+              "locale": string,
+              "value": string
+            
+    }      ]
+        ,
+   }     &q}uot;many": 
+          &quot;kind": "gamesConfiguration#}loc}alizedStringBundl{e",
+          "translations": [
+            
+              &quo{t;kind": "gamesConfiguration#localizedString",
+              "locale&qu{ot;: string,
+              "value": string
+            
+          ]
+        ,
+        "other&quot;: 
+   }       "}kind": ";gamesConfiguration#localizedStringBundle",
+   {       "translations&quot;: [
+            
+   {           "{kind": "gamesConfiguration#localizedString",
+              "locale": string,
+ {             "value": string
+            
+          ]
+        
+      ,
+      &quot;numDecimalPlaces": integer,
+      &qu}ot;currencyCode"}: string
+    
+  ,{
+  "published": 
+    "kind": "gamesConfiguration#leaderboardConfigurationDetai{l",
+    "name": 
+      "kind": "gamesConfiguration#localizedStringBundle",
+      "translations&}quot;: [
+        
+   }       "kind{": "gamesConfiguration#localizedString",
+          "locale": string,
+         { "value": string
+        
+      ]
+    ,
+    "iconUrl": string,
+    &quot;sortRank": integer,
+    "scoreFo}rmat": 
+      &q}uot;numberFormatT{ype": string,
+      "suffix": 
+        "zero": 
+          "kind": &q{uot;gamesConfiguration#localizedStringBundle",
+          "translations";: [
+            
+              ";kind": }"gamesConfigurat}ion#localizedStrin{g",
+              "locale": string,
+              "value": string
             {
+          ]
+        ,
+        "one": 
+          "kind": "gamesConfiguration#localizedStringBundle",
+    }      "translati}ons": [
+      {      
+              "kind": "gamesConfiguration#localizedString",
+              &q{uot;locale": string,
+              "value": string
+            
+          ]
+        ,
+        "two&quot;: 
+        }  "kind": &}quot;ga}mesConfiguration#localizedStringBundle",
+          &quot;translat}ion}s}": [
+            
               "kind": "gamesConfiguration#localizedString",
               "locale": string,
               "value": string
-            }
+            
           ]
-        },
-        "one": {
+        ,
+        "few": 
           "kind": "gamesConfiguration#localizedStringBundle",
           "translations": [
-            {
+            
               "kind": "gamesConfiguration#localizedString",
               "locale": string,
               "value": string
-            }
+            
           ]
-        },
-        "two": {
+        ,
+        "many": 
           "kind": "gamesConfiguration#localizedStringBundle",
           "translations": [
-            {
+            
               "kind": "gamesConfiguration#localizedString",
               "locale": string,
               "value": string
-            }
+            
           ]
-        },
-        "few": {
+        ,
+        "other": 
           "kind": "gamesConfiguration#localizedStringBundle",
           "translations": [
-            {
+            
               "kind": "gamesConfiguration#localizedString",
               "locale": string,
               "value": string
-            }
+            
           ]
-        },
-        "many": {
-          "kind": "gamesConfiguration#localizedStringBundle",
-          "translations": [
-            {
-              "kind": "gamesConfiguration#localizedString",
-              "locale": string,
-              "value": string
-            }
-          ]
-        },
-        "other": {
-          "kind": "gamesConfiguration#localizedStringBundle",
-          "translations": [
-            {
-              "kind": "gamesConfiguration#localizedString",
-              "locale": string,
-              "value": string
-            }
-          ]
-        }
-      },
+        
+      ,
       "numDecimalPlaces": integer,
       "currencyCode": string
-    }
-  },
-  "published": {
-    "kind": "gamesConfiguration#leaderboardConfigurationDetail",
-    "name": {
-      "kind": "gamesConfiguration#localizedStringBundle",
-      "translations": [
-        {
-          "kind": "gamesConfiguration#localizedString",
-          "locale": string,
-          "value": string
-        }
-      ]
-    },
-    "iconUrl": string,
-    "sortRank": integer,
-    "scoreFormat": {
-      "numberFormatType": string,
-      "suffix": {
-        "zero": {
-          "kind": "gamesConfiguration#localizedStringBundle",
-          "translations": [
-            {
-              "kind": "gamesConfiguration#localizedString",
-              "locale": string,
-              "value": string
-            }
-          ]
-        },
-        "one": {
-          "kind": "gamesConfiguration#localizedStringBundle",
-          "translations": [
-            {
-              "kind": "gamesConfiguration#localizedString",
-              "locale": string,
-              "value": string
-            }
-          ]
-        },
-        "two": {
-          "kind": "gamesConfiguration#localizedStringBundle",
-          "translations": [
-            {
-              "kind": "gamesConfiguration#localizedString",
-              "locale": string,
-              "value": string
-            }
-          ]
-        },
-        "few": {
-          "kind": "gamesConfiguration#localizedStringBundle",
-          "translations": [
-            {
-              "kind": "gamesConfiguration#localizedString",
-              "locale": string,
-              "value": string
-            }
-          ]
-        },
-        "many": {
-          "kind": "gamesConfiguration#localizedStringBundle",
-          "translations": [
-            {
-              "kind": "gamesConfiguration#localizedString",
-              "locale": string,
-              "value": string
-            }
-          ]
-        },
-        "other": {
-          "kind": "gamesConfiguration#localizedStringBundle",
-          "translations": [
-            {
-              "kind": "gamesConfiguration#localizedString",
-              "locale": string,
-              "value": string
-            }
-          ]
-        }
-      },
-      "numDecimalPlaces": integer,
-      "currencyCode": string
-    }
-  }
-}
+    
+  
 ```
 
 | Property name | Value | Description | Notes |

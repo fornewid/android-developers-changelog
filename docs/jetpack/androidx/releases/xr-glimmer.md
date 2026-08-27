@@ -10,7 +10,7 @@ Design language and UI toolkit for building augmented Android XR experiences
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 12, 2026 | - | - | - | [1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha17) |
+| August 26, 2026 | - | - | - | [1.0.0-alpha18](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha18) |
 
 ## Declaring dependencies
 
@@ -27,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha17"
+    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha18"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha17")
+    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha18")
 }
 ```
 
@@ -55,6 +55,19 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha18
+
+August 26, 2026
+
+`androidx.xr.glimmer:glimmer:1.0.0-alpha18` and `androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha18` are released. Version 1.0.0-alpha18 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/384f3c27346bf5812f359330dc2310f0cbb66402..e803e681a62cf709ac0eef07a56ac6cc0bba332a/xr/glimmer).
+
+**API Changes**
+
+- Change `ButtonGroupState.Saver` serialized type from `Int` to `*`. ([I78af5](https://android-review.googlesource.com/#/q/I78af53fffaf6f242d01ca0741c249eaa6a6a6964))
+- Make `SurfaceDefaults.color` and `SurfaceDefaults.focusedColor`, and `checkedBackgroundColor` function in `IconToggleButton` and `ToggleButton`, `@Composable` functions. ([I52eb5](https://android-review.googlesource.com/#/q/I52eb51936311a48a29fb746f1dedde4226792333), [b/481943080](https://issuetracker.google.com/issues/481943080))
+- Add `focusedColor` and `focusedContentColor` parameters to `Modifier.surface()` function to customize colors of the focused surface. ([Ied24a](https://android-review.googlesource.com/#/q/Ied24a423eb2222e35c025de71d2d68a014ef964e))
+- Remove border customization from all components and outline color from `GlimmerTheme.colors`. ([I0d814](https://android-review.googlesource.com/#/q/I0d8142155934e8491a01995fee8ad1bfd0dc5afd))
 
 ### Version 1.0.0-alpha17
 
@@ -194,7 +207,7 @@ January 14, 2026
 
 **New Features**
 
-- Added support for multiple item decorations per item for `VerticalStack` ([22daab3](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3895807)) and support for generic decoration shapes ([033e015](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3899124)).
+- Added support for multiple item decorations per item for `VerticalStack` ([22daab3](https://android-review.googlesource.com/c/platform/frameworks/support/+/3895807)) and support for generic decoration shapes ([033e015](https://android-review.googlesource.com/c/platform/frameworks/support/+/3899124)).
 
 **API Changes**
 
@@ -202,8 +215,8 @@ January 14, 2026
 
 **Bug Fixes**
 
-- Added initial focus handling to `VerticalStack` to make sure the top item gets focus when focus enters the stack. This fixes an issue where initial focus gets assigned to the next item resulting in an immediate scroll to that item. ([bd69841](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3880202))
-- Fixed a bug in `VerticalStack`'s `ItemDecorationNode`, where the decorations were not updated in the item scope when the modifier node is reused. ([7ec2c94](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3899284))
+- Added initial focus handling to `VerticalStack` to make sure the top item gets focus when focus enters the stack. This fixes an issue where initial focus gets assigned to the next item resulting in an immediate scroll to that item. ([bd69841](https://android-review.googlesource.com/c/platform/frameworks/support/+/3880202))
+- Fixed a bug in `VerticalStack`'s `ItemDecorationNode`, where the decorations were not updated in the item scope when the modifier node is reused. ([7ec2c94](https://android-review.googlesource.com/c/platform/frameworks/support/+/3899284))
 
 ### Version 1.0.0-alpha03
 

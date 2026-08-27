@@ -14,12 +14,14 @@ user re-engagement by surfacing relevant content outside the app boundaries.
 
 To qualify for AEP, your app must adhere to the following requirements:
 
-- Pass baseline technical criteria, including support for all required metadata fields and broadcast support for service availability.
-- Publish at least one personalized recommendation cluster for logged-in users.
-- Publish a continuation cluster, such as "Resume Watching", for logged-in users with at least one in-progress item.
-- Update the continuation cluster within 10 minutes (ideally instantly) after a user takes an action that triggers a continuation experience and exits the app.
-- Refresh recommendations at least once every 3 days to ensure content remains relevant and fresh for the user.
-- Maintain content safety by filtering inappropriate content and ensure data privacy by immediately deleting content upon user logout or account deletion.
+| ID | Guideline |
+|---|---|
+| AEP-ES-GAA | Pass baseline technical criteria, including support for all required metadata fields and broadcast support for service availability. |
+| AEP-ES-GAB | Publish at least one personalized recommendation cluster for logged-in users. |
+| AEP-ES-GAC | Publish a continuation cluster, such as "Resume Watching", for logged-in users with at least one in-progress item. |
+| AEP-ES-GAD | Update the continuation cluster within 10 minutes (ideally instantly) after a user takes an action that triggers a continuation experience and exits the app. |
+| AEP-ES-GAE | Refresh recommendations at least once every 3 days to ensure content remains relevant and fresh for the user. |
+| AEP-ES-GAF | Maintain content safety by filtering inappropriate content and ensure data privacy by immediately deleting content upon user logout or account deletion. |
 
 ## Guideline applicability
 
@@ -41,12 +43,14 @@ This guideline applies to:
 
 The following exemptions apply to this guideline:
 
-- Apps that don't meet the [Engage SDK](https://developer.android.com/guide/playcore/engage/preview#eligibility) eligibility criteria.
-- Apps whose main content type can quickly become stale: live-streams, ephemeral recommendations (such as limited shopping inventory), and chat apps.
-- Apps that don't provide a signed-in experience.
-- Apps that don't provide native recommendations are exempt from publishing recommendations.
-- Apps that don't provide native personalized recommendations can provide non-personalized recommendations, consistent with what they provide in their own app.
-- Apps without native continuation journeys are exempt from continuation content.
+| ID | Exemption |
+|---|---|
+| AEP-ES-EAA | Apps that don't meet the [Engage SDK](https://developer.android.com/guide/playcore/engage/preview#eligibility) eligibility criteria. |
+| AEP-ES-EAB | Apps whose main content type can quickly become stale: live-streams, ephemeral recommendations (such as limited shopping inventory), and chat apps. |
+| AEP-ES-EAC | Apps that don't provide a signed-in experience. |
+| AEP-ES-EAD | Apps that don't provide native recommendations are exempt from publishing recommendations. |
+| AEP-ES-EAE | Apps that don't provide native personalized recommendations can provide non-personalized recommendations, consistent with what they provide in their own app. |
+| AEP-ES-EAF | Apps without native continuation journeys are exempt from continuation content. |
 
 ## Feature documentation and resources
 

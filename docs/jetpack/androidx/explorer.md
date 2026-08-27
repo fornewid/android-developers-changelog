@@ -39,6 +39,7 @@ Select a category:
 | [camera.viewfinder](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder) | Standalone Composable and View based Viewfinder for Camera" |
 | [cardview](https://developer.android.com/jetpack/androidx/releases/cardview) | Implement the Material Design card pattern with round corners and drop shadows. |
 | [collection](https://developer.android.com/jetpack/androidx/releases/collection) | Reduce the memory impact of existing and new collections that are small. |
+| [compose.remote.foundation](https://developer.android.com/jetpack/androidx/releases/compose_remote_foundation) | TODO |
 | [compose \*](https://developer.android.com/jetpack/androidx/releases/compose) | Define your UI programmatically with composable functions that describe its shape and data dependencies. |
 | [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | Build animations in their Jetpack Compose applications to enrich the user experience. |
 | [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | Transform @Composable functions and enable optimizations with a Kotlin compiler plugin. |
@@ -73,6 +74,7 @@ Select a category:
 | [exifinterface](https://developer.android.com/jetpack/androidx/releases/exifinterface) | Read and write image file EXIF tags. |
 | [fragment \*](https://developer.android.com/jetpack/androidx/releases/fragment) | Segment your app into multiple, independent screens that are hosted within an Activity. |
 | [games](https://developer.android.com/jetpack/androidx/releases/games) | Use the Android Game SDK natively in your app to perform complex games tasks, like Frame Pacing. |
+| [glance.adaptive](https://developer.android.com/jetpack/androidx/releases/glance_adaptive) | TODO |
 | [glance](https://developer.android.com/jetpack/androidx/releases/glance) | Build layouts for remote surfaces using a Jetpack Compose-style API. |
 | [glance.wear](https://developer.android.com/jetpack/androidx/releases/glance-wear) | Glance Wear is a library for building Widgets for Wear OS |
 | [graphics](https://developer.android.com/jetpack/androidx/releases/graphics) | Leverage graphics facilities across multiple Android platform releases |

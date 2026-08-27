@@ -2353,3 +2353,7 @@ Make a selection 2026.08.00 2026.06.01 2026.06.00 2026.05.01 2026.05.00 2026.04.
 | androidx.compose.ui:ui-viewbinding | 1.3.2 |   |
 | androidx.compose.ui:ui-viewbinding | 1.3.1 |   |
 | androidx.compose.ui:ui-viewbinding | 1.3.0 |   |
+
+## Compare BOM versions
+
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/bom/bom-mapping_cf4400f332f41990ef2f03e391d59479731d8718a2702af80d688f217b7a0496.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
