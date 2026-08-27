@@ -1,0 +1,53 @@
+diff --git a/docs/distribute/aep/aep-req-media-3.md b/docs/distribute/aep/aep-req-media-3.md
+index c5b57eae..d2e7e410 100644
+--- a/docs/distribute/aep/aep-req-media-3.md
++++ b/docs/distribute/aep/aep-req-media-3.md
+@@ -16,9 +16,11 @@ experiences.
+ 
+ To qualify for AEP, your app must adhere to the following requirements:
+ 
+-- Shouldn't use legacy Android framework APIs, including MediaPlayer, MediaExtractor, MediaMuxer, and MediaMetadataRetriever.
+-- If playback is a core user journey, the app must integrate media sessions for OS awareness and cross-device integration.
+-- If the app has an audio content library, it must expose content through MediaLibraryService and implement support for media resumption.
++| ID | Guideline |
++|---|---|
++| AEP-M3-GAA | Shouldn't use legacy Android framework APIs, including MediaPlayer, MediaExtractor, MediaMuxer, and MediaMetadataRetriever. |
++| AEP-M3-GAB | If playback is a core user journey, the app must integrate media sessions for OS awareness and cross-device integration. |
++| AEP-M3-GAC | If the app has an audio content library, it must expose content through MediaLibraryService and implement support for media resumption. |
+ 
+ ## Guideline applicability
+ 
+@@ -30,19 +32,20 @@ This guideline applies to:
+ ## Exemptions
+ 
+ Apps can use an equivalent alternative framework that provides similar quality,
+-user capabilities, stability and compatibility across the ecosystem.
+-[Contact support](https://developer.android.com/distribute/aep/aep-get-support) if you have a suitable framework for consideration. To
+-qualify, the alternative implementation must meet the following benchmarks:
+-
+-- On a fast network, the first video frame must be displayed within 500 ms of user initiation.
+-- Playback must remain smooth, with no visible frame drops or audible audio underruns during a 30-second window.
+-- The app must properly manage [audio focus](https://developer.android.com/media/optimize/audio-focus).
+-- The app must respond to hardware media keys, even when running in the background.
+-- If background playback is supported, the app must post a media-style notification and use a foreground service.
+-- If the app supports resuming playback, it must implement [media
+-  resumption](https://developer.android.com/media/media3/session/background-playback#resumption).
+-- Headphone disconnections must be handled gracefully. For example, pausing playback instead of switching to the speaker.
+-- Playback must continue without dropped frames when switching between device orientations.
++user capabilities, stability and compatibility across the ecosystem. [Contact
++support](https://developer.android.com/distribute/aep/aep-get-support) if you have a suitable framework for consideration. To qualify, the
++alternative implementation must meet the following benchmarks:
++
++| ID | Exemption |
++|---|---|
++| AEP-M3-EAA | On a fast network, the first video frame must be displayed within 500 ms of user initiation. |
++| AEP-M3-EAB | Playback must remain smooth, with no visible frame drops or audible audio underruns during a 30-second window. |
++| AEP-M3-EAC | The app must properly manage [audio focus](https://developer.android.com/media/optimize/audio-focus). |
++| AEP-M3-EAD | The app must respond to hardware media keys, even when running in the background. |
++| AEP-M3-EAE | If background playback is supported, the app must post a media-style notification and use a foreground service. |
++| AEP-M3-EAF | If the app supports resuming playback, it must implement [media resumption](https://developer.android.com/media/media3/session/background-playback#resumption). |
++| AEP-M3-EAG | Headphone disconnections must be handled gracefully. For example, pausing playback instead of switching to the speaker. |
++| AEP-M3-EAH | Playback must continue without dropped frames when switching between device orientations. |
+ 
+ ## Feature documentation and resources
+ 

@@ -1,0 +1,58 @@
+diff --git a/docs/blog/latest/2.md b/docs/blog/latest/2.md
+index f8ff3126..a64ee8ec 100644
+--- a/docs/blog/latest/2.md
++++ b/docs/blog/latest/2.md
+@@ -7,6 +7,20 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Zoe Lopez-Latorre 's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_07_07_at_1_15_58_PM_eb87f2f61a_Z1QyLll.webp)](https://developer.android.com/blog/authors/zoe-lopez-latorre) 08 Jul 2026 08 Jul 2026 ![](https://developer.android.com/static/blog/assets/Bench_July_releas_V01_Strapi_6ee24bdb6b_1NrCN7.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Evolving how LLMs are measured for Android: the next era of Android Bench](https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench)
++
++  [arrow_forward](https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench) Back in March, we introduced Android Bench---our LLM leaderboard for real-world Android development tasks. Since then, we have enhanced the benchmark based on your feedback, including evaluating open-weight models and adding cost and efficiency dimensions to the leaderboard.
++  [Zoe Lopez-Latorre](https://developer.android.com/blog/authors/zoe-lopez-latorre) • 3 min read
++  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
++- [![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_1fkXBh.webp)](https://developer.android.com/blog/authors/steph-pio) 06 Jul 2026 06 Jul 2026 ![](https://developer.android.com/static/blog/assets/IG_Fund26_Strapi_Header_716b75cbab_1E2Dt5.webp) [Community](https://developer.android.com/blog/categories/community)
++
++  ## [Google Play launches the first Indie Games Fund in Africa](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa)
++
++  [arrow_forward](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa) Google Play is launching the first Indie Games Fund in Africa, investing $1 million to empower 10 indie game studios across Sub-Saharan Africa.
++  [Steph Pio](https://developer.android.com/blog/authors/steph-pio) • 1 min read
++  - [#Google Play](https://developer.android.com/blog/topics/google-play)
+ - [![View Tibian Elsheikh's profile](https://developer.android.com/static/blog/assets/unnamed_7_643878a583_gdebU.webp)](https://developer.android.com/blog/authors/tibian-elsheikh)[![View Jeffrey Jose's profile](https://developer.android.com/static/blog/assets/unnamed_8_3d27b8b0cb_ZRl3Ng.webp)](https://developer.android.com/blog/authors/jeffrey-jose) 29 Jun 2026 29 Jun 2026 ![](https://developer.android.com/static/blog/assets/Eclipsa_Video_V01_White_Strapi_10c5296e18_R3bTD.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Eclipsa Video: HDR That Looks Right on Every Screen](https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen)
+@@ -160,23 +174,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+   - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
+   - +2 ↩
+-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o) Google I/O '26 features 17 key announcements for Android developers focusing on agent-led productivity, Compose First as our UI standard, and high-performance media and adaptive development for the expanding ecosystem.
+-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 8 min read
+-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem) With the release of Android 17, we are transitioning into an adaptive first development standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
+-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) • 3 min read
+-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+-  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+-  - +1 ↩
+ [arrow_back](https://developer.android.com/blog/latest)
+ 
+ #### Page 2
+@@ -248,6 +245,8 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#App Memory Limits](https://developer.android.com/blog/topics/app-memory-limits)
+ - [#Android Vitals](https://developer.android.com/blog/topics/android-vitals)
+ - [#Multi-Process Architecture](https://developer.android.com/blog/topics/multi-process-architecture)
++- [#Android Auto](https://developer.android.com/blog/topics/android-auto)
++- [#Security](https://developer.android.com/blog/topics/security)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Large Screens](https://developer.android.com/blog/topics/large-screens)

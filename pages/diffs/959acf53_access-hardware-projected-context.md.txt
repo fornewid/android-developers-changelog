@@ -1,0 +1,27 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md b/docs/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md
+index 2543ef9c..30d29c70 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md
++++ b/docs/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md
+@@ -101,7 +101,7 @@ audio processing, or standard Bluetooth audio input.
+ 
+ | Recording method | Microphone access | Common use case |
+ |---|---|---|
+-| Projected Context | Multiple microphones | Recording using a projected context lets your app access multiple microphones from the glasses and its specialized hardware features, such as: - XR-specific spatialization. - Advanced denoising. - Voice separation that distinguishes between wearer's and bystander's voices. - Maintain recording access in multidevice environments even when the glasses are not the active Bluetooth device. |
++| Projected Context | Multiple microphones | Recording using a projected context lets your app access multiple microphones from the glasses and its specialized hardware features, such as: - XR-specific spatialization. - Advanced denoising. - Voice separation that isolates the wearer's voice. - Maintain recording access in multidevice environments even when the glasses are not the active Bluetooth device. |
+ | Bluetooth HFP | Single microphone | Relies on the Bluetooth Hands-Free Profile (HFP) for immediate, out-of-the-box compatibility. In this mode, the glasses connect to the phone using standard Headset and Advanced Audio Distribution Profile (A2DP) [profiles](https://developer.android.com/develop/connectivity/bluetooth/profiles), functioning like a typical Bluetooth peripheral. If your app is already designed for standard Bluetooth recording, you can use this method to record audio from the glasses without integrating any XR-specific capabilities. |
+ 
+ ### Record audio using a projected context
+@@ -158,9 +158,10 @@ audioRecord.startRecording()
+   case.
+ 
+   For example, use `VOICE_COMMUNICATION` if your use case needs automatic
+-  noise reduction. `VOICE_RECOGNITION` is processed with acoustic echo
+-  cancellation (AEC). And if you need raw, unaltered audio, select
+-  `UNPROCESSED` or `CAMCORDER`.
++  noise reduction or to isolate the wearer's voice. `VOICE_RECOGNITION` is
++  processed with acoustic echo cancellation (AEC), which can be useful when
++  there's concurrent audio playback while recording. And if you need raw,
++  unaltered audio, select `UNPROCESSED` or `CAMCORDER`.
+ - To ensure compatibility with the glasses, the `audioFormat` object must
+   define a sample rate of 16kHz and a channel configuration of either mono or
+   stereo (using [`CHANNEL_IN_MONO`](https://developer.android.com/reference/kotlin/android/media/AudioFormat#channel_in_mono) or [`CHANNEL_IN_STEREO`](https://developer.android.com/reference/kotlin/android/media/AudioFormat#channel_in_stereo)).

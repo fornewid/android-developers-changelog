@@ -1,0 +1,13 @@
+diff --git a/docs/about/versions/17/changes/ff-restrictions-ignored.md b/docs/about/versions/17/changes/ff-restrictions-ignored.md
+index 2b361e56..e3270f88 100644
+--- a/docs/about/versions/17/changes/ff-restrictions-ignored.md
++++ b/docs/about/versions/17/changes/ff-restrictions-ignored.md
+@@ -60,7 +60,7 @@ The following manifest attributes and runtime APIs are ignored across large
+ screen devices in full-screen and multi-window modes:
+ 
+ - [`screenOrientation`](https://developer.android.com/guide/topics/manifest/activity-element#screen)
+-- [`resizableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity)
++- [`resizeableActivity`](https://developer.android.com/guide/topics/manifest/activity-element#resizeableActivity)
+ - [`minAspectRatio`](https://developer.android.com/guide/topics/manifest/activity-element#minaspectratio)
+ - [`maxAspectRatio`](https://developer.android.com/guide/topics/manifest/activity-element#maxaspectratio)
+ - [`setRequestedOrientation()`](https://developer.android.com/reference/android/app/Activity#setRequestedOrientation(int))

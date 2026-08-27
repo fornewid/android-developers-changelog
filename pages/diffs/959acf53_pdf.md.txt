@@ -1,0 +1,75 @@
+diff --git a/docs/jetpack/androidx/releases/pdf.md b/docs/jetpack/androidx/releases/pdf.md
+index 596a3467..0fa29e7a 100644
+--- a/docs/jetpack/androidx/releases/pdf.md
++++ b/docs/jetpack/androidx/releases/pdf.md
+@@ -10,7 +10,7 @@ A library to add pdf viewing capabilities inside apps.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 01, 2026 | - | - | - | [1.0.0-alpha19](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-alpha19) |
++| August 26, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-beta01) | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,7 +25,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.pdf:pdf-viewer-fragment:1.0.0-alpha19"
++    implementation "androidx.pdf:pdf-viewer-fragment:1.0.0-beta01"
+ }
+ ```
+ 
+@@ -33,7 +33,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.pdf:pdf-viewer-fragment:1.0.0-alpha19")
++    implementation("androidx.pdf:pdf-viewer-fragment:1.0.0-beta01")
+ }
+ ```
+ 
+@@ -56,6 +56,32 @@ There are no release notes for this artifact.
+ 
+ ## Pdf Version 1.0
+ 
++### Version 1.0.0-beta01
++
++August 26, 2026
++
++`androidx.pdf:pdf-*:1.0.0-beta01` is released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/41275634d9349e095b3315e43a89c309144ec03f..f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea/pdf).
++
++**API Changes**
++
++- Promoted public APIs across all PDF artifacts to Beta, except those annotated with `@ExperimentalPdfApi` ([Ia585f](https://android-review.googlesource.com/#/q/Ia585f2739caaa8810a76b5beecad38a8f2c962c8))
++
++- Added `@ExperimentalPdfApi` (a `@RequiresOptIn` annotation) to new APIs: `PdfViewer`, `PdfViewerState`, `EditablePdfViewerFragment`, `AnnotationsView`, and `OcrProvider`. ([I83a93](https://android-review.googlesource.com/#/q/I83a93af8e61287e354271386c8778ba4e557e83e)), ([I34fe6](https://android-review.googlesource.com/#/q/I34fe6cad9a4069d1067d44390a0b156fee812fda))
++
++- Renamed `onCreateOcrProvider` to `onInitOcrProvider` to ensure single-time initialization per fragment instance.([Ice5d4](https://android-review.googlesource.com/#/q/Ice5d456a17f362d03a66926045208eb8241f0bc4))
++
++- Exposed `OcrProvider` to enable searching and selecting text in images or scanned PDFs, and provided a default implementation (`MlKitOcrProvider`) in the `pdf-ocr-play-services` artifact. ([I6eaf4](https://android-review.googlesource.com/#/q/I6eaf40e7bc1a5ed689b348e37ce80bb40cb3bcbb))
++
++- Updated `pdfPointToVisibleOffset` to be non-nullable, returning an offset or `Offset.Unspecified` if the PDF content has not yet been laid out. ([If499a](https://android-review.googlesource.com/#/q/If499a3932396aa3fb84010150014c79f382421e4))
++
++**Enhancement and Bug Fixes**
++
++- Optimized document searching in `PdfViewerFragment` by streaming page-by-page results and debouncing text input, creating a lag-free typing and navigation experience.
++
++- Fixed background crashes during large text selections in `PdfView`, by serializing lightweight boundary anchors, creating a stable state restoration experience.
++
++- Remove Translation Key collision for action search ([I0cc35](https://android-review.googlesource.com/#/q/I0cc352553a9e537565f6f7edf8988dd0c878874b))
++
+ ### Version 1.0.0-alpha19
+ 
+ July 01, 2026
+@@ -133,8 +159,8 @@ March 11, 2026
+ 
+ **Bug Fixes**
+ 
+-- Fix fast scroller rendering without text on single tap gesture for `PdfViewer` compose component ([I442b7](https://android-review.git.corp.google.com/#/q/I442b70e9148e04ff1be21744c172af3a0304785e))
+-- Clicking on the center of the widget center for `clickTypeWidgets`.([Ie5661](https://android-review.git.corp.google.com/#/q/Ie566175bd0f87003b558b5f70ec3fe12d3805f52))
++- Fix fast scroller rendering without text on single tap gesture for `PdfViewer` compose component ([I442b7](https://android-review.googlesource.com/#/q/I442b70e9148e04ff1be21744c172af3a0304785e))
++- Clicking on the center of the widget center for `clickTypeWidgets`.([Ie5661](https://android-review.googlesource.com/#/q/Ie566175bd0f87003b558b5f70ec3fe12d3805f52))
+ - Moves libraries to use Java 11 target. This means produced bytecode will be Java 11 (class file version 55) and might require desugaring to use the library ([If4c2a](https://android-review.googlesource.com/#/q/If4c2a6fdda1278f42ea080fa365e8b437b2c2ae6), [b/457821470](https://issuetracker.google.com/issues/457821470))
+ 
+ ### Version 1.0.0-alpha14

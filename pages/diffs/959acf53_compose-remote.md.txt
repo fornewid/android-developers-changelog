@@ -1,0 +1,137 @@
+diff --git a/docs/jetpack/androidx/releases/compose-remote.md b/docs/jetpack/androidx/releases/compose-remote.md
+index c62b7e68..8cfc17ed 100644
+--- a/docs/jetpack/androidx/releases/compose-remote.md
++++ b/docs/jetpack/androidx/releases/compose-remote.md
+@@ -10,7 +10,7 @@ Remote Compose is a framework to create UI for remote surfaces
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 12, 2026 | - | - | - | [1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha17) |
++| August 26, 2026 | - | - | - | [1.0.0-alpha18](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha18) |
+ 
+ ## Declaring dependencies
+ 
+@@ -26,20 +26,20 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.compose.remote:remote-core:1.0.0-alpha17"
++    implementation "androidx.compose.remote:remote-core:1.0.0-alpha18"
+ 
+     // Use to create Remote Compose documents
+-    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha17"
+-    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha17"
+-    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha17"
+-    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha17"
+-    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha17"
++    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha18"
++    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha18"
++    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha18"
++    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha18"
++    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha18"
+ 
+     // Use to render a Remote Compose document
+-    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha17"
+-    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha17"
++    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha18"
++    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha18"
+ 
+-    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha17"
++    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha18"
+ }
+ ```
+ 
+@@ -47,20 +47,20 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.compose.remote:remote-core:1.0.0-alpha17")
++    implementation("androidx.compose.remote:remote-core:1.0.0-alpha18")
+ 
+     // Use to create Remote Compose documents
+-    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha17")
+-    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha17")
+-    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha17")
+-    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha17")
+-    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha17")
++    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha18")
++    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha18")
++    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha18")
++    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha18")
++    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha18")
+ 
+     // Use to render a Remote Compose document
+-    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha17")
+-    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha17")
++    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha18")
++    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha18")
+ 
+-    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha17")
++    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha18")
+ }
+ ```
+ 
+@@ -82,6 +82,27 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha18
++
++August 26, 2026
++
++`androidx.compose.remote:remote-*:1.0.0-alpha18` is released. Version 1.0.0-alpha18 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/384f3c27346bf5812f359330dc2310f0cbb66402..0f510de14252cfbba4cf679e0f847d84f7821531/compose/remote).
++
++**API Changes**
++
++- `RemoteAbsoluteAlignment` is now public and accessible outside of the library group. ([Id9ceb](https://android-review.googlesource.com/#/q/Id9ceb191c4ed9bdca555a96bbfa31309b34f2a9d))
++- Added `fontFeatureSettings` and `fontVariationSettings` support in `RemoteTextStyle`, `RemoteText`, and `RemoteTimeText`. ([I6e78d](https://android-review.googlesource.com/#/q/I6e78d7a602506d1a5741ad4dbe6f713720214527), [b/544644370](https://issuetracker.google.com/issues/544644370))
++- Added support for `fontVariationSettings` in `RemoteTextStyle`. ([I2c44a](https://android-review.googlesource.com/#/q/I2c44ac1efd17e49a575ec53f0336c8c666275a48), [b/542047368](https://issuetracker.google.com/issues/542047368))
++- `RemoteCollapsibleColumn` and `RemoteCollapsibleRow` are now public and accessible outside of the library group. ([I5ec72](https://android-review.googlesource.com/#/q/I5ec72f7f918dee26d9d70885bbaa42a30fd4da6b))
++- `RemoteFitBox` (formerly `FitBox`) is now public and accessible outside of the library group. ([I689be](https://android-review.googlesource.com/#/q/I689be830248f9a933752871f5a07da4a93f1c1fd))
++- Exposed `RemoteMatrix3x3` and `RemoteShaderBrush`.`applyTo` to allow applying matrix transformations to shaders. ([I59594](https://android-review.googlesource.com/#/q/I59594c0926aa8524c92535d0114abcbd3c33448d))
++- `RemoteModifier`.`graphicsLayer` is now public and accessible outside of the library group. ([I59c2c](https://android-review.googlesource.com/#/q/I59c2ccc26031725b7447add4fe04f7b9c2252cb8))
++
++**Bug Fixes**
++
++- Fix border width scaling and alignment in `RemoteButton` and `RemoteCard`. ([I8458b](https://android-review.googlesource.com/#/q/I8458bb022067d3b3decf4d9a1ef9746ab46f2827), [b/544653389](https://issuetracker.google.com/issues/544653389))
++- Fixed an issue where `animateRemoteFloat` discarded animation specifications when operating on expressions or using default parameters. ([I80e98](https://android-review.googlesource.com/#/q/I80e988f85a5ae5d4e89c97699ae5e02f8e721551), [b/544687132](https://issuetracker.google.com/issues/544687132))
++
+ ### Version 1.0.0-alpha17
+ 
+ August 12, 2026
+@@ -384,13 +405,13 @@ January 28, 2026
+ 
+ **New Features**
+ 
+-- Support for different shapes \& `RemoteColors` in `BorderModifier` [0afd343](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3914200)
+-- Add `CombinedAction` to support multiple actions on click events [10e16a2](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3908363)
++- Support for different shapes \& `RemoteColors` in `BorderModifier` [0afd343](https://android-review.googlesource.com/c/platform/frameworks/support/+/3914200)
++- Add `CombinedAction` to support multiple actions on click events [10e16a2](https://android-review.googlesource.com/c/platform/frameworks/support/+/3908363)
+ 
+ **API Changes**
+ 
+-- Migrated the APIs of `RemoteColor` and `RemoteBitmap` to use Compose types, rather than exposing Android types directly [a9bfbb8](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3917393)
+-- Introduce a `RemoteDensity` type, to allow determining whether to evaluate Density on the Player (when producing a document for a remote device), or to inline the expressions (to optimize document size when on the same device) [54352bb](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3914002)
++- Migrated the APIs of `RemoteColor` and `RemoteBitmap` to use Compose types, rather than exposing Android types directly [a9bfbb8](https://android-review.googlesource.com/c/platform/frameworks/support/+/3917393)
++- Introduce a `RemoteDensity` type, to allow determining whether to evaluate Density on the Player (when producing a document for a remote device), or to inline the expressions (to optimize document size when on the same device) [54352bb](https://android-review.googlesource.com/c/platform/frameworks/support/+/3914002)
+ - `RemoteState constantValueOrNull` rename ([I6ad5c](https://android-review.googlesource.com/#/q/I6ad5caf6e8af50642e3a7696ae7ceeefce89f11f), [b/467050397](https://issuetracker.google.com/issues/467050397))
+ 
+ ### Version 1.0.0-alpha02
+@@ -401,7 +422,7 @@ January 14, 2026
+ 
+ **New Features**
+ 
+-- Add min/max font size for CoreText. [I7bd3c](https://android-review.git.corp.google.com/#/q/I7bd3cbacdfcb70b62feada52cc74ff4853360775)
++- Add min/max font size for CoreText. [I7bd3c](https://android-review.googlesource.com/#/q/I7bd3cbacdfcb70b62feada52cc74ff4853360775)
+ 
+ **API Changes**
+ 
+@@ -410,7 +431,7 @@ January 14, 2026
+ 
+ **Bug Fixes**
+ 
+-- Fix scrolling position after relayout + add support for edge effects ([6d4551](https://android-review.git.corp.google.com/#/q/I5c2d35e07c193d7b147753387eb1d47cc0765be9))
++- Fix scrolling position after relayout + add support for edge effects ([6d4551](https://android-review.googlesource.com/#/q/I5c2d35e07c193d7b147753387eb1d47cc0765be9))
+ 
+ ### Version 1.0.0-alpha01
+ 

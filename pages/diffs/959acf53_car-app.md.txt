@@ -1,0 +1,28 @@
+diff --git a/docs/jetpack/androidx/releases/car-app.md b/docs/jetpack/androidx/releases/car-app.md
+index 4de70eeb..8cf4734c 100644
+--- a/docs/jetpack/androidx/releases/car-app.md
++++ b/docs/jetpack/androidx/releases/car-app.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| May 19, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/car-app#1.7.0) | - | [1.8.0-beta01](https://developer.android.com/jetpack/androidx/releases/car-app#1.8.0-beta01) | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app#1.9.0-alpha01) |
++| August 26, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/car-app#1.7.0) | [1.8.0-rc01](https://developer.android.com/jetpack/androidx/releases/car-app#1.8.0-rc01) | - | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app#1.9.0-alpha01) |
+ 
+ ## Declaring dependencies
+ 
+@@ -100,6 +100,14 @@ Version 1.9.0-alpha01 contains [these commits](https://android.googlesource.com/
+ 
+ ## Version 1.8
+ 
++### Version 1.8.0-rc01
++
++August 26, 2026
++
++`androidx.car.app:app-*:1.8.0-rc01` is released and has the same features as 1.8.0-beta01. Version 1.8.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/df4b49eda6f6834b6bc4c8aa30a581fa577a511e..eae9dacb0c63a2b6bd7e781577d625ab229bbd8b/car/app).
++
++- This release includes a security fix. If you are using a lower version, please update to use this version.
++
+ ### Version 1.8.0-beta01
+ 
+ April 22, 2026

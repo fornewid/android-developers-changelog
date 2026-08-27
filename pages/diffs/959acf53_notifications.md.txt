@@ -1,0 +1,47 @@
+diff --git a/docs/training/wearables/notifications.md b/docs/training/wearables/notifications.md
+index e077949e..eaa01941 100644
+--- a/docs/training/wearables/notifications.md
++++ b/docs/training/wearables/notifications.md
+@@ -21,9 +21,7 @@ your mobile app, each notification appears as a card on the Notification Stream.
+ 
+ 
+ Review the following example to see how notifications display.
+-![notification-cards](https://developer.android.com/static/images/ui/notifications/wear_2x.png)
+-
+-**Figure 1.** The same notification displayed on a phone and on a watch.
++![Notification cards on a watch.](https://developer.android.com/static/images/ui/notifications/wear_2x.png) **Figure 1.** The same notification displayed on a phone and on a watch.
+ 
+ 
+ Use one of the
+@@ -53,9 +51,7 @@ the same way you would on mobile, using any of the `NotificationCompat.Style`
+ subclasses. For example, a standard notification using
+ `https://developer.android.com/reference/androidx/core/app/NotificationCompat.MessagingStyle`
+ looks like this:
+-![expandable-notification](https://developer.android.com/static/images/ui/notifications/expandable_noti.png)
+-
+-**Figure 2.** Example of a `MessagingStyle` notification on Wear OS.
++![Expandable MessagingStyle notification on watch](https://developer.android.com/static/images/ui/notifications/expandable_noti.png) **Figure 2.** Example of a `MessagingStyle` notification on Wear OS.
+ 
+ 
+ You can see the notification has multiple
+@@ -65,7 +61,7 @@ expanded state.
+ 
+ **Tip:** If your notifications include a "reply" action, such as for a messaging
+ app, you can enhance the behavior of the notification. For example, you can enable voice input
+-replies directly from the wearable or pre-defined text responses with
++replies directly from the wearable or predefined text responses with
+ `https://developer.android.com/reference/androidx/core/app/RemoteInput.Builder#setChoices(java.lang.CharSequence[])`.
+ For more information, read
+ [Add the reply button](https://developer.android.com/training/notify-user/build-notification#add-reply-action).
+@@ -150,9 +146,8 @@ the following steps to create a button that launches the app on the phone:
+ 2. Use [`RemoteActivityHelper`](https://developer.android.com/reference/androidx/wear/remote/interactions/RemoteActivityHelper) in the new `Activity` to launch the phone app.
+ 3. When building the `Intent` to launch the `Activity` from the notification, set the [`EXTRA_ANIMATION_TYPE`](https://developer.android.com/reference/androidx/wear/activity/ConfirmationActivity#EXTRA_ANIMATION_TYPE()) extra to [`OPEN_ON_PHONE_ANIMATION`](https://developer.android.com/reference/androidx/wear/activity/ConfirmationActivity#OPEN_ON_PHONE_ANIMATION()).
+ 
+-This approach guides the user to interacting on their phone and follows the platform requirements for launching background processes.
+-
+-<br />
++This approach guides the user to interacting on their phone and follows the
++platform requirements for launching background processes.
+ 
+ 
+ **Note:** You can't use a `BroadcastReceiver` as the target

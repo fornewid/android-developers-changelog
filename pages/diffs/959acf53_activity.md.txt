@@ -1,0 +1,41 @@
+diff --git a/docs/jetpack/androidx/releases/activity.md b/docs/jetpack/androidx/releases/activity.md
+index 8e7ab407..f818ef27 100644
+--- a/docs/jetpack/androidx/releases/activity.md
++++ b/docs/jetpack/androidx/releases/activity.md
+@@ -6,13 +6,11 @@ source: md.txt
+ 
+ # Activity
+ 
+-[User Guide](https://developer.android.com/guide/components/activities/intro-activities) API Reference  
+-[androidx.activity](https://developer.android.com/reference/androidx/activity/package-summary)  
+-Access composable APIs built on top of Activity.
++[User Guide](https://developer.android.com/guide/components/activities/intro-activities) Access composable APIs built on top of Activity.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| March 11, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0) | - | - | - |
++| August 26, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0) | - | - | [1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/activity#1.14.0-alpha01) |
+ 
+ ## Declaring dependencies
+ 
+@@ -64,6 +62,20 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 1.14
++
++### Version 1.14.0-alpha01
++
++August 26, 2026
++
++`androidx.activity:activity:1.14.0-alpha01`, `androidx.activity:activity-compose:1.14.0-alpha01`, and `androidx.activity:activity-ktx:1.14.0-alpha01` are released. Version 1.14.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/475afe04599ffc0893939effda40187916c4ceb0..235b7e5c8cc27d65d8800e28fcc32e33313b417b/activity).
++
++**API Changes**
++
++- Intent extras are no longer automatically added to `defaultViewModelCreationExtras` for exported activities. Developers of exported activities can override `defaultViewModelArgs` to explicitly provide validated intent extras. ([Id0cb6](https://android-review.googlesource.com/#/q/Id0cb62a32d4e6283f9f30cc4461dad3caaeb2fc4), [b/213646066](https://issuetracker.google.com/issues/213646066))
++- Activity now provides `NavigationEventDispatcherOwner` and `OnBackPressedDispatcherOwner` factory functions for creating the instances of the respective components easily. ([I1d259](https://android-review.googlesource.com/#/q/I1d2593f457a8315db3344872f65e0c692910d398), [Iadd5c](https://android-review.googlesource.com/#/q/Iadd5caacdd7877c6b6806af1ed93af2263929dd6))
++- `OnBackPressedDispatcher` now provides an `asNavigationEventDispatcher` extension to easily covert it to a `NavigationEventDispatcher`. ([Id11cf](https://android-review.googlesource.com/#/q/Id11cfd91a90f04001ad7cde5020d33e46e1ce7e4))
++
+ ## Version 1.13
+ 
+ ### Version 1.13.0

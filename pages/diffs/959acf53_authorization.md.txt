@@ -1,0 +1,13 @@
+diff --git a/docs/identity/authorization.md b/docs/identity/authorization.md
+index 1ad9073c..b9533067 100644
+--- a/docs/identity/authorization.md
++++ b/docs/identity/authorization.md
+@@ -91,7 +91,7 @@ version of the Google Identity Services library.
+     dependencies {
+       // ... other dependencies
+ 
+-      implementation "com.google.android.gms:play-services-auth:21.6.0"
++      implementation "com.google.android.gms:play-services-auth:22.0.0"
+     }
+ 
+ ## Request permissions required by user actions

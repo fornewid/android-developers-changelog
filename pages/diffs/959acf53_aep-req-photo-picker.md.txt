@@ -1,0 +1,35 @@
+diff --git a/docs/distribute/aep/aep-req-photo-picker.md b/docs/distribute/aep/aep-req-photo-picker.md
+index efb971db..fe1d479e 100644
+--- a/docs/distribute/aep/aep-req-photo-picker.md
++++ b/docs/distribute/aep/aep-req-photo-picker.md
+@@ -13,11 +13,10 @@ while enhancing privacy through reduced permission requirements.
+ 
+ To qualify for AEP, your app must adhere to the following requirements:
+ 
+-- It must implement the standard or embedded Android photo picker in the primary user journey where a user is prompted to select photos or videos.
+-- The app should launch the photo picker to ensure full access to search and cloud-based assets.
+-
+-**Note**: The requirement is not satisfied if the app only requests photo
+-permissions or manages limited access states.
++| ID | Guideline |
++|---|---|
++| AEP-PP-GAA | It must implement the standard or embedded Android photo picker in the primary user journey where a user is prompted to select photos or videos. |
++| AEP-PP-GAB | The app should launch the photo picker to ensure full access to search and cloud-based assets. **Note**: The requirement is not satisfied if the app only requests photo permissions or manages limited access states. |
+ 
+ ## Guideline applicability
+ 
+@@ -30,9 +29,11 @@ This guideline applies to:
+ 
+ The following exemptions apply for this guideline:
+ 
+-- Apps that perform bulk operations on photos as part of their core use case. To request an exemption, the app must provide evidence of the bulk photo use case and instructions for the Play team to verify.
+-- Apps that only access proprietary photos from their own private storage and don't require `READ_MEDIA_IMAGES` or `READ_MEDIA_VIDEO` permissions.
+-- Apps can use an equivalent alternative framework that provides similar quality, user capabilities, stability and compatibility across the ecosystem. [Contact support](https://developer.android.com/distribute/aep/aep-get-support) if you have a suitable framework for consideration.
++| ID | Exemption |
++|---|---|
++| AEP-PP-EAA | Apps that perform bulk operations on photos as part of their core use case. To request an exemption, the app must provide evidence of the bulk photo use case and instructions for the Play team to verify. |
++| AEP-PP-EAB | Apps that only access proprietary photos from their own private storage and don't require `READ_MEDIA_IMAGES` or `READ_MEDIA_VIDEO` permissions. |
++| AEP-PP-EAC | Apps can use an equivalent alternative framework that provides similar quality, user capabilities, stability and compatibility across the ecosystem. [Contact support](https://developer.android.com/distribute/aep/aep-get-support) if you have a suitable framework for consideration. |
+ 
+ ## Feature documentation and resources
+ 

@@ -1,0 +1,106 @@
+diff --git a/docs/develop/ui/views/layout/webapps/manage-webview-memory.md b/docs/develop/ui/views/layout/webapps/manage-webview-memory.md
+index bb935bb2..8529eabb 100644
+--- a/docs/develop/ui/views/layout/webapps/manage-webview-memory.md
++++ b/docs/develop/ui/views/layout/webapps/manage-webview-memory.md
+@@ -24,11 +24,11 @@ resources for web content:
+ 
+   - **Host (Browser) process:** The main app process where your `Activity` and Java or Kotlin code run.
+   - **Isolated Renderer process:** A separate sandboxed process (`SandboxedProcessService`) that parses HTML and CSS, executes JavaScript, and renders web pages.
+-- **Native memory footprint:** Most `WebView` memory---including rendered
+-  graphics, the DOM tree, and JavaScript runtime memory---is allocated in native
+-  memory, not on the Java heap. A Java heap dump (`.hprof`) only shows a
+-  lightweight Java wrapper object and does not capture the true memory used by
+-  web content.
++- **Native memory footprint:** Most `WebView` memory, including rendered
++  graphics, the DOM tree, and JavaScript runtime memory, is allocated in
++  native memory, not on the Java heap. A Java heap dump (`.hprof`) only shows
++  a lightweight Java wrapper object and doesn't capture the true memory used
++  by web content.
+ 
+ - **System impact of native memory:** Unlike Java heap allocations, which are
+   capped by the app's `maxHeap` limit and fail fast with an
+@@ -44,13 +44,18 @@ Proper lifecycle management is critical for preventing memory leaks. A common
+ mistake is assuming that removing a `WebView` from your layout or letting an
+ `Activity` finish automatically frees its memory.
+ 
++To ensure complete cleanup of both Java context references and native render
++resources, you must explicitly orchestrate a teardown sequence in your host
++component's lifecycle (such as `onDestroy()`), stopping active page execution,
++detaching the view from its container, and releasing native bindings.
++
+ > [!CAUTION]
+ > **Caution:** `WebView` instances retain references to their host `Activity` context even after being removed from the view hierarchy. To prevent `Activity` memory leaks, you must explicitly remove the `WebView` from its parent container and invoke `destroy()`.
+ 
+ ### Clean up WebView instances
+ 
+ To ensure a clean shutdown and release resources when your `Activity` or
+-`Fragment` is destroyed:
++`Fragment` is destroyed, do the following:
+ 
+ 1. Remove the `WebView` from its parent container (`ViewGroup`).
+ 2. Stop active loading and clear navigation history.
+@@ -163,8 +168,9 @@ To inspect memory allocations and diagnose leaks, use the following tools:
+ 
+ ### Inspect live object counts
+ 
+-To determine whether memory growth is caused by lingering Java wrappers or
+-native allocations, inspect the `Objects` section of [`dumpsys meminfo`](https://developer.android.com/tools/dumpsys):
++To determine whether memory growth is caused by retained Java framework
++objects (such as UI components) or native allocations, inspect the `Objects`
++section of [`dumpsys meminfo`](https://developer.android.com/tools/dumpsys):
+ 
+     adb shell dumpsys meminfo -a <var>PACKAGE_NAME</var> | grep -A 10 "Objects"
+ 
+@@ -178,15 +184,20 @@ The output displays live object counts:
+            Parcel memory:      15         Parcel count:       30
+         Death Recipients:       2             WebViews:        1
+ 
++This section displays counts of active framework objects, IPC handles, and
++Parcel allocations. For `WebView` diagnostics, focus primarily on `Activities`
++and `WebViews`.
++
+ Perform the target user interaction (such as opening and closing a web screen)
+ repeatedly and compare the counts:
+ 
+ - **Instance leak:** If `WebViews` or `Activities` increments on each
+   navigation and doesn't return to baseline, your app is leaking the Java
+-  wrapper or host `Activity` (for example, missing `ViewGroup.removeView()` or
+-  retained listener references). Because a leaked `Activity` pins its entire
+-  view tree and decoded image resources in memory, repeated visits will
+-  rapidly exhaust the Java heap and cause `OutOfMemoryError` crashes.
++  `WebView` instance or host `Activity` (for example, due to a missing
++  `ViewGroup.removeView()` or retained listener references). Because a leaked
++  `Activity` pins its entire view tree and decoded image resources in memory,
++  repeated visits will rapidly exhaust the Java heap and cause
++  `OutOfMemoryError` crashes.
+ 
+ - **Native or DOM leak:** If `WebViews` and `Activities` remain constant
+   while total process RSS and **Private Other** continue to climb, the leak
+@@ -206,7 +217,8 @@ are rendered:
+ 
+        adb shell dumpsys activity processes <var>PACKAGE_NAME</var> | grep "Isolated.*SandboxedProcessService"
+ 
+-   The output displays the isolated process record and its PID (for example, `22155`):
++   The output displays the isolated process record and its PID
++   <var translate="no">RENDERER_PID</var> (for example, `22155`):
+ 
+        Isolated #5: ProcessRecord{... 22155:com.google.android.webview.debug:sandboxed_process0:...}
+ 
+@@ -254,7 +266,7 @@ Java layer or the native engine:
+    before and after repeated user transitions (such as opening and closing web
+    articles or swiping through feeds).
+ 
+-   - *Observation:* If `Activities` and `WebViews` counts remain steady (for example, 1--2 active instances), the app isn't leaking `Activity` contexts or Java `WebView` wrappers.
++   - *Observation:* If `Activities` and `WebViews` counts remain steady (for example, 1--2 active instances), the app isn't leaking `Activity` contexts or Java `WebView` instances.
+ 2. **Measure memory delta across interactions (Time-series tracking):**
+    Capture `dumpsys meminfo` snapshots across multiple user interactions to
+    calculate the allocation rate per transition:
+@@ -279,5 +291,4 @@ see the following resources:
+ 
+ - [Manage your app's memory](https://developer.android.com/topic/performance/memory)
+ - [Overview of memory management](https://developer.android.com/topic/performance/memory-overview)
+-- [Debug web apps](https://developer.android.com/develop/ui/views/layout/webapps/debugging)
+-- [Trace WebView performance](https://developer.android.com/develop/ui/views/layout/webapps/trace-webview)
+\ No newline at end of file
++- [Debug web apps](https://developer.android.com/develop/ui/views/layout/webapps/debugging)
+\ No newline at end of file

@@ -1,0 +1,87 @@
+diff --git a/docs/jetpack/androidx/releases/compose-material3-adaptive.md b/docs/jetpack/androidx/releases/compose-material3-adaptive.md
+index 817eb510..5bbaa199 100644
+--- a/docs/jetpack/androidx/releases/compose-material3-adaptive.md
++++ b/docs/jetpack/androidx/releases/compose-material3-adaptive.md
+@@ -12,7 +12,7 @@ Use the Material 3 adaptive library to create adaptive UIs that adapt automatica
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| June 17, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.2.0) | [1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0-rc01) | - | - |
++| August 26, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0) | - | - | [1.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.4.0-alpha01) |
+ 
+ ## Declaring dependencies
+ 
+@@ -27,10 +27,10 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.compose.material3.adaptive:adaptive:1.3.0"
+-    implementation "androidx.compose.material3.adaptive:adaptive-layout:1.3.0"
+-    implementation "androidx.compose.material3.adaptive:adaptive-navigation:1.3.0"
+-    implementation "androidx.compose.material3.adaptive:adaptive-navigation3:1.3.0"
++    implementation "androidx.compose.material3.adaptive:adaptive:1.4.0-alpha01"
++    implementation "androidx.compose.material3.adaptive:adaptive-layout:1.4.0-alpha01"
++    implementation "androidx.compose.material3.adaptive:adaptive-navigation:1.4.0-alpha01"
++    implementation "androidx.compose.material3.adaptive:adaptive-navigation3:1.4.0-alpha01"
+ }
+ ```
+ 
+@@ -38,10 +38,10 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.compose.material3.adaptive:adaptive:1.3.0")
+-    implementation("androidx.compose.material3.adaptive:adaptive-layout:1.3.0")
+-    implementation("androidx.compose.material3.adaptive:adaptive-navigation:1.3.0")
+-    implementation("androidx.compose.material3.adaptive:adaptive-navigation3:1.3.0")
++    implementation("androidx.compose.material3.adaptive:adaptive:1.4.0-alpha01")
++    implementation("androidx.compose.material3.adaptive:adaptive-layout:1.4.0-alpha01")
++    implementation("androidx.compose.material3.adaptive:adaptive-navigation:1.4.0-alpha01")
++    implementation("androidx.compose.material3.adaptive:adaptive-navigation3:1.4.0-alpha01")
+ }
+ ```
+ 
+@@ -62,8 +62,43 @@ for more information.
+ 
+ <br />
+ 
++## Version 1.4
++
++### Version 1.4.0-alpha01
++
++August 26, 2026
++
++`androidx.compose.material3.adaptive:adaptive-*:1.4.0-alpha01` is released. Version 1.4.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/504aa1b018e948f4c9141864a58f90f6efc0f081..f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea/compose/material3/adaptive).
++
++**API Changes**
++
++- Remove Component Override APIs for `NavigationSuiteScaffold` ([Ie6340](https://android-review.googlesource.com/#/q/Ie63405700ba969d573139c24f43f8c126a6a6964))
++- Remove Component Override APIs for `ThreePaneScaffold` ([I9ceb5](https://android-review.googlesource.com/#/q/I9ceb51e5f53c4c33f6db261a4688df856a6a6964))
++- Support shapes in `AnimatedPane` ([Ie7c60](https://android-review.googlesource.com/#/q/Ie7c6030333bd11075483ef9ceedfcad931f6c5a4), [b/470517507](https://issuetracker.google.com/issues/470517507))
++
++**Bug Fixes**
++
++- Fix `SupportingPaneScaffold` state sync on config changes ([e29596](https://android-review.googlesource.com/#/q/e295964345f14d9fa353da77bf1e9a6d21549a82))
++
+ ## Compose Material3 Adaptive Version 1.3
+ 
++### Version 1.3.0
++
++August 12, 2026
++
++`androidx.compose.material3.adaptive:adaptive-*:1.3.0` is released. Version 1.3.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/bda0327f6fc5c110aeed6f8802d8e5210cdefc38..504aa1b018e948f4c9141864a58f90f6efc0f081/compose/material3/adaptive).
++
++**New Features**
++
++- We are excited to announce the release of the adaptive-navigation3 library. This new library, part of the Material Adaptive and Navigation3 ecosystem, is designed to help you build adaptive Material UIs integrated with the Navigation3 library.
++
++  Use scene strategies to implement a canonical list-detail pane scaffold (`ListDetailSceneStrategy`, `rememberListDetailSceneStrategy`) or a supporting pane scaffold (`SupportingPaneSceneStrategy`, `rememberSupportingPaneSceneStrategy`). For more information about scenes, scene strategies, and other new concepts introduced in Navigation 3, refer to the [Navigation3 guide](https://developer.android.com/guide/navigation/navigation-3).
++- `ListDetailPaneScaffold` and `SupportingPaneScaffold` are now supporting margins and edge-to-edge.
++
++**Important changes since 1.2.0:**
++
++- Support RTL with pane expansion anchors ([I0770b](https://android-review.googlesource.com/#/q/I0770bf84ce74eb1ba0534712a47689bebc7f8765))
++
+ ### Version 1.3.0-rc01
+ 
+ June 17, 2026

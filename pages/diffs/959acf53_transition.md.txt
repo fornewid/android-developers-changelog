@@ -1,0 +1,54 @@
+diff --git a/docs/jetpack/androidx/releases/transition.md b/docs/jetpack/androidx/releases/transition.md
+index 2f4d89c2..bde5ff85 100644
+--- a/docs/jetpack/androidx/releases/transition.md
++++ b/docs/jetpack/androidx/releases/transition.md
+@@ -13,7 +13,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| January 14, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/transition#1.7.0) | - | - | - |
++| August 26, 2026 | [1.7.1](https://developer.android.com/jetpack/androidx/releases/transition#1.7.1) | - | - | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -29,9 +29,9 @@ your app or module:
+ ```groovy
+ dependencies {
+     // Java language implementation
+-    implementation "androidx.transition:transition:1.7.0"
++    implementation "androidx.transition:transition:1.7.1"
+     // Kotlin
+-    implementation "androidx.transition:transition-ktx:1.7.0"
++    implementation "androidx.transition:transition-ktx:1.7.1"
+ }
+ ```
+ 
+@@ -40,9 +40,9 @@ dependencies {
+ ```kotlin
+ dependencies {
+     // Java language implementation
+-    implementation("androidx.transition:transition:1.7.0")
++    implementation("androidx.transition:transition:1.7.1")
+     // Kotlin
+-    implementation("androidx.transition:transition-ktx:1.7.0")
++    implementation("androidx.transition:transition-ktx:1.7.1")
+ }
+ ```
+ 
+@@ -63,6 +63,16 @@ for more information.
+ 
+ ## Version 1.7
+ 
++### Version 1.7.1
++
++August 26, 2026
++
++`androidx.transition:transition:1.7.1` and `androidx.transition:transition-ktx:1.7.1` are released. Version 1.7.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b29cf052e4fc6e84103bf548ba5759009897453f..8bbfd1897e869a1edab00c290206a73c4739863c/transition).
++
++**External Contribution**
++
++- Fixed a leak in Transition that was caused by seeking transitions not being properly cleaned up on cancellation or completion. Thank you Bryan Herbst! ([Idf7d4](https://android-review.googlesource.com/#/q/Idf7d4d6668846374b498e89cb59f9fb4efe6324f), [b/435193212](https://issuetracker.google.com/435193212))
++
+ ### Version 1.7.0
+ 
+ January 14, 2026

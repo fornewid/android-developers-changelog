@@ -1,0 +1,41 @@
+diff --git a/docs/tools/agents/android-cli.md b/docs/tools/agents/android-cli.md
+index ea2ea46f..ee976b00 100644
+--- a/docs/tools/agents/android-cli.md
++++ b/docs/tools/agents/android-cli.md
+@@ -415,7 +415,7 @@ understand and execute specific patterns that follow best practices and
+ guidance on Android development. To learn more, see
+ [Intro to Android skills](https://developer.android.com/tools/agents/android-skills).
+ 
+-**Usage:** `android skills add [--all] [--agent=<agent-name>] [--skill=<skill-name>]`
++**Usage:** `android skills add [--all] [--agent=<agent-name>] <skill-name>`
+ 
+ **Description:** Install Android skills to the skills directories for all
+ detected agents. If you don't have any existing agent directories and don't
+@@ -430,9 +430,7 @@ skills installed, `skills add` updates the skills to the latest version.
+ 
+ - `--all` - Install or update all the Android skills at once. If omitted (and `--skill` isn't specified), only the `android-cli` skill will be installed.
+ - `--agent` - A comma-separated list of agents to install or update the skill for. If omitted, the skill will be installed for all detected agents.
+-- `--skill` - The skill name that you want to install or update. If omitted (and `--all` isn't specified), only the `android-cli` skill will be installed or updated.
+-
+-**Example:** `android skills add --agent='gemini' edge-to-edge`
++  - `[<skill-name>]` - The skill name that you want to install or update. If omitted (and `--all` isn't specified), only the `android-cli` skill will be installed or updated. **Example:** `android skills add --agent='gemini' edge-to-edge`
+ 
+ ### `skills find`
+ 
+@@ -458,14 +456,13 @@ skills installed, `skills add` updates the skills to the latest version.
+ 
+ ### `skills remove`
+ 
+-**Usage:** `android skills remove [--agent] --skill=<skill-name>`
++**Usage:** `android skills remove [--agent] <skill-name>`
+ 
+ **Description:** Remove a skill. If you don't specify particular agents, the
+ skill will be removed for all agents.
+-
+ **Arguments (mandatory):**
+ 
+-- `--skill` - The name of the skill to remove.
++- `<skill-name>` - The name of the skill to remove.
+ 
+ **Options:**
+ 

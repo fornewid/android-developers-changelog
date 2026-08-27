@@ -1,0 +1,53 @@
+diff --git a/docs/jetpack/androidx/releases/browser.md b/docs/jetpack/androidx/releases/browser.md
+index a4e9d411..365eef6a 100644
+--- a/docs/jetpack/androidx/releases/browser.md
++++ b/docs/jetpack/androidx/releases/browser.md
+@@ -14,9 +14,12 @@ source: md.txt
+ 
+ ## Declaring dependencies
+ 
+-To add a dependency on Browser, you must add the Google Maven repository to your project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven) for more information.
++To add a dependency on Browser, you must add the Google Maven repository to your
++project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
++for more information.
+ 
+-Add the dependencies for the artifacts you need in the `build.gradle` file for your app or module:
++Add the dependencies for the artifacts you need in the `build.gradle` file for
++your app or module:
+ 
+ ### Groovy
+ 
+@@ -38,11 +41,16 @@ For more information about dependencies, see [Add build dependencies](https://de
+ 
+ ## Feedback
+ 
+-Your feedback helps make Jetpack better. Let us know if you discover new issues or have ideas for improving this library. Please take a look at the [existing issues](https://issuetracker.google.com/issues?q=componentid:460372+status:open) in this library before you create a new one. You can add your vote to an existing issue by clicking the star button.
++Your feedback helps make Jetpack better. Let us know if you discover new issues or have
++ideas for improving this library. Please take a look at the
++[existing issues](https://issuetracker.google.com/issues?q=componentid:460372+status:open)
++in this library before you create a new one. You can add your vote to an existing issue by
++clicking the star button.
+ 
+ [Create a new issue](https://issuetracker.google.com/issues/new?component=460372&template=1422468)
+ 
+-See the [Issue Tracker documentation](https://developers.google.com/issue-tracker) for more information.
++See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
++for more information.
+ 
+ ## Version 1.10
+ 
+@@ -102,12 +110,12 @@ August 13, 2025
+ - Removing obsolete `@RequiresApi(21)` annotations ([I9103b](https://android-review.googlesource.com/#/q/I9103beb2d5f73470f3abfdf034bc2b473be923e6))
+ - Allow Null for `pageUrl` in `ContentActionSelectedData` ([Ifed54](https://android-review.googlesource.com/#/q/Ifed54faf7bf04bf0f25cbd8a4e1ba0ea58fa1be9))
+ - Added an Intent to allow launching the initial url in an external app ([Id9349](https://android-review.googlesource.com/#/q/Id9349f17ca5008bb4f4079f451743f9ccdb46915))
+-- Add an Intent to allow launching the initial url in an external app ([Ifed54](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3682822))
++- Add an Intent to allow launching the initial url in an external app ([Ifed54](https://android-review.googlesource.com/c/platform/frameworks/support/+/3682822))
+ 
+ **Bug Fixes**
+ 
+ - Moving the default `minSdk` from API 21 to API 23. ([Ibdfca](https://android-review.googlesource.com/#/q/Ibdfca5942dbb414ca07594ba240093db14aad4df), [b/380448311](https://issuetracker.google.com/issues/380448311), [b/435705964](https://issuetracker.google.com/issues/435705964), [b/435705223](https://issuetracker.google.com/issues/435705223))
+-- Allow Null for `pageUrl` in `ContentActionSelectedData`. ([Id9349](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3682822))
++- Allow Null for `pageUrl` in `ContentActionSelectedData`. ([Id9349](https://android-review.googlesource.com/c/platform/frameworks/support/+/3682822))
+ 
+ ## Version 1.9
+ 

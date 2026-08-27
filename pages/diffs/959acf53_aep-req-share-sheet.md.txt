@@ -1,0 +1,34 @@
+diff --git a/docs/distribute/aep/aep-req-share-sheet.md b/docs/distribute/aep/aep-req-share-sheet.md
+index 98b827fe..d94d09af 100644
+--- a/docs/distribute/aep/aep-req-share-sheet.md
++++ b/docs/distribute/aep/aep-req-share-sheet.md
+@@ -11,12 +11,11 @@ consistent, faster, and more secure experience for users.
+ 
+ To qualify for AEP, your app must adhere to the following requirements:
+ 
+-- Utilize `ACTION_SEND` and `Intent.createChooser()` to invoke the system Chooser. This native implementation offers several key benefits:
+-  - **Familiarity**: It maintains a standard interface that respects user muscle memory.
+-  - **Intelligent targeting**: It surfaces system-ranked Direct Share targets, such as frequent contacts.
+-  - **Efficiency and security**: It provides a faster and more secure method for sharing content with preferred apps.
+-- All external sharing intents must be routed through the system chooser.
+-- Custom in-app share menus must be transitioned to this native implementation, though app-specific actions can still be integrated using standard system chooser capabilities.
++| ID | Guideline |
++|---|---|
++| AEP-SS-GAA | Utilize `ACTION_SEND` and `Intent.createChooser()` to invoke the system chooser. This native implementation offers several key benefits: - **Familiarity**: It maintains a standard interface that respects user muscle memory. - **Intelligent targeting**: It surfaces system-ranked Direct Share targets, such as frequent contacts. - **Efficiency and security**: It provides a faster and more secure method for sharing content with preferred apps. |
++| AEP-SS-GAB | All external sharing intents must be routed through the system chooser. |
++| AEP-SS-GAC | Custom in-app share menus must be transitioned to this native implementation, though app-specific actions can still be integrated using standard system chooser capabilities. |
+ 
+ ## Guideline applicability
+ 
+@@ -27,8 +26,9 @@ This guideline applies to:
+ 
+ ## Exemptions
+ 
+-Sharesheet need not be applied for in-app forwarding, such as forwarding a
+-message to another user within the same messaging app.
++| ID | Exemption |
++|---|---|
++| AEP-SS-EAA | Sharesheet need not be applied for in-app forwarding, such as forwarding a message to another user within the same messaging app. |
+ 
+ ## Feature documentation and resources
+ 

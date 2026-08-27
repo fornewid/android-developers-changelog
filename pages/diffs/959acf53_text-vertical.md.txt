@@ -1,0 +1,54 @@
+diff --git a/docs/jetpack/androidx/releases/text-vertical.md b/docs/jetpack/androidx/releases/text-vertical.md
+index 6a4cd178..8788c978 100644
+--- a/docs/jetpack/androidx/releases/text-vertical.md
++++ b/docs/jetpack/androidx/releases/text-vertical.md
+@@ -10,7 +10,7 @@ TODO
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 29, 2026 | - | - | - | [1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-alpha06) |
++| August 26, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-beta01) | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,7 +25,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.text:text-vertical:1.0.0-alpha06"
++    implementation "androidx.text:text-vertical:1.0.0-beta01"
+ }
+ ```
+ 
+@@ -33,7 +33,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.text:text-vertical:1.0.0-alpha06")
++    implementation("androidx.text:text-vertical:1.0.0-beta01")
+ }
+ ```
+ 
+@@ -56,6 +56,22 @@ for more information.
+ 
+ ### Version 1.0
+ 
++#### Version 1.0.0-beta01
++
++August 26, 2026
++
++`androidx.text:text-vertical:1.0.0-beta01` and `androidx.text:text-vertical-compose:1.0.0-beta01` are released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea/text).
++
++**API Changes**
++
++- Changed `VerticalTextScope` from an interface to a concrete class. ([I44e71](https://android-review.googlesource.com/#/q/I44e71a46358c3633ef255d86e7a8d197c94268a3), [b/549288808](https://issuetracker.google.com/issues/549288808))
++
++**Bug Fixes**
++
++- Updated documentation for `combineUpright`. ([Ib534b](https://android-review.googlesource.com/#/q/Ib534bdb45f74a9174f9a543bee1d687209cd46ea), [b/548992014](https://issuetracker.google.com/issues/548992014))
++- Removed incorrect API 36 minimum requirement documentation from `VerticalText`. ([I4f8e9](https://android-review.googlesource.com/#/q/I4f8e9874ad7975354776c09609709d2f9c700f34), [b/549288799](https://issuetracker.google.com/issues/549288799))
++- Used calculated ascent ratio for vertical baseline offset in backport mode ([07339d7](https://android.googlesource.com/platform/frameworks/support/+/07339d708aa73fb814e9547ffa54d308071bd724), [b/502088091](https://issuetracker.google.com/issues/502088091))
++
+ #### Version 1.0.0-alpha06
+ 
+ July 29, 2026

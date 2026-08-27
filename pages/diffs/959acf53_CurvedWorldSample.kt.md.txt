@@ -1,0 +1,13 @@
+diff --git a/docs/agents/skills/wear/wear-compose-m3/references/foundation/CurvedWorldSample.kt.md b/docs/agents/skills/wear/wear-compose-m3/references/foundation/CurvedWorldSample.kt.md
+index 9633bb1b..f48e03f2 100644
+--- a/docs/agents/skills/wear/wear-compose-m3/references/foundation/CurvedWorldSample.kt.md
++++ b/docs/agents/skills/wear/wear-compose-m3/references/foundation/CurvedWorldSample.kt.md
+@@ -394,7 +394,7 @@ fun CurvedFonts() {
+             )
+             .forEach { (name, ff) ->
+                 basicCurvedText(
+-                    "$name",
++                    name,
+                     style = CurvedTextStyle(color = Color.White, fontFamily = ff),
+                     modifier = CurvedModifier.padding(5.dp),
+                 )

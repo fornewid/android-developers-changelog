@@ -1,0 +1,22 @@
+diff --git a/docs/guide/navigation/testing/fragments.md b/docs/guide/navigation/testing/fragments.md
+index 5626943a..a9b55e38 100644
+--- a/docs/guide/navigation/testing/fragments.md
++++ b/docs/guide/navigation/testing/fragments.md
+@@ -32,7 +32,7 @@ following dependency in your app module's `build.gradle` file:
+ 
+ ```groovy
+ dependencies {
+-  def nav_version = "2.9.8"
++  def nav_version = "2.10.0"
+ 
+   androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+ }
+@@ -42,7 +42,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-  val nav_version = "2.9.8"
++  val nav_version = "2.10.0"
+ 
+   androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
+ }

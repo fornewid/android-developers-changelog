@@ -1,0 +1,56 @@
+diff --git a/docs/distribute/aep/aep-req-new-title-availability.md b/docs/distribute/aep/aep-req-new-title-availability.md
+index f8dff01a..feea5f45 100644
+--- a/docs/distribute/aep/aep-req-new-title-availability.md
++++ b/docs/distribute/aep/aep-req-new-title-availability.md
+@@ -4,11 +4,19 @@ url: https://developer.android.com/distribute/aep/aep-req-new-title-availability
+ source: md.txt
+ ---
+ 
+-For titles to be eligible for the program rate card benefits those titles must
+-be released on Android supported form factors at the same time they become
+-available on any other comparable, non-Android form factors from September 30,
+-2026 and moving forward. Currently required Android supported form factors
+-include:
++Release new app titles simultaneously on all required Android form factors
++alongside other comparable non-Android platforms to maintain title availability
++and qualify for program rate card benefits.
++
++## Required implementation
++
++To qualify for AEP, your app must adhere to the following requirements:
++
++| ID | Guideline |
++|---|---|
++| AEP-TA-GAA | For titles to be eligible for the program rate card benefits, those titles must be released on Android supported form factors at the same time they become available on any other comparable, non-Android form factors from September 30, 2026 and moving forward. |
++
++Currently required Android supported form factors include:
+ 
+ - **Mobile \& Large Screen** (Tablet, Googlebooks, PC)
+ - **Android XR** (with titles running in a 2D window on the XR device)
+@@ -17,8 +25,8 @@ include:
+ - **Android Wear**
+ 
+ Titles that don't meet this title availability guideline will become eligible
+-for the Apps Experience program rate card benefits following a **6-month waiting
+-period**, once all user experience guidelines are fully met.
++for the Apps Experience program rate card benefits following a
++**6-month waiting period**, once all user experience guidelines are fully met.
+ 
+ *Examples*:
+ 
+@@ -43,8 +51,8 @@ This guideline applies to all apps across all supported form factors.
+ 
+ The following exemptions apply for this guideline:
+ 
+-- **Differences between device platforms**. Not every app is technically or conceptually suited for every hardware configuration; therefore, the title will be exempt if the developer can demonstrate that a specific Android form factor's constraints would meaningfully degrade the user experience against the comparable non-Android platform or if there is no viable technical solution for that hardware.
+-- **Launch Grace period** . To account for unforeseen technical hurdles, store review delays, or "soft launches," we will implement the following:
+-  - **Standard Grace Period**: Developers are granted a 15-day window to achieve "live" status on the Google Play Store.
+-  - **Extended Grace Period**: In exceptional circumstances where a developer can demonstrate that the delay was caused by a Google-side technical issue or an unusually long app review process, the grace period may be extended to 30 days upon manual review.
+-- **EEA**. This guideline does not apply in the EEA. However, when distributing to the EEA, Android users should be able to access all new experiences and capabilities within the Android title provided by the developer. Developers are therefore required to fully optimize their titles for Android.
+\ No newline at end of file
++| ID | Exemption |
++|---|---|
++| AEP-TA-EAA | **Differences between device platforms**: Not every app is technically or conceptually suited for every hardware configuration; therefore, the title will be exempt if the developer can demonstrate that a specific Android form factor's constraints would meaningfully degrade the user experience against the comparable non-Android platform or if there is no viable technical solution for that hardware. |
++| AEP-TA-EAB | **Launch Grace period** : To account for unforeseen technical hurdles, store review delays, or "soft launches," we will implement the following: - **Standard Grace Period**: Developers are granted a 15-day window to achieve "live" status on the Google Play Store. - **Extended Grace Period**: In exceptional circumstances where a developer can demonstrate that the delay was caused by a Google-side technical issue or an unusually long app review process, the grace period may be extended to 30 days upon manual review. |
++| AEP-TA-EAC | **EEA**: This guideline does not apply in the EEA. However, when distributing to the EEA, Android users should be able to access all new experiences and capabilities within the Android title provided by the developer. Developers are therefore required to fully optimize their titles for Android. |
+\ No newline at end of file

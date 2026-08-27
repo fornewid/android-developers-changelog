@@ -1,0 +1,21 @@
+diff --git a/docs/distribute/aep/aep-req-dark-theme.md b/docs/distribute/aep/aep-req-dark-theme.md
+index 093f1310..47963d5c 100644
+--- a/docs/distribute/aep/aep-req-dark-theme.md
++++ b/docs/distribute/aep/aep-req-dark-theme.md
+@@ -10,11 +10,11 @@ strain. Your app must automatically adopt the system-wide dark theme preference.
+ 
+ ## Required implementation
+ 
+-To qualify for AEP, your app must adhere to the following requirements:
+-
+-- Dark theme must be applied to 100% of the app's screens, overlays, and system-level components like the navigation bar.
+-- All text and icons must maintain a contrast ratio of at least 4.5:1 against their backgrounds, meeting [WCAG AA accessibility standards](https://www.w3.org/WAI/standards-guidelines/wcag/).
+-- The app must correctly react to the [`uiMode`](https://developer.android.com/reference/android/content/res/Configuration#uiMode) configuration change when the user toggles dark theme at the system level.
++| ID | Guideline |
++|---|---|
++| AEP-DT-GAA | Dark theme must be applied to 100% of the app's screens, overlays, and system-level components like the navigation bar. |
++| AEP-DT-GAB | All text and icons must maintain a contrast ratio of at least 4.5:1 against their backgrounds, meeting [WCAG AA accessibility standards](https://www.w3.org/WAI/standards-guidelines/wcag/). |
++| AEP-DT-GAC | The app must correctly react to the [`uiMode`](https://developer.android.com/reference/android/content/res/Configuration#uiMode) configuration change when the user toggles dark theme at the system level. |
+ 
+ ## Guideline applicability
+ 

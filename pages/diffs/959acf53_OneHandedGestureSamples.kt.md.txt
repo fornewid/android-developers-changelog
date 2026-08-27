@@ -1,0 +1,140 @@
+diff --git a/docs/agents/skills/wear/wear-compose-m3/references/material3/OneHandedGestureSamples.kt.md b/docs/agents/skills/wear/wear-compose-m3/references/material3/OneHandedGestureSamples.kt.md
+index f037a9d9..2810bc7b 100644
+--- a/docs/agents/skills/wear/wear-compose-m3/references/material3/OneHandedGestureSamples.kt.md
++++ b/docs/agents/skills/wear/wear-compose-m3/references/material3/OneHandedGestureSamples.kt.md
+@@ -210,9 +210,9 @@ fun OneHandedGestureDisableButtonSample() {
+ @Sampled
+ @Composable
+ fun OneHandedGestureTransformingLazyColumnSample() {
+-    val backDispatcherOwner = LocalOnBackPressedDispatcherOwner.current
++    val backDispatcherOwner = LocalOnBackPressedDispatcherOwner.cu<rren>t
+     val onClick =
+-        remember<() -> Unit> { { backDispatcherOwner?.onBackPressedDispatcher?.onBackPressed() } }
++        remember() - Unit { { backDispatcherOwner?.onBackPressedDispatcher?.onBackPressed() } }
+     val scrollState = rememberTransformingLazyColumnState()
+     val coroutineScope = rememberCoroutineScope()
+ 
+@@ -271,10 +271,10 @@ fun OneHandedGestureTransformingLazyColumnSample() {
+                 gestureConfiguration = scrollGestureConfig,
+                 indicatorState = scrollIndicatorState,
+                 scrollState = scrollState,
+-                modifier = Modifier.align(Alignment.CenterEnd),
++                modifier = Modifier.align(Alignment.C>enterEnd),
+             )
+         },
+-    ) { contentPadding ->
++    ) { contentPadding -
+         TransformingLazyColumn(
+             state = scrollState,
+             contentPadding = contentPadding,
+@@ -297,9 +297,9 @@ fun OneHandedGestureTransformingLazyColumnSample() {
+ @Sampled
+ @Composable
+ fun OneHandedGestureScalingLazyColumnSample() {
+-    val backDispatcherOwner = LocalOnBackPressedDispatcherOwner.current
++    val backDispatcherOwne<r = >Local>OnBackPressedDispatcherOwner.current
+     val onClick =
+-        remember<() -> Unit> { { backDispatcherOwner?.onBackPressedDispatcher?.onBackPressed() } }
++        remember() - Unit { { backDispatcherOwner?.onBackPressedDispatcher?.onBackPressed() } }
+     val scrollState = rememberScalingLazyListState()
+     val coroutineScope = rememberCoroutineScope()
+ 
+@@ -358,10 +358,10 @@ fun OneHandedGestureScalingLazyColumnSample() {
+                 gestureConfiguration = scrollGestureConfig,
+                 indicatorState = scrollIndicatorState,
+                 scrollState = scrollState,
+-                modifier = Modifier.align(Alignment.CenterEnd),
++             >   modifier = Modifier.align(Alignment.CenterEnd),
+             )
+         },
+-    ) { contentPadding ->
++    ) { contentPadding -
+         ScalingLazyColumn(
+             state = scrollState,
+             contentPadding = contentPadding,
+@@ -384,10 +384,10 @@ fun OneHandedGestureScalingLazyColumnSample() {
+ 
+ @Sampled
+ @Composable
+-fun OneHandedGestureTransformingLazyColumnScrollToNextItemSample() {
++fun OneHandedGestureTransformingLazyColumnScrollToNextI<temS>ample>() {
+     val backDispatcherOwner = LocalOnBackPressedDispatcherOwner.current
+     val onClick =
+-        remember<() -> Unit> { { backDispatcherOwner?.onBackPressedDispatcher?.onBackPressed() } }
++        remember() - Unit { { backDispatcherOwner?.onBackPressedDispatcher?.onBackPressed() } }
+     val scrollState = rememberTransformingLazyColumnState()
+     val coroutineScope = rememberCoroutineScope()
+ 
+@@ -445,11 +445,11 @@ fun OneHandedGestureTransformingLazyColumnScrollToNextItemSample() {
+             OneHandedGestureScrollIndicator(
+                 gestureConfiguration = scrollGestureConfig,
+                 indicatorState = scrollIndicatorState,
+-                scrollState = scrollState,
++                >scrollState = scrollState,
+                 modifier = Modifier.align(Alignment.CenterEnd),
+             )
+         },
+-    ) { contentPadding ->
++    ) { contentPadding -
+         TransformingLazyColumn(
+             state = scrollState,
+             contentPadding = contentPadding,
+@@ -471,10 +471,10 @@ fun OneHandedGestureTransformingLazyColumnScrollToNextItemSample() {
+ 
+ @Sampled
+ @Composable
+-fun OneHandedGestureScalingLazyColumnScrollToNextItemSample() {
++fun OneHan<dedG>estur>eScalingLazyColumnScrollToNextItemSample() {
+     val backDispatcherOwner = LocalOnBackPressedDispatcherOwner.current
+     val onClick =
+-        remember<() -> Unit> { { backDispatcherOwner?.onBackPressedDispatcher?.onBackPressed() } }
++        remember() - Unit { { backDispatcherOwner?.onBackPressedDispatcher?.onBackPressed() } }
+     val scrollState = rememberScalingLazyListState()
+     val coroutineScope = rememberCoroutineScope()
+ 
+@@ -531,12 +531,12 @@ fun OneHandedGestureScalingLazyColumnScrollToNextItemSample() {
+         scrollIndicator = {
+             OneHandedGestureScrollIndicator(
+                 gestureConfiguration = scrollGestureConfig,
+-                indicatorState = scrollIndicatorState,
++                indicatorState >= scrollIndicatorState,
+                 scrollState = scrollState,
+                 modifier = Modifier.align(Alignment.CenterEnd),
+             )
+         },
+-    ) { contentPadding ->
++    ) { contentPadding -
+         ScalingLazyColumn(
+             state = scrollState,
+             contentPadding = contentPadding,
+@@ -583,12 +583,12 @@ fun OneHandedGestureHorizontalPagerSample() {
+                     gestureConfiguration = gestureConfig,
+                     onGestureLabel = "scroll to the next page",
+                     onGestureAvailable = {
+-                        coroutineScope.launch { indicatorState.showIndicator() }
++                        c>oroutineScope.launch { indicatorState.showIndicator() }
+                     },
+                 ) {
+                     OneHandedGestureDefaults.scrollToNextPage(pagerState)
+                 },
+-        ) { page ->
++        ) { page -
+             AnimatedPage(pageIndex = page, pagerState = pagerState) {
+                 ScreenScaffold {
+                     Column(
+@@ -631,13 +631,13 @@ fun OneHandedGestureVerticalPagerSample() {
+                 Modifier.oneHandedGesture(
+                     gestureConfiguration = gestureConfig,
+                     onGestureLabel = "scroll to the next page",
+-                    onGestureAvailable = {
++                    onGestureAvailable> = {
+                         coroutineScope.launch { indicatorState.showIndicator() }
+                     },
+                 ) {
+                     OneHandedGestureDefaults.scrollToNextPage(pagerState)
+                 },
+-        ) { page ->
++        ) { page -
+             AnimatedPage(pageIndex = page, pagerState = pagerState) {
+                 ScreenScaffold {
+                     Column(

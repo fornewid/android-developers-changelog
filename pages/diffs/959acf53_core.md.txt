@@ -1,0 +1,100 @@
+diff --git a/docs/jetpack/androidx/releases/core.md b/docs/jetpack/androidx/releases/core.md
+index ede6ff0f..88f77257 100644
+--- a/docs/jetpack/androidx/releases/core.md
++++ b/docs/jetpack/androidx/releases/core.md
+@@ -21,7 +21,7 @@ This table lists all the artifacts in the `androidx.core` group.
+ | core-role | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-role-1.1.0) | - | - | - |
+ | core-splashscreen | [1.2.0](https://developer.android.com/jetpack/androidx/releases/core#core-splashscreen-1.2.0) | - | - | - |
+ 
+-This library was last updated on: July 01, 2026
++This library was last updated on: August 26, 2026
+ 
+ ## Declaring dependencies
+ 
+@@ -2729,6 +2729,21 @@ July 26, 2023
+ 
+ ### Version 1.0
+ 
++#### Version 1.0.0-alpha04
++
++August 26, 2026
++
++`androidx.core:core-pip:1.0.0-alpha04` is released. Version 1.0.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ba3014c143b9c9782fe30bc766c5dced55e13453..0772d6d66c62698e7f7ef7c63313d8107364e7e8/core/core-pip).
++
++**API Changes**
++
++- Add `disablePipOnAppSwitch` to `ContentPipExt` ([Ie5bad](https://android-review.googlesource.com/#/q/Ie5badea51bda65184ddd96d55986725f78fff275), [b/542307174](https://issuetracker.google.com/issues/542307174))
++- Introduced a fallback `PiP` solution in `androidx.core.pip` to maintain Picture-in-Picture functionality during navigation gestures (like quick switch) where native `PiP` may be suppressed. ([If289a](https://android-review.googlesource.com/#/q/If289a70b583cc87b323cf95e5cbc005dc3fb784a), [b/540480397](https://issuetracker.google.com/issues/540480397))
++
++**Bug Fixes**
++
++- Callback `onFinishContentPip` if `enterPip` fails ([I04b77](https://android-review.googlesource.com/#/q/I04b7761fb0b5ad379d16b9207771abad0f76d9e1), [b/540480397](https://issuetracker.google.com/issues/540480397))
++
+ #### Version 1.0.0-alpha03
+ 
+ July 01, 2026
+@@ -2778,8 +2793,8 @@ The PiP Jetpack library is introduced to address several challenges in Android's
+ 
+ **API Changes**
+ 
+-- `PictureInPictureDelegate` class that helps setup PiP (Picture-in-Picture) functionalities on behalf of the given `PictureInPictureProvider` instance ([8cf9588](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3857454)).
+-- `PictureInPictureDelegate.onPictureInPictureEvent` interface that provides a unified callback for application to listen on Picture-in-Picture events ([8cf9588](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3857454)).
++- `PictureInPictureDelegate` class that helps setup PiP (Picture-in-Picture) functionalities on behalf of the given `PictureInPictureProvider` instance ([8cf9588](https://android-review.googlesource.com/c/platform/frameworks/support/+/3857454)).
++- `PictureInPictureDelegate.onPictureInPictureEvent` interface that provides a unified callback for application to listen on Picture-in-Picture events ([8cf9588](https://android-review.googlesource.com/c/platform/frameworks/support/+/3857454)).
+ 
+ **Bug Fixes**
+ 
+@@ -2856,6 +2871,18 @@ July 2, 2019
+ 
+ ### Version 1.1
+ 
++#### Version 1.1.0-beta01
++
++August 26, 2026
++
++`androidx.core:core-telecom:1.1.0-beta01` is released. Version 1.1.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/36e054a434241b1a13950458560fac44bac6ba35..8d3b23e12649b579ee037ebe0ea959237c39d198/core/core-telecom).
++
++**Bug Fixes**
++
++- Bump core-telecom to 1.1.0-beta01. ([I5b514](https://android-review.googlesource.com/#/q/I5b514adb8020ba8cf672a1cb46ef7bbac9ce68a0), [b/529775455](https://issuetracker.google.com/issues/529775455))
++- Fixed an issue where `CallsManager#addCall` could delay `CallControlScope` entry by up to 2 seconds while waiting for starting audio endpoint resolution and Bluetooth stabilization. ([Ia1e89](https://android-review.googlesource.com/#/q/Ia1e89af7a3e18a9feaefc3a79d5e9ceaefa2e952), [b/540450085](https://issuetracker.google.com/issues/540450085))
++- Fixed a race condition where invoking `CallsManager#addCall` or `CallsManager#addCallWithExtensions` while another call setup is in progress could lead to deadlocks or silent failures in the OS `TransactionManager`. Overlapping call setups are now immediately rejected with `CallException(ERROR_CALL_NOT_PERMITTED_AT_PRESENT_TIME)`. ([If0ac8](https://android-review.googlesource.com/#/q/If0ac8aeefdff2ad4be661b6bff0df97b9c7a999e), [b/491156745](https://issuetracker.google.com/issues/491156745))
++
+ ### Version 1.1.0-alpha06
+ 
+ June 17, 2026
+@@ -2895,9 +2922,9 @@ March 25, 2026
+ 
+ **Bug Fixes**
+ 
+-- Fixed an issue on older Android versions where incoming or upgraded video calls would sometimes incorrectly route audio to the earpiece. The library now enforces a switch to the speaker if this misrouting is detected. ([I0fc797](https://android-review.git.corp.google.com/q/I0fc797186e4d22c29f3a45f9cf584015472597d7), [I29fd22](https://android-review.git.corp.google.com/q/I29fd225926d4830b36e09e7e15e7e66471eff7da))
+-- Removed A2DP Bluetooth devices from the list of available endpoints shown in the pre-call screen, as these devices are not supported for voice communication by the Android platform Telecom framework. This aligns the available devices with platform behavior. ([I98b729](https://android-review.git.corp.google.com/q/I98b729e518cca5b4f9087236838f50469350bfed))
+-- Skipped running call extensions logic for managed calls to prevent potential crashes or unexpected behavior. ([I177905](https://android-review.git.corp.google.com/q/I17790599cd36b50bff9acda031f6736ea82a0f5d))
++- Fixed an issue on older Android versions where incoming or upgraded video calls would sometimes incorrectly route audio to the earpiece. The library now enforces a switch to the speaker if this misrouting is detected. ([I0fc797](https://android-review.googlesource.com/q/I0fc797186e4d22c29f3a45f9cf584015472597d7), [I29fd22](https://android-review.googlesource.com/q/I29fd225926d4830b36e09e7e15e7e66471eff7da))
++- Removed A2DP Bluetooth devices from the list of available endpoints shown in the pre-call screen, as these devices are not supported for voice communication by the Android platform Telecom framework. This aligns the available devices with platform behavior. ([I98b729](https://android-review.googlesource.com/q/I98b729e518cca5b4f9087236838f50469350bfed))
++- Skipped running call extensions logic for managed calls to prevent potential crashes or unexpected behavior. ([I177905](https://android-review.googlesource.com/q/I17790599cd36b50bff9acda031f6736ea82a0f5d))
+ 
+ #### Version 1.1.0-alpha03
+ 
+@@ -2907,8 +2934,8 @@ February 11, 2026
+ 
+ **New Features**
+ 
+-- **Opt-out of Premium Network Slicing:** Introduced a new capability, `CAPABILITY_OPT_OUT_OF_PREMIUM_NETWORK`, in `CallsManager`. This allows VoIP applications to signal that they wish to opt-out of the system's default behavior of requesting premium network slices for voice and video calls. By default, the system may automatically request a premium network slice to improve call quality. This capability can be passed during `registerAppWithTelecom`. ([I2dfdb](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3885722))
+-- **Control Microphone Mute Capability:** Added APIs to allow VoIP apps to inform remote surfaces (like Android Auto, wearables) whether the user should be able to control the microphone state. This is useful in scenarios where the user is restricted from changing their mute state, such as being in a moderated meeting, joining as a passive viewer, or using Companion Mode. ([I55acf](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3872444))
++- **Opt-out of Premium Network Slicing:** Introduced a new capability, `CAPABILITY_OPT_OUT_OF_PREMIUM_NETWORK`, in `CallsManager`. This allows VoIP applications to signal that they wish to opt-out of the system's default behavior of requesting premium network slices for voice and video calls. By default, the system may automatically request a premium network slice to improve call quality. This capability can be passed during `registerAppWithTelecom`. ([I2dfdb](https://android-review.googlesource.com/c/platform/frameworks/support/+/3885722))
++- **Control Microphone Mute Capability:** Added APIs to allow VoIP apps to inform remote surfaces (like Android Auto, wearables) whether the user should be able to control the microphone state. This is useful in scenarios where the user is restricted from changing their mute state, such as being in a moderated meeting, joining as a passive viewer, or using Companion Mode. ([I55acf](https://android-review.googlesource.com/c/platform/frameworks/support/+/3872444))
+ 
+ **API Changes**
+ 
+@@ -2920,8 +2947,8 @@ February 11, 2026
+ 
+ **Bug Fixes**
+ 
+-- Fixed a `NullPointerException` in `JetpackConnectionService` caused by a race condition when accessing pending connection requests. This was resolved by switching to a `CopyOnWriteArrayList` for thread-safe iterations. ([I24306](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3858239))
+-- Corrected an issue in the Meeting Summary extension where a literal string "null" was emitted instead of a true `null` value for the current speaker. ([Idae9a](https://android-review.git.corp.google.com/c/platform/frameworks/support/+/3890913))
++- Fixed a `NullPointerException` in `JetpackConnectionService` caused by a race condition when accessing pending connection requests. This was resolved by switching to a `CopyOnWriteArrayList` for thread-safe iterations. ([I24306](https://android-review.googlesource.com/c/platform/frameworks/support/+/3858239))
++- Corrected an issue in the Meeting Summary extension where a literal string "null" was emitted instead of a true `null` value for the current speaker. ([Idae9a](https://android-review.googlesource.com/c/platform/frameworks/support/+/3890913))
+ 
+ #### Version 1.1.0-alpha01
+ 

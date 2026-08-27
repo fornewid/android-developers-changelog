@@ -1,0 +1,14 @@
+diff --git a/docs/training/wearables/tiles/dynamic.md b/docs/training/wearables/tiles/dynamic.md
+index 3a0c2de0..4f249884 100644
+--- a/docs/training/wearables/tiles/dynamic.md
++++ b/docs/training/wearables/tiles/dynamic.md
+@@ -20,8 +20,7 @@ examples include the following:
+ 
+ - Several length values, including the [length of an `Arc` object](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.ArcLine#getLength()) and the [length of a `CircularProgressIndicator`](https://developer.android.com/reference/androidx/wear/protolayout/material/CircularProgressIndicator#getProgress()) object.
+ - Any color, such as the [content color of a `Button` object](https://developer.android.com/reference/androidx/wear/protolayout/material/ButtonColors#getContentColor()).
+-- Many string values, including the [content of a `Text` object](https://developer.android.com/reference/androidx/wear/protolayout/material/Text#getText()), the [content of a `LayoutElementsBuilders.Text` object](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.Text#getText()), and the [content
+-  description of a `CircularProgressIndicator` object](https://developer.android.com/reference/androidx/wear/protolayout/material/CircularProgressIndicator#getContentDescription()).
++- Many string values, including the [content of a `Text` object](https://developer.android.com/reference/androidx/wear/protolayout/material/Text#getText()), the [content of a `LayoutElementsBuilders.Text` object](https://developer.android.com/reference/androidx/wear/protolayout/LayoutElementBuilders.Text#getText()), and the [content description of a `CircularProgressIndicator` object](https://developer.android.com/reference/androidx/wear/protolayout/material/CircularProgressIndicator#getContentDescription()).
+ 
+ To use a dynamic expression as a possible value for an element in your tile, use
+ the element's corresponding `*Prop` dynamic property type and pass in the data

@@ -1,0 +1,51 @@
+diff --git a/docs/guide/app-compatibility/test-debug.md b/docs/guide/app-compatibility/test-debug.md
+index d39080c4..e0bff1dc 100644
+--- a/docs/guide/app-compatibility/test-debug.md
++++ b/docs/guide/app-compatibility/test-debug.md
+@@ -180,15 +180,15 @@ Changes enabled for all apps
+     app on that platform version.
+ 
+     For example, if you are preparing to target Android 16 (API level 36),
+-    you could begin by installing your app on a device running
++    you could install your app on a device running
+     Android 16 and test your app using your typical testing
+-    workflows. If you app encounters issues, you could disable the change that
+-    is causing the issue so you could continue testing for other issues.
++    workflows. If your app encounters issues, you could disable the change that
++    is causing the issue and continue testing for other issues.
+ 
+-    Because these changes can affect all apps regardless of `targetSDKVersion`,
+-    you should usually test and update your app for these changes before changes
+-    that are gated by `targetSDKVersion`. This helps ensure that your users
+-    won't have a degraded app experience when they update their device to a new
++    These changes can affect all apps, regardless of `targetSDKVersion`,
++    so test and update your app for these changes before changes
++    that are gated by `targetSDKVersion`. This helps ensure that users'
++    experience won't degrade when they update to a new
+     platform version.
+ 
+     You should also prioritize testing these changes because you can't toggle
+@@ -217,7 +217,9 @@ of behavior changes that you'll need to test and debug your app for.
+ For example, you might be testing your app against a series of platform changes
+ in the next `targetSdkVersion`. Using developer options or ADB commands, you
+ could enable and test each gated change one by one, rather than changing your
+-app manifest and opting in to every change at once. This extra control can help
++app manifest and opting in to every change at once.
++
++This extra control can help
+ you test changes in isolation and avoid debugging and updating multiple parts of
+ your app at once.
+ 
+@@ -246,10 +248,9 @@ options, follow these steps:
+ 2. Open your device's Settings app and navigate to **System \> Advanced \>
+    Developer options \> App Compatibility Changes**.
+ 3. Select your app from the list.
+-4. From the list of changes, find the change that you want to toggle on or off
+-   and tap the switch.
++4. From the list of changes, find the change that you want to toggle on or off and tap the switch.
+ 
+-   ![List of changes that can be toggled on or off](https://developer.android.com/static/images/guide/app-compatibility/appcompat-dev-options-toggle.png)
++![List of changes that can be toggled on or off](https://developer.android.com/static/images/guide/app-compatibility/appcompat-dev-options-toggle.png) **Figure 2.** Toggling changes on or off.
+ 
+ ### Toggle changes using ADB
+ 

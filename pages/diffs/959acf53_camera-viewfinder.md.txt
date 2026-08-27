@@ -1,0 +1,52 @@
+diff --git a/docs/jetpack/androidx/releases/camera-viewfinder.md b/docs/jetpack/androidx/releases/camera-viewfinder.md
+index d6fef62f..51e52ac1 100644
+--- a/docs/jetpack/androidx/releases/camera-viewfinder.md
++++ b/docs/jetpack/androidx/releases/camera-viewfinder.md
+@@ -13,11 +13,11 @@ This table lists all the artifacts in the `androidx.camera-viewfinder` group.
+ 
+ | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| viewfinder-compose | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha02) |
+-| viewfinder-core | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha02) |
+-| viewfinder-view | [1.6.1](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.1) | - | - | [1.7.0-alpha02](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha02) |
++| viewfinder-compose | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha03) |
++| viewfinder-core | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha03) |
++| viewfinder-view | [1.6.2](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.6.2) | - | - | [1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera-viewfinder#1.7.0-alpha03) |
+ 
+-This library was last updated on: July 01, 2026
++This library was last updated on: August 26, 2026
+ 
+ ## Declaring dependencies
+ 
+@@ -71,6 +71,16 @@ for more information.
+ 
+ ## Version 1.7
+ 
++### Version 1.7.0-alpha03
++
++August 12, 2026
++
++`androidx.camera.viewfinder:viewfinder-compose:1.7.0-alpha03`, `androidx.camera.viewfinder:viewfinder-core:1.7.0-alpha03`, and `androidx.camera.viewfinder:viewfinder-view:1.7.0-alpha03` are released. Version 1.7.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/01f3396e92df911805f22836f27c7057324e40ff..bb117e26ce89b888d6f928ff7b604913a1da43f2/camera/viewfinder).
++
++**Bug Fixes**
++
++- Fixed a resource leak in Viewfinder where SurfaceControl was not properly released. ([If9da7](https://android-review.googlesource.com/#/q/If9da74a407ef76195309f7aaa9bf108a93c0d87b), [b/532595493](https://issuetracker.google.com/issues/532595493))
++
+ ### Version 1.7.0-alpha02
+ 
+ July 01, 2026
+@@ -94,6 +104,14 @@ March 11, 2026
+ 
+ ## Version 1.6
+ 
++### Version 1.6.2
++
++Bump version to align with `android.camerax`.
++
++August 26, 2026
++
++`androidx.camera.viewfinder:viewfinder-compose:1.6.2`, `androidx.camera.viewfinder:viewfinder-core:1.6.2`, and `androidx.camera.viewfinder:viewfinder-view:1.6.2` are released. Version 1.6.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/987b9ac8585b31424a397206c492196dd163997b..9046f07948c1e7a89aaec581463730f4d666611b/camera/viewfinder).
++
+ ### Version 1.6.1
+ 
+ May 06, 2026

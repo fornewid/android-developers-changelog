@@ -1,0 +1,26 @@
+diff --git a/docs/jetpack/androidx/releases/compose-material.md b/docs/jetpack/androidx/releases/compose-material.md
+index f691b05a..0dd4adf4 100644
+--- a/docs/jetpack/androidx/releases/compose-material.md
++++ b/docs/jetpack/androidx/releases/compose-material.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 12, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.0) | - | - | [1.13.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-alpha01) |
++| August 26, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.0) | - | - | [1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-alpha02) |
+ 
+ ## Structure
+ 
+@@ -100,6 +100,12 @@ for more information.
+ 
+ ## Version 1.13
+ 
++### Version 1.13.0-alpha02
++
++August 26, 2026
++
++`androidx.compose.material:material-*:1.13.0-alpha02` is released. Version 1.13.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e9a673661e45bb2eaea8dd43632ce3e1ea6a2094..63805a23f3fe6b75b69d1ba838db7f261ab552ed/compose/material).
++
+ ### Version 1.13.0-alpha01
+ 
+ August 12, 2026

@@ -1,0 +1,95 @@
+diff --git a/docs/jetpack/androidx/releases/compose-material3.md b/docs/jetpack/androidx/releases/compose-material3.md
+index d6801cdb..d8897303 100644
+--- a/docs/jetpack/androidx/releases/compose-material3.md
++++ b/docs/jetpack/androidx/releases/compose-material3.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 29, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha25](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha25) |
++| August 26, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha27](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha27) |
+ 
+ > [!NOTE]
+ > **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
+@@ -48,7 +48,7 @@ your app or module:
+ dependencies {
+     implementation "androidx.compose.material3:material3:1.4.0"
+     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
+-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha26"
++    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha27"
+ }
+ 
+ android {
+@@ -72,7 +72,7 @@ android {
+ dependencies {
+     implementation("androidx.compose.material3:material3:1.4.0")
+     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
+-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha26")
++    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha27")
+ }
+ 
+ android {
+@@ -318,6 +318,54 @@ Material3 adaptive pane scaffold APIs:
+ 
+ ## Compose Material3 Version 1.5
+ 
++### Version 1.5.0-alpha27
++
++August 26, 2026
++
++`androidx.compose.material3:material3-*:1.5.0-alpha27` is released. Version 1.5.0-alpha27 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/384f3c27346bf5812f359330dc2310f0cbb66402..e803e681a62cf709ac0eef07a56ac6cc0bba332a/compose/material3).
++
++**API Changes**
++
++- Renamed `RichTimePickerDialog` to `VibrantTimePickerDialog`, renamed `richColors` to `vibrantColors` in `TimePickerDefaults` and `TimeInputDefaults`, renamed `richContainerColor` and `richShape` to `vibrantContainerColor` and `vibrantShape` in `TimePickerDialogDefaults`, and renamed unselected color properties to `periodSelectorContainerColor`, `periodSelectorContentColor`, `timeSelectorContainerColor`, `timeSelectorContentColor`, and `clockDialContentColor`. ([Iea5aa](https://android-review.googlesource.com/#/q/Iea5aa467256e7e84889eaa46325ed79445ffdf5d))
++- Update the Rich `TimePicker` API to allow for an uncontained scroll/input dialog. ([I2b3b6](https://android-review.googlesource.com/#/q/I2b3b625f1fd185d19d26dede024f261ddfa4af8f))
++- Introduced `SelectableDropdownMenuItem` and `CheckableDropdownMenuItem` for selectable and checkable expressive menu items. Updated `DropdownMenuItem` with shape to use `MenuItemColors`, and added `MenuDefaults.itemVibrantColors()` to support vibrant `MenuItemColors`. ([I160ca](https://android-review.googlesource.com/#/q/I160ca23104cb58328af2c05ff946c5166a8fc91a))
++- Added opinionated expressive `ToggleButton`, `ElevatedToggleButton`, `FilledTonalToggleButton`, and `OutlinedToggleButton` overloads with `ButtonSize` and `icon` slot. Simplified `ToggleButtonDefaults`, `ElevatedToggleButtonDefaults`, `FilledTonalToggleButtonDefaults`, and `OutlinedToggleButtonDefaults` method names to `colors()` and `border()`. ([Iab484](https://android-review.googlesource.com/#/q/Iab484ab734ad5fedd308c54fcfbe9ddf37d0b391))
++- Removed deprecated overloads of `pinnedScrollBehavior` and `enterAlwaysScrollBehavior` from `TopAppBarDefaults`. Use the overloads that take `ScrollableState` instead. ([Idef9d](https://android-review.googlesource.com/#/q/Idef9d20d5c9fd92e61d6d4bd27b717ea601ea93a))
++- Removed deprecated experimental API `LocalMotionScheme` from `MaterialTheme`. Use `MaterialTheme.motionScheme` instead. ([I4b61d](https://android-review.googlesource.com/#/q/I4b61dd15fae45469a3cb9b0ee25b1448d66dd525))
++- Added `TimeInputDefaults` and `TimeInputColors` for `TimeInput`. ([I7534e](https://android-review.googlesource.com/#/q/I7534e77ac6a8ae9da3789ff29878460edd2f153d))
++
++**Bug Fixes**
++
++- Fixed an issue where `ScrollDisplayModeToggle` announced 'Switch to scroll mode' while in scroll mode. ([I2d588](https://android-review.googlesource.com/#/q/I2d588d1c52938f7f4b7d2243b6e52d61e003ee5e))
++- Fixed an issue where `DropdownMenuItem` without a leading icon did not align trailing icons to the end of the menu item. ([Ia24ff](https://android-review.googlesource.com/#/q/Ia24ff1947a6d41a5af08d5fd2eeaab88e57e0bbf), [b/542873381](https://issuetracker.google.com/issues/542873381))
++
++### Version 1.5.0-alpha26
++
++August 12, 2026
++
++`androidx.compose.material3:material3-*:1.5.0-alpha26` is released. Version 1.5.0-alpha26 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..4d087bd6f764b8425a70fd94102f855aa382d94b/compose/material3).
++
++**API Changes**
++
++- Added `ElevatedToggleButtonDefaults`, `FilledTonalToggleButtonDefaults`, and `OutlinedToggleButtonDefaults`, and cleaned up non-semantic shape properties in `ToggleButtonDefaults`. ([Ia0a85](https://android-review.googlesource.com/#/q/Ia0a85049faad6c4d8ee40f2914a15f7dba6600f9))
++- Fixed a11y contrast issue for the horizontal `NavigationItem`'s label in high contrast themes. The label's color is now specified via `selectedTextColorTopIconPosition` (vertical item's label color, which has not changed) and `selectedTextColorStartIconPosition` (horizontal item's label color, now set to match `selectedIconColor`). To revert this update, pass in `ShortNavigationBarItemDefaults`/`WideNavigationRailItemDefaults`.colors().copy(`selectedTextColorStartIconPosition` = `MaterialTheme`.`colorScheme`.secondary) ([I85855](https://android-review.googlesource.com/#/q/I858557f11ab08313701b24d3eb36ad4e82aa9d6d), [b/490910896](https://issuetracker.google.com/issues/490910896))
++- Scroll offset variables have been removed from `SearchBarScrollBehavior` and should now be accessed via the new class `SearchBarScrollState`. ([Ib24e4](https://android-review.googlesource.com/#/q/Ib24e4c9fe816ea9fc2d3e27fd77929b75a688048))
++- Promoted `BottomAppBar` and its associated methods to stable. These APIs no longer require the @`ExperimentalMaterial3Api` opt-in. ([I42c61](https://android-review.googlesource.com/#/q/I42c61cd5206432c0cc61f3effbbf96566d4ad271))
++- Saved active selection mode in `TimePickerState` across state restorations and added `initialSelection` parameter to `TimePickerState` factory function. ([Iad905](https://android-review.googlesource.com/#/q/Iad9051244ec30787c66dcd97117c117cae87c27b))
++- `ExposedDropdownMenu` is now an extension function on `ExposedDropdownMenuBoxScope` instead of a member. You may need to update your code with a new import. ([Ie8a65](https://android-review.googlesource.com/#/q/Ie8a65e982bcc6ee222ce0a84ed63ad9445760f6d), [b/356452026](https://issuetracker.google.com/issues/356452026))
++
++**Bug Fixes**
++
++- Fixed an issue where partial color customization in `MenuDefaults.itemColors` overwrote unprovided colors with `Color.Unspecified`. ([Iea847](https://android-review.googlesource.com/#/q/Iea847ef041dddb07cf56d502fe54215c344a7c0b))
++- Fixed `TalkBack` announcements to read formatted time values in the scrollable `TimePicker`. ([Ice981](https://android-review.googlesource.com/#/q/Ice981f51427a1e0ecdb597b2011cfda3f10a0de0))
++- Fixed a crash in `ExposedDropdownMenu` when screen height is smaller than menu height. ([I6adf1](https://android-review.googlesource.com/#/q/I6adf1591ede0e755c7d8d94b4d52549a1d9d00ad))
++- Fixed wrong content padding of wide navigation rail. Bottom padding is now 0. To revert this update you can set `contentPadding = PaddingValues(0.dp,44.dp,0.dp,44.dp)`. ([I572bb](https://android-review.googlesource.com/#/q/I572bb9f18fcb772426dcd09ece5f9663c1fbc6da))
++- Updated the public API surface to align with recent API review feedback. ([I71aff](https://android-review.googlesource.com/#/q/I71aff5d529bc7bdc45ae2161d0d15658b18f1571), [b/532657001](https://issuetracker.google.com/issues/532657001))
++
++**External Contribution**
++
++- Fixed Material3 `Slider` `Label` not showing while dragging the slider by its thumb with a mouse. ([I97a6d](https://android-review.googlesource.com/#/q/I97a6d289dca13068ce0d8879e3ce348d4f36cbf2), [b/533483487](https://issuetracker.google.com/issues/533483487))
++
+ ### Version 1.5.0-alpha25
+ 
+ July 29, 2026
+@@ -352,7 +400,7 @@ July 15, 2026
+ **Features**
+ 
+ - Add new scroll variant for expressive `TimePicker` ([I46f6b](https://android-review.googlesource.com/#/q/I46f6b6acc6888933b7561e5f52d31e2714f5b83f))
+-- Added a new `material3-ripple` library ([I1b3a3](https://android-review.git.corp.google.com/q/I1b3a3e310538661ae4f1bc36bcbd6dd88f044f28)), which adds support for drawing ripples that visually display focus using inset focus rings instead of an opacity layer. This new library acts as a replacement for `material-ripple`, and expected usage is similar:
++- Added a new `material3-ripple` library ([I1b3a3](https://android-review.googlesource.com/q/I1b3a3e310538661ae4f1bc36bcbd6dd88f044f28)), which adds support for drawing ripples that visually display focus using inset focus rings instead of an opacity layer. This new library acts as a replacement for `material-ripple`, and expected usage is similar:
+   - If you are using `material3` itself, use the built-in `material3` ripple configuration that integrates with the theme and uses `material3-ripple` internally as an implementation detail.
+   - If you were using `material-ripple` directly or want to support inset focus rings without depending on `material3`, use the new `material3-ripple` library directly.
+ 

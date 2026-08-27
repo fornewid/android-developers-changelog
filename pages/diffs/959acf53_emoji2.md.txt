@@ -1,0 +1,50 @@
+diff --git a/docs/jetpack/androidx/releases/emoji2.md b/docs/jetpack/androidx/releases/emoji2.md
+index 473df8fa..13c70903 100644
+--- a/docs/jetpack/androidx/releases/emoji2.md
++++ b/docs/jetpack/androidx/releases/emoji2.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 10, 2025 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/emoji2#1.6.0) | - | - | - |
++| August 26, 2026 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/emoji2#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/emoji2#1.7.0-alpha01) |
+ 
+ ## Declaring dependencies
+ 
+@@ -60,6 +60,36 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 1.7
++
++### Version 1.7.0-alpha01
++
++August 26, 2026
++
++`androidx.emoji2:emoji2-*:1.7.0-alpha01` is released. Version 1.7.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9ed4b1acacae02bd637e1932def67751b89244cb..f0365b8b5cca21e7455f5aa90a214d326b76c1e7/emoji2).
++
++\*\* Performance Release \*\*
++
++This release is a major performance improvement over prior relases.
++
++• **Reduced memory footprint:** Metadata trie RAM usage is reduced from \~2.2 MB to \~80 KB.  
++
++• **Reduced startup overhead:** Startup object allocations are reduced from 24,178 to 82.  
++
++• **Allocation-free text scanning:** Scanning standard Latin text now performs zero allocations.  
++
++• **Reduced latency:** Median Latin text scan latency is reduced by up to 83% (from 16.43 µs to 2.66 µs).  
++
++• **Automatic bypass on API 35+:** EmojiCompat processing is automatically bypassed on devices with system-updatable fonts.
++
++**API Changes**
++
++- Added `setUseAfterUpdatableSystemFonts` to `EmojiCompat.Config` to optionally continue using `EmojiCompat` on Android 15 (API 35) and above even when updatable system fonts are available on all devices. The default value will disable EmojiCompat on API35+ saving memory and text processing latency. ([I7235e](https://android-review.googlesource.com/#/q/I7235ede8e0d03de06c4f9b0860cf028947bd433e), [b/541363642](https://issuetracker.google.com/issues/541363642))
++
++**Bug Fixes**
++
++- Emoji2 picker - Updated Compose compileSdk to API 37. This means that a minimum AGP version of 9.2.0 is required when using Compose. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492), [b/413674743](https://issuetracker.google.com/issues/413674743))
++
+ ## Version 1.6
+ 
+ ### Version 1.6.0

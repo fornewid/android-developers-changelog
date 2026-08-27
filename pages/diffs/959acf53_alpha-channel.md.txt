@@ -1,0 +1,63 @@
+diff --git a/docs/jetpack/androidx/versions/alpha-channel.md b/docs/jetpack/androidx/versions/alpha-channel.md
+index d6763fc7..08ac5e65 100644
+--- a/docs/jetpack/androidx/versions/alpha-channel.md
++++ b/docs/jetpack/androidx/versions/alpha-channel.md
+@@ -16,6 +16,31 @@ to 2018.
+ To view the current versions for every component,
+ see the [versions page](https://developer.android.com/jetpack/androidx/versions).
+ 
++## August 26, 2026
++
++- [Activity Version 1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/activity#1.14.0-alpha01)
++- [Annotation Version 1.11.0-alpha02](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0-alpha02)
++- [AppSearch Version 1.2.0-alpha02](https://developer.android.com/jetpack/androidx/releases/appsearch#1.2.0-alpha02)
++- [Appfunctions Appfunctions-compiler Appfunctions-testing Version 1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha11)
++- [Compose Animation Version 1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-alpha02)
++- [Compose Foundation Version 1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-alpha02)
++- [Compose Material 3 Version 1.5.0-alpha27](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha27)
++- [Compose Material Version 1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-alpha02)
++- [Compose Material3 Adaptive Version 1.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.4.0-alpha01)
++- [Compose Remote Version 1.0.0-alpha18](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha18)
++- [Compose Remote Foundation Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-remote-foundation#foundation-1.0.0-alpha01)
++- [Compose Runtime Version 1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-alpha02)
++- [Compose UI Version 1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-alpha02)
++- [Connect-client Connect-client-external-protobuf Connect-client-proto Version 1.2.0-alpha06](https://developer.android.com/jetpack/androidx/releases/health-connect#1.2.0-alpha06)
++- [Core-pip Version 1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/core#core-pip-1.0.0-alpha04)
++- [Emoji2 Version 1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/emoji2#1.7.0-alpha01)
++- [Glance Adaptive Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/glance-adaptive#1.0.0-alpha01)
++- [Glimmer Glimmer-google-fonts Version 1.0.0-alpha18](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha18)
++- [Lifecycle Version 2.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha02)
++- [Savedstate Version 1.6.0-alpha02](https://developer.android.com/jetpack/androidx/releases/savedstate#1.6.0-alpha02)
++- [Wear Compose Remote Version 1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha10)
++- [Wear Wear-core Wear-tooling-preview Version 1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha17)
++
+ ## August 12, 2026
+ 
+ - [Camera Featurecombinationquery Version 1.7.0-alpha03](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.7.0-alpha03)
+@@ -54,7 +79,7 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
+ - [Navigation3 Version 1.2.0-alpha07](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha07)
+ - [Navigationevent Version 1.2.0-alpha03](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha03)
+ - [Remote-material3 Version 1.0.0-alpha08](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#remote-material3-1.0.0-alpha08)
+-- [Text Version 1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/text#1.0.0-alpha06)
++- [Text-Vertical Version 1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-alpha06)
+ - [Wear Compose Version 1.7.0-alpha07](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-alpha07)
+ 
+ ## July 15, 2026
+@@ -527,7 +552,7 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
+ - [Ink Version 1.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0-alpha07)
+ - [Lifecycle Version 2.10.0-alpha05](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.10.0-alpha05)
+ - [Navigation3 Version 1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/navigation3#1.0.0-alpha11)
+-- [Text Vertical Version 1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/text#1.0.0-alpha02)
++- [Text Vertical Version 1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-alpha02)
+ - [Wear Compose Version 1.6.0-alpha03](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.0-alpha03)
+ - [Webkit Version 1.15.0-alpha03](https://developer.android.com/jetpack/androidx/releases/webkit#1.15.0-alpha03)
+ 
+@@ -586,7 +611,7 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
+ - [Navigationevent Version 1.0.0-alpha07](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.0.0-alpha07)
+ - [Paging Version 3.4.0-alpha03](https://developer.android.com/jetpack/androidx/releases/paging#3.4.0-alpha03)
+ - [SavedState Version 1.4.0-alpha03](https://developer.android.com/jetpack/androidx/releases/savedstate#1.4.0-alpha03)
+-- [Text Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/text#1.0.0-alpha01)
++- [Text Vertical Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-alpha01)
+ - [Webkit Version 1.15.0-alpha02](https://developer.android.com/jetpack/androidx/releases/webkit#1.15.0-alpha02)
+ - [WorkManager Version 2.11.0-alpha01](https://developer.android.com/jetpack/androidx/releases/work#2.11.0-alpha01)
+ - [Xr Compose Material3 Version 1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/xr-compose-material3#1.0.0-alpha11)

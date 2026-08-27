@@ -1,0 +1,19 @@
+diff --git a/docs/jetpack/androidx/versions/beta-channel.md b/docs/jetpack/androidx/versions/beta-channel.md
+index 253a45c7..3510a5cf 100644
+--- a/docs/jetpack/androidx/versions/beta-channel.md
++++ b/docs/jetpack/androidx/versions/beta-channel.md
+@@ -16,6 +16,14 @@ to 2018.
+ To view the current versions for every component,
+ see the [versions page](https://developer.android.com/jetpack/androidx/versions).
+ 
++## August 26, 2026
++
++- [Core-telecom Version 1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/core#core-telecom-1.1.0-beta01)
++- [Navigation3 Version 1.2.0-beta01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-beta01)
++- [Pdf Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-beta01)
++- [Text-Vertical Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-beta01)
++- [Wear Compose Version 1.7.0-beta02](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-beta02)
++
+ ## August 12, 2026
+ 
+ - [Security-state Version 1.1.0-beta03](https://developer.android.com/jetpack/androidx/releases/security#security-state-1.1.0-beta03)

@@ -1,0 +1,13 @@
+diff --git a/docs/training/wearables/compose/navigation.md b/docs/training/wearables/compose/navigation.md
+index 0b8d7d72..3914bf23 100644
+--- a/docs/training/wearables/compose/navigation.md
++++ b/docs/training/wearables/compose/navigation.md
+@@ -8,6 +8,8 @@ Compose for Wear OS Material version <button value="2.5">2.5</button> <button va
+ 
+ *** ** * ** ***
+ 
++<br />
++
+ The [Navigation component](https://developer.android.com/guide/navigation) in Android Jetpack provides
+ support for Jetpack Compose applications. You can navigate between composables
+ while taking advantage of the Navigation component's infrastructure and

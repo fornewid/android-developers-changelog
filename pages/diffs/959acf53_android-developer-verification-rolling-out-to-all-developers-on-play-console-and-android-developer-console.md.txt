@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console.md b/docs/blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console.md
+index 9de488b1..e9915f40 100644
+--- a/docs/blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console.md
++++ b/docs/blog/posts/android-developer-verification-rolling-out-to-all-developers-on-play-console-and-android-developer-console.md
+@@ -76,7 +76,7 @@ Continue reading
+   [arrow_forward](https://developer.android.com/blog/posts/android-developer-verification-balancing-openness-and-choice-with-safety) Android proves you don't have to choose between an open ecosystem and a secure one. Since announcing updated verification requirements, we've worked with the community to ensure these protections are robust yet respectful of platform freedom.
+   [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
+   - [#Android](https://developer.android.com/blog/topics/android)
+-- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/ron-aquino) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/251210_Header_v01_de706a19ce_ZIQ3n5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe)[![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_9wUet.webp)](https://developer.android.com/blog/authors/ron-aquino) 11 Dec 2025 11 Dec 2025 ![](https://developer.android.com/static/blog/assets/251210_Header_v01_de706a19ce_ZIQ3n5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Building a safer Android and Google Play, together](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together)
+ 

@@ -1,0 +1,31 @@
+diff --git a/docs/jetpack/androidx/releases/wear-compose.md b/docs/jetpack/androidx/releases/wear-compose.md
+index 523699c3..25982ff7 100644
+--- a/docs/jetpack/androidx/releases/wear-compose.md
++++ b/docs/jetpack/androidx/releases/wear-compose.md
+@@ -12,7 +12,7 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 12, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | - | [1.7.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-beta01) | - |
++| August 26, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | - | [1.7.0-beta02](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-beta02) | - |
+ 
+ > [!NOTE]
+ > **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
+@@ -91,6 +91,17 @@ for more information.
+ 
+ ## Version 1.7
+ 
++### Version 1.7.0-beta02
++
++August 26, 2026
++
++`androidx.wear.compose:compose-*:1.7.0-beta02` is released. Version 1.7.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/73e22c60975d7fb8491f51f0de9d82843e170f82..4d31d8cda78e225595adc4a3d5ebc5b5f1abc1d9/wear/compose).
++
++**Bug Fixes**
++
++- Updated baseline profiles for Wear Compose Foundation, Material3, and Navigation3 libraries. ([I9b0a3](https://android-review.googlesource.com/#/q/I9b0a3340a892d8adce9df11fcc35c4591670e702))
++- Fix gesture hint animation flicker in `OneHandedGestureScrollIndicator`. ([6e0c1cb](https://android-review.googlesource.com/#/q/I650c6c7fb9d147294c2b446a8c8838b25c8ae15d))
++
+ ### Version 1.7.0-beta01
+ 
+ August 12, 2026

@@ -1,0 +1,32 @@
+diff --git a/docs/distribute/aep/aep-req-camera-x.md b/docs/distribute/aep/aep-req-camera-x.md
+index c7e316a0..0c8f4d63 100644
+--- a/docs/distribute/aep/aep-req-camera-x.md
++++ b/docs/distribute/aep/aep-req-camera-x.md
+@@ -15,11 +15,9 @@ user experience regardless of the device hardware.
+ 
+ To qualify for AEP, your app must adhere to the following requirements:
+ 
+-- The app must not use the legacy *android.hardware.Camera API* (Camera1). You
+-  should migrate to use CameraX (or Camera2).
+-
+-  **Note** : Using the [Camera2 framework](https://developer.android.com/media/camera/camera2) is a valid alternative for apps
+-  that require a custom camera stack.
++| ID | Guideline |
++|---|---|
++| AEP-CX-GAA | The app must not use the legacy \`_android.hardware.Camera API_\` (Camera1). You should migrate to use CameraX (or Camera2). **Note** : Using the [Camera2 framework](https://developer.android.com/media/camera/camera2) is a valid alternative for apps that require a custom camera stack. |
+ 
+ ## Guideline applicability
+ 
+@@ -30,9 +28,9 @@ This guideline applies to:
+ 
+ ## Exemptions
+ 
+-Apps can use an equivalent alternative framework that provides similar quality,
+-user capabilities, stability and compatibility across the ecosystem.
+-[Contact support](https://developer.android.com/distribute/aep/aep-get-support) if you have a suitable framework for consideration.
++| ID | Exemption |
++|---|---|
++| AEP-CX-EAA | Apps can use an equivalent alternative framework that provides similar quality, user capabilities, stability, and compatibility across the ecosystem. [Contact support](https://developer.android.com/distribute/aep/aep-get-support) if you have a suitable framework for consideration. |
+ 
+ ## Feature documentation and resources
+ 

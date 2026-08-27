@@ -1,0 +1,13 @@
+diff --git a/docs/health-and-fitness/health-connect/get-started.md b/docs/health-and-fitness/health-connect/get-started.md
+index 685a901c..e2da22db 100644
+--- a/docs/health-and-fitness/health-connect/get-started.md
++++ b/docs/health-and-fitness/health-connect/get-started.md
+@@ -54,7 +54,7 @@ Add the Health Connect SDK dependency in your module-level `build.gradle` file:
+ 
+     dependencies {
+       ...
+-      implementation "androidx.health.connect:connect-client:1.2.0-alpha05"
++      implementation "androidx.health.connect:connect-client:1.2.0-alpha06"
+       ...
+     }
+ 

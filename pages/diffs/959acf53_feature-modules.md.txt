@@ -1,0 +1,22 @@
+diff --git a/docs/guide/navigation/integrations/feature-modules.md b/docs/guide/navigation/integrations/feature-modules.md
+index c3fea33d..5e80f77b 100644
+--- a/docs/guide/navigation/integrations/feature-modules.md
++++ b/docs/guide/navigation/integrations/feature-modules.md
+@@ -22,7 +22,7 @@ To support feature modules, use the following dependencies in your app module's
+ 
+ ```groovy
+ dependencies {
+-    def nav_version = "2.9.8"
++    def nav_version = "2.10.0"
+ 
+     api "androidx.navigation:navigation-fragment-ktx:$nav_version"
+     api "androidx.navigation:navigation-ui-ktx:$nav_version"
+@@ -34,7 +34,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    val nav_version = "2.9.8"
++    val nav_version = "2.10.0"
+ 
+     api("androidx.navigation:navigation-fragment-ktx:$nav_version")
+     api("androidx.navigation:navigation-ui-ktx:$nav_version")

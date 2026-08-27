@@ -1,0 +1,27 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2026.1.4.md b/docs/studio/releases/fixed-bugs/studio/2026.1.4.md
+index 1b20ae7b..2d6aface 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2026.1.4.md
++++ b/docs/studio/releases/fixed-bugs/studio/2026.1.4.md
+@@ -4,6 +4,22 @@ url: https://developer.android.com/studio/releases/fixed-bugs/studio/2026.1.4
+ source: md.txt
+ ---
+ 
++### Android Studio Quail 4 \| 2026.1.4 RC 2
++
++**Released together with:**
++
++- Android Gradle Plugin 9.4.0-rc02
++
++Fixed Issues **Baseline Profiles \& ProfileInstaller** [Issue #543799367](https://issuetracker.google.com/issues/543799367) Baseline profile is pulled off the device but never registered in test-result.pb, so collectBaselineProfile finds nothing and copyBaselineProfileIntoSrc deletes the committed profile
++
++### Android Studio Quail 4 \| 2026.1.4 RC 1
++
++**Released together with:**
++
++- Android Gradle Plugin 9.4.0-rc01
++
++Fixed Issues **Gemini** [Issue #540709807](https://issuetracker.google.com/issues/540709807) S0 CRITICAL: Data Loss - AI Agent executed malformed shell command deleting drive contents
++
+ ### Android Studio Quail 4 \| 2026.1.4 Canary 4
+ 
+ **Released together with:**

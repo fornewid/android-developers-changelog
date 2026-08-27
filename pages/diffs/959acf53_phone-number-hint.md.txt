@@ -1,0 +1,13 @@
+diff --git a/docs/identity/phone-number-hint.md b/docs/identity/phone-number-hint.md
+index 748732e9..7f886c35 100644
+--- a/docs/identity/phone-number-hint.md
++++ b/docs/identity/phone-number-hint.md
+@@ -40,7 +40,7 @@ which is commonly `app/build.gradle`:
+       ...
+ 
+       dependencies {
+-        implementation 'com.google.android.gms:play-services-auth:21.6.0'
++        implementation 'com.google.android.gms:play-services-auth:22.0.0'
+       }
+ 
+ ### Create a GetPhoneNumbeHintIntentRequest object
