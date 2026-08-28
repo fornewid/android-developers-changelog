@@ -1,0 +1,30 @@
+diff --git a/docs/tools/bundletool.md b/docs/tools/bundletool.md
+index 31ec59f3..6241bb98 100644
+--- a/docs/tools/bundletool.md
++++ b/docs/tools/bundletool.md
+@@ -4,15 +4,20 @@ url: https://developer.android.com/tools/bundletool
+ source: md.txt
+ ---
+ 
++bundletool
++description: bundletool is a foundational tool employed by Android Studio, the
++Android Gradle plugin, and Google Play to construct Android App Bundles and
++convert them into various APKs for device deployment. It also functions as a
++command-line tool for local development, testing, and generation of app bundles.
++keywords_public: bundletool, Android App Bundle, APK generation, app publishing,
++command line, device-specific APKs
++
+ `bundletool` is the underlying tool that Android Studio, the Android Gradle
+ plugin, and Google Play use to build an Android App Bundle. `bundletool`
+ can convert an app bundle into the various APKs that are deployed to devices.
+ 
+-Android SDK Bundles (ASBs) and their APKs are built with `bundletool`. It is
+-also available as a command-line tool, so you can build app bundles and
+-SDK bundles yourself and re-create Google Play's server-side build of your app's
+-APKs or your
+-[runtime-enabled SDK's](https://developer.android.com/design-for-safety/privacy-sandbox/sdk-runtime) APKs.
++It is also available as a command-line tool, so you can build app bundles
++yourself and re-create Google Play's server-side build of your app's APKs.
+ 
+ ## Download `bundletool`
+ 

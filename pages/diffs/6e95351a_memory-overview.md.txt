@@ -1,0 +1,78 @@
+diff --git a/docs/games/optimize/memory-overview.md b/docs/games/optimize/memory-overview.md
+index 4250a862..133ce006 100644
+--- a/docs/games/optimize/memory-overview.md
++++ b/docs/games/optimize/memory-overview.md
+@@ -45,11 +45,10 @@ size.
+ 
+ *Total Memory Footprint = Anonymous RSS (RssAnon) + Uncompressed Swap (VmSwap)*
+ 
+-To prevent games from exceeding platform limits, developers must
+-understand exactly what these metrics represent at a system level. For more
+-information about these metrics, physical RAM allocations, and how file-backed
+-pages are handled, see [Understanding RSS and Swap Metrics](https://developer.android.com/games/optimize/memory-monitoring#understanding-rss-and-swap-metrics) in the [Monitor
+-Memory Usage](https://developer.android.com/games/optimize/memory-monitoring) guide.
++To prevent games from exceeding platform limits, you must understand exactly
++what these metrics represent at a system level. For more information about these
++metrics, physical RAM allocations, and how file-backed pages are handled, see
++[Understanding RSS and Swap Metrics](https://developer.android.com/games/optimize/memory-monitoring#understanding-rss-and-swap-metrics) in the [Monitor Memory Usage](https://developer.android.com/games/optimize/memory-monitoring) guide.
+ 
+ ## Memory constraints
+ 
+@@ -73,6 +72,57 @@ Steps for Android 17 Blog](https://android-developers.googleblog.com/2026/06/pri
+   - **`memory.swap.max`**: Manages a hard cap on the swap or zRAM space the process can use.
+ - **Termination behavior** : If a process continues to allocate anonymous memory past `memory.high` and exhausts its swap capacity, allocations fail, and the OS silently kills the process. This termination is logged using [`ApplicationExitInfo`](https://developer.android.com/reference/android/app/ApplicationExitInfo) under the [Memory Limiter](https://source.android.com/docs/core/perf/memory-limiter) exit reason (available starting in Android 17, 26Q4).
+ 
++### New memory limits in Play Console Vitals
++
++To help developers proactively identify memory issues, Google Play is
++introducing new metrics in Play Console Android Vitals. Play Console tracks the
++90th percentile (P90) Anonymous RSS + Swap memory footprint of your game
++sessions to identify extreme outliers.
++
++The warning and enforcement thresholds are scaled based on the device's physical
++RAM capacity and process states. These limits apply in two distinct phases.
++
++For detailed guidelines and memory limits, see the [Android vitals - 'What are
++the bad behavior thresholds?](https://developer.android.com/topic/performance/vitals#what_are_the_bad_behavior_thresholds).
++
++##### User-perceived services
++
++Perceptible Services are critical background processes that the Android system
++considers noticeable to the user. This state encompasses all processes running:
++
++- Foreground services (FGS)
++- Expedited jobs
++- User-initiated data transfer jobs
++- System-bound services or services bound by other applications
++
++Because Perceptible Services are designed for critical, long-running tasks in
++the background, they are highly susceptible to cumulative lifecycle leaks.
++Android platform memory limits treat this state as not Foreground, meaning if
++your game is backgrounded but continues running a Perceptible Service, it's
++subjected to the tighter background or service memory limits shown in the Play
++Help Center page. Games must aggressively trim unnecessary assets when moving
++from the foreground to a background Perceptible Service state.
++
++#### R8 requirements
++
++To minimize bytecode size and reduce basic Java process overhead, Google Play
++Console evaluates code optimization as part of its app quality guidelines. For
++more details on configuring your build pipeline, see the [Enable app
++optimization with R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization) guide.
++
++To configure R8 in your project, follow the [Enable app optimization with R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization)
++guide. To enable advanced shrinking and optimization settings, see [Use R8 in
++full mode](https://developer.android.com/topic/performance/app-optimization/full-mode). To identify which rules are preventing R8 from obfuscating
++classes or removing dead code, use the [Use R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer).
++
++#### Bitmap requirements
++
++Bitmaps represent a massive portion of memory usage on modern high-fidelity
++games. Because Bitmap pixel data is stored directly in the unmanaged native heap
++on Android 8.0 (API level 26) and higher, unoptimized image loading can
++push processes past platform memory thresholds. For best practices on image
++scaling and caching, see [Optimize image usage](https://developer.android.com/develop/ui/compose/graphics/images/optimization).
++
+ ## Monitor memory usage
+ 
+ To effectively optimize your game's memory, you must first understand how the

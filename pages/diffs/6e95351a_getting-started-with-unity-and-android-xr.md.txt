@@ -1,0 +1,13 @@
+diff --git a/docs/blog/posts/getting-started-with-unity-and-android-xr.md b/docs/blog/posts/getting-started-with-unity-and-android-xr.md
+index fe6d7436..dc1938f3 100644
+--- a/docs/blog/posts/getting-started-with-unity-and-android-xr.md
++++ b/docs/blog/posts/getting-started-with-unity-and-android-xr.md
+@@ -69,7 +69,7 @@ These standards provide the best compatibility for your existing applications an
+ Unity 6 handles Vulkan automatically, so when you use the Android XR build profile, Unity will configure Vulkan as your graphics API. This ensures you get access to all the advanced Android XR features without any manual configuration.
+ 
+ *You can verify your graphics API settings by going to 'Edit' \>' Project Settings' \> 'Player' \> 'Android tab' \> 'Other settings' \> 'Graphics APIs'.*
+-![](https://developer.android.com/static/blog/assets/Z2bfYdm_274uYx.webp) ![appentrypoint.png](https://developer.android.com/static/blog/assets/appentrypoint_fb4df59e49_Z1aJDtB.webp)
++![graphics-api.png](https://developer.android.com/static/blog/assets/graphics_api_da76372ba1_ZHI40i.webp) ![appentrypoint.png](https://developer.android.com/static/blog/assets/appentrypoint_fb4df59e49_Z1aJDtB.webp)
+ 
+ ### Understanding the package ecosystem
+ 

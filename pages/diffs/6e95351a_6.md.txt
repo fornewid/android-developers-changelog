@@ -1,0 +1,36 @@
+diff --git a/docs/blog/latest/6.md b/docs/blog/latest/6.md
+index 43fa5abb..1ef03fdd 100644
+--- a/docs/blog/latest/6.md
++++ b/docs/blog/latest/6.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- 26 Jan 2026 26 Jan 2026 ![](https://developer.android.com/static/blog/assets/Android_Trade_IN_Mode_Blog_9dc083b903_Z28Fz7W.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Trade-in mode on Android 16+](https://developer.android.com/blog/posts/trade-in-mode-on-android-16)
++
++  [arrow_forward](https://developer.android.com/blog/posts/trade-in-mode-on-android-16) Trade-in mode: faster assessment of a factory-reset phone or tablet, bypassing setup wizard, a new feature on Android 16 and above.
++  2 min read
+ - [![View Georgia Doyle's profile](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp)](https://developer.android.com/blog/authors/georgia-doyle)[![View Kanu Tibrewal's profile](https://developer.android.com/static/blog/assets/Kanu_Tibrewal_20caa0960e_1aI42M.webp)](https://developer.android.com/blog/authors/kanu-tibrewal) 21 Jan 2026 21 Jan 2026 ![](https://developer.android.com/static/blog/assets/260120_Header_7fdfbedb2d_105hHT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Ready to review some changes but not others? Try using Play Console's new Save for later feature](https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature)
+@@ -126,17 +132,11 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/android-16-qpr-2-is-released) Android 16 QPR2 is now released and available in AOSP
+   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
+-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Ivy Knight's profile](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp)](https://developer.android.com/blog/authors/ivy-knight) 02 Dec 2025 02 Dec 2025 ![](https://developer.android.com/static/blog/assets/sample_readme_bazel_9348d9f325_Z57CJe.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+-
+-  ## [Explore AI on Android with Our Sample Catalog App](https://developer.android.com/blog/posts/explore-ai-on-android-with-our-sample-catalog-app)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/explore-ai-on-android-with-our-sample-catalog-app) We wanted to provide you with examples of AI-enabled features using both on-device and Cloud models and inspire you to create delightful experiences for your users.
+-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Ivy Knight](https://developer.android.com/blog/authors/ivy-knight) • 2 min read
+ [arrow_back](https://developer.android.com/blog/latest/5)
+ 
+ #### Page 6
+ 
+-###### of 9
++###### of 10
+ 
+ [arrow_forward](https://developer.android.com/blog/latest/7)
+ 
