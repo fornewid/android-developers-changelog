@@ -35,8 +35,8 @@ RAM your app requires to exist.
 You can [use R8 to reduce your app's memory footprint](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization). While R8 is
 traditionally known for [shrinking APK size](https://developer.android.com/topic/performance/reduce-apk-size), it has a direct, positive
 impact on runtime memory (RAM). R8 analyzes your app's bytecode to strip away
-dead code, merge redundant classes, inline methods, and minify identifiers. By
-loading less compiled bytecode from the APK into RAM, it decreases the app's
+dead code, merge redundant classes and inline methods, and minify identifiers.
+Loading less compiled bytecode from the APK into RAM decreases the app's
 overall baseline memory footprint. Additionally, minifying class, method, and
 field names into shorter identifiers directly reduces RAM overhead.
 Optimizations like class merging and extensive method inlining also replace
@@ -47,7 +47,7 @@ stack memory.
 
 Keep rules are configuration instructions that tell R8 which parts of your code
 to preserve during optimization, preventing it from removing or minifying code
-that your app relies on. For more information, see the [Keep rules overview](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview).
+that your app relies on. For more information, see [About keep rules](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview).
 
 Poorly written keep rules prevent R8 from optimizing large portions of your
 codebase. Avoid over-broad keep rules and follow these best practices:
@@ -64,12 +64,13 @@ codebase. Avoid over-broad keep rules and follow these best practices:
 - **Use the default R8 configuration file:** Always use
   `proguard-android-optimize.txt`.
 
-For more information about writing keep rules, see the [Keep rules overview](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview).
-For specific patterns to use and avoid, see [Keep rules best practices](https://developer.android.com/topic/performance/app-optimization/keep-rules-best-practices).
+For more information about writing keep rules, see [About keep rules](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview).
+For specific patterns to use and avoid, see the
+[best practices for keep rules](https://developer.android.com/topic/performance/app-optimization/keep-rules-best-practices).
 
 The R8 Configuration Analyzer provides insights into your R8 configuration and
 how each keep rule impacts your app. For more information about how to identify
-rules that block optimization, see [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer).
+rules that block optimization, see [Use R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer).
 
 ### Be careful about using external libraries
 
@@ -83,7 +84,7 @@ Even some mobile-optimized libraries can cause problems due to differing
 implementations. For example, one library might use lite protobufs while another
 uses micro protobufs, resulting in two different protobuf implementations in
 your app. This can happen with different implementations of logging, analytics,
-image-loading frameworks, caching, and many other things you don't expect.
+image-loading frameworks, caching, and many other things.
 
 While [optimizing your app using R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization) can remove unused code from
 dependencies, its effectiveness is often limited by the library's internal
@@ -98,20 +99,20 @@ consider whether to use a library, look for an implementation that strongly
 matches what you need. Otherwise, you might decide to create your own
 implementation.
 
-### Use Hilt or Dagger 2 for dependency injection
+### Use Hilt for dependency injection
 
 Dependency injection frameworks can simplify the code you write and provide an
 adaptive environment that's useful for testing and other configuration changes.
 
 If you intend to use a dependency injection framework in your app, consider
-using [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) or [Dagger](https://dagger.dev/). Hilt is a dependency injection library for
-Android that runs on top of Dagger. Dagger doesn't use reflection to scan your
-app's code. You can use Dagger's static compile-time implementation in Android
+using [Hilt](https://developer.android.com/training/dependency-injection/hilt-android), the [recommended injection library](https://developer.android.com/training/dependency-injection#hilt) for
+Android that runs on top of Dagger. Hilt doesn't use reflection to scan your
+app's code. You can use Hilt's static compile-time implementation in Android
 apps without needless runtime cost or memory usage.
 
 Other dependency injection frameworks that use reflection initialize processes
 by scanning your code for annotations. This process can require significantly
-more CPU cycles and RAM, and can cause a noticeable lag when the app launches.
+more CPU cycles and RAM and can cause a noticeable lag when the app launches.
 
 When using dependency injection, be careful to avoid memory leaks by ensuring
 that objects are scoped appropriately. Retaining objects longer than necessary
@@ -125,7 +126,7 @@ be inflated into an uncompressed bitmap to be displayed on screen. A small
 compressed image file can expand into a very large bitmap.
 
 For example, most bitmaps use the `ARGB_8888` configuration, which means each
-pixel requires 4 bytes of memory--one byte each for red, green, blue, and alpha
+pixel requires 4 bytes of memory---one byte each for red, green, blue, and alpha
 (transparency). If you have a 100KB JPEG and you display it in a 1000×1000 pixel
 view, the bitmap will require 4 bytes for each of those 1,000,000 pixels, adding
 up to 4MB of memory.
@@ -153,22 +154,22 @@ workflow. For more information, see the [Android Studio release notes](https://d
 There are other tools you can use to diagnose memory issues based on data from
 users running your production app:
 
-- [Use Android Vitals to track low memory kill (LMK) events.](https://developer.android.com/topic/performance/memory/manage-app-memory#lmk)
-- [Use the Profiling Manager](https://developer.android.com/topic/performance/memory/manage-app-memory#profiling-triggers) to track out of memory errors, as well as anomalous app behavior that might be caused by memory leaks.
+- [Use Android Vitals to track low memory kill events.](https://developer.android.com/topic/performance/memory/manage-app-memory#lmk)
+- [Use `ProfilingManager`](https://developer.android.com/topic/performance/memory/manage-app-memory#profiling-triggers) to track out of memory errors as well as anomalous app behavior that might be caused by memory leaks.
 
 ### Release memory in response to events
 
 Android can reclaim memory from your app or stop your app entirely if necessary
 to free up memory for critical tasks, as explained in [Overview of memory
-management](https://developer.android.com/topic/performance/memory-overview). To further help balance the system memory and avoid the system's
-need to stop your app process, you can implement the [`ComponentCallbacks2`](https://developer.android.com/reference/android/content/ComponentCallbacks2)
-interface in your [`Activity`](https://developer.android.com/reference/android/app/Activity) classes. The provided [`onTrimMemory()`](https://developer.android.com/reference/android/content/ComponentCallbacks2#onTrimMemory(int))
+management](https://developer.android.com/topic/performance/memory-overview). To further balance system memory and avoid the system's
+need to stop your app process, you can implement the [`ComponentCallbacks2`](https://developer.android.com/reference/kotlin/android/content/ComponentCallbacks2)
+interface in your [`Activity`](https://developer.android.com/reference/kotlin/android/app/Activity) classes. The provided [`onTrimMemory`](https://developer.android.com/reference/kotlin/android/content/ComponentCallbacks2#ontrimmemory)
 callback method notifies your app of lifecycle or memory-related events that
 present a good opportunity for your app to voluntarily reduce its memory usage.
 Freeing memory may reduce the frequency of your app being killed by the
 [low-memory killer](https://developer.android.com/topic/performance/memory-management#low-memory_killer).
 
-Your implementation of `onTrimMemory()` should focus exclusively on the
+In your implementation of `onTrimMemory`, focus exclusively on the
 `TRIM_MEMORY_UI_HIDDEN` and `TRIM_MEMORY_BACKGROUND` events. (Beginning with
 Android 14, the system no longer delivers notifications for the other, legacy
 constants. Those constants were formally deprecated in Android 15.)
@@ -185,10 +186,8 @@ constants. Those constants were formally deprecated in Android 15.)
   should aggressively release any resources that can be easily reconstructed
   once the user resumes their session.
 
-This code sample shows how to implement the `onTrimMemory()` callback to respond
-to different memory-related events:
-
-### Kotlin
+This code sample shows how to implement the `onTrimMemory` callback in a
+composable to respond to different memory-related events:
 
     import android.content.ComponentCallbacks2
     // Other import statements.
@@ -198,48 +197,37 @@ to different memory-related events:
         // Other activity code.
 
         /**
-         * Release memory when the UI becomes hidden or when system resources become low.
-         * @param level the memory-related event that is raised.
-         */
+        * Release memory when the UI becomes hidden or when system resources become low.
+        * @param level the memory-related event that is raised.
+        */
         override fun onTrimMemory(level: Int) {
 
+            // The app's UI is no longer visible to the user.
             if (level >= ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN) {
-                // Release memory related to UI elements, such as bitmap caches.
+                // Release memory related to UI elements.
+                // Example: Clear image loading libraries' memory caches,
+                // release video player buffers, or drop large custom view bitmaps.
             }
 
+            // The app is in the background and the system is running low on memory.
             if (level >= ComponentCallbacks2.TRIM_MEMORY_BACKGROUND) {
                 // Release memory related to background processing, such as by
-                // closing a database connection.
+                // closing a database connection or dropping network caches.
             }
         }
     }
 
-### Java
+The `TRIM_MEMORY_UI_HIDDEN` event indicates that your app's UI is no longer
+visible to the user. Because the UI is hidden, you can free up large UI-bound
+resources that can be easily reconstructed when the user navigates back to your
+app. Keeping this logic in your `Activity` or `Fragment` (rather than your
+`ViewModel`) ensures you don't accidentally leak your `Context`.
 
-    import android.content.ComponentCallbacks2;
-    // Other import statements.
+When this occurs, focus on releasing heavy visual elements:
 
-    public class MainActivity extends AppCompatActivity
-        implements ComponentCallbacks2 {
-
-        // Other activity code.
-
-        /**
-         * Release memory when the UI becomes hidden or when system resources become low.
-         * @param level the memory-related event that is raised.
-         */
-        public void onTrimMemory(int level) {
-
-            if (level >= ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN) {
-                // Release memory related to UI elements, such as bitmap caches.
-            }
-
-            if (level >= ComponentCallbacks2.TRIM_MEMORY_BACKGROUND) {
-                // Release memory related to background processing, such as by
-                // closing a database connection.
-            }
-        }
-    }
+- Bitmap caches: Images consume large amounts of memory. If you are using a third-party image loading library (like Coil, Glide, or Picasso), invoke its specific `clearMemory` functions.
+- Media buffers: If your UI includes video or audio playback (such as ExoPlayer), release the player or clear its media buffers.
+- Custom view caches: If you have highly customized UI components that pre-render or cache `Bitmap` or `Canvas` objects for complex animations, nullify those caches.
 
 ### Check how much memory you need
 
@@ -250,19 +238,17 @@ capacity and tries to allocate more memory, the system throws an
 [`OutOfMemoryError`](https://developer.android.com/reference/java/lang/OutOfMemoryError).
 
 To avoid running out of memory, you can query the system to determine how much
-heap space is available on the current device. You can query the system for this
-figure by calling [`getMemoryInfo()`](https://developer.android.com/reference/android/app/ActivityManager#getMemoryInfo(android.app.ActivityManager.MemoryInfo)). This returns an
-[`ActivityManager.MemoryInfo`](https://developer.android.com/reference/android/app/ActivityManager.MemoryInfo) object that provides information about the
+heap space is available on the current device by calling
+[`getMemoryInfo`](https://developer.android.com/reference/kotlin/android/app/ActivityManager#getmemoryinfo). This returns an
+[`ActivityManager.MemoryInfo`](https://developer.android.com/reference/kotlin/android/app/ActivityManager.MemoryInfo) object that provides information about the
 device's current memory status, including available memory, total memory, and
 the memory threshold---the memory level at which the system begins to stop
 processes. The `ActivityManager.MemoryInfo` object also exposes
-[`lowMemory`](https://developer.android.com/reference/android/app/ActivityManager.MemoryInfo#lowMemory), which is a simple boolean that tells you whether the device
+[`lowMemory`](https://developer.android.com/reference/kotlin/android/app/ActivityManager.MemoryInfo#lowmemory), which is a boolean that tells you whether the device
 is running low on memory.
 
-The following example code snippet shows how to use the `getMemoryInfo()` method
+The following code snippet shows how to use the `getMemoryInfo` method
 in your app.
-
-### Kotlin
 
     fun doSomethingMemoryIntensive() {
 
@@ -281,27 +267,6 @@ in your app.
         }
     }
 
-### Java
-
-    public void doSomethingMemoryIntensive() {
-
-        // Before doing something that requires a lot of memory,
-        // check whether the device is in a low memory state.
-        ActivityManager.MemoryInfo memoryInfo = getAvailableMemory();
-
-        if (!memoryInfo.lowMemory) {
-            // Do memory intensive work.
-        }
-    }
-
-    // Get a MemoryInfo object for the device's current memory status.
-    private ActivityManager.MemoryInfo getAvailableMemory() {
-        ActivityManager activityManager = (ActivityManager) this.getSystemService(ACTIVITY_SERVICE);
-        ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-        activityManager.getMemoryInfo(memoryInfo);
-        return memoryInfo;
-    }
-
 ### Monitor low memory kills
 
 User-visible low memory kills (LMKs) occur when system memory gets critically
@@ -317,28 +282,26 @@ crashed, often bypassing standard lifecycle state-saving mechanisms and
 resulting in lost user progress.
 
 Kills of foreground processes are a primary focus in Android Vitals because they
-serve as a high-fidelity proxy for memory mismanagement. While any LMK rate
+serve as a high-fidelity proxy for memory mismanagement. While an LMK rate
 higher than 1% indicates a critical need for immediate action, a low rate is not
 necessarily an indicator of health. A low user-perceived LMK rate might mean
 that the LMK daemon is frequently killing processes while they are in the
 background, which degrades "warm start" performance and multitasking fluidity.
 Therefore, we recommend adhering to memory best practices regardless of your
-current LMK score, to ensure long-term stability and device health.
+current LMK score to ensure long-term stability and device health.
 
 ### Use `ProfilingManager` to track memory issues
 
-[The Android platform provides
-`ProfilingManager`](https://developer.android.com/topic/performance/tracing/profiling-manager/overview), an
+The Android platform provides [`ProfilingManager`](https://developer.android.com/topic/performance/tracing/profiling-manager/overview), an
 advanced observability API that lets you capture user data in production based
 on triggers you set. Doing this can help you identify hard-to-reproduce memory
 issues.
 
-Two new triggers [introduced with Android
-17](https://developer.android.com/about/versions/17/features#profilingmanager-new-triggers) are especially
+Two triggers [introduced with Android 17](https://developer.android.com/about/versions/17/features#profilingmanager-new-triggers) are especially
 useful for spotting memory problems:
 
-- [`TRIGGER_TYPE_OOM`](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_OOM) indicates that the app has thrown an `OutOfMemoryError`. It triggers the next time the app starts *after* the crash, when the app registers for profiling triggers.
-- [`TRIGGER_TYPE_ANOMALY`](https://developer.android.com/reference/android/os/ProfilingTrigger#TRIGGER_TYPE_ANOMALY) triggers when the system detects anomalous behavior from the app. Among other things, this can be triggered by excessive memory usage. It triggers after the app has exhibited excessive memory usage, and *before* the system takes any action to stop the offending process. For example, if the app exceeds the [memory limits introduced in Android
+- [`TRIGGER_TYPE_OOM`](https://developer.android.com/reference/kotlin/android/os/ProfilingTrigger#trigger_type_oom) indicates that the app has thrown an `OutOfMemoryError`. It triggers the next time the app starts *after* the crash, when the app registers for profiling triggers.
+- [`TRIGGER_TYPE_ANOMALY`](https://developer.android.com/reference/kotlin/android/os/ProfilingTrigger#trigger_type_anomaly) triggers when the system detects anomalous behavior from the app. Among other things, this can be triggered by excessive memory usage. It triggers after the app has exhibited excessive memory usage and *before* the system takes any action to stop the offending process. For example, if the app exceeds the [memory limits introduced in Android
   17](https://developer.android.com/about/versions/17/behavior-changes-all#app-memory-limits), `TRIGGER_TYPE_ANOMALY` triggers before the system kills the app.
 
 For more information on using `ProfilingManager` to programmatically register
@@ -362,31 +325,31 @@ understanding how the operating system classifies your app's current
 state (for example, whether your app is foregrounded, user-perceived, or cached)
 and whether it is at risk of being killed by the low-memory killer.
 
-#### With a python dashboard for continuous monitoring
+#### With a Python dashboard for continuous monitoring
 
-Use the [Android Memory Monitor](https://github.com/android/platform-samples/tree/main/utilities) python script while running your app for a
+Use the [Android Memory Monitor](https://github.com/android/platform-samples/tree/main/utilities) Python script while running your app for a
 continuous monitoring view of your app's processes and memory footprint. This is
 a command-line tool that uses `adb` commands to display terminal and web
 dashboards to help you understand the state and memory usage of your app's
 processes. To launch the dashboards, run the script with your app's package
-name, for example:
+name:
 
     python3 android_mem_monitor.py your.package.name
 
-For detailed instructions on dashboard features and usage, please refer to the
+For detailed instructions on dashboard features and usage, see the
 README file or the script's inline comments.
 
 #### At runtime with `ActivityManager`
 
 To retrieve information about your running processes at runtime, you can query
-[`ActivityManager.getRunningAppProcesses()`](https://developer.android.com/reference/android/app/ActivityManager#getRunningAppProcesses()). This returns a list of objects
+[`ActivityManager.getRunningAppProcesses`](https://developer.android.com/reference/kotlin/android/app/ActivityManager#getRunningAppProcesses()). This returns a list of objects
 containing basic information about each of your app processes. The
-[`importance`](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo#importance) field indicates the relative importance that the system
+[`importance`](https://developer.android.com/reference/kotlin/android/app/ActivityManager.RunningAppProcessInfo#importance) field indicates the relative importance that the system
 places on the process, and maps to constants such as:
 
-- [`IMPORTANCE_FOREGROUND`](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo#IMPORTANCE_FOREGROUND): The process is actively running the foreground UI.
-- [`IMPORTANCE_FOREGROUND_SERVICE`](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo#IMPORTANCE_FOREGROUND_SERVICE): The process is running a foreground service (like active background music or large downloads), which is an example of a user-perceived service.
-- [`IMPORTANCE_CACHED`](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo#IMPORTANCE_CACHED): This process contains cached code. The process is frozen and its unused memory is reclaimed by Android. In this state, the OS [`MemoryLimiter`](https://source.android.com/docs/core/perf/memory-limiter) won't terminate the app for exceeding its app-specific memory threshold. However, if the overall system runs low on memory, the app is a prime candidate for the low-memory killer.
+- [`IMPORTANCE_FOREGROUND`](https://developer.android.com/reference/kotlin/android/app/ActivityManager.RunningAppProcessInfo#IMPORTANCE_FOREGROUND): The process is actively running the foreground UI.
+- [`IMPORTANCE_FOREGROUND_SERVICE`](https://developer.android.com/reference/kotlin/android/app/ActivityManager.RunningAppProcessInfo#IMPORTANCE_FOREGROUND_SERVICE): The process is running a foreground service (like active background music or large downloads), which is an example of a user-perceived service.
+- [`IMPORTANCE_CACHED`](https://developer.android.com/reference/kotlin/android/app/ActivityManager.RunningAppProcessInfo#IMPORTANCE_CACHED): This process contains cached code. The process is frozen and its unused memory is reclaimed by Android. In this state, the OS [`MemoryLimiter`](https://source.android.com/docs/core/perf/memory-limiter) won't terminate the app for exceeding its app-specific memory threshold. However, if the overall system runs low on memory, the app is a prime candidate for the low-memory killer.
 
 > [!NOTE]
 > **Note:** Querying the `ActivityManager` requires inter-process communication with the system server, which can be slow and create garbage collection overhead. If you need to monitor memory metrics at a higher frequency (such as in a background telemetry thread), you can read directly from the Linux process file system instead with [`FileReader`](https://developer.android.com/reference/java/io/FileReader). For example, reading `/proc/<pid>/status` provides detailed breakdowns of Anonymous RSS and Swap memory, and reading `/proc/<pid>/oom_score_adj` reveals the process's current LMK priority score. We still recommend that you poll these metrics sparingly or only when needed to prevent overloading the device, such as when starting or stopping background work like a Foreground Service or `WorkManager`, or when the `onTrimMemory` callback is triggered.
@@ -425,7 +388,7 @@ efficient alternatives in your code.
 
 ### Use services sparingly
 
-We strongly recommend you don't leave services running when it's unnecessary.
+We strongly recommend you don't leave services running unnecessarily.
 Leaving unnecessary services running is one of the worst memory-management
 mistakes an Android app can make. If your app needs a
 [service](https://developer.android.com/guide/components/services) to work in the background, don't
@@ -433,7 +396,7 @@ leave it running unless it needs to run a job. Stop your service when it
 completes its task. Otherwise, you might cause a memory leak.
 
 When you start a service, the system prefers to keep the process for that
-service running. This behavior makes service processes very expensive because
+service running. This behavior makes service processes very expensive, because
 the RAM used by a service remains unavailable for other processes. This reduces
 the number of cached processes that the system can keep in the LRU cache, making
 app switching less efficient. It can even lead to thrashing in the system when
@@ -442,21 +405,21 @@ services currently running.
 
 Generally, avoid using persistent services because of the ongoing demands they
 place on available memory. Instead, we recommend you use an alternative
-implementation, such as [`WorkManager`](https://developer.android.com/reference/androidx/work/WorkManager).
+implementation, such as [`WorkManager`](https://developer.android.com/reference/kotlin/androidx/work/WorkManager).
 For more information about how to use `WorkManager` to schedule background
-processes, see [Persistent work](https://developer.android.com/guide/background/persistent).
+processes, see [Task scheduling](https://developer.android.com/guide/background/persistent).
 
 ### Use optimized data containers
 
 Some of the classes provided by the programming language aren't optimized for
 use on mobile devices. For example, the generic
-[`HashMap`](https://developer.android.com/reference/java/util/HashMap) implementation can be memory
+[`HashMap`](https://developer.android.com/reference/kotlin/java/util/HashMap) implementation can be memory
 inefficient because it needs a separate entry object for every mapping.
 
 The Android framework includes several optimized data containers, including
-[`SparseArray`](https://developer.android.com/reference/android/util/SparseArray),
-[`SparseBooleanArray`](https://developer.android.com/reference/android/util/SparseBooleanArray), and
-[`LongSparseArray`](https://developer.android.com/reference/androidx/collection/LongSparseArray). For
+[`SparseArray`](https://developer.android.com/reference/kotlin/android/util/SparseArray),
+[`SparseBooleanArray`](https://developer.android.com/reference/kotlin/android/util/SparseBooleanArray), and
+[`LongSparseArray`](https://developer.android.com/reference/kotlin/androidx/collection/LongSparseArray). For
 example, the `SparseArray` classes are more efficient because they avoid the
 system's need to autobox the key and sometimes the value, which creates yet
 another object or two per entry.
@@ -477,11 +440,11 @@ significantly beneficial, avoid them.
 [Protocol buffers
 (protobufs)](https://developers.google.com/protocol-buffers/docs/overview) are a
 language-neutral, platform-neutral, extensible mechanism designed by Google for
-serializing structured data---similar to XML, but smaller, faster, and simpler. If
-you use protobufs for your data, always use lite protobufs in your client-side
-code. Regular protobufs generate extremely verbose code, which increases your
-app's code footprint in RAM (see [Reduce your app's code and resource
-footprint](https://developer.android.com/topic/performance/memory/manage-app-memory#reduce-footprint)) and contributes to APK size increase.
+serializing structured data---similar to XML or JSON, but smaller, faster, and
+simpler. If you use protobufs for your data, always use lite protobufs in your
+client-side code. Regular protobufs generate extremely verbose code, which
+increases your app's code footprint in RAM (see [Reduce your app's code and
+resource footprint](https://developer.android.com/topic/performance/memory/manage-app-memory#reduce-footprint)) and contributes to APK size increase.
 
 For more information, see the [protobuf
 readme](https://android.googlesource.com/platform/external/protobuf/+/master/java/README.md#installation-lite-version-with-maven).
@@ -506,15 +469,14 @@ occur. In practice, memory churn describes the number of allocated temporary
 objects that occur in a given amount of time.
 
 For example, you might allocate multiple temporary objects within a `for` loop.
-Or, you might create new [`Paint`](https://developer.android.com/reference/android/graphics/Paint) or
-[`Bitmap`](https://developer.android.com/reference/android/graphics/Bitmap) objects inside the
-[`onDraw()`](https://developer.android.com/reference/android/view/View#onDraw(android.graphics.Canvas))
-function of a view. In both cases, the app creates a lot of objects quickly at
-high volume. These can quickly consume all the available memory in the young
+Or, you might instantiate [`Brush`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush), [`Path`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Path), or data formatting
+objects during a composable's recomposition or inside a [`DrawScope`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/drawscope/DrawScope) call
+(such as [`Canvas`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Canvas.composable)). In both cases, the app creates a lot of objects
+quickly. These can quickly consume all the available memory in the young
 generation, forcing a garbage collection event to occur.
 
-Use the [Memory Profiler](https://developer.android.com/studio/profile/memory-profiler) to find the
-places in your code where the memory churn is high before you can fix them.
+Use the [memory profiler](https://developer.android.com/studio/profile/memory-profiler) to find the
+places in your code where the memory churn is high so you can fix them.
 
 After you identify the problem areas in your code, try to reduce the number of
 allocations within performance-critical areas. Consider moving things out of
@@ -527,13 +489,13 @@ pool, instead of dropping an object instance on the floor, you release it into a
 pool after it's no longer needed. The next time an object instance of that type
 is needed, you can acquire it from the pool rather than allocating it.
 
-Thoroughly evaluate performance to determine if an object pool is suitable in a
-given situation. There are cases in which object pools might make performance
-worse. Even though pools avoid allocations, they introduce other overheads. For
-example, maintaining the pool usually involves synchronization, which has
-non-negligible overhead. Also, clearing the pooled object instance to avoid
-memory leaks during release and then its initialization during acquisition can
-have non-zero overhead.
+Thoroughly evaluate performance to determine whether an object pool is suitable
+in a given situation. There are cases in which object pools might make
+performance worse. Even though pools avoid allocations, they introduce other
+overheads. For example, maintaining the pool usually involves synchronization,
+which has non-negligible overhead. Also, clearing the pooled object instance to
+avoid memory leaks during release and then its initialization during acquisition
+can have non-zero overhead.
 
 Holding back more object instances in the pool than needed also puts a burden on
 the garbage collection. While object pools reduce the number of garbage

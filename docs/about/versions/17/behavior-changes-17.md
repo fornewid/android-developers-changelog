@@ -17,6 +17,21 @@ running on Android 17](https://developer.android.com/about/versions/17/behavior-
 > [!NOTE]
 > **Note:** This page lists some of the more important changes. For more detailed information, see the [Android 17 release notes](https://developer.android.com/about/versions/17/release-notes).
 
+## User experience and system UI
+
+Android 17 includes the following changes that are intended to create a
+more consistent, intuitive user experience.
+
+### Memory limit widget
+
+Beginning with Android 17, for apps targeting
+Android 17 (API level 37) or higher, the system enforces a strict memory
+limit (1.5 \* screen width \* screen height \* 4) against the combined memory usage
+of both Bitmaps and Icons present in the RemoteViews parcel. Exceeding these
+limits throws a fatal `IllegalArgumentException` and crashes the app's process.
+
+For more information, see [UpdateAppWidget](https://developer.android.com/reference/android/appwidget/AppWidgetManager#updateAppWidget(int%5B%5D,%20android.widget.RemoteViews)).
+
 ## Core functionality
 
 Android 17 includes the following changes that modify or

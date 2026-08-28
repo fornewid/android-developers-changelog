@@ -10,9 +10,9 @@ Android is evolving into an intelligence system, powered by AI. Integrate your a
 
 ## Find your Android AI pathway
 
-Select from Google's cutting-edge AI/ML solutions to empower and enlighten your Android app users. [![](http://developer.android.com/static/images/picto-icons/android-ktx.svg)](http://developer.android.com/ai/appfunctions)
+Select from Google's cutting-edge AI/ML solutions to empower and enlighten your Android app users. [![](http://developer.android.com/static/images/picto-icons/android-ktx.svg)](http://developer.android.com/ai/intelligence-system)
 
-### [Prepare and connect your app to the intelligence system](http://developer.android.com/ai/appfunctions)
+### [Prepare and connect your app to the intelligence system](http://developer.android.com/ai/intelligence-system)
 
 Make your app's capabilities available to qualified agents using AppFunctions or rely on UI automation on supported devices as a fall back. [![](http://developer.android.com/static/images/spot-icons/apps-games-insights.svg)](http://developer.android.com/ai/overview)
 

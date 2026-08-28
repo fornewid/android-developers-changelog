@@ -66,6 +66,12 @@ Continue reading
 
   [arrow_forward](https://developer.android.com/blog/posts/building-a-safer-android-and-google-play-together) Earlier this year, we reiterated our commitment to keeping Android and Google Play safe for everyone and maintaining a thriving environment where users can trust the apps they download and your business can flourish.
   [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe), [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino) • 3 min read
+- [![View Raghavendra Hareesh Pottamsetty's profile](https://developer.android.com/static/blog/assets/Raghavendra_Hareesh_Pottamsetty_72fdb063a0_1h0S85.webp)](https://developer.android.com/blog/authors/raghavendra-hareesh-pottamsetty) 26 Aug 2026 26 Aug 2026 ![](https://developer.android.com/static/blog/assets/Raising_the_bar_Google_Play_Strapi_2_a80695bf12_Z2jxf1k.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Elevating app quality: Reducing memory usage and improving device migration](https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration)
+
+  [arrow_forward](https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration) Maintaining a healthy Android ecosystem is a shared commitment where every app and game has a role to play.
+  [Raghavendra Hareesh Pottamsetty](https://developer.android.com/blog/authors/raghavendra-hareesh-pottamsetty) • 4 min read
 - 3 Authors 24 Aug 2026 24 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_1_Strapi_6f49d09922_ZVXnJg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [AAOS SDV - Secure by Design](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design)
@@ -74,18 +80,6 @@ Continue reading
   [Markus Vill](https://developer.android.com/blog/authors/markus-vill), [Sean Keys](https://developer.android.com/blog/authors/sean-keys), [István Nádor](https://developer.android.com/blog/authors/istvan-nador) • 5 min read
   - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
   - [#Security](https://developer.android.com/blog/topics/security)
-- [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_Z1URmUI.webp)](https://developer.android.com/blog/authors/blair-harmon) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1hkk5a.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Preparing your app for broader memory limits](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits)
-
-  [arrow_forward](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits) A great user experience is central to Android's mission, and delivering on that promise requires keeping devices fast, responsive, and reliable.
-  [Blair Harmon](https://developer.android.com/blog/authors/blair-harmon) • 2 min read
-  - [#App Memory Limits](https://developer.android.com/blog/topics/app-memory-limits)
-  - [#Android Vitals](https://developer.android.com/blog/topics/android-vitals)
-  - [#Multi-Process Architecture](https://developer.android.com/blog/topics/multi-process-architecture)
-  - [#Android 17](https://developer.android.com/blog/topics/android-17)
-  - [#Performance](https://developer.android.com/blog/topics/performance)
-  - +3 ↩
 Stay in the loop
 
 

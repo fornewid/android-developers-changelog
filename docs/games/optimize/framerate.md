@@ -76,7 +76,7 @@ through SQL queries. Follow these steps to measure your metrics:
    and the trace recording is complete, the trace data will load in the APA
    interface.
 
-   ![](https://developer.android.com/static/images/games/framerate_apa_2.png) Trace capture screen or the loaded trace screen
+   ![](https://developer.android.com/static/images/games/framerate_apa_1.png) Trace capture screen or the loaded trace screen
 2. **Click the SQL tab in APA** : Once the trace analysis screen is open, click
    the **SQL** tab in the top or side navigation area of the UI to open the
    trace processor environment, where you can query the data directly.

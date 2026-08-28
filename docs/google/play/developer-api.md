@@ -109,7 +109,7 @@ traces.
 
 ### Best practices
 
-- This version of the Reporting API has a default limit of 10 queries per second. You can view your quota usage in the [Quotas section](https://pantheon.corp.google.com/apis/api/playdeveloperreporting.googleapis.com/quotas) of the Google Cloud Console. If you need to exceed this limit, you can submit a quota request using [this form](https://support.google.com/googleplay/android-developer/contact/apiqr).
+- This version of the Reporting API has a default limit of 10 queries per second. You can view your quota usage in the [Quotas section](https://console.cloud.google.com/apis/api/playdeveloperreporting.googleapis.com/quotas) of the Google Cloud Console. If you need to exceed this limit, you can submit a quota request using [this form](https://support.google.com/googleplay/android-developer/contact/apiqr).
 
 ## Reply to Reviews API
 

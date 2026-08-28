@@ -75,6 +75,11 @@ memory.
 :   Android vitals provides metrics on
     an app's bitmap memory footprint by aggregating data from Android devices.
 
+[Android vitals: DEX code optimization](https://developer.android.com/topic/performance/vitals/code-optimization)
+:   Android vitals can alert you when your app's DEX code optimization levels are
+    low. This includes obfuscation, shrinking, and optimization for apps and
+    games that use R8.
+
 [Crashlytics 20.1.0](https://firebase.google.com/support/release-notes/android#crashlytics_v20-1-0)
 :   Surfaces production Out-Of-Memory (OOM) exceptions and
     memory limiter kills with diagnostic context to prioritize and fix field
