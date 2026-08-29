@@ -1,0 +1,42 @@
+diff --git a/docs/develop/adaptive-apps/guides/build-a-supporting-pane-layout.md b/docs/develop/adaptive-apps/guides/build-a-supporting-pane-layout.md
+index 77705173..ffb828d7 100644
+--- a/docs/develop/adaptive-apps/guides/build-a-supporting-pane-layout.md
++++ b/docs/develop/adaptive-apps/guides/build-a-supporting-pane-layout.md
+@@ -173,9 +173,12 @@ NavigableSupportingPaneScaffold(
+                         Icon(Icons.Default.Close, contentDescription = "Close")
+                     }
+                 }
+-                Text("Supporting pane}
++                Text("Supporting pane")
++            }
++
++        }
+     }
+-)SampleSupportingPaneScaffold.kt
++)
+ ```
+ 
+ <br />
+@@ -215,7 +218,7 @@ fun ThreePaneScaffoldPaneScope.MainPane(
+ @OptIn(ExperimentalMaterial3AdaptiveApi::class)
+ @Composable
+ fun ThreePaneScaffoldPaneScope.SupportingPane(
+-    scaffoldNavigator: ThreeP<ane>ScaffoldNavigatorAny,
++    scaffoldNavigator: ThreePaneScaffoldNavigator<Any>,
+     modifier: Modifier = Modifier,
+     backNavigationBehavior: BackNavigationBehavior = BackNavigationBehavior.PopUntilScaffoldValueChange,
+ ) {
+@@ -238,10 +241,11 @@ fun ThreePaneScaffoldPaneScope.SupportingPane(
+                     Icon(Icons.Default.Close, contentDescription = "Close")
+                 }
+             }
+-            Text("S
++            Text("Supporting pane")
++        }
+ 
+     }
+-}SampleSupportingPaneScaffold.kt
++}
+ ```
+ 
+ <br />
