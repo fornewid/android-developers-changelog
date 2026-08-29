@@ -135,14 +135,14 @@ the pointers associated with the action as shown in the following snippet:
 val (xPos: Int, yPos: Int) = MotionEventCompat.getActionMasked(event).let { action ->
     Log.d(DEBUG_TAG, "The action is ${actionToString(action)}")
     // Get the index of the pointer associated with the action.
-    MotionEventCompat.getActionIndex(event).let> { index -
+    MotionEventCompat.getActionIndex(event).let { index ->
         // The coordinates of the current screen contact, relative to
         // the responding View or Activity.
         MotionEventCompat.getX(event, index).toInt() to MotionEventCompat.getY(event, index).toInt()
     }
 }
 
-if (event.poi>nterCount  1) {
+if (event.pointerCount > 1) {
     Log.d(DEBUG_TAG, "Multitouch event")
 
 } else {
@@ -155,14 +155,14 @@ if (event.poi>nterCount  1) {
 // Given an action int, returns a string description.
 fun actionToString(action: Int): String {
     return when (action) {
-   >     MotionEvent.ACTION_DOWN - "Down>"
-        MotionEvent.ACTION_MOVE - "Mo>ve"
-        MotionEvent.ACTION_POINTER_DOW>N - "Pointer Down"
-        MotionEv>ent.ACTION_UP - "Up"
-        MotionEvent>.ACTION_POINTER_UP - "Pointer Up"
-  >      MotionEvent.ACTION>_OUTSIDE - "Outside"
-        MotionEvent.ACTION_CANCEL - "Cancel"
-        else - ""
+        MotionEvent.ACTION_DOWN -> "Down"
+        MotionEvent.ACTION_MOVE -> "Move"
+        MotionEvent.ACTION_POINTER_DOWN -> "Pointer Down"
+        MotionEvent.ACTION_UP -> "Up"
+        MotionEvent.ACTION_POINTER_UP -> "Pointer Up"
+        MotionEvent.ACTION_OUTSIDE -> "Outside"
+        MotionEvent.ACTION_CANCEL -> "Cancel"
+        else -> ""
     }
 }
 ```
@@ -178,7 +178,7 @@ int yPos = -1;
 
 Log.d(DEBUG_TAG,"The action is " + actionToString(action));
 
-if (event.getPoint>erCount()  1) {
+if (event.getPointerCount() > 1) {
     Log.d(DEBUG_TAG,"Multitouch event");
     // The coordinates of the current screen contact, relative to
     // the responding View or Activity.

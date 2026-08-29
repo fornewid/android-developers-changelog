@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr2/release-notes
 source: md.txt
 ---
 
+### Beta 4
+
+|---|---|
+| **Release date** | August 28, 2026 |
+| **Builds** | CP41.260814.003.A2 CP41.260814.003.B1 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-08-05 |
+| **Google Play services** | 26.28.33 |
+
 ### Beta 3
 
 |---|---|
@@ -31,7 +40,7 @@ source: md.txt
 | **Security patch level** | 2026-07-05 |
 | **Google Play services** | 26.23.34 |
 
-### Android 17 QPR 2 Beta 3 (August 2026)
+### Android 17 QPR 2 Beta 4 (August 2026)
 
 Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
 update the platform with fixes and improvements that are then rolled out to
@@ -51,12 +60,34 @@ You can the current SDK changes in the
 
 #### Hardening against call forwarding fraud
 
-Android 17 QPR2 Beta 3 introduces new security restrictions on programmatic call forwarding to protect users from fraud. The system now parses and selectively restricts call-forwarding USSD codes (such as `*21*`) executed via the [`TelephonyManager.sendUssdRequest()` API](https://developer.android.com/reference/android/telephony/TelephonyManager#sendUssdRequest(java.lang.String,%20android.telephony.TelephonyManager.UssdResponseCallback,%20android.os.Handler)).
+Android 17 QPR2 introduces new security restrictions on programmatic call
+forwarding to protect users from fraud. The system now parses and selectively
+restricts call-forwarding USSD codes (such as `*21#`) executed using the
+[`TelephonyManager.sendUssdRequest()` API](https://developer.android.com/reference/android/telephony/TelephonyManager#sendUssdRequest(java.lang.String,%20android.telephony.TelephonyManager.UssdResponseCallback,%20android.os.Handler)).
 
 - **API Restriction:** The `sendUssdRequest()` API is no longer accessible for call-forwarding codes using only the `CALL_PHONE` permission. Standard apps attempting to execute these codes in the background will be blocked and receive a `USSD_ERROR_NOT_ALLOWED` callback.
 - **System Confirmation:** To combat social engineering scams, users manually dialing call-forwarding codes in the system dialer will now see a new OS-level confirmation dialog before the command is executed.
 - **Non-Call Forwarding USSD:** Non-call forwarding enabling USSD requests (such as mobile money transfers and account checks) are unaffected by this change.
-- **Mitigation:** If your app is affected, verify that it handles the `USSD_ERROR_NOT_ALLOWED` failure callback gracefully. For apps requiring call-forwarding setup that do not qualify for an exempted role, migrate your flow to use the `ACTION_DIAL` intent to pre-fill the dialer, allowing the user to manually confirm the action.
+- **Mitigation:** If your app is affected, verify that it handles the `USSD_ERROR_NOT_ALLOWED` failure callback gracefully. For apps requiring call-forwarding setup that don't qualify for an exempted role, migrate your flow to use the `ACTION_DIAL` intent to pre-fill the dialer, allowing the user to manually confirm the action.
+
+### Top Issues fixed in Beta 4 (August 2026)
+
+- *Enabling the "render apps below the cutout area" developer setting caused a transparent status bar on the launcher after exiting fullscreen video playback. ([**Issue #295747911**](https://issuetracker.google.com/issues/295747911))*
+- *A thermal management issue that caused devices to overheat and unexpectedly reboot during use. ([**Issue #437116407**](https://issuetracker.google.com/issues/437116407))*
+- *An issue preventing screen mirroring to external USB-C XR glasses. ([**Issue #439269938**](https://issuetracker.google.com/issues/439269938))*
+- *Gesture navigation became unresponsive when rendering apps below the display cutout. ([**Issue #441378954**](https://issuetracker.google.com/issues/441378954))*
+- *The 80% battery limit optimization caused excessive charge times during the final 2% threshold. ([**Issue #477009501**](https://issuetracker.google.com/issues/477009501), [**Issue #476803337**](https://issuetracker.google.com/issues/476803337))*
+- *A launcher UI issue where searching for apps in the app drawer failed to process text input. ([**Issue #505157934**](https://issuetracker.google.com/issues/505157934), [**Issue #527921034**](https://issuetracker.google.com/issues/527921034), [**Issue #530531588**](https://issuetracker.google.com/issues/530531588), [**Issue #537704656**](https://issuetracker.google.com/issues/537704656))*
+- *Invoking the power menu via hardware buttons caused a missing background blur effect behind the navigation bar. ([**Issue #537202501**](https://issuetracker.google.com/issues/537202501))*
+- *An issue where phone call audio defaulted to the phone speaker instead of connected Bluetooth devices. ([**Issue #537908014**](https://issuetracker.google.com/issues/537908014), [**Issue #541501134**](https://issuetracker.google.com/issues/541501134), [**Issue #541772860**](https://issuetracker.google.com/issues/541772860), [**Issue #545047074**](https://issuetracker.google.com/issues/545047074))*
+- *A Recents app switcher rendering bug where the first task card could intermittently freeze and visually clip behind other apps during horizontal scrolling. ([**Issue #530484511**](https://issuetracker.google.com/issues/530484511), [**Issue #505564040**](https://issuetracker.google.com/issues/505564040), [**Issue #545574713**](https://issuetracker.google.com/issues/545574713), [**Issue #551022006**](https://issuetracker.google.com/issues/551022006))*
+- *An audio service resource lock triggered during screen recording that prevented microphone usage across apps and input methods like Gboard and Gemini until a device restart. ([**Issue #538229807**](https://issuetracker.google.com/issues/538229807))*
+- *A System UI visual inconsistency where turning off the screen from the home screen triggered a plain fade instead of the power-button screen-off animation. ([**Issue #541261786**](https://issuetracker.google.com/issues/541261786))*
+- *A low-contrast rendering issue in dark mode where the connected Wi-Fi settings cog icon was barely visible. ([**Issue #536320341**](https://issuetracker.google.com/issues/536320341))*
+- *Enabling 3D mode on connected smart glasses resulted in a blank screen. ([**Issue #536628506**](https://issuetracker.google.com/issues/536628506))*
+- *A User Interface issue that prevented the notification bar from being pulled all the way down. ([**Issue #539244095**](https://issuetracker.google.com/issues/539244095), [**Issue #547801203**](https://issuetracker.google.com/issues/547801203), [**Issue #547017781**](https://issuetracker.google.com/issues/547017781), [**Issue #546896889**](https://issuetracker.google.com/issues/546896889), [**Issue #547163658**](https://issuetracker.google.com/issues/547163658), [**Issue #547281675**](https://issuetracker.google.com/issues/547281675))*
+- *An issue where WebGL applications could freeze or crash the browser process when combining shadow maps with vertex color attributes by resolving an invalid memory read in the PowerVR GPU driver's texture state processing. ([**Issue #541322087**](https://issuetracker.google.com/issues/541322087))*
+- *Low-light Face Unlock failures bypassed Fingerprint Unlock and forced PIN entry. ([**Issue #547597971**](https://issuetracker.google.com/issues/547597971), [**Issue #545329611**](https://issuetracker.google.com/issues/545329611), [**Issue #541723970**](https://issuetracker.google.com/issues/541723970))*
 
 ### Top Issues fixed in Beta 3 (August 2026)
 

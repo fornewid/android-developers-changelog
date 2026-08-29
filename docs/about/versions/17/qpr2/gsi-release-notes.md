@@ -73,8 +73,8 @@ Connect your device over USB, then, depending on the type of system image you
 want to flash, navigate to Android Flash Tool using one of the following links
 and follow the onscreen guidance:
 
-- **ARM64 GSI with GMS** : [https://flash.android.com/preview/cinnamonbun-qpr1-beta9-gsi-gms](https://flash.android.com/preview/cinnamonbun-qpr2-beta3-gsi-gms)
-- **ARM64 GSI** : [https://flash.android.com/preview/cinnamonbun-qpr1-beta9-gsi](https://flash.android.com/preview/cinnamonbun-qpr2-beta3-gsi)
+- **ARM64 GSI with GMS** : [https://flash.android.com/preview/cinnamonbun-qpr1-beta9-gsi-gms](https://flash.android.com/preview/cinnamonbun-qpr2-beta4-gsi-gms)
+- **ARM64 GSI** : [https://flash.android.com/preview/cinnamonbun-qpr1-beta9-gsi](https://flash.android.com/preview/cinnamonbun-qpr2-beta4-gsi)
 
 ## Known issues
 
@@ -87,17 +87,17 @@ occur with some devices and builds:
 
 ## Downloads
 
-    Date: August 14, 2026
-    Build: CP41.260731.005.B1
+    Date: August 28, 2026
+    Build: CP41.260814.003.B1
     Security patch level: August 2026
-    Google Play Services: 26.26.34
+    Google Play Services: 26.28.33
 
 | Type | Download Link and SHA-256 Checksum |
 |---|---|
-| ARM64+GMS | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="arm64-gms" data-modal-dialog-id="a17_qpr2_gms_arm64_GSI_zip">gsi_gms_arm64-exp-CP41.260731.005.B1-16056512-79c4af7e.zip</button> `79c4af7ed1716dca17ccda5da9927d879be7af18cecbb8ad105776585d3c19f6` |
-| ARM64 | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="arm64" data-modal-dialog-id="a17_qpr2_aosp_arm64_GSI_zip">aosp_arm64-exp-CP41.260731.005.B1-16056512-e48cd0c7.zip</button> `e48cd0c75ae7d0fb9003c084865a8d65216098068e7ddb89a1af4b2d39800e0d` |
-| x86_64+GMS | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="x86_64-gms" data-modal-dialog-id="a17_qpr2_gms_x86_64_GSI_zip">gsi_gms_x86_64-exp-CP41.260731.005.B1-16056512-25924932.zip</button> `25924932699ff8f189c0eaa661dda6abf3d3e5178561e7ca3ba1b20f3b753a32` |
-| x86_64 | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="x86_64" data-modal-dialog-id="a17_qpr2_aosp_x86_64_GSI_zip">aosp_x86_64-exp-CP41.260731.005.B1-16056512-0c37f98d.zip</button> `0c37f98dfd527202a3c61cc069d4efcdbc37ff8b88eb53e0047fb4ac8f552465` |
+| ARM64+GMS | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="arm64-gms" data-modal-dialog-id="a17_qpr2_gms_arm64_GSI_zip">gsi_gms_arm64-exp-CP41.260814.003.B1-16166531-0f7b5a10.zip</button> `0f7b5a100ec66b9a3e1dd5c3e44dd6132de20b7552430571f70481f72f332f41` |
+| ARM64 | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="arm64" data-modal-dialog-id="a17_qpr2_aosp_arm64_GSI_zip">aosp_arm64-exp-CP41.260814.003.B1-16166531-e6cb3bc5.zip</button> `e6cb3bc521fb4a8b4c8e62f8557c6ae0ff10662a6838cfb346a32ec9c9134e22` |
+| x86_64+GMS | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="x86_64-gms" data-modal-dialog-id="a17_qpr2_gms_x86_64_GSI_zip">gsi_gms_x86_64-exp-CP41.260814.003.B1-16166531-f6802d86.zip</button> `f6802d86ce8839223596ab3c6e03c0cc78424d5cf300f0b35972c17ae1acf08e` |
+| x86_64 | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="gsi-release" data-action="download" data-label="x86_64" data-modal-dialog-id="a17_qpr2_aosp_x86_64_GSI_zip">aosp_x86_64-exp-CP41.260814.003.B1-16166531-0ab1ff08.zip</button> `0ab1ff089f06a9ea051689c34922380a655fedde8d1364eacf0cdbe1870e7bd6` |
 
 
 ### Download Android 17 GSI Release
@@ -233,146 +233,9 @@ This is the Early Access Google Mobile Services and Android 17 GSI License Agree
 
 10.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.  
 
-I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/gsi_gms_arm64-exp-CP41.260731.005.B1-16056512-79c4af7e.zip)
+I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/gsi_gms_arm64-exp-CP41.260814.003.B1-16166531-0f7b5a10.zip)
 
-*gsi_gms_arm64-exp-CP41.260731.005.B1-16056512-79c4af7e.zip*
-
-### Download Android 17 GSI Release
-
-Before downloading, you must agree to the following terms and conditions.
-
-## Terms and Conditions
-
-This is the Early Access Google Mobile Services and Android 17 GSI License Agreement ("License Agreement"). Google Mobile Services and Android 17 GSI (each defined below) are licensed to you subject to the terms of the License Agreement. The License Agreement forms a legally binding contract between you and Google in relation to your use of Google Mobile Services and Android 17 GSI.  
-
-### 1. Definitions
-
-1.1 "Android" means the Android software stack for devices, as made available under the Android Open Source Project, which is located at the following URL: https://source.android.com/, as updated from time to time.  
-
-1.2 "Android 17 GSI" means Google's generic system image of Android 17 code, excluding third party extensions.  
-
-1.3 "Google" means Google LLC, a Delaware corporation with principal place of business at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.  
-
-1.4 "Google Mobile Services" means a machine-readable binary code version of the following Google applications: Search, Chrome, Gmail, Maps, YouTube, and Play, and certain other associated applications, in each case, as provided under this License Agreement. Google Mobile Services are collectively referred to in the License Agreement as "GMS" or each individually as a "GMS Application".  
-
-1.5 "GMS+GSI" refers to GMS and Android 17 GSI, collectively.  
-
-### 2. Accepting this License Agreement
-
-2.1 In order to use GMS+GSI, you must first agree to the License Agreement. You may not use GMS+GSI if you do not accept the License Agreement.  
-
-2.2 By clicking to accept, you hereby agree to the terms of the License Agreement.  
-
-2.3 You may not use GMS+GSI and may not accept the License Agreement if you are a person barred from receiving GMS+GSI under the laws of the United States or other countries, including the country in which you are resident or from which you use GMS+GSI.  
-
-2.4 If you are agreeing to be bound by the License Agreement on behalf of your employer or other entity, you represent and warrant that you have full legal authority to bind your employer or such entity to the License Agreement. If you do not have the requisite authority, you may not accept the License Agreement or use GMS+GSI on behalf of your employer or other entity.  
-
-### 3. GMS+GSI License from Google
-
-3.1 Subject to the terms of the License Agreement, Google grants you a limited, worldwide, royalty-free, non-assignable, non-exclusive, and non-sublicensable license to use GMS+GSI solely for testing applications for compatibility with Android 17.  
-
-3.2 You agree that Google or third parties own all legal right, title and interest in and to GMS+GSI, including any Intellectual Property Rights that subsist in GMS+GSI. "Intellectual Property Rights" means any and all rights under patent law, copyright law, trade secret law, trademark law, and any and all other proprietary rights. Google reserves all rights not expressly granted to you.  
-
-3.3 You may not use GMS+GSI for any purpose not expressly permitted by the License Agreement.  
-
-3.4 Use, reproduction and distribution of components of GMS+GSI licensed under an open source software license are governed solely by the terms of that open source software license and not the License Agreement.  
-
-3.5 You agree that the form and nature of GMS+GSI that Google provides may change without prior notice to you and that future versions of GMS+GSI may be incompatible with applications developed on previous versions of GMS+GSI. You agree that Google may stop (permanently or temporarily) providing GMS+GSI (or any features within GMS+GSI) to you or to users generally at Google's sole discretion, without prior notice to you.  
-
-3.6 Nothing in the License Agreement gives you a right to use any of Google's trade names, trademarks, service marks, logos, domain names, or other distinctive brand features.  
-
-3.7 You agree that you will not remove, obscure, or alter any proprietary rights notices (including copyright and trademark notices) that may be affixed to or contained within GMS+GSI.  
-
-3.8 You agree that you will not, and will not encourage or allow any third party to do any of the following:  
-(a) distribute GMS;  
-(b) copy (except for backup purposes), modify or adapt any part of GMS+GSI;  
-(c) disassemble, de-compile, or otherwise reverse engineer GMS+GSI, or any part of GMS+GSI, or obtain the source code or algorithms underlying GMS+GSI;  
-(d) create derivative works from or based on GMS+GSI;  
-(e) provide, sell, license, sublicense, lease, lend, or disclose GMS+GSI, or any part of GMS+GSI, to any third party,; or  
-(f) ship, divert, transship, transfer, export, or re-export GMS+GSI, or any component thereof, into any country or use it in any manner prohibited by any applicable export control laws, restrictions, or regulations.  
-
-### 4. Use of GMS+GSI by You
-
-4.1 Google agrees that it obtains no right, title or interest from you (or your licensors) under the License Agreement in or to any software applications that you may develop using GMS+GSI, including any intellectual property rights that subsist in those applications.  
-
-4.2 You agree to ensure that any applications you develop using GMS+GSI are compliant with applicable laws, regulations and generally accepted practices or guidelines in the relevant jurisdictions (including any laws regarding the export of data or software to and from the United States or other relevant countries).  
-
-4.3 You agree that if you use GMS+GSI to develop applications for general public users, you will protect the privacy and legal rights of those users. If the users provide you with user names, passwords, or other login information or personal information, you must make the users aware that the information will be available to your application, and you must provide legally adequate privacy notice and protection for those users. If your application stores personal or sensitive information provided by users, it must do so securely. If the user provides your application with Google Account information, your application may only use that information to access the user's Google Account when, and for the limited purposes for which, the user has given you permission to do so.  
-
-4.4 You agree that you will not engage in any activity with GMS+GSI, including the development or distribution of an application, that interferes with, disrupts, damages, or accesses in an unauthorized manner the servers, networks, or other properties or services of any third party including, but not limited to, Google or any mobile communications carrier.  
-
-4.5 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any data, content, or resources that you create, transmit or display through Android and/or applications for Android, and for the consequences of your actions (including any loss or damage which Google may suffer) by doing so.  
-
-4.6 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any breach of your obligations under the License Agreement, any applicable third party contract or Terms of Service, or any applicable law or regulation, and for the consequences (including any loss or damage which Google or any third party may suffer) of any such breach.  
-
-4.7 You agree that you will not use GMS+GSI to develop applications that will do any of the following prohibited activities:  
-(a) intentionally create, facilitate the creation of, or exploit any security vulnerabilities in an end user's device;  
-(b) interfere with an end user's expected operation and use of that end user's device;  
-(c) engage in an activity that violates any applicable law or regulation;  
-(d) contain any viruses, worms, trojan horses, date bombs, time bombs or the like;  
-(e) serve or otherwise place any advertisements during the launch process of Android or a GMS Application;  
-(f) offer, download, or install any additional products during the launch process of Android or a GMS Application;  
-(g) interfere with or limit the display or acceptance of the applicable Google Terms of Service for a GMS Application;  
-(h) redirect an end user away from, block access to, frame, modify, or change the look or feel of any web page or web site accessed via a GMS Application, or place anything on or near any website page that in any way implies that Google is responsible for the contents of such page;  
-(i) cause any GMS Application to cease operating, or to damage, interrupt, allow access to, or interfere with any GMS Application or end user data;  
-(j) modify, or interfere with the operation of, Android or GMS; or  
-(k) interfere with Google's over-the-air updates of GMS Applications.  
-
-### 5. Terminating this License Agreement
-
-5.1 The License Agreement will continue to apply until terminated by either you or Google as set out below.  
-
-5.2 If you want to terminate the License Agreement, you may do so by ceasing your use of GMS+GSI.  
-
-5.3 Google may at any time, terminate the License Agreement with you if:  
-(A) you have breached any provision of the License Agreement; or  
-(B) Google is required to do so by law; or  
-(C) Google decides to no longer provide GMS+GSI in its sole discretion.  
-
-5.4 When the License Agreement comes to an end:  
-(A) all rights and licenses granted to you under this License Agreement will immediately cease;  
-(B) you will destroy all copies of GMS+GSI in your possession, including from all hard disks and memory;  
-(C) neither you nor Google will be liable to the other for any damages resulting solely from termination of this License Agreement; and  
-(D) any provisions of this License Agreement that under their terms or by implication ought to survive, will survive any termination of this License Agreement. This specifically includes, without limitation, Sections 2.3, 2.4, 3.3, 3.7, 3.8, 4, 5, 6, 7, 8 and 10.  
-
-### 6. DISCLAIMER OF WARRANTIES
-
-6.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT YOUR USE OF GMS+GSI IS AT YOUR SOLE RISK AND THAT GMS+GSI IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND FROM GOOGLE.  
-6.2 YOUR USE OF GMS+GSI AND ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF GMS+GSI IS AT YOUR OWN DISCRETION AND RISK AND YOU ARE SOLELY RESPONSIBLE FOR ANY ERRORS, DEFECTS, DESTRUCTION, DAMAGE OR LOSS RESULTING FROM SUCH USE, INCLUDING DAMAGE TO YOUR COMPUTER SYSTEM OR OTHER DEVICE, LOSS OF DATA, VOIDING OF THE MANUFACTURER WARRANTY OR INCREASED VULNERABILITY OF YOUR DEVICE OR COMPUTER SYSTEM.  
-
-6.3 GOOGLE FURTHER EXPRESSLY DISCLAIMS ALL WARRANTIES AND CONDITIONS OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO THE IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.  
-
-### 7. LIMITATION OF LIABILITY
-
-7.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT GOOGLE, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS SHALL NOT BE LIABLE TO YOU UNDER ANY THEORY OF LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES THAT MAY BE INCURRED BY YOU, INCLUDING ANY LOSS OF DATA, WHETHER OR NOT GOOGLE OR ITS REPRESENTATIVES HAVE BEEN ADVISED OF OR SHOULD HAVE BEEN AWARE OF THE POSSIBILITY OF ANY SUCH LOSSES ARISING.  
-
-### 8. Indemnification
-
-8.1 To the maximum extent permitted by law, you agree to defend, indemnify and hold harmless Google, its affiliates and their respective directors, officers, employees and agents from and against any and all claims, actions, suits or proceedings, as well as any and all losses, liabilities, damages, costs and expenses (including reasonable attorneys fees) arising out of or accruing from (a) your use of GMS+GSI, or (b) any non-compliance by you with the License Agreement.  
-
-### 9. Changes to the License Agreement
-
-9.1 Google may make changes to the License Agreement as it distributes new versions of GMS+GSI. When these changes are made, Google will make a new version of the License Agreement available on the website where GMS+GSI is made available.  
-
-### 10. General Legal Terms
-
-10.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of GMS+GSI (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to GMS+GSI.  
-
-10.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google.  
-
-10.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable.  
-
-10.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement.  
-
-10.5 EXPORT RESTRICTIONS. GMS+GSI IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO GMS+GSI. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE.  
-
-10.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google shall be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party.  
-
-10.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.  
-
-I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/gsi_gms_x86_64-exp-CP41.260731.005.B1-16056512-25924932.zip)
-
-*gsi_gms_x86_64-exp-CP41.260731.005.B1-16056512-25924932.zip*
+*gsi_gms_arm64-exp-CP41.260814.003.B1-16166531-0f7b5a10.zip*
 
 ### Download Android 17 GSI Release
 
@@ -507,9 +370,9 @@ This is the Early Access Google Mobile Services and Android 17 GSI License Agree
 
 10.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.  
 
-I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/aosp_arm64-exp-CP41.260731.005.B1-16056512-e48cd0c7.zip)
+I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/gsi_gms_x86_64-exp-CP41.260814.003.B1-16166531-f6802d86.zip)
 
-*aosp_arm64-exp-CP41.260731.005.B1-16056512-e48cd0c7.zip*
+*gsi_gms_x86_64-exp-CP41.260814.003.B1-16166531-f6802d86.zip*
 
 ### Download Android 17 GSI Release
 
@@ -644,6 +507,143 @@ This is the Early Access Google Mobile Services and Android 17 GSI License Agree
 
 10.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.  
 
-I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/aosp_x86_64-exp-CP41.260731.005.B1-16056512-0c37f98d.zip)
+I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/aosp_arm64-exp-CP41.260814.003.B1-16166531-e6cb3bc5.zip)
 
-*aosp_x86_64-exp-CP41.260731.005.B1-16056512-0c37f98d.zip*
+*aosp_arm64-exp-CP41.260814.003.B1-16166531-e6cb3bc5.zip*
+
+### Download Android 17 GSI Release
+
+Before downloading, you must agree to the following terms and conditions.
+
+## Terms and Conditions
+
+This is the Early Access Google Mobile Services and Android 17 GSI License Agreement ("License Agreement"). Google Mobile Services and Android 17 GSI (each defined below) are licensed to you subject to the terms of the License Agreement. The License Agreement forms a legally binding contract between you and Google in relation to your use of Google Mobile Services and Android 17 GSI.  
+
+### 1. Definitions
+
+1.1 "Android" means the Android software stack for devices, as made available under the Android Open Source Project, which is located at the following URL: https://source.android.com/, as updated from time to time.  
+
+1.2 "Android 17 GSI" means Google's generic system image of Android 17 code, excluding third party extensions.  
+
+1.3 "Google" means Google LLC, a Delaware corporation with principal place of business at 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States.  
+
+1.4 "Google Mobile Services" means a machine-readable binary code version of the following Google applications: Search, Chrome, Gmail, Maps, YouTube, and Play, and certain other associated applications, in each case, as provided under this License Agreement. Google Mobile Services are collectively referred to in the License Agreement as "GMS" or each individually as a "GMS Application".  
+
+1.5 "GMS+GSI" refers to GMS and Android 17 GSI, collectively.  
+
+### 2. Accepting this License Agreement
+
+2.1 In order to use GMS+GSI, you must first agree to the License Agreement. You may not use GMS+GSI if you do not accept the License Agreement.  
+
+2.2 By clicking to accept, you hereby agree to the terms of the License Agreement.  
+
+2.3 You may not use GMS+GSI and may not accept the License Agreement if you are a person barred from receiving GMS+GSI under the laws of the United States or other countries, including the country in which you are resident or from which you use GMS+GSI.  
+
+2.4 If you are agreeing to be bound by the License Agreement on behalf of your employer or other entity, you represent and warrant that you have full legal authority to bind your employer or such entity to the License Agreement. If you do not have the requisite authority, you may not accept the License Agreement or use GMS+GSI on behalf of your employer or other entity.  
+
+### 3. GMS+GSI License from Google
+
+3.1 Subject to the terms of the License Agreement, Google grants you a limited, worldwide, royalty-free, non-assignable, non-exclusive, and non-sublicensable license to use GMS+GSI solely for testing applications for compatibility with Android 17.  
+
+3.2 You agree that Google or third parties own all legal right, title and interest in and to GMS+GSI, including any Intellectual Property Rights that subsist in GMS+GSI. "Intellectual Property Rights" means any and all rights under patent law, copyright law, trade secret law, trademark law, and any and all other proprietary rights. Google reserves all rights not expressly granted to you.  
+
+3.3 You may not use GMS+GSI for any purpose not expressly permitted by the License Agreement.  
+
+3.4 Use, reproduction and distribution of components of GMS+GSI licensed under an open source software license are governed solely by the terms of that open source software license and not the License Agreement.  
+
+3.5 You agree that the form and nature of GMS+GSI that Google provides may change without prior notice to you and that future versions of GMS+GSI may be incompatible with applications developed on previous versions of GMS+GSI. You agree that Google may stop (permanently or temporarily) providing GMS+GSI (or any features within GMS+GSI) to you or to users generally at Google's sole discretion, without prior notice to you.  
+
+3.6 Nothing in the License Agreement gives you a right to use any of Google's trade names, trademarks, service marks, logos, domain names, or other distinctive brand features.  
+
+3.7 You agree that you will not remove, obscure, or alter any proprietary rights notices (including copyright and trademark notices) that may be affixed to or contained within GMS+GSI.  
+
+3.8 You agree that you will not, and will not encourage or allow any third party to do any of the following:  
+(a) distribute GMS;  
+(b) copy (except for backup purposes), modify or adapt any part of GMS+GSI;  
+(c) disassemble, de-compile, or otherwise reverse engineer GMS+GSI, or any part of GMS+GSI, or obtain the source code or algorithms underlying GMS+GSI;  
+(d) create derivative works from or based on GMS+GSI;  
+(e) provide, sell, license, sublicense, lease, lend, or disclose GMS+GSI, or any part of GMS+GSI, to any third party,; or  
+(f) ship, divert, transship, transfer, export, or re-export GMS+GSI, or any component thereof, into any country or use it in any manner prohibited by any applicable export control laws, restrictions, or regulations.  
+
+### 4. Use of GMS+GSI by You
+
+4.1 Google agrees that it obtains no right, title or interest from you (or your licensors) under the License Agreement in or to any software applications that you may develop using GMS+GSI, including any intellectual property rights that subsist in those applications.  
+
+4.2 You agree to ensure that any applications you develop using GMS+GSI are compliant with applicable laws, regulations and generally accepted practices or guidelines in the relevant jurisdictions (including any laws regarding the export of data or software to and from the United States or other relevant countries).  
+
+4.3 You agree that if you use GMS+GSI to develop applications for general public users, you will protect the privacy and legal rights of those users. If the users provide you with user names, passwords, or other login information or personal information, you must make the users aware that the information will be available to your application, and you must provide legally adequate privacy notice and protection for those users. If your application stores personal or sensitive information provided by users, it must do so securely. If the user provides your application with Google Account information, your application may only use that information to access the user's Google Account when, and for the limited purposes for which, the user has given you permission to do so.  
+
+4.4 You agree that you will not engage in any activity with GMS+GSI, including the development or distribution of an application, that interferes with, disrupts, damages, or accesses in an unauthorized manner the servers, networks, or other properties or services of any third party including, but not limited to, Google or any mobile communications carrier.  
+
+4.5 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any data, content, or resources that you create, transmit or display through Android and/or applications for Android, and for the consequences of your actions (including any loss or damage which Google may suffer) by doing so.  
+
+4.6 You agree that you are solely responsible for (and that Google has no responsibility to you or to any third party for) any breach of your obligations under the License Agreement, any applicable third party contract or Terms of Service, or any applicable law or regulation, and for the consequences (including any loss or damage which Google or any third party may suffer) of any such breach.  
+
+4.7 You agree that you will not use GMS+GSI to develop applications that will do any of the following prohibited activities:  
+(a) intentionally create, facilitate the creation of, or exploit any security vulnerabilities in an end user's device;  
+(b) interfere with an end user's expected operation and use of that end user's device;  
+(c) engage in an activity that violates any applicable law or regulation;  
+(d) contain any viruses, worms, trojan horses, date bombs, time bombs or the like;  
+(e) serve or otherwise place any advertisements during the launch process of Android or a GMS Application;  
+(f) offer, download, or install any additional products during the launch process of Android or a GMS Application;  
+(g) interfere with or limit the display or acceptance of the applicable Google Terms of Service for a GMS Application;  
+(h) redirect an end user away from, block access to, frame, modify, or change the look or feel of any web page or web site accessed via a GMS Application, or place anything on or near any website page that in any way implies that Google is responsible for the contents of such page;  
+(i) cause any GMS Application to cease operating, or to damage, interrupt, allow access to, or interfere with any GMS Application or end user data;  
+(j) modify, or interfere with the operation of, Android or GMS; or  
+(k) interfere with Google's over-the-air updates of GMS Applications.  
+
+### 5. Terminating this License Agreement
+
+5.1 The License Agreement will continue to apply until terminated by either you or Google as set out below.  
+
+5.2 If you want to terminate the License Agreement, you may do so by ceasing your use of GMS+GSI.  
+
+5.3 Google may at any time, terminate the License Agreement with you if:  
+(A) you have breached any provision of the License Agreement; or  
+(B) Google is required to do so by law; or  
+(C) Google decides to no longer provide GMS+GSI in its sole discretion.  
+
+5.4 When the License Agreement comes to an end:  
+(A) all rights and licenses granted to you under this License Agreement will immediately cease;  
+(B) you will destroy all copies of GMS+GSI in your possession, including from all hard disks and memory;  
+(C) neither you nor Google will be liable to the other for any damages resulting solely from termination of this License Agreement; and  
+(D) any provisions of this License Agreement that under their terms or by implication ought to survive, will survive any termination of this License Agreement. This specifically includes, without limitation, Sections 2.3, 2.4, 3.3, 3.7, 3.8, 4, 5, 6, 7, 8 and 10.  
+
+### 6. DISCLAIMER OF WARRANTIES
+
+6.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT YOUR USE OF GMS+GSI IS AT YOUR SOLE RISK AND THAT GMS+GSI IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND FROM GOOGLE.  
+6.2 YOUR USE OF GMS+GSI AND ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF GMS+GSI IS AT YOUR OWN DISCRETION AND RISK AND YOU ARE SOLELY RESPONSIBLE FOR ANY ERRORS, DEFECTS, DESTRUCTION, DAMAGE OR LOSS RESULTING FROM SUCH USE, INCLUDING DAMAGE TO YOUR COMPUTER SYSTEM OR OTHER DEVICE, LOSS OF DATA, VOIDING OF THE MANUFACTURER WARRANTY OR INCREASED VULNERABILITY OF YOUR DEVICE OR COMPUTER SYSTEM.  
+
+6.3 GOOGLE FURTHER EXPRESSLY DISCLAIMS ALL WARRANTIES AND CONDITIONS OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO THE IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.  
+
+### 7. LIMITATION OF LIABILITY
+
+7.1 YOU EXPRESSLY UNDERSTAND AND AGREE THAT GOOGLE, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS SHALL NOT BE LIABLE TO YOU UNDER ANY THEORY OF LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES THAT MAY BE INCURRED BY YOU, INCLUDING ANY LOSS OF DATA, WHETHER OR NOT GOOGLE OR ITS REPRESENTATIVES HAVE BEEN ADVISED OF OR SHOULD HAVE BEEN AWARE OF THE POSSIBILITY OF ANY SUCH LOSSES ARISING.  
+
+### 8. Indemnification
+
+8.1 To the maximum extent permitted by law, you agree to defend, indemnify and hold harmless Google, its affiliates and their respective directors, officers, employees and agents from and against any and all claims, actions, suits or proceedings, as well as any and all losses, liabilities, damages, costs and expenses (including reasonable attorneys fees) arising out of or accruing from (a) your use of GMS+GSI, or (b) any non-compliance by you with the License Agreement.  
+
+### 9. Changes to the License Agreement
+
+9.1 Google may make changes to the License Agreement as it distributes new versions of GMS+GSI. When these changes are made, Google will make a new version of the License Agreement available on the website where GMS+GSI is made available.  
+
+### 10. General Legal Terms
+
+10.1 The License Agreement constitutes the whole legal agreement between you and Google and governs your use of GMS+GSI (excluding any services which Google may provide to you under a separate written agreement), and completely replaces any prior agreements between you and Google in relation to GMS+GSI.  
+
+10.2 You agree that if Google does not exercise or enforce any legal right or remedy which is contained in the License Agreement (or which Google has the benefit of under any applicable law), this will not be taken to be a formal waiver of Google's rights and that those rights or remedies will still be available to Google.  
+
+10.3 If any court of law, having the jurisdiction to decide on this matter, rules that any provision of the License Agreement is invalid, then that provision will be removed from the License Agreement without affecting the rest of the License Agreement. The remaining provisions of the License Agreement will continue to be valid and enforceable.  
+
+10.4 You acknowledge and agree that each member of the group of companies of which Google is the parent shall be third party beneficiaries to the License Agreement and that such other companies shall be entitled to directly enforce, and rely upon, any provision of the License Agreement that confers a benefit on (or rights in favor of) them. Other than this, no other person or company shall be third party beneficiaries to the License Agreement.  
+
+10.5 EXPORT RESTRICTIONS. GMS+GSI IS SUBJECT TO UNITED STATES EXPORT LAWS AND REGULATIONS. YOU MUST COMPLY WITH ALL DOMESTIC AND INTERNATIONAL EXPORT LAWS AND REGULATIONS THAT APPLY TO GMS+GSI. THESE LAWS INCLUDE RESTRICTIONS ON DESTINATIONS, END USERS AND END USE.  
+
+10.6 The rights granted in the License Agreement may not be assigned or transferred by either you or Google without the prior written approval of the other party. Neither you nor Google shall be permitted to delegate their responsibilities or obligations under the License Agreement without the prior written approval of the other party.  
+
+10.7 The License Agreement, and your relationship with Google under the License Agreement, shall be governed by the laws of the State of California without regard to its conflict of laws provisions. You and Google agree to submit to the exclusive jurisdiction of the courts located within the county of Santa Clara, California to resolve any legal matter arising from the License Agreement. Notwithstanding this, you agree that Google shall still be allowed to apply for injunctive remedies (or an equivalent type of urgent legal relief) in any jurisdiction.  
+
+I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 GSI Release </button> [Download Android 17 GSI Release](https://dl.google.com/developers/android/cinnamonbun/images/gsi/aosp_x86_64-exp-CP41.260814.003.B1-16166531-0ab1ff08.zip)
+
+*aosp_x86_64-exp-CP41.260814.003.B1-16166531-0ab1ff08.zip*
