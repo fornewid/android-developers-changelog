@@ -1,0 +1,24 @@
+diff --git a/docs/agents/skills/wear/wear-compose-m3/references/material3/TextButtonSample.kt.md b/docs/agents/skills/wear/wear-compose-m3/references/material3/TextButtonSample.kt.md
+index d5d12914..d65a30eb 100644
+--- a/docs/agents/skills/wear/wear-compose-m3/references/material3/TextButtonSample.kt.md
++++ b/docs/agents/skills/wear/wear-compose-m3/references/material3/TextButtonSample.kt.md
+@@ -1,9 +1,17 @@
+ ---
+-title: https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/TextButtonSample.kt
++title: Android Developers
+ url: https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/TextButtonSample.kt
+-source: md.txt
++source: html-scrape
+ ---
+ 
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
++
++
++
+ ```
+ /*
+  * Copyright 2023 The Android Open Source Project

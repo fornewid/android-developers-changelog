@@ -1,0 +1,24 @@
+diff --git a/docs/agents/skills/wear/wear-compose-m3/references/material3/TransformationSpecSample.kt.md b/docs/agents/skills/wear/wear-compose-m3/references/material3/TransformationSpecSample.kt.md
+index 73f6777e..22000c34 100644
+--- a/docs/agents/skills/wear/wear-compose-m3/references/material3/TransformationSpecSample.kt.md
++++ b/docs/agents/skills/wear/wear-compose-m3/references/material3/TransformationSpecSample.kt.md
+@@ -1,9 +1,17 @@
+ ---
+-title: https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/TransformationSpecSample.kt
++title: Android Developers
+ url: https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/TransformationSpecSample.kt
+-source: md.txt
++source: html-scrape
+ ---
+ 
++Stay organized with collections
++
++Save and categorize content based on your preferences.
++
++
++
++
++
+ ```
+ /*
+  * Copyright 2025 The Android Open Source Project

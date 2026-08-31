@@ -1,0 +1,173 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/glasses/test-device-state.md b/docs/develop/xr/jetpack-xr-sdk/glasses/test-device-state.md
+index b0e1bbd3..dd464158 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/glasses/test-device-state.md
++++ b/docs/develop/xr/jetpack-xr-sdk/glasses/test-device-state.md
+@@ -1,23 +1,44 @@
+ ---
+-title: https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/test-device-state
++title: Automate virtual device management with projected test rules  |  Android XR for Jetpack XR SDK  |  Android Developers
+ url: https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/test-device-state
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-<br />
++The Android XR SDK has  [reached Developer Preview 4](https://android-developers.googleblog.com/2026/05/android-xr-sdk-developer-preview-4-updates.html), and we want your feedback! Try things out, and visit our [support page](/develop/xr/support) to reach out.
+ 
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Android XR](https://developer.android.com/develop/xr)
++* [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk)
++* [Guides](https://developer.android.com/develop/xr/get-started)
+ 
+-Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+-Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
++# Automate virtual device management with projected test rules Stay organized with collections Save and categorize content based on your preferences.
+ 
+-<br />
++
++
++
++
++Applicable XR devices
++
++This guidance helps you build experiences for these types of XR devices.
++
++[Learn about XR device types →](/develop/xr/devices)
++
++![](/static/images/develop/xr/ai-glasses-icon.svg)
++
++
++Audio &  
++Display Glasses
++
++[Learn about XR device types →](/develop/xr/devices)
+ 
+ It's difficult to automate tests when the code depends on physical hardware. For
+ example, you might need to manually connect and disconnect the physical device
+-to verify connection states. With all the [different types](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/support-different-types),
+-[capabilities](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/check-capabilities), and [device states](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/check-availability) of audio glasses and display glasses,
++to verify connection states. With all the [different types](/develop/xr/jetpack-xr-sdk/ai-glasses/support-different-types),
++[capabilities](/develop/xr/jetpack-xr-sdk/ai-glasses/check-capabilities), and [device states](/develop/xr/jetpack-xr-sdk/ai-glasses/check-availability) of audio glasses and display glasses,
+ this challenge can become even more complex. To test for this diverse set of
+-cases, use the [Projected Test Rule](https://developer.android.com/reference/kotlin/androidx/xr/projected/testing/ProjectedTestRule) APIs to automate the setup and
++cases, use the [Projected Test Rule](/reference/kotlin/androidx/xr/projected/testing/ProjectedTestRule) APIs to automate the setup and
+ management of a projected test environment. The library handles projected device
+ creation, connection states, and capability verification, so you can focus on
+ testing your app's core logic. Use these APIs to build robust test suites
+@@ -30,17 +51,21 @@ file:
+ 
+ ### Groovy
+ 
+-    dependencies {
+-    // JXR Projected testing library
+-    testImplementation "androidx.xr.projected:projected-testing:1.0.0-alpha07"
+-    }
++```
++dependencies {
++// JXR Projected testing library
++testImplementation "androidx.xr.projected:projected-testing:1.0.0-alpha07"
++}
++```
+ 
+ ### Kotlin
+ 
+-    dependencies {
+-      // JXR Projected testing library
+-      testImplementation("androidx.xr.projected:projected-testing:1.0.0-alpha07")
+-    }
++```
++dependencies {
++  // JXR Projected testing library
++  testImplementation("androidx.xr.projected:projected-testing:1.0.0-alpha07")
++}
++```
+ 
+ ## Set up the test rule
+ 
+@@ -48,8 +73,7 @@ To set up the basic test rule, annotate the rule in your test class. By default,
+ the rule connects a projected device and enables its visual capabilities before
+ each test is run.
+ 
+-
+-```kotlin
++```
+ @get:Rule
+ val projectedTestRule = ProjectedTestRule()
+ 
+@@ -62,9 +86,9 @@ fun testWithConnectedDevice() {
+ 
+     assertThat(ProjectedContext.isProjectedDeviceContext(projectedContext)).isTrue()
+ }
+-```
+ 
+-<br />
++ProjectedFeatureTests.kt
++```
+ 
+ ## Test other common scenarios
+ 
+@@ -77,8 +101,7 @@ app's functionality.
+ To test how your app reacts when the connection with the glasses is lost, use
+ the `isDeviceConnected` property:
+ 
+-
+-```kotlin
++```
+ @Test
+ fun testDeviceDisconnection() {
+     // manually disconnect the device via the rule
+@@ -88,24 +111,25 @@ fun testDeviceDisconnection() {
+         ProjectedContext.createProjectedDeviceContext(context)
+     }
+ }
+-```
+ 
+-<br />
++ProjectedFeatureTests.kt
++```
+ 
+ ### Key points about the code
+ 
+-- The rule resets properties like `isDeviceConnected` to their defaults before every test. You don't need to manually reset these properties in `@After` methods.
++* The rule resets properties like `isDeviceConnected` to their defaults before
++  every test. You don't need to manually reset these properties in `@After`
++  methods.
+ 
+ ### Test different device capabilities
+ 
+ Display glasses can show UIs built with Jetpack Compose Glimmer. By default, the
+-[`ProjectedTestRule`](https://developer.android.com/reference/kotlin/androidx/xr/projected/testing/ProjectedTestRule) enables `CAPABILITY_VISUAL_UI`. To define exactly what
++[`ProjectedTestRule`](/reference/kotlin/androidx/xr/projected/testing/ProjectedTestRule) enables `CAPABILITY_VISUAL_UI`. To define exactly what
+ the projected device supports, use the `capabilities` set. This is useful for
+ verifying that your app correctly checks for hardware support before attempting
+ to project content to the glasses.
+ 
+-
+-```kotlin
++```
+ @Test
+ fun testAppBehaviorWithoutDisplayCapabilities() = projectedTestRule.launchTestProjectedDeviceActivity { activity ->
+     // disable display capability
+@@ -119,11 +143,14 @@ fun testAppBehaviorWithoutDisplayCapabilities() = projectedTestRule.launchTestPr
+         assertThat(controller.capabilities).doesNotContain(ProjectedDeviceController.Capability.CAPABILITY_VISUAL_UI)
+     }
+ }
+-```
+ 
+-<br />
++ProjectedFeatureTests.kt
++```
+ 
+ ### Key points about the code
+ 
+-- The rule resets properties like `capabilities` to their defaults before every test. You don't need to manually reset these properties in `@After` methods.
+-- When you need to verify behavior specifically for an activity that is projected to display glasses, use `launchTestProjectedDeviceActivity`.
+\ No newline at end of file
++* The rule resets properties like `capabilities` to their defaults before
++  every test. You don't need to manually reset these properties in `@After`
++  methods.
++* When you need to verify behavior specifically for an activity that is
++  projected to display glasses, use `launchTestProjectedDeviceActivity`.
+\ No newline at end of file

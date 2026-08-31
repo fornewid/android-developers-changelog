@@ -1,0 +1,34 @@
+diff --git a/docs/distribute/marketing-tools/inline-installs-3pas.md b/docs/distribute/marketing-tools/inline-installs-3pas.md
+index a2eeb4ad..759ab27d 100644
+--- a/docs/distribute/marketing-tools/inline-installs-3pas.md
++++ b/docs/distribute/marketing-tools/inline-installs-3pas.md
+@@ -72,7 +72,7 @@ String id = "<Package name of the app to be installed>";
+ String callerId = "<Package name of your third-party app store>";
+ 
+ // Retrieve the app-specific token from your processed catalog export
+-byte[] catalogToken = getVerificationTokenByDocId(id);
++String catalogToken = getVerificationTokenByDocId(id);
+ 
+ intent.setPackage("com.android.vending");
+ String deepLinkUrl = "https://play.google.com/d?id=" + id + "&referrer=" + referrer;
+@@ -94,13 +94,13 @@ if (intent.resolveActivity(packageManager) != null) {
+ The following parameters must be passed in your Intent URL or as Intent Extras
+ to authorize the inline install:
+ 
+-| Field | Location | Description | Required |
+-|---|---|---|---|
+-| `id` | URL Query | The package name of the target app to be installed. | Yes |
+-| `referrer` | URL Query | An optional referrer tracking string. | No |
+-| `overlay` | Intent Extra | Set to `true` to request the inline half-sheet interface. | Yes |
+-| `callerId` | Intent Extra | The package name of your approved third-party app store. | Yes |
+-| `catalog_token` | Intent Extra | The unique delivery token provided in your Catalog Access export. **Note:** Tokens are validated for freshness, target package match, and caller package match. | Yes |
++| Field | Type | Location | Description | Required |
++|---|---|---|---|---|
++| `id` | `String` | URL Query | The package name of the target app to be installed. | Yes |
++| `referrer` | `String` | URL Query | An optional referrer tracking string. | No |
++| `overlay` | `boolean` | Intent Extra | Set to `true` to request the inline half-sheet interface. | Yes |
++| `callerId` | `String` | Intent Extra | The package name of your approved third-party app store. | Yes |
++| `catalog_token` | `String` | Intent Extra | The unique delivery token provided in your Catalog Access export. **Note:** Tokens are validated for freshness, target package match, and caller package match. | Yes |
+ 
+ ## (Optional) Google Play Inline Install with installation status overlay
+ 

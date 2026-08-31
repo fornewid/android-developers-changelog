@@ -1,0 +1,152 @@
+diff --git a/docs/develop/adaptive-apps/cookbook/wide-classic-card-layout-with-grid.md b/docs/develop/adaptive-apps/cookbook/wide-classic-card-layout-with-grid.md
+index 7b1b6d2c..17270341 100644
+--- a/docs/develop/adaptive-apps/cookbook/wide-classic-card-layout-with-grid.md
++++ b/docs/develop/adaptive-apps/cookbook/wide-classic-card-layout-with-grid.md
+@@ -1,13 +1,25 @@
+ ---
+-title: https://developer.android.com/develop/adaptive-apps/cookbook/wide-classic-card-layout-with-grid
++title: Wide classic card layout with Grid  |  Adaptive Apps  |  Android Developers
+ url: https://developer.android.com/develop/adaptive-apps/cookbook/wide-classic-card-layout-with-grid
+-source: md.txt
++source: html-scrape
+ ---
+ 
+-![four star rating icon](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/shared/four-star-rating.png)
++* [Android Developers](https://developer.android.com/)
++* [Develop](https://developer.android.com/develop)
++* [Devices](https://developer.android.com/develop/devices)
++* [Adaptive Apps](https://developer.android.com/develop/adaptive-apps)
++* [Cookbook](https://developer.android.com/develop/adaptive-apps/cookbook/preface)
++
++# Wide classic card layout with Grid Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++
++![four star rating icon](/static/develop/adaptive-apps/cookbook/images/shared/four-star-rating.png)
+ 
+ The TV app design guidelines define a card variant
+-called the [Wide classic card](https://developer.android.com/design/ui/tv/guides/components/cards#wide-classic-card),
++called the [Wide classic card](/design/ui/tv/guides/components/cards#wide-classic-card),
+ which displays an image and its descriptive content block side by side.
+ When building complex two-dimensional layouts for TV screens,
+ using traditional coordinate-based positioning
+@@ -16,8 +28,12 @@ to read, maintain, and refactor.
+ The Wide classic card is an ideal use case for the Jetpack Compose `Grid` API,
+ helping you structure side-by-side elements cleanly using semantic,
+ user-defined 2D layout areas.
++
+ ![Spec of the Wide classic card component showing five named layout areas:
+-Image, Title, Subtitle, Description, and Extra text.](https://developer.android.com/static/develop/adaptive-apps/cookbook/images/wide-card-named-areas.png) **Figure 1.** Wide classic card five named areas: Image area and four text areas in content block.
++      Image, Title, Subtitle, Description, and Extra text.](/static/develop/adaptive-apps/cookbook/images/wide-card-named-areas.png)
++
++
++**Figure 1.** Wide classic card five named areas: Image area and four text areas in content block.
+ 
+ ## Best practices
+ 
+@@ -34,13 +50,20 @@ to organize complex side-by-side card components clearly and robustly.
+ 
+ ## Ingredients
+ 
+-- [`Grid`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/Grid.composable): A 2D container layout in Jetpack Compose that arranges child composables into rows and columns based on a configuration lambda
+-- [`gridItem`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridScope): A `Modifier` extension that associates a child UI element with a specific named `areaId` inside a `Grid` layout
+-- [`area`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope): A configuration DSL function within [`GridConfigurationScope`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope) that maps a semantic `areaId` to specific row and column spans or ranges
+-- [`Card`](https://developer.android.com/reference/kotlin/androidx/compose/material3/Card.composable): A Material Design container composable that groups related UI elements and styling
+-- [`GridTrackSize.MinMax`](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties): A track sizing property that defines flexible bounds (`min` and `max`) for row or column dimensions
+-- [`GridTrackSize.Auto`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize#Auto()): A track sizing property that sizes the row or column track automatically to fit its content (`column(GridTrackSize.Auto)`)
+-- [`gap`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope#gap(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)): A configuration function that specifies the vertical (`row`) and horizontal (`column`) spacing between grid tracks
++* [`Grid`](/reference/kotlin/androidx/compose/foundation/layout/Grid.composable): A 2D container layout in Jetpack Compose that arranges child
++  composables into rows and columns based on a configuration lambda
++* [`gridItem`](/reference/kotlin/androidx/compose/foundation/layout/GridScope): A `Modifier` extension that associates a child UI element with
++  a specific named `areaId` inside a `Grid` layout
++* [`area`](/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope): A configuration DSL function within [`GridConfigurationScope`](/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope) that
++  maps a semantic `areaId` to specific row and column spans or ranges
++* [`Card`](/reference/kotlin/androidx/compose/material3/Card.composable): A Material Design container composable that groups related UI
++  elements and styling
++* [`GridTrackSize.MinMax`](/develop/adaptive-apps/guides/grid/container-properties): A track sizing property that defines flexible
++  bounds (`min` and `max`) for row or column dimensions
++* [`GridTrackSize.Auto`](/reference/kotlin/androidx/compose/foundation/layout/GridTrackSize#Auto()): A track sizing property that sizes the row or column
++  track automatically to fit its content (`column(GridTrackSize.Auto)`)
++* [`gap`](/reference/kotlin/androidx/compose/foundation/layout/GridConfigurationScope#gap(androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp)): A configuration function that specifies the vertical (`row`) and
++  horizontal (`column`) spacing between grid tracks
+ 
+ ## Steps
+ 
+@@ -53,8 +76,7 @@ First, create a type-safe representation of the regions inside your Wide classic
+ card layout. An `enum` class avoids string typos and provides
+ compile-time safety when mapping tracks and placing child items.
+ 
+-
+-```kotlin
++```
+ enum class CardArea {
+     Image,
+     Title,
+@@ -62,9 +84,9 @@ enum class CardArea {
+     Description,
+     ExtraText,
+ }
+-```
+ 
+-<br />
++GridByExamples.kt
++```
+ 
+ ### 2. Configure the 2D grid tracks and named areas
+ 
+@@ -75,8 +97,7 @@ content column so it expands flexibly across the remaining card width. Specify
+ track spacing with `gap(row = 8.dp, column = 16.dp)`. Map your `CardArea`
+ identifiers to their physical track coordinates using the `area` function.
+ 
+-
+-```kotlin
++```
+ Grid(
+     config = {
+         // Define columns: left column for image, right for content
+@@ -101,9 +122,9 @@ Grid(
+ ) {
+     // Child elements placed in Step 3
+ }
+-```
+ 
+-<br />
++GridByExamples.kt
++```
+ 
+ ### 3. Place child composables using the gridItem modifier
+ 
+@@ -112,8 +133,7 @@ semantic intent using the `gridItem` modifier. You can declare child
+ composables in any order. The `Grid` container positions each element
+ directly into its assigned 2D region automatically.
+ 
+-
+-```kotlin
++```
+ @Composable
+ fun WideClassicCard(
+     imageContent: @Composable () -> Unit,
+@@ -183,9 +203,9 @@ fun WideClassicCard(
+         }
+     }
+ }
+-```
+ 
+-<br />
++GridByExamples.kt
++```
+ 
+ ## Results
+ 
+@@ -198,5 +218,5 @@ for side-by-side thumbnail and description components.
+ 
+ ## Additional resources
+ 
+-- [TV design guidelines: Cards](https://developer.android.com/design/ui/tv/guides/components/cards#wide-classic-card)
+-- [Adaptive apps guide: Grid container properties](https://developer.android.com/develop/adaptive-apps/guides/grid/container-properties)
+\ No newline at end of file
++* [TV design guidelines: Cards](/design/ui/tv/guides/components/cards#wide-classic-card)
++* [Adaptive apps guide: Grid container properties](/develop/adaptive-apps/guides/grid/container-properties)
+\ No newline at end of file
