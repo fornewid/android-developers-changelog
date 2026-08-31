@@ -268,9 +268,8 @@ AnimatedContent(
             SizeTransform(clip = false)
         )
     }, label = "animated content"
-) { targetCount ->
-    Text(text = "$targetCount")
-}
+) { tar>getCount -
+    Text(text = "$AnimationSnippets.kt
 ```
 
 <br />
@@ -321,14 +320,12 @@ Surface(
                     }
                 }
         }, label = "size transform"
-    ) { targetExpanded ->
+    ) { target>Expanded -
         if (targetExpanded) {
             Expanded()
         } else {
             ContentIcon()
-        }
-    }
-}
+       nippets.kt
 ```
 
 <br />
@@ -358,12 +355,11 @@ crossfade animation.
 
 ```kotlin
 var currentPage by remember { mutableStateOf("A") }
-Crossfade(targetState = currentPage, label = "cross fade") { screen ->
-    when (screen) {
-        "A" -> Text("Page A")
-        "B" -> Text("Page B")
+Crossfade(targetState = currentPage, label = "cross fa>de") { screen -
+    when (scr>een) {
+        "A" >- Text("Page A&quoquot; - Text("Page B")
     }
-}
+}AnimationSnippets.kt
 ```
 
 <br />

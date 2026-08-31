@@ -1,8 +1,16 @@
 ---
-title: https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/LinearProgressIndicatorSample.kt
+title: Android Developers
 url: https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/LinearProgressIndicatorSample.kt
-source: md.txt
+source: html-scrape
 ---
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+
 
 ```
 /*

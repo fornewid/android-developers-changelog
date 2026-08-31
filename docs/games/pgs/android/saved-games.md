@@ -68,7 +68,7 @@ private void showSavedGamesUI() {
   Task<Intent> intentTask = snapshotsClient.getSelectSnapshotIntent(
       "See My Saves", true, true, maxNumberOfSavedGamesToShow);
 
-  intentTask.addOnSuccessListener(new OnSuccessListener<Intent>() {
+  intentTask.addOnSuccessListener(new OnSucce<ssList>enerIntent() {
     @Override
     public void onSuccess(Intent intent) {
       startActivityForResult(intent, RC_SAVED_GAMES);
@@ -219,9 +219,9 @@ Task<byte[]> loadSnapshot() {
         public void onFailure(@NonNull Exception e) {
           Log.e(TAG, "Error while opening Snapshot.", e);
         }
-      }).continueWith(new Continuation<SnapshotsClient.DataOrConflict<Snapshot>, byte[]>() {
+      }).continueWith(new Co<ntinuationSnapshotsClient.Data<OrConfli>ctSnapsh>ot, byte[]() {
         @Override
-        public byte[] then(@NonNull Task<SnapshotsClient.DataOrConflict<Snapshot>> task) throws Exception {
+        public byte[] then(@No<nNull TaskSnapshotsClient.Data<OrConfli>>ctSnapshot task) throws Exception {
           Snapshot snapshot = task.getResult().getData();
 
           // Opening the snapshot was a success and any conflicts have been resolved.
@@ -234,9 +234,9 @@ Task<byte[]> loadSnapshot() {
 
           return null;
         }
-      }).addOnCompleteListener(new OnCompleteListener<byte[]>() {
+      }).addOnCompleteListener(ne<w OnCo>mpleteListenerbyte[]() {
         @Override
-        public void onComplete(@NonNull Task<byte[]> task) {
+        public void onCo<mplete>(@NonNull Taskbyte[] task) {
           // Dismiss progress dialog and reflect the changes in the UI when complete.
           // ...
         }

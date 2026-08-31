@@ -1,8 +1,16 @@
 ---
-title: https://developer.android.com/agents/skills/device-ai/appfunctions/references/implementation-configuration
+title: Android Developers
 url: https://developer.android.com/agents/skills/device-ai/appfunctions/references/implementation-configuration
-source: md.txt
+source: html-scrape
 ---
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+
 
 Specialized instructions for generating Kotlin implementations of AppFunctions,
 handling system-wide configuration, and managing build dependencies.
@@ -14,27 +22,21 @@ handling system-wide configuration, and managing build dependencies.
 Add the following to `build.gradle.kts`. App Functions requires the KSP (Kotlin
 Symbol Processing) plugin.
 
-1. **Version check** : Use library version `1.0.0-alpha10` or later from maven.google.com.
+1. **Version check**: Use library version `1.0.0-alpha10` or later from maven.google.com.
 
-
-```kotlin
+```
 implementation(libs.androidx.appfunctions)
 ksp(libs.androidx.appfunctions.compiler)
+
+build.gradle.kts
 ```
-
-<br />
-
-<br />
-
-<br />
 
 ### Step 2: Set up app metadata XML
 
 Describe the app's capabilities to the LLM by defining
 `res/xml/app_metadata.xml`.
 
-
-```xml
+```
 <AppFunctionAppMetadata xmlns:appfn="http://schemas.android.com/apk/androidx.appfunctions"
     appfn:description="This app manages user tasks and reminders.
     Operational Patterns:
@@ -42,15 +44,14 @@ Describe the app's capabilities to the LLM by defining
     Constraints:
     - Title or content must be non-null when creating a task."
     appfn:displayDescription="@string/user_visible_description" />
-```
 
-<br />
+app_metadata.xml
+```
 
 Register the service and reference the app metadata in `AndroidManifest.xml`
 within the `<application>` tag:
 
-
-```xml
+```
 <service
     android:name="com.example.snippets.ai.TaskAppFunctionService"
     android:permission="android.permission.BIND_APP_FUNCTION_SERVICE"
@@ -69,36 +70,43 @@ within the `<application>` tag:
 <property
     android:name="android.app.appfunctions.app_metadata"
     android:resource="@xml/app_metadata" />
-```
 
-<br />
+AndroidManifest.xml
+```
 
 ### Step 3: Implement functions
 
 When generating Kotlin code for AppFunctions, you MUST adhere to these rules:
 
-1. **Annotations** :
-   - Annotate the function with `@AppFunction(isDescribedByKDoc = true)`.
-   - Annotate associated data classes with `@AppFunctionSerializable(isDescribedByKDoc = true)`.
-2. **Parameter strategy** :
-   - **Specificity**: Keep parameters specific. State objects must be unambiguous.
-   - **Optionality**: If a parameter isn't essential, make it optional with a default value.
-3. **Execution and threading** :
-   - Use `suspend` functions.
-   - To avoid blocking the Android UI thread, always run AppFunction implementations on a background dispatcher, such as `withContext(Dispatchers.IO)`.
-4. **Supported types** :
-   - **Primitives** : `Int`, `Long`, `Float`, `Double`, `Boolean`
-   - **Arrays** : `IntArray`, `LongArray`, `FloatArray`, `DoubleArray`, `BooleanArray`
-   - **Native types** : `String`, `PendingIntent`, `Uri`, `LocalTime`, `LocalDate`, `LocalDateTime`, `Instant`. Prefer using `LocalDateTime` or `Instant` for date and time fields.
-   - **Custom objects** : Classes annotated with `@AppFunctionSerializable`.
-   - **Collections** : `List` of any supported non-primitive type
-5. **Default values** :
-   - Use defaults that align with the type's empty state, such as `0` for `Int`, `null` for nullable objects, and `emptyList()` for `List`.
-6. **Error handling** :
-   - Throw subclasses of `androidx.appfunctions.AppFunctionException` to report errors to callers.
-7. **Security** :
-   - Don't expose highly sensitive user data, such as passwords or financial details.
-   - Don't expose irreversible destructive actions without confirmation steps.
+1. **Annotations**:
+   * Annotate the function with `@AppFunction(isDescribedByKDoc = true)`.
+   * Annotate associated data classes with
+     `@AppFunctionSerializable(isDescribedByKDoc = true)`.
+2. **Parameter strategy**:
+   * **Specificity**: Keep parameters specific. State objects must be
+     unambiguous.
+   * **Optionality**: If a parameter isn't essential, make it optional with
+     a default value.
+3. **Execution and threading**:
+   * Use `suspend` functions.
+   * To avoid blocking the Android UI thread, always run AppFunction implementations on a background dispatcher, such as `withContext(Dispatchers.IO)`.
+4. **Supported types**:
+   * **Primitives**: `Int`, `Long`, `Float`, `Double`, `Boolean`
+   * **Arrays**: `IntArray`, `LongArray`, `FloatArray`, `DoubleArray`, `BooleanArray`
+   * **Native types**: `String`, `PendingIntent`, `Uri`, `LocalTime`,
+     `LocalDate`, `LocalDateTime`, `Instant`. Prefer using `LocalDateTime` or
+     `Instant` for date and time fields.
+   * **Custom objects**: Classes annotated with `@AppFunctionSerializable`.
+   * **Collections**: `List` of any supported non-primitive type
+5. **Default values**:
+   * Use defaults that align with the type's empty state, such as `0` for `Int`, `null` for nullable objects, and `emptyList()` for `List`.
+6. **Error handling**:
+   * Throw subclasses of `androidx.appfunctions.AppFunctionException` to
+     report errors to callers.
+7. **Security**:
+   * Don't expose highly sensitive user data, such as passwords or financial details.
+   * Don't expose irreversible destructive actions without confirmation
+     steps.
 
 ### Step 4: Set up dependency injection and service entry points
 
@@ -112,8 +120,7 @@ generates the concrete service class and XML schema.
 Annotate your service with `@AndroidEntryPoint` and inject your data
 repositories or use cases using standard `@Inject internal lateinit var`:
 
-
-```kotlin
+```
 @RequiresApi(36)
 @AndroidEntryPoint
 @AppFunctionServiceEntryPoint(
@@ -132,9 +139,9 @@ abstract class BaseAppFunctionServiceHeader : AppFunctionService() {
         return messageRepository.send(name, endpointValue, messageBody)
     }
 }
-```
 
-<br />
+AppFunctionConfigurationSnippets.kt
+```
 
 #### Framework-agnostic approach with alternative dependency injection or service locators
 
@@ -145,8 +152,7 @@ Locators). Because `AppFunctionService` inherits from Android
 application's DI container directly through `applicationContext` in property
 getters or during service lifecycle execution:
 
-
-```kotlin
+```
 @RequiresApi(36)
 @AppFunctionServiceEntryPoint(
     serviceName = "ServiceLocatorConfigAppFunctionService",
@@ -169,24 +175,22 @@ abstract class BaseAppFunctionServiceLocator : AppFunctionService() {
         return messageRepository.send(name, endpointValue, messageBody)
     }
 }
-```
 
-<br />
+AppFunctionConfigurationSnippets.kt
+```
 
 ### Step 5: Architectural cleanliness
 
-Don't attempt to make an `AppFunction` class or method OS-agnostic---App Functions are inherently part of the Android platform integration in `androidx.appfunctions`. For architectural cleanliness, use existing
+Don't attempt to make an `AppFunction` class or method OS-agnostic—App Functions are inherently part of the Android platform integration in `androidx.appfunctions`. For architectural cleanliness, use existing
 application functionality (such as existing repositories, use cases, or domain
 orchestrators) to execute the behavior within your `@AppFunction` methods rather
 than creating redundant abstraction layers around the OS service.
-
-<br />
 
 ## Critical constraints
 
 ### KSP compliance for serializables
 
-**Critical constraints** : For `@AppFunctionSerializable` data classes, KSP
+**Critical constraints**: For `@AppFunctionSerializable` data classes, KSP
 only extracts documentation if it's written as inline KDoc directly for each
 property definition. Don't use class-level `@param` or `@property` tags.
 
@@ -199,8 +203,7 @@ Configuration APIs and the `@AppFunction` annotation are located in
 
 ### Example: Serializable with inline KDoc
 
-
-```kotlin
+```
 /** The parameter to create the task. */
 @AppFunctionSerializable(isDescribedByKDoc = true)
 data class CreateTaskParams(
@@ -220,16 +223,13 @@ data class Task(
     /** The content of the task. */
     val content: String,
 )
+
+AppFunctionApiSnippets.kt
 ```
-
-<br />
-
-<br />
 
 ### Example: Implementation detail
 
-
-```kotlin
+```
 @RequiresApi(36)
 @AndroidEntryPoint
 @AppFunctionServiceEntryPoint(
@@ -268,11 +268,9 @@ abstract class BaseTaskAppFunctionService : AppFunctionService() {
     // Maps internal TaskEntity
     private fun TaskEntity.toTask() = Task(id = id, title = title, content = description)
 }
+
+AppFunctionApiSnippets.kt
 ```
-
-<br />
-
-<br />
 
 ## Troubleshooting
 
@@ -284,5 +282,7 @@ abstract class BaseTaskAppFunctionService : AppFunctionService() {
 
 1. Verify `@AppFunctionSerializable` classes use inline KDoc comments, not class-level `@param` tags.
 2. Check that the `assets/<appFunctionXmlFileName>.xml` file exists in the APK.
-3. Confirm the `ksp("androidx.appfunctions:appfunctions-compiler")` dependency is correctly applied.
-4. Ensure the `ksp` argument `appfunctions:aggregateAppFunctions` is set to `"true"`.
+3. Confirm the `ksp("androidx.appfunctions:appfunctions-compiler")` dependency
+   is correctly applied.
+4. Ensure the `ksp` argument `appfunctions:aggregateAppFunctions` is set to
+   `"true"`.

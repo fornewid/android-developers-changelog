@@ -1,27 +1,61 @@
 ---
-title: https://developer.android.com/blog/topics/developer-preview
+title: #Developer Preview  |  Android Developers' Blog
 url: https://developer.android.com/blog/topics/developer-preview
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Android Developers' Blog](https://developer.android.com/)
+* [Blog](https://developer.android.com/blog)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
 
 # #Developer Preview
 
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+* [![View Amy Zeppenfeld's profile](/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)](/blog/authors/amy-zeppenfeld)[![View Stevan Silva's profile](/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](/blog/authors/stevan-silva)
 
-  ## [Updates to the Android XR SDK: Introducing Developer Preview 4](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4)
+  19
 
-  [arrow_forward](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4) We're excited to launch Developer Preview 4 of the Android XR SDK, continuing our focus on unifying cross-device development for headsets, wired XR glasses, and intelligent eyewear.
-  [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld), [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva) • 5 min read
-  - [#Android XR](https://developer.android.com/blog/topics/android-xr)
-  - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
-  - [#Developer Preview](https://developer.android.com/blog/topics/developer-preview)
-  - [#Unity](https://developer.android.com/blog/topics/unity)
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - +3 ↩
+  May
+  2026
+
+  19
+
+  May
+  2026
+
+  ![](/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+
+  [Product News](/blog/categories/product-news)
+
+  ## [Updates to the Android XR SDK: Introducing Developer Preview 4](/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4)
+
+  [arrow\_forward](/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4)
+
+  We're excited to launch Developer Preview 4 of the Android XR SDK, continuing our focus on unifying cross-device development for headsets, wired XR glasses, and intelligent eyewear.
+
+  [Amy Zeppenfeld](/blog/authors/amy-zeppenfeld),
+  [Stevan Silva](/blog/authors/stevan-silva)
+  •
+  5 min read
+  + [#Android XR](/blog/topics/android-xr)
+  + [#Android XR SDK](/blog/topics/android-xr-sdk)
+  + [#Developer Preview](/blog/topics/developer-preview)
+  + [#Unity](/blog/topics/unity)
+  + [#Google I/O](/blog/topics/google-i-o)
+  + +3
+    ↩
+
 Stay in the loop
-
 
 Get the latest Android development insights delivered to your inbox
 weekly.
+
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](/subscribe)
+
+![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
