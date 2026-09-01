@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/testing/semantics.md b/docs/develop/ui/compose/testing/semantics.md
+index daf360de..dffb611d 100644
+--- a/docs/develop/ui/compose/testing/semantics.md
++++ b/docs/develop/ui/compose/testing/semantics.md
+@@ -31,7 +31,7 @@ semantics tree. You can add properties to the semantics tree by using a
+ `Modifier`.
+ 
+     MyButton(
+-        modifier = Modifier.semantics { contentDescription = "Add to favorites" }
++        modifier = Modifier.semantics { contentDescription = "Add to favorites&quot; }
+     )
+ 
+ ## Additional Resources

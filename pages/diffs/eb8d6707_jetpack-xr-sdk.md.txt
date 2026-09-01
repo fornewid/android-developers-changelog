@@ -1,0 +1,13 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk.md b/docs/develop/xr/jetpack-xr-sdk.md
+index 625b61c5..c9023875 100644
+--- a/docs/develop/xr/jetpack-xr-sdk.md
++++ b/docs/develop/xr/jetpack-xr-sdk.md
+@@ -142,7 +142,7 @@ experiences, optimized for display glasses. Build beautiful, minimal, and
+ comfortable UI for devices that are worn all day.
+ 
+ - **Built for glanceability and legibility** : Unlike phones, the primary canvas is an optical see-through display---it's transparent. Jetpack Compose Glimmer provides [glasses-specific theming](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included#theme), [simplified color
+-  palettes](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included#colors), and [typography](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included#typography) to make your content easy to read, fast to process, and never distracting.
++  palettes](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included#colors), and [typography](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included#typography) to make your content readable, fast to process, and never distracting.
+ - **Optimized for wearable-specific interactions** : We've optimized interaction models for how people use glasses. [Jetpack Compose Glimmer
+   components](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included#components) feature [clear focus states](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/focus#focus-states), like optimized outlines instead of distracting ripple effects, and are built to handle common physical inputs like taps, swipes on the frame, and of course, voice.
+ - **Use familiar declarative UI patterns** : Because Jetpack Compose Glimmer is built entirely on [Jetpack Compose](https://developer.android.com/compose), you can use everything you already know about declarative UI building in Android. We provide a full set of core, prebuilt Composable functions---things like [Text](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/text), [Icon](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/icons), [Button](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/buttons), and specialized components like [TitleChip](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/title-chips)---all optimized for the glasses environment.

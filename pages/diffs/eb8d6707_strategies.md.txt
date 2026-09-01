@@ -1,0 +1,13 @@
+diff --git a/docs/training/testing/fundamentals/strategies.md b/docs/training/testing/fundamentals/strategies.md
+index c797af5e..462674a4 100644
+--- a/docs/training/testing/fundamentals/strategies.md
++++ b/docs/training/testing/fundamentals/strategies.md
+@@ -34,7 +34,7 @@ where to run them and how often.
+ 
+ Use the Testing Setup [Android skill](https://developer.android.com/tools/agents/android-skills) to analyze and create a testing strategy for native Android apps. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+ 
+-    android skills add --skill testing-setup
++    android skills add testing-setup
+ 
+ <br />
+ 

@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/build-adaptive-apps.md b/docs/develop/ui/compose/build-adaptive-apps.md
+index 8d95186b..784d76f4 100644
+--- a/docs/develop/ui/compose/build-adaptive-apps.md
++++ b/docs/develop/ui/compose/build-adaptive-apps.md
+@@ -12,7 +12,7 @@ source: md.txt
+ 
+ Use an Android skill to build UI that adapts to different Android devices including foldables, tablets, and desktops. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+ 
+-    android skills add --skill adaptive
++    android skills add adaptive
+ 
+ <br />
+ 

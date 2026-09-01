@@ -1,0 +1,96 @@
+diff --git a/docs/training/data-storage/room/creating-views.md b/docs/training/data-storage/room/creating-views.md
+index 917e8a65..a3157d67 100644
+--- a/docs/training/data-storage/room/creating-views.md
++++ b/docs/training/data-storage/room/creating-views.md
+@@ -1,37 +1,26 @@
+ ---
+-title: Create views into a database  |  App data and files  |  Android Developers
++title: https://developer.android.com/training/data-storage/room/creating-views
+ url: https://developer.android.com/training/data-storage/room/creating-views
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [App data and files](https://developer.android.com/training/data-storage)
+-
+-# Create views into a database Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-
+-The [Room persistence library](/training/data-storage/room) supports
++The [Room persistence library](https://developer.android.com/training/data-storage/room) supports
+ [SQLite database views](https://www.sqlite.org/lang_createview.html), which let you encapsulate a query
+-in a class. Room refers to these query-backed classes as *views*, and you can
+-use them as data objects in a [data access object (DAO)](/training/data-storage/room/accessing-data).
++in a class. Room refers to these query-backed classes as *views* , and you can
++use them as data objects in a [data access object (DAO)](https://developer.android.com/training/data-storage/room/accessing-data).
+ 
+-**Note:** Like [entities](/training/data-storage/room/defining-data), you can run `SELECT` statements against views.
+-However, you can't run `INSERT`, `UPDATE`, or `DELETE` statements against
+-views.
++> [!NOTE]
++> **Note:** Like [entities](https://developer.android.com/training/data-storage/room/defining-data), you can run `SELECT` statements against views. However, you can't run `INSERT`, `UPDATE`, or `DELETE` statements against views.
+ 
+ ## Create a view
+ 
+-To create a view, add the [`@DatabaseView`](/reference/kotlin/androidx/room3/DatabaseView) annotation to a class. Set the
++To create a view, add the [`@DatabaseView`](https://developer.android.com/reference/kotlin/androidx/room3/DatabaseView) annotation to a class. Set the
+ annotation value to the query that the class represents.
+ 
+ The following code snippet provides an example of a view:
+ 
+-```
++
++```kotlin
+ @DatabaseView(
+     """
+     SELECT User.id, User.name, User.departmentId, Department.name AS departmentName
+@@ -44,16 +33,17 @@ data class UserDetail(
+     val departmentId: Long,
+     val departmentName: String?
+ )
+-
+-CreatingViewsSnippets.kt
+ ```
+ 
++<br />
++
+ ## Associate a view with your database
+ 
+-To include this view in your database, add the [`views`](/reference/kotlin/androidx/room3/Database#views()) property to your
++To include this view in your database, add the [`views`](https://developer.android.com/reference/kotlin/androidx/room3/Database#views()) property to your
+ app's `@Database` annotation:
+ 
+-```
++
++```kotlin
+ @Database(
+     entities = [User::class, Department::class],
+     views = [UserDetail::class],
+@@ -62,18 +52,6 @@ app's `@Database` annotation:
+ abstract class AppDatabase : RoomDatabase() {
+     abstract fun userDao(): UserDao
+ }
+-
+-CreatingViewsSnippets.kt
+ ```
+ 
+-[Previous
+-
+-arrow\_back
+-
+-Write asynchronous DAO queries](/training/data-storage/room/async-queries)
+-
+-[Next
+-
+-Prepopulate your database
+-
+-arrow\_forward](/training/data-storage/room/prepopulate)
+\ No newline at end of file
++<br />
+\ No newline at end of file

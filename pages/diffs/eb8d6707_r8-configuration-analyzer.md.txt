@@ -1,0 +1,13 @@
+diff --git a/docs/topic/performance/app-optimization/r8-configuration-analyzer.md b/docs/topic/performance/app-optimization/r8-configuration-analyzer.md
+index cb90974f..6500d4e3 100644
+--- a/docs/topic/performance/app-optimization/r8-configuration-analyzer.md
++++ b/docs/topic/performance/app-optimization/r8-configuration-analyzer.md
+@@ -12,7 +12,7 @@ source: md.txt
+ 
+ Use an Android skill to analyze the R8 Configuration in your app To install the skill from the Android CLI, run:
+ 
+-    android skills add --skill r8-analyzer
++    android skills add r8-analyzer
+ 
+ To activate the skill, try the following prompt:
+ 

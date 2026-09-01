@@ -1,0 +1,24 @@
+diff --git a/docs/agents/skills/wear/wear-compose-m3/references/material3/LinearProgressIndicatorSample.kt.md b/docs/agents/skills/wear/wear-compose-m3/references/material3/LinearProgressIndicatorSample.kt.md
+index 3895aa31..4c0a952e 100644
+--- a/docs/agents/skills/wear/wear-compose-m3/references/material3/LinearProgressIndicatorSample.kt.md
++++ b/docs/agents/skills/wear/wear-compose-m3/references/material3/LinearProgressIndicatorSample.kt.md
+@@ -1,17 +1,9 @@
+ ---
+-title: Android Developers
++title: https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/LinearProgressIndicatorSample.kt
+ url: https://developer.android.com/agents/skills/wear/wear-compose-m3/references/material3/LinearProgressIndicatorSample.kt
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-
+-
+ ```
+ /*
+  * Copyright 2024 The Android Open Source Project

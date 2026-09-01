@@ -1,0 +1,14 @@
+diff --git a/docs/studio/gemini/generate-unit-tests.md b/docs/studio/gemini/generate-unit-tests.md
+index 0e937da6..7e9ed49d 100644
+--- a/docs/studio/gemini/generate-unit-tests.md
++++ b/docs/studio/gemini/generate-unit-tests.md
+@@ -20,7 +20,8 @@ classes, saving you time on repetitive setup.
+ 
+ ## Prerequisites
+ 
+-This feature is available in Android Studio Panda 4 \| 2025.3.4 Canary 3 or higher.
++This feature is available in Android Studio Panda 4 \| 2025.3.4 Canary 3 or
++higher.
+ 
+ ## Generate unit tests from the editor
+ 

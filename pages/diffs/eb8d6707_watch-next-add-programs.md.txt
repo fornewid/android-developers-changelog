@@ -1,0 +1,100 @@
+diff --git a/docs/training/tv/discovery/watch-next-add-programs.md b/docs/training/tv/discovery/watch-next-add-programs.md
+index 7dcaeed8..46636d33 100644
+--- a/docs/training/tv/discovery/watch-next-add-programs.md
++++ b/docs/training/tv/discovery/watch-next-add-programs.md
+@@ -19,17 +19,17 @@ hide the Watch Next channel's row.
+ 
+ ## Steps
+ 
+-Inserting programs into the Watch Next channel is similar to
+-[inserting programs into your own channel](https://developer.android.com/training/tv/discovery/recommendations-channel#add-programs).
+-See the following sections for details specific to Watch Next.
++Inserting programs into the Watch Next channel is similar to [inserting programs
++into your own channel](https://developer.android.com/training/tv/discovery/recommendations-channel#add-programs). See the following sections for details specific to
++Watch Next.
+ 
+ Publishing to the Watch Next channel on Google TV (displayed as "Continue
+ watching") requires prior approval by Google through a certification process and
+-uses server-side processing to sort programs based on their attributes.
+-To start the certification process, please
+-submit this [linked form](https://docs.google.com/forms/d/e/1FAIpQLSeaNhHjDNM8osXPgkXeUQMSl5CntaEw0EeGYHIAc5jxUhQuHg/viewform).
++uses server-side processing to sort programs based on their attributes. To start
++the certification process, submit this [linked form](https://docs.google.com/forms/d/e/1FAIpQLSeaNhHjDNM8osXPgkXeUQMSl5CntaEw0EeGYHIAc5jxUhQuHg/viewform).
+ 
+-When inserting content into the Watch Next channel, you must follow these guidelines:
++When inserting content into the Watch Next channel, you must follow these
++guidelines:
+ 
+ - [Watch Next guidelines for app developers](https://developer.android.com/training/tv/discovery/guidelines-app-developers)
+ - [Watch Next guidelines for TV providers](https://developer.android.com/training/tv/discovery/guidelines-tv-providers)
+@@ -49,43 +49,39 @@ For more information, see [Watch Next attributes](https://developer.android.com/
+ 
+ ### Use the WatchNextProgram builder
+ 
+-Use a `WatchNextProgram.Builder`. For more information, see
+-[Watch Next attributes](https://developer.android.com/training/tv/discovery/watch-next-programs).
++Use a `WatchNextProgram.Builder`. For more information, see [Watch Next
++attributes](https://developer.android.com/training/tv/discovery/watch-next-programs).
+ 
+ ### Kotlin
+ 
+-```kotlin
+-val builder = WatchNextProgram.Builder()
+-builder.setType(TvContractCompat.WatchNextPrograms.TYPE_MOVIE)
+-        .setWatchNextType(TvContractCompat.WatchNextPrograms.WATCH_NEXT_TYPE_CONTINUE)
+-        .setLastEngagementTimeUtcMillis(time)
+-        .setTitle("Title")
+-        .setDescription("Program description")
+-        .setPosterArtUri(uri)
+-        .setIntentUri(uri)
+-        .setInternalProviderId(appProgramId)
+-
+-val watchNextProgramUri = context.contentResolver
+-        .insert(TvContractCompat.WatchNextPrograms.CONTENT_URI,
+-                builder.build().toContentValues())
+-```
++    val builder = WatchNextProgram.Builder()
++    builder.setType(TvContractCompat.WatchNextPrograms.TYPE_MOVIE)
++            .setWatchNextType(TvContractCompat.WatchNextPrograms.WATCH_NEXT_TYPE_CONTINUE)
++            .setLastEngagementTimeUtcMillis(time)
++            .setTitle("Title")
++            .setDescription("Program description")
++            .setPosterArtUri(uri)
++            .setIntentUri(uri)
++            .setInternalProviderId(appProgramId)
++
++    val watchNextProgramUri = context.contentResolver
++            .insert(TvContractCompat.WatchNextPrograms.CONTENT_URI,
++                    builder.build().toContentValues())
+ 
+ ### Java
+ 
+-```java
+-WatchNextProgram.Builder builder = new WatchNextProgram.Builder();
+-builder.setType(TvContractCompat.WatchNextPrograms.TYPE_MOVIE)
+-        .setWatchNextType(TvContractCompat.WatchNextPrograms.WATCH_NEXT_TYPE_CONTINUE)
+-        .setLastEngagementTimeUtcMillis(time)
+-        .setTitle("Title")
+-        .setDescription("Program description")
+-        .setPosterArtUri(uri)
+-        .setIntentUri(uri)
+-        .setInternalProviderId(appProgramId);
+-
+-Uri watchNextProgramUri = context.getContentResolver()
+-        .insert(TvContractCompat.WatchNextPrograms.CONTENT_URI, builder.build().toContentValues());
+-```
++    WatchNextProgram.Builder builder = new WatchNextProgram.Builder();
++    builder.setType(TvContractCompat.WatchNextPrograms.TYPE_MOVIE)
++            .setWatchNextType(TvContractCompat.WatchNextPrograms.WATCH_NEXT_TYPE_CONTINUE)
++            .setLastEngagementTimeUtcMillis(time)
++            .setTitle("Title")
++            .setDescription("Program description")
++            .setPosterArtUri(uri)
++            .setIntentUri(uri)
++            .setInternalProviderId(appProgramId);
++
++    Uri watchNextProgramUri = context.getContentResolver()
++            .insert(TvContractCompat.WatchNextPrograms.CONTENT_URI, builder.build().toContentValues());
+ 
+ Use `TvContractCompat.buildWatchNextProgramUri(long watchNextProgramId)` to
+ create the `Uri` you need to update a Watch Next program.

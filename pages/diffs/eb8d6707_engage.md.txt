@@ -1,0 +1,13 @@
+diff --git a/docs/guide/playcore/engage.md b/docs/guide/playcore/engage.md
+index 9beb0f97..0109b781 100644
+--- a/docs/guide/playcore/engage.md
++++ b/docs/guide/playcore/engage.md
+@@ -51,6 +51,6 @@ for information about how to add recommended content to TV.
+ 
+ Use the Engage SDK [Android skill](https://developer.android.com/tools/agents/android-skills) to integrate, debug, and resolve implementation issues. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+ 
+-    android skills add --skill engage-sdk-integration
++    android skills add engage-sdk-integration
+ 
+ <br />
+\ No newline at end of file

@@ -1,0 +1,119 @@
+diff --git a/docs/training/app-links/test-applinks.md b/docs/training/app-links/test-applinks.md
+index 25aed53e..abb4a17b 100644
+--- a/docs/training/app-links/test-applinks.md
++++ b/docs/training/app-links/test-applinks.md
+@@ -145,4 +145,111 @@ preceding manifest is:
+     map.example.com (it does not have android.intent.category.BROWSABLE)
+     market://example.com (it does not have either an "http" or "https" scheme)
+ 
+-To learn more about statement lists, see [Creating a Statement List](https://developers.google.com/digital-asset-links/v1/create-statement).
+\ No newline at end of file
++To learn more about statement lists, see [Creating a Statement List](https://developers.google.com/digital-asset-links/v1/create-statement).
++
++## Diagnose link resolution with the debug-link flag
++
++Starting in Android 17, you can use the `--debug-link` flag with the activity
++manager (`am start`) command to diagnose how the system resolves a specific
++URL. This tool provides a detailed breakdown of candidate apps that matched the
++intent, along with the specific rules from the app manifest and the
++`assetlinks.json` file (for Dynamic App Links) that were evaluated during
++resolution.
++
++To test link resolution for a specific URL, run the following command in a
++terminal window:
++
++    adb shell am start --debug-link -a android.intent.action.VIEW -d "https://xyz.com/foo"
++
++The diagnostic output is printed under the header `App Link Resolution Debug`
++and contains the following sections to help you understand the resolution
++process:
++
++- **Target details:** Identifies each matching candidate app by its package name and target activity.
++- **Intent Filter Match (`AndroidManifest.xml`):** Shows which static attributes in the manifest intent filter (such as `scheme`, `host`, `path`, `pathPrefix`, or `pathPattern`) matched the URI.
++- **App Link Verification:** Shows the current domain verification state (such as `STATE_SUCCESS`).
++- **Dynamic App Links:** If the app uses Dynamic App Links matching rules in its `assetlinks.json` file, this section lists every rule that was evaluated against the URI. Each rule indicates the matched URI filters (such as path prefixes or patterns) and an `allow` field:
++  - `allow = 0`: An **allow/inclusion** rule (`allow: true`). If this rule matches, the app is allowed to open the URI.
++  - `allow = 1`: A **block/exclusion** rule (`allow: false` / `exclude:
++    true`). If this rule matches, the app is prevented from opening the URI.
++  - *Note* : An empty filter string (`filter =`) indicates an empty path prefix that matches all paths under the domain (acting as a wildcard or catch-all).
++
++### Example debug output
++
++Consider an app (`com.example.xyzapp`) associated with the domain
++`https://xyz.com` that defines dynamic rules in its `assetlinks.json` file to
++exclude `/foo*` while allowing all other paths:
++
++    [
++      {
++        "relation": [
++          "delegate_permission/common.handle_all_urls"
++        ],
++        "target": {
++          "namespace": "android_app",
++          "package_name": "com.example.xyzapp",
++          "sha256_cert_fingerprints": ["..."]
++        },
++        "relation_extensions": {
++          "delegate_permission/common.handle_all_urls": {
++            "dynamic_app_link_components": [
++              {"/": "/foo*", "exclude": true},
++              {"/": "*"}
++            ]
++          }
++        }
++      }
++    ]
++
++When diagnosing the URL `https://xyz.com/foo` using `--debug-link`:
++
++    adb shell am start --debug-link -a android.intent.action.VIEW -d "https://xyz.com/foo"
++
++The command outputs the following diagnostic breakdown:
++
++    --- App Link Resolution Debug ---
++
++    URI: https://xyz.com/foo
++    Resolution: Ambiguous (Multiple apps or Browser fallback)
++    This usually happens when multiple apps can handle the link and no default is set.
++
++    All Matching Candidates:
++
++    Target:
++      Package: com.example.xyzapp
++      Activity: com.example.xyzapp.MainActivity
++
++      Intent Filter Match (AndroidManifest.xml)
++        Scheme: 'https' matched android:scheme="https"
++        Host: 'xyz.com' matched android:host="xyz.com"
++
++    App Link Verification:
++      Verification status: STATE_SUCCESS
++      Dynamic App Links:
++        -> Matched Rule 0: UriRelativeFilterGroup { allow = 1, uri_filters = {UriRelativeFilter { uriPart = PATH, patternType = PREFIX, filter = /foo }},  }
++        -> Matched Rule 1: UriRelativeFilterGroup { allow = 0, uri_filters = {UriRelativeFilter { uriPart = PATH, patternType = PREFIX, filter =  }},  }
++
++    Target:
++      Package: org.chromium.webview_shell
++      Activity: org.chromium.webview_shell.WebViewBrowserActivity
++
++      Intent Filter Match (AndroidManifest.xml)
++        Scheme: 'https' matched android:scheme="https"
++
++    ---
++
++    Starting: Intent { act=android.intent.action.VIEW dat=https://xyz.com/foo }
++
++In this example, the system evaluated the two Dynamic App Link rules from
++`assetlinks.json`:
++
++- **Rule 0 (`allow = 1`, `filter = /foo`):** Generated from `{"/": "/foo*", "exclude": true}`, this is an exclusion rule (`allow: false`) blocking URLs starting with the `/foo` path prefix.
++- **Rule 1 (`allow = 0`, `filter =`):** Generated from `{"/": "*"}`, this is an inclusion rule (`allow: true`) with an empty path prefix (`filter =`), which matches all paths under `xyz.com` (catch-all).
++
++**How resolution works in this scenario:**
++
++1. Both Rule 0 and Rule 1 match the URL `https://xyz.com/foo`.
++2. Dynamic App Link rules are evaluated in sequential order from top to bottom (first matching rule wins).
++3. Because **Rule 0** appears first in the statement list and is an exclusion rule (`allow = 1`), it takes precedence over the general allow rule (**Rule
++   1**).
++4. The app is therefore excluded from handling `https://xyz.com/foo`, causing the system to fall back to the browser or display a disambiguation dialog.
+\ No newline at end of file

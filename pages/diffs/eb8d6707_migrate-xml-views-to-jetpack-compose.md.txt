@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/migrate/migrate-xml-views-to-jetpack-compose.md b/docs/develop/ui/compose/migrate/migrate-xml-views-to-jetpack-compose.md
+index 70d22d0b..891cfc2a 100644
+--- a/docs/develop/ui/compose/migrate/migrate-xml-views-to-jetpack-compose.md
++++ b/docs/develop/ui/compose/migrate/migrate-xml-views-to-jetpack-compose.md
+@@ -23,6 +23,6 @@ The following pages describe how to integrate Compose with your existing apps:
+ 
+ Use the Migrate XML Views to Jetpack Compose [Android skill](https://developer.android.com/tools/agents/android-skills) to convert your legacy XML layouts to modern Jetpack Compose UI. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+ 
+-    android skills add --skill migrate-xml-views-to-jetpack-compose
++    android skills add migrate-xml-views-to-jetpack-compose
+ 
+ <br />
+\ No newline at end of file

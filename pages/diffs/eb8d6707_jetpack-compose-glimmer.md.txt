@@ -1,0 +1,13 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer.md b/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer.md
+index f82da1de..bf963655 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer.md
++++ b/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer.md
+@@ -12,7 +12,7 @@ source: md.txt
+ 
+ Use an Android skill to build UI for display glasses using the Jetpack Compose Glimmer UI toolkit. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+ 
+-    android skills add --skill display-glasses-with-jetpack-compose-glimmer
++    android skills add display-glasses-with-jetpack-compose-glimmer
+ 
+ <br />
+ 

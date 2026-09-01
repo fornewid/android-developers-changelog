@@ -1,0 +1,13 @@
+diff --git a/docs/design/ui/mobile/guides/layout-and-content/edge-to-edge.md b/docs/design/ui/mobile/guides/layout-and-content/edge-to-edge.md
+index dfe2e4e0..b12667ea 100644
+--- a/docs/design/ui/mobile/guides/layout-and-content/edge-to-edge.md
++++ b/docs/design/ui/mobile/guides/layout-and-content/edge-to-edge.md
+@@ -19,7 +19,7 @@ system bars.
+ 
+ Use the Edge-to-Edge [Android skill](https://developer.android.com/tools/agents/android-skills) to add adaptive edge-to-edge support to your Jetpack Compose app. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+ 
+-    android skills add --skill edge-to-edge
++    android skills add edge-to-edge
+ 
+ <br />
+ 

@@ -1,0 +1,22 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/subspace-modifiers.md b/docs/develop/xr/jetpack-xr-sdk/subspace-modifiers.md
+index dd532f6e..87e2f81b 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/subspace-modifiers.md
++++ b/docs/develop/xr/jetpack-xr-sdk/subspace-modifiers.md
+@@ -73,12 +73,12 @@ subspaces, and spatial layout components (like `SpatialRow` or `SpatialColumn`).
+ 
+ ### Move elements
+ 
+-When the [`movable()`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).movable(kotlin.Boolean,androidx.xr.compose.subspace.layout.MovePolicy)) modifier is present and enabled, draggable UI controls will
+-be shown that allow the user to move the element in 3D space. The specific
+-behavior of this movement is defined by the provided `movePolicy`:
++When the [`movable`](https://developer.android.com/reference/kotlin/androidx/xr/compose/subspace/layout/SubspaceModifier#(androidx.xr.compose.subspace.layout.SubspaceModifier).movable(kotlin.Boolean,androidx.xr.compose.subspace.layout.MovePolicy)) modifier is present and enabled, draggable UI
++controls will be shown that allow the user to move the element in 3D space. The
++specific behavior of this movement is defined by the provided `movePolicy`:
+ 
+-- `MovePolicy.default()`: The system handles the movement entirely and automatically calculates and applies the new pose and scale based on user input.
+-- `MovePolicy.custom()`: The system calculates the target Pose based on input, but does not automatically apply it to the associated element. This is useful for restricting movement or creating custom movement in your app.
++- `MovePolicy.default`: The system handles the movement entirely and automatically calculates and applies the new pose and scale based on user input.
++- `MovePolicy.custom`: The system calculates the target Pose based on input, but does not automatically apply it to the associated element. This is useful for restricting movement or creating custom movement in your app.
+ 
+ ### Resize elements
+ 

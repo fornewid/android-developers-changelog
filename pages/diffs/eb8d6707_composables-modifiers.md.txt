@@ -1,0 +1,50 @@
+diff --git a/docs/develop/ui/compose/animation/composables-modifiers.md b/docs/develop/ui/compose/animation/composables-modifiers.md
+index 97cc507a..a9b9070b 100644
+--- a/docs/develop/ui/compose/animation/composables-modifiers.md
++++ b/docs/develop/ui/compose/animation/composables-modifiers.md
+@@ -268,8 +268,9 @@ AnimatedContent(
+             SizeTransform(clip = false)
+         )
+     }, label = "animated content"
+-) { tar>getCount -
+-    Text(text = "$AnimationSnippets.kt
++) { targetCount ->
++    Text(text = "$targetCount")
++}
+ ```
+ 
+ <br />
+@@ -320,12 +321,14 @@ Surface(
+                     }
+                 }
+         }, label = "size transform"
+-    ) { target>Expanded -
++    ) { targetExpanded ->
+         if (targetExpanded) {
+             Expanded()
+         } else {
+             ContentIcon()
+-       nippets.kt
++        }
++    }
++}
+ ```
+ 
+ <br />
+@@ -355,11 +358,12 @@ crossfade animation.
+ 
+ ```kotlin
+ var currentPage by remember { mutableStateOf("A") }
+-Crossfade(targetState = currentPage, label = "cross fa>de") { screen -
+-    when (scr>een) {
+-        "A" >- Text("Page A&quoquot; - Text("Page B")
++Crossfade(targetState = currentPage, label = "cross fade") { screen ->
++    when (screen) {
++        "A" -> Text("Page A")
++        "B" -> Text("Page B")
+     }
+-}AnimationSnippets.kt
++}
+ ```
+ 
+ <br />

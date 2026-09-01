@@ -1,0 +1,15 @@
+diff --git a/docs/studio/releases/fixed-bugs/emulator/37.md b/docs/studio/releases/fixed-bugs/emulator/37.md
+index 5904b4a2..514b1008 100644
+--- a/docs/studio/releases/fixed-bugs/emulator/37.md
++++ b/docs/studio/releases/fixed-bugs/emulator/37.md
+@@ -4,6 +4,10 @@ url: https://developer.android.com/studio/releases/fixed-bugs/emulator/37
+ source: md.txt
+ ---
+ 
++### Android Emulator 37.2.7 Canary
++
++Fixed Issues **Emulator** [Issue #506475581](https://issuetracker.google.com/issues/506475581) Emulator audio severely distorted on macOS when using audio interface with \>2 channels (loopback, multi-output)
++
+ ### Android Emulator 37.2.6 Canary
+ 
+ *This release includes minor fixes and improvements.*

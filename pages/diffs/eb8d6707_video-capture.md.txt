@@ -1,0 +1,21 @@
+diff --git a/docs/media/camera/camerax/video-capture.md b/docs/media/camera/camerax/video-capture.md
+index 0d094fe6..bc430466 100644
+--- a/docs/media/camera/camerax/video-capture.md
++++ b/docs/media/camera/camerax/video-capture.md
+@@ -4,16 +4,6 @@ url: https://developer.android.com/media/camera/camerax/video-capture
+ source: md.txt
+ ---
+ 
+-> [!NOTE]
+-> **Note:** The CameraX Video Capture API is not final and is subject
+-> to change.
+->
+-> Code samples in this topic correspond with the
+-> `camera-video:1.1.0-alpha12` release.
+->
+-> [We'd love your feedback](https://issuetracker.google.com/issues/new?component=618491&template=1257717)! Tell us what you think, and help us to shape
+-> the final Video Capture API!
+-
+ A capturing system generally records video and audio streams, compresses them,
+ muxes the two streams, then writes the resultant stream to disk.
+ ![conceptual diagram for a video and audio capturing system](https://developer.android.com/static/images/training/camera/camerax/conceptual-capturing-system.png) **Figure 1.** Conceptual diagram for a video and audio capturing system.
