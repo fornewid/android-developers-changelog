@@ -84,7 +84,7 @@ the following:
 
 Use the `adaptive` [Android skill](https://developer.android.com/tools/agents/android-skills) to update your app's UI so that it adapts to different Android devices and displays. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-    android skills add --skill adaptive
+    android skills add adaptive
 
 <br />
 

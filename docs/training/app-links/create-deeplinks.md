@@ -209,6 +209,11 @@ associated with the specified URI.
 > [!NOTE]
 > **Note:** When defining a collection of primitive types in a route, such as **`@Serializable data class Product(val colors: List)`** , the automatically generated deep link URL format is **`basePath?colors={value}`** . If you attempt to specify a URI with multiple query params (for example, **`basepath?colors=red&colors=blue`** ), you must escape the ampersand (for example, **`basepath?colors=red\&colors=blue`**).
 
+Starting in Android 17, you can also use the `--debug-link` flag with `am start`
+to diagnose how the system resolves a URL and inspect matching intent filters or
+Dynamic App Link rules. For more information, see
+[Diagnose link resolution with the debug-link flag](https://developer.android.com/training/app-links/test-applinks#debug-link-resolution).
+
 The manifest declaration and intent handler you set define the connection
 between your app and a website and what to do with incoming links. However, in
 order to have the system treat your app as the default handler for a set of

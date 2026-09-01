@@ -12,7 +12,7 @@ source: md.txt
 
 Use an Android skill to analyze the R8 Configuration in your app To install the skill from the Android CLI, run:
 
-    android skills add --skill r8-analyzer
+    android skills add r8-analyzer
 
 To activate the skill, try the following prompt:
 

@@ -68,7 +68,7 @@ Download the cmgen command line utility:
 - Find the .tgz containing the prebuilt version of cmgen for your platform and extract it.
 - The prebuilt tool is under the /bin directory of the extracted .tgz file.
 
-Assets to prepare to generate the .zip file for IBL:
+Assets to prepare to generate the ZIP file for IBL:
 
 - A low-resolution EXR that matches your skybox texture
   - Your skybox texture input should be an EXR file. Although cmgen supports other formats, EXRs are recommended because they provide the high dynamic range information that's critical to provide high quality IBL. Using other formats like PNG results in less precise lighting.
@@ -79,9 +79,9 @@ Assets to prepare to generate the .zip file for IBL:
 
 ![](https://developer.android.com/static/images/develop/xr/jetpack-xr-sdk/optimize-environment-assets/environment_skybox.png "A 3D model of a skybox.")
 
-The following shows an example of using cmgen to create the .zip file for IBL.
-In this example we use input files named my_360_skybox_1024_x_512.exr and
-black_skybox.png, and we create a .zip file named my_ibl.zip
+The following shows an example of using cmgen to create the ZIP file for IBL.
+The example uses input files named `my_360_skybox_1024_x_512.exr` and
+`black_skybox.png` to create a ZIP file named `my_ibl.zip`.
 
     # Produce black cubemaps for the texture of the IBL asset.
     ./cmgen --format=rgb32f --size=128 --extract=./skybox_ibl ./black_skybox.png

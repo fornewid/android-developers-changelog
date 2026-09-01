@@ -11,7 +11,7 @@ Gemini, which helps Gemini identify the files that your query is about.
 To attach a file to your query, in the Gemini chat input, type `@` to bring up a
 file completion menu. Search for the filename you want and select the file to
 attach it. You can attach multiple files in a single query.
-![@File context in Gemini](https://developer.android.com/static/studio/gemini/images/file-context.png)
+![@File context in Gemini](https://developer.android.com/static/studio/gemini/images/file-context.png) @File context in Gemini
 
 To un-attach a file, click the **Context** drop-down and press the "x" that
 appears when you hover over a file. To un-attach all files at once, click
@@ -21,4 +21,4 @@ Gemini also automatically suggests files to attach as context. To see which
 files were suggested by Gemini, click the **Context** drop-down and look under
 **Gemini suggestions**. To de-select or select a suggested file, use the
 checkbox next to the file.
-![Files attached manually and suggested by Gemini](https://developer.android.com/static/studio/gemini/images/attached-files.png)
+![Files attached manually and suggested by Gemini](https://developer.android.com/static/studio/gemini/images/attached-files.png) Files attached manually and suggested by Gemini

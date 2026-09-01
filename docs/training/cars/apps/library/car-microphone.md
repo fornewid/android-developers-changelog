@@ -1,10 +1,21 @@
 ---
-title: https://developer.android.com/training/cars/apps/library/car-microphone
+title: Record from the car microphone  |  Android for Cars  |  Android Developers
 url: https://developer.android.com/training/cars/apps/library/car-microphone
-source: md.txt
+source: html-scrape
 ---
 
-You can use your car's [`CarAppService`](https://developer.android.com/reference/androidx/car/app/CarAppService) and [`CarAudioRecord`](https://developer.android.com/reference/androidx/car/app/media/CarAudioRecord) API
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android for Cars](https://developer.android.com/training/cars)
+
+# Record from the car microphone Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+
+You can use your car's [`CarAppService`](/reference/androidx/car/app/CarAppService) and [`CarAudioRecord`](/reference/androidx/car/app/media/CarAudioRecord) API
 to grant your app access to the user's car microphone. Users must grant
 permission to your app to access the car microphone. Your app can record and
 process user input in your app.
@@ -14,22 +25,23 @@ process user input in your app.
 Before recording any audio, you must first declare the permission to record in
 your `AndroidManifest.xml` and request that the user grant it.
 
-    <manifest ...>
-       ...
-       <uses-permission android:name="android.permission.RECORD_AUDIO" />
-       ...
-    </manifest>
+```
+<manifest ...>
+   ...
+   <uses-permission android:name="android.permission.RECORD_AUDIO" />
+   ...
+</manifest>
+```
 
 You must request the permission to record at runtime. To learn more about how
-to request permissions in your car, see [Request permissions](https://developer.android.com/training/cars/apps/library/request-permissions).
+to request permissions in your car, see [Request permissions](/training/cars/apps/library/request-permissions).
 
 ## Record audio
 
 After the user gives permission to record, you can record the audio and process
 the recording.
 
-
-```kotlin
+```
 val carAudioRecord = CarAudioRecord.create(carContext)
 carAudioRecord.startRecording()
 
@@ -39,18 +51,17 @@ while (carAudioRecord.read(data, 0, CarAudioRecord.AUDIO_CONTENT_BUFFER_SIZE) >=
     // Potentially call carAudioRecord.stopRecording() if your processing finds end of speech
 }
 carAudioRecord.stopRecording()
-```
 
-<br />
+CarMicrophone.kt
+```
 
 ## Acquire audio focus
 
-When recording from the car microphone, you must acquire [audio focus](https://developer.android.com/reference/android/media/AudioFocusRequest#what-is-audio-focus) first.
+When recording from the car microphone, you must acquire [audio focus](/reference/android/media/AudioFocusRequest#what-is-audio-focus) first.
 This stops any ongoing media. If you lose audio focus, stop recording. For
 example, to acquire audio focus:
 
-
-```kotlin
+```
 val carAudioRecord = CarAudioRecord.create(carContext)
 
 // Take audio focus so that user's media is not recorded
@@ -82,6 +93,12 @@ if (audioManager == null ||
 
 carAudioRecord.startRecording()
 // Process the audio and abandon the AudioFocusRequest when done
+
+CarMicrophone.kt
 ```
 
-<br />
+[Previous
+
+arrow\_back
+
+Car Hardware APIs](/training/cars/apps/library/car-hardware-api)

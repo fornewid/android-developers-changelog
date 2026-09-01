@@ -36,9 +36,9 @@ Vulkan as your Graphics API, follow these steps:
 2. Select the **Android** tab and navigate to **Other Settings \> Rendering**.
 3. If **Auto Graphics API** is enabled, disable this setting to reveal the **Graphics APIs** section.
 4. In the **Graphics APIs** section, select the **Add (+)** button and select
-   **Vulkan** from the dropdown.
+   **Vulkan** from the drop-down.
 
-   ![Example showing how to change the graphics api settings in the UI](https://developer.android.com/static/images/develop/xr/unity/setup/graphics-api-settings.png)
+   ![Example showing how to change the Graphics API settings in the UI](https://developer.android.com/static/images/develop/xr/unity/setup/graphics-api-settings.png)
 5. Re-order the Graphics APIs using the handles (=) so that Vulkan is listed
    first.
 
@@ -86,10 +86,11 @@ XR:
 
 Follow these steps to optimize your Universal Renderer Data for Android XR:
 
-1. Locate your project's **Universal Renderer Data Asset** . One way to do this is
-   to type `t:UniversalRendererData` into the **Project** window's search bar.
+1. Locate your project's **Universal Renderer Data Asset** . One way to do this
+   is to type `t:UniversalRendererData` into the **Project** window's search
+   bar.
 
-2. In the **Inspector** , under the **Post-processing** header, uncheck
+2. In the **Inspector** , under the **Post-processing** header, clear
    **Enabled**.
 
    ![Universal Renderer Data shown with recommended settings](https://developer.android.com/static/images/develop/xr/unity/setup/post-processing-settings.png)
@@ -113,12 +114,12 @@ Configure the following settings for application entry point:
 2. Select the **Android** tab and open **Other Settings**.
 3. In the **Configuration** section, make sure **Application Entry Point** has **GameActivity** checked and **Activity** unchecked.
 
-## Pop-up windows
+## Dialogs
 
 Most Android XR apps require resizable windows, as they are required to render
-pop-ups such as system permission requests.
+dialogs such as system permission requests.
 
-Follow these steps to ensure pop-up windows are rendered properly.
+Follow these steps to ensure dialogs are rendered properly.
 
 1. Go to **Edit** \> **Project Settings** \> **Player**.
 2. Select the **Android** tab and open **Resolution and Presentation**

@@ -50,9 +50,11 @@ form factors.
 
 The following exemptions apply for this guideline:
 
-- **Hardware constraints**: Apps can apply for exemption if a specific form factor's constraints would meaningfully degrade the core user experience or if no technical solution exists for that hardware to support the app's core use case.
-- **Technical constraints**: Apps primarily intended for utilities or tools that have no logical use case on specialized form factors may be considered for exemption.
-- **Form factor availability**: If a device is unavailable in a region where the app is offered, the app is exempt from distribution on that device in that region.
+| ID | Exemption |
+|---|---|
+| AEP-FF-EAA | **Hardware constraints**: Apps can apply for exemption if a specific form factor's constraints would meaningfully degrade the core user experience or if no technical solution exists for that hardware to support the app's core use case. |
+| AEP-FF-EAB | **Technical constraints**: Apps primarily intended for utilities or tools that have no logical use case on specialized form factors may be considered for exemption. |
+| AEP-FF-EAC | **Form factor availability**: If a device is unavailable in a region where the app is offered, the app is exempt from distribution on that device in that region. |
 
 ## Feature documentation and resources
 

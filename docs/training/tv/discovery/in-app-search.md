@@ -4,17 +4,27 @@ url: https://developer.android.com/training/tv/discovery/in-app-search
 source: md.txt
 ---
 
-# Search within TV apps
+Users frequently have specific content in mind when using a media app on TV. If your app contains
+a large catalog of content, browsing for a specific title might not be the most efficient way for
+users to find what they are looking for. A search interface can help your users get to the
+content they want faster than browsing.
 
-Users frequently have specific content in mind when using a media app on TV. If your app contains a large catalog of content, browsing for a specific title might not be the most efficient way for users to find what they are looking for. A search interface can help your users get to the content they want faster than browsing.
 
-The[androidx.leanback library](https://developer.android.com/training/tv/get-started/create#leanback)provides a set of classes to enable a standard search interface within your app that is consistent with other search functions on TV and provides features like voice input.
+The [androidx.leanback library](https://developer.android.com/training/tv/get-started/create#leanback) provides a set of classes to enable a standard search interface
+within your app that is consistent with other search functions on TV and provides features like
+voice input.
 
-This guide discusses how to provide a search interface in your app using Leanback support library classes.
+
+This guide discusses how to provide a search interface in your app using Leanback support
+library classes.
 
 ## Add a search action
 
-When you use the[BrowseFragment](https://developer.android.com/reference/androidx/leanback/app/BrowseFragment)class for a media browsing interface, you can enable a search interface as a standard part of the user interface. The search interface is an icon that appears in the layout when you set[View.OnClickListener](https://developer.android.com/reference/android/view/View.OnClickListener)on the`BrowseFragment`object. The following sample code demonstrates this technique.  
+
+When you use the `https://developer.android.com/reference/androidx/leanback/app/BrowseFragment` class for a media
+browsing interface, you can enable a search interface as a standard part of the user
+interface. The search interface is an icon that appears in the layout when you set `https://developer.android.com/reference/android/view/View.OnClickListener` on the `BrowseFragment`
+object. The following sample code demonstrates this technique.
 
 ### Kotlin
 
@@ -57,13 +67,23 @@ public void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-**Note:** You can set the color of the search icon using the[setSearchAffordanceColor(int)](https://developer.android.com/reference/androidx/leanback/app/BrandedFragment#setSearchAffordanceColor(int))method.
+
+**Note:** You can set the color of the search icon using the
+`https://developer.android.com/reference/androidx/leanback/app/BrandedFragment#setSearchAffordanceColor(int)`
+method.
 
 ## Add a search input and results
 
-When a user selects the search icon, the system invokes a search activity using the defined intent. For your search activity, use a linear layout containing a[SearchFragment](https://developer.android.com/reference/androidx/leanback/app/SearchFragment). This fragment must also implement the[SearchFragment.SearchResultProvider](https://developer.android.com/reference/androidx/leanback/app/SearchFragment.SearchResultProvider)interface to display the results of a search.
 
-The following code sample shows how to extend the`SearchFragment`class to provide a search interface and results:  
+When a user selects the search icon, the system invokes a search activity using the
+defined intent. For your search activity, use a linear layout containing a
+`https://developer.android.com/reference/androidx/leanback/app/SearchFragment`.
+This fragment must also implement the `https://developer.android.com/reference/androidx/leanback/app/SearchFragment.SearchResultProvider`
+interface to display the results of a search.
+
+
+The following code sample shows how to extend the `SearchFragment` class
+to provide a search interface and results:
 
 ### Kotlin
 
@@ -160,4 +180,7 @@ public class MySearchFragment extends SearchFragment
 }
 ```
 
-The previous example code is meant to be used with a`SearchRunnable`class that runs the search query on a separate thread. This technique keeps potentially slow-running queries from blocking the main user interface thread.
+
+The previous example code is meant to be used with a `SearchRunnable` class
+that runs the search query on a separate thread. This technique keeps potentially slow-running
+queries from blocking the main user interface thread.

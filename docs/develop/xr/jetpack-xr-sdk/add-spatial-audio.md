@@ -298,7 +298,8 @@ if (session.scene.spatialCapabilities.contains(SpatialCapability.SPATIAL_AUDIO))
 ### Add ambisonic sound fields to your app
 
 The simplest way to play back ambisonic sound fields is by loading the file with
-a `MediaPlayer`. Since ambisonic sound applies to the entire soundscape, you don't need to specify an `Entity` to provide a position. Instead, you create an
+a `MediaPlayer`. Since ambisonic sound applies to the entire soundscape, you
+don't need to specify an `Entity` to provide a position. Instead, you create an
 instance of the [`SoundFieldAttributes`](https://developer.android.com/reference/kotlin/androidx/xr/scenecore/SoundFieldAttributes) with the appropriate ambisonic
 order specifying the number of channels.
 

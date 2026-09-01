@@ -64,7 +64,7 @@ perfectly in their living room.
 Chrome for Android XR supports the [Depth Sensing Module in
 WebXR](https://www.w3.org/TR/webxr-depth-sensing-1/), which enhances a device's ability to perceive the
 dimensions and contours of their real-world environment. This depth information
-allows you to create more immersive and realistic interactions, helping users
+lets you create more immersive and realistic interactions, helping users
 make informed decisions.
 
 Unlike depth sensing on mobile phones, depth sensing in Android XR is

@@ -22,7 +22,7 @@ you're designing layouts, input methods, or other device capabilities.
 
 Use the Edge-to-Edge [Android skill](https://developer.android.com/tools/agents/android-skills) to add adaptive edge-to-edge support to your Jetpack Compose app. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-    android skills add --skill edge-to-edge
+    android skills add edge-to-edge
 
 <br />
 

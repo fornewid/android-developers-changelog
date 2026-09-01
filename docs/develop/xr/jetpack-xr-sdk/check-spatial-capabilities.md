@@ -94,8 +94,8 @@ if (xrSession.scene.spatialCapabilities.contains(SpatialCapability.PASSTHROUGH_C
 On Android XR, XR headsets and wired XR glasses have varying hardware
 capabilities, especially concerning their display type. You might need to adapt
 the colors of your app's UI and rendered objects to maximize visibility, which
-might be influenced by the display type and the preferred blend mode employed by the
-device. The [`DisplayBlendMode`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/XrDevice.DisplayBlendMode) API provides the device's blend mode
+might be influenced by the display type and the preferred blend mode employed by
+the device. The [`DisplayBlendMode`](https://developer.android.com/reference/kotlin/androidx/xr/runtime/XrDevice.DisplayBlendMode) API provides the device's blend mode
 capability for rendering. Use this API to determine how virtual content is
 added to the real world.
 

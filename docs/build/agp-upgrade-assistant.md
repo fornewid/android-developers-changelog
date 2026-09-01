@@ -16,7 +16,7 @@ that helps you upgrade the version of AGP used by your project.
 
 Use the AGP 9 Upgrade [Android skill](https://developer.android.com/tools/agents/android-skills) to upgrade your project to AGP version 9.x (non-KMP projects). To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-    android skills add --skill agp-9-upgrade
+    android skills add agp-9-upgrade
 
 If your app uses Kotlin Multiplatform (KMP), use the skill from [JetBrains](https://github.com/Kotlin/kotlin-agent-skills/tree/main/skills/kotlin-tooling-agp9-migration).
 

@@ -12,7 +12,7 @@ source: md.txt
 
 Use an Android skill to analyze and set up test infrastructure, test harnesses, unit tests, and UI tests for native Android apps. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-    android skills add --skill testing-setup
+    android skills add testing-setup
 
 <br />
 

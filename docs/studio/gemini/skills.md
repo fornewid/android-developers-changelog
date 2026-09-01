@@ -33,4 +33,5 @@ directories --- `.skills` and `agent/skills`. If you have skills in those
 locations, move them to `.agents/skills` or `.android-studio/skills` when
 upgrading Android Studio to Quail 1 or later versions.
 
-To learn more about Android skills, see [Intro to Android skills](https://developer.android.com/tools/agents/android-skills).
+To learn more about Android skills, see
+[Intro to Android skills](https://developer.android.com/tools/agents/android-skills).

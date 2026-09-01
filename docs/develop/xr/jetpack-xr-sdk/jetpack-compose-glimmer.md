@@ -12,7 +12,7 @@ source: md.txt
 
 Use an Android skill to build UI for display glasses using the Jetpack Compose Glimmer UI toolkit. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-    android skills add --skill display-glasses-with-jetpack-compose-glimmer
+    android skills add display-glasses-with-jetpack-compose-glimmer
 
 <br />
 

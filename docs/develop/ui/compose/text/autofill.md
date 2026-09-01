@@ -234,8 +234,7 @@ button:
          )
 
          // Submit button
-         Button(onClick = { autofillManager?.commit() }) { Text("Reset credentials") }
-     }
+         Button(onClick = { autofillManager?.commit() }) { Text("Reset credentials&nippets.kt
      ```
 
      <br />
@@ -260,8 +259,7 @@ button:
          )
 
          // Submit button
-         Button(onClick = { autofillManager?.commit() }) { Text("Reset credentials") }
-     }
+         Button(onClick = { autofillManager?.commit() }) { Text("Reset credentials&nippets.kt
      ```
 
      <br />

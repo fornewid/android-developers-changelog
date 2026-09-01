@@ -184,7 +184,8 @@ to Android Studio or Android Emulator.
   HAXM, will see a banner reporting missing a hypervisor and an action link to
   install AEHD.
 
-  ![Banner displayed when user tries to create a new AVD with HAXM](https://screenshot.googleplex.com/7W8674ZekzyfpH3.png)
+  ![Banner displayed when user tries to create a new AVD with HAXM](https://developer.android.com/static/studio/images/releases/HAXM.png)
+
   For information on uninstalling HAXM, see [HAXM Uninstall](https://developer.android.com/studio/run/emulator-acceleration#haxm-uninstall).
 - Fix to ensure Intel GPU uses OpenGL ES 3.0 to avoid driver crash
 

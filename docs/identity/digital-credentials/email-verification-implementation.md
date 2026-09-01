@@ -12,7 +12,7 @@ source: md.txt
 
 Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to integrate a secure, OTP-less email verification flow into your app. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-    android skills add --skill verified-email
+    android skills add verified-email
 
 <br />
 

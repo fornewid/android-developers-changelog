@@ -20,7 +20,7 @@ notes](https://developer.android.com/google/play/billing/release-notes).
 
 Use the Play Billing Library [Android skill](https://developer.android.com/tools/agents/android-skills) to automate your upgrade to the latest version. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-    android skills add --skill play-billing-library-version-upgrade
+    android skills add play-billing-library-version-upgrade
 
 To activate the skill, try the following prompt:
 

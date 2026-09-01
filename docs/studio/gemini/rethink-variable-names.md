@@ -15,7 +15,7 @@ second for Gemini's suggestions to appear). Gemini suggests appropriate names
 based on the code context. Double-click on a suggested name to update all
 instances of the variable name.
 ![The code editor's 'Rename' refactoring action displaying name
-suggestions.](https://developer.android.com/static/studio/preview/features/images/gemini-rename.png)
+suggestions.](https://developer.android.com/static/studio/preview/features/images/gemini-rename.png) The code editor's 'Rename' refactoring action displaying name suggestions.
 
 To rethink all the variables in the current function or file, put the cursor in
 the function or at the top-level of the file (outside of any function),
@@ -23,4 +23,4 @@ respectively. Then right-click and select **Gemini \> Rethink variable names**. 
 dialog appears where you can review the suggested names and accept only the ones
 you like.
 ![The 'Rename Local Variables' dialog with alternative name
-suggestions.](https://developer.android.com/static/studio/preview/features/images/gemini-rethink.png)
+suggestions.](https://developer.android.com/static/studio/preview/features/images/gemini-rethink.png) The 'Rename Local Variables' dialog with alternative name suggestions.

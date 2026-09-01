@@ -20,7 +20,8 @@ classes, saving you time on repetitive setup.
 
 ## Prerequisites
 
-This feature is available in Android Studio Panda 4 \| 2025.3.4 Canary 3 or higher.
+This feature is available in Android Studio Panda 4 \| 2025.3.4 Canary 3 or
+higher.
 
 ## Generate unit tests from the editor
 

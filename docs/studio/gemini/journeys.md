@@ -38,7 +38,7 @@ to organize your journey description and steps.
 > **Note:** To run a journey, your project needs to use Android Gradle Plugin 9.0.0 or higher. If you're unable to upgrade your project, you can [run journeys against pre-installed apps](https://developer.android.com/studio/gemini/journeys#pre-installed-apk) on your test device.
 
 ![The journey editor in Android Studio, showing an XML file with
-journey steps.](https://developer.android.com/static/studio/gemini/images/journey-editor.png)
+journey steps.](https://developer.android.com/static/studio/gemini/images/journey-editor.png) The journey editor in Android Studio, showing an XML file with journey steps.
 
 To create and start editing a journey, do the following:
 
@@ -139,9 +139,9 @@ perform inconsistently:
 - **Counting** - Accurately tracking quantities, frequencies, or progress.
 - **Conditional statements** - Executing actions based on whether other specified conditions are met.
 
-Features and capabilities are constantly improving. We suggest checking this page
-later to learn about additional features and capabilities. To help us improve
-Journeys, [share your feedback](https://developer.android.com/studio/report-bugs).
+Features and capabilities are constantly improving. We suggest checking this
+page later to learn about additional features and capabilities. To help us
+improve Journeys, [share your feedback](https://developer.android.com/studio/report-bugs).
 
 ## Run your journey
 

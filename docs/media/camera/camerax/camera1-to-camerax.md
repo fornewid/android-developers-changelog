@@ -12,7 +12,7 @@ source: md.txt
 
 Use the CameraX [Android skill](https://developer.android.com/tools/agents/android-skills) to migrate camera implementations (Camera1 or Camera2 APIs) to CameraX. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-    android skills add --skill camerax
+    android skills add camerax
 
 <br />
 

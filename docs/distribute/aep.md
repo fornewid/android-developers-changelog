@@ -34,7 +34,7 @@ To be eligible for the program rate card, you must complete the following steps:
 
 1. **Identify your app's specific guidelines**: Because apps serve different user needs, the specific guidelines you must meet are mapped to your app's use cases.
 2. **Meet and maintain technical guidelines**: Your app must successfully implement the applicable technical and quality guidelines.
-3. **Explicitly enroll**: You must actively opt into the program. During enrollment, you must submit your app for validation by Google Play. Enrollment dates and further details will be shared soon.
+3. **Explicitly enroll** : You must actively opt into the program. During enrollment, you must submit your app for validation by Google Play. You can enroll directly through Play Console starting September 1, 2026. For more information, see [Enroll in the Apps Experience program](https://support.google.com/googleplay/android-developer/answer/18018581).
 
 Following your enrollment, Google Play will review and validate that your app
 meets all required guidelines. The program rate card will be applied per the

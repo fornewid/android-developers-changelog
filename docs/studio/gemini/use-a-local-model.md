@@ -41,8 +41,8 @@ model if you have a high-performance machine.
 | Gemma E4B | 12 GB | 4 GB |
 | Gemma 26B MoE | 24 GB | 17 GB |
 
-See the [setup guide](https://developer.android.com/studio/gemini/use-a-local-model#set-up-local-model-support) for instructions on how to download and run Gemma 4 locally
-on your machine.
+See the [setup guide](https://developer.android.com/studio/gemini/use-a-local-model#set-up-local-model-support) for instructions on how to download and run Gemma 4
+locally on your machine.
 
 ## Set up local model support
 

@@ -1,61 +1,93 @@
 ---
-title: https://developer.android.com/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent
+title: Android CLI and skills: Build Android apps 3x faster using any agent  |  Android Developers' Blog
 url: https://developer.android.com/blog/posts/android-cli-build-android-apps-3x-faster-using-any-agent
-source: md.txt
+source: html-scrape
 ---
 
-[How-tos](https://developer.android.com/blog/categories/how-tos)
+* [Android Developers](https://developer.android.com/)
+* [Android Developers' Blog](https://developer.android.com/)
+* [Blog](https://developer.android.com/blog)
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+[How-tos](/blog/categories/how-tos)
 
 # Android CLI and skills: Build Android apps 3x faster using any agent
 
-4 min read ![](https://developer.android.com/static/blog/assets/hours_CLI_Dark_Strapi_2x_427f20cc78_Z1oqB1M.webp) 16 Apr 2026 [![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)](https://developer.android.com/blog/authors/adarsh-fernando)[![View Esteban de la Canal's profile](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)](https://developer.android.com/blog/authors/esteban-de-la-canal) [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando) \& [Esteban de la Canal](https://developer.android.com/blog/authors/esteban-de-la-canal) As Android developers, you have many choices when it comes to the agents, tools, and LLMs you use for app development. Whether you are using Gemini in Android Studio, Gemini CLI, Antigravity, or third-party agents like Claude Code or Codex, our mission is to ensure that high-quality Android development is possible everywhere.
-[Video](https://www.youtube.com/watch?v=AhrXPjk22OE)
+4 min read
 
-Today, we are introducing a new suite of [**Android tools and resources for agentic workflows**](http://d.android.com/tools/agents) --- Android CLI with Android skills and the Android Knowledge Base. This collection of tools is designed to eliminate the guesswork of core Android development workflows when you direct an agent's work outside of Android Studio, making your agents more efficient, effective, and capable of following the latest recommended patterns and best practices.
+![](/static/blog/assets/hours_CLI_Dark_Strapi_2x_427f20cc78_Z1oqB1M.webp)
 
-Whether you are just starting your development journey on Android, are a seasoned Android developer, or managing apps across mobile and web platforms, building your apps with the latest guidance, tools, and AI-assistance is easier than ever. No matter which environment you begin with these resources, you can always transition your development experience to Android Studio---where the state-of-the-art tools and agents for Android development are available to help your app experience truly shine.
+16
+
+Apr
+2026
+
+[![View Adarsh Fernando's profile](/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)](/blog/authors/adarsh-fernando)[![View Esteban de la Canal's profile](/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)](/blog/authors/esteban-de-la-canal)
+
+[Adarsh Fernando](/blog/authors/adarsh-fernando)
+&
+[Esteban de la Canal](/blog/authors/esteban-de-la-canal)
+
+As Android developers, you have many choices when it comes to the agents, tools, and LLMs you use for app development. Whether you are using Gemini in Android Studio, Gemini CLI, Antigravity, or third-party agents like Claude Code or Codex, our mission is to ensure that high-quality Android development is possible everywhere.
+
+Today, we are introducing a new suite of [**Android tools and resources for agentic workflows**](http://d.android.com/tools/agents) — Android CLI with Android skills and the Android Knowledge Base. This collection of tools is designed to eliminate the guesswork of core Android development workflows when you direct an agent’s work outside of Android Studio, making your agents more efficient, effective, and capable of following the latest recommended patterns and best practices.
+
+Whether you are just starting your development journey on Android, are a seasoned Android developer, or managing apps across mobile and web platforms, building your apps with the latest guidance, tools, and AI-assistance is easier than ever. No matter which environment you begin with these resources, you can always transition your development experience to Android Studio—where the state-of-the-art tools and agents for Android development are available to help your app experience truly shine.
 
 ### **(Re)Introducing the Android CLI**
 
-Your agents perform best when they have a lightweight, programmatic interface to interact with the Android SDK and development environment. So, at the heart of this new workflow is a revitalized **Android CLI**. The new Android CLI serves as the primary interface for Android development from the terminal, featuring commands for environment setup, project creation, and device management---with more modern capabilities and easy updatability in mind.
+Your agents perform best when they have a lightweight, programmatic interface to interact with the Android SDK and development environment. So, at the heart of this new workflow is a revitalized **Android CLI**. The new Android CLI serves as the primary interface for Android development from the terminal, featuring commands for environment setup, project creation, and device management—with more modern capabilities and easy updatability in mind.
 
-*The *`*create*`* command makes an Android app project in seconds.*
+[](/static/blog/assets/videos/android_create_project_2a6622fd51/android_create_project_2a6622fd51.mp4)
 
-In our internal experiments, Android CLI improved project and environment setup by reducing LLM token usage by more than **70%,** and tasks were completed **3X faster** than when agents attempted to navigate these tasks using only the standard toolsets.
+*The*`create` *command makes an Android app project in seconds.*
+
+In our internal experiments, Android CLI improved project and environment setup by reducing LLM token usage by more than **70%,** and tasks were completed **3X faster** than when agents attempted to navigate these tasks using only the standard toolsets.
 
 Key capabilities available to you include:
 
-- **SDK management** : Use `android sdk install` to download only the specific components needed, ensuring a lean development environment.
-- **Snappy project creation** : The `android create` command generates new projects from official templates, ensuring the recommended architecture and best practices are applied from the very first line of code.
-- **Rapid device creation and deployment** : Create and manage virtual devices with `android emulator` and deploy apps using `android run`, eliminating the guesswork involved in manual build and deploy cycles.
-- **Updatability:** Run `android update` to ensure that you have the latest capabilities available.
+* **SDK management**: Use `android sdk install` to download only the specific components needed, ensuring a lean development environment.
+* **Snappy project creation**: The `android create` command generates new projects from official templates, ensuring the recommended architecture and best practices are applied from the very first line of code.
+* **Rapid device creation and deployment**: Create and manage virtual devices with `android emulator` and deploy apps using `android run`, eliminating the guesswork involved in manual build and deploy cycles.
+* **Updatability:** Run `android update` to ensure that you have the latest capabilities available.
+
+[](/static/blog/assets/videos/android_run_short_8d197000ce/android_run_short_8d197000ce.mp4)
 
 *Android CLI can create a device, run your app on it, and make it easier for agents to navigate UI.*
 
-While Android CLI will empower your agentic development flows, it's also been designed to streamline CI, maintenance, and any other scripted automation for the increasingly distributed nature of Android development. [Download](https://developer.android.com/tools/agents) and try out the Android CLI today!
+While Android CLI will empower your agentic development flows, it’s also been designed to streamline CI, maintenance, and any other scripted automation for the increasingly distributed nature of Android development. [Download](/tools/agents) and try out the Android CLI today!
 
 ### **Grounding LLMs with official Android Skills**
 
 Traditional documentation can be descriptive, conceptual, and high-level. While perfect for learning, LLMs often require precise, actionable instructions to execute complex workflows without using outdated patterns and libraries.
 
-To bridge this gap, we are launching the [**Android skills GitHub repository**](http://goo.gle/android-skills). Skills are modular, markdown-based (`SKILL.md`) instruction sets that provide a technical specification for a task and are designed to trigger automatically when your prompt matches the skill's metadata, saving you the hassle of manually attaching documentation to every prompt.
+To bridge this gap, we are launching the [**Android skills GitHub repository**](http://goo.gle/android-skills). Skills are modular, markdown-based (`SKILL.md`) instruction sets that provide a technical specification for a task and are designed to trigger automatically when your prompt matches the skill's metadata, saving you the hassle of manually attaching documentation to every prompt.
 
-Android skills cover some of the most common workflows that some Android developers and LLMs may struggle with---they help models better understand and execute specific patterns that follow our best practices and guidance on Android development.
+Android skills cover some of the most common workflows that some Android developers and  LLMs may struggle with—they help models better understand and execute specific patterns that follow our best practices and guidance on Android development.
 
 In our initial release, the repository includes skills like:
 
-- **Navigation 3**setup and migration.
-- Implementing **edge-to-edge** support.
-- **AGP 9** and **XML-to-Compose** migrations.
-- R8 config analysis, and more!
+* **Navigation 3** setup and migration.
+* Implementing **edge-to-edge** support.
+* **AGP 9** and **XML-to-Compose** migrations.
+* R8 config analysis, and more!
 
-If you're using Android CLI, you can browse and set up your agent workflow with our growing collection of skills using the `android skills` command. These skills can also live alongside any other skills you create, or third-party skills created by the Android developer community. Learn more about getting started with [Android skills](http://d.android.com/tools/agents/android-skills).
+If you’re using Android CLI, you can browse and set up your agent workflow with our growing collection of skills using the `android skills` command. These skills can also live alongside any other skills you create, or third-party skills created by the Android developer community. Learn more about getting started with [Android skills](http://d.android.com/tools/agents/android-skills).
 
-*Install Android skills via the Android CLI to make your agent more effective and efficient. *
+[](/static/blog/assets/videos/gemini_cli_skills_demo_db8a92ada5/gemini_cli_skills_demo_db8a92ada5.mp4)
+
+*Install Android skills via the Android CLI to make your agent more effective and efficient.*
 
 ### **The latest guidance via the Android Knowledge Base**
 
-The third component we are launching today is the **Android Knowledge Base.** Accessible through the `android docs` command and already available in the latest version of Android Studio, this specialized data source enables agents to search and fetch the latest authoritative developer guidelines to use as relevant context.
+The third component we are launching today is the **Android Knowledge Base.** Accessible through the `android docs` command and already available in the latest version of Android Studio, this specialized data source enables agents to search and fetch the latest authoritative developer guidelines to use as relevant context.
+
+[](/static/blog/assets/videos/android_docs_53346409ed/android_docs_53346409ed.mp4)
 
 *The Android Knowledge Base ensures agents have the latest context, guidance, and best practices for Android.*
 
@@ -63,62 +95,134 @@ By accessing the frequently updated knowledge base, agents can ground their resp
 
 ### **Android Studio: The ultimate destination for premium apps**
 
-In addition to empowering developers and agents to handle project setup and boilerplate code, we've also designed these new tools and resources to make it easier to transition to **Android Studio**. That means you can start a prototype quickly with an agent using Android CLI and then open the project in Android Studio to fine-tune your UI with visual tools for code editing, UI design, deep debugging, and advanced profiling that scale with the growing capabilities of your app.
+In addition to empowering developers and agents to handle project setup and boilerplate code, we’ve also designed these new tools and resources to make it easier to transition to **Android Studio**. That means you can start a prototype quickly with an agent using Android CLI and then open the project in Android Studio to fine-tune your UI with visual tools for code editing, UI design, deep debugging, and advanced profiling that scale with the growing capabilities of your app.
 
-And when it is time to build a high-quality app for large-scale publication across various device types, our agent in Android Studio is here to help, while leveraging the latest development best practices and libraries. Beyond the powerful **Agent and Planning Modes** for active development, we have introduced an **AI-powered New Project flow**, which provides an entry point to rapidly prototyping your next great idea for Android.
+[](/static/blog/assets/videos/android_studio_952fec0168/android_studio_952fec0168.mp4)
 
-These built-in agents make it simple to extend your app ideas across phones, foldables, tablets, Wear OS, Android Auto, and Android TV. Equipped with full context of your project's source code and a comprehensive suite of debugging, profiling, and emulation tools, you have an end-to-end, AI-accelerated toolkit at your disposal.
+And when it is time to build a high-quality app for large-scale publication across various device types, our agent in Android Studio is here to help, while leveraging the latest development best practices and libraries. Beyond the powerful **Agent and Planning Modes** for active development, we have introduced an **AI-powered New Project flow**, which provides an entry point to rapidly prototyping your next great idea for Android.
+
+[](/static/blog/assets/videos/Workout_app_a3ca9ed16d/Workout_app_a3ca9ed16d.mp4)
+
+These built-in agents make it simple to extend your app ideas across phones, foldables, tablets, Wear OS, Android Auto, and Android TV. Equipped with full context of your project’s source code and a comprehensive suite of debugging, profiling, and emulation tools, you have an end-to-end, AI-accelerated toolkit at your disposal.
 
 ### **Get started today**
 
-Android CLI is available in preview today, along with a growing set of Android skills and knowledge for agents. To get started, head over to [**d.android.com/tools/agents**](https://developer.android.com/tools/agents) to download Android CLI.
+Android CLI is available in preview today, along with a growing set of Android skills and knowledge for agents. To get started, head over to [**d.android.com/tools/agents**](/tools/agents) to download Android CLI.
+
 Written by:
 
--
-
-  ## [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando)
+* ## [Adarsh Fernando](/blog/authors/adarsh-fernando)
 
   ###### Group Product Manager
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/adarsh-fernando) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)
--
+  [read\_more
+  View profile](/blog/authors/adarsh-fernando)
 
-  ## [Esteban de la Canal](https://developer.android.com/blog/authors/esteban-de-la-canal)
+  ![View Adarsh Fernando's profile](/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)
+
+  ![View Adarsh Fernando's profile](/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)
+* ## [Esteban de la Canal](/blog/authors/esteban-de-la-canal)
 
   ###### Senior Staff Software Engineer
 
-  [read_more
-  View profile](https://developer.android.com/blog/authors/esteban-de-la-canal) ![View Esteban de la Canal's profile](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp) ![View Esteban de la Canal's profile](https://developer.android.com/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)
+  [read\_more
+  View profile](/blog/authors/esteban-de-la-canal)
+
+  ![View Esteban de la Canal's profile](/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)
+
+  ![View Esteban de la Canal's profile](/static/blog/assets/estebandlc_profile_800x800_1d536f02a7_Z2cAv7x.webp)
+
 Continue reading
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
-  ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
+* [![View Toni Heidenreich's profile](/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](/blog/authors/toni-heidenreich)
 
-  [arrow_forward](https://developer.android.com/blog/posts/media3-1-11-whats-new) Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
-  [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) • 3 min read
-  - [#Media3](https://developer.android.com/blog/topics/media3)
-  - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
-  - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
-  - +1 ↩
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  11
 
-  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
+  Aug
+  2026
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+  11
 
-  ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
+  Aug
+  2026
 
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
-  [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+  ![](/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp)
+
+  [How-tos](/blog/categories/how-tos)
+
+  ## [Media3 1.11 - What's new?](/blog/posts/media3-1-11-whats-new)
+
+  [arrow\_forward](/blog/posts/media3-1-11-whats-new)
+
+  Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components.
+
+  [Toni Heidenreich](/blog/authors/toni-heidenreich)
+  •
+  3 min read
+  + [#Media3](/blog/topics/media3)
+  + [#Jetpack](/blog/topics/jetpack)
+  + [#ExoPlayer](/blog/topics/exo-player)
+  + +1
+    ↩
+* [![View Caren Chang's profile](/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](/blog/authors/caren-chang)
+
+  21
+
+  Jul
+  2026
+
+  21
+
+  Jul
+  2026
+
+  ![](/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp)
+
+  [How-tos](/blog/categories/how-tos)
+
+  ## [Build intelligent Android apps: On-device inference](/blog/posts/build-intelligent-android-apps-on-device-inference)
+
+  [arrow\_forward](/blog/posts/build-intelligent-android-apps-on-device-inference)
+
+  Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
+
+  [Caren Chang](/blog/authors/caren-chang)
+  •
+  6 min read
+  + [#Intelligent Apps](/blog/topics/intelligent-apps)
+* [![View Jolanda Verhoef's profile](/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](/blog/authors/jolanda-verhoef)
+
+  21
+
+  Jul
+  2026
+
+  21
+
+  Jul
+  2026
+
+  ![](/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp)
+
+  [How-tos](/blog/categories/how-tos)
+
+  ## [Build intelligent Android apps: Introduction to Jetpacker](/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
+
+  [arrow\_forward](/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
+
+  Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
+
+  [Jolanda Verhoef](/blog/authors/jolanda-verhoef)
+  •
+  4 min read
+  + [#Intelligent Apps](/blog/topics/intelligent-apps)
+
 Stay in the loop
-
 
 Get the latest Android development insights delivered to your inbox
 weekly.
+
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](/subscribe)
+
+![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

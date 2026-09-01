@@ -213,11 +213,11 @@ import com.android.build.OutputFile
 // ext.abiCodes * 1000 + variant.versionCode. In this example, variant.versionCode
 // is equal to defaultConfig.versionCode. If you configure product flavors that
 // define their own versionCode, variant.versionCode uses that value instead.
-and>roid.applicationVariants.all { variant -
+android.applicationVariants.all { variant ->
 
   // Assigns a different version code for each output APK
-  // other than the universa>l APK.
-  variant.outputs.each { output -
+  // other than the universal APK.
+  variant.outputs.each { output ->
 
     // Stores the value of ext.abiCodes that is associated with the ABI for this variant.
     def baseAbiVersionCode =
@@ -265,13 +265,13 @@ import com.android.build.api.variant.FilterConfiguration.FilterType.*
 // For each APK output variant, override versionCode with a combination of
 // abiCodes * 1000 + variant.versionCode. In this example, variant.versionCode
 // is equal to defaultConfig.versionCode. If you configure product flavors that
-// define their own versionCode, variant.versionCode u>ses that value instead.
+// define their own versionCode, variant.versionCode uses that value instead.
 androidComponents {
-    onVariants { variant -
+    onVariants { variant ->
 
         // Assigns a different version code for each output APK
-        // ot>her than the universal APK.
-        variant.outputs.forEach { output -
+        // other than the universal APK.
+        variant.outputs.forEach { output ->
             val name = output.filters.find { it.filterType == ABI }?.identifier
 
             // Stores the value of abiCodes that is associated with the ABI for this variant.
@@ -342,8 +342,8 @@ android {
       minSdkVersion '24'
       // To ensure the target device receives the version of the app with
       // the highest compatible API level, assign version codes in increasing
-      // value with API level. To learn more about asshttps://developer.android.com/google/play/publishing/multiple-apks#HowItWorks to
-      // support app updates and uploading to Google Play, read Multiple APK Support
+      // value with API level. To learn more about assigning version codes to
+      // support app updates and uploading to Google Play, read https://developer.android.com/google/play/publishing/multiple-apks#HowItWorks
       versionCode 30000 + android.defaultConfig.versionCode
       versionNameSuffix "-minApi24"
       ...
@@ -407,8 +407,8 @@ android {
       minSdkVersion(24)
       // To ensure the target device receives the version of the app with
       // the highest compatible API level, assign version codes in increasing
-      // valhttps://developer.android.com/google/play/publishing/multiple-apks#HowItWorkso learn more about assigning version codes to
-      // support app updates and uploading to Google Play, read Multiple APK Support
+      // value with API level. To learn more about assigning version codes to
+      // support app updates and uploading to Google Play, read https://developer.android.com/google/play/publishing/multiple-apks#HowItWorks
       versionCode = 30000 + android.defaultConfig.versionCode
       versionNameSuffix = "-minApi24"
       ...
@@ -460,8 +460,8 @@ android {
 
   variantFilter { variant ->
       def names = variant.flavors*.name
-      // To check for a certain build type, use vari<ant.build>Type.name == "buildType"
-    &&  if (names.contains("minApi21")  names.contains("demo")) {
+      // To check for a certain build type, use variant.buildType.name == "<buildType>"
+      if (names.contains("minApi21") && names.contains("demo")) {
           // Gradle ignores any variants that satisfy the conditions above.
           setIgnore(true)
       }
@@ -489,7 +489,7 @@ android {
 
 androidComponents {
     beforeVariants { variantBuilder ->
-      <  // To c>heck for a certain build type, use variantBuilder.buildType == "buildType"
+        // To check for a certain build type, use variantBuilder.buildType == "<buildType>"
         if (variantBuilder.productFlavors.containsAll(listOf("api" to "minApi21", "mode" to "demo"))) {
             // Gradle ignores any variants that satisfy the conditions above.
             variantBuilder.enabled = false
@@ -586,14 +586,14 @@ android {
     ...
     // Specifies the https://developer.android.com/studio/build/configure-app-module#application-id.html for the test APK.
     testApplicationId "com.test.foo"
-    // Specifies the fully-qualified class name of the test instrumentation ruhttps://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.ProductFlavor.html#com.android.build.gradle.internal.dsl.ProductFlavor:testInstrumentationRunner
+    // Specifies the fully-qualified class name of the test instrumentation runner.
     testInstrumentationRunner "android.test.InstrumentationTestRunner"
     // If set to 'true', enables the instrumentation class to start and stop profiling.
     // If set to false (default), profiling occurs the entire time the instrumentation
- https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.ProductFlavor.html#com.android.build.gradle.internal.dsl.ProductFlavor:testHandleProfiling// class is running.
+    // class is running.
     testHandleProfiling true
     // If set to 'true', indicates that the Android system should run the instrumentation
-    // class as a functional teshttps://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.ProductFlavor.html#com.android.build.gradle.internal.dsl.ProductFlavor:testFunctionalTestue is 'false'
+    // class as a functional test. The default value is 'false'
     testFunctionalTest true
   }
 }
@@ -611,14 +611,14 @@ android {
     ...
     // Specifies the https://developer.android.com/studio/build/configure-app-module#set_the_application_id for the test APK.
     testApplicationId = "com.test.foo"
-    // Specifies the fully-qualified class name of the test instrumentation ruhttps://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.ProductFlavor.html#com.android.build.gradle.internal.dsl.ProductFlavor:testInstrumentationRunner
+    // Specifies the fully-qualified class name of the test instrumentation runner.
     testInstrumentationRunner = "android.test.InstrumentationTestRunner"
     // If set to 'true', enables the instrumentation class to start and stop profiling.
     // If set to false (default), profiling occurs the entire time the instrumentation
- https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.ProductFlavor.html#com.android.build.gradle.internal.dsl.ProductFlavor:testHandleProfiling// class is running.
+    // class is running.
     testHandleProfiling = true
     // If set to 'true', indicates that the Android system should run the instrumentation
-    // class as a functional teshttps://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.ProductFlavor.html#com.android.build.gradle.internal.dsl.ProductFlavor:testFunctionalTestue is 'false'
+    // class as a functional test. The default value is 'false'
     testFunctionalTest = true
   }
 }
@@ -716,7 +716,7 @@ android {
       returnDefaultValues true
 
       // Encapsulates options for controlling how Gradle executes local unit tests. For a list
-      // of all the options you can specify, read https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.htmltion.
+      // of all the options you can specify, read https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html.
       all {
         // Sets JVM argument(s) for the test JVM(s).
         jvmArgs '-XX:MaxPermSize=256m'
@@ -747,7 +747,7 @@ android {
       returnDefaultValues true
 
       // Encapsulates options for controlling how Gradle executes local unit tests. For a list
-      // of all the options you can specify, read https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.htmltion.
+      // of all the options you can specify, read https://docs.gradle.org/current/javadoc/org/gradle/api/tasks/testing/Test.html.
       all {
         // Sets JVM argument(s) for the test JVM(s).
         jvmArgs '-XX:MaxPermSize=256m'
@@ -784,7 +784,7 @@ android {
   buildTypes {
     release {
       minifyEnabled true
-      proguardFiles getDefaultProguardFile(&#39;proguard-android-optimize.txt'),
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
                                            'proguard-rules.pro'
     }
   }
@@ -800,7 +800,7 @@ android {
   buildTypes {
     release {
       minifyEnabled true
-      proguardFiles getDefaultProguardFile(&#39;proguard-android-optimize.txt'),
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
                                            'proguard-rules.pro'
     }
   }
@@ -1188,11 +1188,11 @@ In your manifest, access the placeholder as follows:
       android:name="android.support.v4.content.FileProvider"
       android:authorities="${filesAuthority}"
       android:exported="false"
-      andr>oid:grantUriPer<missions=>&qu<ot;true">;<
-      ..>.
-    /provider
-  /application
-/manifest
+      android:grantUriPermissions="true">
+      ...
+    </provider>
+  </application>
+</manifest>
 ```
 
 

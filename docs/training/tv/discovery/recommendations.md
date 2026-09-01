@@ -37,23 +37,19 @@ use the appropriate API to build the recommendation row or channels.
 
 ### Kotlin
 
-```kotlin
-if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-  // Use the home screen recommendation channels API
-} else {
-  // Use the recommendations row API
-}
-```
+    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+      // Use the home screen recommendation channels API
+    } else {
+      // Use the recommendations row API
+    }
 
 ### Java
 
-```java
-if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-  // Use the home screen recommendation channels API
-} else {
-  // Use the recommendations row API
-}
-```
+    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+      // Use the home screen recommendation channels API
+    } else {
+      // Use the recommendations row API
+    }
 
 If your app was compiled using API level 25 or earlier, it can still run on
 Android TV in level 26. The old recommendations behavior is forward-compatible,
@@ -64,4 +60,4 @@ but constrained:
 - If you update the app to API level 26, the converted channel still appears on TVs running API 26. The TV removes the converted channel from the screen the first time your app displays a channel created with the new API. This happens immediately if the app creates a [default channel](https://developer.android.com/training/tv/discovery/recommendations-channel#the_default_channel), or later when the user selects and adds any other channel created by your app.
 
 > [!NOTE]
-> **Note:** This forward-compatible behavior is temporary, it will be removed sometime in the future. To ensure compatibility, the best practice is to implement both APIs, as described above.
+> **Note:** This forward-compatible behavior is temporary, it will be removed sometime in the future. To ensure compatibility, the best practice is to implement both APIs, as described in this section.

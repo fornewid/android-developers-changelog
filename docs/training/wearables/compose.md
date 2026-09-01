@@ -34,7 +34,7 @@ repository](https://github.com/android/wear-os-samples/tree/main/ComposeStarter#
 
 Use an Android skill to help you build using Jetpack Compose on Wear OS, including migrating from earlier versions of Material to Material3. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-    android skills add --skill wear-compose-m3
+    android skills add wear-compose-m3
 
 <br />
 

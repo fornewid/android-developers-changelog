@@ -16,7 +16,7 @@ central best practices and their benefits.
 
 Use the Testing setup [Android skill](https://developer.android.com/tools/agents/android-skills) to analyze and create a testing strategy for native Android apps. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-    android skills add --skill testing-setup
+    android skills add testing-setup
 
 <br />
 

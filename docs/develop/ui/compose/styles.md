@@ -31,7 +31,7 @@ flexibility and performance.
 
 Use the Styles [Android skill](https://developer.android.com/tools/agents/android-skills) to integrate the Jetpack Compose Styles API into your Android project. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-    android skills add --skill styles
+    android skills add styles
 
 <br />
 

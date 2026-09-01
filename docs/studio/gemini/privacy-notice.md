@@ -17,7 +17,7 @@ including Google's enterprise products such as Google Cloud.
 
 To help with quality and improve our products, human reviewers may read,
 annotate, and process your prompts, generated output, related feature usage
-information, and your feedback. **Please do not include sensitive (e.g.,
+information, and your feedback. **Do not include sensitive (e.g.,
 confidential) or personal information that can be used to identify you or others
 in your prompts or feedback.** Your data will be retained for up to 18 months
 and stored in a way where Google cannot tell who provided it. Google cannot
@@ -26,6 +26,5 @@ fulfill deletion requests during this time.
 ## Terms of Service
 
 You agree that your use of Gemini in Android Studio is subject to the
-[Google Terms of Service](https://policies.google.com/terms) and the [Generative
-AI Additional Terms of
+[Google Terms of Service](https://policies.google.com/terms) and the [Generative AI Additional Terms of
 Service](https://policies.google.com/terms/generative-ai).

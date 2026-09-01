@@ -18,15 +18,16 @@ Android Studio App Links Assistant. For more information, see
   - **Verify `autoVerify`** : Make sure the `<intent-filter>` in your `AndroidManifest.xml` includes `android:autoVerify="true`".
   - **Check for server-side redirects** : Redirects from `http` to `https` or from a non-www domain to `www` can cause verification to fail.
   - **Force Re-verification** : Run the ADB commands in the [Test App Links](https://developer.android.com/training/app-links/verify-applinks) guide to get a fresh verification result.
+  - **Diagnose link resolution (Android 17+)** : Run `adb shell am start --debug-link -a android.intent.action.VIEW -d "<URL>"` to inspect which candidate apps, manifest intent filters, and Dynamic App Link rules match the URL. For details, see [Diagnose link resolution with the debug-link flag](https://developer.android.com/training/app-links/test-applinks#debug-link-resolution).
 
 ## Dynamic rules on Android 15+ aren't updating
 
 - Problem: You've updated the rules in your `assetlinks.json` file, but the new links are not being handled by the app.
 - **Solution** :
-  - **Force re-verification** : The most reliable way to test changes is to force a re-fetch with `adb shell pm verify-app-links --re-verify.
-    <your-package-name>`.
+  - **Force re-verification** : The most reliable way to test changes is to force a re-fetch with `adb shell pm verify-app-links --re-verify <your-package-name>`.
   - **Check for typos**: Carefully review your pattern matchers in your rules for any syntax errors.
-  - **Check manifest filter rules**: review the intent filter rules in the app manifest to make sure that the link path is not being filtered out. If the link is being filtered out, make the intent filter in the app manifest less restrictive.
+  - **Check manifest filter rules**: Review the intent filter rules in the app manifest to make sure that the link path is not being filtered out. If the link is being filtered out, make the intent filter in the app manifest less restrictive.
+  - **Diagnose matching rules (Android 17+)** : Run `adb shell am start --debug-link -a android.intent.action.VIEW -d "<URL>"` to inspect which rules were evaluated and determine if an exclusion rule (`allow = 1`) prevented the app from opening. See [Diagnose link resolution with the debug-link flag](https://developer.android.com/training/app-links/test-applinks#debug-link-resolution).
 
 ## Fix common implementation errors
 

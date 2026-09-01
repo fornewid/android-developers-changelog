@@ -517,7 +517,6 @@ Additionally, follow these best practices:
 - Know when to use CBC, CTR, or GCM block modes.
 - Avoid IV/counter reuse in CTR mode. Ensure that they're cryptographically random.
 - When using encryption, implement integrity using the CBC or CTR mode with one of the following functions:
-  - HMAC-SHA1
   - HMAC-SHA-256
   - HMAC-SHA-512
   - GCM mode
@@ -564,7 +563,7 @@ the [`android:protectionLevel`](https://developer.android.com/guide/topics/manif
 
 Use the Intent security [Android skill](https://developer.android.com/tools/agents/android-skills) to secure your components and handle intents safely. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-    android skills add --skill android-intent-security
+    android skills add android-intent-security
 
 <br />
 

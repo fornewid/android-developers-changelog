@@ -12,7 +12,7 @@ source: md.txt
 
 Use an Android skill to build UI that adapts to different Android devices including foldables, tablets, and desktops. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-    android skills add --skill adaptive
+    android skills add adaptive
 
 <br />
 

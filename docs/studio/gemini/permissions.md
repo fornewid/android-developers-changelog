@@ -20,24 +20,24 @@ something if you haven't approved before:
 You can choose **Allow** for one-time tasks or **Always allow** for trusted,
 repeated workflows. Gemini uses an intelligent request system, so granting a
 high-level permission (such as writing files) automatically authorizes all
-related sub-tools. Common commands like `ls` or `grep` are approved silently based
-on your existing read access, letting you stay in the flow without redundant
-prompts. The new permissions model balances security and productivity so you can
-have the agent work without interruption on operations you trust, and still do
-manual review for other operations.
+related sub-tools. Common commands like `ls` or `grep` are approved silently
+based on your existing read access, letting you stay in the flow without
+redundant prompts. The new permissions model balances security and productivity
+so you can have the agent work without interruption on operations you trust, and
+still do manual review for other operations.
 
 > [!NOTE]
 > **Note:** Sensitive files like `.aiexclude`, SSH keys, and password files require explicit, separate authorization regardless of project-wide settings.
 
-You can audit your permissions manually at **File \> Settings \> Tools \> AI \> Agent
-Permissions** (or **Android Studio \> Settings \> Tools \> AI \> Agent Permissions**
-on macOS).
+You can audit your permissions manually at **File \> Settings \> Tools \> AI \>
+Agent Permissions** (or **Android Studio \> Settings \> Tools \> AI \> Agent
+Permissions** on macOS).
 ![](https://developer.android.com/static/studio/images/permission.png) The **Agent Permissions** settings panel.
 
 ## Sandboxing
 
 Sandboxing limits unauthorized network access and file-system writes unless you
 provide explicit consent. To configure sandboxing, go to **File \> Settings \>
-Tools \> AI \> Agent Shell Sandbox** (or **Android Studio \> Settings \> Tools \> AI \>
-Agent Shell Sandbox** on macOS).
+Tools \> AI \> Agent Shell Sandbox** (or **Android Studio \> Settings \> Tools \>
+AI \> Agent Shell Sandbox** on macOS).
 ![](https://developer.android.com/static/studio/images/sandbox-settings.png) The **Agent Shell Sandbox** settings panel.

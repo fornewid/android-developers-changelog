@@ -31,7 +31,7 @@ semantics tree. You can add properties to the semantics tree by using a
 `Modifier`.
 
     MyButton(
-        modifier = Modifier.semantics { contentDescription = "Add to favorites" }
+        modifier = Modifier.semantics { contentDescription = "Add to favorites&quot; }
     )
 
 ## Additional Resources

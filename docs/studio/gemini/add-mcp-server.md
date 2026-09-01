@@ -66,8 +66,8 @@ connecting to transport: Authorization Exception" when authorization fails.
 Click **Start Login** to
 initiate the authentication process for that server. You will be asked to sign
 in to that server's login page in your browser. After you log in, the connection
-is attempted again and, if successful, you will see the "Successfully connected to MCP
-server..." notification.
+is attempted again and, if successful, you will see the "Successfully connected
+to MCP server..." notification.
 
 ## Use MCP tools
 

@@ -255,7 +255,7 @@ wrapper, decouple context parameters, and update your manifest declarations.
 
 Use the AppFunctions [Android skill](https://developer.android.com/tools/agents/android-skills) to expose key user workflows to the Android system, allowing AI agents to discover and execute them on-device. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-    android skills add --skill appfunctions
+    android skills add appfunctions
 
 To activate the skill, try the following prompt:
 
