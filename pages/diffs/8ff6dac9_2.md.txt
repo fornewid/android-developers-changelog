@@ -1,0 +1,76 @@
+diff --git a/docs/blog/latest/2.md b/docs/blog/latest/2.md
+index 02067b9f..6a2d3ffc 100644
+--- a/docs/blog/latest/2.md
++++ b/docs/blog/latest/2.md
+@@ -7,6 +7,19 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_21AGRW.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
++
++  ## [Build intelligent Android apps: Cloud and hybrid inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference)
++
++  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
++  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 8 min read
++  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
++- [![View Wei Wang's profile](https://developer.android.com/static/blog/assets/weiwa_web_6a7b6f6114_Z1kCd5W.webp)](https://developer.android.com/blog/authors/wei-wang) 20 Jul 2026 20 Jul 2026 ![](https://developer.android.com/static/blog/assets/Upcoming_Changes_to_the_Nearby_Connections_API_Strapi_11b1de50e2_K0lSy.webp) [Documentation](https://developer.android.com/blog/categories/documentation)
++
++  ## [Upcoming Changes to the Nearby Connections API](https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api)
++
++  [arrow_forward](https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api) User privacy and transparency are core to the Android experience. To better align with these principles, we are updating the default behavior of the Nearby Connections API regarding how it interacts with device radios.
++  [Wei Wang](https://developer.android.com/blog/authors/wei-wang) • 1 min read
+ - [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_ZzldHB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
+@@ -154,24 +167,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   [arrow_forward](https://developer.android.com/blog/posts/android-cli-now-stable-1-accelerate-developing-for-android-using-any-agent) As Android developers, you have many choices when it comes to the agents, tools, command-line interfaces (CLI), and LLMs you use for app development.
+   [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic), [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove) • 5 min read
+   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+-- [![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_13HwUT.webp)](https://developer.android.com/blog/authors/blog-author) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Introducing Android Performance Analyzer - The Next Evolution in Profiling for Android](https://developer.android.com/blog/posts/introducing-android-performance-analyzer-the-next-evolution-in-profiling-for-android)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/introducing-android-performance-analyzer-the-next-evolution-in-profiling-for-android) Android Performance Analyzer (APA) is Android's new profiler and performance analysis tool for the Android mobile ecosystem.
+-  APA is intended as a profiling tool for any developer building for Android who needs to make their app or game run better and faster.
+-  [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 5 min read
+-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools) This year at Google I/O we are going beyond iterative changes, towards a fundamental shift in how apps are built. Our newest tools are built for the agentic era with features that boost productivity for you as an Android developer AND supercharge the AI agents you deploy in your codebase.
+-  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 8 min read
+-  - [#Agent Skills](https://developer.android.com/blog/topics/agent-skills)
+-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
+-  - [#Android](https://developer.android.com/blog/topics/android)
+-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+-  - +2 ↩
+ [arrow_back](https://developer.android.com/blog/latest)
+ 
+ #### Page 2
+@@ -192,16 +187,16 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ - [#R8](https://developer.android.com/blog/topics/r8)
++- [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+ - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
++- [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+ - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+ - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+-- [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+ - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
+ - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
+ - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+ - [#Google Play](https://developer.android.com/blog/topics/google-play)
+-- [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+ - [#Memory](https://developer.android.com/blog/topics/memory)
+ - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+ - [#Widgets](https://developer.android.com/blog/topics/widgets)
+@@ -245,6 +240,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Multi-Process Architecture](https://developer.android.com/blog/topics/multi-process-architecture)
+ - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
+ - [#Security](https://developer.android.com/blog/topics/security)
++- [#Passkeys](https://developer.android.com/blog/topics/passkeys)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Large Screens](https://developer.android.com/blog/topics/large-screens)

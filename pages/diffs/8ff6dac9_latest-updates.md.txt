@@ -1,0 +1,21 @@
+diff --git a/docs/latest-updates.md b/docs/latest-updates.md
+index 7959bc33..ca88fbbe 100644
+--- a/docs/latest-updates.md
++++ b/docs/latest-updates.md
+@@ -154,13 +154,13 @@ Recent updates to Android Studio and tools [See more about Android Studio](https
+ 
+ August 27, 2026 Stable
+ 
+-### [Quail 3 \| 2026.1.3 Patch 1](https://developer.android.com/studio/releases)
++### [Quail 4 \| 2026.1.4](https://developer.android.com/studio/releases)
+ 
+-August 10, 2026 Stable
++September 1, 2026 Stable
+ 
+ ### [Android Gradle Plugin 9.3.0](https://developer.android.com/build/releases/gradle-plugin)
+ 
+-August 10, 2026
++September 1, 2026
+ 
+ ## ![](https://developer.android.com/static/images/picto-icons/platform.svg) Platform
+ 

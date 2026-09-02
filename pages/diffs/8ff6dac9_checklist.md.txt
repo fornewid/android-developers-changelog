@@ -1,0 +1,12 @@
+diff --git a/docs/games/playgames/native-pc/checklist.md b/docs/games/playgames/native-pc/checklist.md
+index aad1791a..7f989c57 100644
+--- a/docs/games/playgames/native-pc/checklist.md
++++ b/docs/games/playgames/native-pc/checklist.md
+@@ -35,6 +35,7 @@ practices before you submit it for review on Google Play Games on PC.
+ - **Launch the purchase flow:** Use `LaunchPurchaseFlow` to process transactions natively. A five-minute timeout error occurs if you close the payment browser without paying. For more information, see the [Purchase flow guide](https://developer.android.com/games/playgames/native-pc/billing).
+ - **Restore existing purchases:** Call `QueryPurchases` on startup and foregrounding to catch unacknowledged cross-device purchases. For more information, see the [Restore purchases guide](https://developer.android.com/games/playgames/native-pc/billing).
+ - **Secure backend processing:** Validate the `purchaseToken` on your backend before granting entitlements and finalizing with `AcknowledgePurchase` or `ConsumePurchase`. For more information, see the [Secure processing guide](https://developer.android.com/games/playgames/native-pc/billing).
++- **Account for licensing key propagation delay:** When configuring new billing or licensing keys in the Play Console, allow several hours for the backend cache to synchronize across commerce serving environments before conducting live purchase tests. Purchases attempted before synchronization completes will return Error Code 6.
+ 
+ ## Test in developer mode and perform pre-launch QA
+ 

@@ -1,0 +1,474 @@
+diff --git a/docs/training/data-storage/room/migrating-db-versions.md b/docs/training/data-storage/room/migrating-db-versions.md
+index 5f460c6f..8b7a9c0c 100644
+--- a/docs/training/data-storage/room/migrating-db-versions.md
++++ b/docs/training/data-storage/room/migrating-db-versions.md
+@@ -1,20 +1,9 @@
+ ---
+-title: Migrate your Room database  |  App data and files  |  Android Developers
++title: https://developer.android.com/training/data-storage/room/migrating-db-versions
+ url: https://developer.android.com/training/data-storage/room/migrating-db-versions
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Develop](https://developer.android.com/develop)
+-* [Core areas](https://developer.android.com/develop/core-areas)
+-* [App data and files](https://developer.android.com/training/data-storage)
+-
+-# Migrate your Room database Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-
+ As you add and change features in your app, you need to modify your Room entity
+ classes and underlying database tables to reflect these changes. It's important
+ to preserve user data that is already in the on-device database when an app
+@@ -27,10 +16,11 @@ manually define migration paths for more complex changes.
+ ## Automated migrations
+ 
+ To declare an automated migration between two database versions, add an
+-[`@AutoMigration`](/reference/kotlin/androidx/room/AutoMigration) annotation to the [`autoMigrations`](/reference/kotlin/androidx/room/Database#autoMigrations()) property in
+-[`@Database`](/reference/kotlin/androidx/room/Database):
++[`@AutoMigration`](https://developer.android.com/reference/kotlin/androidx/room/AutoMigration) annotation to the [`autoMigrations`](https://developer.android.com/reference/kotlin/androidx/room/Database#autoMigrations()) property in
++[`@Database`](https://developer.android.com/reference/kotlin/androidx/room/Database):
+ 
+-```
++
++```kotlin
+ // Database class before the version update.
+ @Database(
+   version = 1,
+@@ -51,39 +41,38 @@ abstract class AppDatabaseV1 : RoomDatabase() {
+ abstract class AppDatabaseV2 : RoomDatabase() {
+   abstract fun userDao(): UserDao
+ }
+-
+-MigratingDbVersionsSnippets.kt
+ ```
+ 
+-**Note:** Automated Room migrations rely on the generated database schema for both
+-the lower and the higher versions of the database. If [`exportSchema`](/reference/kotlin/androidx/room/Database#exportSchema()) is set
+-to `false`, or if you haven't yet compiled the database with the higher version
+-number, then automated migrations fail.
++<br />
++
++> [!NOTE]
++> **Note:** Automated Room migrations rely on the generated database schema for both the lower and the higher versions of the database. If [`exportSchema`](https://developer.android.com/reference/kotlin/androidx/room/Database#exportSchema()) is set to `false`, or if you haven't yet compiled the database with the higher version number, then automated migrations fail.
+ 
+ ### Automatic migration specifications
+ 
+ If Room detects ambiguous schema changes and it can't generate a migration plan
+ without more input, it throws a compile-time error and you must provide an
+-[`AutoMigrationSpec`](/reference/kotlin/androidx/room/migration/AutoMigrationSpec) implementation. Most commonly, this occurs when a
++[`AutoMigrationSpec`](https://developer.android.com/reference/kotlin/androidx/room/migration/AutoMigrationSpec) implementation. Most commonly, this occurs when a
+ migration involves one of the following:
+ 
+-* Deleting or renaming a table.
+-* Deleting or renaming a column.
++- Deleting or renaming a table.
++- Deleting or renaming a column.
+ 
+ You can use `AutoMigrationSpec` to give Room the additional information that it
+ needs to correctly generate migration paths. Define a class that implements
+ `AutoMigrationSpec` in your `RoomDatabase` class and annotate it with
+ one or more of the following:
+ 
+-* [`@DeleteTable`](/reference/kotlin/androidx/room/DeleteTable)
+-* [`@RenameTable`](/reference/kotlin/androidx/room/RenameTable)
+-* [`@DeleteColumn`](/reference/kotlin/androidx/room/DeleteColumn)
+-* [`@RenameColumn`](/reference/kotlin/androidx/room/RenameColumn)
++- [`@DeleteTable`](https://developer.android.com/reference/kotlin/androidx/room/DeleteTable)
++- [`@RenameTable`](https://developer.android.com/reference/kotlin/androidx/room/RenameTable)
++- [`@DeleteColumn`](https://developer.android.com/reference/kotlin/androidx/room/DeleteColumn)
++- [`@RenameColumn`](https://developer.android.com/reference/kotlin/androidx/room/RenameColumn)
+ 
+ To use the `AutoMigrationSpec` implementation for an automated migration, set
+ the `spec` property in the corresponding `@AutoMigration` annotation:
+ 
+-```
++
++```kotlin
+ @Database(
+   version = 2,
+   entities = [User::class],
+@@ -101,18 +90,16 @@ abstract class AppDatabaseWithSpec : RoomDatabase() {
+ 
+ @RenameTable(fromTableName = "User", toTableName = "AppUser")
+ internal class MigrationSpec1To2 : AutoMigrationSpec
+-
+-MigratingDbVersionsSnippets
+-
+-.kt
+ ```
+ 
++<br />
++
+ If your app needs to do more work after the automated migration completes, you
+-can implement [`onPostMigrate`](/reference/androidx/room3/migration/AutoMigrationSpec#onPostMigrate(androidx.sqlite.SQLiteConnection)). If you implement this function in your
++can implement [`onPostMigrate`](https://developer.android.com/reference/androidx/room3/migration/AutoMigrationSpec#onPostMigrate(androidx.sqlite.SQLiteConnection)). If you implement this function in your
+ `AutoMigrationSpec`, Room calls it after the automated migration completes.
+ 
+-**Note:** In Kotlin, if you have multiple migrations of the same type, you must use
+-a container for multiple annotations, such as [`@RenameTable.Entries`](/reference/kotlin/androidx/room/RenameTable.Entries).
++> [!NOTE]
++> **Note:** In Kotlin, if you have multiple migrations of the same type, you must use a container for multiple annotations, such as [`@RenameTable.Entries`](https://developer.android.com/reference/kotlin/androidx/room/RenameTable.Entries).
+ 
+ ## Manual migrations
+ 
+@@ -120,14 +107,15 @@ If a migration involves complex schema changes, Room might not be able to
+ generate an appropriate migration path automatically. For example, if you
+ decide to split the data in a table into two tables, Room can't determine
+ how to perform this split. In these situations, you must manually define a
+-migration path by implementing a [`Migration`](/reference/kotlin/androidx/room/migration/Migration) class.
++migration path by implementing a [`Migration`](https://developer.android.com/reference/kotlin/androidx/room/migration/Migration) class.
+ 
+ A `Migration` class explicitly defines a migration path between a `startVersion`
+-and an `endVersion` by overriding the [`migrate`](/reference/kotlin/androidx/room/migration/Migration#migrate) function. Add
++and an `endVersion` by overriding the [`migrate`](https://developer.android.com/reference/kotlin/androidx/room/migration/Migration#migrate) function. Add
+ your `Migration` classes to your database builder using the
+-[`addMigrations`](/reference/kotlin/androidx/room/RoomDatabase.Builder#addmigrations) function:
++[`addMigrations`](https://developer.android.com/reference/kotlin/androidx/room/RoomDatabase.Builder#addmigrations) function:
+ 
+-```
++
++```kotlin
+ val MIGRATION_1_2 = object : Migration(1, 2) {
+   override suspend fun migrate(connection: SQLiteConnection) {
+     connection.executeSQL("CREATE TABLE `Fruit` (`id` INTEGER, `name` TEXT, " +
+@@ -144,12 +132,12 @@ val MIGRATION_2_3 = object : Migration(2, 3) {
+ Room.databaseBuilder<ManualMigrationDatabase>(applicationContext, "database-name")
+   .addMigrations(MIGRATION_1_2, MIGRATION_2_3)
+   .build()
+-
+-MigratingDbVersionsSnippets.kt
+ ```
+ 
+-**Caution:** To keep your migration logic functioning as expected, use full queries
+-instead of referencing constants that represent the queries.
++<br />
++
++> [!CAUTION]
++> **Caution:** To keep your migration logic functioning as expected, use full queries instead of referencing constants that represent the queries.
+ 
+ When you define your migration paths, you can use automated migrations for some
+ versions and manual migrations for others. If you define both an automated
+@@ -174,32 +162,28 @@ generation.
+ 
+ #### Set schema location using Room Gradle Plugin
+ 
+-To specify the schema directory, apply the [Room Gradle Plugin](/jetpack/androidx/releases/room#gradle-plugin) and use the
++To specify the schema directory, apply the [Room Gradle Plugin](https://developer.android.com/jetpack/androidx/releases/room#gradle-plugin) and use the
+ `room3` extension.
+ 
+ ### Groovy
+ 
+-```
+-plugins {
+-  id 'androidx.room3'
+-}
++    plugins {
++      id 'androidx.room3'
++    }
+ 
+-room3 {
+-  schemaDirectory "$projectDir/schemas"
+-}
+-```
++    room3 {
++      schemaDirectory "$projectDir/schemas"
++    }
+ 
+ ### Kotlin
+ 
+-```
+-plugins {
+-  id("androidx.room3")
+-}
++    plugins {
++      id("androidx.room3")
++    }
+ 
+-room3 {
+-  schemaDirectory("$projectDir/schemas")
+-}
+-```
++    room3 {
++      schemaDirectory("$projectDir/schemas")
++    }
+ 
+ If your database schema differs based on the variant, flavor, or build
+ type, you must specify different locations by using the `schemaDirectory`
+@@ -215,39 +199,35 @@ following are valid configurations:
+ 
+ ### Groovy
+ 
+-```
+-room3 {
+-  // Applies to 'demoDebug' only
+-  schemaDirectory "demoDebug", "$projectDir/schemas/demoDebug"
++    room3 {
++      // Applies to 'demoDebug' only
++      schemaDirectory "demoDebug", "$projectDir/schemas/demoDebug"
+ 
+-  // Applies to 'demoDebug' and 'demoRelease'
+-  schemaDirectory "demo", "$projectDir/schemas/demo"
++      // Applies to 'demoDebug' and 'demoRelease'
++      schemaDirectory "demo", "$projectDir/schemas/demo"
+ 
+-  // Applies to 'demoDebug' and 'fullDebug'
+-  schemaDirectory "debug", "$projectDir/schemas/debug"
++      // Applies to 'demoDebug' and 'fullDebug'
++      schemaDirectory "debug", "$projectDir/schemas/debug"
+ 
+-  // Applies to variants that aren't matched by other configurations.
+-  schemaDirectory "$projectDir/schemas"
+-}
+-```
++      // Applies to variants that aren't matched by other configurations.
++      schemaDirectory "$projectDir/schemas"
++    }
+ 
+ ### Kotlin
+ 
+-```
+-room3 {
+-  // Applies to 'demoDebug' only
+-  schemaDirectory("demoDebug", "$projectDir/schemas/demoDebug")
++    room3 {
++      // Applies to 'demoDebug' only
++      schemaDirectory("demoDebug", "$projectDir/schemas/demoDebug")
+ 
+-  // Applies to 'demoDebug' and 'demoRelease'
+-  schemaDirectory("demo", "$projectDir/schemas/demo")
++      // Applies to 'demoDebug' and 'demoRelease'
++      schemaDirectory("demo", "$projectDir/schemas/demo")
+ 
+-  // Applies to 'demoDebug' and 'fullDebug'
+-  schemaDirectory("debug", "$projectDir/schemas/debug")
++      // Applies to 'demoDebug' and 'fullDebug'
++      schemaDirectory("debug", "$projectDir/schemas/debug")
+ 
+-  // Applies to variants that aren't matched by other configurations.
+-  schemaDirectory("$projectDir/schemas")
+-}
+-```
++      // Applies to variants that aren't matched by other configurations.
++      schemaDirectory("$projectDir/schemas")
++    }
+ 
+ #### Set schema location using annotation processor option
+ 
+@@ -266,57 +246,49 @@ Gradle build file. The `asArguments` function in the sample class passes
+ 
+ ### Groovy
+ 
+-```
+-class RoomSchemaArgProvider implements CommandLineArgumentProvider {
++    class RoomSchemaArgProvider implements CommandLineArgumentProvider {
+ 
+-  @InputDirectory
+-  @PathSensitive(PathSensitivity.RELATIVE)
+-  File schemaDir
++      @InputDirectory
++      @PathSensitive(PathSensitivity.RELATIVE)
++      File schemaDir
+ 
+-  RoomSchemaArgProvider(File schemaDir) {
+-    this.schemaDir = schemaDir
+-  }
++      RoomSchemaArgProvider(File schemaDir) {
++        this.schemaDir = schemaDir
++      }
+ 
+-  @Override
+-  Iterable<String> asArguments() {
+-    return ["room.schemaLocation=${schemaDir.path}".toString()]
+-  }
+-}
+-```
++      @Override
++      Iterable<String> asArguments() {
++        return ["room.schemaLocation=${schemaDir.path}".toString()]
++      }
++    }
+ 
+ ### Kotlin
+ 
+-```
+-class RoomSchemaArgProvider(
+-  @get:InputDirectory
+-  @get:PathSensitive(PathSensitivity.RELATIVE)
+-  val schemaDir: File
+-) : CommandLineArgumentProvider {
+-
+-  override fun asArguments(): Iterable<String> {
+-    return listOf("room.schemaLocation=${schemaDir.path}")
+-  }
+-}
+-```
++    class RoomSchemaArgProvider(
++      @get:InputDirectory
++      @get:PathSensitive(PathSensitivity.RELATIVE)
++      val schemaDir: File
++    ) : CommandLineArgumentProvider {
++
++      override fun asArguments(): Iterable<String> {
++        return listOf("room.schemaLocation=${schemaDir.path}")
++      }
++    }
+ 
+ Then configure the compile options to use the `RoomSchemaArgProvider` with the
+ specified schema directory:
+ 
+ ### Groovy
+ 
+-```
+-ksp {
+-  arg(new RoomSchemaArgProvider(new File(projectDir, "schemas")))
+-}
+-```
++    ksp {
++      arg(new RoomSchemaArgProvider(new File(projectDir, "schemas")))
++    }
+ 
+ ### Kotlin
+ 
+-```
+-ksp {
+-  arg(RoomSchemaArgProvider(File(projectDir, "schemas")))
+-}
+-```
++    ksp {
++      arg(RoomSchemaArgProvider(File(projectDir, "schemas")))
++    }
+ 
+ ### Test a single migration
+ 
+@@ -326,7 +298,7 @@ schema as an asset directory:
+ 
+ ### Groovy
+ 
+-```
++```groovy
+ android {
+     ...
+     sourceSets {
+@@ -344,7 +316,7 @@ dependencies {
+ 
+ ### Kotlin
+ 
+-```
++```kotlin
+ android {
+     ...
+     sourceSets {
+@@ -360,13 +332,14 @@ dependencies {
+ }
+ ```
+ 
+-The testing package provides a [`MigrationTestHelper`](/reference/kotlin/androidx/room3/testing/MigrationTestHelper) class, which can read
++The testing package provides a [`MigrationTestHelper`](https://developer.android.com/reference/kotlin/androidx/room3/testing/MigrationTestHelper) class, which can read
+ exported schema files. The package also implements the JUnit4
+ [`TestRule`](https://junit.org/junit4/javadoc/4.12/org/junit/rules/TestRule) interface to manage created databases.
+ 
+ The following example demonstrates a test for a single migration:
+ 
+-```
++
++```kotlin
+ @RunWith(AndroidJUnit4::class)
+ class MigrationTest {
+     private val TEST_DB = "migration-test"
+@@ -402,10 +375,10 @@ class MigrationTest {
+         migratedConnection.close()
+     }
+ }
+-
+-MigrationTest.kt
+ ```
+ 
++<br />
++
+ ### Test all migrations
+ 
+ Although you can test a single incremental migration, you should include a
+@@ -415,7 +388,8 @@ instance and an earlier instance that followed the defined migration paths.
+ 
+ The following example demonstrates a test for all defined migrations:
+ 
+-```
++
++```kotlin
+ @RunWith(AndroidJUnit4::class)
+ class MigrationTest {
+     private val TEST_DB = "migration-test"
+@@ -453,53 +427,36 @@ class MigrationTest {
+         db.close()
+     }
+ }
+-
+-MigrationTest.kt
+ ```
+ 
++<br />
++
+ ## Gracefully handle missing migration paths
+ 
+ If Room can't find a migration path to upgrade an existing database on a
+-device to the current version, an [`IllegalStateException`](/reference/java/lang/IllegalStateException) occurs. If
++device to the current version, an [`IllegalStateException`](https://developer.android.com/reference/java/lang/IllegalStateException) occurs. If
+ it's acceptable to lose existing data when a migration path is missing, call
+-the [`fallbackToDestructiveMigration`](/reference/kotlin/androidx/room/RoomDatabase.Builder#fallbackToDestructiveMigration(kotlin.Boolean)) builder function when you create
++the [`fallbackToDestructiveMigration`](https://developer.android.com/reference/kotlin/androidx/room/RoomDatabase.Builder#fallbackToDestructiveMigration(kotlin.Boolean)) builder function when you create
+ the database:
+ 
+-```
++
++```kotlin
+ Room.databaseBuilder<FallbackMigrationDatabase>(applicationContext, "database-name")
+         .fallbackToDestructiveMigration()
+         .build()
+-
+-MigratingDbVersionsSnippets.kt
+ ```
+ 
++<br />
++
+ This function configures Room to destructively recreate the tables in your
+ app's database when it needs to perform an incremental migration and there's no
+ defined migration path.
+ 
+-**Warning:** Setting this option in your app's database builder means that Room
+-*permanently deletes all data* from the tables in the user's database when it
+-attempts to perform a migration and there's no defined migration path.
++> [!WARNING]
++> **Warning:** Setting this option in your app's database builder means that Room *permanently deletes all data* from the tables in the user's database when it attempts to perform a migration and there's no defined migration path.
+ 
+ To fall back to destructive recreation only in certain situations, use one of
+ the following alternatives to `fallbackToDestructiveMigration`:
+ 
+-* If specific versions of your schema history cause errors that you can't solve
+-  with migration paths, use [`fallbackToDestructiveMigrationFrom`](/reference/kotlin/androidx/room/RoomDatabase.Builder#fallbackToDestructiveMigrationFrom(kotlin.Boolean,kotlin.IntArray)) instead.
+-  This function indicates that you want Room to fall back to destructive
+-  recreation only when migrating from specific versions.
+-* If you want Room to fall back to destructive recreation only when migrating
+-  from a higher database version to a lower one, use
+-  [`fallbackToDestructiveMigrationOnDowngrade`](/reference/kotlin/androidx/room/RoomDatabase.Builder#fallbackToDestructiveMigrationOnDowngrade(kotlin.Boolean)) instead.
+-
+-[Previous
+-
+-arrow\_back
+-
+-Prepopulate your database](/training/data-storage/room/prepopulate)
+-
+-[Next
+-
+-Test and debug your database
+-
+-arrow\_forward](/training/data-storage/room/testing-db)
+\ No newline at end of file
++- If specific versions of your schema history cause errors that you can't solve with migration paths, use [`fallbackToDestructiveMigrationFrom`](https://developer.android.com/reference/kotlin/androidx/room/RoomDatabase.Builder#fallbackToDestructiveMigrationFrom(kotlin.Boolean,kotlin.IntArray)) instead. This function indicates that you want Room to fall back to destructive recreation only when migrating from specific versions.
++- If you want Room to fall back to destructive recreation only when migrating from a higher database version to a lower one, use [`fallbackToDestructiveMigrationOnDowngrade`](https://developer.android.com/reference/kotlin/androidx/room/RoomDatabase.Builder#fallbackToDestructiveMigrationOnDowngrade(kotlin.Boolean)) instead.
+\ No newline at end of file

@@ -1,0 +1,82 @@
+diff --git a/docs/blog/authors/paul-lammertsma.md b/docs/blog/authors/paul-lammertsma.md
+index 7809aca5..35aa8794 100644
+--- a/docs/blog/authors/paul-lammertsma.md
++++ b/docs/blog/authors/paul-lammertsma.md
+@@ -1,63 +1,30 @@
+ ---
+-title: Paul Lammertsma  |  Android Developers' Blog
++title: https://developer.android.com/blog/authors/paul-lammertsma
+ url: https://developer.android.com/blog/authors/paul-lammertsma
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Android Developers' Blog](https://developer.android.com/)
+-* [Blog](https://developer.android.com/blog)
+-
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-1
+-post
+-
+-![](/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)
++1 post ![](https://developer.android.com/static/blog/assets/Paul_Lammertsma_2f7e1baf32_Z28iSTy.webp)
+ 
+ # Paul Lammertsma
+ 
+ Developer Relations Engineer
+ 
+ Android
++- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-* 19
+-
+-  May
+-  2026
+-
+-  19
+-
+-  May
+-  2026
+-
+-  ![](/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+-
+-  [Product News](/blog/categories/product-news)
+-
+-  ## [Increasing app discovery and engagement on Google TV](/blog/posts/increasing-app-discovery-and-engagement-on-google-tv)
+-
+-  [arrow\_forward](/blog/posts/increasing-app-discovery-and-engagement-on-google-tv)
+-
+-  We’re excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
++  ## [Increasing app discovery and engagement on Google TV](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv)
+ 
++  [arrow_forward](https://developer.android.com/blog/posts/increasing-app-discovery-and-engagement-on-google-tv) We're excited to share Google TV features and developer tools designed to increase the discoverability of your content and prepare your app for future TV experiences.
+   3 min read
+-  + [#Gemini features](/blog/topics/gemini-features)
+-  + [#Google I/O](/blog/topics/google-i-o)
+-  + [#Engage SDK](/blog/topics/engage-sdk)
+-  + +1
+-    ↩
+-
++  - [#Gemini features](https://developer.android.com/blog/topics/gemini-features)
++  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
++  - [#Engage SDK](https://developer.android.com/blog/topics/engage-sdk)
++  - +1 ↩
+ Stay in the loop
+ 
++
+ Get the latest Android development insights delivered to your inbox
+ weekly.
+-
+ [mail
+-Subscribe](/subscribe)
+-
+-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file
++Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+\ No newline at end of file

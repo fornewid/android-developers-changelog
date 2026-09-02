@@ -1,0 +1,86 @@
+diff --git a/docs/guide/navigation/custom-back/predictive-back-gesture.md b/docs/guide/navigation/custom-back/predictive-back-gesture.md
+index 29b41b3e..6ed947d0 100644
+--- a/docs/guide/navigation/custom-back/predictive-back-gesture.md
++++ b/docs/guide/navigation/custom-back/predictive-back-gesture.md
+@@ -52,16 +52,21 @@ gestures. This API lets you respond to the back gesture and provides a
+ `Flow` of `BackEventCompat` objects that you can use to implement custom
+ animations or transitions as the user swipes.
+ 
+-    PredictiveBackHandler(enabled = isBackHandlerEnabled) { progress: Flow<BackEventCompat> ->
+-        try {
+-            progress.collect { backEvent ->
+-                // Update your UI or animation based on backEvent.progress
+-            }
+-            // Handle the final back action (e.g., navigate back)
+-        } catch (e: CancellationException) {
+-            // Back gesture was cancelled, reset your UI
++
++```kotlin
++PredictiveBackHandler(enabled = isBackHandlerEnabled) { progress: Flow<BackEventCompat> ->
++    try {
++        progress.collect { backEvent ->
++            // Update your UI or animation based on backEvent.progress.
+         }
++        // Handle the final back action (e.g., navigate back).
++    } catch (e: CancellationException) {
++        // Back gesture was cancelled, reset your UI.
+     }
++}
++```
++
++<br />
+ 
+ If you only need to intercept the back gesture without tracking progress, use
+ [`BackHandler`](https://developer.android.com/reference/kotlin/androidx/activity/compose/BackHandler.composable#BackHandler(kotlin.Boolean,kotlin.Function0)).
+@@ -96,16 +101,13 @@ or existing apps that implement custom gesture navigation handling with
+ 
+ To make sure that APIs that are already using `OnBackPressedDispatcher`
+ (such as Fragments and the Navigation Component) work seamlessly with the
+-predictive back gesture, upgrade to
+-[AndroidX Activity 1.6.0-alpha05](https://developer.android.com/jetpack/androidx/releases/activity#1.6.0-alpha05).
++predictive back gesture, upgrade to [AndroidX Activity 1.6.0-alpha05](https://developer.android.com/jetpack/androidx/releases/activity#1.6.0-alpha05).
+ 
+-    ```xml
+     // In your build.gradle file:
+     dependencies {
+-
+-    // Add this in addition to your other dependencies
+-    implementation "androidx.activity:activity:1.6.0-alpha05"
+-    ```
++        // Add this in addition to your other dependencies
++        implementation "androidx.activity:activity:1.6.0-alpha05"
++    }
+ 
+ ### Migrate an AndroidX app containing unsupported back navigation APIs to AndroidX APIs
+ 
+@@ -129,14 +131,13 @@ To migrate unsupported APIs to AndroidX APIs:
+ 3. Stop intercepting back events using `OnBackPressed` or
+    `KeyEvent.KEYCODE_BACK`.
+ 
+-4. Make sure to upgrade to
+-   [AndroidX Activity 1.6.0-alpha05](https://developer.android.com/jetpack/androidx/releases/activity#1.6.0-alpha05).
++4. Make sure to upgrade to [AndroidX Activity 1.6.0-alpha05](https://developer.android.com/jetpack/androidx/releases/activity#1.6.0-alpha05).
+ 
+        // In your build.gradle file:
+        dependencies {
+-
+-       // Add this in addition to your other dependencies
+-       implementation "androidx.activity:activity:1.6.0-alpha05"
++           // Add this in addition to your other dependencies
++           implementation "androidx.activity:activity:1.6.0-alpha05"
++       }
+ 
+    > [!NOTE]
+    > **Note:** `OnBackPressedCallback` is always called regardless of the value of `android:enableOnBackInvokedCallback`. In other words, disabling the system animation doesn't affect your app's back handling logic if it uses `OnBackPressedCallback`.
+@@ -191,9 +192,9 @@ Keep in mind the following considerations when using the
+ - Setting `android:enableOnBackInvokedCallback=false` turns off predictive back animations either at the activity level or at the app level, depending on where you set the tag, and instructs the system to ignore calls to the `OnBackInvokedCallback` platform API. However, calls to `OnBackPressedCallback` continue to run because `OnBackPressedCallback` is backward compatible and calls the `onBackPressed` API, which is unsupported prior to Android 13.
+ - Setting the `enableOnBackInvokedCallback` flag at the app level establishes the default value for all activities in the app. You can override the default per activity by setting the flag at the activity level, as shown in the preceding code example.
+ 
+-## Callback best practices
++## Callback guidelines
+ 
+-Here are best practices for using the supported system back callbacks:
++Follow these guidelines when using the supported system back callbacks:
+ [`PredictiveBackHandler`](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#compose-back) or [`BackHandler`](https://developer.android.com/guide/navigation/custom-back/predictive-back-gesture#compose-back) (for Compose),
+ [`OnBackPressedCallback`](https://developer.android.com/reference/androidx/activity/OnBackPressedCallback), or [`OnBackInvokedCallback`](https://developer.android.com/reference/android/window/OnBackInvokedCallback).
+ 

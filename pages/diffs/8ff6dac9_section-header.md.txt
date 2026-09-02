@@ -1,0 +1,61 @@
+diff --git a/docs/design/ui/cars/guides/components/section-header/section-header.md b/docs/design/ui/cars/guides/components/section-header/section-header.md
+index 46f03ad2..204be04d 100644
+--- a/docs/design/ui/cars/guides/components/section-header/section-header.md
++++ b/docs/design/ui/cars/guides/components/section-header/section-header.md
+@@ -1,25 +1,13 @@
+ ---
+-title: Section header  |  Cars  |  Android Developers
++title: https://developer.android.com/design/ui/cars/guides/components/section-header/section-header
+ url: https://developer.android.com/design/ui/cars/guides/components/section-header/section-header
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-* [Android Developers](https://developer.android.com/)
+-* [Design & Plan](https://developer.android.com/design)
+-* [UI Design](https://developer.android.com/design/ui)
+-* [Cars](https://developer.android.com/design/ui/cars)
+-* [Guides](https://developer.android.com/design/ui/cars/guides/foundations/design-principles)
++> [!NOTE]
++> **Note:** Section headers are supported exclusively within the sectioned item template.
+ 
+-# Section header Stay organized with collections Save and categorize content based on your preferences.
+-
+-
+-
+-
+-
+-**Note:** Section headers are supported exclusively within the sectioned item
+-template.
+-
+-![hero](/static/design/ui/cars/guides/components/section-header/section-header-assets/image-161-23713.png)
++![hero](https://developer.android.com/static/design/ui/cars/guides/components/section-header/section-header-assets/image-161-23713.png)
+ 
+ ## Overview
+ 
+@@ -30,20 +18,17 @@ custom brand icons. Making the header directly tappable allows drivers to
+ navigate to deeper content, trigger sorting options, or consolidate long lists
+ without excessive scrolling.
+ 
+----
++*** ** * ** ***
+ 
+ ## Composition
+ 
+ A section header supports the following components:
+ 
+-* **Leading image or icon**
+-* **Title:** Primary header text and secondary overline text should be restricted to 1 line.
+-* **Trailing action button** (optional)
+-
+-![hero](/static/design/ui/cars/guides/components/section-header/section-header-assets/image-161-23721.png)
+-
++- **Leading image or icon**
++- **Title:** Primary header text and secondary overline text should be restricted to 1 line.
++- **Trailing action button** (optional)
+ 
+-*1.* *Leading image or icon*
++![hero](https://developer.android.com/static/design/ui/cars/guides/components/section-header/section-header-assets/image-161-23721.png) *1.* *Leading image or icon*
+ 
+ *2.* *Title and overline text*
+ 

@@ -1,0 +1,24 @@
+diff --git a/docs/blog/authors/niharika-arora.md b/docs/blog/authors/niharika-arora.md
+index 804b92e4..3ad543ee 100644
+--- a/docs/blog/authors/niharika-arora.md
++++ b/docs/blog/authors/niharika-arora.md
+@@ -4,11 +4,18 @@ url: https://developer.android.com/blog/authors/niharika-arora
+ source: md.txt
+ ---
+ 
+-5 posts ![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)
++6 posts ![](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)
+ 
+ # Niharika Arora
+ 
+ Developer Relations Engineer
++- 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z1oNucg.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
++
++  ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
++
++  [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
++  8 min read
++  - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
+ - 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+   ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)

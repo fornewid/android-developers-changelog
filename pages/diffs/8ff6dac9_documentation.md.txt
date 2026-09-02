@@ -1,0 +1,19 @@
+diff --git a/docs/blog/categories/documentation.md b/docs/blog/categories/documentation.md
+index 5f53a85a..faa6ff61 100644
+--- a/docs/blog/categories/documentation.md
++++ b/docs/blog/categories/documentation.md
+@@ -9,6 +9,14 @@ source: md.txt
+ # Documentation
+ 
+ Access detailed manuals, API references, and technical specifications to help you build and integrate with confidence.
++- [![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_22fyUM.webp)](https://developer.android.com/blog/authors/rob-orgiu) 31 Aug 2026 31 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_123_Streamline_adaptive_testing_with_emulator_commands_Strapi_0d1336f9a2_do9zK.webp)
++
++  ## [Emulator control for adaptive app development](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development)
++
++  [arrow_forward](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development) Adaptive app development is fundamental on Android, but making sure everything looks good and every feature works the way it should require multiple tests on multiple devices. Or does it?
++  [Rob Orgiu](https://developer.android.com/blog/authors/rob-orgiu) • 2 min read
++  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
++  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+ - [![View Wei Wang's profile](https://developer.android.com/static/blog/assets/weiwa_web_6a7b6f6114_Z1kCd5W.webp)](https://developer.android.com/blog/authors/wei-wang) 20 Jul 2026 20 Jul 2026 ![](https://developer.android.com/static/blog/assets/Upcoming_Changes_to_the_Nearby_Connections_API_Strapi_11b1de50e2_K0lSy.webp)
+ 
+   ## [Upcoming Changes to the Nearby Connections API](https://developer.android.com/blog/posts/upcoming-changes-to-the-nearby-connections-api)

@@ -1,0 +1,15 @@
+diff --git a/docs/blog/authors/11.md b/docs/blog/authors/11.md
+index 81210ed2..44278d7c 100644
+--- a/docs/blog/authors/11.md
++++ b/docs/blog/authors/11.md
+@@ -58,8 +58,8 @@ source: md.txt
+   ###### Developer Relations Engineer
+ 
+   [read_more
+-  1 post](https://developer.android.com/blog/authors/rob-orgiu) [read_more
+-  1 post](https://developer.android.com/blog/authors/rob-orgiu) ![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_22fyUM.webp) ![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_22fyUM.webp)
++  2 posts](https://developer.android.com/blog/authors/rob-orgiu) [read_more
++  2 posts](https://developer.android.com/blog/authors/rob-orgiu) ![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_22fyUM.webp) ![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_22fyUM.webp)
+ -
+ 
+   ## [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan)

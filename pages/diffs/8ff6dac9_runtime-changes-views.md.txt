@@ -1,0 +1,45 @@
+diff --git a/docs/topic/architecture/views/resources/runtime-changes-views.md b/docs/topic/architecture/views/resources/runtime-changes-views.md
+index 1a39bce4..99ebb857 100644
+--- a/docs/topic/architecture/views/resources/runtime-changes-views.md
++++ b/docs/topic/architecture/views/resources/runtime-changes-views.md
+@@ -10,15 +10,18 @@ Some device configurations can change while the app is running. These include,
+ but aren't limited to:
+ 
+ - App display size
++- Screen density (display scaling)
+ - Screen orientation
+ - Font size and weight
+ - Locale
+-- Dark mode versus light mode
++- Dark theme versus light theme
+ - Keyboard availability
+ 
+ Most of these configuration changes occur due to some user interaction. For
+ example, rotating or folding the device changes the amount of screen space
+-available to your app. Likewise, altering device settings like the font size,
++available to your app. Connecting to external displays or moving an app between
++displays with different pixel densities alters the screen density and display
++size. Likewise, altering device settings like display scaling, font size,
+ language, or preferred theme changes their respective values in the
+ [`Configuration`](https://developer.android.com/reference/android/content/res/Configuration) object.
+ 
+@@ -76,7 +79,9 @@ and while it is in the background. These actions include:
+ - Entering multi-window mode
+ - Resizing the application while in multi-window mode or a free-form window
+ - Folding a foldable device with multiple displays
+-- Changing the system theme, such as dark mode versus light mode
++- Changing the display size or display scaling in system settings
++- Moving the app between displays with different screen densities (such as connected external monitors or different screens on foldable devices)
++- Changing the system theme, such as dark theme versus light theme
+ - Changing the font size
+ - Changing the system or app language
+ - Connecting or disconnecting a hardware keyboard
+@@ -169,7 +174,7 @@ activity lifecycle. This is because of the following:
+ These are the key concepts you need to know when working on configuration
+ changes:
+ 
+-- **Configurations:** device configurations define how the UI displays to the user, such as app display size, locale, or system theme.
++- **Configurations:** device configurations define how the UI displays to the user, such as app display size, screen density, locale, or system theme.
+ - **Configuration changes:** configurations change through user interaction. For example, the user might change device settings or how they physically interact with the device. There's no way to prevent configuration changes.
+ - **`Activity` recreation:** configuration changes result in `Activity` recreation by default. This is a built-in mechanism to re-initialize app state for the new configuration.
+ - **`Activity` destruction:** `Activity` recreation causes the system to destroy the old `Activity` instance and create a new one in its place. The old instance is now obsolete. Any remaining references to it result in memory leaks, bugs, or crashes.

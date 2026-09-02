@@ -1,0 +1,13 @@
+diff --git a/docs/tools/agents/android-skills.md b/docs/tools/agents/android-skills.md
+index de7c8a13..b9e060bb 100644
+--- a/docs/tools/agents/android-skills.md
++++ b/docs/tools/agents/android-skills.md
+@@ -53,7 +53,7 @@ We recommend installing an Android skill using the
+ and manage skills for any agent of your choice.
+ 
+ - To see the list of available skills, run [`android skills list`](https://developer.android.com/tools/agents/android-cli#skills-list).
+-- To install a skill, run [`android skills add --skill skill-name`](https://developer.android.com/tools/agents/android-cli#skills-add). If you already have the skill installed, `skills add` will update it to the latest version.
++- To install a skill, run [`android skills add skill-name`](https://developer.android.com/tools/agents/android-cli#skills-add). If you already have the skill installed, `skills add` will update it to the latest version.
+ 
+ > [!NOTE]
+ > **Note:** If you customize a skill, you should rename it, or it will get overwritten when you update it using `skills add`.

@@ -1,0 +1,19 @@
+diff --git a/docs/blog/topics/adaptive-development.md b/docs/blog/topics/adaptive-development.md
+index c2524a19..31cb1160 100644
+--- a/docs/blog/topics/adaptive-development.md
++++ b/docs/blog/topics/adaptive-development.md
+@@ -6,6 +6,14 @@ source: md.txt
+ 
+ # #Adaptive development
+ 
++- [![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_22fyUM.webp)](https://developer.android.com/blog/authors/rob-orgiu) 31 Aug 2026 31 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_123_Streamline_adaptive_testing_with_emulator_commands_Strapi_0d1336f9a2_do9zK.webp) [Documentation](https://developer.android.com/blog/categories/documentation)
++
++  ## [Emulator control for adaptive app development](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development)
++
++  [arrow_forward](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development) Adaptive app development is fundamental on Android, but making sure everything looks good and every feature works the way it should require multiple tests on multiple devices. Or does it?
++  [Rob Orgiu](https://developer.android.com/blog/authors/rob-orgiu) • 2 min read
++  - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
++  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+ - 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)

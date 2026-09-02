@@ -1,0 +1,12 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md b/docs/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md
+index 30d29c70..bbd9ac8c 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md
++++ b/docs/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md
+@@ -334,6 +334,7 @@ private fun startCameraOnGlasses(activity: ComponentActivity) {
+ - A custom [`ResolutionSelector`](https://developer.android.com/reference/kotlin/androidx/camera/core/resolutionselector/ResolutionSelector) is built to precisely control the output image resolution for [`ImageCapture`](https://developer.android.com/reference/kotlin/androidx/camera/core/ImageCapture).
+ - Creates an `ImageCapture` use case that is configured with a custom `ResolutionSelector`.
+ - Binds the `ImageCapture` use case to the activity's lifecycle. This automatically manages the opening and closing of the camera based on the activity's state (for example, stopping the camera when the activity is paused).
++- **Configuring for single-stream hardware:** The glasses camera pipeline is constrained to a single active stream at a time. When `ImageCapture` is bound alone, CameraX attaches an internal repeating stream (`MeteringRepeating`) for focus and metering by default, which causes the single-stream pipeline to stall. To bind `ImageCapture` by itself without a preview stream, disable the forced repeating stream by setting [`setRepeatingStreamForced(false)`](https://developer.android.com/reference/kotlin/androidx/camera/core/CameraXConfig.Builder#setRepeatingStreamForced(kotlin.Boolean)) on [`CameraXConfig.Builder`](https://developer.android.com/reference/kotlin/androidx/camera/core/CameraXConfig.Builder) (for example, by implementing [`CameraXConfig.Provider`](https://developer.android.com/reference/kotlin/androidx/camera/core/CameraXConfig.Provider) in your `Application` class or configuring `ProcessCameraProvider` before initialization).
+ 
+ After the glasses' camera is set up, you can capture an image with the
+ CameraX's `ImageCapture` class. Refer to the CameraX's documentation to learn

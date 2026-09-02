@@ -1,0 +1,15 @@
+diff --git a/docs/blog/authors/14.md b/docs/blog/authors/14.md
+index bf3b3b6a..df9b252b 100644
+--- a/docs/blog/authors/14.md
++++ b/docs/blog/authors/14.md
+@@ -49,8 +49,8 @@ source: md.txt
+   ###### Product Marketing Manager
+ 
+   [read_more
+-  11 posts](https://developer.android.com/blog/authors/tracy-agyemang) [read_more
+-  11 posts](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
++  12 posts](https://developer.android.com/blog/authors/tracy-agyemang) [read_more
++  12 posts](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
+ -
+ 
+   ## [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns)
