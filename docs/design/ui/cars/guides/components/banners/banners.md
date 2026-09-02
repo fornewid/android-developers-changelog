@@ -20,8 +20,8 @@ visually separated from surrounding content.
 
 ## Composition
 
-The Banner item is designed for high glanceability and includes four components, two
-of which are required:
+The Banner item is designed for high glanceability and includes four components,
+two of which are required:
 
 - **Leading image or icon** (required)
 - **Primary text: title and subtexts** (required)

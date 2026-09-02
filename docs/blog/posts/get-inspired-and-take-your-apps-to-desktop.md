@@ -1,178 +1,78 @@
 ---
-title: Get inspired and take your apps to desktop  |  Android Developers' Blog
+title: https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop
 url: https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-[Product News](/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Get inspired and take your apps to desktop
 
-1 min read
-
-![](/static/blog/assets/get_Inspired_6627220d63_Z2niudI.webp)
-
-16
-
-Mar
-2026
-
-[![View Ivy Knight's profile](/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp)](/blog/authors/ivy-knight)
-
-[Ivy Knight](/blog/authors/ivy-knight)
-
-Senior Design Advocate
-
-We're thrilled to announce major updates to our design resources, giving you the comprehensive guidance you need to create polished, adaptive Android apps across all form factors! We now have [**Desktop Experience guidance**](http://developer.android.com/design/ui/desktop) and a refreshed [**Android Design Gallery**](http://developer.android.com/design/ui/gallery).
+1 min read ![](https://developer.android.com/static/blog/assets/get_Inspired_6627220d63_Z2niudI.webp) 16 Mar 2026 [![View Ivy Knight's profile](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp)](https://developer.android.com/blog/authors/ivy-knight) [Ivy Knight](https://developer.android.com/blog/authors/ivy-knight) Senior Design Advocate We're thrilled to announce major updates to our design resources, giving you the comprehensive guidance you need to create polished, adaptive Android apps across all form factors! We now have [**Desktop Experience guidance**](http://developer.android.com/design/ui/desktop) and a refreshed [**Android Design Gallery**](http://developer.android.com/design/ui/gallery).
 
 ### New Desktop Experience Design Guidance
 
-Your users are engaging with Android apps on more diverse devices than ever before—from phones and foldables to laptops and external monitors. A "desktop experience" occurs anytime your app is in a desktop-like mode, typically involving a non-touch input device like a keyboard or mouse, or another display such as a monitor (read more in the [connected display announcement](https://android-developers.googleblog.com/2026/03/android-devices-extend-seamlessly-to.html)). This means designing for [larger screens](/design/ui/mobile/guides/layout-and-content/adapt-layout) and accommodating additional input states. These new design experiences are meant to maximize productivity for your users with higher information density, multi-tasking capabilities.
+Your users are engaging with Android apps on more diverse devices than ever before---from phones and foldables to laptops and external monitors. A "desktop experience" occurs anytime your app is in a desktop-like mode, typically involving a non-touch input device like a keyboard or mouse, or another display such as a monitor (read more in the [connected display announcement](https://android-developers.googleblog.com/2026/03/android-devices-extend-seamlessly-to.html)). This means designing for [larger screens](https://developer.android.com/design/ui/mobile/guides/layout-and-content/adapt-layout) and accommodating additional input states. These new design experiences are meant to maximize productivity for your users with higher information density, multi-tasking capabilities.
 
 Dive into desktop experience guidance to help optimize your app with desktop design principles, input interaction guidance, and system UI considerations.
-
-![image.png](/static/blog/assets/image_13a9f101d1_1v1Ahx.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_13a9f101d1_1v1Ahx.webp)
 
 The new guidance includes foundational guides where you can learn design principles that make desktop experiences unique, such as how multitasking is at the core of desktop experiences.
-
-![image.png](/static/blog/assets/image_a71ecf4124_bkfMm.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_a71ecf4124_bkfMm.webp)
 
 When your app is in a desktop experience, keep in mind crucial interaction experiences, such as how to best design around unique input interactions, like choosing cursors from system provided cursors.
 
 For specialized actions not covered by system icons, consider creating a custom cursor icon, while ensuring it remains easy for users to find on the page.
-
-![image.png](/static/blog/assets/image_9f26d1fced_Z2iUerI.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_9f26d1fced_Z2iUerI.webp)
 
 A desktop experience brings more multitasking features, like windowing, so expect your app to take on a variety of dimensions with a header bar.
-
-![image.png](/static/blog/assets/image_e8ecc055f5_fYcFq.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_e8ecc055f5_fYcFq.webp)
 
 Desktops have much larger screens than mobile, and users typically interact using a mouse which has finer precision than a finger on a touch screen. This means you can present a UI with higher information density so your users can be more productive!
+![image.png](https://developer.android.com/static/blog/assets/image_d04f9ecf62_S0WHm.webp)
 
-![image.png](/static/blog/assets/image_d04f9ecf62_S0WHm.webp)
+Want to get started quickly? Check out the walkthrough to go from mobile to desktop and design along with the updated [Adaptive Design lab](https://www.figma.com/community/file/1504631597454929506/design-an-adaptive-layout-with-material-design).
 
-Want to get started quickly? Check out the walkthrough to go from mobile to desktop and design along with the updated [Adaptive Design lab](https://www.figma.com/community/file/1504631597454929506/design-an-adaptive-layout-with-material-design).
-
-For more on criteria that makes a differentiated quality app, read the newly updated [adaptive app quality guidelines](/docs/quality-guidelines/adaptive-app-quality) and [adaptive developer guidance](/adaptive-apps).
+For more on criteria that makes a differentiated quality app, read the newly updated [adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality) and [adaptive developer guidance](https://developer.android.com/adaptive-apps).
 
 ### Introducing the Android Design Gallery
 
-Looking for inspiration? We've launched the [**Android Design Gallery**](http://developer.android.com/design/ui/gallery)! This new resource is a living catalog of inspirational examples across multiple verticals, form factors, and UX patterns. We'll be continually adding new inspirational examples, so check back often to see the latest and greatest in Android design.
+Looking for inspiration? We've launched the [**Android Design Gallery**](http://developer.android.com/design/ui/gallery)! This new resource is a living catalog of inspirational examples across multiple verticals, form factors, and UX patterns. We'll be continually adding new inspirational examples, so check back often to see the latest and greatest in Android design.
+![image.png](https://developer.android.com/static/blog/assets/image_147160b0da_ZTHpkh.webp) Written by:
 
-![image.png](/static/blog/assets/image_147160b0da_ZTHpkh.webp)
+-
 
-Written by:
-
-* ## [Ivy Knight](/blog/authors/ivy-knight)
+  ## [Ivy Knight](https://developer.android.com/blog/authors/ivy-knight)
 
   ###### Senior Design Advocate
 
-  [read\_more
-  View profile](/blog/authors/ivy-knight)
-
-  ![View Ivy Knight's profile](/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp)
-
-  ![View Ivy Knight's profile](/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp)
-
+  [read_more
+  View profile](https://developer.android.com/blog/authors/ivy-knight) ![View Ivy Knight's profile](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp) ![View Ivy Knight's profile](https://developer.android.com/static/blog/assets/Ivy_Knight_3071ce592d_2j4ER1.webp)
 Continue reading
+- [![View Raghavendra Hareesh Pottamsetty's profile](https://developer.android.com/static/blog/assets/Raghavendra_Hareesh_Pottamsetty_72fdb063a0_1h0S85.webp)](https://developer.android.com/blog/authors/raghavendra-hareesh-pottamsetty) 26 Aug 2026 26 Aug 2026 ![](https://developer.android.com/static/blog/assets/Raising_the_bar_Google_Play_Strapi_2_a80695bf12_Z2jxf1k.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-* [![View Raghavendra Hareesh Pottamsetty's profile](/static/blog/assets/Raghavendra_Hareesh_Pottamsetty_72fdb063a0_1h0S85.webp)](/blog/authors/raghavendra-hareesh-pottamsetty)
+  ## [Elevating app quality: Reducing memory usage and improving device migration](https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration)
 
-  26
+  [arrow_forward](https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration) Maintaining a healthy Android ecosystem is a shared commitment where every app and game has a role to play.
+  [Raghavendra Hareesh Pottamsetty](https://developer.android.com/blog/authors/raghavendra-hareesh-pottamsetty) • 4 min read
+- [![View Ron Aquino's profile](https://developer.android.com/static/blog/assets/unnamed_18_8bd07de9bd_9wUet.webp)](https://developer.android.com/blog/authors/ron-aquino) 25 Aug 2026 25 Aug 2026 ![](https://developer.android.com/static/blog/assets/Ensuring_a_safe_Gen_AI_ecosystem_on_Google_Play_Scrapi_a8fa6da415_ZsHups.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Aug
-  2026
+  ## [Ensuring Safety in the Generative AI Ecosystem: Protecting Users from Non-Consensual Intimate Content](https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content)
 
-  26
+  [arrow_forward](https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content) At Google Play, user safety and developer success go hand in hand. We continue to see growth in apps with AI generated features, and indeed, adding generative AI into your apps is a great way to unlock incredible creative possibilities.
+  [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino) • 4 min read
+- 3 Authors 24 Aug 2026 24 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_1_Strapi_6f49d09922_ZVXnJg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Aug
-  2026
+  ## [AAOS SDV - Secure by Design](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design)
 
-  ![](/static/blog/assets/Raising_the_bar_Google_Play_Strapi_2_a80695bf12_Z2jxf1k.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [Elevating app quality: Reducing memory usage and improving device migration](/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration)
-
-  [arrow\_forward](/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration)
-
-  Maintaining a healthy Android ecosystem is a shared commitment where every app and game has a role to play.
-
-  [Raghavendra Hareesh Pottamsetty](/blog/authors/raghavendra-hareesh-pottamsetty)
-  •
-  4 min read
-* [![View Ron Aquino's profile](/static/blog/assets/unnamed_18_8bd07de9bd_9wUet.webp)](/blog/authors/ron-aquino)
-
-  25
-
-  Aug
-  2026
-
-  25
-
-  Aug
-  2026
-
-  ![](/static/blog/assets/Ensuring_a_safe_Gen_AI_ecosystem_on_Google_Play_Scrapi_a8fa6da415_ZsHups.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [Ensuring Safety in the Generative AI Ecosystem: Protecting Users from Non-Consensual Intimate Content](/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content)
-
-  [arrow\_forward](/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content)
-
-  At Google Play, user safety and developer success go hand in hand. We continue to see growth in apps with AI generated features, and indeed, adding generative AI into your apps is a great way to unlock incredible creative possibilities.
-
-  [Ron Aquino](/blog/authors/ron-aquino)
-  •
-  4 min read
-* 3
-  Authors
-
-  24
-
-  Aug
-  2026
-
-  24
-
-  Aug
-  2026
-
-  ![](/static/blog/assets/Android_1_Strapi_6f49d09922_ZVXnJg.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [AAOS SDV - Secure by Design](/blog/posts/aaos-sdv-secure-by-design)
-
-  [arrow\_forward](/blog/posts/aaos-sdv-secure-by-design)
-
-  At Google, we believe our products should be secure by design, which is why we built the Android Automotive Operating System for Software Defined Vehicle (AAOS SDV) on existing, market-proven platforms, leveraging virtualization technologies like Cuttlefish.
-
-  [Markus Vill](/blog/authors/markus-vill),
-  [Sean Keys](/blog/authors/sean-keys),
-  [István Nádor](/blog/authors/istvan-nador)
-  •
-  5 min read
-  + [#Android Auto](/blog/topics/android-auto)
-  + [#Security](/blog/topics/security)
-
+  [arrow_forward](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design) At Google, we believe our products should be secure by design, which is why we built the Android Automotive Operating System for Software Defined Vehicle (AAOS SDV) on existing, market-proven platforms, leveraging virtualization technologies like Cuttlefish.
+  [Markus Vill](https://developer.android.com/blog/authors/markus-vill), [Sean Keys](https://developer.android.com/blog/authors/sean-keys), [István Nádor](https://developer.android.com/blog/authors/istvan-nador) • 5 min read
+  - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
+  - [#Security](https://developer.android.com/blog/topics/security)
 Stay in the loop
+
 
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)

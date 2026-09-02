@@ -159,7 +159,7 @@ Structure the authorization context using the following format:
 
 ### Identify the developer accounts
 
-1. Integrate with the `ListDeveloperAccounts` API method to retrieve and list all developer accounts for which access has been authorized.
+1. Integrate with the `ListDeveloperAccounts` API method to retrieve and list all developer accounts that are accessible to an authenticated user.
 2. Provide an account picker to allow the developer to choose their preferred developer account.
 3. Prominently feature the account `displayName`, using the account number from the `name` field as secondary information.
 4. Display account verification states (`verificationState`):

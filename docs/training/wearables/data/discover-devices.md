@@ -36,6 +36,12 @@ the network or an existing device going offline.
 The `NodeClient` class is particularly helpful for discovering devices that
 don't have your app installed.
 
+To register for device connection and disconnection events, you can use the
+Horologist [`DataLayerAppHelper`](https://google.github.io/horologist/datalayer-helpers-guide/#connection-and-installation-status) class. It provides a
+`connectedAndInstalledNodes` `Flow` to observe connection state. Additionally,
+its `connectedNodes()` method returns a list of connected devices, combining
+information from both `NodeClient` and `CapabilityClient` into a single object.
+
 ## Discover specific devices using a capability client
 
 A `CapabilityClient` object provides information about which devices on the

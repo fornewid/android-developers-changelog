@@ -376,6 +376,9 @@ verify using your public key as follows:
       return true;
     }
 
+> [!WARNING]
+> **Warning:** When you generate or update licensing and billing keys in the Google Play Console, there is a multi-hour caching and propagation delay in the commerce backend before the updated key synchronizes across all internal Android App serving caches. During this window, product retrieval via the SDK can succeed while purchase attempts fail with **Error Code 6** from the billing server. Please allow several hours for key synchronization to complete before verifying end-to-end purchases.
+
 ## **Step 6**: Test your integration
 
 You are now ready to test your integration with Play Billing. To test during the

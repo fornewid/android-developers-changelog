@@ -4,9 +4,9 @@ url: https://developer.android.com/tools/agents/android-skills/browse
 source: md.txt
 ---
 
-These are some of the Android skills that we've launched so far. Android skills follow
-the [agent skills](https://agentskills.io/home) open standard and are designed
-to be reusable across all AI tools that support skills.
+These are some of the Android skills that we've launched so far. Android skills
+follow the [agent skills](https://agentskills.io/home) open standard and are
+designed to be reusable across all AI tools that support skills.
 
 To explore all the available skills, see the
 [Android skills GitHub repository](https://github.com/android/skills).

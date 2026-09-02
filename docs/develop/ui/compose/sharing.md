@@ -8,11 +8,9 @@ One of the great things about Android apps is their ability to communicate and
 integrate with each other. Why reinvent functionality that isn't core to your application when it
 already exists in another application?
 
-This section covers some common ways you can send and receive simple data (like text, images and files) between
+This section covers some common ways you can send and receive data (like text, images and files) between
 applications using the Android Sharesheet and Intent Resolver with
 `https://developer.android.com/reference/android/content/Intent` objects.
-
-## Lessons
 
 **[Sending Simple Data to Other Apps](https://developer.android.com/develop/ui/compose/sharing/send)**
 :   Learn how to set up your application to be able to send text and other data to other
@@ -20,3 +18,7 @@ applications using the Android Sharesheet and Intent Resolver with
 
 **[Receiving Simple Data from Other Apps](https://developer.android.com/develop/ui/compose/sharing/receive)**
 :   Learn how to set up your application to receive text and other data from intents.
+
+**[Providing Direct Share targets](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets)**
+:   Learn how to provide Direct Share targets to make it easier and faster for users of other
+    apps to share URLs, images, or other kinds of data with your app.

@@ -13,23 +13,28 @@ Compose doesn't allow try-catch blocks around composables, but lets you wrap
 your app's other logic in these blocks. This lets you use Compose for your
 error view, as shown in the following example:
 
-    provideContent {
-           var isError = false;
-           var data = null
-           try {
-               val repository = (context.applicationContext as MyApplication).myRepository
-               data = repository.loadData()
-           } catch (e: Exception) {
-               isError = true;
-               //handleError
-           }
 
-           if (isError) {
-               ErrorView()
-           } else {
-               Content(data)
-           }
-       }
+```kotlin
+provideContent {
+    var isError = false
+    var data = listOf<String>()
+    try {
+        val repository = (context.applicationContext as MyApplication).myRepository
+        data = repository.loadData()
+    } catch (e: Exception) {
+        isError = true
+        // TODO: handle error
+    }
+
+    if (isError) {
+        ErrorView()
+    } else {
+        Content(data)
+    }
+}
+```
+
+<br />
 
 ## Default error layout
 
@@ -42,10 +47,16 @@ Glance lets developers provide an XML layout as a fallback if composition
 fails. This means that there was an error in the Compose code. This error UI
 also appears if you have an uncaught error in your app's code.
 
-    class UpgradeWidget : GlanceAppWidget(errorUiLayout = R.layout.error_layout)
 
-This layout is a static layout that your user can't interact with, but is good
-in emergency cases.
+```kotlin
+class UpgradeWidget : GlanceAppWidget(errorUiLayout = R.layout.error_layout) {
+    // ...
+}
+```
+This layout is a static layout that your user can't interact with, but is good in emergency cases.
+
+<br />
+
 ![Contains a heading and a text field to display an error message](https://developer.android.com/static/develop/ui/compose/images/custom_error_layout.png) **Figure 3.**Example custom error layout
 
 ## Add actions to the default error UI
@@ -54,7 +65,8 @@ As of Glance 1.1.0, Glance lets you override the default error handling code.
 This way, you can add action callbacks in the event of an uncaught exception or
 error in composition.
 
-To use this feature, override the `onCompositionError()` function:
+To use this feature, override the
+[`onCompositionError()`](https://developer.android.com/reference/kotlin/androidx/glance/appwidget/GlanceAppWidget#onCompositionError(android.content.Context,androidx.glance.GlanceId,kotlin.Int,kotlin.Throwable)) function:
 
     GlanceAppWidget.onCompositionError(
         context: Context,
@@ -70,6 +82,8 @@ The following examples show you, step-by-step, how to create an error UI that
 includes a button to send feedback:
 
 1. Write the `error_layout.xml` file:
+
+   <br />
 
        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
           style="@style/Widget.MyApplication.AppWidget.Error"
@@ -115,34 +129,48 @@ includes a button to send feedback:
 
        </LinearLayout>
 
+   <br />
+
 2. Override the `onCompositionError` function:
 
-       override fun onCompositionError(
-          context: Context,
-          glanceId: GlanceId,
-          appWidgetId: Int,
-          throwable: Throwable
-       ) {
-          val rv = RemoteViews(context.packageName, R.layout.error_layout)
-          rv.setTextViewText(
-              R.id.error_text_view,
-              "Error was thrown. \nThis is a custom view \nError Message: `${throwable.message}`"
-          )
-          rv.setOnClickPendingIntent(R.id.error_icon, getErrorIntent(context, throwable))
-          AppWidgetManager.getInstance(context).updateAppWidget(appWidgetId, rv)
-       }
+
+   ```kotlin
+   override fun onCompositionError(
+       context: Context, glanceId: GlanceId, appWidgetId: Int, throwable: Throwable
+   ) {
+       val rv = RemoteViews(context.packageName, R.layout.error_layout)
+       rv.setTextViewText(
+           R.id.error_text_view,
+           "Error was thrown. \nThis is a custom view \nError Message: `${throwable.message}`"
+       )
+       rv.setOnClickPendingIntent(R.id.error_icon, getErrorIntent(context, throwable))
+       AppWidgetManager.getInstance(context).updateAppWidget(appWidgetId, rv)
+   }
+   ```
+
+   <br />
 
 3. Create a pending intent that references your `GlanceAppWidgetReceiver`:
 
-       private fun getErrorIntent(context: Context, throwable: Throwable): PendingIntent {
-           val intent = Intent(context, UpgradeToHelloWorldPro::class.java)
-           intent.setAction("widgetError")
-           return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
-       }
+
+   ```kotlin
+   private fun getErrorIntent(context: Context, throwable: Throwable): PendingIntent {
+       val intent = Intent(context, UpgradeToHelloWorldPro::class.java)
+       intent.action = "widgetError"
+       return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+   }
+   ```
+
+   <br />
 
 4. Handle the intent in your `GlanceAppWidgetReceiver`:
 
-       override fun onReceive(context: Context, intent: Intent) {
-          super.onReceive(context, intent)
-          Log.e("ErrorOnClick", "Button was clicked.");
-       }
+
+   ```kotlin
+   override fun onReceive(context: Context, intent: Intent) {
+       super.onReceive(context, intent)
+       Log.e("ErrorOnClick", "Button was clicked.")
+   }
+   ```
+
+   <br />

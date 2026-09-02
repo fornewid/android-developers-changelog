@@ -451,14 +451,19 @@ Glance 1.1.0 includes an API to set your text styles. Set text styles using
 `fontFamily` supports all system fonts, as shown in the following example, but
 custom fonts in apps aren't supported:
 
-    Text(
-        style = TextStyle(
-            fontWeight = FontWeight.Bold,
-            fontSize = 18.sp,
-            fontFamily = FontFamily.Monospace
-        ),
-        text = "Example Text"
-    )
+
+```kotlin
+Text(
+    style = TextStyle(
+        fontWeight = FontWeight.Bold,
+        fontSize = 18.sp,
+        fontFamily = FontFamily.Monospace
+    ),
+    text = "Example Text"
+)
+```
+
+<br />
 
 ## Add compound buttons
 

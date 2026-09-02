@@ -53,7 +53,7 @@ We recommend installing an Android skill using the
 and manage skills for any agent of your choice.
 
 - To see the list of available skills, run [`android skills list`](https://developer.android.com/tools/agents/android-cli#skills-list).
-- To install a skill, run [`android skills add --skill skill-name`](https://developer.android.com/tools/agents/android-cli#skills-add). If you already have the skill installed, `skills add` will update it to the latest version.
+- To install a skill, run [`android skills add skill-name`](https://developer.android.com/tools/agents/android-cli#skills-add). If you already have the skill installed, `skills add` will update it to the latest version.
 
 > [!NOTE]
 > **Note:** If you customize a skill, you should rename it, or it will get overwritten when you update it using `skills add`.

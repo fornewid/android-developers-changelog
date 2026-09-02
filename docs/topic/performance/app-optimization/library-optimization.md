@@ -24,8 +24,8 @@ to use, see [Choose libraries wisely](https://developer.android.com/topic/perfor
 
 There are two distinct types of keep rules that you can have in libraries:
 
-- **Consumer keep rules** must specify rules that keep whatever the library reflects on. If a library uses reflection or JNI to call into its code, or code defined by a client app, these rules need to describe what code needs to be kept. Libraries should package consumer keep rules, which use the same format as app keep rules. These rules are bundled into library artifacts (AARs or JARs) and get consumed automatically during Android app optimization when the library is used. These rules are maintained in the file specified with the `consumerProguardFiles` property in your `build.gradle.kts` (or `build.gradle`) file. To learn more, see [Additional
-  recommendations](https://developer.android.com/topic/performance/app-optimization/library-optimization#write-consumer-rules).
+- **Consumer keep rules** must specify rules that keep whatever the library reflects on. If a library uses reflection or JNI to call into its code, or code defined by a client app, these rules need to describe what code needs to be kept. Libraries should package consumer keep rules, which use the same format as app keep rules. These rules are bundled into library artifacts (AARs or JARs) and get consumed automatically during Android app optimization when the library is used. These rules are maintained in the file specified with the `consumerProguardFiles` property in your `build.gradle.kts` (or `build.gradle`) file. To learn more, see [Write
+  consumer keep rules](https://developer.android.com/topic/performance/app-optimization/library-optimization#write-consumer-rules).
 - **Library build keep rules** are applied when your library is built. They are only needed if you decide to partially optimize your library at build time. They must keep the library's public API from being removed, otherwise the public API won't be present in the library distribution, meaning app developers can't use the library. These rules are maintained in the file specified with the `proguardFiles` property in your `build.gradle.kts` (or `build.gradle`) file. To learn more, see [Optimize AAR library build](https://developer.android.com/topic/performance/app-optimization/library-optimization#optimize-aar).
 
 ## Optimization requirements and guidelines
@@ -72,7 +72,7 @@ quality, and user experience.
 
   Many modern libraries use codegen instead of reflection. See
   [KSP](https://github.com/google/ksp) for a common entrypoint, used by [Room](https://developer.android.com/training/data-storage/room),
-  [Hilt](https://developer.android.com/training/dependency-injection/hilt-jetpack#compose), and many others.
+  [Hilt](https://developer.android.com/training/dependency-injection/hilt-android), and many others.
 
   > [!NOTE]
   > **Note:** There are instances when it might be appropriate to use reflection. For more information, see [When reflection is okay](https://developer.android.com/topic/performance/app-optimization/library-optimization#when-reflection).
@@ -137,8 +137,8 @@ Using reflection in this way limits the runtime cost, and enables writing
 [targeted consumer keep rules](https://developer.android.com/topic/performance/app-optimization/library-optimization#write-consumer-rules).
 
 This specific and targeted form of reflection is a pattern you can see across
-both the Android framework (for example, during system resource loading)
-and AndroidX libraries (for example when constructing `WorkManager
+both the Android framework (for example, when inflating activities, views, and
+drawables) and AndroidX libraries (for example when constructing `WorkManager
 ListenableWorkers`, or `RoomDatabases`). By contrast, the open ended reflection
 of [Gson isn't appropriate for usage in Android apps](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely#gson-issues).
 
@@ -151,14 +151,14 @@ include the following:
   understanding, R8's optimizations are not limited to just obfuscation, but
   also include code shrinking and logical optimizations with method inlining
   and class merging techniques. For more information, see [R8 optimization
-  overview](https://developer.android.com/topic/performance/app-optimization/keep-rules-best-practices).
+  overview](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#overview).
 
 - **Bypassing optimization of obfuscated libraries** : A common error is to
   omit a library from optimization, because the library was optimized or
   obfuscated when it was compiled to an AAR (Android Archive) or JAR (Java
   Archive). The optimizations during library build time are limited, and your
   app shouldn't disable the optimization of the library by including it in a
-  keep rule. For more information, see [R8 optimization overview](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#overview).
+  keep rule. For more information, see [Optimize AAR library build](https://developer.android.com/topic/performance/app-optimization/library-optimization#optimize-aar).
 
 - **Incorrect understanding of the `-keep` option** The `-keep` rule prevents
   R8 from running any of its [optimization passes](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization#overview). For more information,
@@ -276,14 +276,6 @@ might need to define the keep rules both in `proguardFiles` and
 If you use `-repackageclasses` in your library's build, repackage classes to a
 sub-package *inside* your library's package. For example, use `-repackageclasses
 'com.example.mylibrary.internal'` instead of `-repackageclasses 'internal'`.
-
-## Optimize Compose UI performance
-
-If your library includes Compose UI components, optimize for both binary
-shrinking with R8 (as previously described) and recomposition efficiency:
-
-- **Design stable composables** : To let the compiler safely skip your composables when inputs haven't changed, structure your data models and library configurations to follow stability rules. For more information, see [Stability in Compose](https://developer.android.com/develop/ui/compose/performance/stability).
-- **Review compiler metrics** : Use the Compose compiler metrics to verify that your library's entry points are marked as restartable and skippable. This minimizes recomposition overhead for consumer apps. For more information, see [Diagnose stability issues](https://developer.android.com/develop/ui/compose/performance/stability/diagnose).
 
 ## Support different R8 versions (advanced)
 

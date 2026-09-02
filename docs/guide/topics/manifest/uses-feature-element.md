@@ -16,6 +16,8 @@ to all users.
 For important information about how
 Google Play uses features as the basis for filtering, see the [Google Play and feature-based filtering](https://developer.android.com/guide/topics/manifest/uses-feature-element#market-feature-filtering) section.
 
+For information about declaring features in your apps, see [Increase app availability across device types](https://developer.android.com/develop/ui/compose/layouts/adaptive/increase-app-availability).
+
 syntax:
 :
 

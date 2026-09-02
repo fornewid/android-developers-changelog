@@ -8,7 +8,16 @@ This document answers common questions about SDKs and publishing for Google Play
 
 ## Monetization
 
-1. Can I use the purchase flow without a backend server?
+1. Why does my purchase flow fail with Error Code 6 after adding a new billing or licensing key?
+
+   Newly generated licensing keys in the Google Play Console experience a
+   multi-hour caching and propagation delay in the commerce backend before
+   Google Play's internal caches synchronize across all serving environments.
+   Even though your game client can query product details successfully,
+   purchase requests will fail with Error Code 6 until synchronization
+   completes. Allow several hours after uploading or updating your licensing
+   key before testing purchases.
+2. Can I use the purchase flow without a backend server?
 
    From a security perspective, Google recommends using a backend server.
 
@@ -17,36 +26,36 @@ This document answers common questions about SDKs and publishing for Google Play
    > [!NOTE]
    > **Note:** To process purchases without a backend server, you need special permissions. If your game requires these permissions, contact your Google partner.
 
-2. Are existing API-based payment systems allowed after integrating the Google Play Games on PC SDK?
+3. Are existing API-based payment systems allowed after integrating the Google Play Games on PC SDK?
 
    All payments must be handled by Google Play Games on PC SDK using the
    Google Play Billing. You cannot use your existing API-based payment method
    in the same game.
-3. How can we consume purchases in developer mode?
+4. How can we consume purchases in developer mode?
 
    Consume purchase in the developer mode within 3 minutes, otherwise the
    purchase will be refunded.
-4. Are recurring payments or subscriptions supported?
+5. Are recurring payments or subscriptions supported?
 
    Not for the immediate future although you are welcome to provide specific
    use cases for us to add into our future roadmap.
-5. What is the Billing Error in my purchase calls?
+6. What is the Billing Error in my purchase calls?
 
    [BillingError](https://developer.android.com/games/playgames/native-pc/reference/namespace/google/play/billing#billingerror) is the response of the payment result. LaunchPurchaseFlow
    will return immediately without blocking but you must listen to the callback
    in order to know when it has finished and to capture the result.
-6. How can I use client-side purchase verification?
+7. How can I use client-side purchase verification?
 
    We recommend using server-side purchase and its verification process.
    Processing purchases from your client app requires your game to be on an
    allowlist. Please contact your Google Partner if your game requires access.
    For more information, see [Process without a backend server](https://developer.android.com/games/playgames/native-pc/billing#process-no-backend).
-7. What are the API limits for querying product details?
+8. What are the API limits for querying product details?
 
    The maximum number of products that can be queried in a single call to the
    [`QueryProductDetails`](https://developer.android.com/games/playgames/native-pc/reference/class/google/play/billing/billing-client#queryproductdetails) API is 50. If you exceed this limit, you must
    split the request into multiple calls.
-8. What parameters are required when calling Query Purchases or Launch Purchase
+9. What parameters are required when calling Query Purchases or Launch Purchase
    Flow in the Billing Client?
 
    The function accepts `QueryPurchasesContinuation`, which is a function
@@ -60,24 +69,24 @@ This document answers common questions about SDKs and publishing for Google Play
    `code()` function returns the `BillingError` enum
    (`includes/billing/enums.h`), which has 10 possible error cases, such as
    user canceled or network error.
-9. Is a custom ordering supported for the Launch Purchase Flow in the Billing
-   Client?
+10. Is a custom ordering supported for the Launch Purchase Flow in the Billing
+    Client?
 
-   In the current SDK design, there is no way to pass in your own payload.
-   However, you can provide any combination of `obfuscated_account_id` and
-   `obfuscated_profile_id`. You can provide none, just one, or both.
+    In the current SDK design, there is no way to pass in your own payload.
+    However, you can provide any combination of `obfuscated_account_id` and
+    `obfuscated_profile_id`. You can provide none, just one, or both.
 
-   The `offer_token` field is required and specifies the purchase offer that
-   the user is attempting to buy in the checkout flow. For now, each SKU in
-   Google Play has exactly one offer (for example, buy one item for $10). In
-   the future, the Play billing team will provide support for multiple offers.
+    The `offer_token` field is required and specifies the purchase offer that
+    the user is attempting to buy in the checkout flow. For now, each SKU in
+    Google Play has exactly one offer (for example, buy one item for $10). In
+    the future, the Play billing team will provide support for multiple offers.
 
-   To ensure metadata is associated in the case of purchase flow interruptions,
-   store the metadata on your backend server prior to launching the purchase
-   dialog and associate it with your user's account ID, the SKU being
-   purchased, and the current timestamp. For more information, see
-   [Associate a purchase with internal data](https://developer.android.com/google/play/billing/developer-payload#associate).
-10. What are the prerequisites for switching from Google billing with OAuth to
+    To ensure metadata is associated in the case of purchase flow interruptions,
+    store the metadata on your backend server prior to launching the purchase
+    dialog and associate it with your user's account ID, the SKU being
+    purchased, and the current timestamp. For more information, see
+    [Associate a purchase with internal data](https://developer.android.com/google/play/billing/developer-payload#associate).
+11. What are the prerequisites for switching from Google billing with OAuth to
     the DLL-based Google billing?
 
     Games can continue to use the OAuth sign-in with Google to manage the
@@ -85,17 +94,17 @@ This document answers common questions about SDKs and publishing for Google Play
     billing APIs. Switching from the REST billing APIs (with OAuth2 sign-in) to
     the SDK flow can be a feature-flagged operation, so both can coexist for a
     period of time while the game switches over.
-11. Is the Launch Purchase Flow API call processed through a web browser?
+12. Is the Launch Purchase Flow API call processed through a web browser?
 
     No, the purchase flow is now completed entirely in-game using a seamless
     WebView overlay, without leaving the game client.
-12. Does a user need to sign in separately for each game to make a purchase?
+13. Does a user need to sign in separately for each game to make a purchase?
 
     The foreground account in Google Play Games is used for each game session,
     so you don't need to sign in again. The account that you use in Google Play
     Games when the game session starts is the account that API calls are issued
     as. The purchase flow will use this account automatically.
-13. Can a game support both the PC SDK and legacy payment systems at the
+14. Can a game support both the PC SDK and legacy payment systems at the
     same time?
 
     The payment system operates under a dual-flow model depending on the game

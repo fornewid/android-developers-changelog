@@ -251,8 +251,8 @@ You can choose to branch the logic for the structure of your content hierarchy
 based on the values of these hints, particularly if your hierarchy varies among
 `MediaBrowser` integrations outside of Android Auto and AAOS.
 
-For example, if you normally show a root playable item, you might want to nest it
-under a root browsable item instead due to the value of the supported flags
+For example, if you normally show a root playable item, you might want to nest
+it under a root browsable item instead due to the value of the supported flags
 hint.
 
 Apart from root hints, use these guidelines to optimally render tabs:

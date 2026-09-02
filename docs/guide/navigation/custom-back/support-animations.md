@@ -43,6 +43,7 @@ part of handling the back gesture.
 The following snippet shows an example of using `PredictiveBackHandler` to
 animate a `Surface` scaling down and moving away with gesture progress:
 
+
 ```kotlin
 @Composable
 fun DetailScreen(onBack: () -> Unit) {
@@ -56,11 +57,11 @@ fun DetailScreen(onBack: () -> Unit) {
                 scale = 1f - backEvent.progress
                 xOffset = backEvent.progress * 100f
             }
-            // User completed gesture
+            // User completed gesture.
             onBack()
         } catch (e: CancellationException) {
-            // User cancelled gesture
-            // Animate scale and xOffset back to 1f and 0f respectively
+            // User cancelled gesture.
+            // Animate scale and xOffset back to 1f and 0f respectively.
             scope.launch {
                 animate(scale, 1f) { value, _ -> scale = value }
             }
@@ -74,10 +75,11 @@ fun DetailScreen(onBack: () -> Unit) {
             modifier = Modifier
                 .size(200.dp)
                 .scale(scale)
-                .offset(x = xOffset.dp, y = 0.dp),
+                .offset { IntOffset(x = xOffset.dp.roundToPx(), y = 0) },
             color = Color.Blue
         ) {}
     }
 }
-  
 ```
+
+<br />

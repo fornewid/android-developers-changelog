@@ -114,6 +114,8 @@ For the inline install flow with persistent affordance to appear:
 
 ### Integration example
 
+### Kotlin
+
 ```kotlin
 // Step 1: Initialize HSDP Service
 // Note: Calling create(activity) automatically configures useServiceBasedHsdp = false
@@ -145,11 +147,53 @@ hsdpService.open(
 )
 ```
 
+### Java
+
+```java
+// Step 1: Initialize HSDP Service
+// Note: Calling create(activity) automatically configures useServiceBasedHsdp = false
+// (Activity Path) under the hood without requiring manual boolean flags.
+HsdpDeepLinkService hsdpService = HsdpDeepLinkServiceFactory.create(activity);
+
+// Step 2: Construct Extra Query Parameters with Catalog Token
+Map<String, String> extraQueryParams = new HashMap<>();
+extraQueryParams.put("catalog_token", "YOUR_SECURE_CATALOG_TOKEN_VALUE");
+
+// Step 3: Trigger Inline Install Flow
+hsdpService.open(
+    "com.example.targetapp",
+    "3pas_ad_campaign_123",
+    new HsdpDeepLinkServiceListener() {
+      @Override
+      public void onDeepLinkStarted() {
+        // Inline details dialog started successfully
+      }
+
+      @Override
+      public void onAffordanceStarted() {
+        // HPOA persistent affordance UI attached
+      }
+
+      @Override
+      public void onAffordanceEnded() {
+        // Affordance UI detached
+      }
+
+      @Override
+      public void onError(String errorMessage) {
+        // Handle error or fallback
+      }
+    },
+    extraQueryParams);
+```
+
 ### Stop affordance tracking example
 
 Allows the caller app to manually stop tracking the installation state and dismiss
 the HPOA overlay. Note: This will not dismiss the HSDP install sheet itself, only the
 affordance.
+
+### Kotlin
 
 ```kotlin
 // Stop tracking the installation state and dismiss the affordance overlay
@@ -161,6 +205,20 @@ hsdpService.stopAffordance(
         }
     }
 )
+```
+
+### Java
+
+```java
+// Stop tracking the installation state and dismiss the affordance overlay
+hsdpService.stopAffordance(
+    "com.example.targetapp",
+    new HsdpDeepLinkService.AffordanceListener() {
+      @Override
+      public void onAffordanceStopped() {
+        // Affordance overlay stopped successfully
+      }
+    });
 ```
 
 ### Affordance States \& UX

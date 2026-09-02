@@ -1,51 +1,45 @@
 ---
-title: People and identity quiz  |  Android Developers
+title: https://developer.android.com/courses/quizzes/android-week1-people-identity/android-11-week-1
 url: https://developer.android.com/courses/quizzes/android-week1-people-identity/android-11-week-1
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # People and identity quiz
 
-Return to pathway
+# People and identity quiz
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## Fill-in-the-blanks
+   ## Fill-in-the-blanks
 
-   Enter one or more words to complete the sentence.
+   Enter one or more words to complete the sentence.  
+   ___ ___ are messages that have a person or persons in context.  
+2.
 
-   \_\_\_ \_\_\_ are messages that have a person or persons in context.
-2. ## Which of the following manifest attributes are required for your Activity to be displayed within a Bubble?
+   ## Which of the following manifest attributes are required for your Activity to be displayed within a Bubble?
 
-   Choose as many answers as you see fit.
+   Choose as many answers as you see fit.  
+   allowEmbedded  
+   resizeableActivity  
+   contactsAllowance  
+   documentLaunchMode  
+3.
 
-   allowEmbedded
+   ## Fill-in-the-blanks
 
-   resizeableActivity
+   Enter one or more words to complete the sentence.  
+   The ___ ___ API is a new API that provides a way to save user credentials without the friction or some of the security risks associated with saving user passwords.  
+4.
 
-   contactsAllowance
+   ## True or False?
 
-   documentLaunchMode
-3. ## Fill-in-the-blanks
-
-   Enter one or more words to complete the sentence.
-
-   The \_\_\_ \_\_\_ API is a new API that provides a way to save user credentials without the friction or some of the security risks associated with saving user passwords.
-4. ## True or False?
-
-   In Android 11, notifications that refer to valid conversation shortcuts and use MessagingStyle appear above other notifications.
-
-   True
-
-   False
+   In Android 11, notifications that refer to valid conversation shortcuts and useMessagingStyleappear above other notifications.
+   True  
+   False  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.
