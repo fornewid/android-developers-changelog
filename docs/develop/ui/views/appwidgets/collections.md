@@ -21,24 +21,16 @@ provider](https://developer.android.com/guide/topics/providers/content-providers
 data using one of the following view types, which are known as *collection
 views*:
 
-[`ListView`](https://developer.android.com/reference/android/widget/ListView)
-:   A view that shows items in a
-    vertically scrolling list.
+[`ListView`](https://developer.android.com/reference/android/widget/ListView): A view that shows items in a vertically scrolling list.
 
-[`GridView`](https://developer.android.com/reference/android/widget/GridView)
-:   A view that shows items in a
-    two-dimensional scrolling grid.
+[`GridView`](https://developer.android.com/reference/android/widget/GridView): A view that shows items in a two-dimensional scrolling grid.
 
-[`StackView`](https://developer.android.com/reference/android/widget/StackView)
-:   A stacked card
-    view---kind of like a rolodex---where the user can flick the front
-    card up or down to see the previous or next card, respectively.
+[`StackView`](https://developer.android.com/reference/android/widget/StackView): A stacked card view---kind of like a rolodex---where
+the user can flick the front card up or down to see the previous or next card,
+respectively.
 
-[`AdapterViewFlipper`](https://developer.android.com/reference/android/widget/AdapterViewFlipper)
-:   An
-    adapter-backed simple
-    [`ViewAnimator`](https://developer.android.com/reference/android/widget/ViewAnimator) that animates
-    between two or more views. Only one child is shown at a time.
+[`AdapterViewFlipper`](https://developer.android.com/reference/android/widget/AdapterViewFlipper): An adapter-backed [`ViewAnimator`](https://developer.android.com/reference/android/widget/ViewAnimator) that animates
+between two or more views. Only one child is shown at a time.
 
 Because these collection views display collections backed by remote data, they
 use an [`Adapter`](https://developer.android.com/reference/android/widget/Adapter) to bind their user
@@ -64,50 +56,29 @@ sample](https://android.googlesource.com/platform/development/+/master/samples/S
 here is an example of the boilerplate code to implement this service and
 interface:
 
-### Kotlin
 
 ```kotlin
 class StackWidgetService : RemoteViewsService() {
-
-    override fun onGetViewFactory(intent: Intent): RemoteViewsFactory {
-        return StackRemoteViewsFactory(this.applicationContext, intent)
-    }
+    override fun onGetViewFactory(intent: Intent): RemoteViewsFactory =
+        StackRemoteViewsFactory(this.applicationContext, intent)
 }
 
 class StackRemoteViewsFactory(
-        private val context: Context,
-        intent: Intent
+    private val context: Context, intent: Intent
 ) : RemoteViewsService.RemoteViewsFactory {
 
-// See the RemoteViewsFactory API reference for the full list of methods to
-// implement.
+    // See the RemoteViewsFactory API reference for the full list of methods to implement.
 
 }
 ```
 
-### Java
-
-```java
-public class StackWidgetService extends RemoteViewsService {
-    @Override
-    public RemoteViewsFactory onGetViewFactory(Intent intent) {
-        return new StackRemoteViewsFactory(this.getApplicationContext(), intent);
-    }
-}
-
-class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
-
-// See the RemoteViewsFactory API reference for the full list of methods to
-// implement.
-
-}
-```
+<br />
 
 ## Sample application
 
 The code excerpts in this section are also drawn from the [`StackWidget`
 sample](https://android.googlesource.com/platform/development/+/master/samples/StackWidget):
-![](https://developer.android.com/static/images/appwidgets/StackWidget.png) **Figure 1.** A `StackWidget`.
+![A StackWidget displaying stacked views](https://developer.android.com/static/images/appwidgets/StackWidget.png) **Figure 1.** A `StackWidget`.
 
 This sample consists of a stack of ten views that display the values zero
 through nine. The sample widget has these primary behaviors:
@@ -160,26 +131,31 @@ the collection views: `ListView`, `GridView`, `StackView`, or
 [`StackWidget`
 sample](https://android.googlesource.com/platform/development/+/master/samples/StackWidget/res/layout):
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+```xml
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <StackView
+        android:id="@+id/stack_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <StackView
-            android:id="@+id/stack_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:loopViews="true" />
-        <TextView
-            android:id="@+id/empty_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:background="@drawable/widget_item_background"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:text="@string/empty_view_text"
-            android:textSize="20sp" />
-    </FrameLayout>
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:loopViews="true" />
+    <TextView
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@drawable/widget_item_background"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:text="@string/empty_view_text"
+        android:textSize="20sp" />
+</FrameLayout>
+```
+
+<br />
 
 Note that empty views must be siblings of the collection view for which the
 empty view represents empty state.
@@ -198,7 +174,8 @@ typically goes in
 [`onUpdate()`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider#onUpdate(android.content.Context,%20android.appwidget.AppWidgetManager,%20int%5B%5D)).
 The major difference in your implementation for `onUpdate()` when creating a
 widget with collections is that you must call
-[`setRemoteAdapter()`](https://developer.android.com/reference/android/widget/RemoteViews#setRemoteAdapter(int,%0Aandroid.content.Intent)). This tells the collection view where to get its data.
+[`setRemoteAdapter()`](https://developer.android.com/reference/android/widget/RemoteViews#setRemoteAdapter(int,%20android.content.Intent)).
+This tells the collection view where to get its data.
 The `RemoteViewsService` can then return your implementation of
 `RemoteViewsFactory`, and the widget can serve up the appropriate data. When you
 call this method, pass an intent that points to your implementation of
@@ -208,13 +185,10 @@ For example, here's how the `StackWidget` sample implements the `onUpdate()`
 callback method to set the `RemoteViewsService` as the remote adapter for the
 widget collection:
 
-### Kotlin
 
 ```kotlin
 override fun onUpdate(
-        context: Context,
-        appWidgetManager: AppWidgetManager,
-        appWidgetIds: IntArray
+    context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray
 ) {
     // Update each of the widgets with the remote adapter.
     appWidgetIds.forEach { appWidgetId ->
@@ -248,39 +222,7 @@ override fun onUpdate(
 }
 ```
 
-### Java
-
-```java
-public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-    // Update each of the widgets with the remote adapter.
-    for (int i = 0; i < appWidgetIds.length; ++i) {
-
-        // Set up the intent that starts the StackViewService, which
-        // provides the views for this collection.
-        Intent intent = new Intent(context, StackWidgetService.class);
-        // Add the widget ID to the intent extras.
-        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetIds[i]);
-        intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
-        // Instantiate the RemoteViews object for the widget layout.
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
-        // Set up the RemoteViews object to use a RemoteViews adapter.
-        // This adapter connects to a RemoteViewsService through the specified
-        // intent.
-        // This is how you populate the data.
-        views.setRemoteAdapter(R.id.stack_view, intent);
-
-        // The empty view is displayed when the collection has no items.
-        // It must be in the same layout used to instantiate the RemoteViews
-        // object.
-        views.setEmptyView(R.id.stack_view, R.id.empty_view);
-
-        // Do additional processing specific to this widget.
-
-        appWidgetManager.updateAppWidget(appWidgetIds[i], views);
-    }
-    super.onUpdate(context, appWidgetManager, appWidgetIds);
-}
-```
+<br />
 
 ## Persist data
 
@@ -318,14 +260,12 @@ The primary contents of the `RemoteViewsService` implementation is its
 Your custom class that implements the `RemoteViewsFactory` interface provides
 the widget with the data for the items in its collection. To do this, it
 combines your widget item XML layout file with a source of data. This source of
-data can be anything from a database to a simple array. In the `StackWidget`
+data can be anything from a database to an array. In the `StackWidget`
 sample, the data source is an array of `WidgetItems`. The `RemoteViewsFactory`
 functions as an adapter to glue the data to the remote collection view.
 
 The two most important methods you need to implement for your
-`RemoteViewsFactory` subclass are
-[`onCreate()`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory#o%0AnCreate()) and
-[`getViewAt()`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory#%0AgetViewAt(int)).
+`RemoteViewsFactory` subclass are [`onCreate()`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory#onCreate()) and [`getViewAt()`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory#getViewAt(int)).
 
 The system calls `onCreate()` when creating your factory for the first time.
 This is where you set up any connections or cursors to your data source. For
@@ -337,13 +277,12 @@ contain.
 Here is an excerpt from the `StackWidget` sample's `RemoteViewsFactory`
 implementation that shows portions of the `onCreate()` method:
 
-### Kotlin
 
 ```kotlin
 private const val REMOTE_VIEW_COUNT: Int = 10
 
 class StackRemoteViewsFactory(
-        private val context: Context
+    private val context: Context
 ) : RemoteViewsService.RemoteViewsFactory {
 
     private lateinit var widgetItems: List<WidgetItem>
@@ -354,37 +293,17 @@ class StackRemoteViewsFactory(
         // must be deferred to onDataSetChanged() or getViewAt(). Taking
         // more than 20 seconds on this call results in an ANR.
         widgetItems = List(REMOTE_VIEW_COUNT) { index -> WidgetItem("$index!") }
-        ...
     }
-    ...
+
 }
 ```
 
-### Java
-
-```java
-class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
-    private static final int REMOTE_VIEW_COUNT = 10;
-    private List<WidgetItem> widgetItems = new ArrayList<WidgetItem>();
-
-    public void onCreate() {
-        // In onCreate(), setup any connections or cursors to your data
-        // source. Heavy lifting, such as downloading or creating content,
-        // must be deferred to onDataSetChanged() or getViewAt(). Taking
-        // more than 20 seconds on this call results in an ANR.
-        for (int i = 0; i < REMOTE_VIEW_COUNT; i++) {
-            widgetItems.add(new WidgetItem(i + "!"));
-        }
-        ...
-    }
-...
-```
+<br />
 
 The `RemoteViewsFactory` method `getViewAt()` returns a `RemoteViews` object
-corresponding to the data at the specified `position` in the data set. Here is
+corresponding to the data at the specified `position` in the dataset. Here is
 an excerpt from the `StackWidget` sample's `RemoteViewsFactory` implementation:
 
-### Kotlin
 
 ```kotlin
 override fun getViewAt(position: Int): RemoteViews {
@@ -396,17 +315,7 @@ override fun getViewAt(position: Int): RemoteViews {
 }
 ```
 
-### Java
-
-```java
-public RemoteViews getViewAt(int position) {
-    // Construct a remote views item based on the widget item XML file
-    // and set the text based on the position.
-    RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_item);
-    views.setTextViewText(R.id.widget_item, widgetItems.get(position).text);
-    return views;
-}
-```
+<br />
 
 ### Add behavior to individual items
 
@@ -416,17 +325,17 @@ collection view?
 
 As described in [Handle events with the `onUpdate()`
 class](https://developer.android.com/guide/topics/appwidgets#handle-events), you normally use
-[`setOnClickPendingIntent()`](https://developer.android.com/reference/android/widget/RemoteViews#setOnClickPendingIntent(int,%0Aandroid.app.PendingIntent)) to set an object's click behavior---such as to
-cause a button to launch an [`Activity`](https://developer.android.com/reference/android/app/Activity). But
+[`setOnClickPendingIntent()`](https://developer.android.com/reference/android/widget/RemoteViews#setOnClickPendingIntent(int,%20android.app.PendingIntent)) to set an object's click behavior---such
+as to cause a button to launch an [`Activity`](https://developer.android.com/reference/android/app/Activity). But
 this approach is not allowed for child views in an individual collection item.
 For example, you can use `setOnClickPendingIntent()` to set up a global button
-in the Gmail widget that launches the app, for example, but not on the
+in the Gmail widget that launches the app, but not on the
 individual list items.
 
 Instead, to add click behavior to individual items in a collection, use
-[`setOnClickFillInIntent()`](https://developer.android.com/reference/android/widget/RemoteViews#setOnClickFillInIntent(int,%0Aandroid.content.Intent)). This entails setting up a pending intent template for
-your collection view and then setting a fill-in intent on each item in the
-collection via your `RemoteViewsFactory`.
+[`setOnClickFillInIntent()`](https://developer.android.com/reference/android/widget/RemoteViews#setOnClickFillInIntent(int,%20android.content.Intent)). Set up a pending intent template for
+your collection view and set a fill-in intent on each item in the
+collection using your `RemoteViewsFactory`.
 
 This section uses the `StackWidget` sample to describe how to add behavior to
 individual items. In the `StackWidget` sample, if the user touches the top view,
@@ -441,7 +350,7 @@ index (position) of the touched view. This is how it works:
   `TOAST_ACTION`.
 
 - This broadcast is intercepted by the `StackWidgetProvider` class's
-  [`onReceive()`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider#onReceive(android.content.Context,%0Aandroid.content.Intent)) method, and the widget displays the `Toast` message
+  [`onReceive()`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider#onReceive(android.content.Context,%20android.content.Intent)) method, and the widget displays the `Toast` message
   for the touched view. The data for the collection items is provided by the
   `RemoteViewsFactory` through the `RemoteViewsService`.
 
@@ -450,8 +359,7 @@ index (position) of the touched view. This is how it works:
 
 #### Set up the pending intent template
 
-The `StackWidgetProvider` (an
-[`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider) subclass)
+The `StackWidgetProvider` (an [`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider) subclass)
 sets up a pending intent. Individual items of a collection can't set up their
 own pending intents. Instead, the collection as a whole sets up a pending intent
 template, and the individual items set a fill-in intent to create unique
@@ -462,7 +370,6 @@ view. It processes this event in its `onReceive()` method. If the intent's
 action is `TOAST_ACTION`, the widget displays a `Toast` message for the current
 view.
 
-### Kotlin
 
 ```kotlin
 const val TOAST_ACTION = "com.example.android.stackwidget.TOAST_ACTION"
@@ -470,7 +377,7 @@ const val EXTRA_ITEM = "com.example.android.stackwidget.EXTRA_ITEM"
 
 class StackWidgetProvider : AppWidgetProvider() {
 
-    ...
+    // ...
 
     // Called when the BroadcastReceiver receives an Intent broadcast.
     // Checks whether the intent's action is TOAST_ACTION. If it is, the
@@ -479,13 +386,13 @@ class StackWidgetProvider : AppWidgetProvider() {
         val mgr: AppWidgetManager = AppWidgetManager.getInstance(context)
         if (intent.action == TOAST_ACTION) {
             val appWidgetId: Int = intent.getIntExtra(
-                    AppWidgetManager.EXTRA_APPWIDGET_ID,
-                    AppWidgetManager.INVALID_APPWIDGET_ID
+                AppWidgetManager.EXTRA_APPWIDGET_ID,
+                AppWidgetManager.INVALID_APPWIDGET_ID
             )
             // EXTRA_ITEM represents a custom value provided by the Intent
             // passed to the setOnClickFillInIntent() method to indicate the
             // position of the clicked item. See StackRemoteViewsFactory in
-            // https://developer.android.com/develop/ui/views/appwidgets/collections#setup-fill-in-intent for details.
+            // Set the fill-in Intent for details.
             val viewIndex: Int = intent.getIntExtra(EXTRA_ITEM, 0)
             Toast.makeText(context, "Touched view $viewIndex", Toast.LENGTH_SHORT).show()
         }
@@ -493,9 +400,9 @@ class StackWidgetProvider : AppWidgetProvider() {
     }
 
     override fun onUpdate(
-            context: Context,
-            appWidgetManager: AppWidgetManager,
-            appWidgetIds: IntArray
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray
     ) {
         // Update each of the widgets with the remote adapter.
         appWidgetIds.forEach { appWidgetId ->
@@ -523,8 +430,8 @@ class StackWidgetProvider : AppWidgetProvider() {
             // intent template, and the individual items set a fillInIntent
             // to create unique behavior on an item-by-item basis.
             val toastPendingIntent: PendingIntent = Intent(
-                    context,
-                    StackWidgetProvider::class.java
+                context,
+                StackWidgetProvider::class.java
             ).run {
                 // Set the action for the intent.
                 // When the user touches a particular view, it has the effect of
@@ -533,7 +440,12 @@ class StackWidgetProvider : AppWidgetProvider() {
                 putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
                 data = Uri.parse(toUri(Intent.URI_INTENT_SCHEME))
 
-                PendingIntent.getBroadcast(context, 0, this, PendingIntent.FLAG_UPDATE_CURRENT)
+                // The template must be mutable, because each item fills in its
+                // own extras through setOnClickFillInIntent().
+                PendingIntent.getBroadcast(
+                    context, 0, this,
+                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
+                )
             }
             rv.setPendingIntentTemplate(R.id.stack_view, toastPendingIntent)
 
@@ -544,77 +456,7 @@ class StackWidgetProvider : AppWidgetProvider() {
 }
 ```
 
-### Java
-
-```java
-public class StackWidgetProvider extends AppWidgetProvider {
-    public static final String TOAST_ACTION = "com.example.android.stackwidget.TOAST_ACTION";
-    public static final String EXTRA_ITEM = "com.example.android.stackwidget.EXTRA_ITEM";
-
-    ...
-
-    // Called when the BroadcastReceiver receives an Intent broadcast.
-    // Checks whether the intent's action is TOAST_ACTION. If it is, the
-    // widget displays a Toast message for the current item.
-    @Override
-    public void onReceive(Context context, Intent intent) {
-        AppWidgetManager mgr = AppWidgetManager.getInstance(context);
-        if (intent.getAction().equals(TOAST_ACTION)) {
-            int appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-                AppWidgetManager.INVALID_APPWIDGET_ID);
-            // EXTRA_ITEM represents a custom value provided by the Intent
-            // passed to the setOnClickFillInIntent() method to indicate the
-            // position of the clicked item. See StackRemoteViewsFactory in
-            // https://developer.android.com/develop/ui/views/appwidgets/collections#setup-fill-in-intent for details.
-            int viewIndex = intent.getIntExtra(EXTRA_ITEM, 0);
-            Toast.makeText(context, "Touched view " + viewIndex, Toast.LENGTH_SHORT).show();
-        }
-        super.onReceive(context, intent);
-    }
-
-    @Override
-    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        // Update each of the widgets with the remote adapter.
-        for (int i = 0; i < appWidgetIds.length; ++i) {
-
-            // Sets up the intent that points to the StackViewService that
-            // provides the views for this collection.
-            Intent intent = new Intent(context, StackWidgetService.class);
-            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetIds[i]);
-            // When intents are compared, the extras are ignored, so embed
-            // the extras into the data so that the extras are not
-            // ignored.
-            intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
-            RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.widget_layout);
-            rv.setRemoteAdapter(appWidgetIds[i], R.id.stack_view, intent);
-
-            // The empty view is displayed when the collection has no items. It
-            // must be a sibling of the collection view.
-            rv.setEmptyView(R.id.stack_view, R.id.empty_view);
-
-            // This section makes it possible for items to have individualized
-            // behavior. It does this by setting up a pending intent template.
-            // Individuals items of a collection can't set up their own pending
-            // intents. Instead, the collection as a whole sets up a pending
-            // intent template, and the individual items set a fillInIntent
-            // to create unique behavior on an item-by-item basis.
-            Intent toastIntent = new Intent(context, StackWidgetProvider.class);
-            // Set the action for the intent.
-            // When the user touches a particular view, it has the effect of
-            // broadcasting TOAST_ACTION.
-            toastIntent.setAction(StackWidgetProvider.TOAST_ACTION);
-            toastIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetIds[i]);
-            intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
-            PendingIntent toastPendingIntent = PendingIntent.getBroadcast(context, 0, toastIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-            rv.setPendingIntentTemplate(R.id.stack_view, toastPendingIntent);
-
-            appWidgetManager.updateAppWidget(appWidgetIds[i], rv);
-        }
-        super.onUpdate(context, appWidgetManager, appWidgetIds);
-    }
-}
-```
+<br />
 
 #### Set the fill-in intent
 
@@ -624,20 +466,19 @@ of a given item. The fill-in intent is then combined with the
 [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent) template to determine
 the final intent that is executed when the item is tapped.
 
-### Kotlin
 
 ```kotlin
 private const val REMOTE_VIEW_COUNT: Int = 10
 
 class StackRemoteViewsFactory(
-        private val context: Context,
-        intent: Intent
+    private val context: Context,
+    intent: Intent
 ) : RemoteViewsService.RemoteViewsFactory {
 
     private lateinit var widgetItems: List<WidgetItem>
     private val appWidgetId: Int = intent.getIntExtra(
-            AppWidgetManager.EXTRA_APPWIDGET_ID,
-            AppWidgetManager.INVALID_APPWIDGET_ID
+        AppWidgetManager.EXTRA_APPWIDGET_ID,
+        AppWidgetManager.INVALID_APPWIDGET_ID
     )
 
     override fun onCreate() {
@@ -646,9 +487,10 @@ class StackRemoteViewsFactory(
         // deferred to onDataSetChanged() or getViewAt(). Taking more than 20
         // seconds on this call results in an ANR.
         widgetItems = List(REMOTE_VIEW_COUNT) { index -> WidgetItem("$index!") }
-        ...
+        // ...
     }
-    ...
+
+    // ...
 
     override fun getViewAt(position: Int): RemoteViews {
         // Construct a remote views item based on the widget item XML file
@@ -667,83 +509,21 @@ class StackRemoteViewsFactory(
             // Make it possible to distinguish the individual on-click
             // action of a given item.
             setOnClickFillInIntent(R.id.widget_item, fillInIntent)
-            ...
+            // ...
         }
     }
-    ...
+    // ...
 }
 ```
 
-### Java
-
-```java
-public class StackWidgetService extends RemoteViewsService {
-    @Override
-    public RemoteViewsFactory onGetViewFactory(Intent intent) {
-        return new StackRemoteViewsFactory(this.getApplicationContext(), intent);
-    }
-}
-
-class StackRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
-    private static final int count = 10;
-    private List<WidgetItem> widgetItems = new ArrayList<WidgetItem>();
-    private Context context;
-    private int appWidgetId;
-
-    public StackRemoteViewsFactory(Context context, Intent intent) {
-        this.context = context;
-        appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,
-                AppWidgetManager.INVALID_APPWIDGET_ID);
-    }
-
-    // Initialize the data set.
-    public void onCreate() {
-        // In onCreate(), set up any connections or cursors to your data
-        // source. Heavy lifting, such as downloading or creating
-        // content, must be deferred to onDataSetChanged() or
-        // getViewAt(). Taking more than 20 seconds on this call results
-        // in an ANR.
-        for (int i = 0; i < count; i++) {
-            widgetItems.add(new WidgetItem(i + "!"));
-        }
-        ...
-    }
-
-    // Given the position (index) of a WidgetItem in the array, use the
-    // item's text value in combination with the widget item XML file to
-    // construct a RemoteViews object.
-    public RemoteViews getViewAt(int position) {
-        // Position always ranges from 0 to getCount() - 1.
-
-        // Construct a RemoteViews item based on the widget item XML
-        // file and set the text based on the position.
-        RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.widget_item);
-        rv.setTextViewText(R.id.widget_item, widgetItems.get(position).text);
-
-        // Set a fill-intent to fill in the pending
-        // intent template that is set on the collection view in
-        // StackWidgetProvider.
-        Bundle extras = new Bundle();
-        extras.putInt(StackWidgetProvider.EXTRA_ITEM, position);
-        Intent fillInIntent = new Intent();
-        fillInIntent.putExtras(extras);
-        // Make it possible to distinguish the individual on-click
-        // action of a given item.
-        rv.setOnClickFillInIntent(R.id.widget_item, fillInIntent);
-
-        // Return the RemoteViews object.
-        return rv;
-    }
-    ...
-}
-```
+<br />
 
 ## Keep collection data fresh
 
 Figure 2 illustrates the update flow in a widget that uses collections. It shows
 how the widget code interacts with the `RemoteViewsFactory` and how you can
 trigger updates:
-![](https://developer.android.com/static/images/appwidgets/appwidget_collections.png) **Figure 2.** Interaction with `RemoteViewsFactory` during updates.
+![Interaction with RemoteViewsFactory during updates](https://developer.android.com/static/images/appwidgets/appwidget_collections.png) **Figure 2.** Interaction with `RemoteViewsFactory` during updates.
 
 Widgets that use collections can provide users with up-to-date content. For
 example, the Gmail widget gives users a snapshot of their inbox. To make this
@@ -752,13 +532,13 @@ display new data.
 
 To do this, use the
 [`AppWidgetManager`](https://developer.android.com/reference/android/appwidget/AppWidgetManager) to call
-[`notifyAppWidgetViewDataChanged()`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#notifyAppWidgetViewDataChanged(int,%0Aint)). This call results in a callback to your `RemoteViewsFactory` object's
-[`onDataSetChanged()`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory#onDataSetChanged())
+[`notifyAppWidgetViewDataChanged()`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#notifyAppWidgetViewDataChanged(int,%20int)). This call results in a callback to
+your `RemoteViewsFactory` object's [`onDataSetChanged()`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory#onDataSetChanged())
 method, which lets you fetch any new data.
 
 You can perform processing-intensive operations synchronously within the
-`onDataSetChanged()` callback. You are guaranteed that this call is completed
-before the metadata or view data is fetched from the `RemoteViewsFactory`. You
+`onDataSetChanged()` callback. This call completes before the metadata or
+view data is fetched from the `RemoteViewsFactory`. You
 can also perform processing-intensive operations within the `getViewAt()`
 method. If this call takes long, the loading view---specified by the
 `RemoteViewsFactory` object's
@@ -777,9 +557,9 @@ implement a `RemoteViewsFactory` and you don't need to call
 `notifyAppWidgetViewDataChanged()`.
 
 In addition to making it easier to populate your adapter, this approach also
-removes the latency for populating new itemswhen users scroll down the list to
-reveal a new item. This approach to setting the adapter is preferred as long as
-your set of collection items is relatively small. However, for example, this
+removes the latency for populating new items when users scroll through the list
+to reveal a new item. This approach to setting the adapter is preferred as long
+as your set of collection items is relatively small. However, for example, this
 approach doesn't work well if your collection contains numerous `Bitmaps` being
 passed to `setImageViewBitmap`.
 
@@ -790,45 +570,26 @@ adapter be reused across updates to your app widget.
 
 Here's an example of how to implement simplified `RemoteViews` collections.
 
-### Kotlin
 
 ```kotlin
 val itemLayouts = listOf(
-        R.layout.item_type_1,
-        R.layout.item_type_2,
-        ...
-)
-
-remoteView.setRemoteAdapter(
-        R.id.list_view,
-        RemoteViews.RemoteCollectionItems.Builder()
-            .addItem(/* id= */ ID_1, RemoteViews(context.packageName, R.layout.item_type_1))
-            .addItem(/* id= */ ID_2, RemoteViews(context.packageName, R.layout.item_type_2))
-            ...
-            .setViewTypeCount(itemLayouts.count())
-            .build()
-)
-```
-
-### Java
-
-```java
-List<Integer> itemLayouts = Arrays.asList(
     R.layout.item_type_1,
     R.layout.item_type_2,
-    ...
-);
+    // ...
+)
 
 remoteView.setRemoteAdapter(
     R.id.list_view,
-    new RemoteViews.RemoteCollectionItems.Builder()
-        .addItem(/* id= */ ID_1, new RemoteViews(context.getPackageName(), R.layout.item_type_1))
-        .addItem(/* id= */ ID_2, new RemoteViews(context.getPackageName(), R.layout.item_type_2))
-        ...
-        .setViewTypeCount(itemLayouts.size())
+    RemoteViews.RemoteCollectionItems.Builder()
+        .addItem(/* id= */ ID_1, RemoteViews(context.packageName, R.layout.item_type_1))
+        .addItem(/* id= */ ID_2, RemoteViews(context.packageName, R.layout.item_type_2))
+        // ...
+        .setViewTypeCount(itemLayouts.count())
         .build()
-);
+)
 ```
+
+<br />
 
 > [!NOTE]
 > **Note:** When calling [`setViewTypeCount()`](https://developer.android.com/reference/android/widget/RemoteViews.RemoteCollectionItems.Builder#setViewTypeCount(int)), pass in the maximum number of different layout IDs that are used by `RemoteViews` in this collection. Otherwise, the view type count is inferred from the provided items, and the adapter is recreated when sending an update that uses additional layouts.

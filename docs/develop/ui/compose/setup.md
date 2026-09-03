@@ -13,6 +13,21 @@ templates and the ability to immediately preview your Compose UI and animations.
 Follow these instructions to create a new Compose app project, set up
 Compose for an existing app project, or import a sample app written in Compose.
 
+
+## Android CLI
+
+[Download the Android CLI](https://developer.android.com/tools/agents)
+
+### Android CLI for new Compose app projects
+
+Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
+
+For example, use the [`android create`](https://developer.android.com/tools/agents/android-cli#create) command when you need to create a new Compose app project.
+
+    android create empty-activity --name=MyApp
+
+<br />
+
 ## Create a new app with support for Compose
 
 If you want to start a new project that includes support for Compose by default,
@@ -24,8 +39,8 @@ create a new project that has Compose set up correctly, proceed as follows:
 2. In the **Select a Project Template** window, select **Empty
    Activity** and click **Next**.
 3. In the **Configure your project** window, do the following:
-   1. Set the **Name, Package name** , and **Save location** as you normally would. Note that, in the **Language** dropdown menu, **Kotlin** is the only available option because Jetpack Compose works only with classes written in Kotlin.
-   2. In the **Minimum API level dropdown** menu, select API level 21 or higher.
+   1. Set the **Name, Package name** , and **Save location** as you normally would. Note that, in the **Language** drop-down menu, **Kotlin** is the only available option because Jetpack Compose works only with classes written in Kotlin.
+   2. In the **Minimum API level** drop-down menu, select API level 21 or higher.
 4. Click **Finish**.
 
 Now you're ready to start developing an app using Jetpack Compose. To help you

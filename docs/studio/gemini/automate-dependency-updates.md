@@ -1,19 +1,8 @@
 ---
-title: Automate dependency updates  |  Android Studio  |  Android Developers
+title: https://developer.android.com/studio/gemini/automate-dependency-updates
 url: https://developer.android.com/studio/gemini/automate-dependency-updates
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Android Studio](https://developer.android.com/studio)
-* [Android Studio AI agent](https://developer.android.com/ai-in-android)
-
-# Automate dependency updates Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 Upgrading dependencies can be a complex and time-consuming task.
 
@@ -24,6 +13,21 @@ new features.
 
 Gemini in Android Studio automates and simplifies the dependency update
 process, eliminating tedious work and improving project maintainability.
+
+
+## Android CLI
+
+[Download the Android CLI](https://developer.android.com/tools/agents)
+
+### Try Android CLI to update dependencies
+
+Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
+
+For example, use the [`android studio version-lookup`](https://developer.android.com/tools/agents/android-cli#studio-version-lookup) command when you need to upgrade dependencies.
+
+    android studio version-lookup <artifacts...>
+
+<br />
 
 ## How Gemini in Android Studio helps you
 
@@ -36,55 +40,33 @@ the latest versions.
 
 Gemini in Android Studio intelligently handles the update process as follows:
 
-* **Identifies and updates dependencies**: Automatically identifies
-  dependencies that can be updated and updates them to the latest compatible
-  version.
-* **Resolves build errors**: Iterates through the build process, resolving any
-  build errors that arise from the updates.
-* **Validates the project**: Runs tests to validate that the updated project
-  still functions as expected.
-* **Generates an update report**: After the process is complete, Gemini in
-  Android Studio provides a detailed report of all the changes. You can review
-  these changes at a high level or drill down to individual file-level diffs
-  before accepting them.
+- **Identifies and updates dependencies**: Automatically identifies dependencies that can be updated and updates them to the latest compatible version.
+- **Resolves build errors**: Iterates through the build process, resolving any build errors that arise from the updates.
+- **Validates the project**: Runs tests to validate that the updated project still functions as expected.
+- **Generates an update report**: After the process is complete, Gemini in Android Studio provides a detailed report of all the changes. You can review these changes at a high level or drill down to individual file-level diffs before accepting them.
 
 You start the update process from the **Refactor** menu by selecting **Update
 Dependencies**:
+![The Refactor menu, showing the Update Dependencies menu item.](https://developer.android.com/static/studio/gemini/images/refactor_menu.png) **Figure 1.** Select **Update Dependencies** from the **Refactor** menu.
 
-![The Refactor menu, showing the Update Dependencies menu item.](/static/studio/gemini/images/refactor_menu.png)
-
-
-**Figure 1.** Select **Update Dependencies** from the
-**Refactor** menu.
-
-or, from the `libs.versions.toml` file: hover over a version that is underlined,
+Or, from the `libs.versions.toml` file, hover over a version that is underlined,
 click the **Show Context Actions**
-![](/static/studio/images/buttons/show-context-actions.png)
+![](https://developer.android.com/static/studio/images/buttons/show-context-actions.png)
 menu that appears, and then click **Update all libraries with Gemini**.
+![Update libraries from the version catalog.](https://developer.android.com/static/studio/gemini/images/update-all-libraries-with-gemini.png) **Figure 2.** Update libraries from the version catalog.
 
-![Update libraries from the version catalog.](/static/studio/gemini/images/update-all-libraries-with-gemini.png)
-
-
-**Figure 2.** Update libraries from the version catalog.
-
-**Note:** Use the [Android Gradle plugin (AGP) Upgrade Assistant](/build/agp-upgrade-assistant) to upgrade
-versions of AGP. You can invoke the AGP Upgrade Assistant from the **Show
-Context Actions** menu for the AGP entry in your `libs.versions.toml` file. Run
-the AGP Upgrade Assistant before asking Gemini to update all the other
-dependencies.
+> [!NOTE]
+> **Note:** Use the [Android Gradle plugin (AGP) Upgrade Assistant](https://developer.android.com/build/agp-upgrade-assistant) to upgrade versions of AGP. You can invoke the AGP Upgrade Assistant from the **Show
+> Context Actions** menu for the AGP entry in your `libs.versions.toml` file. Run the AGP Upgrade Assistant before asking Gemini to update all the other dependencies.
 
 Whichever way you start the process, Gemini in Android Studio provides a
 high-level overview of its update plan so you can adjust the plan, monitor
 progress step by step, and review all changes before applying them:
-
 ![A checklist of the libraries Gemini in Android Studio has
-         proposed to update. You can uncheck items to remove them from the update.](/static/studio/gemini/images/refactor_checklist.png)
-
-
-**Figure 3.** Review, modify, approve, or cancel Gemini's plan.
+proposed to update. You can uncheck items to remove them from the update.](https://developer.android.com/static/studio/gemini/images/refactor_checklist.png) **Figure 3.** Review, modify, approve, or cancel Gemini's plan.
 
 You can review, accept, or roll back changes, or stop the process at any point.
 
 ## Additional resources
 
-* [Upgrade dependency versions](/build/version-upgrade-strategies)
+- [Upgrade dependency versions](https://developer.android.com/build/version-upgrade-strategies)

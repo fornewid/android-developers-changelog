@@ -54,9 +54,7 @@ custom `AppWidgetHost`:
   widget is on a lockscreen or the home screen. This information lets the
   `AppWidgetProvider` tailor the widget's contents and appearance based on how and
   where it is displayed. You can use
-  [`updateAppWidgetOptions()`](https://developer.android.com/reference/android/appwidget/AppWidgetHostView#updateAppWidgetOptions(android.os.Bundle))
-  and
-  [`updateAppWidgetSize()`](https://developer.android.com/reference/android/appwidget/AppWidgetHostView#updateAppWidgetSize(android.os.Bundle,%20java.util.List%3Candroid.util.SizeF%3E))
+  [`updateAppWidgetOptions()`](https://developer.android.com/reference/android/appwidget/AppWidgetHostView#updateAppWidgetOptions(android.os.Bundle)) and [`updateAppWidgetSize()`](https://developer.android.com/reference/android/appwidget/AppWidgetHostView#updateAppWidgetSize(android.os.Bundle,%20java.util.List%3Candroid.util.SizeF%3E))
   to modify a widget's bundle. Both of these methods trigger the
   [`onAppWidgetOptionsChanged()`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider#onAppWidgetOptionsChanged(android.content.Context,%20android.appwidget.AppWidgetManager,%20int,%20android.os.Bundle))
   callback to the `AppWidgetProvider`.
@@ -84,28 +82,18 @@ addition, or "always allow" to cover all future widget additions.
 
 This snippet gives an example of how to display the dialog:
 
-### Kotlin
 
 ```kotlin
 val intent = Intent(AppWidgetManager.ACTION_APPWIDGET_BIND).apply {
     putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
-    putExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER, info.componentName)
+    putExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER, info.provider)
     // This is the options bundle described in the preceding section.
     putExtra(AppWidgetManager.EXTRA_APPWIDGET_OPTIONS, options)
 }
 startActivityForResult(intent, REQUEST_BIND_APPWIDGET)
 ```
 
-### Java
-
-```java
-Intent intent = new Intent(AppWidgetManager.ACTION_APPWIDGET_BIND);
-intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
-intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_PROVIDER, info.componentName);
-// This is the options bundle described in the preceding section.
-intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_OPTIONS, options);
-startActivityForResult(intent, REQUEST_BIND_APPWIDGET);
-```
+<br />
 
 The host must check whether the widget that a user adds needs configuration. For
 more information, see [Enable users to configure app
@@ -116,12 +104,10 @@ widgets](https://developer.android.com/guide/topics/appwidgets/configuration).
 You can specify a number of configuration settings for widgets using the
 [`AppWidgetProviderInfo` metadata](https://developer.android.com/develop/ui/views/appwidgets#components).
 You can retrieve these configuration options, covered in more detail in the
-following sections, from the
-[`AppWidgetProviderInfo`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo)
+following sections, from the [`AppWidgetProviderInfo`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo)
 object associated with a widget provider.
 
-Regardless of the version of Android you are targeting, all hosts have the
-following responsibilities:
+All hosts have the following responsibilities:
 
 - When adding a widget, allocate the widget ID as described earlier. When a
   widget is removed from the host, call
@@ -146,22 +132,18 @@ following responsibilities:
 
   Make sure that the widget is laid out with at least this many dps. For
   example, many hosts align icons and widgets in a grid. In this scenario, by
-  default the host adds the a widget using the minimum number of cells that
+  default the host adds a widget using the minimum number of cells that
   satisfy the `minWidth` and `minHeight` constraints.
 
-In addition to the requirements listed in the preceding section, specific
-platform versions introduce features that place new responsibilities on the
-host.
+### Tips on your approach
 
-### Determine your approach based on the targeted Android version
+In addition to the requirements listed in the preceding section, keep the
+following tips in mind:
 
-#### Android 12
-
-Android 12 (API level 31) bundles an extra `List<SizeF>` that contains the list
-of possible sizes in dps that a widget instance can take in the options bundle.
-The number of sizes provided depends on the host implementation. Hosts typically
-provide two sizes for phones---portrait and landscape---and four sizes
-for foldables.
+The options bundle can contain a `List<SizeF>` that contains the list of
+possible sizes in dps that a widget instance can take. The number of sizes
+provided depends on the host implementation. Hosts typically provide two sizes
+for phones---portrait and landscape---and four sizes for foldables.
 
 There is a limit of `MAX_INIT_VIEW_COUNT` (16) on the number of different
 `RemoteViews` that an `AppWidgetProvider` can provide to
@@ -169,11 +151,8 @@ There is a limit of `MAX_INIT_VIEW_COUNT` (16) on the number of different
 Since `AppWidgetProvider` objects map a `RemoteViews` object to each size in the
 `List<SizeF>`, don't provide more than `MAX_INIT_VIEW_COUNT` sizes.
 
-Android 12 also introduces the
-[`maxResizeWidth`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#maxResizeWidth)
-and
-[`maxResizeHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#maxResizeHeight)
-attributes in dps. We recommend that a widget that uses at least one of these
+When widgets specify the [`maxResizeWidth`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#maxResizeWidth) and [`maxResizeHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#maxResizeHeight)
+attributes in dps, we recommend that a widget that uses at least one of these
 attributes doesn't exceed the size specified by the attributes.
 
 ## Additional resources

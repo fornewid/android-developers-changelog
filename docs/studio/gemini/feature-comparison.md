@@ -24,7 +24,7 @@ tier.
 | Context window | Limited | Pay per token | Expanded | Expanded |
 | Data used for AI training (See [Data and privacy](https://developer.android.com/studio/gemini/data-and-privacy)) | Yes | No | No | No |
 | Core AI features including - Agent Mode - Next Edit Prediction - Automate dependency updates - Add an MCP server - Skills | Included | Included | Included | Included |
-| Add an API key | Included | Included | Not applicable; Google One members have Gemini Pro and Flash by default ||
+| Add an API key | Included | Included | Included | Included |
 | Configure context sharing with `.aiexclude` files | Included | Included | Included | Included |
 | Android UI development - Generate Compose previews - Transform UI - Generate UI with image attachments | Included | Included | Included | Included |
 | Android integrations - Fix build errors - Get help with Logcat crashes - Analyze crashes in App Quality Insights | Included | Included | Included | Included |

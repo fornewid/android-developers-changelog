@@ -9,6 +9,21 @@ inside a running app in an emulator or physical device. You can inspect the
 attributes of each component, compare your app layout with design mockups, and
 display a magnified view of your app.
 
+
+## Android CLI
+
+[Download the Android CLI](https://developer.android.com/tools/agents)
+
+### Try Android CLI to debug your layout
+
+Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
+
+For example, use the [`android layout`](https://developer.android.com/tools/agents/android-cli#layout) command when you need to inspect and debug your layout.
+
+    android layout
+
+<br />
+
 You can also use the Layout Inspector to check how often a composable is
 recomposed or skipped, which can help identify issues with your app. For
 example, some coding errors might force your UI to recompose excessively, which
@@ -33,7 +48,7 @@ Here's how to do some common tasks:
 
 - To view hierarchy and inspect the attributes of each component, use the **Component Tree** and **Attributes** tool windows. Layout Inspector might require an activity restart to access the attributes.
 - To select components, first enable **Toggle Deep Inspect** ![Toggle deep
-  inspect button](https://developer.android.com/static/studio/images/design/deep-inspect.png), then click the components. Alternatively, navigate to your code by double-clicking the components.
+  inspect button](https://developer.android.com/static/studio/images/design/deep-inspect.png), and then click the components. Alternatively, navigate to your code by double-clicking the components.
 - To interact with the app, disable **Toggle Deep Inspect** ![Toggle deep
   inspect button](https://developer.android.com/static/studio/images/design/deep-inspect.png).
 - To inspect physical devices, enable [device mirroring](https://developer.android.com/studio/run/device#device-mirroring).
@@ -82,7 +97,7 @@ of your UI. To save a snapshot, click **Snapshot Export/Import** ![Snapshot
 Export/Import](https://developer.android.com/static/studio/images/design/li-snapshot.png) and then
 **Export Snapshot**.
 
-Load a previously saved Layout Inspector snapshot by clicking
+To load a previously saved Layout Inspector snapshot, click
 **Import Snapshot**.
 
 ## Compare app layout to a reference image overlay
@@ -98,12 +113,12 @@ load a bitmap image overlay in the Layout Inspector.
 
 For optimal performance, we recommend using the Layout Inspector in its default
 embedded mode. If you want to un-embed the Layout Inspector, go to **File**
-(**Android Studio** on macOS)\> **Settings** \> **Tools** \> **Layout Inspector**
+(**Android Studio** on macOS) \> **Settings** \> **Tools** \> **Layout Inspector**
 and clear the **Enable embedded Layout Inspector** checkbox.
 
 In standalone mode, enable live updates by clicking the **Live Updates**
-![](https://developer.android.com/static/studio/images/buttons/layout-inspector-live-updates-button.png) option from
-the **Layout Inspector** toolbar.
+![](https://developer.android.com/static/studio/images/buttons/layout-inspector-live-updates-button.png)
+option from the **Layout Inspector** toolbar.
 
 ## Additional resources
 

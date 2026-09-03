@@ -62,6 +62,10 @@ devices:
 - Pixel 10 Pro XL
 - Pixel 10 Pro Fold
 - Pixel 10a
+- Pixel 11
+- Pixel 11 Pro
+- Pixel 11 Pro XL
+- Pixel 11 Pro Fold
 
 ### Flash or manually install a system image
 

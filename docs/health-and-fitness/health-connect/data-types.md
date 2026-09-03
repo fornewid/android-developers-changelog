@@ -91,17 +91,14 @@ permissions:
 
 <br />
 
-### 1. Select a Jetpack version
-
-Permission declarations differ between Jetpack versions, make sure to the select
-the Jetpack version range your app uses.
-
-<button value="alpha10plus" default="">1.0.0-alpha10 and higher</button> <button value="alpha09">1.0.0-alpha09 and lower</button>
-
-### 2. Filter the data types table
-
 The following table contains the full list of data types, each with category,
 feature flags and guides, and permission declarations.
+
+This table is for the Health Connect SDK version **1.0.0-alpha10 and higher** .
+If you are using an older version of the SDK, see
+[Health Connect data types for SDK 1.0.0-alpha09 and lower](https://developer.android.com/health-and-fitness/health-connect/data-types-legacy).
+
+<br />
 
 | Data type Guides | Category | Record type Permission declarations Feature flag |
 |---|---|---|
@@ -146,3 +143,5 @@ feature flags and guides, and permission declarations.
 | **Weight** - **Record Type:**Instantaneous - #### Mandatory Fields `metadata` `time` `weight` | Body Measurement | `https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/WeightRecord` <br /> `android.permission.health.READ_WEIGHT` `android.permission.health.WRITE_WEIGHT` <br /> #### Aggregate data types [`WEIGHT_AVG`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/WeightRecord#WEIGHT_AVG()) [`WEIGHT_MAX`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/WeightRecord#WEIGHT_MAX()) [`WEIGHT_MIN`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/WeightRecord#WEIGHT_MIN()) |
 | **Wheelchair pushes** [Workouts](https://developer.android.com/health-and-fitness/health-connect/experiences/workouts) guide - **Record Type:**Interval - #### Mandatory Fields `count` `endTime` `metadata` `startTime` | Activity | `https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/WheelchairPushesRecord` <br /> `android.permission.health.READ_WHEELCHAIR_PUSHES` `android.permission.health.WRITE_WHEELCHAIR_PUSHES` <br /> #### Aggregate data types [`COUNT_TOTAL`](https://developer.android.com/reference/kotlin/androidx/health/connect/client/records/WheelchairPushesRecord#COUNT_TOTAL()) |
 [*Table: Health Connect data types*]
+
+<br />

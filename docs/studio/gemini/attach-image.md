@@ -24,19 +24,19 @@ Here are just a few ways Gemini can help with images:
   see [Generate UI with image attachments](https://developer.android.com/studio/gemini/generate-ui-with-images).
 
   ![The 'Now in Android' app, showing a feed of articles with titles, topics, and bookmark icons.](https://developer.android.com/static/studio/images/nia-screenshot-2.png) ![Gemini's code response displaying Jetpack Compose code that recreates the UI from the 'Now in Android' screenshot.](https://developer.android.com/static/studio/images/gias-response-2.png) Gemini generates Jetpack Compose code from a UI screenshot of the Now in Android app.
-- If you want to learn how an app is constructed, Gemini can explain how the UI
-  works in terms of its component parts. For example, you can ask Gemini to
+- If you want to learn how an app is constructed, Gemini can explain how the
+  UI works in terms of its component parts. For example, you can ask Gemini to
   explain the composables and data flow behind another Now in Android
   screenshot. The left image shows a detail screen with a news item, and the
   right image displays Gemini's explanation of the Compose structure and data
   flow for that screen.
 
   ![A single news article detail in the 'Now in Android' app, showing a title, author, and description.](https://developer.android.com/static/studio/images/nia-screenshot-1.png) ![Gemini's explanation of the Jetpack Compose composables and data flow for the news article detail screen.](https://developer.android.com/static/studio/images/gias-response-1.png) Gemini explains the UI composition and data flow of a specific app screen.
-- If you have an app architecture diagram, Gemini can suggest code to create the
-  app based on the diagram, serving as a full stack development assistant.
+- If you have an app architecture diagram, Gemini can suggest code to create
+  the app based on the diagram, serving as a full stack development assistant.
   Gemini can also help document the diagram and explain the construction of
   the app, which helps when writing a design doc for your teammates to review.
-  For instance, the following image shows a simplified architecture diagram
+  For example, the following image shows a simplified architecture diagram
   depicting data flow between various app components like UI, ViewModel,
   Repository, and Data Source.
 

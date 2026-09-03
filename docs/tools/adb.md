@@ -22,6 +22,18 @@ For information on connecting a device for use over `adb`, including how to use 
 Assistant to troubleshoot common problems, see
 [Run apps on a hardware device](https://developer.android.com/studio/run/device).
 
+## Android CLI
+
+[Download the Android CLI](https://developer.android.com/tools/agents)
+
+### Try Android CLI to communicate with a device
+
+Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
+
+For example, use the [`android run`](https://developer.android.com/tools/agents/android-cli#run) or [`screen capture`](https://developer.android.com/tools/agents/android-cli#screen-capture) commands when you need to deploy and interact with an app on a device from the command line.
+
+    android [install|run|screen capture|layout]
+
 ## How adb works
 
 
@@ -130,36 +142,39 @@ The device and the workstation will automatically connect when they are on the s
    checkbox makes the network a trusted wireless debugging network. Your device will always
    allow wireless debugging on this network as soon as the device connects to the network.
 
-![Screenshot of
-a Google Pixel phone showing the Wireless debugging systems setting.](https://developer.android.com/static/studio/images/run/adb_wifi-wireless_debugging_setting.png) **Figure 2.** The **Wireless debugging** setting on a Google Pixel phone.
-4. **Note:** Android Studio users can pair their device with a QR code, select **Pair device with QR code** and scan the QR code obtained from the [Pair devices over Wi-Fi dialog](https://developer.android.com/studio/run/device#wireless) in Android Studio.
-5. On your device, select **Pair using pairing code** and
+   ![Screenshot of
+   a Google Pixel phone showing the Wireless debugging systems setting.](https://developer.android.com/static/studio/images/run/adb_wifi-wireless_debugging_setting.png) **Figure 2.** The **Wireless debugging** setting on a Google Pixel phone.
+
+   **Note:** Android Studio users can pair their device with a QR code, select **Pair device with QR code** and scan the
+   QR code obtained from the [Pair devices over Wi-Fi dialog](https://developer.android.com/studio/run/device#wireless)
+   in Android Studio.
+4. On your device, select **Pair using pairing code** and
    take note of the IP address, port number, and pairing code displayed on the device.
 
-6. On your workstation, open a terminal window and navigate to
+5. On your workstation, open a terminal window and navigate to
    `android_sdk/platform-tools`.
 
-7. On your workstation's terminal, run `adb pair ipaddr:port`. Use the IP address
+6. On your workstation's terminal, run `adb pair ipaddr:port`. Use the IP address
    and port number from above.
 
-8. When prompted, enter the pairing code, as shown below.
+7. When prompted, enter the pairing code, as shown below.
 
    ![Screenshot of
    pairing on the command line.](https://developer.android.com/static/studio/images/run/adb_wifi-cmd_line_pairing.png) **Figure 3.** A message indicates that your device has been successfully paired.
-9. After your device is paired, [verify that your device is connected.](https://developer.android.com/tools/adb#devicestatus)
+8. After your device is paired, [verify that your device is connected.](https://developer.android.com/tools/adb#devicestatus)
    You can now use your device wirelessly similar to how you would with a USB connection.
 
    To unpair your workstation, navigate to **Wireless debugging** on your device.
    Tap your workstation name under **Paired devices** and select **Forget** .
    Alternatively, you can click the **Revoke adb debugging authorizations** on your device
    Settings page to unapair your workstation and all other previously paired workstations.
-10. If you want to quickly turn on and off wireless debugging, you can utilize the
-    [Quick settings developer tiles](https://developer.android.com/studio/debug/dev-options#general) for
-    **Wireless debugging** , found in **Developer Options** \> **Quick settings developer
-    tiles**.
+9. If you want to quickly turn on and off wireless debugging, you can use the
+   [Quick settings developer tiles](https://developer.android.com/studio/debug/dev-options#general) for
+   **Wireless debugging** , found in **Developer Options** \> **Quick settings developer
+   tiles**.
 
-    ![Screenshot of
-    Quick settings developer tiles from a Google Pixel phone.](https://developer.android.com/static/studio/images/run/adb_wifi-quick_settings.png) **Figure 4.** The **Quick settings developer tiles** setting lets you quickly turn wireless debugging on and off.
+   ![Screenshot of
+   Quick settings developer tiles from a Google Pixel phone.](https://developer.android.com/static/studio/images/run/adb_wifi-quick_settings.png) **Figure 4.** The **Quick settings developer tiles** setting lets you quickly turn wireless debugging on and off.
 
 ### Resolve wireless connection issues
 
@@ -807,7 +822,7 @@ without entering a remote shell. For example:
 | ` disable-user [options] package_or_component ` | Options: - `--user user_id`: The user to disable. |
 | ` grant package_name permission ` | Grant a permission to an app. On devices running Android 6.0 (API level 23) and higher, the permission can be any permission declared in the app manifest. On devices running Android 5.1 (API level 22) and lower, must be an optional permission defined by the app. |
 | ` revoke package_name permission ` | Revoke a permission from an app. On devices running Android 6.0 (API level 23) and higher, the permission can be any permission declared in the app manifest. On devices running Android 5.1 (API level 22) and lower, must be an optional permission defined by the app. |
-| ` set-install-location location ` | Change the default install location. Location values: - `0`: Auto: Let system decide the best location. - `1`: Internal: Install on internal device storage. - `2`: External: Install on external media. **Note:** This is only intended for debugging. Using this can cause apps to break and other undesireable behavior. |
+| ` set-install-location location ` | Change the default install location. Location values: - `0`: Auto: Let system decide the best location. - `1`: Internal: Install on internal device storage. - `2`: External: Install on external media. **Note:** This is only intended for debugging. Using this can cause apps to break and other undesirable behavior. |
 | ` get-install-location ` | Returns the current install location. Return values: - `0 [auto]`: Let system decide the best location - `1 [internal]`: Install on internal device storage - `2 [external]`: Install on external media |
 | ` set-permission-enforced permission [true | false] ` | Specify whether the given permission should be enforced. |
 | ` trim-caches desired_free_space ` | Trim cache files to reach the given free space. |
@@ -1034,7 +1049,7 @@ only available when using `libusb` backend.
 You can choose a backend by using the `ADB_LIBUSB` environment variable.
 If it isn't set, adb uses its default backend. The default behavior varies among OS. Starting
 with [ADB v34](https://developer.android.com/tools/releases/platform-tools#revisions), the
-`liubusb` backend is used by default on all OS except Windows, where the native backend is
+`libusb` backend is used by default on all OS except Windows, where the native backend is
 used by default. If `ADB_LIBUSB` is
 set, it determines whether the native backend or `libusb` is used. See the
 [adb manual page](https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/master/docs/user/adb.1.md)
@@ -1055,7 +1070,7 @@ Support for the Openscreen backend on macOS starts at ADB v35. Windows and Linux
 
 ## adb Burst Mode (starting with ADB 36.0.0)
 
-Burst Mode is an experimental feature that lets ADB to keep on sending
+Burst Mode is an experimental feature that lets ADB keep sending
 packets to a device even before the device has responded to the previous packet. This greatly
 increases the throughput of ADB when transferring large files and also reduces latency while
 debugging.
@@ -1064,5 +1079,3 @@ Burst Mode is disabled by default. To enable the feature, do one of the followin
 
 - Set the environment variable `ADB_BURST_MODE` to `1`.
 - In Android Studio, go to the debugger settings at **File** (or **Android Studio** on macOS) **\> Settings \> Build, Execution, Deployment \> Debugger** and set **ADB Server Burst Mode** to **Enabled**.
-
-<br />

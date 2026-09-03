@@ -8,15 +8,30 @@ Android Studio makes it easy to create Android apps for various form factors,
 such as phones, tablets, TVs, and Wear devices. This page explains how to start
 a new Android app project or import an existing project.
 
-If you don't have a project opened, create a new project by clicking
+If you don't have a project open, create a new project by clicking
 **New Project** on the Android Studio Welcome screen.
 
-If you do have a project opened, create a new project by selecting
+If you have a project open, create a new project by selecting
 **File \> New \> New Project** from the main menu.
 
 > [!NOTE]
-> **Note:** To use a generative AI agent to create a project, read [Create a project
+> **Note:** To use a generative AI agent to create a project, see [Create a project
 > with AI](https://developer.android.com/studio/gemini/create-a-new-project-with-ai).
+
+
+## Android CLI
+
+[Download the Android CLI](https://developer.android.com/tools/agents)
+
+### Try Android CLI to create a new project
+
+Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
+
+For example, use the [`android create`](https://developer.android.com/tools/agents/android-cli#create) command when you need to create a new project.
+
+    android create empty-activity --name=MyApp
+
+<br />
 
 ## Choose your project type
 
@@ -31,15 +46,15 @@ sample code and resources in your project to help you get started.
 
 For Compose projects, **Empty Activity** is the recommended starting point for
 all new projects. It includes Compose dependencies and Material Design setup,
-providing a modern, declarative foundation. Use the other templates only if you
-are maintaining or migrating a legacy codebase.
+providing a modern, declarative foundation. Use the other templates only if
+you're maintaining or migrating a legacy codebase.
 
-Once you select your project type, click **Next**.
+After selecting your project type, click **Next**.
 
 ## Configure your project
 
 The next step in creating your project is to configure some settings, as shown
-in figure 2. If you're creating a **Native C++** project, read [Create a new
+in figure 2. If you're creating a **Native C++** project, see [Create a new
 project with C/C++ support](https://developer.android.com/studio/projects/add-native-code#new-project) to learn more about the options you need to
 configure.
 ![Configure your new project with a few settings.](https://developer.android.com/static/studio/images/projects/new-project-wizard-configure-2x.png) **Figure 2.** Configure your new project with a few settings.
@@ -70,7 +85,7 @@ configure.
    replace the Android Support libraries. To use the legacy support libraries
    instead, select **Use legacy android.support libraries** . However, this is
    not recommended, as the legacy support libraries are no longer supported. To
-   learn more, read the [AndroidX overview](https://developer.android.com/jetpack/androidx).
+   learn more, see the [AndroidX overview](https://developer.android.com/jetpack/androidx).
 
 7. When you're ready to create your project, click **Finish**.
 
@@ -80,7 +95,7 @@ later, you can [add a module](https://developer.android.com/studio/projects/add-
 and resources between modules, you can do so by creating an [Android
 library](https://developer.android.com/studio/projects/android-library).
 
-For more information about the Android project structure and module types, read
+For more information about the Android project structure and module types, see
 the [Projects overview](https://developer.android.com/studio/projects). If you're new to Android development altogether,
 see [Get started with Android](https://developer.android.com/training).
 
@@ -94,9 +109,9 @@ To import an existing local project into Android Studio, proceed as follows:
 
 Android Studio opens the project in a new IDE window and indexes its contents.
 
-If you are importing a project from version control, select **File** \>
+If you're importing a project from version control, select **File** \>
 **New** \> **Project from Version Control** . For more information about
-importing projects from version control, read IntelliJ's information about
+importing projects from version control, see IntelliJ's information about
 [version control](https://www.jetbrains.com/help/idea/version-control-integration.html).
 
 ## Build and run your app

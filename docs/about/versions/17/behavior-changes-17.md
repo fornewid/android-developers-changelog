@@ -246,6 +246,46 @@ the [`ContactsContract.Data`](https://developer.android.com/reference/android/pr
 uses a pattern that isn't compatible with these, it will be
 rejected and cause an exception to be thrown.
 
+## Intelligence
+
+Android 17 includes the following changes to system intelligence.
+
+### Deprecation of setContentCaptureEnabled
+
+Content Capture is enabled by default on certain devices to allow
+on-device AI features to analyze screen contents for intelligent experiences.
+
+Starting in Android 17, the
+[`ContentCaptureManager.setContentCaptureEnabled(boolean)`](https://developer.android.com/reference/android/view/contentcapture/ContentCaptureManager#setContentCaptureEnabled(boolean))
+API method is deprecated. For apps that target Android 17 (API level 37) or
+higher, calling `setContentCaptureEnabled(false)` no longer disables Content
+Capture.
+
+If your app needs to continue disabling Content Capture or restrict screen
+contents from being captured by the system, you must transition to using the
+[`FLAG_SECURE`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_SECURE) window layout parameter.
+
+To disable Content Capture, set the `FLAG_SECURE` flag on your window as shown
+in the following example:
+
+### Kotlin
+
+    window.setFlags(
+        WindowManager.LayoutParams.FLAG_SECURE,
+        WindowManager.LayoutParams.FLAG_SECURE
+    )
+
+### Java
+
+    getWindow().setFlags(
+        WindowManager.LayoutParams.FLAG_SECURE,
+        WindowManager.LayoutParams.FLAG_SECURE
+    );
+
+For more details, see the
+[`WindowManager.LayoutParams.FLAG_SECURE`](https://developer.android.com/reference/android/view/WindowManager.LayoutParams#FLAG_SECURE) reference
+documentation.
+
 ## Media
 
 Android 17 includes the following changes to media behavior.

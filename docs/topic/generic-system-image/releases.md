@@ -100,6 +100,10 @@ been validated on the following Pixel devices:
 - Pixel 10 Pro XL
 - Pixel 10 Pro Fold
 - Pixel 10a
+- Pixel 11
+- Pixel 11 Pro
+- Pixel 11 Pro XL
+- Pixel 11 Pro Fold
 
     Date: August 28, 2026
     Build: CP41.260814.003.B1

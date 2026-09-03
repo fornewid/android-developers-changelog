@@ -42,47 +42,55 @@ your app. Do the following steps to enable the billing choice in this scenario:
    ### Kotlin
 
 
-       // Build the parameters to enable the Billing Choice program and assign the listener
-       // to handle user selection of the developer-provided billing option.
-       val params = EnableBillingProgramParams.newBuilder()
-           .setBillingProgram(BillingProgram.BILLING_CHOICE)
-           .setDeveloperProvidedBillingListener(developerProvidedBillingListener)
-           .build()
+   ```kotlin
+   // Build the parameters to enable the Billing Choice program and assign the listener
+   // to handle user selection of the developer-provided billing option.
+   val enableBillingProgramParams = EnableBillingProgramParams.newBuilder()
+       .setBillingProgram(BillingProgram.BILLING_CHOICE)
+       .setDeveloperProvidedBillingListener(developerProvidedBillingListener)
+       .build()
 
-       // Build the parameters to enable support for pending purchases.
-       val pendingPurchasesParams = PendingPurchasesParams.newBuilder()
-           .enableOneTimeProducts()
-           .build()
+   // Build the parameters to enable support for pending purchases.
+   val pendingPurchasesParams = PendingPurchasesParams.newBuilder()
+       .enableOneTimeProducts()
+       .build()
 
-       // Construct the BillingClient instance with the purchases updated listener,
-       // pending purchases support, and the billing choice params.
-       val billingClient = BillingClient.newBuilder(context)
-           .setListener(purchasesUpdatedListener)
-           .enablePendingPurchases(pendingPurchasesParams)
-           .enableBillingProgram(params)
-           .build()
+   // Construct the BillingClient instance with the purchases updated listener,
+   // pending purchases support, and the billing choice params.
+   val billingClient = BillingClient.newBuilder(context)
+       .setListener(purchasesUpdatedListener)
+       .enablePendingPurchases(pendingPurchasesParams)
+       .enableBillingProgram(enableBillingProgramParams)
+       .build()
 
-       // Establish a connection to Google Play
-       val billingResult = suspendCancellableCoroutine { continuation ->
-           billingClient.startConnection(object : BillingClientStateListener {
-               // Called when the connection setup process completes.
-               override fun onBillingSetupFinished(billingResult: BillingResult) {
-                   // Resume the coroutine and pass back the BillingResult to the caller.
+   // Establish a connection to Google Play
+   val billingResult = suspendCancellableCoroutine<BillingResult> { continuation ->
+       billingClient.startConnection(object : BillingClientStateListener {
+           // Called when the connection setup process completes.
+           override fun onBillingSetupFinished(billingResult: BillingResult) {
+               // Resume the coroutine and pass back the BillingResult to the caller.
+               if (continuation.isActive) {
                    continuation.resume(billingResult)
                }
+           }
 
-               // Called if the connection to the Play Store service is dropped.
-               // This prevents the await or suspension point from hanging indefinitely.
-               override fun onBillingServiceDisconnected() {
+           // Called if the connection to the Play Store service is dropped.
+           // This prevents the await or suspension point from hanging indefinitely.
+           override fun onBillingServiceDisconnected() {
+               if (continuation.isActive) {
                    continuation.resume(
                        BillingResult.newBuilder()
-                           .setResponseCode(BillingClient.BillingResponseCode.SERVICE_DISCONNECTED)
+                           .setResponseCode(BillingResponseCode.SERVICE_DISCONNECTED)
                            .setDebugMessage("Billing service disconnected during connection setup")
                            .build()
                    )
                }
-           })
-       }
+           }
+       })
+   }
+   ```
+
+   <br />
 
    ### Java
 
@@ -111,22 +119,24 @@ your app. Do the following steps to enable the billing choice in this scenario:
    ### Kotlin
 
 
-       val (billingResult, billingProgramAvailabilityDetails) = billingClient.isBillingProgramAvailable(BillingProgram.BILLING_CHOICE)
+   ```kotlin
+   val (billingResult, billingProgramAvailabilityDetails) = billingClient.isBillingProgramAvailable(BillingProgram.BILLING_CHOICE)
 
-       if (billingResult.responseCode == BillingResponseCode.OK) {
-           val billingChoiceAvailabilityDetails = billingProgramAvailabilityDetails.billingChoiceAvailabilityDetails
-           if (billingChoiceAvailabilityDetails != null &&
-               billingChoiceAvailabilityDetails.choiceScreenType == ChoiceScreenType.GOOGLE_RENDERED
-           ) {
-               // Billing choice is available. Query products and proceed.
-
-           } else {
-               // Fallback to other available programs.
-           }
+   if (billingResult.responseCode == BillingResponseCode.OK) {
+       val billingChoiceAvailabilityDetails = billingProgramAvailabilityDetails.billingChoiceAvailabilityDetails
+       if (billingChoiceAvailabilityDetails != null &&
+           billingChoiceAvailabilityDetails.choiceScreenType == ChoiceScreenType.GOOGLE_RENDERED
+       ) {
+           // Billing choice is available. Query products and proceed.
        } else {
            // Fallback to other available programs.
        }
+   } else {
+       // Fallback to other available programs.
+   }
+   ```
 
+   <br />
 
    ### Java
 
@@ -161,16 +171,20 @@ your app. Do the following steps to enable the billing choice in this scenario:
    ### Kotlin
 
 
-       val developerBillingOptionParams = DeveloperBillingOptionParams.newBuilder()
-           .setBillingProgram(BillingProgram.BILLING_CHOICE)
-           .build()
+   ```kotlin
+   val developerBillingOptionParams = DeveloperBillingOptionParams.newBuilder()
+       .setBillingProgram(BillingProgram.BILLING_CHOICE)
+       .build()
 
-       val billingFlowParams = BillingFlowParams.newBuilder()
-           .setProductDetailsParamsList(productDetailsParamsList)
-           .enableDeveloperBillingOption(developerBillingOptionParams)
-           .build()
+   val billingFlowParams = BillingFlowParams.newBuilder()
+       .setProductDetailsParamsList(productDetailsParamsList)
+       .enableDeveloperBillingOption(developerBillingOptionParams)
+       .build()
 
-       val billingResult = billingClient.launchBillingFlow(activity, billingFlowParams)
+   val billingResult = billingClient.launchBillingFlow(activity, billingFlowParams)
+   ```
+
+   <br />
 
    ### Java
 
@@ -207,40 +221,53 @@ scenario:
    ### Kotlin
 
 
-       // Build the parameters to enable the Billing Choice program.
-       val params = EnableBillingProgramParams.newBuilder()
-           .setBillingProgram(BillingProgram.BILLING_CHOICE)
-           .build()
+   ```kotlin
+   // Build the parameters to enable the Billing Choice program.
+   val enableBillingProgramParams = EnableBillingProgramParams.newBuilder()
+       .setBillingProgram(BillingProgram.BILLING_CHOICE)
+       .build()
 
-       // Construct the BillingClient instance with the purchases updated listener,
-       // pending purchases support, and the billing choice params.
-       val billingClient = BillingClient.newBuilder(context)
-           .setListener(purchasesUpdatedListener)
-           .enablePendingPurchases()
-           .enableBillingProgram(params)
-           .build()
+   // Build the parameters to enable support for pending purchases.
+   val pendingPurchasesParams = PendingPurchasesParams.newBuilder()
+       .enableOneTimeProducts()
+       .build()
 
-       // Establish a connection to Google Play
-       val billingResult = suspendCancellableCoroutine<BillingResult> { continuation ->
-           billingClient.startConnection(object : BillingClientStateListener {
-               // Called when the connection setup process completes.
-               override fun onBillingSetupFinished(billingResult: BillingResult) {
-                   // Resume the coroutine and pass back the BillingResult to the caller.
+   // Construct the BillingClient instance with the purchases updated listener,
+   // pending purchases support, and the billing choice params.
+   val billingClient = BillingClient.newBuilder(context)
+       .setListener(purchasesUpdatedListener)
+       .enablePendingPurchases(pendingPurchasesParams)
+       .enableBillingProgram(enableBillingProgramParams)
+       .build()
+
+   // Establish a connection to Google Play
+   val billingResult = suspendCancellableCoroutine<BillingResult> { continuation ->
+       billingClient.startConnection(object : BillingClientStateListener {
+           // Called when the connection setup process completes.
+           override fun onBillingSetupFinished(billingResult: BillingResult) {
+               // Resume the coroutine and pass back the BillingResult to the caller.
+               if (continuation.isActive) {
                    continuation.resume(billingResult)
                }
+           }
 
-               // Called if the connection to the Play Store service is dropped.
-               // This prevents the await or suspension point from hanging indefinitely.
-               override fun onBillingServiceDisconnected() {
+           // Called if the connection to the Play Store service is dropped.
+           // This prevents the await or suspension point from hanging indefinitely.
+           override fun onBillingServiceDisconnected() {
+               if (continuation.isActive) {
                    continuation.resume(
                        BillingResult.newBuilder()
-                           .setResponseCode(BillingClient.BillingResponseCode.SERVICE_DISCONNECTED)
+                           .setResponseCode(BillingResponseCode.SERVICE_DISCONNECTED)
                            .setDebugMessage("Billing service disconnected during connection setup")
                            .build()
                    )
                }
-           })
-       }
+           }
+       })
+   }
+   ```
+
+   <br />
 
    ### Java
 
@@ -264,26 +291,30 @@ scenario:
    ### Kotlin
 
 
-       val (billingResult, billingProgramAvailabilityDetails) =
-           billingClient.isBillingProgramAvailable(BillingProgram.BILLING_CHOICE)
+   ```kotlin
+   val (billingResult, billingProgramAvailabilityDetails) =
+       billingClient.isBillingProgramAvailable(BillingProgram.BILLING_CHOICE)
 
-       if (billingResult.responseCode == BillingResponseCode.OK) {
-           val billingChoiceAvailabilityDetails =
-               billingProgramAvailabilityDetails.billingChoiceAvailabilityDetails
+   if (billingResult.responseCode == BillingResponseCode.OK) {
+       val billingChoiceAvailabilityDetails =
+           billingProgramAvailabilityDetails.billingChoiceAvailabilityDetails
 
-           if (billingChoiceAvailabilityDetails != null &&
-               billingChoiceAvailabilityDetails.choiceScreenType == ChoiceScreenType.DEVELOPER_RENDERED
-           ) {
-               // Billing choice is available. Query products and proceed.
-               // You can inspect details such as:
-               // - billingChoiceAvailabilityDetails.choiceScreenType
-               // - billingChoiceAvailabilityDetails.isExternalLinkAvailable
-           } else {
-               // Fallback to other available programs.
-           }
+       if (billingChoiceAvailabilityDetails != null &&
+           billingChoiceAvailabilityDetails.choiceScreenType == ChoiceScreenType.DEVELOPER_RENDERED
+       ) {
+           // Billing choice is available. Query products and proceed.
+           // You can inspect details such as:
+           // - billingChoiceAvailabilityDetails.choiceScreenType
+           // - billingChoiceAvailabilityDetails.isExternalLinkAvailable
        } else {
            // Fallback to other available programs.
        }
+   } else {
+       // Fallback to other available programs.
+   }
+   ```
+
+   <br />
 
    ### Java
 
@@ -319,28 +350,32 @@ scenario:
    ### Kotlin
 
 
-       // 1. Create the params required for the request
-       val params = GetBillingChoiceInfoParams.newBuilder()
-           .setBillingProgram(BillingClient.BillingProgram.BILLING_CHOICE)
-           .setPlayBillingChoiceImageLayout(GetBillingChoiceInfoParams.ImageLayout.RECTANGULAR_FOUR_BY_ONE)
-           .build()
+   ```kotlin
+   // 1. Create the params required for the request
+   val params = GetBillingChoiceInfoParams.newBuilder()
+       .setBillingProgram(BillingProgram.BILLING_CHOICE)
+       .setPlayBillingChoiceImageLayout(GetBillingChoiceInfoParams.ImageLayout.RECTANGULAR_FOUR_BY_ONE)
+       .build()
 
-       // 2. Call the suspend method on your billingClient instance
-       val (billingResult, playBillingChoiceInfo) = billingClient.getBillingChoiceInfo(params)
+   // 2. Call the suspend method on your billingClient instance
+   val (billingResult, playBillingChoiceInfo) = billingClient.getBillingChoiceInfo(params)
 
-       if (billingResult.responseCode == BillingResponseCode.OK && playBillingChoiceInfo != null) {
-           // Access the URL of the image associated with the Play Billing Choice
-           val imageUrl = playBillingChoiceInfo.playBillingChoiceImageUrl
+   if (billingResult.responseCode == BillingResponseCode.OK && playBillingChoiceInfo != null) {
+       // Access the URL of the image associated with the Play Billing Choice
+       val imageUrl = playBillingChoiceInfo.playBillingChoiceImageUrl
 
-           // Access the Play Loyalty string information, if available
-           val loyaltyInfo = playBillingChoiceInfo.playBillingLoyaltyInfo
+       // Access the Play Loyalty string information, if available
+       val loyaltyInfo = playBillingChoiceInfo.playBillingLoyaltyInfo
 
-           // Populate your developer-rendered UI elements
-           playBillingLoyaltyTextView.text = loyaltyInfo
-           loadImage(imageUrl, playBillingImageView)
-       } else {
-           // Handle error scenarios
-       }
+       // Populate your developer-rendered UI elements
+       playBillingLoyaltyTextView.text = loyaltyInfo
+       loadImage(imageUrl, playBillingImageView)
+   } else {
+       // Handle error scenarios
+   }
+   ```
+
+   <br />
 
    ### Java
 
@@ -372,27 +407,31 @@ scenario:
    ### Kotlin
 
 
-       // Build the parameters specifying the billing program and that the billing type is IN_APP.
-       val params = BillingProgramReportingDetailsParams.newBuilder()
-           .setBillingProgram(BillingProgram.BILLING_CHOICE)
-           .setDeveloperBillingType(DeveloperBillingType.IN_APP)
-           .build()
+   ```kotlin
+   // Build the parameters specifying the billing program and that the billing type is IN_APP.
+   val params = BillingProgramReportingDetailsParams.newBuilder()
+       .setBillingProgram(BillingProgram.BILLING_CHOICE)
+       .setDeveloperBillingType(DeveloperBillingType.IN_APP)
+       .build()
 
-       // Call the suspending extension function to request the reporting details
-       val (billingResult, billingProgramReportingDetails) =
-           billingClient.createBillingProgramReportingDetails(params)
-           
-       if (billingResult.responseCode != BillingResponseCode.OK) {
-           // Handle failures such as retrying due to network errors.
-           return
-       }
+   // Call the suspending extension function to request the reporting details
+   val (billingResult, billingProgramReportingDetails) =
+       billingClient.createBillingProgramReportingDetails(params)
 
-       // Extract the transaction token from the returned reporting details
-       val transactionToken = billingProgramReportingDetails?.externalTransactionToken
+   if (billingResult.responseCode != BillingResponseCode.OK) {
+       // Handle failures such as retrying due to network errors.
+       return
+   }
 
-       // Persist the external transaction token locally. Pass it to
-       // DeveloperBillingOptionParams when launchBillingFlow is called.
-       // It can also be used as part of your external website
+   // Extract the transaction token from the returned reporting details
+   val transactionToken = billingProgramReportingDetails?.externalTransactionToken
+
+   // Persist the external transaction token locally. Pass it to
+   // DeveloperBillingOptionParams when launchBillingFlow is called.
+   // It can also be used as part of your external website
+   ```
+
+   <br />
 
    ### Java
 
@@ -454,47 +493,55 @@ scenario:
    ### Kotlin
 
 
-       // Build the parameters to enable the Billing Choice program and assign the listener
-       // to handle user selection of the developer-provided billing option.
-       val params = EnableBillingProgramParams.newBuilder()
-           .setBillingProgram(BillingProgram.BILLING_CHOICE)
-           .setDeveloperProvidedBillingListener(developerProvidedBillingListener)
-           .build()
+   ```kotlin
+   // Build the parameters to enable the Billing Choice program and assign the listener
+   // to handle user selection of the developer-provided billing option.
+   val enableBillingProgramParams = EnableBillingProgramParams.newBuilder()
+       .setBillingProgram(BillingProgram.BILLING_CHOICE)
+       .setDeveloperProvidedBillingListener(developerProvidedBillingListener)
+       .build()
 
-       // Build the parameters to enable support for pending purchases.
-       val pendingPurchasesParams = PendingPurchasesParams.newBuilder()
-           .enableOneTimeProducts()
-           .build()
+   // Build the parameters to enable support for pending purchases.
+   val pendingPurchasesParams = PendingPurchasesParams.newBuilder()
+       .enableOneTimeProducts()
+       .build()
 
-       // Construct the BillingClient instance with the purchases updated listener,
-       // pending purchases support, and the billing choice params.
-       val billingClient = BillingClient.newBuilder(context)
-           .setListener(purchasesUpdatedListener)
-           .enablePendingPurchases(pendingPurchasesParams)
-           .enableBillingProgram(params)
-           .build()
+   // Construct the BillingClient instance with the purchases updated listener,
+   // pending purchases support, and the billing choice params.
+   val billingClient = BillingClient.newBuilder(context)
+       .setListener(purchasesUpdatedListener)
+       .enablePendingPurchases(pendingPurchasesParams)
+       .enableBillingProgram(enableBillingProgramParams)
+       .build()
 
-       // Establish a connection to Google Play
-       val billingResult = suspendCancellableCoroutine { continuation ->
-           billingClient.startConnection(object : BillingClientStateListener {
-               // Called when the connection setup process completes.
-               override fun onBillingSetupFinished(billingResult: BillingResult) {
-                   // Resume the coroutine and pass back the BillingResult to the caller.
+   // Establish a connection to Google Play
+   val billingResult = suspendCancellableCoroutine<BillingResult> { continuation ->
+       billingClient.startConnection(object : BillingClientStateListener {
+           // Called when the connection setup process completes.
+           override fun onBillingSetupFinished(billingResult: BillingResult) {
+               // Resume the coroutine and pass back the BillingResult to the caller.
+               if (continuation.isActive) {
                    continuation.resume(billingResult)
                }
+           }
 
-               // Called if the connection to the Play Store service is dropped.
-               // This prevents the await or suspension point from hanging indefinitely.
-               override fun onBillingServiceDisconnected() {
+           // Called if the connection to the Play Store service is dropped.
+           // This prevents the await or suspension point from hanging indefinitely.
+           override fun onBillingServiceDisconnected() {
+               if (continuation.isActive) {
                    continuation.resume(
                        BillingResult.newBuilder()
-                           .setResponseCode(BillingClient.BillingResponseCode.SERVICE_DISCONNECTED)
+                           .setResponseCode(BillingResponseCode.SERVICE_DISCONNECTED)
                            .setDebugMessage("Billing service disconnected during connection setup")
                            .build()
                    )
                }
-           })
-       }
+           }
+       })
+   }
+   ```
+
+   <br />
 
    ### Java
 
@@ -526,29 +573,32 @@ scenario:
    ### Kotlin
 
 
-       // Check the availability of the billing choice program asynchronously using coroutines
-       val (billingResult, billingProgramAvailabilityDetails) =
-           billingClient.isBillingProgramAvailable(BillingProgram.BILLING_CHOICE)
+   ```kotlin
+   // Check the availability of the billing choice program asynchronously using coroutines
+   val (billingResult, billingProgramAvailabilityDetails) =
+       billingClient.isBillingProgramAvailable(BillingProgram.BILLING_CHOICE)
 
-       // Ensure the billing program query succeeded
-       if (billingResult.responseCode == BillingResponseCode.OK) {
-           // Retrieve the availability details specific to the billing choice program
-           val billingChoiceAvailabilityDetails =
-               billingProgramAvailabilityDetails.billingChoiceAvailabilityDetails
+   // Ensure the billing program query succeeded
+   if (billingResult.responseCode == BillingResponseCode.OK) {
+       // Retrieve the availability details specific to the billing choice program
+       val billingChoiceAvailabilityDetails =
+           billingProgramAvailabilityDetails.billingChoiceAvailabilityDetails
 
-           // Check if billing choice is available, renders via Google Play, and external link is supported
-           if (billingChoiceAvailabilityDetails != null &&
-               billingChoiceAvailabilityDetails.choiceScreenType == ChoiceScreenType.GOOGLE_RENDERED &&
-               billingChoiceAvailabilityDetails.isExternalLinkAvailable
-           ) {
-               // Billing choice is available and external transaction links are supported. Query products and proceed.
-           } else {
-               // Fallback to other available programs.
-           }
+       // Check if billing choice is available, renders via Google Play, and external link is supported
+       if (billingChoiceAvailabilityDetails != null &&
+           billingChoiceAvailabilityDetails.choiceScreenType == ChoiceScreenType.GOOGLE_RENDERED &&
+           billingChoiceAvailabilityDetails.isExternalLinkAvailable
+       ) {
+           // Billing choice is available and external transaction links are supported. Query products and proceed.
        } else {
            // Fallback to other available programs.
        }
+   } else {
+       // Fallback to other available programs.
+   }
+   ```
 
+   <br />
 
    ### Java
 
@@ -582,30 +632,34 @@ scenario:
    ### Kotlin
 
 
-       // Build the parameters for creating reporting details
-       val params =
-           BillingProgramReportingDetailsParams.newBuilder()
-               .setBillingProgram(BillingProgram.BILLING_CHOICE)
-               .setDeveloperBillingType(DeveloperBillingType.EXTERNAL_LINK)
-               .build()
+   ```kotlin
+   // Build the parameters for creating reporting details
+   val params =
+       BillingProgramReportingDetailsParams.newBuilder()
+           .setBillingProgram(BillingProgram.BILLING_CHOICE)
+           .setDeveloperBillingType(DeveloperBillingType.EXTERNAL_LINK)
+           .build()
 
-       // Call the suspend function to create billing program reporting details
-       val (billingResult, billingProgramReportingDetails) =
-           billingClient.createBillingProgramReportingDetails(params)
+   // Call the suspend function to create billing program reporting details
+   val (billingResult, billingProgramReportingDetails) =
+       billingClient.createBillingProgramReportingDetails(params)
 
-       // Handle response failure cases
-       if (billingResult.responseCode != BillingResponseCode.OK) {
-           // Handle failures such as retrying due to network errors.
-           return
-       }
+   // Handle response failure cases
+   if (billingResult.responseCode != BillingResponseCode.OK) {
+       // Handle failures such as retrying due to network errors.
+       return
+   }
 
-       // Retrieve the external transaction token
-       val transactionToken =
-           billingProgramReportingDetails?.externalTransactionToken
+   // Retrieve the external transaction token
+   val transactionToken =
+       billingProgramReportingDetails?.externalTransactionToken
 
-       // Persist the external transaction token locally. Pass it to
-       // DeveloperBillingOptionParams when launchBillingFlow is called.
-       // It can also be used as part of your external website
+   // Persist the external transaction token locally. Pass it to
+   // DeveloperBillingOptionParams when launchBillingFlow is called.
+   // It can also be used as part of your external website
+   ```
+
+   <br />
 
    ### Java
 
@@ -651,17 +705,26 @@ scenario:
    ### Kotlin
 
 
-       // Build the developer billing option parameters with the external link URI,
-       // the transaction token, and browser/app launch mode.
-       val developerBillingOptionParams =
-           DeveloperBillingOptionParams.newBuilder()
-               .setBillingProgram(BillingProgram.BILLING_CHOICE)
-               .setLinkUri(Uri.parse("https://www.example.com/external/purchase"))
-               .setExternalTransactionToken(transactionToken)
-               .setLaunchMode(
-                   DeveloperBillingOptionParams.LaunchMode.LAUNCH_IN_EXTERNAL_BROWSER_OR_APP
-               )
-               .build()
+   ```kotlin
+   // Build the developer billing option parameters with the external link URI,
+   // the transaction token, and browser/app launch mode.
+   val developerBillingOptionParams =
+       DeveloperBillingOptionParams.newBuilder()
+           .setBillingProgram(BillingProgram.BILLING_CHOICE)
+           .setLinkUri(Uri.parse("https://www.example.com/external/purchase"))
+           .setExternalTransactionToken(transactionToken)
+           .setLaunchMode(
+               DeveloperBillingOptionParams.LaunchMode.LAUNCH_IN_EXTERNAL_BROWSER_OR_APP
+           )
+           .build()
+   val billingFlowParams = BillingFlowParams.newBuilder()
+       .setProductDetailsParamsList(productDetailsParamsList)
+       .enableDeveloperBillingOption(developerBillingOptionParams)
+       .build()
+   val billingResult = billingClient.launchBillingFlow(activity, billingFlowParams)
+   ```
+
+   <br />
 
    ### Java
 
@@ -697,40 +760,53 @@ scenario:
    ### Kotlin
 
 
-       // Build the parameters to enable the Billing Choice program.
-       val params = EnableBillingProgramParams.newBuilder()
-           .setBillingProgram(BillingProgram.BILLING_CHOICE)
-           .build()
+   ```kotlin
+   // Build the parameters to enable the Billing Choice program.
+   val enableBillingProgramParams = EnableBillingProgramParams.newBuilder()
+       .setBillingProgram(BillingProgram.BILLING_CHOICE)
+       .build()
 
-       // Construct the BillingClient instance with the purchases updated listener,
-       // pending purchases support, and the billing choice params.
-       val billingClient = BillingClient.newBuilder(context)
-           .setListener(purchasesUpdatedListener)
-           .enablePendingPurchases()
-           .enableBillingProgram(params)
-           .build()
+   // Build the parameters to enable support for pending purchases.
+   val pendingPurchasesParams = PendingPurchasesParams.newBuilder()
+       .enableOneTimeProducts()
+       .build()
 
-       // Establish a connection to Google Play
-       val billingResult = suspendCancellableCoroutine<BillingResult> { continuation ->
-           billingClient.startConnection(object : BillingClientStateListener {
-               // Called when the connection setup process completes.
-               override fun onBillingSetupFinished(billingResult: BillingResult) {
-                   // Resume the coroutine and pass back the BillingResult to the caller.
+   // Construct the BillingClient instance with the purchases updated listener,
+   // pending purchases support, and the billing choice params.
+   val billingClient = BillingClient.newBuilder(context)
+       .setListener(purchasesUpdatedListener)
+       .enablePendingPurchases(pendingPurchasesParams)
+       .enableBillingProgram(enableBillingProgramParams)
+       .build()
+
+   // Establish a connection to Google Play
+   val billingResult = suspendCancellableCoroutine<BillingResult> { continuation ->
+       billingClient.startConnection(object : BillingClientStateListener {
+           // Called when the connection setup process completes.
+           override fun onBillingSetupFinished(billingResult: BillingResult) {
+               // Resume the coroutine and pass back the BillingResult to the caller.
+               if (continuation.isActive) {
                    continuation.resume(billingResult)
                }
+           }
 
-               // Called if the connection to the Play Store service is dropped.
-               // This prevents the await or suspension point from hanging indefinitely.
-               override fun onBillingServiceDisconnected() {
+           // Called if the connection to the Play Store service is dropped.
+           // This prevents the await or suspension point from hanging indefinitely.
+           override fun onBillingServiceDisconnected() {
+               if (continuation.isActive) {
                    continuation.resume(
                        BillingResult.newBuilder()
-                           .setResponseCode(BillingClient.BillingResponseCode.SERVICE_DISCONNECTED)
+                           .setResponseCode(BillingResponseCode.SERVICE_DISCONNECTED)
                            .setDebugMessage("Billing service disconnected during connection setup")
                            .build()
                    )
                }
-           })
-       }
+           }
+       })
+   }
+   ```
+
+   <br />
 
    ### Java
 
@@ -757,30 +833,34 @@ scenario:
    ### Kotlin
 
 
-       // Check the availability of the billing choice program asynchronously using a coroutine
-       val (billingResult, billingProgramAvailabilityDetails) =
-           billingClient.isBillingProgramAvailable(BillingProgram.BILLING_CHOICE)
+   ```kotlin
+   // Check the availability of the billing choice program asynchronously using a coroutine
+   val (billingResult, billingProgramAvailabilityDetails) =
+       billingClient.isBillingProgramAvailable(BillingProgram.BILLING_CHOICE)
 
-       // Ensure the response code is OK
-       if (billingResult.responseCode == BillingResponseCode.OK) {
-           // Retrieve the billing choice availability details
-           val billingChoiceAvailabilityDetails =
-               billingProgramAvailabilityDetails.billingChoiceAvailabilityDetails
+   // Ensure the response code is OK
+   if (billingResult.responseCode == BillingResponseCode.OK) {
+       // Retrieve the billing choice availability details
+       val billingChoiceAvailabilityDetails =
+           billingProgramAvailabilityDetails.billingChoiceAvailabilityDetails
 
-           // Check if billing choice details are available, choice screen is developer-rendered,
-           // and external transaction links are supported.
-           if (billingChoiceAvailabilityDetails != null &&
-               billingChoiceAvailabilityDetails.choiceScreenType == ChoiceScreenType.DEVELOPER_RENDERED &&
-               billingChoiceAvailabilityDetails.isExternalLinkAvailable
-           ) {
-               // Billing choice is available and external transaction links are supported.
-               // Query products and proceed.
-           } else {
-               // Fallback to other available programs.
-           }
+       // Check if billing choice details are available, choice screen is developer-rendered,
+       // and external transaction links are supported.
+       if (billingChoiceAvailabilityDetails != null &&
+           billingChoiceAvailabilityDetails.choiceScreenType == ChoiceScreenType.DEVELOPER_RENDERED &&
+           billingChoiceAvailabilityDetails.isExternalLinkAvailable
+       ) {
+           // Billing choice is available and external transaction links are supported.
+           // Query products and proceed.
        } else {
            // Fallback to other available programs.
        }
+   } else {
+       // Fallback to other available programs.
+   }
+   ```
+
+   <br />
 
    ### Java
 
@@ -812,28 +892,32 @@ scenario:
    ### Kotlin
 
 
-       // 1. Create the params required for the request
-       val params = GetBillingChoiceInfoParams.newBuilder()
-           .setBillingProgram(BillingClient.BillingProgram.BILLING_CHOICE)
-           .setPlayBillingChoiceImageLayout(GetBillingChoiceInfoParams.ImageLayout.RECTANGULAR_FOUR_BY_ONE)
-           .build()
+   ```kotlin
+   // 1. Create the params required for the request
+   val params = GetBillingChoiceInfoParams.newBuilder()
+       .setBillingProgram(BillingProgram.BILLING_CHOICE)
+       .setPlayBillingChoiceImageLayout(GetBillingChoiceInfoParams.ImageLayout.RECTANGULAR_FOUR_BY_ONE)
+       .build()
 
-       // 2. Call the suspend method on your billingClient instance
-       val (billingResult, playBillingChoiceInfo) = billingClient.getBillingChoiceInfo(params)
+   // 2. Call the suspend method on your billingClient instance
+   val (billingResult, playBillingChoiceInfo) = billingClient.getBillingChoiceInfo(params)
 
-       if (billingResult.responseCode == BillingResponseCode.OK && playBillingChoiceInfo != null) {
-           // Access the URL of the image associated with the Play Billing Choice
-           val imageUrl = playBillingChoiceInfo.playBillingChoiceImageUrl
+   if (billingResult.responseCode == BillingResponseCode.OK && playBillingChoiceInfo != null) {
+       // Access the URL of the image associated with the Play Billing Choice
+       val imageUrl = playBillingChoiceInfo.playBillingChoiceImageUrl
 
-           // Access the Play Loyalty string information, if available
-           val loyaltyInfo = playBillingChoiceInfo.playBillingLoyaltyInfo
+       // Access the Play Loyalty string information, if available
+       val loyaltyInfo = playBillingChoiceInfo.playBillingLoyaltyInfo
 
-           // Populate your developer-rendered UI elements
-           playBillingLoyaltyTextView.text = loyaltyInfo
-           loadImage(imageUrl, playBillingImageView)
-       } else {
-           // Handle error scenarios
-       }
+       // Populate your developer-rendered UI elements
+       playBillingLoyaltyTextView.text = loyaltyInfo
+       loadImage(imageUrl, playBillingImageView)
+   } else {
+       // Handle error scenarios
+   }
+   ```
+
+   <br />
 
    ### Java
 
@@ -865,30 +949,34 @@ scenario:
    ### Kotlin
 
 
-       // Build the parameters for creating reporting details
-       val params =
-           BillingProgramReportingDetailsParams.newBuilder()
-               .setBillingProgram(BillingProgram.BILLING_CHOICE)
-               .setDeveloperBillingType(DeveloperBillingType.EXTERNAL_LINK)
-               .build()
+   ```kotlin
+   // Build the parameters for creating reporting details
+   val params =
+       BillingProgramReportingDetailsParams.newBuilder()
+           .setBillingProgram(BillingProgram.BILLING_CHOICE)
+           .setDeveloperBillingType(DeveloperBillingType.EXTERNAL_LINK)
+           .build()
 
-       // Call the suspend function to create billing program reporting details
-       val (billingResult, billingProgramReportingDetails) =
-           billingClient.createBillingProgramReportingDetails(params)
+   // Call the suspend function to create billing program reporting details
+   val (billingResult, billingProgramReportingDetails) =
+       billingClient.createBillingProgramReportingDetails(params)
 
-       // Handle response failure cases
-       if (billingResult.responseCode != BillingResponseCode.OK) {
-           // Handle failures such as retrying due to network errors.
-           return
-       }
+   // Handle response failure cases
+   if (billingResult.responseCode != BillingResponseCode.OK) {
+       // Handle failures such as retrying due to network errors.
+       return
+   }
 
-       // Retrieve the external transaction token
-       val transactionToken =
-           billingProgramReportingDetails?.externalTransactionToken
+   // Retrieve the external transaction token
+   val transactionToken =
+       billingProgramReportingDetails?.externalTransactionToken
 
-       // Persist the external transaction token locally. Pass it to
-       // DeveloperBillingOptionParams when launchBillingFlow is called.
-       // It can also be used as part of your external website
+   // Persist the external transaction token locally. Pass it to
+   // DeveloperBillingOptionParams when launchBillingFlow is called.
+   // It can also be used as part of your external website
+   ```
+
+   <br />
 
    ### Java
 
@@ -938,30 +1026,34 @@ scenario:
      ### Kotlin
 
 
-         // An activity reference from which the purchase flow will be launched.
-         val activity: Activity = ...
+     ```kotlin
+     // An activity reference from which the purchase flow will be launched.
 
-         val params = LaunchExternalLinkParams.newBuilder()
-             .setBillingProgram(BillingProgram.BILLING_CHOICE)
-             // You can pass along the external transaction token from
-             // BillingProgramReportingDetails as a URL parameter in the URI
-             .setLinkUri(yourLinkUri)
-             .setLinkType(LaunchExternalLinkParams.LinkType.LINK_TO_DIGITAL_CONTENT_OFFER)
-             .setLaunchMode(
-                 LaunchExternalLinkParams.LaunchMode.LAUNCH_IN_EXTERNAL_BROWSER_OR_APP
-             )
-             .build()
+     val params = LaunchExternalLinkParams.newBuilder()
+         .setBillingProgram(BillingProgram.BILLING_CHOICE)
+         .setExternalTransactionToken(transactionToken)
+         // You can pass along the external transaction token from
+         // BillingProgramReportingDetails as a URL parameter in the URI
+         .setLinkUri(yourLinkUri)
+         .setLinkType(LaunchExternalLinkParams.LinkType.LINK_TO_DIGITAL_CONTENT_OFFER)
+         .setLaunchMode(
+             LaunchExternalLinkParams.LaunchMode.LAUNCH_IN_EXTERNAL_BROWSER_OR_APP
+         )
+         .build()
 
-         // Call launchExternalLink with a callback
-         billingClient.launchExternalLink(activity, params) { billingResult ->
-             if (billingResult.responseCode == BillingResponseCode.OK) {
-                 // Proceed with the rest of the purchase flow. If the user
-                 // purchases an item, be sure to report the transaction to Google
-                 // Play.
-             } else {
-                 // Handle failures such as retrying due to network errors.
-             }
+     // Call launchExternalLink with a callback
+     billingClient.launchExternalLink(activity, params) { billingResult ->
+         if (billingResult.responseCode == BillingResponseCode.OK) {
+             // Proceed with the rest of the purchase flow. If the user
+             // purchases an item, be sure to report the transaction to Google
+             // Play.
+         } else {
+             // Handle failures such as retrying due to network errors.
          }
+     }
+     ```
+
+     <br />
 
      ### Java
 
@@ -1035,38 +1127,42 @@ retrieve from the callback.
 ### Kotlin
 
 
-    // The external transaction ID from the current
-    // alternative billing subscription.
-    val externalTransactionId = //... ;
+```kotlin
+// The external transaction ID from the current
+// alternative billing subscription.
+val externalTransactionId = "external_transaction_id"
 
-    val developerBillingOptionParams = DeveloperBillingOptionParams.newBuilder()
-        .setBillingProgram(BillingProgram.BILLING_CHOICE)
-        .build()
+val developerBillingOptionParams = DeveloperBillingOptionParams.newBuilder()
+    .setBillingProgram(BillingProgram.BILLING_CHOICE)
+    .build()
 
-    val billingFlowParams = BillingFlowParams.newBuilder()
-        .setProductDetailsParamsList(
-            listOf(
-                BillingFlowParams.ProductDetailsParams.newBuilder()
-                    // Fetched using queryProductDetailsAsync.
-                    .setProductDetails(productDetailsNewPlan)
-                    // offerIdToken can be found in
-                    // ProductDetails=>SubscriptionOfferDetails.
-                    .setOfferToken(offerTokenNewPlan)
-                    .build()
-            )
-        )
-        .setSubscriptionUpdateParams(
-            BillingFlowParams.SubscriptionUpdateParams.newBuilder()
-                .setOriginalExternalTransactionId(externalTransactionId)
+val billingFlowParams = BillingFlowParams.newBuilder()
+    .setProductDetailsParamsList(
+        listOf(
+            BillingFlowParams.ProductDetailsParams.newBuilder()
+                // Fetched using queryProductDetailsAsync.
+                .setProductDetails(productDetailsNewPlan)
+                // offerIdToken can be found in
+                // ProductDetails=>SubscriptionOfferDetails.
+                .setOfferToken(offerTokenNewPlan)
                 .build()
         )
-        .enableDeveloperBillingOption(developerBillingOptionParams)
-        .build()
+    )
+    .setSubscriptionUpdateParams(
+        SubscriptionUpdateParams.newBuilder()
+            .setOriginalExternalTransactionId(externalTransactionId)
+            .build()
+    )
+    .enableDeveloperBillingOption(developerBillingOptionParams)
+    .build()
 
-    val billingResult = billingClient.launchBillingFlow(activity, billingFlowParams)
+val billingResult = billingClient.launchBillingFlow(activity, billingFlowParams)
 
-    // When the user selects the alternative billing flow,
-    // the DeveloperProvidedBillingListener is triggered.
+// When the user selects the alternative billing flow,
+// the DeveloperProvidedBillingListener is triggered.
+```
+
+<br />
 
 ### Java
 
@@ -1143,32 +1239,36 @@ purchase is preserved for upgrades and downgrades. For example:
 ### Kotlin
 
 
-    val externalTransactionId = //... ;
+```kotlin
+val externalTransactionId = "external_transaction_id"
 
-    // 1. Construct DeveloperBillingOptionParams indicating the billing program
-    val developerBillingOptionParams = DeveloperBillingOptionParams.newBuilder()
-        .setBillingProgram(BillingClient.BillingProgram.BILLING_CHOICE)
-        .build()
+// 1. Construct DeveloperBillingOptionParams indicating the billing program
+val developerBillingOptionParams = DeveloperBillingOptionParams.newBuilder()
+    .setBillingProgram(BillingProgram.BILLING_CHOICE)
+    .build()
 
-    // 2. Build BillingFlowParams combining DeveloperBillingOptionParams and SubscriptionUpdateParams
-    val billingFlowParams = BillingFlowParams.newBuilder()
-        .setProductDetailsParamsList(
-            listOf(
-                BillingFlowParams.ProductDetailsParams.newBuilder()
-                    // Fetched using queryProductDetailsAsync.
-                    .setProductDetails(productDetailsNewPlan)
-                    // offerIdToken can be found in ProductDetails=>SubscriptionOfferDetails.
-                    .setOfferToken(offerTokenNewPlan)
-                    .build()
-            )
-        )
-        .setSubscriptionUpdateParams(
-            SubscriptionUpdateParams.newBuilder()
-                .setOriginalExternalTransactionId(externalTransactionId)
+// 2. Build BillingFlowParams combining DeveloperBillingOptionParams and SubscriptionUpdateParams
+val billingFlowParams = BillingFlowParams.newBuilder()
+    .setProductDetailsParamsList(
+        listOf(
+            BillingFlowParams.ProductDetailsParams.newBuilder()
+                // Fetched using queryProductDetailsAsync.
+                .setProductDetails(productDetailsNewPlan)
+                // offerIdToken can be found in ProductDetails=>SubscriptionOfferDetails.
+                .setOfferToken(offerTokenNewPlan)
                 .build()
         )
-        .enableDeveloperBillingOption(developerBillingOptionParams)
-        .build()
+    )
+    .setSubscriptionUpdateParams(
+        SubscriptionUpdateParams.newBuilder()
+            .setOriginalExternalTransactionId(externalTransactionId)
+            .build()
+    )
+    .enableDeveloperBillingOption(developerBillingOptionParams)
+    .build()
+```
+
+<br />
 
 ### Java
 
@@ -1208,31 +1308,29 @@ You must also generate a new external transaction token. For example:
 ### Kotlin
 
 
-    val params =
-        BillingProgramReportingDetailsParams.newBuilder()
-            .setBillingProgram(BillingProgram.BILLING_CHOICE)
-            .setDeveloperBillingType(DeveloperBillingType.EXTERNAL_LINK)
-            .build()
+```kotlin
+val params =
+    BillingProgramReportingDetailsParams.newBuilder()
+        .setBillingProgram(BillingProgram.BILLING_CHOICE)
+        .setDeveloperBillingType(DeveloperBillingType.EXTERNAL_LINK)
+        .build()
 
-    billingClient.createBillingProgramReportingDetailsAsync(
-        params,
-        object : BillingProgramReportingDetailsListener {
-            override fun onCreateBillingProgramReportingDetailsResponse(
-                billingResult: BillingResult,
-                billingProgramReportingDetails: BillingProgramReportingDetails?
-            ) {
-                if (billingResult.responseCode != BillingResponseCode.OK) {
-                    // Handle failures such as retrying due to network errors.
-                    return
-                }
-                val externalTransactionToken =
-                    billingProgramReportingDetails?.externalTransactionToken
-                // Persist the external transaction token locally. Pass it to
-                // the external website using DeveloperBillingOptionParams when
-                // launchBillingFlow is called.
-            }
-        }
-    )
+val (billingResult, billingProgramReportingDetails) =
+    billingClient.createBillingProgramReportingDetails(params)
+
+if (billingResult.responseCode != BillingResponseCode.OK) {
+    // Handle failures such as retrying due to network errors.
+    return
+}
+
+val externalTransactionToken =
+    billingProgramReportingDetails?.externalTransactionToken
+// Persist the external transaction token locally. Pass it to
+// the external website using DeveloperBillingOptionParams when
+// launchBillingFlow is called.
+```
+
+<br />
 
 ### Java
 

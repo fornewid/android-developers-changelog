@@ -8,7 +8,7 @@ source: md.txt
 
 |---|---|
 | **Release date** | August 28, 2026 |
-| **Builds** | CP41.260814.003.A2 CP41.260814.003.B1 |
+| **Builds** | CP41.260814.003.A2 CP41.260814.003.B1 CP41.260814.003.C2 |
 | **Emulator support** | x86 (64-bit), ARM (v8-A) |
 | **Security patch level** | 2026-08-05 |
 | **Google Play services** | 26.28.33 |

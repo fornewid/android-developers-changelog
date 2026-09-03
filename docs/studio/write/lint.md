@@ -6,19 +6,32 @@ source: md.txt
 
 In addition to [building tests](https://developer.android.com/studio/test/test-in-android-studio)
 to make sure your app meets its functional requirements, it's
-important that you also run the code through the lint tool to help ensure your code has no structural
-problems. The lint tool helps find poorly structured code that can impact the
-reliability and efficiency of your Android apps and make your code harder to maintain.
-It is strongly recommended that you correct any errors that lint detects
-before publishing your app.
+important that you also run the code through the lint tool to help ensure your
+code has no structural problems. The lint tool helps find poorly structured
+code that can impact the reliability and efficiency of your Android apps and make
+your code harder to maintain. It's strongly recommended that you correct any
+errors that lint detects before publishing your app.
 
-For example, if your XML resource files contain unused namespaces, this takes up space and requires
-unnecessary processing. Other structural issues, such as use of deprecated elements or API calls
-that are not supported by the target API versions, might lead to code failing to run correctly.
-Lint can help you clean up these issues.
+For example, if your XML resource files contain unused namespaces, this takes
+up space and requires unnecessary processing. Other structural issues, such as
+use of deprecated elements or API calls that are not supported by the target API
+versions, might lead to code failing to run correctly. Lint can help you clean
+up these issues.
 
 To improve linting performance, you can also
 [add annotations to your code](https://developer.android.com/studio/write/annotations).
+
+## Android CLI
+
+[Download the Android CLI](https://developer.android.com/tools/agents)
+
+### Try Android CLI to analyze your file
+
+Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
+
+For example, use the [`android studio analyze-file`](https://developer.android.com/tools/agents/android-cli#studio-analyze-file) command when you need to analyze your file for errors, warnings, and lint issues.
+
+    android studio analyze-file <path>
 
 ## Overview
 
@@ -36,7 +49,8 @@ optimization improvements for correctness, security, performance, usability,
 accessibility, and internationalization. When using Android Studio,
 configured lint and IDE inspections run when you build your app. However,
 you can [run inspections manually](https://developer.android.com/studio/write/lint#manuallyRunInspections) or
-[run lint from the command line](https://developer.android.com/studio/write/lint#commandline), as described on this page.
+[run lint from the command line](https://developer.android.com/studio/write/lint#commandline), as described on
+this page.
 
 The built-in lint tool checks your code while you're using
 Android Studio. You can view warnings and errors in two ways:
@@ -100,9 +114,9 @@ You should see output similar to the following:
 Wrote HTML report to file:<path-to-project>/app/build/reports/lint-results-debug.html
 ```
 
-When the lint tool completes its checks, it provides paths to the XML and HTML
-versions of the lint report. You can then navigate to the HTML report and open it in your browser,
-as shown in figure 2.
+When the lint tool completes its checks, it provides paths to the XML and
+HTML versions of the lint report. You can then navigate to the HTML report and
+open it in your browser, as shown in figure 2.
 ![Sample HTML lint report](https://developer.android.com/static/studio/images/write/html_lint_report.png) **Figure 2.** Sample HTML lint report.
 
 
@@ -537,10 +551,11 @@ you know if you have actually fixed issues, so you can optionally re-create the 
 an error from coming back undetected.
 
 **Note:**
-Baselines are enabled when you run inspections in batch mode in the IDE, but they are ignored
-for the in-editor checks that run in the background when you are editing a file. This is because
-baselines are intended for the case where a codebase has a large number of existing warnings,
-but you do want to fix issues locally while you touch the code.
+Baselines are enabled when you run inspections in batch mode in the IDE, but
+they are ignored for the in-editor checks that run in the background when you
+are editing a file. This is because baselines are intended for the case where a
+codebase has a large number of existing warnings, but you do want to fix issues
+locally while you touch the code.
 
 ## Run inspections manually
 
@@ -580,10 +595,11 @@ inspections you want to run (the inspection *profile*) as follows:
 6. In the **Inspection Results** pane, view the inspection results by expanding and selecting
    error categories, types, or issues.
 
-   The **Inspection Report** pane displays the inspection report for the error category,
-   type, or issue selected in the **Inspection Results** pane and displays the name and
-   location of the error. Where applicable, the inspection report displays other information,
-   such as a problem synopsis, to help you correct the problem.
+   The **Inspection Report** pane displays the inspection report for the
+   error category, type, or issue selected in the **Inspection Results**
+   pane and displays the name and location of the error. Where applicable,
+   the inspection report displays other information, such as a problem
+   synopsis, to help you correct the problem.
 7. In the **Inspection Results** pane tree view, right-click a category, type, or issue to
    display
    the context menu.

@@ -13,6 +13,16 @@ Android Emulator.
 For information about using the Android Emulator UI, see
 [Run apps on the Android Emulator](https://developer.android.com/studio/run/emulator).
 
+## Android CLI
+
+[Download the Android CLI](https://developer.android.com/tools/agents)
+
+### Use Android CLI to manage the Android emulator
+
+The `emulator` tool is deprecated. Instead, use the Android CLI [`android emulator`](https://developer.android.com/tools/agents/android-cli#emulator-create) command to manage the Android emulator from the command line.
+
+    android emulator [create <profile-name>|start <device-name>|stop <device-serial-number>|list]
+
 ## Start the emulator
 
 Use the `emulator` command to start the emulator, as an alternative to
@@ -94,7 +104,6 @@ data, start the emulator with the `-wipe-data` option or wipe the
 data in the AVD Manager. For more information about the user data
 partition and other storage, see the following section.
 
-
 **Note:** The `adb` utility views the virtual device as
 an actual physical device. For this reason, you might have to use the
 `-d` flag with some common `adb` commands, such as
@@ -122,7 +131,7 @@ shared by all AVDs of the same type, including API level, CPU architecture, and
 Android variant. The default locations are the following:
 
 - macOS and Linux - `~/Library/Android/sdk/system-images/android-apiLevel/variant/arch/`
-- Windows - `C:\Users\user\Library\Android\sdk\system-images\android-apiLevel\variant\arch\`
+- Windows - `C:\Users\user\Library\Android\sdk\system-images\android-apiLevel\variant\arch\\`
 
 
 Where:
@@ -159,7 +168,7 @@ The default location is the following, where `name` is the
 AVD name:
 
 - macOS and Linux - `~/.android/avd/name.avd/`
-- Windows 10, and higher - `C:\Users\user\.android\name.avd\`
+- Windows 10, and higher - `C:\Users\user\.android\name.avd\\`
 
 
 Use the `-datadir` option to specify a different AVD data directory.
@@ -201,7 +210,6 @@ You can discover where files are located in two ways:
 This section lists options you can supply on the command line when you start the
 emulator.
 
-
 **Note:** The Android Emulator is continually under development to
 make it more reliable. For status on the issues reported against various command-line options
 and to report bugs, see the [Android Issue Tracker](https://issuetracker.google.com/issues?q=componentid:192708&s=modified_time:descfirst).
@@ -217,13 +225,13 @@ The following table lists command-line startup options that you might use more o
 |---|---|
 | **Quick Boot** ||
 | `-no-snapshot-load` | Performs a cold boot and saves the emulator state on exit. |
-| `-no-snapshot-save` | Performs a quick boot if possible, but does not save the emulator state on exit. |
+| `-no-snapshot-save` | Performs a quick boot if possible, but doesn't save the emulator state on exit. |
 | `-no-snapshot` | Disables the Quick Boot feature completely and doesn't load or save the emulator state. |
 | **Device Hardware** ||
 | `-camera-back mode` `-camera-front mode` | Sets the emulation mode for a camera facing back or front. This overrides any camera setting in the AVD. `mode` can be any of the following values: - `emulated` - The emulator simulates a camera in the software. - `environment` - The emulator uses a virtual scene defined in the environment configuration file of the AVD. - `webcamn` - The emulator uses a webcam connected to your development computer, specified by number. For a list of webcams, use the `-webcam-list` option. For example, `webcam0`. - `imagefile:filename` - The emulator uses an image file for the camera output. - `videofile:filename` - The emulator uses a video for the camera output. - `image360:filename` - The emulator uses an equirectangular panoramic image for the camera output. Available in version 36.6.4 and higher. - `none` - Disables the camera in the virtual device. For example: ``` emulator @Pixel8_API_34 -camera-back webcam0 ``` |
 | `-webcam-list` | Lists the webcams on your development computer that are available for emulation. For example: ``` emulator @Pixel8_API_34 -webcam-list List of web cameras connected to the computer: Camera 'webcam0' is connected to device 'webcam0' on channel 0 using pixel format 'UYVY' ``` In the example, the first `webcam0` is the name you use on the command line. The second `webcam0` is the name used by the OS on the development computer. The second name varies depending on the OS. As of SDK Tools 25.2.4, the AVD name is required. |
 | **Disk images and memory** ||
-| `-memory size` | Specifies the physical RAM size, from 1536 to 8192 MBs. For example: <br /> ``` emulator @Pixel8_API_34 -memory 2048 ``` This value overrides the AVD setting. |
+| `-memory size` | Specifies the physical RAM size, from 1536 to 8192 MBs. For example: ``` emulator @Pixel8_API_34 -memory 2048 ``` This value overrides the AVD setting. |
 | `-sdcard filepath` | Specifies the filename and path to an SD card partition image file. For example: ``` emulator @Pixel8_API_34 -sdcard C:/sd/sdcard.img ``` If the file isn't found, the emulator still launches, but without an SD card. The command returns a **No SD Card Image** warning. If you don't specify this option, the default is `sdcard.img` in the data directory unless the AVD specifies something different. For details about emulated SD cards, see [AVD data directory](https://developer.android.com/studio/run/emulator-commandline#data-filedir). |
 | `-wipe-data` | Deletes user data and copies data from the initial data file. This option clears the data for the virtual device and returns it to the same state as when it was first defined. All installed apps and settings are removed. For example: ``` emulator @Pixel8_API_34 -wipe-data ``` By default, the user data file is `userdata-qemu.img` and the initial data file is `userdata.img`. Both of these files reside in the data directory. The `-wipe-data` option doesn't affect the `sdcard.img` file. For more information about user data, see the section called [Understand the default directories and files](https://developer.android.com/studio/run/emulator-commandline#filedir). |
 | **Debug** ||
@@ -284,12 +292,12 @@ the Android system and run it inside the emulator with no pre-created AVD.
 | `-data filepath` | Sets the user data partition image file. Provides a filename and an absolute path or a path relative to the working directory to set up a persistent user data file. If the file doesn't exist, the emulator creates an image from the default `userdata.img` file, stores it in the filename you specified, and persists user data to it at shutdown. For example: ``` emulator @Pixel8_API_34 -data ~/.android/avd/Pixel8_API_34.avd/userdata-test.img ``` If you don't use this option, the default is a file named `userdata-qemu.img`. For more information about the user data file, see [AVD data directory](https://developer.android.com/studio/run/emulator-commandline#data-filedir). |
 | `-datadir dir` | Specifies a data directory using an absolute path. For more information, see [AVD data directory](https://developer.android.com/studio/run/emulator-commandline#data-filedir). For example: ``` emulator @Pixel8_API_34 -datadir ~/.android/avd/Pixel8_API_34.avd/mytest ``` |
 | `-force-32bit` | Uses the 32-bit emulator on 64-bit platforms. Occasionally, this option is useful for testing or debugging. For example, there was an issue where the emulator would sometimes not run on 64-bit Windows, but 32-bit did run. This option was helpful for performing comparisons to debug the issue. Here's an example: ``` emulator @Pixel8_API_34 -force-32bit ``` |
-| `-help-disk-images` | Gets help about about disk images. This option provides information relevant to both app and platform developers. For example: ``` emulator -help-disk-images ``` |
+| `-help-disk-images` | Gets help about disk images. This option provides information relevant to both app and platform developers. For example: ``` emulator -help-disk-images ``` |
 | `-help-char-devices` | Gets help about character `device` specifications. A `device` parameter is required by some emulator options. For example: ``` emulator -help-char-devices ``` |
 | `-help-sdk-images` | Gets help about disk images relevant to app developers. This option gets information about where the image files are located for an AVD created with the SDK tools. For example: ``` emulator -help-sdk-images ``` |
 | `-help-build-images` | Gets help about disk images relevant to platform developers. For example: ``` emulator -help-build-images ``` |
 | `-initdata filepath` `-init-data filepath` | Specifies the initial version of the data partition. After wiping user data, the emulator copies the contents of the specified file to user data (by default, the `userdata-qemu.img` file) instead of using the default `userdata.img` file as the initial version. Specifies the filename and an absolute path or a path relative to the working directory. For example: ``` emulator @Pixel8_API_34 -initdata ~/Library/Android/sdk/system-images/android-34/ google_apis/x86_64/userdata-test.img ``` If you don't specify a path, it places the file in the system directory. For more information, see [AVD system directory](https://developer.android.com/studio/run/emulator-commandline#system-filedir). |
-| `-kernel filepath` | Uses a specific emulated kernel. If you don't specify a path, the emulator looks in the system directory. Use the `‑show‑kernel` option to view kernel debug messages. <br /> For example: ``` emulator @Pixel8_API_34 -kernel ~/Library/Android/sdk/system-images/android-34/ google_apis/x86_64/kernel-test.img -show-kernel ``` If you don't specify this option, the default is `kernel-ranchu`. For more information, see [AVD system directory](https://developer.android.com/studio/run/emulator-commandline#system-filedir). |
+| `-kernel filepath` | Uses a specific emulated kernel. If you don't specify a path, the emulator looks in the system directory. Use the `‑show‑kernel` option to view kernel debug messages. For example: ``` emulator @Pixel8_API_34 -kernel ~/Library/Android/sdk/system-images/android-34/ google_apis/x86_64/kernel-test.img -show-kernel ``` If you don't specify this option, the default is `kernel-ranchu`. For more information, see [AVD system directory](https://developer.android.com/studio/run/emulator-commandline#system-filedir). |
 | `-noaudio` `-no-audio` | Disables audio support for this virtual device. Some Linux and Windows computers have faulty audio drivers that cause different symptoms, such as preventing the emulator from starting. In this case, use this option to overcome the issue. Alternatively, you can use the `QEMU_AUDIO_DRV` environment variable to change the audio backend. For example: ``` emulator @Pixel8_API_34 -noaudio ``` |
 | `-nocache` `-no-cache` | Starts the emulator without a cache partition. If you don't use this option, the default is a temporary file named `cache.img`. This option is for platform developers only. For more information, see [AVD data directory](https://developer.android.com/studio/run/emulator-commandline#data-filedir). For example: ``` emulator @Pixel8_API_34 -nocache ``` |
 | `-no-snapshot` | Inhibits both the automatic load and save operations, causing the emulator to execute a full boot sequence and to lose its state when closed. It overrides the `-snapshot` option. For example: ``` emulator @Pixel8_API_34 -no-snapshot ``` |
@@ -345,8 +353,7 @@ The following command-line options are deprecated:
 - `-skin`
 - `-skindir`
 - `-trace`
-- `-useaudio
-  `
+- `-useaudio`
 
 ## Get help about command-line options
 

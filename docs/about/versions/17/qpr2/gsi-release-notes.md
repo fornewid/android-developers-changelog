@@ -34,6 +34,10 @@ on the following Pixel devices:
 - Pixel 10 Pro XL
 - Pixel 10 Pro Fold
 - Pixel 10a
+- Pixel 11
+- Pixel 11 Pro
+- Pixel 11 Pro XL
+- Pixel 11 Pro Fold
 
 See the [GSI documentation](https://developer.android.com/topic/generic-system-image) for device requirements, flashing instructions,
 and more information on choosing the right image type for your device.

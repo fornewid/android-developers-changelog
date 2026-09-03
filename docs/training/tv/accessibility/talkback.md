@@ -17,10 +17,11 @@ you do so without looking at the TV screen.
 
 ### First-time use
 
-Explore the landing page and log into an account, trying every possible login path:
+Explore the landing page and log into an account, trying every possible login
+path:
 
 - Use the remote control to enter the account credentials.
-- If available, log in with a code.
+- If available, sign in with a code.
 - If available, opt into a trial.
 
 Confirm the following:
@@ -64,9 +65,9 @@ pause or stop autoplay content is recommended by the
 
 ### Explore information pages for media content
 
-If your app contains media content with detail pages, such as an information page
-about a movie or show, open the detail page for two or more media titles and do
-the following:
+If your app contains media content with detail pages, such as an information
+page about a movie or show, open the detail page for two or more media titles
+and do the following:
 
 - Navigate through all the information available for a title.
 - Test all available actions, such as play, rent, and add to favorites.

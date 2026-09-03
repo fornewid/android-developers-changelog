@@ -9,7 +9,7 @@ source: md.txt
 The following table lists all documented features and behavior changes that
 might affect app developers. Use this list to find changes that affect you,
 and then click the corresponding link to read the documentation.
-Accessibility Connectivity Core functionality Graphics Human input Device form factors Media Privacy Security User experience and system UI New features and APIs Change (all apps) Change (apps targeting 17+)
+Accessibility Connectivity Core functionality Graphics Human input Intelligence Device form factors Media Privacy Security User experience and system UI New features and APIs Change (all apps) Change (apps targeting 17+)
 
 | Category | Type | Name |
 |---|---|---|
@@ -53,4 +53,5 @@ Accessibility Connectivity Core functionality Graphics Human input Device form f
 | Connectivity | New features and APIs | [Constrained satellite networks](https://developer.android.com/about/versions/17/features#satellite) Focuses on enabling Android apps to function effectively over low-bandwidth satellite networks. |
 | Accessibility | Change (apps targeting 17+) | [Accessibility support of complex IME physical keyboard typing](https://developer.android.com/about/versions/17/behavior-changes-17#a11y-ime-pk) By allowing IMEs to convey more text-change information through the editor to accessibility service, this feature helps screen readers deliver more consistent, natural, and reliable feedback for complex IMEs. |
 | Device form factors | Change (apps targeting 17+) | [Platform API changes to ignore orientation, resizability and aspect ratio constraints on large screens (sw\>=600dp)](https://developer.android.com/about/versions/17/behavior-changes-17#large-screen-ignore-constraints) Android 16 introduced platform API changes to ignore orientation, resizability, and aspect ratio constraints on large screens (sw \>= 600dp). Apps that target Android 17 will no longer be able to opt out of these changes. |
+| Intelligence | Change (apps targeting 17+) | [Deprecation of setContentCaptureEnabled](https://developer.android.com/about/versions/17/behavior-changes-17#deprecate-setcontentcaptureenabled) Starting in Android 17, calling setContentCaptureEnabled(false) no longer disables Content Capture for apps that target Android 17 or higher. |
 | Graphics | New features and APIs | [WebGPU on Android](https://developer.android.com/about/versions/17/features#webgpu-android) WebGPU offers idiomatic Kotlin and Java graphics and compute APIs that provide access to Vulkan, part of Android's transition to Vulkan as the primary low-level GPU API. |
