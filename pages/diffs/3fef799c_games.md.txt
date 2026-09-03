@@ -1,0 +1,39 @@
+diff --git a/docs/training/tv/games.md b/docs/training/tv/games.md
+index 57a2232b..3f739f05 100644
+--- a/docs/training/tv/games.md
++++ b/docs/training/tv/games.md
+@@ -137,7 +137,7 @@ your app manifest:
+ ```
+ 
+ 
+-**Note:** When specifying `android:hardware:gamepad` support, do not set the
++**Note:** When specifying `android:hardware:gamepad` support, don't set the
+ `android:required` attribute to `"true"`. If you do this, users won't be able to
+ install your app on TV devices.
+ 
+@@ -168,7 +168,7 @@ Android](https://developers.google.com/games/services/training/signin).
+ ### Saving
+ 
+ 
+-Use Google Play Services [Saved Games](https://developers.google.com/games/services/common/concepts/savedgames) to store
++Use Google Play services [Saved Games](https://developers.google.com/games/services/common/concepts/savedgames) to store
+ your game save. Your game should bind game saves to a specific Google Account, so as to be
+ uniquely identifiable even across devices: Whether the player is using a handset or a TV, the
+ game should be able to pull the game-save information from the same user account.
+@@ -187,7 +187,7 @@ Home button to provide an exit, as that is not consistent nor reliable across di
+ ## Web
+ 
+ 
+-Do not enable web browsing in games for Android TV. Android TV does not support a web browser.
++Don't enable web browsing in games for Android TV. Android TV does not support a web browser.
+ 
+ 
+ **Note:** You can use the `https://developer.android.com/reference/android/webkit/WebView` class for logins to
+@@ -197,5 +197,5 @@ social media services.
+ 
+ Games frequently need greater bandwidth to provide optimum performance, and many users prefer
+ ethernet to WiFi to provide that performance. Your app should check for both WiFi and ethernet
+-connections. If your app is for TV only, you do not need to check for 3G/LTE service as you would
++connections. If your app is for TV only, you don't need to check for 3G/LTE service as you would
+ for a mobile app.
+\ No newline at end of file

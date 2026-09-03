@@ -1,0 +1,107 @@
+diff --git a/docs/about/versions/17/qpr2/download-ota.md b/docs/about/versions/17/qpr2/download-ota.md
+index ac854285..0394b58f 100644
+--- a/docs/about/versions/17/qpr2/download-ota.md
++++ b/docs/about/versions/17/qpr2/download-ota.md
+@@ -49,6 +49,10 @@ OTA images are available for the following Pixel devices:
+ - Pixel 10 Pro XL
+ - Pixel 10 Pro Fold
+ - Pixel 10a
++- Pixel 11
++- Pixel 11 Pro
++- Pixel 11 Pro XL
++- Pixel 11 Pro Fold
+ 
+ After you've installed a beta build to your Pixel device, your device is automatically enrolled in the [Android Beta for Pixel program](https://g.co/androidbeta) and offered continuous over-the-air (OTA) updates to the latest beta builds (including QPRs) until you choose to unenroll that device from the program.
+ 
+@@ -78,7 +82,7 @@ You can choose to [return to the latest public build](https://developer.android.
+ 
+ |---|---|
+ | **Release date** | August 28, 2026 |
+-| **Builds** | CP41.260814.003.A2 CP41.260814.003.B1 |
++| **Builds** | CP41.260814.003.A2 CP41.260814.003.B1 CP41.260814.003.C2 |
+ | **Emulator support** | x86 (64-bit), ARM (v8-A) |
+ | **Security patch level** | 2026-08-05 |
+ | **Google Play services** | 26.28.33 |
+@@ -104,6 +108,10 @@ You can choose to [return to the latest public build](https://developer.android.
+ | Pixel 10 Pro XL | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 QPR1 Beta" data-action="download" data-label="mustang" data-modal-dialog-id="mustang_ota_zip">mustang_beta-ota-cp41.260814.003.b1-3a99fb47.zip</button> `3a99fb47e742dae2ba2382be7d026b44b8646d553a5a9be910933ef6c4d7647b` |
+ | Pixel 10 Pro Fold | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 QPR1 Beta" data-action="download" data-label="rango" data-modal-dialog-id="rango_ota_zip">rango_beta-ota-cp41.260814.003.b1-538588bb.zip</button> `538588bb8f02b372c9356ff3476fb53e9f0ef14e5f45e8d95668d25710d52500` |
+ | Pixel 10a | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 QPR1 Beta" data-action="download" data-label="stallion" data-modal-dialog-id="stallion_ota_zip">stallion_beta-ota-cp41.260814.003.b1-184e8b61.zip</button> `184e8b61769ef46f168b113f8586fc25d40e82d5c95e21bc18ac15ac2a9a4d5d` |
++| Pixel 11 | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 QPR1 Beta" data-action="download" data-label="cubs" data-modal-dialog-id="cubs_ota_zip">cubs_beta-ota-cp41.260814.003.c2-a3147cca.zip</button> `a3147ccaffb8fa60c9c4fb75d95a1892f1d97e0082aa842d57e58fb768f9e559` |
++| Pixel 11 Pro | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 QPR1 Beta" data-action="download" data-label="grizzly" data-modal-dialog-id="grizzly_ota_zip">grizzly_beta-ota-cp41.260814.003.c2-e74d7416.zip</button> `e74d741666a4773a56b76ff2fbcedd7a929e939d1e7f68a528bfd3a69e744e38` |
++| Pixel 11 Pro XL | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 QPR1 Beta" data-action="download" data-label="kodiak" data-modal-dialog-id="kodiak_ota_zip">kodiak_beta-ota-cp41.260814.003.c2-71903e9a.zip</button> `71903e9a15f1b0a25a964760d17f2c8b3b3a5875e62621cc9cc7b64384550317` |
++| Pixel 11 Pro Fold | <button class="devsite-dialog-button button-white button-regular gc-analytics-event" data-category="Android 17 QPR1 Beta" data-action="download" data-label="yogi" data-modal-dialog-id="yogi_ota_zip">yogi_beta-ota-cp41.260814.003.c2-1900d787.zip</button> `1900d787d342c67143592e2a93037471364773ae22e9d5c605ab0c0982c49389` |
+ 
+ ## Return to a public build
+ 
+@@ -417,4 +425,68 @@ Your testing and feedback are important part of the development process and by u
+ 
+ WITHOUT LIMITING SECTION 10 OF THE ANDROID SOFTWARE DEVELOPMENT KIT LICENSE AGREEMENT, YOU UNDERSTAND THAT A DEVELOPMENT VERSION OF A SDK IS NOT A STABLE RELEASE AND MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE. I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 OTA system image </button> [Download Android 17 OTA system image](https://dl.google.com/developers/android/cinnamonbun/images/ota/stallion_beta-ota-cp41.260814.003.b1-184e8b61.zip)
+ 
+-*stallion_beta-ota-cp41.260814.003.b1-184e8b61.zip*
+\ No newline at end of file
++*stallion_beta-ota-cp41.260814.003.b1-184e8b61.zip*
++
++## Download Android 17 OTA system image
++
++Before downloading, you must agree to the following terms and conditions.
++
++## Terms and Conditions
++
++By clicking to accept, you hereby agree to the following:  
++
++All use of this development version SDK will be governed by the Android Software Development Kit License Agreement (available at https://developer.android.com/studio/terms and such URL may be updated or changed by Google from time to time), which will terminate when Google issues a final release version.  
++
++Your testing and feedback are important part of the development process and by using the SDK, you acknowledge that (i) implementation of some features are still under development, (ii) you should not rely on the SDK having the full functionality of a stable release; (iii) you agree not to publicly distribute or ship any application using this SDK as this SDK will no longer be supported after the official Android SDK is released; and (iv) you agree that Google may deliver elements of the SDK to your devices via auto-update (OTA or otherwise, in each case as determined by Google).  
++
++WITHOUT LIMITING SECTION 10 OF THE ANDROID SOFTWARE DEVELOPMENT KIT LICENSE AGREEMENT, YOU UNDERSTAND THAT A DEVELOPMENT VERSION OF A SDK IS NOT A STABLE RELEASE AND MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE. I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 OTA system image </button> [Download Android 17 OTA system image](https://dl.google.com/developers/android/cinnamonbun/images/ota/cubs_beta-ota-cp41.260814.003.c2-a3147cca.zip)
++
++*cubs_beta-ota-cp41.260814.003.c2-a3147cca.zip*
++
++## Download Android 17 OTA system image
++
++Before downloading, you must agree to the following terms and conditions.
++
++## Terms and Conditions
++
++By clicking to accept, you hereby agree to the following:  
++
++All use of this development version SDK will be governed by the Android Software Development Kit License Agreement (available at https://developer.android.com/studio/terms and such URL may be updated or changed by Google from time to time), which will terminate when Google issues a final release version.  
++
++Your testing and feedback are important part of the development process and by using the SDK, you acknowledge that (i) implementation of some features are still under development, (ii) you should not rely on the SDK having the full functionality of a stable release; (iii) you agree not to publicly distribute or ship any application using this SDK as this SDK will no longer be supported after the official Android SDK is released; and (iv) you agree that Google may deliver elements of the SDK to your devices via auto-update (OTA or otherwise, in each case as determined by Google).  
++
++WITHOUT LIMITING SECTION 10 OF THE ANDROID SOFTWARE DEVELOPMENT KIT LICENSE AGREEMENT, YOU UNDERSTAND THAT A DEVELOPMENT VERSION OF A SDK IS NOT A STABLE RELEASE AND MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE. I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 OTA system image </button> [Download Android 17 OTA system image](https://dl.google.com/developers/android/cinnamonbun/images/ota/grizzly_beta-ota-cp41.260814.003.c2-e74d7416.zip)
++
++*grizzly_beta-ota-cp41.260814.003.c2-e74d7416.zip*
++
++## Download Android 17 OTA system image
++
++Before downloading, you must agree to the following terms and conditions.
++
++## Terms and Conditions
++
++By clicking to accept, you hereby agree to the following:  
++
++All use of this development version SDK will be governed by the Android Software Development Kit License Agreement (available at https://developer.android.com/studio/terms and such URL may be updated or changed by Google from time to time), which will terminate when Google issues a final release version.  
++
++Your testing and feedback are important part of the development process and by using the SDK, you acknowledge that (i) implementation of some features are still under development, (ii) you should not rely on the SDK having the full functionality of a stable release; (iii) you agree not to publicly distribute or ship any application using this SDK as this SDK will no longer be supported after the official Android SDK is released; and (iv) you agree that Google may deliver elements of the SDK to your devices via auto-update (OTA or otherwise, in each case as determined by Google).  
++
++WITHOUT LIMITING SECTION 10 OF THE ANDROID SOFTWARE DEVELOPMENT KIT LICENSE AGREEMENT, YOU UNDERSTAND THAT A DEVELOPMENT VERSION OF A SDK IS NOT A STABLE RELEASE AND MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE. I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 OTA system image </button> [Download Android 17 OTA system image](https://dl.google.com/developers/android/cinnamonbun/images/ota/kodiak_beta-ota-cp41.260814.003.c2-71903e9a.zip)
++
++*kodiak_beta-ota-cp41.260814.003.c2-71903e9a.zip*
++
++## Download Android 17 OTA system image
++
++Before downloading, you must agree to the following terms and conditions.
++
++## Terms and Conditions
++
++By clicking to accept, you hereby agree to the following:  
++
++All use of this development version SDK will be governed by the Android Software Development Kit License Agreement (available at https://developer.android.com/studio/terms and such URL may be updated or changed by Google from time to time), which will terminate when Google issues a final release version.  
++
++Your testing and feedback are important part of the development process and by using the SDK, you acknowledge that (i) implementation of some features are still under development, (ii) you should not rely on the SDK having the full functionality of a stable release; (iii) you agree not to publicly distribute or ship any application using this SDK as this SDK will no longer be supported after the official Android SDK is released; and (iv) you agree that Google may deliver elements of the SDK to your devices via auto-update (OTA or otherwise, in each case as determined by Google).  
++
++WITHOUT LIMITING SECTION 10 OF THE ANDROID SOFTWARE DEVELOPMENT KIT LICENSE AGREEMENT, YOU UNDERSTAND THAT A DEVELOPMENT VERSION OF A SDK IS NOT A STABLE RELEASE AND MAY CONTAIN ERRORS, DEFECTS AND SECURITY VULNERABILITIES THAT CAN RESULT IN SIGNIFICANT DAMAGE, INCLUDING THE COMPLETE, IRRECOVERABLE LOSS OF USE OF YOUR COMPUTER SYSTEM OR OTHER DEVICE. I have read and agree with the above terms and conditions <button class="button button-disabled"> Download Android 17 OTA system image </button> [Download Android 17 OTA system image](https://dl.google.com/developers/android/cinnamonbun/images/ota/yogi_beta-ota-cp41.260814.003.c2-1900d787.zip)
++
++*yogi_beta-ota-cp41.260814.003.c2-1900d787.zip*
+\ No newline at end of file

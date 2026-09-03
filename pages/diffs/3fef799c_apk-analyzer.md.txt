@@ -1,0 +1,53 @@
+diff --git a/docs/studio/debug/apk-analyzer.md b/docs/studio/debug/apk-analyzer.md
+index a6864b63..108338b2 100644
+--- a/docs/studio/debug/apk-analyzer.md
++++ b/docs/studio/debug/apk-analyzer.md
+@@ -30,6 +30,19 @@ There are three ways to access the APK Analyzer when a project is open:
+ - Switch to the **Project** view in the **Project** window, then double-click the APK in the default `build/output/apks/` directory.
+ - Select **Build \> Analyze APK** in the menu bar, then select your APK or app bundle.
+ 
++
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/tree/main/performance/r8-analyzer)
++
++### R8 analyzer
++
++Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to optimize your app's size and performance using R8. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
++
++    android skills add r8-analyzer
++
++<br />
++
+ ## View file and size information
+ 
+ APKs are files that follow the ZIP file format. The APK Analyzer displays each
+@@ -55,7 +68,7 @@ selected in the APK Analyzer, the XML form of this entity is reconstructed and
+ presented.
+ 
+ This viewer helps you understand any changes that might have been
+-made to your app during the build. For example, you are able to see how the
++made to your app during the build. For example, you can see how the
+ `AndroidManifest.xml` file from a library your application depends on
+ is merged into the final `AndroidManifest.xml` file.
+ 
+@@ -70,7 +83,7 @@ for the selected manifest file.
+ ## View DEX files
+ 
+ The APK Analyzer's DEX file viewer gives you immediate access to the underlying
+-information in the DEX file(s) in your app. The viewer provides class, package,
++information in the DEX files in your app. The viewer provides class, package,
+ total reference, and declaration counts, which can assist in deciding
+ whether to use multidex or how to remove dependencies to get below the
+ [64K DEX limit](https://developer.android.com/studio/build/multidex).
+@@ -113,8 +126,8 @@ do the following:
+ 
+    In the tree view, italicized nodes are references that don't have a
+    definition in the selected DEX file. A DEX file can reference methods and
+-   fields that are defined in a different a file. For example
+-   `System.out.println()` is a reference to the `println()` method in the
++   fields that are defined in a different file. For example,
++   `System.out.println` is a reference to the `println` method in the
+    Android framework.
+ 
+ ## Load ProGuard mappings

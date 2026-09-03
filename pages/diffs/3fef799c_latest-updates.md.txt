@@ -1,0 +1,210 @@
+diff --git a/docs/latest-updates.md b/docs/latest-updates.md
+index ca88fbbe..9b114e3d 100644
+--- a/docs/latest-updates.md
++++ b/docs/latest-updates.md
+@@ -17,133 +17,121 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
+ 
+ - stable
+ 
+-  ### compose
++  ### camera
+ 
+-  July 29, 2026 <button class="devsite-dialog-button button button-white" data-modal-dialog-id="compose-updates-dialog"> Maven group versions → </button>
++  August 26, 2026 <button class="devsite-dialog-button button button-white" data-modal-dialog-id="camera-updates-dialog"> Maven group versions → </button>
+ - stable
+ 
+-  ### camera
++  ### compose
+ 
+-  July 01, 2026 <button class="devsite-dialog-button button button-white" data-modal-dialog-id="camera-updates-dialog"> Maven group versions → </button>
+-- rc
++  August 26, 2026 <button class="devsite-dialog-button button button-white" data-modal-dialog-id="compose-updates-dialog"> Maven group versions → </button>
++- alpha
+ 
+-  ### [appcompat](https://developer.android.com/jetpack/androidx/releases/appcompat#1.8.0-rc01)
++  ### [activity](https://developer.android.com/jetpack/androidx/releases/activity#1.14.0-alpha01)
+ 
+-  July 29, 2026  
+-  1.8.0
+-- beta
++  August 26, 2026  
++  1.14.0
++- alpha
+ 
+-  ### [benchmark](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-beta01)
++  ### [appsearch](https://developer.android.com/jetpack/androidx/releases/appsearch#1.2.0-alpha02)
+ 
+-  July 29, 2026  
+-  1.5.0
++  August 26, 2026  
++  1.2.0
+ - rc
+ 
+-  ### [fragment](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0-rc01)
++  ### [benchmark](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-rc02)
+ 
+-  July 29, 2026  
+-  1.9.0
+-- beta
++  August 26, 2026  
++  1.5.0
++- alpha
+ 
+-  ### [navigation](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0-beta01)
++  ### [core](https://developer.android.com/jetpack/androidx/releases/core#1.0.0-alpha04)
+ 
+-  July 29, 2026  
+-  2.10.0
+-- stable
++  August 26, 2026  
++  1.0.0
++- beta
+ 
+-  ### [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.5)
++  ### [core](https://developer.android.com/jetpack/androidx/releases/core#1.1.0-beta01)
+ 
+-  July 29, 2026  
+-  1.1.5
++  August 26, 2026  
++  1.1.0
+ - alpha
+ 
+-  ### [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-alpha07)
++  ### [lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha02)
+ 
+-  July 29, 2026  
+-  1.2.0
+-- alpha
++  August 26, 2026  
++  2.12.0
++- stable
+ 
+-  ### [navigationevent](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha03)
++  ### [navigation](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0)
+ 
+-  July 29, 2026  
+-  1.2.0
++  August 26, 2026  
++  2.10.0
+ - stable
+ 
+-  ### [room3](https://developer.android.com/jetpack/androidx/releases/room3#3.0.1)
++  ### [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.7)
+ 
+-  July 29, 2026  
+-  3.0.1
++  August 26, 2026  
++  1.1.7
+ - beta
+ 
+-  ### [work](https://developer.android.com/jetpack/androidx/releases/work#2.12.0-beta01)
+-
+-  July 29, 2026  
+-  2.12.0
+-- alpha
++  ### [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-beta01)
+ 
+-  ### [xr glimmer](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha16)
+-
+-  July 29, 2026  
+-  1.0.0
+-- rc
++  August 26, 2026  
++  1.2.0
++- stable
+ 
+-  ### [media3](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0-rc01)
++  ### [room3](https://developer.android.com/jetpack/androidx/releases/room3#3.0.2)
+ 
+-  July 22, 2026  
+-  1.11.0
++  August 26, 2026  
++  3.0.2
+ - alpha
+ 
+-  ### [work](https://developer.android.com/jetpack/androidx/releases/work#2.12.0-alpha01)
+-
+-  July 15, 2026  
+-  2.12.0
+-- stable
+-
+-  ### [hilt](https://developer.android.com/jetpack/androidx/releases/hilt#1.4.0)
++  ### [xr glimmer](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha18)
+ 
+-  July 01, 2026  
+-  1.4.0
++  August 26, 2026  
++  1.0.0
+ - stable
+ 
+-  ### [test uiautomator](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0)
++  ### [appcompat](https://developer.android.com/jetpack/androidx/releases/appcompat#1.8.0)
+ 
+-  July 01, 2026  
+-  2.4.0
++  August 12, 2026  
++  1.8.0
+ - stable
+ 
+-  ### [core](https://developer.android.com/jetpack/androidx/releases/core#1.0.0)
++  ### [fragment](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0)
+ 
+-  June 17, 2026  
+-  1.0.0
++  August 12, 2026  
++  1.9.0
+ - stable
+ 
+-  ### [lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0)
++  ### [paging](https://developer.android.com/jetpack/androidx/releases/paging#3.5.1)
+ 
+-  June 17, 2026  
+-  2.11.0
++  August 12, 2026  
++  3.5.1
+ - stable
+ 
+-  ### [navigationevent](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.2)
++  ### [media3](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0)
+ 
+-  June 17, 2026  
+-  1.1.2
++  August 07, 2026  
++  1.11.0
+ - stable
+ 
+-  ### [media3](https://developer.android.com/jetpack/androidx/releases/media3#1.8.1)
++  ### [hilt](https://developer.android.com/jetpack/androidx/releases/hilt#1.4.0)
+ 
+-  May 21, 2026  
+-  1.8.1
++  July 01, 2026  
++  1.4.0
+ - stable
+ 
+-  ### [paging](https://developer.android.com/jetpack/androidx/releases/paging#3.5.0)
++  ### [test uiautomator](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0)
+ 
+-  May 06, 2026  
+-  3.5.0
++  July 01, 2026  
++  2.4.0
+ - stable
+ 
+-  ### [core uwb](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.0.0)
++  ### [core](https://developer.android.com/jetpack/androidx/releases/core#1.0.0)
+ 
+-  May 06, 2026  
++  June 17, 2026  
+   1.0.0
+ 
+ ## ![](https://developer.android.com/static/images/logos/android-studio.svg) Android Studio
+@@ -158,7 +146,7 @@ August 27, 2026 Stable
+ 
+ September 1, 2026 Stable
+ 
+-### [Android Gradle Plugin 9.3.0](https://developer.android.com/build/releases/gradle-plugin)
++### [Android Gradle Plugin 9.4.0](https://developer.android.com/build/releases/gradle-plugin)
+ 
+ September 1, 2026
+ 

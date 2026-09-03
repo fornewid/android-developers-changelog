@@ -1,0 +1,15 @@
+diff --git a/docs/about/versions/17/qpr2/get.md b/docs/about/versions/17/qpr2/get.md
+index 7f83c0eb..ae804e4e 100644
+--- a/docs/about/versions/17/qpr2/get.md
++++ b/docs/about/versions/17/qpr2/get.md
+@@ -62,6 +62,10 @@ devices:
+ - Pixel 10 Pro XL
+ - Pixel 10 Pro Fold
+ - Pixel 10a
++- Pixel 11
++- Pixel 11 Pro
++- Pixel 11 Pro XL
++- Pixel 11 Pro Fold
+ 
+ ### Flash or manually install a system image
+ 

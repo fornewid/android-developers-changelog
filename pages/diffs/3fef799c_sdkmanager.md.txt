@@ -1,0 +1,53 @@
+diff --git a/docs/tools/sdkmanager.md b/docs/tools/sdkmanager.md
+index 36f19392..64b9ce07 100644
+--- a/docs/tools/sdkmanager.md
++++ b/docs/tools/sdkmanager.md
+@@ -9,6 +9,19 @@ update, and uninstall packages for the Android SDK. If you're using Android
+ Studio, then you don't need to use this tool, and you can instead [manage your
+ SDK packages from the IDE](https://developer.android.com/studio/intro/update#sdk-manager).
+ 
++
++## Android CLI
++
++[Download the Android CLI](https://developer.android.com/tools/agents)
++
++### Use Android CLI to manage packages for the Android SDK
++
++The `sdkmanager` tool is deprecated. Instead, use the Android CLI [`android sdk`](https://developer.android.com/tools/agents/android-cli#sdk-install) command.
++
++    android sdk [install|list|update|remove]
++
++<br />
++
+ The `sdkmanager` tool is provided in the
+ [Android SDK Command-Line Tools](https://developer.android.com/studio/command-line#tools-sdk) package.
+ To use the SDK Manager to install a version of the command-line tools,
+@@ -32,7 +45,7 @@ follow these steps:
+ ## Usage
+ 
+ You can use the `sdkmanager` to list installed and available packages, install
+-packages, and update packages. For more details, see the following sections.
++packages, and update packages. For more information, see the following sections.
+ 
+ ### List installed and available packages
+ 
+@@ -112,13 +125,13 @@ sdkmanager --update [options]
+ 
+ ### Accept licenses
+ 
+-You are required to accept the necessary license for each package you have
+-installed. This step occurs during the installation flow when you install
+-packages from within Android Studio.
++You must accept the necessary license for each package you have installed.
++This step occurs during the installation flow when you install packages from
++within Android Studio.
+ 
+-If you don't have Android Studio installed, or it is for a CI server
+-or other headless Linux device without a GUI installed, do the
+-following from the command-line:
++If you don't have Android Studio installed, or it's for a CI server or other
++headless Linux device without a GUI installed, do the following from the
++command line:
+ 
+ ```
+ sdkmanager --licenses

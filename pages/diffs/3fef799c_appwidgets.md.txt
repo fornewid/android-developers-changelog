@@ -1,0 +1,83 @@
+diff --git a/docs/develop/ui/views/appwidgets.md b/docs/develop/ui/views/appwidgets.md
+index 9a9a492e..69327c94 100644
+--- a/docs/develop/ui/views/appwidgets.md
++++ b/docs/develop/ui/views/appwidgets.md
+@@ -28,15 +28,16 @@ To create a widget, you need the following basic components:
+ 
+ [`AppWidgetProviderInfo`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo) object
+ :   Describes the metadata for a widget, such
+-    as the widget's layout, update frequency, and [`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider) class. `AppWidgetProviderInfo` is [defined in
++    as the widget's layout, update frequency, and [`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider)
++    class. `AppWidgetProviderInfo` is [defined in
+     XML](https://developer.android.com/develop/ui/views/appwidgets#AppWidgetProviderInfo), as described in this document.
+ 
+ [`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider) class
+ :   Defines the basic methods
+     that let you programmatically interface with the widget. Through it, you
+     receive broadcasts when the widget is updated, enabled, disabled, or
+-    deleted. You [declare `AppWidgetProvider` in the manifest](https://developer.android.com/develop/ui/views/appwidgets#Manifest) and then
+-    [implement](https://developer.android.com/develop/ui/views/appwidgets#AppWidgetProvider) it, as described in this document.
++    deleted. You [declare `AppWidgetProvider` in the manifest](https://developer.android.com/develop/ui/views/appwidgets#widget-broadcasts) and then
++    [implement](https://developer.android.com/develop/ui/views/appwidgets#widget-broadcasts) it, as described in this document.
+ 
+ View layout
+ :   Defines the initial layout for the widget. The layout is [defined
+@@ -58,7 +59,9 @@ time zone for a clock widget.
+   widgets](https://developer.android.com/guide/topics/appwidgets/configuration#reconfigure-widgets) for more details.
+ - In Android 11 (API level 30) or lower, this activity is launched every time the user adds the widget to their home screen.
+ 
+-We also recommend the following improvements: [flexible widget layouts](https://developer.android.com/guide/topics/appwidgets/layouts), [miscellaneous enhancements](https://developer.android.com/guide/topics/appwidgets/enhance), [advanced widgets](https://developer.android.com/guide/topics/appwidgets/advanced), [collection widgets](https://developer.android.com/guide/topics/appwidgets/collections), and [building a widget host](https://developer.android.com/guide/topics/appwidgets/host).
++We also recommend the following improvements: [flexible widget layouts](https://developer.android.com/guide/topics/appwidgets/layouts),
++[miscellaneous enhancements](https://developer.android.com/guide/topics/appwidgets/enhance), [advanced widgets](https://developer.android.com/guide/topics/appwidgets/advanced), [collection
++widgets](https://developer.android.com/guide/topics/appwidgets/collections), and [building a widget host](https://developer.android.com/guide/topics/appwidgets/host).
+ 
+ ## Declare the AppWidgetProviderInfo XML
+ 
+@@ -116,34 +119,23 @@ state change events.
+ 
+ The following code example shows how to implement these components.
+ 
+-### Kotlin
+ 
+-    // Check the view.
+-    remoteView.setCompoundButtonChecked(R.id.my_checkbox, true)
++```kotlin
++// Check the view.
++remoteView.setCompoundButtonChecked(R.id.my_checkbox, true)
+ 
+-    // Check a radio group.
+-    remoteView.setRadioGroupChecked(R.id.my_radio_group, R.id.radio_button_2)
++// Check a radio group.
++remoteView.setRadioGroupChecked(R.id.my_radio_group, R.id.radio_button_2)
+ 
+-    // Listen for check changes. The intent has an extra with the key
+-    // EXTRA_CHECKED that specifies the current checked state of the view.
+-    remoteView.setOnCheckedChangeResponse(
+-            R.id.my_checkbox,
+-            RemoteViews.RemoteResponse.fromPendingIntent(onCheckedChangePendingIntent)
+-    )
++// Listen for check changes. The intent has an extra with the key
++// EXTRA_CHECKED that specifies the current checked state of the view.
++remoteView.setOnCheckedChangeResponse(
++    R.id.my_checkbox,
++    RemoteViews.RemoteResponse.fromPendingIntent(onCheckedChangePendingIntent)
++)
++```
+ 
+-### Java
+-
+-    // Check the view.
+-    remoteView.setCompoundButtonChecked(R.id.my_checkbox, true);
+-
+-    // Check a radio group.
+-    remoteView.setRadioGroupChecked(R.id.my_radio_group, R.id.radio_button_2);
+-
+-    // Listen for check changes. The intent has an extra with the key
+-    // EXTRA_CHECKED that specifies the current checked state of the view.
+-    remoteView.setOnCheckedChangeResponse(
+-        R.id.my_checkbox,
+-        RemoteViews.RemoteResponse.fromPendingIntent(onCheckedChangePendingIntent));
++<br />
+ 
+ Provide two layouts: one targeting devices running Android 12 or
+ higher in `res/layout-v31`, and the other targeting previous

@@ -1,0 +1,25 @@
+diff --git a/docs/training/tv/get-started/create.md b/docs/training/tv/get-started/create.md
+index 77e5c653..bf8201c0 100644
+--- a/docs/training/tv/get-started/create.md
++++ b/docs/training/tv/get-started/create.md
+@@ -111,8 +111,7 @@ app doesn't have this filter when you use developer tools to load it onto a TV d
+ does not appear in the TV user interface.
+ 
+ 
+-Your TV app's user interface, or the TV portion of your existing app, must provide a simple interface for easy navigation
+-using a remote control from 10 feet away. If you are modifying an existing app for use on TV, don't use the same
++Your TV app's user interface, or the TV portion of your existing app, must provide intuitive navigation using a remote control from 10 feet away. If you are modifying an existing app for use on TV, don't use the same
+ activity layout for TV that you use for phones and tablets. For guidelines on designing an app for TV, see [Design for TV](https://developer.android.com/design/tv).
+ 
+ ### Declare TV device support
+@@ -316,8 +315,8 @@ devices, see [Debug your app](https://developer.android.com/studio/debug).
+ 
+ ## Enable your TV app to run as an instant experience
+ 
+-[Instant experiences](https://developer.android.com/topic/google-play-instant/overview) make it easy for users
+-to try out your TV app and can help increase adoption.
++[Instant experiences](https://developer.android.com/topic/google-play-instant/overview) let users
++try out your TV app without installing it and can help increase adoption.
+ 
+ To set up your TV app to run as an instant app on an Android TV device or emulator,
+ first follow the instructions to

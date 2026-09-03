@@ -1,0 +1,60 @@
+diff --git a/docs/studio/run/managing-avds.md b/docs/studio/run/managing-avds.md
+index 30205bde..9173a32e 100644
+--- a/docs/studio/run/managing-avds.md
++++ b/docs/studio/run/managing-avds.md
+@@ -11,6 +11,21 @@ Automotive OS device that you want to simulate in the
+ The Device Manager is a tool you can launch from Android Studio that
+ helps you create and manage AVDs.
+ 
++
++## Android CLI
++
++[Download the Android CLI](https://developer.android.com/tools/agents)
++
++### Try Android CLI to create and manage Android Virtual Devices
++
++Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
++
++For example, use the [`android emulator`](https://developer.android.com/tools/agents/android-cli#emulator-create) command when you need to create, start, and stop an AVD.
++
++    android emulator [create <profile-name>|start <device-name>|stop <device-serial-number>|list]
++
++<br />
++
+ To open the new **Device Manager**, do one of the following:
+ 
+ - From the Android Studio Welcome screen, select **More Actions \> Virtual
+@@ -23,8 +38,8 @@ To open the new **Device Manager**, do one of the following:
+ 
+ ![New Device Manager window](https://developer.android.com/static/studio/images/run/tools-new-device-manager.png)
+ 
+-After creating your devices, you will be able to see a list of all the devices
+-on the device manager panel.
++After creating your devices, you can see a list of all the devices
++on the Device Manager panel.
+ 
+ ![Device Manager list](https://developer.android.com/static/studio/images/run/device-manager.png)
+ 
+@@ -103,7 +118,7 @@ images.
+ The API level of the target device is important, because your app
+ doesn't run on a system image with an API level that's lower than the one
+ required by your app, as specified in the
+-[`minSdk`](https://developer.android.com/reference/tools/gradle-api/9.3/com/android/build/api/dsl/BaseFlavor#minSdk()) attribute in the app manifest file. For more
++[`minSdk`](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/dsl/BaseFlavor#minSdk()) attribute in the app manifest file. For more
+ information about the relationship between system API level and
+ `minSdk`, see [Version your app](https://developer.android.com/studio/publish/versioning).
+ 
+@@ -352,11 +367,11 @@ both.
+ | Hardware Profile | Click **Change** to select a different hardware profile from the **Select Hardware** window. |
+ | System Image | Click **Change** to select a different system image from the **System Image** window. An active internet connection is required to download a new image. |
+ | Startup orientation | Select an option for the initial emulator orientation: - **Portrait:** oriented taller than wide - **Landscape:** oriented wider than tall An option is enabled only if it's supported in the hardware profile. When running the AVD in the emulator, you can change the orientation if both portrait and landscape are supported in the hardware profile. |
+-| Camera (Advanced) | Select an option for any enabled cameras. The Emulated and VirtualScene settings produce a software-generated image, while the Webcam setting uses your development computer's webcam to take a picture Camera options are available only if a camera is supported in the hardware profile. They are not available for Wear OS, Android TV, or Google TV. |
++| Camera (Advanced) | Select an option for any enabled cameras. The Emulated and VirtualScene settings produce a software-generated image, while the Webcam setting uses your development computer's webcam to take a picture Camera options are available only if a camera is supported in the hardware profile. They aren't available for Wear OS, Android TV, or Google TV. |
+ | Network: Speed (Advanced) | Select a cellular technology to determine the speed of data transfer: - **GSM:** Global System for Mobile Communications - **HSCSD:** High-Speed Circuit-Switched Data - **GPRS:** Generic Packet Radio Service - **EDGE:** Enhanced Data rates for GSM Evolution - **UMTS:** Universal Mobile Telecommunications System - **HSDPA:** High-Speed Downlink Packet Access - **LTE:** Long-Term Evolution - **Full (default):** Transfer data as quickly as your computer allows. |
+ | Network: Latency (Advanced) | Select a cellular technology to set how much time it takes for the protocol to transfer a data packet from one point to another point. |
+ | Emulated Performance: Graphics | Select how graphics are rendered in the emulator: - **Hardware:** use your computer graphics card for faster rendering. - **Software:** emulate the graphics in software, which is useful if you're having a problem with rendering in your graphics card. - **Automatic:** let the emulator decide the best option based on your graphics card. |
+-| Emulated Performance: Boot option (Advanced) | - Select how the AVD boots: - **Cold boot:** the device powers up each time from the device-off state. - **Quick boot:** the device loads the device state from a saved snapshot. |
++| Emulated Performance: Boot option (Advanced) | Select how the AVD boots: - **Cold boot:** the device powers up each time from the device-off state. - **Quick boot:** the device loads the device state from a saved snapshot. |
+ | Emulated Performance: Multi-Core CPU (Advanced) | Select the number of processor cores on your computer that you want to use for the emulator. Using more processor cores speeds up the emulator. |
+ | Memory and Storage: RAM (Advanced) | Override the amount of RAM on the device set by the hardware manufacturer. Increasing the size uses more resources on your computer but supports faster emulator operation. Enter a RAM size and select the units, one of B (byte), KB (kilobyte), MB (megabyte), GB (gigabyte), or TB (terabyte). |
+ | Memory and Storage: VM Heap (Advanced) | Override the VM heap size set by the hardware manufacturer. Enter a heap size and select the units, one of B (byte), KB (kilobyte), MB (megabyte), GB (gigabyte), or TB (terabyte). |

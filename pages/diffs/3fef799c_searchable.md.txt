@@ -1,0 +1,60 @@
+diff --git a/docs/training/tv/discovery/searchable.md b/docs/training/tv/discovery/searchable.md
+index b92caa44..b30631db 100644
+--- a/docs/training/tv/discovery/searchable.md
++++ b/docs/training/tv/discovery/searchable.md
+@@ -27,7 +27,7 @@ The sample code in this guide comes from the
+ .
+ 
+ > [!NOTE]
+-> **Note:** Android TV's search interface also retrieves content from Google search servers that has been marked for use with Google *media actions* . If you add your content with media action markup to Google's search index, your content appears in the Android TV search results with a UI that users can use to start viewing the content in your app. For more information about media actions, see [Media Actions](https://developers.google.com/actions/media/).
++> **Note:** Android TV's search interface also retrieves content from Google Search servers that has been marked for use with Google *media actions* . If you add your content with media action markup to Google's search index, your content appears in the Android TV search results with a UI that users can use to start viewing the content in your app. For more information about media actions, see [Media Actions](https://developers.google.com/actions/media/).
+ 
+ ## Identify columns
+ 
+@@ -362,7 +362,7 @@ Finally, you must also include the [`android:includeInGlobalSearch`](https://dev
+ ## Handle search terms
+ 
+ As soon as the search dialog has a word that matches the value in one of your app's columns, as
+-described in the [Identify columns](https://developer.android.com/training/tv/discovery/searchable#identifying) section, the system fires the
++described in the [Identify columns](https://developer.android.com/training/tv/discovery/searchable#columns) section, the system fires the
+ `https://developer.android.com/reference/android/content/Intent#ACTION_SEARCH` intent.
+ The activity in your app that handles that
+ intent searches the repository for columns with the given word in their values and returns a list
+@@ -408,7 +408,7 @@ suggestions](https://developer.android.com/training/tv/discovery/searchable#sugg
+ `https://developer.android.com/reference/android/app/SearchManager#SUGGEST_COLUMN_DURATION` fields as described in
+ the [Identify columns](https://developer.android.com/training/tv/discovery/searchable#columns) section, a [deep link](https://developer.android.com/training/app-indexing/deep-linking) to a watch action for your content appears in the details screen that launches when
+ the user selects a search result:
+-![Deep link in the details screen](https://developer.android.com/static/images/tv/deep-link.png)
++![Deep link in the details screen](https://developer.android.com/static/images/tv/deep-link.png) **Figure 1.** Deep link in the details screen.
+ 
+ When the user selects the link for your app, identified by the \*\*Available On\*\* button in the
+ details screen, the system launches the activity that handles the `https://developer.android.com/reference/android/content/Intent#ACTION_VIEW`
+@@ -431,24 +431,24 @@ are different for these two cases.
+ 
+ When the user searches from the home screen, the first result appears in an entity card. If there are
+ apps that can play the content, a link to each one appears at the bottom of the card:
+-![TV Search Result Playback](https://developer.android.com/static/images/tv/tv-search-playback.png)
++![TV Search Result Playback](https://developer.android.com/static/images/tv/tv-search-playback.png) **Figure 2.** Home screen search result.
+ 
+ You can't programmatically place an app into the entity card. To be included as a
+ playback option, an app's search results must match the title, year, and duration of the
+ searched content.
+ 
+ More search results might be available below the card. To see them, the user must press down on the
+-remote and scroll down. The results for each app appear in a separate row. You can't control the
++remote and scroll. The results for each app appear in a separate row. You can't control the
+ row ordering. Apps that support
+ [watch actions](https://developers.google.com/actions/media/) are listed first.
+-![TV Search Results](https://developer.android.com/static/images/tv/tv-search-results.gif)
++![Additional TV Search Results](https://developer.android.com/static/images/tv/tv-search-results.gif) **Figure 3.** Viewing additional search results.
+ 
+ ### Search from your app
+ 
+ The user can also start a search from within your app by initiating the microphone from the remote or
+ game pad controller. The search results are displayed in a single row on top of the app's content.
+ Your app generates search results using its own [global search provider](https://developer.android.com/training/tv/discovery/searchable#provide).
+-![TV In-app Search Results](https://developer.android.com/static/images/tv/tv-search-in-app.png)
++![TV In-app Search Results](https://developer.android.com/static/images/tv/tv-search-in-app.png) **Figure 4.** In-app search results.
+ 
+ ## Learn more
+ 

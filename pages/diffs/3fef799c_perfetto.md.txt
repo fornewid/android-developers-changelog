@@ -1,0 +1,45 @@
+diff --git a/docs/tools/perfetto.md b/docs/tools/perfetto.md
+index c768564f..89c0fe56 100644
+--- a/docs/tools/perfetto.md
++++ b/docs/tools/perfetto.md
+@@ -19,6 +19,19 @@ This page describes how to call `perfetto` and configure it to generate the
+ desired output. For further information, refer to the
+ [`perfetto` documentation](https://perfetto.dev/docs).
+ 
++
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/tree/main/profilers/android-profiler/analysis/workflows)
++
++### Perfetto trace analysis
++
++Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to diagnose Android performance issues with the `perfetto` tool. To install the relevant skills from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
++
++    android skills add [perfetto-trace-analyzer|perfetto-sql]
++
++<br />
++
+ ## Syntax
+ 
+ This section describes how to use ADB to call `perfetto` for different modes
+@@ -116,7 +129,7 @@ your trace.
+ 
+ ### ftrace
+ 
+-The `ftrace` data source allows `perfetto` to get events from the kernel.
++The `ftrace` data source lets `perfetto` get events from the kernel.
+ 
+ Enable this source by setting
+ [`ftrace_config`](https://android.googlesource.com/platform/external/perfetto/+/refs/tags/android-q-preview-5/protos/perfetto/config/ftrace/ftrace_config.proto)
+@@ -145,9 +158,9 @@ The events that can be enabled include:
+ Depending on your device, OS version, or kernel, more events might be
+ available. For more information, refer to the [config protos](https://android.googlesource.com/platform/external/perfetto/+/refs/tags/android-q-preview-5/protos/perfetto/trace/ftrace/).
+ 
+-### Process Stats
++### Process stats
+ 
+-The process stats data source allows you to get polled counters about the
++The process stats data source lets you get polled counters about the
+ system and individual processes.
+ 
+ Enable this source by setting [`process_stats_config`](https://android.googlesource.com/platform/external/perfetto/+/refs/tags/android-q-preview-5/protos/perfetto/config/process_stats/process_stats_config.proto)

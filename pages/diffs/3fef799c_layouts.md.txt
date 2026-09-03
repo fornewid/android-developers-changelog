@@ -1,0 +1,342 @@
+diff --git a/docs/develop/ui/views/appwidgets/layouts.md b/docs/develop/ui/views/appwidgets/layouts.md
+index 9144319d..5ab61c3e 100644
+--- a/docs/develop/ui/views/appwidgets/layouts.md
++++ b/docs/develop/ui/views/appwidgets/layouts.md
+@@ -20,8 +20,7 @@ sections that follow:
+ 
+ 1. [Specify additional widget sizing constraints.](https://developer.android.com/develop/ui/views/appwidgets/layouts#specify-widget-size-constraints)
+ 
+-2. Providing [responsive layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-responsive-layouts) or [exact
+-   layouts.](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-exact-layouts)
++2. Providing [responsive layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-responsive-layouts) or [exact layouts.](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-exact-layouts)
+ 
+ In previous versions of Android, it is possible to get the size ranges of a
+ widget using the
+@@ -30,9 +29,8 @@ widget using the
+ [`OPTION_APPWIDGET_MAX_WIDTH`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#OPTION_APPWIDGET_MAX_WIDTH),
+ and [`OPTION_APPWIDGET_MAX_HEIGHT`](https://developer.android.com/reference/android/appwidget/AppWidgetManager#OPTION_APPWIDGET_MAX_HEIGHT)
+ extras and then estimate the widget's size, but that logic doesn't work in all
+-situations. For widgets targeting Android 12 or higher, we recommend
+-providing [responsive](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-responsive-layouts) or [exact
+-layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-exact-layouts).
++situations. For widgets targeting Android 12 or higher,
++we recommend providing [responsive](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-responsive-layouts) or [exact layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-exact-layouts).
+ 
+ ### Specify additional widget sizing constraints
+ 
+@@ -50,26 +48,30 @@ attributes, use the following new `appwidget-provider` attributes:
+   define the target size of the widget in terms of launcher grid cells. If
+   defined, these attributes are used instead of `minWidth` or `minHeight`.
+ 
+-- [`maxResizeWidth`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#maxResizeWidth)
+-  and [`maxResizeHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#maxResizeHeight):
+-  define the maximum size that the launcher allows the user to resize the widget to.
++- [`maxResizeWidth`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#maxResizeWidth) and [`maxResizeHeight`](https://developer.android.com/reference/android/appwidget/AppWidgetProviderInfo#maxResizeHeight):
++  define the maximum size that the launcher allows
++  the user to resize the widget to.
+ 
+ The following XML shows how to use the sizing attributes.
+ 
+-    <appwidget-provider
+-      ...
+-      android:targetCellWidth="3"
+-      android:targetCellHeight="2"
+-      android:maxResizeWidth="250dp"
+-      android:maxResizeHeight="110dp">
+-    </appwidget-provider>
++
++```xml
++<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
++  android:targetCellWidth="3"
++  android:targetCellHeight="2"
++  android:maxResizeWidth="250dp"
++  android:maxResizeHeight="110dp">
++</appwidget-provider>
++```
++
++<br />
+ 
+ ### Provide responsive layouts
+ 
+ If the layout needs to change depending on the size of the widget, we recommend
+ creating a small set of layouts, each valid for a range of sizes. If this
+-isn't possible, another option is to provide layouts based on the [exact widget
+-size at runtime](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-exact-layouts), as described in this page.
++isn't possible, another option is to provide layouts based on the
++[exact widget size at runtime](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-exact-layouts), as described in this page.
+ 
+ This feature allows for smoother scaling and overall better system
+ health, because the system doesn't have to wake up the app every time
+@@ -77,18 +79,25 @@ it displays the widget in a different size.
+ 
+ The following code example shows how to provide a list of layouts.
+ 
+-### Kotlin
+ 
+ ```kotlin
+-override fun onUpdate(...) {
+-    val smallView = ...
+-    val tallView = ...
+-    val wideView = ...
++override fun onUpdate(
++    /* ... */
++) {
++    val smallView = RemoteViews(
++        /* ... */
++    )
++    val tallView = RemoteViews(
++        /* ... */
++    )
++    val wideView = RemoteViews(
++        /* ... */
++    )
+ 
+     val viewMapping: Map<SizeF, RemoteViews> = mapOf(
+-            SizeF(150f, 100f) to smallView,
+-            SizeF(150f, 200f) to tallView,
+-            SizeF(215f, 100f) to wideView
++        SizeF(150f, 100f) to smallView,
++        SizeF(150f, 200f) to tallView,
++        SizeF(215f, 100f) to wideView
+     )
+     val remoteViews = RemoteViews(viewMapping)
+ 
+@@ -96,33 +105,21 @@ override fun onUpdate(...) {
+ }
+ ```
+ 
+-### Java
++<br />
+ 
+-```java
+-@Override
+-public void onUpdate(...) {
+-    RemoteViews smallView = ...;
+-    RemoteViews tallView = ...;
+-    RemoteViews wideView = ...;
++Assume the widget has the following attributes:
+ 
+-    Map<SizeF, RemoteViews> viewMapping = new ArrayMap<>();
+-    viewMapping.put(new SizeF(150f, 100f), smallView);
+-    viewMapping.put(new SizeF(150f, 200f), tallView);
+-    viewMapping.put(new SizeF(215f, 100f), wideView);
+-    RemoteViews remoteViews = new RemoteViews(viewMapping);
+ 
+-    appWidgetManager.updateAppWidget(id, remoteViews);
+-}
++```xml
++<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
++    android:minResizeWidth="160dp"
++    android:minResizeHeight="110dp"
++    android:maxResizeWidth="250dp"
++    android:maxResizeHeight="200dp">
++</appwidget-provider>
+ ```
+ 
+-Assume the widget has the following attributes:
+-
+-    <appwidget-provider
+-        android:minResizeWidth="160dp"
+-        android:minResizeHeight="110dp"
+-        android:maxResizeWidth="250dp"
+-        android:maxResizeHeight="200dp">
+-    </appwidget-provider>
++<br />
+ 
+ The preceding code snippet means the following:
+ 
+@@ -162,20 +159,23 @@ To implement this solution, your app needs to perform the following steps:
+ 
+ The following code example shows how to provide exact layouts.
+ 
+-### Kotlin
+ 
+ ```kotlin
+ override fun onAppWidgetOptionsChanged(
+-        context: Context,
+-        appWidgetManager: AppWidgetManager,
+-        id: Int,
+-        newOptions: Bundle?
++    context: Context,
++    appWidgetManager: AppWidgetManager,
++    id: Int,
++    newOptions: Bundle?
+ ) {
+     super.onAppWidgetOptionsChanged(context, appWidgetManager, id, newOptions)
+     // Get the new sizes.
+-    val sizes = newOptions?.getParcelableArrayList<SizeF>(
+-            AppWidgetManager.OPTION_APPWIDGET_SIZES
+-    )
++    val sizes = newOptions?.let {
++        BundleCompat.getParcelableArrayList(
++            it,
++            AppWidgetManager.OPTION_APPWIDGET_SIZES,
++            SizeF::class.java
++        )
++    }
+     // Check that the list of sizes is provided by the launcher.
+     if (sizes.isNullOrEmpty()) {
+         return
+@@ -186,43 +186,19 @@ override fun onAppWidgetOptionsChanged(
+ }
+ 
+ // Create the RemoteViews for the given size.
+-private fun createRemoteViews(size: SizeF): RemoteViews { }
+-```
+-
+-### Java
+-
+-```java
+-@Override
+-public void onAppWidgetOptionsChanged(
+-    Context context, AppWidgetManager appWidgetManager, int appWidgetId, Bundle newOptions) {
+-    super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions);
+-    // Get the new sizes.
+-    ArrayList<SizeF> sizes =
+-        newOptions.getParcelableArrayList(AppWidgetManager.OPTION_APPWIDGET_SIZES);
+-    // Check that the list of sizes is provided by the launcher.
+-    if (sizes == null || sizes.isEmpty()) {
+-      return;
+-    }
+-    // Map the sizes to the RemoteViews that you want.
+-    Map<SizeF, RemoteViews> viewMapping = new ArrayMap<>();
+-    for (SizeF size : sizes) {
+-        viewMapping.put(size, createRemoteViews(size));
+-    }
+-    RemoteViews remoteViews = new RemoteViews(viewMapping);
+-    appWidgetManager.updateAppWidget(id, remoteViews);
++private fun createRemoteViews(size: SizeF): RemoteViews {
+ }
+-
+-// Create the RemoteViews for the given size.
+-private RemoteViews createRemoteViews(SizeF size) { }
+ ```
+ 
++<br />
++
+ ## Determine a size for your widget
+ 
+ Each widget must define a `targetCellWidth` and `targetCellHeight` for devices
+-running Android 12 or higher---or `minWidth` and `minHeight` for all
+-versions of Android---indicating the minimum amount of space it consumes
+-by default. However, when users add a widget to their home screen, it generally
+-occupies more than the minimum width and height you specify.
++running Android 12 or higher---or `minWidth` and `minHeight`
++for all versions of Android---indicating the minimum amount of space it
++consumes by default. However, when users add a widget to their home screen,
++it generally occupies more than the minimum width and height you specify.
+ 
+ Android home screens offer users a grid of available spaces onto which they can
+ place widgets and icons. This grid can vary by device; for example, many
+@@ -230,13 +206,12 @@ handsets offer a 5x4 grid, and tablets can offer a larger grid. When your widget
+ is added, it is stretched to occupy the minimum number of cells,
+ horizontally and vertically, required to satisfy constraints for its
+ `targetCellWidth` and `targetCellHeight` on devices running
+-Android 12 or higher, or `minWidth` and `minHeight` constraints on
+-devices running Android 11 (API level 30) or lower.
++Android 12 or higher, or `minWidth` and `minHeight` constraints
++on devices running Android 11 (API level 30) or lower.
+ 
+-Both the width and height of a cell and the size of the automatic margins applied
+-to widgets can vary across devices. Use the following table to roughly estimate
+-your widget's minimum dimensions in a typical 5x4 grid handset, given the
+-number of occupied grid cells you want:
++Cell dimensions and automatic margins vary across devices. Use the following
++table to estimate your widget's minimum dimensions on a typical 5x4 grid
++handset, given the number of occupied grid cells you want:
+ 
+ | Number of cells (width x height) | Available size in portrait mode (dp) | Available size in landscape mode (dp) |
+ |---|---|---|
+@@ -283,12 +258,17 @@ attributes, which means it needs to adapt to any size ranges between them.
+ For example, to set the default size of the widget on placement, you can
+ set the following attributes:
+ 
+-    <appwidget-provider
+-        android:targetCellWidth="3"
+-        android:targetCellHeight="2"
+-        android:minWidth="180dp"
+-        android:minHeight="110dp">
+-    </appwidget-provider>
++
++```xml
++<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
++    android:targetCellWidth="3"
++    android:targetCellHeight="2"
++    android:minWidth="180dp"
++    android:minHeight="110dp">
++</appwidget-provider>
++```
++
++<br />
+ 
+ This means the widget's default size is 3x2 cells, as specified by the
+ `targetCellWidth` and `targetCellHeight` attributes---or 180×110dp, as
+@@ -299,12 +279,17 @@ vary depending on the device.
+ Also, to set the supported size ranges of your widget, you can set the following
+ attributes:
+ 
+-    <appwidget-provider
+-        android:minResizeWidth="180dp"
+-        android:minResizeHeight="110dp"
+-        android:maxResizeWidth="530dp"
+-        android:maxResizeHeight="450dp">
+-    </appwidget-provider>
++
++```xml
++<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
++    android:minResizeWidth="180dp"
++    android:minResizeHeight="110dp"
++    android:maxResizeWidth="530dp"
++    android:maxResizeHeight="450dp">
++</appwidget-provider>
++```
++
++<br />
+ 
+ As specified by the preceding attributes, the width of the widget is
+ resizable from 180dp to 530dp, and its height is resizable from 110dp to 450dp.
+@@ -316,7 +301,6 @@ conditions are present:
+   dimensions](https://developer.android.com/develop/ui/views/appwidgets/layouts#estimate-minimum-dimensions) in this page.
+ - The widget adapts to that size range.
+ 
+-### Kotlin
+ 
+ ```kotlin
+ val smallView = RemoteViews(context.packageName, R.layout.widget_weather_forecast_small)
+@@ -324,32 +308,15 @@ val mediumView = RemoteViews(context.packageName, R.layout.widget_weather_foreca
+ val largeView = RemoteViews(context.packageName, R.layout.widget_weather_forecast_large)
+ 
+ val viewMapping: Map<SizeF, RemoteViews> = mapOf(
+-        SizeF(180f, 110f) to smallView,
+-        SizeF(270f, 110f) to mediumView,
+-        SizeF(270f, 280f) to largeView
++    SizeF(180f, 110f) to smallView,
++    SizeF(270f, 110f) to mediumView,
++    SizeF(270f, 280f) to largeView
+ )
+ 
+ appWidgetManager.updateAppWidget(appWidgetId, RemoteViews(viewMapping))
+ ```
+ 
+-### Java
+-
+-```java
+-RemoteViews smallView = 
+-    new RemoteViews(context.getPackageName(), R.layout.widget_weather_forecast_small);
+-RemoteViews mediumView = 
+-    new RemoteViews(context.getPackageName(), R.layout.widget_weather_forecast_medium);
+-RemoteViews largeView = 
+-    new RemoteViews(context.getPackageName(), R.layout.widget_weather_forecast_large);
+-
+-Map<SizeF, RemoteViews> viewMapping = new ArrayMap<>();
+-viewMapping.put(new SizeF(180f, 110f), smallView);
+-viewMapping.put(new SizeF(270f, 110f), mediumView);
+-viewMapping.put(new SizeF(270f, 280f), largeView);
+-RemoteViews remoteViews = new RemoteViews(viewMapping);
+-
+-appWidgetManager.updateAppWidget(id, remoteViews);
+-```
++<br />
+ 
+ Assume the widget uses the responsive layouts defined in the preceding
+ code snippets. This means the layout specified as

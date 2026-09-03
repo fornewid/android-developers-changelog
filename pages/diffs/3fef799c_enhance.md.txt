@@ -1,0 +1,163 @@
+diff --git a/docs/develop/ui/views/appwidgets/enhance.md b/docs/develop/ui/views/appwidgets/enhance.md
+index 9b3cf3bb..037b4486 100644
+--- a/docs/develop/ui/views/appwidgets/enhance.md
++++ b/docs/develop/ui/views/appwidgets/enhance.md
+@@ -46,21 +46,27 @@ In the following example using the Material 3 theme, the device's theme color is
+ "purplish." The accent color and widget background adapt for light and dark
+ modes, as shown in figures 1 and 2.
+ 
+-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-      xmlns:app="http://schemas.android.com/apk/res-auto"
+-      android:layout_width="match_parent"
+-      android:layout_height="match_parent"
+-      android:background="?attr/colorPrimaryContainer"
+-      android:theme="@style/Theme.Material3.DynamicColors.DayNight">
+-
+-      <ImageView
+-        ...
++
++```xml
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="?attr/colorPrimaryContainer"
++    android:theme="@style/Theme.Material3.DynamicColors.DayNight">
++
++    <ImageView
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
+         app:tint="?attr/colorPrimaryContainer"
+-        android:src="@drawable/ic_partly_cloudy" />
++        android:src="@drawable/ic_cloud" />
++
++    <!-- Other widget content. -->
+ 
+-        <!-- Other widget content. -->
++</LinearLayout>
++```
+ 
+-    </LinearLayout>
++<br />
+ 
+ ![Widget in light mode theme](https://developer.android.com/static/images/appwidgets/example-lightmode.png) **Figure 1.** Widget in light theme. ![Widgets in dark mode theme](https://developer.android.com/static/images/appwidgets/example-darkmode.png) **Figure 2.** Widget in dark theme.
+ 
+@@ -80,31 +86,46 @@ Here is an example using the Material 3 theme:
+ 
+ ### `/values/styles.xml`
+ 
+-    <resources>
+-      <style name="MyWidgetTheme" parent="Theme.Material3.DynamicColors.DayNight">
+-        <!-- Override default colorBackground attribute with custom color. -->
+-        <item name="android:colorBackground">@color/my_background_color</item>
+ 
+-        <!-- Add other colors/attributes. -->
++```xml
++<resources>
++  <style name="MyWidgetTheme" parent="Theme.Material3.DynamicColors.DayNight">
++    <!-- Override default colorBackground attribute with custom color. -->
++    <item name="android:colorBackground">@color/my_background_color</item>
++
++    <!-- Add other colors/attributes. -->
++
++  </style>
++</resources>
++```
+ 
+-      </style>
+-    </resources>
++<br />
+ 
+ ### `/values-v31/styles.xml`
+ 
+-    <resources>
+-      <!-- Do not override any color attribute. -->
+-      <style name="MyWidgetTheme" parent="Theme.Material3.DynamicColors.DayNight" />
+-    </resources>
++
++```xml
++<resources>
++  <!-- Do not override any color attribute. -->
++  <style name="MyWidgetTheme" parent="Theme.Material3.DynamicColors.DayNight" />
++</resources>
++```
++
++<br />
+ 
+ ### `/layout/my_widget_layout.xml`
+ 
+-    <resources>
+-      <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-        ...
+-        android:background="?android:attr/colorBackground"
+-        android:theme="@style/MyWidgetTheme" />
+-    </resources>
++
++```xml
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical"
++    android:background="?android:attr/colorBackground"
++    android:theme="@style/MyWidgetTheme" />
++```
++
++<br />
+ 
+ > [!NOTE]
+ > **Note:** See [Styles and Themes](https://developer.android.com/guide/topics/ui/look-and-feel/themes) for an in-depth guide to handling different styles, colors, attributes, and themes.
+@@ -138,10 +159,18 @@ when a user launches your app from a widget.
+ To enable this improved transition, use `@android:id/background` or
+ `android.R.id.background` to identify your background element:
+ 
+-    // Top-level layout of the widget.
+-    <LinearLayout
+-        android:id="@android:id/background">
+-    </LinearLayout>
++
++```xml
++<!-- Top-level layout of the widget. -->
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:id="@android:id/background"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical">
++</LinearLayout>
++```
++
++<br />
+ 
+ > [!WARNING]
+ > **Warning:** Avoid using [broadcast
+@@ -159,22 +188,17 @@ reference for the full list of added methods.
+ 
+ The following code example shows how to use a few of these methods.
+ 
+-### Kotlin
+ 
+ ```kotlin
+ // Set the colors of a progress bar at runtime.
+-remoteView.setColorStateList(R.id.progress, "setProgressTintList", createProgressColorStateList())
++remoteView.setColorStateList(
++    R.id.progress, "setProgressTintList", createProgressColorStateList()
++)
+ 
+ // Specify exact sizes for margins.
+-remoteView.setViewLayoutMargin(R.id.text, RemoteViews.MARGIN_END, 8f, TypedValue.COMPLEX_UNIT_DP)
++remoteView.setViewLayoutMargin(
++    R.id.text, RemoteViews.MARGIN_END, 8f, TypedValue.COMPLEX_UNIT_DIP
++)
+ ```
+ 
+-### Java
+-
+-```java
+-// Set the colors of a progress bar at runtime.
+-remoteView.setColorStateList(R.id.progress, "setProgressTintList", createProgressColorStateList());
+-
+-// Specify exact sizes for margins.
+-remoteView.setViewLayoutMargin(R.id.text, RemoteViews.MARGIN_END, 8f, TypedValue.COMPLEX_UNIT_DP);
+-```
+\ No newline at end of file
++<br />
+\ No newline at end of file

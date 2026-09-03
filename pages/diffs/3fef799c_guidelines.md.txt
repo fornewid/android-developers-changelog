@@ -1,0 +1,358 @@
+diff --git a/docs/games/guidelines.md b/docs/games/guidelines.md
+index d6f9210f..b7f5f0f4 100644
+--- a/docs/games/guidelines.md
++++ b/docs/games/guidelines.md
+@@ -8,7 +8,9 @@ Google Play Games revamped Level Up is a program to recognize and
+ reward great gaming experiences with program rate card benefits to drive
+ business growth for your game. Participation in this program is voluntary and
+ developers that choose not to participate will not have a change in benefits
+-they are entitled through other programs.
++they are entitled through other programs. Developers can enroll through
++Play Console starting September 1, 2026. For more information, see
++[Enroll in the Level Up program](https://support.google.com/googleplay/android-developer/answer/18018581).
+ 
+ Our mission is to connect players with the best gaming experiences---ones that
+ **[provide a consistent gamer experience](https://developer.android.com/games/guidelines#play-games-identity)** , **[reach across all
+@@ -211,7 +213,7 @@ in your game.
+ | `LU-CS-GAB` | A **conflict resolution policy is required** when a player has multiple in-game accounts or if there is a conflict between saved game data on their device and in the cloud. Usually, the player decides how to resolve these conflicts. Your conflict resolution policy should address the following scenarios: - **Multiple accounts per user:** Handle instances where a single player interacts with the application using different accounts. - **State conflicts:** Resolve discrepancies that arise between the local game state and the cloud-saved game state. |
+ 
+ If you don't have an existing cloud save solution for your player progress, we
+-recommend the [Saved Games API](https://developer.android.com/games/guidelines#play-games-identity) as part of Play Games Services to provide
++recommend the [Saved Games API](https://developer.android.com/games/pgs/savedgames#saved-games) as part of Play Games Services to provide
+ this functionality. **You are free to use any solution provider** to meet this
+ guideline.
+ 
+@@ -251,10 +253,10 @@ functionality to ensure players get the best experience on these form factors.
+ 
+ | ID | Guideline |
+ |---|---|
+-| `LU-LS-GAA` | **Handle [system bars](https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets), [display cutouts](https://developer.android.com/develop/ui/views/layout/edge-to-edge#cutout-insets), and [configuration changes](https://developer.android.com/games/develop/multiplatform/support-large-screen-resizability#advanced_large_screen_resizability)**---such as device rotation and window resizing---to prevent crashes and visual artifacts. Ensure all UI and gameplay elements remain visible and interactive, avoiding any obstructions that block player input, while correctly maintaining or restoring the game state. |
+-| `LU-LS-GAB` | Games in a landscape layout need to be full screen, without letterboxing or pillarboxing, at the aspect ratios for each [reference device](https://developer.android.com/games/guidelines#referencedevice) and also at the anchor aspect ratios of 4:3, 16:10, and 21:9. |
+-| `LU-LS-GAC` | Games in a portrait layout similarly need to support the complement aspect ratios. For example, for the anchor ratios the equivalent is 3:4, 10:16, 9:21. |
+-| `LU-LS-GAD` | Games are able to letterbox or pillar box themselves under the following conditions: - On a device with an aspect ratio that is not found on a flagship device or outside one of the anchor aspect ratios defined previously. - If the only game layout orientation (portrait or landscape) is different from the device's physical orientation. |
++| `LU-LS-GAA` | Use insets to prevent blocking game controls or UIs that overlap with [system bars](https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets) (status, navigation, gesture) or [display cutouts](https://developer.android.com/develop/ui/views/layout/edge-to-edge#cutout-insets) (notches, punch holes). |
++| `LU-LS-GAB` | Support [configuration changes](https://developer.android.com/games/develop/multiplatform/support-large-screen-resizability#advanced_large_screen_resizability) (device rotation, fold/unfold, multi-window split, freeform window resizing) without crashes, ANRs, visual artifacts, or touch mapping offsets, while preserving active game state and progress. |
++| `LU-LS-GAC` | Games displayed in landscape must render full screen without letterboxing or pillarboxing on Reference Devices and anchor ratios of 4:3, 16:10, and 21:9. Landscape-only games are not required to support a portrait layout, but must cleanly letterbox or pillarbox themselves on portrait displays. Out-of-anchor ratios may also be letterboxed or pillarboxed. |
++| `LU-LS-GAD` | Games displayed in portrait must render full screen without letterboxing or pillarboxing on reference devices and anchor ratios of 3:4, 10:16, and 9:21. Portrait-only games are not required to support a landscape layout, but must cleanly letterbox/pillarbox themselves on landscape displays. Out-of-anchor ratios may also be letterboxed/pillarboxed. |
+ 
+ #### Additional resources
+ 
+@@ -271,7 +273,11 @@ experience an immersive and seamless cross-platform gameplay.
+ 
+ | ID | Guideline |
+ |---|---|
+-| `LU-PC-GAA` | Your game **must be distributed on [Google Play Games on PC](https://play.google.com/googleplaygames)**. There are two ways to meet this distribution requirement: - Your mobile game meets the **[playability requirements](https://developer.android.com/games/playgames/start#playability-requirements)** when played on the Android emulator [Google Play Games for PC](https://play.google.com/googleplaygames). Ensure all [unsupported Android features and permissions](https://developer.android.com/games/playgames/pc-compatibility#unsupported-android-features) are not marked as required to ensure proper distribution. - **OR,** Your game is part of the [Native PC Early Access Program (EAP)](https://developer.android.com/games/playgames/native-pc). |
++| `LU-PC-GAA` | Your game **must be distributed on [Google Play Games on PC](https://play.google.com/googleplaygames)**. There are two ways to meet this distribution requirement: - Your mobile game meets the **[playability requirements](https://developer.android.com/games/playgames/start#playability-requirements)** when played on the Android emulator [Google Play Games for PC](https://play.google.com/googleplaygames). Ensure all [unsupported Android features and permissions](https://developer.android.com/games/playgames/pc-compatibility#unsupported-android-features) are not marked as required to ensure proper distribution. - **OR,** Your game is published as a Native PC game on Google Play Games and integrates with the [PC SDK](https://developer.android.com/games/playgames/native-pc/setup#step-4)^\*^. |
++
++^\*^If you publish as a Native PC Game, your title will not need to
++support Sidekick, Cloud Save, Achievements, and Game Stats API for the PC
++version until those features become available in the Google Play Games on PC SDK.
+ 
+ #### Exemptions
+ 
+@@ -301,6 +307,9 @@ cross-screen gaming experiences.
+ |---|---|
+ | `LU-IC-GAA` | The game **must be fully playable** with a controller, keyboard, and mouse (K\&M) across all devices the game supports through the Play Games platform where these modes of input are available. Fully playable means the game can be played entirely from the start, including all gameplay mechanics and settings menus, without the need to fall back to touch input. |
+ 
++> [!NOTE]
++> **Note:** Since a Keyboard and a Mouse are commonly used together, we consider the K\&M guideline to be met as long as the game is playable on either keyboard, mouse, or both.
++
+ #### Exemptions
+ 
+ Not all mobile mechanics translate seamlessly to precision input controls. The
+@@ -332,7 +341,10 @@ across them all.
+ 
+ | ID | Guideline |
+ |---|---|
+-| `LU-FF-GAA` | Your game **must be distributed across the following Android form factors** with exemplary quality: - **September 2026** : [Mobile](https://www.android.com/phones/), Foldables, and [Tablets](https://www.android.com/tablets/) - **March 1, 2027** : [Googlebook](https://googlebook.google/) - **September 2027** : [Android XR](https://www.android.com/xr/), [Android TV](https://www.android.com/tv/), and [Android Auto](https://www.android.com/auto/) |
++| `LU-FF-GAA` | Your game **must be distributed across the following Android form factors** with exemplary quality: - **September 30, 2026** : [Mobile](https://www.android.com/phones/), Foldables, and [Tablets](https://www.android.com/tablets/) - **September 30, 2027** : [Android XR](https://www.android.com/xr/), [Android TV](https://www.android.com/tv/), [Googlebook](https://googlebook.google/), and [Android Auto](https://www.android.com/auto/) |
++
++> [!NOTE]
++> **Note:** This does not require distribution on Play on these Android form factors.
+ 
+ > [!NOTE]
+ > **Note:** Guidelines and exemptions for XR, TV, and Auto will be published later in 2026. Google Play cannot review exemption requests for XR, TV, and Auto guidelines until details are published.
+@@ -402,8 +414,6 @@ experience to join the Level Up program.
+ 
+ ### Stability
+ 
+-![Android performance indicators](https://developer.android.com/static/topic/performance/vitals/images/android-vitals.png)
+-
+ Players expect their games to provide a stable experience on their device that
+ is free of crashes and Android Not Responding (ANRs). Games need to meet the
+ following quality thresholds. To reduce volatility, these thresholds will be
+@@ -411,10 +421,13 @@ enforced based on the trailing 28 days of data considering only devices within
+ the approved set for which your app has at least 1,500 sessions in the last 28
+ days.
+ 
+-| ID | Android vitals | [Test Devices](https://developer.android.com/games/guidelines#referencedevice) | 4GB+ RAM Android Devices |
+-|---|---|---|---|
+-| `LU-ST-GAA` | **[Crashes](https://developer.android.com/games/optimize/vitals/crash)** | \<1% average crash rate | \<2% average crash rate |
+-| `LU-ST-GAB` | **[ANRs](https://developer.android.com/games/optimize/vitals/anr)** | \<2% average ANR rate | \<3% average ANR rate |
++![Android performance indicators](https://developer.android.com/static/topic/performance/vitals/images/android-vitals.png)
++
++|   | `LU-ST-GAA` | `LU-ST-GAB` |
++| Android vitals | [Test devices](https://developer.android.com/games/guidelines#referencedevice) | 4GB+ RAM Android Devices |
++|---|---|---|
++| **[Crashes](https://developer.android.com/games/optimize/vitals/crash)** | \<1% average crash rate [Check metrics in Play Console](https://play.google.com/console/developers/app/vitals/metrics/details?days=28&metric=USER_PERCEIVED_CRASHES&device=google/tegu,google/tokay,google/komodo,google/caiman,google/stallion,google/comet,google/frankel,google/blazer,google/mustang,google/rango,Xiaomi/klimt,samsung/gts11wifi,samsung/gts11uwifi,samsung/gts11u,samsung/gts11,vivo/PD2415,vivo/PD2405,vivo/V2561,OPPO/OP5A3DL1,OPPO/OP5A41L1,Aocwei/X300,vivo/PD2502,OPPO/OP5E11L1,OPPO/OP5E17L1,OPPO/OP5E03L1,Xiaomi/yupei,OnePlus/OP6135L1,samsung/SC-52F,samsung/SC-51F,samsung/pa2q,samsung/SC-56F,samsung/psq,samsung/q7mq,OnePlus/OP5D0DL1,OnePlus/OP612BL1,OnePlus/OP6190L1,Xiaomi/dada,Xiaomi/xuanyuan,docomo/SO-51F,motorola/leap,iQOO/I2401,realme/RE605FL1,OPPO/OP5DC1L1,OnePlus/OP612DL1,motorola/vantage,samsung/m3q,samsung/m1q,samsung/m2q,OnePlus/OP60FFL1,Xiaomi/pudding,Xiaomi/nezha,Xiaomi/popsicle,realme/RE60C8L1,OPPO/OP61A9L1,samsung/SC-55F) info | \<2% average crash rate [Check metrics in Play Console](https://play.google.com/console/developers/app/vitals/metrics/details?days=28&metric=USER_PERCEIVED_CRASHES&ramBucket=8192,12288,6144,4096,16384,20480)) info |
++| **[ANRs](https://developer.android.com/games/optimize/vitals/anr)** | \<2% average ANR rate [Check metrics in Play Console](https://play.google.com/console/developers/app/vitals/metrics/details?days=28&metric=USER_PERCEIVED_ANRS&device=google/tegu,google/tokay,google/komodo,google/caiman,google/stallion,google/comet,google/frankel,google/blazer,google/mustang,google/rango,Xiaomi/klimt,samsung/gts11wifi,samsung/gts11uwifi,samsung/gts11u,samsung/gts11,vivo/PD2415,vivo/PD2405,vivo/V2561,OPPO/OP5A3DL1,OPPO/OP5A41L1,Aocwei/X300,vivo/PD2502,OPPO/OP5E11L1,OPPO/OP5E17L1,OPPO/OP5E03L1,Xiaomi/yupei,OnePlus/OP6135L1,samsung/SC-52F,samsung/SC-51F,samsung/pa2q,samsung/SC-56F,samsung/psq,samsung/q7mq,OnePlus/OP5D0DL1,OnePlus/OP612BL1,OnePlus/OP6190L1,Xiaomi/dada,Xiaomi/xuanyuan,docomo/SO-51F,motorola/leap,iQOO/I2401,realme/RE605FL1,OPPO/OP5DC1L1,OnePlus/OP612DL1,motorola/vantage,samsung/m3q,samsung/m1q,samsung/m2q,OnePlus/OP60FFL1,Xiaomi/pudding,Xiaomi/nezha,Xiaomi/popsicle,realme/RE60C8L1,OPPO/OP61A9L1,samsung/SC-55F) info | \<3% average ANR rate [Check metrics in Play Console](https://play.google.com/console/developers/app/vitals/metrics/details?days=28&metric=USER_PERCEIVED_ANRS&ramBucket=8192,12288,6144,4096,16384,20480)) info |
+ 
+ > [!NOTE]
+ > **Note:** The [bad behavior thresholds](https://developer.android.com/topic/performance/vitals#what_are_the_bad_behavior_thresholds) that affect visibility within the Play Store are not the same as the Level Up program. The values documented above are used to determine eligibility of the Level Up program.
+@@ -435,7 +448,7 @@ experience on Android devices.
+ 
+ | ID | Guideline |
+ |---|---|
+-| `LU-PR-GAA` | On [reference devices](https://developer.android.com/games/guidelines#referencedevice), target and render at 60 fps by default with stability during gameplay after the loading screen: - Average FPS ≥ 55 FPS - Low 10% (P90) FPS ≥ 50 FPS - Low 1% (P99) FPS ≥ 30 FPS |
++| `LU-PR-GAA` | On [reference devices](https://developer.android.com/games/guidelines#referencedevice), active gameplay scenes must target and render at a minimum of 60 fps by default. This requirement specifically applies to real-time, active gameplay and excludes non-interactive or transitionary states such as loading/splash screens, content downloads, lobby interfaces, menus, and cinematic cutscenes: - Average FPS ≥ 55 FPS - Low 10% (P90) FPS ≥ 50 FPS - Low 1% (P99) FPS ≥ 30 FPS |
+ 
+ #### Exemptions
+ 
+@@ -464,10 +477,10 @@ To deliver a premium experience, [Android 17](https://android-developers.googleb
+ handling and stricter platform requirements, which is accompanied by new,
+ actionable memory telemetry in the Play Console.
+ 
+-**Effective February 2027** , [Play requires](https://android-developers.googleblog.com/2026/08/app-quality-memory-optimization-secure-onboarding.html) games to meet established [bad-behavior](https://support.google.com/googleplay/android-developer/answer/17492799)
+-thresholds for dynamic memory usage (anonymous RSS + swap), bitmap usage, and
+-code optimization across all Android versions. Developers can now monitor these
+-memory metrics and bad behavior thresholds within
++**Effective February 2027** , [Play requires](https://android-developers.googleblog.com/2026/08/app-quality-memory-optimization-secure-onboarding.html) games to meet established
++[bad-behavior](https://support.google.com/googleplay/android-developer/answer/17492799) thresholds for dynamic memory usage (anonymous RSS + swap),
++bitmap usage, and code optimization across all Android versions. Developers can
++now monitor these memory metrics and bad behavior thresholds within
+ [Android vitals](https://play.google.com/console/developers/app/vitals/metrics/overview).
+ 
+ | ID | Guideline |
+@@ -485,12 +498,17 @@ improvements in performance and battery usage. It also offers new higher
+ fidelity graphical techniques that will improve the gameplay experience on
+ Android.
+ 
++Older games might prefer to access Vulkan through
++[ANGLE](https://github.com/google/angle) rather than converting their own code
++to Vulkan. ANGLE is Google's conformant OpenGL ES translation layer for Windows,
++Mac, Linux, iOS and Android. ANGLE uses Vulkan under the hood.
++
+ > [!NOTE]
+ > **Note:** This guideline only applies to devices that have updated graphics drivers that are passing our conformance test suite that has a version of 2024 or newer. Check if the version value of `FEATURE_VULKAN_DEQP_LEVEL` on the device is ≥ `20240301` to confirm if it's running on updated graphics drivers.
+ 
+ | ID | Guideline |
+ |---|---|
+-| `LU-VK-GAA` | On devices that have updated graphics drivers, where `DEQP`≥`20240301`: - **Vulkan must be set as the primary graphics API** if you are using **Unity version 2021 or newer** , or **Unreal Engine version 4.25 or newer** . Minor OpenGL ES usage (For example, for Adverts, webviews, etc) is acceptable as long as its \<10% of frames. - Instead of using Vulkan directly, games using Unity's Built-in Render Pipeline may opt-in to using [ANGLE](https://github.com/google/angle) for Android 17+ devices. These games have until **September 30, 2027** to set Vulkan as the primary graphics API. Transitioning to Unity's Universal Render Pipeline is highly recommended to achieve this but is not the only permissible path. - All other games can decide to either use Vulkan as the primary graphics API or opt-in to using ANGLE for Android 17+ devices. To opt in to use ANGLE modify the app's manifest file as follows: ``` <application android:appCategory="game"> <meta-data android:name="com.android.graphics.driver.prefer_angle" android:value="true" /> </application> ``` |
++| `LU-VK-GAA` | On devices that have updated graphics drivers, where `DEQP`≥`20240301`: - If you are using **Unity version 2021 or newer** , or **Unreal Engine version 4.25 or newer**: - **Vulkan must be set as the primary graphics API**. Minor OpenGL ES usage (For example, for Adverts, webviews, etc) is acceptable as long as it is \<10% of frames. - Games using Unity's Built-in Render Pipeline may opt-in to using [ANGLE](https://github.com/google/angle) for Android 17+ devices. These games have until **September 30, 2027** to set Vulkan as the primary graphics API. Transitioning to Unity's Universal Render Pipeline is highly recommended to achieve this but is not the only permissible path. - If you are using an older version of Unity or Unreal, or any other game engine, then you are required to either use Vulkan or enable ANGLE rendering to meet this guideline. To opt-in to use ANGLE, modify your app's manifest file as follow: ``` <application android:appCategory="game"> <meta-data android:name="com.android.graphics.driver.prefer_angle" android:value="true" /> </application> ``` |
+ 
+ #### Exemptions
+ 
+@@ -590,11 +608,177 @@ listed SoCs:
+ | **2025** | **QCOM SM8735** | **XIAOMI PAD 8** |
+ | **2025** | **QCOM SM8750** | **OPPO PAD 3** |
+ 
++### Controllers
++
++For controllers, make sure to test your game with the following as it covers
++the common styles of controllers supported on the platform today:
++
++- Sony DualSense Wireless Controller
++- XBox Wireless Controller
++- Nintendo Switch Pro Controller (note: This is for the original Switch console)
++
++We recommend using the [testing guidance](https://developer.android.com/games/sdk/game-controller/testing_controller)
++here for more details.
++
+ ## Change notes
+ 
+ ### September 2026
+ 
+-- Memory
++- **Large screen optimization**
++
++  - Guidelines updated:
++    [`LU-LS-GAA`](https://developer.android.com/games/guidelines#LU-LS-GAA)
++    ,
++
++    [`LU-LS-GAB`](https://developer.android.com/games/guidelines#LU-LS-GAB)
++
++
++    [`LU-LS-GAC`](https://developer.android.com/games/guidelines#LU-LS-GAC)
++    ,
++    [`LU-LS-GAD`](https://developer.android.com/games/guidelines#LU-LS-GAD)
++
++  - Previous text:
++
++    - Handle [system bars](https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets), [display
++      cutouts](https://developer.android.com/develop/ui/views/layout/edge-to-edge#cutout-insets), and
++      [configuration changes](https://developer.android.com/games/develop/multiplatform/support-large-screen-resizability#advanced_large_screen_resizability)---such
++      as device rotation and window resizing---to prevent crashes and visual
++      artifacts. Ensure all UI and gameplay elements remain visible and
++      interactive, avoiding any obstructions that block player input,
++      while correctly maintaining or restoring the game state.
++
++    - Games in a landscape layout need to be full screen, without
++      letterboxing or pillarboxing, at the aspect ratios for each
++      [reference device](https://developer.android.com/games/guidelines#referencedevice) and also at the anchor aspect ratios of 4:3,
++      16:10, and 21:9.
++
++    - Games in a portrait layout similarly need to support the complement
++      aspect ratios. For example, for the anchor ratios the equivalent is
++      3:4, 10:16, and 9:21.
++
++    - Games are able to letterbox or pillar box themselves under the
++      following conditions:
++
++      - On a device with an aspect ratio that is not found on a flagship device or outside one of the anchor aspect ratios defined previously.
++      - If the only game layout orientation (portrait or landscape) is different from the device's physical orientation.
++  - New text:
++
++    - Use insets to prevent blocking game controls or UIs that overlap
++      with
++      [system bars](https://developer.android.com/develop/ui/views/layout/edge-to-edge#system-bars-insets)
++      (status, navigation, gesture) or
++      [display cutouts](https://developer.android.com/develop/ui/views/layout/edge-to-edge#cutout-insets)
++      (notches, punch holes).
++
++    - Support
++      [configuration changes](https://developer.android.com/games/develop/multiplatform/support-large-screen-resizability#advanced_large_screen_resizability)
++      (device rotation, fold/unfold, multi-window split, freeform window
++      resizing) without crashes, ANRs, visual artifacts, or touch
++      mapping offsets, while preserving active game state and progress.
++
++    - Games displayed in landscape must render full screen without
++      letterboxing or pillarboxing on Reference Devices and anchor ratios
++      of 4:3, 16:10, and 21:9. Landscape-only games are not required to
++      support a portrait layout, but must cleanly letterbox or
++      pillarbox themselves on portrait displays. Out-of-anchor ratios
++      may also be letterboxed or pillarboxed.
++
++    - Games displayed in portrait must render full screen without
++      letterboxing or pillarboxing on reference devices and anchor ratios
++      of 3:4, 10:16, and 9:21.Portrait-only games are not required
++      to support a landscape layout, but must cleanly
++      letterbox or pillarbox themselves on landscape displays.
++      Out-of-anchor ratios may also be letterboxed or pillarboxed.
++
++- **Google Play Games on PC**
++
++  - Guidelines updated: [`LU-GPGC-GAA`](https://developer.android.com/games/guidelines#LU-GPGC-GAA)
++  - Previous text:
++
++    Your game **must be distributed on [Google Play Games on
++    PC](https://play.google.com/googleplaygames)** .
++    There are two ways to meet this distribution requirement:
++    Your mobile game meets the **[playability requirements](https://developer.android.com/games/playgames/start#playability-requirements)**
++    when played on the Android emulator [Google Play Games for PC](https://play.google.com/googleplaygames).
++    - Ensure all [unsupported Android features and
++      permissions](https://developer.android.com/games/playgames/pc-compatibility#unsupported-android-features) are not marked as required to ensure proper distribution.
++    - **OR,** Your game is part of the [Native PC Early Access Program
++      (EAP)](https://developer.android.com/games/playgames/native-pc).
++  - New text:
++
++    Your game **must be distributed on [Google Play Games on PC](https://play.google.com/googleplaygames)** .
++    There are two ways to meet this distribution requirement:
++    Your mobile game meets the **[playability requirements](https://developer.android.com/games/playgames/start#playability-requirements)** when
++    played on the Android emulator [Google Play Games for PC](https://play.google.com/googleplaygames).
++    - Ensure all [unsupported Android features and
++      permissions](https://developer.android.com/games/playgames/pc-compatibility#unsupported-android-features) are not marked as required to ensure proper distribution.
++    - **OR,** Your game is published as a Native PC game on Google Play Games and integrates with the [PC SDK](https://developer.android.com/games/playgames/native-pc/setup#step-4)^\*^.
++
++    ^\*^ *If you publish as a Native PC Game, your title won't need to support Sidekick, Cloud Save, Achievements, and Game Stats API for the PC version until those features become available in the Google Play Games on PC SDK.*
++- **Precision input controls**
++
++  - New text:
++
++    > [!NOTE]
++    > **Note:** Since a Keyboard and a Mouse are commonly used together, we consider the K\&M guideline to be met as long as the game is playable on either keyboard, mouse, or both.
++
++- **Form factor distribution**
++
++  - Guideline updated: [`LU-FF-GAA`](https://developer.android.com/games/guidelines#LU-FF-GAA)
++  - Previous text:
++
++    - **September 2026** : [Mobile](https://www.android.com/phones/), Foldables, and [Tablets](https://www.android.com/tablets/)
++    - **March 1, 2027** : [Googlebook](https://googlebook.google/)
++    - **September 2027** : [Android XR](https://www.android.com/xr/), [Android TV](https://www.android.com/tv/), and [Android Auto](https://www.android.com/auto/)
++  - New text:
++
++    - **September 2026** : [Mobile](https://www.android.com/phones/), Foldables, and [Tablets](https://www.android.com/tablets/)
++    - **September 2027** : [Android XR](https://www.android.com/xr/), [Android TV](https://www.android.com/tv/), [Googlebook](https://googlebook.google/), and [Android Auto](https://www.android.com/auto/)
++
++    > [!NOTE]
++    > **Note:** This does not require distribution on Play on these Android form factors.
++
++- **Vulkan**
++
++  - Guideline updated: [`LU-VK-GAA`](https://developer.android.com/games/guidelines#LU-VK-GAA)
++  - Previous text:
++  - **Vulkan must be set as the primary graphics API** if you are using **Unity version 2021 or newer** , or **Unreal Engine version 4.25 or
++    newer**. Minor OpenGL ES usage (For example, for Adverts, webviews, etc) is acceptable as long as it is \<10% of frames.
++  - Instead of using Vulkan directly, games using Unity's Built-in Render Pipeline may opt-in to using [ANGLE](https://github.com/google/angle) for Android 17+ devices. These games have until **September 30, 2027** to set Vulkan as the primary graphics API. Transitioning to Unity's Universal Render Pipeline is highly recommended to achieve this but is not the only permissible path.
++  - All other games can decide to either use Vulkan as the primary graphics
++    API or opt-in to using ANGLE for Android 17+ devices. To opt in to use
++    ANGLE modify the app's manifest file as follows:
++
++        <application android:appCategory="game">
++        <meta-data android:name="com.android.graphics.driver.prefer_angle" android:value="true" />
++        </application>
++
++  - New text:
++
++  - If you are using **Unity version 2021 or newer** , or **Unreal Engine
++    version 4.25 or newer**:
++
++  - **Vulkan must be set as the primary graphics API**. Minor
++    OpenGL ES usage (For example, for Adverts, webviews, etc) is
++    acceptable as long as its \<10% of frames.
++
++  - Games using Unity's Built-in Render Pipeline may opt-in to using
++    [ANGLE](https://github.com/google/angle) for Android 17+
++    devices. These games have until **September 30, 2027** to set Vulkan
++    as the primary graphics API. Transitioning to Unity's Universal
++    Render Pipeline is highly recommended to achieve this but is not the
++    only permissible path.
++
++  - If you are using an older version of Unity or Unreal, or any other game
++    engine, then you are required to either use Vulkan or enable ANGLE
++    rendering to meet this guideline. To opt-in to use ANGLE, modify your
++    app's manifest file as follow:
++
++        <application android:appCategory="game">
++        <meta-data android:name="com.android.graphics.driver.prefer_angle" android:value="true" />
++        </application>
++
++- **Memory**
+ 
+   - Guidelines updated: [`LU-MM-GAA`](https://developer.android.com/games/guidelines#LU-MM-GAA)
+   - Previous text:
+@@ -613,8 +797,8 @@ listed SoCs:
+     memory handling and stricter platform requirements, which is
+     accompanied by new, actionable memory telemetry in the Play Console.
+ 
+-    **Effective February 2027** , [Play requires](https://developer.android.com/games/guidelines#play-games-identity) games to meet established
+-    [bad-behavior](https://support.google.com/googleplay/android-developer/answer/17492799) thresholds for dynamic memory usage
++    **Effective February 2027** , [Play requires](https://android-developers.googleblog.com/2026/08/app-quality-memory-optimization-secure-onboarding.html) games to meet
++    established [bad-behavior](https://support.google.com/googleplay/android-developer/answer/17492799) thresholds for dynamic memory usage
+     (anonymous RSS + swap), bitmap usage, and code optimization across all
+     Android versions. Developers can now monitor these memory metrics and
+     bad behavior thresholds within [Android vitals](https://play.google.com/console/developers/app/vitals/metrics/overview).
+@@ -625,11 +809,12 @@ listed SoCs:
+     You can find the memory thresholds and enforcement timeline
+     [here](https://support.google.com/googleplay/android-developer/answer/17492799).
+ 
+-    **Optimize your game** : Follow the [latest guidance for games](https://developer.android.com/games/optimize/memory-overview) to maximize memory savings across process states.
++    **Optimize your game** : Follow the [latest guidance for games](https://developer.android.com/games/optimize/memory-overview)
++    to maximize memory savings across process states.
+ 
+ ### July 2026
+ 
+-- Game Stats
++- **Game Stats**
+ 
+   - Guidelines updated: [`LU-GS-GAA`](https://developer.android.com/games/guidelines#LU-GS-GAA)
+   - Exemption updated: [`LU-GS-EAC`](https://developer.android.com/games/guidelines#LU-GS-EAC)
+@@ -644,7 +829,7 @@ listed SoCs:
+     - Submit **at least 5** repetitive stats to power the Game Stats feature stored against the player's gamer profile. All repetitive stats need to represent regularly occurring actions by players in the game.
+       - **At least 1 stat** needs to be usable for competitive player engagement features.
+     - Exemption: Titles on Native PC Early Access Program (EAP), given our SDK doesn't support this feature yet. (Note: This only applies to the Native PC version of your title).
+-- Form factor distribution
++- **Form factor distribution**
+ 
+   - Guidelines updated: [`LU-FF-GAA`](https://developer.android.com/games/guidelines#LU-FF-GAA)
+   - Previous text:
