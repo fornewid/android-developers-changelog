@@ -1,0 +1,15 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/indirect-pointer.md b/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/indirect-pointer.md
+index 01ca19af..9cb49a26 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/indirect-pointer.md
++++ b/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/indirect-pointer.md
+@@ -17,6 +17,10 @@ to high-level indirect pointer events, such as those originating from a device's
+ touchpad. Use this modifier to capture and process gestures that come from a
+ touchpad or similar source.
+ 
++> [!NOTE]
++> **Note:** For more information about handling other types of input events (such as the camera action), see [handle physical input from audio and display
++> glasses](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/physical-input).
++
+ ## API surface
+ 
+ There are four callbacks that your app can use to control handling:

@@ -1,0 +1,14 @@
+diff --git a/docs/google/play/age-signals/notify-significant-changes.md b/docs/google/play/age-signals/notify-significant-changes.md
+index a05f36d3..93a0a9a8 100644
+--- a/docs/google/play/age-signals/notify-significant-changes.md
++++ b/docs/google/play/age-signals/notify-significant-changes.md
+@@ -4,9 +4,6 @@ url: https://developer.android.com/google/play/age-signals/notify-significant-ch
+ source: md.txt
+ ---
+ 
+-> [!NOTE]
+-> **Note:** Functionality for significant changes is not yet live in Google Play Console.
+-
+ Regulations in some jurisdictions and regions may require you to notify Google
+ Play when you make certain types of changes, sometimes referred to as
+ *significant changes*. You are responsible for determining when you are required

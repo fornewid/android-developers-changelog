@@ -1,0 +1,27 @@
+diff --git a/docs/training/tv/tif/ui.md b/docs/training/tv/tif/ui.md
+index 60db7a99..4f7e4659 100644
+--- a/docs/training/tv/tif/ui.md
++++ b/docs/training/tv/tif/ui.md
+@@ -7,11 +7,8 @@ source: md.txt
+ In the live TV experience, the user changes channels and is presented with
+ channel and program information briefly before the information disappears. Other types of information,
+ such as messages ("DO NOT ATTEMPT AT HOME"), subtitles, or ads may need to persist. As with any TV
+-app, such information should not interfere with the program content playing on the screen.
+-![](https://developer.android.com/static/images/tv/do-not-attempt.png)
+-
+-
+-**Figure 1.** An overlay message in a live TV app.
++app, such information shouldn't interfere with the program content playing on the screen.
++![](https://developer.android.com/static/images/tv/do-not-attempt.png) **Figure 1.** An overlay message in a live TV app.
+ 
+ Also consider whether certain program content should be presented, given the
+ content's rating and parental control settings, and how your app behaves and informs the user when
+@@ -342,7 +339,7 @@ private void checkContentBlockNeeded() {
+ }
+ ```
+ 
+-Once you have determined if the content should or should not be blocked, notify the system TV
++Once you have determined if the content should or shouldn't be blocked, notify the system TV
+ app by calling the
+ `https://developer.android.com/reference/android/media/tv/TvInputService.Session` method `https://developer.android.com/reference/android/media/tv/TvInputService.Session#notifyContentAllowed()`
+ or

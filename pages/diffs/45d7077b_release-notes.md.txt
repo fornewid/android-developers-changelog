@@ -1,0 +1,24 @@
+diff --git a/docs/tools/agents/android-cli/release-notes.md b/docs/tools/agents/android-cli/release-notes.md
+index fe35ce34..e05dd659 100644
+--- a/docs/tools/agents/android-cli/release-notes.md
++++ b/docs/tools/agents/android-cli/release-notes.md
+@@ -12,6 +12,19 @@ This page lists the new features in every Android CLI release. To download
+ Android CLI, go to the [download page](https://developer.android.com/tools/agents). To learn more,
+ see the [Android CLI overview](https://developer.android.com/tools/agents/android-cli).
+ 
++## Version 1.0.16261425 (September 2026)
++
++- **Layout fixes** : Fixed problem with layout command not working on some scenarios. To temporarily revert to old layout behavior, `export ANDROID_CLI_LAYOUT_V1=1`.
++
++## Version 1.0.16251017 (September 2026)
++
++- **Layout dump** : `android layout` now supports the `--no-idle` flag to fetch layout without waiting for idle state. `android layout` also supports the `--full` flag to return the whole layout tree without filtering; by default, `layout` returns only interactive elements.
++- **Shell completion** : Generate and install shell autocomplete scripts for Bash and Zsh using the new `android completion` command.
++- **Update skills** : Keep skills up to date with the new `android skills update` command, and install or remove multiple skills in a single invocation (for example, `android skills install <skill1> <skill2>`).
++- **List skills by agent** : `android skills list` now defaults to detailed display, including skill descriptions and the agents where the skill is installed. `android skills list` also supports the `--agent <agent>` flag to list all skills installed for an agent.
++- **Delta install performance** : Accelerated incremental APK patching in `android install` using zero-copy kernel system calls.
++- **Screen edge detection** : Improved feature and edge detection in `android screen` using Canny edge detection algorithms.
++
+ ## Version 1.0.15985488 (July 2026)
+ 
+ - **Dedicated install command** : Install APKs using the standalone `android install` command that features incremental APK push making incremental installations orders of magnitude faster than `adb`.

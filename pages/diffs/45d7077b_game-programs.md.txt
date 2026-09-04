@@ -1,0 +1,13 @@
+diff --git a/docs/training/tv/discovery/game-programs.md b/docs/training/tv/discovery/game-programs.md
+index 79a7386c..71003bc2 100644
+--- a/docs/training/tv/discovery/game-programs.md
++++ b/docs/training/tv/discovery/game-programs.md
+@@ -5,7 +5,7 @@ source: md.txt
+ ---
+ 
+ All game programs have the type attribute
+-[`TYPE_GAME`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_GAME()).
++[`TYPE_GAME`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_GAME).
+ 
+ The following table shows the attributes that can be assigned to a game program,
+ each linked to the corresponding setter in

@@ -1,0 +1,127 @@
+diff --git a/docs/training/tv/get-started/multitasking.md b/docs/training/tv/get-started/multitasking.md
+index ef8b4ac2..696d7365 100644
+--- a/docs/training/tv/get-started/multitasking.md
++++ b/docs/training/tv/get-started/multitasking.md
+@@ -34,6 +34,7 @@ PiP mode:
+ 
+ ### Kotlin
+ 
++
+ ```kotlin
+ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+     super.onViewCreated(view, savedInstanceState)
+@@ -53,28 +54,28 @@ override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+ }
+ ```
+ 
++<br />
++
+ ### Java
+ 
+-```java
+-@Override
+-public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+-    super.onViewCreated(view, savedInstanceState);
+-    if (requireActivity().getPackageManager().hasSystemFeature(FEATURE_PICTURE_IN_PICTURE)) {
+-        pictureInPictureButton.setVisibility(View.VISIBLE);
+-        pictureInPictureButton.setOnClickListener(v -> {
+-            Rational aspectRatio = new Rational(view.getWidth(), view.getHeight());
+-            PictureInPictureParams params = new PictureInPictureParams.Builder()
+-                    .setAspectRatio(aspectRatio)
+-                    .setTitle("My Streaming App")
+-                    .setSubtitle("My On-Demand Content")
+-                    .build();
+-            Boolean result = requireActivity().enterPictureInPictureMode(params);
+-        });
+-    } else {
+-        pictureInPictureButton.setVisibility(View.GONE);
++    @Override
++    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
++        super.onViewCreated(view, savedInstanceState);
++        if (requireActivity().getPackageManager().hasSystemFeature(FEATURE_PICTURE_IN_PICTURE)) {
++            pictureInPictureButton.setVisibility(View.VISIBLE);
++            pictureInPictureButton.setOnClickListener(v -> {
++                Rational aspectRatio = new Rational(view.getWidth(), view.getHeight());
++                PictureInPictureParams params = new PictureInPictureParams.Builder()
++                        .setAspectRatio(aspectRatio)
++                        .setTitle("My Streaming App")
++                        .setSubtitle("My On-Demand Content")
++                        .build();
++                Boolean result = requireActivity().enterPictureInPictureMode(params);
++            });
++        } else {
++            pictureInPictureButton.setVisibility(View.GONE);
++        }
+     }
+-}
+-```
+ 
+ The action is only added if the device has the system feature
+ [`FEATURE_PICTURE_IN_PICTURE`](https://developer.android.com/reference/kotlin/android/content/pm/PackageManager#feature_picture_in_picture). Also, when the action is triggered, the
+@@ -99,8 +100,7 @@ fullscreen app. To mitigate this, there are keep-clear APIs that apps can
+ use to identify critical UI components that shouldn't be overlaid. The system
+ attempts to honor the requests to avoid covering these components by
+ repositioning the PiP window.
+-
+-![Keep-Clear](https://developer.android.com/static/training/tv/images/keep-clear.png)
++![Positioning the PiP window to avoid covering important UI components](https://developer.android.com/static/training/tv/images/keep-clear.png) **Figure 1.** Positioning the PiP window to avoid covering important UI components.
+ 
+ > [!NOTE]
+ > **Note:** The system might not honor these requests if too many UI components are marked as keep-clear, or if they take up large portions of the screen. Be mindful of this when using these APIs.
+@@ -119,32 +119,28 @@ You can also do this programmatically using [`setPreferKeepClear()`](https://dev
+ 
+ ### Kotlin
+ 
+-```kotlin
+-private lateinit var binding: MyLayoutBinding
++    private lateinit var binding: MyLayoutBinding
+ 
+-override fun onCreate(savedInstanceState: Bundle?) {
+-    super.onCreate(savedInstanceState)
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
+ 
+-    binding = MyLayoutBinding.inflate(layoutInflater)
+-    setContentView(binding.root)
+-    binding.importantText.isPreferKeepClear = true
+-}
+-```
++        binding = MyLayoutBinding.inflate(layoutInflater)
++        setContentView(binding.root)
++        binding.importantText.isPreferKeepClear = true
++    }
+ 
+ ### Java
+ 
+-```java
+-private MyLayoutBinding binding;
++    private MyLayoutBinding binding;
+ 
+-@Override
+-protected void onCreate(@Nullable Bundle savedInstanceState) {
+-    super.onCreate(savedInstanceState);
++    @Override
++    protected void onCreate(@Nullable Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
+ 
+-    binding = MyLayoutBinding.inflate(getLayoutInflater());
+-    setContentView(binding.getRoot());
+-    binding.importantText.setPreferKeepClear(true);
+-}
+-```
++        binding = MyLayoutBinding.inflate(getLayoutInflater());
++        setContentView(binding.getRoot());
++        binding.importantText.setPreferKeepClear(true);
++    }
+ 
+ There may be times when you don't need to keep an entire [`View`](https://developer.android.com/reference/android/view/View) clear, but
+ only a section of it. The [`setPreferKeepClearRects()`](https://developer.android.com/reference/android/view/View#setPreferKeepClearRects(java.util.List%3Candroid.graphics.Rect%3E)) can be used to
+@@ -161,7 +157,7 @@ Your app must declare a [meta-data value attribute](https://developer.android.co
+ `com.google.android.tv.pip.category` that corresponds with the primary type or
+ types of usage for the picture-in-picture mode. Any `<activity>` that has set
+ `android:supportsPictureInPicture="true"` should declare this attribute with a
+-relevant value from the table below.
++relevant value from the following table.
+ 
+ Usage types that don't fall into any of these categories, in particular any
+ playback of media content, are not allowed in picture-in-picture mode on TV.

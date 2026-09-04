@@ -1,0 +1,19 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2026.2.1.md b/docs/studio/releases/fixed-bugs/studio/2026.2.1.md
+index c9dafd70..981cc1d1 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2026.2.1.md
++++ b/docs/studio/releases/fixed-bugs/studio/2026.2.1.md
+@@ -4,6 +4,14 @@ url: https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.1
+ source: md.txt
+ ---
+ 
++### Android Studio Rabbit 1 \| 2026.2.1 Canary 4
++
++**Released together with:**
++
++- Android Gradle Plugin 9.5.0-alpha04
++
++Fixed Issues **Android Gradle Plugin** [Issue #549199023](https://issuetracker.google.com/issues/549199023) BouncyCastle dependency should use BOM **Layout Inspector** [Issue #550505817](https://issuetracker.google.com/issues/550505817) Layout Inspector agent deadlocks the inspected app (ANR) on a foldable: FoldSupport blocks the main thread while holding the ViewLayoutInspector state lock **Live Edit** [Issue #552582834](https://issuetracker.google.com/issues/552582834) testVibeEditSuccessGates fails with --jvmopt=-Dstudio.threading.assertions.enabled=true **Running Devices** [Issue #552841757](https://issuetracker.google.com/issues/552841757) Android Studio low-quality/pixelated native device mirroring that looks like low bitrate
++
+ ### Android Studio Rabbit 1 \| 2026.2.1 Canary 3
+ 
+ **Released together with:**

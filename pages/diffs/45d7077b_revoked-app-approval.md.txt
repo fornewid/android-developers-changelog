@@ -1,0 +1,14 @@
+diff --git a/docs/google/play/age-signals/revoked-app-approval.md b/docs/google/play/age-signals/revoked-app-approval.md
+index b5ad6cf0..34ef74c2 100644
+--- a/docs/google/play/age-signals/revoked-app-approval.md
++++ b/docs/google/play/age-signals/revoked-app-approval.md
+@@ -4,9 +4,6 @@ url: https://developer.android.com/google/play/age-signals/revoked-app-approval
+ source: md.txt
+ ---
+ 
+-> [!NOTE]
+-> **Note:** Functionality for revoked app approvals is not yet live in Google Play Console.
+-
+ Parents can revoke app approval for supervised users on Android devices using
+ the [Google Family Link](https://families.google/familylink/) app. If app
+ approval is revoked for a supervised user, then that user will no longer be able

@@ -1,0 +1,24 @@
+diff --git a/docs/training/tv/playback/compose/layouts.md b/docs/training/tv/playback/compose/layouts.md
+index 4d157fd4..4000fb81 100644
+--- a/docs/training/tv/playback/compose/layouts.md
++++ b/docs/training/tv/playback/compose/layouts.md
+@@ -77,7 +77,7 @@ There are a few approaches to building layouts that don't work well on TV
+ devices. Avoid the following user interface patterns when developing a layout
+ for TV:
+ 
+-- **Re-using phone or tablet layouts**: Don't reuse layouts from a phone or tablet app without modification. Layouts built for other Android device form factors are not well suited for TV devices and must be simplified for operation on a TV.
++- **Re-using phone or tablet layouts**: Don't reuse layouts from a phone or tablet app without modification. Layouts built for other Android-powered device form factors are not well suited for TV devices and must be simplified for operation on a TV.
+ - **Using phone action bars or menus**: Top action bars and pull-down menus are not appropriate for a TV interface due to the difficulty in navigating such menus with a remote control.
+ - **Using swipe-only navigation**: Sliding or swiping between screens can work great on a phone or tablet, but don't try swipe-only gestures on a TV where users rely on a D-pad remote.
+ 
+@@ -91,8 +91,8 @@ images, it can quickly run into memory limits and cause out-of-memory errors.
+ Use efficient image loading and decoding libraries (such as [Coil](https://coil-kt.github.io/coil/) or
+ [Glide](https://github.com/bumptech/glide)) to fetch, decode, and display bitmaps in your app.
+ 
+-For more information about getting the best performance when working with bitmaps,
+-refer to [Android graphics best practices](https://developer.android.com/topic/performance/graphics).
++For more information about getting the best performance when working with
++bitmaps, refer to [Android graphics best practices](https://developer.android.com/topic/performance/graphics).
+ 
+ ## Provide effective advertising
+ 
