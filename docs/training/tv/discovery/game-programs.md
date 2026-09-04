@@ -5,7 +5,7 @@ source: md.txt
 ---
 
 All game programs have the type attribute
-[`TYPE_GAME`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_GAME()).
+[`TYPE_GAME`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_GAME).
 
 The following table shows the attributes that can be assigned to a game program,
 each linked to the corresponding setter in

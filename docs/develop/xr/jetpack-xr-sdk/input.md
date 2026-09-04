@@ -12,14 +12,24 @@ Display Glasses [](https://developer.android.com/develop/xr/devices#audio-displa
 
 <br />
 
+Users interact with audio glasses and display glasses in different ways, such as
+the following:
+
+- Asking a question using their voice.
+- Gesturing on the touchpad (for example, tapping or swiping back, forward, up, and down)
+- Pressing a button on the side of their device.
+
+Android XR has built-in support for some of these use cases, while others
+require you to customize or extend the system's default behavior or implement
+certain APIs.
+
 Regardless of whether a user has audio glasses or display glasses, their voice
 is their primary way to interact with their device.
 
-> [!WARNING]
-> **Preview:** We'll have more information in a future release about handling physical input.
+This guide covers the following ways of handling input:
 
-This guide explains how to [handle audio input using automatic speech
-recognition](https://developer.android.com/develop/xr/jetpack-xr-sdk/asr).
+- How to [handle physical input](https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/physical-input).
+- How to [handle audio input using automatic speech recognition](https://developer.android.com/develop/xr/jetpack-xr-sdk/asr).
 
 This guide assumes you're familiar with the following concepts:
 

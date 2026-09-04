@@ -103,7 +103,7 @@ To test the flow, complete the following steps:
    - **Build from source**: Clone the repositories mentioned and install the app using Android Studio.
 2. **Open the sample holder app**: Open the sample holder app. This registers the holder credentials with Credential Manager.
 3. **Open the sample verifier app** : Open the sample verifier app. Then, select the option to request digital credentials from wallets. A bottomsheet displaying available credentials from **CMWallet** should appear.
-4. **Select a credentials**: Select a credential to send back to the verifier app. The verifier app should now display fields from the returned credential.
+4. **Select a credential**: Select a credential to send back to the verifier app. The verifier app should now display fields from the returned credential.
 
 > [!NOTE]
 > **Note:** You can also initiate the request from a web browser on another device by navigating to <https://digital-credentials.dev/> and selecting **Request Credentials (OpenID4VP 1.0)**.

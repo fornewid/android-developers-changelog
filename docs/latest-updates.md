@@ -138,9 +138,9 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
 
 Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio) Canary
 
-### [Rabbit 1 \| 2026.2.1 Canary 3](https://developer.android.com/studio/preview)
+### [Rabbit 1 \| 2026.2.1 Canary 4](https://developer.android.com/studio/preview)
 
-August 27, 2026 Stable
+September 3, 2026 Stable
 
 ### [Quail 4 \| 2026.1.4](https://developer.android.com/studio/releases)
 

@@ -10,39 +10,37 @@ appropriately.
 
 Video programs can be one of the following types:
 
-- [`TYPE_MOVIE`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_MOVIE())
-- [`TYPE_TV_SERIES`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_TV_SERIES())
-- [`TYPE_TV_SEASON`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_TV_SEASON())
-- [`TYPE_TV_EPISODE`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_TV_EPISODE())
-- [`TYPE_CLIP`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_CLIP())
-- [`TYPE_EVENT`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_EVENT())
-- [`TYPE_CHANNEL`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_CHANNEL())
+- [`TYPE_MOVIE`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_MOVIE)
+- [`TYPE_TV_SERIES`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_TV_SERIES)
+- [`TYPE_TV_SEASON`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_TV_SEASON)
+- [`TYPE_TV_EPISODE`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_TV_EPISODE)
+- [`TYPE_CLIP`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_CLIP)
+- [`TYPE_EVENT`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_EVENT)
+- [`TYPE_CHANNEL`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_CHANNEL)
 
-Use [`PreviewProgram.Builder`](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder) to build a program. You can read more about possible values for each field in the reference docs for each setter on the builder.
+Use [`PreviewProgram.Builder`](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder) to build a program. You can read more about
+possible values for each field in the reference docs for each setter on the
+builder.
 
 ### Kotlin
 
-```kotlin
-val program = PreviewProgram.Builder()
-        .setChannelId(channelId)
-        .setTitle(clip.getTitle())
-        .setDescription(clip.getDescription())
-        .setType(TvContractCompat.PreviewPrograms.TYPE_MOVIE)
-        // Set required attributes
-        .build()
-```
+    val program = PreviewProgram.Builder()
+            .setChannelId(channelId)
+            .setTitle(clip.getTitle())
+            .setDescription(clip.getDescription())
+            .setType(TvContractCompat.PreviewPrograms.TYPE_MOVIE)
+            // Set required attributes
+            .build()
 
 ### Java
 
-```java
-PreviewProgram program = new PreviewProgram.Builder()
-        .setChannelId(channelId)
-        .setTitle(clip.getTitle())
-        .setDescription(clip.getDescription())
-        .setType(TvContractCompat.PreviewPrograms.TYPE_MOVIE)
-        // Set required attributes
-        .build();
-```
+    PreviewProgram program = new PreviewProgram.Builder()
+            .setChannelId(channelId)
+            .setTitle(clip.getTitle())
+            .setDescription(clip.getDescription())
+            .setType(TvContractCompat.PreviewPrograms.TYPE_MOVIE)
+            // Set required attributes
+            .build();
 
 
 The following table shows the attributes that can be assigned to each type of
@@ -89,7 +87,8 @@ Attributes marked ✔ are required; those marked (✔) are optional.
 | [Video Width](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setVideoWidth(int)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
 | [Weight](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setWeight(int)) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) | (✔) |
 
-**(\*) Note:** `LOGO_CONTENT_DESCRIPTION` is required when `LOGO_URI` is used. `START` and `END` times only appear on the screen when the `LIVE` attribute is `true`.  
+> [!NOTE]
+> **Note:** (\*) `LOGO_CONTENT_DESCRIPTION` is required when `LOGO_URI` is used. `START` and `END` times only appear on the screen when the `LIVE` attribute is `true`.
 
 ##### Preview images
 

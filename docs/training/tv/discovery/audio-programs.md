@@ -8,11 +8,11 @@ Attributes for audio programs depend on the type of the content. The program
 type tells the system what metadata to expect so that the UI can be filled in
 appropriately. Audio programs can be one of these types:
 
-- [`TYPE_TRACK`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_TRACK())
-- [`TYPE_ALBUM`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_ALBUM())
-- [`TYPE_ARTIST`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_ARTIST())
-- [`TYPE_PLAYLIST`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_PLAYLIST())
-- [`TYPE_STATION`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_STATION())
+- [`TYPE_TRACK`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_TRACK)
+- [`TYPE_ALBUM`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_ALBUM)
+- [`TYPE_ARTIST`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_ARTIST)
+- [`TYPE_PLAYLIST`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_PLAYLIST)
+- [`TYPE_STATION`](https://developer.android.com/reference/androidx/tvprovider/media/tv/TvContractCompat.PreviewPrograms#TYPE_STATION)
 
 Use [`PreviewProgram.Builder`](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder)
 to build a program. You can read more about possible values for each field in
@@ -30,7 +30,8 @@ The following example shows how to use `PreviewProgram.Builder`:
 
 The following table shows the attributes that can be assigned to each type of
 audio program, and links to the corresponding setter in
-`PreviewProgram.Builder`. Attributes marked ✔ are required; those marked (✔) are optional.
+`PreviewProgram.Builder`. Attributes marked ✔ are required; those marked
+(✔) are optional.
 
 | Attribute | Track | Album | Artist | Playlist | Station |
 |---|---|---|---|---|---|
@@ -62,4 +63,5 @@ audio program, and links to the corresponding setter in
 | [Video Width](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setVideoWidth(int)) | (✔) | (✔) | (✔) | (✔) | (✔) |
 | [Weight](https://developer.android.com/reference/androidx/tvprovider/media/tv/PreviewProgram.Builder#setWeight(int)) | (✔) | (✔) | (✔) | (✔) | (✔) |
 
-**(\*) Notes:** LOGO_CONTENT_DESCRIPTION is required when LOGO_URI is used.
+> [!NOTE]
+> **Note:** (\*) `LOGO_CONTENT_DESCRIPTION` is required when `LOGO_URI` is used.

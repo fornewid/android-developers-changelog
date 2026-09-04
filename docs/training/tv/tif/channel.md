@@ -21,9 +21,9 @@ In order for your TV input to work with EPG data, it must declare the
 write permission in its Android manifest file as follows:
 
 ```xml
-<uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DA>TA" /
+<uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DATA" />
 ```
-| **Note:** The `READ_EPG_DATA` permission was deprecated in Android M (API 23) and is no longer needed.
+**Note:** The `READ_EPG_DATA` permission was deprecated in Android M (API 23) and is no longer needed.
 
 ## Register channels in the database
 
@@ -40,7 +40,7 @@ activity, for each of your channels, you must map your channel data to the follo
 
 Although the TV input framework is generic enough to handle both traditional broadcast and
 over-the-top (OTT) content without any distinction, you may want to define the following columns in
-addition to those above to better identify traditional broadcast channels:
+addition to better identify traditional broadcast channels:
 
 - `https://developer.android.com/reference/android/media/tv/TvContract.Channels#COLUMN_ORIGINAL_NETWORK_ID` - the television network ID
 - `https://developer.android.com/reference/android/media/tv/TvContract.Channels#COLUMN_SERVICE_ID` - the service ID
@@ -50,7 +50,7 @@ If you want to provide app link details for your channels, you need to
 update some additional fields. For more information on app link fields, see
 [Add app link information](https://developer.android.com/training/tv/tif/channel#applink).
 
-For internet streaming based TV inputs, assign your own values to the above accordingly so that
+For internet streaming based TV inputs, assign your own values accordingly so that
 each channel can be identified uniquely.
 
 Pull your channel metadata (in XML, JSON, or whatever) from your backend server, and in your setup
@@ -85,14 +85,14 @@ values.put(Channels.COLUMN_VIDEO_FORMAT, channel.videoFormat);
 Uri uri = context.getContentResolver().insert(TvContract.Channels.CONTENT_URI, values);
 ```
 
-In the example above, `channel` is an object which holds channel metadata from the
+In this example, `channel` is an object which holds channel metadata from the
 backend server.
 
 ### Present channel and program information
 
 The system TV app presents channel and program information to users as they flip through channels,
 as shown in figure 1. To make sure the channel and program information works with the system TV app's
-channel and program information presenter, follow the guidelines below.
+channel and program information presenter, follow these guidelines:
 
 1. **Channel number** (`https://developer.android.com/reference/android/media/tv/TvContract.Channels#COLUMN_DISPLAY_NUMBER`)
 2. **Icon** ([`android:icon`](https://developer.android.com/guide/topics/manifest/application-element#icon) in the TV input's manifest)
@@ -104,17 +104,11 @@ channel and program information presenter, follow the guidelines below.
 6. **Poster art** (`https://developer.android.com/reference/android/media/tv/TvContract.Programs#COLUMN_POSTER_ART_URI`)
    - Aspect ratio between 16:9 and 4:3
 
-![](https://developer.android.com/static/images/tv/channel-info.png)
-
-
-**Figure 1.** The system TV app channel and program information presenter.
+![](https://developer.android.com/static/images/tv/channel-info.png) **Figure 1.** The system TV app channel and program information presenter.
 
 The system TV app provides the same information through the program guide, including poster art,
 as shown in figure 2.
-![](https://developer.android.com/static/images/tv/prog-guide.png)
-
-
-**Figure 2.** The system TV app program guide.
+![](https://developer.android.com/static/images/tv/prog-guide.png) **Figure 2.** The system TV app program guide.
 
 ## Update channel data
 
@@ -138,7 +132,6 @@ When updating the system database with a large amount of channel data, use the `
 or
 `https://developer.android.com/reference/android/content/ContentResolver#bulkInsert(android.net.Uri, android.content.ContentValues[])`
 method. Here's an example using `https://developer.android.com/reference/android/content/ContentResolver#applyBatch(java.lang.String, java.util.ArrayList<android.content.ContentProviderOperation>)`:
-
 
 ### Kotlin
 
@@ -202,8 +195,8 @@ for (int j = 0; j < programsCount; ++j) {
 
 ### Process channel data asynchronously
 
-Data manipulation, such as fetching a stream from the server or accessing the database, should
-not block the UI thread. Using an `https://developer.android.com/reference/android/os/AsyncTask` is one
+Data manipulation, such as fetching a stream from the server or accessing the database, shouldn't
+block the UI thread. Using an `https://developer.android.com/reference/android/os/AsyncTask` is one
 way to perform updates asynchronously. For example, when loading channel info from a backend server,
 you can use `https://developer.android.com/reference/android/os/AsyncTask` as follows:
 
@@ -222,8 +215,8 @@ private class LoadTvInputTask(val context: Context) : AsyncTask<Uri, Unit, Unit>
 
     @Throws(IOException::class)
     private fun fetchUri(videoUri: Uri) {
-        context.contentResolver.openInputStream(videoUri)>.use { inputStream -
-            Xml.newPullPars>er().also { parser -
+        context.contentResolver.openInputStream(videoUri).use { inputStream ->
+            Xml.newPullParser().also { parser ->
                 try {
                     parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false)
                     parser.setInput(inputStream, null)
@@ -283,7 +276,7 @@ private static class LoadTvInputTask extends AsyncTask<Uri, Void, Void> {
 
 If you need to update EPG data on a regular basis, consider using
 [`WorkManager`](https://developer.android.com/topic/libraries/architecture/workmanager)
-to run the update process during idle time, such as every day at 3:00 a.m.
+to run the update process during idle time, such as every day at 3:00 AM.
 
 Other techniques to separate the data update tasks from the UI thread include using the
 `https://developer.android.com/reference/android/os/HandlerThread` class, or you may implement your own using `https://developer.android.com/reference/android/os/Looper`
@@ -291,7 +284,7 @@ and `https://developer.android.com/reference/android/os/Handler` classes. See [P
 
 ## Add app link information
 
-Channels can use *app links* to let users easily launch a related
+Channels can use *app links* to let users launch a related
 activity while they are watching channel content. Channel apps use
 app links to extend user engagement by launching activities that show
 related information or additional content. For example, you can use app links
@@ -327,9 +320,7 @@ specify the following details in your
 - `https://developer.android.com/reference/android/media/tv/TvContract.Channels#COLUMN_APP_LINK_POSTER_ART_URI` - The URI for the poster art used as the background of the app link for this channel. For an example poster image, see figure 2, callout 1.
 - `https://developer.android.com/reference/android/media/tv/TvContract.Channels#COLUMN_APP_LINK_TEXT` - The descriptive link text of the app link for this channel. For an example app link description, see the text in figure 2, callout 3.
 
-![](https://developer.android.com/static/images/training/tv/tif/app-link-diagram.png)
-
-**Figure 2.** App link details.
+![](https://developer.android.com/static/images/training/tv/tif/app-link-diagram.png) **Figure 2.** App link details.
 
 If the channel data doesn't specify app link information, the system
 creates a default app link. The system chooses default details as follows:

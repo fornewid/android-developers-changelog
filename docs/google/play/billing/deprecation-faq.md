@@ -51,14 +51,12 @@ Google Play Billing Library version.
     existing apps still work, but new apps and updates must use supported
     versions.
 
-\*\*How do you fix a deprecation warning if you've already updated your
-app to a supported version?\*\*
+**How do you fix a deprecation warning if you've already updated your app to a supported version?**
 :   Make sure your `AndroidManifest.xml` file contains
     `com.google.android.play.billingclient.version`. If it's missing,
     check whether [manifest merging](https://developer.android.com/studio/build/manage-manifests#merge-manifests) removes this attribute.
 
-\*\*How do you upgrade from a lower version of the Google Play Billing
-Library?\*\*
+**How do you upgrade from a lower version of the Google Play Billing Library?**
 
 :   Update the dependency in your release to use a supported version from
     the table. To learn what changed between releases, see the
@@ -66,8 +64,7 @@ Library?\*\*
 
     To migrate, see the [migration guide for version 9](https://developer.android.com/google/play/billing/migrate-gpblv9).
 
-\*\*Where do you find the extension form to continue distributing to users
-until the extension deadline?\*\*
+**Where do you find the extension form to continue distributing to users until the extension deadline?**
 
 :   If your app uses an unsupported Google Play Billing Library version, you'll
     receive a warning in the Google Play Console. On the warning's details page

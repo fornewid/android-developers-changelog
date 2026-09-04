@@ -18,14 +18,11 @@ The Android framework assists with minimum-input interaction by providing a reco
 on the home screen. Content recommendations appear as the first row of the TV home screen after
 the first use of the device. Contributing recommendations from your app's content catalog can help
 bring users back to your app.
-![](https://developer.android.com/static/images/tv/home-recommendations.png)
-
-
-**Figure 1.** An example of the recommendations row.
+![Example of the recommendations row on the Android TV home screen](https://developer.android.com/static/images/tv/home-recommendations.png) **Figure 1.** An example of the recommendations row.
 
 
 This guide teaches you how to create recommendations and provide them to the Android framework
-so users can easily discover and enjoy your app content. See also the sample implementation in
+so users can discover and enjoy your app content. See also the sample implementation in
 the
 [Leanback sample app](https://github.com/android/tv-samples/tree/main/Leanback)
 .
@@ -73,7 +70,7 @@ and recommendations for new trending content the user might not be aware of.
 
 The system ranks and orders recommendations for each group separately when creating or updating
 the recommendation row. By providing group information for your recommendations, you can ensure
-that your recommendations don't get ordered below unrelated recommendations.
+that your recommendations don't get ordered under unrelated recommendations.
 
 
 Use
