@@ -1,0 +1,26 @@
+diff --git a/docs/build/releases/agp-3-4-0-release-notes.md b/docs/build/releases/agp-3-4-0-release-notes.md
+index e1702327..7d22b565 100644
+--- a/docs/build/releases/agp-3-4-0-release-notes.md
++++ b/docs/build/releases/agp-3-4-0-release-notes.md
+@@ -54,8 +54,8 @@ To see a list of noteable bug fixes, read the related post on the
+   you more control over which lint checks are packaged in your Android
+   libraries.
+ 
+-  - `lintChecks`: This is an existing configuration that you should use for lint checks you want to only run when building your project locally. If you were previously using the `lintChecks` dependency configuration to include lint checks in the published AAR, you need to migrate those dependencies to instead use the new `lintPublish` configuration described below.
+-  - `lintPublish`: Use this new configuration in library projects for lint checks you want to include in the published AAR, as shown below. This means that projects that consume your library also apply those lint checks.
++  - `lintChecks`: This is an existing configuration that you should use for lint checks you want to only run when building your project locally. If you were previously using the `lintChecks` dependency configuration to include lint checks in the published AAR, you need to migrate those dependencies to instead use the new `lintPublish` configuration.
++  - `lintPublish`: Use this new configuration in library projects for lint checks you want to include in the published AAR, as shown in the following example. This means that projects that consume your library also apply those lint checks.
+ 
+   The following code sample uses both dependency configurations in a
+   local Android library project.
+@@ -100,8 +100,8 @@ To see a list of noteable bug fixes, read the related post on the
+   experiences from a single Android App Bundle.
+ 
+ - **R8 enabled by default:** R8 integrates desugaring,
+-  shrinking, obfuscating, optimizing, and dexing all in one step---resulting
+-  in
++  shrinking, obfuscating, optimizing, and dexing all in one step. This
++  results in
+   [noticeable build performance
+   improvements](https://www.google.com/url?q=https://android-developers.googleblog.com/2018/11/r8-new-code-shrinker-from-google-is.html&sa=D&ust=1551922493258000&usg=AFQjCNH0N1wuMX645n7giw0wjikzjm3WCA). R8 was introduced in Android Gradle plugin 3.3.0 and
+   is now enabled by default for both app and Android library projects

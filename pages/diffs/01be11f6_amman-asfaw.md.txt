@@ -1,0 +1,27 @@
+diff --git a/docs/blog/authors/amman-asfaw.md b/docs/blog/authors/amman-asfaw.md
+index 02da8697..e74f464f 100644
+--- a/docs/blog/authors/amman-asfaw.md
++++ b/docs/blog/authors/amman-asfaw.md
+@@ -4,13 +4,21 @@ url: https://developer.android.com/blog/authors/amman-asfaw
+ source: md.txt
+ ---
+ 
+-1 post ![](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)
++2 posts ![](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)
+ 
+ # Amman Asfaw
+ 
+ Product Manager
+ 
+ Android Studio
++- 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_Z2bRC9Y.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4)
++
++  [arrow_forward](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4) This is the final stable release for Android Studio Quail. The new features in Android Studio enable you to build premium apps with AI efficiently and effectively.
++  5 min read
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
++  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+ - 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_ZzldHB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)

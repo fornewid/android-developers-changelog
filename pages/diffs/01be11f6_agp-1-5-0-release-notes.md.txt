@@ -1,0 +1,13 @@
+diff --git a/docs/build/releases/agp-1-5-0-release-notes.md b/docs/build/releases/agp-1-5-0-release-notes.md
+index 89a2622a..e926139a 100644
+--- a/docs/build/releases/agp-1-5-0-release-notes.md
++++ b/docs/build/releases/agp-1-5-0-release-notes.md
+@@ -35,7 +35,7 @@ General Notes:
+       - A transform must be registered globally, which applies them to all variants.
+       - Internal code processing, through the Java Code Coverage Library (JaCoCo), ProGuard, and MultiDex, now uses the Transform API. However, the Java Android Compiler Kit (Jack) doesn't use this API: only the `javac/dx` code path does.
+       - Gradle executes the transforms in this order: JaCoCo, third-party plugins, ProGuard. The execution order for third-party plugins matches the order in which the transforms are added by the third party plugins; third-party plugin developers can't control the execution order of the transforms through an API.
+-    - Deprecated the `dex` getter from the `ApplicationVariant` class. You can't access the `Dex` task through the variant API anymore because it's now accomplished through a transform. There's currently no replacement for controlling the dex process.
++    - Deprecated the `dex` getter from the `ApplicationVariant` class. You can't access the `Dex` task through the variant API anymore because it's now accomplished through a transform. There's no replacement for controlling the dex process.
+     - Fixed incremental support for assets.
+     - Improved MultiDex support by making it available for test projects, and tests now automatically have the `com.android.support:multidex-instrumentation` dependency.
+     - Added the ability to properly fail a Gradle build and report the underlying error cause when the Gradle build invokes asynchronous tasks and there's a failure in the worker process.

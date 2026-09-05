@@ -1,0 +1,34 @@
+diff --git a/docs/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md b/docs/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md
+index 3cf07215..d7e62d2a 100644
+--- a/docs/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md
++++ b/docs/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost.md
+@@ -243,6 +243,14 @@ Written by:
+   [read_more
+   View profile](https://developer.android.com/blog/authors/donovan-mcmurray) ![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp) ![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp)
+ Continue reading
++- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_Z2bRC9Y.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4)
++
++  [arrow_forward](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4) This is the final stable release for Android Studio Quail. The new features in Android Studio enable you to build premium apps with AI efficiently and effectively.
++  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 5 min read
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
++  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+ - [![View Raghavendra Hareesh Pottamsetty's profile](https://developer.android.com/static/blog/assets/Raghavendra_Hareesh_Pottamsetty_72fdb063a0_1h0S85.webp)](https://developer.android.com/blog/authors/raghavendra-hareesh-pottamsetty) 26 Aug 2026 26 Aug 2026 ![](https://developer.android.com/static/blog/assets/Raising_the_bar_Google_Play_Strapi_2_a80695bf12_Z2jxf1k.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Elevating app quality: Reducing memory usage and improving device migration](https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration)
+@@ -255,14 +263,6 @@ Continue reading
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content) At Google Play, user safety and developer success go hand in hand. We continue to see growth in apps with AI generated features, and indeed, adding generative AI into your apps is a great way to unlock incredible creative possibilities.
+   [Ron Aquino](https://developer.android.com/blog/authors/ron-aquino) • 4 min read
+-- 3 Authors 24 Aug 2026 24 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_1_Strapi_6f49d09922_ZVXnJg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [AAOS SDV - Secure by Design](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design) At Google, we believe our products should be secure by design, which is why we built the Android Automotive Operating System for Software Defined Vehicle (AAOS SDV) on existing, market-proven platforms, leveraging virtualization technologies like Cuttlefish.
+-  [Markus Vill](https://developer.android.com/blog/authors/markus-vill), [Sean Keys](https://developer.android.com/blog/authors/sean-keys), [István Nádor](https://developer.android.com/blog/authors/istvan-nador) • 5 min read
+-  - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
+-  - [#Security](https://developer.android.com/blog/topics/security)
+ Stay in the loop
+ 
+ 

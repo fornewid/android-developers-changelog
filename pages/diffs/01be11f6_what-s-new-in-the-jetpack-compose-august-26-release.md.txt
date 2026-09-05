@@ -1,0 +1,22 @@
+diff --git a/docs/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release.md b/docs/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release.md
+index 04bd273f..209b9155 100644
+--- a/docs/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release.md
++++ b/docs/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release.md
+@@ -26,7 +26,7 @@ implementation(platform("androidx.compose:compose-bom:2026.08.00"))
+ ### **Mesh Gradients**
+ 
+ Compose 1.12 introduces [`MeshGradientPainter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/MeshGradientPainter) to help you create multi-point, organic color gradients.
+-![image.png](https://developer.android.com/static/blog/assets/image_f7fb408503_Z2hoyTa.webp)
++![meshGradient.gif](https://developer.android.com/static/blog/assets/mesh_Gradient_29b3ff9c73_Z27W84u.webp)
+ 
+ ```kotlin
+ val rows = 1
+@@ -116,7 +116,7 @@ transition.DeferredAnimatedContent(
+ ```
+ 
+ Below are two demos of use cases where a gesture-driven animation is handed off to a triggered animation:
+-![image.png](https://developer.android.com/static/blog/assets/image_4997083c8b_Z1GXd91.webp)
++![colorCards.gif](https://developer.android.com/static/blog/assets/color_Cards_adbc3d38c4_28saLx.webp)
+ 
+ ## **Text, Input \& Platform Integrations**
+ 

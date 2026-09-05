@@ -1,0 +1,37 @@
+diff --git a/docs/blog/topics/android-studio.md b/docs/blog/topics/android-studio.md
+index d7cc8e75..66f740ba 100644
+--- a/docs/blog/topics/android-studio.md
++++ b/docs/blog/topics/android-studio.md
+@@ -6,6 +6,14 @@ source: md.txt
+ 
+ # #Android Studio
+ 
++- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_Z2bRC9Y.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4)
++
++  [arrow_forward](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4) This is the final stable release for Android Studio Quail. The new features in Android Studio enable you to build premium apps with AI efficiently and effectively.
++  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 5 min read
++  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
++  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+ - [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_ZzldHB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
+@@ -48,17 +56,6 @@ source: md.txt
+   [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
+   [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 2 min read
+   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+-- [![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp)](https://developer.android.com/blog/authors/daniel-galpin) 20 Oct 2025 20 Oct 2025 ![](https://developer.android.com/static/blog/assets/Now_In_Android121_f4ff784252_Z2dFDgg.webp) [Community](https://developer.android.com/blog/categories/community)
+-
+-  ## [Now in Android #121](https://developer.android.com/blog/posts/now-in-android-121)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/now-in-android-121) Compose 1.9, Media 3 1.8, QPR2 Beta 1, Narwhal Feature Drop, and more!
+-  [Daniel Galpin](https://developer.android.com/blog/authors/daniel-galpin) • 9 min read
+-  - [#Android](https://developer.android.com/blog/topics/android)
+-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+-  - [#Now In Android](https://developer.android.com/blog/topics/now-in-android)
+-  - [#Compose](https://developer.android.com/blog/topics/compose)
+-  - +2 ↩
+ <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
+ 
+ #### Page 1

@@ -1,0 +1,46 @@
+diff --git a/docs/blog/latest/6.md b/docs/blog/latest/6.md
+index 8a36107e..6bc668f1 100644
+--- a/docs/blog/latest/6.md
++++ b/docs/blog/latest/6.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- 4 Authors 28 Jan 2026 28 Jan 2026 ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api)
++
++  [arrow_forward](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api) To further help bring your ML Kit Prompt API use cases to production, we are excited to announce Automated Prompt Optimization (APO) targeting On-Device models on Vertex AI. Automated Prompt Optimization is a tool that helps you automatically find the optimal prompt for your use cases.
++  [Chetan Tekur](https://developer.android.com/blog/authors/chetan-tekur), [Chao Zhao](https://developer.android.com/blog/authors/chao-zhao), [Paul Zhou](https://developer.android.com/blog/authors/paul-zhou), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 3 min read
+ - [![View Roxanna Aliabadi Walker's profile](https://developer.android.com/static/blog/assets/roxana_02dc1d3afc_GLFQH.webp)](https://developer.android.com/blog/authors/roxanna-walker)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/yacine-rezgui) 27 Jan 2026 27 Jan 2026 ![](https://developer.android.com/static/blog/assets/Android_Photo_Picker_Blogger_60fa0ede59_YTu6Y.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [The Embedded Photo Picker](https://developer.android.com/blog/posts/the-embedded-photo-picker)
+@@ -126,12 +132,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide) In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Mikkel - the founder and CEO of Miksapix Interactive.
+   [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+-- [![View Sandhya Mohan's profile](https://developer.android.com/static/blog/assets/Sandhya_Mohan_30435468a9_1b689e.webp)](https://developer.android.com/blog/authors/sandhya-mohan)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 04 Dec 2025 04 Dec 2025 ![](https://developer.android.com/static/blog/assets/as_Otter2_96831eedef_Z19EUHu.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Android Studio Otter 2 Feature Drop is stable!](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/android-studio-otter-2-feature-drop-is-stable) The Android Studio Otter 2 Feature Drop is here to supercharge your productivity.
+-  [Sandhya Mohan](https://developer.android.com/blog/authors/sandhya-mohan), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 3 min read
+ [arrow_back](https://developer.android.com/blog/latest/5)
+ 
+ #### Page 6
+@@ -163,6 +163,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+ - [#Google Play](https://developer.android.com/blog/topics/google-play)
+ - [#Memory](https://developer.android.com/blog/topics/memory)
++- [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+ - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+ - [#Widgets](https://developer.android.com/blog/topics/widgets)
+ - [#made by google](https://developer.android.com/blog/topics/made-by-google)
+@@ -192,7 +193,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
+ - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
+ - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
+-- [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+ - [#Media3](https://developer.android.com/blog/topics/media3)
+ - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+ - [#pixel watch](https://developer.android.com/blog/topics/pixel-watch)

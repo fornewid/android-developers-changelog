@@ -1,0 +1,30 @@
+diff --git a/docs/tools/agents/android-skills/browse.md b/docs/tools/agents/android-skills/browse.md
+index c291087c..f080e8e5 100644
+--- a/docs/tools/agents/android-skills/browse.md
++++ b/docs/tools/agents/android-skills/browse.md
+@@ -8,8 +8,8 @@ These are some of the Android skills that we've launched so far. Android skills
+ follow the [agent skills](https://agentskills.io/home) open standard and are
+ designed to be reusable across all AI tools that support skills.
+ 
+-To explore all the available skills, see the
+-[Android skills GitHub repository](https://github.com/android/skills).
++To explore all the available skills, see the [Android skills GitHub
++repository](https://github.com/android/skills).
+ [![](https://developer.android.com/static/images/picto-icons/chevron-complex.svg)
+ ### Upgrade to AGP 9
+ Guidance on upgrading your project to Android Gradle Plugin 9.](https://github.com/android/skills/tree/main/build-system/agp/agp-9-upgrade) [![](https://developer.android.com/static/images/picto-icons/increased-productivity.svg)
+@@ -32,11 +32,9 @@ Modernize your app UI by implementing edge-to-edge layout support.](https://gith
+ ### Integrate Play Engage SDK
+ Integrate the Play Engage SDK into your app to publish content clusters and engage users on Google Play.](https://github.com/android/skills/tree/main/play/engage-sdk-integration) [![](https://developer.android.com/static/images/picto-icons/code.svg)
+ ### Set up Navigation 3
+-Best practices for setting up and using Navigation 3 in your app.](https://github.com/android/skills/tree/main/navigation/navigation-3) [![](https://developer.android.com/static/images/picto-icons/storage.svg)
+-### Use Perfetto SQL
+-Translate natural language prompts into Perfetto SQL queries to extract data from Android Perfetto traces.](https://github.com/android/skills/tree/main/profilers/perfetto-sql) [![](https://developer.android.com/static/images/picto-icons/graph.svg)
+-### Analyze Perfetto traces
+-Analyze Perfetto traces to find the root cause of latency, memory, or jank issues in Android apps.](https://github.com/android/skills/tree/main/profilers/perfetto-trace-analysis) [![](https://developer.android.com/static/images/picto-icons/billing.svg)
++Best practices for setting up and using Navigation 3 in your app.](https://github.com/android/skills/tree/main/navigation/navigation-3) [![](https://developer.android.com/static/images/picto-icons/graph.svg)
++### Use Android profilers
++Record and analyze Android performance data to diagnose bottlenecks, jank, and memory leaks, and convert natural language into executable trace queries, such as PerfettoSQL queries.](https://github.com/android/skills/tree/main/profilers/android-profiler) [![](https://developer.android.com/static/images/picto-icons/billing.svg)
+ ### Upgrade Play Billing library
+ Access new features by upgrading your Play Billing Library.](https://github.com/android/skills/tree/main/play/play-billing-library-version-upgrade) [![](https://developer.android.com/static/images/picto-icons/policy.svg)
+ ### Audit Play policy compliance

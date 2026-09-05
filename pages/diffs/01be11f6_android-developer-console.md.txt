@@ -1,0 +1,16 @@
+diff --git a/docs/developer-verification/guides/android-developer-console.md b/docs/developer-verification/guides/android-developer-console.md
+index ab4003f3..6b3071fa 100644
+--- a/docs/developer-verification/guides/android-developer-console.md
++++ b/docs/developer-verification/guides/android-developer-console.md
+@@ -109,4 +109,8 @@ names (or request exceptions).
+ | G | com.test.3 | 31 | 10 |
+ 
+ In this scenario, all developers with keys are eligible. Once one developer
+-registers the package name, the other would need to request permission.
+\ No newline at end of file
++registers the package name, the other would need to request permission.
++
++## Review
++
++[Video](https://www.youtube.com/watch?v=dG-KD25Amzg)
+\ No newline at end of file
