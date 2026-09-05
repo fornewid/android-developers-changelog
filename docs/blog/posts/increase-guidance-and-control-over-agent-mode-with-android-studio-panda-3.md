@@ -85,6 +85,14 @@ Written by:
   [read_more
   View profile](https://developer.android.com/blog/authors/matt-dyor) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)
 Continue reading
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_Z2bRC9Y.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4)
+
+  [arrow_forward](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4) This is the final stable release for Android Studio Quail. The new features in Android Studio enable you to build premium apps with AI efficiently and effectively.
+  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 5 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
 - [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_ZzldHB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
@@ -106,12 +114,6 @@ Continue reading
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
   - +2 ↩
-- [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) 21 Apr 2026 21 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Level up your development with Planning Mode and Next Edit Prediction in Android Studio Panda 4](https://developer.android.com/blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4)
-
-  [arrow_forward](https://developer.android.com/blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4) Android Studio Panda 4 is now stable and ready for you to use in production. This release brings Planning Mode, Next Edit Prediction, and more, making it easier than ever to build high-quality Android apps.
-  [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) • 4 min read
 Stay in the loop
 
 

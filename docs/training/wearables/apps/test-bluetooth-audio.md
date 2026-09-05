@@ -29,15 +29,12 @@ steps:
 
 1. Fetch the Bumble source code:
 
-   ```
-   git clone https://github.com/google/bumble
-   ```
+       git clone https://github.com/google/bumble
+
 2. Navigate to the `bumble` directory, then build and install
    Bumble modules:
 
-   ```
-   cd bumble && python3 -m pip install "."
-   ```
+       cd bumble && python3 -m pip install "."
 
 ### Launch emulated Bluetooth speaker
 
@@ -45,22 +42,18 @@ To launch the emulated speaker, complete the following steps:
 
 1. Launch a version of the emulator that supports Wear OS 4 or higher.
 
-   **Note:** If you're using an emulator version
-   lower than 33.1.10, launch the emulator from the command line using the
-   `-packet-streamer-endpoint default` parameter.
-2. To discover and connect to the emulated speaker, run the following
-   command in the `bumble` directory:
+   > [!NOTE]
+   > **Note:** If you're using an emulator version lower than 33.1.10, launch the emulator from the command line using the `-packet-streamer-endpoint default` parameter.
 
-   ```
-   python3 examples/run_a2dp_sink.py examples/a2dp_sink1.json \
-     android-netsim stdout | ffplay -i
-   ```
+2. To discover and connect to the emulated speaker, run the following command in
+   the `bumble` directory:
+
+       python3 examples/run_a2dp_sink.py examples/a2dp_sink1.json \
+         android-netsim stdout | ffplay -i
 
    The audio output is played through your computer's speakers.
 
    You can also redirect output to a file:
 
-   ```
-   python3 examples/run_a2dp_sink.py examples/a2dp_sink1.json \
-     android-netsim output.sbc
-   ```
+       python3 examples/run_a2dp_sink.py examples/a2dp_sink1.json \
+         android-netsim output.sbc

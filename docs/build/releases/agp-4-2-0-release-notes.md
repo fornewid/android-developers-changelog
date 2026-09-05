@@ -95,7 +95,7 @@ or `build.gradle.kts` file:
       }
     }
 
-APK v4 signing allows you to quickly deploy large APKs using the [ADB
+APK v4 signing lets you quickly deploy large APKs using the [ADB
 Incremental APK installation](https://developer.android.com/about/versions/11/features#incremental) in
 Android 11. This new flag takes care of the APK signing step in the deployment
 process.
@@ -109,22 +109,29 @@ This example demonstrates how to set app signing per variant using the
 [`onVariants()`](https://developer.android.com/reference/tools/gradle-api/4.2/com/android/build/api/extension/AndroidComponentsExtension#onvariants)
 method in either Kotlin or Groovy:
 
+<br />
+
     androidComponents {
-        onVariants(selector().withName("fooDebug"), {
-            signingConfig.enableV1Signing.set(false)
-            signingConfig.enableV2Signing.set(true)
-        })
+        onVariants(selector().withName("fooDebug")) {
+            signingConfig {
+                enableV1Signing false
+                enableV2Signing true
+            }
+        }
+    }
+
+<br />
 
 ### New Gradle property:
 `android.native.buildOutput`
 
 To reduce clutter in build output, AGP 4.2 filters messages
-from native builds that use [CMake](https://developer.android.com/ndk/guides/cmake) and [`ndk-build`](https://developer.android.com/ndk/guides/ndk-build),
+from C/C++ builds that use [CMake](https://developer.android.com/ndk/guides/cmake) and [`ndk-build`](https://developer.android.com/ndk/guides/ndk-build),
 displaying only C/C++ compiler output by default. Previously, a line of output
 was generated for every file that was built, resulting in a large quantity of
 informational messages.
 
-If you would like to see the entirety of the native output, set the new
+If you would like to see the entirety of the C/C++ output, set the new
 Gradle property `android.native.buildOutput` to `verbose`.
 
 You can set this property in either the `gradle.properties` file or through the
@@ -233,6 +240,8 @@ installation size on the device, and the download size is roughly the same.
 To force AGP to instead package the DEX files compressed, you can add the
 following to your `build.gradle` file:
 
+<br />
+
     android {
         packagingOptions {
             dex {
@@ -243,16 +252,16 @@ following to your `build.gradle` file:
 
 <br />
 
-<br />
+## Use the DSL to package compressed C/C++ libraries
 
-## Use the DSL to package compressed native libraries
-
-We recommend packaging native libraries in uncompressed form, because this
+We recommend packaging C/C++ libraries in uncompressed form, because this
 results in a smaller app install size, smaller app download size, and faster app
 loading time for your users. However, if you want the Android Gradle plugin to
-package compressed native libraries when building your app, set
+package compressed C/C++ libraries when building your app, set
 [`useLegacyPackaging`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/dsl/JniLibsPackagingOptions#uselegacypackaging)
 to `true` in your app's `build.gradle` file:
+
+<br />
 
     android {
         packagingOptions {
@@ -261,6 +270,8 @@ to `true` in your app's `build.gradle` file:
             }
         }
     }
+
+<br />
 
 The flag `useLegacyPackaging` replaces the manifest attribute `extractNativeLibs`. For more background, see the release note
 [Native libraries packaged uncompressed by default](https://developer.android.com/build/releases/past-releases/agp-3-6-0-release-notes#extractNativeLibs).

@@ -6,6 +6,14 @@ source: md.txt
 
 # #Android Skills
 
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_Z2bRC9Y.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4)
+
+  [arrow_forward](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4) This is the final stable release for Android Studio Quail. The new features in Android Studio enable you to build premium apps with AI efficiently and effectively.
+  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 5 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
 - [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_23cCms.webp)](https://developer.android.com/blog/authors/jose-alcerreca) 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_MYo9i.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation)

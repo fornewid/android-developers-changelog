@@ -168,10 +168,10 @@ following in mind:
 configuration
 
 For Library modules, if you include a resource for a language that you
-do not include in the default set of resources---for example, if you include
+do not include in the default set of resources (for example, if you include
 `hello_world` as a string resource in
 `/values-es/strings.xml` but you don't define that resource in
-`/values/strings.xml`---the Android Gradle plugin no longer
+`/values/strings.xml`), the Android Gradle plugin no longer
 includes that resource when compiling your project. This behavior change
 should result in fewer `Resource Not Found` runtime exceptions
 and improved build speed.

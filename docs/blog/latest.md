@@ -7,6 +7,14 @@ source: md.txt
 # The Latest
 
 Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_Z2bRC9Y.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4)
+
+  [arrow_forward](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4) This is the final stable release for Android Studio Quail. The new features in Android Studio enable you to build premium apps with AI efficiently and effectively.
+  [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 5 min read
+  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+  - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
 - [![View Rob Orgiu's profile](https://developer.android.com/static/blog/assets/Rob_Orgiu_f45ebe80ce_22fyUM.webp)](https://developer.android.com/blog/authors/rob-orgiu) 31 Aug 2026 31 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_123_Streamline_adaptive_testing_with_emulator_commands_Strapi_0d1336f9a2_do9zK.webp) [Documentation](https://developer.android.com/blog/categories/documentation)
 
   ## [Emulator control for adaptive app development](https://developer.android.com/blog/posts/emulator-control-for-adaptive-app-development)
@@ -71,6 +79,13 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
   - +1 ↩
+- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_1w4qDC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
+
+  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release) Today, the Jetpack Compose August '26 release is stable!
+  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
 - [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
@@ -81,13 +96,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
   - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
   - +1 ↩
-- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_1w4qDC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
-
-  [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release) Today, the Jetpack Compose August '26 release is stable!
-  [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
 - 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
@@ -162,13 +170,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
   [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZbOM76.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
-
-  ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
-  [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
@@ -200,6 +201,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
 - [#Google Play](https://developer.android.com/blog/topics/google-play)
 - [#Memory](https://developer.android.com/blog/topics/memory)
+- [#Android Skills](https://developer.android.com/blog/topics/android-skills)
 - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
 - [#Widgets](https://developer.android.com/blog/topics/widgets)
 - [#made by google](https://developer.android.com/blog/topics/made-by-google)
@@ -229,7 +231,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
 - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
 - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
-- [#Android Skills](https://developer.android.com/blog/topics/android-skills)
 - [#Media3](https://developer.android.com/blog/topics/media3)
 - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
 - [#pixel watch](https://developer.android.com/blog/topics/pixel-watch)

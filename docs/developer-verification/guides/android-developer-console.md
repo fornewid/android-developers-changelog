@@ -110,3 +110,7 @@ names (or request exceptions).
 
 In this scenario, all developers with keys are eligible. Once one developer
 registers the package name, the other would need to request permission.
+
+## Review
+
+[Video](https://www.youtube.com/watch?v=dG-KD25Amzg)

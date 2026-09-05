@@ -45,6 +45,103 @@ They provide examples of common build customizations. You can also find more
 details about the new APIs in our
 [reference documentation](https://developer.android.com/reference/tools/gradle-api).
 
+## Compile against the AGP API artifact
+
+To write a custom Gradle plugin or build logic (such as in the `buildSrc`
+directory, a convention plugin module, or a standalone plugin project) that
+extends AGP, compile against AGP's `gradle-api` artifact instead of the full
+plugin implementation artifact.
+
+### Why compile against the `gradle-api` artifact?
+
+AGP publishes two primary artifacts:
+
+- **`com.android.tools.build:gradle-api`** : Contains official AGP APIs, including stable APIs (such as [`AndroidComponentsExtension`](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/variant/AndroidComponentsExtension), [`Variant`](https://developer.android.com/reference/tools/gradle-api/9.4/com/android/build/api/variant/Variant), and public DSL interfaces), incubating APIs (marked `@Incubating`), and deprecated APIs (marked `@Deprecated`).
+- **`com.android.tools.build:gradle`**: Contains the full AGP runtime implementation, including internal classes, build tasks, and compiler integrations.
+
+Compiling against the `gradle-api` artifact provides several key benefits:
+
+- **Avoid internal APIs** : It ensures that your plugin code only accesses official APIs. This prevents accidental dependencies on internal implementation classes (`com.android.build.gradle.internal.*`) that can change or be removed across AGP versions without warning.
+- **Faster builds and smaller footprint** : The `gradle-api` artifact has a much smaller dependency tree than the full `gradle` artifact. This reduces download sizes, avoids classpath pollution, and speeds up compilation of your build logic.
+- **Runtime isolation**: Custom plugins only require API definitions during compilation. At runtime, the full AGP implementation is provided by the Android build when the Android application or library plugin is applied.
+
+### Add the dependency
+
+Add the `gradle-api` artifact as a dependency in the build file of your plugin
+project or the `buildSrc` directory. The `gradle-api` artifact is published on
+[Google's Maven repository](https://developer.android.com/build/remote-repositories#google-maven). To resolve the artifact, make
+sure that your build includes the `google()` repository. For example, configure
+it in the `dependencyResolutionManagement.repositories` block of the
+`settings.gradle` or `settings.gradle.kts` file or in the `repositories` block
+of your plugin's build file or the `buildSrc` directory's build file.
+
+#### With a version catalog
+
+If your project uses a [version catalog](https://developer.android.com/build/migrate-to-catalogs), define the
+`gradle-api` dependency in the `gradle/libs.versions.toml` file:
+
+    [versions]
+    androidGradlePlugin = "9.4.0"
+
+    [libraries]
+    android-gradle-plugin-api = { group = "com.android.tools.build", name = "gradle-api", version.ref = "androidGradlePlugin" }
+
+The `android-gradle-plugin-api` catalog alias generates the type-safe accessor
+`libs.android.gradle.plugin.api`.
+
+Then, add `libs.android.gradle.plugin.api` to the `dependencies` block of your
+plugin's build file:
+
+### Kotlin
+
+```kotlin
+dependencies {
+    compileOnly(libs.android.gradle.plugin.api)
+}
+```
+
+### Groovy
+
+```groovy
+dependencies {
+    compileOnly libs.android.gradle.plugin.api
+}
+```
+
+#### Without a version catalog
+
+If your project doesn't use a version catalog, declare the dependency directly
+in your plugin's build file:
+
+### Kotlin
+
+```kotlin
+dependencies {
+    compileOnly("com.android.tools.build:gradle-api:9.4.0")
+}
+```
+
+### Groovy
+
+```groovy
+dependencies {
+    compileOnly 'com.android.tools.build:gradle-api:9.4.0'
+}
+```
+
+Use the `compileOnly` configuration option as the default for standalone
+plugins intended for publication. The consuming project applies AGP and provides
+its runtime classes on the buildscript classpath. Using the `compileOnly`
+configuration prevents your published plugin from leaking a runtime dependency
+on a specific AGP version and avoids version conflicts for consumers. If you
+develop internal build logic---such as plugins in the `buildSrc` directory or
+convention plugins in composite builds---use the `implementation` configuration
+option instead. These plugins run within the build and require AGP on their
+runtime classpath.
+
+> [!IMPORTANT]
+> **Important:** The `compileOnly` configuration option doesn't add dependencies to the test classpath. If you write unit or functional tests for your plugin, also declare the dependency using the `testImplementation` configuration option.
+
 ## Gradle build basics
 
 This guide doesn't cover the entire Gradle build system. However, it does cover
@@ -254,8 +351,14 @@ The extension is available in build scripts through the `androidComponents` bloc
 
 However, our recommendation is to keep build scripts only for declarative
 configuration using the android block's DSL and
-[move any custom imperative logic to `buildSrc`](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html#sec:build_sources) or external plugins. You can also take a look at the [`buildSrc`
-samples](https://github.com/android/gradle-recipes/tree/agp-7.0/BuildSrc/) in our Gradle recipes GitHub repository to learn how to create a plugin in your project. Here is an example of registering the callbacks from plugin code:
+[move any custom imperative logic to the `buildSrc` directory](https://docs.gradle.org/current/userguide/organizing_gradle_projects.html#sec:build_sources)
+or external plugins. You can also take a look at the
+[`buildSrc` samples](https://github.com/android/gradle-recipes/tree/agp-7.0/BuildSrc/)
+in our Gradle recipes GitHub repository to learn how to create a plugin in your
+project. Make sure your plugin
+[compiles against the `gradle-api` artifact](https://developer.android.com/build/extend-agp#compile-against-gradle-api)
+in your build file. Here is an example of registering the callbacks from plugin
+code:
 
     abstract class ExamplePlugin: Plugin<Project> {
 

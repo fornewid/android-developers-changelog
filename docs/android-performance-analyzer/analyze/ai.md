@@ -17,12 +17,20 @@ works with your preferred AI agent to suggest starting points in response to
 high-level questions.
 ![](https://developer.android.com/static/android-performance-analyzer/images/ai-analysis.png)
 
-To get started, download and install the
-[perfetto-trace-analysis](https://github.com/android/skills/tree/main/profilers/perfetto-trace-analysis) skill from the Android skills GitHub
-repository. You can do this with [Android CLI](https://developer.android.com/tools/agents/android-cli) by running the
-following command:
+To get started, use the Android profiler skill.
 
-    android skills add perfetto-trace-analysis
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/profilers/android-profiler)
+
+### Android profiler
+
+Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to record and analyze Android performance data so that you can diagnose bottlenecks, jank, and memory leaks, and convert natural language into executable trace queries, such as PerfettoSQL queries. To install this skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add android-profiler
+
+<br />
 
 ## Use AI to build custom queries
 
@@ -32,8 +40,4 @@ queries, but the System Profiler also supports letting your preferred AI agent
 write a query for you.
 ![](https://developer.android.com/static/android-performance-analyzer/images/ai-sql.png)
 
-To get started, download and install the [perfetto-sql](https://github.com/android/skills/tree/main/profilers/perfetto-sql) skill from
-the Android skills GitHub repository. You can do this with [Android
-CLI](https://developer.android.com/tools/agents/android-cli) by running the following command:
-
-    android skills add perfetto-sql
+To get started, use the [android-profiler skill](https://developer.android.com/android-performance-analyzer/analyze/ai#ai-analysis).

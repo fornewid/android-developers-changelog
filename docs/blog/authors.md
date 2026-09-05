@@ -58,8 +58,8 @@ source: md.txt
   ###### Product Manager
 
   [read_more
-  1 post](https://developer.android.com/blog/authors/amman-asfaw) [read_more
-  1 post](https://developer.android.com/blog/authors/amman-asfaw) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)
+  2 posts](https://developer.android.com/blog/authors/amman-asfaw) [read_more
+  2 posts](https://developer.android.com/blog/authors/amman-asfaw) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)
 -
 
   ## [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev)

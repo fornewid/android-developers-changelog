@@ -97,9 +97,22 @@ bitmap detection to optimize your image usage](https://developer.android.com/stu
 > [!NOTE]
 > **Note:** Android Studio doesn't support viewing a heap dump that was captured with a tool other than the Android Studio Memory Profiler.
 
-After you've collected the heap dump, we recommend using the [Perfetto AI
-Skills](https://github.com/google/perfetto/tree/main/ai/skills) to analyze the heap dump and identify potential sources
-of high memory usage.
+After you've collected the heap dump, we recommend using the [Android profiler
+skill](https://developer.android.com/topic/performance/vitals/memory-usage#skill-title_profilers) to analyze the heap dump and identify potential sources of high
+memory usage.
+
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/profilers/android-profiler)
+
+### Android profiler
+
+Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to record and analyze Android performance data so that you can diagnose bottlenecks, jank, and memory leaks, and convert natural language into executable trace queries, such as PerfettoSQL queries. To install this skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add android-profiler
+
+<br />
 
 Here's an example of what the AI skills could respond with:
 
@@ -133,10 +146,8 @@ and debugging memory usage:
 - **Java/Kotlin allocations:** Read [Visualizing your first ART heap dump](https://perfetto.dev/docs/visualization/heap-dump-explorer#visualizing-your-first-art-heap-dump) for a step-by-step walkthrough of analyzing Android Runtime (ART) heap dumps.
 - **Native allocations:** Consult the [Perfetto Native Profiling](https://perfetto.dev/docs/data-sources/native-heap-profiler) documentation to learn how to collect and analyze native (C/C++) memory profiles.
 - **CLI inspection:** Use [adb dumpsys meminfo](https://developer.android.com/tools/dumpsys) to get a quick breakdown of your app's memory usage on a device.
-- **AI-assisted analysis:** Leverage [Perfetto AI Skills](https://github.com/google/perfetto/tree/main/ai/skills) to run LLM-powered analysis to help detect memory leaks and excessive allocations in your traces.
-- **SQL-based analysis:** Use [Perfetto SQL and Trace Analysis Skills](https://github.com/android/skills/tree/main/profilers) to run structured queries and specialized scripts to analyze complex trace data.
 
-### Improve memory usage
+## Improve memory usage
 
 Consult these sections to learn more about improving your app's memory usage:
 

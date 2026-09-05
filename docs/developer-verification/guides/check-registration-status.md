@@ -44,10 +44,9 @@ You should also be familiar with the following terms:
 
 ## Service endpoint
 
-A [service endpoint](https://google.aip.dev/9#api_service_endpoint)
-is a base URL that specifies the network address of an API service. This service
-has the following service endpoint, and all URIs are relative to this
-service endpoint:
+A [service endpoint](https://google.aip.dev/9#api_service_endpoint) is a base URL that specifies the network
+address of an API service. This service has the following service endpoint, and
+all URIs are relative to this service endpoint:
 
     https://androiddeveloperidstatus.googleapis.com
 
@@ -106,8 +105,8 @@ body with the HTTP response code `200`:
       "state": "REGISTERED"
     }
 
-Recommended action: Inform the developer that the package name is already
-registered.
+Recommended action: If you are performing this check on behalf of another
+developer, inform the developer that the package name is registered.
 
 **Response (Not registered):**
 
@@ -117,6 +116,62 @@ response body with the HTTP response code `200`:
     {
       "name": "packages/com.example.app/packageRegistrationStatus",
       "state": "NOT_REGISTERED"
+    }
+
+Recommended action: If you are performing this check on behalf of another
+developer, inform the developer that the package name is not registered.
+
+#### Java example
+
+This Java example calls the API without any query parameters to check if the
+package name is registered.
+
+    import java.io.IOException;
+    import java.net.URI;
+    import java.net.http.HttpClient;
+    import java.net.http.HttpRequest;
+    import java.net.http.HttpResponse;
+
+    public class CheckPackageNameClient {
+
+      private static final String API_ENDPOINT = "https://androiddeveloperidstatus.googleapis.com";
+
+      public static void main(String[] args) {
+        String apiKey = "YOUR_API_KEY";
+        String packageName = "com.example.app";
+
+        try {
+          String response = checkPackageRegistrationStatus(apiKey, packageName);
+          System.out.println("Response: " + response);
+        } catch (IOException | InterruptedException e) {
+          e.printStackTrace();
+        }
+      }
+
+      /**
+       *   Checks the registration status of an Android package.
+       */
+      public static String checkPackageRegistrationStatus(String apiKey, String packageName)
+          throws IOException, InterruptedException {
+
+        String fullUrl = String.format("%s/v1/packages/%s/packageRegistrationStatus:check", API_ENDPOINT, packageName);
+
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+            .uri(URI.create(fullUrl))
+            .header("Accept", "application/json")
+            .header("X-Goog-Api-Key", apiKey)
+            .GET()
+            .build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if (response.statusCode() != 200) {
+          throw new IOException("Unexpected response code: " + response.statusCode() + ", body: " + response.body());
+        }
+
+        return response.body();
+      }
     }
 
 ### Verify package name and certificate fingerprint pairs
@@ -143,6 +198,10 @@ response code `200`:
       "state": "REGISTERED"
     }
 
+Recommended action: If you are performing this check on behalf of another
+developer, inform the developer that the package name is registered with the
+certificate fingerprint supplied.
+
 **Response (Registered with different certificate fingerprint):**
 
 If the package name is registered with a different certificate SHA-256
@@ -153,6 +212,10 @@ body with the HTTP response code `200`:
       "name": "packages/com.example.app/packageRegistrationStatus",
       "state": "REGISTERED_WITH_ANOTHER_CERTIFICATE_FINGERPRINT"
     }
+
+Recommended action: If you are performing this check on behalf of another
+developer, inform the developer that the package name is registered but with a
+different certificate fingerprint to the one supplied.
 
 **Response (Not registered):**
 
@@ -165,10 +228,15 @@ HTTP response code `200`:
       "state": "NOT_REGISTERED"
     }
 
-### Example Java implementation
+Recommended action: If you are performing this check on behalf of another
+developer, inform the developer that the package name is not registered with the
+certificate fingerprint supplied.
 
-The following Java class demonstrates how to call the API using Java 11's
-standard `HttpClient`.
+#### Java example
+
+This Java example explicitly includes the `certificateFingerprint` as a
+URL-encoded query parameter to verify a specific package and fingerprint
+pairing.
 
     import java.io.IOException;
     import java.net.URI;
@@ -178,7 +246,7 @@ standard `HttpClient`.
     import java.net.http.HttpResponse;
     import java.nio.charset.StandardCharsets;
 
-    public class DeveloperIdStatusClient {
+    public class CheckPackageAndFingerprintClient {
 
       private static final String API_ENDPOINT = "https://androiddeveloperidstatus.googleapis.com";
 
@@ -188,7 +256,7 @@ standard `HttpClient`.
         String certificateFingerprint = "d6ac89ed1d0a805aad4b087d06d5f41645b814480b133fbc867ef7498d069e06";
 
         try {
-          String response = checkPackageRegistrationStatus(apiKey, packageName, certificateFingerprint);
+          String response = checkPackageAndFingerprintRegistrationStatus(apiKey, packageName, certificateFingerprint);
           System.out.println("Response: " + response);
         } catch (IOException | InterruptedException e) {
           e.printStackTrace();
@@ -196,34 +264,17 @@ standard `HttpClient`.
       }
 
       /**
-       *   Checks the registration status of an Android package.
-       *
-       *   @param apiKey The Google API key for authentication.
-       *   @param packageName The fully-qualified Android package name (for example, "com.example.app").
-       *   @param certificateFingerprint Optional SHA-256 certificate fingerprint. Pass null or empty to omit.
-       *   @return The JSON response string from the API.
+       *   Checks the registration status of a specific Android package and certificate fingerprint pair.
        */
-      public static String checkPackageRegistrationStatus(
+      public static String checkPackageAndFingerprintRegistrationStatus(
           String apiKey, String packageName, String certificateFingerprint)
           throws IOException, InterruptedException {
 
-        // 1. Build the URL path (accepts dots directly)
-        // Format: /v1/packages/{package}/packageRegistrationStatus:check
         String path = String.format("/v1/packages/%s/packageRegistrationStatus:check", packageName);
 
-        // 2. Build query parameters (only certificateFingerprint if provided)
-        StringBuilder queryBuilder = new StringBuilder();
-        if (certificateFingerprint != null && !certificateFingerprint.isEmpty()) {
-          queryBuilder.append("certificateFingerprint=")
-              .append(URLEncoder.encode(certificateFingerprint, StandardCharsets.UTF_8));
-        }
+        String encodedFingerprint = URLEncoder.encode(certificateFingerprint, StandardCharsets.UTF_8);
+        String fullUrl = API_ENDPOINT + path + "?certificateFingerprint=" + encodedFingerprint;
 
-        String fullUrl = API_ENDPOINT + path;
-        if (queryBuilder.length() > 0) {
-          fullUrl += "?" + queryBuilder.toString();
-        }
-
-        // 3. Create and send the HTTP GET request with API Key header
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create(fullUrl))
