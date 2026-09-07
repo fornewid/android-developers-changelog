@@ -166,3 +166,14 @@ AI \> Model Providers** , select the **Model Assignment** tab, and use the dropd
 to assign a model to each feature category. You can also change the model directly
 from the model selector dropdown in the Agent Mode panel---the Model Assignment
 settings for **Thinking** features will automatically update to reflect your selection.
+
+### Parallel sync execution improvements
+
+Starting from Android Studio Rabbit 1 Canary 4, we've made further improvements
+to parallel sync execution.
+In [Android Studio Quail 1 \| 2026.1.2 Patch 1](https://developer.android.com/studio/releases/past-releases/as-quail-1-release-notes#android_studio_quail_1_parallel_gradle_sync_execution_change),
+IDEA parallel model fetching was disabled by default when adding
+`org.gradle.tooling.parallel=true` to your `gradle.properties` file.
+Starting with this release,
+IDEA parallel model fetching is enabled by default when using Gradle version
+9.4 or higher, provided that `org.gradle.tooling.parallel` is set to `true`.

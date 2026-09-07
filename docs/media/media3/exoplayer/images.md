@@ -22,7 +22,7 @@ different set of formats.
 | HEIC Motion Photo | YES |   |
 | AVIF (baseline) | YES | Decoded on Android 14+ only |
 
-## Using MediaItem
+## Play images in a playlist
 
 To play an image as part of a playlist, create a `MediaItem` with the image URI
 and pass it to the player. The `MediaItem` must have a `imageDurationMs` to
@@ -53,14 +53,14 @@ player.prepare();
 
 <br />
 
-### Motion Photos
+### Play motion photos
 
 Motion photos are files combining a still image with a short video.
 
 - If the image duration is defined with `setImageDuration`, the motion photo is displayed for the declared duration as a still image.
 - If the image duration is undefined, the motion photo is played as a video.
 
-## Using ProgressiveMediaSource
+## Customize image loading with a media source
 
 For more customization options, you can create a `ProgressiveMediaSource` and
 pass it directly to the player instead of a `MediaItem`.
@@ -103,12 +103,12 @@ player.prepare();
 
 <br />
 
-## Customizing playback
+## Customize playback
 
 ExoPlayer provides multiple ways for you to tailor playback experience to your
 app's needs. See the [Customization page](https://developer.android.com/guide/topics/media/exoplayer/customization) for examples.
 
-## Image Loading Libraries
+## Integrate external image loading libraries
 
 Images are often managed by external image loading libraries, for example
 [Glide](https://bumptech.github.io/glide/) or
@@ -120,7 +120,7 @@ Integrating these libraries into the playback pipeline requires 3 steps:
 2. Provide an image decoder to retrieve a `Bitmap` from the image loading library.
 3. Provide an external loader to trigger caching and preloading.
 
-### MediaItem with externally loaded image MIME type
+### Configure media items for external loading
 
 The `MediaItem` added to the `Player` must define the
 `APPLICATION_EXTERNALLY_LOADED_IMAGE` MIME type explicitly to use the image
@@ -149,7 +149,7 @@ MediaItem mediaItem =
 
 <br />
 
-### Image decoder using an image loading library
+### Decode images using an external library
 
 The image renderer needs an `ExternallyLoadedImageDecoder` to retrieve the
 `Bitmap` from the `Uri`. This decoder can be provided by overriding
@@ -211,7 +211,7 @@ Player player =
 
 <br />
 
-### Image preloading with an image loading library
+### Preload images using an external library
 
 During playback, the player requests to preload the next image once the previous
 item in the playlist has fully loaded. When using an external image loading

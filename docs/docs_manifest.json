@@ -13880,8 +13880,8 @@
     },
     "studio/nightly.md": {
       "original_url": "https://developer.android.com/studio/nightly",
-      "hash": "fa8e81dd147a95260598374747dff70fa8054442fb2efc7dd8c900cb66faf9ac",
-      "last_updated": "2026-09-04T15:05:33.680317",
+      "hash": "c60ab44ffa23d5ce59b2815d267b5ec4d7662bb052e343da31a1d1fbbbf15ac0",
+      "last_updated": "2026-09-07T15:06:05.851234",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/arcore/hands.md": {
@@ -14540,8 +14540,8 @@
     },
     "games/pgs/play-games-sidekick.md": {
       "original_url": "https://developer.android.com/games/pgs/play-games-sidekick",
-      "hash": "3a41149a06c22ee898703cccdae41e4d0eb577b341d7cc293aadbd6432dd458b",
-      "last_updated": "2026-08-20T15:12:52.477381",
+      "hash": "5b01a76e1849b47f1f52d145c7fc38f539a678798a86e86881e691b3bbceaced",
+      "last_updated": "2026-09-07T15:07:24.859907",
       "fetch_method": "md.txt"
     },
     "studio/profile/chart-glossary/top-bottom-charts.md": {
@@ -23888,8 +23888,8 @@
     },
     "studio/preview/features.md": {
       "original_url": "https://developer.android.com/studio/preview/features",
-      "hash": "276f11e6d0eebb9cddda9443b33882bfd5ae39e0c30b7b3d8f8c064dd217a771",
-      "last_updated": "2026-09-02T15:07:40.305826",
+      "hash": "5c55163e33e0774b75b8e1d9c1675b0ea84cb3a8ff99e65c6de10653854eebfa",
+      "last_updated": "2026-09-07T15:05:14.120200",
       "fetch_method": "md.txt"
     },
     "studio/releases/past-releases/as-3-1-0-release-notes.md": {
@@ -25034,8 +25034,8 @@
     },
     "media/media3/exoplayer/images.md": {
       "original_url": "https://developer.android.com/media/media3/exoplayer/images",
-      "hash": "9c3ba0d6ec08298bfe2e09b270fd4851de01a39ab27abf1103afce3456521d3a",
-      "last_updated": "2026-08-14T15:17:37.581234",
+      "hash": "500fa7dec1f8b34d9002de747759792293576c5d479170b991b65c52e5c5a48e",
+      "last_updated": "2026-09-07T15:06:41.109186",
       "fetch_method": "md.txt"
     },
     "guide/practices/screens_support.md": {
@@ -30782,8 +30782,8 @@
     },
     "games/pgs/deprecation.md": {
       "original_url": "https://developer.android.com/games/pgs/deprecation",
-      "hash": "9db97f8f09a1f4713201997abd6a5233e192202e144480fbfbdd32aef447f902",
-      "last_updated": "2026-06-19T16:02:58.480316",
+      "hash": "796d8db712ce463ffb685662d56ffce654b5389efbb5310f4e89b2d8b7ab8de6",
+      "last_updated": "2026-09-07T15:07:32.411599",
       "fetch_method": "md.txt"
     },
     "develop/ui/compose/graphics/draw/mesh-gradient.md": {
@@ -33145,5 +33145,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-09-05T15:10:26.442247"
+  "last_updated": "2026-09-07T15:10:34.811663"
 }

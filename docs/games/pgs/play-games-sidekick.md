@@ -125,6 +125,10 @@ By default, the Play Games Sidekick entry point displays immediately. You can
 snooze the ingame entry point for a configured custom duration in the
 <var translate="no">XML_RESOURCE_FILE</var>.
 
+When a snooze duration is set, the Play Games Sidekick entry point is hidden
+the first time you open the game during that period. After the snooze duration
+ends, the entry point appears.
+
 1. In the `AndroidManifest.xml` file, add the following `<meta-data>` element
    to the `<application>` element:
 
