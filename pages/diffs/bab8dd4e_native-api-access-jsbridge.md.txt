@@ -1,0 +1,100 @@
+diff --git a/docs/develop/ui/views/layout/webapps/native-api-access-jsbridge.md b/docs/develop/ui/views/layout/webapps/native-api-access-jsbridge.md
+index d80ed514..ade0b3e7 100644
+--- a/docs/develop/ui/views/layout/webapps/native-api-access-jsbridge.md
++++ b/docs/develop/ui/views/layout/webapps/native-api-access-jsbridge.md
+@@ -41,8 +41,8 @@ present in the global scope (`window.objectName`) from the moment the page
+ begins to load.
+ 
+ **Initialization** : To ensure the WebView injects the JavaScript object before
+-any script runs, you must call `addWebMessageListener` before calling
+-[`loadUrl()`](https://developer.android.com/reference/android/webkit/WebView#loadUrl(java.lang.String)).
++any script runs, you must call `addWebMessageListener` before navigating to the
++page (such as calling [`WebViewCompat.navigate`](https://developer.android.com/develop/ui/views/layout/webapps/navigate) or [`loadUrl`](https://developer.android.com/reference/android/webkit/WebView#loadUrl(java.lang.String))).
+ 
+ **Key features**:
+ 
+@@ -102,7 +102,7 @@ the data structure.
+ To understand the full sequence of a bidirectional message exchange, the events
+ proceed in this order:
+ 
+-1. **Initiation (app)** : The native app registers the listener with `addWebMessageListener` and loads the web page with `loadUrl()`.
++1. **Initiation (app)** : The native app registers the listener with `addWebMessageListener` and initiates page navigation (such as with [`WebViewCompat.navigate`](https://developer.android.com/develop/ui/views/layout/webapps/navigate) or `loadUrl`).
+ 2. **Message send (web)** : The web page's JavaScript calls `myObject.postMessage(message)` to initiate the communication.
+ 3. **Message receive and reply (app)** : The app receives the message in the listener callback and replies using the provided `replyProxy.postMessage()`.
+ 4. **Reply receive (web)** : The web page receives the asynchronous reply in the `myObject.onmessage()` callback function.
+@@ -184,6 +184,75 @@ WebView using [`addJavascriptInterface(Object, String)`](https://developer.andro
+ > [!CAUTION]
+ > **Caution:** We don't recommend using this method for modern applications unless you are targeting very old Android versions.
+ 
++#### Data type conversions and coercion
++
++When using `addJavascriptInterface`, the Chromium-based Java Bridge converts
++data types between the JavaScript runtime and your Android app code.
++
++The following coercion rules apply to method parameters and return values.
++
++##### Parameter type mapping (JavaScript to Java)
++
++When JavaScript passes arguments to an annotated Java or Kotlin method, the
++bridge coerces JavaScript values into the corresponding Java parameter types:
++
++| Java parameter type | JavaScript argument value | Coercion behavior |
++|---|---|---|
++| `byte`, `short`, `int`, `long` | Number (integer) | Values are cast to the target integer type. Out-of-bounds values wrap around according to standard numeric casting rules. |
++| `byte`, `short`, `int`, `long` | `NaN` | Coerces to `0`. |
++| `byte`, `short`, `int`, `long` | `Infinity` | Coerces to `-1` for `byte` and `short`, or `Integer.MAX_VALUE` and `Long.MAX_VALUE` for `int` and `long`. |
++| `float`, `double` | Number | Coerces to the corresponding Java floating-point value. |
++| `float`, `double` | `NaN` / `Infinity` | Coerces to `Float.NaN`, `Double.NaN`, `Float.POSITIVE_INFINITY`, or `Double.POSITIVE_INFINITY`. |
++| `char` | Number (integer) | Converted to the corresponding Unicode code point. |
++| `char` | Non-integer, `NaN`, `Infinity` | Coerces to `\u0000`. |
++| `boolean` | `true` / `false` | Coerces to Java `true` or `false`. |
++| `boolean` | Number, String, Object | Coerces to `false` (including non-empty strings and non-zero numbers). |
++| `String` | String | String value is preserved. |
++| `String` | Number, Boolean | Formatted as a string representation (for example, `"42"`, `"true"`, `"false"`). |
++| `String` | `null` / `undefined` | `null` coerces to Java `null`; `undefined` coerces to the literal string `"undefined"`. |
++| `String` | Object, ArrayBuffer, TypedArray | Coerces to the literal string `"undefined"`. |
++| Primitive array (such as `int[]`, `byte[]`, `boolean[]`) or `String[]` | Array (`[...]`) | Converts to a 1D Java array of the target element type. Sparse arrays fill unassigned indexes with default values (`0`, `false`, `null`). |
++| Primitive array (such as `int[]`, `byte[]`) | TypedArray (`Int8Array`, `Uint8Array`, `Int32Array`, `Float64Array`) | Elements are coerced into the corresponding Java primitive array. |
++| Multi-dimensional array (such as `int[][]`) | Nested array (`[[...]]`) | **Not supported.** Multi-dimensional array parameters evaluate to `null`. |
++| `ArrayBuffer`, `DataView` | `ArrayBuffer`, `DataView` | **Not supported as arrays.** ArrayBuffer and DataView instances evaluate to `null`. |
++| `Object` or custom class | JavaScript object (`{...}`) | **Not supported.** Arbitrary JavaScript object literals evaluate to `null` in Java. |
++| `Object` or custom class | Injected Java object wrapper | **Supported (Round-tripping).** Passes the underlying Java instance to the Java method. Throws a JavaScript exception if the Java type does not match the parameter signature. |
++| Boxed types (such as `Integer`, `Double`, `Boolean`) | Number, Boolean | **Not supported.** Boxed primitive types are treated as opaque objects and evaluate to `null`. |
++| Any primitive type | `null` / `undefined` | Coerces to default values (`0`, `0.0`, `\u0000`, `false`). |
++| `Object`, `String`, array | `null` | Coerces to Java `null`. |
++
++##### Return type mapping (Java to JavaScript)
++
++When an annotated Java or Kotlin method returns a value, the bridge converts it
++to a JavaScript type:
++
++| Java return type | JavaScript value | JavaScript `typeof` |
++|---|---|---|
++| `boolean` | `true` / `false` | `"boolean"` |
++| `byte`, `short`, `int`, `long`, `float`, `double` | Number | `"number"` |
++| `char` | Number (Unicode code point) | `"number"` |
++| `String` (non-null) | String value | `"string"` |
++| `String` (`null`) | `undefined` | `"undefined"` |
++| `void` | `undefined` | `"undefined"` |
++| Java array (such as `int[]`, `String[]`) | `undefined` | `"undefined"`. **Array return values are not supported.** The Java method is not executed, and `undefined` is returned without raising an exception. |
++| Java Object / custom type (non-null) | Object wrapper | `"object"`. Creates a JavaScript wrapper around the Java instance. JavaScript code can call any public method on this object that is annotated with `@JavascriptInterface`. |
++| Java Object / custom type (`null`) | `null` | `"object"` |
++| Boxed primitive (such as `Integer`, `Double`) | Object wrapper | `"object"`. Returned as an opaque Java object wrapper with no accessible `@JavascriptInterface` methods, making the value unusable in JavaScript. |
++
++#### Method and member accessibility
++
++The JavaScript bridge enforces strict member access and visibility rules to
++protect against unintended code execution:
++
++- **Fields are not exposed** : Java fields (including `public` and `public
++  final` fields) are not accessible from JavaScript and evaluate to `undefined`.
++- **Annotation requirement** : Only methods explicitly annotated with `@JavascriptInterface` are exposed to JavaScript.
++- **Visibility restrictions** : Methods must be `public`. `private` and `protected` methods are never exposed to JavaScript, even if they carry the `@JavascriptInterface` annotation.
++- **Static methods** : Static methods annotated with `@JavascriptInterface` are callable from JavaScript.
++- **Inheritance and overriding** : `@JavascriptInterface` annotations are not inherited when a subclass overrides a method. If a subclass overrides an annotated method from a superclass, the subclass must explicitly include the `@JavascriptInterface` annotation on the overridden method to expose it to JavaScript. Non-overridden public methods inherited from a superclass remain accessible if annotated in the superclass.
++- **Reflection protection** : Standard Java reflection methods (such as `getClass()`) are blocked and throw a JavaScript exception to prevent remote code execution vulnerabilities.
++- **Method overloading**: Overloaded Java methods are supported. The bridge resolves method calls based on the number of passed arguments only, and does not take argument types into account. Calling an overloaded method with an invalid argument count raises a JavaScript exception. If two overloads have the same argument count, one will be chosen arbitrarily.
++
+ ## Summary of mechanisms
+ 
+ The following table provides a quick comparison of the three primary native

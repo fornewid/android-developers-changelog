@@ -1,0 +1,14 @@
+diff --git a/docs/agents/skills/wear/wear-compose-m3/references/material3/SwipeToDismissBoxSample.kt.md b/docs/agents/skills/wear/wear-compose-m3/references/material3/SwipeToDismissBoxSample.kt.md
+index d143ad90..3aba41bb 100644
+--- a/docs/agents/skills/wear/wear-compose-m3/references/material3/SwipeToDismissBoxSample.kt.md
++++ b/docs/agents/skills/wear/wear-compose-m3/references/material3/SwipeToDismissBoxSample.kt.md
+@@ -115,7 +115,8 @@ fun StatefulSwipeToDismissBox() {
+                         modifier =
+                             Modifier.fillMaxSize().padding(horizontal = 8.dp, vertical = 8.dp),
+                         horizontalAlignment = Alignment.CenterHorizontally,
+-                        verticalArrangement = Arrangement.spacedBy(4.dp, Alignment.CenterVertically),
++                        verticalArrangement =
++                            Arrangement.spacedBy(4.dp, Alignment.CenterVertically),
+                     ) {
+                         FilledTonalButton(
+                             onClick = { showMainScreen = false },

@@ -1,0 +1,45 @@
+diff --git a/docs/about/versions/14/features/predictive-back.md b/docs/about/versions/14/features/predictive-back.md
+index a45a2913..94189e9b 100644
+--- a/docs/about/versions/14/features/predictive-back.md
++++ b/docs/about/versions/14/features/predictive-back.md
+@@ -153,28 +153,28 @@ between two boxes implemented with `OnBackPressedCallback`:
+         }
+     }
+ 
+-    <?xml version="1.0" encoding="utf-8"?>
++    <?xml version="1.0" encodin>g="u<tf-8"?
+     ...
+-        <androidx.constraintlayout.widget.ConstraintLayout
++        androidx.constraintlayout.widget.ConstraintLayout
+             android:id="@+id/card"
+             android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            ...>
++            android:>layout_hei<ght="wrap_content"
++            ...
+ 
+-            <TextView
++            TextView
+                 android:id="@+id/short_text"
+-                android:layout_width="match_parent"
+-                android:layout_height="match_parent"
+-                ... />
++                android:layout_width="match_parent&qu>ot;
++          <      android:layout_height="match_parent"
++                ... /
+ 
+-            <TextView
++            TextView
+                 android:id="@+id/long_text"
+                 android:layout_width="match_parent"
+-                android:layout_height="match_parent"
++       >      <   android:layout_height="match_parent>"
+                 android:visibility="gone"
+-                .../>
++                .../
+ 
+-        </androidx.constraintlayout.widget.ConstraintLayout>
++        /androidx.constraintlayout.widget.ConstraintLayout
+ 
+ Note the following when working with Predictive Back transitions:
+ 

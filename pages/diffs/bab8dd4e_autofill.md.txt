@@ -1,0 +1,24 @@
+diff --git a/docs/develop/ui/compose/text/autofill.md b/docs/develop/ui/compose/text/autofill.md
+index 5c24fbbd..41b05496 100644
+--- a/docs/develop/ui/compose/text/autofill.md
++++ b/docs/develop/ui/compose/text/autofill.md
+@@ -234,7 +234,8 @@ button:
+          )
+ 
+          // Submit button
+-         Button(onClick = { autofillManager?.commit() }) { Text("Reset credentials&nippets.kt
++         Button(onClick = { autofillManager?.commit() }) { Text("Reset credentials") }
++     }
+      ```
+ 
+      <br />
+@@ -259,7 +260,8 @@ button:
+          )
+ 
+          // Submit button
+-         Button(onClick = { autofillManager?.commit() }) { Text("Reset credentials&nippets.kt
++         Button(onClick = { autofillManager?.commit() }) { Text("Reset credentials") }
++     }
+      ```
+ 
+      <br />

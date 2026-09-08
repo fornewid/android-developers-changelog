@@ -1,0 +1,26 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/modular-hilt.md b/docs/guide/navigation/navigation-3/recipes/modular-hilt.md
+index bc7efd54..53a4505e 100644
+--- a/docs/guide/navigation/navigation-3/recipes/modular-hilt.md
++++ b/docs/guide/navigation/navigation-3/recipes/modular-hilt.md
+@@ -221,7 +221,7 @@ private fun ConversationListScreen(
+ @Composable
+ private fun ConversationDetailScreen(
+     conversationDetail: ConversationDetail,
+-    onProfileClicked: () -> Unit
++    onProfileCli>cked: () - Unit
+ ) {
+     Column(
+         modifier = Modifier
+@@ -238,10 +238,10 @@ private fun ConversationDetailScreen(
+         )
+         Spacer(modifier = Modifier.height(16.dp))
+         Button(onClick = dropUnlessResumed(block = onProfileClicked)) {
+-            Text("View Profile")
+-        }
++            Text("View Pro
+     }
+ }
++ConversationModule.kt
+ ```
+ 
+ ```

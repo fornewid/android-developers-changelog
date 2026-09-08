@@ -1,0 +1,38 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/surface-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/surface-source.md
+index 384f70b8..f7adc267 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/surface-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/surface-source.md
+@@ -574,11 +574,11 @@ private class SurfaceNode(
+         val borderLayerProvider =
+             borderLayerProvider
+                 ?: {
+-                        borderLayer
+-                            ?: requireGraphicsContext().createGraphicsLayer().also {
+-                                borderLayer = it
+-                            }
+-                    }
++                    borderLayer
++                        ?: requireGraphicsContext().createGraphicsLayer().also {
++                            borderLayer = it
++                        }
++                }
+                     .also { borderLayerProvider = it }
+         val borderColor = lerp(DefaultSolidBorderIdleColor, focusedBorderColor1, focusProgress)
+ 
+@@ -729,11 +729,11 @@ private class SurfaceNode(
+         val borderLayerProvider =
+             borderLayerProvider
+                 ?: {
+-                        borderLayer
+-                            ?: requireGraphicsContext().createGraphicsLayer().also {
+-                                borderLayer = it
+-                            }
+-                    }
++                    borderLayer
++                        ?: requireGraphicsContext().createGraphicsLayer().also {
++                            borderLayer = it
++                        }
++                }
+                     .also { borderLayerProvider = it }
+         borderLogic.drawBorder(
+             this,

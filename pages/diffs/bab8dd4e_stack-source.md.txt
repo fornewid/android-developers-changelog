@@ -1,0 +1,23 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stack-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stack-source.md
+index 3dce2065..ab1f4fab 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stack-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/stack-source.md
+@@ -160,13 +160,12 @@ private fun StackItemLayout(
+     ) { measurables, constraints ->
+         var maxWidth = 0
+         var maxHeight = 0
+-        val placeables =
+-            measurables.fastMap {
+-                it.measure(constraints).also { placeable ->
+-                    maxWidth = maxOf(maxWidth, placeable.width)
+-                    maxHeight = maxOf(maxHeight, placeable.height)
+-                }
++        val placeables = measurables.fastMap {
++            it.measure(constraints).also { placeable ->
++                maxWidth = maxOf(maxWidth, placeable.width)
++                maxHeight = maxOf(maxHeight, placeable.height)
+             }
++        }
+ 
+         if (!isLookingAhead) {
+             state.layoutInfoInternal.updateMeasuredHeight(index = page, height = maxHeight)

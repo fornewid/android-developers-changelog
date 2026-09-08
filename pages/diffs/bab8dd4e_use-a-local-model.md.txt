@@ -1,0 +1,30 @@
+diff --git a/docs/studio/gemini/use-a-local-model.md b/docs/studio/gemini/use-a-local-model.md
+index ac4dd9f8..e15cb8eb 100644
+--- a/docs/studio/gemini/use-a-local-model.md
++++ b/docs/studio/gemini/use-a-local-model.md
+@@ -15,7 +15,7 @@ functionality.
+ ## Choose a model
+ 
+ A local model offers an alternative to the LLM support built into Android
+-Studio; however, [Gemini in Android Studio](https://developer.android.com/gemini-in-android) typically provides the best AI
++Studio; however, [Gemini in Android Studio](https://developer.android.com/ai-in-android) typically provides the best AI
+ experience for Android developers because of the powerful [Gemini models](https://deepmind.google/models/gemini/). You
+ can select from a variety of Gemini models for your Android development tasks,
+ including the no-cost default model or models accessed with a paid [Gemini API
+@@ -26,7 +26,7 @@ adhere to strict company policies on AI tool usage, or are interested in
+ experimenting with open-source research models.
+ 
+ > [!CAUTION]
+-> **Caution:** Local models typically offer lower performance compared to cloud-based Gemini models. You might experience less accurate responses, higher latency, and limited feature support. We recommend using [Gemini in Android Studio](https://developer.android.com/gemini-in-android) for the best experience.
++> **Caution:** Local models typically offer lower performance compared to cloud-based Gemini models. You might experience less accurate responses, higher latency, and limited feature support. We recommend using [Gemini in Android Studio](https://developer.android.com/ai-in-android) for the best experience.
+ 
+ ### Try the Gemma 4 model
+ 
+@@ -101,5 +101,5 @@ nonfunctional with a local model. However, the AI chat feature in Android Studio
+ is generally supported by local models.
+ 
+ For fast, accurate responses on all aspects of Android development and support
+-for all Android Studio features, [Gemini in Android Studio](https://developer.android.com/gemini-in-android), powered by the
++for all Android Studio features, [Gemini in Android Studio](https://developer.android.com/ai-in-android), powered by the
+ [Gemini models](https://deepmind.google/models/gemini/), is your best solution.
+\ No newline at end of file

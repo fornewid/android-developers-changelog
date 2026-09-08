@@ -1,0 +1,41 @@
+diff --git a/docs/develop/ui/views/layout/webapps/manage-webview-memory.md b/docs/develop/ui/views/layout/webapps/manage-webview-memory.md
+index 8529eabb..01995458 100644
+--- a/docs/develop/ui/views/layout/webapps/manage-webview-memory.md
++++ b/docs/develop/ui/views/layout/webapps/manage-webview-memory.md
+@@ -66,19 +66,24 @@ The following example demonstrates how to properly clean up a `WebView`:
+ 
+ ### Kotlin
+ 
+-    override fun onDestroy() {
+-        myWebView?.let {
+-            // Remove the WebView from its parent ViewGroup.
+-            (it.parent as? ViewGroup)?.removeView(it)
+-            // Stop active loading and clear history.
+-            it.stopLoading()
+-            it.clearHistory()
+-            // Destroy the instance.
+-            it.destroy()
+-        }
+-        myWebView = null
+-        super.onDestroy()
++
++```kotlin
++override fun onDestroy() {
++    myWebView?.let {
++        // Remove the WebView from its parent ViewGroup.
++        (it.parent as? ViewGroup)?.removeView(it)
++        // Stop active loading and clear history.
++        it.stopLoading()
++        it.clearHistory()
++        // Destroy the instance.
++        it.destroy()
+     }
++    myWebView = null
++    super.onDestroy()
++}
++```
++
++<br />
+ 
+ ### Java
+ 

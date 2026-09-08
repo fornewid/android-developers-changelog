@@ -1,0 +1,14 @@
+diff --git a/docs/games/pgs/deprecation.md b/docs/games/pgs/deprecation.md
+index 50e5c418..53a593ec 100644
+--- a/docs/games/pgs/deprecation.md
++++ b/docs/games/pgs/deprecation.md
+@@ -25,6 +25,9 @@ The deprecation timelines are as follows:
+ 
+ - Since June 15, 2026, the deprecated APIs have been removed from the SDK.
+ 
++- Since September 2026, the Google Sign-In for Android API is no longer
++  supported.
++
+ - From June 2027, the games v1 SDK will be removed. Calls to these APIs
+   will fail, even if you're using previous versions of the SDK.
+ 
