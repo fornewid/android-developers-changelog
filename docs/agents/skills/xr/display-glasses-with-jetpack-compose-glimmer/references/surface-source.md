@@ -574,11 +574,11 @@ private class SurfaceNode(
         val borderLayerProvider =
             borderLayerProvider
                 ?: {
-                        borderLayer
-                            ?: requireGraphicsContext().createGraphicsLayer().also {
-                                borderLayer = it
-                            }
-                    }
+                    borderLayer
+                        ?: requireGraphicsContext().createGraphicsLayer().also {
+                            borderLayer = it
+                        }
+                }
                     .also { borderLayerProvider = it }
         val borderColor = lerp(DefaultSolidBorderIdleColor, focusedBorderColor1, focusProgress)
 
@@ -729,11 +729,11 @@ private class SurfaceNode(
         val borderLayerProvider =
             borderLayerProvider
                 ?: {
-                        borderLayer
-                            ?: requireGraphicsContext().createGraphicsLayer().also {
-                                borderLayer = it
-                            }
-                    }
+                    borderLayer
+                        ?: requireGraphicsContext().createGraphicsLayer().also {
+                            borderLayer = it
+                        }
+                }
                     .also { borderLayerProvider = it }
         borderLogic.drawBorder(
             this,

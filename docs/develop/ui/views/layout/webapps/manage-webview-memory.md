@@ -66,19 +66,24 @@ The following example demonstrates how to properly clean up a `WebView`:
 
 ### Kotlin
 
-    override fun onDestroy() {
-        myWebView?.let {
-            // Remove the WebView from its parent ViewGroup.
-            (it.parent as? ViewGroup)?.removeView(it)
-            // Stop active loading and clear history.
-            it.stopLoading()
-            it.clearHistory()
-            // Destroy the instance.
-            it.destroy()
-        }
-        myWebView = null
-        super.onDestroy()
+
+```kotlin
+override fun onDestroy() {
+    myWebView?.let {
+        // Remove the WebView from its parent ViewGroup.
+        (it.parent as? ViewGroup)?.removeView(it)
+        // Stop active loading and clear history.
+        it.stopLoading()
+        it.clearHistory()
+        // Destroy the instance.
+        it.destroy()
     }
+    myWebView = null
+    super.onDestroy()
+}
+```
+
+<br />
 
 ### Java
 

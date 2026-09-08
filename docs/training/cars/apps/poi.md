@@ -106,8 +106,9 @@ template quota.
 
 ## Integrate with Gemini or Google Assistant using App Actions
 
-Voice-enable your POI app using Gemini or Google Assistant to let users search for points of
-interest by asking things like, *"Hey Google, find nearby charging stations on
-ExampleApp"* . For detailed instructions, see [App Actions for Cars](https://developer.android.com/develop/devices/assistant/cars).
+Voice-enable your POI app using Gemini or Google Assistant to let users search
+for points of interest by asking things like, *"Hey Google, find nearby charging
+stations on ExampleApp"* . For detailed instructions, see
+[App Actions for Cars](https://developer.android.com/develop/devices/assistant/cars).
 
 *** ** * ** ***

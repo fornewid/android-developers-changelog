@@ -43,7 +43,7 @@ that accelerate your development process.
   AOSP. More details at [Rust Support in ASfP](https://developer.android.com/studio/platform/projects/rust).
 
 - **AI-powered assistance:** Use [Gemini in Android
-  Studio](https://developer.android.com/gemini-in-android) for code
+  Studio](https://developer.android.com/ai-in-android) for code
   generation, code updates, and to get answers to your development questions,
   all within the editor.
 

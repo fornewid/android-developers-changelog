@@ -286,42 +286,49 @@ In order to use DataStore correctly always keep in mind the following rules:
 
 Define a key that will be used to persist data to disk.
 
-    val EXAMPLE_COUNTER = intPreferencesKey("example_counter")
+
+```kotlin
+val EXAMPLE_COUNTER = intPreferencesKey("example_counter")
+```
+
+<br />
 
 ### JSON DataStore
 
 For JSON datastore, add a `@Serialization` annotation to the data that you
 want to persist.
 
-    @Serializable
-    data class Settings(
-        val exampleCounter: Int
-    )
+
+```kotlin
+@Serializable data class Settings(val exampleCounter: Int)
+```
+
+<br />
 
 Define a class that implements `Serializer<T>`, where T is the type of the
 class you added the earlier annotation to. Make sure you include a default
 value for the serializer to be used if there is no file created yet.
 
-    object SettingsSerializer : Serializer<Settings> {
 
-        override val defaultValue: Settings = Settings(exampleCounter = 0)
+```kotlin
+object SettingsSerializer : Serializer<Settings> {
 
-        override suspend fun readFrom(input: InputStream): Settings =
-            try {
-                Json.decodeFromString<Settings>(
-                    input.readBytes().decodeToString()
-                )
-            } catch (serialization: SerializationException) {
-                throw CorruptionException("Unable to read Settings", serialization)
-            }
+    override val defaultValue: Settings = Settings(exampleCounter = 0)
 
-        override suspend fun writeTo(t: Settings, output: OutputStream) {
-            output.write(
-                Json.encodeToString(t)
-                    .encodeToByteArray()
-            )
+    override suspend fun readFrom(input: InputStream): Settings =
+        try {
+            Json.decodeFromString(Settings.serializer(), input.readBytes().decodeToString())
+        } catch (serialization: SerializationException) {
+            throw CorruptionException("Unable to read Settings", serialization)
         }
+
+    override suspend fun writeTo(t: Settings, output: OutputStream) {
+        output.write(Json.encodeToString(Settings.serializer(), t).encodeToByteArray())
     }
+}
+```
+
+<br />
 
 ### Proto DataStore
 
@@ -335,35 +342,46 @@ schema, see the [protobuf language guide](https://developers.google.com/protocol
 
 Add a file called `settings.proto` inside the `src/main/proto` folder:
 
-    syntax = "proto3";
 
-    option java_package = "com.example.datastore.snippets.proto";
-    option java_multiple_files = true;
+```protobuf
+syntax = "proto3";
 
-    message Settings {
-      int32 example_counter = 1;
-    }
+option java_package = "com.example.datastoresampleapp";
+option java_multiple_files = true;
+
+message Settings {
+  int32 counter = 1;
+  bool foo = 2;
+}
+```
+
+<br />
 
 Define a class that implements `Serializer<T>`, where `T` is the type defined
 in the proto file. This serializer class defines how DataStore reads and
 writes your data type. Make sure you include a default value for the
 serializer to be used if there is no file created yet.
 
-    object SettingsSerializer : Serializer<Settings> {
-        override val defaultValue: Settings = Settings.getDefaultInstance()
 
-        override suspend fun readFrom(input: InputStream): Settings {
-            try {
-                return Settings.parseFrom(input)
-            } catch (exception: InvalidProtocolBufferException) {
-                throw CorruptionException("Cannot read proto.", exception)
-            }
-        }
+```kotlin
+object SettingsSerializer : Serializer<Settings> {
+    override val defaultValue: Settings = Settings.getDefaultInstance()
 
-        override suspend fun writeTo(t: Settings, output: OutputStream) {
-            return t.writeTo(output)
+    override suspend fun readFrom(input: InputStream): Settings {
+        try {
+            return Settings.parseFrom(input)
+        } catch (exception: InvalidProtocolBufferException) {
+            throw CorruptionException("Cannot read proto.", exception)
         }
     }
+
+    override suspend fun writeTo(t: Settings, output: OutputStream) {
+        return t.writeTo(output)
+    }
+}
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** The class for your stored objects is generated at compile time from the message defined in the proto file. Make sure you rebuild your project.
@@ -382,8 +400,13 @@ file. Access DataStore through this property throughout the rest of your
 application. This makes it easier to keep your DataStore as a singleton.
 The mandatory `name` parameter is the name of the Preferences DataStore.
 
-    // At the top level of your kotlin file:
-    val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+
+```kotlin
+// At the top level of your kotlin file:
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+```
+
+<br />
 
 ### JSON DataStore
 
@@ -394,10 +417,17 @@ delegate throughout the rest of your app. The `fileName` parameter tells
 DataStore which file to use to store the data, and the `serializer` parameter
 tells DataStore the name of the serializer class defined earlier.
 
-    val Context.dataStore: DataStore<Settings> by dataStore(
+
+```kotlin
+val Context.dataStore: DataStore<Settings> by
+    dataStore(
         fileName = "settings.json",
         serializer = SettingsSerializer,
+        scope = CoroutineScope(Dispatchers.IO + SupervisorJob()),
     )
+```
+
+<br />
 
 ### Proto DataStore
 
@@ -408,10 +438,13 @@ delegate throughout the rest of your app. The `fileName` parameter tells
 DataStore which file to use to store the data, and the `serializer` parameter
 tells DataStore the name of the serializer class defined earlier.
 
-    val Context.dataStore: DataStore<Settings> by dataStore(
-        fileName = "settings.pb",
-        serializer = SettingsSerializer,
-    )
+
+```kotlin
+val Context.dataStore: DataStore<Settings> by
+    dataStore(fileName = "settings.pb", serializer = SettingsSerializer)
+```
+
+<br />
 
 ## Read from DataStore
 
@@ -426,27 +459,38 @@ a key for an int value, use [`intPreferencesKey`](https://developer.android.com/
 [`DataStore.data`](https://developer.android.com/reference/kotlin/androidx/datastore/core/DataStore#data()) property to expose the appropriate stored value using a
 Flow.
 
-    fun counterFlow(): Flow<Int> = context.dataStore.data.map { preferences ->
-        preferences[EXAMPLE_COUNTER] ?: 0
-    }
+
+```kotlin
+fun counterFlow(): Flow<Int> =
+    context.dataStore.data.map { preferences -> preferences[EXAMPLE_COUNTER] ?: 0 }
+```
+
+<br />
 
 ### JSON DataStore
 
 Use `DataStore.data` to expose a `Flow` of the appropriate property from your
 stored object.
 
-    fun counterFlow(): Flow<Int> = context.dataStore.data.map { settings ->
-        settings.exampleCounter
-    }
+
+```kotlin
+fun counterFlow(): Flow<Int> =
+    context.dataStore.data.map { settings -> settings.exampleCounter }
+```
+
+<br />
 
 ### Proto DataStore
 
 Use `DataStore.data` to expose a `Flow` of the appropriate property from your
 stored object.
 
-    fun counterFlow(): Flow<Int> = context.dataStore.data.map { settings ->
-        settings.exampleCounter
-    }
+
+```kotlin
+fun counterFlow(): Flow<Int> = context.dataStore.data.map { settings -> settings.counter }
+```
+
+<br />
 
 Use [`collectAsStateWithLifecycle`](https://developer.android.com/reference/kotlin/androidx/lifecycle/compose/package-summary#extension-functions) to consume the `Flow` produced by
 a ViewModel in a composable.
@@ -472,32 +516,47 @@ treated as a single transaction.
 
 ### Preferences DataStore
 
-    suspend fun incrementCounter() {
-        context.dataStore.updateData {
-            it.toMutablePreferences().also { preferences ->
-                preferences[EXAMPLE_COUNTER] = (preferences[EXAMPLE_COUNTER] ?: 0) + 1
-            }
+
+```kotlin
+suspend fun incrementCounter() {
+    context.dataStore.updateData {
+        it.toMutablePreferences().also { preferences ->
+            preferences[EXAMPLE_COUNTER] = (preferences[EXAMPLE_COUNTER] ?: 0) + 1
         }
     }
+}
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** You can also use the [`edit`](https://developer.android.com/reference/kotlin/androidx/datastore/preferences/core/package-summary#edit) suspend function. This function provides a `MutablePreferences` object that you can modify.
 
 ### JSON DataStore
 
-    suspend fun incrementCounter() {
-        context.dataStore.updateData { settings ->
-            settings.copy(exampleCounter = settings.exampleCounter + 1)
-        }
+
+```kotlin
+suspend fun incrementCounter() {
+    context.dataStore.updateData { settings ->
+        settings.copy(exampleCounter = settings.exampleCounter + 1)
     }
+}
+```
+
+<br />
 
 ### Proto DataStore
 
-    suspend fun incrementCounter() {
-        context.dataStore.updateData { settings ->
-            settings.copy { exampleCounter = exampleCounter + 1 }
-        }
+
+```kotlin
+suspend fun incrementCounter() {
+    context.dataStore.updateData { settings ->
+        settings.toBuilder().setCounter(settings.counter + 1).build()
     }
+}
+```
+
+<br />
 
 ## Use DataStore in a Compose app
 
@@ -575,54 +634,66 @@ is running in a separate process and periodically updates the DataStore.
 This example uses a JSON datastore, but you can also use a Preferences or Proto
 DataStore.
 
-    @Serializable
-    data class Time(
-        val lastUpdateMillis: Long
-    )
+
+```kotlin
+@Serializable data class Time(val lastUpdateMillis: Long)
+```
+
+<br />
 
 A serializer tells `DataStore` how to read and write your data type. Make sure
 you include a default value for the serializer to be used if there is no file
 created yet. The following is an example implementation using
 [kotlinx.serialization](https://github.com/Kotlin/kotlinx.serialization):
 
-    object TimeSerializer : Serializer<Time> {
 
-        override val defaultValue: Time = Time(lastUpdateMillis = 0L)
+```kotlin
+object TimeSerializer : Serializer<Time> {
 
-        override suspend fun readFrom(input: InputStream): Time =
-            try {
-                Json.decodeFromString<Time>(
-                    input.readBytes().decodeToString()
-                )
-            } catch (serialization: SerializationException) {
-                throw CorruptionException("Unable to read Time", serialization)
-            }
+    override val defaultValue: Time = Time(lastUpdateMillis = 0L)
 
-        override suspend fun writeTo(t: Time, output: OutputStream) {
-            output.write(
-                Json.encodeToString(t)
-                    .encodeToByteArray()
-            )
+    override suspend fun readFrom(input: InputStream): Time =
+        try {
+            Json.decodeFromString(Time.serializer(), input.readBytes().decodeToString())
+        } catch (serialization: SerializationException) {
+            throw CorruptionException("Unable to read Time", serialization)
         }
+
+    override suspend fun writeTo(t: Time, output: OutputStream) {
+        output.write(Json.encodeToString(Time.serializer(), t).encodeToByteArray())
     }
+}
+```
+
+<br />
 
 To be able to use `DataStore` across different processes, you need to construct
 the DataStore object using the `MultiProcessDataStoreFactory` for both the app
 and the service code:
 
-    val dataStore = MultiProcessDataStoreFactory.create(
+
+```kotlin
+val dataStore =
+    MultiProcessDataStoreFactory.create(
         serializer = TimeSerializer,
-        produceFile = {
-            File("${context.filesDir.path}/time.pb")
-        },
-        corruptionHandler = null
+        produceFile = { context.dataStoreFile("time.pb") },
+        corruptionHandler = null,
     )
+```
+
+<br />
 
 Add the following to your `AndroidManifiest.xml`:
 
-    <service
-        android:name=".TimestampUpdateService"
-        android:process=":my_process_id" />
+
+```xml
+<service
+    android:name="com.example.datastore.snippets.TimestampUpdateService"
+    android:exported="false"
+    android:process=":service" />
+```
+
+<br />
 
 > [!IMPORTANT]
 > **Important:** To run the service in a different process, use the `android:process` attribute. Note that the process ID is prefixed with a colon (`:`). This makes the service run in a new process, private to the application.
@@ -630,65 +701,78 @@ Add the following to your `AndroidManifiest.xml`:
 The service periodically calls `updateLastUpdateTime`, which writes to the
 datastore using `updateData`.
 
-    suspend fun updateLastUpdateTime() {
-        dataStore.updateData { time ->
-            time.copy(lastUpdateMillis = System.currentTimeMillis())
-        }
-    }
+
+```kotlin
+suspend fun updateLastUpdateTime() {
+    dataStore.updateData { time -> time.copy(lastUpdateMillis = System.currentTimeMillis()) }
+}
+```
+
+<br />
 
 The app reads the value written by the service using the data flow:
 
-    fun timeFlow(): Flow<Long> = dataStore.data.map { time ->
-        time.lastUpdateMillis
-    }
+
+```kotlin
+fun timeFlow(): Flow<Long> = dataStore.data.map { time -> time.lastUpdateMillis }
+```
+
+<br />
 
 Now, we can put all these functions together in a class called
 `MultiProcessDataStore` and use it in an App.
 
 Here is the service code:
 
-    class TimestampUpdateService : Service() {
-        val serviceScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
-        val multiProcessDataStore by lazy { MultiProcessDataStore(applicationContext) }
+
+```kotlin
+class TimestampUpdateService : Service() {
+    val serviceScope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    val multiProcessDataStore by lazy { MultiProcessDataStore(applicationContext) }
 
 
-        override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-            serviceScope.launch {
-                while (true) {
-                    multiProcessDataStore.updateLastUpdateTime()
-                    delay(1000)
-                }
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        serviceScope.launch {
+            while (true) {
+                multiProcessDataStore.updateLastUpdateTime()
+                delay(1000)
             }
-            return START_NOT_STICKY
         }
-
-        override fun onDestroy() {
-            super.onDestroy()
-            serviceScope.cancel()
-        }
+        return START_NOT_STICKY
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        serviceScope.cancel()
+    }
+}
+```
+
+<br />
 
 And the app code:
 
-    val context = LocalContext.current
-    val coroutineScope = rememberCoroutineScope()
-    val multiProcessDataStore = remember(context) { MultiProcessDataStore(context) }
 
-    // Display time written by other process.
-    val lastUpdateTime by multiProcessDataStore.timeFlow()
+```kotlin
+val context = LocalContext.current
+val coroutineScope = rememberCoroutineScope()
+val multiProcessDataStore = remember(context) { MultiProcessDataStore(context) }
+
+// Display time written by other process.
+val lastUpdateTime by
+    multiProcessDataStore
+        .timeFlow()
         .collectAsState(initial = 0, coroutineScope.coroutineContext)
-    Text(
-        text = "Last updated: $lastUpdateTime",
-        fontSize = 25.sp
-    )
+Text(text = "Last updated: $lastUpdateTime", fontSize = 25.sp)
 
-    DisposableEffect(context) {
-        val serviceIntent = Intent(context, TimestampUpdateService::class.java)
-        context.startService(serviceIntent)
-        onDispose {
-            context.stopService(serviceIntent)
-        }
-    }
+DisposableEffect(context) {
+    val serviceIntent = Intent(context, TimestampUpdateService::class.java)
+    context.startService(serviceIntent)
+    onDispose { context.stopService(serviceIntent) }
+}
+```
+
+<br />
 
 You can use [Hilt](https://developer.android.com/training/dependency-injection/hilt-android) dependency injection so that your DataStore
 instance is unique per process:

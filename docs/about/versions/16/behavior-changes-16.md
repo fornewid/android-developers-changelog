@@ -403,7 +403,7 @@ the platform-level policy.
 
 This change takes place on Pixel devices using the Mali GPU (Pixel 6-9). Arm
 has provided official categorization of their IOCTLs in
-`Documentation/ioctl-categories.rst` of their [r54p2 release](https://developer.android.com/about/versions/16/dynamic-sections/changes/16/%22https:/developer.arm.com/downloads/-/Mali%205th%20Gen%20GPU%20Architecture#%22). This
+`Documentation/ioctl-categories.rst` of their [r54p2 release](https://developer.arm.com/downloads/-/Mali%205th%20Gen%20GPU%20Architecture). This
 list will continue to be maintained in future driver releases.
 
 This change does not impact supported graphics APIs (including Vulkan and
