@@ -1,0 +1,18 @@
+diff --git a/docs/google/play/billing/additional-resources.md b/docs/google/play/billing/additional-resources.md
+index 47cef332..c34ca4e8 100644
+--- a/docs/google/play/billing/additional-resources.md
++++ b/docs/google/play/billing/additional-resources.md
+@@ -4,12 +4,9 @@ url: https://developer.android.com/google/play/billing/additional-resources
+ source: md.txt
+ ---
+ 
+-# Additional developer resources for the Google Play Billing Library
+-
+ ## Videos
+ 
+-- [What's new in Play Commerce (2022)](https://www.youtube.com/watch?v=7ky2PZl16i4)
+-  - Overview of new acquisition, engagement, and monetization tools
++- [What's new in Play Commerce (2022)](https://www.youtube.com/watch?v=7ky2PZl16i4) - Overview of new acquisition, engagement, and monetization tools.
+ - [The "purchase anywhere" paradigm shift (Android Dev Summit '19)](https://www.youtube.com/watch?v=L2aiHRD6Pfk) - Learn about "Purchase Anywhere". Topics include promotions, subscribe-and-install, cash purchases and pending transactions, and remote purchase approvals.
+ - [10 ways to increase your earnings](https://www.youtube.com/watch?v=irWymeJ9uXo) - Help grow the earnings from your apps and games with these tips.
+ - [10 tips for launching your app](https://www.youtube.com/watch?v=psu3pPdfYSM) - Make your app launch successful.

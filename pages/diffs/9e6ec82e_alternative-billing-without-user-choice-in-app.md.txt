@@ -1,0 +1,15 @@
+diff --git a/docs/google/play/billing/alternative/alternative-billing-without-user-choice-in-app.md b/docs/google/play/billing/alternative/alternative-billing-without-user-choice-in-app.md
+index b4d6924c..c2bcc362 100644
+--- a/docs/google/play/billing/alternative/alternative-billing-without-user-choice-in-app.md
++++ b/docs/google/play/billing/alternative/alternative-billing-without-user-choice-in-app.md
+@@ -236,8 +236,8 @@ billingClient.createAlternativeBillingOnlyReportingDetailsAsync(object :
+ 
+ ## Response handling
+ 
+-The above methods `isAlternativeBillingOnlyAvailableAsync(),
+-showAlternativeBillingOnlyInformationDialog()`, and
++The above methods `isAlternativeBillingOnlyAvailableAsync()`,
++`showAlternativeBillingOnlyInformationDialog()`, and
+ `createAlternativeBillingOnlyReportingDetailsAsync()` may return
+ non-BillingResponseCode.OK responses in the case of errors. The recommended
+ handling of the errors is described below:

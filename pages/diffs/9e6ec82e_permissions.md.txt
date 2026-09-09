@@ -1,0 +1,205 @@
+diff --git a/docs/training/wearables/apps/permissions.md b/docs/training/wearables/apps/permissions.md
+index fa5792c0..727ff345 100644
+--- a/docs/training/wearables/apps/permissions.md
++++ b/docs/training/wearables/apps/permissions.md
+@@ -7,27 +7,24 @@ source: md.txt
+ keywords: wear, permissions, collection_guideslandingwear
+ image_path: images/training/wear/multiple_permissions.png
+ 
+-Requesting permissions on Wear OS is similar to requesting permissions in
+-mobile apps, with a couple of additional use cases. This document assumes you
++Requesting permissions on Wear OS is similar to requesting permissions in mobile
++apps, with a couple of additional use cases. This document assumes you
+ understand how Android permissions work. If you don't, review how [permissions
+ work on Android](https://developer.android.com/guide/topics/permissions/overview).
+ 
+ Just like in a mobile app, the user must grant permissions to a Wear app for
+ access to certain functionality. In your Wear apps, [provide meaningful
+-functionality](https://developer.android.com/training/permissions/evaluating) without requesting any
+-permissions.
++functionality](https://developer.android.com/training/permissions/evaluating) without requesting any permissions.
+ 
+ > [!NOTE]
+ > **Note:** A Wear app can't assume the permissions granted in a phone app. For example, if a user grants a phone app the permission to use location data, the user must grant the Wear app the same permission before the Wear app can access the data.
+ 
+ ## Permission scenarios
+ 
+-There are several scenarios you might encounter when requesting
+-[dangerous permissions](https://developer.android.com/guide/topics/permissions/requesting#normal-dangerous)
+-on Wear OS:
++There are several scenarios you might encounter when requesting [dangerous
++permissions](https://developer.android.com/guide/topics/permissions/requesting#normal-dangerous) on Wear OS:
+ 
+-- The Wear app requests permissions for an app running on the wearable
+-  device.
++- The Wear app requests permissions for an app running on the wearable device.
+ 
+ - The Wear app requests permissions for an app running on the phone.
+ 
+@@ -38,8 +35,7 @@ on Wear OS:
+   wearable device is connected.
+ 
+ To see all these scenarios in a working app, review the
+-[ExerciseSampleCompose](https://github.com/android/health-samples/tree/main/health-services/ExerciseSampleCompose)
+-sample on GitHub.
++[ExerciseSampleCompose](https://github.com/android/health-samples/tree/main/health-services/ExerciseSampleCompose) sample on GitHub.
+ 
+ The following sections explain each of these scenarios. For more detailed
+ information about requesting permissions, see the [Permission-request
+@@ -48,16 +44,14 @@ patterns](https://developer.android.com/training/wearables/apps/permissions#requ
+ ### Wear app requests wearable permission
+ 
+ When the Wear app requests a permission for an app running on the wearable
+-device, the system displays a dialog to prompt the user for that permission.
+-In your app, request permissions only when it is clear to the user why the
++device, the system displays a dialog to prompt the user for that permission. In
++your app, request permissions only when it is clear to the user why the
+ permissions are needed to perform a given operation.
+ 
+-Review the [permission principles](https://developer.android.com/training/permissions/requesting#principles)
+-to make sure you provide the best experience for your users, and remember
+-to check
+-[`shouldShowRequestPermissionRationale()`](https://developer.android.com/reference/androidx/core/app/ActivityCompat#shouldShowRequestPermissionRationale(android.app.Activity,%20java.lang.String))
+-and [provide additional information](https://developer.android.com/training/permissions/requesting#explain)
+-as needed.
++Review the [permission principles](https://developer.android.com/training/permissions/requesting#principles) to make sure you provide the best
++experience for your users, and remember to check
++[`shouldShowRequestPermissionRationale()`](https://developer.android.com/reference/androidx/core/app/ActivityCompat#shouldShowRequestPermissionRationale(android.app.Activity,%20java.lang.String)) and [provide additional
++information](https://developer.android.com/training/permissions/requesting#explain) as needed.
+ 
+ If an app or watch face requires more than one permission at a time, permission
+ requests appear one after the other.
+@@ -68,22 +62,21 @@ requests appear one after the other.
+ 
+ ### Wear app requests phone permission
+ 
+-When the Wear app requests a phone permission---for example, a wearable app wants
+-access to photos or other sensitive data on the mobile version of the app---the
+-Wear app must send the user to the phone to accept the permission. There, the
+-phone app can provide additional information to the user, using an activity.
+-In the activity, include two buttons: one for granting the permission and one
+-for denying it.
++When the Wear app requests a phone permission---for example, a wearable app
++wants access to photos or other sensitive data on the mobile version of the
++app---the Wear app must send the user to the phone to accept the permission.
++There, the phone app can provide additional information to the user, using an
++activity. In the activity, include two buttons: one for granting the permission
++and one for denying it.
+ ![The Wear app sends the user to the phone to grant permission.](https://developer.android.com/static/images/training/wear/open_on_phone.png) **Figure 2.** Send the user to the phone to grant permission.
+ 
+ ### Phone app requests wearable permission
+ 
+-If the user is in a phone app and the app requires a wearable permission---for
+-example, to preload music in case the phone gets disconnected---the phone app
+-sends the user to the wearable device to accept the permission. The wearable
+-version of the app uses the
+-[`requestPermissions()`](https://developer.android.com/reference/androidx/core/app/ActivityCompat#requestPermissions(android.app.Activity,%20java.lang.String%5B%5D,%20int))
+-method to trigger the system permissions dialog.
++If the user is in a phone app and the app requires a wearable
++permission---for example, to preload music in case the phone gets
++disconnected---the phone app sends the user to the wearable device to accept
++the permission. The wearable version of the app uses the
++[`requestPermissions`](https://developer.android.com/reference/androidx/core/app/ActivityCompat#requestPermissions(android.app.Activity,%20java.lang.String%5B%5D,%20int)) method to trigger the system permissions dialog.
+ ![The phone app sends the user to the wearable to grant permission.](https://developer.android.com/static/images/training/wear/phone_requests_wear.png) **Figure 3.** Send the user to the wearable to grant permission.
+ 
+ ### Phone app requests multiple permissions at once
+@@ -102,15 +95,15 @@ removing the association removes the permissions. For details, see
+ 
+ 
+ > [!NOTE]
+-> **Note:** To use companion device profiles, your devices must be connected using [`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager). If your app is not already using `CompanionDeviceManager`, see [Companion device pairing](https://developer.android.com/guide/topics/connectivity/companion-device-pairing) to get started.
++> **Note:** To use companion device profiles, your devices must be connected using [`CompanionDeviceManager`](https://developer.android.com/reference/android/companion/CompanionDeviceManager). If your app isn't already using `CompanionDeviceManager`, see [Companion device pairing](https://developer.android.com/guide/topics/connectivity/companion-device-pairing) to get started.
+ 
+ ## Permission-request patterns
+ 
+ There are different patterns for requesting permissions from users. In order of
+ priority, they are:
+ 
+-- Ask in context when the permission is obviously necessary for a
+-  specific functionality but isn't necessary for the app as a whole to run.
++- Ask in context when the permission is obviously necessary for a specific
++  functionality but isn't necessary for the app as a whole to run.
+ 
+ - Educate in context when the reason for requesting the permission isn't
+   obvious and the permission isn't necessary for the app as a whole to run.
+@@ -119,12 +112,12 @@ These patterns are explained in the following sections.
+ 
+ ### Ask in context
+ 
+-Request permissions when it is clear to the user why the permission is needed
+-to perform a given operation. Users are more likely to grant a permission when
+-they understand its connection to the feature they want to use.
++Request permissions when it is clear to the user why the permission is needed to
++perform a given operation. Users are more likely to grant a permission when they
++understand its connection to the feature they want to use.
+ 
+-For example, an app might require the user's location to show nearby places
+-of interest. When the user taps to search for nearby places, the app can
++For example, an app might require the user's location to show nearby places of
++interest. When the user taps to search for nearby places, the app can
+ immediately request the location permission because there is a clear
+ relationship between searching for nearby places and the need for the location
+ permission. The obviousness of this relationship makes it unnecessary for the
+@@ -134,18 +127,15 @@ app to display additional education screens.
+ ### Educate in context
+ 
+ Figure 6 shows an example of in-context education. The app doesn't require
+-permissions to start the timer, but an inline educational cue shows
+-that part of the activity---location detection---is locked. When the user taps the
++permissions to start the timer, but an inline educational cue shows that part of
++the activity---location detection---is locked. When the user taps the
+ cue, a permission-request screen appears, letting the user unlock location
+ detection.
+ 
+-Use the
+-[`shouldShowRequestPermissionRationale()`](https://developer.android.com/reference/androidx/core/app/ActivityCompat#shouldShowRequestPermissionRationale(android.app.Activity,%20java.lang.String))
+-method to help your app decide whether to provide more information. For
+-additional details, see [Request app
+-permissions](https://developer.android.com/training/permissions/requesting#explain). Alternatively, you
+-can examine how the speaker sample application on GitHub handles [showing
+-information](https://github.com/android/wear-os-samples/blob/main/WearSpeakerSample/wear/src/main/java/com/example/android/wearable/speaker/SpeakerApp.kt#L117).
++Use the [`shouldShowRequestPermissionRationale`](https://developer.android.com/reference/androidx/core/app/ActivityCompat#shouldShowRequestPermissionRationale(android.app.Activity,%20java.lang.String)) method to help your app
++decide whether to provide more information. For additional details, see [Request
++app permissions](https://developer.android.com/training/permissions/requesting#explain). Alternatively, you can examine how the speaker sample
++application on GitHub handles [showing information](https://github.com/android/wear-os-samples/blob/main/WearSpeakerSample/wear/src/main/java/com/example/android/wearable/speaker/SpeakerApp.kt#L117).
+ ![When the need for the permission arises, the app explains why the permission is necessary.](https://developer.android.com/static/images/training/wear/educate_in_context.png) **Figure 6.** Educate in context.
+ 
+ ### Handle rejection
+@@ -169,26 +159,24 @@ Learn more about how to [handle permission denial](https://developer.android.com
+ 
+ ## Permissions for services
+ 
+-Only an activity can call the
+-[`requestPermissions()`](https://developer.android.com/reference/androidx/core/app/ActivityCompat#requestPermissions(android.app.Activity,%20java.lang.String%5B%5D,%20int))
+-method, so if the user interacts with your app using a service---for example,
+-through a watch face---the service must open an activity before requesting the
+-permission. In this activity, provide additional education on why the
+-permission is needed.
++Only an activity can call the [`requestPermissions`](https://developer.android.com/reference/androidx/core/app/ActivityCompat#requestPermissions(android.app.Activity,%20java.lang.String%5B%5D,%20int)) method, so if the
++user interacts with your app using a service---for example, through a watch
++face---the service must open an activity before requesting the permission.
++In this activity, provide additional education on why the permission is needed.
+ 
+-In general, don't request permissions for a watch face. Instead, implement
+-a [complication](https://developer.android.com/training/wearables/watch-faces/complications) and let the user
+-choose which data to display through the complication.
++In general, don't request permissions for a watch face. Instead, implement a
++[complication](https://developer.android.com/training/wearables/watch-faces/complications) and let the user choose which data to display through the
++complication.
+ 
+ ## Settings
+ 
+ A user can change a Wear app's permissions in Settings at any time. When the
+ user tries to do something that requires a permission, first call the
+-[`checkSelfPermission()`](https://developer.android.com/reference/androidx/core/content/ContextCompat#checkSelfPermission(android.content.Context,%20java.lang.String))
+-method to see whether the app has permission to perform the operation.
++[`checkSelfPermission`](https://developer.android.com/reference/androidx/core/content/ContextCompat#checkSelfPermission(android.content.Context,%20java.lang.String)) method to see whether the app has permission to
++perform the operation.
+ 
+-Perform this check even if the user has previously
+-granted the permission, because the user might have subsequently revoked it.
++Perform this check even if the user has previously granted the permission,
++because the user might have subsequently revoked it.
+ ![The user can change permissions through the Settings app.](https://developer.android.com/static/images/training/wear/for_settings.png) **Figure 9.** The user can change permissions using the Settings app.
+ 
+ ## Recommended for you

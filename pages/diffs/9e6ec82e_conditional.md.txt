@@ -1,0 +1,31 @@
+diff --git a/docs/guide/navigation/navigation-3/recipes/conditional.md b/docs/guide/navigation/navigation-3/recipes/conditional.md
+index 4dd6462c..508532d5 100644
+--- a/docs/guide/navigation/navigation-3/recipes/conditional.md
++++ b/docs/guide/navigation/navigation-3/recipes/conditional.md
+@@ -218,12 +218,12 @@ import androidx.navigation3.runtime.NavBackStack
+  * @property isLoggedIn A lambda that returns whether the user is logged in.
+  */
+ class Navigator(
+-    private val backStack: NavBackStack<ConditionalNavKey>,
+-    private val onNavigateToRestrictedKey: (targetKey: ConditionalNavKey?) -> ConditionalNavKey,
+-    private val isLoggedIn: () -> Boolean,
++    private val< backStack: NavBa>ckStackConditionalNavKey,
++    private val onNavigateToRestrictedKey: (targetKe>y: ConditionalNavKey?) - ConditionalNavKey,
++    priv>ate val isLoggedIn: () - Boolean,
+ ) {
+     fun navigate(key: ConditionalNavKey) {
+-        if (key.requiresLogin && !isLoggedIn()) {
++      &&  if (key.requiresLogin  !isLoggedIn()) {
+             val loginKey = onNavigateToRestrictedKey(key)
+             backStack.add(loginKey)
+         } else {
+@@ -231,6 +231,6 @@ class Navigator(
+         }
+     }
+ 
+-    fun goBack() = backStack.removeLastOrNull()
+-}
++    fun goBack() = backStstOrNull()
++}Navigator.kt
+ ```
+\ No newline at end of file

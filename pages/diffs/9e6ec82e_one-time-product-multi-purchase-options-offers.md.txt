@@ -1,0 +1,40 @@
+diff --git a/docs/google/play/billing/one-time-product-multi-purchase-options-offers.md b/docs/google/play/billing/one-time-product-multi-purchase-options-offers.md
+index f8f29190..c11c49d3 100644
+--- a/docs/google/play/billing/one-time-product-multi-purchase-options-offers.md
++++ b/docs/google/play/billing/one-time-product-multi-purchase-options-offers.md
+@@ -12,7 +12,7 @@ You can configure multiple purchase options and offers for your one-time
+ products. For example, you can configure a buy purchase option and a pre-order
+ offer for the same one-time product.
+ 
+-### Prerequisites
++## Prerequisites
+ 
+ To configure multiple offers for one-time products, you must use the
+ [`queryProductDetailsAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,%20com.android.billingclient.api.ProductDetailsResponseListener)) API. The deprecated `querySkuDetailsAsync()`
+@@ -20,7 +20,7 @@ API isn't supported. For information on how to use
+ [`queryProductDetailsAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#queryProductDetailsAsync(com.android.billingclient.api.QueryProductDetailsParams,%20com.android.billingclient.api.ProductDetailsResponseListener)) and the version of [`launchBillingFlow()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#launchBillingFlow(android.app.Activity,%20com.android.billingclient.api.BillingFlowParams))
+ that takes [`ProductDetailsParams`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.ProductDetailsParams) as input, see [migration steps](https://developer.android.com/google/play/billing/migrate-gpblv6#steps).
+ 
+-### Query the product details
++## Query the product details
+ 
+ If you have configured multiple offers or purchase options for your one-time
+ product, the [`ProductDetails`](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails) object returned by the
+@@ -144,7 +144,7 @@ use the [Java client library](https://developer.android.com/reference/com/androi
+ To launch a purchase flow for a rental offer, do the following steps:
+ 
+ 1. Fetch the rent purchase option metadata by using the
+-   [`ProductDetails.oneTimePurchaseOfferDetails.getRentalDetails()`]() method.
++   `ProductDetails.oneTimePurchaseOfferDetails.getRentalDetails()` method.
+ 
+    The following sample shows how to get the rent purchase metadata:
+ 
+@@ -294,7 +294,7 @@ pre-order offer.
+ To launch a purchase flow for a pre-order offer, do the following steps:
+ 
+ 1. Fetch the pre-order offer metadata by using the
+-   [`ProductDetails.oneTimePurchaseOfferDetails.getPreorderDetails()`]()
++   `ProductDetails.oneTimePurchaseOfferDetails.getPreorderDetails()`
+    method. The following sample shows how to get the pre-order offer metadata:
+ 
+    #### Java

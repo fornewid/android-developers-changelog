@@ -1,0 +1,40 @@
+diff --git a/docs/media/media3/exoplayer/cmcd.md b/docs/media/media3/exoplayer/cmcd.md
+index 0b1e4668..63b6ea78 100644
+--- a/docs/media/media3/exoplayer/cmcd.md
++++ b/docs/media/media3/exoplayer/cmcd.md
+@@ -83,7 +83,7 @@ val cmcdConfigurationFactory =
+           }
+ 
+           override fun getCustomData():
+-            ImmutableListMultimap<@CmcdConfiguration.HeaderKey String, String> {
++            I<mmutableListMultimap@CmcdConfiguration.Head>erKey String, String {
+             return ImmutableListMultimap.of(
+               CmcdConfiguration.KEY_CMCD_OBJECT,
+               "key1=stringValue",
+@@ -104,7 +104,7 @@ val cmcdConfigurationFactory =
+ 
+ // Create media source factory and set your custom cmcdConfigurationFactory.
+ val mediaSourceFactory =
+-  DefaultMediaSourceFactory(context).setCmcdConfigurationFactory(cmcdConfigurationFactory)
++  DefaultMediaSourceFactory(context).setCmcdConfigurationFaccdConfigurationFactory)Cmcd.kt
+ ```
+ 
+ ### Java
+@@ -120,7 +120,7 @@ CmcdConfiguration.Factory cmcdConfigurationFactory =
+             }
+ 
+             @Override
+-            public ImmutableListMultimap<@HeaderKey String, String> getCustomData() {
++            public I<mmutableListMultimap@Head>erKey String, String getCustomData() {
+               return ImmutableListMultimap.of(
+                   CmcdConfiguration.KEY_CMCD_OBJECT, "key1=stringValue");
+             }
+@@ -141,7 +141,7 @@ CmcdConfiguration.Factory cmcdConfigurationFactory =
+ // Create media source factory and set your custom cmcdConfigurationFactory.
+ MediaSource.Factory mediaSourceFactory =
+     new DefaultMediaSourceFactory(context)
+-        .setCmcdConfigurationFactory(cmcdConfigurationFactory);
++        .setCmcdConfigurationFactonfigurationFactory);Cmcd.java
+ ```
+ 
+ <br />

@@ -1,0 +1,24 @@
+diff --git a/docs/ai/gemini-nano.md b/docs/ai/gemini-nano.md
+index aebd58e8..6d674514 100644
+--- a/docs/ai/gemini-nano.md
++++ b/docs/ai/gemini-nano.md
+@@ -37,6 +37,19 @@ The ML Kit GenAI APIs support the following features:
+ - [**Image Description**](https://developers.google.com/ml-kit/genai/image-description/android): Generate a short description of a given image.
+ - [**Speech Recognition**](https://developers.google.com/ml-kit/genai/speech-recognition/android): Transcribe spoken audio to text.
+ 
++
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/tree/main/device-ai/ml-kit-genai-prompt-api)
++
++### Use the ML Kit Prompt API
++
++Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to integrate and optimize the ML Kit Prompt API in your app. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
++
++    android skills add ml-kit-genai-prompt-api
++
++<br />
++
+ ## Architecture through AICore
+ 
+ As a system-level module, you access AICore through a series of APIs in order to

@@ -1,0 +1,35 @@
+diff --git a/docs/tools/agents/android-skills/browse.md b/docs/tools/agents/android-skills/browse.md
+index f080e8e5..dc30ce8c 100644
+--- a/docs/tools/agents/android-skills/browse.md
++++ b/docs/tools/agents/android-skills/browse.md
+@@ -30,9 +30,17 @@ Integrate the Jetpack Compose Styles API to set up component themes and make cus
+ ### Make app edge-to-edge
+ Modernize your app UI by implementing edge-to-edge layout support.](https://github.com/android/skills/tree/main/system/edge-to-edge) [![](https://developer.android.com/static/images/picto-icons/user-friendly-integration.svg)
+ ### Integrate Play Engage SDK
+-Integrate the Play Engage SDK into your app to publish content clusters and engage users on Google Play.](https://github.com/android/skills/tree/main/play/engage-sdk-integration) [![](https://developer.android.com/static/images/picto-icons/code.svg)
++Integrate the Play Engage SDK into your app to publish content clusters and engage users on Google Play.](https://github.com/android/skills/tree/main/play/engage-sdk-integration) [![](https://developer.android.com/static/images/picto-icons/hardware.svg)
++### Migrate Leanback to Compose for TV
++Migrate Android TV apps from the legacy Leanback UI Toolkit to Jetpack Compose for TV.](https://github.com/android/skills/tree/main/tv/leanback-to-compose-tv-migration) [![](https://developer.android.com/static/images/picto-icons/cast.svg)
++### Integrate Media3 Cast
++Implement Google Cast support in Android apps.](https://github.com/android/skills/tree/main/media/media3-cast-integration) [![](https://developer.android.com/static/images/picto-icons/gemini.svg)
++### Use ML Kit GenAI Prompt API
++Send natural language requests on-device to Gemini Nano.](https://github.com/android/skills/tree/main/device-ai/ml-kit-genai-prompt-api) [![](https://developer.android.com/static/images/picto-icons/code.svg)
+ ### Set up Navigation 3
+-Best practices for setting up and using Navigation 3 in your app.](https://github.com/android/skills/tree/main/navigation/navigation-3) [![](https://developer.android.com/static/images/picto-icons/graph.svg)
++Best practices for setting up and using Navigation 3 in your app.](https://github.com/android/skills/tree/main/navigation/navigation-3) [![](https://developer.android.com/static/images/picto-icons/platform.svg)
++### Use the NavigationEvent library
++Intercept back gestures and run Predictive Back animations.](https://github.com/android/skills/tree/main/navigation/navigation-event) [![](https://developer.android.com/static/images/picto-icons/graph.svg)
+ ### Use Android profilers
+ Record and analyze Android performance data to diagnose bottlenecks, jank, and memory leaks, and convert natural language into executable trace queries, such as PerfettoSQL queries.](https://github.com/android/skills/tree/main/profilers/android-profiler) [![](https://developer.android.com/static/images/picto-icons/billing.svg)
+ ### Upgrade Play Billing library
+@@ -40,7 +48,9 @@ Access new features by upgrading your Play Billing Library.](https://github.com/
+ ### Audit Play policy compliance
+ Audit Android apps against Google Play policies to verify compliance across permissions, account deletion, and data safety.](https://github.com/android/skills/tree/main/play/play-policy-insights) [![](https://developer.android.com/static/images/picto-icons/improve-performance.svg)
+ ### Audit R8 configuration
+-Optimize your app's performance by auditing your R8 configuration.](https://github.com/android/skills/tree/main/performance/r8-analyzer) [![](https://developer.android.com/static/images/picto-icons/test-tube.svg)
++Optimize your app's performance by auditing your R8 configuration.](https://github.com/android/skills/tree/main/performance/r8-analyzer) [![](https://developer.android.com/static/images/picto-icons/key.svg)
++### Implement Restore Credentials
++Implement Android's Restore Credentials feature using Credential Manager for silent sign-in on new devices.](https://github.com/android/skills/tree/main/identity/restore-credentials) [![](https://developer.android.com/static/images/picto-icons/test-tube.svg)
+ ### Set up testing strategy
+ Analyze your project and set up a comprehensive testing strategy, including unit, UI, and screenshot tests.](https://github.com/android/skills/tree/main/testing/testing-setup) [![](https://developer.android.com/static/images/picto-icons/mail.svg)
+ ### Retrieve verified email

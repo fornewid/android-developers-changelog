@@ -1,0 +1,13 @@
+diff --git a/docs/google/play/billing/billingchoice/integration.md b/docs/google/play/billing/billingchoice/integration.md
+index d1f3b16b..859a1232 100644
+--- a/docs/google/play/billing/billingchoice/integration.md
++++ b/docs/google/play/billing/billingchoice/integration.md
+@@ -23,7 +23,7 @@ The following illustration elaborates the billing choice flow for each of these
+ scenarios:
+ ![The billing choice flow showing the sequence of API calls and user interactions for the four integration scenarios.](https://developer.android.com/static/images/google/play/billing/billingchoice/billing-choice-3.png) **Figure 1.** Billing choice integration scenarios
+ 
+-![](https://developer.android.com/static/images/google/play/billing/billingchoice/billing-choice-3.png)
++![The billing choice flow showing the sequence of API calls and user interactions for the four integration scenarios.](https://developer.android.com/static/images/google/play/billing/billingchoice/billing-choice-3.png)
+ 
+ ## PBL integration scenarios
+ 
