@@ -91,7 +91,7 @@ dismissed or after the user has tapped "Got it".
 Example: When the user taps to purchase in your app, the button will trigger the
 information screen.
 
-![](https://developer.android.com/static/images/google/play/billing/interim-eea-flow.png)
+![Interim EEA information screen flow](https://developer.android.com/static/images/google/play/billing/interim-eea-flow.png)
 
 ### Design specifications
 

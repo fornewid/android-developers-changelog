@@ -4,7 +4,7 @@ url: https://developer.android.com/jetpack/androidx/releases/javascriptengine
 source: md.txt
 ---
 
-# JavascriptEngine
+# JavaScriptEngine
 
 Enable your Android app to evaluate JavaScript.
 
@@ -14,7 +14,7 @@ Enable your Android app to evaluate JavaScript.
 
 ## Declaring dependencies
 
-To add a dependency on JavascriptEngine, you must add the Google Maven repository to your
+To add a dependency on JavaScriptEngine, you must add the Google Maven repository to your
 project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
 for more information.
 
@@ -52,7 +52,7 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
-## Javascriptengine Version 1.1
+## JavaScriptEngine Version 1.1
 
 ### Version 1.1.0
 
@@ -217,4 +217,4 @@ August 10, 2022
 
 - We've added experimental support for `JavaScriptSandbox` and `JavaScriptIsolate` to enable clients to evaluate JavaScript in a safe and restricted environment. This is an area of active development; the APIs are subject to change without notice.
 
-- Please file feature requests and bugs our [JavascriptEngine component](https://issuetracker.google.com/issues/new?component=1225213&template=1720664)!
+- Please file feature requests and bugs our [JavaScriptEngine component](https://issuetracker.google.com/issues/new?component=1225213&template=1720664)!

@@ -424,7 +424,7 @@ recovers during account hold
 | 2:15 |   | Subscription renews |   |
 | 2:45 |   | Subscription renews |   |
 | 3:15 |   | Subscription renews |   |
-| 3:45 |   | Subscription ends (after 6 renewals) |
+| 3:45 |   | Subscription ends (after 6 renewals) |   |
 
 #### Yearly subscription with grace period and account hold; user involuntarily churns
 
@@ -450,7 +450,7 @@ recovers
 | 12:30 |   | Subscription renews |   |
 | 12:35 |   | Subscription renews |   |
 | 12:40 |   | Subscription renews |   |
-| 12:45 |   | Subscription ends (after 6 renewals) |
+| 12:45 |   | Subscription ends (after 6 renewals) |   |
 
 #### Monthly subscription with account hold and no grace period; user involuntarily churns
 

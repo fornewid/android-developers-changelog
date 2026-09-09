@@ -111,7 +111,7 @@ needed. For example, for an app delivering the weather forecast, there likely is
 sign-in and thus for authentication.
 
 If you do require authentication, we recommend using the
-[AndroidX Oauth library](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/authentication/package-summary).
+[AndroidX OAuth 2.0 library](https://developer.android.com/reference/kotlin/androidx/wear/phone/interactions/authentication/package-summary).
 This requires using the
 [Authorization Code Grant with PKCE](https://developer.android.com/training/wearables/apps/auth-wear#oath) flow.
 You can also use one of the other methods described in

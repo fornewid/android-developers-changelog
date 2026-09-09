@@ -98,8 +98,9 @@ like [Buttons](https://developer.android.com/reference/kotlin/androidx/wear/prot
 #### Set the content descriptions for complications
 
 There are different [types](https://developer.android.com/training/wearables/watch-faces/adding-complications#types-fields) of complications such as
-`SmallImageComplication` and `ShortTextComplication. contentDescription` is set
-on the Builder, for example see the [`SmallImageComplicationData.Builder`](https://developer.android.com/reference/androidx/wear/watchface/complications/data/SmallImageComplicationData.Builder#Builder(androidx.wear.watchface.complications.data.SmallImage,androidx.wear.watchface.complications.data.ComplicationText)).
+`SmallImageComplication` and `ShortTextComplication`. `contentDescription` is
+set on the Builder, for example see the
+[`SmallImageComplicationData.Builder`](https://developer.android.com/reference/androidx/wear/watchface/complications/data/SmallImageComplicationData.Builder#Builder(androidx.wear.watchface.complications.data.SmallImage,androidx.wear.watchface.complications.data.ComplicationText)).
 
 ### Understand list behaviors
 
@@ -149,5 +150,5 @@ Compose](https://developer.android.com/jetpack/compose/accessibility#minimum-tar
 
 - Note: link text is displayed when JavaScript is off
 - [Picker](https://developer.android.com/design/ui/wear/guides/components/pickers)
-- [Loading images {:#loading-images}](https://developer.android.com/develop/ui/compose/graphics/images/loading)
+- [Loading images](https://developer.android.com/develop/ui/compose/graphics/images/loading)
 - [Key steps to improve Compose accessibility](https://developer.android.com/develop/ui/compose/accessibility/key-steps)

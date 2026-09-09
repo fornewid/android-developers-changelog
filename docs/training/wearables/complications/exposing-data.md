@@ -22,8 +22,6 @@ dependencies {
 }
 ```
 
-<br />
-
 ## Create the data source service
 
 When complication data is needed, the Wear OS system sends update requests to your data source.
@@ -212,7 +210,7 @@ classes allow you to create these time-dependent values:
 ## Timeline data
 
 
-For complication data sources that provide a sequence of values at pre-defined times, use
+For complication data sources that provide a sequence of values at predefined times, use
 [`SuspendingTimelineComplicationDataSourceService`](https://developer.android.com/reference/androidx/wear/watchface/complications/datasource/SuspendingTimelineComplicationDataSourceService).
 
 
@@ -267,8 +265,6 @@ The behavior of the `SuspendingTimelineComplicationDataSourceService` is as foll
 - When the current time falls within the start and end time of an entry in the timeline, the watch face uses that value.
 - When the current time doesn't fall within any entry in the timeline, the default value is used. For example, in the calendar app, this could be "No event."
 - If the current time falls within multiple events, the shortest event is used.
-
-<br />
 
 ## Provide dynamic values
 

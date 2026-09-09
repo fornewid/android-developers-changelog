@@ -49,8 +49,8 @@ You only need to pair your computer with the watch once.
 
 ## Connect to the watch
 
-After the watch and computer pair, you can connect to the watch. You need to reconnect each time you
-restart wireless debugging or change Wi-Fi networks.
+After the watch and computer pair, you can connect to the watch. You need to
+reconnect each time you restart wireless debugging or change Wi-Fi networks.
 
 1. On the watch, navigate to **Settings \> Developer options \> Wireless
    debugging**.

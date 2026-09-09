@@ -84,14 +84,15 @@ Request body:
 #### Enable users to resubscribe expired subscriptions
 
 To allow the resubscription of an expired subscription, you must [enable
-the **Resubscribe** option](https://support.google.com/googleplay/%0Aandroid-developer/answer/140504) in the subscription's base plan and then
-cancel the subscription by setting the `cancellationType` parameter to the
-`USER_REQUESTED_STOP_RENEWALS` value.
+the **Resubscribe** option](https://support.google.com/googleplay/android-developer/answer/140504)
+in the subscription's base plan and then cancel the subscription by setting the
+`cancellationType` parameter to the `USER_REQUESTED_STOP_RENEWALS` value.
 
 #### Enable users to resubscribe only in your application
 
-If you have set the `cancellationType` parameter to `DEVELOPER_REQUESTED_STOP
-_PAYMENTS` or haven't set the `cancellationType` parameter, users can't
+If you have set the `cancellationType` parameter to
+`DEVELOPER_REQUESTED_STOP_PAYMENTS` or haven't set the `cancellationType`
+parameter, users can't
 restore their subscription from the Play subscription center. However, users can
 sign up again for the subscription through your app if required.
 

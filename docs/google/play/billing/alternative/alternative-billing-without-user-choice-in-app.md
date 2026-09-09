@@ -236,8 +236,8 @@ billingClient.createAlternativeBillingOnlyReportingDetailsAsync(object :
 
 ## Response handling
 
-The above methods `isAlternativeBillingOnlyAvailableAsync(),
-showAlternativeBillingOnlyInformationDialog()`, and
+The above methods `isAlternativeBillingOnlyAvailableAsync()`,
+`showAlternativeBillingOnlyInformationDialog()`, and
 `createAlternativeBillingOnlyReportingDetailsAsync()` may return
 non-BillingResponseCode.OK responses in the case of errors. The recommended
 handling of the errors is described below:

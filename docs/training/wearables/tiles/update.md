@@ -8,12 +8,10 @@ Create tiles with content that changes as time passes.
 
 ## Work with timelines
 
-A timeline consists of one or more
-[`TimelineEntry`](https://developer.android.com/reference/androidx/wear/protolayout/TimelineBuilders.TimelineEntry)
-instances, each of which contain a layout that is displayed during a specific
-time interval. All tiles need a timeline.
-
-![Diagram of tile timeline](https://developer.android.com/static/images/training/articles/tiles_timeline.png)
+A timeline consists of one or more [`TimelineEntry`](https://developer.android.com/reference/androidx/wear/protolayout/TimelineBuilders.TimelineEntry) instances, each of which
+contain a layout that is displayed during a specific time interval. All tiles
+need a timeline.
+![Tile timeline including two timeline entries, each with a layout.](https://developer.android.com/static/images/training/articles/tiles_timeline.png) Diagram of tile timeline.
 
 ### Single-entry tiles
 
@@ -120,8 +118,7 @@ override fun onTileRequest(
     )
 ```
 
-When you set a freshness interval, the system calls
-[`onTileRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService#onTileRequest(androidx.wear.tiles.RequestBuilders.TileRequest))
+When you set a freshness interval, the system calls [`onTileRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService#onTileRequest(androidx.wear.tiles.RequestBuilders.TileRequest))
 shortly after the interval finishes. If you don't set a freshness interval, the
 system doesn't call `onTileRequest()`.
 

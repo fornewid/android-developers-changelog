@@ -71,12 +71,11 @@ steps:
 1. In your mobile app's build file, include a dependency on the latest version
    of the wearable library in Google Play services:
 
-   ```groovy
-   dependencies {
-       ...
-       implementation 'com.google.android.gms:play-services-wearable:20.0.1'
-   }
-   ```
+       dependencies {
+           ...
+           implementation 'com.google.android.gms:play-services-wearable:20.0.1'
+       }
+
 2. Declare and export the `WearableListenerService` in your app's
    manifest file:
 

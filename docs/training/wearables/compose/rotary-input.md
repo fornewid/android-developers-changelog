@@ -26,8 +26,9 @@ Visual feedback can include [scrolling indicators](https://developer.android.com
 [page indicators](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/HorizontalPageIndicator.composable#HorizontalPageIndicator(androidx.wear.compose.foundation.pager.PagerState,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color)).
 
 `ScalingLazyColumn`, `TransformingLazyColumn` and `Picker` support the scroll
-gesture by default, if you place these components inside `AppScaffold` and `ScreenScaffold` and pass the list state between
-`ScreenScaffold` and the component, such as a `TransformingLazyColumn`.
+gesture by default, if you place these components inside `AppScaffold` and
+`ScreenScaffold` and pass the list state between `ScreenScaffold` and the
+component, such as a `TransformingLazyColumn`.
 
 `AppScaffold` and `ScreenScaffold` provides the basic layout structure for Wear
 OS apps and already has a slot for a scroll indicator with a default

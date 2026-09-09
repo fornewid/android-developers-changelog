@@ -139,7 +139,7 @@ You can mark a legacy price cohort migration as an opt-out increase if it meets
 those criteria, as shown in figure 1.
 ![Google Play Console legacy price cohort migration with opt-out increase](https://developer.android.com/static/images/google/play/billing/opt-out-increase.png) **Figure 1.** Using Play Console to specify a legacy price cohort migration as an opt-out increase.
 
-![](https://developer.android.com/static/images/google/play/billing/opt-out-increase.png)
+![Google Play Console legacy price cohort migration with opt-out increase](https://developer.android.com/static/images/google/play/billing/opt-out-increase.png)
 
 ## Communicate your price change to the user
 
@@ -171,6 +171,12 @@ not accept the price increase. If they do, you will receive an RTDN informing
 you of the outcome. See the [purchase lifecycle
 guidance](https://developer.android.com/google/play/billing/lifecycle/subscriptions#price-changes) to learn
 how to handle these notifications.
+
+To notify users of an upcoming opt-in price increase, you can use the
+[in-app messaging](https://developer.android.com/google/play/billing/subscriptions#in-app-messaging) feature. This lets users to confirm the price
+increase without leaving the app. The message for an outstanding opt-in
+price increase is shown starting on the first day the user can accept the
+price increase, and the message is shown a maximum of once every 7 days.
 
 If the user doesn't act and they reach the first renewal that the opt-in price
 will apply to, their subscription is automatically canceled and expired on that

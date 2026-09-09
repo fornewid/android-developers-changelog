@@ -23,8 +23,8 @@ Layouts should have [percentage-based margins](https://developer.android.com/des
 <br />
 
 The following code snippet uses a
-`TransformingLazyColumn` component to create content that looks great on a variety
-of Wear OS screen sizes:
+`TransformingLazyColumn` component to create content that looks great on a
+variety of Wear OS screen sizes:
 
 ```kotlin
 val columnState = rememberTransformingLazyColumnState()

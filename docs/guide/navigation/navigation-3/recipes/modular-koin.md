@@ -166,7 +166,7 @@ private fun ConversationListScreen(
 @Composable
 private fun ConversationDetailScreen(
     conversationDetail: ConversationDetail,
-    onProfileCli>cked: () - Unit
+    onProfileClicked: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -183,10 +183,10 @@ private fun ConversationDetailScreen(
         )
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = dropUnlessResumed(block = onProfileClicked)) {
-            Text("View Pro
+            Text("View Profile")
+        }
     }
 }
-ConversationModule.kt
 ```
 
 ```
@@ -278,7 +278,7 @@ class KoinModularActivity : ComponentActivity(), AndroidScopeComponent, KoinComp
 
         setEdgeToEdgeConfig()
         setContent {
-            Scaffold { padding>Values -
+            Scaffold { paddingValues ->
                 NavDisplay(
                     backStack = navigator.backStack,
                     modifier = Modifier.padding(paddingValues),
@@ -287,5 +287,7 @@ class KoinModularActivity : ComponentActivity(), AndroidScopeComponent, KoinComp
                 )
             }
         }
- ivity.kt
+    }
+
+}
 ```

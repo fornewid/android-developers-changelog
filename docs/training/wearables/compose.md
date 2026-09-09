@@ -8,7 +8,7 @@ Compose for Wear OS Material version <button value="2.5">2.5</button> <button va
 
 *** ** * ** ***
 
-![](https://developer.android.com/static/wear/images/components/Compose_hero_m3.png)
+![Compose code and a preview of the watch face in Android Studio](https://developer.android.com/static/wear/images/components/Compose_hero_m3.png) **Figure 1.** Jetpack Compose for Wear OS
 
 [Compose for Wear OS](https://developer.android.com/jetpack/androidx/releases/wear-compose) is similar to
 Compose for mobile. However, there are some key differences. This guide
@@ -98,15 +98,15 @@ toolkit dependencies in your app's `build.gradle` file. Most of the dependency
 changes related to Wear OS are in the
 [top architectural layers](https://developer.android.com/jetpack/compose/layering), surrounded by a red box
 in the following image.
-
-![](https://developer.android.com/static/wear/images/components/ComposeDependencies.png)
+![4 rectangles. From top to bottom, the rectangles contain 'Material', 'Foundation', 'UI', and 'Runtime'. The top 2 rectangles are surrounded by a red box](https://developer.android.com/static/wear/images/components/ComposeDependencies.png) **Figure 2.** Dependency changes for Wear OS in the Compose architecture
 
 That means many of the dependencies you already use with Jetpack Compose don't
 change when targeting Wear OS. For example, the UI, runtime, compiler, and
 animation dependencies remain the same.
 
-However, Wear OS has its own versions of `material` and `material3`, `foundation`, and
-`navigation` libraries, so check that you're using the proper libraries.
+However, Wear OS has its own versions of `material` and `material3`,
+`foundation`, and `navigation` libraries, so check that you're using the proper
+libraries.
 
 Use the
 [`WearComposeMaterial`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material/package-summary)
@@ -171,7 +171,7 @@ dependencies {
 ## Feedback
 
 Try out Compose for Wear OS and use the
-[issue tracker](https://issuetracker.google.com/issues/new?component=1077552&template=1598429&pli=1) to provide suggestion and feedback.
+[issue tracker](https://issuetracker.google.com/issues/new?component=1077552&template=1598429&pli=1) to provide suggestions and feedback.
 
 Join the
 [#compose-wear channel](https://surveys.jetbrains.com/s3/kotlin-slack-sign-up)
