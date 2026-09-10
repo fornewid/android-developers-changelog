@@ -6,13 +6,11 @@ source: md.txt
 
 # credentials providerevents
 
-API Reference  
-[androidx.credentials.providerevents](https://developer.android.com/reference/kotlin/androidx/credentials/providerevents/package-summary)  
 This library provides a set of APIs for credential providers to participate in provider events, such as credential transfer and signal credential changes.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | - | - | - | [1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/credentials-providerevents#1.0.0-alpha06) |
+| September 09, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/credentials-providerevents#1.0.0-beta01) | - |
 
 ## Declaring dependencies
 
@@ -60,6 +58,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-beta01
+
+September 09, 2026
+
+`androidx.credentials.providerevents:providerevents:1.0.0-beta01` and `androidx.credentials.providerevents:providerevents-play-services:1.0.0-beta01` are released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1a508f033de883ba2853b9f9ae1853eec7010638..e4298bb3b78a2a2f62ea47b9ed42eb33b470e095/credentials/providerevents).
+
+**Bug Fixes**
+
+- Bump providerevents and providerevents-play-services to 1.0.0-beta01. ([I44ca0](https://android-review.googlesource.com/#/q/I44ca094f7a48373df5ddee5d2cfab363632306c8))
 
 ### Version 1.0.0-alpha06
 

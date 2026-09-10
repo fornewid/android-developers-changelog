@@ -325,10 +325,11 @@ the component syntax.
 
    - \[ \] Components such as `Button` have a corresponding `ButtonDefaults` object.
    - \[ \] Check for and use the `*Defaults` object for any component when working with padding and styling values, in preference to hard-coded values.
-9. Use Wear specific previews:
+9. Use Wear-specific preview annotations:
 
-   - \[ \] `WearPreviewDevices`
-   - \[ \] `WearPreviewFontScales`
+   - \[ \] `@WearPreviewDevices`
+   - \[ \] `@WearPreviewFontScales`
+   - \[ \] Ensure the `androidx.wear.compose:compose-ui-tooling` dependency is included.
 10. Ambient mode
 
     - \[ \] Use `LocalAmbientModeManager` instead of `AmbientLifecycleObserver`.

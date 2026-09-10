@@ -10,7 +10,7 @@ Write trace events to the system trace buffer.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 26, 2026 | [2.0.1](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.1) | - | - | - |
+| September 09, 2026 | [2.0.2](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.2) | - | - | - |
 
 ## Feedback
 
@@ -28,6 +28,12 @@ for more information.
 ## Tracing
 
 ### Version 2.0
+
+#### Version 2.0.2
+
+September 09, 2026
+
+`androidx.tracing:tracing-*:2.0.2` is released. Version 2.0.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a0cc4213fee4d9e9564d0d673782d018fb961bdf..6023fb78b1249c4a9869e8641e1cb88b057b01c8/tracing).
 
 #### Version 2.0.1
 

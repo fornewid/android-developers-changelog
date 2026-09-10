@@ -18,7 +18,7 @@ while harnessing the full power of SQLite.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | [2.7.0](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.0) | - | - | - |
+| September 09, 2026 | [2.7.1](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.1) | - | - | [2.8.0-alpha01](https://developer.android.com/jetpack/androidx/releases/sqlite#2.8.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -78,7 +78,30 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
+## Version 2.8
+
+### Version 2.8.0-alpha01
+
+September 09, 2026
+
+`androidx.sqlite:sqlite-*:2.8.0-alpha01` is released. Version 2.8.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/190a3431c064ca5e90e451b3443714ae684b8127..e4bd62f853853bf3522ed15681c58ef28b09ed44/sqlite).
+
+**Bug Fixes**
+
+- Fixed an issue on web and suspending drivers where cancelling a coroutine during a transaction could cause the database and connection to get into a bad state, preventing further usages. ([If75c0](https://android-review.googlesource.com/#/q/If75c07cef62bd9b2c2f8bb56c95b6183b04fc9f2), [b/549860940](https://issuetracker.google.com/issues/549860940))
+- Cleans up API information ([Ia8066](https://android-review.googlesource.com/#/q/Ia8066818f7e33220445aaeafa9ecc0668cc4818b))
+
 ## Version 2.7
+
+### Version 2.7.1
+
+September 09, 2026
+
+`androidx.sqlite:sqlite-*:2.7.1` is released. Version 2.7.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/190a3431c064ca5e90e451b3443714ae684b8127..7bbade5b385ef86084f186d9ec7874cd27316545/sqlite).
+
+**Bug Fixes**
+
+- Fixed an issue on web and suspending drivers where cancelling a coroutine during a transaction could cause the database and connection to get into a bad state, preventing further usages. ([If75c0](https://android-review.googlesource.com/#/q/If75c07cef62bd9b2c2f8bb56c95b6183b04fc9f2), [b/549860940](https://issuetracker.google.com/issues/549860940))
 
 ### Version 2.7.0
 

@@ -12,7 +12,7 @@ Use the Material 3 adaptive library to create adaptive UIs that adapt automatica
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 26, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0) | - | - | [1.4.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.4.0-alpha01) |
+| September 09, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0) | - | - | [1.4.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.4.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -63,6 +63,12 @@ for more information.
 <br />
 
 ## Version 1.4
+
+### Version 1.4.0-alpha02
+
+September 09, 2026
+
+`androidx.compose.material3.adaptive:adaptive-*:1.4.0-alpha02` is released. Version 1.4.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..3b87180049780b1f2b8f0fd7b42372a617394079/compose/material3/adaptive).
 
 ### Version 1.4.0-alpha01
 

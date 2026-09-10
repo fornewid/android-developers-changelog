@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 26, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.0) | - | - | [1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-alpha02) |
+| September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-alpha03) |
 
 ## Structure
 
@@ -100,6 +100,21 @@ for more information.
 
 ## Version 1.13
 
+### Version 1.13.0-alpha03
+
+September 09, 2026
+
+`androidx.compose.material:material-*:1.13.0-alpha03` is released. Version 1.13.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..58589a3cd45bacbb3ad7bbdc52836f6e055340be/compose/material).
+
+**API Changes**
+
+- Material 2 text field overloads that accept `value, onValueChange` parameters are deprecated. Please migrate to the overload that uses `TextFieldState` to hoist its state. ([I6b841](https://android-review.googlesource.com/#/q/I6b841e6850afbc22bec2424c3762927ec4f65670), [b/556234973](https://issuetracker.google.com/issues/556234973))
+
+**Bug Fixes**
+
+- `compileSdk` for Compose libraries updated to 37.1. This will require transitively updating `compileSdk` for all apps and libraries using Compose. ([I05b0f](https://android-review.googlesource.com/#/q/I05b0f9385d2b99ddcc4041b2ce2d96aea3bd391e))
+- Updated `SecureTextField` and `OutlinedSecureTextField` components (as well as deprecated `BasicSecureTextField` overloads) to use `TextObfuscationMode.System` as the default obfuscation mode instead of `TextObfuscationMode.RevealLastTyped`. ([I76c7e](https://android-review.googlesource.com/#/q/I76c7ee604ecea755df3c91dfa281778532338f4d))
+
 ### Version 1.13.0-alpha02
 
 August 26, 2026
@@ -123,6 +138,12 @@ August 12, 2026
 - Remove requirement for `compileSdk 37` ([If78b4](https://android-review.googlesource.com/#/q/If78b4fbdec15e6b1d6ad34a487ae10b2e2494325))
 
 ## Version 1.12
+
+### Version 1.12.1
+
+September 09, 2026
+
+`androidx.compose.material:material-*:1.12.1` is released. Version 1.12.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/963bf914f78b389bdddef0da7f36bee19d897274..5e0747401bf56b243e3b5141ae080dc9bc61d29c/compose/material).
 
 ### Version 1.12.0
 

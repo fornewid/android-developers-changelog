@@ -13,7 +13,7 @@ Bring digital content into the real world with perception capabilities.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 12, 2026 | - | - | [1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-beta02) | - |
+| September 09, 2026 | - | [1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-rc01) | - | - |
 
 
 ## Declaring dependencies
@@ -58,6 +58,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-rc01
+
+September 09, 2026
+
+`androidx.xr.arcore:arcore-*:1.0.0-rc01` is released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6aac064a92dc69c01271e1810f149f398d07d741..9c825fbab75661b887e67410bc6d6565f80d3f2d/xr/arcore).
 
 ### Version 1.0.0-beta02
 

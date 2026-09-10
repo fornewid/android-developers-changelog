@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| November 19, 2025 | [2.8.4](https://developer.android.com/jetpack/androidx/releases/room#2.8.4) | - | - | - |
+| September 09, 2026 | [2.8.5](https://developer.android.com/jetpack/androidx/releases/room#2.8.5) | - | - | - |
 
 ## Declaring dependencies
 
@@ -274,6 +274,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 2.8
+
+### Version 2.8.5
+
+September 09, 2026
+
+`androidx.room:room-*:2.8.5` is released. Version 2.8.5 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/75ef81cced187631f0dd74666188bd9d4cd3358f..b0fa397b49a0c6614fed04cec9dee0ec01f6b3a3/room).
+
+**Bug Fixes**
+
+- Room suspending queries and invalidation tracker operations will now throw an `IllegalStateException` when called after the database has been closed. ([Ic0166](https://android-review.googlesource.com/#/q/Ic0166f79ff125d11b08b98541d78d0182083f7e9), [b/543076356](https://issuetracker.google.com/issues/543076356))
 
 ### Version 2.8.4
 

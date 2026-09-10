@@ -10,7 +10,7 @@ Implement UWB (ultra-wideband) on supported devices.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| May 19, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.0.0) | - | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.1.0-alpha01) |
+| September 09, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.0.0) | - | - | [1.1.0-alpha02](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.1.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -55,6 +55,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.1
+
+#### Version 1.1.0-alpha02
+
+September 09, 2026
+
+`androidx.core.uwb:uwb:1.1.0-alpha02` and `androidx.core.uwb:uwb-rxjava3:1.1.0-alpha02` are released. Version 1.1.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..75357d47f9f998e502ec322474fff3aff14cd21a/core/uwb).
+
+**API Changes**
+
+- Add support for odometry-based sensor fusion, which provides software angle-of-arrival estimation and adjusts range measurements for local device motion. ([I191a9](https://android-review.googlesource.com/#/q/I191a999e3e0374fb35d6a55cad915eac0b26c15a))
 
 ### Version 1.1.0-alpha01
 

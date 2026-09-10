@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 26, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0) | - | - | [1.14.0-alpha01](https://developer.android.com/jetpack/androidx/releases/activity#1.14.0-alpha01) |
+| September 09, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0) | - | - | [1.14.0-alpha02](https://developer.android.com/jetpack/androidx/releases/activity#1.14.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -63,6 +63,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.14
+
+### Version 1.14.0-alpha02
+
+September 09, 2026
+
+`androidx.activity:activity:1.14.0-alpha02`, `androidx.activity:activity-compose:1.14.0-alpha02`, and `androidx.activity:activity-ktx:1.14.0-alpha02` are released. Version 1.14.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/235b7e5c8cc27d65d8800e28fcc32e33313b417b..e4bd62f853853bf3522ed15681c58ef28b09ed44/activity).
+
+**Bug Fixes**
+
+- `compileSdk` for Compose libraries updated to 37.1. This will require transitively updating `compileSdk` for all apps and libraries using Compose. ([I05b0f](https://android-review.googlesource.com/#/q/I05b0f9385d2b99ddcc4041b2ce2d96aea3bd391e))
 
 ### Version 1.14.0-alpha01
 

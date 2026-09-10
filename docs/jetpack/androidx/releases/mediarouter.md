@@ -6,14 +6,11 @@ source: md.txt
 
 # Mediarouter
 
-[User Guide](https://developer.android.com/guide/topics/media/mediarouter) [Code Sample](https://github.com/android/media-samples) API Reference  
-[androidx.mediarouter.app](https://developer.android.com/reference/kotlin/androidx/mediarouter/app/package-summary)  
-[androidx.mediarouter.media](https://developer.android.com/reference/kotlin/androidx/mediarouter/media/package-summary)  
-Enable media display and playback on remote receiver devices using a common user interface.
+[User Guide](https://developer.android.com/guide/topics/media/mediarouter) [Code Sample](https://github.com/android/media-samples) Enable media display and playback on remote receiver devices using a common user interface.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 11, 2026 | [1.8.1](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.8.1) | - | - | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-alpha01) |
+| September 09, 2026 | [1.8.1](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.8.1) | - | - | [1.9.0-alpha02](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -56,6 +53,29 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.9
+
+### Version 1.9.0-alpha02
+
+September 09, 2026
+
+`androidx.mediarouter:mediarouter:1.9.0-alpha02` and `androidx.mediarouter:mediarouter-testing:1.9.0-alpha02` are released. Version 1.9.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/cdf076c6abd0f3125cb0302756fcb77fe981ab7c..597b5e411760980220523761a0041ddedc6f307d/mediarouter).
+
+**API Changes**
+
+- Update `MediaRouter`#`setDeviceSuggestions` to take in `RouteInfo` instead of `SuggestedDeviceInfo` ([Id1d8c](https://android-review.googlesource.com/#/q/Id1d8cfceec0cdfde7463fa6c9553c3e3fc45d76e))
+- Add API to determine the source of a route selection event. ([I6ce8d](https://android-review.googlesource.com/#/q/I6ce8d3142cc2616fcbca3d915c19d9c5a8ef0afe))
+- Introduce a new API `MediaRouter`#`isMediaTransferEnabled` ([I92f6f](https://android-review.googlesource.com/#/q/I92f6f31097cdf0012754cae95c53cb421ee5d8ec))
+- Add new `MediaRouteDescriptor#getRoutingControllerId` to expose the routing control id associated with selected routes from `MediaRouter2`. ([Iadae8](https://android-review.googlesource.com/#/q/Iadae84fb4b77a39ef10b52ef559ae512bfe0d03c))
+
+## - Add MediaRouterParams support for enabling the media transfer feature without the need for a manifest tag. ([Iec56b](https://android-review.googlesource.com/#/q/Iec56b51f515792df6c37972dad84ffda2e84a313))
+
+**Bug Fixes**
+
+- Fixed a potential `ClassCastException` in `MediaRouter2Utils` when handling intent filters from external route providers. ([Ifa880](https://android-review.googlesource.com/#/q/Ifa88027ab35e1b5b2b62dbafad706ee48cd20f32))
+- This library now uses [JSpecify nullness annotations](https://jspecify.dev/), which are type-use. ([I06c8c](https://android-review.googlesource.com/#/q/I06c8c494abd93450f9327fcb5a9bca5f5bc02139), [b/326456246](https://issuetracker.google.com/issues/326456246))
+- Fix bug causing crashes when specific colors aren't defined in the active theme. ([cedecb](https://android-review.googlesource.com/#/q/cedecb539e584a956c3e164a2daa918555b58703)
+- Fix crash caused by malicious apps passing malformed parcels (such as MediaRouteDescriptors) via binder ([I47b8e](https://android-review.googlesource.com/#/q/I47b8ead5995aa7435b6323b7fb479e1ce41dc18a), [Ifa880](https://android-review.googlesource.com/#/q/Ifa88027ab35e1b5b2b62dbafad706ee48cd20f32))
+- Improve logging around MediaRouteProvider misbehavior. ([I65e3d](https://android-review.googlesource.com/#/q/I65e3ded776428c568d9ab882e4ddf61b1885a688)).
 
 ### Version 1.9.0-alpha01
 
@@ -307,7 +327,9 @@ June 21, 2023
 June 7, 2023
 
 `androidx.mediarouter:mediarouter:1.6.0-alpha04` and `androidx.mediarouter:mediarouter-testing:1.6.0-alpha04` are released. This version is developed in an internal branch.
-| **Note:** This version will only compile against the Android 14 (Upside Down Cake) Beta 1 SDK or higher.
+
+> [!NOTE]
+> **Note:** This version will only compile against the Android 14 (Upside Down Cake) Beta 1 SDK or higher.
 
 **New Features**
 
@@ -330,7 +352,9 @@ June 7, 2023
 April 12, 2023
 
 `androidx.mediarouter:mediarouter:1.6.0-alpha03` and `androidx.mediarouter:mediarouter-testing:1.6.0-alpha03` are released. This was released from an internal branch.
-| **Note:** This version will only compile against the Android 14 Beta 1 SDK.
+
+> [!NOTE]
+> **Note:** This version will only compile against the Android 14 Beta 1 SDK.
 
 - Make some changes around `MediaRouteDescriptor`'s visibility API.
 - Deprecate `MediaRouteActionProvider.setAlwaysVisible` and `MediaRouteButton.setAlwaysVisible`, making the media route button always visible, regardless of the network connectivity, or the availability of media routes.

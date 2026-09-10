@@ -10,7 +10,7 @@ Reduce the memory impact of existing and new collections that are small.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| March 11, 2026 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/collection#1.6.0) | - | - | - |
+| September 09, 2026 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/collection#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/collection#1.7.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -53,6 +53,27 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 1.7
+
+### Version 1.7.0-alpha01
+
+September 09, 2026
+
+`androidx.collection:collection-*:1.7.0-alpha01` is released. Version 1.7.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5e46f82d2e75f3f4e6a88da615d2a4aba4427d95..d89e253295f3ed4e745116313f7334f559734222/collection).
+
+**API Changes**
+
+- Added `sortWith`, `sortBy`, and `sortByDescending` functions to `MutableObjectList`, alongside `binarySearch` algorithms on `ObjectList` and primitive list classes (`FloatList`, `IntList`, `LongList`, `DoubleList`). Added `binarySearch` overloads using exact component types for `FloatList`, `LongList`, and `DoubleList` alongside existing `Int` methods. ([Ied6f7](https://android-review.googlesource.com/#/q/Ied6f7ba32c284ff232c47de7983d9b2213d4f937))
+- `androidx.benchmark` now has a `minSdk` of 24. ([Ic2a85](https://android-review.googlesource.com/#/q/Ic2a8500af8a2bf092fcc1b27d9a599aa5f3b81d7))
+- Optimize `ScatterMap.getOrPut()` performance ([I6e46b](https://android-review.googlesource.com/#/q/I6e46b8f902341bff6c2ec1c45f620a5b07bc8966))
+- Added `@JvmOverloads` to trim functions of List classes ([I24410](https://android-review.googlesource.com/#/q/I2441053e2c4afc520a10d289f89cc9848bef4f5f), [b/481371562](https://issuetracker.google.com/issues/481371562))
+- Added `.toOrderedScatterSet()` extension. This provides a read-only alternative to the mutable conversion function and returns an allocation-free singleton when the source collection is empty. ([I1b767](https://android-review.googlesource.com/#/q/I1b767b23304ec2a89ee66a991415a4a0f9546048))
+
+**Bug Fixes**
+
+- Improved hashing in `ScatterMap` and primitive collections to reduce collisions for `Float` keys. ([I7d2ac](https://android-review.googlesource.com/#/q/I7d2aca1996d627e0abc72a2ce7a4351cf74d3cd2), [b/528428583](https://issuetracker.google.com/issues/528428583))
+- Implement `toString()` for `ScatterMap.asMap` key, value, and entry views. This provides better debug visibility for developers using the `asMap()` wrapper. ([I64791](https://android-review.googlesource.com/#/q/I6479108ab48c10004e176f0482d0b9832ac1fc28))
 
 ## Version 1.6
 

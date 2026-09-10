@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 26, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0) | - | - | [1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-alpha02) |
+| September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-alpha03) |
 
 ## Structure
 
@@ -104,6 +104,16 @@ for more information.
 
 ## Version 1.13
 
+### Version 1.13.0-alpha03
+
+September 09, 2026
+
+`androidx.compose.runtime:runtime-*:1.13.0-alpha03` is released. Version 1.13.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..6df99b9068ac1d061afccde6e6045553b4752cdc/compose/runtime).
+
+**Performance**
+
+- Inline `SlotWriter.forAllDataInRememberOrder` to eliminate allocations ([Ie39f6](https://android-review.googlesource.com/#/q/Ie39f6cf499c33782dd2dd2ee1bf1428b2d72e421))
+
 ### Version 1.13.0-alpha02
 
 August 26, 2026
@@ -158,6 +168,12 @@ August 12, 2026
 - Fixed Live Edit recovery after an error in a subcomposition so parent compositions continue observing state changes. ([I63fb5](https://android-review.googlesource.com/#/q/I63fb5e04a2d34eab3b79c2fefa97118ff204da25))
 
 ## Version 1.12
+
+### Version 1.12.1
+
+September 09, 2026
+
+`androidx.compose.runtime:runtime-*:1.12.1` is released with no changes since 1.12.0. Version 1.12.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/963bf914f78b389bdddef0da7f36bee19d897274..5e0747401bf56b243e3b5141ae080dc9bc61d29c/compose/runtime).
 
 ### Version 1.12.0
 

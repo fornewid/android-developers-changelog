@@ -4,26 +4,22 @@ url: https://developer.android.com/develop/adaptive-apps/guides/foldables/learn-
 source: md.txt
 ---
 
+![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/foldables/hero-gallery.svg) **Figure 1.** Examples of apps running on foldable devices.
+
 Foldable devices provide an opportunity for innovative app development. Large
 and small screens on the same device offer complementary but distinct
 interactive experiences. Folding features such as tabletop posture and book
 posture enable imaginative layouts and unconventional user interfaces.
-![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/foldables/foldable_multiple_postures.png) **Figure 1.** Foldable device in multiple postures: folded, open flat, open flat rotated to landscape, and half opened (tabletop).
+![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/foldables/foldable_multiple_postures.png) **Figure 2.** Foldable device in multiple postures: folded, open flat, open flat rotated to landscape, and half opened (tabletop).
 
-## Responsive/adaptive design
+## Adaptive design
 
-Support for foldable devices begins with responsive design. Responsive layouts
-enable an app to look and work great on a range of display sizes. Implement
-responsive design with the [`BoxWithConstraints`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/layout/BoxWithConstraints.composable#BoxWithConstraints(androidx.compose.ui.Modifier,androidx.compose.ui.Alignment,kotlin.Boolean,kotlin.Function1)) composable.
-
-But to optimally support the folded and unfolded screens of a foldable device,
-the layout needs to adapt. The differences in screen size and aspect ratio of
-folded and unfolded screens can be quite large, such that even a responsive
-layout can't adequately accommodate both displays. Adaptive design creates
-alternative layouts optimized for different screen sizes and configurations.
-Adaptive layouts provide an optimized user experience when a foldable device is
-folded or unfolded, in portrait or landscape orientation, or in tabletop or book
-posture.
+To optimally support the folded and unfolded screens of a foldable device, the
+layout needs to adapt. The differences in screen size and aspect ratio of folded
+and unfolded screens can be substantial, requiring alternative layouts optimized
+for different screen sizes and configurations. Adaptive layouts provide an
+optimized user experience when a foldable device is folded or unfolded, in
+portrait or landscape orientation, or in tabletop or book posture.
 
 For example, a large screen foldable device unfolded in landscape orientation is
 like a tablet; a two‑pane layout with a navigation rail makes excellent
@@ -31,17 +27,12 @@ use of the wide screen. Folded, the device is similar to a standard phone; a
 single column layout with a bottom navigation bar is straightforward but
 effective. Because the layouts are separate, you can optimize each for its
 specific use case.
-Your browser doesn't support the video tag. **Figure 2.** Adaptive layouts optimized for both folded and unfolded screens.
+Your browser doesn't support the video tag. **Figure 3.** Adaptive layouts optimized for both folded and unfolded screens.
 
-Foldable devices fold in a variety of ways, such as inward, with the display
-folding into the interior of the device, or outward, with the display wrapping
-around the device. Responsive/adaptive design prepares your app to support all
-kinds of foldable form factors.
+To learn more about adaptive design and development for foldables, see the following:
 
-To learn more about responsive/adaptive design for foldables, see the following:
-
-- [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes)
-- Material Design --- [Applying layout](https://m3.material.io/foundations/layout/applying-layout/window-size-classes)
+- **Design:** Look at the [UI gallery](https://developer.android.com/design/ui/gallery) for layout inspiration and patterns across form factors.
+- **Development:** Follow the developer guidance in [Support different display sizes](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-different-display-sizes) to build adaptive layouts.
 
 ## Foldable states and postures
 
@@ -56,7 +47,7 @@ though an app might span both screens.
 
 Foldable devices can be in various folded states, such as [`FLAT`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State#FLAT()) (fully
 open) or [`HALF_OPENED`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature.State#HALF_OPENED()) (somewhere between fully open and completely closed).
-![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/foldables/foldable_postures_flat_and_half_opened.png) **Figure 3.** Foldable device in flat and half-opened states.
+![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/foldables/foldable_postures_flat_and_half_opened.png) **Figure 4.** Foldable device in flat and half-opened states.
 
 When a device is in the `HALF_OPENED` state, two postures are possible,
 depending on the orientation of the fold: tabletop posture (horizontal fold) and
@@ -73,20 +64,21 @@ Make sure important content is viewable when the device is partially folded.
 Split content into two areas when the device is half opened---top and bottom
 in tabletop posture, left and right in book posture.
 
+In addition to postures, foldables support unique display modes:
+
+- **Rear display mode:** Enables your app to use the outer screen while the device is unfolded, allowing features such as rear-camera selfie preview.
+- **Dual-screen mode:** Displays content simultaneously on both the inner and outer screens, enabling experiences like two-way translation.
+
 For more information about folds and foldable postures, see [Make your app fold
-aware](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/make-your-app-fold-aware).
+aware](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/make-your-app-fold-aware). To learn how to support unique display modes, see [Support foldable
+display modes](https://developer.android.com/develop/ui/compose/layouts/adaptive/foldables/support-foldable-display-modes).
 
 ## App continuity
 
 An app stops and restarts as it transitions from one screen to another when a
-device folds or unfolds. To maintain continuity for the user, the app should
-restore its state when recreating the app layout on a folded or unfolded screen.
-For example, apps should do the following:
-
-- Retain text typed into input fields
-- Restore the keyboard state
-- Restore the scroll position of scrollable fields
-- Resume media playback where it left off when the app was stopped
+device folds or unfolds. To maintain continuity for the user, the app must
+preserve and restore its state seamlessly, as outlined in the
+[Adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality).
 
 The different screen layouts of a foldable device should also complement one
 another. For example, if the folded screen shows an image and description for a
@@ -101,12 +93,12 @@ and [Handle configuration changes](https://developer.android.com/guide/topics/re
 
 Large screen foldables have a tablet‑sized screen that's ideal for
 multitasking in multi‑window mode. Foldables support split‑screen
-mode; some even support desktop windowing mode, where apps are contained in
+mode; some even support desktop windowing, where apps are contained in
 movable, resizable windows, similar to a desktop windowing system.
 
 |---|---|
 | ![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/foldables/large_foldable_unfolded_vertically_light.png) | ![](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/foldables/large_foldable_unfolded_vertically_desktop_windows.png) |
-| **Figure 4.** Foldable device in landscape orientation running three apps in split-screen mode (left) and desktop windowing mode (right). ||
+| **Figure 5.** Foldable device in landscape orientation running three apps in split-screen mode (left) and desktop windowing (right). ||
 
 Android 12 (API level 31) and later versions default to multi‑window mode---on large screens, all apps run in multi‑window mode regardless of app configuration. On previous versions down to Android 7.0 (API level 24), you must configure your app to be resizable to support multi‑window mode.
 
@@ -122,7 +114,3 @@ apps.
 Drag and drop interactions create a productive and engaging user experience. Add
 drag and drop capabilities to your app using the Android drag and drop
 framework. For more information, see [Enable drag and drop](https://developer.android.com/guide/topics/ui/drag-drop).
-
-## Additional resources
-
-- [Test different screen and window sizes](https://developer.android.com/training/testing/different-screens)

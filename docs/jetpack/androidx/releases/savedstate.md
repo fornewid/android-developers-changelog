@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 26, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0) | - | - | [1.6.0-alpha02](https://developer.android.com/jetpack/androidx/releases/savedstate#1.6.0-alpha02) |
+| September 09, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0) | - | - | [1.6.0-alpha03](https://developer.android.com/jetpack/androidx/releases/savedstate#1.6.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -61,6 +61,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.6
+
+### Version 1.6.0-alpha03
+
+September 09, 2026
+
+`androidx.savedstate:savedstate-*:1.6.0-alpha03` is released. Version 1.6.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..e4bd62f853853bf3522ed15681c58ef28b09ed44/savedstate).
+
+**API Changes**
+
+- Allowed null initial state in `SavedStateRegistry` constructor. ([I76006](https://android-review.googlesource.com/#/q/I76006f21477e43185e79a01753d52a89d45b34af))
 
 ### Version 1.6.0-alpha02
 

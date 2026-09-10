@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 12, 2026 | - | - | [1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-beta02) | - |
+| September 09, 2026 | - | [1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -59,6 +59,25 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-rc01
+
+September 09, 2026
+
+`androidx.xr.scenecore:scenecore-*:1.0.0-rc01` is released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5e16bb06cf26d3e2a2d555059216c43831826f57..6fb59a3b2759476e6992ff0fc2fbb10c833eeeea/xr/scenecore).
+
+**API Changes**
+
+- Added `xr:scenecore:scenecore-openxr` library. ([Ic49f2](https://android-review.googlesource.com/#/q/Ic49f2c1d02530dabaea20bfc08bd621b0b877444))
+- Removed several deprecated APIs ahead of the 1.0.0 stable release.
+
+**Bug Fixes**
+
+- Resolved a memory leak bug where the Activity reference could be retained by the system when the Activity is destroyed. ([I6dcd7](https://android-review.googlesource.com/#/q/I6dcd7c427eae4b21390d9d8cda168247d12a1c5b))
+
+**Behavior Changes**
+
+- Removed logcat output from SceneCore. ([I10c3c](https://android-review.googlesource.com/#/q/I10c3c70e84aab07c754eefb6db36b6bbaea1cd70))
 
 ### Version 1.0.0-beta02
 

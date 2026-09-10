@@ -18,7 +18,7 @@ This table lists all the artifacts in the `androidx.security` group.
 | security-app-authenticator-testing | [1.0.0](https://developer.android.com/jetpack/androidx/releases/security#security-app-authenticator-testing-1.0.0) | - | - | - |
 | security-identity-credential | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/security#security-identity-credential-1.0.0-alpha03) |
 
-This library was last updated on: August 26, 2026
+This library was last updated on: September 09, 2026
 
 ## Declaring dependencies
 
@@ -47,6 +47,19 @@ for more information.
 ## Security-State-Provider
 
 ### Version 1.0
+
+#### Version 1.0.0
+
+September 09, 2026
+
+`androidx.security:security-state-provider:1.0.0` is released. Version 1.0.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/12e7f8e66c5e70ca5c59342b4fb6c82e6e50a37c..ff80d903ddb04cd2b9866895381d939bcf6b1ba0/security/security-state-provider).
+
+**Major features of 1.0.0:**
+
+- **[`UpdateInfoService`](https://developer.android.com/reference/kotlin/androidx/security/state/provider/UpdateInfoService) Framework:** Base service enabling OEM OTA clients and update services to declare and broadcast available security update metadata.
+- **Available Security Patch Level (ASPL):** Standardizes reporting the newest available patch level across system and subsystem updates to on-device consumers.
+- **Kotlin \& Java Compatibility:** Provides [`UpdateInfoService`](https://developer.android.com/reference/kotlin/androidx/security/state/provider/UpdateInfoService) for Kotlin Coroutines ([`fetchUpdates()`](https://developer.android.com/reference/kotlin/androidx/security/state/provider/UpdateInfoService#fetchUpdates())) and [`ListenableFutureUpdateInfoService`](https://developer.android.com/reference/kotlin/androidx/security/state/provider/ListenableFutureUpdateInfoService) for Java clients using Guava `ListenableFuture` ([`fetchUpdatesAsync()`](https://developer.android.com/reference/kotlin/androidx/security/state/provider/ListenableFutureUpdateInfoService#fetchUpdatesAsync())).
+- **Extensible Provider Configuration:** Includes configurable caching, rate-limiting, and error-handling hooks.
 
 #### Version 1.0.0-rc01
 
@@ -132,6 +145,21 @@ September 24, 2025
 ## Security-State
 
 ### Version 1.1
+
+#### Version 1.1.0
+
+September 09, 2026
+
+`androidx.security:security-state:1.1.0` is the initial stable release of the AndroidX Security State library. Version 1.1.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/12e7f8e66c5e70ca5c59342b4fb6c82e6e50a37c..ff80d903ddb04cd2b9866895381d939bcf6b1ba0/security/security-state).
+
+**Major features of 1.1.0**
+
+- **Unified Security State Querying ([`SecurityPatchState`](https://developer.android.com/reference/kotlin/androidx/security/state/SecurityPatchState)):** Provides a unified programmatic view of on-device security patch levels across the system, system modules (Mainline), and kernel.
+- **Pending Update Discovery ([`queryAllAvailableUpdates()`](https://developer.android.com/reference/kotlin/androidx/security/state/SecurityPatchState#queryAllAvailableUpdates(kotlin.Long)) \& [`fetchAvailableSecurityPatchLevel()`](https://developer.android.com/reference/kotlin/androidx/security/state/SecurityPatchState#fetchAvailableSecurityPatchLevel(kotlin.String,kotlin.Long))):** Aggregates data from registered on-device update providers to discover pending security updates across system components.
+- **Granular Vulnerability Verification ([`areCvesPatched()`](https://developer.android.com/reference/kotlin/androidx/security/state/SecurityPatchState#areCvesPatched(kotlin.collections.List))):** Checks whether specific CVEs have been resolved on the device, including evaluating vendor supplemental patch records.
+- **Update Readiness Assessment ([`isDeviceFullyUpdated()`](https://developer.android.com/reference/kotlin/androidx/security/state/SecurityPatchState#isDeviceFullyUpdated())):** Provides high-level checks to evaluate whether a device has installed all available security patches.
+- **Vulnerability Reporting ([`createVulnerabilityReportUrl()`](https://developer.android.com/reference/kotlin/androidx/security/state/SecurityPatchState#createVulnerabilityReportUrl(android.net.Uri))):** Generates standardized URLs for security bulletins and CVE details.
+- **Kotlin \& Java Compatibility:** Complete asynchronous support via Kotlin Coroutines / Flow and Java `ListenableFuture` APIs.
 
 #### Version 1.1.0-rc01
 

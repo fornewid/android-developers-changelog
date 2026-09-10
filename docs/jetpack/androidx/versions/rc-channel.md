@@ -16,6 +16,16 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## September 09, 2026
+
+- [Annotation Version 1.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0-rc01)
+- [Emoji2 Version 1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/emoji2#1.7.0-rc01)
+- [Navigation3 Version 1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-rc01)
+- [Wear Compose Version 1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-rc01)
+- [Xr Arcore Version 1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-rc01)
+- [Xr Runtime Version 1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-rc01)
+- [Xr Scenecore Version 1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-rc01)
+
 ## August 26, 2026
 
 - [Benchmark Version 1.5.0-rc02](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0-rc02)

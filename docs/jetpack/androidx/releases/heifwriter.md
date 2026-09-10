@@ -10,7 +10,7 @@ Encode an image or image collection in HEIF format using the available codecs on
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| October 22, 2025 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.1.0) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.2.0-alpha01) |
+| September 09, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.1.0) | - | - | [1.2.0-alpha02](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.2.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.heifwriter:heifwriter:1.2.0-alpha01"
+    implementation "androidx.heifwriter:heifwriter:1.2.0-alpha02"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.heifwriter:heifwriter:1.2.0-alpha01")
+    implementation("androidx.heifwriter:heifwriter:1.2.0-alpha02")
 }
 ```
 
@@ -51,6 +51,19 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.2
+
+### Version 1.2.0-alpha02
+
+September 09, 2026
+
+`androidx.heifwriter:heifwriter:1.2.0-alpha02` is released. Version 1.2.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/46bcdef6281ae0f03c3a2bb2812edfc2c0e66d05..f623a42f7601579dc05a708d865816bfa0a0133d/heifwriter/heifwriter).
+
+**Bug Fixes**
+
+- Color Aspects \& HDR: Explicitly configured color range, standard, and transfer characteristics during encoding for 10-bit HDR and 8-bit SDR inputs.
+- AVIF Encoding: Fixed `EncoderBase` to use the correct MIME type for AVIF image encoding, and added a fallback to frame decoding when AVIF image metadata is missing.
+- Buffer \& EXIF Handling: Fixed buffer sizing, EXIF bounds validation, and 10-bit YUV copy logic.
+- Compatibility \& Tests: Resolved AV1 encoder configuration and 10-bit EGL test failures across supported devices.
 
 ### Version 1.2.0-alpha01
 

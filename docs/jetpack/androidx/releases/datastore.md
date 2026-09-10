@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 29, 2026 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/datastore#1.2.1) | - | - | [1.3.0-alpha10](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-alpha10) |
+| September 09, 2026 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/datastore#1.2.1) | - | - | [1.3.0-alpha11](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-alpha11) |
 
 ## Declare dependencies
 
@@ -248,6 +248,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.3
+
+### Version 1.3.0-alpha11
+
+September 09, 2026
+
+`androidx.datastore:datastore-*:1.3.0-alpha11` is released. Version 1.3.0-alpha11 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/61ee8cd421d0c0252d8db0253b739de537999371..e4bd62f853853bf3522ed15681c58ef28b09ed44/datastore).
+
+**Bug Fixes**
+
+- The underlying file path is not included in `CorruptionException` messages thrown during `DataStore` preference parsing failures. ([Ia9e8f](https://android-review.googlesource.com/#/q/Ia9e8f4b26cf4fc2fcd3efcda3d278887b23d6659))
 
 ### Version 1.3.0-alpha10
 

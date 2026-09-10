@@ -13,7 +13,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 26, 2026 | [2.10.0](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.0) | - | - | - |
+| September 09, 2026 | [2.10.1](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.1) | - | - | - |
 
 ## Declaring dependencies
 
@@ -176,6 +176,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Navigation Version 2.10
+
+### Version 2.10.1
+
+September 09, 2026
+
+`androidx.navigation:navigation-*:2.10.1` is released. Version 2.10.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9f64fe7aa9dfa4637259dd0a24940569e35754ae..3a4067bc71f93f5db86732b3d7b94ef572627b32/navigation).
+
+**Bug Fixes**
+
+- In cases where `NavHost` skips animations, it will now also consider the `sizeTransform` as part of the skipped animation to prevent any unexpected clipping. ([I4f995](https://android-review.googlesource.com/#/q/I4f995285883d58fdd22f315ecffbb3ea665c7ea2), [b/550924680](https://issuetracker.google.com/issues/550924680))
 
 ### Version 2.10.0
 

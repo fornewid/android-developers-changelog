@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 26, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0) | - | - | [1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-alpha02) |
+| September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-alpha03) |
 
 ## Structure
 
@@ -100,6 +100,40 @@ for more information.
 
 ## Version 1.13
 
+### Version 1.13.0-alpha03
+
+September 09, 2026
+
+`androidx.compose.ui:ui-*:1.13.0-alpha03` is released. Version 1.13.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..58589a3cd45bacbb3ad7bbdc52836f6e055340be/compose/ui).
+
+**API Changes**
+
+- Material 2 text field overloads that accept `value, onValueChange` parameters are deprecated. Please migrate to the overload that uses `TextFieldState` to hoist its state. ([I6b841](https://android-review.googlesource.com/#/q/I6b841e6850afbc22bec2424c3762927ec4f65670), [b/556234973](https://issuetracker.google.com/issues/556234973))
+- Add a common API to disable `WindowInsetsRulers` globally before the first Compose root is created. Deprecate Android only `ComposeView.disableWindowInsetsRulers()` in favor of the common `WindowInsetsRulers.disable()` ([Iadc8f](https://android-review.googlesource.com/#/q/Iadc8ff09951c2be19c15f63654873b7365da7a1c))
+- Adds `PolygonShape.transformed` and `PolygonShape.scaledToFit` extension functions in Compose Foundation for transforming and fitting polygon shapes. ([I3f327](https://android-review.googlesource.com/#/q/I3f32730534fa3739dc4e0c7eaac036284e98721b))
+- Modifier renamed `LineHeight.Trim.isTrimLastLineBottom()` function to `LineHeight.Trim.trimsLastLineBottom` and `LineHeight.Trim.isTrimFirstLineTop` to `LineHeight.Trim.trimsFirstLineTop` ([I02211](https://android-review.googlesource.com/#/q/I02211070a2b2019ba03165384deee14952318bc8))
+- Added `boundsAssertionTolerance` to `PlatformTestConfig` under `ComposeUiTestConfig.platform` allowing tests to configure default bounds assertion tolerance at the environment/rule level. ([I7819d](https://android-review.googlesource.com/#/q/I7819d6024f900472bbbc26efec7f9808ad89f51e), [b/545673912](https://issuetracker.google.com/issues/545673912))
+- `BasicTextField` overloads that accept `value, onValueChange` parameters are deprecated. Please migrate to the `BasicTextField` overload that uses `TextFieldState` to hoist its state. ([I636bf](https://android-review.googlesource.com/#/q/I636bf0af4334ce04a8eb9e80b8b2b0d1b6c905ae), [b/552879150](https://issuetracker.google.com/issues/552879150))
+- Inline with `BasicTextField(value, onValueChange)`, `VisualTransformation` is also deprecated since it is only exposed through this `TextField` flavor. Existing transformations should migrate to `OutputTransformation`. ([I636bf](https://android-review.googlesource.com/#/q/I636bf0af4334ce04a8eb9e80b8b2b0d1b6c905ae), [b/552879150](https://issuetracker.google.com/issues/552879150))
+- Added `LineHeightStyle.Mode.PerLine` to calculate line height independently for each line, supporting varying font sizes in the same paragraph without overlap. ([I41738](https://android-review.googlesource.com/#/q/I41738e17a0ac0366035007e4596b636621318e6d))
+- Providing `LazyLayoutCacheWindow` and `LazyListPrefetchStrategy` via `LazyListState` has been deprecated in favour of providing a `LazyLayoutCacheWindow` to the composable function. ([I71f19](https://android-review.googlesource.com/#/q/I71f1967bc357f972343311b02169831f747a0cee))
+- Added `Modifier.blur { ... }` API to support progressive blurs (e.g., gradients and custom shaders) ([Ie6595](https://android-review.googlesource.com/#/q/Ie659593347c6d91866974b11f1979ebdb41efc62), [b/481685669](https://issuetracker.google.com/issues/481685669))
+- Added Modifier.`interactionBarrier`() to block touch, focus, and accessibility interactions. ([I7c1b7](https://android-review.googlesource.com/#/q/I7c1b7c7fffd15081685ceb4818f36912b41031a1), [b/347038246](https://issuetracker.google.com/issues/347038246))
+- Added `isCrossWindowBlurEnabled` extension property on `WindowInfo` to allow developers to query and observe system-wide cross-window blur state on Android. ([If38e2](https://android-review.googlesource.com/#/q/If38e22002bc6df5c2d7a13b199cfaaab803ecf6c), [b/538405295](https://issuetracker.google.com/issues/538405295))
+- Added `LocalWindow CompositionLocal` to allow retrieving the current `android.view.Window` object, making it easier to control window-level APIs from within Composables. ([I4d4ff](https://android-review.googlesource.com/#/q/I4d4ffd0c63a4ca65556714a21cef9ddeaaf5b9b8), [b/221889664](https://issuetracker.google.com/issues/221889664))
+
+**Bug Fixes**
+
+- Enabled `isMinimalistLocalsEnabled` by default. ([Ibb4eb](https://android-review.googlesource.com/#/q/Ibb4eb927b0a7c4a369b4a5d390b77d9201068c49), [b/523295932](https://issuetracker.google.com/issues/523295932))
+- Enabld single line height optimisation by default. It may cause a few pixel difference in some text metrics like height or selection path ([I5575a](https://android-review.googlesource.com/#/q/I5575a418c6a476ffee4183ab62b8bf004577c1b5))
+- `compileSdk` for Compose libraries updated to 37.1. This will require transitively updating `compileSdk` for all apps and libraries using Compose. ([I05b0f](https://android-review.googlesource.com/#/q/I05b0f9385d2b99ddcc4041b2ce2d96aea3bd391e))
+- Fixed an issue where `WindowInsetsRulers` IME insets were not marked as animating during predictive back, and fixed `imePadding` not updating when switching focus between text fields. ([Id4562](https://android-review.googlesource.com/#/q/Id456204b4bd49644bcbc2304d8e910182b71979d), [b/537386261](https://issuetracker.google.com/issues/537386261), [b/539686000](https://issuetracker.google.com/issues/539686000))
+- Fixed an issue where trackpad pinch gestures were ignored when `ComposeView` was hosted inside a standard Android `ViewGroup`. ([I80f79](https://android-review.googlesource.com/#/q/I80f7974d0f51ee9faf53607904286d2d85829628))
+
+**External Contribution**
+
+- Fixed an Activity leak when a `ComposeView` was detached and re-attached within a single frame, for example when reordered with `removeView` and `addView`. ([Ib5129](https://android-review.googlesource.com/#/q/Ib512974cf3f8a689ca04b3b1886d6525dc9436e5), [b/547675867](https://issuetracker.google.com/issues/547675867))
+
 ### Version 1.13.0-alpha02
 
 August 26, 2026
@@ -184,6 +218,12 @@ August 12, 2026
 - `Alignment.topRatio`, `Trim.isTrimFirstLineTop()` and `Trim.isTrimLastLineBottom()` are public APIs now ([I84f62](https://android-review.googlesource.com/#/q/I84f62b48e93f8ec56b7a070977ac8b5f4a342be3))
 
 ## Version 1.12
+
+### Version 1.12.1
+
+September 09, 2026
+
+`androidx.compose.ui:ui-*:1.12.1` is released. Version 1.12.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/963bf914f78b389bdddef0da7f36bee19d897274..5e0747401bf56b243e3b5141ae080dc9bc61d29c/compose/ui).
 
 ### Version 1.12.0
 
