@@ -1,0 +1,76 @@
+diff --git a/docs/jetpack/androidx/releases/glance-adaptive.md b/docs/jetpack/androidx/releases/glance-adaptive.md
+index a3242bb2..da0f9581 100644
+--- a/docs/jetpack/androidx/releases/glance-adaptive.md
++++ b/docs/jetpack/androidx/releases/glance-adaptive.md
+@@ -10,7 +10,7 @@ TODO
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 26, 2026 | - | - | - | [1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/glance_adaptive#1.0.0-alpha01) |
++| September 09, 2026 | - | - | - | [1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/glance_adaptive#1.0.0-alpha02) |
+ 
+ ## Declaring dependencies
+ 
+@@ -24,15 +24,15 @@ your app or module:
+ \<!DOCTYPE html\>
+ 
+ 
+-Glance Adaptive dependencies
++glance adaptive deps
+ 
+ ### Groovy
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha01"
+-    implementation "androidx.glance.adaptive:adaptive-core:1.0.0-alpha01"
+-    implementation "androidx.glance.adaptive:adaptive-wear:1.0.0-alpha01"
++    implementation "androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha02"
++    implementation "androidx.glance.adaptive:adaptive-core:1.0.0-alpha02"
++    implementation "androidx.glance.adaptive:adaptive-wear:1.0.0-alpha02"
+ }
+ ```
+ 
+@@ -40,9 +40,9 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha01")
+-    implementation("androidx.glance.adaptive:adaptive-core:1.0.0-alpha01")
+-    implementation("androidx.glance.adaptive:adaptive-wear:1.0.0-alpha01")
++    implementation("androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha02")
++    implementation("androidx.glance.adaptive:adaptive-core:1.0.0-alpha02")
++    implementation("androidx.glance.adaptive:adaptive-wear:1.0.0-alpha02")
+ }
+ ```
+ 
+@@ -53,17 +53,27 @@ For more information about dependencies, see [Add build dependencies](https://de
+ 
+ Your feedback helps make Jetpack better. Let us know if you discover new issues or have
+ ideas for improving this library. Please take a look at the
+-[existing issues](https://issuetracker.google.com/issues?q=componentid:2222811+status:open)
++[existing issues](https://issuetracker.google.com/issues?q=componentid:TODO+status:open)
+ in this library before you create a new one. You can add your vote to an existing issue by
+ clicking the star button.
+ 
+-[Create a new issue](https://issuetracker.google.com/issues/new?component=2222811&template=2373503)
++[Create a new issue](https://issuetracker.google.com/issues/new?component=TODO&template=TODO)
+ 
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha02
++
++September 09, 2026
++
++`androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha02`, `androidx.glance.adaptive:adaptive-core:1.0.0-alpha02`, and `androidx.glance.adaptive:adaptive-wear:1.0.0-alpha02` are released. Version 1.0.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..e4bd62f853853bf3522ed15681c58ef28b09ed44/glance/adaptive).
++
++**Bug Fixes**
++
++- `compileSdk` for Compose libraries updated to 37.1. This will require transitively updating `compileSdk` for all apps and libraries using Compose. ([I05b0f](https://android-review.googlesource.com/#/q/I05b0f9385d2b99ddcc4041b2ce2d96aea3bd391e))
++
+ #### Version 1.0.0-alpha01
+ 
+ August 26, 2026

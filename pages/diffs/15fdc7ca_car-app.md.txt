@@ -1,0 +1,45 @@
+diff --git a/docs/jetpack/androidx/releases/car-app.md b/docs/jetpack/androidx/releases/car-app.md
+index 8cf4734c..492627a0 100644
+--- a/docs/jetpack/androidx/releases/car-app.md
++++ b/docs/jetpack/androidx/releases/car-app.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 26, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/car-app#1.7.0) | [1.8.0-rc01](https://developer.android.com/jetpack/androidx/releases/car-app#1.8.0-rc01) | - | [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app#1.9.0-alpha01) |
++| September 09, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/car-app#1.7.0) | [1.8.0-rc01](https://developer.android.com/jetpack/androidx/releases/car-app#1.8.0-rc01) | - | [1.9.0-alpha02](https://developer.android.com/jetpack/androidx/releases/car-app#1.9.0-alpha02) |
+ 
+ ## Declaring dependencies
+ 
+@@ -72,6 +72,31 @@ for more information.
+ 
+ ## Version 1.9
+ 
++### Version 1.9.0-alpha02
++
++September 09, 2026
++
++`androidx.car.app:app-*:1.9.0-alpha02` is released. Version 1.9.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..6ff76682a45583f1f17c9e3c945d4fb6704bb9f8/car/app).
++
++**New Features**
++
++- **App Theming** : Added `CarAppThemeSource` to allow apps to opt into brand theming and hosts to query preferred theme configurations.
++- **Search Header** : Added `SearchHeader` for `SectionedItemTemplate` as a search header replacement in API 9.
++- **Component Styling** : Added styling support for tabs (`TabStyle`), banners (`BannerStyle`), and media controls/progress indicators (`MediaPlaybackStyle`, `StrokeCap`).
++
++**API Changes**
++
++- **Media \& Progress Bar Styling** : Added `MediaPlaybackStyle`, `setMediaAccentColor`, and standalone `StrokeCap` to customize playback controls and progress indicators. Updated `CarProgressBarStyle` to support nullable colors and removed deprecated color methods from `CarProgressBar`. ([Ib45c6](https://android-review.googlesource.com/#/q/Ib45c6ef9410ed4d5fbdf1c5c11136044c2f9da14), [I17141](https://android-review.googlesource.com/#/q/I17141d3ad7bfa9440b058ad7f2e7ea1fc0ff4500), [I270a4](https://android-review.googlesource.com/#/q/I270a412d7343ad8522785e12e3d2ed87ca4b2b6e), [I10fe4](https://android-review.googlesource.com/#/q/I10fe4e6025a18370a02359ed07bfab2c13c8abf4), [I80a17](https://android-review.googlesource.com/#/q/I80a17ddc39901e8ae2dfebe41bf57314f4141af5))
++- **App Theming** : Introduced `CarAppThemeSource` for public app theme opt-in and added `onGetAppTheme` to `CarAppService` (with corresponding IPC) allowing hosts to query preferred theme configurations. ([I108f8](https://android-review.googlesource.com/#/q/I108f8b38061c2ac92e1f4ea40fe752f76fecde6c), [Ifbd41](https://android-review.googlesource.com/#/q/Ifbd41e57a39587500eef32ba8e05ca4110e0257b), [I97c7e](https://android-review.googlesource.com/#/q/I97c7e4b122460e7cff04ad4b3186c4e29b400d5c))
++- **Tabs Styling** : Added support for custom background colors, content/text colors, and custom corner radii via `TabStyle`. ([I07330](https://android-review.googlesource.com/#/q/I0733028c8fea2f63d6fb123f61f418844d11b50f), [Id09f6](https://android-review.googlesource.com/#/q/Id09f637254401d9a620459c3284c0b272cb48b14))
++- **Icons \& Image Sizing** : Deprecated `IMAGE_TYPE_ICON` across `Row`, `GridItem`, `Banner`, and `CondensedItem` in favor of `IMAGE_TYPE_SMALL` and `IMAGE_TYPE_MEDIUM` size constants where icons render untinted by default. Reworked `CarIconStyle` and added custom shape support to `CarIcon`. ([Ie57fa](https://android-review.googlesource.com/#/q/Ie57fabbbd57132931e12221b6761730819a97d35), [I5cc2d](https://android-review.googlesource.com/#/q/I5cc2d90f6bf163eb89a15f3c41f8cc60430882c8), [Ic9584](https://android-review.googlesource.com/#/q/Ic95843091e63be651a365377030fc024a14475bc), [Iaef57](https://android-review.googlesource.com/#/q/Iaef57f39beeeccedfbe766611db01746516e343a))
++- **Banners** : Added `BannerStyle` for custom shapes and corner radii, added image variant options (`IMAGE_TYPE_SMALL`, `IMAGE_TYPE_LARGE`), and removed deprecated icon and background APIs in favor of `setLeadingImage` and `addTrailingImage`. ([I265bb](https://android-review.googlesource.com/#/q/I265bb2ce14961ccb2436d47185e98c0ffb746a2a), [I7d28a](https://android-review.googlesource.com/#/q/I7d28af12725358e9f7df5eb5df5eee33f871c565), [I23f62](https://android-review.googlesource.com/#/q/I23f624b05d5edd780ebd9764ea904f2500d582d2), [I2917e](https://android-review.googlesource.com/#/q/I2917eda105168ebf1629340421d896499a8437f5), [I95b1c](https://android-review.googlesource.com/#/q/I95b1c4fe6ee01b522174daf15b8ffc8e64297636))
++- **Headers \& Layout** : Introduced `SearchHeader` for `SectionedItemTemplate` in API 9, added `startHeaderImage` to `Header` for custom start icons, and added `incompleteLastRowStrategy` to control handling of partial rows/columns in grid, condensed, and spotlight sections. ([I86632](https://android-review.googlesource.com/#/q/I8663211cad8f02050dcf5e818f929309fab72bbb), [I24937](https://android-review.googlesource.com/#/q/I249376c64a05fc714021221098664dfc5d161468), [If64be](https://android-review.googlesource.com/#/q/If64bedec227e4c3005c9982c305b3bb039247f23))
++
++**Bug Fixes**
++
++- Clarified that `Action.TYPE_MEDIA_PLAYBACK` is ignored as a template FAB on Car API 9+ hosts. ([Ie8fd4](https://android-review.googlesource.com/#/q/Ie8fd416677d2c86d59532b8c66db83f16ab674f4))
++
+ ### Version 1.9.0-alpha01
+ 
+ May 19, 2026

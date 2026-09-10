@@ -1,0 +1,60 @@
+diff --git a/docs/develop/adaptive-apps/guides/foldables/trifolds-and-landscape-foldables.md b/docs/develop/adaptive-apps/guides/foldables/trifolds-and-landscape-foldables.md
+index 07c9a602..bbfe3e57 100644
+--- a/docs/develop/adaptive-apps/guides/foldables/trifolds-and-landscape-foldables.md
++++ b/docs/develop/adaptive-apps/guides/foldables/trifolds-and-landscape-foldables.md
+@@ -60,15 +60,19 @@ components and content density for the current device state.
+ 
+ The following example uses the Material 3 adaptive library to determine how much
+ space the app has available by first invoking the
+-[`currentWindowAdaptiveInfo()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/currentWindowAdaptiveInfo.composable#currentWindowAdaptiveInfo(kotlin.Boolean)) function, then using the corresponding
+-layouts for the three window size classes:
++[`currentWindowAdaptiveInfoV2()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/currentWindowAdaptiveInfoV2.composable#currentWindowAdaptiveInfoV2()) function, then using the corresponding
++layouts for the window size classes:
+ 
+-    val adaptiveInfo = currentWindowAdaptiveInfo()
++    val adaptiveInfo = currentWindowAdaptiveInfoV2()
+     val windowSizeClass = adaptiveInfo.windowSizeClass
+ 
+     when {
+-      windowSizeClass.isWidthAtLeastBreakpoint(WIDTH_DP_EXPANDED_LOWER_BOUND) -> // Expanded
+-      windowSizeClass.isWidthAtLeastBreakpoint(WIDTH_DP_MEDIUM_LOWER_BOUND) -> // Medium
++      windowSizeClass.isWidthAtLeastBreakpoint(
++        WIDTH_DP_EXPANDED_LOWER_BOUND
++      ) -> // Expanded
++      windowSizeClass.isWidthAtLeastBreakpoint(
++        WIDTH_DP_MEDIUM_LOWER_BOUND
++      ) -> // Medium
+       else -> // Compact
+     }
+ 
+@@ -159,7 +163,7 @@ Camera app on different form factors](https://www.youtube.com/watch?v=XcJIrTedfu
+ If you don't need many camera features, a straightforward solution is to perform
+ basic camera actions like capturing a photo or video using the device's default
+ camera application. You don't need to integrate with a camera library; instead,
+-use an [Intent](https://developer.android.com/reference/android/content/Intent).
++use an [intent](https://developer.android.com/reference/android/content/Intent).
+ 
+ For more information, see [Camera intents](https://developer.android.com/media/camera/camera-intents).
+ 
+@@ -234,7 +238,8 @@ You can get the app's current display bounds and check its width and height to
+ determine orientation.
+ 
+ If you need to limit app orientation on phones (or the outer screens of
+-foldables) but not on large screen devices, see [App orientation restricted on phones but not on large screens](https://developer.android.com/develop/adaptive-apps/guides/cookbook/restrict-orientation).
++foldables) but not on large screen devices, see
++[App orientation restricted on phones but not on large screens](https://developer.android.com/develop/adaptive-apps/guides/cookbook/restrict-orientation).
+ 
+ ### Postures and display modes
+ 
+@@ -243,8 +248,9 @@ supported by both portrait foldables and landscape foldables. Trifolds, however,
+ don't support tabletop posture and cannot be used `HALF_OPENED`. Trifolds
+ instead offer a larger screen for a unique user experience when fully unfolded.
+ 
+-To differentiate your app on foldables that support `HALF_OPENED`, use Jetpack
+-WindowManager APIs such as [`FoldingFeature`](https://developer.android.com/reference/kotlin/androidx/window/layout/FoldingFeature).
++To differentiate your app on foldables that support `HALF_OPENED`, use Compose
++Material 3 Adaptive APIs such as [`collectFoldingFeaturesAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/collectFoldingFeaturesAsState.composable) and
++[`currentWindowAdaptiveInfoV2()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/currentWindowAdaptiveInfoV2.composable#currentWindowAdaptiveInfoV2()).
+ 
+ Learn more about foldable postures, states, and support for camera preview in
+ the following developer guides:

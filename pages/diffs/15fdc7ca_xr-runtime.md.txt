@@ -1,0 +1,56 @@
+diff --git a/docs/jetpack/androidx/releases/xr-runtime.md b/docs/jetpack/androidx/releases/xr-runtime.md
+index 4c7d369f..efdc9766 100644
+--- a/docs/jetpack/androidx/releases/xr-runtime.md
++++ b/docs/jetpack/androidx/releases/xr-runtime.md
+@@ -13,7 +13,7 @@ Start your custom AR or 3D session with our native runtime.
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| July 15, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-beta01) | - |
++| September 09, 2026 | - | [1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-rc01) | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.1.0-alpha01) |
+ 
+ 
+ ## Declaring dependencies
+@@ -63,8 +63,42 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 1.1
++
++#### Version 1.1.0-alpha01
++
++September 09, 2026
++
++`androidx.xr.runtime:runtime-*:1.1.0-alpha01` is released. Version 1.1.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/21bde260d4b764f18e58b263674fbc80cd325199..a3e432fc34e6dec102a28162e5707c8b57b79e2e/xr/runtime).
++
++**API Changes**
++
++- Add SPATIAL_API_V4 to `SpatialApiVersions` ([I71e7a](https://android-review.googlesource.com/#/q/I71e7a03acef6f7b07e69ff5b4ebf8f629e579c9e))
++
+ ## Version 1.0
+ 
++#### Version 1.0.0-rc01
++
++September 09, 2026
++
++`androidx.xr.runtime:runtime-*:1.0.0-rc01` is released. Version 1.0.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1048396222fa6d588ba84a80b48f9db184957b35..21bde260d4b764f18e58b263674fbc80cd325199/xr/runtime).
++
++**Behavior Changes**
++
++- Improved internal lifecycle events handling. ([I2f7b8](https://android-review.googlesource.com/#/q/I2f7b8fe6de33a7253521539d7a9d11b528e3e68d), [If1bc3](https://android-review.googlesource.com/#/q/If1bc39c10f3544d70236b139a2192409f3bdbdd5), [Ifa75e](https://android-review.googlesource.com/#/q/Ifa75e82e29b1476af0f7b2be0401f26e414fe36e))
++
++#### Version 1.0.0-beta02
++
++August 12, 2026
++
++`androidx.xr.runtime:runtime-*:1.0.0-beta02` is released. Version 1.0.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/0e1f76643537780620614823d6a254f5d4cd664b..1048396222fa6d588ba84a80b48f9db184957b35/xr/runtime).
++
++**Bug fixes**
++
++- Improved the detection of `OpenXR` support in emulated environments. ([Ifec51](https://android-review.googlesource.com/#/q/Ifec516e5ed6c17a2c5179c897ced3a0037d3dfdf))
++- Implemented `toString()` in more classes for debugging. ([I67d83](https://android-review.googlesource.com/#/q/I67d834d0f60c2a13fee4407609a65c156a6a6964))
++- Fix `XrDeviceTestRule` to work when `XrDevice` is created after applying settings. ([Ica32c](https://android-review.googlesource.com/#/q/Ica32c274a864c1e659c6eaab3b065b5f92901b67))
++
+ #### Version 1.0.0-beta01
+ 
+ July 15, 2026

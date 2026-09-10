@@ -1,0 +1,90 @@
+diff --git a/docs/guide/navigation/navigation-3/modularize.md b/docs/guide/navigation/navigation-3/modularize.md
+index 7d92f400..98c46f76 100644
+--- a/docs/guide/navigation/navigation-3/modularize.md
++++ b/docs/guide/navigation/navigation-3/modularize.md
+@@ -91,9 +91,9 @@ NavDisplay(
+ 
+ ## Use dependency injection to add entries to the main app
+ 
+-In the preceding code example, each entry builder is called directly by the main app
+-using the `entryProvider` DSL. If your app has a lot of screens or feature
+-modules, this may not scale well.
++In the preceding code example, each entry builder is called directly by the
++main app using the `entryProvider` DSL. If your app has a lot of screens or
++feature modules, this pattern might not scale well.
+ 
+ To solve this, have each feature module contribute its entry builders into the
+ app's activity using dependency injection.
+@@ -163,6 +163,72 @@ class MainActivity : ComponentActivity() {
+ 
+ If your navigation entries need to navigate---for example, they contain UI elements that navigate to new screens---inject an object capable of modifying the app's navigation state into each builder function.
+ 
++## Modularize deep link matchers
++
++If your app supports [deep links](https://developer.android.com/guide/navigation/navigation-3/deep-links) and is modularized, each feature module
++should define the `DeepLinkMatcher` instances for the destinations it owns.
++
++To collate all matchers from across your app, you can use
++dependency injection multibindings. For example, each feature module can
++contribute its matchers to a Dagger `@IntoSet` multibinding:
++
++**Feature module**
++
++
++```kotlin
++@Module
++@InstallIn(ActivityRetainedComponent::class)
++object FeatureADeepLinkModule {
++    @IntoSet
++    @Provides
++    fun provideUserMatcher(): DeepLinkMatcher<*, *> {
++        return UriDeepLinkMatcher(
++            DeepLinkUri("www.example.com/users/{id}"),
++            serializer<UserProfileKey>()
++        )
++    }
++}
++```
++
++<br />
++
++Then, in your main app module, such as in your `MainActivity`, you can inject
++the set of matchers and use them to match incoming requests:
++
++**App module**
++
++
++```kotlin
++@AndroidEntryPoint
++class MainActivityWithDI : ComponentActivity() {
++    @Inject
++    lateinit var deepLinkMatchers: Set<@JvmSuppressWildcards DeepLinkMatcher<*, *>>
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++
++        val request = DeepLinkRequest(intent = intent)
++        val matchResult = deepLinkMatchers
++            .mapNotNull { it.match(request) }
++            .maxOrNull()
++
++        val backStack = when (matchResult) {
++            null -> listOf(HomeKey)
++            is BackStackMatchResult<*, *> -> {
++                @Suppress("UNCHECKED_CAST")
++                matchResult.backStack as List<NavKey>
++            }
++            else -> listOf(matchResult.key)
++        }
++    }
++}
++```
++
++<br />
++
++For more information about defining and handling deep links, see [Support deep
++links](https://developer.android.com/guide/navigation/navigation-3/deep-links).
++
+ ## Resources
+ 
+ For code samples showing how to modularize Navigation 3 code, see:

@@ -1,0 +1,92 @@
+diff --git a/docs/jetpack/androidx/releases/compose-foundation.md b/docs/jetpack/androidx/releases/compose-foundation.md
+index 12f497e8..bcf50544 100644
+--- a/docs/jetpack/androidx/releases/compose-foundation.md
++++ b/docs/jetpack/androidx/releases/compose-foundation.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 26, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0) | - | - | [1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-alpha02) |
++| September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-alpha03) |
+ 
+ ## Structure
+ 
+@@ -100,6 +100,65 @@ for more information.
+ 
+ ## Version 1.13
+ 
++### Version 1.13.0-alpha03
++
++September 09, 2026
++
++`androidx.compose.foundation:foundation-*:1.13.0-alpha03` is released. Version 1.13.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..58589a3cd45bacbb3ad7bbdc52836f6e055340be/compose/foundation).
++
++**API Changes**
++
++- Adds support to specify the style of individual parts of a compound composable (such as `TextField` or `DatePicker`) directly in the style parameter of the composable.
++
++This enables, for example, creating a `TextField`-like
++composable that allows customizing each of the decorator boxes
++using a style, enabling them to be overridden at a theme level
++or at the call site. ([I43c0f](https://android-review.googlesource.com/#/q/I43c0f1456cae4dd8ca8ca0212b5fe35e7813e617))
++- Material 2 text field overloads that accept `value, onValueChange` parameters are deprecated. Please migrate to the overload that uses `TextFieldState` to hoist its state. ([I6b841](https://android-review.googlesource.com/#/q/I6b841e6850afbc22bec2424c3762927ec4f65670), [b/556234973](https://issuetracker.google.com/issues/556234973))
++- Removed `@ExperimentalFoundationApi` annotation from `undoState` in `TextFieldState`. ([I93a44](https://android-review.googlesource.com/#/q/I93a44b649ae73e456d904cda9c9b12007b8ff3a9))
++- Add default configuration objects for each lazy layout containing the default values used in the corresponding `@Composeable` functions. Currently only contains the default cache window for each layout. ([I58633](https://android-review.googlesource.com/#/q/I5863328b8091e28638d709c56d9b6caecf2abfca))
++- Flag `isUsingDynamicDefaultCacheWindowIn[List|Grid|StaggeredGrid]s` when enabled will cause lazy layouts to use a cache window that uses the average size of visible items to prefetch ahead of the viewport with a minimum ahead window of 10% of the viewport and a maximum ahead window of 50% of the viewport. ([I59212](https://android-review.googlesource.com/#/q/I59212240a2719136277f635ea6c7ba59132fe188))
++- Deprecated `LazyListPrefetchStrategy`, `LazyListPrefetchScope`, and `LazyListPrefetchResultScope`. Prefetching behavior should be configured using `LazyLayoutCacheWindow` on `LazyColumn` or `LazyRow`. `LazyLayoutCacheWindow` provides a declarative, viewport-based caching mechanism that automatically prepares items ahead of and keeps items behind the visible window without requiring complex imperative scheduling callbacks. The new API is simpler and requires less configuration steps than `LazyListPrefetchStrategy`. ([I1fa2d](https://android-review.googlesource.com/#/q/I1fa2d852d6579d1656e13242f9b00837b9b807b5))
++- Adds `PolygonShape.transformed` and `PolygonShape.scaledToFit` extension functions in Compose Foundation for
++transforming and fitting polygon shapes. ([I3f327](https://android-review.googlesource.com/#/q/I3f32730534fa3739dc4e0c7eaac036284e98721b))
++- This change refactors the Styles API into two independent pieces: the
++Styles DSL and the modifiers that are configured by the DSL.
++
++The previous `Style`-based implementation is still present but will
++be deprecated and removed. Any uses of it should be replaced with the
++new `CommonStyle` based API.
++
++Key components introduced:
++- `CustomStyle` \& `CommonStyle`: Base interfaces and merging helpers
++for declaring composable styles.
++- `StyleResolver`: Resolves style properties in composition and binds
++to layout nodes via `Modifier.styleResolver`.
++- Modifier scopes: `Modifier.appearance`, `Modifier.placement`, and
++dynamic callback-based `Modifier.padding` and
++`Modifier.graphicsLayer`.
++- Property primitives: `stylePropertyOf`, `styleLocalOf`.
++- Types useful for style properties: `Breadth`, `Fill`, and `Shadows`.
++
++The new modifiers are useful for implementing a design system using
++the Styles API but are not required. A design system may use these
++modifiers or provide its own. ([Ieb8cc](https://android-review.googlesource.com/#/q/Ieb8ccd0560bb32a179d64a53e028a0117d903db2), [b/549921960](https://issuetracker.google.com/issues/549921960))
++- Removed `ExperimentalFoundationApi` annotation from `TextFieldBuffer` APIs that track the changes ([I546a7](https://android-review.googlesource.com/#/q/I546a75f19ca406cbb637fa48e325c2d5fad58a17))
++- Introduces `MorphPolygonShape` in Compose Foundation for morphing animations between polygon shapes, along with `toPolygonShape()` converters for `RoundedCornerShape` and `CutCornerShape`. ([Ic5a89](https://android-review.googlesource.com/#/q/Ic5a8981b6bf62a67e8b191bfb6c011b50b476464))
++- Introduces `PolygonShape` in Compose Foundation for rendering regular, star, and custom rounded polygons with corner smoothing. ([I0b99d](https://android-review.googlesource.com/#/q/I0b99d9ad53f21a71f283e830e63806add4b3b51b))
++- `BasicTextField` overloads that accept `value, onValueChange`
++parameters are deprecated. Please migrate to the `BasicTextField` overload
++that uses `TextFieldState` to hoist its state. ([I636bf](https://android-review.googlesource.com/#/q/I636bf0af4334ce04a8eb9e80b8b2b0d1b6c905ae), [b/552879150](https://issuetracker.google.com/issues/552879150))
++- Inline with `BasicTextField(value, onValueChange)`, `VisualTransformation` is also deprecated since it is only exposed through this `TextField` flavor. Existing transformations should migrate to `OutputTransformation`. ([I636bf](https://android-review.googlesource.com/#/q/I636bf0af4334ce04a8eb9e80b8b2b0d1b6c905ae), [b/552879150](https://issuetracker.google.com/issues/552879150))
++- Providing `LazyLayoutCacheWindow` and `LazyListPrefetchStrategy` via `LazyListState` has been deprecated in favour of providing a `LazyLayoutCacheWindow` to the composable function. ([I71f19](https://android-review.googlesource.com/#/q/I71f1967bc357f972343311b02169831f747a0cee))
++- Removed temporary feature flag ComposeFoundationFlags.isPausableCompositionInPrefetchEnabled. ([Ifff7f](https://android-review.googlesource.com/#/q/Ifff7fc0a19fda40684f439b31db09cb0d2e05f34))
++- Added InputTransformation.maxLengthTrim to limit text length by truncating excess input characters, added InputTransformation.maxLengthReject to reject input that exceeds maxLength, and deprecated InputTransformation.maxLength in favor of maxLengthTrim and maxLengthReject. ([I8d4cd](https://android-review.googlesource.com/#/q/I8d4cd094b819526966d85a516fe2289f79b2fdbe))
++
++**Bug Fixes**
++
++- `compileSdk` for Compose libraries updated to 37.1. This will require transitively updating `compileSdk` for all apps and libraries using Compose. ([I05b0f](https://android-review.googlesource.com/#/q/I05b0f9385d2b99ddcc4041b2ce2d96aea3bd391e))
++- Fixed an issue where `WindowInsetsRulers` IME insets were not marked as animating during predictive back, and fixed `imePadding` not updating when switching focus between text fields. ([Id4562](https://android-review.googlesource.com/#/q/Id456204b4bd49644bcbc2304d8e910182b71979d), [b/537386261](https://issuetracker.google.com/issues/537386261), [b/539686000](https://issuetracker.google.com/issues/539686000))
++- Updated `SecureTextField` and `OutlinedSecureTextField` components (as well as deprecated `BasicSecureTextField` overloads) to use `TextObfuscationMode.System` as the default obfuscation mode instead of `TextObfuscationMode.RevealLastTyped`. ([I76c7e](https://android-review.googlesource.com/#/q/I76c7ee604ecea755df3c91dfa281778532338f4d))
++
+ ### Version 1.13.0-alpha02
+ 
+ August 26, 2026
+@@ -176,6 +235,12 @@ August 12, 2026
+ 
+ ## Version 1.12
+ 
++### Version 1.12.1
++
++September 09, 2026
++
++`androidx.compose.foundation:foundation-*:1.12.1` is released. Version 1.12.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/963bf914f78b389bdddef0da7f36bee19d897274..5e0747401bf56b243e3b5141ae080dc9bc61d29c/compose/foundation).
++
+ ### Version 1.12.0
+ 
+ August 12, 2026

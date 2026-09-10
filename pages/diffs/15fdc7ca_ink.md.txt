@@ -1,0 +1,40 @@
+diff --git a/docs/jetpack/androidx/releases/ink.md b/docs/jetpack/androidx/releases/ink.md
+index bddd203b..847bceb9 100644
+--- a/docs/jetpack/androidx/releases/ink.md
++++ b/docs/jetpack/androidx/releases/ink.md
+@@ -10,7 +10,7 @@ Inspire best-in-class pen apps. Lower the developer barrier to entry for high pe
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 12, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha07](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha07) |
++| September 09, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha08](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha08) |
+ 
+ ## Declaring dependencies
+ 
+@@ -76,6 +76,26 @@ for more information.
+ 
+ ## Ink Version 1.1
+ 
++### Version 1.1.0-alpha08
++
++September 09, 2026
++
++`androidx.ink:ink-*:1.1.0-alpha08` is released. Version 1.1.0-alpha08 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/384f3c27346bf5812f359330dc2310f0cbb66402..e4bd62f853853bf3522ed15681c58ef28b09ed44/ink).
++
++**API Changes**
++
++- Add rendering support for KMP iOS via `MetalRenderer`, under the opt-in annotation `ExperimentalInkCrossPlatformRenderingApi`, based on KMP common APIs for core functionality
++- Rename `Target.TEXTURE_ANIMATION_PROGRESS_OFFSET` to `Target.PAINT_ANIMATION_PROGRESS_OFFSET`. ([I8809f](https://android-review.googlesource.com/#/q/I8809f4d5ba68a0b9d4705145f9f90016a9541edf))
++- Add overloads `ImmutableAffineTransform.translate(float x, float, y)` and `MutableAffineTransform populateFromTranslation(float x, float y)` ([I8809f](https://android-review.googlesource.com/#/q/I8809f4d5ba68a0b9d4705145f9f90016a9541edf))
++- Rename `DampingNode` property from `dampingSource` to `dampOver` ([Id3178](https://android-review.googlesource.com/#/q/Id3178a364e9d348e17fb3e2dbf38f59a82b97eb3))
++- Rename `DampingNode` property from `dampingGap` to `strength` ([I69432](https://android-review.googlesource.com/#/q/I69432e055764302d7c1db27bb6cf38d355604698))
++- Use `Vec` type when defining `EasingFunction.CubicBezier` instead of `Float`s ([I69432](https://android-review.googlesource.com/#/q/I69432e055764302d7c1db27bb6cf38d355604698))
++- Add `WorkerThread` annotation to mesh-editing eraser functions `Stroke.subtract` and `Stroke.split` ([I69432](https://android-review.googlesource.com/#/q/I69432e055764302d7c1db27bb6cf38d355604698))
++
++**Bug Fixes**
++
++- Make `Brush` samples KMP-compatible ([I77125](https://android-review.googlesource.com/#/q/I77125151c77513f139bd74b084d96865f3491df4))
++
+ ### Version 1.1.0-alpha07
+ 
+ August 12, 2026

@@ -1,0 +1,28 @@
+diff --git a/docs/jetpack/androidx/releases/wear-compose.md b/docs/jetpack/androidx/releases/wear-compose.md
+index 25982ff7..2542e40c 100644
+--- a/docs/jetpack/androidx/releases/wear-compose.md
++++ b/docs/jetpack/androidx/releases/wear-compose.md
+@@ -12,7 +12,7 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 26, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | - | [1.7.0-beta02](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-beta02) | - |
++| September 09, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-rc01) | - | - |
+ 
+ > [!NOTE]
+ > **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
+@@ -91,6 +91,14 @@ for more information.
+ 
+ ## Version 1.7
+ 
++### Version 1.7.0-rc01
++
++September 09, 2026
++
++`androidx.wear.compose:compose-*:1.7.0-rc01` is released. Version 1.7.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4d31d8cda78e225595adc4a3d5ebc5b5f1abc1d9..a2a1b8e96fcd22b0386179382a175f617d0f1e09/wear/compose).
++
++- This release updates the Compose for Wear OS 1.7.0 version to a release candidate, but there are otherwise no significant changes from the 1.7.0-beta02 release.
++
+ ### Version 1.7.0-beta02
+ 
+ August 26, 2026

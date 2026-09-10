@@ -1,0 +1,38 @@
+diff --git a/docs/jetpack/androidx/releases/webkit.md b/docs/jetpack/androidx/releases/webkit.md
+index 20c1322b..3343cc1b 100644
+--- a/docs/jetpack/androidx/releases/webkit.md
++++ b/docs/jetpack/androidx/releases/webkit.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 12, 2026 | [1.17.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0) | - | - | - |
++| September 09, 2026 | [1.17.0](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.0) | - | - | [1.18.0-alpha01](https://developer.android.com/jetpack/androidx/releases/webkit#1.18.0-alpha01) |
+ 
+ ## Declaring dependencies
+ 
+@@ -52,6 +52,24 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 1.18
++
++### Version 1.18.0-alpha01
++
++September 09, 2026
++
++`androidx.webkit:webkit:1.18.0-alpha01` is released. Version 1.18.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/86a006fbdf97644dbc4072bf0ee700e15ce02986..3b87180049780b1f2b8f0fd7b42372a617394079/webkit/webkit).
++
++**New Features**
++
++- Added `Profile#setCrossOriginIsolatedAllowlist` and `Profile#getCrossOriginIsolatedAllowlist` API to opt out of origin isolation security features, allowing the use of `SharedArrayBuffer`. ([I889d3](https://android-review.googlesource.com/#/q/I889d38a9362c2ea94370fe796357d8194925a4e2), [b/545572447](https://issuetracker.google.com/issues/545572447))
++
++**API Changes**
++
++- Renames `PrefetchParameters#isJavaScriptEnabled` to `includeClientHints`. `isJavaScriptEnabled` is marked as deprecated. ([I269d3](https://android-review.googlesource.com/#/q/I269d341e2299d72e312240bf830f8c509947aba0), [b/537260697](https://issuetracker.google.com/issues/537260697))
++- Adds `WEBVIEW_NAVIGATE_DRAIN_PREFETCH` to `WebViewFeature`, which can be used to determine whether Navigation#navigate will drain the prefetch queue before navigating to the new URL. ([I6a7a9](https://android-review.googlesource.com/#/q/I6a7a9000bc4383d220ae74126afe7deb47694a51))
++- Renames `Profile#addQuicHints` to `preferQuicFor`. ([I9a663](https://android-review.googlesource.com/#/q/I9a66326cc7e39d6fbd4b23af96ac7becadec59bf))
++
+ ## Webkit Version 1.17
+ 
+ ### Version 1.17.0

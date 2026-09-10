@@ -1,0 +1,37 @@
+diff --git a/docs/jetpack/androidx/releases/compose-remote.md b/docs/jetpack/androidx/releases/compose-remote.md
+index 8cfc17ed..57b86666 100644
+--- a/docs/jetpack/androidx/releases/compose-remote.md
++++ b/docs/jetpack/androidx/releases/compose-remote.md
+@@ -10,7 +10,7 @@ Remote Compose is a framework to create UI for remote surfaces
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 26, 2026 | - | - | - | [1.0.0-alpha18](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha18) |
++| September 09, 2026 | - | - | - | [1.0.0-alpha19](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha19) |
+ 
+ ## Declaring dependencies
+ 
+@@ -82,6 +82,23 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha19
++
++September 09, 2026
++
++`androidx.compose.remote:remote-*:1.0.0-alpha19` is released. Version 1.0.0-alpha19 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..e4bd62f853853bf3522ed15681c58ef28b09ed44/compose/remote).
++
++**API Changes**
++
++- Added `conicTo` and `conicToRelative` to `RemotePathScope`. ([Id49e5](https://android-review.googlesource.com/#/q/Id49e51c1fee57f1f25506ea3f73e947d6580530c))
++- Added `createProfile` helper to remote-creation-compose ([I92f5c](https://android-review.googlesource.com/#/q/I92f5cf8b16b875487dd622142fae6d6dfee8282b))
++- Added `RemoteModifier.defaultMinSize`. ([If86a5](https://android-review.googlesource.com/#/q/If86a524e62e4053fa404d841fb5c8d8444e26810))
++
++**Bug Fixes**
++
++- Fixed density behavior scaling for `RemoteDp` values across remote-compose modifiers, arrangements, and shapes. ([I55bb7](https://android-review.googlesource.com/#/q/I55bb71e121102ce8106fd1d52e1e396b3a52e18e))
++- Fix horizontal alignment for autosized and centered/right-aligned complex text ([Ia4b9b](https://android-review.googlesource.com/#/q/Ia4b9ba73aad31c7cd8a6b971bf5ac0bc3b0a9cf0))
++
+ ### Version 1.0.0-alpha18
+ 
+ August 26, 2026

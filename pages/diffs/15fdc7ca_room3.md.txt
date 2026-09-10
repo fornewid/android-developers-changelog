@@ -1,0 +1,58 @@
+diff --git a/docs/jetpack/androidx/releases/room3.md b/docs/jetpack/androidx/releases/room3.md
+index 1f3726ad..1c474ecd 100644
+--- a/docs/jetpack/androidx/releases/room3.md
++++ b/docs/jetpack/androidx/releases/room3.md
+@@ -10,7 +10,7 @@ The Room persistence library provides an abstraction layer over SQLite to allow
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 26, 2026 | [3.0.2](https://developer.android.com/jetpack/androidx/releases/room3#3.0.2) | - | - | - |
++| September 09, 2026 | [3.0.3](https://developer.android.com/jetpack/androidx/releases/room3#3.0.3) | - | - | [3.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/room3#3.1.0-alpha01) |
+ 
+ ## Declaring dependencies
+ 
+@@ -120,8 +120,44 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Version 3.1
++
++### Version 3.1.0-alpha01
++
++September 09, 2026
++
++`androidx.room3:room3-*:3.1.0-alpha01` is released. Version 3.1.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1ffbca32bd9efa4727ee1633c90a05f0bc7a6990..6df99b9068ac1d061afccde6e6045553b4752cdc/room3).
++
++**API Changes**
++
++- Added `setConnectionPoolTimeout(timeout: Duration)` to `RoomDatabase.Builder` to allow configuring the connection pool timeout. ([I24d07](https://android-review.googlesource.com/#/q/I24d073422ee59c2fb4759098eccbba61239a18f7), [b/404380974](https://issuetracker.google.com/issues/404380974))
++- The following Room annotations now have `AnnotationTarget.PROPERTY`: `@ColumnInfo`, `@PrimaryKey`, `@Relation`, `@Embedded`, `@Ignore` and `@ColumnTypeConverters`. This API changes make Room be 'property-centric' instead of the 'field-centric'. Meaning Room can now use properties without backing fields as representation of entity columns or query data class result columns. The properties must still have a usable getter and either a usable setter or be part of the primary constructor so that Room can use them for DAO functions. ([I72058](https://android-review.googlesource.com/#/q/I7205849c94e6ff910b4e4a7fb1656d199bc0b89d), [b/438041176](https://issuetracker.google.com/issues/438041176), [b/521861812](https://issuetracker.google.com/issues/521861812))
++
++**Bug Fixes**
++
++- Fixed an issue on web and suspending drivers where cancelling a coroutine during a transaction could cause the database and connection to get into a bad state, preventing further usages. ([If75c0](https://android-review.googlesource.com/#/q/If75c07cef62bd9b2c2f8bb56c95b6183b04fc9f2), [b/549860940](https://issuetracker.google.com/issues/549860940))
++- Support Kotlin `object` implementing `AutoMigrationSpec`. ([Id4077](https://android-review.googlesource.com/#/q/Id4077d3f7708ed1dfc4bad2fdc47ed78deac74af), [b/215012591](https://issuetracker.google.com/issues/215012591))
++- Fix a regression that would cause Room to throw an `IllegalMonitorStateException` when using `@Transaction` wrapper DAO functions. ([I996d9](https://android-review.googlesource.com/#/q/I996d95c6a7f9392b8d073027c8d970a607f78870), [b/543285472](https://issuetracker.google.com/issues/543285472), [b/553140228](https://issuetracker.google.com/issues/553140228))
++- Added built-in column type converter support for `kotlin.uuid.Uuid` in `Room`. ([Icca77](https://android-review.googlesource.com/#/q/Icca77c14af461585c35862ef88374230f849be4b), [b/525093264](https://issuetracker.google.com/issues/525093264))
++- Room's Kotlin code generator now suppresses `OPT_IN_USAGE_ERROR` and `OPT_IN_USAGE` on generated `_Impl` classes, allowing DAOs and Entities to use `@RequiresOptIn`-annotated types (such as `kotlin.uuid.Uuid`) without requiring `-opt-in` in `freeCompilerArgs`. ([I013bf](https://android-review.googlesource.com/#/q/I013bf0d18dbf6b9ad65f1deca59a5ce0e9431a68), [b/410607888](https://issuetracker.google.com/issues/410607888))
++- Room suspending queries and invalidation tracker operations will now throw an `IllegalStateException` when called after the database has been closed. ([I5755a](https://android-review.googlesource.com/#/q/I5755a9a565d0589a39c0b0c9137880730ce29fff), [b/543076356](https://issuetracker.google.com/issues/543076356))
++- Fix a deadlock that can occur on `@Transaction` DAO wrapper suspend functions that would do a context switch and had the `AndroidSQLiteDriver` configured. ([886ac5](https://android-review.googlesource.com/#/q/886ac5a0761e7dfb83b79e3519a6408e11aaa9ca), [b/543285472](https://issuetracker.google.com/issues/543285472))
++- Fix an unnecessary `println()` during processing. Thanks to Simon Marquis! ([b/532893031](https://issuetracker.google.com/issues/532893031))
++- Fix an issue regarding other database usages within another database's transaction mixing in leading undefined behaviour. ([b/437068912](https://issuetracker.google.com/issues/437068912))
++
+ ## Version 3.0
+ 
++### Version 3.0.3
++
++September 09, 2026
++
++`androidx.room3:room3-*:3.0.3` is released. Version 3.0.3 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/1ffbca32bd9efa4727ee1633c90a05f0bc7a6990..8d7131f5c528528bee5dc6942aebc7fe90463551/room3).
++
++**Bug Fixes**
++
++- Fix a regression that would cause Room to throw an `IllegalMonitorStateException` when using `@Transaction` wrapper DAO functions. ([I996d9](https://android-review.googlesource.com/#/q/I996d95c6a7f9392b8d073027c8d970a607f78870), [b/543285472](https://issuetracker.google.com/issues/543285472), [b/553140228](https://issuetracker.google.com/issues/553140228))
++- Fixed an issue on web and suspending drivers where cancelling a coroutine during a transaction could cause the database and connection to get into a bad state, preventing further usages. ([If75c0](https://android-review.googlesource.com/#/q/If75c07cef62bd9b2c2f8bb56c95b6183b04fc9f2), [b/549860940](https://issuetracker.google.com/issues/549860940))
++
+ ### Version 3.0.2
+ 
+ August 26, 2026

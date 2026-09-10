@@ -1,0 +1,60 @@
+diff --git a/docs/jetpack/androidx/releases/compose-material3.md b/docs/jetpack/androidx/releases/compose-material3.md
+index d8897303..1a6fc7d9 100644
+--- a/docs/jetpack/androidx/releases/compose-material3.md
++++ b/docs/jetpack/androidx/releases/compose-material3.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 26, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha27](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha27) |
++| September 09, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha28](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha28) |
+ 
+ > [!NOTE]
+ > **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
+@@ -318,6 +318,46 @@ Material3 adaptive pane scaffold APIs:
+ 
+ ## Compose Material3 Version 1.5
+ 
++### Version 1.5.0-alpha28
++
++September 09, 2026
++
++`androidx.compose.material3:material3-*:1.5.0-alpha28` is released. Version 1.5.0-alpha28 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..e4bd62f853853bf3522ed15681c58ef28b09ed44/compose/material3).
++
++**API Changes**
++
++- Renamed and simplified the multi-aspect carousel API to a global `carouselParallaxScrollEffect` modifier ([I46b17](https://android-review.googlesource.com/#/q/I46b17fbc7eb3b0d061ce059234976a7d5a9912b5))
++- Removed deprecated `ToggleButton` overloads. Added utility functions (`contentPaddingFor`, `shapesFor`) and default constants (including `size`) to `ToggleButtonDefaults`, `ElevatedToggleButtonDefaults`, `FilledTonalToggleButtonDefaults`, and `OutlinedToggleButtonDefaults`. ([I998cf](https://android-review.googlesource.com/#/q/I998cf18c0880f30a68e5be04faf9f65d5c192190))
++- Deprecated stateless `Slider` and `RangeSlider` overloads in favor of their stateful versions. Renamed `activeRangeStart` and `activeRangeEnd` in `RangeSliderState` to `startValue` and `endValue`, deprecating older unpromoted and experimental Slider APIs with `DeprecationLevel.HIDDEN`. ([If8995](https://android-review.googlesource.com/#/q/If8995438653fe44d5d108787e920c7fe06f6ff69))
++
++  To migrate `Slider`, from:
++  `kotlin
++  var value by remember { mutableFloatStateOf(0.5f) }
++  Slider(value = value, onValueChange = { value = it })`
++  To:
++  `kotlin
++  val state = remember { SliderState(value = 0.5f) }
++  Slider(state = state)`
++
++  To migrate `RangeSlider`, from:
++  `kotlin
++  var range by remember { mutableStateOf(0.2f..0.8f) }
++  RangeSlider(value = range, onValueChange = { range = it })`
++  To:
++  `kotlin
++  val state = remember { RangeSliderState(startValue = 0.2f, endValue = 0.8f) }
++  RangeSlider(state = state)`
++- Add enabled boolean and disabled color params to `ScrollField` ([Iab612](https://android-review.googlesource.com/#/q/Iab61234eee7cb08a56fceec0662031c8fb6662e6))
++
++**Bug Fixes**
++
++- Add focus ring support for `ScrollField`. ([If21d6](https://android-review.googlesource.com/#/q/If21d62b64ce61062fef82a506495e0937f1d5ee3))
++- Make design feedback adjustments for expressive `TimePicker` in dial mode. ([I8795e](https://android-review.googlesource.com/#/q/I8795e1940eed2779a9bde406a835a4c7073d638e))
++- Make padding adjustments for expressive `TimePicker` in scroll and input mode. ([Iddb33](https://android-review.googlesource.com/#/q/Iddb335d93eb206d21e16406bb74481ede39d89aa))
++- Updates toggle height/layout calculation based on item count for expressive `TimePicker.kt` in uncontained mode. ([I30700](https://android-review.googlesource.com/#/q/I30700af712234d9a6b8a4a747fa5d736dfdc4d70))
++- Fixed an issue where AM/PM controls were truncated in `TimePicker` when large text or font scaling was enabled. ([Iaca60](https://android-review.googlesource.com/#/q/Iaca60a918c140a3e702f6261bf538c9b8eada89f))
++- Updated `SecureTextField` and `OutlinedSecureTextField` components (as well as deprecated `BasicSecureTextField` overloads) to use `TextObfuscationMode.System` as the default obfuscation mode instead of `TextObfuscationMode.RevealLastTyped`. ([I76c7e](https://android-review.googlesource.com/#/q/I76c7ee604ecea755df3c91dfa281778532338f4d))
++
+ ### Version 1.5.0-alpha27
+ 
+ August 26, 2026

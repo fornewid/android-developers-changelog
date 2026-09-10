@@ -1,0 +1,15 @@
+diff --git a/docs/jetpack/androidx/versions/beta-channel.md b/docs/jetpack/androidx/versions/beta-channel.md
+index 3510a5cf..a7220df9 100644
+--- a/docs/jetpack/androidx/versions/beta-channel.md
++++ b/docs/jetpack/androidx/versions/beta-channel.md
+@@ -16,6 +16,10 @@ to 2018.
+ To view the current versions for every component,
+ see the [versions page](https://developer.android.com/jetpack/androidx/versions).
+ 
++## September 09, 2026
++
++- [Providerevents Providerevents-play-services Version 1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/credentials-providerevents#1.0.0-beta01)
++
+ ## August 26, 2026
+ 
+ - [Core-telecom Version 1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/core#core-telecom-1.1.0-beta01)

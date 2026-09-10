@@ -1,0 +1,40 @@
+diff --git a/docs/jetpack/androidx/releases/wear-compose-remote.md b/docs/jetpack/androidx/releases/wear-compose-remote.md
+index 0292a1a6..30d2c5ba 100644
+--- a/docs/jetpack/androidx/releases/wear-compose-remote.md
++++ b/docs/jetpack/androidx/releases/wear-compose-remote.md
+@@ -10,7 +10,7 @@ Write Widgets and other Remote UI for Wear OS using the Material 3 Expressive de
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 26, 2026 | - | - | - | [1.0.0-alpha10](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha10) |
++| September 09, 2026 | - | - | - | [1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha11) |
+ 
+ ## Declaring dependencies
+ 
+@@ -56,6 +56,26 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha11
++
++September 09, 2026
++
++`androidx.wear.compose.remote:remote-material3:1.0.0-alpha11` is released. Version 1.0.0-alpha11 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..e4bd62f853853bf3522ed15681c58ef28b09ed44/wear/compose/remote/remote-material3).
++
++**API Changes**
++
++- Added `RemoteEdgeButton` component to `wear:compose:remote:remote-material3`. ([I017a6](https://android-review.googlesource.com/#/q/I017a62f443ab3d7a820506f732d022364e496d8c))
++- Made indeterminate `RemoteCircularProgressIndicator` and `RemoteProgressIndicatorDefaults.IndeterminateStrokeWidth` public APIs. ([I937fc](https://android-review.googlesource.com/#/q/I937fc73183d1b4adb3a654385d47901b38f51091))
++- Made `RemoteTimeText` and `RemoteTimeTextDefaults` public APIs. ([I83809](https://android-review.googlesource.com/#/q/I83809b58d80692d89b09a94ed4350dfb01ee060d))
++- Added `RemoteLinearProgressIndicator` component. ([I828f3](https://android-review.googlesource.com/#/q/I828f3c7f2322f428649387a064160068c5a65063))
++- Added `RemoteModifier.defaultMinSize`. ([If86a5](https://android-review.googlesource.com/#/q/If86a524e62e4053fa404d841fb5c8d8444e26810))
++- Added intro and outro animations to `RemoteCurvedProgressIndicator`. ([I68012](https://android-review.googlesource.com/#/q/I680125646f0c6bc2c3b7872714352e586701a64a))
++- Updated `RemoteCircularProgressIndicator` to default to `RemoteProgressIndicatorDefaults.DefaultStrokeWidth` (12.rdp) and exposed `largeStrokeWidth(screenSize)` and `smallStrokeWidth(screenSize)`. ([I1f16e](https://android-review.googlesource.com/#/q/I1f16ed52992f145be2eaa4073385e26cf59447b0))
++
++**Bug Fixes**
++
++- `compileSdk` for Compose libraries updated to 37.1. This will require transitively updating `compileSdk` for all apps and libraries using Compose. ([I05b0f](https://android-review.googlesource.com/#/q/I05b0f9385d2b99ddcc4041b2ce2d96aea3bd391e))
++
+ ### Version 1.0.0-alpha10
+ 
+ August 26, 2026

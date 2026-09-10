@@ -1,0 +1,35 @@
+diff --git a/docs/jetpack/androidx/releases/xr-glimmer.md b/docs/jetpack/androidx/releases/xr-glimmer.md
+index 0fd0b496..e6fdaeb7 100644
+--- a/docs/jetpack/androidx/releases/xr-glimmer.md
++++ b/docs/jetpack/androidx/releases/xr-glimmer.md
+@@ -10,7 +10,7 @@ Design language and UI toolkit for building augmented Android XR experiences
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 26, 2026 | - | - | - | [1.0.0-alpha18](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha18) |
++| September 09, 2026 | - | - | - | [1.0.0-alpha19](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha19) |
+ 
+ ## Declaring dependencies
+ 
+@@ -56,6 +56,21 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha19
++
++September 09, 2026
++
++`androidx.xr.glimmer:glimmer:1.0.0-alpha19` and `androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha19` are released. Version 1.0.0-alpha19 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..29145690a62ff2392f25acec3dfe7baadff4c72d/xr/glimmer).
++
++**API Changes**
++
++- Change parameter name of `color` to `baseColor` for both `SurfaceDefaults.color` and `SurfaceDefaults.focusedColor` ([Id1a08](https://android-review.googlesource.com/#/q/Id1a0851d2af92c381440673a9b9edb546a1a41a1))
++- Add `pageOffsetFraction` parameter to `animateScrollToPage` and `scrollToPage` functions in `GlimmerPagerState`. ([I5ed0d](https://android-review.googlesource.com/#/q/I5ed0de61b83b2d0df0b905d8cdf63a2e7ef7937b))
++
++**Bug Fixes**
++
++- `compileSdk` for Compose libraries updated to 37.1. This will require transitively updating `compileSdk` for all apps and libraries using Compose. ([I05b0f](https://android-review.googlesource.com/#/q/I05b0f9385d2b99ddcc4041b2ce2d96aea3bd391e))
++
+ ### Version 1.0.0-alpha18
+ 
+ August 26, 2026

@@ -1,0 +1,32 @@
+diff --git a/docs/jetpack/androidx/releases/emoji2.md b/docs/jetpack/androidx/releases/emoji2.md
+index 13c70903..803c4a0f 100644
+--- a/docs/jetpack/androidx/releases/emoji2.md
++++ b/docs/jetpack/androidx/releases/emoji2.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 26, 2026 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/emoji2#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/emoji2#1.7.0-alpha01) |
++| September 09, 2026 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/emoji2#1.6.0) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/emoji2#1.7.0-rc01) | - | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -62,6 +62,18 @@ for more information.
+ 
+ ## Version 1.7
+ 
++### Version 1.7.0-rc01
++
++September 09, 2026
++
++`androidx.emoji2:emoji2-*:1.7.0-rc01` is released. Version 1.7.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/8a1952bf7de9742b8d81da766a2849d2c51f8803..dc5da9e3ab63099a55bab9baf115d72000763773/emoji2).
++
++This release focuses on performance improvements and is recommended for all users of emoji2.
++
++**Bug Fixes**
++
++- `compileSdk` for Compose libraries updated to 37.1. This will require transitively updating `compileSdk` for all apps and libraries using Compose. ([I05b0f](https://android-review.googlesource.com/#/q/I05b0f9385d2b99ddcc4041b2ce2d96aea3bd391e))
++
+ ### Version 1.7.0-alpha01
+ 
+ August 26, 2026

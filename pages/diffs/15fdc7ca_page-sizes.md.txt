@@ -1,0 +1,106 @@
+diff --git a/docs/guide/practices/page-sizes.md b/docs/guide/practices/page-sizes.md
+index 00e35552..d9bb6066 100644
+--- a/docs/guide/practices/page-sizes.md
++++ b/docs/guide/practices/page-sizes.md
+@@ -30,9 +30,9 @@ system images for the Android Emulator).
+ 
+ To ensure your app works correctly on the latest versions of Android, all
+ apps targeting Android 15 (API level 35) and higher must support 16 KB
+-memory page sizes on 64-bit devices on Google Play. Starting February 1, 2027, if
+-your app updates don't support 16 KB memory page sizes, you won't be able
+-to release these updates.
++memory page sizes on 64-bit devices on Google Play. Starting February 1, 2027,
++if your app updates don't support 16 KB memory page sizes,
++you won't be able to release these updates.
+ ![Google Play Console warning that app updates must support 16 KB memory page sizes by February 1, 2027](https://developer.android.com/static/images/guide/practices/play-console-16kb.png) **Figure 1.** Google Play Console compatibility warning.
+ 
+ ## Benefits and performance gains
+@@ -203,18 +203,43 @@ tools directly:
+ To mitigate security exploits, modern linkers use the
+ [Relocation Read-Only (RELRO)](https://www.redhat.com/en/blog/hardening-elf-binaries-using-relocation-read-only-relro) flag to make relocation
+ sections of the shared object file read-only after loading.
+-Combining a RELRO-enabled section with a non-RELRO-enabled
+-section (from another object file) on the same page crashes an app.
++Enablethe RELRO flag in your [build](https://developer.android.com/guide/practices/page-sizes#compile-16-kb-alignment).
++
++A RELRO section having a start address plus segment size (MemSize) that is not
++16 KB aligned crashes the app at runtime with a segmentation fault. This
++happens if the `.so` file was built with NDK tool chain r27 and lower without
++enabling the [relevant flags](https://developer.android.com/guide/practices/page-sizes#compile-r27-lower).
+ 
+ Run the following command on each shared object file (Linux or macOS):
+ 
+-    SDK_ROOT_LOCATION/Android/sdk/ndk/NDK_VERSION/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-readelf -l SHARED_OBJECT_FILE.so | grep RELRO
++    SDK_ROOT_LOCATION/Android/sdk/ndk/NDK_VERSION/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-readelf -Wl SHARED_OBJECT_FILE.so | grep 'RELRO\|Type'
+ 
+-Check the command output to ensure that the `GNU_RELRO` string is printed, which
+-confirms that the `.so` file is RELRO-enabled.
++The `GNU_RELRO` string is printed if there's a RELRO segment.
+ 
+-> [!NOTE]
+-> **Note:** You must run this test for all `.so` files in the APK.
++Next, check the RELRO segment alignment by summing its virtual offset address (VirtAddr) with
++the segment memory size (MemSiz) and dividing by 16 KB (0x4000). If the
++remainder (modulo) is zero, then the RELRO segment is 16 KB aligned.
++
++Here's a an example for a non-aligned `.so` file:
++
++    Type           Offset   VirtAddr           PhysAddr           FileSiz MemSiz  Flg Align  
++    GNU_RELRO      0x0cfaf0 0x00000000000dfaf0 0x00000000000dfaf0 0x01510 0x01510 R   0x1
++
++**Formula**: (VirtAddr + MemSiz) % 0x4000 == 0
++
++**Result**: (0xdfaf0 + 0x01510) % 0x4000 = 0xE1000 % 0x4000 == 0x1000
++
++Since 0x1000 is not zero, the libbad.so isn't 16 KB compliant. The RELRO
++protection range from DC000 (the previous page break) to E4000 is read-only,
++but [Android Linker](https://developer.android.com/ndk/reference/group/libdl) expects the sub-range from E1000 to E4000 to be
++writable, resulting in a segmentation fault. In this case, rebuild the .so
++file as described in the
++[Compile your app using 16 KB ELF alignment](https://developer.android.com/guide/practices/page-sizes#compile-16-kb-alignment) section.
++
++Here is an example of an aligned .so file, with a RELRO segment:
++
++    Type           Offset   VirtAddr           PhysAddr           FileSiz MemSiz  Flg Align
++    GNU_RELRO      0x0cfaf0 0x00000000000dfaf0 0x00000000000dfaf0 0x01510 0x00510 R   0x1  
+ 
+ ## Build your app with support for 16 KB devices
+ 
+@@ -302,10 +327,11 @@ the uncompressed native library option for App Bundles in your
+ 16 KB devices require the shared libraries' ELF segments to be aligned
+ properly using 16 KB ELF alignment in order for your app to run.
+ 
+-For game developers, if your game runs on top of [Unity game engine](https://unity.com), refer
+-to the [Unity guide](https://developer.android.com/games/engines/unity/unity-on-android#16-kb-page-support). If your game runs on top of [Unreal game engine](https://www.unrealengine.com),
+-refer to the [Unreal guide](https://developer.android.com/games/engines/unreal/unreal-on-android#16-kb-page-support). For native game engines, continue with
+-this guide.
++For game developers, if your game runs on top of
++[Unity game engine](https://unity.com), refer to the [Unity guide](https://developer.android.com/games/engines/unity/unity-on-android#16-kb-page-support).
++If your game runs on top of [Unreal game engine](https://www.unrealengine.com),
++refer to the [Unreal guide](https://developer.android.com/games/engines/unreal/unreal-on-android#16-kb-page-support).For native game engines, continue
++with this guide.
+ 
+ > [!NOTE]
+ > **Note:** If your app doesn't extract native libraries to the file system ([`extractNativeLibs`](https://developer.android.com/guide/topics/manifest/application-element#extractNativeLibs) set to `false`), you'll likely notice a slight increase in your app's binary size after compiling using a 16 KB ELF alignment. Optimizations to the package manager in Android 15 negate the runtime costs from this increase.
+@@ -398,9 +424,9 @@ any regressions. To do this, follow these steps:
+ 
+ 2. Set up one of the following testing environments:
+ 
+-   - [Set up the Android Emulator with a 16 KB--based, Android 15 system
+-     image](https://developer.android.com/guide/practices/page-sizes#16kb-emulator)
+-     - [Use Cuttlefish with 16 KB page size on ARM64](https://source.android.com/docs/core/architecture/16kb-page-size/getting-started-cf-arm64-pgagnostic)
++   - [Set up the Android Emulator with a 16 KB--based, Android 15
++     system image](https://developer.android.com/guide/practices/page-sizes#16kb-emulator)
++   - [Use Cuttlefish with 16 KB page size on ARM64](https://source.android.com/docs/core/architecture/16kb-page-size/getting-started-cf-arm64-pgagnostic)
+    - [Simulate Cuttlefish with 16 KB page size on x86-64](https://source.android.com/docs/core/architecture/16kb-page-size/getting-started-cf-x86-64-pgagnostic)
+    - [Enable 16 KB mode on a device using developer options](https://developer.android.com/guide/practices/page-sizes#developer-option)
+    - [Use Samsung Remote Test Lab](https://developer.samsung.com/remote-test-lab/blog/en/2025/07/07/optimize-your-applications-for-16-kb-page-size-compatibility-using-samsungs-remote-test-lab) on 16 KB [supported devices](https://developer.samsung.com/remotetestlab/devices/129/16kb-page-size)
+@@ -425,7 +451,7 @@ To set up a 16 KB environment using the Android Emulator, follow these
+ steps:
+ 
+ 1. In Android Studio, click **Tools \> SDK Manager**.
+-2. In the **SDK Platforms** tab, check **Show Package Details** , then expand
++2. In the **SDK Platforms** tab, select **Show Package Details** , then expand
+    the **Android VanillaIceCream** or higher section and select one or both of
+    the following emulator system images, depending on the virtual devices you
+    want to create:
