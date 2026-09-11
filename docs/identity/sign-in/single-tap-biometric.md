@@ -129,8 +129,8 @@ error code under `biometricPromptResult.authenticationError` to make decisions.
 The error codes returned as part of
 `biometricPromptResult.authenticationError.errorCode` are the same error codes
 defined in the androidx.biometric library, such as
-[androidx.biometric.BiometricPrompt.NO_SPACE](https://developer.android.com/reference/androidx/biometric/BiometricPrompt#ERROR_NO_SPACE()),
-[androidx.biometric.BiometricPrompt.UNABLE_TO_PROCESS](https://developer.android.com/identity/sign-in/androidx.biometric.BiometricPrompt.NO_SPACE),
+[androidx.biometric.BiometricPrompt.ERROR_NO_SPACE](https://developer.android.com/reference/androidx/biometric/BiometricPrompt#ERROR_NO_SPACE()),
+[androidx.biometric.BiometricPrompt.ERROR_UNABLE_TO_PROCESS](https://developer.android.com/reference/androidx/biometric/BiometricPrompt#ERROR_UNABLE_TO_PROCESS()),
 [androidx.biometric.BiometricPrompt.ERROR_TIMEOUT](https://developer.android.com/reference/androidx/biometric/BiometricPrompt#ERROR_TIMEOUT()), and similar. The
 `authenticationError` will also contain an error message associated with the
 `errorCode` that can be displayed on a UI.

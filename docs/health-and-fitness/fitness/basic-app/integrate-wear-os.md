@@ -42,7 +42,7 @@ Integrate the following libraries into your Wear OS module:
 
 ## Create the Health Services Manager
 
-To make using [Health Services](https://developers.google.com/android/reference/com/google/android/gms/wearable/WearableListenerService) a bit more convenient, and expose a smaller
+To make using [Health Services](https://developer.android.com/health-and-fitness/guides/health-services) a bit more convenient, and expose a smaller
 and smoother API, you can create a wrapper like this:
 
     private const val TAG = "WATCHMAIN"

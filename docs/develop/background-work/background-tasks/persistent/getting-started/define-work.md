@@ -446,7 +446,7 @@ requests together.
 
 For example, [`WorkManager.cancelAllWorkByTag(String)`](https://developer.android.com/reference/androidx/work/WorkManager#cancelAllWorkByTag(java.lang.String)) cancels
 all work requests with a particular tag, and
-[`WorkManager.getWorkInfosByTag(String)`](https://developer.android.com/reference/androidx/work/WorkManager#getWorkInfosByTagLiveData(java.lang.String)) returns a list of the
+[`WorkManager.getWorkInfosByTag(String)`](https://developer.android.com/reference/androidx/work/WorkManager#getWorkInfosByTag(kotlin.String)) returns a list of the
 WorkInfo objects which can be used to determine the current work state.
 
 The following code shows how you can add a "cleanup" tag to your work:

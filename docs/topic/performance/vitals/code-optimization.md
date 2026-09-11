@@ -64,7 +64,10 @@ locally using the command line:
 If your app optimizes with R8, you can measure your app bundle's optimization,
 obfuscation, and shrinking using the [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer). The R8
 Configuration Analyzer report is also included in the [R8 Analyzer
-Skill](https://github.com/android/skills/tree/main/performance/r8-analyzer).
+Skill](https://github.com/android/skills/tree/main/performance/r8-analyzer). While the report can help you understand how your keep
+rules affect your optimization, shrinking, and obfuscation scores, the
+percentages in the report won't match the values in Android vitals, because
+these percentages are calculated before optimizations.
 
 To inspect the exact metadata that Android vitals uses to calculate your scores,
 extract the `r8.json` file from your app bundle:
@@ -72,7 +75,7 @@ extract the `r8.json` file from your app bundle:
     unzip -p <yourapp>.aab BUNDLE-METADATA/com.android.tools/r8.json
 
 > [!NOTE]
-> **Note:** The app optimization scores in Android vitals can differ slightly from the scores returned by the R8 Configuration Analyzer. To get the matching values, inspect the `r8.json`.
+> **Note:** The app optimization scores in Android vitals may differ from the scores returned by the R8 Configuration Analyzer. This is because the R8 Configuration Analyzer scores reflect the initial evaluation of the keep rules before optimizations. To get the matching values, inspect the `r8.json`.
 
 ## Fix the problem
 

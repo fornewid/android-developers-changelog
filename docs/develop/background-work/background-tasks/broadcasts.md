@@ -448,7 +448,7 @@ provides more details.
 Android provides two ways for apps to send broadcasts:
 
 - The [`sendOrderedBroadcast(Intent, String)`](https://developer.android.com/reference/android/content/Context#sendOrderedBroadcast(android.content.Intent,%20java.lang.String)) method sends broadcasts to one receiver at a time. As each receiver executes in turn, it can propagate a result to the next receiver. It can also completely abort the broadcast so that it doesn't reach other receivers. You can control the order in which receivers run within the same app process. To do so, use the `android:priority` attribute of the matching intent-filter. Receivers with the same priority are run in an arbitrary order.
-- The [`sendBroadcast(Intent)`](https://developer.android.com/reference/android/content/Context#sendBroadcast(android.content.Intent,%20java.lang.String)) method sends broadcasts to all receivers in an undefined order. This is called a Normal Broadcast. This is more efficient, but means that receivers cannot read results from other receivers, propagate data received from the broadcast, or abort the broadcast.
+- The [`sendBroadcast(Intent)`](https://developer.android.com/reference/android/content/Context#sendBroadcast(android.content.Intent)) method sends broadcasts to all receivers in an undefined order. This is called a Normal Broadcast. This is more efficient, but means that receivers cannot read results from other receivers, propagate data received from the broadcast, or abort the broadcast.
 
 The following code snippet demonstrates how to send a broadcast by creating an
 Intent and calling [`sendBroadcast(Intent)`](https://developer.android.com/reference/android/content/Context#sendBroadcast(android.content.Intent)).
@@ -486,7 +486,7 @@ receiver of a broadcast.
 
 ### Send broadcasts with permissions
 
-When you call [`sendBroadcast(Intent, String)`](https://developer.android.com/reference/android/content/Context#sendOrderedBroadcast(android.content.Intent,%20java.lang.String)) or
+When you call [`sendBroadcast(Intent, String)`](https://developer.android.com/reference/android/content/Context#sendBroadcast(android.content.Intent,%20java.lang.String)) or
 [`sendOrderedBroadcast(Intent, String, BroadcastReceiver, Handler, int, String,
 Bundle)`](https://developer.android.com/reference/android/content/Context#sendOrderedBroadcast(android.content.Intent,%20java.lang.String,%20java.lang.String,%20android.content.BroadcastReceiver,%20android.os.Handler,%20int,%20java.lang.String,%20android.os.Bundle))
 , you can specify a permission parameter. Only receivers who have requested that

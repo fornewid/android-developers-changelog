@@ -203,7 +203,7 @@ tools directly:
 To mitigate security exploits, modern linkers use the
 [Relocation Read-Only (RELRO)](https://www.redhat.com/en/blog/hardening-elf-binaries-using-relocation-read-only-relro) flag to make relocation
 sections of the shared object file read-only after loading.
-Enablethe RELRO flag in your [build](https://developer.android.com/guide/practices/page-sizes#compile-16-kb-alignment).
+Enable the RELRO flag in your [build](https://developer.android.com/guide/practices/page-sizes#compile-16-kb-alignment).
 
 A RELRO section having a start address plus segment size (MemSize) that is not
 16 KB aligned crashes the app at runtime with a segmentation fault. This
@@ -249,7 +249,8 @@ following sections to make sure that your app supports 16 KB devices:
 1. [Update the packaging of your shared libraries](https://developer.android.com/guide/practices/page-sizes#update-packaging)
 2. [Compile your app using 16 KB ELF alignment](https://developer.android.com/guide/practices/page-sizes#compile-16-kb-alignment)
 3. [Fix code and resolve runtime issues](https://developer.android.com/guide/practices/page-sizes#check-code)
-4. [Check SDKs for 16 KB support](https://developer.android.com/guide/practices/page-sizes#check-sdks)
+4. [Optimize custom memory allocators (if applicable)](https://developer.android.com/guide/practices/page-sizes#custom-allocators)
+5. [Check SDKs for 16 KB support](https://developer.android.com/guide/practices/page-sizes#check-sdks)
 
 > [!TIP]
 > **Tip:** If you update your tools to the latest versions (AGP version 8.5.1 or higher and NDK version r28 or higher) and use 16 KB-compatible prebuilt dependencies, then your app is 16 KB compatible by default and you can skip to the step for [fixing code and resolving runtime issues](https://developer.android.com/guide/practices/page-sizes#check-code).
@@ -406,6 +407,96 @@ If your app uses `PAGE_SIZE` in this way and never directly passes this value to
 the kernel, then instead of using `PAGE_SIZE`, create a new variable with a new
 name to reflect that it is used for other purposes and does not reflect a real
 memory page.
+
+### Optimize custom memory allocators
+
+> [!NOTE]
+> **Note:** This section applies only if your app, game engine, or native library implements a custom memory manager, heap, or slab allocator (such as in custom game engines, embedded databases, or runtimes embedding jemalloc or mimalloc). If your app uses the standard Android memory allocator (scudo), you can skip this section.
+
+On 16 KB systems, the smallest unit of physical memory the operating system
+allocates is four times larger than on 4 KB systems. If a custom allocator
+was designed around 4 KB assumptions, it can scatter small objects across
+multiple 16 KB pages and retain empty memory unnecessarily. This can
+substantially increase physical memory usage (RSS) and degrade compressed swap
+(ZRAM) efficiency.
+
+If your code manages its own memory pools, follow these recommendations:
+
+#### 1. Avoid hard-coded byte thresholds for freeing memory
+
+Many allocators use fixed byte limits to decide when to release memory back to
+the OS using `madvise(MADV_DONTNEED)` (for example, *only release memory if
+active objects take up less than 8 KB*).
+
+On a 16 KB system, even a single 16-byte live object pins an entire
+16 KB page (which is greater than 8 KB). As a result, the release
+threshold is never met, and the allocator never returns the surrounding unused
+memory to the kernel.
+
+**What to do:** Never use hard-coded byte constants for page-release heuristics.
+Scale release thresholds dynamically at runtime based on the actual page size
+using `sysconf(_SC_PAGESIZE)`.
+
+#### 2. Fill up already-used pages first (dense-first allocation)
+
+If an allocator hands out memory in first-in-first-out (FIFO) or round-robin
+order, new allocations get scattered across many partially filled 16 KB
+pages. A single object on a page keeps all 16 KB resident in physical RAM.
+
+**What to do:** Always allocate new objects from the most full (densest) page
+or slab before touching empty or lightly used pages. Concentrating new
+allocations on already-dirty pages allows lightly used pages to naturally drain
+to zero active objects, so the entire 16 KB page can be released to the
+OS.
+
+#### 3. Align memory pools to 16 KB and keep pool sizes moderate
+
+Multi-page spans designed for 4 KB systems can hold excessive unreleased
+memory slack on 16 KB kernels. In addition, size classes that don't divide
+evenly into 16 KB cause fragmentation at the end of each page.
+
+**What to do:**
+
+- Ensure all memory pools, slab boundaries, and buffer alignments are exact multiples of the runtime page size.
+- Re-evaluate multi-page span sizes for small-object classes to avoid allocating overly large slabs that trap idle memory.
+
+#### 4. Release physical memory for cached large buffers immediately
+
+Custom allocators often cache large buffers (\> 64 KB) in an in-memory pool
+so they can be reused without paying the overhead of `mmap` or `munmap` system
+calls. However, holding onto these dirty buffers in memory wastes megabytes of
+physical RAM while waiting for an eviction timer.
+
+**What to do:** Keep the virtual memory address range reserved for fast reuse,
+but call `madvise(..., MADV_DONTNEED)` or `madvise(..., MADV_FREE)` immediately
+when returning a buffer to the cache. The operating system reclaims the physical
+RAM right away, while your app can still reuse the virtual address instantly
+without re-allocating.
+
+#### 5. Zero out memory on free instead of on allocation for ZRAM compression
+
+Android uses compressed swap (ZRAM) to keep background apps in memory. On
+16 KB devices, if a page holds even one live object, the entire 16 KB
+page stays resident or gets swapped to ZRAM. Leftover *garbage* data
+(such as stale pointers and strings) on previously freed parts of that page
+compresses poorly.
+
+If your allocator zeroes memory (such as for security or zero-initialized
+allocations), consider zeroing upon deallocation (`free()`) rather than on
+allocation:
+
+- **Pinned pages cost less:** Idle memory on partially filled 16 KB pages compresses down to almost nothing in ZRAM, so pinned pages don't waste physical swap space.
+- **Minimal cache overhead:** At the time `free()` is called, the memory is already hot in the CPU cache, avoiding additional cache misses later.
+
+#### Summary of recommendations
+
+| Area | Recommendation | Expected impact |
+|---|---|---|
+| **Purge thresholds** | Scale release thresholds dynamically using `sysconf(_SC_PAGESIZE)`. | Prevents release logic from permanently deadlocking. |
+| **Allocation order** | Allocate from the densest (almost full) page or slab first. | Reduces resident memory (RSS) by packing active objects together. |
+| **Span sizing** | Align size classes to 16 KB multiples and avoid oversized slabs. | Eliminates tail-page fragmentation and reduces memory slack. |
+| **Buffer caches** | Call `madvise(MADV_DONTNEED)` immediately when caching large buffers. | Eliminates idle RAM bloat while keeping fast virtual reuse. |
+| **Swap / ZRAM** | Zero out memory on `free()` instead of on allocation. | Improves ZRAM compression ratios so pinned pages cost less. |
 
 ### Check SDKs for 16 KB support
 

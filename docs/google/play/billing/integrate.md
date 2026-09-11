@@ -929,7 +929,7 @@ Play.
 > [!NOTE]
 > **Note:** Don't store any data that `getBillingConfigAsync()` returns; this data is designed to be used only once and can change at any time. You may not use `getBillingConfigAsync()` data to create or enhance a user profile or to target or track customers for advertising or marketing purposes.
 
-You can query the user's billing configuration after [creating a](https://developer.android.com/google/play/billing/integrate#initialize)
+You can query the user's billing configuration after creating a
 [`BillingClient`](https://developer.android.com/google/play/billing/integrate#initialize). The following code snippet describes how to make a call
 to `getBillingConfigAsync()`. Handle the response by implementing the
 `BillingConfigResponseListener`. This listener receives updates for all billing

@@ -421,7 +421,7 @@ cloud backup:
 
 ### Enable cloud backup
 
-To enable cloud backup, add the [`setShouldBackupToCloud()`](https://developers.google.com/android/reference/com/google/android/gms/auth/blockstore/StoreBytesData#shouldBackupToCloud()) method to your
+To enable cloud backup, add the [`setShouldBackupToCloud()`](https://developers.google.com/android/reference/com/google/android/gms/auth/blockstore/StoreBytesData.Builder#setShouldBackupToCloud(boolean)) method to your
 [`StoreBytesData`](https://developers.google.com/android/reference/com/google/android/gms/auth/blockstore/StoreBytesData) object. Block Store will periodically backup to cloud the
 bytes stored when `setShouldBackupToCloud()` is set as true.
 

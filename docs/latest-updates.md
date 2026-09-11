@@ -138,9 +138,9 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
 
 Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio) Canary
 
-### [Rabbit 1 \| 2026.2.1 Canary 4](https://developer.android.com/studio/preview)
+### [Rabbit 1 \| 2026.2.1 Canary 5](https://developer.android.com/studio/preview)
 
-September 3, 2026 Stable
+September 10, 2026 Stable
 
 ### [Quail 4 \| 2026.1.4](https://developer.android.com/studio/releases)
 
@@ -174,13 +174,13 @@ subset of functionality, each with its own set of release notes.
 
 | Maven Group ID | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|---|
-| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | August 26, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.0) | - | - | [1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-alpha02) |
+| [compose.animation](https://developer.android.com/jetpack/androidx/releases/compose-animation) | September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-alpha03) |
 | [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | August 7, 2024 | [1.5.15](https://developer.android.com/jetpack/androidx/releases/compose-compiler#1.5.15) | - | - | - |
-| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | August 26, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.0) | - | - | [1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-alpha02) |
-| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | August 26, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.0) | - | - | [1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-alpha02) |
-| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | August 26, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha27](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha27) |
-| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | August 26, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.0) | - | - | [1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-alpha02) |
-| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | August 26, 2026 | [1.12.0](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.0) | - | - | [1.13.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-alpha02) |
+| [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-alpha03) |
+| [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-alpha03) |
+| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | September 09, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha28](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha28) |
+| [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-alpha03) |
+| [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-alpha03) |
 
 [View the Compose Library](https://developer.android.com/jetpack/androidx/releases/compose) <button class="devsite-dialog-close">Close</button>
 
