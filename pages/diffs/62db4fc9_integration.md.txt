@@ -1,0 +1,22 @@
+diff --git a/docs/google/play/billing/billingchoice/integration.md b/docs/google/play/billing/billingchoice/integration.md
+index 859a1232..0ced592c 100644
+--- a/docs/google/play/billing/billingchoice/integration.md
++++ b/docs/google/play/billing/billingchoice/integration.md
+@@ -697,7 +697,7 @@ scenario:
+    clicks Buy. If billing choice is available for the user, perform the
+    following:
+ 
+-   1. Pass [DeveloperBillingOptionParams](http://DeveloperBillingOptionParams) to [`BillingFlowParams`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams).
++   1. Pass [`DeveloperBillingOptionParams`](https://developer.android.com/reference/com/android/billingclient/api/DeveloperBillingOptionParams) to [`BillingFlowParams`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams).
+    2. Pass the external transaction token from step 3 to `DeveloperBillingOptionParams`.
+ 
+    For example:
+@@ -1230,7 +1230,7 @@ through the user choice experience again.
+ 
+ To do this, call [`launchBillingFlow`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#launchBillingFlow(android.app.Activity,com.android.billingclient.api.BillingFlowParams)) when the user requests an upgrade or a
+ downgrade. Instead of specifying other params under the
+-`SubscriptionUpdateParams` object, use [`setOriginalExternalTransactionId`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.Builder#setOriginalExternalTransactionId(java.lang.String))(),
++`SubscriptionUpdateParams` object, use [`setOriginalExternalTransactionId`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.SubscriptionUpdateParams.Builder#setOriginalExternalTransactionId(java.lang.String)),
+ providing the external transaction ID for the original purchase.
+ `DeveloperBillingOptionParams` must also be provided in this call. This does not
+ display the user choice screen, given that the user choice for the original

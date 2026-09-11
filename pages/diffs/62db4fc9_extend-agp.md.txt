@@ -1,0 +1,26 @@
+diff --git a/docs/build/extend-agp.md b/docs/build/extend-agp.md
+index ed872fa4..20ebc8f3 100644
+--- a/docs/build/extend-agp.md
++++ b/docs/build/extend-agp.md
+@@ -568,7 +568,7 @@ The following code snippet shows how you can get access to an instance of
+ callback.
+ 
+ You can then pass in your custom `TaskProvider` to get a
+-[`TaskBasedOperation`](https://developer.android.com/reference/tools/gradle-%0Aapi/7.1/com/android/build/api/artifact/TaskBasedOperation)
++[`TaskBasedOperation`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/artifact/TaskBasedOperation)
+ object (1), and use it to connect its inputs and outputs using one of the
+ `wiredWith*` methods (2).
+ 
+@@ -577,9 +577,9 @@ The exact method you need to choose depends on the cardinality and
+ 
+ And finally, you pass in the `Artifact` type to a method representing the chosen
+ operation on the `*OperationRequest` object that you get in return, for example,
+-[`toAppendTo()`](https://developer.android.com/reference/tools/gradle-%0Aapi/7.1/com/android/build/api/artifact/OutOperationRequest#toappendto),
+-[`toTransform()`](https://developer.android.com/reference/tools/gradle-%0Aapi/7.1/com/android/build/api/artifact/InAndOutFileOperationRequest#totransform)
+-, or [`toCreate()`](https://developer.android.com/reference/tools/gradle-%0Aapi/7.1/com/android/build/api/artifact/OutOperationRequest#tocreate) (3).
++[`toAppendTo()`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/artifact/OutOperationRequest#toappendto),
++[`toTransform()`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/artifact/InAndOutFileOperationRequest#totransform)
++, or [`toCreate()`](https://developer.android.com/reference/tools/gradle-api/7.1/com/android/build/api/artifact/OutOperationRequest#tocreate) (3).
+ 
+     androidComponents.onVariants { variant ->
+         val manifestUpdater = // Custom task that will be used for the transform.

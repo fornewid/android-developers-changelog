@@ -1,0 +1,19 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2026.2.1.md b/docs/studio/releases/fixed-bugs/studio/2026.2.1.md
+index 981cc1d1..367554c7 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2026.2.1.md
++++ b/docs/studio/releases/fixed-bugs/studio/2026.2.1.md
+@@ -4,6 +4,14 @@ url: https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.1
+ source: md.txt
+ ---
+ 
++### Android Studio Rabbit 1 \| 2026.2.1 Canary 5
++
++**Released together with:**
++
++- Android Gradle Plugin 9.5.0-alpha05
++
++Fixed Issues **Compose Preview** [Issue #364917767](https://issuetracker.google.com/issues/364917767) PreviewParameterProvider is nested inside another class [Issue #290658441](https://issuetracker.google.com/issues/290658441) Zooming in Compose preview view simultaneously scrolls up [Issue #219764006](https://issuetracker.google.com/issues/219764006) "@Preview not top-level declaration" lint doesn't work if defined in companion object object [Issue #389194647](https://issuetracker.google.com/issues/389194647) Show redundant action bar in Compose Preview **Gemini** [Issue #556950521](https://issuetracker.google.com/issues/556950521) UI issue w local Agent: 👎 \& 👍 appear to send private data unexpectedly when using local models **Layout and Resource Editing** [Issue #79968470](https://issuetracker.google.com/issues/79968470) Show an error in the editor when using an incorrect attribute **Preview** [Issue #537472290](https://issuetracker.google.com/issues/537472290) Incorrect values of fontScale parameter in dropdown menu **Resource Manager** [Issue #161054670](https://issuetracker.google.com/issues/161054670) Bug: Android Studio can't view animated GIF and can't convert to animated WEBP **UI Tools** [Issue #440650750](https://issuetracker.google.com/issues/440650750) Vector Asset Studio: Clip Art icons not appearing until icons_metadata.txt is manually deleted
++
+ ### Android Studio Rabbit 1 \| 2026.2.1 Canary 4
+ 
+ **Released together with:**

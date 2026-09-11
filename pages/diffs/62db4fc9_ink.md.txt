@@ -1,0 +1,22 @@
+diff --git a/docs/jetpack/androidx/releases/ink.md b/docs/jetpack/androidx/releases/ink.md
+index 847bceb9..966924bc 100644
+--- a/docs/jetpack/androidx/releases/ink.md
++++ b/docs/jetpack/androidx/releases/ink.md
+@@ -61,6 +61,17 @@ dependencies {
+ 
+ For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
+ 
++> [!WARNING]
++> Because Ink's C++ dependencies are loaded with JNI, Ink on JVM generates
++> the following warning when run using JDK 24 or higher:
++>
++>
++> `java.lang.System::load has been called by androidx.ink.nativeloader.NativeLoader in an unnamed module`
++>
++> unless Ink is run with `--enable-native-access=ALL-UNNAMED` (since Jetpack builds don't
++> use Java modules) or `--illegal-native-access=allow`. This warning might become an
++> error in some future Java release (see [JEP 472](https://openjdk.org/jeps/472)).
++
+ ## Feedback
+ 
+ Your feedback helps make Jetpack better. Let us know if you discover new issues or have
