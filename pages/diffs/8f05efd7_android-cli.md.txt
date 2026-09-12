@@ -1,0 +1,149 @@
+diff --git a/docs/tools/agents/android-cli.md b/docs/tools/agents/android-cli.md
+index ee976b00..63642370 100644
+--- a/docs/tools/agents/android-cli.md
++++ b/docs/tools/agents/android-cli.md
+@@ -4,8 +4,8 @@ url: https://developer.android.com/tools/agents/android-cli
+ source: md.txt
+ ---
+ 
+-Android CLI is a command-line interface that enables you to more easily and
+-efficiently build for Android using any tool of your choice. It standardizes
++Android CLI is a command-line interface that lets you build for Android more
++efficiently using any tool of your choice. It standardizes
+ core development competencies for agent-first workflows, providing an entry
+ point to the official tools, skills, and knowledge you need to develop more
+ effectively. It can also streamline CI, maintenance, and any other scripted
+@@ -19,9 +19,10 @@ following:
+ - Manage virtual devices directly from your terminal
+ - Test your app with [Journeys](https://developer.android.com/tools/agents/android-cli/journeys)
+ 
+-Android CLI also gives your agents access to [Android skills](https://developer.android.com/tools/agents/android-skills)
+-and the specialized [Android Knowledge Base](https://developer.android.com/studio/gemini/access-helpful-resources) to help ensure that your
+-projects apply Android-recommended patterns and best practices.
++Android CLI also gives your agents access to
++[Android skills](https://developer.android.com/tools/agents/android-skills)
++and the specialized [Android Knowledge Base](https://developer.android.com/studio/gemini/access-helpful-resources) to help ensure that
++your projects apply Android-recommended patterns and best practices.
+ 
+ ## Install Android CLI
+ 
+@@ -74,6 +75,9 @@ Here are some examples of data that we *don't* collect:
+ - We don't collect responses of the CLI when a command is run.
+ - We don't collect user-created inputs or external identifiers passed to the CLI, such as specific Maven coordinates, local file paths, or custom project names. For example, if the command `android create --name=com.company.internal.app` is executed, we record that `android create` was executed using the `--name` argument but we don't store the value `com.company.internal.app`.
+ 
++To disable data collection, use the `--no-metrics` flag when running a
++command with Android CLI.
++
+ ## Feedback and issues
+ 
+ If you encounter any issues or want to provide feedback,
+@@ -132,13 +136,14 @@ switch. To check which Android SDK you're using by default, run
+ ## Commands
+ 
+ This section lists all the Android CLI commands and describes what they do.
+-All of these commands should be preceded by `android`, for example
+-`android create`, `android run`, and so on. Optional modifiers are enclosed
++All of these commands should be preceded by `android`, as in
++`android create` or `android run`. Optional modifiers are enclosed
+ in brackets `[]` and mandatory arguments are not.
+ 
+ ### `create`
+ 
+-**Usage:** `android create [--dry-run] [--verbose] [--name=<application-name>] [--output=<dest-path>] [<template-name>]`
++**Usage:** `android create [--dry-run] [--verbose] [--name=<application-name>]
++[--output=<dest-path>] [<template-name>]`
+ 
+ **Description:** Initialize a new project from a template. To see the template
+ options, run `android create -h`.
+@@ -199,7 +204,8 @@ commands to the terminal.
+ 
+ ### `emulator create`
+ 
+-**Usage:** `android emulator create [--list-profiles] [--profile=<profile-name>]`
++**Usage:** `android emulator create [--list-profiles]
++[--profile=<profile-name>]`
+ 
+ **Description:** Create a virtual device.
+ 
+@@ -269,7 +275,8 @@ through a physical device or emulator) in JSON format.
+ 
+ ### `run`
+ 
+-**Usage:** `android run [--debug] [--activity=<activity-name>] [--device=<serial-number>] [--type=<param>] --apks=<apk-paths>`
++**Usage:** `android run [--debug] [--activity=<activity-name>]
++[--device=<serial-number>] [--type=<param>] --apks=<apk-paths>`
+ 
+ **Description:** Deploy an Android app to a connected device or emulator. It
+ doesn't perform any build steps; you must provide the path(s) to the APK
+@@ -337,7 +344,8 @@ returns the output
+ 
+ ### `sdk install`
+ 
+-**Usage:** `android sdk install <package[@version]> [--beta] [--canary] [--force]`
++**Usage:** `android sdk install <package[@version]> [--beta] [--canary]
++[--force]`
+ 
+ **Description:** Install the specified SDK package(s).
+ 
+@@ -499,10 +507,11 @@ the version, and the status of open projects:
+ 
+ ### `studio analyze-file`
+ 
+-**Usage:** `android studio analyze-file [--pid=<pid>] [--project=<project>] <path>`
++**Usage:** `android studio analyze-file [--pid=<pid>] [--project=<project>]
++<path>`
+ 
+-**Description:** Analyzes a file in Android Studio for errors, warnings, and lints
+-using the IDE's built-in inspection engine.
++**Description:** Analyzes a file in Android Studio for errors, warnings, and
++lints using the IDE's built-in inspection engine.
+ 
+ **Arguments (mandatory):**
+ 
+@@ -521,11 +530,12 @@ using the IDE's built-in inspection engine.
+ 
+ ### `studio find-declaration`
+ 
+-**Usage:** `android studio find-declaration [--short] [--context-file=<path>] [--pid=<pid>] [--project=<project>] <symbol>`
++**Usage:** `android studio find-declaration [--short] [--context-file=<path>]
++[--pid=<pid>] [--project=<project>] <symbol>`
+ 
+ **Description:** Finds the exact declaration site of a symbol (class, method,
+-variable, field, constant, or Android resource) across the project using semantic
+-resolution.
++variable, field, constant, or Android resource) across the project using
++semantic resolution.
+ 
+ **Arguments (mandatory):**
+ 
+@@ -544,7 +554,8 @@ resolution.
+ 
+ ### `studio find-usages`
+ 
+-**Usage:** `android studio find-usages [--short] [--pid=<pid>] [--project=<project>] <symbol>`
++**Usage:** `android studio find-usages [--short] [--pid=<pid>]
++[--project=<project>] <symbol>`
+ 
+ **Description:** Finds all references and usages of a symbol across the entire
+ project using semantic analysis.
+@@ -585,7 +596,9 @@ Studio.
+ 
+ ### `studio render-compose-preview`
+ 
+-**Usage:** `android studio render-compose-preview [--print-semantics] [--output-image-file=<filename>] [--pid=<pid>] [--project=<project>] <path> <composable>`
++**Usage:** `android studio render-compose-preview [--print-semantics]
++[--output-image-file=<filename>] [--pid=<pid>] [--project=<project>] <path>
++<composable>`
+ 
+ **Description:** Renders a Jetpack Compose UI Preview and optionally returns its
+ layout semantics tree. This is useful for visual testing or for enabling AI
+@@ -613,7 +626,8 @@ agents to work with the UI layout.
+ 
+ ### `studio version-lookup`
+ 
+-**Usage:** `android studio version-lookup [--pid=<pid>] [--project=<project>] <artifacts...>`
++**Usage:** `android studio version-lookup [--pid=<pid>] [--project=<project>]
++<artifacts...>`
+ 
+ **Description:** Looks up the latest available versions of common dependencies,
+ Android platforms, and SDK tools in repositories such as Google Maven. This
