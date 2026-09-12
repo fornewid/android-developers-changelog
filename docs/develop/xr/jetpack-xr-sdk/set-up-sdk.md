@@ -44,11 +44,11 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.runtime:runtime:1.0.0-beta02"
-    implementation "androidx.xr.scenecore:scenecore:1.0.0-beta02"
+    implementation "androidx.xr.runtime:runtime:1.1.0-alpha01"
+    implementation "androidx.xr.scenecore:scenecore:1.0.0-rc01"
     implementation "androidx.xr.compose:compose:1.0.0-alpha17"
     implementation "androidx.xr.compose.material3:material3:1.0.0-alpha17"
-    implementation "androidx.xr.arcore:arcore:1.0.0-beta02"
+    implementation "androidx.xr.arcore:arcore:1.0.0-rc01"
 }
 ```
 
@@ -56,11 +56,11 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.runtime:runtime:1.0.0-beta02")
-    implementation("androidx.xr.scenecore:scenecore:1.0.0-beta02")
+    implementation("androidx.xr.runtime:runtime:1.1.0-alpha01")
+    implementation("androidx.xr.scenecore:scenecore:1.0.0-rc01")
     implementation("androidx.xr.compose:compose:1.0.0-alpha17")
     implementation("androidx.xr.compose.material3:material3:1.0.0-alpha17")
-    implementation("androidx.xr.arcore:arcore:1.0.0-beta02")
+    implementation("androidx.xr.arcore:arcore:1.0.0-rc01")
 }
 ```
 
@@ -109,21 +109,21 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
 ### Groovy
 
     dependencies {
-        implementation "androidx.xr.runtime:runtime:1.0.0-beta02"
-        implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha16"
-        implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha16"
+        implementation "androidx.xr.runtime:runtime:1.1.0-alpha01"
+        implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha18"
+        implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha18"
         implementation "androidx.xr.projected:projected:1.0.0-alpha09"
-        implementation "androidx.xr.arcore:arcore:1.0.0-beta01"
+        implementation "androidx.xr.arcore:arcore:1.0.0-beta02"
     }
 
 ### Kotlin
 
     dependencies {
-        implementation("androidx.xr.runtime:runtime:1.0.0-beta02")
-        implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha16")
-        implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha16")
+        implementation("androidx.xr.runtime:runtime:1.1.0-alpha01")
+        implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha18")
+        implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha18")
         implementation("androidx.xr.projected:projected:1.0.0-alpha09")
-        implementation("androidx.xr.arcore:arcore:1.0.0-beta01")
+        implementation("androidx.xr.arcore:arcore:1.0.0-beta02")
     }
 
 > [!NOTE]

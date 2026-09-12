@@ -55,7 +55,7 @@ When developing your app with Compose, keep these best practices in mind:
 - **[Limit unnecessary recompositions](https://developer.android.com/develop/ui/compose/performance/bestpractices#use-derivedstateof):** Use `derivedStateOf` to limit recompositions when rapidly changing state.
 - **[Defer state reads](https://developer.android.com/develop/ui/compose/performance/bestpractices#defer-reads):** Defer state reads as long as possible by wrapping them in lambda functions.
 - **[Use lambda modifiers for changing state](https://developer.android.com/develop/ui/compose/performance/bestpractices#defer-reads):** Use lambda-based modifiers like `Modifier.offset { ... }` for frequently changing state variables.
-- **[Avoid backwards writes](https://developer.android.com/develop/ui/compose/performance/bestpractices#avoid-backwards):** Never write to state that has already been read in a composable.
+- **[Avoid backwards writes](https://developer.android.com/develop/ui/compose/performance/backwards-write):** Never write to state that has already been read in a composable.
 
 For more details, see the [best practices](https://developer.android.com/develop/ui/compose/performance/bestpractices) guide.
 

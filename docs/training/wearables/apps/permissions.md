@@ -4,9 +4,6 @@ url: https://developer.android.com/training/wearables/apps/permissions
 source: md.txt
 ---
 
-keywords: wear, permissions, collection_guideslandingwear
-image_path: images/training/wear/multiple_permissions.png
-
 Requesting permissions on Wear OS is similar to requesting permissions in mobile
 apps, with a couple of additional use cases. This document assumes you
 understand how Android permissions work. If you don't, review how [permissions

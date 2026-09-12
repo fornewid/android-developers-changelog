@@ -4,7 +4,8 @@ url: https://developer.android.com/develop/ui/compose/testing/migrate-v2
 source: md.txt
 ---
 
-| **Note:** The v2 testing APIs are in alpha and are subject to change. We encourage you to try them and provide [feedback](https://issuetracker.google.com/issues/new?component=741505&template=1346785&title=%5BMigration%5D).
+> [!NOTE]
+> **Note:** The v2 testing APIs are in alpha and are subject to change. We encourage you to try them and provide [feedback](https://issuetracker.google.com/issues/new?component=741505&template=1346785&title=%5BMigration%5D).
 
 v2 versions of the Compose testing APIs ([`createComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary#createComposeRule(kotlin.coroutines.CoroutineContext)),
 [`createAndroidComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary#createAndroidComposeRule(java.lang.Class,kotlin.coroutines.CoroutineContext)), [`runComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary#runComposeUiTest%28kotlin.coroutines.CoroutineContext,kotlin.coroutines.CoroutineContext,kotlin.time.Duration,kotlin.coroutines.SuspendFunction1%29),
@@ -26,7 +27,103 @@ While the v1 APIs relied on the `UnconfinedTestDispatcher`, the v2 APIs use the
 aligns Compose test behavior with the standard `runTest` APIs and provides
 explicit control over coroutine execution order.
 
-## API mappings
+## Configure the test environment
+
+> [!NOTE]
+> **Note:** The [`ComposeUiTestConfig`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTestConfig) class is included, starting in version 1.13, in the `junit4` and `ui-test` parts of the `androidx.compose.ui` AndroidX artifact. [androidx.compose.ui:ui-test-junit4:1.13.0-alpha01+](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary#createComposeRule(androidx.compose.ui.test.ComposeUiTestConfig)) and [androidx.compose.ui:ui-test:1.13.0-alpha01+.](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-alpha01)
+
+Compose test v2 APIs use `ComposeUiTestConfig` to customize the test
+environment. APIs that create setup functions for tests, such as
+[`createComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary#createComposeRule(androidx.compose.ui.test.ComposeUiTestConfig)), `runComposeUiTest`, and other related APIs, accept
+`ComposeUiTestConfig`. This configuration object consolidates environmental
+related APIs like `effectContext`, `runTestContext`, and [`testTimeout`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/ComposeUiTestConfig#testTimeout())
+into a single object.
+
+The configuration model also manages `inputMode`. Compose test v2 APIs enforce
+[`InputMode.Touch`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/InputMode#Touch()) by default at the start of each test to ensure
+determinism and prevent input mode state from leaking between tests.
+
+`ComposeUiTestConfig` is part of Compose Test v2 APIs, which use
+[`StandardTestDispatcher`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/-standard-test-dispatcher.html) by default. If your tests use v1 APIs,
+see [Migrate to v2 testing APIs](https://developer.android.com/develop/ui/compose/testing/migrate-v2#migrate-v2-apis) before adopting
+`ComposeUiTestConfig`.
+
+## Migrate to `ComposeUiTestConfig`
+
+Within the overloads for creating setup functions in tests, several overloads
+that accept individual configuration parameters -- such as `effectContext`,
+`runTestContext`, or `testTimeout` -- are deprecated. Update your tests to use
+`ComposeUiTestConfig` instead, as shown in the following example:
+
+
+```kotlin
+val testConfig = ComposeUiTestConfig(
+    effectContext = EmptyCoroutineContext,
+    runTestContext = EmptyCoroutineContext,
+    testTimeout = 30.seconds
+)
+
+@get:Rule
+val rule = createComposeRule(config = testConfig)
+
+// OR
+
+    runComposeUiTest(config = testConfig) {}
+```
+
+<br />
+
+### Default input mode
+
+Tests can fail during migration if they rely on non-touch input modes
+configured through instrumentation APIs before the test starts. Within the setup
+functions for tests, the system enforces `InputMode.Touch` by default at the
+start of each test for more determinism and to prevent state leakage, overriding
+ambient device state and pre-test setup.
+
+To resolve this, specify the required input mode in `ComposeUiTestConfig`:
+
+
+```kotlin
+class FocusTest {
+    @get:Rule
+    val rule = createComposeRule(
+        config = ComposeUiTestConfig(inputMode = InputMode.Keyboard)
+    )
+
+    @Test
+    fun testFocus() {}
+}
+```
+
+<br />
+
+To configure the input mode for individual test cases instead of the entire
+test class, pass `ComposeUiTestConfig` to `runComposeUiTest`:
+
+
+```kotlin
+class FocusTest {
+    @Test
+    fun testTouchMode() = runComposeUiTest {
+        // Runs with the default InputMode.Touch
+    }
+
+    @Test
+    fun testKeyboardMode() = runComposeUiTest(
+        ComposeUiTestConfig(inputMode = InputMode.Keyboard)
+    ) {
+        // Runs with InputMode.Keyboard
+    }
+}
+```
+
+<br />
+
+For other migration issues and resolutions, see
+[Common failures and how to fix them](https://developer.android.com/develop/ui/compose/testing/migrate-v2#common-failures).
+
+## Migrate to v2 testing APIs
 
 When upgrading to v2 APIs, you can generally use **Find + Replace** to update
 the package imports and adopt the new dispatcher changes.
@@ -37,11 +134,11 @@ APIs with the following prompt:
 <br />
 
 
-## auto_awesome AI Prompt
+## AI Prompt
 
 ### Migrate from v1 testing APIs to v2 testing APIs
 
-This prompt will use this guide to migrate to v2 testing APIs.  
+This prompt will use this guide to migrate to v2 testing APIs.
 
     Migrate to Compose testing v2 APIs using the official
     migration guide.
@@ -50,9 +147,8 @@ This prompt will use this guide to migrate to v2 testing APIs.
 
 AI prompts are intended to be used within Gemini in Android Studio.
 
-Learn more about Gemini in Studio here: [https://developer.android.com/studio/gemini/overview](https://developer.android.com/studio/gemini/overview)  
-Close
-help_outline reviews Share your thoughts
+Learn more about Gemini in Studio here: [https://developer.android.com/studio/gemini/overview](https://developer.android.com/studio/gemini/overview)
+<button class="devsite-dialog-close">Close</button> <button class="button icon-button android-ai-prompt-help-button" data-modal-dialog-id="ai-prompt_help_modal__migrate-from-v1-testing-apis-to-v2-testing-apis"> </button> <button class="button google-feedback" data-p="5207477" data-b="llm-prompts" data-context="migrate-from-v1-testing-apis-to-v2-testing-apis"> Share your thoughts </button>
 
 <br />
 
@@ -103,7 +199,7 @@ pattern:
 ### Previous approach
 
 In v1, the task launched and finished immediately. In v2, the following code
-fails because `loadData()` hasn't actually run yet.  
+fails because `loadData()` hasn't actually run yet.
 
     // In v1, this launched and finished immediately.
     viewModel.loadData()
@@ -117,7 +213,7 @@ Use [`waitForIdle`](https://developer.android.com/reference/kotlin/androidx/comp
 asserting.
 
 **Option 1** : Using `waitForIdle` advances the clock until the UI is idle,
-verifying the coroutine has run.  
+verifying the coroutine has run.
 
     viewModel.loadData()
 
@@ -127,7 +223,7 @@ verifying the coroutine has run.
     assertEquals(Success, viewModel.state.value)
 
 **Option 2** : Using `runOnIdle` executes the code block on the UI thread after
-the UI has become idle.  
+the UI has become idle.
 
     viewModel.loadData()
 
@@ -142,7 +238,7 @@ In scenarios involving manual synchronization, such as when auto-advancing is
 disabled, launching a coroutine does not result in immediate execution because
 the test clock is paused. To execute coroutines in the queue without
 advancing the virtual clock, use the [`runCurrent()`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/kotlinx.coroutines.test/run-current.html) API. This runs tasks
-scheduled for the current virtual time.  
+scheduled for the current virtual time.
 
     composeTestRule.mainClock.scheduler.runCurrent()
 

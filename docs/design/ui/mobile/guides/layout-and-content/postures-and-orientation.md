@@ -4,10 +4,11 @@ url: https://developer.android.com/design/ui/mobile/guides/layout-and-content/po
 source: md.txt
 ---
 
-Android design covers a wide range of unique aspects and devices; only looking
-at breakpoints isn't enough. Users can adjust and reorient app windows on their
-devices. With foldable devices, a single device can cover all of these use
-cases. It's essential to think in panes for content adaptability.
+Android design covers a wide range of unique aspects and devices, including
+foldable devices; only looking at breakpoints isn't enough. Users can adjust
+and reorient app windows on their devices. With foldable devices, a single
+device can cover all of these use cases. It's essential to think in panes for
+content adaptability.
 
 ## Orientation changes
 
@@ -67,6 +68,8 @@ tabletop).
 
 > [!NOTE]
 > **Note:** Postures shown might not be available across all foldable devices.
+
+Read more on how to [support foldable devices displays](https://developer.android.com/develop/adaptive-apps/guides/foldables/support-foldable-display-modes).
 
 ![Layout changes and component change](https://developer.android.com/static/images/design/ui/mobile/postures_all.webp)
 

@@ -23,7 +23,7 @@ You can present content in scrolling rows or columns with lazy rows and lazy
 columns.
 
 Full-screen layout is another common layout, as used in [immersive mode](https://developer.android.com/design/ui/mobile/guides/layout-and-content/immersive-content).
-![](https://developer.android.com/static/images/design/ui/mobile/layout-basics-29-full-screen.png) **Figure 27:** Full screen layout, as used in immersive mode
+![Immersive mode full screen layout](https://developer.android.com/static/images/design/ui/mobile/layout-basics-29-full-screen.png) **Figure 27:** Full screen layout, as used in immersive mode
 
 If you're working with Views instead of Compose, you can use
 [`ConstraintLayout`](https://developer.android.com/develop/ui/views/layout/constraint-layout) to lay out views according to relationships between

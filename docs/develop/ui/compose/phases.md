@@ -438,6 +438,9 @@ a proper layout primitive or creating a custom layout means that the minimal
 shared parent serves as the source of truth that can coordinate the relation
 between multiple elements. Introducing a dynamic state breaks this principle.
 
+For more information about recomposition loops and how to avoid writing to
+state across phases, see [Backwards writes in Compose](https://developer.android.com/develop/ui/compose/performance/backwards-write).
+
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off

@@ -4,7 +4,7 @@ url: https://developer.android.com/distribute/aep/aep-integration-planner
 source: md.txt
 ---
 
-Use this questionnaire to begin identifying your app's Apps Experience Program (AEP) requirements and potential. Select your app's capabilities and use cases in the questionnaire to generate a preliminary requirements report.
+Use this questionnaire to begin identifying your app's Apps Experience Program (AEP) requirements and potential exemptions. Select your app's capabilities and use cases in the questionnaire to generate a preliminary requirements report.
 **Note:** This tool is designed to help you identify which guidelines and exemptions are relevant to your app. The output does not represent an official or final determination. It's your responsibility to identify all applicable requirements and exemptions for your app. For authoritative details, refer to the [AEP guideline documentation](https://developer.android.com/distribute/aep/aep-guidelines-overview).
 
 ## Guideline Questionnaire

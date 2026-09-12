@@ -389,6 +389,9 @@ out of date, and so schedules another recomposition.
 Composition.** If at all possible, always write to state in response to an event
 and in a lambda like in the preceding `onClick` example.
 
+For an in-depth guide on backwards writes, recomposition loops, and phase
+coordination, see [Backwards writes in Compose](https://developer.android.com/develop/ui/compose/performance/backwards-write).
+
 ## Additional resources
 
 - **[App performance guide](https://developer.android.com/topic/performance/overview):** Discover best practices, libraries, and tools to improve performance on Android.

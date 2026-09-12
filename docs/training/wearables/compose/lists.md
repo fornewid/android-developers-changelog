@@ -243,6 +243,6 @@ guidelines:
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Compose for Wear OS Codelab](https://developer.android.com/codelabs/compose-for-wear-os/index.lab)
+- [Compose for Wear OS Codelab](https://developer.android.com/codelabs/compose-for-wear-os)
 - [Lists and Grids](https://developer.android.com/develop/ui/compose/lists)
 - [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose)

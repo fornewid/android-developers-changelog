@@ -140,6 +140,6 @@ that, if actually used are likely to be overly sensitive.
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Change focus behavior](https://developer.android.com/develop/ui/compose/touch-input/focus/change-focus-behavior)
-- [Add keyboard, mouse, trackpad, and stylus support with Jetpack Compose](https://developer.android.com/codelabs/large-screens/add-keyboard-and-mouse-support-with-compose/index.lab)
-- [Compose for Wear OS Codelab](https://developer.android.com/codelabs/compose-for-wear-os/index.lab)
+- [Programmatically request focus](https://developer.android.com/develop/ui/compose/touch-input/focus/request-focus)
+- [Add keyboard, mouse, trackpad, and stylus support with Jetpack Compose](https://developer.android.com/codelabs/large-screens/add-keyboard-and-mouse-support-with-compose)
+- [Compose for Wear OS Codelab](https://developer.android.com/codelabs/compose-for-wear-os)
