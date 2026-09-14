@@ -1,0 +1,46 @@
+diff --git a/docs/studio/preview/compose-screenshot-testing-release-notes.md b/docs/studio/preview/compose-screenshot-testing-release-notes.md
+index 6b95ddf3..488c0339 100644
+--- a/docs/studio/preview/compose-screenshot-testing-release-notes.md
++++ b/docs/studio/preview/compose-screenshot-testing-release-notes.md
+@@ -7,6 +7,21 @@ source: md.txt
+ > [!WARNING]
+ > **Experimental:** Compose Preview Screenshot Testing is still in development. Its features and APIs are subject to change substantially during the alpha phase. Report any feedback and issues through the [issue tracker](https://issuetracker.google.com/issues/new?component=192708&template=840533).
+ 
++### 0.0.1-alpha16
++
++This release introduces support for AGP test suites, HTML test report
++improvements, and bug fixes:
++
++- **Test suites integration** : Added support for running Compose preview screenshot tests with [Android Gradle Plugin (AGP) test suites](https://developer.android.com/reference/tools/gradle-api/9.5/com/android/build/api/dsl/AgpTestSuite). To learn how to configure and run screenshot test suites, see [Screenshot testing with test suites](https://developer.android.com/studio/preview/compose-screenshot-testing-with-testsuites).
++- **HTML test report enhancements**: Added a header metadata card showing test case details (name, method, preview, variant, suite, and status badge) and an error summary box categorizing failures (such as missing reference images or dimension mismatches) with quick copy-to-clipboard functionality.
++- **Dynamic visual diffs**: Visual diffs now use a continuous gradient from subtle highlights for minor pixel shifts to high-contrast emphasis for major differences, preventing nested component changes from being obscured.
++
++This release also includes the following bug fixes:
++
++| Issue | Description |
++|---|---|
++| [issue #513276596](https://issuetracker.google.com/issues/513276596) | Help ensure that Layoutlib rendering errors fail screenshot tests immediately instead of failing silently or creating blank reference images. |
++
+ ### 0.0.1-alpha15
+ 
+ This release includes the following bug fixes:
+@@ -65,7 +80,7 @@ This release introduces:
+ 
+ This release introduces:
+ 
+-- From this version, you need to mark all of your preview functions with the
++- From this version, you must mark all of your preview functions with the
+   `@PreviewTest` annotation. Previews without the annotation won't be executed.
+ 
+ - Reference image directory is changed from
+@@ -86,8 +101,8 @@ This release introduces:
+ 
+ This release introduces:
+ 
+-Image Difference Threshold: This new global threshold setting will allow you to
+-gain finer control over screenshot comparisons. To configure, update your
++Image Difference Threshold: This new global threshold setting lets you gain
++finer control over screenshot comparisons. To configure, update your
+ module's build.gradle.kts:
+ 
+         testOptions {
