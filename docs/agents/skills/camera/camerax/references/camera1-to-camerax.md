@@ -1,14 +1,22 @@
 ---
-title: https://developer.android.com/agents/skills/camera/camerax/references/camera1-to-camerax
+title: Migrate from Camera1 to CameraX  |  Android Developers
 url: https://developer.android.com/agents/skills/camera/camerax/references/camera1-to-camerax
-source: md.txt
+source: html-scrape
 ---
+
+# Migrate from Camera1 to CameraX Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 
 ## Remove `Camera1` implementation
 
 1. Delete all `android.hardware.Camera` instances.
-2. Delete `SurfaceView` and `SurfaceHolder.Callback` implementations `surfaceCreated`, `surfaceChanged`, and `surfaceDestroyed`.
-3. Remove custom lifecycle handling that opens or releases the camera in `onResume` or `onPause`.
+2. Delete `SurfaceView` and `SurfaceHolder.Callback` implementations
+   `surfaceCreated`, `surfaceChanged`, and `surfaceDestroyed`.
+3. Remove custom lifecycle handling that opens or releases the camera in
+   `onResume` or `onPause`.
 4. Remove manual matrix calculations for orientation.
 
 ## Initialize `ProcessCameraProvider`
@@ -16,8 +24,7 @@ source: md.txt
 Request the `ProcessCameraProvider` and bind use cases to the Activity or
 Fragment lifecycle.
 
-
-```kotlin
+```
 val context = LocalContext.current
 val lifecycleOwner = LocalLifecycleOwner.current
 LaunchedEffect(context, lifecycleOwner) {
@@ -42,9 +49,9 @@ LaunchedEffect(context, lifecycleOwner) {
   )
   val cameraControl = camera.cameraControl
 }
-```
 
-<br />
+Camera1ToCameraXSnippets.kt
+```
 
 ## Implement the preview and tap-to-focus
 
@@ -56,24 +63,21 @@ Use `androidx.camera.view.PreviewView`.
 
 1. **Set up preview**:
 
-
-   ```kotlin
-   preview.setSurfaceProvider(previewView.surfaceProvider)
    ```
+   preview.setSurfaceProvider(previewView.surfaceProvider)
 
-   <br />
-
+   Camera1ToCameraXSnippets.kt
+   ```
 2. **Handle tap-to-focus**:
 
-
-   ```kotlin
+   ```
    val factory = previewView.meteringPointFactory
    val point = factory.createPoint(x, y) // x, y from touch event
    val action = FocusMeteringAction.Builder(point, FocusMeteringAction.FLAG_AF).build()
    cameraControl?.startFocusAndMetering(action)
-   ```
 
-   <br />
+   Camera1ToCameraXSnippets.kt
+   ```
 
 ### Option B: For Jetpack Compose
 
@@ -81,22 +85,19 @@ Use `androidx.camera.compose.CameraXViewfinder`.
 
 1. **Set up preview and SurfaceRequest**:
 
-
-   ```kotlin
+   ```
    var surfaceRequest by remember { mutableStateOf<SurfaceRequest?>(null) }
    val preview = remember {
      Preview.Builder().build().apply {
        setSurfaceProvider { request -> surfaceRequest = request }
      }
    }
+
+   Camera1ToCameraXSnippets.kt
    ```
-
-   <br />
-
 2. **Render viewfinder**:
 
-
-   ```kotlin
+   ```
    surfaceRequest?.let { request ->
      CameraXViewfinder(
        surfaceRequest = request,
@@ -104,14 +105,12 @@ Use `androidx.camera.compose.CameraXViewfinder`.
        modifier = Modifier
      )
    }
+
+   Camera1ToCameraXSnippets.kt
    ```
-
-   <br />
-
 3. **Handle tap-to-focus in Compose**:
 
-
-   ```kotlin
+   ```
    // Inside your tap gesture handler...
    val surfaceCoords = with(coordinateTransformer) { offset.transform() }
    val factory = SurfaceOrientedMeteringPointFactory(
@@ -121,14 +120,12 @@ Use `androidx.camera.compose.CameraXViewfinder`.
    val point = factory.createPoint(surfaceCoords.x, surfaceCoords.y)
    val action = FocusMeteringAction.Builder(point, FocusMeteringAction.FLAG_AF).build()
    cameraControl?.startFocusAndMetering(action)
+
+   Camera1ToCameraXSnippets.kt
    ```
-
-   <br />
-
 4. **Update target rotation for Compose**:
 
-
-   ```kotlin
+   ```
    LaunchedEffect(configuration) {
      if (!view.isInEditMode) {
        val rotation = view.display?.rotation ?: Surface.ROTATION_0
@@ -136,17 +133,16 @@ Use `androidx.camera.compose.CameraXViewfinder`.
        preview.targetRotation = rotation
      }
    }
-   ```
 
-   <br />
+   Camera1ToCameraXSnippets.kt
+   ```
 
 ## Capture a photo
 
 Use the `ImageCapture` use case to take the picture. The `ImageProxy` handles
 rotation directly.
 
-
-```kotlin
+```
 imageCapture.takePicture(
   cameraExecutor,
   object : ImageCapture.OnImageCapturedCallback() {
@@ -176,29 +172,37 @@ imageCapture.takePicture(
     }
   }
 )
-```
 
-<br />
+Camera1ToCameraXSnippets.kt
+```
 
 ## Switch cameras
 
 To flip between front and rear cameras, change the `CameraSelector` and
 retrigger the `ProcessCameraProvider` logic.
 
-
-```kotlin
+```
 lensFacing = if (lensFacing == CameraSelector.LENS_FACING_BACK) {
   CameraSelector.LENS_FACING_FRONT
 } else {
   CameraSelector.LENS_FACING_BACK
 }
-```
 
-<br />
+Camera1ToCameraXSnippets.kt
+```
 
 ## Follow constraints
 
-- **Don't manage the camera lifecycle manually** : Bind the camera to a `LifecycleOwner` through the `ProcessCameraProvider`. Avoid manual camera open or close logic in `onResume` or `onPause`.
-- **Don't calculate focus matrices manually** : `MeteringPointFactory` handles coordinate transformations, including device rotation offsets. Avoid custom matrix implementations.
-- **Don't forget to close the `ImageProxy`** : Remember to invoke `image.close()` in the capture callback. Skipping this call locks the capture pipeline and interrupts subsequent photos.
-- **Don't wrap `PreviewView` in `AndroidView` for Compose code** : For Compose UI layouts, use `CameraXViewfinder`. Compiling `PreviewView` in an `AndroidView` is an earlier fallback option that introduces resizing issues.
+* **Don't manage the camera lifecycle manually**: Bind the camera to a
+  `LifecycleOwner` through the `ProcessCameraProvider`. Avoid manual camera
+  open or close logic in `onResume` or `onPause`.
+* **Don't calculate focus matrices manually**: `MeteringPointFactory` handles
+  coordinate transformations, including device rotation offsets. Avoid custom
+  matrix implementations.
+* **Don't forget to close the `ImageProxy`**: Remember to invoke
+  `image.close()` in the capture callback. Skipping this call locks the
+  capture pipeline and interrupts subsequent photos.
+* **Don't wrap `PreviewView` in `AndroidView` for Compose code**: For Compose
+  UI layouts, use `CameraXViewfinder`. Compiling `PreviewView` in an
+  `AndroidView` is an earlier fallback option that introduces resizing
+  issues.

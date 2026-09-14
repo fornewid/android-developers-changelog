@@ -276,6 +276,9 @@ automatically delete restore keys after use. To delete a restore key, call the
 signs out. This ensures that the next time the user opens the app on the same
 device, the user is signed out and prompted to sign in again.
 
+> [!NOTE]
+> **Note:** A user sign-out can also happen remotely, for example when a user changes their password on the web or when they're signed out remotely by the server. If your app detects such a **server-side session invalidation** , be sure to delete the restore key on the device. (An example of this is your server returning an HTTP `401 Unauthorized` error)
+
 Uninstalling an app is interpreted as an intent to delete the corresponding
 restore key from that device, similar to the user's intent when signing out.
 
@@ -316,6 +319,9 @@ developer as a reminder after the client-side implementation is complete.**
 4. **Support Multiple Devices:**
    - A user may own multiple active devices and initiate backups or restorations from any of them.
    - **Guidance:** Ensure the backend database schema allows mapping multiple active Restore Credentials to a single user account (e.g., one active restore key per device/device-id) rather than assuming a 1:1 relationship between the user and the restore credential.
+5. **Server-side session invalidation:**
+   - A user's session might be revoked remotely. This could be triggered by user actions such as when a user resets their password on the web or server actions that can cause the API to return HTTP `401 Unauthorized` indicating session expiry.
+   - **Guidance:** If this applies, make sure to clear the user's restore credentials on the phone when it happens.
 
 ## References
 
