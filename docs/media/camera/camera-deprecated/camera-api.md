@@ -409,7 +409,6 @@ Depending on the window size and aspect ratio, you may may have to fit a wide
 camera preview into a portrait-orientated layout, or vice versa, using a
 letterbox layout.
 
-
 ### Placing preview in a layout
 
 A camera preview class, such as the example shown in the previous section, must be placed in the
@@ -1110,7 +1109,6 @@ such as picture format, flash mode, focus settings, and many more. This section 
 camera features, and briefly discusses how to use them. Most camera features can be accessed and set
 using the through `https://developer.android.com/reference/android/hardware/Camera.Parameters` object. However, there are several
 important features that require more than simple settings in `https://developer.android.com/reference/android/hardware/Camera.Parameters`. These features are covered in the following sections:
-
 
 - [Metering and focus areas](https://developer.android.com/media/camera/camera-deprecated/camera-api#metering-focus-areas)
 - [Face detection](https://developer.android.com/media/camera/camera-deprecated/camera-api#face-detection)

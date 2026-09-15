@@ -203,6 +203,62 @@ invoke `WebViewCompat.navigate`, and listen for navigation lifecycle events:
         }
     }
 
+## Propagate app state using HTTP headers
+
+Web apps often require context from the host Android app to coordinate backend
+logic or customize web content. Appending query parameters to the URL to pass
+this information can clutter URLs, interfere with caching, and expose internal
+app state.
+
+Instead, we recommend passing app context using custom HTTP headers. By using
+`WebViewCompat.navigate` and `NavigationParameters`, you can securely send this
+data to your server. Additionally, WebView preserves these headers during state
+restoration, which ensures that the web content remains consistent across
+configuration changes. Note that this persistence applies only when using
+`WebViewCompat.navigate`. If you use `WebView.loadUrl`, custom headers aren't
+saved in the `WebView` state bundle and are lost upon restoration.
+
+### Common use cases
+
+Common use cases for passing host app context include the following:
+
+- **App version (`X-App-Version`):** Passing the host app's release version (such as `BuildConfig.VERSION_NAME`) helps your backend server verify native JavaScript bridge compatibility, gate features, or prompt users to update older apps.
+- **Client platform (`X-Client-Platform`):** Explicitly identifying the host environment as Android enables the server to deliver platform-tailored UI or route store links without relying on `User-Agent` string parsing.
+
+### Implementation example
+
+The following example demonstrates how to pass the application version and
+client platform to a web server:
+
+### Kotlin
+
+    // Attach host app metadata so the server can verify compatibility and tailor content
+    val params = NavigationParameters.Builder()
+        .addAdditionalHeaders(
+            mapOf(
+                "X-App-Version" to BuildConfig.VERSION_NAME,
+                "X-Client-Platform" to "Android"
+            )
+        )
+        .build()
+
+    // Use navigate instead of loadUrl to retain custom headers across state restoration
+    WebViewCompat.navigate(webView, "https://www.example.com", params)
+
+### Java
+
+    // Attach host app metadata so the server can verify compatibility and tailor content
+    Map<String, String> headers = new HashMap<>();
+    headers.put("X-App-Version", BuildConfig.VERSION_NAME);
+    headers.put("X-Client-Platform", "Android");
+
+    NavigationParameters params = new NavigationParameters.Builder()
+        .addAdditionalHeaders(headers)
+        .build();
+
+    // Use navigate instead of loadUrl to retain custom headers across state restoration
+    WebViewCompat.navigate(webView, "https://www.example.com", params);
+
 ## Failure modes and error handling
 
 The `WebViewCompat.navigate` API provides distinct mechanisms for handling

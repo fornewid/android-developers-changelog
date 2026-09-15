@@ -82,7 +82,7 @@ validating capabilities before your app attempts to process media.
                     val isInstalled = enhancementClient.isModuleInstalledAsync()
                     if (!isInstalled) {
                         notifyUiDownloadingModels()
-                        enhancementClient.installModule().await() 
+                        enhancementClient.installModule().await()
                     }
                     notifyUiEngineReady()
                 } catch (e: Exception) {

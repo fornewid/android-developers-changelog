@@ -12,34 +12,48 @@ levels for games and graphic-intensive apps.
   provides advanced GPU tracing and analysis for games and graphic intensive
   apps.
 
-- [Android Performance Tuner (APT)](https://developer.android.com/games/sdk/performance-tuner): Find
-  performance issues related to quality settings, scenes, load times, and
-  device models in your game.
+- [Android Performance Tuner (APT)](https://developer.android.com/games/sdk/performance-tuner): Find performance issues related to
+  quality settings, scenes, load times, and device models in your game.
 
-- [Android Dynamic Performance Framework (ADPF)](https://developer.android.com/games/optimize/adpf):
-  Optimize games based on the dynamic thermal, CPU, and GPU management features
-  of each device.
+- [Android Dynamic Performance Framework (ADPF)](https://developer.android.com/games/optimize/adpf): Optimize games based on
+  the dynamic thermal, CPU, and GPU management features of each device.
 
-- [Memory Advice API](https://developer.android.com/games/sdk/memory-advice/overview): Provide memory use
-  estimates and threshold notifications to your game so it can stay at optimal
-  levels that avoid LMKs.
+- [Memory Advice API](https://developer.android.com/games/sdk/memory-advice/overview): Provide memory use estimates and threshold
+  notifications to your game so it can stay at optimal levels that avoid LMKs.
 
-- [Game Mode API](https://developer.android.com/games/optimize/adpf/gamemode/gamemode-api): Optimize
-  gameplay by prioritizing characteristics, such as performance or battery life
-  based on user settings or game-specific configurations.
+- [Game Mode API](https://developer.android.com/games/optimize/adpf/gamemode/gamemode-api): Optimize gameplay by prioritizing characteristics, such
+  as performance or battery life based on user settings or game-specific
+  configurations.
 
-- [Perfetto](https://perfetto.dev/docs/): Collects system-wide
-  performance information and displays it in a web-based UI.
+- [Perfetto](https://perfetto.dev/docs/): Collects system-wide performance information and
+  displays it in a web-based UI.
 
-- [Systrace](https://developer.android.com/topic/performance/tracing): Records system activity and generates
-  reports that help identify performance issues.)
+- [Systrace](https://developer.android.com/topic/performance/tracing): Records system activity and generates reports that help
+  identify performance issues.
 
-- [CPU Profiler](https://developer.android.com/studio/profile): Inspect your app's CPU
-  usage and thread activity, either in real time or from recorded traces.
+- [CPU Profiler](https://developer.android.com/studio/profile): Inspect your app's CPU usage and thread activity, either
+  in real time or from recorded traces.
 
-- [`Meminfo` class](https://developer.android.com/reference/android/os/Debug.MemoryInfo): Records a
-  snapshot of your app's memory allocation. You can also use this feature through the
-  [`meminfo dumpsys`](https://developer.android.com/studio/command-line/dumpsys#meminfo) command.
+- [`Meminfo` class](https://developer.android.com/reference/android/os/Debug.MemoryInfo): Records a snapshot of your app's memory allocation. You
+  can also use this feature through the [`meminfo dumpsys`](https://developer.android.com/studio/command-line/dumpsys#meminfo) command.
 
 - [Bug report](https://developer.android.com/studio/debug/bug-report): View device logs, stack traces, and
   other diagnostic information to help you find and fix bugs in your app.
+
+- [R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization): Shrink, optimize, and obfuscate your app's Java- and Kotlin-based
+  code and resources to reduce DEX size, improve startup performance, and
+  minimize runtime memory overhead.
+
+- [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer): Inspect and optimize your R8 keep rules to
+  identify overly broad configurations from your app or third-party libraries,
+  improving code shrinking, obfuscation, and DEX size for your game's Java- and
+  Kotlin-based dependencies.
+
+- [Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview): Improve startup times and reduce launch-phase jank
+  by providing ART with ahead-of-time (AOT) compilation specifications for your
+  game's Java- and Kotlin-based code paths, such as launcher activities and SDK
+  initialization.
+
+- [Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview): Measure and test high-level app performance, such as
+  cold startup timing and post-startup operations, in automated test
+  environments or CI, and generate Baseline Profiles for your game.

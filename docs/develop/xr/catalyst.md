@@ -8,9 +8,7 @@ source: md.txt
 Android XR Developer Catalyst Program
 
 **Build the next generation of extended reality experiences for Android XR.**   
-The Android XR Developer Catalyst Program is designed to empower developers like you. Whether you're an established studio or an independent developer, the program provides the resources, hardware, and funding needed to build and scale innovative experiences across wired XR glasses, like XREAL's Project Aura, and intelligent eyewear (audio and display glasses). [Express interest arrow_forward](https://docs.google.com/forms/d/e/1FAIpQLSeICgWtvb5xbCR3D11YIEIPE-_axURKsS6MEbN8QmvfiPzMkw/viewform)
-
-Applications are now closed.
+The Android XR Developer Catalyst Program is designed to empower developers like you. Whether you're an established studio or an independent developer, the program provides the resources, hardware, and funding needed to build and scale innovative experiences across wired XR glasses, like XREAL's Project Aura, and intelligent eyewear (audio and display glasses). Applications are now closed.
 ![](http://developer.android.com/static/images/picto-icons/android-backstage.svg)
 
 ## Program overview
@@ -96,8 +94,4 @@ To get started with technical guides, API documentation, and design best practic
 
 ### What regions are eligible to receive development kits from XREAL?
 
-At this time, development kits can only be shipped to developers located in the United States, Canada, Japan, the United Kingdom, and the European Union. Please ensure your shipping address falls within one of these supported regions before submitting your application. ![](http://developer.android.com/static/images/develop/xr/catalyst/xr-icon.svg)
-
-## Ready to build for Android XR?
-
-[Express your interest](https://docs.google.com/forms/d/e/1FAIpQLSeICgWtvb5xbCR3D11YIEIPE-_axURKsS6MEbN8QmvfiPzMkw/viewform)
+At this time, development kits can only be shipped to developers located in the United States, Canada, Japan, the United Kingdom, and the European Union. Please ensure your shipping address falls within one of these supported regions before submitting your application.

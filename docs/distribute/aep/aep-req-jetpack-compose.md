@@ -46,17 +46,17 @@ must meet these benchmarks:
 | ID | Category | Exemption |
 |---|---|---|
 | AEP-JC-EAA | Performance | Achieve [time to initial display](https://developer.android.com/topic/performance/vitals/launch-time#time-initial) under 400 ms using pre-compilation or equivalent optimizations. |
-| AEP-JC-EAB | Performance | Render UI at the device's native refresh rate without frame drops. |
-| AEP-JC-EAC | Standard Android UI paradigms | Provide [touch-feedback animations](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/handling-interactions) for all element interactions. |
-| AEP-JC-EAD | Standard Android UI paradigms | Support edge-to-edge design by drawing behind system bars and handling window insets. |
-| AEP-JC-EAE | Standard Android UI paradigms | Support [overscroll](https://developer.android.com/reference/kotlin/androidx/compose/foundation/OverscrollEffect) stretch effects at scroll boundaries. |
-| AEP-JC-EAF | Standard Android UI paradigms | Respond automatically to system light and dark theme toggles without app restarts. |
-| AEP-JC-EAG | Standard Android UI paradigms | Apply device-level palette APIs to adjust UI tokens dynamically using Material Design support. |
-| AEP-JC-EAH | Supports assistive features | Integrate with the Android Accessibility Framework, including screen reader and TalkBack support. |
-| AEP-JC-EAI | Supports assistive features | Support the Android Autofill framework for streamlined user data entry. |
-| AEP-JC-EAJ | Supports assistive features | Integrate with system intelligence services for real-time app activity capture. |
-| AEP-JC-EAK | Multi-Window, folding, and adaptability | Scale UI boundaries mid-session across window size classes without container restarts. |
-| AEP-JC-EAL | Multi-Window, folding, and adaptability | Preserve active session states, such as video playback or form input, during mid-session folding or resizing. |
+| AEP-JC-EAA | Performance | Render UI at the device's native refresh rate without frame drops. |
+| AEP-JC-EAA | Standard Android UI paradigms | Provide [touch-feedback animations](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/handling-interactions) for all element interactions. |
+| AEP-JC-EAA | Standard Android UI paradigms | Support edge-to-edge design by drawing behind system bars and handling window insets. |
+| AEP-JC-EAA | Standard Android UI paradigms | Support [overscroll](https://developer.android.com/reference/kotlin/androidx/compose/foundation/OverscrollEffect) stretch effects at scroll boundaries. |
+| AEP-JC-EAA | Standard Android UI paradigms | Respond automatically to system light and dark theme toggles without app restarts. |
+| AEP-JC-EAA | Standard Android UI paradigms | Apply device-level palette APIs to adjust UI tokens dynamically using Material Design support. |
+| AEP-JC-EAA | Supports assistive features | Integrate with the Android Accessibility Framework, including screen reader and TalkBack support. |
+| AEP-JC-EAA | Supports assistive features | Support the Android Autofill framework for streamlined user data entry. |
+| AEP-JC-EAA | Supports assistive features | Integrate with system intelligence services for real-time app activity capture. |
+| AEP-JC-EAA | Multi-Window, folding, and adaptability | Scale UI boundaries mid-session across window size classes without container restarts. |
+| AEP-JC-EAA | Multi-Window, folding, and adaptability | Preserve active session states, such as video playback or form input, during mid-session folding or resizing. |
 
 ## Feature documentation and resources
 

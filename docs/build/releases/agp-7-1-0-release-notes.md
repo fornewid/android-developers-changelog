@@ -141,10 +141,10 @@ communicate the headers and libraries between Gradle modules.
           }
         }
 
-For further explanation of how to configure native AAR consumers and
+For further explanation of how to configure C/C++ AAR consumers and
 producers with AGP, see
 [Native
-dependencies with AGP](https://developer.android.com/studio/build/dependencies?&agpversion=4.1&buildsystem=ndk-build#native-dependencies-with-agp).
+dependencies with AGP](https://developer.android.com/build/native-dependencies?agpversion=4.1&buildsystem=ndk-build).
 
 ## Repository settings in `settings.gradle` file
 
@@ -225,7 +225,7 @@ plugin 8.0.0.
 
 ## Build variant publishing
 
-Android Gradle plugin 7.1.0 and higher allows you to configure which build
+Android Gradle plugin 7.1.0 and higher lets you configure which build
 variants to publish to an Apache Maven repository. AGP creates a component
 with a single or multiple build variants based on the new publishing DSL, which
 you can use to customize a publication to a Maven repository. Compared to
@@ -234,7 +234,7 @@ created by default. To learn more, see the [publishing code sample](https://andr
 
 ## Publish Javadoc JAR
 
-AGP 7.1.0 and higher allows you to generate Javadoc from Java and Kotlin
+AGP 7.1.0 and higher lets you generate Javadoc from Java and Kotlin
 sources and publish Javadoc JAR files in addition to AARs for library
 projects. The Javadoc is added to the POM and
 [Gradle Module Metadata](https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html){:.external}
@@ -245,7 +245,7 @@ To learn more, see the
 
 ## Publish sources JAR
 
-AGP 7.1.0 and higher allows you to publish Java and Kotlin source JAR
+AGP 7.1.0 and higher lets you publish Java and Kotlin source JAR
 files in addition to AARs for library projects. The sources are added to the
 POM and
 [Gradle Module Metadata](https://docs.gradle.org/current/userguide/publishing_gradle_module_metadata.html){:.external} files. You can enable this
@@ -278,7 +278,7 @@ with versions 2.5.0-alpha01 and 2.4.1. In the meantime, as a workaround,
 you can use AGP 7.1 with a snapshot build of Navigation Safe Args,
 Navigation 2.5.0-SNAPSHOT. To use the snapshot build, follow the
 [snapshot instructions](https://androidx.dev/)
-with build id #8054565.
+with build ID #8054565.
 
 In addition, Navigation Safe Args versions 2.4.1 and 2.5.0 will no longer
 work with AGP 4.2; to use those versions of Safe Args, you must use AGP 7.0
@@ -287,7 +287,7 @@ and higher.
 ## Disable automatic component creation
 
 Starting AGP 8.0, automatic component creation will be disabled by default.
-Currently, AGP 7.1 automatically creates a component for each build variant,
+AGP 7.1 automatically creates a component for each build variant,
 which has the same name as the build variant, and an an `all`
 component that contains all the build variants. This automatic component
 creation will be disabled. To transition to the new behavior, you should
@@ -300,7 +300,7 @@ For more information, see
 
 AGP 7.1 is incompatible with the Firebase Performance Monitoring Gradle
 plugin version 1.4.0 and lower. The AGP Upgrade Assistant will not automatically
-update the plugin to version 1.4.1, so if you are using `firebase-perf` and wish
+update the plugin to version 1.4.1, so if you are using `firebase-perf` and want
 to upgrade AGP to 7.1, you need to do this particular upgrade manually.
 
 ## Known issues
