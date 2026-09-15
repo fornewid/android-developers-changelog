@@ -1,0 +1,84 @@
+diff --git a/docs/training/cars/parked/games.md b/docs/training/cars/parked/games.md
+index 9dd6dd2a..3082678d 100644
+--- a/docs/training/cars/parked/games.md
++++ b/docs/training/cars/parked/games.md
+@@ -4,8 +4,6 @@ url: https://developer.android.com/training/cars/parked/games
+ source: md.txt
+ ---
+ 
+-The Games category is in beta At this time, anyone can publish games to internal testing and closed testing tracks on the Play Store. Publishing to open testing and production tracks will be permitted at a later date. [Nominate yourself to be an early access partner →](https://forms.gle/VsXEdDEBidxw8q8u8) ![](https://developer.android.com/static/images/picto-icons/test-tube-2.svg)
+-
+ Games offer a unique opportunity to engage users in a fun and interactive way
+ while their car is parked. By bringing your game to cars, you can reach a new
+ audience and provide entertainment during downtime.
+@@ -35,6 +33,34 @@ To indicate that your app is a game, you must add the
+         </application>
+     </manifest>
+ 
++## Support common display aspect ratios
++
++For the best user experience, make your game [fully adaptive](https://developer.android.com/develop/ui/compose/build-adaptive-apps) to
++different screen sizes so that it runs in full screen without letterboxing or
++pillarboxing. Refer to the
++[car app quality guidelines for games](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=game) for a list of
++criteria your game must meet. Target the following common aspect ratios for
++each platform and
++orientation:
++
++### Android Auto
++
++- Landscape: 16:9 anchor aspect ratio
++- Portrait: 9:16 aspect ratio
++
++See [Test against canonical screen sizes](https://developer.android.com/training/cars/parked/auto#test-screen-sizes) for more
++information on testing with Desktop Head Unit configurations for common screen
++sizes.
++
++### Android Automotive OS
++
++- Landscape: 4:3 anchor aspect ratio
++- Portrait: 10:16 aspect ratio
++
++See [Use bundled hardware profiles](https://developer.android.com/training/cars/testing/emulator#bundled-profiles) for more information
++on testing with the Android Automotive OS emulator using hardware profiles for
++common screen sizes and aspect ratios.
++
+ ## Declare support for game controllers (optional)
+ 
+ If your app [supports controller input](https://developer.android.com/develop/ui/views/touch-and-input/game-controllers), include the following
+@@ -48,4 +74,32 @@ feature, as OEMs can use this information to improve the user experience:
+     </manifest>
+ 
+ > [!CAUTION]
+-> **Caution:** Be careful not to set the [`android:required`](https://developer.android.com/guide/topics/manifest/uses-feature-element#required) attribute to `true`, as not all devices have this feature present even if they can pair with a controller.
+\ No newline at end of file
++> **Caution:** Be careful not to set the [`android:required`](https://developer.android.com/guide/topics/manifest/uses-feature-element#required) attribute to `true`, as not all devices have this feature present even if they can pair with a controller.
++
++## Minimum hardware specifications
++
++### Android Automotive OS
++
++To learn more about the minimum hardware specifications for Android Automotive
++OS devices, see the *Automotive Requirements* section of the
++[Android Compatibility Definition Document (CDD)](https://source.android.com/docs/compatibility/cdd) for the Android
++versions your app supports.
++
++### Android Auto
++
++Apps that support Android Auto run on the user's Android phone. Learn more about
++supported Android phones and versions in the
++[Get started with Android Auto](https://support.google.com/androidauto/answer/6348019?ref_topic=6106969#zippy=%2Candroid-auto-on-your-car-display-with-a-usb-cable%2Candroid-auto-on-your-car-display-wireless) section of the Android
++Auto Help Center. Apps in parked app categories, like the Games category, are
++supported on mobile devices running Android 15 (API level 35) and higher.
++
++## Resources for building Android games
++
++The [Android Games Dev Center](https://developer.android.com/games) has many other resources to help
++you build high-quality games with great performance.
++
++- [Get started with Android games](https://developer.android.com/games/guides)
++- [About Android game development tools](https://developer.android.com/games/develop/overview)
++- [Make your game compatible with all form factors](https://developer.android.com/games/develop/multiplatform/make-your-game-compatible-with-all-form-factors)
++- [Analyze and optimize game performance](https://developer.android.com/games/optimize/gameperformance)
++- [Google Play Games Services overview](https://developer.android.com/games/pgs/overview)
+\ No newline at end of file

@@ -1,0 +1,33 @@
+diff --git a/docs/docs/quality-guidelines/car-app-quality.md b/docs/docs/quality-guidelines/car-app-quality.md
+index 792fbb4e..dc48d634 100644
+--- a/docs/docs/quality-guidelines/car-app-quality.md
++++ b/docs/docs/quality-guidelines/car-app-quality.md
+@@ -15,7 +15,7 @@ for details on which guidelines your app must meet in order to be accepted on
+ the Google Play Store.
+ 
+ > [!NOTE]
+-> **August 2026 update:** We've added criteria for providing screenshots for Android Automotive OS apps. See [August 2026 for details](https://developer.android.com/docs/quality-guidelines/car-app-quality#aug-26).
++> **September 2026 update:** The Games app category is now generally available. See [September 2026](https://developer.android.com/docs/quality-guidelines/car-app-quality#sep-26) for details.
+ 
+ ## Test your app
+ 
+@@ -49,7 +49,7 @@ Android Auto
+ | Internet of Things (IOT) | ✔ | ✔ |
+ | Weather | ✔ | ✔ |
+ | Video |   | ✔ |
+-| Games labs | ✔ | ✔ |
++| Games | ✔ | ✔ |
+ | Browsers labs |   | ✔ |
+ 
+ ## Car quality tiers
+@@ -252,6 +252,10 @@ creating a separate release from the updates to your car app.
+ 
+ ## Change notes
+ 
++### September 2026
++
++- The Games parked app category has graduated from beta to general availability. Developers can now publish games to all track types on Google Play. See [Supported app categories](https://developer.android.com/training/cars#supported-app-categories) for more information.
++
+ ### August 2026
+ 
+ - Expected Performance

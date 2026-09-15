@@ -1,0 +1,13 @@
+diff --git a/docs/media/ai-enhancement/surface-mode-lifecycle.md b/docs/media/ai-enhancement/surface-mode-lifecycle.md
+index 2c412e48..daa3cf4f 100644
+--- a/docs/media/ai-enhancement/surface-mode-lifecycle.md
++++ b/docs/media/ai-enhancement/surface-mode-lifecycle.md
+@@ -82,7 +82,7 @@ validating capabilities before your app attempts to process media.
+                     val isInstalled = enhancementClient.isModuleInstalledAsync()
+                     if (!isInstalled) {
+                         notifyUiDownloadingModels()
+-                        enhancementClient.installModule().await() 
++                        enhancementClient.installModule().await()
+                     }
+                     notifyUiEngineReady()
+                 } catch (e: Exception) {

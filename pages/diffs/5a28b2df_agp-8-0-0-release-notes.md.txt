@@ -1,0 +1,101 @@
+diff --git a/docs/build/releases/agp-8-0-0-release-notes.md b/docs/build/releases/agp-8-0-0-release-notes.md
+index fab561cf..5f1039af 100644
+--- a/docs/build/releases/agp-8-0-0-release-notes.md
++++ b/docs/build/releases/agp-8-0-0-release-notes.md
+@@ -63,16 +63,14 @@ This minor update includes the following bug fixes:
+ 
+ You must set the namespace in the module-level `build.gradle.kts` file, rather
+ than the manifest file. You can start using the `namespace` DSL property
+-starting with AGP 7.3. To learn more, see
+-[Set a namespace](https://developer.android.com/studio/build/configure-app-module#set-namespace).
++starting with AGP 7.3. To learn more, see [Set a namespace](https://developer.android.com/studio/build/configure-app-module#set-namespace).
+ 
+ When migrating to the namespace DSL, be aware of the following issues:
+ 
+ - Previous versions of AGP infer the test namespace from the main namespace, or application ID, incorrectly in some cases. The AGP Upgrade Assistant blocks the upgrade if it finds that your project's main namespace and test namespace are the same. If the upgrade is blocked, you need to manually change `testNamespace` and modify your source code accordingly.
+ - After you change the test namespace, it's possible that your code compiles but your instrumented tests fail at runtime. This can happen if your instrumented test source code references a resource defined in both your `androidTest` and app sources.
+ 
+-For more information, see
+-[issue #191813691 comment #19](https://issuetracker.google.com/issues/191813691#comment19).
++For more information, see [issue #191813691 comment #19](https://issuetracker.google.com/issues/191813691#comment19).
+ 
+ ## Breaking changes: build option default values
+ 
+@@ -114,21 +112,17 @@ prints warnings.
+ ## New stable flag for execution profile
+ 
+ AGP includes the new flag `android.settings.executionProfile`. Use this flag to
+-override the default execution profile from the
+-[`SettingsExtension`](https://developer.android.com/reference/tools/gradle-api/8.0/com/android/build/api/dsl/SettingsExtension).
+-To learn more, see the [settings plugin documentation](https://developer.android.com/build/releases/agp-8-0-0-release-notes#settings-plugin).
++override the default execution profile from the [`SettingsExtension`](https://developer.android.com/reference/tools/gradle-api/8.0/com/android/build/api/dsl/SettingsExtension). To
++learn more, see the [settings plugin documentation](https://developer.android.com/build/releases/agp-8-0-0-release-notes#settings-plugin).
+ 
+-To preview experimental flags, see the
+-[preview release notes](https://developer.android.com/studio/preview/features#experimental-build-flags).
++To preview experimental flags, see the [preview release notes](https://developer.android.com/studio/preview/features#experimental-build-flags).
+ 
+ ## Kotlin lazy property assignment not supported
+ 
+ If you're using Gradle's Kotlin DSL for your build scripts, note that Android
+ Studio and AGP 8.0 don't support the experimental property assignment using the
+ `=` operator. For more information about this feature, see the
+-[release notes](https://docs.gradle.org/8.1-rc-1/release-notes.html#kotlin-dsl-improvements)
+-and
+-[documentation](https://docs.gradle.org/8.1-rc-1/userguide/kotlin_dsl.html#kotdsl:assignment).
++[release notes](https://docs.gradle.org/8.1-rc-1/release-notes.html#kotlin-dsl-improvements) and [documentation](https://docs.gradle.org/8.1-rc-1/userguide/kotlin_dsl.html#kotdsl:assignment).
+ 
+ ## Build Analyzer task categories
+ 
+@@ -136,8 +130,8 @@ Starting with Android Studio Flamingo, Build Analyzer has a new default view for
+ tasks that impact build duration. If your project uses AGP 8.0 or higher,
+ instead of displaying tasks individually, Build Analyzer groups them by
+ category. For example, tasks specific to Android Resources, Kotlin, or Dexing
+-are grouped together and then sorted by build duration. This makes it easy to
+-know what category has the most impact on build time. Expanding each category
++are grouped together and then sorted by build duration. This helps you identify
++what category has the most impact on build time. Expanding each category
+ displays a list of the corresponding tasks. To display tasks individually,
+ without grouping, use the **Group by** drop-down.
+ 
+@@ -176,8 +170,7 @@ The settings plugin also lets you create execution profiles for some tools. An
+ execution profile determines how a tool is run; you can select different
+ execution profiles depending on the environment. In an execution profile, you
+ can set JVM arguments for a tool and configure it to run in a separate process.
+-Currently, only the
+-[R8 tool](https://developer.android.com/studio/build/shrink-code) is supported.
++Only the [R8 tool](https://developer.android.com/studio/build/shrink-code) is supported.
+ 
+ Create execution profiles and set the default execution profile in the
+ `settings.gradle` file, as shown in the following example:
+@@ -217,7 +210,7 @@ you can use the command line to change the execution profile without having to
+ change the `settings.gradle` file:
+ 
+     ./gradlew assembleRelease \
+-      -Pandroid.experimental.settings.executionProfile=ci
++    -Pandroid.experimental.settings.executionProfile=ci
+ 
+ ## JDK 17 required to run AGP 8.0
+ 
+@@ -226,15 +219,13 @@ to run Gradle. Android Studio Flamingo bundles JDK 17 and configures Gradle to
+ use it by default, which means that most Android Studio users don't need to make
+ any configuration changes to their projects.
+ 
+-If you need to manually [set the JDK version](https://developer.android.com/studio/intro/studio-config#jdk)
+-used by AGP inside of Android Studio, you need to use JDK 17 or higher.
++If you need to manually [set the JDK version](https://developer.android.com/studio/intro/studio-config#jdk) used by AGP inside of Android
++Studio, you need to use JDK 17 or higher.
+ 
+-When using AGP independent of Android Studio, upgrade the JDK version by
+-setting the `JAVA_HOME`
+-[environment variable](https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_environment_variables)
+-or the `-Dorg.gradle.java.home`
+-[command-line option](https://docs.gradle.org/current/userguide/command_line_interface.html#environment_options)
+-to your installation directory of JDK 17.
++When using AGP independent of Android Studio, upgrade the JDK version by setting
++the `JAVA_HOME` [environment variable](https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_environment_variables) or the
++`-Dorg.gradle.java.home` [command-line option](https://docs.gradle.org/current/userguide/command_line_interface.html#environment_options) to your
++installation directory of JDK 17.
+ 
+ ## Fixed issues
+ 

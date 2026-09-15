@@ -1,0 +1,39 @@
+diff --git a/docs/blog/latest/6.md b/docs/blog/latest/6.md
+index 6bc668f1..d1c9b348 100644
+--- a/docs/blog/latest/6.md
++++ b/docs/blog/latest/6.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Phalene Gowling's profile](https://developer.android.com/static/blog/assets/Phalene_Gowling_0adca8708d_1v9m34.webp)](https://developer.android.com/blog/authors/phalene-gowling) 29 Jan 2026 29 Jan 2026 ![](https://developer.android.com/static/blog/assets/260127_Header_f185aadec0_bMXGR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Accelerating your insights with faster, smarter monetization data and recommendations](https://developer.android.com/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations)
++
++  [arrow_forward](https://developer.android.com/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations) Today, we're announcing a suite of upgrades to the Google Play Console and beyond, giving you greater visibility into your financial performance and specific, data-backed steps to improve it.
++  [Phalene Gowling](https://developer.android.com/blog/authors/phalene-gowling) • 2 min read
+ - 4 Authors 28 Jan 2026 28 Jan 2026 ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api)
+@@ -126,12 +132,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show) Today, during The Android Show \| XR Edition, we shared a look at the expanding Android XR platform, which is fundamentally evolving to bring a unified developer experience to the entire XR ecosystem.
+   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 2 min read
+-- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) [Community](https://developer.android.com/blog/categories/community)
+-
+-  ## [#WeArePlay: How Miksapix Interactive is bringing ancient Sámi Mythology to gamers worldwide](https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide) In our latest #WeArePlay film, which celebrates the people behind apps and games on Google Play, we meet Mikkel - the founder and CEO of Miksapix Interactive.
+-  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+ [arrow_back](https://developer.android.com/blog/latest/5)
+ 
+ #### Page 6
+@@ -206,6 +206,8 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
+ - [#Security](https://developer.android.com/blog/topics/security)
+ - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
++- [#Wireless Debugging](https://developer.android.com/blog/topics/wireless-debugging)
++- [#ADB Wi-Fi 2.0](https://developer.android.com/blog/topics/adb-wi-fi-2-0)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Large Screens](https://developer.android.com/blog/topics/large-screens)

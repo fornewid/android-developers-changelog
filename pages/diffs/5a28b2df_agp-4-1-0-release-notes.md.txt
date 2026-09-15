@@ -1,0 +1,53 @@
+diff --git a/docs/build/releases/agp-4-1-0-release-notes.md b/docs/build/releases/agp-4-1-0-release-notes.md
+index e3405bd0..af250c61 100644
+--- a/docs/build/releases/agp-4-1-0-release-notes.md
++++ b/docs/build/releases/agp-4-1-0-release-notes.md
+@@ -74,10 +74,10 @@ plugin Kotlin APIs and DSL, please [report a bug](https://issuetracker.google.co
+ Android Gradle plugin 4.0 added the ability to
+ [import Prefab
+ packages in AAR dependencies](https://developer.android.com/studio/releases/gradle-plugin#native-dependencies). In AGP 4.1,
+-it's now possible to export libraries from your external native build in an
++it's now possible to export libraries from your external C/C++ build in an
+ AAR for an Android Library project.
+ 
+-To export your native libraries, add the following to the `android` block of
++To export your C/C++ libraries, add the following to the `android` block of
+ your library project's `build.gradle` file:
+ 
+ ```groovy
+@@ -113,14 +113,14 @@ prefab {
+ ```
+ 
+ In this example, the `mylibrary` and `myotherlibrary`
+-libraries from either your ndk-build or CMake external native build will
++libraries from either your ndk-build or CMake external C/C++ build will
+ be packaged in the AAR produced by your build, and each will export the
+ headers from the specified directory to their dependents.
+ 
+ **Note:** For users of Android Gradle plugin 4.0 and
+-above, the configuration settings for importing prebuilt native libraries
++higher, the configuration settings for importing prebuilt C/C++ libraries
+ have changed. For more information, see the
+-[4.0 release notes](https://developer.android.com/build/releases/agp-4-1-0-release-notes#cmake-imported-targets).
++[4.0 release notes](https://developer.android.com/build/releases/agp-4-0-0-release-notes).
+ 
+ <br />
+ 
+@@ -171,7 +171,7 @@ not impact build time.
+ 
+ The `cleanBuildCache` task and the `android.enableBuildCache` and
+ `android.buildCacheDir` properties are deprecated and will be removed in
+-AGP 7.0. The `android.enableBuildCache` property currently has no effect,
++AGP 7.0. The `android.enableBuildCache` property has no effect,
+ while the `android.buildCacheDir` property and the `cleanBuildCache` task
+ will be functional until AGP 7.0 for deleting any existing AGP build cache
+ contents.
+@@ -212,7 +212,7 @@ misleading. Additionally, these values were discarded during manifest merging.
+ 
+ In a future version of Android Gradle plugin, the `versionName` and
+ `versionCode` properties will also be removed from the DSL for libraries.
+-Currently, there is no way to automatically access the app version code/name
++There is no way to automatically access the app version code/name
+ from a library sub-project.
+ 
+ For application modules, there is no change, you can still assign values to

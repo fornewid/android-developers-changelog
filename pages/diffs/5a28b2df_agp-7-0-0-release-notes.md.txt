@@ -1,0 +1,54 @@
+diff --git a/docs/build/releases/agp-7-0-0-release-notes.md b/docs/build/releases/agp-7-0-0-release-notes.md
+index 5de0ffc3..1b9259b5 100644
+--- a/docs/build/releases/agp-7-0-0-release-notes.md
++++ b/docs/build/releases/agp-7-0-0-release-notes.md
+@@ -73,7 +73,7 @@ plugin 7.0.0.
+ Running lint with `checkDependencies = true` is now faster
+ than before. For Android projects consisting of an app with library
+ dependencies, it is recommended to set `checkDependencies` to
+-`true` as shown below, and to run lint via
++`true` as shown in the following example, and to run lint using
+ `./gradlew :app:lint`, which will analyze all dependency
+ modules in parallel and produce a single report including issues from the
+ app and all of its dependencies.
+@@ -158,7 +158,7 @@ rule to your `proguard-rules.pro` file. For example:
+     -dontwarn java.lang.instrument.ClassFileTransformer
+ 
+ For convenience, AGP will generate a file that contains all potentially
+-missing rules, writing them to a file path such as the following:
++missing rules, writing them to a path such as the following:
+ `app/build/outputs/mapping/release/missing_rules.txt`. Add the
+ rules to your `proguard-rules.pro` file to ignore warnings.
+ 
+@@ -187,8 +187,8 @@ You can now compile up to Java 11 source code in your app's project, enabling
+ you to use newer language features like private interface methods, the diamond
+ operator for anonymous classes, and local variable syntax for lambda parameters.
+ 
+-To enable this feature, set `compileOptions` to the desired
+-Java version and set `compileSdkVersion` to 30 or above:
++To enable this feature, set `compileOptions` to your chosen
++Java version and set `compileSdkVersion` to 30 or higher:
+ 
+     // build.gradle
+     android {
+@@ -244,15 +244,15 @@ configurations internally, some artifacts may be removed from your compile
+ classpath. If you depend on an AGP dependency at compile-time, be sure to
+ add it as an explicit dependency.
+ 
+-## Addition of native libraries in a Java resources
++## Addition of JNI libraries in a Java resources
+ folder is not supported
+ 
+-Previously, you could add a native library in a Java resources folder, and
++Previously, you could add a JNI library in a Java resources folder, and
+ register the folder using `android.sourceSets.main.resources.srcDirs
+-`so that the native library would be extracted and added to the final
+-APK. Starting with AGP 7.0, this is not supported and native libraries in a
++`so that the JNI library would be extracted and added to the final
++APK. Starting with AGP 7.0, this is not supported and JNI libraries in a
+ Java resources folder are ignored. Instead, use the DSL method intended for
+-native libraries, `android.sourceSets.main.jniLibs.srcDirs`. For
++JNI libraries, `android.sourceSets.main.jniLibs.srcDirs`. For
+ more information, see
+ [how to configure
+ source sets](https://developer.android.com/studio/build/build-variants#configure-sourcesets).

@@ -1,0 +1,56 @@
+diff --git a/docs/guide/practices/page-sizes.md b/docs/guide/practices/page-sizes.md
+index df19fcc6..333e18ee 100644
+--- a/docs/guide/practices/page-sizes.md
++++ b/docs/guide/practices/page-sizes.md
+@@ -216,9 +216,10 @@ Run the following command on each shared object file (Linux or macOS):
+ 
+ The `GNU_RELRO` string is printed if there's a RELRO segment.
+ 
+-Next, check the RELRO segment alignment by summing its virtual offset address (VirtAddr) with
+-the segment memory size (MemSiz) and dividing by 16 KB (0x4000). If the
+-remainder (modulo) is zero, then the RELRO segment is 16 KB aligned.
++Next, check the RELRO segment alignment by summing its virtual offset address
++(VirtAddr) with the segment memory size (MemSiz) and dividing by 16 KB
++(0x4000). If the remainder (modulo) is zero, then the RELRO segment is
++16 KB aligned.
+ 
+ Here's a an example for a non-aligned `.so` file:
+ 
+@@ -229,18 +230,25 @@ Here's a an example for a non-aligned `.so` file:
+ 
+ **Result**: (0xdfaf0 + 0x01510) % 0x4000 = 0xE1000 % 0x4000 == 0x1000
+ 
+-Since 0x1000 is not zero, the libbad.so isn't 16 KB compliant. The RELRO
++Since 0x1000 is not zero, this `.so` file isn't 16 KB compliant. The RELRO
+ protection range from DC000 (the previous page break) to E4000 is read-only,
+ but [Android Linker](https://developer.android.com/ndk/reference/group/libdl) expects the sub-range from E1000 to E4000 to be
+-writable, resulting in a segmentation fault. In this case, rebuild the .so
++writable, resulting in a segmentation fault. In this case, rebuild the `.so`
+ file as described in the
+ [Compile your app using 16 KB ELF alignment](https://developer.android.com/guide/practices/page-sizes#compile-16-kb-alignment) section.
+ 
+-Here is an example of an aligned .so file, with a RELRO segment:
++Here is an example of an aligned `.so` file, with a RELRO segment:
+ 
+     Type           Offset   VirtAddr           PhysAddr           FileSiz MemSiz  Flg Align
+     GNU_RELRO      0x0cfaf0 0x00000000000dfaf0 0x00000000000dfaf0 0x01510 0x00510 R   0x1  
+ 
++Here is a an example of an .so file without a RELRO segment:
++
++    Type           Offset   VirtAddr           PhysAddr           FileSiz MemSiz  Flg Align
++
++This is a trivially 16 KB compliant `.so` file without having any RELRO
++segment.
++
+ ## Build your app with support for 16 KB devices
+ 
+ If your app uses native code, then complete the steps that are outlined in the
+@@ -267,7 +275,7 @@ To see the alignment of your bundle, use:
+ 
+ If you see `PAGE_ALIGNMENT_16K` then you know your bundle requests 16 KB
+ zip alignment. If you see `PAGE_ALIGNMENT_4K`, this instructs the APK built from
+-this AAB to have 4 KB aligned .so files in the zip file.
++this AAB to have 4 KB aligned `.so` files in the zip file.
+ 
+ #### AGP version 8.5.1 or higher
+ 

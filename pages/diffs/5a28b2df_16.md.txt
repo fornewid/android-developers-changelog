@@ -1,0 +1,36 @@
+diff --git a/docs/blog/categories/product-news/16.md b/docs/blog/categories/product-news/16.md
+index 32c50b5e..c6cf118f 100644
+--- a/docs/blog/categories/product-news/16.md
++++ b/docs/blog/categories/product-news/16.md
+@@ -9,6 +9,12 @@ source: md.txt
+ # Product News
+ 
+ Stay in the loop with the latest updates, feature releases, and behind-the-scenes looks at how we're evolving.
++- [![View Dom Elliott's profile](https://developer.android.com/static/blog/assets/dom_elliot_d78b0628db_flDQk.webp)](https://developer.android.com/blog/authors/dom-elliott)[![View Eric Lynch's profile](https://developer.android.com/static/blog/assets/Eric_Lynch_bb0a252f52_Z1St4R.webp)](https://developer.android.com/blog/authors/eric-lynch) 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/SS_Alt_Playbrand_Integrity_API_21cd2391d2_Z1L3CHW.webp)
++
++  ## [Stronger threat detection, simpler integration: Protect your growth with the Play Integrity API](https://developer.android.com/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api)
++
++  [arrow_forward](https://developer.android.com/blog/posts/stronger-threat-detection-simpler-integration-protect-your-growth-with-the-play-integrity-api) In the mobile ecosystem, abuse can threaten your revenue, growth, and user trust. To help developers thrive, Google Play offers a resilient threat detection service, Play Integrity API.
++  [Dom Elliott](https://developer.android.com/blog/authors/dom-elliott), [Eric Lynch](https://developer.android.com/blog/authors/eric-lynch) • 5 min read
+ - [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](https://developer.android.com/blog/authors/don-turner) 19 Nov 2025 19 Nov 2025 ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z1dRNOI.webp)
+ 
+   ## [Jetpack Navigation 3 is stable](https://developer.android.com/blog/posts/jetpack-navigation-3-is-stable)
+@@ -41,17 +47,11 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta) A great user experience is built on a foundation of strong technical performance. We are committed to helping you create stable, responsive, and efficient apps that users love.
+   [Karan Jhavar](https://developer.android.com/blog/authors/karan-jhavar), [Dan Brown](https://developer.android.com/blog/authors/dan-brown), [Eric Brenner](https://developer.android.com/blog/authors/eric-brenner) • 3 min read
+-- [![View Brenda Shaw's profile](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Zriy5T.webp)](https://developer.android.com/blog/authors/brenda-shaw) 03 Nov 2025 03 Nov 2025 ![](https://developer.android.com/static/blog/assets/health_Connect1_49b5a00627_1xwJyg.webp)
+-
+-  ## [Health Connect Jetpack v1.1.0 is now available!](https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available) Health Connect is Android's on-device platform designed to simplify connectivity between health and fitness apps, allowing developers to build richer experiences with secure, centralized data.
+-  [Brenda Shaw](https://developer.android.com/blog/authors/brenda-shaw) • 2 min read
+ [arrow_back](https://developer.android.com/blog/categories/product-news/15)
+ 
+ #### Page 16
+ 
+-###### of 19
++###### of 20
+ 
+ [arrow_forward](https://developer.android.com/blog/categories/product-news/17) Stay in the loop
+ 

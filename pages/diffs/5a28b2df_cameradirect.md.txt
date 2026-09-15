@@ -1,0 +1,22 @@
+diff --git a/docs/media/camera/camera-deprecated/cameradirect.md b/docs/media/camera/camera-deprecated/cameradirect.md
+index f1e1767e..de203b09 100644
+--- a/docs/media/camera/camera-deprecated/cameradirect.md
++++ b/docs/media/camera/camera-deprecated/cameradirect.md
+@@ -30,7 +30,7 @@ recommended way to access the camera is to open `https://developer.android.com/r
+ that's launched from `https://developer.android.com/reference/android/app/Activity#onCreate(android.os.Bundle)`. This approach is a good idea
+ since it can take a while and might bog down the UI thread. In a more basic implementation,
+ opening the camera can be deferred to the `https://developer.android.com/reference/android/app/Activity#onResume()` method to facilitate code reuse and keep the flow of
+-control simple.
++control straightforward.
+ 
+ Calling `https://developer.android.com/reference/android/hardware/Camera#open()` throws an
+ exception if the camera is already in use by another application, so we wrap it
+@@ -149,7 +149,7 @@ image preview can be started, as shown in the next section.
+ ### Set and Start the Preview
+ 
+ A camera instance and its related preview must be created in a specific
+-order, with the camera object being first. In the snippet below, the
++order, with the camera object being first. In the following snippet, the
+ process of initializing the camera is encapsulated so that `https://developer.android.com/reference/android/hardware/Camera#startPreview()` is called by the
+ `setCamera()` method, whenever the user does something to change the
+ camera. The preview must also be restarted in the preview class `surfaceChanged()` callback method.

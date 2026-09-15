@@ -1,0 +1,41 @@
+diff --git a/docs/studio/test/coverage-report.md b/docs/studio/test/coverage-report.md
+index b649a7ee..a2f09711 100644
+--- a/docs/studio/test/coverage-report.md
++++ b/docs/studio/test/coverage-report.md
+@@ -91,19 +91,18 @@ a specific variant, run the corresponding tasks.
+ 
+ ## Generate unified code coverage reports
+ 
+-You can generate unified code coverage reports using the `createCoverageReport`
+-and `createAggregatedCoverageReport` Gradle tasks. You can use these tasks to
+-generate a single HTML report that consolidates coverage data from different
+-test types (unit and instrumentation), modules, and build variants.
+-This provides a comprehensive view of your project's code coverage in a
+-single dashboard.
++You can generate unified code coverage reports using the `testAllSuites`
++and `testAllSuitesWithDependencies` Gradle tasks. These tasks will generate a
++single HTML report that consolidates coverage data from different test types
++(unit and instrumentation), modules, and build variants. This provides a
++comprehensive view of your project's code coverage in a single dashboard.
+ 
+ > [!WARNING]
+ > **Experimental:** This is an experimental feature. To enable this feature, set `android.experimental.reportAggregationSupport=true` in your `gradle.properties` file.
+ 
+ ### Prerequisites
+ 
+-- Android Gradle Plugin 9.3.0-alpha09 or higher
++- Android Gradle Plugin 9.5.0-alpha05 or higher
+ - [Enable code coverage](https://developer.android.com/studio/test/coverage-report#enable-coverage)
+ 
+ To generate a unified report, run one of the following tasks from the command
+@@ -111,8 +110,8 @@ line:
+ 
+ | Coverage scope | Command | Description | Report location |
+ |---|---|---|---|
+-| Current module | `./gradlew :module-name:createCoverageReport` | Generates a unified coverage report for the current module, merging data from all test types. | `path-to-your-project/module-name/build/reports/code_coverage_html_report/` |
+-| Current module and dependencies | `./gradlew :module-name:createAggregatedCoverageReport` | Generates a unified coverage report for the current module and all its dependencies. This task is available for app modules and [library modules with publication enabled](https://developer.android.com/build/publish-library). | `path-to-your-project/module-name/build/reports/aggregated_code_coverage_html_report/` |
++| Current module | `./gradlew :module-name:testAllSuites` | Tests all test suites, and generates a unified coverage report for the current module, merging data from all test types. | `path-to-your-project/module-name/build/reports/code_coverage_html_report/` |
++| Current module and dependencies | `./gradlew :module-name:testAllSuitesWithDependencies` | Tests all test suites, and generates a unified coverage report for the current module and all its dependencies. This task is available for app modules and [library modules with publication enabled](https://developer.android.com/build/publish-library). | `path-to-your-project/module-name/build/reports/aggregated_code_coverage_html_report/` |
+ 
+ The generated HTML report landing page shows a high-level summary of all
+ modules. You can drill down from module to package, from package to class, and

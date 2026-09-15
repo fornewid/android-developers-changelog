@@ -1,0 +1,13 @@
+diff --git a/docs/media/ai-enhancement/bitmap-mode-lifecycle.md b/docs/media/ai-enhancement/bitmap-mode-lifecycle.md
+index cd98f883..42ae5c77 100644
+--- a/docs/media/ai-enhancement/bitmap-mode-lifecycle.md
++++ b/docs/media/ai-enhancement/bitmap-mode-lifecycle.md
+@@ -60,7 +60,7 @@ validating capabilities before your app attempts to process media.
+                     val isInstalled = enhancementClient.isModuleInstalledAsync()
+                     if (!isInstalled) {
+                         notifyUiDownloadingModels()
+-                        enhancementClient.installModule().await() 
++                        enhancementClient.installModule().await()
+                     }
+                     notifyUiEngineReady()
+                 } catch (e: Exception) {
