@@ -1,0 +1,334 @@
+diff --git a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/card-samples-source.md b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/card-samples-source.md
+index 3d7740e3..267634a1 100644
+--- a/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/card-samples-source.md
++++ b/docs/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/card-samples-source.md
+@@ -44,7 +44,10 @@ import androidx.xr.glimmer.Button
+ import androidx.xr.glimmer.Card
+ import androidx.xr.glimmer.GlimmerTheme
+ import androidx.xr.glimmer.Icon
++import androidx.xr.glimmer.ImageCard
++import androidx.xr.glimmer.LeadingImageCard
+ import androidx.xr.glimmer.Text
++import androidx.xr.glimmer.TrailingImageCard
+ import androidx.xr.glimmer.list.GlimmerLazyColumn
+ 
+ @Composable
+@@ -53,16 +56,21 @@ fun CardSampleUsage() {
+         item { CardSample() }
+         item { CardWithTrailingIconSample() }
+         item { CardWithTitleAndSubtitleAndLeadingIconSample() }
+-        item { CardWithTitleAndHeaderSample() }
+-        item { ActionCardWithTitleSample() }
+-        item { CardWithTitleAndLeadingIconAndHeader() }
+-        item { ActionCardWithTitleAndLeadingIconAndHeader() }
+         item { CardWithLongText() }
+         item { CardWithTitleAndSubtitleAndLeadingIconLongText() }
+-        item { CardWithTitleAndSubtitleAndLeadingIconAndTrailingIconLongText() }
++        item { ActionCardWithTitleSample() }
++        item { ActionCardWithTitleAndLeadingIcon() }
++        item { ImageCardSample() }
++        item { ImageCardWithTitleAndSubtitleAndLeadingIconSample() }
++        item { LeadingImageCardSample() }
++        item { TrailingImageCardSample() }
+     }
+ }
+ 
++// ---
++// Card samples
++// ---
++
+ @Sampled
+ @Composable
+ fun CardSample() {
+@@ -89,27 +97,6 @@ fun CardWithTitleAndSubtitleAndLeadingIconSample() {
+     }
+ }
+ 
+-@Sampled
+-@Composable
+-fun CardWithTitleAndHeaderSample() {
+-    Card(
+-        title = { Text("Title") },
+-        header = {
+-            Image(MyHeaderImage, "Localized description", contentScale = ContentScale.FillWidth)
+-        },
+-    ) {
+-        Text("This is a card with a title and header image")
+-    }
+-}
+-
+-@Sampled
+-@Composable
+-fun ActionCardWithTitleSample() {
+-    ActionCard(action = { Button(onClick = {}) { Text("Send") } }, title = { Text("Title") }) {
+-        Text("This is a card with a title and action")
+-    }
+-}
+-
+ @Sampled
+ @Composable
+ fun ClickableCardSample() {
+@@ -137,35 +124,58 @@ fun ClickableCardWithTitleAndSubtitleAndLeadingIconSample() {
+     }
+ }
+ 
+-@Sampled
+ @Composable
+-fun ClickableCardWithTitleAndHeaderSample() {
++fun CardWithLongText() {
++    Card {
++        Text(
++            "This is a card with a lot of text that will wrap to multiple lines. The maximum recommend number of lines of text for a card is 10.",
++            maxLines = 10,
++            overflow = TextOverflow.Ellipsis,
++        )
++    }
++}
++
++@Composable
++fun CardWithTitleAndSubtitleAndLeadingIconLongText() {
+     Card(
+-        onClick = {},
+         title = { Text("Title") },
+-        header = {
+-            Image(MyHeaderImage, "Localized description", contentScale = ContentScale.FillWidth)
+-        },
++        subtitle = { Text("Subtitle") },
++        leadingIcon = { Icon(FavoriteIcon, "Localized description") },
+     ) {
+-        Text("This is a card with a title and header image")
++        Text(
++            "This is a card with a lot of text that will wrap to multiple lines. The maximum recommend number of lines of text for a card is 10."
++        )
+     }
+ }
+ 
+ @Composable
+-fun CardWithTitleAndLeadingIconAndHeader() {
++fun CardWithTitleAndSubtitleAndLeadingIconAndTrailingIconLongText() {
+     Card(
+         title = { Text("Title") },
++        subtitle = { Text("Subtitle") },
+         leadingIcon = { Icon(FavoriteIcon, "Localized description") },
+-        header = {
+-            Image(MyHeaderImage, "Localized description", contentScale = ContentScale.FillWidth)
+-        },
++        trailingIcon = { Icon(FavoriteIcon, "Localized description") },
+     ) {
+-        Text("This is a card with a title, leading icon, and header image")
++        Text(
++            "This is a card with a lot of text that will wrap to multiple lines. The maximum recommend number of lines of text for a card is 10."
++        )
++    }
++}
++
++// ---
++// ActionCard samples
++// ---
++
++@Sampled
++@Composable
++fun ActionCardWithTitleSample() {
++    ActionCard(action = { Button(onClick = {}) { Text("Send") } }, title = { Text("Title") }) {
++        Text("This is an action card with a title")
+     }
+ }
+ 
+ @Composable
+-fun ActionCardWithTitleAndLeadingIconAndHeader() {
++fun ActionCardWithTitleAndLeadingIcon() {
+     ActionCard(
+         action = {
+             Button(onClick = {}, trailingIcon = { Icon(FavoriteIcon, "Localized description") }) {
+@@ -174,52 +184,93 @@ fun ActionCardWithTitleAndLeadingIconAndHeader() {
+         },
+         title = { Text("Title") },
+         leadingIcon = { Icon(FavoriteIcon, "Localized description") },
+-        header = {
+-            Image(MyHeaderImage, "Localized description", contentScale = ContentScale.FillWidth)
+-        },
+     ) {
+-        Text("This is a card with a title, leading icon, header image, and action")
++        Text("This is an action card with a title and leading icon")
+     }
+ }
+ 
++// ---
++// ImageCard samples
++// ---
++
++@Sampled
+ @Composable
+-fun CardWithLongText() {
+-    Card {
+-        Text(
+-            "This is a card with a lot of text that will wrap to multiple lines. The maximum recommend number of lines of text for a card is 10.",
+-            maxLines = 10,
+-            overflow = TextOverflow.Ellipsis,
+-        )
++fun ImageCardSample() {
++    ImageCard(
++        image = { Image(MyImage, "Localized description", contentScale = ContentScale.FillWidth) }
++    ) {
++        Text("This is an image card")
+     }
+ }
+ 
++@Sampled
+ @Composable
+-fun CardWithTitleAndSubtitleAndLeadingIconLongText() {
+-    Card(
++fun ImageCardWithTitleAndSubtitleAndLeadingIconSample() {
++    ImageCard(
++        image = { Image(MyImage, "Localized description", contentScale = ContentScale.FillWidth) },
+         title = { Text("Title") },
+         subtitle = { Text("Subtitle") },
+         leadingIcon = { Icon(FavoriteIcon, "Localized description") },
+     ) {
+-        Text(
+-            "This is a card with a lot of text that will wrap to multiple lines. The maximum recommend number of lines of text for a card is 10."
+-        )
++        Text("This is an image card with a title, subtitle, and leading icon")
+     }
+ }
+ 
++@Sampled
+ @Composable
+-fun CardWithTitleAndSubtitleAndLeadingIconAndTrailingIconLongText() {
+-    Card(
++fun ClickableImageCardSample() {
++    ImageCard(
++        onClick = {},
++        image = { Image(MyImage, "Localized description", contentScale = ContentScale.FillWidth) },
++    ) {
++        Text("This is an image card")
++    }
++}
++
++@Sampled
++@Composable
++fun ClickableImageCardWithTitleAndSubtitleAndLeadingIconSample() {
++    ImageCard(
++        onClick = {},
++        image = { Image(MyImage, "Localized description", contentScale = ContentScale.FillWidth) },
+         title = { Text("Title") },
+         subtitle = { Text("Subtitle") },
+         leadingIcon = { Icon(FavoriteIcon, "Localized description") },
+-        trailingIcon = { Icon(FavoriteIcon, "Localized description") },
+     ) {
+-        Text(
+-            "This is a card with a lot of text that will wrap to multiple lines. The maximum recommend number of lines of text for a card is 10."
+-        )
++        Text("This is an image card with a title, subtitle, and leading icon")
+     }
+ }
+ 
++// ---
++// Leading/Trailing ImageCard samples
++// ---
++
++@Composable
++fun LeadingImageCardSample() {
++    LeadingImageCard(
++        image = { Image(MyImage, "Localized description") },
++        title = { Text("Title") },
++        subtitle = { Text("Subtitle") },
++    ) {
++        Text("This is a card with a leading image.")
++    }
++}
++
++@Composable
++fun TrailingImageCardSample() {
++    TrailingImageCard(
++        image = { Image(MyImage, "Localized description") },
++        title = { Text("Title") },
++        subtitle = { Text("Subtitle") },
++    ) {
++        Text("This is a card with a trailing image.")
++    }
++}
++
++// ---
++// Previews
++// ---
++
+ @Preview
+ @Composable
+ private fun CardPreview() {
+@@ -240,8 +291,20 @@ private fun CardWithTitleAndSubtitleAndLeadingIconPreview() {
+ 
+ @Preview
+ @Composable
+-private fun CardWithTitleAndHeaderPreview() {
+-    GlimmerTheme { CardWithTitleAndHeaderSample() }
++private fun CardWithLongTextPreview() {
++    GlimmerTheme { CardWithLongText() }
++}
++
++@Preview
++@Composable
++private fun CardWithTitleAndSubtitleAndLeadingIconLongTextPreview() {
++    GlimmerTheme { CardWithTitleAndSubtitleAndLeadingIconLongText() }
++}
++
++@Preview
++@Composable
++private fun CardWithTitleAndSubtitleAndLeadingIconAndTrailingIconLongTextPreview() {
++    GlimmerTheme { CardWithTitleAndSubtitleAndLeadingIconAndTrailingIconLongText() }
+ }
+ 
+ @Preview
+@@ -252,32 +315,32 @@ private fun ActionCardWithTitlePreview() {
+ 
+ @Preview
+ @Composable
+-private fun CardWithTitleAndLeadingIconAndHeaderPreview() {
+-    GlimmerTheme { CardWithTitleAndLeadingIconAndHeader() }
++private fun ActionCardWithTitleAndLeadingIconPreview() {
++    GlimmerTheme { ActionCardWithTitleAndLeadingIcon() }
+ }
+ 
+ @Preview
+ @Composable
+-private fun ActionCardWithTitleAndLeadingIconAndHeaderPreview() {
+-    GlimmerTheme { ActionCardWithTitleAndLeadingIconAndHeader() }
++private fun ImageCardPreview() {
++    GlimmerTheme { ImageCardSample() }
+ }
+ 
+ @Preview
+ @Composable
+-private fun CardWithLongTextPreview() {
+-    GlimmerTheme { CardWithLongText() }
++private fun ImageCardWithTitleAndSubtitleAndLeadingIconPreview() {
++    GlimmerTheme { ImageCardWithTitleAndSubtitleAndLeadingIconSample() }
+ }
+ 
+ @Preview
+ @Composable
+-private fun CardWithTitleAndSubtitleAndLeadingIconLongTextPreview() {
+-    GlimmerTheme { CardWithTitleAndSubtitleAndLeadingIconLongText() }
++private fun LeadingImageCardPreview() {
++    GlimmerTheme { LeadingImageCardSample() }
+ }
+ 
+ @Preview
+ @Composable
+-private fun CardWithTitleAndSubtitleAndLeadingIconAndTrailingIconLongTextPreview() {
+-    GlimmerTheme { CardWithTitleAndSubtitleAndLeadingIconAndTrailingIconLongText() }
++private fun TrailingImageCardPreview() {
++    GlimmerTheme { TrailingImageCardSample() }
+ }
+ 
+ fun placeholderImagePainter(intrinsicSize: Size): Painter =
+@@ -296,7 +359,7 @@ fun placeholderImagePainter(intrinsicSize: Size): Painter =
+  * Placeholder image with a large intrinsic size, to simulate a real life use case of loading a
+  * bitmap
+  */
+-private val MyHeaderImage = placeholderImagePainter(Size(1000f, 1000f))
++private val MyImage = placeholderImagePainter(Size(1000f, 1000f))
+ ```
+ 
+ <br />
+\ No newline at end of file

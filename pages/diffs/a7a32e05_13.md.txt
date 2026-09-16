@@ -1,0 +1,36 @@
+diff --git a/docs/blog/authors/13.md b/docs/blog/authors/13.md
+index beda1dab..a4644d77 100644
+--- a/docs/blog/authors/13.md
++++ b/docs/blog/authors/13.md
+@@ -44,6 +44,15 @@ source: md.txt
+   1 post](https://developer.android.com/blog/authors/sherif-eid) ![View Sherif Eid's profile](https://developer.android.com/static/blog/assets/unnamed_21_15c8771770_Z2fzQLn.webp) ![View Sherif Eid's profile](https://developer.android.com/static/blog/assets/unnamed_21_15c8771770_Z2fzQLn.webp)
+ -
+ 
++  ## [Simon Cooke](https://developer.android.com/blog/authors/simon-cooke)
++
++  ###### Developer Relations Engineer
++
++  [read_more
++  1 post](https://developer.android.com/blog/authors/simon-cooke) [read_more
++  1 post](https://developer.android.com/blog/authors/simon-cooke) ![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_dskDu.webp) ![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_dskDu.webp)
++-
++
+   ## [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic)
+ 
+   ###### Developer Relations Engineer
+@@ -78,15 +87,6 @@ source: md.txt
+   [read_more
+   2 posts](https://developer.android.com/blog/authors/steven-jenkins) [read_more
+   2 posts](https://developer.android.com/blog/authors/steven-jenkins) ![View Steven Jenkins's profile](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp) ![View Steven Jenkins's profile](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)
+--
+-
+-  ## [Summers Pittman](https://developer.android.com/blog/authors/summers-pittman)
+-
+-  ###### Technical Solutions Engineer
+-
+-  [read_more
+-  1 post](https://developer.android.com/blog/authors/summers-pittman) [read_more
+-  1 post](https://developer.android.com/blog/authors/summers-pittman) ![View Summers Pittman's profile](https://developer.android.com/static/blog/assets/Summers_Pittman_e1dd057c92_Z1pDsqU.webp) ![View Summers Pittman's profile](https://developer.android.com/static/blog/assets/Summers_Pittman_e1dd057c92_Z1pDsqU.webp)
+ [arrow_back](https://developer.android.com/blog/authors/12)
+ 
+ #### Page 13

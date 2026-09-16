@@ -1,0 +1,36 @@
+diff --git a/docs/blog/authors/14.md b/docs/blog/authors/14.md
+index 8cfdbb0c..ec89cf65 100644
+--- a/docs/blog/authors/14.md
++++ b/docs/blog/authors/14.md
+@@ -6,6 +6,15 @@ source: md.txt
+ 
+ # Authors
+ 
++-
++
++  ## [Summers Pittman](https://developer.android.com/blog/authors/summers-pittman)
++
++  ###### Technical Solutions Engineer
++
++  [read_more
++  1 post](https://developer.android.com/blog/authors/summers-pittman) [read_more
++  1 post](https://developer.android.com/blog/authors/summers-pittman) ![View Summers Pittman's profile](https://developer.android.com/static/blog/assets/Summers_Pittman_e1dd057c92_Z1pDsqU.webp) ![View Summers Pittman's profile](https://developer.android.com/static/blog/assets/Summers_Pittman_e1dd057c92_Z1pDsqU.webp)
+ -
+ 
+   ## [Tahsin Masrur](https://developer.android.com/blog/authors/tahsin-masrur)
+@@ -78,15 +87,6 @@ source: md.txt
+   [read_more
+   4 posts](https://developer.android.com/blog/authors/trevor-johns) [read_more
+   4 posts](https://developer.android.com/blog/authors/trevor-johns) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+--
+-
+-  ## [Vijaya Kaza](https://developer.android.com/blog/authors/vijaya-kaza)
+-
+-  ###### VP Product
+-
+-  [read_more
+-  1 post](https://developer.android.com/blog/authors/vijaya-kaza) [read_more
+-  1 post](https://developer.android.com/blog/authors/vijaya-kaza) ![View Vijaya Kaza's profile](https://developer.android.com/static/blog/assets/Vijaya_Kaza_38a0089092_1sYB49.webp) ![View Vijaya Kaza's profile](https://developer.android.com/static/blog/assets/Vijaya_Kaza_38a0089092_1sYB49.webp)
+ [arrow_back](https://developer.android.com/blog/authors/13)
+ 
+ #### Page 14

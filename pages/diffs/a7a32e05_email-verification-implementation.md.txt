@@ -1,0 +1,47 @@
+diff --git a/docs/identity/digital-credentials/email-verification-implementation.md b/docs/identity/digital-credentials/email-verification-implementation.md
+index 43ba2f4c..a02ae67f 100644
+--- a/docs/identity/digital-credentials/email-verification-implementation.md
++++ b/docs/identity/digital-credentials/email-verification-implementation.md
+@@ -135,26 +135,28 @@ a `GetCredentialRequest`, and call `getCredential()`.
+ 
+ Present the user with the request, using the Credential Manager built-in UI.
+ 
+-    try {
+-        // Requesting Digital Credential from user...
+-        val result = credentialManager.getCredential(activity, request)
++    coroutineScope {
++        try {
++            // Requesting Digital Credential from user...
++            val result = credentialManager.getCredential(activity, request)
+ 
+-        when (val credential = result.credential) {
+-            is DigitalCredential -> {
+-                val responseJsonString = credential.credentialJson
++            when (val credential = result.credential) {
++                is DigitalCredential -> {
++                    val responseJsonString = credential.credentialJson
+ 
+-                // Successfully received digital credential response.
++                    // Successfully received digital credential response.
+ 
+-                // Next, parse this response and send it to your server.
+-                // ...
+-            }
++                    // Next, parse this response and send it to your server.
++                    // ...
++                }
+ 
+-            else -> {
+-                // handle Unexpected State() - Up to the developer
++                else -> {
++                    // handle Unexpected State() - Up to the developer
++                }
+             }
++        } catch (e: Exception) {
++            // handle exceptions - Up to the developer
+         }
+-    } catch (e: Exception) {
+-        // handle exceptions - Up to the developer
+     }
+ 
+ > [!NOTE]

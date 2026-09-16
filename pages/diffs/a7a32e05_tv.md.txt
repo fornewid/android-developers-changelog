@@ -1,0 +1,13 @@
+diff --git a/docs/training/tv.md b/docs/training/tv.md
+index 49a0e50b..719d2b63 100644
+--- a/docs/training/tv.md
++++ b/docs/training/tv.md
+@@ -19,7 +19,7 @@ also run on TV devices.
+ - Building TV apps:
+   - [Get started with TV apps](https://developer.android.com/training/tv/get-started)
+   - [Build adaptive apps](https://developer.android.com/training/tv/build-adaptive-apps)
+-  - [Build TV playback apps](https://developer.android.com/training/tv/playback), adjust the [audio](https://developer.android.com/training/tv/playback/audio-capabilities) and [display](https://developer.android.com/training/tv/playback/framerate) settings for optimal playback, and [help users find your
++  - [Build TV playback apps](https://developer.android.com/training/tv/playback), adjust the [audio](https://developer.android.com/training/tv/playback/audio-capabilities) and [display](https://developer.android.com/training/tv/playback/adjust-display-settings) settings for optimal playback, and [help users find your
+     content on TV](https://developer.android.com/training/tv/discovery)
+   - [Build TV games](https://developer.android.com/training/tv/games)
+   - [Build TV input services](https://developer.android.com/training/tv/tif)

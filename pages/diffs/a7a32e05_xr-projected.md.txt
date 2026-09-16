@@ -1,0 +1,39 @@
+diff --git a/docs/jetpack/androidx/releases/xr-projected.md b/docs/jetpack/androidx/releases/xr-projected.md
+index 72222233..2815f8b2 100644
+--- a/docs/jetpack/androidx/releases/xr-projected.md
++++ b/docs/jetpack/androidx/releases/xr-projected.md
+@@ -26,7 +26,7 @@ your app or module:
+ ```groovy
+ dependencies {
+     // Use to implement xr projecteds
+-    implementation "androidx.xr.projected:projected:1.0.0-alpha11"
++    implementation "androidx.xr.projected:projected:1.0.0-alpha12"
+ }
+ ```
+ 
+@@ -35,20 +35,20 @@ dependencies {
+ ```kotlin
+ dependencies {
+     // Use to implement xr projecteds
+-    implementation("androidx.xr.projected:projected:1.0.0-alpha11")
++    implementation("androidx.xr.projected:projected:1.0.0-alpha12")
+ 
+     // Use to implement xr projected complications
+-    implementation "androidx.xr.projected:projected-complications-data-source:1.0.0-alpha11"
++    implementation "androidx.xr.projected:projected-complications-data-source:1.0.0-alpha12"
+     // (Kotlin-specific extensions)
+-    implementation "androidx.xr.projected:projected-complications-data-source-ktx:1.0.0-alpha11"
++    implementation "androidx.xr.projected:projected-complications-data-source-ktx:1.0.0-alpha12"
+ 
+     // Use to implement a projected style and complication editor
+-    implementation("androidx.xr.projected:projected-editor:1.0.0-alpha11")
++    implementation("androidx.xr.projected:projected-editor:1.0.0-alpha12")
+ 
+     // Can use to render complications.
+     // This library is optional and projecteds may have custom implementation for rendering
+     // complications.
+-    implementation "androidx.xr.projected:projected-complications-rendering:1.0.0-alpha11"
++    implementation "androidx.xr.projected:projected-complications-rendering:1.0.0-alpha12"
+ }
+ ```
+ 

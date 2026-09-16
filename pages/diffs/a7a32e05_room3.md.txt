@@ -1,0 +1,22 @@
+diff --git a/docs/jetpack/androidx/releases/room3.md b/docs/jetpack/androidx/releases/room3.md
+index 1c474ecd..f2f843c6 100644
+--- a/docs/jetpack/androidx/releases/room3.md
++++ b/docs/jetpack/androidx/releases/room3.md
+@@ -25,7 +25,7 @@ your app or module:
+ 
+ ```kotlin
+ dependencies {
+-    val room_version = "3.0.2"
++    val room_version = "3.0.3"
+ 
+     implementation("androidx.room3:room3-runtime:$room_version")
+     ksp("androidx.room3:room3-compiler:$room_version")
+@@ -36,7 +36,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    def room_version = "3.0.2"
++    def room_version = "3.0.3"
+ 
+     implementation "androidx.room3:room3-runtime:$room_version"
+ 

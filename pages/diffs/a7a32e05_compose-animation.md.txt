@@ -1,0 +1,22 @@
+diff --git a/docs/jetpack/androidx/releases/compose-animation.md b/docs/jetpack/androidx/releases/compose-animation.md
+index 9dbe588f..67307911 100644
+--- a/docs/jetpack/androidx/releases/compose-animation.md
++++ b/docs/jetpack/androidx/releases/compose-animation.md
+@@ -43,7 +43,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.compose.animation:animation:1.12.0"
++    implementation "androidx.compose.animation:animation:1.12.1"
+ }
+ 
+ android {
+@@ -65,7 +65,7 @@ android {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.compose.animation:animation:1.12.0")
++    implementation("androidx.compose.animation:animation:1.12.1")
+ }
+ 
+ android {

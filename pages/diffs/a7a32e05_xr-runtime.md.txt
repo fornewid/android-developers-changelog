@@ -1,0 +1,30 @@
+diff --git a/docs/jetpack/androidx/releases/xr-runtime.md b/docs/jetpack/androidx/releases/xr-runtime.md
+index efdc9766..e3adb06e 100644
+--- a/docs/jetpack/androidx/releases/xr-runtime.md
++++ b/docs/jetpack/androidx/releases/xr-runtime.md
+@@ -30,10 +30,10 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.runtime:runtime:1.0.0-beta02"
++    implementation "androidx.xr.runtime:runtime:1.1.0-alpha01"
+ 
+     // Use in environments that do not support OpenXR
+-    testImplementation "androidx.xr.runtime:runtime-testing:1.0.0-beta02"
++    testImplementation "androidx.xr.runtime:runtime-testing:1.1.0-alpha01"
+ }
+ ```
+ 
+@@ -41,10 +41,10 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.runtime:runtime:1.0.0-beta02")
++    implementation("androidx.xr.runtime:runtime:1.1.0-alpha01")
+ 
+     // Use in environments that do not support OpenXR
+-    testImplementation("androidx.xr.runtime:runtime-testing:1.0.0-beta02")
++    testImplementation("androidx.xr.runtime:runtime-testing:1.1.0-alpha01")
+ }
+ ```
+ 

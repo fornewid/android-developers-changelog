@@ -1,0 +1,53 @@
+diff --git a/docs/training/cars/media/create-media-browser/content-hierarchy.md b/docs/training/cars/media/create-media-browser/content-hierarchy.md
+index 68e63536..2514d84a 100644
+--- a/docs/training/cars/media/create-media-browser/content-hierarchy.md
++++ b/docs/training/cars/media/create-media-browser/content-hierarchy.md
+@@ -10,9 +10,9 @@ these two methods in your media browser service.
+ 
+ ## Implement onGetRoot
+ 
+-Your service's [`onGetRoot`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onGetRoot(java.lang.String,%20int,%20android.os.Bundle)) method returns information about the root node
++Your service's [`onGetRoot`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserServiceCompat#onGetRoot(java.lang.String,%20int,%20android.os.Bundle)) method returns information about the root node
+ of your content hierarchy. Android Auto and AAOS use this root
+-node to request the rest of your content using the [`onLoadChildren`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onLoadChildren(java.lang.String,androidx.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E,android.os.Bundle))
++node to request the rest of your content using the [`onLoadChildren`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserServiceCompat#onLoadChildren(java.lang.String,%20android.support.v4.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E,%20android.os.Bundle))
+ method. This code snippet shows an implementation of the `onGetRoot` method:
+ 
+ ### Kotlin
+@@ -54,7 +54,7 @@ Android Music Player sample app on GitHub.
+ 
+ ### Add package validation
+ 
+-When a call is made to your service's [`onGetRoot`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onGetRoot(java.lang.String,%20int,%20android.os.Bundle)) method, the calling
++When a call is made to your service's [`onGetRoot`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserServiceCompat#onGetRoot(java.lang.String,%20int,%20android.os.Bundle)) method, the calling
+ package passes identifying information to your service. Your service can use
+ this information to decide if that package can access your content.
+ 
+@@ -103,12 +103,12 @@ connect to your `MediaBrowserService`. Google Assistant uses
+ [different package names](https://developer.android.com/media/implement/assistant#signatures) for its mobile and AAOS apps.
+ 
+ > [!CAUTION]
+-> **Caution:** Don't perform checks for user authentication or other slow processes within your service's `onGetRoot` implementation. Your service must quickly return a non-null `BrowserRoot` when `onGetRoot` is called so that the calling service doesn't timeout. Handle user authentication and other business logic for slow processes in the [`onLoadChildren`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onLoadChildren(java.lang.String,androidx.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E,android.os.Bundle)) method instead.
++> **Caution:** Don't perform checks for user authentication or other slow processes within your service's `onGetRoot` implementation. Your service must quickly return a non-null `BrowserRoot` when `onGetRoot` is called so that the calling service doesn't timeout. Handle user authentication and other business logic for slow processes in the [`onLoadChildren`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserServiceCompat#onLoadChildren(java.lang.String,%20android.support.v4.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E,%20android.os.Bundle)) method instead.
+ 
+ ## Implement onLoadChildren
+ 
+ After receiving your root node object, Android Auto and AAOS
+-build a top-level menu by calling [`onLoadChildren`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onLoadChildren(java.lang.String,androidx.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E,android.os.Bundle)) on the root node object
++build a top-level menu by calling [`onLoadChildren`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserServiceCompat#onLoadChildren(java.lang.String,%20android.support.v4.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E,%20android.os.Bundle)) on the root node object
+ to get its descendants. Client apps build submenus by calling this same method
+ using descendant node objects.
+ 
+@@ -195,10 +195,10 @@ By applying these hints, the system displays the root content as navigational
+ tabs. By not applying these hints, some root content might be dropped or made
+ less discoverable. These hints are transmitted:
+ 
+-- [Limit on the number of root children](https://developer.android.com/reference/androidx/media/utils/MediaConstants#BROWSER_ROOT_HINTS_KEY_ROOT_CHILDREN_LIMIT()): In most cases, expect this
++- [Limit on the number of root children](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): In most cases, expect this
+   number to be four, meaning that only four (or fewer) tabs can be shown.
+ 
+-- [Supported flags on the root children](https://developer.android.com/reference/androidx/media/utils/MediaConstants#BROWSER_ROOT_HINTS_KEY_ROOT_CHILDREN_SUPPORTED_FLAGS()): Expect this value to be
++- [Supported flags on the root children](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): Expect this value to be
+   [`MediaItem#FLAG_BROWSABLE`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserCompat.MediaItem#FLAG_BROWSABLE()), which means only browsable items
+   (not playable items) can be shown as tabs.
+ 

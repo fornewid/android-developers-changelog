@@ -1,0 +1,13 @@
+diff --git a/docs/training/cars/apps/media.md b/docs/training/cars/apps/media.md
+index 84841a20..59de3fb6 100644
+--- a/docs/training/cars/apps/media.md
++++ b/docs/training/cars/apps/media.md
+@@ -113,7 +113,7 @@ Library version without fear of impacting the `MediaBrowserService` or
+ 
+ When distributing a single APK for the Car App Library and `MediaBrowserService`
+ or `MediaLibraryService` versions of your app, it's crucial to set the
+-"" to `android:required="false"`.
++`android.software.car.templates_host.media` to `android:required="false"`.
+ 
+     <uses-feature android:name="android.software.car.templates_host.media" android:required="false"/>
+ 

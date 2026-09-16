@@ -1,0 +1,53 @@
+diff --git a/docs/jetpack/androidx/releases/lifecycle.md b/docs/jetpack/androidx/releases/lifecycle.md
+index 7d3f81d7..ea35c091 100644
+--- a/docs/jetpack/androidx/releases/lifecycle.md
++++ b/docs/jetpack/androidx/releases/lifecycle.md
+@@ -13,10 +13,10 @@ This table lists all the artifacts in the `androidx.lifecycle` group.
+ 
+ | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| lifecycle-\* | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha02) |
+-| lifecycle-viewmodel-navigation3 | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha02](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha02) |
++| lifecycle-\* | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha03) |
++| lifecycle-viewmodel-navigation3 | [2.11.0](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.11.0) | - | - | [2.12.0-alpha03](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha03) |
+ 
+-This library was last updated on: August 26, 2026
++This library was last updated on: September 09, 2026
+ 
+ ## Declaring dependencies
+ 
+@@ -54,7 +54,7 @@ your app or module:
+         implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version"
+ 
+         // ViewModel integration with Navigation3
+-        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha02"
++        implementation "androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha03"
+ 
+         // Annotation processor
+         kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+@@ -101,7 +101,7 @@ your app or module:
+         implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
+ 
+         // ViewModel integration with Navigation3
+-        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha02")
++        implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:2.12.0-alpha03")
+ 
+         // Annotation processor
+         kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
+@@ -225,6 +225,16 @@ for more information.
+ 
+ ## Version 2.12
+ 
++### Version 2.12.0-alpha03
++
++September 09, 2026
++
++`androidx.lifecycle:lifecycle-*:2.12.0-alpha03` is released. Version 2.12.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..e4bd62f853853bf3522ed15681c58ef28b09ed44/lifecycle).
++
++**Bug Fixes**
++
++- `compileSdk` for Compose libraries updated to 37.1. This will require transitively updating `compileSdk` for all apps and libraries using Compose. ([I05b0f](https://android-review.googlesource.com/#/q/I05b0f9385d2b99ddcc4041b2ce2d96aea3bd391e))
++
+ ### Version 2.12.0-alpha02
+ 
+ August 26, 2026

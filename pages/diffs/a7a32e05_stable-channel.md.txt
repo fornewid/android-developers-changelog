@@ -1,0 +1,31 @@
+diff --git a/docs/jetpack/androidx/versions/stable-channel.md b/docs/jetpack/androidx/versions/stable-channel.md
+index 74bb434e..79c5e7b4 100644
+--- a/docs/jetpack/androidx/versions/stable-channel.md
++++ b/docs/jetpack/androidx/versions/stable-channel.md
+@@ -19,6 +19,26 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
+ The first stable release of AndroidX 1.0.0 suitable for use in
+ production was released on September 21, 2018.
+ 
++## September 10, 2026
++
++- [Media3 Version 1.11.1](https://developer.android.com/jetpack/androidx/releases/media3#1.11.1)
++
++## September 09, 2026
++
++- [Benchmark Version 1.5.0](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0)
++- [Compose Animation Version 1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.1)
++- [Compose Foundation Version 1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.1)
++- [Compose Material Version 1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.1)
++- [Compose Runtime Version 1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.1)
++- [Compose UI Version 1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.1)
++- [Navigation Version 2.10.1](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.1)
++- [Room Version 2.8.5](https://developer.android.com/jetpack/androidx/releases/room#2.8.5)
++- [Room3 Version 3.0.3](https://developer.android.com/jetpack/androidx/releases/room3#3.0.3)
++- [Security-state Version 1.1.0](https://developer.android.com/jetpack/androidx/releases/security#security-state-1.1.0)
++- [Security-state-provider Version 1.0.0](https://developer.android.com/jetpack/androidx/releases/security#security-state-provider-1.0.0)
++- [Sqlite Version 2.7.1](https://developer.android.com/jetpack/androidx/releases/sqlite#2.7.1)
++- [Tracing Version 2.0.2](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.2)
++
+ ## August 26, 2026
+ 
+ - [Camera Featurecombinationquery Version 1.6.2](https://developer.android.com/jetpack/androidx/releases/camera-featurecombinationquery#1.6.2)
