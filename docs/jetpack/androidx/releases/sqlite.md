@@ -33,7 +33,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    def sqlite_version = "2.7.0"
+    def sqlite_version = "2.7.1"
 
     // Java language implementation
     implementation "androidx.sqlite:sqlite:$sqlite_version"
@@ -50,7 +50,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val sqlite_version = "2.7.0"
+    val sqlite_version = "2.7.1"
 
     // Java language implementation
     implementation("androidx.sqlite:sqlite:$sqlite_version")

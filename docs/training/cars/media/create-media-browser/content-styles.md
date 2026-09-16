@@ -25,28 +25,28 @@ to determine the appropriate style.
 
 These extras can be used as keys in the bundle:
 
-- [`DESCRIPTION_EXTRAS_KEY_CONTENT_STYLE_BROWSABLE`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_KEY_CONTENT_STYLE_BROWSABLE()): A presentation hint
+- [`DESCRIPTION_EXTRAS_KEY_CONTENT_STYLE_BROWSABLE`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): A presentation hint
   for all *browsable* items within the browse tree.
 
-- [`DESCRIPTION_EXTRAS_KEY_CONTENT_STYLE_PLAYABLE`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_KEY_CONTENT_STYLE_PLAYABLE()): A presentation hint
+- [`DESCRIPTION_EXTRAS_KEY_CONTENT_STYLE_PLAYABLE`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): A presentation hint
   for all *playable* items within the browse tree.
 
 These keys can map to these integer constant values to influence the
 presentation of those items:
 
-- [`DESCRIPTION_EXTRAS_VALUE_CONTENT_STYLE_LIST_ITEM`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_VALUE_CONTENT_STYLE_LIST_ITEM()): Corresponding items
+- [`DESCRIPTION_EXTRAS_VALUE_CONTENT_STYLE_LIST_ITEM`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): Corresponding items
   presented as list items.
 
-- [`DESCRIPTION_EXTRAS_VALUE_CONTENT_STYLE_GRID_ITEM`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_VALUE_CONTENT_STYLE_GRID_ITEM()): Corresponding items
+- [`DESCRIPTION_EXTRAS_VALUE_CONTENT_STYLE_GRID_ITEM`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): Corresponding items
   presented as grid items.
 
-- [`DESCRIPTION_EXTRAS_VALUE_CONTENT_STYLE_CATEGORY_LIST_ITEM`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_VALUE_CONTENT_STYLE_CATEGORY_LIST_ITEM()):
+- [`DESCRIPTION_EXTRAS_VALUE_CONTENT_STYLE_CATEGORY_LIST_ITEM`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java):
   Corresponding items presented as "category" list items, similar to ordinary
   list items, but margins are applied around the items' icons. This improves
   the appearance of small icons. Icons must be tintable vector drawables.
   Provide this hint only for browsable items.
 
-- [`DESCRIPTION_EXTRAS_VALUE_CONTENT_STYLE_CATEGORY_GRID_ITEM`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_VALUE_CONTENT_STYLE_CATEGORY_GRID_ITEM()):
+- [`DESCRIPTION_EXTRAS_VALUE_CONTENT_STYLE_CATEGORY_GRID_ITEM`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java):
   Corresponding items presented as "category" grid items and are similar to
   ordinary grid items, but margins are applied around the items' icons. This
   improves the appearance of small icons. The icons must be tintable vector
@@ -111,7 +111,7 @@ hints:
 
 To override the default for a specific media item (not its descendants), create
 an extras bundle in the `MediaDescription` of the media item. Then, add a hint
-with the key [`DESCRIPTION_EXTRAS_KEY_CONTENT_STYLE_SINGLE_ITEM`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_KEY_CONTENT_STYLE_SINGLE_ITEM()). Use the
+with the key [`DESCRIPTION_EXTRAS_KEY_CONTENT_STYLE_SINGLE_ITEM`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java). Use the
 same values described previously to specify that item's presentation.
 
 > [!TIP]
@@ -185,7 +185,7 @@ descendants as grid items.
 To group related media items, use a per-item hint. Every media item in a group
 must declare an extras bundle in its `MediaDescription`. This bundle must
 include a mapping with the key
-[`DESCRIPTION_EXTRAS_KEY_CONTENT_STYLE_GROUP_TITLE`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_KEY_CONTENT_STYLE_GROUP_TITLE()) and an identical string
+[`DESCRIPTION_EXTRAS_KEY_CONTENT_STYLE_GROUP_TITLE`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java) and an identical string
 value. Localize this string, as it is used for the group's title.
 
 This code snippet shows how to create a `MediaItem` with a subgroup heading of
@@ -285,26 +285,26 @@ These constants can be used in *both* `MediaItem` description extras and
   - [`STATUS_DOWNLOADED`](https://developer.android.com/reference/android/support/v4/media/MediaDescriptionCompat#STATUS_DOWNLOADED()): Item is fully downloaded.
   - [`STATUS_DOWNLOADING`](https://developer.android.com/reference/android/support/v4/media/MediaDescriptionCompat#STATUS_DOWNLOADING()): Item is in the process of being downloaded.
   - [`STATUS_NOT_DOWNLOADED`](https://developer.android.com/reference/android/support/v4/media/MediaDescriptionCompat#STATUS_NOT_DOWNLOADED()): Item isn't downloaded.
-- [`METADATA_KEY_IS_EXPLICIT`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#METADATA_KEY_IS_EXPLICIT()): Indicates the item contains explicit
+- `METADATA_KEY_IS_EXPLICIT`: Indicates the item contains explicit
   content. To indicate an item is explicit, use this constant as the key and the
-  long [`METADATA_VALUE_ATTRIBUTE_PRESENT`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#METADATA_VALUE_ATTRIBUTE_PRESENT()) as the value.
+  long `METADATA_VALUE_ATTRIBUTE_PRESENT` as the value.
 
 These constants can *only* be used in `MediaItem` description extras:
 
-- [`DESCRIPTION_EXTRAS_KEY_COMPLETION_STATUS`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_KEY_COMPLETION_STATUS()): Indicates the completion
+- [`DESCRIPTION_EXTRAS_KEY_COMPLETION_STATUS`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): Indicates the completion
   state of long-form content, such as podcast episodes and audiobooks. Use this
   constant as the key. These integer constants are possible values:
 
-  - [`DESCRIPTION_EXTRAS_VALUE_COMPLETION_STATUS_NOT_PLAYED`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_VALUE_COMPLETION_STATUS_NOT_PLAYED()): Item hasn't
+  - [`DESCRIPTION_EXTRAS_VALUE_COMPLETION_STATUS_NOT_PLAYED`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): Item hasn't
     been played.
 
-  - [`DESCRIPTION_EXTRAS_VALUE_COMPLETION_STATUS_PARTIALLY_PLAYED`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_VALUE_COMPLETION_STATUS_PARTIALLY_PLAYED()): Item
+  - [`DESCRIPTION_EXTRAS_VALUE_COMPLETION_STATUS_PARTIALLY_PLAYED`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): Item
     is partially played, and the current position is somewhere in the middle.
 
-  - [`DESCRIPTION_EXTRAS_VALUE_COMPLETION_STATUS_FULLY_PLAYED`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_VALUE_COMPLETION_STATUS_FULLY_PLAYED()): Item is
+  - [`DESCRIPTION_EXTRAS_VALUE_COMPLETION_STATUS_FULLY_PLAYED`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): Item is
     completed.
 
-- [`DESCRIPTION_EXTRAS_KEY_COMPLETION_PERCENTAGE`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_KEY_COMPLETION_PERCENTAGE()): Indicates completion
+- [`DESCRIPTION_EXTRAS_KEY_COMPLETION_PERCENTAGE`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java): Indicates completion
   progress on long-form content as a double between 0.0 and 1.0, inclusive.
   This provides more information about the `PARTIALLY_PLAYING` state, allowing
   Android Auto or AAOS to display a more meaningful progress indicator, such as
@@ -418,7 +418,7 @@ explicit and downloaded:
 
 ## Update the progress bar in browse view while content plays
 
-You can use the [`DESCRIPTION_EXTRAS_KEY_COMPLETION_PERCENTAGE`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_KEY_COMPLETION_PERCENTAGE()) extra
+You can use the [`DESCRIPTION_EXTRAS_KEY_COMPLETION_PERCENTAGE`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java) extra
 to show a progress bar for partially played content in the browse view.
 However, if a user continues playing the partially played content, that
 indicator becomes inaccurate over time.
@@ -431,14 +431,14 @@ For a media item to have an automatically updating progress bar, these
 requirements must be met:
 
 - When created, the `MediaItem` must send
-  [`DESCRIPTION_EXTRAS_KEY_COMPLETION_PERCENTAGE`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_KEY_COMPLETION_PERCENTAGE()) in its extras with a
+  [`DESCRIPTION_EXTRAS_KEY_COMPLETION_PERCENTAGE`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java) in its extras with a
   value between `0.0` and `1.0`, inclusive.
 
 - The `MediaMetadataCompat` must send [`METADATA_KEY_MEDIA_ID`](https://developer.android.com/reference/android/support/v4/media/MediaMetadataCompat#METADATA_KEY_MEDIA_ID()) with a
   string value equal to the [media ID](https://developer.android.com/reference/android/support/v4/media/MediaDescriptionCompat.Builder#setMediaId(java.lang.String)) passed to the `MediaItem`.
 
 - The `PlaybackStateCompat` must include an extra with the key
-  [`PLAYBACK_STATE_EXTRAS_KEY_MEDIA_ID`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#PLAYBACK_STATE_EXTRAS_KEY_MEDIA_ID()) that maps to a string value
+  [`PLAYBACK_STATE_EXTRAS_KEY_MEDIA_ID`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java) that maps to a string value
   equal to the [media ID](https://developer.android.com/reference/android/support/v4/media/MediaDescriptionCompat.Builder#setMediaId(java.lang.String)) passed to the `MediaItem`.
 
 This code snippet shows how to indicate that the playing item is linked to an

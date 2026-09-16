@@ -11,7 +11,7 @@ The following sections describe how to create a basic app widget with Glance.
 
 ## Declare the `AppWidget` in the Manifest
 
-After completing the [setup steps](https://developer.android.com/develop/ui/compose/glance/setup), declare the [`AppWidget`](https://developer.android.com/guide/topics/appwidgets) and its
+After completing the [setup steps](https://developer.android.com/develop/ui/compose/glance#get-started), declare the [`AppWidget`](https://developer.android.com/guide/topics/appwidgets) and its
 metadata in your app.
 
 1. Extend the `AppWidget` receiver from `GlanceAppWidgetReceiver`:

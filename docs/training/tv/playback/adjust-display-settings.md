@@ -14,12 +14,12 @@ color profile for the ideal watching experience.
 When the framerate of a video doesn't match the refresh rate of the display,
 users can experience unpleasant motion judder artifacts from frame rate
 conversion. This is especially visible during slow panning shots. For this
-reason, use the [`Surface.setFrameRate()`](https://developer.android.com/training/tv/playback/(/reference/android/view/Surface#setFrameRate(float,%20int))) API to notify the
+reason, use the [`Surface.setFrameRate`](https://developer.android.com/reference/android/view/Surface#setFrameRate(float,%20int)) API to notify the
 framework about the frame rate of the content and to signal whether the video
 content is eligible for a non-seamless [frame rate
-switch](https://developer.android.com/guide/topics/media/frame-rate#non-seamless).
+switch](https://developer.android.com/media/optimize/performance/frame-rate#non-seamless).
 
-For more information, read the [frame rate guide](https://developer.android.com/guide/topics/media/frame-rate).
+For more information, read the [frame rate guide](https://developer.android.com/media/optimize/performance/frame-rate).
 
 ## Match preferred picture profiles
 
@@ -33,7 +33,7 @@ Some example scenarios include:
 - Game developers can request a low latency profile with minimal image processing so players can get the best performance from their display.
 
 > [!NOTE]
-> **Note:** OEMs may add additional presets and provide mechanisms for users to define their own picture profiles. This implementation uses the [`createPictureProfile()`](https://developer.android.com/reference/android/media/quality/MediaQualityManager#createPictureProfile(android.media.quality.PictureProfile)) method that requires a system permission.
+> **Note:** OEMs may add additional presets and provide mechanisms for users to define their own picture profiles. This implementation uses the [`createPictureProfile`](https://developer.android.com/reference/android/media/quality/MediaQualityManager#createPictureProfile(android.media.quality.PictureProfile)) method that requires a system permission.
 
 ### Selecting a system picture profile
 
@@ -41,7 +41,7 @@ Before selecting a picture profile, it's important to first validate that the
 device supports it.
 
 The following snippet shows how to use
-[`getAvailablePictureProfiles()`](https://developer.android.com/reference/android/media/quality/MediaQualityManager#getAvailablePictureProfiles(android.media.quality.MediaQualityManager.ProfileQueryParams)) to query all
+[`getAvailablePictureProfiles`](https://developer.android.com/reference/android/media/quality/MediaQualityManager#getAvailablePictureProfiles(android.media.quality.MediaQualityManager.ProfileQueryParams)) to query all
 supported picture profiles and apply a sports profile:
 
 
@@ -66,7 +66,8 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
 
 <br />
 
-To obtain a specific profile by name, use [`getPictureProfile()`](https://developer.android.com/reference/android/media/quality/MediaQualityManager#getPictureProfile(int,%20java.lang.String,%20android.media.quality.MediaQualityManager.ProfileQueryParams)):
+To obtain a specific profile by name, use
+[`getPictureProfile`](https://developer.android.com/reference/android/media/quality/MediaQualityManager#getPictureProfile(int,%20java.lang.String,%20android.media.quality.MediaQualityManager.ProfileQueryParams)):
 
 
 ```kotlin

@@ -9,42 +9,33 @@ recommendations for both native and non-native apps.
 
 ## Why is accessibility important for my TV app?
 
-Vision impairments are not uncommon among the TV-watching population.
-An estimated [2.2 billion people globally](https://www.who.int/health-topics/blindness-and-vision-loss#tab=tab_1)
-have a vision impairment, according
-to the World Health Organization (WHO). In the US, 32 million Americans age 18 and older have experienced
-significant vision loss,
-according to the [2018 National Health Interview Survey](https://www.afb.org/research-and-initiatives/statistics/adults).
-In Europe, the estimates
-point to [30 million](http://www.euroblind.org/about-blindness-and-partial-sight/facts-and-figures#:%7E:text=Statistics,sighted%20persons%20as%20blind%20persons)
-blind and partially sighted persons, according to the European Blind Union (EBU).
+Vision impairments are not uncommon among TV viewers. The WHO estimates [2.2
+billion people globally](https://www.who.int/health-topics/blindness-and-vision-loss#tab=tab_1) have vision impairments, while about 32 million US
+adults experience significant loss ([2018 National Health Interview Survey](https://www.afb.org/research-and-initiatives/statistics/adults)).
+In Europe, the EBU estimates [30 million](http://www.euroblind.org/about-blindness-and-partial-sight/facts-and-figures#:%7E:text=Statistics,sighted%20persons%20as%20blind%20persons) are affected.
 
-Most importantly, users with vision impairments enjoy media content
-just as much as their fully sighted peers. A [2017 survey](https://www.afb.org/research-and-initiatives/statistics/adults) commissioned by Comcast
-showed that 96% of users who are blind or have low vision regularly watch
-TV, with 81% watching more than an hour per day. However, 65% also reported
-encountering problems with looking up what's on TV. And in a [2020 survey in the
-UK](https://bighack.org/video-on-demand-streaming-and-accessibility-the-big-hack-survey-feedback/),
-80% of disabled people said they had experienced accessibility issues with video
-on-demand streaming services.
+Visually impaired users enjoy media as much as sighted peers. A Comcast [2017
+survey](https://www.afb.org/research-and-initiatives/statistics/adults) found 96% watch TV (81% over an hour daily). Yet, 65% report issues
+with finding content. Also, 80% of disabled people in a [UK survey](https://bighack.org/video-on-demand-streaming-and-accessibility-the-big-hack-survey-feedback/) reported
+streaming issues.
 
-While assistive technologies can and do help users with low vision, it's
-important to support accessibility in content discovery journeys for TV apps.
-For example, pay extra attention to providing navigation guidance and
-properly labeling elements, and ensure that TV apps work well with accessibility
-features like TalkBack. These steps can significantly improve the experience for
-users with vision impairments.
+Assistive technologies help, but TV apps must support accessibility in content
+discovery. Pay special attention to navigation guidance and element labels.
+Ensure compatibility with features like TalkBack to significantly improve the
+experience for users with vision impairments.
 
-The first step toward improving accessibility is awareness. This guide can
-help you and your team to uncover accessibility issues with your TV app.
+The first step toward improving accessibility is awareness. This guide can help
+you and your team to uncover accessibility issues with your TV app.
 
 ### Android accessibility resources
 
-To learn more about accessibility on Android, see our [accessibility development resources](https://developer.android.com/guide/topics/ui/accessibility).
+To learn more about accessibility on Android, see our [accessibility development
+resources](https://developer.android.com/guide/topics/ui/accessibility).
 
 ## Text scaling
 
-Android TV apps should respect the user's preference for text scaling by [supporting different pixel densities](https://developer.android.com/training/multiscreen/screendensities#TaskUseDP).
+Android TV apps should respect the user's preference for text scaling by
+[supporting different pixel densities](https://developer.android.com/training/multiscreen/screendensities#TaskUseDP).
 
 Take special care to:
 
@@ -62,7 +53,7 @@ The text scale can be changed with the following command:
 
     adb shell settings put system font_scale 1.2f
 
-On Android 12 and above, users can alter the text scaling from the device
+On Android 12 and higher, users can alter the text scaling from the device
 settings.
 
 ## Keyboard layouts
@@ -77,38 +68,34 @@ are using a keyboard that does not have a typical layout.
 
 ## Audio description
 
-In Android 13 (API level 33) and higher, a new system-wide accessibility preference
-lets users enable audio descriptions across all apps. Android TV apps can
-check the user's preference by querying it with
+In Android 13 (API level 33) and higher, a new system-wide accessibility
+preference lets users enable audio descriptions across all apps. Android TV apps
+can check the user's preference by querying it with
 [`isAudioDescriptionRequested()`](https://developer.android.com/reference/android/view/accessibility/AccessibilityManager#isAudioDescriptionRequested()).
 
 ### Kotlin
 
-```kotlin
-private lateinit var accessibilityManager: AccessibilityManager
+    private lateinit var accessibilityManager: AccessibilityManager
 
-// In onCreate():
-accessibilityManager = getSystemService(AccessibilityManager::class.java)
+    // In onCreate():
+    accessibilityManager = getSystemService(AccessibilityManager::class.java)
 
-// Where your media player is initialized
-if (am.isAudioDescriptionRequested) {
-    // User has requested to enable audio descriptions
-}
-```
+    // Where your media player is initialized
+    if (am.isAudioDescriptionRequested) {
+        // User has requested to enable audio descriptions
+    }
 
 ### Java
 
-```java
-private AccessibilityManager accessibilityManager;
+    private AccessibilityManager accessibilityManager;
 
-// In onCreate():
-accessibilityManager = getSystemService(AccessibilityManager.class);
+    // In onCreate():
+    accessibilityManager = getSystemService(AccessibilityManager.class);
 
-// Where your media player is initialized
-if(accessibilityManager.isAudioDescriptionRequested()) {
-    // User has requested to enable audio descriptions
-}
-```
+    // Where your media player is initialized
+    if(accessibilityManager.isAudioDescriptionRequested()) {
+        // User has requested to enable audio descriptions
+    }
 
 Android TV apps can monitor when a user's preference changes by
 adding a listener to
@@ -116,43 +103,39 @@ adding a listener to
 
 ### Kotlin
 
-```kotlin
-private val listener =
-    AccessibilityManager.AudioDescriptionRequestedChangeListener { enabled ->
-        // Preference changed; reflect its state in your media player
+    private val listener =
+        AccessibilityManager.AudioDescriptionRequestedChangeListener { enabled ->
+            // Preference changed; reflect its state in your media player
+        }
+
+    override fun onStart() {
+        super.onStart()
+
+        accessibilityManager.addAudioDescriptionRequestedChangeListener(mainExecutor, listener)
     }
 
-override fun onStart() {
-    super.onStart()
+    override fun onStop() {
+        super.onStop()
 
-    accessibilityManager.addAudioDescriptionRequestedChangeListener(mainExecutor, listener)
-}
-
-override fun onStop() {
-    super.onStop()
-
-    accessibilityManager.removeAudioDescriptionRequestedChangeListener(listener)
-}
-```
+        accessibilityManager.removeAudioDescriptionRequestedChangeListener(listener)
+    }
 
 ### Java
 
-```java
-private AccessibilityManager.AudioDescriptionRequestedChangeListener listener = enabled -> {
-    // Preference changed; reflect its state in your media player
-};
+    private AccessibilityManager.AudioDescriptionRequestedChangeListener listener = enabled -> {
+        // Preference changed; reflect its state in your media player
+    };
 
-@Override
-protected void onStart() {
-    super.onStart();
+    @Override
+    protected void onStart() {
+        super.onStart();
 
-    accessibilityManager.addAudioDescriptionRequestedChangeListener(getMainExecutor(), listener);
-}
+        accessibilityManager.addAudioDescriptionRequestedChangeListener(getMainExecutor(), listener);
+    }
 
-@Override
-protected void onStop() {
-    super.onStop();
+    @Override
+    protected void onStop() {
+        super.onStop();
 
-    accessibilityManager.removeAudioDescriptionRequestedChangeListener(listener);
-}
-```
+        accessibilityManager.removeAudioDescriptionRequestedChangeListener(listener);
+    }

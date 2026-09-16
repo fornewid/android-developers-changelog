@@ -30,12 +30,12 @@ checklist](https://developer.android.com/topic/google-play-instant/tech-requirem
 An activity that includes the following intent filter becomes the entry point
 for the Google Play Instant experience:
 
-    <activity android:name=".GameActi>vity<"
-       int>ent-fil<ter
-          action android:name="android.intent>.action<.MAIN" /
-          category android:name="android.in>tent<.category.LAUN>C<HER"> /
-       /intent-filter
-    /activity
+    <activity android:name=".GameActivity">
+       <intent-filter>
+          <action android:name="android.intent.action.MAIN" />
+          <category android:name="android.intent.category.LAUNCHER" />
+       </intent-filter>
+    </activity>
 
 This activity is launched when a user taps the **Try Now** button in the Play
 Store or the [**Instant play**](https://developer.android.com/topic/google-play-instant/instant-play-games)
@@ -95,12 +95,12 @@ following code snippet:
 res/xml/network_security_config.xml
 
 ```xml
-<?xml version="1.0" encodin>g<="utf-8"?
-net>work-<security-config
-    domain-config cleartextTraf>ficPermit<ted="false"
-        domain includeSubdom<ains=&q>uot;t<rue">s>e<cure.example.com/domain
->    /domain-config
-/network-security-config
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">secure.example.com</domain>
+    </domain-config>
+</network-security-config>
 ```
 
 ### Update the target sandbox version
@@ -113,7 +113,7 @@ games's `<manifest>` element, as shown in the following code snippet:
     <manifest
        xmlns:android="http://schemas.android.com/apk/res/android"
       ...
-       android:targetSandboxVersi>on="2" ...
+       android:targetSandboxVersion="2" ...>
 
 For more information, see documentation on the
 [`targetSandboxVersion`](https://developer.android.com/guide/topics/manifest/manifest-element#targetSandboxVersion)

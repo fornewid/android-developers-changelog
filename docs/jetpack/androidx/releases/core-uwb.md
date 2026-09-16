@@ -26,7 +26,7 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement UWB (ultra-wideband) on supported devices
-    implementation "androidx.core.uwb:uwb:1.1.0-alpha01"
+    implementation "androidx.core.uwb:uwb:1.1.0-alpha02"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement UWB (ultra-wideband) on supported devices
-    implementation("androidx.core.uwb:uwb:1.1.0-alpha01")
+    implementation("androidx.core.uwb:uwb:1.1.0-alpha02")
 }
 ```
 

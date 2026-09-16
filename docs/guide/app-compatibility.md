@@ -43,7 +43,7 @@ the latest Android version on these devices.
 These changes only affect apps that are targeting that version of Android.
 
 For these changes, you should perform compatibility testing as you prepare to
-[target the latest stable API version](https://developer.android.com/distribute/best-practices/develop/target-sdk), which is
+[target the latest stable API version](https://developer.android.com/google/play/requirements/target-sdk), which is
 Android 16 (API level 36). Even if you aren't planning to target a new
 Android version immediately, addressing these changes can require a significant
 amount of development. You should learn about these changes as early as

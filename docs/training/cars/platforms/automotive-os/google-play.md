@@ -10,7 +10,7 @@ Google Play Store, Google Play services, and more.
 ## Google Play services
 
 The availability of [Google Play services](https://developers.google.com/android/guides/overview) in cars may be different than on
-other form factors. See [Google Play services for cars with Google built-in](https://developer.android.com/training/cars/platforms/automotive-os/google-services)
+other form factors. See [Google Play services for cars with Google built-in](https://developer.android.com/training/cars/platforms/automotive-os/google-play/google-services)
 for the list of supported services.
 
 ## Google Play Billing on Android Automotive OS

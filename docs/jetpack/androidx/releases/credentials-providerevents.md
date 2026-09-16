@@ -26,8 +26,8 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement credentials providereventss
-    implementation "androidx.credentials.providerevents:providerevents:1.0.0-alpha06"
-    implementation "androidx.credentials.providerevents:providerevents-play-services:1.0.0-alpha06"
+    implementation "androidx.credentials.providerevents:providerevents:1.0.0-beta01"
+    implementation "androidx.credentials.providerevents:providerevents-play-services:1.0.0-beta01"
 ```
 
 ### Kotlin
@@ -35,8 +35,8 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement credentials providereventss
-    implementation("androidx.credentials.providerevents:providerevents:1.0.0-alpha06")
-    implementation("androidx.credentials.providerevents:providerevents-play-services:1.0.0-alpha06")
+    implementation("androidx.credentials.providerevents:providerevents:1.0.0-beta01")
+    implementation("androidx.credentials.providerevents:providerevents-play-services:1.0.0-beta01")
 
 
 }

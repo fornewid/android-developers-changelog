@@ -10,7 +10,7 @@ Navigation 3 is a new navigation library designed to work with Compose.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 26, 2026 | [1.1.7](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.7) | - | [1.2.0-beta01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-beta01) | - |
+| September 09, 2026 | [1.1.7](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.7) | [1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -25,8 +25,8 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation3:navigation3-runtime:1.2.0-beta01"
-    implementation "androidx.navigation3:navigation3-ui:1.2.0-beta01"
+    implementation "androidx.navigation3:navigation3-runtime:1.2.0-rc01"
+    implementation "androidx.navigation3:navigation3-ui:1.2.0-rc01"
 }
 ```
 
@@ -34,8 +34,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation3:navigation3-runtime:1.2.0-beta01")
-    implementation("androidx.navigation3:navigation3-ui:1.2.0-beta01")
+    implementation("androidx.navigation3:navigation3-runtime:1.2.0-rc01")
+    implementation("androidx.navigation3:navigation3-ui:1.2.0-rc01")
 }
 ```
 
@@ -57,6 +57,16 @@ for more information.
 There are no release notes for this artifact.
 
 ## Navigation3 Version 1.2
+
+### Version 1.2.0-rc01
+
+September 09, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0-rc01` is released. Version 1.2.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..ac5360fca92abb996fe01dcbf06db1a31227566e/navigation3).
+
+**Bug Fixes**
+
+- Disallow duplicate placeholder names in deep link URI patterns. ([I8985c](https://android-review.googlesource.com/#/q/I8985ccc4b5235a8b301ead6bc402efaaf2457f4a), [b/522343165](https://issuetracker.google.com/issues/522343165))
 
 ### Version 1.2.0-beta01
 

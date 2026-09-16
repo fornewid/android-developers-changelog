@@ -40,16 +40,16 @@ are displayed in a secondary toolbar under the primary toolbar.
 
 To add custom browse actions to your app:
 
-1. Override two methods in your [`MediaBrowserServiceCompat`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat)
+1. Override two methods in your [`MediaBrowserServiceCompat`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserServiceCompat)
    implementation:
 
-   - [`onLoadItem(String itemId, @NonNull Result<MediaBrowserCompat.MediaItem> result)`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onLoadItem(java.lang.String,androidx.media.MediaBrowserServiceCompat.Result%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E))
-   - [`onCustomAction(@NonNull String action, Bundle extras, @NonNull Result<Bundle> result)`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onCustomAction(java.lang.String,android.os.Bundle,androidx.media.MediaBrowserServiceCompat.Result%3Candroid.os.Bundle%3E))
+   - [`onLoadItem(String itemId, @NonNull Result<MediaBrowserCompat.MediaItem> result)`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserServiceCompat#onLoadItem(java.lang.String,%20android.support.v4.media.MediaBrowserServiceCompat.Result%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E))
+   - [`onCustomAction(@NonNull String action, Bundle extras, @NonNull Result<Bundle> result)`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserServiceCompat#onCustomAction(java.lang.String,%20android.os.Bundle,%20android.support.v4.media.MediaBrowserServiceCompat.Result%3Candroid.os.Bundle%3E))
 2. Parse the action limits at runtime:
 
    In `onGetRoot`, get the maximum number of actions allowed for each
    `MediaItem` using the key
-   [`BROWSER_ROOT_HINTS_KEY_CUSTOM_BROWSER_ACTION_LIMIT`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#BROWSER_ROOT_HINTS_KEY_CUSTOM_BROWSER_ACTION_LIMIT())
+   [`BROWSER_ROOT_HINTS_KEY_CUSTOM_BROWSER_ACTION_LIMIT`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java)
    in the `rootHints` `Bundle`. A limit of 0 indicates that the feature is
    not supported by the system.
 3. Build the global list of custom browse actions. For each action, create a
@@ -62,12 +62,12 @@ To add custom browse actions to your app:
 
 5. Add the global list to your `BrowseRoot`. In the `BrowseRoot` extras
    `Bundle`, add the list of actions as a `Parcelable` `ArrayList` using the
-   key [`BROWSER_SERVICE_EXTRAS_KEY_CUSTOM_BROWSER_ACTION_ROOT_LIST`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#BROWSER_SERVICE_EXTRAS_KEY_CUSTOM_BROWSER_ACTION_ROOT_LIST()).
+   key [`BROWSER_SERVICE_EXTRAS_KEY_CUSTOM_BROWSER_ACTION_ROOT_LIST`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java).
 
 6. Add actions to your `MediaItem` objects. You can add actions to individual
    `MediaItem` objects by including the list of action IDs in the
    `MediaDescriptionCompat` extras using the key
-   [`DESCRIPTION_EXTRAS_KEY_CUSTOM_BROWSER_ACTION_ID_LIST`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#DESCRIPTION_EXTRAS_KEY_CUSTOM_BROWSER_ACTION_ID_LIST()). This list must
+   [`DESCRIPTION_EXTRAS_KEY_CUSTOM_BROWSER_ACTION_ID_LIST`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java). This list must
    be a subset of the global list of actions you defined in the `BrowseRoot`.
 
 7. Handle actions and return progress or results:
@@ -75,10 +75,10 @@ To add custom browse actions to your app:
    - In `onCustomAction`, handle the action based on the action ID and any
      other data you need. You can get the ID of the `MediaItem` that
      triggered the action from the extras using the key
-     [`EXTRAS_KEY_CUSTOM_BROWSER_ACTION_MEDIA_ITEM_ID`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#EXTRAS_KEY_CUSTOM_BROWSER_ACTION_MEDIA_ITEM_ID()).
+     [`EXTRAS_KEY_CUSTOM_BROWSER_ACTION_MEDIA_ITEM_ID`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java).
 
    - You can update the list of actions for a `MediaItem` by including the
-     key [`EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM())
+     key `EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM`
      in the progress or result bundle.
 
 ### Update the action state
@@ -228,7 +228,7 @@ To build the result:
 ## Update the action state
 
 By using the `result.sendProgressUpdate(resultBundle)` method with the
-[`EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM()) key, you can update
+`EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM` key, you can update
 the `MediaItem` to reflect the new state of the action. This lets you provide
 real-time feedback to the user about the progress and result of their action.
 
@@ -247,9 +247,9 @@ action with three states:
 - **Downloaded** state indicates that the download is complete. When the
   download finishes, you can swap Downloading with Downloaded and call
   `sendResult` with the
-  [`EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM())
+  `EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM`
   key to indicate that the item should be refreshed. Additionally, you can use
-  the [`EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_MESSAGE`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM())
+  the `EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_MESSAGE`
   key to display a success message to the user.
 
 This approach lets you provide clear feedback to the user about the download
@@ -263,12 +263,12 @@ Another example is a favorite action with two states:
 - **Favorite** is displayed for items not in the user's favorites list. When
   the user selects this action, swap it with **Favorited** and call
   `sendResult` with the
-  [`EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM()) key to update the
+  `EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM` key to update the
   UI.
 
 - **Favorited** is displayed for items in the user's favorites list. When the
   user selects this action, swap it with **Favorite** and call `sendResult`
-  with the [`EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM())
+  with the `EXTRAS_KEY_CUSTOM_BROWSER_ACTION_RESULT_REFRESH_ITEM`
   key to update the UI.
 
 This approach provides a clear and consistent way for users to manage their

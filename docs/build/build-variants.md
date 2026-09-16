@@ -354,9 +354,16 @@ the application ID for the "free debug" build variant is
 "com.example.myapp.free.debug". This is useful when you want to have both the
 debug and the release build on the same device, because no two apps can have the
 same application ID.
-If you have a legacy app (created before August 2021) that you distribute using APKs on Google Play, and you want to use the same app listing to distribute multiple APKs that each target a different device configuration, such as the API level, then you must use the same application ID for each build variant but give each APK a different `versionCode`. For more information, read about [Multiple APK support](https://developer.android.com/google/play/publishing/multiple-apks). Publishing using AABs is unaffected, as it uses a single artifact that uses a single version code and application ID by default.
 
-<br />
+If you have a legacy app (created before August
+2021) that you distribute using APKs on Google Play, and you want to use the same app listing to
+distribute multiple APKs that
+each target a different device configuration, such as the API level,
+then you must use the same application ID for each build variant but give each
+APK a different `versionCode`. For more information, read about
+[Multiple APK support](https://developer.android.com/google/play/publishing/multiple-apks). Publishing
+using AABs is unaffected, as it uses a single artifact that uses a single
+version code and application ID by default.
 
 **Tip:** If you need to reference the application ID in your
 manifest file, you can use the `${applicationId}` placeholder in any
@@ -890,9 +897,9 @@ flavor dimensions is not supported.
 If you [combine multiple product
 flavors](https://developer.android.com/build/build-variants#flavor-dimensions), priority between the product flavors is determined by the flavor
 dimension they belong to. When listing flavor dimensions with the
-[`android.flavorDimensions`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/ProductFlavor#dimension) property, product flavors that
-belong to the first flavor dimension you list have a higher priority than
-those belonging to the second flavor dimension, and so on. Additionally,
+[`android.flavorDimensions`](https://developer.android.com/reference/tools/gradle-api/current/com/android/build/api/dsl/ProductFlavor#dimension) property, product flavors are
+prioritized in the order their dimensions are declared, with earlier dimensions
+taking precedence over subsequent ones. Additionally,
 source sets you create for combinations of product flavors have a higher
 priority than source sets that belong to an individual product flavor.
 
@@ -918,8 +925,8 @@ Gradle considers this priority order when applying the following build rules:
   error. If you want different versions of `Utility.kt` for
   different build types, each build type must define its own version of
   the file and not include it in the `main/` source set.
-- Manifests are merged together into a single manifest. Priority is given in the same order as the list in the previous example. That is, manifest settings for a build type override the manifest settings for a product flavor, and so on. To learn more, read about [manifest merging](https://developer.android.com/studio/build/manage-manifests#merge-manifests).
-- Files in the `values/` directories are merged together. If two files have the same name, such as two `strings.xml` files, priority is given in the same order as the list in the previous example. That is, values defined in a file in the build type source set override the values defined in the same file in a product flavor, and so on.
+- Manifests are merged together into a single manifest. Priority is given in the same order as the list in the previous example. For example, manifest settings for a build type override the manifest settings for a product flavor. To learn more, read about [manifest merging](https://developer.android.com/studio/build/manage-manifests#merge-manifests).
+- Files in the `values/` directories are merged together. If two files have the same name, such as two `strings.xml` files, priority is given in the same order as the list in the previous example. For example, values defined in a file in the build type source set override the values defined in the same file in a product flavor.
 - Resources in the `res/` and `asset/` directories are packaged together. If there are resources with the same name defined in two or more source sets, priority is given in the same order as the list in the previous example.
 - Gradle gives resources and manifests included with library module dependencies the lowest priority when building the app.
 
@@ -967,8 +974,8 @@ see [Add build dependencies](https://developer.android.com/studio/build/dependen
 
 
 The Android Gradle plugin 3.0.0 and higher includes a new dependency mechanism that automatically
-matches variants when consuming a library. This means an app's `debug` variant
-automatically consumes a library's `debug` variant, and so on. It also works when using
+matches variants when consuming a library. For example, an app's `debug` variant
+automatically consumes a library's `debug` variant. It also works when using
 flavors: an app's `freeDebug` variant will consume a library's `freeDebug`
 variant.
 
@@ -993,9 +1000,10 @@ Required by:
 
 The plugin includes DSL elements to help you control how Gradle resolves situations in
 which a direct variant match between an app and a dependency is not possible.
-The following is a list of issues related to variant-aware dependency matching and how to solve them using DSL properties:
 
-<br />
+
+The following is a list of issues related to variant-aware dependency matching and how
+to solve them using DSL properties:
 
 - **Your app includes a build type that a library dependency does not.**
 
@@ -1321,7 +1329,7 @@ and you lose your upload key, you can
 [request a
 reset](https://support.google.com/googleplay/android-developer/answer/9842756#reset) using the Play Console.
 If you are publishing an app without Play App Signing (for apps created before August 2021) and
-you lose your app signing key, you will not be able to publish any updates to your app, since you
+you lose your app signing key, you won't be able to publish any updates to your app, since you
 must always sign all versions of your app with the same key.
 
 ### Signing Wear OS apps

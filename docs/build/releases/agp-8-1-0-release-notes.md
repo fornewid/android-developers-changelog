@@ -112,20 +112,21 @@ and specify `jvmTarget = '17'` in your Kotlin compiler options.
 To learn more about the lint tool, see
 [Improve your code with lint checks](https://developer.android.com/studio/write/lint).
 
-## Native library compression setting moved to DSL
+## C/C++ shared library compression setting moved to DSL
 
 Starting with AGP 8.1.0-alpha10, you'll get a warning if you don't configure
-native library compression using the DSL instead of the manifest. The
+C/C++ shared library compression using the DSL instead of the manifest. The
 following guidance explains how to update your configuration to use the DSL. To
 get help making these updates, use the AGP Upgrade Assistant
 (**Tools \> AGP Upgrade Assistant**).
 
 > [!NOTE]
-> **Note:** The `useLegacyPackaging` DSL only supports APK-producing modules. To configure native library compression for library modules, keep using the `extractNativeLibs` manifest attribute; you don't need to add anything using the DSL.
+> **Note:** The `useLegacyPackaging` DSL only supports APK-producing modules. To configure C/C++ shared library compression for library modules, keep using the `extractNativeLibs` manifest attribute; you don't need to add anything using the DSL.
 
-To use uncompressed native libraries, remove the `android::extractNativeLibs`
-attribute from the manifest and add the following code to the module-level
-`build.gradle.kts` file (`build.gradle` file if you're using Groovy):
+To use uncompressed C/C++ shared libraries, remove the
+`android::extractNativeLibs` attribute from the manifest and add the following
+code to the module-level `build.gradle.kts` file (`build.gradle` file if you're
+using Groovy):
 
 ### Kotlin
 

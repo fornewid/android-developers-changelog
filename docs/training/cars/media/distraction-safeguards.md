@@ -47,7 +47,7 @@ By default, Android Auto displays a notification when the media metadata changes
 during an audio playback session. When a media app switches from playing music
 to running an advertisement, displaying a notification distracts the user. To
 prevent Android Auto from displaying a notification, set the media metadata key
-[`METADATA_KEY_IS_ADVERTISEMENT`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#METADATA_KEY_IS_ADVERTISEMENT()) to [`METADATA_VALUE_ATTRIBUTE_PRESENT`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#METADATA_VALUE_ATTRIBUTE_PRESENT()):
+[`METADATA_KEY_IS_ADVERTISEMENT`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java) to `METADATA_VALUE_ATTRIBUTE_PRESENT`:
 
 ### Kotlin
 

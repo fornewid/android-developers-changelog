@@ -47,8 +47,8 @@ Likewise, "Groovy" and "Groovy DSL" are used interchangeably.
 Script file extension names are based on the language the build file is written
 in:
 
-- Gradle build files written in Groovy use the `.gradle` file name extension.
-- Gradle build files written in Kotlin use the `.gradle.kts` file name extension.
+- Gradle build files written in Groovy use the `.gradle` filename extension.
+- Gradle build files written in Kotlin use the `.gradle.kts` filename extension.
 
 ## Convert the syntax
 
@@ -60,7 +60,7 @@ so you need to apply these changes throughout your build scripts.
 > [!TIP]
 > **Tip:** As a first step, even before changing the file extensions, add parentheses to your Groovy code. This makes the conversion to Kotlin easier.
 
-Groovy lets you to omit parentheses in method calls, while Kotlin requires
+Groovy lets you omit parentheses in method calls, while Kotlin requires
 them. To migrate your configuration, add parentheses to these sorts of
 method calls. This code shows how to configure a setting in Groovy:
 
@@ -75,7 +75,7 @@ This is the same code written in Kotlin:
 > [!TIP]
 > **Tip:** Before changing file extensions, add `=` to your Groovy code. This makes the conversion to Kotlin easier.
 
-The Groovy DSL lets you to omit the assignment operator `=` when
+The Groovy DSL lets you omit the assignment operator `=` when
 assigning properties, whereas Kotlin requires it. This code shows how to
 assign properties in Groovy:
 
@@ -95,31 +95,24 @@ This code shows how to assign properties in Kotlin:
 
 Here are the string differences between Groovy and Kotlin:
 
-- **Double quotes for strings:** While Groovy allows strings to be defined using single quotes, Kotlin requires double quotes.
-- **String interpolation on dotted expressions:** In Groovy, you can use
-  just the `$` prefix for
-  [string interpolations](https://groovy-lang.org/syntax.html#_string_interpolation)
-  on dotted expressions, but Kotlin requires that you wrap the dotted expressions with curly braces. For example, in Groovy you can use
-  `$project.rootDir` as shown in the following snippet:
+- **Double quotes for strings:** While Groovy allows strings to be defined
+  using single quotes, Kotlin requires double quotes.
 
-  ```groovy
+- **String interpolation on dotted expressions:** In Groovy, you can use just
+  the `$` prefix for [string interpolations](https://groovy-lang.org/syntax.html#_string_interpolation) on dotted expressions, but
+  Kotlin requires that you wrap the dotted expressions with curly braces. For
+  example, in Groovy you can use `$project.rootDir` as shown in the following
+  snippet:
+
       myRootDirectory = "$project.rootDir/tools/proguard-rules-debug.pro"
-      
-  ```
 
-  In Kotlin, however, the preceding code calls `toString()` on
-  `project`, not on `project.rootDir`. To get the value
-  of the root directory, wrap the `${project.rootDir}` expression
-  with curly braces:
+  In Kotlin, however, the preceding code calls `toString()` on `project`, not
+  on `project.rootDir`. To get the value of the root directory, wrap the
+  `${project.rootDir}` expression with curly braces:
 
-  ```kotlin
       myRootDirectory = "${project.rootDir}/tools/proguard-rules-debug.pro"
-      
-  ```
 
-  To learn more, see
-  [String templates](https://kotlinlang.org/docs/strings.html#string-templates)
-  in the Kotlin documentation.
+  To learn more, see [String templates](https://kotlinlang.org/docs/strings.html#string-templates) in the Kotlin documentation.
 
 ### Rename file extensions
 
@@ -293,7 +286,7 @@ following table:
 
 You can also search for plugins on the
 [Gradle Plugin Portal](https://plugins.gradle.org/),
-the [Maven Central Repository](https://central.sonatype.com/)
+the [Maven Central Repository](https://central.sonatype.com/),
 and the
 [Google Maven repository](https://maven.google.com/web/index.html).
 Read
@@ -428,8 +421,7 @@ The following code shows how to do the same in Kotlin:
        ...
     }
 
-For more details about the `plugins {}` block, see [Applying
-plugins](https://docs.gradle.org/nightly/userguide/migrating_from_groovy_to_kotlin_dsl.html#applying_plugins)
+For more details about the `plugins {}` block, see [Applying plugins](https://docs.gradle.org/nightly/userguide/migrating_from_groovy_to_kotlin_dsl.html#applying_plugins)
 in the Gradle documentation.
 
 ## Miscellaneous
@@ -438,17 +430,15 @@ For Kotlin code samples for other functionalities, see the following
 documentation pages:
 
 - If you have a ProGuard configuration, refer to [Enable shrinking, obfuscation, and optimization](https://developer.android.com/studio/build/shrink-code#enable).
-- If you have a `signingConfig {}` block, refer to [Remove signing information from
-  your build files](https://developer.android.com/studio/publish/app-signing#secure-shared-keystore).
-- If you use project-wide properties, refer to [Configure project-wide
-  properties](https://developer.android.com/studio/build#project_wide_properties).
+- If you have a `signingConfig {}` block, refer to [Remove signing information from your build files](https://developer.android.com/studio/publish/app-signing#secure-shared-keystore).
+- If you use project-wide properties, refer to [Configure project-wide properties](https://developer.android.com/studio/build#project_wide_properties).
 
 > [!CAUTION]
 > **Caution:** Although Gradle lets you define project-wide properties at the module level, avoid doing so, because it causes the modules that share those properties to be coupled. Module coupling makes it more difficult to later export a module as a standalone project and prevents Gradle from using parallel project execution to speed up multi-module builds.
 
 ## Known issues
 
-At present, a [known issue](https://github.com/gradle/gradle/issues/15886#issuecomment-1432923669)
+A [known issue](https://github.com/gradle/gradle/issues/15886#issuecomment-1432923669)
 is that build speed might be slower with Kotlin than with Groovy.
 
 ## How to report issues

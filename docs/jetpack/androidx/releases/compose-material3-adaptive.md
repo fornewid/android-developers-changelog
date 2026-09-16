@@ -27,10 +27,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.material3.adaptive:adaptive:1.4.0-alpha01"
-    implementation "androidx.compose.material3.adaptive:adaptive-layout:1.4.0-alpha01"
-    implementation "androidx.compose.material3.adaptive:adaptive-navigation:1.4.0-alpha01"
-    implementation "androidx.compose.material3.adaptive:adaptive-navigation3:1.4.0-alpha01"
+    implementation "androidx.compose.material3.adaptive:adaptive:1.4.0-alpha02"
+    implementation "androidx.compose.material3.adaptive:adaptive-layout:1.4.0-alpha02"
+    implementation "androidx.compose.material3.adaptive:adaptive-navigation:1.4.0-alpha02"
+    implementation "androidx.compose.material3.adaptive:adaptive-navigation3:1.4.0-alpha02"
 }
 ```
 
@@ -38,10 +38,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.material3.adaptive:adaptive:1.4.0-alpha01")
-    implementation("androidx.compose.material3.adaptive:adaptive-layout:1.4.0-alpha01")
-    implementation("androidx.compose.material3.adaptive:adaptive-navigation:1.4.0-alpha01")
-    implementation("androidx.compose.material3.adaptive:adaptive-navigation3:1.4.0-alpha01")
+    implementation("androidx.compose.material3.adaptive:adaptive:1.4.0-alpha02")
+    implementation("androidx.compose.material3.adaptive:adaptive-layout:1.4.0-alpha02")
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation:1.4.0-alpha02")
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation3:1.4.0-alpha02")
 }
 ```
 

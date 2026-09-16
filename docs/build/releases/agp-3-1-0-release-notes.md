@@ -46,7 +46,7 @@ specifying the following in your project's `gradle.properties` file:
 
 **Preview users:** If you're already using a preview version of D8, note
 that it now compiles against libraries included in the
-[SDK build tools](https://developer.android.com/studio/releases/build-tools)---not the JDK.
+[SDK build tools](https://developer.android.com/studio/releases/build-tools), not the JDK.
 So, if you are accessing APIs that exist in the JDK but not in the SDK build
 tools libraries, you get a compile error.
 
@@ -118,6 +118,6 @@ tools libraries, you get a compile error.
 ## Fixes
 
 - Fixes an issue where Android Studio doesn't properly recognize dependencies in composite builds.
-- Fixes an issue where you get a project sync error when loading the Android plugin multiple times in a single build--for example, when multiple subprojects each include the Android plugin in their buildscript classpath.
+- Fixes an issue where you get a project sync error when loading the Android plugin multiple times in a single build (for example, when multiple subprojects each include the Android plugin in their buildscript classpath).
 
 <br />

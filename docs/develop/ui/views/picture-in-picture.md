@@ -29,12 +29,12 @@ The PiP window appears in the topmost layer of the screen, in a corner chosen by
 the system.
 
 > [!TIP]
-> **Tip:** While this guide describes implementing PiP in views, see [Add PiP to your app with a Compose video player](https://developer.android.com/jetpack/compose/system/picture-in-picture) to do this in Compose.
+> **Tip:** While this guide describes implementing PiP in views, see [Add PiP to your
+> app with a Compose video player](https://developer.android.com/develop/ui/compose/system/picture-in-picture) to do this in Compose.
 
 PiP is also supported on compatible Android TV OS devices running
-Android 14 (API level 34) or later. While there are many similarities, there are
-additional considerations when using
-[PiP on TV](https://developer.android.com/training/tv/start/multitasking).
+Android 14 (API level 34) or higher. While there are many similarities, there are
+additional considerations when using [PiP on TV](https://developer.android.com/training/tv/get-started/multitasking).
 
 ## How users can interact with the PiP window
 
@@ -75,7 +75,7 @@ examples:
 ## Declare PiP support
 
 By default, the system does not automatically support PiP for apps. If you want
-support PiP in your app, register your video activity in your manifest by
+to support PiP in your app, register your video activity in your manifest by
 setting `android:supportsPictureInPicture` to `true`. Also, specify that your
 activity handles layout configuration changes so that your activity doesn't
 relaunch when layout changes occur during PiP mode transitions.
@@ -107,60 +107,27 @@ added benefit of providing much smoother transitions. For details, see [Make
 transitions to PiP mode smoother from gesture navigation](https://developer.android.com/develop/ui/views/picture-in-picture#setautoenterenabled).
 
 If you're targeting Android 11 or lower, an activity must call
-[`enterPictureInPictureMode()`](https://developer.android.com/reference/android/app/Activity#enterPictureInPictureMode())
-to switch to PiP mode. For example, the following code switches an activity to
-PiP mode when the user clicks a dedicated button in the app's UI:
+[`enterPictureInPictureMode()`](https://developer.android.com/reference/android/app/Activity#enterPictureInPictureMode()) to switch to PiP mode. For example, the
+following code switches an activity to PiP mode when the user clicks a dedicated
+button in the app's UI:
 
-### Kotlin
-
-```kotlin
-override fun onActionClicked(action: Action) {
-    if (action.id.toInt() == R.id.lb_control_picture_in_picture) {
-        activity?.enterPictureInPictureMode()
-        return
+    override fun onActionClicked(action: Action) {
+        if (action.id.toInt() == R.id.lb_control_picture_in_picture) {
+            activity?.enterPictureInPictureMode()
+            return
+        }
     }
-}
-```
-
-### Java
-
-```java
-@Override
-public void onActionClicked(Action action) {
-    if (action.getId() == R.id.lb_control_picture_in_picture) {
-        getActivity().enterPictureInPictureMode();
-        return;
-    }
-    ...
-}
-```
 
 You might want to include logic that switches an activity into PiP mode instead
 of going into the background. For example, Google Maps switches to PiP mode if
 the user presses the home or recents button while the app is navigating. You can
-catch this case by overriding
-[`onUserLeaveHint()`](https://developer.android.com/reference/android/app/Activity#onUserLeaveHint()):
+catch this case by overriding [`onUserLeaveHint()`](https://developer.android.com/reference/android/app/Activity#onUserLeaveHint()):
 
-### Kotlin
-
-```kotlin
-override fun onUserLeaveHint() {
-    if (iWantToBeInPipModeNow()) {
-        enterPictureInPictureMode()
+    override fun onUserLeaveHint() {
+        if (iWantToBeInPipModeNow()) {
+            enterPictureInPictureMode()
+        }
     }
-}
-```
-
-### Java
-
-```java
-@Override
-public void onUserLeaveHint () {
-    if (iWantToBeInPipModeNow()) {
-        enterPictureInPictureMode();
-    }
-}
-```
 
 ## Recommended: provide users a polished PiP transition experience
 
@@ -180,9 +147,8 @@ These changes involve the following.
 - Setting a proper `sourceRectHint` for entering and exiting PiP mode
 - Disabling seamless resizing for non-video content
 
-Refer to the [Android
-Kotlin PictureInPicture sample](https://github.com/android/media-samples/tree/main/PictureInPictureKotlin/#readme)
-as a reference for enabling a polished transition experience.
+Refer to the [Android Kotlin PictureInPicture sample](https://github.com/android/platform-samples/tree/main/samples/user-interface/picture-in-picture) as a
+reference for enabling a polished transition experience.
 
 ### Make transitions to PiP mode smoother from gesture navigation
 
@@ -192,39 +158,24 @@ navigation---for example, when swiping up to home from fullscreen.
 
 Complete the following steps to make this change:
 
-1. Use `setAutoEnterEnabled` to construct
-   [`PictureInPictureParams.Builder`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder):
+1. Use `setAutoEnterEnabled` to construct [`PictureInPictureParams.Builder`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder):
 
-   ### Kotlin
+    setPictureInPictureParams(PictureInPictureParams.Builder()
+      .setAspectRatio(aspectRatio)
+      .setSourceRectHint(sourceRectHint)
+      .setAutoEnterEnabled(true)
+      .build())
 
-   ```kotlin
-   setPictureInPictureParams(PictureInPictureParams.Builder()
-       .setAspectRatio(aspectRatio)
-       .setSourceRectHint(sourceRectHint)
-       .setAutoEnterEnabled(true)
-       .build())
-   ```
+    Note: When `setAutoEnterEnabled` is enabled, you don't need to explicitly
+    call [`enterPictureInPictureMode`][5] in [`onUserLeaveHint`][6].
 
-   ### Java
-
-   ```java
-   setPictureInPictureParams(new PictureInPictureParams.Builder()
-       .setAspectRatio(aspectRatio)
-       .setSourceRectHint(sourceRectHint)
-       .setAutoEnterEnabled(true)
-       .build());
-   ```
-
-   > [!NOTE]
-   > **Note:** When `setAutoEnterEnabled` is enabled, you don't need to explicitly call [`enterPictureInPictureMode`](https://developer.android.com/reference/android/app/Activity#enterPictureInPictureMode(android.app.PictureInPictureParams)) in [`onUserLeaveHint`](https://developer.android.com/reference/android/app/Activity#onUserLeaveHint()).
-
-2. Call `setPictureInPictureParams` with the up-to-date
+1. Call `setPictureInPictureParams` with the up-to-date
    `PictureInPictureParams` early. The app doesn't wait for the
    `onUserLeaveHint` callback (as it would have done in Android 11).
 
    For example, you may want to call `setPictureInPictureParams` on the very
    first playback and any following playback if the aspect ratio is changed.
-3. Call `setAutoEnterEnabled(false)`, but only as it's necessary. For example,
+2. Call `setAutoEnterEnabled(false)`, but only as it's necessary. For example,
    you probably don't want to enter PiP if the current playback is in a paused
    state.
 
@@ -242,94 +193,41 @@ animation both when entering and exiting PiP mode.
 
 To properly set `sourceRectHint` for entering and exiting PiP mode:
 
-1. Construct [`PictureInPictureParams`](https://developer.android.com/reference/android/app/PictureInPictureParams)
-   using the proper bounds as `sourceRectHint`. We recommend also attaching a
-   layout change listener to the video player:
+1. Construct [`PictureInPictureParams`](https://developer.android.com/reference/android/app/PictureInPictureParams) using the proper bounds as `sourceRectHint`. We recommend also attaching a layout change listener to the video player:
 
-   ### Kotlin
+    val mOnLayoutChangeListener =
+        OnLayoutChangeListener { v: View?, left: Int,
+                top: Int, right: Int, bottom: Int, oldLeft: Int, oldTop:
+                Int, oldRight: Int, oldBottom: Int ->
+            val sourceRectHint = Rect()
+            mYourVideoView.getGlobalVisibleRect(sourceRectHint)
+            val builder = PictureInPictureParams.Builder()
+                .setSourceRectHint(sourceRectHint)
+            setPictureInPictureParams(builder.build())
+        }
 
-   ```kotlin
-   val mOnLayoutChangeListener =
-   OnLayoutChangeListener { v: View?, oldLeft: Int,
-           oldTop: Int, oldRight: Int, oldBottom: Int, newLeft: Int, newTop:
-           Int, newRight: Int, newBottom: Int ->
-       val sourceRectHint = Rect()
-       mYourVideoView.getGlobalVisibleRect(sourceRectHint)
-       val builder = PictureInPictureParams.Builder()
-           .setSourceRectHint(sourceRectHint)
-       setPictureInPictureParams(builder.build())
-   }
+    mYourVideoView.addOnLayoutChangeListener(mOnLayoutChangeListener)
 
-   mYourVideoView.addOnLayoutChangeListener(mOnLayoutChangeListener)
-   ```
+1. If necessary, update the [`sourceRectHint`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setSourceRectHint(android.graphics.Rect)) before the system starts the exit transition. When the system is about to exit PiP mode, the activity's view hierarchy is laid out to its destination configuration (for example, full screen). The app can attach a layout change listener to its root view or target view (such as the video player view) to detect the event and update the `sourceRectHint` before the animation begins.
 
-   ### Java
-
-   ```java
-   private final View.OnLayoutChangeListener mOnLayoutChangeListener =
-           (v, oldLeft, oldTop, oldRight, oldBottom, newLeft, newTop, newRight,
-           newBottom) -> {
-       final Rect sourceRectHint = new Rect();
-       mYourVideoView.getGlobalVisibleRect(sourceRectHint);
-       final PictureInPictureParams.Builder builder =
-           new PictureInPictureParams.Builder()
-               .setSourceRectHint(sourceRectHint);
-       setPictureInPictureParams(builder.build());
-   };
-
-   mYourVideoView.addOnLayoutChangeListener(mOnLayoutChangeListener);
-   ```
-2. If necessary, update the [`sourceRectHint`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setSourceRectHint(android.graphics.Rect)) before the system starts the
-   exit transition. When the system is about to exit PiP mode, the activity's
-   view hierarchy is laid out to its destination configuration (for example,
-   full screen). The app can attach a layout change listener to its root view
-   or target view (such as the video player view) to detect the event and
-   update the `sourceRectHint` before the animation begins.
-
-   ### Kotlin
-
-   ```kotlin
-   // Listener is called immediately after the user exits PiP but before animating.
-   playerView.addOnLayoutChangeListener { _, left, top, right, bottom,
-                       oldLeft, oldTop, oldRight, oldBottom ->
-       if (left != oldLeft
-           || right != oldRight
-           || top != oldTop
-           || bottom != oldBottom) {
-           // The playerView's bounds changed, update the source hint rect to
-           // reflect its new bounds.
-           val sourceRectHint = Rect()
-           playerView.getGlobalVisibleRect(sourceRectHint)
-           setPictureInPictureParams(
-               PictureInPictureParams.Builder()
-                   .setSourceRectHint(sourceRectHint)
-                   .build()
-           )
-       }
-   }
-   ```
-
-   ### Java
-
-   ```java
-   // Listener is called right after the user exits PiP but before animating.
-   playerView.addOnLayoutChangeListener((v, left, top, right, bottom,
-                       oldLeft, oldTop, oldRight, oldBottom) -> {
-       if (left != oldLeft
-           || right != oldRight
-           || top != oldTop
-           || bottom != oldBottom) {
-           // The playerView's bounds changed, update the source hint rect to
-           // reflect its new bounds.
-           final Rect sourceRectHint = new Rect();
-           playerView.getGlobalVisibleRect(sourceRectHint);
-           setPictureInPictureParams(
-               new PictureInPictureParams.Builder()
-                   .setSourceRectHint(sourceRectHint)
-                   .build());
-       }
-   });
-   ```
+    // Listener is called immediately after the user exits PiP but before animating.
+    playerView.addOnLayoutChangeListener { _, left, top, right, bottom,
+                        oldLeft, oldTop, oldRight, oldBottom ->
+        if (left != oldLeft
+            || right != oldRight
+            || top != oldTop
+            || bottom != oldBottom) {
+            // The playerView's bounds changed, update the source hint rect to
+            // reflect its new bounds.
+            val sourceRectHint = Rect()
+            playerView.getGlobalVisibleRect(sourceRectHint)
+            setPictureInPictureParams(
+                PictureInPictureParams.Builder()
+                    .setSourceRectHint(sourceRectHint)
+                    .build()
+            )
+        }
+    }
 
 > [!NOTE]
 > **Note:** The Jetpack library `androidx.activity` exposes the method [`trackPipAnimationHintView`](https://developer.android.com/reference/kotlin/androidx/activity/package-summary#(android.app.Activity).trackPipAnimationHintView(android.view.View)) that does the work of setting the [`sourceRectHint`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setSourceRectHint(android.graphics.Rect)). It implements the work outlined in the preceding steps, using the view passed into that method.
@@ -346,96 +244,64 @@ jarring visual artifacts.
 
 To enable seamless resizing for video content:
 
-### Kotlin
-
-```kotlin
-setPictureInPictureParams(PictureInPictureParams.Builder()
-    .setSeamlessResizeEnabled(true)
-    .build())
-```
-
-### Java
-
-```java
-setPictureInPictureParams(new PictureInPictureParams.Builder()
-    .setSeamlessResizeEnabled(true)
-    .build());
-```
+    setPictureInPictureParams(PictureInPictureParams.Builder()
+        .setSeamlessResizeEnabled(true)
+        .build())
 
 ## Handle UI during PiP
 
-When the activity enters or exits Picture-in-Picture (PiP) mode, the system calls [`Activity.onPictureInPictureModeChanged()`](https://developer.android.com/reference/android/app/Activity#onPictureInPictureModeChanged(boolean,%0Aandroid.content.res.Configuration))
-or [`Fragment.onPictureInPictureModeChanged()`](https://developer.android.com/reference/android/app/Fragment#onPictureInPictureModeChanged(boolean,%0Aandroid.content.res.Configuration)).
+When the activity enters or exits Picture-in-Picture (PiP) mode, the system
+calls [`Activity.onPictureInPictureModeChanged()`](https://developer.android.com/reference/android/app/Activity#onPictureInPictureModeChanged(boolean,%20android.content.res.Configuration)) or
+[`Fragment.onPictureInPictureModeChanged()`](https://developer.android.com/reference/android/app/Fragment#onPictureInPictureModeChanged(boolean,%20android.content.res.Configuration)).
 
-Android 15 introduces changes that ensure an even
-smoother transition when entering PiP mode. This is beneficial for apps that
-have UI elements overlaid on top of their main UI, which goes into PiP.
+Android 15 introduces changes that ensure an even smoother transition when
+entering PiP mode. This is beneficial for apps that have UI elements overlaid on
+top of their main UI, which goes into PiP.
 
-Developers use the [`onPictureInPictureModeChanged()`](https://developer.android.com/reference/android/app/Activity#onPictureInPictureModeChanged(boolean,%20android.content.res.Configuration)) callback to define logic that toggles the visibility of the overlaid UI elements.
-This callback is triggered when the PiP enter or exit animation is completed.
-Beginning in Android 15, the [`PictureInPictureUiState`](https://developer.android.com/reference/android/app/PictureInPictureUiState) class includes a new state.
+Developers use the [`onPictureInPictureModeChanged()`](https://developer.android.com/reference/android/app/Activity#onPictureInPictureModeChanged(boolean,%20android.content.res.Configuration)) callback to define
+logic that toggles the visibility of the overlaid UI elements. This callback is
+triggered when the PiP enter or exit animation is completed. Beginning in
+Android 15, the [`PictureInPictureUiState`](https://developer.android.com/reference/android/app/PictureInPictureUiState) class includes a new state.
 
-With this new UI state, apps targeting Android 15 observe the [`Activity#onPictureInPictureUiStateChanged()`](https://developer.android.com/reference/android/app/Activity#onPictureInPictureUiStateChanged(android.app.PictureInPictureUiState))
-callback being invoked with [`isTransitioningToPip()`](https://developer.android.com/reference/android/app/PictureInPictureUiState#isTransitioningToPip()) as soon as the PiP animation starts.
-There are many UI elements that are not relevant for the app when it is in PiP mode,
-for example, views or layout that include information such as suggestions, upcoming
-video, ratings, and titles. When the app goes into PiP mode, use the `onPictureInPictureUiStateChanged()` callback to hide these UI elements. When the
-app goes to full screen mode from the PiP window, use the `onPictureInPictureModeChanged()` callback to unhide these elements, as shown in the following examples:
+With this new UI state, apps targeting Android 15 observe the
+[`Activity#onPictureInPictureUiStateChanged()`](https://developer.android.com/reference/android/app/Activity#onPictureInPictureUiStateChanged(android.app.PictureInPictureUiState)) callback being invoked with
+[`isTransitioningToPip()`](https://developer.android.com/reference/android/app/PictureInPictureUiState#isTransitioningToPip()) as soon as the PiP animation starts. There are
+many UI elements that are not relevant for the app when it is in PiP mode, for
+example, views or layout that include information such as suggestions, upcoming
+video, ratings, and titles. When the app goes into PiP mode, use the
+`onPictureInPictureUiStateChanged()` callback to hide these UI elements. When
+the app goes to full screen mode from the PiP window, use the
+`onPictureInPictureModeChanged()` callback to unhide these elements, as shown in
+the following examples:
 
-### Kotlin
-
-```kotlin
-override fun onPictureInPictureUiStateChanged(pipState: PictureInPictureUiState) {
+    override fun onPictureInPictureUiStateChanged(pipState: PictureInPictureUiState) {
         if (pipState.isTransitioningToPip()) {
-          // Hide UI elements.
+            // Hide UI elements.
         }
     }
-```
 
-### Java
-
-```java
-@Override
-public void onPictureInPictureUiStateChanged(PictureInPictureUiState pipState) {
-        if (pipState.isTransitioningToPip()) {
-          // Hide UI elements.
+    override fun onPictureInPictureModeChanged(
+        isInPictureInPictureMode: Boolean,
+        newConfig: Configuration
+    ) {
+        super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
+        if (!isInPictureInPictureMode) {
+            // Unhide UI elements.
         }
     }
-```
-
-### Kotlin
-
-```kotlin
-override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean) {
-        if (isInPictureInPictureMode) {
-          // Unhide UI elements.
-        }
-    }
-```
-
-### Java
-
-```java
-@Override
-public void onPictureInPictureModeChanged(boolean isInPictureInPictureMode) {
-        if (isInPictureInPictureMode) {
-          // Unhide UI elements.
-        }
-    }
-```
 
 This quick visibility toggle of irrelevant UI elements (for a PiP window) helps
 ensure a smoother and flicker-free PiP enter animation.
 
-Override these callbacks to redraw the activity's UI elements. Keep in
-mind that, in PiP mode, your activity is shown in a small window. Users cannot interact
-with your app's UI elements when the app is in PiP mode and the details of small UI elements
-may be difficult to see. Video playback activities with minimal UI provide the best
-user experience.
+Override these callbacks to redraw the activity's UI elements. Keep in mind
+that, in PiP mode, your activity is shown in a small window. Users cannot
+interact with your app's UI elements when the app is in PiP mode and the details
+of small UI elements may be difficult to see. Video playback activities with
+minimal UI provide the best user experience.
 
-If your app needs to provide custom actions for PiP, see [Add controls](https://developer.android.com/develop/ui/views/picture-in-picture#add_controls) on this page. Remove other UI
-elements before your activity enters PiP and restore them when your activity becomes
-full screen again.
+If your app needs to provide custom actions for PiP, see [Add controls](https://developer.android.com/develop/ui/views/picture-in-picture#add_controls) on
+this page. Remove other UI elements before your activity enters PiP and restore
+them when your activity becomes full screen again.
 
 ### Add controls
 
@@ -443,74 +309,46 @@ The PiP window can display controls when the user opens the window's menu (by
 tapping the window on a mobile device, or selecting the menu from the TV
 remote.)
 
-If an app has an [active media
-session](https://developer.android.com/guide/topics/media-apps/working-with-a-media-session), then play,
-pause, next, and previous controls will appear.
+If an app has an [active media session](https://developer.android.com/media/legacy/mediasession), then play, pause, next, and
+previous controls will appear.
 
 You can also specify custom actions explicitly by building
-[`PictureInPictureParams`](https://developer.android.com/reference/android/app/PictureInPictureParams)
-with
-[`PictureInPictureParams.Builder.setActions()`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setActions(java.util.List&lt;android.app.RemoteAction&gt;))
-before entering PiP mode, and pass the params when you enter PiP mode using
-[`enterPictureInPictureMode(android.app.PictureInPictureParams)`](https://developer.android.com/reference/android/app/Activity#enterPictureInPictureMode(android.app.PictureInPictureParams))
-or
-[`setPictureInPictureParams(android.app.PictureInPictureParams)`](https://developer.android.com/reference/android/app/Activity#setPictureInPictureParams(android.app.PictureInPictureParams)).
-Be careful. If you try to add more than
-[`getMaxNumPictureInPictureActions()`](https://developer.android.com/reference/android/app/Activity#getMaxNumPictureInPictureActions()),
+[`PictureInPictureParams`](https://developer.android.com/reference/android/app/PictureInPictureParams) with
+[`PictureInPictureParams.Builder.setActions()`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setActions(java.util.List%3Candroid.app.RemoteAction%3E)) before entering PiP mode,
+and pass the params when you enter PiP mode using
+[`enterPictureInPictureMode(android.app.PictureInPictureParams)`](https://developer.android.com/reference/android/app/Activity#enterPictureInPictureMode(android.app.PictureInPictureParams)) or
+[`setPictureInPictureParams(android.app.PictureInPictureParams)`](https://developer.android.com/reference/android/app/Activity#setPictureInPictureParams(android.app.PictureInPictureParams)). Be
+careful. If you try to add more than [`getMaxNumPictureInPictureActions()`](https://developer.android.com/reference/android/app/Activity#getMaxNumPictureInPictureActions()),
 you'll only get the maximum number.
 
 ## Continuing video playback while in PiP
 
 When your activity switches to PiP, the system places the activity in the paused
-state and calls the activity's
-[`onPause()`](https://developer.android.com/reference/android/app/Activity#onPause()) method. Video
-playback shouldn't be paused and instead continue playing if the activity is
-paused while transitioning to PiP mode.
+state and calls the activity's [`onPause()`](https://developer.android.com/reference/android/app/Activity#onPause()) method. Video playback
+shouldn't be paused and instead continue playing if the activity is paused while
+transitioning to PiP mode.
 
-In Android 7.0 and later, you should pause and resume video playback when the
-system calls your activity's
-[`onStop()`](https://developer.android.com/reference/android/app/Activity#onStop()) and
-[`onStart()`](https://developer.android.com/reference/android/app/Activity#onStart()). By doing this,
-you can avoid having to check if your app is in PiP mode in `onPause()` and
-explicitly continuing playback.
+In Android 7.0 (API level 24) and higher, you should pause and resume video
+playback when thesystem calls your activity's [`onStop()`](https://developer.android.com/reference/android/app/Activity#onStop()) and
+[`onStart()`](https://developer.android.com/reference/android/app/Activity#onStart()). By doingthis, you can avoid having to check if your app is
+in PiP mode in `onPause()` and explicitly continuing playback.
 
 If you haven't set the [`setAutoEnterEnabled`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setAutoEnterEnabled(boolean)) flag to `true` and you need to
 pause playback in your `onPause()` implementation, check for PiP mode by calling
 `isInPictureInPictureMode()` and handle playback appropriately. For example:
 
-### Kotlin
-
-```kotlin
-override fun onPause() {
-    super.onPause()
-    // If called while in PiP mode, do not pause playback.
-    if (isInPictureInPictureMode) {
-        // Continue playback.
-    } else {
-        // Use existing playback logic for paused activity behavior.
+    override fun onPause() {
+        super.onPause()
+        // If called while in PiP mode, don't pause playback.
+        if (isInPictureInPictureMode) {
+            // Continue playback.
+        } else {
+            // Use existing playback logic for paused activity behavior.
+        }
     }
-}
-```
-
-### Java
-
-```java
-@Override
-public void onPause() {
-    // If called while in PiP mode, do not pause playback.
-    if (isInPictureInPictureMode()) {
-        // Continue playback.
-        ...
-    } else {
-        // Use existing playback logic for paused activity behavior.
-        ...
-    }
-}
-```
 
 When your activity switches out of PiP mode back to full-screen mode, the system
-resumes your activity and calls your
-[`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()) method.
+resumes your activity and calls your [`onResume()`](https://developer.android.com/reference/android/app/Activity#onResume()) method.
 
 ## Use a single playback activity for PiP
 
@@ -529,48 +367,42 @@ into or out of PiP mode as needed, set the activity's `android:launchMode` to
         android:launchMode="singleTask"
         ...
 
-In your activity, override
-[`onNewIntent()`](https://developer.android.com/reference/android/app/Activity#onNewIntent(android.content.Intent))
-and handle the new video, stopping any existing video playback if needed.
+In your activity, override [`onNewIntent()`](https://developer.android.com/reference/android/app/Activity#onNewIntent(android.content.Intent)) and handle the new video,
+stopping any existing video playback if needed.
 
 ## Support PiP for camera apps
 
-To enable PiP for camera apps, you should ensure the camera
-remains active in PiP mode by not closing the camera when `onPause()` is called:
+To enable PiP for camera apps, you should ensure the camera remains active in
+PiP mode by not closing the camera when `onPause()` is called:
 
-### Java
-
-    @Override
-    public void onPause() {
-        super.onPause();
+    override fun onPause() {
+        super.onPause()
         // Don't close the camera if the app is entering PiP mode
-        if (!isInPictureInPictureMode()) {
-            closeCamera();
+        if (!isInPictureInPictureMode) {
+            closeCamera()
         }
     }
 
-Like with other use cases, hide non-essential UI elements
-(such as controls and overlays), and add custom actions to control the camera
-(for example, stop recording or flip camera).
+Like with other use cases, hide non-essential UI elements (such as controls and
+overlays), and add custom actions to control the camera (for example, stop
+recording or flip camera).
 
 ### Calculate sourceRectHint for smooth transitions
 
-Providing an accurate `sourceRectHint` with the exact screen coordinates of
-the camera viewfinder is essential for a smooth enter animation. You can get
-the bounds from the preview view using `getGlobalVisibleRect()` as follows:
+Providing an accurate `sourceRectHint` with the exact screen coordinates of the
+camera viewfinder is essential for a smooth enter animation. You can get the
+bounds from the preview view using `getGlobalVisibleRect()` as follows:
 
-### Java
-
-    View previewView = findViewById(R.id.preview_view);
-    Rect globalRect = new Rect();
+    val previewView = findViewById<View>(R.id.preview_view)
+    val globalRect = Rect()
     // Ensure the view is laid out before calling getGlobalVisibleRect() to get valid screen coordinates.
-    previewView.getGlobalVisibleRect(globalRect);
-    PictureInPictureParams params = new PictureInPictureParams.Builder()
+    previewView.getGlobalVisibleRect(globalRect)
+    val params = PictureInPictureParams.Builder()
         .setSourceRectHint(globalRect)
-        .build();
-    setPictureInPictureParams(params);
+        .build()
+    setPictureInPictureParams(params)
 
-## Best practices
+## Additional considerations
 
 PiP might be disabled on devices that have low RAM. Before your app uses PiP,
 check to be sure it is available by calling
@@ -582,27 +414,26 @@ your activity enters PiP mode and hide UI elements, as described in [Handling UI
 during PiP](https://developer.android.com/develop/ui/views/picture-in-picture#handling_ui).
 
 When an activity is in PiP mode, by default it doesn't get input focus. To
-receive input events while in PiP mode, use
-[`MediaSession.setCallback()`](https://developer.android.com/reference/android/media/session/MediaSession#setCallback(android.media.session.MediaSession.Callback)).
-For more information on using `setCallback()` see [Display a Now Playing
-card](https://developer.android.com/training/tv/playback/now-playing).
+receive input events while in PiP mode, use [`MediaSession.setCallback()`](https://developer.android.com/reference/android/media/session/MediaSession#setCallback(android.media.session.MediaSession.Callback)).
+For more information on using `setCallback()` see
+[Display a Now Playing card](https://developer.android.com/training/tv/playback/now-playing).
 
 When your app is in PiP mode, video playback in the PiP window can cause audio
 interference with another app, such as a music player app or voice search app.
 To avoid this, request audio focus when you start playing the video, and handle
-audio focus change notifications, as described in [Managing Audio
-Focus](https://developer.android.com/guide/topics/media-apps/audio-focus). If you receive notification
-of audio focus loss when in PiP mode, pause or stop video playback.
+audio focus change notifications, as described in [Managing Audio Focus](https://developer.android.com/media/optimize/audio-focus). If
+you receive notification of audio focus loss when in PiP mode, pause or stop
+video playback.
 
 When your app is about to enter PiP, note only the top activity enters
 picture-in-picture. In some situations such as on multi-window devices, it is
-possible the activity below will now be shown and become visible again alongside
-the PiP activity. You should handle this case accordingly, including the
-activity below getting an `onResume()` or an `onPause()` callback. It is also
-possible that the user may interact with the activity. For example, if you have
-a video list activity displayed and the playing video activity in PiP mode, the
-user might select a new video from the list and the PiP activity should update
-accordingly.
+possible the underlying activity will now be shown and become visible again
+alongside the PiP activity. You should handle this case accordingly, including
+the underlying activity getting an `onResume()` or an `onPause()` callback.
+It is also possible that the user may interact with the activity.
+For example, if you have a video list activity displayed and the playing video
+activity in PiP mode, the user might select a new video from the list and the
+PiP activity should update accordingly.
 
 ## Additional sample code
 

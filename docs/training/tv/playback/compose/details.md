@@ -9,7 +9,7 @@ piece of content (i.e. a specific movie). Detail pages can be implemented as a
 composable function, taking metadata of the selected content as its argument.
 
 The following code is a typical implementation of the details screen. It
-[loads an image](https://developer.android.com/jetpack/compose/graphics/images/loading#internet-loading)
+[loads an image](https://developer.android.com/develop/ui/compose/graphics/images/loading#internet-loading)
 of the given movie with its title and description. The user's able to make a
 screen transition to the player screen, which can be triggered by clicking a
 button to start movie playback. You can handle this action to make the screen
@@ -47,4 +47,4 @@ fun DetailsScreen(
 <br />
 
 > [!NOTE]
-> **Note:** `AsyncImage` is a composable to load an image from the internet. See [Loading Images](https://developer.android.com/develop/ui/compose/graphics/images/loading#internet-loading) for details.
+> **Note:** `AsyncImage` is a composable to load an image from the internet. See [Loading images](https://developer.android.com/develop/ui/compose/graphics/images/loading) for details.

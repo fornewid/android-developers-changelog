@@ -30,7 +30,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.arcore:arcore:1.0.0-beta02"
+    implementation "androidx.xr.arcore:arcore:1.0.0-rc01"
 }
 ```
 
@@ -38,7 +38,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.arcore:arcore:1.0.0-beta02")
+    implementation("androidx.xr.arcore:arcore:1.0.0-rc01")
 }
 ```
 

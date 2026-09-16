@@ -34,8 +34,8 @@ related to the user's voice search](https://developer.android.com/static/images/
 related to the user's voice search.
 
 To indicate that your app supports the display of search results, include the
-constant key [`BROWSER_SERVICE_EXTRAS_KEY_SEARCH_SUPPORTED`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#BROWSER_SERVICE_EXTRAS_KEY_SEARCH_SUPPORTED()) in the extras
-bundle returned by your service's [`onGetRoot`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onGetRoot(java.lang.String,%20int,%20android.os.Bundle)) method, mapping to the
+constant key [`BROWSER_SERVICE_EXTRAS_KEY_SEARCH_SUPPORTED`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java) in the extras
+bundle returned by your service's [`onGetRoot`](https://developer.android.com/training/cars/media/create-media-browser/content-hierarchy#onGetRoot) method, mapping to the
 Boolean `true`.
 
 ### Kotlin
@@ -70,7 +70,7 @@ Boolean `true`.
         return new BrowserRoot(ROOT_ID, extras);
     }
 
-To provide search results, override the [`onSearch`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onSearch(java.lang.String,android.os.Bundle,androidx.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E)) method in your media
+To provide search results, override the [`onSearch`](https://developer.android.com/reference/android/support/v4-media/MediaBrowserServiceCompat#onSearch(java.lang.String,%20android.os.Bundle,%20android.support.v4.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E)) method in your media
 browser service. Android Auto and AAOS forward the user's search terms to this
 method when a user invokes a search query interface or **Search results**
 affordance.

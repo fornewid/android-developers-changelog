@@ -33,7 +33,7 @@ plugins {
 }
   
 dependencies {
-  def nav_version = "2.10.0"
+  def nav_version = "2.10.1"
 
   // Jetpack Compose Integration
   implementation "androidx.navigation:navigation-compose:$nav_version"
@@ -62,7 +62,7 @@ plugins {
 }
 
 dependencies {
-  val nav_version = "2.10.0"
+  val nav_version = "2.10.1"
 
   // Jetpack Compose integration
   implementation("androidx.navigation:navigation-compose:$nav_version")
@@ -95,7 +95,7 @@ buildscript {
         google()
     }
     dependencies {
-        def nav_version = "2.10.0"
+        def nav_version = "2.10.1"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }
@@ -109,7 +109,7 @@ buildscript {
         google()
     }
     dependencies {
-        val nav_version = "2.10.0"
+        val nav_version = "2.10.1"
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
     }
 }

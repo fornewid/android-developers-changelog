@@ -242,7 +242,7 @@ Here is an example of an aligned `.so` file, with a RELRO segment:
     Type           Offset   VirtAddr           PhysAddr           FileSiz MemSiz  Flg Align
     GNU_RELRO      0x0cfaf0 0x00000000000dfaf0 0x00000000000dfaf0 0x01510 0x00510 R   0x1  
 
-Here is a an example of an .so file without a RELRO segment:
+Here is a an example of an `.so` file without a RELRO segment:
 
     Type           Offset   VirtAddr           PhysAddr           FileSiz MemSiz  Flg Align
 

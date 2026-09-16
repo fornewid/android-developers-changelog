@@ -61,14 +61,12 @@ This minor update includes
 
 ## Support for Gradle Version Catalogs
 
-Android Studio supports TOML-based
-[Gradle Version Catalogs](https://docs.gradle.org/current/userguide/platforms.html),
-a feature that lets you manage dependencies in one central location and share
-dependencies across modules or projects. Android Studio now makes it easier to
-configure version catalogs through editor suggestions and integration with the
+Android Studio supports TOML-based [Gradle Version Catalogs](https://docs.gradle.org/current/userguide/platforms.html), a feature that
+lets you manage dependencies in one central location and share dependencies
+across modules or projects. Android Studio now makes it easier to configure
+version catalogs through editor suggestions and integration with the
 **Project Structure** dialog. Learn how to
-[set up and configure Gradle Version Catalogs](https://developer.android.com/build/dependencies)
-or how to
+[set up and configure Gradle Version Catalogs](https://developer.android.com/build/dependencies) or how to
 [migrate your build to version catalogs](https://developer.android.com/studio/build/migrate-to-catalogs).
 
 > [!NOTE]
@@ -120,7 +118,7 @@ support in Android Studio.
   adds a red underline under the `libs` part. This is a known issue in Gradle
   versions 8.0 and lower and will be resolved in a future release of Gradle.
 
-- Android Studio support only for version catalogs in TOML format: currently the
+- Android Studio support only for version catalogs in TOML format: the
   Android Studio code completion, navigation, and Project Structure dialog
   support is only available for version catalogs defined in the TOML file
   format. However, you can still add a version catalog directly in the
@@ -132,9 +130,8 @@ support in Android Studio.
   written using Kotlin script.
 
 - Firebase Assistant adds dependencies directly in build scripts: the
-  [Firebase Assistant](https://firebase.google.com/docs/android/learn-more#firebase-assistant)
-  adds dependencies directly to your build scripts instead of through version
-  catalogs.
+  [Firebase Assistant](https://firebase.google.com/docs/android/learn-more#firebase-assistant) adds dependencies directly to your build scripts
+  instead of through version catalogs.
 
 - "Find usages" functionality not supported: finding usages of a version catalog
   variable in other build files isn't yet supported, whether the build file is
@@ -142,24 +139,22 @@ support in Android Studio.
   (<kbd>Command</kbd>+click on macOS) on a variable definition in a version
   catalog doesn't lead to the build files where the variable is used.
 
-- The Project Structure dialog in Android Studio shows multiple catalog
-  files if they're in the root `gradle` folder, but doesn't show catalogs for
-  a [composite build](https://docs.gradle.org/current/userguide/composite_builds.html).
-  For example, if you have two catalog files---one for your app and one for a
-  composite build---the Project Structure dialog only shows the app catalog file.
-  You can use a composite build, but you have to edit its TOML file directly.
+- The Project Structure dialog in Android Studio shows multiple catalog files
+  if they're in the root `gradle` folder, but doesn't show catalogs for a
+  [composite build](https://docs.gradle.org/current/userguide/composite_builds.html). For example, if you have two catalog
+  files---one for your app and one for a composite build---the Project Structure
+  dialog only shows the app catalog file. You can use a composite build, but
+  you have to edit its TOML file directly.
 
 ## Additional SDK insights: policy issues
 
 Android Studio displays lint warnings in `build.gradle.kts` and `build.gradle`
-files and in the
-**Project Structure Dialog** for public SDKs that have Play policy violations
-in the [Google Play SDK Index](https://developer.android.com/distribute/sdk-index). You should update any
+files and in the **Project Structure Dialog** for public SDKs that have Play
+policy violations in the [Google Play SDK Index](https://developer.android.com/distribute/sdk-index). You should update any
 dependencies that violate Play policies because these violations could prevent
 you from publishing to the Google Play Console in the future. The policy
-violation warnings supplement
-the [outdated version warnings](https://developer.android.com/build/dependencies#sdk-insights)
-displayed by Android Studio.
+violation warnings supplement the [outdated version warnings](https://developer.android.com/build/dependencies#sdk-insights) displayed by
+Android Studio.
 
 ## Android Studio compileSdk version support
 

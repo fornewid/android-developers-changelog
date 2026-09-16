@@ -83,7 +83,7 @@ val cmcdConfigurationFactory =
           }
 
           override fun getCustomData():
-            I<mmutableListMultimap@CmcdConfiguration.Head>erKey String, String {
+            ImmutableListMultimap<@CmcdConfiguration.HeaderKey String, String> {
             return ImmutableListMultimap.of(
               CmcdConfiguration.KEY_CMCD_OBJECT,
               "key1=stringValue",
@@ -104,7 +104,7 @@ val cmcdConfigurationFactory =
 
 // Create media source factory and set your custom cmcdConfigurationFactory.
 val mediaSourceFactory =
-  DefaultMediaSourceFactory(context).setCmcdConfigurationFaccdConfigurationFactory)Cmcd.kt
+  DefaultMediaSourceFactory(context).setCmcdConfigurationFactory(cmcdConfigurationFactory)
 ```
 
 ### Java
@@ -120,7 +120,7 @@ CmcdConfiguration.Factory cmcdConfigurationFactory =
             }
 
             @Override
-            public I<mmutableListMultimap@Head>erKey String, String getCustomData() {
+            public ImmutableListMultimap<@HeaderKey String, String> getCustomData() {
               return ImmutableListMultimap.of(
                   CmcdConfiguration.KEY_CMCD_OBJECT, "key1=stringValue");
             }
@@ -141,7 +141,7 @@ CmcdConfiguration.Factory cmcdConfigurationFactory =
 // Create media source factory and set your custom cmcdConfigurationFactory.
 MediaSource.Factory mediaSourceFactory =
     new DefaultMediaSourceFactory(context)
-        .setCmcdConfigurationFactonfigurationFactory);Cmcd.java
+        .setCmcdConfigurationFactory(cmcdConfigurationFactory);
 ```
 
 <br />

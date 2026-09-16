@@ -10,14 +10,14 @@ Health Connect stores and structures both health and fitness data and medical
 records data. It's important to understand first what data types and permissions
 Health Connect offers so that you can plan your app's requirements.
 
-After development, when you prepare to publish your app to the Play Store, you
+After development, when you prepare to publish your app to Google Play, you
 must declare your app's data use as well as declare access to the Health Connect
 data types that your app uses. Otherwise, users might be prompted with an error
 message where your app can't access the Health Connect data types because they
 require special approval.
 
-See [Complete the health apps declaration in the Play Console](https://developer.android.com/health-and-fitness/guides/health-connect/publish/declare-access)
-for more information.
+For more information, see
+[Complete the health apps declaration in the Play Console](https://developer.android.com/health-and-fitness/guides/health-connect/publish/declare-access).
 
 ## Data type categories
 
@@ -45,7 +45,7 @@ into the following categories:
 
 Health Connect provides developer experience guides that focus on specific
 health and fitness use cases. These guides show you how to use relevant data
-types together to build features for:
+types together to build features for the following areas:
 
 - [Sleep](https://developer.android.com/health-and-fitness/health-connect/experiences/sleep)
 - [Vitals](https://developer.android.com/health-and-fitness/health-connect/experiences/vitals)
@@ -95,7 +95,7 @@ The following table contains the full list of data types, each with category,
 feature flags and guides, and permission declarations.
 
 This table is for the Health Connect SDK version **1.0.0-alpha10 and higher** .
-If you are using an older version of the SDK, see
+If you're using a lower version of the SDK, see
 [Health Connect data types for SDK 1.0.0-alpha09 and lower](https://developer.android.com/health-and-fitness/health-connect/data-types-legacy).
 
 <br />

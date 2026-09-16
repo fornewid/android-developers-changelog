@@ -66,7 +66,7 @@ or both.
 
 To help keep drivers and passengers safe, users have additional restrictions on
 how they can interact with apps while driving. For this reason, Android Auto and
-Android Automotive OS have [`MediaBrowserService`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat) startup scenarios that
+Android Automotive OS have `MediaBrowserService` startup scenarios that
 your app must handle.
 
 Test your app to make sure it can handle each of the following scenarios:

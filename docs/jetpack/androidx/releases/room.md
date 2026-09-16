@@ -29,7 +29,7 @@ your app or module:
 
 ```kotlin
 dependencies {
-    val room_version = "2.8.4"
+    val room_version = "2.8.5"
 
     implementation("androidx.room:room-runtime:$room_version")
 
@@ -65,7 +65,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    def room_version = "2.8.4"
+    def room_version = "2.8.5"
 
     implementation "androidx.room:room-runtime:$room_version"
 

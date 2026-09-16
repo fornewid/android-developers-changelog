@@ -157,7 +157,7 @@ release notes to view the version updates for all of the artifacts.
 | [loader](https://developer.android.com/jetpack/androidx/releases/loader) | July 29, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/loader#1.2.0) | - | - | - |
 | [localbroadcastmanager](https://developer.android.com/jetpack/androidx/releases/localbroadcastmanager) | January 12, 2022 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/localbroadcastmanager#1.1.0) | - | - | - |
 | [media](https://developer.android.com/jetpack/androidx/releases/media) | May 06, 2026 | [1.8.0](https://developer.android.com/jetpack/androidx/releases/media#1.8.0) | - | - | - |
-| [media3](https://developer.android.com/jetpack/androidx/releases/media3) | August 05, 2026 | [1.11.0](https://developer.android.com/jetpack/androidx/releases/media3#1.11.0) | - | - | - |
+| [media3](https://developer.android.com/jetpack/androidx/releases/media3) | September 10, 2026 | [1.11.1](https://developer.android.com/jetpack/androidx/releases/media3#1.11.1) | - | - | - |
 | [mediarouter](https://developer.android.com/jetpack/androidx/releases/mediarouter) | September 09, 2026 | [1.8.1](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.8.1) | - | - | [1.9.0-alpha02](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-alpha02) |
 | [multidex](https://developer.android.com/jetpack/androidx/releases/multidex) | December 17, 2018 | [2.0.1](https://developer.android.com/jetpack/androidx/releases/multidex#2.0.1) | - | - | - |
 | [metrics](https://developer.android.com/jetpack/androidx/releases/metrics) | October 8, 2025 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/metrics#1.0.0) | - | - | - |

@@ -21,7 +21,7 @@ car's display. Users can initiate queries by clicking the appropriate buttons
 on their steering wheel or speaking the hotwords "OK Google."
 
 > [!NOTE]
-> **Design guidelines:** To learn more, see [Create apps](https://developer.android.com/cars/design/create-apps).
+> **Design guidelines:** To learn more, see [Design for driving](https://docs.partner.android.com/drivingux).
 
 When Android Auto or AAOS detects and interprets a voice action, Android Auto or
 AAOS delivers that voice action to the app through [`onPlayFromSearch`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat.Callback#onPlayFromSearch(java.lang.String,%20android.os.Bundle)). Upon

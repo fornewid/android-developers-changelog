@@ -44,7 +44,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.benchmark:benchmark-junit4:1.4.1"
+    implementation "androidx.benchmark:benchmark-junit4:1.5.0"
 }
 ```
 
@@ -52,7 +52,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.benchmark:benchmark-junit4:1.4.1")
+    implementation("androidx.benchmark:benchmark-junit4:1.5.0")
 }
 ```
 
@@ -70,7 +70,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.benchmark:benchmark-junit4:1.4.1"
+    implementation "androidx.benchmark:benchmark-junit4:1.5.0"
 }
 ```
 
@@ -78,7 +78,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.benchmark:benchmark-junit4:1.4.1")
+    implementation("androidx.benchmark:benchmark-junit4:1.5.0")
 }
 ```
 
@@ -1397,9 +1397,9 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation:navigation-runtime-ktx:2.10.0"
-    implementation "androidx.navigation:navigation-fragment-ktx:2.10.0"
-    implementation "androidx.navigation:navigation-ui-ktx:2.10.0"
+    implementation "androidx.navigation:navigation-runtime-ktx:2.10.1"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.10.1"
+    implementation "androidx.navigation:navigation-ui-ktx:2.10.1"
 }
 ```
 
@@ -1407,9 +1407,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation:navigation-runtime-ktx:2.10.0")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.10.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.10.0")
+    implementation("androidx.navigation:navigation-runtime-ktx:2.10.1")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.10.1")
+    implementation("androidx.navigation:navigation-ui-ktx:2.10.1")
 }
 ```
 
@@ -1479,7 +1479,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation:navigation-fragment-ktx:2.10.0"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.10.1"
 }
 ```
 
@@ -1487,7 +1487,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation:navigation-fragment-ktx:2.10.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.10.1")
 }
 ```
 
@@ -1520,7 +1520,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation:navigation-ui-ktx:2.10.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.10.1"
 }
 ```
 
@@ -1528,7 +1528,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation:navigation-ui-ktx:2.10.0")
+    implementation("androidx.navigation:navigation-ui-ktx:2.10.1")
 }
 ```
 
@@ -1701,7 +1701,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.room:room-ktx:2.8.4"
+    implementation "androidx.room:room-ktx:2.8.5"
 }
 ```
 
@@ -1709,7 +1709,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.room:room-ktx:2.8.4")
+    implementation("androidx.room:room-ktx:2.8.5")
 }
 ```
 
@@ -1773,7 +1773,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.sqlite:sqlite-ktx:2.7.0"
+    implementation "androidx.sqlite:sqlite-ktx:2.7.1"
 }
 ```
 
@@ -1781,7 +1781,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.sqlite:sqlite-ktx:2.7.0")
+    implementation("androidx.sqlite:sqlite-ktx:2.7.1")
 }
 ```
 

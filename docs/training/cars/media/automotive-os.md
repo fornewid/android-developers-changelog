@@ -35,7 +35,7 @@ This means that your app doesn't draw the UI and doesn't start any of
 your activities when a user triggers media playback.
 
 If you are implementing [settings or sign-in activities](https://developer.android.com/training/cars/media/automotive-os#settings-sign-in),
-these activities must be [vehicle-optimized](https://developer.android.com/training/cars/media#tc-vehicle-optimized).
+these activities must be [vehicle-optimized](https://developer.android.com/training/cars/media).
 Refer to the [Design guidelines](https://developers.google.com/cars/design/automotive-os)
 for Android Automotive OS while designing those areas of your app.
 
@@ -204,7 +204,7 @@ buildscript {
 ## Implement settings and sign-in activities
 
 In addition to your media browser service, you can also provide
-[vehicle-optimized](https://developer.android.com/training/cars/media#tc-vehicle-optimized) settings and sign-in activities for your Android
+[vehicle-optimized](https://developer.android.com/training/cars/media) settings and sign-in activities for your Android
 Automotive OS app.
 These activities let you provide app functionality that isn't included in the
 Android Media APIs.
@@ -357,7 +357,7 @@ Android Automotive OS. Phone apps connected to Android Auto don't use it.
 To require a user to sign in before they can use your app, your media browser
 service must do the following things:
 
-1. In your service's `onLoadChildren()` method, send `null` result using the [`sendResult()`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat.Result#sendResult(T)) method.
+1. In your service's `onLoadChildren()` method, send `null` result using the [`sendResult()`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserServiceCompat.Result#sendResult(T)) method.
 2. Set the media session's [`PlaybackStateCompat`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat) to [`STATE_ERROR`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#STATE_ERROR()) using the [`setState()`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat.Builder#setState(int,%20long,%20float)) method. This tells Android Automotive OS that no other operations can be performed until the error has been resolved.
 3. Set the media session's `PlaybackStateCompat` error code to [`ERROR_CODE_AUTHENTICATION_EXPIRED`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat#ERROR_CODE_AUTHENTICATION_EXPIRED()). This tells Android Automotive OS that the user needs to authenticate.
 4. Set the media session's `PlaybackStateCompat` error message using the [`setErrorMessage()`](https://developer.android.com/reference/android/support/v4/media/session/PlaybackStateCompat.Builder#setErrorMessage(int,%20java.lang.CharSequence)) method. Because this error message is user-facing, localize it for the user's current locale.
@@ -603,16 +603,16 @@ implementation:
 Depending on the system application (including its version) that connects to
 your media browser service, your application may receive the following extras:
 
-- In [`MediaBrowserServiceCompat#onGetRoot`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onGetRoot(java.lang.String,int,android.os.Bundle)):
+- In [`MediaBrowserServiceCompat#onGetRoot`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserServiceCompat#onGetRoot(java.lang.String,%20int,%20android.os.Bundle)):
 
   - [`KEY_ROOT_HINT_MEDIA_HOST_VERSION`](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_ROOT_HINT_MEDIA_HOST_VERSION())
   - [`KEY_ROOT_HINT_MEDIA_SESSION_API`](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_ROOT_HINT_MEDIA_SESSION_API())
-  - [`BROWSER_ROOT_HINTS_KEY_MEDIA_ART_SIZE_PIXELS`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#BROWSER_ROOT_HINTS_KEY_MEDIA_ART_SIZE_PIXELS())
-  - [`BROWSER_ROOT_HINTS_KEY_CUSTOM_BROWSER_ACTION_LIMIT`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#BROWSER_ROOT_HINTS_KEY_CUSTOM_BROWSER_ACTION_LIMIT())
-  - [`BROWSER_ROOT_HINTS_KEY_ROOT_CHILDREN_LIMIT`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#BROWSER_ROOT_HINTS_KEY_ROOT_CHILDREN_LIMIT())
+  - [`BROWSER_ROOT_HINTS_KEY_MEDIA_ART_SIZE_PIXELS`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java)
+  - [`BROWSER_ROOT_HINTS_KEY_CUSTOM_BROWSER_ACTION_LIMIT`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java)
+  - [`BROWSER_ROOT_HINTS_KEY_ROOT_CHILDREN_LIMIT`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java)
   - [`KEY_ROOT_HINT_MAX_QUEUE_ITEMS_WHILE_RESTRICTED`](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_ROOT_HINT_MAX_QUEUE_ITEMS_WHILE_RESTRICTED())
-- In [`MediaBrowserServiceCompat#onLoadChildren`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onLoadChildren(java.lang.String,androidx.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E,android.os.Bundle))
-  and in [`MediaBrowserServiceCompat#onSearch`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onSearch(java.lang.String,android.os.Bundle,androidx.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E)):
+- In [`MediaBrowserServiceCompat#onLoadChildren`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserServiceCompat#onLoadChildren(java.lang.String,%20android.support.v4.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E,%20android.os.Bundle))
+  and in [`MediaBrowserServiceCompat#onSearch`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserServiceCompat#onSearch(java.lang.String,%20android.os.Bundle,%20android.support.v4.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E)):
 
   - [`KEY_HINT_VIEW_MAX_ITEMS_WHILE_RESTRICTED`](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_HINT_VIEW_MAX_ITEMS_WHILE_RESTRICTED())
   - [`KEY_HINT_VIEW_MAX_LIST_ITEMS_COUNT_PER_ROW`](https://developer.android.com/reference/kotlin/androidx/car/app/mediaextensions/MediaBrowserExtras#KEY_HINT_VIEW_MAX_LIST_ITEMS_COUNT_PER_ROW())

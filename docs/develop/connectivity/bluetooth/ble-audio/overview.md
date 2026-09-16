@@ -106,7 +106,7 @@ between Bluetooth devices. For more information, see the
 
 - Media Recorder: When recording audio using the Media Recorder, you can now record in stereo if the bluetooth hearable supports LEA. Check out the [Audio recording guide](https://developer.android.com/develop/connectivity/bluetooth/ble-audio/audio-recording).
 
-## LE Audio (LEA) headset recommendations
+## Headset recommendations
 
 As more LEA headsets are released, we have discovered issues in real-world
 testing that degrade the user experience. The specification does not cover all
@@ -134,3 +134,70 @@ Android users.
 
 > [!NOTE]
 > **Note:** In keeping with the specification, headsets can remove context types from the Available Context Types at any time and to all the connected devices, even a device which is currently streaming a given context type. It is recommended that the headset does not remove the currently streaming context type from the Available Context Types on the device which is streaming that context type.
+
+## Auracast transmitter recommendations
+
+This section provides recommendations for configuring Auracast transmitters.
+
+### Intermittent broadcasts
+
+Audio announcements in public spaces, such as transit terminals, are often
+intermittent and separated by long periods of silence. Continuously streaming
+silence or background audio between announcements wastes receiver power and
+prevents users from listening to their primary audio stream, such as local media
+or another active Auracast stream.
+
+To improve user experience, Android recommends that Auracast transmitters adhere
+to the following guidelines for handling intermittent broadcasts.
+
+#### Definitions
+
+- **Audio-of-Interest:** The core informational content intended for the user, such as a gate or train announcement.
+- **Background Audio:** Background silence, static, or ambient music transmitted between periods of Audio-of-Interest.
+- **Intermittent Broadcast:** A broadcast that alternates between periods of Audio-of-Interest and periods of Background Audio or no audio at all.
+
+#### Identifying intermittent broadcasts
+
+To designate a broadcast as an Intermittent Broadcast, the broadcaster should
+include the Audio_Active_State metadata LTV (Length-Type-Value) structure
+\[1\] in two locations:
+
+1. The BASE structure Level 2 Metadata (Periodic Advertisements) \[2\]
+2. The Public Broadcast Announcement Metadata (Extended Advertisements) \[3\]
+
+To help the receiver identify the Intermittent Broadcast and decide whether to
+play the stream, the broadcaster should also accurately set the
+Streaming_Audio_Context metadata LTV structure \[1\].
+
+#### Identifying Audio-of-Interest
+
+To dynamically signal whether an Intermittent Broadcast contains
+Audio-of-Interest at any given time, the transmitter uses the
+Audio_Active_State metadata LTV structures.
+
+- **BASE structure Level 2 Metadata:** A value of 0x01 indicates that the BISes in a subgroup currently contain Audio-of-Interest.
+- **Public Broadcast Announcement Metadata:** A value of 0x01 indicates that at least one of the BISes within a BIG contains Audio-of-Interest.
+
+The Audio_Active_State metadata LTV values should be set to 0x01 shortly
+before transmitting Audio-of-Interest, allowing a scanning device to synchronize
+to a Public Broadcast Source. Conversely, it should be set to 0x00 shortly after
+the transmission ends.
+
+#### Leveraging streaming audio context
+
+Providing explicit context helps the Android framework and receiving devices
+prioritize incoming streams. For example, a public address (PA) system may set
+the Streaming_Audio_Context type to Instructional to allow announcements to
+cleanly interrupt a receiver's local media playback and seamlessly resume it
+afterward.
+
+#### References
+
+\[1\] Bluetooth Assigned Numbers,
+<https://www.bluetooth.com/specifications/assigned-numbers/>  
+
+\[2\] Basic Audio Profile,
+<https://www.bluetooth.com/specifications/specs/basic-audio-profile-1-0-3/>  
+
+\[3\] Public Broadcast Profile,
+<https://www.bluetooth.com/specifications/specs/public-broadcast-profile-1-0-2/>

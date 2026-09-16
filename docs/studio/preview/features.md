@@ -177,3 +177,13 @@ IDEA parallel model fetching was disabled by default when adding
 Starting with this release,
 IDEA parallel model fetching is enabled by default when using Gradle version
 9.4 or higher, provided that `org.gradle.tooling.parallel` is set to `true`.
+
+### Migrate iOS, Flutter, and React Native apps to Android
+
+You can now migrate existing iOS, Flutter, and React Native projects to native
+Android using automated migration tooling in Android Studio. From the New
+Project Wizard, you can call the assistant to convert the selected project to a
+Kotlin and Jetpack Compose-based Android app. The integrated progress UI
+provides end-to-end visibility across task planning, code transformation, and
+compilation checks, producing a functional project that's ready for testing and
+verification.

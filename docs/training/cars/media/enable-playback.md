@@ -27,8 +27,8 @@ implement the associated callback methods.
 
 ## Register a media session
 
-In your media browser service's [`onCreate`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onCreate()) method, create an instance of
-[`MediaSessionCompat`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat), then call [`setSessionToken`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#setSessionToken(android.support.v4.media.session.MediaSessionCompat.Token)) to register the
+In your media browser service's [`onCreate`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserServiceCompat#onCreate()) method, create an instance of
+[`MediaSessionCompat`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat), then call [`setSessionToken`](https://developer.android.com/reference/android/support/v4/media/MediaBrowserServiceCompat#setSessionToken(android.support.v4.media.session.MediaSessionCompat.Token)) to register the
 media session. This code snippet shows how to create and register a media
 session:
 
@@ -186,9 +186,9 @@ whenever your app doesn't support the corresponding function.
 
 To do so, call the [`setExtras`](https://developer.android.com/reference/android/support/v4/media/session/MediaSessionCompat#setExtras(android.os.Bundle)) method with an extras bundle that contains
 constants that correspond to the reserved functions.
-[`SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_NEXT`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_NEXT())
+[`SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_NEXT`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java)
 corresponds to `ACTION_SKIP_TO_NEXT`, and
-[`SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_PREV`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_PREV())
+[`SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_PREV`](https://github.com/androidx/media/blob/release/libraries/session/src/main/java/androidx/media3/session/legacy/MediaConstants.java)
 corresponds to `ACTION_SKIP_TO_PREVIOUS`. Use these constants as keys in the
 bundle, and use the boolean `true` as values.
 

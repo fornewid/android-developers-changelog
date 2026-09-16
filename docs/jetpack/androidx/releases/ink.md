@@ -26,16 +26,16 @@ your app or module:
 ```groovy
 dependencies {
   
-    implementation "androidx.ink:ink-authoring:1.1.0-alpha07"
-    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha07"
-    implementation "androidx.ink:ink-brush:1.1.0-alpha07"
-    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha07"
-    implementation "androidx.ink:ink-geometry:1.1.0-alpha07"
-    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha07"
-    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha07"
-    implementation "androidx.ink:ink-rendering:1.1.0-alpha07"
-    implementation "androidx.ink:ink-storage:1.1.0-alpha07"
-    implementation "androidx.ink:ink-strokes:1.1.0-alpha07"
+    implementation "androidx.ink:ink-authoring:1.1.0-alpha08"
+    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha08"
+    implementation "androidx.ink:ink-brush:1.1.0-alpha08"
+    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha08"
+    implementation "androidx.ink:ink-geometry:1.1.0-alpha08"
+    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha08"
+    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha08"
+    implementation "androidx.ink:ink-rendering:1.1.0-alpha08"
+    implementation "androidx.ink:ink-storage:1.1.0-alpha08"
+    implementation "androidx.ink:ink-strokes:1.1.0-alpha08"
     
 }
 ```
@@ -46,16 +46,16 @@ dependencies {
 dependencies {
 
 
-    implementation("androidx.ink:ink-authoring:1.1.0-alpha07")
-    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha07")
-    implementation("androidx.ink:ink-brush:1.1.0-alpha07")
-    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha07")
-    implementation("androidx.ink:ink-geometry:1.1.0-alpha07")
-    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha07")
-    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha07")
-    implementation("androidx.ink:ink-rendering:1.1.0-alpha07")
-    implementation("androidx.ink:ink-storage:1.1.0-alpha07")
-    implementation("androidx.ink:ink-strokes:1.1.0-alpha07")
+    implementation("androidx.ink:ink-authoring:1.1.0-alpha08")
+    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha08")
+    implementation("androidx.ink:ink-brush:1.1.0-alpha08")
+    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha08")
+    implementation("androidx.ink:ink-geometry:1.1.0-alpha08")
+    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha08")
+    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha08")
+    implementation("androidx.ink:ink-rendering:1.1.0-alpha08")
+    implementation("androidx.ink:ink-storage:1.1.0-alpha08")
+    implementation("androidx.ink:ink-strokes:1.1.0-alpha08")
 }
 ```
 

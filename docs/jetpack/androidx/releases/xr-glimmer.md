@@ -27,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha18"
+    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha19"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha18")
+    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha19")
 }
 ```
 

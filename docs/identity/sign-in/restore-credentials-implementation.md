@@ -217,6 +217,9 @@ automatically delete restore keys after use. To delete a restore key, call the
 signs out. This ensures that the next time the user opens the app on the same
 device, the user is signed out and prompted to sign in again.
 
+> [!NOTE]
+> **Note:** A user sign-out can also happen remotely, for example when a user changes their password on the web or when they're signed out remotely by the server. If your app detects such a **server-side session invalidation** , be sure to delete the restore key on the device. (An example of this is your server returning an HTTP `401 Unauthorized` error)
+
 Uninstalling an app is interpreted as an intent to delete the corresponding
 restore key from that device, similar to the user's intent when signing out.
 

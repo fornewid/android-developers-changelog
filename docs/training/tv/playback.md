@@ -31,7 +31,7 @@ enable users to quickly browse options and get to the content they want.
 **[Support Ambient Mode](https://developer.android.com/training/tv/playback/ambient-mode)**
 :   Save energy and avoid screen burn issues.
 
-**[Match content frame rate](https://developer.android.com/training/tv/playback/framerate)**
+**[Match content frame rate](https://developer.android.com/training/tv/playback/adjust-display-settings)**
 :   Manage frame rates using the frame rate API.
 
 **[Optimize memory usage](https://developer.android.com/training/tv/playback/memory)**

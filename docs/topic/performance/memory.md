@@ -22,10 +22,14 @@ memory.
 [Understanding and troubleshooting Android memory](https://developer.android.com/topic/performance/memory/guide)
 :   Provides a comprehensive
     overview of Android memory architecture, the tools available for analysis,
-    and hands-on exercises to help you identify and resolve memory-related
+    and practical exercises to help you identify and resolve memory-related
     issues.
 
-## Area specific optimizations
+[Set app memory budgets](https://developer.android.com/topic/performance/memory/app-memory-budgets)
+:   Explains how to declare and manage application memory budgets to trim memory
+    usage down to your app's active working set.
+
+## Area-specific optimizations
 
 [Games memory overview](https://developer.android.com/games/optimize/memory-overview)
 :   Details memory budgeting, native allocation
@@ -42,7 +46,7 @@ memory.
     leaks, and provides practical workflows for diagnosing memory issues.
 
 [R8 code optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization)
-:   Explains how to leverage R8 to reduce APK size,
+:   Explains how to use R8 to reduce APK size,
     metadata overhead, and runtime memory consumption.
 
 ## Local memory debug tools
@@ -56,15 +60,15 @@ memory.
     retained object trees and anonymous memory allocations.
 
 [Capture a system trace on device](https://developer.android.com/topic/performance/tracing/on-device)
-:   Shows how to record on device system
-    level traces to address performance-related bugs in your app.
+:   Shows how to record on-device system-level
+    traces to address performance-related bugs in your app.
 
 [Debugging memory usage on Android](https://perfetto.dev/docs/case-studies/memory)
 :   Teaches how to understand Linux memory
-    management and use tools like dumpsys meminfo, Perfetto, native heap
+    management and use tools like `dumpsys meminfo`, Perfetto, native heap
     profiles, and heap dumps to track memory usage and identify leaks.
 
-## Production level memory tools
+## Production-level memory tools
 
 [Android vitals: Memory usage (anonymous RSS + swap)](https://developer.android.com/topic/performance/vitals/memory-usage)
 :   Android vitals
@@ -81,7 +85,7 @@ memory.
     games that use R8.
 
 [Crashlytics 20.1.0](https://firebase.google.com/support/release-notes/android#crashlytics_v20-1-0)
-:   Surfaces production Out-Of-Memory (OOM) exceptions and
+:   Displays production out-of-memory (OOM) exceptions and
     memory limiter kills with diagnostic context to prioritize and fix field
     crashes.
 

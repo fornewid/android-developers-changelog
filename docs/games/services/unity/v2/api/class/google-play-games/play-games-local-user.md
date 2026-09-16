@@ -127,9 +127,7 @@ This is equivalent to calling PlayGamesPlatform.Authenticate(Action{SignInStatus
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | A callback to invoke with a boolean indicating success. | |
+Details Parameters `callback` A callback to invoke with a boolean indicating success.
 
 ### Authenticate
 
@@ -144,24 +142,20 @@ This is equivalent to calling PlayGamesPlatform.Authenticate(Action{SignInStatus
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | A callback to invoke with a boolean indicating success and a string containing the status. | |
+Details Parameters `callback` A callback to invoke with a boolean indicating success and a string containing the status.
 
 ### GetStats
 
 ```c#
 void GetStats(
-  Action< CommonStatusCodes, PlayerStats > callback
+  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1abaf59665136d25cef9ddd68d2069c603 CommonStatusCodes, PlayerStats > callback
 )
 ```
 Gets the player's stats from the server.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | A callback to be invoked with the status code and the player's stats. The stats may be cached from a previous call. | |
+Details Parameters `callback` A callback to be invoked with the status code and the player's stats. The stats may be cached from a previous call.
 
 ### LoadFriends
 
@@ -174,6 +168,4 @@ Loads the friends of the authenticated user.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | A callback to invoke with a boolean indicating success. | |
+Details Parameters `callback` A callback to invoke with a boolean indicating success.

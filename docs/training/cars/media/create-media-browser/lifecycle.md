@@ -18,7 +18,7 @@ interact with your media browser service during a typical user workflow:
    retrieve the root in your content hierarchy. The root is not displayed.
    Instead, it retrieves more content from your app in subsequent steps.
 
-4. AAOS or Android Auto calls your service's [`onLoadChildren()`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onLoadChildren(java.lang.String,androidx.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E)%5D) method to
+4. AAOS or Android Auto calls your service's [`onLoadChildren()`](https://developer.android.com/reference/android/support/v4-media/MediaBrowserServiceCompat#onLoadChildren(java.lang.String,%20android.support.v4.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E)) method to
    retrieve the descendants of the root media item. AAOS and Android Auto
    display these media items as the top level of content items. See
    [Structure the root menu](https://developer.android.com/training/cars/media/create-media-browser/content-hierarchy#root-menu-structure) to learn more about what the system expects.
@@ -30,5 +30,5 @@ interact with your media browser service during a typical user workflow:
    the appropriate media session callback method to perform the action.
 
 7. If supported by your app, the user can also search your content. In this
-   case, AAOS or Android Auto call your service's [`onSearch()`](https://developer.android.com/reference/androidx/media/MediaBrowserServiceCompat#onSearch(java.lang.String,android.os.Bundle,androidx.media.MediaBrowserServiceCompat.Result%3Cjava.util.List%3Candroid.support.v4.media.MediaBrowserCompat.MediaItem%3E%3E)) method.
+   case, AAOS or Android Auto call your service's [`onSearch()`](https://developer.android.com/reference/android/support/v4-media/MediaBrowserServiceCompat#onsearch) method.
    To learn more, see [Display browsable search results](https://developer.android.com/training/cars/media/create-media-browser/browsable-search).

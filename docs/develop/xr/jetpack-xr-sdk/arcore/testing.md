@@ -28,7 +28,7 @@ file:
 
 ```kotlin
 dependencies {
-    testImplementation("androidx.xr.arcore:arcore-testing:1.0.0-beta02")
+    testImplementation("androidx.xr.arcore:arcore-testing:1.0.0-rc01")
 }
 ```
 
@@ -36,7 +36,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    testImplementation "androidx.xr.arcore:arcore-testing:1.0.0-beta02"
+    testImplementation "androidx.xr.arcore:arcore-testing:1.0.0-rc01"
 }
 ```
 
@@ -47,7 +47,7 @@ If your app depends on [XR SceneCore](https://developer.android.com/jetpack/andr
 
 ```kotlin
 dependencies {
-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-beta02")
+    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-rc01")
 }
 ```
 
@@ -55,7 +55,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-beta02"
+    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-rc01"
 }
 ```
 

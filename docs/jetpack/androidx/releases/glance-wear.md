@@ -10,7 +10,7 @@ Glance Wear is a library for building Widgets for Wear OS
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 26, 2026 | - | - | - | [1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha17) |
+| September 09, 2026 | - | - | - | [1.0.0-alpha18](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha18) |
 
 ## Declaring dependencies
 
@@ -25,9 +25,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.wear:wear:1.0.0-alpha17"
+    implementation "androidx.glance.wear:wear:1.0.0-alpha18"
 
-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha17"
+    implementation "androidx.glance.wear:wear-core:1.0.0-alpha18"
 }
 ```
 
@@ -35,9 +35,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.wear:wear:1.0.0-alpha17")
+    implementation("androidx.glance.wear:wear:1.0.0-alpha18")
 
-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha17")
+    implementation("androidx.glance.wear:wear-core:1.0.0-alpha18")
 }
 ```
 
@@ -57,6 +57,21 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Glance Wear Version 1.0
+
+### Version 1.0.0-alpha18
+
+September 09, 2026
+
+`androidx.glance.wear:wear:1.0.0-alpha18`, `androidx.glance.wear:wear-core:1.0.0-alpha18`, and `androidx.glance.wear:wear-tooling-preview:1.0.0-alpha18` are released. Version 1.0.0-alpha18 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..ff5f9e2dab00ff4a25527186a3232db08dc66d5a/glance/wear).
+
+**API Changes**
+
+- Added `useSafeFallbackRendererVersion` parameter to `WearWidgetPreview` to allow previewing widgets with a safe fallback set of supported operations for older hosts. ([I9c324](https://android-review.googlesource.com/#/q/I9c3240b12f9e8615b736f330345ccda38560a885))
+
+**Bug Fixes**
+
+- `compileSdk` for Compose libraries updated to 37.1. This will require transitively updating `compileSdk` for all apps and libraries using Compose. ([I05b0f](https://android-review.googlesource.com/#/q/I05b0f9385d2b99ddcc4041b2ce2d96aea3bd391e))
+- Added lint check to warn against redundant `fontFamily` parameter usages in Wear widgets. ([I7730c](https://android-review.googlesource.com/#/q/I7730ccbdd3e8c0390f0691adc17b72280670f496))
 
 ### Version 1.0.0-alpha17
 

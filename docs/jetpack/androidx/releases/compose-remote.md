@@ -26,20 +26,20 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.remote:remote-core:1.0.0-alpha18"
+    implementation "androidx.compose.remote:remote-core:1.0.0-alpha19"
 
     // Use to create Remote Compose documents
-    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha18"
-    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha18"
-    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha18"
-    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha18"
-    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha18"
+    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha19"
+    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha19"
+    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha19"
+    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha19"
+    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha19"
 
     // Use to render a Remote Compose document
-    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha18"
-    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha18"
+    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha19"
+    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha19"
 
-    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha18"
+    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha19"
 }
 ```
 
@@ -47,20 +47,20 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.remote:remote-core:1.0.0-alpha18")
+    implementation("androidx.compose.remote:remote-core:1.0.0-alpha19")
 
     // Use to create Remote Compose documents
-    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha18")
-    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha18")
-    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha18")
-    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha18")
-    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha18")
+    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha19")
+    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha19")
+    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha19")
+    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha19")
+    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha19")
 
     // Use to render a Remote Compose document
-    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha18")
-    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha18")
+    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha19")
+    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha19")
 
-    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha18")
+    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha19")
 }
 ```
 

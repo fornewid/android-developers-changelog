@@ -26,7 +26,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha10"
+    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha11"
 }
 ```
 
@@ -34,7 +34,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha10")
+    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha11")
 }
 ```
 

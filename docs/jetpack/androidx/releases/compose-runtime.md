@@ -43,9 +43,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.runtime:runtime:1.12.0"
-    implementation "androidx.compose.runtime:runtime-livedata:1.12.0"
-    implementation "androidx.compose.runtime:runtime-rxjava2:1.12.0"
+    implementation "androidx.compose.runtime:runtime:1.12.1"
+    implementation "androidx.compose.runtime:runtime-livedata:1.12.1"
+    implementation "androidx.compose.runtime:runtime-rxjava2:1.12.1"
 }
 
 android {
@@ -67,9 +67,9 @@ android {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.runtime:runtime:1.12.0")
-    implementation("androidx.compose.runtime:runtime-livedata:1.12.0")
-    implementation("androidx.compose.runtime:runtime-rxjava2:1.12.0")
+    implementation("androidx.compose.runtime:runtime:1.12.1")
+    implementation("androidx.compose.runtime:runtime-livedata:1.12.1")
+    implementation("androidx.compose.runtime:runtime-rxjava2:1.12.1")
 }
 
 android {

@@ -8,7 +8,7 @@ source: md.txt
 
 # Introducing Android Performance Analyzer - The Next Evolution in Profiling for Android
 
-5 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) 19 May 2026 [![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_13HwUT.webp)](https://developer.android.com/blog/authors/blog-author) [Mayank Jain](https://developer.android.com/blog/authors/blog-author) Product Manager
+5 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) 19 May 2026 [![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_13HwUT.webp)](https://developer.android.com/blog/authors/blog-author)[![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_dskDu.webp)](https://developer.android.com/blog/authors/simon-cooke) [Mayank Jain](https://developer.android.com/blog/authors/blog-author) \& [Simon Cooke](https://developer.android.com/blog/authors/simon-cooke)
 
 ### What is Android Performance Analyzer?
 
@@ -143,6 +143,14 @@ Written by:
 
   [read_more
   View profile](https://developer.android.com/blog/authors/blog-author) ![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_13HwUT.webp) ![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_13HwUT.webp)
+-
+
+  ## [Simon Cooke](https://developer.android.com/blog/authors/simon-cooke)
+
+  ###### Developer Relations Engineer
+
+  [read_more
+  View profile](https://developer.android.com/blog/authors/simon-cooke) ![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_dskDu.webp) ![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_dskDu.webp)
 Continue reading
 - 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 

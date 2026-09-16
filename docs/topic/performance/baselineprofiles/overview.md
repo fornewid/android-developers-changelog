@@ -113,7 +113,7 @@ These dependencies are required at different times and work together as a
 toolchain to enable an optimal Baseline Profile.
 
 - Android Gradle plugin: `com.android.tools.build:8.0.0`
-- Macrobenchmark library: `androidx.benchmark:benchmark-macro-junit4:1.4.1`
+- Macrobenchmark library: `androidx.benchmark:benchmark-macro-junit4:1.5.0`
 - Profile Installer: `androidx.profileinstaller:profileinstaller:1.4.1`
 
 We recommend using the latest version of AGP to create and manage Baseline

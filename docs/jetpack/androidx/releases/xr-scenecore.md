@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.scenecore:scenecore:1.0.0-beta02"
+    implementation "androidx.xr.scenecore:scenecore:1.0.0-rc01"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-beta02"
+    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-rc01"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.scenecore:scenecore:1.0.0-beta02")
+    implementation("androidx.xr.scenecore:scenecore:1.0.0-rc01")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-beta02")
+    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-rc01")
 }
 ```
 

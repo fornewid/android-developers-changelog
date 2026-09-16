@@ -30,6 +30,12 @@ dependencies {
     // For AppWidgets support
     implementation "androidx.glance:glance-appwidget:1.3.0-alpha02"
 
+    // For interop APIs with Material 3
+    implementation "androidx.glance:glance-material3:1.3.0-alpha02"
+
+    // For interop APIs with Material 2
+    implementation "androidx.glance:glance-material:1.3.0-alpha02"
+
     // For Wear-Tiles support
     implementation "androidx.glance:glance-wear-tiles:1.0.0-alpha07"
 }
@@ -40,7 +46,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.1.0-beta03"
+        kotlinCompilerExtensionVersion = "1.5.15"
     }
 
     kotlinOptions {
@@ -59,6 +65,12 @@ dependencies {
     // For AppWidgets support
     implementation("androidx.glance:glance-appwidget:1.3.0-alpha02")
 
+    // For interop APIs with Material 3
+    implementation("androidx.glance:glance-material3:1.3.0-alpha02")
+
+    // For interop APIs with Material 2
+    implementation("androidx.glance:glance-material:1.3.0-alpha02")
+
     // For Wear-Tiles support
     implementation("androidx.glance:glance-wear-tiles:1.0.0-alpha07")
 }
@@ -69,7 +81,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.1.0-beta03"
+        kotlinCompilerExtensionVersion = "1.5.15"
     }
 
     kotlinOptions {

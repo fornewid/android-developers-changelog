@@ -57,8 +57,7 @@ Hand data is available for left and right hands separately. Use each hand's
 Hand.left(session).state.collect { handState -> // or Hand.right(session)
     // Hand state has been updated.
     // Use the state of hand joints to update an entity's position.
-    renderPlanetAtHandPalm(handState)
-}
+    renderPlanetAtHandPalm(handStats.kt
 ```
 
 <br />

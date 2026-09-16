@@ -38,7 +38,7 @@ describes each of these lists:
 
 | List | Code tags | Description |
 |---|---|---|
-| Blocklist | - `blocked` - Deprecated: `blacklist` | Non-SDK interfaces that you cannot use regardless of your app's [target API level](https://developer.android.com/distribute/best-practices/develop/target-sdk). If your app attempts to access one of these interfaces, the system [throws an error](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#results-of-keeping-non-sdk). |
+| Blocklist | - `blocked` - Deprecated: `blacklist` | Non-SDK interfaces that you cannot use regardless of your app's [target API level](https://developer.android.com/google/play/requirements/target-sdk). If your app attempts to access one of these interfaces, the system [throws an error](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#results-of-keeping-non-sdk). |
 | Conditionally blocked | - `max-target-x` - Deprecated: `greylist-max-x` | Starting with Android 9 (API level 28), each API level has non-SDK interfaces that are restricted when an app targets that API level. These lists are labelled by the maximum API level (`max-target-x`) that an app can target before the app can no longer access the non-SDK interfaces in that list. For example, a non-SDK interface that was not blocked in Android Pie but is now blocked in Android 10 is part of the `max-target-p` (`greylist-max-p`) list, where "p" stands for Pie or Android 9 (API level 28). If your app attempts to access an interface that is restricted for your target API level, the system [behaves as if the API is part of the blocklist](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#results-of-keeping-non-sdk). |
 | Unsupported | - `unsupported` - Deprecated: `greylist` | Non-SDK interfaces that are unrestricted and your app can use. Note however, that these interfaces are **unsupported** and subject to change without notice. Expect these interfaces to be conditionally blocked in future Android versions in a `max-target-x` list. |
 | SDK | - Both `public-api` and `sdk` - Deprecated: Both `public-api` and `whitelist` | Interfaces that can be freely used and are now supported as part of the officially documented Android framework [Package Index](https://developer.android.com/reference/packages). |
@@ -167,7 +167,7 @@ list) are derived at build time.
 
 When working with AOSP, you can generate a `hiddenapi-flags.csv` file that
 contains all of the non-SDK interfaces and their corresponding lists. To do so,
-[download the AOSP source](https://source.android.com/setup/build/downloading) and then run the following command:
+[download the AOSP source](https://source.android.com/docs/setup/download) and then run the following command:
 
 ```
 m out/soong/hiddenapi/hiddenapi-flags.csv
@@ -203,7 +203,7 @@ your app.
 You can test for non-SDK interfaces by building and running a
 [debuggable app](https://developer.android.com/studio/debug#enable-debug) on a device or emulator running Android 9 (API level 28) or
 higher. Make sure that the device or emulator that you are using matches the
-[target API level](https://developer.android.com/distribute/best-practices/develop/target-sdk) of your app.
+[target API level](https://developer.android.com/google/play/requirements/target-sdk) of your app.
 
 While running through tests on your app, the system prints a log message if your
 app accesses certain non-SDK interfaces. You can inspect your app's log messages
@@ -239,13 +239,13 @@ manually](https://developer.android.com/studio/write/lint#manuallyRunInspections
 
 ### Test using the Play Console
 
-When you upload your app to a [testing track](https://support.google.com/googleplay/android-developer/answer/3131213) in the Play Console, your app
+When you upload your app to a [testing track](https://support.google.com/googleplay/android-developer/answer/9845334) in the Play Console, your app
 is automatically tested for potential issues and a pre-launch report is
 generated. If your app uses non-SDK interfaces, an error or warning displays in
 the pre-launch report, depending on [which list](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#list-names) those interfaces belong to.
 
 For more information, see the Android Compatibility section in [Use pre-launch
-reports to identify issues](https://support.google.com/googleplay/android-developer/answer/7002270).
+reports to identify issues](https://support.google.com/googleplay/android-developer/answer/9842757).
 
 ## Request a new public API
 
@@ -325,7 +325,7 @@ values:
 
 - 0: Disable all detection of non-SDK interfaces. Using this setting disables all log messages for non-SDK interface usage and prevents you from testing your app [using the `StrictMode` API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-strictmode-api). This setting is not recommended.
 - 1: Enable access to all non-SDK interfaces, but print log messages with warnings for any non-SDK interface usage. Using this setting also lets you test your app [using the `StrictMode` API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-strictmode-api).
-- 2: Disallow usage of non-SDK interfaces that belong to the blocklist or are conditionally blocked for your [target API level](https://developer.android.com/distribute/best-practices/develop/target-sdk).
+- 2: Disallow usage of non-SDK interfaces that belong to the blocklist or are conditionally blocked for your [target API level](https://developer.android.com/google/play/requirements/target-sdk).
 
 ### Questions about non-SDK interface lists
 
@@ -353,7 +353,7 @@ Restrictions in Android N](https://android-developers.googleblog.com/2016/06/imp
 
 We don't have active plans to restrict access to the dex2oat binary, but we
 don't intend for the DEX file format to be stable or a public interface beyond
-the portions that are publicly specified in the [Dalvik Executable format](https://source.android.com/devices/tech/dalvik/dex-format).
+the portions that are publicly specified in the [Dalvik Executable format](https://source.android.com/docs/core/runtime/dex-format).
 We reserve the right to modify or eliminate dex2oat and the unspecified portions
 of the DEX format at any time. Also note that derived files produced by dex2oat
 such as ODEX (also known as OAT), VDEX, and CDEX are all unspecified formats.

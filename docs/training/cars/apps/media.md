@@ -113,7 +113,7 @@ Library version without fear of impacting the `MediaBrowserService` or
 
 When distributing a single APK for the Car App Library and `MediaBrowserService`
 or `MediaLibraryService` versions of your app, it's crucial to set the
-"" to `android:required="false"`.
+`android.software.car.templates_host.media` to `android:required="false"`.
 
     <uses-feature android:name="android.software.car.templates_host.media" android:required="false"/>
 

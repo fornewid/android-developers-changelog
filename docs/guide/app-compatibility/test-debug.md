@@ -9,7 +9,7 @@ debugging your app against the behavior changes in newer versions of the Android
 platform. These tools are part of a *compatibility framework* that lets app
 developers turn breaking changes on and off individually using [developer
 options or ADB](https://developer.android.com/guide/app-compatibility/test-debug#toggle). Use this flexibility as you prepare to [target the latest
-stable API version](https://developer.android.com/distribute/best-practices/develop/target-sdk) and as you [test your app with the preview release of the
+stable API version](https://developer.android.com/google/play/requirements/target-sdk) and as you [test your app with the preview release of the
 next Android version](https://developer.android.com/about/versions/13).
 
 When you use the compatibility framework tools, the Android platform
