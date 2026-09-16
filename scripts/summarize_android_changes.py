@@ -31,6 +31,33 @@ ROOT_DIR = Path(__file__).parent.parent
 DOCS_DIR = ROOT_DIR / 'docs'
 CHANGELOG_JSON = ROOT_DIR / 'pages' / 'changelog.json'
 
+# Gemini 호출 성공/실패 집계 (전량 실패 시 워크플로를 실패시키기 위함)
+GEMINI_STATS = {'ok': 0, 'failed': 0}
+
+
+def _fallback_reason(err_msg):
+    """fallback 모델로 재시도할 사유를 반환한다. 재시도 대상이 아니면 None."""
+    if "429" in err_msg and "free_tier" in err_msg:
+        return "free_tier quota"
+    if "404" in err_msg or "NOT_FOUND" in err_msg:
+        # 모델 단종: "This model models/... is no longer available."
+        return "model unavailable"
+    return None
+
+
+def _check_gemini_health():
+    """Gemini 호출이 전멸했는데도 워크플로가 성공으로 끝나는 것을 막는다."""
+    ok, failed = GEMINI_STATS['ok'], GEMINI_STATS['failed']
+    if failed:
+        logger.warning(f"Gemini summaries: {ok} ok, {failed} failed")
+    if failed and not ok:
+        logger.error(
+            f"All {failed} Gemini summarization calls failed - "
+            "placeholder summaries were written. Check model ids / API key."
+        )
+        sys.exit(1)
+
+
 def setup_gemini():
     """Configure Gemini API."""
     api_key = os.environ.get('GEMINI_API_KEY')
@@ -163,8 +190,8 @@ def generate_summary(client, filename, content, is_new=False):
     {content[:15000]}
     """
     
-    primary_model = 'gemini-2.0-flash-lite'
-    fallback_model = 'gemini-2.5-flash'
+    primary_model = 'gemini-3.5-flash-lite'
+    fallback_model = 'gemini-3.6-flash'
 
     for attempt in range(3):
         try:
@@ -175,9 +202,9 @@ def generate_summary(client, filename, content, is_new=False):
                     config={'response_mime_type': 'application/json'}
                 )
             except Exception as primary_error:
-                err_msg = str(primary_error)
-                if "429" in err_msg and "free_tier" in err_msg:
-                    logger.warning(f"{primary_model} blocked by free_tier quota for {filename}, falling back to {fallback_model}")
+                reason = _fallback_reason(str(primary_error))
+                if reason:
+                    logger.warning(f"{primary_model} unusable ({reason}) for {filename}, falling back to {fallback_model}")
                     response = client.models.generate_content(
                         model=fallback_model,
                         contents=prompt,
@@ -185,12 +212,15 @@ def generate_summary(client, filename, content, is_new=False):
                     )
                 else:
                     raise
-            return json.loads(response.text)
+            result = json.loads(response.text)
+            GEMINI_STATS['ok'] += 1
+            return result
         except Exception as e:
             time.sleep(2)
             if attempt == 2:
                 logger.error(f"Gemini API failed for {filename}: {e}")
-                
+
+    GEMINI_STATS['failed'] += 1
     return [{"header": "Overview", "summary": f"{filename} documentation has been updated."}]
 
 def load_changelog():
@@ -392,6 +422,9 @@ def main():
             release_content += "\n"
 
         release_body_path.write_text(release_content, encoding='utf-8')
+
+    _check_gemini_health()
+
 
 if __name__ == '__main__':
     main()
