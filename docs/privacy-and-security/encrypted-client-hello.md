@@ -4,23 +4,33 @@ url: https://developer.android.com/privacy-and-security/encrypted-client-hello
 source: md.txt
 ---
 
-Encrypted Client Hello (ECH) is a TLS extension that encrypts the Server Name Indication (SNI) field in the client's handshake message. In Android 17 (API level 37) and higher, ECH is supported by default. ECH helps keep users' web traffic private by preventing network intermediaries from seeing the hostnames an app connects to.
+Encrypted Client Hello (ECH) is a TLS extension that encrypts the Server Name
+Indication (SNI) field in the client's handshake message. In Android 17 (API
+level 37) and higher, ECH is supported by default. ECH helps keep users' web
+traffic private by preventing network intermediaries from seeing the hostnames
+an app connects to.
 
 ## For App Developers
 
 To adopt ECH in your application:
 
-1. **Check your networking library for ECH support**: Ensure you are using a library version that supports ECH on Android. Support is coming soon in OkHttp and HttpEngine.
+1. **Check your networking library for ECH support** : Ensure you are using a library version that supports ECH on Android:
+   - **OkHttp** : Starting with OkHttp 5.5.0, you can enable ECH support by configuring `AndroidDns` or `DnsOverHttps` on `OkHttpClient.Builder`. For more information, see the [changelog](https://lysine.dev/okhttp/changelogs/changelog/#version-550).
+   - **HttpEngine**: Support is coming in Android 17 QPR2 (API level 37.2). No special configuration will be required.
+   - **WebView**: Support will be added in a future release.
 2. **Configure Network Security Config** : By default, ECH is enabled for all domains if your library supports it. If you need to disable or enforce ECH, configure the `domainEncryption` element in your [Network Security Config](https://developer.android.com/privacy-and-security/security-config#EncryptedClientHelloSummary).
 3. **Update the target SDK level**: ECH is only available on Android 17 (API level 37) and higher.
 
 ## For Library Developers
 
-If you're developing a custom HTTP networking library or extending an existing one, you should implement ECH support by interacting with the platform APIs.
+If you're developing a custom HTTP networking library or extending an existing
+one, you should implement ECH support by interacting with the platform APIs.
 
 ### Check domain encryption policy
 
-Before querying ECH configurations or initiating connections, check the app's [domain encryption policy](https://developer.android.com/privacy-and-security/security-config#EncryptedClientHelloSummary) by calling [`NetworkSecurityPolicy.getDomainEncryptionMode`](https://developer.android.com/reference/android/security/NetworkSecurityPolicy#getDomainEncryptionMode(java.lang.String)).
+Before querying ECH configurations or initiating connections, check the app's
+[domain encryption policy](https://developer.android.com/privacy-and-security/security-config#EncryptedClientHelloSummary) by calling
+[`NetworkSecurityPolicy.getDomainEncryptionMode`](https://developer.android.com/reference/android/security/NetworkSecurityPolicy#getDomainEncryptionMode(java.lang.String)).
 
 Depending on the returned mode, handle ECH as follows:
 
@@ -35,11 +45,16 @@ Depending on the returned mode, handle ECH as follows:
 
 ### Retrieve ECH configurations
 
-To connect with ECH, you must resolve the server's HTTPS DNS record containing the ECH configurations. When apps are using the system DNS, this data can be retrieved using one of two methods:
+To connect with ECH, you must resolve the server's HTTPS DNS record containing
+the ECH configurations. When apps are using the system DNS, this data can be
+retrieved using one of two methods:
 
 #### Method 1: Using the high-level `DnsResolver.query` API
 
-If your library doesn't require custom DNS resolution mechanisms, you can use the platform's high-level [`DnsResolver.query`](https://developer.android.com/reference/android/net/DnsResolver#query(android.net.Network,%20java.lang.String,%20int,%20java.util.concurrent.Executor,%20int,%20android.os.CancellationSignal,%20android.net.DnsResolver.Callback%3Candroid.net.dns.HttpsEndpoint%3E)) API. This API makes parallel queries for the A/AAAA/HTTPS records and combines the results into an [`HttpsEndpoint`](https://developer.android.com/reference/android/net/dns/HttpsEndpoint).
+If your library doesn't require custom DNS resolution mechanisms, you can use
+the platform's high-level [`DnsResolver.query`](https://developer.android.com/reference/android/net/DnsResolver#query(android.net.Network,%20java.lang.String,%20int,%20java.util.concurrent.Executor,%20int,%20android.os.CancellationSignal,%20android.net.DnsResolver.Callback%3Candroid.net.dns.HttpsEndpoint%3E)) API. This API makes parallel
+queries for the A/AAAA/HTTPS records and combines the results into an
+[`HttpsEndpoint`](https://developer.android.com/reference/android/net/dns/HttpsEndpoint).
 
 ### Kotlin
 
@@ -76,14 +91,17 @@ If your library doesn't require custom DNS resolution mechanisms, you can use th
 
 #### Method 2: Using `getAllByName` and `DnsResolver.rawQuery`
 
-For libraries that manage their own socket connections and DNS resolution pipelines, you may prefer to resolve IP addresses using standard APIs while fetching the HTTPS record separately:
+For libraries that manage their own socket connections and DNS resolution
+pipelines, you may prefer to resolve IP addresses using standard APIs while
+fetching the HTTPS record separately:
 
 1. Resolve A/AAAA records using [`InetAddress.getAllByName`](https://developer.android.com/reference/java/net/InetAddress#getAllByName(java.lang.String)) for the default network or [`Network.getAllByName`](https://developer.android.com/reference/android/net/Network#getAllByName(java.lang.String)).
 2. Retrieve the raw HTTPS record in parallel using [`DnsResolver.rawQuery`](https://developer.android.com/reference/android/net/DnsResolver#rawQuery(android.net.Network,%20byte%5B%5D,%20int,%20java.util.concurrent.Executor,%20android.os.CancellationSignal,%20android.net.DnsResolver.Callback%3Cbyte%5B%5D%3E)). Specify [`DnsResolver.TYPE_HTTPS`](https://developer.android.com/reference/android/net/DnsResolver#TYPE_HTTPS) as the query type.
 
 ##### Developer responsibility and edge cases
 
-If you choose Method 2, your library has additional responsibilities and edge cases to consider.
+If you choose Method 2, your library has additional responsibilities and edge
+cases to consider.
 
 - **DNS Record Parsing** : You must parse the raw byte payload of the DNS response from `rawQuery` to extract the `EchConfigList`.
 - **Handling Record Mismatches**: You must handle inconsistencies between the A/AAAA and HTTPS queries.
@@ -91,7 +109,10 @@ If you choose Method 2, your library has additional responsibilities and edge ca
 
 ### Configure TLS
 
-Once the library has retrieved the ECH configuration list ([`EchConfigList`](https://developer.android.com/reference/android/net/ssl/EchConfigList)) from the `HttpsRecord`, pass this list in using either the [`SSLSockets`](https://developer.android.com/reference/android/net/ssl/SSLSockets#setEchConfigList(javax.net.ssl.SSLSocket,%20android.net.ssl.EchConfigList)) or [`SSLEngines`](https://developer.android.com/reference/android/net/ssl/SSLEngines#setEchConfigList(javax.net.ssl.SSLEngine,%20android.net.ssl.EchConfigList)) utility APIs before starting the TLS handshake.
+Once the library has retrieved the ECH configuration list
+([`EchConfigList`](https://developer.android.com/reference/android/net/ssl/EchConfigList)) from the `HttpsRecord`, pass this list in using either
+the [`SSLSockets`](https://developer.android.com/reference/android/net/ssl/SSLSockets#setEchConfigList(javax.net.ssl.SSLSocket,%20android.net.ssl.EchConfigList)) or [`SSLEngines`](https://developer.android.com/reference/android/net/ssl/SSLEngines#setEchConfigList(javax.net.ssl.SSLEngine,%20android.net.ssl.EchConfigList)) utility APIs before starting the TLS
+handshake.
 
 ### Kotlin
 
@@ -113,7 +134,13 @@ Once the library has retrieved the ECH configuration list ([`EchConfigList`](htt
 
 ### Handle retry flow
 
-If the server's ECH configurations have become out of sync, the handshake fails with an `EchConfigMismatchException` (a subclass of `javax.net.ssl.SSLException`). The server may include updated ECH configurations in its rejection, which should be used to establish a new connection. If a retry is not attempted despite the server providing valid retry configurations, the library must report an error to the calling application.
+If the server's ECH configurations have become out of sync, the handshake fails
+with an `EchConfigMismatchException` (a subclass of
+`javax.net.ssl.SSLException`). The server may include updated ECH
+configurations in its rejection, which should be used to establish a new
+connection. If a retry is not attempted despite the server providing valid
+retry configurations, the library must report an error to the calling
+application.
 
 To handle ECH retries, catch the exception and perform these steps:
 
@@ -157,4 +184,5 @@ To handle ECH retries, catch the exception and perform these steps:
         }
     }
 
-See more details about the retry flow in [RFC 9849](https://www.rfc-editor.org/rfc/rfc9849.html#name-handshaking-with-clienthello), in particular [why it's necessary to authenticate for the public name](https://www.rfc-editor.org/rfc/rfc9849.html#name-authenticating-for-the-publ).
+See more details about the retry flow in [RFC 9849](https://www.rfc-editor.org/rfc/rfc9849.html#name-handshaking-with-clienthello), in particular [why it's
+necessary to authenticate for the public name](https://www.rfc-editor.org/rfc/rfc9849.html#name-authenticating-for-the-publ).

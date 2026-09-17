@@ -577,7 +577,7 @@ recurring period. This temporarily suspends the subscription.
 
 | Subscription recurrence | Weekly | Monthly | Three-month | Six-month | Annual |
 |---|---|---|---|---|---|
-| Available pause lengths^\*^ | 1 week 2 weeks 3 weeks 4 weeks | 1 month 2 months 3 months | 1 month 2 months 3 months | 1 month 2 months 3 months | N/A |
+| Available pause lengths^\*^ | 1 week 2 weeks 3 weeks 4 weeks | 1 month 2 months 3 months | 1 month 2 months 3 months | 1 month 2 months 3 months | 1 month 2 months 3 months |
 
 ^\*^Subject to change at any time.
 

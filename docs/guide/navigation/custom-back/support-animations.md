@@ -25,7 +25,8 @@ Learn more about how to [Add support for predictive back gestures](https://devel
 
 You can create custom in-app property animations and transitions, custom
 cross-activity animations, and custom cross-fragment animations with predictive
-back gestures.
+back gestures using Compose or Views. To learn how to create transitions using
+Views, see [Add support for predictive back animations in Views](https://developer.android.com/guide/navigation/custom-back/support-animations-views).
 
 ### Add custom transitions in Jetpack Compose
 

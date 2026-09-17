@@ -26,6 +26,9 @@ evicts unused memory and compresses inactive heap pages to swap so that memory
 allocations remain bounded without terminating the process.
 
 > [!NOTE]
+> **Note:** App memory budgets and `<memory-budget>` declarations are supported starting in **Android 17 QPR2 (minor SDK release, API level 37.2)** . You'll want to test this feature using the [Android 17 QPR2 Beta](https://developer.android.com/about/versions/17/qpr2) system images or the Android Emulator in Android Studio.
+
+> [!NOTE]
 > **Note:** Apply `<memory-budget>` declarations only to release (optimized) builds. Unoptimized debug builds carry additional code instrumentation, logging, and debugger allocations that use significantly more memory, which can lead to frequent swap churn and test failures.
 
 ## Declare budgets in the Android manifest
@@ -34,6 +37,11 @@ Declaring your memory budgets in your `AndroidManifest.xml` is the primary and
 recommended method for defining budgets. It requires no runtime code, takes
 effect immediately upon process startup, and provides a clear contract for the
 operating system.
+
+`<memory-budget>` declarations take effect on devices running Android 17 QPR2
+(API level 37.2) and higher. On lower Android versions, the platform manifest
+parser safely ignores unrecognized XML elements, so you can adopt
+`<memory-budget>` without affecting backward compatibility.
 
 ### Declare a baseline budget
 
@@ -241,12 +249,17 @@ The runtime API lets you:
 ### Kotlin API (`MemoryBudgetManager`)
 
 The [`MemoryBudgetManager`](https://developer.android.com/reference/android/app/MemoryBudgetManager) system service is available starting in
-Android 17 QPR2 (Android 26Q4 SDK release, API level 37.2 /
+Android 17 QPR2 (minor SDK release, API level 37.2 /
 `Build.VERSION_CODES_FULL.CINNAMON_BUN_2`).
 
 #### Retrieve the service
 
-    val budgetManager = context.getSystemService(MemoryBudgetManager::class.java)
+Before you access `MemoryBudgetManager`, check that the device isn't running
+a lower version than Android 17 QPR2 by using `SDK_INT_FULL`:
+
+    if (Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.CINNAMON_BUN_2) {
+        val budgetManager = context.getSystemService(MemoryBudgetManager::class.java)
+    }
 
 #### Query usage and budgets
 
@@ -304,7 +317,8 @@ triggers direct reclaim latency:
 
 ### Native NDK API (`<android/memory_budget_manager.h>`)
 
-Native apps can use the C NDK API exposed by `libandroid.so`.
+Native apps can use the C NDK API exposed by `libandroid.so` starting in
+Android 17 QPR2 (API level 37.2).
 
 #### CMake configuration
 

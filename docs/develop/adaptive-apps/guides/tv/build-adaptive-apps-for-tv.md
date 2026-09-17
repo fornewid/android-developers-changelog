@@ -13,7 +13,7 @@ UI design.
 
 - **D-pad navigation**: TV devices do not have touchscreens. All interactions are performed using a directional pad (D-pad) on a remote or game controller. Ensure every UI element is reachable and has a clear focused state.
 - **10-foot UI**: TV apps are viewed from several feet away. Use large text, high-contrast colors, and bold graphics to ensure content is legible and interactive elements are easy to identify.
-- **Landscape orientation** : TV displays are fixed in landscape orientation. Your app should be designed exclusively for this layout and declare `android:screenOrientation="landscape"` in the manifest.
+- **Landscape orientation** : Design your app layouts to support and optimize for landscape viewing. You don't need to declare `android:screenOrientation` in the manifest. However, to comply with TV quality guidelines, your app must support landscape orientation without vertical letterboxing or pillarboxing.
 - **Overscan handling**: Some older TV sets may crop the edges of the screen. Maintain a safe margin (typically 5%) around the edges of your layout to ensure critical UI elements are not cut off.
 - **No background multitasking**: Unlike phones or tablets, TVs typically focus on one immersive task at a time. Ensure your app handles being paused or stopped correctly when the user switches to another app or input.
 

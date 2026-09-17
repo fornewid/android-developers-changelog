@@ -70,11 +70,11 @@ Follow these steps to install generic system images:
 You can also add OEM-specific system images. Follow the steps on OEM
 developer sites, in alphabetical order:
 
-1. [Ampere (Renault, Alpine)](https://developer.ampere.cars)
-2. [General Motors (Chevrolet, Cadillac, GMC, Buick)](https://developer.gm.com/in-vehicle-apps)
-3. [Honda](https://global.honda/cars-apps/index.html)
-4. [Mazda](https://www.mazda.com/en/apps/)
-5. [Polestar](https://www.polestar.com/global/developer#emulator)
+1. [General Motors (Chevrolet, Cadillac, GMC, Buick)](https://developer.gm.com/in-vehicle-apps)
+2. [Honda](https://global.honda/cars-apps/index.html)
+3. [Mazda](https://www.mazda.com/en/apps/)
+4. [Polestar](https://www.polestar.com/global/developer#emulator)
+5. [Renault Group (Renault, Alpine, Dacia)](https://developer.renaultgroup.com/)
 6. [Volvo](https://developer.volvocars.com/in-car-apps/android-emulator-xc40/)
 
 ## Create a car AVD and run the emulator
