@@ -1,0 +1,87 @@
+diff --git a/docs/games/pgs/play-games-sidekick.md b/docs/games/pgs/play-games-sidekick.md
+index 74509fd2..b6bf01ab 100644
+--- a/docs/games/pgs/play-games-sidekick.md
++++ b/docs/games/pgs/play-games-sidekick.md
+@@ -119,15 +119,78 @@ steps to enable Play Store developer options on the device:
+ [![The toggle to turn on Play Games Sidekick on the Google Play
+ Store app.](https://developer.android.com/static/images/games/pgs/playstoresidekick.png)](https://developer.android.com/static/images/games/pgs/playstoresidekick.png) The toggle to turn on Play Games Sidekick on the Google Play Store app (click to enlarge).
+ 
+-### Configure snooze duration for entry point
++### Configure default Sidekick entry point
++
++By default, the Sidekick entry point is anchored to the logical
++End edge (the MIDDLE_RIGHT side of the screen) and is vertically centered (with
++a slight default offset) in both portrait and landscape orientations. In the
++case of 3-button navigation, the entry point moves to the side opposite to the
++navigation bar.
++
++You can override the default entry point position by specifying a preferred
++position in the `AndroidManifest.xml` file.
++
++To configure the default Sidekick entry point position for your
++game, follow these steps:
++
++1. In the `AndroidManifest.xml` file, add the following `<meta-data>` element
++   to the `<application>` element:
++
++   ```xml
++   <manifest>
++    <application>
++     <meta-data
++     android:name="com.google.android.finsky.deku.OVERLAY_CONFIG"
++     android:resource="@xml/XML_RESOURCE_FILE"/>
++    </application>
++
++   </manifest>
++   ```
++2. Specify the entry point location in the <var translate="no">XML_RESOURCE_FILE</var>.
++
++   Sample file (res/xml/<var translate="no">XML_RESOURCE_FILE</var>.xml):
++
++   ```xml
++   <?xml version="1.0" encoding="utf-8"?>
++   <deku-config>
++     <!-- Entrypoint default position overrides -->
++     <default-entrypoint-position orientation="landscape" value="MIDDLE_LEFT" />
++     <default-entrypoint-position orientation="portrait" value="TOP_RIGHT" />
++
++     <!-- Extensible: Add new configuration fields here as needed -->
++   </deku-config>
++   ```
++
++The supported values for entry point orientation:
++
++- landscape
++- portrait
++
++These values represent the physical positions on the screen. For example,
++MIDDLE_LEFT will always anchor the entry point to the left edge of the screen,
++even when the device is set to a Right-to-Left (RTL). The supported values for
++edge-aligned positions are as follows.
++
++- MIDDLE_LEFT
++- MIDDLE_RIGHT
++- TOP_LEFT
++- TOP_RIGHT
++- BOTTOM_LEFT
++- BOTTOM_RIGHT
++
++If a player manually drags and repositions the entry point during gameplay,
++their chosen position persists across game sessions and takes precedence over
++the custom default XML configuration.
++
++### Configure entry point snooze duration during FTUE
+ 
+ By default, the Play Games Sidekick entry point displays immediately. You can
+ snooze the ingame entry point for a configured custom duration in the
+ <var translate="no">XML_RESOURCE_FILE</var>.
+ 
+-When a snooze duration is set, the Play Games Sidekick entry point is hidden
+-the first time you open the game during that period. After the snooze duration
+-ends, the entry point appears.
++When a snooze duration is set, the Sidekick entry point is hidden
++during the first time user experience (FTUE) for the configured time. After
++the snooze duration ends, the entry point appears.
+ 
+ 1. In the `AndroidManifest.xml` file, add the following `<meta-data>` element
+    to the `<application>` element:

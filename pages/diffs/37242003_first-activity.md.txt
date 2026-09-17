@@ -1,0 +1,70 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/glasses/first-activity.md b/docs/develop/xr/jetpack-xr-sdk/glasses/first-activity.md
+index b5a4fee7..f627754d 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/glasses/first-activity.md
++++ b/docs/develop/xr/jetpack-xr-sdk/glasses/first-activity.md
+@@ -64,13 +64,13 @@ app's manifest file for the system to see and run it.
+           android:name="com.example.xr.projected.ProjectedMainActivity"
+           android:exported="true"
+           android:requiredDisplayCategory="android.hardware.display.category.XR_PROJECTED"
+-          android:label="Example activity for> audio <glasses and d>isplay glas<ses"
+-          intent-filter
+-              action and>roid:name=&<quot;android.intent.action.MAIN" /
+-              category android:nam>e="<;android.inten>t.c<ategory.X>R<_PROJECTED_L>AUNCHER"/
+-          /intent-filter
+-      /activity
+-    /application
++          android:label="Example activity for audio glasses and display glasses">
++          <intent-filter>
++              <action android:name="android.intent.action.MAIN" />
++              <category android:name="android.intent.category.XR_PROJECTED_LAUNCHER"/>
++          </intent-filter>
++      </activity>
++    </application>
+ 
+ ### Key points about the code
+ 
+@@ -105,8 +105,8 @@ class ProjectedMainActivity : ComponentActivity() {
+     @Suppress("DEPRECATION")
+     // TODO: Remove suppression once Android Emulator supports ProjectedActivityCompat.requestPermissions()
+     // Register the permissions launcher using the ProjectedPermissionsResultContract.
+-    private val requestPermissionLauncher: ActivityResu<ltLa<uncherListProjectedPermissionsReq>>uestParams =
+-        registerForActivityResult(ProjectedPermissionsResultContract()) {> results -
++    private val requestPermissionLauncher: ActivityResultLauncher<List<ProjectedPermissionsRequestParams>> =
++        registerForActivityResult(ProjectedPermissionsResultContract()) { results ->
+             if (results[Manifest.permission.CAMERA] == true) {
+                 isPermissionDenied = false
+                 initializeGlassesFeatures()
+@@ -156,7 +156,7 @@ class ProjectedMainActivity : ComponentActivity() {
+             val observer = GlassesLifecycleObserver(
+                 context = this@ProjectedMainActivity,
+                 controller = controller,
+-                onVisualsChanged = { v>isualsOn - areVisualsOn = visualsOn }
++                onVisualsChanged = { visualsOn -> areVisualsOn = visualsOn }
+             )
+             lifecycle.addObserver(observer)
+         }
+@@ -172,7 +172,9 @@ class ProjectedMainActivity : ComponentActivity() {
+             permissions = listOf(Manifest.permission.CAMERA),
+             rationale = "Camera access is required to overlay digital content on your physical environment."
+         )
+-        requestPermissionLauncher.launch(lisectedMainActivity.kt
++        requestPermissionLauncher.launch(listOf(params))
++    }
++}
+ ```
+ 
+ <br />
+@@ -233,10 +235,11 @@ fun HomeScreen(
+                     Text("Display is off. Audio guidance active.")
+                 }
+             }
+-     Text("Audio Guidance Mode Active")
++        } else {
++            Text("Audio Guidance Mode Active")
+         }
+     }
+-}ProjectedMainActivity.kt
++}
+ ```
+ 
+ <br />

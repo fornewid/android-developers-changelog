@@ -1,0 +1,42 @@
+diff --git a/docs/agents/skills/testing/testing-setup/skill.md b/docs/agents/skills/testing/testing-setup/skill.md
+index 2b83353b..e3506a99 100644
+--- a/docs/agents/skills/testing/testing-setup/skill.md
++++ b/docs/agents/skills/testing/testing-setup/skill.md
+@@ -56,10 +56,21 @@ install the following:
+ - Jacoco for test coverage
+ - For UI tests: if the project has views, Espresso. If it's fully Compose, use the Compose Testing APIs.
+ - Robolectric to run UI Tests
+-- Compose Preview Screenshot Testing tool for screenshot tests - check [setup
+-  documentation](https://developer.android.com/studio/preview/compose-screenshot-testing) and follow it strictly.
++- Compose Preview Screenshot Testing tool for screenshot tests. Check the
++  project's AGP version first, then pick the matching setup and follow it
++  strictly:
++
++  - **AGP 9.5.0-alpha03 or higher (recommended):** configure an AGP test suite using `testOptions { screenshotTests.create(...) }`, as described in [Screenshot testing with test suites](https://developer.android.com/studio/preview/compose-screenshot-testing-with-testsuites).
++  - **Lower AGP versions:** use the [legacy standalone plugin setup](https://developer.android.com/studio/preview/compose-screenshot-testing) with `com.android.compose.screenshot`, and tell the user it's deprecated. Don't upgrade AGP as part of setting up screenshot tests. Mention that test suites are available on 9.5.0-alpha03 or higher, and leave the upgrade as a separate decision.
++
++  Don't combine both setups in the same module. If the project already uses
++  the standalone plugin and its AGP version supports test suites, offer to
++  migrate it using the tasks and paths mapping table in
++  [Screenshot testing with test suites](https://developer.android.com/studio/preview/compose-screenshot-testing-with-testsuites).
+ - Dropshots for device screenshot tests
+-- If a mocking framework is necessary, install Mockk (`io.mockk:mockk`). Do not install it unless it is clearly necessary.
++
++- If a mocking framework is necessary, install Mockk (`io.mockk:mockk`). Do
++  not install it unless it is clearly necessary.
+ 
+ If instrumented screenshot tests are requested, install Dropshots.
+ 
+@@ -103,9 +114,9 @@ put them in the `androidTest` sourceset.
+ 
+ ## Step 7: Test databases
+ 
+-If the database is using SQLite (through a library such as Room or
+-SQLDelight), create instrumented tests using an in-memory database to make
+-sure that they work with the SQLite engine on device.
++If the database is using SQLite (through a library such as Room or SQLDelight),
++create instrumented tests using an in-memory database to make sure that they
++work with the SQLite engine on device.
+ 
+ ## Step 8: Screenshot tests
+ 

@@ -1,0 +1,47 @@
+diff --git a/docs/about/versions/17/qpr2/release-notes.md b/docs/about/versions/17/qpr2/release-notes.md
+index 80c89f14..9eaf819e 100644
+--- a/docs/about/versions/17/qpr2/release-notes.md
++++ b/docs/about/versions/17/qpr2/release-notes.md
+@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr2/release-notes
+ source: md.txt
+ ---
+ 
++### Beta 5
++
++|---|---|
++| **Release date** | September 15, 2026 |
++| **Builds** | CP41.260828.004.A8 CP41.260828.005.A6 |
++| **Emulator support** | x86 (64-bit), ARM (v8-A) |
++| **Security patch level** | 2026-08-05 |
++| **Google Play services** | 26.28.33 |
++
+ ### Beta 4
+ 
+ |---|---|
+@@ -40,7 +49,7 @@ source: md.txt
+ | **Security patch level** | 2026-07-05 |
+ | **Google Play services** | 26.23.34 |
+ 
+-### Android 17 QPR 2 Beta 4 (August 2026)
++### Android 17 QPR 2 Beta 5 (September 2026)
+ 
+ Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
+ update the platform with fixes and improvements that are then rolled out to
+@@ -70,6 +79,17 @@ restricts call-forwarding USSD codes (such as `*21#`) executed using the
+ - **Non-Call Forwarding USSD:** Non-call forwarding enabling USSD requests (such as mobile money transfers and account checks) are unaffected by this change.
+ - **Mitigation:** If your app is affected, verify that it handles the `USSD_ERROR_NOT_ALLOWED` failure callback gracefully. For apps requiring call-forwarding setup that don't qualify for an exempted role, migrate your flow to use the `ACTION_DIAL` intent to pre-fill the dialer, allowing the user to manually confirm the action.
+ 
++### Top Issues fixed in Beta 5 (September 2026)
++
++- *Changing a Bluetooth device type in settings failed to update its icon visually. ([**Issue #516071134**](https://issuetracker.google.com/issues/516071134))*
++- *A system stability issue that caused unexpected device reboots during continuous UI scrolling in media-heavy applications. ([**Issue #544291113**](https://issuetracker.google.com/issues/544291113))*
++- *Pressing hardware volume buttons while casting media prevented the system volume slider UI from displaying. ([**Issue #548145018**](https://issuetracker.google.com/issues/548145018))*
++- *Fixed a text-rendering issue that caused unexpected background highlights to appear when typing in search fields, and resolved a navigation routing issue that prevented Private Space from unlocking correctly. ([**Issue #548285596**](https://issuetracker.google.com/issues/548285596))*
++- *Enhanced HDR mode remained enabled despite being turned off in user settings. ([**Issue #547457910**](https://issuetracker.google.com/issues/547457910))*
++- *Launching Google Wallet via the power button shortcut caused the touchscreen to become unresponsive. ([**Issue #549758084**](https://issuetracker.google.com/issues/549758084))*
++- *Camera crashes during panorama processing. ([**Issue #551069625**](https://issuetracker.google.com/issues/551069625))*
++- *Bluetooth audio experiences noise and distortion after completing or answering a call. ([**Issue #541684282**](https://issuetracker.google.com/issues/541684282))*
++
+ ### Top Issues fixed in Beta 4 (August 2026)
+ 
+ - *Enabling the "render apps below the cutout area" developer setting caused a transparent status bar on the launcher after exiting fullscreen video playback. ([**Issue #295747911**](https://issuetracker.google.com/issues/295747911))*
