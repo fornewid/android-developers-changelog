@@ -262,16 +262,22 @@ your share Intent *after* calling
 `https://developer.android.com/reference/android/content/Intent#createChooser(android.content.Intent,%20java.lang.CharSequence)`:
 
 ```kotlin
-val share = Intent.createChooser(shareIntent, null).apply {
-    putExtra(
-        Intent.EXTRA_CHOOSER_TARGETS,
-        arrayOf(chooserTargetJessica, chooserTargetSpyros)
-    )
+val sendIntent = Intent(ACTION_SEND).apply {
+    type = "text/plain"
+    putExtra(Intent.EXTRA_TEXT, previewText)
+}
+
+val customIntent = Intent().apply {
+    component = ComponentName(context.packageName, "${context.packageName}.CustomActivity")
+}
+
+val shareIntent = Intent.createChooser(sendIntent, null).apply {
     putExtra(
         Intent.EXTRA_INITIAL_INTENTS,
-        arrayOf(intentTargetNearbyShare, intentTargetMaps)
+        arrayOf(customIntent)
     )
 }
+context.startActivity(shareIntent)
 ```
 
 Use this feature with care. Every custom `Intent`

@@ -156,7 +156,7 @@ app/build.gradle
 dependencies {
     implementation("androidx.hilt:hilt-work:1.0.0")
     // When using Kotlin.
-    ksp("androidx.hilt:hilt-compiler:1.3.0")
+    ksp("androidx.hilt:hilt-compiler:1.4.0")
 }
 ```
 
@@ -167,7 +167,7 @@ dependencies {
   ...
   implementation 'androidx.hilt:hilt-work:1.0.0'
   // When using Kotlin.
-  ksp 'androidx.hilt:hilt-compiler:1.3.0'
+  ksp 'androidx.hilt:hilt-compiler:1.4.0'
 }
 ```
 

@@ -20,7 +20,7 @@ higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/support-multiple-links_c4bdd682fba0fa4543c096a8e62236afddec252741259dba72e0e91908653043.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/support-multiple-links_c0e8dcc7f3ad3b99555a1d7352ddf5655e18bb6ebdb6b259b7456cdeee0069a7.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Display multiple links in a single string
 

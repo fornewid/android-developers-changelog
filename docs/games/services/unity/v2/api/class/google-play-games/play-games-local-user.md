@@ -148,7 +148,7 @@ Details Parameters `callback` A callback to invoke with a boolean indicating suc
 
 ```c#
 void GetStats(
-  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1abaf59665136d25cef9ddd68d2069c603 CommonStatusCodes, PlayerStats > callback
+  Action< CommonStatusCodes, PlayerStats > callback
 )
 ```
 Gets the player's stats from the server.

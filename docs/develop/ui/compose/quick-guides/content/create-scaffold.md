@@ -22,14 +22,14 @@ or higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-scaffold_fe30e5b1b3bf57635bdc2152f1499c7d7bf124e4909c22a4e51155c557d1cd7f.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-scaffold_2519fd3fbb696c8d700357eb8e799d84d0caaa5d9a7dd3ddcb421fcba3615386.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Create a scaffold
 
 The following example provides a full example of how you might implement
 [`Scaffold`](https://developer.android.com/reference/kotlin/androidx/compose/material/Scaffold.composable#Scaffold(androidx.compose.foundation.layout.WindowInsets,androidx.compose.ui.Modifier,androidx.compose.material.ScaffoldState,kotlin.Function0,kotlin.Function0,kotlin.Function1,kotlin.Function0,androidx.compose.material.FabPosition,kotlin.Boolean,kotlin.Function1,kotlin.Boolean,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function1)). It contains a top app bar, bottom app bar, and a floating action
 button that interacts with `Scaffold`'s internal state.
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-scaffold_4b23e0cc0c8d67e2727e09649566b4b8a5c4c1c99c20d81392dee1ba2dcd3582.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/create-scaffold_b160bb74da346bbf6c587667b29ae25615d4fdfb74033e8b62c1e3f0f75223e6.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Key points
 

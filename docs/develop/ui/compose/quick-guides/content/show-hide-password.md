@@ -24,7 +24,7 @@ higher.
 
 ### Dependencies
 
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/show-hide-password_a6152dfe03521712ac7e3cd5680d820986e60db3e4034656ffbe2c8494aba87a.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/show-hide-password_ab7aa74b0b74c70794015af6bdd69981eb9fc1d39826dd754b04223a47475482.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Show or hide a password based on user toggle
 

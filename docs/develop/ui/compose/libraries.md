@@ -130,7 +130,7 @@ function. Add the following dependency to your Gradle file:
 
 ```groovy
 dependencies {
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.11.0'
 }
 ```
 
@@ -138,7 +138,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.10.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.11.0")
 }
 ```
 
@@ -301,7 +301,7 @@ additional dependencies to your Gradle file:
 
 ```groovy
 dependencies {
-    implementation 'androidx.hilt:hilt-navigation-compose:1.3.0'
+    implementation 'androidx.hilt:hilt-navigation-compose:1.4.0'
 }
 ```
 
@@ -309,7 +309,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.hilt:hilt-navigation-compose:1.3.0")
+    implementation("androidx.hilt:hilt-navigation-compose:1.4.0")
 }
 ```
 

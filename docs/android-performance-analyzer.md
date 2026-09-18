@@ -20,7 +20,7 @@ A dedicated project sidebar helps manage and compare multiple traces, which is i
 
 ## APA Downloads
 
-APA is available for download below. For requirements and setup info, see the [quickstart](https://developer.android.com/android-performance-analyzer).
+APA is available for download below. For requirements and setup info, see the [quickstart](https://developer.android.com/android-performance-analyzer/quickstart).
 
 ## Download Android Performance Analyzer
 

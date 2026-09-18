@@ -459,7 +459,7 @@ guideline:
 
 | ID | Exemption |
 |---|---|
-| `LU-PR-EAA` | Games that **do not support 60 FPS** on other platforms. |
+| `LU-PR-EAA` | Games that **do not support 60 FPS** on other non-Android mobile platforms. |
 | `LU-PR-EAB` | Games that **use HWUI or Composer** rather than rendering directly. |
 | `LU-PR-EAC` | Games that **only push new frames on player interaction**, rather than on a continuously regular basis. |
 | `LU-PR-EAD` | Games are not required to meet this on Tablet and Foldable devices due to their challenges in thermal design and computations to support high-resolution screens. |
@@ -508,7 +508,7 @@ Mac, Linux, iOS and Android. ANGLE uses Vulkan under the hood.
 
 | ID | Guideline |
 |---|---|
-| `LU-VK-GAA` | On devices that have updated graphics drivers, where `DEQP`≥`20240301`: - If you are using **Unity version 2021 or newer** , or **Unreal Engine version 4.25 or newer**: - **Vulkan must be set as the primary graphics API**. Minor OpenGL ES usage (For example, for Adverts, webviews, etc) is acceptable as long as it is \<10% of frames. - Games using Unity's Built-in Render Pipeline may opt-in to using [ANGLE](https://github.com/google/angle) for Android 17+ devices. These games have until **September 30, 2027** to set Vulkan as the primary graphics API. Transitioning to Unity's Universal Render Pipeline is highly recommended to achieve this but is not the only permissible path. - If you are using an older version of Unity or Unreal, or any other game engine, then you are required to either use Vulkan or enable ANGLE rendering to meet this guideline. To opt-in to use ANGLE, modify your app's manifest file as follow: ``` <application android:appCategory="game"> <meta-data android:name="com.android.graphics.driver.prefer_angle" android:value="true" /> </application> ``` |
+| `LU-VK-GAA` | On devices that have updated graphics drivers, where `DEQP`≥`20240301`: - If you are using **Unity version 2023 or newer** , or **Unreal Engine version 4.25 or newer**: - **Vulkan must be set as the primary graphics API**. Minor OpenGL ES usage (For example, for Adverts, webviews, etc) is acceptable as long as it is \<10% of frames. - Games using Unity's Built-in Render Pipeline may opt-in to using [ANGLE](https://github.com/google/angle) for Android 17+ devices. These games have until **September 30, 2027** to set Vulkan as the primary graphics API. Transitioning to Unity's Universal Render Pipeline is highly recommended to achieve this but is not the only permissible path. - If you are using an older version of Unity or Unreal, or any other game engine, then you are required to either use Vulkan or enable ANGLE rendering to meet this guideline. To opt-in to use ANGLE, modify your app's manifest file as follow: ``` <application android:appCategory="game"> <meta-data android:name="com.android.graphics.driver.prefer_angle" android:value="true" /> </application> ``` |
 
 #### Exemptions
 
@@ -624,6 +624,16 @@ here for more details.
 
 ### September 2026
 
+- **Performance**
+
+  - Guidelines updated: [`LU-PF-GAA`](https://developer.android.com/games/guidelines#LU-PF-GAA)
+  - Previous text:
+
+    Games that **do not support 60 FPS** on other platforms.
+  - New text:
+
+    Games that **do not support 60 FPS** on other non-Android mobile
+    platforms.
 - **Large screen optimization**
 
   - Guidelines updated:
@@ -755,7 +765,7 @@ here for more details.
 
   - New text:
 
-  - If you are using **Unity version 2021 or newer** , or **Unreal Engine
+  - If you are using **Unity version 2023 or newer** , or **Unreal Engine
     version 4.25 or newer**:
 
   - **Vulkan must be set as the primary graphics API**. Minor
@@ -815,7 +825,6 @@ here for more details.
 ### July 2026
 
 - **Game Stats**
-
   - Guidelines updated: [`LU-GS-GAA`](https://developer.android.com/games/guidelines#LU-GS-GAA)
   - Exemption updated: [`LU-GS-EAC`](https://developer.android.com/games/guidelines#LU-GS-EAC)
   - Previous text:
@@ -829,15 +838,3 @@ here for more details.
     - Submit **at least 5** repetitive stats to power the Game Stats feature stored against the player's gamer profile. All repetitive stats need to represent regularly occurring actions by players in the game.
       - **At least 1 stat** needs to be usable for competitive player engagement features.
     - Exemption: Titles on Native PC Early Access Program (EAP), given our SDK doesn't support this feature yet. (Note: This only applies to the Native PC version of your title).
-- **Form factor distribution**
-
-  - Guidelines updated: [`LU-FF-GAA`](https://developer.android.com/games/guidelines#LU-FF-GAA)
-  - Previous text:
-
-    > [!NOTE]
-    > **Note:** This doesn't require distribution on Play on these Android form factors.
-
-  - New text:
-
-    > [!NOTE]
-    > **Note:** Guidelines and exemptions for XR, TV, and Auto will be published later in 2026. Google Play can't review exemption requests for XR, TV, and Auto guidelines until details are published.

@@ -18,18 +18,6 @@ To experience the benefits of upcoming releases now, download and install
 
 This section describes known issues that exist in Android Studio.
 
-### Android Studio Quail 1 parallel Gradle Sync execution issue
-
-In Android Studio Quail 1, the `org.gradle.parallel=true` property in
-`gradle.properties` no longer enables parallel model fetching during Gradle
-Sync. This will result in a large sync time regression for large projects.
-
-To enable parallel sync in Android Studio Quail 1, set `org.gradle.tooling.parallel=true` in
-your project's `gradle.properties` file.
-
-> [!CAUTION]
-> **Caution:** Adding `org.gradle.tooling.parallel=true` to your project in Android Studio Quail 1 will enable IDEA parallel model fetching, which only works for projects that are compatible with Gradle project isolation. This restriction has been lifted in the [Android Studio Quail 1 Patch 1 release](https://developer.android.com/studio/releases#parallel-sync-change).
-
 ### Android Studio Panda 3 not compatible with IntelliJ Develocity plugin 1.2.0
 
 When using the Develocity IDE plugin v1.2.0, starting with Android Studio Panda 3 Canary 1,
@@ -626,6 +614,10 @@ continue to use Kotlin 1.6.21.
 This section describes known issues that have been fixed in a recent release. If
 you are experiencing any of these issues, you should [update Android
 Studio](https://developer.android.com/studio) to the latest stable or [preview version](https://developer.android.com/studio/preview).
+
+**Fixed in Android Studio Rabbit 1 Canary 5**
+
+- **Parallel Gradle Sync execution** : In Android Studio Quail 1, the `org.gradle.parallel=true` property in `gradle.properties` no longer enabled parallel model fetching during Gradle Sync when using Gradle version 9.4 or higher. This resulted in a sync time regression for large projects. The newly introduced `org.gradle.tooling.parallel` property would turn on parallel model fetching, but not for IDEA's model builders. This restriction has been removed.
 
 **Fixed in Android Studio 2021.1.1**
 

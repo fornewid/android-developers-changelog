@@ -562,20 +562,31 @@ pattern as the `HorizontalPagerScaffold`:
 
 
 ```kotlin
-AppScaffold {
-    val pagerState = rememberPagerState(pageCount = { 10 })
+@Composable
+fun VerticalPagerScaffoldSample() {
+    AppScaffold {
+        val pagerState = rememberPagerState(pageCount = { 10 })
 
-    VerticalPagerScaffold(pagerState = pagerState) {
-        VerticalPager(
-            state = pagerState,
-            flingBehavior =
-                PagerScaffoldDefaults.snapWithSpringFlingBehavior(
-                    state = pagerState
-                ),
-        ) { page ->
-            AnimatedPage(pageIndex = page, pagerState = pagerState) {
-                ScreenScaffold {
-                    // ...
+        VerticalPagerScaffold(pagerState = pagerState) {
+            VerticalPager(
+                state = pagerState,
+                flingBehavior =
+                    PagerScaffoldDefaults.snapWithSpringFlingBehavior(
+                        state = pagerState
+                    ),
+            ) { page ->
+                AnimatedPage(pageIndex = page, pagerState = pagerState) {
+                    ScreenScaffold {
+                        Column(
+                            modifier = Modifier.fillMaxSize(),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center,
+                        ) {
+                            Text(text = "Page #$page")
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Text(text = "Swipe up and down")
+                        }
+                    }
                 }
             }
         }

@@ -172,14 +172,14 @@ appropriate [artifact(s)](https://developer.android.com/jetpack/androidx/release
 
     dependencies {
           ...
-          implementation("androidx.lifecycle:lifecycle-runtime-compose:2.10.0")
+          implementation("androidx.lifecycle:lifecycle-runtime-compose:2.11.0")
     }
 
 ### Groovy
 
     dependencies {
           ...
-          implementation "androidx.lifecycle:lifecycle-runtime-compose:2.10.0"
+          implementation "androidx.lifecycle:lifecycle-runtime-compose:2.11.0"
     }
 
 - [`Flow`](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/index.html): [`collectAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/collectAsState.composable#(kotlinx.coroutines.flow.StateFlow).collectAsState(kotlin.coroutines.CoroutineContext))
@@ -203,14 +203,14 @@ appropriate [artifact(s)](https://developer.android.com/jetpack/androidx/release
 
     dependencies {
           ...
-          implementation("androidx.compose.runtime:runtime-livedata:1.12.0")
+          implementation("androidx.compose.runtime:runtime-livedata:1.12.1")
     }
 
 ### Groovy
 
     dependencies {
           ...
-          implementation "androidx.compose.runtime:runtime-livedata:1.12.0"
+          implementation "androidx.compose.runtime:runtime-livedata:1.12.1"
     }
 
 - [`RxJava2`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava2/package-summary): [`subscribeAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava2/package-summary#extension-functions)
@@ -225,14 +225,14 @@ appropriate [artifact(s)](https://developer.android.com/jetpack/androidx/release
 
     dependencies {
           ...
-          implementation("androidx.compose.runtime:runtime-rxjava2:1.12.0")
+          implementation("androidx.compose.runtime:runtime-rxjava2:1.12.1")
     }
 
 ### Groovy
 
     dependencies {
           ...
-          implementation "androidx.compose.runtime:runtime-rxjava2:1.12.0"
+          implementation "androidx.compose.runtime:runtime-rxjava2:1.12.1"
     }
 
 - [`RxJava3`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava3/package-summary): [`subscribeAsState()`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/rxjava3/package-summary#extension-functions)
@@ -247,14 +247,14 @@ appropriate [artifact(s)](https://developer.android.com/jetpack/androidx/release
 
     dependencies {
           ...
-          implementation("androidx.compose.runtime:runtime-rxjava3:1.12.0")
+          implementation("androidx.compose.runtime:runtime-rxjava3:1.12.1")
     }
 
 ### Groovy
 
     dependencies {
           ...
-          implementation "androidx.compose.runtime:runtime-rxjava3:1.12.0"
+          implementation "androidx.compose.runtime:runtime-rxjava3:1.12.1"
     }
 
 > [!IMPORTANT]

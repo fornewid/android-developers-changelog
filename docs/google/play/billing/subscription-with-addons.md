@@ -402,4 +402,4 @@ For dashboards in the Play Console:
 
 - Order management reflects purchase of subscription with add-ons, and show
   itemized lists of what was purchased. From order management, you may
-  revoke, cancel or fully refund a user's purchase.
+  cancel or refund a user's purchase.

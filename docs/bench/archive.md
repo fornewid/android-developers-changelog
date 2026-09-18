@@ -13,7 +13,7 @@ To view historical performance data for previous models, **select a version belo
 
   #### July 8th 2026 Android LLM Benchmark
 
-  | Model | Score (%) info Average percentage of 100 test cases successfully resolved across 5 runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) | Avg latency (h) info Average time taken to solve 100 tasks across 5 runs | Avg cost ($) info Average cost per full benchmark run |
+  | Model | Score (%) info Average percentage of 100 tasks successfully resolved across all runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) | Avg latency (h) info Average time taken to solve 100 tasks across all runs | Avg cost ($) info Average cost per full benchmark run |
   |---|---|---|---|---|
   | ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Fable 5 | **84.5** | 79.9 --- 88.8 | 8.0 | $133.2 |
   | ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 5.5 | **80.2** | 73.5 --- 86.6 | 11.4 | $138.3 |
@@ -41,14 +41,11 @@ To view historical performance data for previous models, **select a version belo
   | ![](https://developer.android.com/static/images/bench/icons/google.png) Gemma 4 31B IT | **36.3** | 29.3 --- 43.2 | 38.9 | $10.6 |
   | ![](https://developer.android.com/static/images/bench/icons/google.png) Gemma 4 26B A4B IT | **25.1** | 18.6 --- 31.8 | 21.4 | $3.3 |
 
-  **Latest results as of
-  July 8th.**   
-  View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
 -
 
   #### June 9th 2026 Android LLM Benchmark
 
-  | Model | Score (%) info Average percentage of 100 test cases successfully resolved across 5 runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) | Avg latency (h) info Average time taken to solve 100 tasks across 5 runs | Avg cost ($) info Average cost per full benchmark run |
+  | Model | Score (%) info Average percentage of 100 tasks successfully resolved across all runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) | Avg latency (h) info Average time taken to solve 100 tasks across all runs | Avg cost ($) info Average cost per full benchmark run |
   |---|---|---|---|---|
   | ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 5.5 | **74.0** | 66.9 --- 80.6 | 15.7 | $134.2 |
   | ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 5.4 | **72.4** | 65.4 --- 79.0 | 21.2 | $91.7 |
@@ -74,14 +71,11 @@ To view historical performance data for previous models, **select a version belo
   | ![](https://developer.android.com/static/images/bench/icons/qwen.png) Qwen 3.5 9B | **15.5** | 10.4 --- 21.1 | 16.6 | $15.6 |
   | ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT OSS 20B | **2.4** | 1.1 --- 3.8 | 3.8 | $0.2 |
 
-  **Latest results as of
-  June 9th.**   
-  View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
 -
 
   #### May 18th 2026 Android LLM Benchmark
 
-  | Model | Score (%) info Average percentage of 100 test cases successfully resolved across 5 runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) | Avg latency (h) info Average time taken to solve 100 tasks across 5 runs | Avg cost ($) info Average cost per full benchmark run |
+  | Model | Score (%) info Average percentage of 100 tasks successfully resolved across all runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) | Avg latency (h) info Average time taken to solve 100 tasks across all runs | Avg cost ($) info Average cost per full benchmark run |
   |---|---|---|---|---|
   | ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 5.5 | **74.0** | 66.8 --- 80.5 | 15.5 | $133.9 |
   | ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 5.4 | **72.4** | 65.4 --- 79.3 | 21.2 | $91.7 |
@@ -112,14 +106,11 @@ To view historical performance data for previous models, **select a version belo
   | ![](https://developer.android.com/static/images/bench/icons/qwen.png) Qwen 3.5 9B | **15.5** | 10.1 --- 20.9 | 16.6 | $15.6 |
   | ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT OSS 20B | **2.4** | 1.2 --- 3.9 | 3.8 | $0.2 |
 
-  **Latest results as of
-  May 18th.**   
-  View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
 -
 
   #### May 5th 2026 Android LLM Benchmark
 
-  | Model | Score (%) info Average percentage of 100 test cases successfully resolved across 5 runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) |
+  | Model | Score (%) info Average percentage of 100 tasks successfully resolved across all runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) |
   |---|---|---|
   | ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 5.5 | **74.0** | 66.8 --- 80.5 |
   | ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 5.4 | **72.4** | 65.4 --- 79.3 |
@@ -135,14 +126,11 @@ To view historical performance data for previous models, **select a version belo
   | :gemini: Gemini 3 Flash Preview | **42.0** | 36.5 --- 47.6 |
   | :gemini: Gemini 2.5 Flash | **16.7** | 11.5 --- 22.1 |
 
-  **Latest results as of
-  May 5th.**   
-  View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
 -
 
   #### April 7th 2026 Android LLM Benchmark
 
-  | Model | Score (%) info Average percentage of 100 test cases successfully resolved across 5 runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) |
+  | Model | Score (%) info Average percentage of 100 tasks successfully resolved across all runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) |
   |---|---|---|
   | ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT-5.4 | **72.4** | 65.1 --- 79.3 |
   | :gemini: Gemini 3.1 Pro Preview | **72.4** | 64.8 --- 79.3 |
@@ -156,14 +144,11 @@ To view historical performance data for previous models, **select a version belo
   | :gemini: Gemini 3 Flash Preview | **42.0** | 36.4 --- 47.7 |
   | :gemini: Gemini 2.5 Flash | **16.1** | 11.2 --- 21.2 |
 
-  **Latest results as of
-  April 7th.**   
-  View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.
 -
 
   #### March 5th 2026 Android LLM Benchmark
 
-  | Model | Score (%) info Average percentage of 100 test cases successfully resolved across 5 runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) |
+  | Model | Score (%) info Average percentage of 100 tasks successfully resolved across all runs for each model | arrow_range Cl range (%) info Expected performance range, reflecting the results' statistical reliability (p-value \< 0.05) |
   |---|---|---|
   | :gemini: Gemini 3.1 Pro Preview | **72.4** | 65.3 --- 79.8 |
   | ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Opus 4.6 | **66.6** | 58.9 --- 73.9 |
@@ -174,7 +159,3 @@ To view historical performance data for previous models, **select a version belo
   | ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Sonnet 4.5 | **54.2** | 45.5 --- 62.4 |
   | :gemini: Gemini 3 Flash Preview | **42.0** | 36.3 --- 47.9 |
   | :gemini: Gemini 2.5 Flash | **16.1** | 10.9 --- 21.9 |
-
-  **Latest results as of
-  March 5th.**   
-  View [**archived leaderboards**](https://developer.android.com/bench/archive) and check back periodically for updates.

@@ -46,18 +46,18 @@ Within your AndroidManifest.xml, declare the meta-data tag, `android.software.le
 ```xml
 <manifest ...>
     <!-- Signal whether the app is adaptive or built just for TV –->
-    <uses-feature android:name="android.software.leanback" android:required=&quo>t;true<|false" /
+    <uses-feature android:name="android.software.leanback" android:required="true|false" />
 
-    !-- Ensure the app can be installed on> conv<entional TVs –-
-    uses-feature android:name="android.hardware.touchscreen&qu>ot; an<droid:required="false" /
+    <!-- Ensure the app can be installed on conventional TVs –->
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
 
-    !-- Signal whe>ther <the app supports pointer remotes –-
-    meta-data android:name="android.software.leanbac>k.supp<orts_touch">; android:value=&<quot;true|fa>l<se"/>
+    <!-- Signal whether the app supports pointer remotes –->
+    <meta-data android:name="android.software.leanback.supports_touch" android:value="true|false"/>
 
-    application ...
+    <application ...>
         ...
-    /application
-/manifest
+    </application>
+</manifest>
 ```
 
 ***Tips:***
