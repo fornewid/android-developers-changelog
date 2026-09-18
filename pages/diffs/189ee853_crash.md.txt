@@ -1,0 +1,327 @@
+diff --git a/docs/topic/performance/vitals/crash.md b/docs/topic/performance/vitals/crash.md
+index df645ebe..98457fd8 100644
+--- a/docs/topic/performance/vitals/crash.md
++++ b/docs/topic/performance/vitals/crash.md
+@@ -7,16 +7,12 @@ source: md.txt
+ An Android app crashes whenever there's an unexpected exit caused by an
+ unhandled exception or signal. An app that is written using Java or Kotlin
+ crashes if it throws an unhandled exception, represented by the
+-[`Throwable`](https://developer.android.com/reference/java/lang/Throwable) class. An
+-app that is written using machine code or C++ crashes if there's an unhandled
+-signal, such as `SIGSEGV`, during its execution.
++[`Throwable`](https://developer.android.com/reference/java/lang/Throwable) class. An app that is written using machine code or C++ crashes
++if there's an unhandled signal, such as `SIGSEGV`, during its execution.
+ 
+ When an app crashes, Android terminates the app's process and displays a dialog
+ to let the user know that the app has stopped, as shown in figure 1.
+-
+-![An app crash on an Android device](https://developer.android.com/static/topic/performance/images/crash-example-framed.png)
+-
+-**Figure 1.** An app crash on an Android device
++![An app crash on an Android-powered device](https://developer.android.com/static/topic/performance/images/app-crash-example-framed.png) **Figure 1.** An app crash on an Android-powered device.
+ 
+ An app doesn't need to be running in the foreground for it to crash. Any app
+ component, even components like broadcast receivers or content providers that
+@@ -41,8 +37,7 @@ Android vitals measures several crash rates:
+ - **User-perceived crash rate:** The percentage of your daily active users
+   who experienced at least one crash while they were actively using your app
+   (a user-perceived crash). An app is considered to be in active use
+-  if it is displaying any activity or executing any
+-  [foreground service](https://developer.android.com/develop/background-work/services/fgs).
++  if it is displaying any activity or executing any [foreground service](https://developer.android.com/develop/background-work/services/fgs).
+ 
+   > [!NOTE]
+   > **Note:** For Wear OS apps, user-perceived crash rates include both foreground and background crashes. Wear OS devices always have watch faces running in the background, and users frequently move Wear OS apps to the background, even during active usage, because of the small screen size.
+@@ -50,16 +45,15 @@ Android vitals measures several crash rates:
+ - **Multiple crash rate:** The percentage of your daily active users who
+   experienced at least two crashes.
+ 
+-A *daily active user* is a unique user who uses your app
+-on a single day on a single device, potentially over multiple sessions.
+-If a user uses your app on more than one device in a single day,
+-each device will contribute to the number of active users for that day.
+-If multiple users use the same device in a single day,
+-this is counted as one active user.
++A *daily active user* is a unique user who uses your app on a single day on a
++single device, potentially over multiple sessions. If a user uses your app on
++more than one device in a single day, each device will contribute to the number
++of active users for that day. If multiple users use the same device in a single
++day, this is counted as one active user.
+ 
+ User-perceived crash rate is a *core vital* meaning that it affects the
+-discoverability of your app on Google Play. It is important because the crashes it
+-counts always occur when the user is engaged with the app, causing the most
++discoverability of your app on Google Play. It is important because the crashes
++it counts always occur when the user is engaged with the app, causing the most
+ disruption.
+ 
+ Play has defined two **bad behavior thresholds** on this metric:
+@@ -67,25 +61,22 @@ Play has defined two **bad behavior thresholds** on this metric:
+ - **Overall bad behavior threshold:** At least 1.09% of daily active users experience a user-perceived crash, across all device models.
+ - **Per-device bad behavior threshold:** At least 8% of daily active users experience a user-perceived crash, **for a single device model**.
+ 
+-If your app exceeds the overall bad behavior threshold, it is likely to be
+-less discoverable on all devices. If your app exceeds the per-device bad behavior
+-threshold on some devices, it is likely to be less discoverable on those devices,
+-and a warning may be shown on your store listing.
++If your app exceeds the overall bad behavior threshold, it is likely to be less
++discoverable on all devices. If your app exceeds the per-device bad behavior
++threshold on some devices, it is likely to be less discoverable on those
++devices, and a warning may be shown on your store listing.
+ 
+-Android vitals can alert you via the
+-[Play Console](https://play.google.com/console/)
+-when your app is exhibiting excessive crashes.
++Android vitals can alert you in the [Play Console](https://play.google.com/console/) when your app is
++exhibiting excessive crashes.
+ 
+ For information on how Google Play collects Android vitals data, see the
+-[Play Console](https://support.google.com/googleplay/android-developer/answer/7385505)
+-documentation.
++[Play Console](https://support.google.com/googleplay/android-developer/answer/7385505) documentation.
+ 
+ ## Diagnose the crashes
+ 
+-Once you have identified that your app is reporting crashes, the
+-next step is to diagnose them. Solving crashes can be difficult.
+-However, if you can identify the root cause of
+-the crash, most likely you can find a solution to it.
++Once you have identified that your app is reporting crashes, the next step is
++to diagnose them. Solving crashes can be difficult. However, if you can
++identify the root cause of the crash, most likely you can find a solution to it.
+ 
+ There are many situations that can cause a crash in your app. Some reasons are
+ obvious, like checking for a null value or empty string, but others are more
+@@ -94,36 +85,37 @@ interactions.
+ 
+ Crashes on Android produce a stack trace, which is a snapshot of the sequence of
+ nested functions called in your program up to the moment it crashed. You can
+-view crash stack traces in
+-[Android vitals](https://support.google.com/googleplay/android-developer/answer/9859174).
++view crash stack traces in [Android vitals](https://support.google.com/googleplay/android-developer/answer/9859174).
+ 
+ ### How to read a stack trace
+ 
+ The first step to fix a crash is to identify the place where it happens. You can
+ use the stack trace available in the report details if you are using Play
+-Console or the output of the [logcat](https://developer.android.com/studio/command-line/logcat) tool. If you
+-don't have a stack trace available, you should locally reproduce the crash,
+-either by manually testing the app or by reaching out to affected users, and
+-reproduce it while using logcat.
++Console or the output of the [logcat](https://developer.android.com/studio/command-line/logcat) tool. If you don't have a stack trace
++available, you should locally reproduce the crash, either by manually testing
++the app or by reaching out to affected users, and reproduce it while using
++logcat.
+ 
+-The following trace shows an example of a crash on an app written using the Java
+-programming language:
++The following trace shows an example of a crash on an app written using
++Jetpack Compose:
+ 
+     --- beginning of crash
+     AndroidRuntime: FATAL EXCEPTION: main
+     Process: com.android.developer.crashsample, PID: 3686
+-    java.lang.NullPointerException: crash sample
+-    at com.android.developer.crashsample.MainActivity$1.onClick(MainActivity.java:27)
+-    at android.view.View.performClick(View.java:6134)
+-    at android.view.View$PerformClick.run(View.java:23965)
+-    at android.os.Handler.handleCallback(Handler.java:751)
+-    at android.os.Handler.dispatchMessage(Handler.java:95)
+-    at android.os.Looper.loop(Looper.java:156)
+-    at android.app.ActivityThread.main(ActivityThread.java:6440)
+-    at java.lang.reflect.Method.invoke(Native Method)
+-    at com.android.internal.os.Zygote$MethodAndArgsCaller.run(Zygote.java:240)
+-    at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:746)
+-    --- beginning of system
++    java.lang.NullPointerException
++        at com.android.developer.crashsample.ComposableSingletons$MainActivityKt.lambda$0(MainActivity.kt:27)
++        at androidx.compose.foundation.ClickableNode.handleUpEvent(Clickable.kt:958)
++        at androidx.compose.foundation.ClickableNode.onPointerEvent-H0pRuoY(Clickable.kt:895)
++        at androidx.compose.ui.input.pointer.Node.dispatchMainEventPass(HitPathTracker.kt:446)
++        at androidx.compose.ui.input.pointer.HitPathTracker.dispatchChanges(HitPathTracker.kt:181)
++        at androidx.compose.ui.input.pointer.PointerInputEventProcessor.process-BIzXfog(PointerInputEventProcessor.kt:118)
++        at androidx.compose.ui.platform.AndroidComposeView.dispatchTouchEvent(AndroidComposeView.android.kt:2650)
++        at android.view.ViewGroup.dispatchTouchEvent(ViewGroup.java:2969)
++        at android.app.Activity.dispatchTouchEvent(Activity.java:4683)
++        at android.os.Looper.loop(Looper.java:398)
++        at android.app.ActivityThread.main(ActivityThread.java:9569)
++        at java.lang.reflect.Method.invoke(Native Method)
++        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:918)
+ 
+ A stack trace shows two pieces of information that are critical to debugging a
+ crash:
+@@ -132,14 +124,13 @@ crash:
+ - The section of code where the exception is thrown.
+ 
+ The type of exception thrown is usually a very strong hint as to what went
+-wrong. Look at whether it is an
+-[`IOException`](https://developer.android.com/reference/java/io/IOException), an
+-[`OutOfMemoryError`](https://developer.android.com/reference/java/lang/OutOfMemoryError),
++wrong. Look at whether it is an [`IOException`](https://developer.android.com/reference/java/io/IOException), an [`OutOfMemoryError`](https://developer.android.com/reference/java/lang/OutOfMemoryError),
+ or something else, and find the documentation about the exception class.
+ 
+ The class, method, file, and line number of the source file where the exception
+ is thrown is shown on the second line of a stack trace. For each function that
+ was called, another line shows the preceding call site (called a stack frame).
++
+ By walking up the stack and examining the code, you may find a place that is
+ passing an incorrect value. If your code doesn't appear in the stack trace, it
+ is likely that somewhere, you passed an invalid parameter into an asynchronous
+@@ -175,12 +166,10 @@ Stack traces for apps with C and C++ code work much the same way.
+       #03  pc 000000000001e4fd  /system/lib/libc.so (__start_thread)
+ 
+ If you don't see class and function-level information in native stack traces,
+-you may need to
+-[generate a native debug symbols file](https://developer.android.com/studio/build/shrink-code#strip-native-libraries)
+-and upload it to the Google Play Console. For more information, see
+-[Deobfuscate crash stack traces](https://support.google.com/googleplay/android-developer/answer/9848633#generate_file).
+-For general information on native crashes, see
+-[Diagnosing native crashes](https://source.android.com/devices/tech/debug/native-crash).
++you may need to [generate a native debug symbols file](https://developer.android.com/build/include-native-symbols) and upload it to the
++Google Play Console. For more information, see
++[Deobfuscate crash stack traces](https://support.google.com/googleplay/android-developer/answer/9848633#generate_file). For general information on native crashes,
++see [Diagnosing native crashes](https://source.android.com/devices/tech/debug/native-crash).
+ 
+ ### Tips for reproducing a crash
+ 
+@@ -193,29 +182,23 @@ version.
+ 
+ #### Memory errors
+ 
+-If you have an
+-[`OutOfMemoryError`](https://developer.android.com/reference/java/lang/OutOfMemoryError),
+-then you could create an emulator with low memory capacity to test with. Figure
+-2 shows the AVD manager settings where you can control the amount of memory on
+-the device.
+-
+-![Memory setting on AVD manager](https://developer.android.com/static/topic/performance/images/crash-emulator-memory.png)
+-
+-**Figure 2.** Memory setting on AVD manager
++If you have an [`OutOfMemoryError`](https://developer.android.com/reference/java/lang/OutOfMemoryError), then you could create an emulator with
++low memory capacity to test with. Figure 2 shows the AVD manager settings where
++you can control the amount of memory on the device.
++![Memory setting on AVD manager](https://developer.android.com/static/topic/performance/images/crash-avd-emulator-memory.png) **Figure 2.** Memory setting on AVD manager.
+ 
+ #### Networking exceptions
+ 
+-Since users frequently move in and out of mobile or WiFi network coverage, in an
+-application network exceptions usually shouldn't be treated as *errors*, but
++Since users frequently move in and out of mobile or Wi-Fi network coverage, in
++an application network exceptions usually shouldn't be treated as *errors*, but
+ rather as normal operating conditions that happen unexpectedly.
+ 
+ If you need to reproduce a network exception, such as an
+-[`UnknownHostException`](https://developer.android.com/reference/java/net/UnknownHostException),
+-then try turning on airplane mode while your application attempts to use the
+-network.
++[`UnknownHostException`](https://developer.android.com/reference/java/net/UnknownHostException), then try turning on airplane mode while your
++application attempts to use the network.
+ 
+ Another option is to reduce the quality of the network in the emulator by
+-choosing a network speed emulation and/or a network delay. You can use the
++choosing a network speed emulation, a network delay, or both. You can use the
+ **Speed** and **Latency** settings on AVD manager, or you can start the emulator
+ with the `-netdelay` and `-netspeed` flags, as shown in the following
+ command-line example:
+@@ -229,14 +212,13 @@ for the emulator, see
+ 
+ ### Reading with logcat
+ 
+-Once you are able have the steps to reproduce the crash, you can use a tool like
+-[`logcat`](https://developer.android.com/studio/command-line/logcat) to get more information.
++Once you are able to reproduce the crash, you can use a tool like [`logcat`](https://developer.android.com/studio/command-line/logcat)
++to get more information.
+ 
+ The logcat output will show you what other log messages you have printed, along
+-with others from the system. Don't forget to turn off any extra
+-[`Log`](https://developer.android.com/reference/android/util/Log) statements that you
+-have added because printing them wastes CPU and battery while your app is
+-running.
++with others from the system. Don't forget to turn off any extra [`Log`](https://developer.android.com/reference/kotlin/android/util/Log)
++statements that you have added because printing them wastes CPU and battery
++while your app is running.
+ 
+ ## Prevent crashes caused by null pointer exceptions
+ 
+@@ -245,7 +227,9 @@ Null pointer exceptions (identified by the runtime error type
+ null, typically by invoking its methods or accessing its members. **Null pointer
+ exceptions are the largest cause of app crashes on Google Play.** The purpose of
+ null is to signify that the object is missing - for example, it hasn't been
+-created or assigned yet. To avoid null pointer exceptions, you need to make sure
++created or assigned yet.
++
++To avoid null pointer exceptions, you need to make sure
+ that the object references you're working with are non-null before calling
+ methods on them or trying to access their members. If the object reference is
+ null, handle this case well (for example, exit from a method before performing
+@@ -255,35 +239,9 @@ Because you don't want to have null checks for every parameter of every method
+ called, you can rely on the IDE or on the type of the object to signify
+ nullability.
+ 
+-### Java programming language
+-
+-The following sections apply to the Java programming language.
+-
+-#### Compile time warnings
+-
+-Annotate your methods' parameters and return values with
+-[`@Nullable`](https://developer.android.com/reference/androidx/annotation/Nullable) and
+-[`@NonNull`](https://developer.android.com/reference/androidx/annotation/NonNull) to receive compile time
+-warnings from the IDE. These warnings prompt you to expect a nullable object:
+-
+-![Null pointer exception warning](https://developer.android.com/static/topic/images/reliability/null-pointer-exception-warning.png)
+-
+-These null checks are for objects that you know could be null. An exception on a
+-`@NonNull` object is an indication of an error in your code that needs to be
+-addressed.
+-
+-#### Compile time errors
+-
+-Because nullability should be meaningful, you can embed it in the types you use
+-so that there is a compile time check for null. If you know an object can be
+-null and that nullability should be handled, you could wrap it in an object like
+-[`Optional`](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html).
+-You should always prefer types that convey nullability.
+-
+ ### Kotlin
+ 
+-In Kotlin,
+-[nullability](https://kotlinlang.org/docs/reference/null-safety.html)
++In Kotlin, [nullability](https://kotlinlang.org/docs/reference/null-safety.html)
+ is part of the type system. For example, a variable needs to be declared from
+ the beginning as nullable or non-nullable. Nullable types are marked with a `?`:
+ 
+@@ -313,11 +271,11 @@ The following are some ways to check for null:
+       val length = if(string != null) string.length else 0
+ 
+   Due to smart-cast and the null check, the Kotlin compiler knows that the
+-  string value is non-null so it allows you to use the reference directly,
++  string value is non-null so it lets you use the reference directly,
+   without the need for the safe call operator.
+ - `?:` [Elvis operator](https://kotlinlang.org/docs/reference/null-safety.html#elvis-operator)
+ 
+-  This operator allows you to state "if the object is non-null, return the
++  This operator lets you state "if the object is non-null, return the
+   object; otherwise, return something else".
+ 
+       val length = string?.length ?: 0
+@@ -351,12 +309,11 @@ will represent these references as actual nullable or non-nullable types, not as
+ platform types.
+ 
+ Java Jetpack APIs have been annotated with `@Nullable` or `@NonNull` as needed,
+-and a similar approach has been taken in the
+-[Android 11 SDK](https://android-developers.googleblog.com/2020/03/handling-nullability-in-android-11-and.html).
++and a similar approach has been taken in the [Android 11 SDK](https://android-developers.googleblog.com/2020/03/handling-nullability-in-android-11-and.html).
+ Types coming from this SDK, that are used in Kotlin, will be represented as
+ correct nullable or non-nullable types.
+ 
+-Because of Kotlin's type system, we've seen apps have a major reduction in
+-`NullPointerException` crashes. For example, the Google Home app saw a 30%
+-reduction in crashes caused by null pointer exceptions during the year that it
+-migrated new feature development to Kotlin.
+\ No newline at end of file
++Kotlin's type system significantly reduces `NullPointerException` crashes. For
++example, the Google Home app saw a 30% reduction in crashes caused by null
++pointer exceptions during the year that it migrated new feature development to
++Kotlin.
+\ No newline at end of file

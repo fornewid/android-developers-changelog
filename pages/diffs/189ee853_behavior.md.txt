@@ -1,0 +1,114 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/glasses/notifications/behavior.md b/docs/develop/xr/jetpack-xr-sdk/glasses/notifications/behavior.md
+index 8d902019..7c36cd7d 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/glasses/notifications/behavior.md
++++ b/docs/develop/xr/jetpack-xr-sdk/glasses/notifications/behavior.md
+@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/xr/jetpack-xr-sdk/glasses/notificatio
+ source: md.txt
+ ---
+ 
+-<br />
+-
+-
+ Applicable XR devices This guidance helps you build experiences for these types of XR devices. [Learn about XR device types →](https://developer.android.com/develop/xr/devices) ![](https://developer.android.com/static/images/develop/xr/ai-glasses-icon.svg) Audio \&  
+ Display Glasses [](https://developer.android.com/develop/xr/devices#audio-display) [Learn about XR device types →](https://developer.android.com/develop/xr/devices)
+ 
+@@ -31,11 +28,10 @@ Android uses the incoming notification's [`Notification.Style`](https://develope
+ several other criteria to determine whether or not to bridge the notification to
+ the user's audio glasses or display glasses.
+ 
+-### Supported notification styles
++### Supported notification styles on display glasses
+ 
+-Audio glasses and display glasses support a subset of Android
+-`Notification.Style` classes. The following notification styles are fully
+-rendered on display glasses:
++Display glasses support a subset of Android `Notification.Style` classes. The
++following notification styles are fully rendered on display glasses:
+ 
+ - [Standard style (`NotificationCompat.Style`)](https://developer.android.com/reference/kotlin/androidx/core/app/NotificationCompat.Style)
+ 
+@@ -66,44 +62,52 @@ standard style and renders only common fields such as the [content title](https:
+ Besides the notification's style, a notification must also meet the following
+ criteria to be bridged to the user's audio glasses or display glasses:
+ 
+-1. The notification isn't subject to **any** of the following user-controlled settings that would prevent its delivery:
++1. The notification isn't subject to **any** of the following user-controlled
++   settings that would prevent its delivery:
++
+    - **Glasses companion app settings**:
+ 
+-     - App-level toggle: By default, **app notifications are toggled off**
+-       in the Glasses app to help users purposefully
+-       decide which notifications are bridged to their glasses.
++     - App-level toggle: Users can select which app notifications are
++       bridged to the glasses. When notifications on the glasses are turned
++       on, specific app notifications are turned off by default, except for
++       those in the "Suggested" list.
+ 
+        This default behavior lets a user leave notifications enabled on
+        their phone for a certain app, but disable them for that app on
+        their glasses. To help a user decide whether to enable notifications
+        for your app in the Glasses app, explain how
+        notifications would improve their experience with your app.
++   - **System-level notification settings on the user's phone**:
++
++     - App-level toggle: If a user disables notifications entirely for an
++       app on the phone, no notifications for that app are bridged.
++
++     - Notification channel settings: If a user disables notifications
++       for an [app-defined notification channel](https://developer.android.com/develop/ui/views/notifications/channels), no notifications
++       for that channel are bridged.
+ 
+-- **System-level notification settings on the user's phone**:
++   - **System-level Do Not Disturb (DND) settings on the user's phone**: AI
++     glasses use the phone's DND settings. If the user's phone is in DND
++     mode, notifications are also suppressed on the user's glasses.
+ 
+-- App-level toggle: If a user disables notifications entirely for an app on
+-  the phone, no notifications for that app are bridged.
++2. The notification is assigned to a channel with [`IMPORTANCE_HIGH`](https://developer.android.com/reference/kotlin/android/app/NotificationManager#importance_high) or
++   [`IMPORTANCE_MAX`](https://developer.android.com/reference/kotlin/android/app/NotificationManager#importance_max).
+ 
+-- Notification channel settings: If a user disables notifications for an
+-  [app-defined notification channel](https://developer.android.com/develop/ui/views/notifications/channels), no notifications for that channel
+-  are bridged.
++3. The [notification's title](https://developer.android.com/reference/kotlin/android/app/Notification#extra_title) isn't `null` or empty.
+ 
+-- **System-level Do Not Disturb (DND) settings on the user's phone**: AI
+-  glasses use the phone's DND settings. If the user's phone is in DND mode,
+-  notifications are also suppressed on the user's glasses.
++4. The notification isn't marked with [`FLAG_LOCAL_ONLY`](https://developer.android.com/reference/kotlin/android/app/Notification#flag_local_only). If this flag is
++   set, the notification is restricted to the primary device.
+ 
+-1. The notification is assigned to a channel with [`IMPORTANCE_HIGH`](https://developer.android.com/reference/kotlin/android/app/NotificationManager#importance_high) or [`IMPORTANCE_MAX`](https://developer.android.com/reference/kotlin/android/app/NotificationManager#importance_max).
+-2. The [notification's title](https://developer.android.com/reference/kotlin/android/app/Notification#extra_title) isn't `null` or empty.
+-3. The notification isn't marked with [`FLAG_LOCAL_ONLY`](https://developer.android.com/reference/kotlin/android/app/Notification#flag_local_only). If this flag is set, the notification is restricted to the primary device.
+-4. The notification isn't an [ongoing notification](https://developer.android.com/reference/kotlin/android/app/Notification.Builder#setongoing), such as a persistent background task, unless it [qualifies as a Live Update notification](https://developer.android.com/develop/ui/views/notifications/live-update).
++5. The notification isn't an [ongoing notification](https://developer.android.com/reference/kotlin/android/app/Notification.Builder#setongoing), such as a persistent
++   background task, unless it [qualifies as a Live Update notification](https://developer.android.com/develop/ui/views/notifications/live-update).
+ 
+ ## How Live Update notifications are bridged to display glasses
+ 
+-[Live Update notifications](https://developer.android.com/develop/ui/views/notifications/live-update) are a specialized class of notifications designed
+-for ongoing, user-initiated activities that require real-time monitoring, such
+-as rideshare ETAs, turn-by-turn navigation, or active calls. Unlike regular
+-notifications, live updates remain active to provide a continuous stream of
+-information that are surfaced prominently across the system UI.
++[Live Update notifications](https://developer.android.com/develop/ui/views/notifications/live-update) are a specialized class of notifications
++designed for ongoing, user-initiated activities that require real-time
++monitoring, such as rideshare ETAs, turn-by-turn navigation, or active calls.
++Unlike regular notifications, live updates remain active to provide a continuous
++stream of information that are surfaced prominently across the system UI.
+ 
+ For display glasses, live updates are rendered in two primary locations:
+ 
+@@ -123,6 +127,6 @@ app can use a [direct reply](https://developer.android.com/develop/ui/views/noti
+ details and reply. For all other notification styles, the only available option
+ is the system-provided clear action.
+ 
+-When using direct reply, users can reply with the voice or select from a smart
+-reply list by scrolling forward. For smart replies, you can use our [on-device
++When using direct reply, users can reply with their voice or select from a smart
++reply list by scrolling forward. For smart replies, you can use [on-device
+ AI](https://developers.google.com/ml-kit/language/smart-reply/android) to suggest short, relevant replies.
+\ No newline at end of file

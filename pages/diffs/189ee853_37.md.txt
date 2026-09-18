@@ -1,0 +1,19 @@
+diff --git a/docs/studio/releases/fixed-bugs/emulator/37.md b/docs/studio/releases/fixed-bugs/emulator/37.md
+index 2e60a8a5..6659ad21 100644
+--- a/docs/studio/releases/fixed-bugs/emulator/37.md
++++ b/docs/studio/releases/fixed-bugs/emulator/37.md
+@@ -4,6 +4,14 @@ url: https://developer.android.com/studio/releases/fixed-bugs/emulator/37
+ source: md.txt
+ ---
+ 
++### Android Emulator 37.2.10 Beta
++
++*This release includes minor fixes and improvements.*
++
++### Android Emulator 37.2.10 Beta
++
++*This release includes minor fixes and improvements.*
++
+ ### Android Emulator 37.2.9 Canary
+ 
+ Fixed Issues **Emulator** [Issue #557286382](https://issuetracker.google.com/issues/557286382) The emulator will not start if a Windows username has non-ASCII characters

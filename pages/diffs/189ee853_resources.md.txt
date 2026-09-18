@@ -1,0 +1,13 @@
+diff --git a/docs/develop/ui/compose/resources.md b/docs/develop/ui/compose/resources.md
+index 594386f2..76edb777 100644
+--- a/docs/develop/ui/compose/resources.md
++++ b/docs/develop/ui/compose/resources.md
+@@ -206,7 +206,7 @@ Some of the most commonly used icons are available as part of the
+ add the `material-icons-extended` dependency to the `build.gradle` file.
+ 
+     dependencies {
+-      def composeBom = platform('androidx.compose:compose-bom:2026.08.00')
++      def composeBom = platform('androidx.compose:compose-bom:2026.09.00')
+       implementation composeBom
+ 
+       implementation 'androidx.compose.material:material-icons-extended'

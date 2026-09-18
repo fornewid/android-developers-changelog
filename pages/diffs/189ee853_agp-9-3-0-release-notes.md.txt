@@ -1,0 +1,15 @@
+diff --git a/docs/build/releases/agp-9-3-0-release-notes.md b/docs/build/releases/agp-9-3-0-release-notes.md
+index 9e97665a..2727b988 100644
+--- a/docs/build/releases/agp-9-3-0-release-notes.md
++++ b/docs/build/releases/agp-9-3-0-release-notes.md
+@@ -44,6 +44,10 @@ report](https://developer.android.com/topic/performance/app-optimization/r8-conf
+ ## Fixed issues
+ 
+ 
++### Android Gradle plugin 9.3.3
++
++Fixed Issues **Android Gradle Plugin** [Issue #556343682](https://issuetracker.google.com/issues/556343682) AGP 9.3.0's new optimization { enable = true } DSL does not set isMinifyEnabled in the ApplicationVariant object **Dexer (D8)** [Issue #558810278](https://issuetracker.google.com/issues/558810278) D8 9.2.14 is \~38% slower than 8.13.6 in \`mergeProjectDexDebug\` on identical input/output **Shrinker (R8)** [Issue #545349635](https://issuetracker.google.com/issues/545349635) D8 debug mode: ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 31 --- regression between R8 8.8.34 and 8.9.27 [Issue #551348855](https://issuetracker.google.com/issues/551348855) VerifyError: Outliner incorrectly extends try-catch region, causing uninitialized register [Issue #543685256](https://issuetracker.google.com/issues/543685256) R8 writes \`.kotlin_module\` file with \`:\` in its name, producing a filename invalid on Windows [Issue #554586985](https://issuetracker.google.com/issues/554586985) R8 build non-determinism: identical input produces different dex/mapping (regression from "Retain Assume instructions in LIR") [Issue #522844908](https://issuetracker.google.com/issues/522844908) Duplicate mapping with R8 9.1 [Issue #485558707](https://issuetracker.google.com/issues/485558707) AGP intermittently produces dex files that fail verification and crash app on launch [Issue #514117718](https://issuetracker.google.com/issues/514117718) NullPointerException: Cannot invoke Position.getOutermostCaller() because entryPosition is null [Issue #539672118](https://issuetracker.google.com/issues/539672118) High per-rule memory consumption [Issue #506912893](https://issuetracker.google.com/issues/506912893) R8: VerifyError on Android 4.4
++
+ ### Android Gradle plugin 9.3.2
+ 
+ Fixed Issues **Lint** [Issue #522845800](https://issuetracker.google.com/issues/522845800) AGP 9.3 lint crashes on JDK 17 --- NoSuchMethodError: java.util.List.removeLast() in bundled intellij-core JavaDocParser
