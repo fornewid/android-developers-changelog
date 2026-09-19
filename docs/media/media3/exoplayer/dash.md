@@ -129,8 +129,8 @@ You can retrieve the current manifest by calling `Player.getCurrentManifest`.
 For DASH you should cast the returned object to `DashManifest`. The
 `onTimelineChanged` callback of `Player.Listener` is also called whenever
 the manifest is loaded. This will happen once for a on-demand content, and
-possibly many times for live content. The following code snippet shows how an app
-can do something whenever the manifest is loaded.
+possibly many times for live content. The following code snippet shows how an
+app can do something whenever the manifest is loaded.
 
 
 ### Kotlin

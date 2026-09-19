@@ -7,6 +7,19 @@ source: md.txt
 # The Latest
 
 Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
+
+  [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
+  [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
 - 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
@@ -160,19 +173,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   - [#R8](https://developer.android.com/blog/topics/r8)
   - [#coroutines](https://developer.android.com/blog/topics/coroutines)
   - +1 ↩
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_Z1BKgnT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices)
-
-  [arrow_forward](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices) Today at Galaxy Unpacked, Samsung unveiled its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
-
-  ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
-
-  [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
-  [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
-  - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
@@ -204,6 +204,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
 - [#Google Play](https://developer.android.com/blog/topics/google-play)
 - [#Memory](https://developer.android.com/blog/topics/memory)
+- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
 - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
 - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
 - [#Widgets](https://developer.android.com/blog/topics/widgets)
@@ -229,7 +230,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
 - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
 - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
-- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
 - [#coroutines](https://developer.android.com/blog/topics/coroutines)
 - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
 - [# Quail 2](https://developer.android.com/blog/topics/quail-2)

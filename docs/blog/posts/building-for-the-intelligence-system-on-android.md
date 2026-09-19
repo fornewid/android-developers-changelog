@@ -75,6 +75,13 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2) Since launching the Android XR SDK Developer Preview alongside Samsung, Qualcomm, and Unity last year, we've been blown away by all of the excitement we've been hearing from the broader Android community.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
   - [#Android](https://developer.android.com/blog/topics/android)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
+  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
 - [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
@@ -82,17 +89,6 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26)
-
-  [arrow_forward](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26) At Google I/O 2026, we introduced Android's shift from an operating system to an intelligence system. We also demonstrated how you can build intelligent experiences natively with the system and bring the power of Google's AI into your apps.
-  [Jingyu Shi](https://developer.android.com/blog/authors/jingyu-shi) • 2 min read
-  - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
-  - [#Android](https://developer.android.com/blog/topics/android)
-  - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
-  - [#On-device](https://developer.android.com/blog/topics/on-device)
-  - +2 ↩
 Stay in the loop
 
 

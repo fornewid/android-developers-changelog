@@ -55,9 +55,32 @@ most effective web application for Android and other mobile devices.
    ```
 8. **Manage saved state and avoid transaction limits.** If you save your `WebView` state during lifecycle events using `saveState(Bundle)`, enforce payload size limits using [`WebViewCompat.saveState()`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#saveState(android.webkit.WebView,android.os.Bundle,int)) to avoid exceeding Android's 1MB `savedInstanceState` limit. For more information, see [Manage
    WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state).
+9. **Optimize network connections and page loading with speculative loading APIs.** To reduce navigation latency, use Jetpack Webkit APIs to prepare network connections and content in advance. Call [`Profile.addQuicHints`](https://developer.android.com/develop/ui/views/layout/webapps/speculative-loading#quic-hints) to pre-populate HTTP/3 over QUIC support so WebView can use QUIC immediately on the first connection, and use [`Profile.preconnect`](https://developer.android.com/develop/ui/views/layout/webapps/speculative-loading#preconnect-origins) to pre-warm network sockets. When destination URLs are known or likely, use [`Profile.prefetchUrlAsync`](https://developer.android.com/develop/ui/views/layout/webapps/speculative-loading#prefetching-content) or [`WebViewCompat.prerenderUrlAsync`](https://developer.android.com/develop/ui/views/layout/webapps/speculative-loading#prerendering-pages) to fetch or render pages in the background. For more information, read [Speculative loading in WebView](https://developer.android.com/develop/ui/views/layout/webapps/speculative-loading).
+10. **Disable automatic favicon downloads if you don't need them.** By default, `WebView` automatically downloads a favicon whenever a site is visited upon navigation. `WebView` keeps two copies of each downloaded favicon (one in Java and one in native memory), so disabling favicon downloads saves memory (approximately 8 KB per `WebView` instance) and reduces bandwidth consumption. If your app doesn't use or display favicons, use [`WebSettingsCompat.setDownloadFaviconsEnabled()`](https://developer.android.com/reference/androidx/webkit/WebSettingsCompat#setDownloadFaviconsEnabled(android.webkit.WebSettings,boolean)) from the [Jetpack Webkit](https://developer.android.com/reference/androidx/webkit/package-summary) library to disable automatic downloads:
+
+    ### Kotlin
+
+    ```kotlin
+    // In this example, "myWebView" is an instance of WebView.
+    if (WebViewFeature.isFeatureSupported(WebViewFeature.DOWNLOAD_FAVICONS_ENABLED)) {
+        WebSettingsCompat.setDownloadFaviconsEnabled(myWebView.settings, false)
+    }
+    ```
+
+    ### Java
+
+    ```java
+    // In this example, "myWebView" is an instance of WebView.
+    if (WebViewFeature.isFeatureSupported(WebViewFeature.DOWNLOAD_FAVICONS_ENABLED)) {
+        WebSettingsCompat.setDownloadFaviconsEnabled(myWebView.getSettings(), false);
+    }
+    ```
+11. **Manage saved state and avoid transaction limits.** If you save your `WebView` state during lifecycle events using `saveState(Bundle)`, enforce payload size limits using [`WebViewCompat.saveState()`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#saveState(android.webkit.WebView,android.os.Bundle,int)) to avoid exceeding Android's 1MB `savedInstanceState` limit. For more information, see [Manage
+    WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state).
 
 ## Additional resources
 
+- [Speculative loading in WebView](https://developer.android.com/develop/ui/views/layout/webapps/speculative-loading)
 - [Manage WebView state efficiently](https://developer.android.com/develop/ui/views/layout/webapps/manage-state)
 - [Pixel-Perfect UI in the WebView](https://developers.google.com/chrome/mobile/docs/webview/pixelperfect)
 - [Learn Responsive Design](http://www.html5rocks.com/en/mobile/responsivedesign/)

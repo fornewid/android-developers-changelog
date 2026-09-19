@@ -65,21 +65,31 @@ smooth transition as the WebView moves or expands to touch the screen edges.
 
 ### Kotlin
 
-    ViewCompat.setOnApplyWindowInsetsListener(myWebView) { _, windowInsets ->
-        // By returning the original windowInsets object, we override the default
-        // behavior that zeroes out system insets (like system bars or display
-        // cutouts) when they don't directly overlap the WebView's screen bounds.
-        windowInsets
-    }
+
+```kotlin
+ViewCompat.setOnApplyWindowInsetsListener(myWebView) { _, windowInsets ->
+    // By returning the original windowInsets object, we override the default
+    // behavior that zeroes out system insets (like system bars or display
+    // cutouts) when they don't directly overlap the WebView's screen bounds.
+    windowInsets
+}
+```
+
+<br />
 
 ### Java
 
-    ViewCompat.setOnApplyWindowInsetsListener(myWebView, (v, windowInsets) -> {
-      // By returning the original windowInsets object, we override the default
-      // behavior that zeroes out system insets (like system bars or display
-      // cutouts) when they don't directly overlap the WebView's screen bounds.
-      return windowInsets;
-    });
+
+```java
+ViewCompat.setOnApplyWindowInsetsListener(myWebView, (v, windowInsets) -> {
+    // By returning the original windowInsets object, we override the default
+    // behavior that zeroes out system insets (like system bars or display
+    // cutouts) when they don't directly overlap the WebView's screen bounds.
+    return windowInsets;
+});
+```
+
+<br />
 
 > [!CAUTION]
 > **Caution:** Returning the original `windowInsets` object overrides WebView's default bounds-checking, but can cause double-padding if your native UI also applies padding based on window insets. To know how to avoid this, see [Implement inset handling](https://developer.android.com/develop/ui/views/layout/webapps/understand-window-insets#inset-handling).
@@ -150,40 +160,50 @@ notification to continue down the view hierarchy.
 
 ### Kotlin
 
-    ViewCompat.setOnApplyWindowInsetsListener(rootView) { view, windowInsets ->
-        // 1. Identify the inset types you want to handle natively
-        val types = WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
 
-        // 2. Extract the dimensions and apply them as padding to the native container
-        val insets = windowInsets.getInsets(types)
-        view.setPadding(insets.left, insets.top, insets.right, insets.bottom)
+```kotlin
+ViewCompat.setOnApplyWindowInsetsListener(rootView) { view, windowInsets ->
+    // 1. Identify the inset types you want to handle natively
+    val types = WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
 
-        // 3. Return a new WindowInsets object with the handled types set to NONE (zeroed).
-        // This informs the WebView that these areas are already padded, preventing
-        // double-padding while still allowing the WebView to update its internal state.
-        WindowInsetsCompat.Builder(windowInsets)
-            .setInsets(types, Insets.NONE)
-            .build()
-    }
+    // 2. Extract the dimensions and apply them as padding to the native container
+    val insets = windowInsets.getInsets(types)
+    view.setPadding(insets.left, insets.top, insets.right, insets.bottom)
+
+    // 3. Return a new WindowInsets object with the handled types set to NONE (zeroed).
+    // This informs the WebView that these areas are already padded, preventing
+    // double-padding while still allowing the WebView to update its internal state.
+    WindowInsetsCompat.Builder(windowInsets)
+        .setInsets(types, Insets.NONE)
+        .build()
+}
+```
+
+<br />
 
 ### Java
 
-    ViewCompat.setOnApplyWindowInsetsListener(rootView, (view, windowInsets) -> {
-      // 1. Identify the inset types you want to handle natively
-      int types = WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout();
 
-      // 2. Extract the dimensions and apply them as padding to the native container
-      Insets insets = windowInsets.getInsets(types);
-      rootView.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+```java
+ViewCompat.setOnApplyWindowInsetsListener(rootView, (view, windowInsets) -> {
+    // 1. Identify the inset types you want to handle natively
+    int types = WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout();
 
-      // 3. Return a new Insets object with the handled types set to NONE (zeroed).
-      // This informs the WebView that these areas are already padded, preventing
-      // double-padding while still allowing the WebView to update its internal
-      // state.
-      return new WindowInsetsCompat.Builder(windowInsets)
-        .setInsets(types, Insets.NONE)
-        .build();
-    });
+    // 2. Extract the dimensions and apply them as padding to the native container
+    Insets insets = windowInsets.getInsets(types);
+    rootView.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+
+    // 3. Return a new Insets object with the handled types set to NONE (zeroed).
+    // This informs the WebView that these areas are already padded, preventing
+    // double-padding while still allowing the WebView to update its internal
+    // state.
+    return new WindowInsetsCompat.Builder(windowInsets)
+            .setInsets(types, Insets.NONE)
+            .build();
+});
+```
+
+<br />
 
 ## How to opt out
 

@@ -12,11 +12,11 @@ use cases, it's desirable for downloads to continue even when your app is in the
 background. For these use cases, your app should subclass `DownloadService` and
 send commands to the service to add, remove, and control the downloads. The
 following diagram shows the main classes that are involved.
-
-![Classes for downloading media. The arrow directions indicate the flow of data.](https://developer.android.com/static/guide/topics/media/exoplayer/images/downloading.svg)
+![Classes for downloading media. The arrow directions indicate the
+flow of data.](https://developer.android.com/static/guide/topics/media/exoplayer/images/downloading.svg) **Figure 1.** Classes for downloading media. The arrow directions indicate the flow of data.
 
 - `DownloadService`: Wraps a `DownloadManager` and forwards commands to it. The service allows the `DownloadManager` to keep running even when the app is in the background.
-- `DownloadManager`: Manages multiple downloads, loading (and storing) their states from (and to) a `DownloadIndex`, starting and stopping downloads based on requirements such as network connectivity, and so on. To download the content, the manager will typically read the data being downloaded from a `HttpDataSource`, and write it into a `Cache`.
+- `DownloadManager`: Manages multiple downloads, loading (and storing) their states from (and to) a `DownloadIndex`, starting and stopping downloads based on requirements such as network connectivity. To download the content, the manager will typically read the data being downloaded from a `HttpDataSource`, and write it into a `Cache`.
 - `DownloadIndex`: Persists the states of the downloads.
 
 ## Creating a DownloadService
@@ -26,8 +26,8 @@ abstract methods:
 
 - `getDownloadManager()`: Returns the `DownloadManager` to be used.
 - `getScheduler()`: Returns an optional `Scheduler`, which can restart the service when requirements needed for pending downloads to progress are met. ExoPlayer provides these implementations:
-  - `PlatformScheduler`, which uses [JobScheduler](https://developer.android.com/reference/android/app/job/JobScheduler) (Minimum API is 21). See the [PlatformScheduler](https://developer.android.com/reference/androidx/media3/scheduler/PlatformScheduler) javadocs for app permission requirements.
-  - `WorkManagerScheduler`, which uses [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager).
+  - `PlatformScheduler`, which uses [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler) (Minimum API is 21). See the [`PlatformScheduler`](https://developer.android.com/reference/androidx/media3/exoplayer/scheduler/PlatformScheduler) javadocs for app permission requirements.
+  - `WorkManagerScheduler`, which uses [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent).
 - `getForegroundNotification()`: Returns a notification to be displayed when the service is running in the foreground. You can use `DownloadNotificationHelper.buildProgressNotification` to create a notification in default style.
 
 Finally, define the service in your `AndroidManifest.xml` file:
@@ -136,13 +136,14 @@ DownloadRequest downloadRequest = new DownloadRequest.Builder(contentId, content
 
 <br />
 
-In this example, `contentId` is a unique identifier for the content. In simple cases, the
+In this example, `contentId` is a unique identifier for the content. The
 `contentUri` can often be used as the `contentId`, however apps are free to use
 whatever ID scheme best suits their use case. `DownloadRequest.Builder` also has
 some optional setters. For example, `setKeySetId` and `setData` can be used to
 set DRM and custom data that the app wishes to associate with the download,
-respectively. The content's MIME type can also be specified using `setMimeType`,
-as a hint for cases where the content type cannot be inferred from `contentUri`.
+respectively. The content's MIME type can also be specified using
+`setMimeType`, as a hint for cases where the MIME type cannot be inferred from
+`contentUri`.
 
 Once created, the request can be sent to the `DownloadService` to add the
 download:
@@ -168,9 +169,9 @@ DownloadService.sendAddDownload(
 
 <br />
 
-In this example, `MyDownloadService` is the app's `DownloadService` subclass, and the
-`foreground` parameter controls whether the service will be started in the
-foreground. If your app is already in the foreground, then the `foreground`
+In this example, `MyDownloadService` is the app's `DownloadService` subclass,
+and the `foreground` parameter controls whether the service will be started in
+the foreground. If your app is already in the foreground, then the `foreground`
 parameter should normally be set to `false` because the `DownloadService` will
 put itself in the foreground if it determines that it has work to do.
 
@@ -268,7 +269,7 @@ downloads works the same way as setting and clearing the stop reason for a
 single download, except that `contentId` should be set to `null`.
 
 > [!NOTE]
-> **Note:** Setting a stop reason does not remove a download. The partial download will be retained, and clearing the stop reason will cause the download to continue.
+> **Note:** Setting a stop reason doesn't remove a download. The partial download will be retained, and clearing the stop reason will cause the download to continue.
 
 When a download has a non-zero stop reason, it will be in the
 `Download.STATE_STOPPED` state. Stop reasons are persisted in the
@@ -319,7 +320,7 @@ changes. It only affects the runtime state of the `DownloadManager`.
 [`Requirements`](https://developer.android.com/reference/androidx/media3/exoplayer/scheduler/Requirements) can be used to specify constraints that must be met for
 downloads to proceed. The requirements can be set by calling
 `DownloadManager.setRequirements()` when creating the `DownloadManager`, as in
-the example [above](https://developer.android.com/media/media3/exoplayer/downloading-media#creating-a-downloadmanager). They can also be changed dynamically by sending a command
+the example [above](https://developer.android.com/media/media3/exoplayer/downloading-media#creating-downloadmanager). They can also be changed dynamically by sending a command
 to the `DownloadService`:
 
 
@@ -353,7 +354,7 @@ requirements with `DownloadManager.getNotMetRequirements()`.
 
 The maximum number of parallel downloads can be set by calling
 `DownloadManager.setMaxParallelDownloads()`. This would normally be done when
-creating the `DownloadManager`, as in the example [above](https://developer.android.com/media/media3/exoplayer/downloading-media#creating-a-downloadmanager).
+creating the `DownloadManager`, as in the example [above](https://developer.android.com/media/media3/exoplayer/downloading-media#creating-downloadmanager).
 
 When a download cannot proceed because the maximum number of parallel downloads
 are already in progress, it will be in the `Download.STATE_QUEUED` state.
@@ -402,7 +403,7 @@ See `DownloadManagerListener` in the demo app's [`DownloadTracker`](https://gith
 a concrete example.
 
 > [!NOTE]
-> **Note:** Download progress updates do not trigger calls on `DownloadManager.Listener`. To update a UI component that shows download progress, you should periodically query the `DownloadManager` at your desired update rate. [`DownloadService`](https://github.com/androidx/media/tree/release/libraries/exoplayer/src/main/java/androidx/media3/exoplayer/offline/DownloadService.java) contains an example of this, which periodically updates the service foreground notification.
+> **Note:** Download progress updates don't trigger calls on `DownloadManager.Listener`. To update a UI component that shows download progress, you should periodically query the `DownloadManager` at your selected update rate. [`DownloadService`](https://github.com/androidx/media/tree/release/libraries/exoplayer/src/main/java/androidx/media3/exoplayer/offline/DownloadService.java) contains an example of this, which periodically updates the service foreground notification.
 
 ## Playing downloaded content
 
@@ -410,7 +411,7 @@ Playing downloaded content is similar to playing online content, except that
 data is read from the download `Cache` instead of over the network.
 
 > [!NOTE]
-> **Note:** It's important that you do not try and read files directly from the download directory. Instead, use ExoPlayer library classes as described below.
+> **Note:** It's important that you don't try to read files directly from the download directory. Instead, use ExoPlayer library classes as described in the following section.
 
 To play downloaded content, create a `CacheDataSource.Factory` using the same
 `Cache` instance that was used for downloading, and inject it into
@@ -459,10 +460,10 @@ then the `CacheDataSource.Factory` should be configured as read-only to avoid
 downloading that content as well during playback.
 
 Once the player has been configured with the `CacheDataSource.Factory`, it will
-have access to the downloaded content for playback. Playing a download is then
-as simple as passing the corresponding `MediaItem` to the player. A `MediaItem`
-can be obtained from a `Download` using `Download.request.toMediaItem`, or
-directly from a `DownloadRequest` using `DownloadRequest.toMediaItem`.
+have access to the downloaded content for playback. To play a download, pass
+the corresponding `MediaItem` to the player. A `MediaItem` can be obtained from
+a `Download` using `Download.request.toMediaItem`, or directly from a
+`DownloadRequest` using `DownloadRequest.toMediaItem`.
 
 ### MediaSource configuration
 
@@ -508,7 +509,7 @@ follows these steps:
 
 1. Build a `DownloadHelper` using a `DownloadHelper.Factory` instance. Prepare the helper and wait for the callback.
 2. Optionally, inspect the default selected tracks using `getMappedTrackInfo` and `getTrackSelections`, and make adjustments using `clearTrackSelections`, `replaceTrackSelections` and `addTrackSelection`.
-3. Create a `DownloadRequest` for the selected tracks by calling `getDownloadRequest`. The request can be passed to your `DownloadService` to add the download, as described above.
+3. Create a `DownloadRequest` for the selected tracks by calling `getDownloadRequest`. The request can be passed to your `DownloadService` to add the download, as described earlier.
 4. Release the helper using `release()`.
 
 
@@ -537,7 +538,7 @@ downloadHelper.prepare(callback);
 <br />
 
 Playback of downloaded adaptive content requires configuring the player and
-passing the corresponding `MediaItem`, as described above.
+passing the corresponding `MediaItem`, as described earlier.
 
 When building the `MediaItem`, `MediaItem.localConfiguration.streamKeys` must be
 set to match those in the `DownloadRequest` so that the player only tries to

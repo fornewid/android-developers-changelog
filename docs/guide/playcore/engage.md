@@ -14,7 +14,7 @@ takes most apps about a week of developer time. Learn more at our
 [business site](http://play.google.com/console/about/programs/EngageSDK).
 
 > [!NOTE]
-> **Note:** This program is in developer preview. [Express interest here](https://support.google.com/googleplay/contact/Engage_SDK_Developer_Preview) and read the [developer preview page](https://developer.android.com/guide/playcore/engage/preview) to learn more.
+> **Note:** This program is in developer preview. [Express interest here](https://support.google.com/googleplay/contact/Engage_SDK) and read the [developer preview page](https://developer.android.com/guide/playcore/engage/preview) to learn more.
 
 ### Engage SDK Content Surfaces
 

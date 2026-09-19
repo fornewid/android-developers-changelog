@@ -30,10 +30,15 @@ plugins {
 When you annotate a class with `@Parcelize`, a `Parcelable` implementation
 is automatically generated, as shown in the following example:
 
-    import kotlinx.parcelize.Parcelize
 
-    @Parcelize
-    class User(val firstName: String, val lastName: String, val age: Int): Parcelable
+```kotlin
+// import kotlinx.parcelize.Parcelize
+
+@Parcelize
+class User(val firstName: String, val lastName: String, val age: Int) : Parcelable
+```
+
+<br />
 
 `@Parcelize` requires all serialized properties to be declared in the
 primary constructor. The plugin issues a warning on each property
@@ -43,18 +48,23 @@ not properties.
 
 If your class requires more advanced serialization logic, write it inside a companion class:
 
-    @Parcelize
-    data class User(val firstName: String, val lastName: String, val age: Int) : Parcelable {
-        private companion object : Parceler<User> {
-            override fun User.write(parcel: Parcel, flags: Int) {
-                // Custom write implementation
-            }
 
-            override fun create(parcel: Parcel): User {
-                // Custom read implementation
-            }
+```kotlin
+@Parcelize
+data class User(val firstName: String, val lastName: String, val age: Int) : Parcelable {
+    private companion object : Parceler<User> {
+        override fun User.write(parcel: Parcel, flags: Int) {
+            // Custom write implementation
+        }
+
+        override fun create(parcel: Parcel): User {
+            // Custom read implementation
         }
     }
+}
+```
+
+<br />
 
 ## Supported types
 
@@ -78,31 +88,51 @@ If your class requires more advanced serialization logic, write it inside a comp
 If your type is not supported directly, you can write a `Parceler`
 mapping object for it.
 
-    class ExternalClass(val value: Int)
 
-    object ExternalClassParceler : Parceler<ExternalClass> {
-        override fun create(parcel: Parcel) = ExternalClass(parcel.readInt())
+```kotlin
+class ExternalClass(val value: Int)
 
-        override fun ExternalClass.write(parcel: Parcel, flags: Int) {
-            parcel.writeInt(value)
-        }
+object ExternalClassParceler : Parceler<ExternalClass> {
+    override fun create(parcel: Parcel) = ExternalClass(parcel.readInt())
+
+    override fun ExternalClass.write(parcel: Parcel, flags: Int) {
+        parcel.writeInt(value)
     }
+}
+```
+
+<br />
 
 You can apply external parcelers using `@TypeParceler` or `@WriteWith`
 annotations:
 
-    // Class-local parceler
-    @Parcelize
-    @TypeParceler<ExternalClass, ExternalClassParceler>()
-    class MyClass(val external: ExternalClass) : Parcelable
 
-    // Property-local parceler
-    @Parcelize
-    class MyClass(@TypeParceler<ExternalClass, ExternalClassParceler>() val external: ExternalClass) : Parcelable
+```kotlin
+// Class-local parceler
+@Parcelize
+@TypeParceler<ExternalClass, ExternalClassParceler>()
+class MyClass(val external: ExternalClass) : Parcelable
+```
 
-    // Type-local parceler
-    @Parcelize
-    class MyClass(val external: @WriteWith<ExternalClassParceler>() ExternalClass) : Parcelable
+<br />
+
+
+```kotlin
+// Property-local parceler
+@Parcelize
+class MyClass(@TypeParceler<ExternalClass, ExternalClassParceler>() val external: ExternalClass) : Parcelable
+```
+
+<br />
+
+
+```kotlin
+// Type-local parceler
+@Parcelize
+class MyClass(val external: @WriteWith<ExternalClassParceler>() ExternalClass) : Parcelable
+```
+
+<br />
 
 ## Create data from Parcel
 
@@ -117,11 +147,16 @@ In Java code, you can access the `CREATOR` field directly.
 In Kotlin, you can't use the `CREATOR` field directly. Instead, use
 `kotlinx.parcelize.parcelableCreator`.
 
-    import kotlinx.parcelize.parcelableCreator
 
-    fun userFromParcel(parcel: Parcel): User {
-        return parcelableCreator<User>().createFromParcel(parcel)
-    }
+```kotlin
+// import kotlinx.parcelize.parcelableCreator
+
+fun userFromParcel(parcel: Parcel): User {
+    return parcelableCreator<User>().createFromParcel(parcel)
+}
+```
+
+<br />
 
 ## Skip properties from serialization
 
@@ -131,24 +166,34 @@ class's body to silence warnings about the property not being serialized.
 Constructor properties annotated with `@IgnoredOnParcel` must have a default
 value.
 
-    @Parcelize
-    class MyClass(
-        val include: String,
-        // Don't serialize this property
-        @IgnoredOnParcel val ignore: String = "default"
-    ): Parcelable {
-        // Silence a warning
-        @IgnoredOnParcel
-        val computed: String = include + ignore
-    }
+
+```kotlin
+@Parcelize
+class MyClass(
+    val include: String,
+    // Don't serialize this property
+    @IgnoredOnParcel val ignore: String = "default"
+) : Parcelable {
+    // Silence a warning
+    @IgnoredOnParcel
+    val computed: String = include + ignore
+}
+```
+
+<br />
 
 ## Use android.os.Parcel.writeValue for serializing a property
 
 You can annotate a type with `@RawValue` to make Parcelize use
 `Parcel.writeValue` for that property.
 
-    @Parcelize
-    class MyClass(val external: @RawValue ExternalClass): Parcelable
+
+```kotlin
+@Parcelize
+class MyClass(val external: @RawValue ExternalClass) : Parcelable
+```
+
+<br />
 
 This might fail at runtime if the value of the property is not
 [natively supported by Android](https://developer.android.com/reference/android/os/Parcel#writeValue(java.lang.Object)).
@@ -162,14 +207,19 @@ Parcelize requires a class to parcelize to not be abstract. This limitation does
 not hold for sealed classes. When the `@Parcelize` annotation is used on a
 sealed class, it does not need to be repeated for the deriving classes.
 
-    @Parcelize
-    sealed class SealedClass: Parcelable {
-        class A(val a: String): SealedClass()
-        class B(val b: Int): SealedClass()
-    }
 
-    @Parcelize
-    class MyClass(val a: SealedClass.A, val b: SealedClass.B, val c: SealedClass): Parcelable
+```kotlin
+@Parcelize
+sealed class SealedClass : Parcelable {
+    class A(val a: String) : SealedClass()
+    class B(val b: Int) : SealedClass()
+}
+
+@Parcelize
+class MyClass(val a: SealedClass.A, val b: SealedClass.B, val c: SealedClass) : Parcelable
+```
+
+<br />
 
 ## Setup Parcelize for Kotlin multiplatform
 
@@ -219,32 +269,42 @@ unsupported. To circumvent this, provide a new `Parcelize` annotation as the
         }
     }
 
-    // Common code
-    package example
 
-    @Target(AnnotationTarget.CLASS)
-    @Retention(AnnotationRetention.BINARY)
-    // No `expect` keyword here
-    annotation class MyParcelize()
+```kotlin
+// Common code
+// package example
 
-    expect interface MyParcelable
+@Target(AnnotationTarget.CLASS)
+@Retention(AnnotationRetention.BINARY)
+// No `expect` keyword here
+annotation class MyParcelize()
 
-    @Target(AnnotationTarget.PROPERTY)
-    @Retention(AnnotationRetention.SOURCE)
-    expect annotation class MyIgnoredOnParcel()
+expect interface MyParcelable
 
-    @MyParcelize
-    class MyClass(
-        val x: String,
-        @MyIgnoredOnParcel val y: String = ""
-    ): MyParcelable
+@Target(AnnotationTarget.PROPERTY)
+@Retention(AnnotationRetention.SOURCE)
+expect annotation class MyIgnoredOnParcel()
 
-    // Platform code
-    package example
+@MyParcelize
+class MyClass(
+    val x: String,
+    @MyIgnoredOnParcel val y: String = ""
+) : MyParcelable
+```
 
-    // No typealias for MyParcelize here
-    actual typealias MyParcelable = android.os.Parcelable
-    actual typealias MyIgnoredOnParcel = kotlinx.parcelize.IgnoredOnParcel
+<br />
+
+
+```kotlin
+// Platform code
+// package example
+
+// No typealias for MyParcelize here
+actual typealias MyParcelable = android.os.Parcelable
+actual typealias MyIgnoredOnParcel = kotlinx.parcelize.IgnoredOnParcel
+```
+
+<br />
 
 Because the `Parcel` interface is only available on Android, Parcelize won't
 generate any code on other platforms, so any `actual` implementations
@@ -265,12 +325,17 @@ The `DataClass` annotation allows for serializing data classes as if they were
 themselves annotated with `Parcelize`. This annotation requires the
 `kotlinx.parcelize.Experimental` opt-in.
 
-    @file:OptIn(kotlinx.parcelize.Experimental::class)
 
-    data class C(val a: Int, val b: String)
+```kotlin
+// @file:OptIn(kotlinx.parcelize.Experimental::class)
 
-    @Parcelize
-    class P(val c: @DataClass C) : Parcelable
+data class C(val a: Int, val b: String)
+
+@Parcelize
+class P(val c: @DataClass C) : Parcelable
+```
+
+<br />
 
 The primary constructor and all of its properties must be accessible from the
 `Parcelable` class. Additionally, all primary constructor properties of the
@@ -289,14 +354,19 @@ common code could declare the data layer as data classes, which Android code
 could then augment with serialization logic, removing the need for
 Android-specific annotations and type aliases in common code.
 
-    // Common code:
-    data class MyData(val x: String, val y: MoreData)
-    data class MoreData(val a: String, val b: Int)
 
-    // Platform code:
-    @OptIn(kotlinx.parcelize.Experimental::class)
-    @Parcelize
-    class DataWrapper(val wrapped: @DataClass MyData): Parcelable
+```kotlin
+// Common code:
+data class MyData(val x: String, val y: MoreData)
+data class MoreData(val a: String, val b: Int)
+
+// Platform code:
+@OptIn(kotlinx.parcelize.Experimental::class)
+@Parcelize
+class DataWrapper(val wrapped: @DataClass MyData) : Parcelable
+```
+
+<br />
 
 ### Non val or var parameters in primary constructor
 
@@ -316,17 +386,22 @@ This feature lifts the restriction on primary constructor arguments having to be
 `val` or `var`. This solves one pain point of using parcelize with inheritance,
 which earlier required using `open` properties.
 
-    // base parcelize
-    @Parcelize
-    open class Base(open val s: String): Parcelable
 
-    @Parcelize
-    class Derived(
-        val x: Int,
-        // all arguments have to be `val` or `var` so we need to override
-        // to not introduce new property name
-        override val s: String
-    ): Base(s)
+```kotlin
+// base parcelize
+@Parcelize
+open class Base(open val s: String) : Parcelable
+
+@Parcelize
+class Derived(
+    val x: Int,
+    // all arguments have to be `val` or `var` so we need to override
+    // to not introduce new property name
+    override val s: String
+) : Base(s)
+```
+
+<br />
 
     // experimental code generation enabled
     @Parcelize

@@ -17,13 +17,12 @@ following table:
 | PlayReady SL2000 "cenc" | Android TV | Android TV | DASH, SmoothStreaming, HLS (FMP4 only) |
 
 In order to play DRM-protected content with ExoPlayer, the UUID of the DRM
-system must be specified
-[when building a media item](https://developer.android.com/media/media3/exoplayer/media-items#protected-content), and other
-properties can also be provided. The player will then use these properties to
-build a default implementation of `DrmSessionManager`, called
+system must be specified [when building a media item](https://developer.android.com/media/media3/exoplayer/media-items#protected-content), and
+other properties can also be provided. The player will then use these properties
+to build a default implementation of `DrmSessionManager`, called
 `DefaultDrmSessionManager`, that's suitable for most use cases. For some use
-cases, additional DRM properties may be necessary, as outlined in the following
-sections.
+cases, additional DRM properties might be necessary, as outlined in the
+following sections.
 
 ### Key rotation
 
@@ -58,9 +57,9 @@ server configuration by passing `true` to
 `MediaItem.DrmConfiguration.Builder.setMultiSession` when building the media
 item.
 
-We do not recommend configuring your license server to behave in this way. It
+We don't recommend configuring your license server to behave in this way. It
 requires extra license requests to play multi-key content, which is less
-efficient and robust than the alternative described above.
+efficient and robust than the alternative described earlier.
 
 ### Offline keys
 
@@ -70,7 +69,7 @@ This allows playback using the keys stored in the offline key set with the
 specified ID.
 
 > [!CAUTION]
-> **[Known issue #3872:](https://github.com/google/ExoPlayer/issues/3872)** Only one offline key set can be specified per playback. As a result, offline playback of multi-key content is currently supported only when the license server is configured as described in Case 1 above.
+> **Caution:** **[Known issue #3872](https://github.com/google/ExoPlayer/issues/3872):** Only one offline key set can be specified per playback. As a result, offline playback of multi-key content is currently supported only when the license server is configured as described in Case 1 earlier.
 
 ### DRM sessions for clear content
 

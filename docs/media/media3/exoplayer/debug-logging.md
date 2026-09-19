@@ -7,8 +7,8 @@ source: md.txt
 By default, ExoPlayer only logs errors. To log player events, the `EventLogger`
 class can be used. The additional logging it provides can be helpful for
 understanding what the player is doing, as well as for debugging playback
-issues. `EventLogger` implements `AnalyticsListener`, so registering an instance
-with an `ExoPlayer` is easy:
+issues. `EventLogger` implements `AnalyticsListener`, so you can register an
+instance with an `ExoPlayer`:
 
 
 ### Kotlin
@@ -26,9 +26,9 @@ player.addAnalyticsListener(new EventLogger());
 <br />
 
 The easiest way to observe the log is using Android Studio's [logcat tab](https://developer.android.com/studio/debug/am-logcat). You
-can select your app as debuggable process by the package name (
-`androidx.media3.demo.main` if using the demo app) and tell the logcat
-tab to log only for that app by selecting **show only selected application** . It's
+can select your app as debuggable process by the package name
+(`androidx.media3.demo.main` if using the demo app) and tell the logcat tab to
+log only for that app by selecting **show only selected application** . It's
 possible to further filter the logging with the expression
 `EventLogger|ExoPlayerImpl`, to get only logging from `EventLogger` and the
 player itself.
@@ -77,8 +77,8 @@ The final elements in each line indicate the value of the state being reported.
 ### Media tracks
 
 Track information is logged when the available or selected tracks change. This
-happens at least once at the start of playback. The example below shows track
-logging for an adaptive stream:
+happens at least once at the start of playback. The following example shows
+track logging for an adaptive stream:
 
     EventLogger: tracks [eventTime=0.30, mediaPos=0.00, window=0, period=0,
     EventLogger:   group [
@@ -97,9 +97,9 @@ logging for an adaptive stream:
 In this example, the player has selected four of the five available video
 tracks. The fifth video track is not selected because it exceeds the
 capabilities of the device, as indicated by `supported=NO_EXCEEDS_CAPABILITIES`.
-The player will adapt between the selected video tracks during playback. When
-the player adapts from one track to another, it's logged in a line like the one
-below:
+The player adapts between the selected video tracks during playback. When
+the player adapts from one track to another, it's logged in a line like the
+following:
 
     EventLogger: downstreamFormat [eventTime=3.64, mediaPos=3.00, window=0, period=0, id=134, mimeType=video/avc, bitrate=671331, codecs=avc1.4d401e, res=640x360, fps=30.0]
 

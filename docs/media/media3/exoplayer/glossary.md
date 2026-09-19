@@ -25,15 +25,13 @@ AV1
 
 :   AOMedia Video 1 [codec](https://developer.android.com/media/media3/exoplayer/glossary#codec).
 
-    For more information, see the
-    [Wikipedia page](https://en.wikipedia.org/wiki/AV1).
+    For more information, see the [Wikipedia page](https://en.wikipedia.org/wiki/AV1).
 
 AVC
 
 :   Advanced Video Coding, also known as the H.264 video [codec](https://developer.android.com/media/media3/exoplayer/glossary#codec).
 
-    For more information, see the
-    [Wikipedia page](https://en.wikipedia.org/wiki/Advanced_Video_Coding).
+    For more information, see the [Wikipedia page](https://en.wikipedia.org/wiki/Advanced_Video_Coding).
 
 Codec
 
@@ -62,16 +60,14 @@ DRM
 
 :   Digital Rights Management.
 
-    For more information, see the
-    [Wikipedia page](https://en.wikipedia.org/wiki/Digital_rights_management).
+    For more information, see the [Wikipedia page](https://en.wikipedia.org/wiki/Digital_rights_management).
 
 Gapless playback
 
-:   Process by which the end of a [track](https://developer.android.com/media/media3/exoplayer/glossary#track) and/or the beginning of the next
-    track are skipped to avoid a silent gap between tracks.
+:   Process by which the end of a [track](https://developer.android.com/media/media3/exoplayer/glossary#track), the beginning of the next
+    track, or both are skipped to avoid a silent gap between tracks.
 
-    For more information, see the
-    [Wikipedia page](https://en.wikipedia.org/wiki/Gapless_playback).
+    For more information, see the [Wikipedia page](https://en.wikipedia.org/wiki/Gapless_playback).
 
 HEVC
 
@@ -79,19 +75,18 @@ HEVC
 
 HLS
 
-:   HTTP Live Streaming. Apple's
-    [adaptive streaming](https://developer.android.com/media/media3/exoplayer/glossary#adaptive-streaming) protocol.
+:   HTTP Live Streaming. Apple's [adaptive streaming](https://developer.android.com/media/media3/exoplayer/glossary#adaptive-streaming)
+    protocol.
 
-    For more information, see the
-    [Apple documentation](https://developer.apple.com/streaming/).
+    For more information, see the [Apple documentation](https://developer.apple.com/streaming/).
 
 Manifest
 
 :   A file that defines the structure and location of media in
     [adaptive streaming](https://developer.android.com/media/media3/exoplayer/glossary#adaptive-streaming) protocols. Examples include
     [DASH](https://developer.android.com/media/media3/exoplayer/glossary#dash) [MPD](https://developer.android.com/media/media3/exoplayer/glossary#mpd) files, [HLS](https://developer.android.com/media/media3/exoplayer/glossary#hls) multivariant playlist files and
-    [Smooth Streaming](https://developer.android.com/media/media3/exoplayer/glossary#smooth-streaming) manifest files. Not to be confused with an
-    AndroidManifest XML file.
+    [Smooth Streaming](https://developer.android.com/media/media3/exoplayer/glossary#smooth-streaming) manifest files. Not to be confused with
+    an AndroidManifest XML file.
 
 MPD
 
@@ -102,8 +97,7 @@ PCM
 
 :   Pulse-Code Modulation.
 
-    For more information, see the
-    [Wikipedia page](https://en.wikipedia.org/wiki/Pulse-code_modulation).
+    For more information, see the [Wikipedia page](https://en.wikipedia.org/wiki/Pulse-code_modulation).
 
 Smooth Streaming
 
@@ -126,8 +120,7 @@ AudioTrack
 
 :   An Android API for playing audio.
 
-    For more information, see the
-    [Javadoc](https://developer.android.com/reference/android/media/AudioTrack).
+    For more information, see the [Javadoc](https://developer.android.com/reference/android/media/AudioTrack).
 
 CDM
 
@@ -135,31 +128,27 @@ CDM
     decrypting [DRM](https://developer.android.com/media/media3/exoplayer/glossary#drm)-protected content. CDMs are accessed using Android's
     [`MediaDrm`](https://developer.android.com/media/media3/exoplayer/glossary#mediadrm) API.
 
-    For more information, see the
-    [Javadoc](https://developer.android.com/reference/android/media/MediaDrm).
+    For more information, see the [Javadoc](https://developer.android.com/reference/android/media/MediaDrm).
 
 IMA
 
-:   Interactive Media Ads. IMA is an SDK that makes it easy to integrate
-    multimedia ads into an app.
+:   Interactive Media Ads. IMA is an SDK for integrating multimedia ads into an
+    app.
 
-    For more information, see the
-    [IMA documentation](https://developers.google.com/interactive-media-ads).
+    For more information, see the [IMA documentation](https://developers.google.com/interactive-media-ads).
 
 MediaCodec
 
 :   An Android API for accessing media [codecs](https://developer.android.com/media/media3/exoplayer/glossary#codec) (i.e. encoder and decoder
     components) in the platform.
 
-    For more information, see the
-    [Javadoc](https://developer.android.com/reference/android/media/MediaCodec).
+    For more information, see the [Javadoc](https://developer.android.com/reference/android/media/MediaCodec).
 
 MediaDrm
 
 :   An Android API for accessing [CDMs](https://developer.android.com/media/media3/exoplayer/glossary#cdm) in the platform.
 
-    For more information, see the
-    [Javadoc](https://developer.android.com/reference/android/media/MediaDrm).
+    For more information, see the [Javadoc](https://developer.android.com/reference/android/media/MediaDrm).
 
 Audio offload
 
@@ -168,7 +157,7 @@ Audio offload
     power audio playback.
 
     For more information, see the
-    [Android interaction documentation](https://source.android.com/devices/tv/multimedia-tunneling).
+    [Android interaction documentation](https://source.android.com/docs/devices/tv/multimedia-tunneling).
 
 Passthrough
 
@@ -176,33 +165,29 @@ Passthrough
     first. This is for example used to play 5.1 surround sound on an Android TV.
 
     For more information, see the
-    [Android interaction documentation](https://source.android.com/devices/tv/multimedia-tunneling).
+    [Android interaction documentation](https://source.android.com/docs/devices/tv/multimedia-tunneling).
 
 Surface
 
-:   See the [Javadoc](https://developer.android.com/reference/android/view/Surface)
-    and the
-    [Android graphics documentation](https://source.android.com/devices/graphics/arch-sh).
+:   See the [Javadoc](https://developer.android.com/reference/android/view/Surface) and the
+    [Android graphics documentation](https://source.android.com/docs/core/graphics/arch-sh).
 
 Tunneling
 
 :   Process by which the Android framework receives compressed video and either
     compressed or [PCM](https://developer.android.com/media/media3/exoplayer/glossary#pcm) audio data and assumes the responsibility for
-    decoding, synchronizing and rendering it, taking over some tasks usually handled
-    by the application. Tunneling may improve audio-to-video (AV) synchronization,
-    may smooth video playback and can reduce the load on the application processor.
-    It is mostly used on Android TVs.
+    decoding, synchronizing and rendering it, taking over some tasks usually
+    handled by the application. Tunneling may improve audio-to-video (AV)
+    synchronization, may smooth video playback and can reduce the load on the
+    application processor. It is mostly used on Android TVs.
 
     For more information, see the
-    [Android interaction documentation](https://source.android.com/devices/tv/multimedia-tunneling)
-    and the
+    [Android interaction documentation](https://source.android.com/docs/devices/tv/multimedia-tunneling) and the
     [ExoPlayer article](https://medium.com/google-exoplayer/tunneled-video-playback-in-exoplayer-84f084a8094d).
 
 ## ExoPlayer
 
-![ExoPlayer architecture overview](https://developer.android.com/static/guide/topics/media/exoplayer/images/glossary-exoplayer-architecture.png)
-
-![ExoPlayer rendering overview](https://developer.android.com/static/guide/topics/media/exoplayer/images/glossary-rendering-architecture.png)
+![ExoPlayer architecture overview](https://developer.android.com/static/guide/topics/media/exoplayer/images/glossary-exoplayer-architecture.png) **Figure 1.** ExoPlayer architecture overview showing media data flow and information flow. ![ExoPlayer rendering overview showing the media decoding and rendering pipeline from queues to platform sinks](https://developer.android.com/static/guide/topics/media/exoplayer/images/glossary-rendering-architecture.png) **Figure 2.** ExoPlayer rendering overview.
 
 BandwidthMeter
 
@@ -262,16 +247,16 @@ MediaPeriod
 
 Renderer
 
-:   Component that reads, decodes, and renders media samples. [`Surface`](https://developer.android.com/media/media3/exoplayer/glossary#surface)
-    and [`AudioTrack`](https://developer.android.com/media/media3/exoplayer/glossary#audiotrack) are the standard Android platform components to
-    which video and audio data are rendered.
+:   Component that reads, decodes, and renders media samples.
+    [`Surface`](https://developer.android.com/media/media3/exoplayer/glossary#surface) and [`AudioTrack`](https://developer.android.com/media/media3/exoplayer/glossary#audiotrack) are the standard Android
+    platform components to which video and audio data are rendered.
 
     For more information, see the component
     [Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/Renderer).
 
 Timeline
 
-:   Represents the structure of media, from simple cases like a single media file
+:   Represents the structure of media, from basic cases like a single media file
     through to complex compositions of media such as playlists and streams with
     inserted ads.
 
@@ -296,7 +281,7 @@ TrackSelection
     starts being loaded.
 
     For more information, see the component
-    [Javadoc](https://developer.android.com/reference/androidx/media3/common/TrackSelection).
+    [Javadoc](https://developer.android.com/reference/androidx/media3/exoplayer/trackselection/TrackSelection).
 
 TrackSelector
 

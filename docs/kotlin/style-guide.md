@@ -8,8 +8,6 @@ This document serves as the complete definition of Google's Android coding stand
 
 Like other programming style guides, the issues covered span not only aesthetic issues of formatting, but other types of conventions or coding standards as well. However, this document focuses primarily on the hard-and-fast rules that we follow universally, and avoids giving advice that isn't clearly enforceable (whether by human or tool).
 
-[Last update: 2023-09-06](https://developer.android.com/kotlin/guides-changelog)
-
 ## Source files
 
 All source files must be encoded as UTF-8.

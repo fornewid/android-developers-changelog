@@ -6,8 +6,8 @@ source: md.txt
 
 ExoPlayer's main demo app serves two primary purposes:
 
-1. To provide a relatively simple yet fully-featured example of ExoPlayer usage. The demo app can be used as a convenient starting point from which to develop your own app.
-2. To make it easy to try ExoPlayer. The demo app can be used to test playback of your own content in addition to the included samples.
+1. To provide a fully-featured example of ExoPlayer usage. The demo app can be used as a convenient starting point from which to develop your own app.
+2. To let you try ExoPlayer. The demo app can be used to test playback of your own content in addition to the included samples.
 
 This page describes how to get, compile, and run the demo app. It also describes
 how to use it to play your own media.
@@ -24,18 +24,16 @@ git clone https://github.com/androidx/media.git
 
 Next, open the project in Android Studio. You should see the following in the
 Android Project view (the relevant folders of the demo app have been expanded):
-
-![The project in Android Studio](https://developer.android.com/static/guide/topics/media/exoplayer/images/demo-app-project.png)
+![The project in Android Studio](https://developer.android.com/static/guide/topics/media/exoplayer/images/demo-app-project.png) **Figure 1.** The project in Android Studio.
 
 ## Compiling and running
 
 To compile and run the demo app, select and run the `demo` configuration in
-Android Studio. The demo app will install and run on a connected Android device.
-We recommend using a physical device if possible. If you wish to use an emulator
-instead, please read the emulators section of [Supported devices](https://developer.android.com/guide/topics/media/exoplayer/supported-devices) and ensure
+Android Studio. The demo app will install and run on a connected Android-powered
+device. We recommend using a physical device if possible. If you want to use an
+emulator instead, read the emulators section of [Supported devices](https://developer.android.com/guide/topics/media/exoplayer/supported-devices) and ensure
 that your Virtual Device uses a system image with an API level of at least 23.
-
-![SampleChooserActivity and PlayerActivity](https://developer.android.com/static/guide/topics/media/exoplayer/images/demo-app-screenshots.png)
+![SampleChooserActivity and PlayerActivity in the ExoPlayer demo app](https://developer.android.com/static/guide/topics/media/exoplayer/images/demo-app-screenshots.png) **Figure 2.** SampleChooserActivity and PlayerActivity.
 
 The demo app presents of a list of samples (`SampleChooserActivity`). Selecting
 a sample will open a second activity (`PlayerActivity`) for playback. The demo
@@ -165,7 +163,7 @@ is typically located at `/sdcard/Android/data/androidx.media3.demo.main/files`.
 
 ### 2. Loading an external exolist.json file
 
-The demo app can load external JSON files using the schema above and named
+The demo app can load external JSON files using the preceding schema and named
 according to the `*.exolist.json` convention. For example if you host such a
 file at `https://yourdomain.com/samples.exolist.json`, you can open it in the
 demo app using:
@@ -177,11 +175,11 @@ adb shell am start -a android.intent.action.VIEW \
 
 Clicking a `*.exolist.json` link (for example, in the browser or an email
 client) on a device with the demo app installed will also open it in the demo
-app. Hence hosting a `*.exolist.json` JSON file provides a simple way of
-distributing content for others to try in the demo app.
+app. Hosting a `*.exolist.json` JSON file provides a way to distribute content
+for others to try in the demo app.
 
 > [!NOTE]
-> **Note:** On Android TV devices and emulators on API level 31 and above, an alternative action needs to be used which is `androidx.media3.demo.main.action.BROWSE` due to limitations on such devices.
+> **Note:** On Android TV devices and emulators on API level 31 or later, an alternative action needs to be used which is `androidx.media3.demo.main.action.BROWSE` due to limitations on such devices.
 
 ### 3. Firing an intent
 
@@ -200,7 +198,7 @@ Supported optional extras for a single sample intent are:
 - Sample configuration extras:
   - `mime_type` \[String\] Sample MIME type hint. For example `application/dash+xml` for DASH content.
   - `clip_start_position_ms` \[Long\] A start point to which the sample should be clipped, in milliseconds.
-  - `clip_end_position_ms` \[Long\] An end point from which the sample should be clipped, in milliseconds.
+  - `clip_end_position_ms` \[Long\] An endpoint from which the sample should be clipped, in milliseconds.
   - `drm_scheme` \[String\] DRM scheme if protected. Valid values are `widevine`, `playready` and `clearkey`. DRM scheme UUIDs are also accepted.
   - `drm_license_uri` \[String\] URI of the license server if protected.
   - `drm_force_default_license_uri` \[Boolean\] Whether to force use of `drm_license_uri` for key requests that include their own license URI.
@@ -210,7 +208,7 @@ Supported optional extras for a single sample intent are:
   - `subtitle_uri` \[String\] The URI of a subtitle sidecar file.
   - `subtitle_mime_type` \[String\] The MIME type of subtitle_uri (required if subtitle_uri is set).
   - `subtitle_language` \[String\] The BCP47 language code of the subtitle file (ignored if subtitle_uri is not set).
-  - `ad_tag_uri` \[String\] The URI of an ad tag to load using the \[IMA extension\]\[\].
+  - `ad_tag_uri` \[String\] The URI of an ad tag to load using the [IMA extension](https://github.com/androidx/media/tree/release/libraries/exoplayer_ima).
   - `prefer_extension_decoders` \[Boolean\] Whether extension decoders are preferred to platform ones.
 
 When using `adb shell am start` to fire an intent, an optional string extra can
@@ -228,7 +226,7 @@ except for two differences:
 - The extras' keys should have an underscore and the 0-based index of the sample as suffix. For example, `extension_0` would hint the sample type for the first sample. `drm_scheme_1` would set the DRM scheme for the second sample.
 - The uri of the sample is passed as an extra with key `uri_<sample-index>`.
 
-Other extras, which are not sample dependant, do not change. For example, you
+Other extras, which are not sample dependant, don't change. For example, you
 can run the following command in the terminal to play a playlist with two items,
 overriding the extension of the second item:
 
