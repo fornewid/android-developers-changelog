@@ -1,0 +1,19 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2026.1.4.md b/docs/studio/releases/fixed-bugs/studio/2026.1.4.md
+index 6c88e641..4bab5c9b 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2026.1.4.md
++++ b/docs/studio/releases/fixed-bugs/studio/2026.1.4.md
+@@ -4,6 +4,14 @@ url: https://developer.android.com/studio/releases/fixed-bugs/studio/2026.1.4
+ source: md.txt
+ ---
+ 
++### Android Studio Quail 4 \| 2026.1.4 Patch 1
++
++**Released together with:**
++
++- Android Gradle Plugin 9.4.1
++
++Fixed Issues **Android Gradle Plugin** [Issue #556343682](https://issuetracker.google.com/issues/556343682) AGP 9.3.0's new optimization { enable = true } DSL does not set isMinifyEnabled in the ApplicationVariant object **Dexer (D8)** [Issue #558810278](https://issuetracker.google.com/issues/558810278) D8 9.2.14 is \~38% slower than 8.13.6 in \`mergeProjectDexDebug\` on identical input/output **Shrinker (R8)** [Issue #545349635](https://issuetracker.google.com/issues/545349635) D8 debug mode: ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 31 --- regression between R8 8.8.34 and 8.9.27 [Issue #543685256](https://issuetracker.google.com/issues/543685256) R8 writes \`.kotlin_module\` file with \`:\` in its name, producing a filename invalid on Windows [Issue #554586985](https://issuetracker.google.com/issues/554586985) R8 build non-determinism: identical input produces different dex/mapping (regression from "Retain Assume instructions in LIR") [Issue #485558707](https://issuetracker.google.com/issues/485558707) AGP intermittently produces dex files that fail verification and crash app on launch [Issue #539672118](https://issuetracker.google.com/issues/539672118) High per-rule memory consumption [Issue #551348855](https://issuetracker.google.com/issues/551348855) VerifyError: Outliner incorrectly extends try-catch region, causing uninitialized register [Issue #506912893](https://issuetracker.google.com/issues/506912893) R8: VerifyError on Android 4.4
++
+ ### Android Studio Quail 4 \| 2026.1.4
+ 
+ **Released together with:**

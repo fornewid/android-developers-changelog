@@ -1,0 +1,173 @@
+diff --git a/docs/develop/ui/views/layout/webapps/speculative-loading.md b/docs/develop/ui/views/layout/webapps/speculative-loading.md
+index 3b22aa65..6f39743f 100644
+--- a/docs/develop/ui/views/layout/webapps/speculative-loading.md
++++ b/docs/develop/ui/views/layout/webapps/speculative-loading.md
+@@ -5,28 +5,29 @@ source: md.txt
+ ---
+ 
+ Navigation latency is a critical metric for user experience. To help developers
+-reduce this latency, WebView provides APIs for speculative loading, allowing
+-your app to fetch or render content before the user explicitly navigates to it.
++reduce this latency, WebView provides APIs for speculative loading and
++connection optimization, allowing your app to fetch or render content before the
++user explicitly navigates to it.
+ 
+ WebView supports three primary types of speculative loading: Preconnect,
+-Prefetch, and Prerender.
++Prefetch, and Prerender, alongside QUIC hints to optimize protocol negotiation.
+ 
+ By implementing a speculative loading strategy, you can achieve the following:
+ 
+-- **Significant reduction in web content loading latency:** Move the network start time to earlier in the app lifecycle.
++- **Significant reduction in web content loading latency:** Move the network start time to earlier in the app lifecycle and prefer faster protocols like HTTP/3.
+ - **Higher navigation success rates:** By pre-warming the network and cache, navigations are less likely to fail due to transient network issues.
+ - **Better perceived responsiveness:** Prerendering, in particular, enables instant transitions that make the app feel significantly faster.
+ 
+ ## Choose a speculative loading strategy
+ 
+ The key differentiator between these strategies lies in their scope: Preconnect
+-API is origin-based, which means it only requires the target domain. Prefetch
+-and Prerender APIs are URL-based, which means that they require the exact
+-webpage path.
++and QUIC hints APIs are origin-based, which means they only require the target
++domain. Prefetch and Prerender APIs are URL-based, which means that they require
++the exact webpage path.
+ 
+-Because Preconnect operates at the origin level, it can be initiated much
+-earlier in the app lifecycle, even before you know the specific content or page
+-the user will navigate to.
++Because Preconnect and QUIC hints operate at the origin level, you can initiate
++them much earlier in the app lifecycle, even before you know the specific
++content or page the user will navigate to.
+ 
+ The following table compares these three strategies to help you choose the right
+ one for your use case:
+@@ -45,7 +46,7 @@ one for your use case:
+ ## Preconnect to origins
+ 
+ Preconnecting speeds up future loads by preemptively performing DNS lookups and
+-TCP/TLS handshakes for a specified origin.
++TCP/TLS or QUIC handshakes for a specified origin.
+ 
+ Unlike Prefetch and Prerender, which require an exact destination URL,
+ Preconnect is strictly origin-based. This lets you make the Preconnect call much
+@@ -87,6 +88,75 @@ can be connected to by calling this API multiple times.
+ > [!TIP]
+ > **Tip:** Use this API when the user is likely to need resources from the target origin. It is most effective when prioritized for the critical domains required for your next navigation.
+ 
++## Indicate QUIC protocol support with QUIC hints
++
++HTTP/3 (which runs over the QUIC transport protocol) offers significant latency
++improvements over HTTP/2, including 0-RTT handshakes, improved connection
++resilience, and the elimination of head-of-line blocking during packet loss.
++
++By default, WebView only attempts a QUIC connection if it has an indication that
++the origin supports QUIC, such as from an `Alt-Svc` header or DNS `HTTPS` record
++from a previous interaction. Without this prior knowledge, WebView uses HTTP/2
++or HTTP/1.1 for the initial connection.
++
++Calling `addQuicHints` pre-populates this protocol support information, allowing
++WebView to connect using QUIC immediately on the very first connection to the
++specified origins.
++
++### Preconnect with QUIC hints
++
++While both Preconnect and QUIC hints are origin-level optimizations on a
++`Profile`, they serve distinct, complementary roles:
++
++- **`preconnect`:** Actively opens and maintains a network connection (DNS lookup and TCP/TLS or QUIC handshake) for approximately 30 seconds. Because it holds open active network connections, it consumes device and network resources and should be reserved for high-probability target origins.
++- **`addQuicHints`:** Incurs zero immediate network traffic. It updates the `Profile` network stack's in-memory server properties to record protocol support. Because it has negligible overhead, you can safely configure QUIC hints during app startup for all known HTTP/3-capable origins.
++
++For optimal performance, call `addQuicHints` before calling `preconnect`,
++`prefetchUrlAsync`, or `loadUrl`. This ensures any subsequent preconnects or
++page requests negotiate HTTP/3 from the start.
++
++> [!NOTE]
++> **Note:** Only add QUIC hints for origins that support HTTP/3. Adding a QUIC hint for a non-QUIC-capable origin incurs a performance penalty because WebView attempts a QUIC connection first and waits for it to fail before attempting a TCP/TLS connection.
++
++### Implementation
++
++To configure QUIC hints, call `addQuicHints(Set<String> urls)` on a `Profile`
++instance. You must call this API on the UI thread and verify that WebView
++supports the `WebViewFeature.ADD_QUIC_HINTS_V1` feature.
++
++Like `preconnect`, `addQuicHints` operates on origins, but full URLs can be
++provided (such as `https://www.example.com/index.html`) and are automatically
++normalized to their origin (`https://www.example.com`).
++
++The method is additive: calling it multiple times merges the provided origins
++across the `Profile`.
++
++### Kotlin
++
++    // Must be called on the @UiThread
++    @OptIn(Profile.ExperimentalAddQuicHints::class)
++    if (WebViewFeature.isFeatureSupported(WebViewFeature.ADD_QUIC_HINTS_V1)) {
++        val quicOrigins = setOf(
++            "https://www.example.com",
++            "https://api.example.com"
++        )
++        profile.addQuicHints(quicOrigins)
++        // WebView now prioritizes HTTP/3 over QUIC for connections to these origins
++    }
++
++### Java
++
++    // Must be called on the @UiThread
++    // Requires @Profile.ExperimentalAddQuicHints annotation or suppression
++    if (WebViewFeature.isFeatureSupported(WebViewFeature.ADD_QUIC_HINTS_V1)) {
++        Set<String> quicOrigins = new HashSet<>(Arrays.asList(
++            "https://www.example.com",
++            "https://api.example.com"
++        ));
++        profile.addQuicHints(quicOrigins);
++        // WebView now prioritizes HTTP/3 over QUIC for connections to these origins
++    }
++
+ ## Common configuration: `PrefetchParameters` and `PrerenderParameters`
+ 
+ Both Prefetch and Prerender use `PrefetchParameters` or
+@@ -219,9 +289,9 @@ resource.
+ 
+ **2. The navigation phase (user activation)**
+ 
+-When the app explicitly navigates to the URL (for example, using `loadUrl()`) or
+-the user clicks a matching link, WebView determines if it can use the prefetched
+-cache:
++When the app explicitly navigates to the URL (for example, using
++[`WebViewCompat.navigate`](https://developer.android.com/develop/ui/views/layout/webapps/navigate) or `loadUrl`) or the user clicks a matching
++link, WebView determines if it can use the prefetched cache:
+ 
+ - **Main HTML evaluation:** WebView will trigger `shouldInterceptRequest()` for
+   the main HTML at this moment. To successfully serve the page from the prefetch
+@@ -321,9 +391,10 @@ query parameters differ, WebView uses the following No-Vary-Search (NVS) rules:
+ - **Server header:** The NVS response header from the server is the ultimate authority. If the server confirms query differences should be ignored, the match is served from the cache. If not, WebView falls back to a cold network load.
+ 
+ No-Vary-Search (NVS) is for advanced usage, and most developers might not need
+-it because they pass the exact same URL to both prefetch and `loadUrl()`. This
+-guidance is only necessary if there are differences in query parameters between
+-the prefetch URL and the `loadUrl()` URL.
++it because they pass the exact same URL to both prefetch and navigation
++([`WebViewCompat.navigate`](https://developer.android.com/develop/ui/views/layout/webapps/navigate) or `loadUrl`). This guidance is only
++necessary if there are differences in query parameters between the prefetch URL
++and the navigated URL.
+ 
+ ## Global configuration
+ 
+@@ -377,6 +448,7 @@ Follow these recommendations to maximize the benefits of speculative loading
+ while conserving system resources:
+ 
+ - **Initiate early:** Start prefetching during app startup or as soon as a navigation destination is likely.
++- **Pair QUIC hints with connection pre-warming:** Call `addQuicHints()` before initiating `preconnect()`, `prefetchUrlAsync()`, or standard navigations to ensure WebView attempts to establish connections using HTTP/3.
+ - **Integrated strategy:** If you prerender a URL already in the prefetch cache, the prerender navigation is served from that cache, avoiding redundant network requests.
+ - **Monitor quotas:** Prerendering is resource-heavy. Prefer prefetching for several likely candidates and reserve prerendering for the single most probable navigation.
+ - **Scheme support:** Ensure all URLs use the mandatory HTTPS scheme. Invalid schemes or null inputs trigger a synchronous `IllegalArgumentException`.
+@@ -386,6 +458,7 @@ while conserving system resources:
+ To learn more about debugging web apps, optimizing WebView startup performance,
+ and handling renderer process termination, see the following resources:
+ 
++- [Enhanced page navigation with the `WebViewCompat.navigate` method](https://developer.android.com/develop/ui/views/layout/webapps/navigate)
+ - [Debug web apps](https://developer.android.com/develop/ui/views/layout/webapps/debugging)
+ - [Optimize WebView startup](https://developer.android.com/develop/ui/views/layout/webapps/optimize-webview-startup)
+ - [Handle WebView renderer process termination](https://developer.android.com/develop/ui/views/layout/webapps/handle-termination)
+\ No newline at end of file

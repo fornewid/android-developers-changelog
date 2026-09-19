@@ -1,0 +1,57 @@
+diff --git a/docs/guide/topics/manifest/uses-sdk-element.md b/docs/guide/topics/manifest/uses-sdk-element.md
+index 69b6f965..425c2713 100644
+--- a/docs/guide/topics/manifest/uses-sdk-element.md
++++ b/docs/guide/topics/manifest/uses-sdk-element.md
+@@ -166,7 +166,10 @@ The framework API that an Android platform delivers is specified using an
+ integer identifier called *API level*. Each Android platform version supports
+ exactly one API level, although support is implicit for all earlier API levels
+ (down to API level 1). The initial release of the Android platform provided
+-API level 1, and subsequent releases have incremented the API level.
++API level 1, and subsequent releases have incremented the API level. APIs
++introduced in pre-release preview SDKs that have not yet reached platform stability
++are marked as ["API under development"](https://developer.android.com/guide/topics/manifest/uses-sdk-element#apis-under-development)
++instead of an integer API level.
+ 
+ The following table specifies the API level supported by each version of the
+ Android platform. For information about the relative numbers of devices that
+@@ -212,6 +215,30 @@ are running each version, see the [Distribution dashboard](https://developer.and
+ | [Android 1.1](https://developer.android.com/about/versions/android-1.1) | 2 | `https://developer.android.com/reference/android/os/Build.VERSION_CODES#BASE_1_1` |   |
+ | Android 1.0 | 1 | `https://developer.android.com/reference/android/os/Build.VERSION_CODES#BASE` |   |
+ 
++### APIs under development
++
++In the Android API reference documentation, some APIs are marked with
++"API under development" instead of an integer API level. APIs under development
++have the following characteristics:
++
++- **Pre-release preview status:** These APIs are currently part of an active [Beta](https://developer.android.com/about/versions) or [Canary](https://developer.android.com/about/canary) preview SDK release and have not yet reached platform stability.
++- **No stability guarantee:** Unlike released APIs (which have a permanent API level and are backward-compatible across future releases), APIs under development might change signatures, be renamed, or be removed entirely between preview SDK releases.
++
++#### Check for APIs under development at runtime (`PREVIEW_SDK_INT`)
++
++Because APIs under development can change or disappear between preview
++releases, never use a greater-than-or-equal-to check (`>=`)
++to guard calls to unreleased APIs. An API present in preview 1 might be
++modified or dropped in preview 2.
++
++Instead, apps experimenting with preview features must check the
++[`Build.VERSION.PREVIEW_SDK_INT`](https://developer.android.com/reference/android/os/Build.VERSION#PREVIEW_SDK_INT)
++value for strict equality (`==`) against the exact preview revision
++the app was compiled against:
++
++- On final, production builds and releases, `Build.VERSION.PREVIEW_SDK_INT` is always `0`.
++- On preview builds, `PREVIEW_SDK_INT` is unique for each release.
++
+ ## Uses of API level in Android
+ 
+ The API level identifier serves a key role in helping ensure the best
+@@ -407,4 +434,6 @@ specifies the API level at which each element is introduced. The API level
+ for packages and classes is specified as "Added in API level" at the
+ top-right corner of the content area on each documentation page. The API level
+ for class members is specified in their detailed description headers,
+-at the right margin.
+\ No newline at end of file
++at the right margin. For pre-release APIs that have not yet reached platform
++stability, this location displays ["API under development"](https://developer.android.com/guide/topics/manifest/uses-sdk-element#apis-under-development)
++instead of an API level integer.
+\ No newline at end of file

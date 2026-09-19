@@ -1,0 +1,58 @@
+diff --git a/docs/blog/latest/8.md b/docs/blog/latest/8.md
+index 1593c736..b8c1c86c 100644
+--- a/docs/blog/latest/8.md
++++ b/docs/blog/latest/8.md
+@@ -7,6 +7,18 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_F68BQ.webp)](https://developer.android.com/blog/authors/scott-nien) 13 Nov 2025 13 Nov 2025 ![](https://developer.android.com/static/blog/assets/camera_X1_5_9f8216fa59_1XU56O.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Introducing CameraX 1.5: Powerful Video Recording and Pro-level Image Capture](https://developer.android.com/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture)
++
++  [arrow_forward](https://developer.android.com/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture) The CameraX team is thrilled to announce the release of version 1.5! This latest update focuses on bringing professional-grade capabilities to your fingertips while making the camera session easier to configure than ever before.
++  [Scott Nien](https://developer.android.com/blog/authors/scott-nien) • 7 min read
++- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 13 Nov 2025 13 Nov 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) [Community](https://developer.android.com/blog/categories/community)
++
++  ## [#WeArePlay: Meet the game creators who entertain, inspire and spark imagination](https://developer.android.com/blog/posts/we-are-play-meet-the-game-creators-who-entertain-inspire-and-spark-imagination)
++
++  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-meet-the-game-creators-who-entertain-inspire-and-spark-imagination) In our latest #WeArePlay stories, we meet the game creators who entertain, inspire and spark imagination in players around the world on Google Play.
++  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+ - [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 12 Nov 2025 12 Nov 2025 ![](https://developer.android.com/static/blog/assets/developer_Verification_2bb1c616ea_Z11taB3.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+ 
+   ## [Android developer verification: Early access starts now as we continue to build with your feedback](https://developer.android.com/blog/posts/android-developer-verification-early-access-starts-now-as-we-continue-to-build-with-your-feedback)
+@@ -116,18 +128,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/bringing-androidify-to-xr-with-the-jetpack-xr-sdk) Samsung Galaxy XR is here, powered by Android XR! This blog post is part of our Android XR Spotlight Week, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.
+   [Dereck Bridie](https://developer.android.com/blog/authors/dereck-bridie) • 9 min read
+-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 22 Oct 2025 22 Oct 2025 ![](https://developer.android.com/static/blog/assets/Galaxy_XR_BLOG_341f1e7643_2mbd4B.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Giving your apps a new home on Samsung Galaxy XR, the first device powered by Android XR](https://developer.android.com/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr) The first device powered by Android XR is here: engineered by Samsung, Galaxy XR, is available now, putting the possibilities of immersive experiences directly into users' hands.
+-  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
+-- [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_1Ce4cO.webp)](https://developer.android.com/blog/authors/jan-kleinert)[![View Bradley Allen's profile](https://developer.android.com/static/blog/assets/Bradley_Allen_df04d56088_22TwMm.webp)](https://developer.android.com/blog/authors/bradley-allen) 22 Oct 2025 22 Oct 2025 ![](https://developer.android.com/static/blog/assets/Spotlight_week_Blog_Banner_4c1830df25_2kIlhv.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+-
+-  ## [Welcome to Android XR Spotlight Week!](https://developer.android.com/blog/posts/welcome-to-android-xr-spotlight-week)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/welcome-to-android-xr-spotlight-week) Samsung Galaxy XR is here, and it's the first device powered by Android XR! Since we launched the developer preview of the platform last December, developers have started building apps and games made for Android XR.
+-  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert), [Bradley Allen](https://developer.android.com/blog/authors/bradley-allen) • 1 min read
+ [arrow_back](https://developer.android.com/blog/latest/7)
+ 
+ #### Page 8
+@@ -159,6 +159,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+ - [#Google Play](https://developer.android.com/blog/topics/google-play)
+ - [#Memory](https://developer.android.com/blog/topics/memory)
++- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+ - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+ - [#Widgets](https://developer.android.com/blog/topics/widgets)
+@@ -184,7 +185,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
+ - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
+ - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
+-- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [#coroutines](https://developer.android.com/blog/topics/coroutines)
+ - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
+ - [# Quail 2](https://developer.android.com/blog/topics/quail-2)

@@ -1,0 +1,58 @@
+diff --git a/docs/blog/latest/7.md b/docs/blog/latest/7.md
+index 56f0d2f9..6ee104a9 100644
+--- a/docs/blog/latest/7.md
++++ b/docs/blog/latest/7.md
+@@ -7,6 +7,18 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/buildfor_A_Iglassesxr_5141a407fc_7gpQN.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Build for AI Glasses with the Android XR SDK Developer Preview 3 and unlock new features for immersive experiences](https://developer.android.com/blog/posts/build-for-ai-glasses-with-the-android-xr-sdk-developer-preview-3-and-unlock-new-features-for-immersive-experiences)
++
++  [arrow_forward](https://developer.android.com/blog/posts/build-for-ai-glasses-with-the-android-xr-sdk-developer-preview-3-and-unlock-new-features-for-immersive-experiences) To support the expanding selection of XR devices, we are announcing Android XR SDK Developer Preview 3!
++  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
++- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/xr_Week4_07a795cac6_Z1lA8nY.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
++
++  ## [Start building for glasses, new devices for Android XR and more in The Android Show \| XR Edition](https://developer.android.com/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show)
++
++  [arrow_forward](https://developer.android.com/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show) Today, during The Android Show \| XR Edition, we shared a look at the expanding Android XR platform, which is fundamentally evolving to bring a unified developer experience to the entire XR ecosystem.
++  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 2 min read
+ - [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) [Community](https://developer.android.com/blog/categories/community)
+ 
+   ## [#WeArePlay: How Miksapix Interactive is bringing ancient Sámi Mythology to gamers worldwide](https://developer.android.com/blog/posts/we-are-play-how-miksapix-interactive-is-bringing-ancient-sami-mythology-to-gamers-worldwide)
+@@ -119,18 +131,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/how-reddit-used-the-r8-optimizer-for-high-impact-performance-improvements) During their work with the Android Developer Relations team, the engineering team at Reddit used the App Performance Score to evaluate their app.
+   [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 4 min read
+-- [![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_F68BQ.webp)](https://developer.android.com/blog/authors/scott-nien) 13 Nov 2025 13 Nov 2025 ![](https://developer.android.com/static/blog/assets/camera_X1_5_9f8216fa59_1XU56O.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Introducing CameraX 1.5: Powerful Video Recording and Pro-level Image Capture](https://developer.android.com/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture) The CameraX team is thrilled to announce the release of version 1.5! This latest update focuses on bringing professional-grade capabilities to your fingertips while making the camera session easier to configure than ever before.
+-  [Scott Nien](https://developer.android.com/blog/authors/scott-nien) • 7 min read
+-- [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 13 Nov 2025 13 Nov 2025 ![](https://developer.android.com/static/blog/assets/Android_Devs_Google_Devs_Blog_Header_1200x600_79350b0b52_1w8gkH.webp) [Community](https://developer.android.com/blog/categories/community)
+-
+-  ## [#WeArePlay: Meet the game creators who entertain, inspire and spark imagination](https://developer.android.com/blog/posts/we-are-play-meet-the-game-creators-who-entertain-inspire-and-spark-imagination)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/we-are-play-meet-the-game-creators-who-entertain-inspire-and-spark-imagination) In our latest #WeArePlay stories, we meet the game creators who entertain, inspire and spark imagination in players around the world on Google Play.
+-  [Robbie McLachlan](https://developer.android.com/blog/authors/robbie-mclachlan) • 2 min read
+ [arrow_back](https://developer.android.com/blog/latest/6)
+ 
+ #### Page 7
+@@ -162,6 +162,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+ - [#Google Play](https://developer.android.com/blog/topics/google-play)
+ - [#Memory](https://developer.android.com/blog/topics/memory)
++- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+ - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+ - [#Widgets](https://developer.android.com/blog/topics/widgets)
+@@ -187,7 +188,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
+ - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
+ - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
+-- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [#coroutines](https://developer.android.com/blog/topics/coroutines)
+ - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
+ - [# Quail 2](https://developer.android.com/blog/topics/quail-2)

@@ -1,0 +1,58 @@
+diff --git a/docs/blog/latest/9.md b/docs/blog/latest/9.md
+index c767815f..cab32e58 100644
+--- a/docs/blog/latest/9.md
++++ b/docs/blog/latest/9.md
+@@ -7,6 +7,18 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 22 Oct 2025 22 Oct 2025 ![](https://developer.android.com/static/blog/assets/Galaxy_XR_BLOG_341f1e7643_2mbd4B.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Giving your apps a new home on Samsung Galaxy XR, the first device powered by Android XR](https://developer.android.com/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr)
++
++  [arrow_forward](https://developer.android.com/blog/posts/giving-your-apps-a-new-home-on-samsung-galaxy-xr-the-first-device-powered-by-android-xr) The first device powered by Android XR is here: engineered by Samsung, Galaxy XR, is available now, putting the possibilities of immersive experiences directly into users' hands.
++  [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
++- [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_1Ce4cO.webp)](https://developer.android.com/blog/authors/jan-kleinert)[![View Bradley Allen's profile](https://developer.android.com/static/blog/assets/Bradley_Allen_df04d56088_22TwMm.webp)](https://developer.android.com/blog/authors/bradley-allen) 22 Oct 2025 22 Oct 2025 ![](https://developer.android.com/static/blog/assets/Spotlight_week_Blog_Banner_4c1830df25_2kIlhv.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
++
++  ## [Welcome to Android XR Spotlight Week!](https://developer.android.com/blog/posts/welcome-to-android-xr-spotlight-week)
++
++  [arrow_forward](https://developer.android.com/blog/posts/welcome-to-android-xr-spotlight-week) Samsung Galaxy XR is here, and it's the first device powered by Android XR! Since we launched the developer preview of the platform last December, developers have started building apps and games made for Android XR.
++  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert), [Bradley Allen](https://developer.android.com/blog/authors/bradley-allen) • 1 min read
+ - [![View Robbie McLachlan's profile](https://developer.android.com/static/blog/assets/Robbie_280bd4586c_2wmcrw.webp)](https://developer.android.com/blog/authors/robbie-mclachlan) 22 Oct 2025 22 Oct 2025 ![](https://developer.android.com/static/blog/assets/APPSACC_Website_Android_Devs_Blog_Header_f690f5f7cc_ZQUPd2.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+ 
+   ## [Grow your app with the Google Play Apps Accelerator - apply now](https://developer.android.com/blog/posts/grow-your-app-with-the-google-play-apps-accelerator-apply-now)
+@@ -127,18 +139,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   [arrow_forward](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2) Since launching the Android XR SDK Developer Preview alongside Samsung, Qualcomm, and Unity last year, we've been blown away by all of the excitement we've been hearing from the broader Android community.
+   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
+   - [#Android](https://developer.android.com/blog/topics/android)
+-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 20 May 2025 20 May 2025 ![](https://developer.android.com/static/blog/assets/yt_adaptive_b9097334d4_Z1poFG.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Google I/O 2025: Build adaptive Android apps that shine across form factors](https://developer.android.com/blog/posts/google-i-o-2025-build-adaptive-android-apps-that-shine-across-form-factors)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/google-i-o-2025-build-adaptive-android-apps-that-shine-across-form-factors) At Google I/O this year, we are exploring how adaptive development isn't just a good idea, but essential to building apps that shine across the expanding Android device ecosystem.
+-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) • 5 min read
+-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Joseph Lewis's profile](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_qbEP3.webp)](https://developer.android.com/blog/authors/joseph-lewis) 07 May 2025 07 May 2025 ![](https://developer.android.com/static/blog/assets/ANDDM_Zoho_Header_6260da2eab_3BTtG.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+-
+-  ## [Zoho Achieves 6x Faster Logins with Passkey and Credential Manager Integration](https://developer.android.com/blog/posts/zoho-achieves-6x-faster-logins-with-passkey-and-credential-manager-integration)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/zoho-achieves-6x-faster-logins-with-passkey-and-credential-manager-integration) Zoho, a comprehensive cloud-based software suite focused on security and seamless experiences, achieved significant improvements by adopting passkeys in their OneAuth Android app.
+-  [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Joseph Lewis](https://developer.android.com/blog/authors/joseph-lewis) • 10 min read
+ [arrow_back](https://developer.android.com/blog/latest/8)
+ 
+ #### Page 9
+@@ -170,6 +170,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Android XR SDK](https://developer.android.com/blog/topics/android-xr-sdk)
+ - [#Google Play](https://developer.android.com/blog/topics/google-play)
+ - [#Memory](https://developer.android.com/blog/topics/memory)
++- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
+ - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+ - [#Widgets](https://developer.android.com/blog/topics/widgets)
+@@ -195,7 +196,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
+ - [#Profiling Manager](https://developer.android.com/blog/topics/profiling-manager)
+ - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
+-- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [#coroutines](https://developer.android.com/blog/topics/coroutines)
+ - [#Gemini in Android Studio](https://developer.android.com/blog/topics/gemini-in-android-studio)
+ - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
