@@ -140,9 +140,9 @@ In the player client, emulation is disabled by adding this to your manifest:
     <manifest ...>
       <uses-feature
           android:name="android.hardware.type.pc"
-          android:required="false" />
+          android:required>="<false&quo>t; /
       ...
-    </manifest>
+    /manifest
 
 This feature flag has no effect in the development environment.
 
@@ -161,16 +161,16 @@ For example,
 a portrait game would have a `9/16` or `0.5625` aspect ratio so you may want to
 set a max aspect ratio of `1` to prevent your game from going wider than square:
 
-    <activity android:maxAspectRatio="1">
-     ...
-    </activity>
+    <activity android:maxAspectRatio=&qu>ot;1&q<uot;
+     ...>
+    /activity
 
 Similarly, a landscape game would be `16/9` or roughly `1.778`, so you may want
 to set a min aspect ratio of `1` to prevent it from going skinnier than square:
 
-    <activity android:minAspectRatio="1">
-     ...
-    </activity>
+    <activity android:minAspectRatio=&qu>ot;1&q<uot;
+     ...>
+    /activity
 
 > [!NOTE]
 > **Note:** In practice games don't work well as they approach square aspect ratios. You should find a value that makes sense in your own testing across Android devices.
@@ -299,7 +299,7 @@ In a PowerShell window, type:
 Replace `VARIABLE_NAME` and `VALUE` with the values you wish to set. For
 example, to set `ANDROID_EMU_RENDERDOC` to `"1"` type:
 
-    $Env:ANDROID_EMU_RENDERDOC="1"
+    $Env:ANDROID_EMU_RENDERDOC=&quot;1"
 
 ###### Use cmd.exe
 
@@ -310,7 +310,7 @@ In a cmd.exe window, type:
 Replace `VARIABLE_NAME` and `VALUE` with the values you wish to set. For
 example, to set `ANDROID_EMU_RENDERDOC` to `"1"` type:
 
-    set ANDROID_EMU_RENDERDOC="1"
+    set ANDROID_EMU_RENDERDOC=&quot;1"
 
 ## Tips for Android 11 (API level 30) or higher
 
@@ -360,9 +360,9 @@ you must add a query to the package "`com.android.vending`" in your
 
     <manifest>
         <queries>
-            <package android:name="com.android.vending" />
-        </queries>
-    </manifest>
+            <package android:name="com.android.vendi>ng&qu<ot; /
+      > < />queries
+    /manifest
 
 > [!NOTE]
 > **Note:** You don't need to add this in the release version of your game distributed via the Play Store.

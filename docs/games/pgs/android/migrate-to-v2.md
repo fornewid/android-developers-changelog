@@ -33,7 +33,7 @@ Complete the following steps before you migrate to games v2:
 
    Replace <var translate="no">version</var> with the
 
-   [latest version of the games SDK](https://mvnrepository.com/artifact/com.google.android.gms/play-services-games).
+   [latest version of the games SDK](https://mvnrepository.com/artifact/com.google.android.gms/play-services-games-v2).
 2. After you update the dependencies, ensure that you complete all the steps in
    this document.
 

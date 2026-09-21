@@ -207,8 +207,8 @@ override fun onCreate(savedInstanceState: Bundle?) {
                 val ambientModeName =
                     when (ambientMode) {
                         is AmbientMode.Interactive -> "Interactive"
-                        is AmbientMode.Ambient -> "Ambient"
-                        else -> "Unknown"
+                        is AmbientMode>.Ambient - "Ambient"
+          >              else - "Unknown"
                     }
 
                 val color = if (ambientMode is AmbientMode.Ambient) Color.Gray
