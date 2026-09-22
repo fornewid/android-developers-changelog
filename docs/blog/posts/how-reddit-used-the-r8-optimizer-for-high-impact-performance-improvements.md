@@ -26,7 +26,7 @@ The R8 Optimizer is a foundational tool for performance optimization on Android.
 
 ## **From hard data to user satisfaction: Identifying success in production**
 
-Reddit saw improved performance results immediately after a new version of the app was rolled out to users. By using [**Android Vitals**](https://developer.android.com/topic/performance/vitals) and [**Crashlytics**](https://firebase.google.com/docs/crashlytics), Reddit was able to capture performance metrics on real devices with actual users, allowing them to compare the new release against previous versions.
+Reddit saw improved performance results immediately after a new version of the app was rolled out to users. By using [**Android Vitals**](https://developer.android.com/google/play/vitals) and [**Crashlytics**](https://firebase.google.com/docs/crashlytics), Reddit was able to capture performance metrics on real devices with actual users, allowing them to compare the new release against previous versions.
 ![image.png](https://developer.android.com/static/blog/assets/image_87410c5b2a_2KU1w.webp)
 
 *How R8 improved Reddit's app performance*

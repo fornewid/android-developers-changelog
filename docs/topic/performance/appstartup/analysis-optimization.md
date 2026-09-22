@@ -53,7 +53,7 @@ when altering the workflow of your app.
 
 Optimize and re-measure until you're satisfied with the startup time for your
 app. For more information, see [Use metrics to detect and diagnose
-problems](https://developer.android.com/topic/performance/vitals/launch-time#ddp).
+problems](https://developer.android.com/topic/performance/issues/launch-time#ddp).
 
 ## Measure and analyze time spent in major operations
 
@@ -109,16 +109,16 @@ makes it difficult to miss thread policy violations.
 ### TTID and TTFD
 
 To see the time it takes the app to produce its first frame, measure the [time
-to initial display](https://developer.android.com/topic/performance/vitals/launch-time#time-initial) (TTID).
+to initial display](https://developer.android.com/topic/performance/issues/launch-time#time-initial) (TTID).
 However, this metric doesn't necessarily reflect the time until the user can
 start interacting with your app. The [time to full
-display](https://developer.android.com/topic/performance/vitals/launch-time#time-full) (TTFD) metric is more
+display](https://developer.android.com/topic/performance/issues/launch-time#time-full) (TTFD) metric is more
 useful in measuring and optimizing the code paths necessary to have a fully
 usable app state.
 
 For strategies on reporting when the app UI is fully drawn, see [Improve startup
 timing
-accuracy](https://developer.android.com/topic/performance/vitals/launch-time#startup-accuracy).
+accuracy](https://developer.android.com/topic/performance/issues/launch-time#startup-accuracy).
 
 Optimize for both TTID and TTFD, because both are important in their own areas.
 A short TTID helps the user see that the app is actually launching. Keeping the
@@ -161,7 +161,7 @@ contend with the I/O that the top app is doing.
 After you identify an opportunity for optimization, explore possible solutions
 to help improve startup times:
 
-- Load content lazily and asynchronously to speed up [TTID](https://developer.android.com/topic/performance/vitals/launch-time#time-initial).
+- Load content lazily and asynchronously to speed up [TTID](https://developer.android.com/topic/performance/issues/launch-time#time-initial).
 - Minimize calling functions that make binder calls. If they're unavoidable, ensure that you're optimizing those calls by caching values instead of repeating calls or moving non-blocking work to background threads.
 - To make your app startup appear faster, you can display something that requires minimal rendering to the user as quickly as possible until the rest of the screen is finished loading.
 - Create and add a [startup profile](https://developer.android.com/topic/performance/baselineprofiles/overview#startup-profiles) to your app.
@@ -247,4 +247,4 @@ Consider these possible solutions to optimize main activity load time:
 - [Overview of measuring
   app
   performance](https://developer.android.com/topic/performance/measuring-performance) \* [Frozen
-  frames](https://developer.android.com/topic/performance/vitals/frozen)
+  frames](https://developer.android.com/topic/performance/issues/render#frozen-frames)

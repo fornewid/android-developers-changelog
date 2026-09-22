@@ -117,7 +117,7 @@ inside your screen composables to automatically signal to Macrobenchmark when
 your async network data or complex UI states have finished rendering.
 
 For more information about analyzing and optimizing initialization performance,
-see [App startup time](https://developer.android.com/topic/performance/vitals/launch-time).
+see [App startup time](https://developer.android.com/topic/performance/issues/launch-time).
 
 ## FrameTimingMetric
 

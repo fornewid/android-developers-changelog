@@ -103,7 +103,7 @@ public. This can be done in one of two ways:
 
 ## Use Vitals with Google Play Games on PC
 
-You can use [Android vitals](https://developer.android.com/topic/performance/vitals) to monitor the crash and
+You can use [Android vitals](https://developer.android.com/google/play/vitals) to monitor the crash and
 ANR rates for your game after you have rolled it out to production on
 Google Play Games on PC, just as you would with the mobile version.
 Filter with the **Form factor** and select `Google Play Games on PC` to see the

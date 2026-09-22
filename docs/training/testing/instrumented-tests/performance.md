@@ -13,7 +13,7 @@ acceptable.
 
 Field testing helps you to understand how an app performs with real users under
 real world conditions. It is an important area and helps to understand how an
-app performs in the field. You can use tools such as [Google Play Vitals](https://developer.android.com/topic/performance/vitals) and
+app performs in the field. You can use tools such as [Google Play Vitals](https://developer.android.com/google/play/vitals) and
 [Firebase Performance Monitoring](https://firebase.google.com/docs/perf-mon) to get field metrics from
 users.
 

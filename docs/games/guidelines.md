@@ -421,7 +421,7 @@ enforced based on the trailing 28 days of data considering only devices within
 the approved set for which your app has at least 1,500 sessions in the last 28
 days.
 
-![Android performance indicators](https://developer.android.com/static/topic/performance/vitals/images/android-vitals.png)
+![Android performance indicators](https://developer.android.com/static/google/play/vitals/images/android-vitals.png)
 
 |   | `LU-ST-GAA` | `LU-ST-GAB` |
 | Android vitals | [Test devices](https://developer.android.com/games/guidelines#referencedevice) | 4GB+ RAM Android Devices |
@@ -430,7 +430,7 @@ days.
 | **[ANRs](https://developer.android.com/games/optimize/vitals/anr)** | \<2% average ANR rate [Check metrics in Play Console](https://play.google.com/console/developers/app/vitals/metrics/details?days=28&metric=USER_PERCEIVED_ANRS&device=google/tegu,google/tokay,google/komodo,google/caiman,google/stallion,google/comet,google/frankel,google/blazer,google/mustang,google/rango,Xiaomi/klimt,samsung/gts11wifi,samsung/gts11uwifi,samsung/gts11u,samsung/gts11,vivo/PD2415,vivo/PD2405,vivo/V2561,OPPO/OP5A3DL1,OPPO/OP5A41L1,Aocwei/X300,vivo/PD2502,OPPO/OP5E11L1,OPPO/OP5E17L1,OPPO/OP5E03L1,Xiaomi/yupei,OnePlus/OP6135L1,samsung/SC-52F,samsung/SC-51F,samsung/pa2q,samsung/SC-56F,samsung/psq,samsung/q7mq,OnePlus/OP5D0DL1,OnePlus/OP612BL1,OnePlus/OP6190L1,Xiaomi/dada,Xiaomi/xuanyuan,docomo/SO-51F,motorola/leap,iQOO/I2401,realme/RE605FL1,OPPO/OP5DC1L1,OnePlus/OP612DL1,motorola/vantage,samsung/m3q,samsung/m1q,samsung/m2q,OnePlus/OP60FFL1,Xiaomi/pudding,Xiaomi/nezha,Xiaomi/popsicle,realme/RE60C8L1,OPPO/OP61A9L1,samsung/SC-55F) info | \<3% average ANR rate [Check metrics in Play Console](https://play.google.com/console/developers/app/vitals/metrics/details?days=28&metric=USER_PERCEIVED_ANRS&ramBucket=8192,12288,6144,4096,16384,20480)) info |
 
 > [!NOTE]
-> **Note:** The [bad behavior thresholds](https://developer.android.com/topic/performance/vitals#what_are_the_bad_behavior_thresholds) that affect visibility within the Play Store are not the same as the Level Up program. The values documented above are used to determine eligibility of the Level Up program.
+> **Note:** The [bad behavior thresholds](https://developer.android.com/google/play/vitals#what_are_the_bad_behavior_thresholds) that affect visibility within the Play Store are not the same as the Level Up program. The values documented above are used to determine eligibility of the Level Up program.
 
 #### Exemptions
 
@@ -439,7 +439,7 @@ There are no exemptions for this guideline.
 #### Additional resources
 
 For more information diagnosing and fixing vital issues, see
-[Android vitals](https://developer.android.com/topic/performance/vitals).
+[Android vitals](https://developer.android.com/google/play/vitals).
 
 ### Performance
 
@@ -468,7 +468,7 @@ guideline:
 
 For additional details on calculating and measuring Level Up
 performance, see [frame rate](https://developer.android.com/games/optimize/framerate). You can also explore
-the [slow sessions documentation](https://developer.android.com/topic/performance/vitals/slow-session) for optimization strategies regarding
+the [slow sessions documentation](https://developer.android.com/topic/performance/issues/slow-session) for optimization strategies regarding
 frame smoothness.
 
 ### Memory

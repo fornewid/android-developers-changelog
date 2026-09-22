@@ -92,7 +92,7 @@ capabilities and perform operations accordingly.
 
 ## Prioritize cold startup traces
 
-A [cold start](https://developer.android.com/topic/performance/vitals/launch-time#cold) refers to an app
+A [cold start](https://developer.android.com/topic/performance/issues/launch-time#cold) refers to an app
 starting from scratch, meaning that the system's process doesn't yet create the
 app's process. Your app typically starts cold if you launch it for the first
 time since the device booted or since the system force-stopped the app. Cold
@@ -104,5 +104,5 @@ cold startups gives you better oversight into app performance.
 
 - Note: link text is displayed when JavaScript is off
 - [App startup analysis and optimization](https://developer.android.com/topic/performance/appstartup/analysis-optimization)
-- [App startup time](https://developer.android.com/topic/performance/vitals/launch-time)
-- [Frozen frames](https://developer.android.com/topic/performance/vitals/frozen)
+- [App startup time](https://developer.android.com/topic/performance/issues/launch-time)
+- [Frozen frames](https://developer.android.com/topic/performance/issues/render#frozen-frames)

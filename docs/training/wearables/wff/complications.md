@@ -45,8 +45,8 @@ This determines which data sources are then available for the user to select
 from.
 
 In the case of the Daily Steps example, you decide in your watch face
-definition how to render the `Value` and `TargetValue`: would it be as text, or as
-a progress indicator? That is for you as the watch face designer to decide.
+definition how to render the `Value` and `TargetValue`: would it be as text, or
+as a progress indicator? That is for you as the watch face designer to decide.
 
 ## Define complications
 

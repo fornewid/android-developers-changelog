@@ -64,7 +64,7 @@ Android (Go edition)](https://developer.android.com/guide/topics/androidgo/optim
 If the available tools or libraries don't resolve your performance issues, we
 recommend checking for common problems and solutions in any of these categories:
 
-- [App startup](https://developer.android.com/topic/performance/vitals/launch-time)
+- [App startup](https://developer.android.com/topic/performance/issues/launch-time)
 - [Slow rendering](https://developer.android.com/training/articles/perf-anr)
 - [Memory](https://developer.android.com/topic/performance/memory-overview)
 - [Battery and power](https://developer.android.com/training/monitoring-device-state/doze-standby)

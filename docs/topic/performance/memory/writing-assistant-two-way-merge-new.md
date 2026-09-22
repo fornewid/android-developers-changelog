@@ -48,13 +48,13 @@ memory.
 
 ## Production level memory tools
 
-[Android vitals: Memory usage (anonymous RSS + swap)](https://developer.android.com/topic/performance/vitals/memory-usage)
+[Android vitals: Memory usage (anonymous RSS + swap)](https://developer.android.com/google/play/vitals/memory-usage)
 :   Android vitals shares your app's production memory usage broken down by the process states foreground, foreground service, background service.
 
-[Android vitals: Bitmap memory usage](https://developer.android.com/topic/performance/vitals/bitmap-memory-usage)
+[Android vitals: Bitmap memory usage](https://developer.android.com/google/play/vitals/bitmap-memory-usage)
 :   Android vitals provides metrics on an app's bitmap memory footprint by aggregating data from Android devices
 
-[Android vitals: DEX code optimization](https://developer.android.com/topic/performance/vitals/code-optimization)
+[Android vitals: DEX code optimization](https://developer.android.com/google/play/vitals/code-optimization)
 :   Android vitals can alert you when your app's DEX code optimization levels are low. This includes obfuscation, shrinking, and optimization for apps and games that use R8
 
 [Crashlytics](https://firebase.google.com/support/release-notes/android#crashlytics_v20-1-0)

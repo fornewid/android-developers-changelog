@@ -498,7 +498,7 @@ activity launches and the process state at the start of the test.
 > [!WARNING]
 > **Warning:** If `StartupMode.COLD` is used, the app process is killed between the execution of `setupBlock` and `measureBlock` to allow for app preparation without starting the process. If you need the process to remain active, use `StartupMode.WARM`, which restarts activities without restarting the process, or set `startupMode` to `null` and call `killProcess` within the `setupBlock`.
 
-To learn more about the types of startup, see [App startup time](https://developer.android.com/topic/performance/vitals/launch-time).
+To learn more about the types of startup, see [App startup time](https://developer.android.com/topic/performance/issues/launch-time).
 
 ## Samples
 

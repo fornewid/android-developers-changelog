@@ -66,7 +66,7 @@ improve your app.
 
 ### Understand performance in production
 
-- [Android vitals](https://developer.android.com/topic/performance/vitals) can help improve your app's performance by alerting you when various performance metrics exceed predetermined thresholds.
+- [Android vitals](https://developer.android.com/google/play/vitals) can help improve your app's performance by alerting you when various performance metrics exceed predetermined thresholds.
 - The [Firebase performance SDK](https://firebase.google.com/docs/perf-mon/get-started-android) collects various metrics about your app's performance. For example, you can use the SDK to measure the time between when the user opens the app and when the app becomes responsive, helping identify potential startup bottlenecks.
 
 ### Profile locally with Android Studio

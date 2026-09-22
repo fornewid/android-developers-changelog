@@ -271,7 +271,7 @@ has drawn a first frame.
     WHERE package LIKE 'com.android.codebloat%';
 
 See:
-[Understand the different app startup states](https://developer.android.com/topic/performance/vitals/launch-time#startup-state)
+[Understand the different app startup states](https://developer.android.com/topic/performance/issues/launch-time#startup-state)
 
 An app's startup duration is sensitive to many factors other than the ones
 covered in this guide!

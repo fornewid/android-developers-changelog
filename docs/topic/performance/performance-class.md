@@ -296,4 +296,4 @@ specific performance class requirements are published in the
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [App startup time](https://developer.android.com/topic/performance/vitals/launch-time)
+- [App startup time](https://developer.android.com/topic/performance/issues/launch-time)

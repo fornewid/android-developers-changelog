@@ -4,7 +4,7 @@ url: https://developer.android.com/games/optimize/vitals
 source: md.txt
 ---
 
-![](https://developer.android.com/static/topic/performance/vitals/images/android-vitals.png)
+![](https://developer.android.com/static/google/play/vitals/images/android-vitals.png)
 
 Android vitals helps Google improve the quality of Android apps on Google Play.
 When a user allows it, their Android-powered device tracks app quality metrics
@@ -51,7 +51,7 @@ battery usage** for watch face apps.
 for all mobile apps.
 
 > [!NOTE]
-> **Note:** Apps exceeding the thresholds for memory usage, bitmap memory usage, or code optimization may see store visibility impact starting from **February 2027** . For specifics on these metrics, see [Memory usage](https://developer.android.com/topic/performance/vitals/memory-usage), [Bitmap memory usage](https://developer.android.com/topic/performance/vitals/bitmap-memory-usage), and [Enable app optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization).
+> **Note:** Apps exceeding the thresholds for memory usage, bitmap memory usage, or code optimization may see store visibility impact starting from **February 2027** . For specifics on these metrics, see [Memory usage](https://developer.android.com/google/play/vitals/memory-usage), [Bitmap memory usage](https://developer.android.com/google/play/vitals/bitmap-memory-usage), and [Enable app optimization](https://developer.android.com/google/play/vitals/code-optimization).
 
 #### What are the bad behavior thresholds?
 
@@ -123,38 +123,40 @@ first on the largest overall crash and ANR clusters.
 
 #### I need help to fix my technical issues. Where do I start?
 
-The following resources resources are provided to help you diagnose and fix
-technical issues in your app or game.
+The following resources are provided to help you understand how Android vitals
+tracks technical issues in your app or game, and you can visit
+[Address common performance issues](https://developer.android.com/topic/performance/issues) for general
+diagnostic and remediation guidance.
 
 ##### Core vitals:
 
-[User-perceived ANR rate](https://developer.android.com/games/optimize/vitals/anr#android-vitals)  
+[User-perceived ANR rate](https://developer.android.com/google/play/vitals/anr)  
 
-[User-perceived crash rate](https://developer.android.com/games/optimize/vitals/crash#android-vitals)  
+[User-perceived crash rate](https://developer.android.com/google/play/vitals/crash)  
 
-[Excessive battery usage](https://developer.android.com/games/optimize/vitals/excessive-battery-usage)  
+[Excessive battery usage](https://developer.android.com/google/play/vitals/excessive-battery-usage)  
 
-[Excessive partial wake locks](https://developer.android.com/topic/performance/vitals/excessive-wakelock)  
+[Excessive partial wake locks](https://developer.android.com/google/play/vitals/excessive-wakelock)  
 
-[Memory usage (Anonymous RSS + swap)](https://developer.android.com/topic/performance/vitals/memory-usage)  
+[Memory usage (Anonymous RSS + swap)](https://developer.android.com/google/play/vitals/memory-usage)  
 
-[Bitmap memory usage](https://developer.android.com/topic/performance/vitals/bitmap-memory-usage)  
+[Bitmap memory usage](https://developer.android.com/google/play/vitals/bitmap-memory-usage)  
 
 ##### All other vitals:
 
-[Excessive wakeups](https://developer.android.com/games/optimize/vitals/wakeup)  
-[Stuck partial wake locks](https://developer.android.com/games/optimize/vitals/wakelock)  
+[Excessive wakeups](https://developer.android.com/google/play/vitals/wakeup)  
+[Stuck partial wake locks](https://developer.android.com/google/play/vitals/stuck-wakelock)  
 
-[Excessive background Wi-Fi scans](https://developer.android.com/games/optimize/vitals/bg-wifi)  
+[Excessive background Wi-Fi scans](https://developer.android.com/google/play/vitals/bg-wifi)  
 [Excessive background network
-usage](https://developer.android.com/games/optimize/vitals/bg-network-usage)  
-[App startup time](https://developer.android.com/games/optimize/vitals/launch-time)  
-[Slow rendering](https://developer.android.com/games/optimize/vitals/render)  
+usage](https://developer.android.com/google/play/vitals/bg-network-usage)  
+[App startup time](https://developer.android.com/google/play/vitals/launch-time)  
+[Slow rendering](https://developer.android.com/google/play/vitals/render)  
 
-[Slow Sessions](https://developer.android.com/games/optimize/vitals/slow-session)  
-[Low memory killers (LMKs)](https://developer.android.com/games/optimize/vitals/lmk)  
+[Slow Sessions](https://developer.android.com/google/play/vitals/slow-session)  
+[Low memory killers (LMKs)](https://developer.android.com/google/play/vitals/lmk)  
 
-[Permission denials](https://developer.android.com/games/optimize/vitals/permissions)  
+[Permission denials](https://developer.android.com/google/play/vitals/permissions)  
 
 #### I don't want to be surprised by bad behaviors or store listing warnings. How can I get ahead of this?
 

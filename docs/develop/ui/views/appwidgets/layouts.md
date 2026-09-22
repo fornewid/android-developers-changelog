@@ -130,7 +130,7 @@ The preceding code snippet means the following:
 
   > [!NOTE]
   > **Note:** It's possible for the widget's size to be larger than `maxResizeWidth` × `maxResizeHeight`. See [Widget sizing
-  > attributes](https://developer.android.com/guide/topics/appwidgets#widget-sizing-attributes) for more details.
+  > attributes](https://developer.android.com/develop/ui/views/appwidgets#widget-sizing-attributes) for more details.
 
 Your widget must support the size range from `minResizeWidth` ×
 `minResizeHeight` to `maxResizeWidth` × `maxResizeHeight`. Within that range,
@@ -253,7 +253,7 @@ attributes, which means it needs to adapt to any size ranges between them.
 
 > [!NOTE]
 > **Note:** As mentioned previously, it's possible for the widget's size to be larger than `maxResizeWidth` x `maxResizeHeight`. See [Widget sizing
-> attributes](https://developer.android.com/guide/topics/appwidgets#widget-sizing-attributes) for more details.
+> attributes](https://developer.android.com/develop/ui/views/appwidgets#widget-sizing-attributes) for more details.
 
 For example, to set the default size of the widget on placement, you can
 set the following attributes:

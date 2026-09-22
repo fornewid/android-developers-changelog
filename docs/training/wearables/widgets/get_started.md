@@ -99,7 +99,11 @@ extending [`GlanceWearWidget`](https://developer.android.com/reference/kotlin/an
 
 The service is the entry point that the system binds to.
 
-To define your widget, create a service that extends `GlanceWearWidgetService`.
+To define your widget, create a service that extends `GlanceWearWidgetService`
+and annotate it with
+[`@AssociateWithGlanceWearWidget`](https://developer.android.com/reference/kotlin/androidx/glance/wear/AssociateWithGlanceWearWidget),
+to associate the service with the appropriate
+[`GlanceWearWidget`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidget) class.
 
 <br />
 
@@ -334,3 +338,18 @@ purposes. As a result, the `adb` commands require the
       -a com.google.android.wearable.app.DEBUG_SYSUI \
       --es operation show-tile \
       --ei index 0
+
+### Update widget content programmatically
+
+When your app's underlying data changes (such as receiving a data sync, push
+notification, or user action), notify the system to refresh the widget
+content.
+
+To request an update for all active instances of your widget, call
+[`triggerUpdateAll`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidget#triggerUpdateAll(android.content.Context)) on your widget class:
+
+    // Request a content update for all active HelloWidget instances
+    HelloWidget().triggerUpdateAll(context)
+
+To update a specific widget instance without refreshing all active instances,
+call [`triggerUpdate`](https://developer.android.com/reference/kotlin/androidx/glance/wear/GlanceWearWidget#triggerUpdate(android.content.Context,androidx.glance.wear.core.WidgetInstanceId)) with the target instance ID.

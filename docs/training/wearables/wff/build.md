@@ -9,13 +9,13 @@ as well as how to build and deploy them.
 
 ## The structure of WFF watch faces
 
-Watch Face Format watch faces are submitted to the Play Store as AABs or APKs just
-like any other app. While they therefore share many of the common attributes of
-other apps, such as a need for an `AndroidManifest.xml` file, they have a specific
-structure.
+Watch Face Format watch faces are submitted to the Play Store as AABs or APKs
+just like any other app. While they therefore share many of the common
+attributes of other apps, such as a need for an `AndroidManifest.xml` file, they
+have a specific structure.
 
 1. All the content of the watch face is in the resources folder, namely `res/`
-2. All the watch face definitions are in `res/raw/`, including `res/raw/watchface.xml` for the simple case and any other XML definitions that represent support for different device sizes.
+2. All the watch face definitions are in `res/raw/`, including `res/raw/watchface.xml` and any other XML definitions that represent support for different device sizes.
 3. All resources needed by the watch face are in the appropriate resources folder, just as for regular applications, for example:
    1. `/res/font` for fonts
    2. `/res/drawable` for image and animation assets

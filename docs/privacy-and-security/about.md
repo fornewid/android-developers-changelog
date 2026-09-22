@@ -20,7 +20,7 @@ users control over how they experience your app.
   - Newer versions of Android often introduce ways to access data in a privacy-conscious manner without requiring permissions. For more information, see [Evaluate whether your app needs to declare
     permissions](https://developer.android.com/training/permissions/evaluating).
   - If your app is distributed on Google Play, you can use [Android
-    vitals](https://developer.android.com/topic/performance/vitals/permissions#use_android_vitals_to_gauge_user_perceptions) to obtain the percentage of users that deny permissions in your app. Use this data to reassess the design of features whose required permissions are most commonly denied.
+    vitals](https://developer.android.com/google/play/vitals/permissions#android-vitals) to obtain the percentage of users that deny permissions in your app. Use this data to reassess the design of features whose required permissions are most commonly denied.
 - **Explain why a feature in your app needs a permission:** follow the [recommended flow](https://developer.android.com/training/permissions/requesting#explain) to do so. Request the permission when it's needed, rather than at app startup, so that the permission need is clear to users.
 - **Be aware that users or the system can deny the permission multiple
   times:** Android respects this user choice by ignoring permission requests from the same app.

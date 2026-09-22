@@ -65,7 +65,7 @@ following values:
 startup iterations. To assess startup improvement, always focus on median
 values, since they provide the best estimate of typical user startup times. For
 more information about what contributes to app startup time, see [App startup
-time](https://developer.android.com/topic/performance/vitals/launch-time).
+time](https://developer.android.com/topic/performance/issues/launch-time).
 ![StartupTimingMetric results](https://developer.android.com/static/topic/performance/images/benchmark_images/macrobenchmark_results_fully_drawn_startup.png) **Figure 2.** `StartupTimingMetric` results.
 
 ## FrameTimingMetric
@@ -80,7 +80,7 @@ These measurements are collected in a distribution of 50th, 90th, 95th, and 99th
 percentile.
 
 For more information on how to identify and improve slow frames, see [Slow
-rendering](https://developer.android.com/topic/performance/vitals/render).
+rendering](https://developer.android.com/topic/performance/issues/render).
 ![FrameTimingMetric results](https://developer.android.com/static/topic/performance/images/benchmark_images/macrobenchmark_results_frames.png) **Figure 3.** `FrameTimingMetric` results.
 
 ## TraceSectionMetric

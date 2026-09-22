@@ -74,4 +74,4 @@ Wear OS data that was associated with the old mobile device.
 - Note: link text is displayed when JavaScript is off
 - [Migrate your splash screen implementation to Android 12 and later](https://developer.android.com/develop/ui/views/launch/splash-screen/migrate)
 - [Splash screens](https://developer.android.com/develop/ui/views/launch/splash-screen)
-- [App startup time](https://developer.android.com/topic/performance/vitals/launch-time)
+- [App startup time](https://developer.android.com/topic/performance/issues/launch-time)

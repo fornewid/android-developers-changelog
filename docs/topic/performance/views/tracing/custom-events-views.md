@@ -1,23 +1,10 @@
 ---
-title: Define custom events (Views)  |  Android Developers
+title: https://developer.android.com/topic/performance/views/tracing/custom-events-views
 url: https://developer.android.com/topic/performance/views/tracing/custom-events-views
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [UI](https://developer.android.com/develop/ui)
-* [Views](https://developer.android.com/develop/ui/views/layout/declaring-layout)
-* [Guides](https://developer.android.com/topic/performance/views/benchmarking/macrobenchmark-control-app-views)
-
-# Define custom events (Views) Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-
-[Concepts and Jetpack Compose implementationarrow\_forward](/topic/performance/tracing/custom-events)
+[Concepts and Jetpack Compose implementation](https://developer.android.com/topic/performance/tracing/custom-events)
 
 System tracing shows you information about processes only at the system level,
 so it's sometimes difficult to know which of your app or game's methods are
@@ -25,7 +12,7 @@ executing at a given time relative to system events.
 
 Jetpack provides a tracing API that you can use to label a particular section of
 code. This information is then reported in traces captured on the device.
-[Macrobenchmark](/topic/performance/benchmarking/macrobenchmark-overview)
+[Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview)
 captures traces with custom trace points automatically.
 
 When using the systrace command line tool to capture traces, the `-a` option is
@@ -34,7 +21,7 @@ trace report.
 
 ### Kotlin
 
-```
+```kotlin
 class MyAdapter : RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup,
             viewType: Int): MyViewHolder {
@@ -57,7 +44,7 @@ class MyAdapter : RecyclerView.Adapter<MyViewHolder>() {
 
 ### Java
 
-```
+```java
 public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @NonNull
     @Override
@@ -92,10 +79,10 @@ of forgetting to end the tracing.
 
 You can also use an NDK API for custom trace events. To learn about using this
 API for your native code, see [Custom trace events in native
-code](/topic/performance/tracing/custom-events-native).
+code](https://developer.android.com/topic/performance/tracing/custom-events-native).
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [App startup time](/topic/performance/vitals/launch-time)
-* [Slow rendering](/topic/performance/vitals/render)
+- Note: link text is displayed when JavaScript is off
+- [App startup time](https://developer.android.com/topic/performance/issues/launch-time)
+- [Slow rendering](https://developer.android.com/topic/performance/issues/render)

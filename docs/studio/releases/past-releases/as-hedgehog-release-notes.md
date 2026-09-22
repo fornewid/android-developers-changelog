@@ -15,7 +15,7 @@ the Studio IDE experience. For details on the changes, see the
 ## Analyze Android vitals in App Quality Insights
 
 [**App Quality Insights**](https://developer.android.com/studio/debug/app-quality-insights) now includes
-[Android vitals](https://developer.android.com/topic/performance/vitals) data, so you can more easily access
+[Android vitals](https://developer.android.com/google/play/vitals) data, so you can more easily access
 core metrics collected by Google Play and improve your user experience. Use
 Android vitals to address issues related to app stability to help improve the
 quality of your app on Google Play.

@@ -422,7 +422,7 @@ Description
     A short time after `Service.onTimeout()` is called, the app enters a [cached
     state](https://developer.android.com/guide/components/activities/process-lifecycle) and is no longer considered to be in the foreground, unless the
     user is actively interacting with the app. A short time after the app is
-    cached and the service has not stopped, the app receives an [ANR](https://developer.android.com/topic/performance/vitals/anr). The
+    cached and the service has not stopped, the app receives an [ANR](https://developer.android.com/topic/performance/issues/anr). The
     ANR message mentions `FOREGROUND_SERVICE_TYPE_SHORT_SERVICE`. For these
     reasons, it's considered best practice to implement the
     `Service.onTimeout()` callback.

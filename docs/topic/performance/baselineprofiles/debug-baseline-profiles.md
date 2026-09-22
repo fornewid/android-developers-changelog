@@ -333,8 +333,8 @@ your Baseline Profiles to get the most benefits from them.
 ### Correctly benchmark startup metrics
 
 Your Baseline Profiles will be more effective if your startup metrics are
-well-defined. The two key metrics are [time to initial display (TTID)](https://developer.android.com/topic/performance/vitals/launch-time#time-initial) and
-[time to full display (TTFD)](https://developer.android.com/topic/performance/vitals/launch-time#time-full).
+well-defined. The two key metrics are [time to initial display (TTID)](https://developer.android.com/topic/performance/issues/launch-time#time-initial) and
+[time to full display (TTFD)](https://developer.android.com/topic/performance/issues/launch-time#time-full).
 
 TTID is when the app draws its first frame. It's important to keep this as short
 as possible because displaying something shows the user that the app is running.

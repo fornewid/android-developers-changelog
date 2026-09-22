@@ -785,7 +785,7 @@ current package name and using a new package name:
 | Store listing | Single | Multiple |
 | Mirrored install | Yes: "fast app reinstall" during the setup wizard | No |
 | Play Store Review process | Blocking reviews: if the review fails for one APK, other APKs submitted in the same release are blocked | Individual reviews |
-| Statistics, metrics, and [vitals](https://developer.android.com/topic/performance/vitals) | Combined: you can filter for automotive-specific data. | Separate |
+| Statistics, metrics, and [vitals](https://developer.android.com/google/play/vitals) | Combined: you can filter for automotive-specific data. | Separate |
 | Indexing and search ranking | Build off current standing | No carryover |
 | Integrating with other apps | Most likely no changes needed, assuming media code is shared between both APKs | Might have to update the corresponding app, such as for URI playback with Google Assistant. |
 

@@ -14,7 +14,7 @@ source: md.txt
 
 You can see and act on app crash data from
 [Firebase Crashlytics](https://firebase.google.com/products/crashlytics) and
-[Android Vitals](https://developer.android.com/topic/performance/vitals)
+[Android Vitals](https://developer.android.com/google/play/vitals)
 directly in Android Studio. This integration pulls stack trace data and crash
 statistics from Crashlytics and Google Play into the **App Quality Insights**
 tool window in the Studio IDE, so you don't have to jump back and forth between
@@ -51,7 +51,7 @@ see the panels populate with reports from Crashlytics.
 
 ## Analyze Android vitals
 
-**App Quality Insights** includes [Android vitals](https://developer.android.com/topic/performance/vitals)
+**App Quality Insights** includes [Android vitals](https://developer.android.com/google/play/vitals)
 data. This lets you more easily access core metrics collected by Google Play and
 improve your user experience. Use Android vitals to address issues related to
 app stability to help improve the quality of your app on Google Play.

@@ -80,7 +80,7 @@ The following example shows how to request for age signals:
                         // The user is in the highest open-ended age band [ageLower, null] (e.g. [18, null])
                     }
                 } else {
-                    // Both bounds are null: The user is not sharing their age (e.g. they are a verified adult)
+                    // Both bounds are null: The user is not sharing their age
                 }
             }
             .addOnFailureListener { exception ->

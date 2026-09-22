@@ -15,7 +15,7 @@ issues and optimize for those paths before they impact more users.
 Android vitals helps you improve the stability and performance of Google Play
 apps on Android-powered devices. For the best user experience, we recommend
 monitoring and prioritizing your app vitals. For more information, see [Android
-vitals](https://developer.android.com/topic/performance/vitals).
+vitals](https://developer.android.com/google/play/vitals).
 
 ## Firebase Performance Monitoring
 

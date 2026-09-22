@@ -108,7 +108,7 @@ modify the manifest, add a collection view to the widget layout, and modify your
 ### Manifest for widgets with collections
 
 Beyond the requirements listed in [Declare a widget in the
-manifest](https://developer.android.com/guide/topics/appwidgets#Manifest), you need to make it possible for widgets with
+manifest](https://developer.android.com/develop/ui/views/appwidgets#Manifest), you need to make it possible for widgets with
 collections to bind to your `RemoteViewsService`. Do this by declaring the
 service in your manifest file with the permission
 [`BIND_REMOTEVIEWS`](https://developer.android.com/reference/android/Manifest.permission#BIND_REMOTEVIEWS).
@@ -324,7 +324,7 @@ what if you want to add dynamic behavior to the individual items in your
 collection view?
 
 As described in [Handle events with the `onUpdate()`
-class](https://developer.android.com/guide/topics/appwidgets#handle-events), you normally use
+class](https://developer.android.com/develop/ui/views/appwidgets#handle-events), you normally use
 [`setOnClickPendingIntent()`](https://developer.android.com/reference/android/widget/RemoteViews#setOnClickPendingIntent(int,%20android.app.PendingIntent)) to set an object's click behavior---such
 as to cause a button to launch an [`Activity`](https://developer.android.com/reference/android/app/Activity). But
 this approach is not allowed for child views in an individual collection item.

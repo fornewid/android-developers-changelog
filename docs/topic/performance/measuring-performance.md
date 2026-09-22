@@ -13,7 +13,7 @@ This document helps you identify and fix key performance issues in your app.
 There are many problems that can contribute to bad performance in an app, but
 the following are some common issues to look for:
 
-[Startup latency](https://developer.android.com/topic/performance/vitals/launch-time#time-full)
+[Startup latency](https://developer.android.com/topic/performance/issues/launch-time#time-full)
 
 :   Startup latency is the amount of time it takes between
     tapping on the app icon, notification, or other entry point, and the user's
@@ -25,7 +25,7 @@ the following are some common issues to look for:
 - **Warm start in less than 200ms and hot start in less than 150ms.** A warm start occurs when the application's process is already running in the background, but the system needs to re-initialize the UI or bring the activity back to the foreground, such as when a user exits the app and re-opens it shortly after. A *hot start* is even faster because the app's activity is already cached in memory and only needs to be brought to the foreground, without the need to re-create the view hierarchy. Aim to keep warm starts under 200ms and hot starts under 150ms.
 - **P95 and P99 latencies very close to the median latency.** P95 and P99 represent the 95th and 99th percentiles of startup times, while the median is the 50th percentile. When the app takes a long time to start, it makes a poor user experience. Interprocess communications (IPCs) and unnecessary I/O during the critical path of app startup can experience lock contention and introduce inconsistencies.
 
-[Scroll jank](https://developer.android.com/topic/performance/vitals/render#scrollable_lists)
+[Scroll jank](https://developer.android.com/topic/performance/issues/render#scrollable_lists)
 
 :   *Jank* is the term that describes the visual hiccup that
     occurs when the system isn't able to build and provide frames in time to
@@ -270,7 +270,7 @@ recompositions. Figures 5 and 6 show the results of composition tracing.
 
 For more information about optimizing Compose performance, see [Jetpack Compose
 Performance](https://developer.android.com/develop/ui/compose/performance). For more information about identifying janky frames and
-debugging their causes, see [Slow rendering](https://developer.android.com/topic/performance/vitals/render).
+debugging their causes, see [Slow rendering](https://developer.android.com/topic/performance/issues/render).
 
 ### Common lazy layout mistakes
 
@@ -300,7 +300,7 @@ The following are methods for debugging your app's performance.
 
 ### Debug app startup with Systrace
 
-See [App startup time](https://developer.android.com/topic/performance/vitals/launch-time) for an overview of the app startup process, and see
+See [App startup time](https://developer.android.com/topic/performance/issues/launch-time) for an overview of the app startup process, and see
 the following video for an overview of system tracing and using the Android
 Studio profiler.
 [Video](https://www.youtube.com/watch?v=ktknfQykhXU)
@@ -339,7 +339,7 @@ Some things to look for include the following:
 
 We recommend you call [`reportFullyDrawn`](https://developer.android.com/reference/kotlin/android/app/Activity#reportfullydrawn) when startup is completed from
 the app's perspective for improved app startup metric reporting. See the [Time
-to full display](https://developer.android.com/topic/performance/vitals/launch-time#time-full) section for more information about using `reportFullyDrawn`.
+to full display](https://developer.android.com/topic/performance/issues/launch-time#time-full) section for more information about using `reportFullyDrawn`.
 You can extract RFD-defined start times through the Perfetto trace processor,
 and a user-visible trace event is emitted.
 
@@ -425,5 +425,5 @@ To profile app memory, perform the following steps:
 
 - Note: link text is displayed when JavaScript is off
 - [App startup analysis and optimization {:#app-startup-analysis-optimization}](https://developer.android.com/topic/performance/appstartup/analysis-optimization)
-- [Frozen frames](https://developer.android.com/topic/performance/vitals/frozen)
+- [Frozen frames](https://developer.android.com/topic/performance/issues/render#frozen-frames)
 - [Write a Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview)

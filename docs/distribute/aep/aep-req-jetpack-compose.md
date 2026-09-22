@@ -45,7 +45,7 @@ must meet these benchmarks:
 
 | ID | Category | Exemption |
 |---|---|---|
-| AEP-JC-EAA | Performance | Achieve [time to initial display](https://developer.android.com/topic/performance/vitals/launch-time#time-initial) under 400 ms using pre-compilation or equivalent optimizations. |
+| AEP-JC-EAA | Performance | Achieve [time to initial display](https://developer.android.com/topic/performance/issues/launch-time#time-initial) under 400 ms using pre-compilation or equivalent optimizations. |
 | AEP-JC-EAA | Performance | Render UI at the device's native refresh rate without frame drops. |
 | AEP-JC-EAA | Standard Android UI paradigms | Provide [touch-feedback animations](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/handling-interactions) for all element interactions. |
 | AEP-JC-EAA | Standard Android UI paradigms | Support edge-to-edge design by drawing behind system bars and handling window insets. |

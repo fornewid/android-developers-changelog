@@ -255,7 +255,7 @@ under the section called **FRAMES**, as shown below.
 <br />
 
 To learn more about investigating and fixing framerate issues, read
-[Slow rendering](https://developer.android.com/topic/performance/vitals/render).
+[Slow rendering](https://developer.android.com/topic/performance/issues/render).
 
 <br />
 

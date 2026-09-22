@@ -45,7 +45,7 @@ We continue to make Jetpack Compose more performant for you in **Jetpack Compose
 
 You can't manage what you don't measure. Our **Performance Leveling Guide** breaks down your measurement journey into five steps, starting with easily available data and building up to advanced local tooling.  
 
-Starting at **level 1** , we'll teach you how to use readily available data from [**Android Vitals**](https://developer.android.com/topic/performance/vitals), which provides you with field data on ANRs, crashes, and excessive battery usage.
+Starting at **level 1** , we'll teach you how to use readily available data from [**Android Vitals**](https://developer.android.com/google/play/vitals), which provides you with field data on ANRs, crashes, and excessive battery usage.
 
 We'll also teach you how to level up. For example, we'll demonstrate how to reach **level 3** with local performance testingusing [**Jetpack Macrobenchmark**](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview) and the new [**UiAutomator 2.4 API**](https://developer.android.com/training/testing/other-components/ui-automator) to accurately measure and verify any change in your app's performance.
 

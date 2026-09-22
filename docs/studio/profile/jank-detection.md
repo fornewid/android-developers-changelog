@@ -179,4 +179,4 @@ see the official [Perfetto documentation](https://perfetto.dev/docs/data-sources
 ## Learn more
 
 To learn more about how to reduce jank, see
-[Common sources of jank](https://developer.android.com/topic/performance/vitals/render#common-jank).
+[Common sources of jank](https://developer.android.com/topic/performance/issues/render#common-jank).

@@ -50,7 +50,7 @@ custom `AppWidgetHost`:
   communicate information to the
   [`AppWidgetProvider`](https://developer.android.com/reference/android/appwidget/AppWidgetProvider)
   about how the widget is displayed---for example, the
-  [list of size ranges](https://developer.android.com/guide/topics/appwidgets/layouts#provide-exact-layouts)---and whether the
+  [list of size ranges](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-exact-layouts)---and whether the
   widget is on a lockscreen or the home screen. This information lets the
   `AppWidgetProvider` tailor the widget's contents and appearance based on how and
   where it is displayed. You can use
@@ -97,7 +97,7 @@ startActivityForResult(intent, REQUEST_BIND_APPWIDGET)
 
 The host must check whether the widget that a user adds needs configuration. For
 more information, see [Enable users to configure app
-widgets](https://developer.android.com/guide/topics/appwidgets/configuration).
+widgets](https://developer.android.com/develop/ui/views/appwidgets/configuration).
 
 ## Host responsibilities
 
@@ -118,7 +118,7 @@ All hosts have the following responsibilities:
   launched. Typically, the host needs to launch the widget's configuration
   activity if it exists and isn't marked as optional by specifying both the
   `configuration_optional` and `reconfigurable` flags. See
-  [Update the widget from the configuration activity](https://developer.android.com/guide/topics/appwidgets/configuration#update)
+  [Update the widget from the configuration activity](https://developer.android.com/develop/ui/views/appwidgets/configuration#update)
   for details. This is a necessary step for many widgets before they can display.
 
   > [!NOTE]
@@ -128,7 +128,7 @@ All hosts have the following responsibilities:
   metadata. These values are defined in cells---starting in
   Android 12, if `targetCellWidth` and `targetCellHeight` are
   specified---or dps if only `minWidth` and `minHeight` are specified. See
-  [Widget sizing attributes](https://developer.android.com/guide/topics/appwidgets#widget-sizing-attributes).
+  [Widget sizing attributes](https://developer.android.com/develop/ui/views/appwidgets#widget-sizing-attributes).
 
   Make sure that the widget is laid out with at least this many dps. For
   example, many hosts align icons and widgets in a grid. In this scenario, by

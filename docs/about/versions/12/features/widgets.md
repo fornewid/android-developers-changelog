@@ -56,7 +56,7 @@ system parameters to set the radii of your widget's rounded corners.
 
 2 Corner of a view inside the widget.
 
-For details, see [Implement rounded corners](https://developer.android.com/guide/topics/appwidgets#rounded-corner).
+For details, see [Implement rounded corners](https://developer.android.com/develop/ui/views/appwidgets#rounded-corner).
 
 ## Add device theming
 
@@ -64,7 +64,7 @@ Starting in Android 12, a widget can use the device theme colors
 for buttons, backgrounds, and other components, including light and dark themes.
 This enables smoother transitions and consistency across different widgets.
 
-See [Add device theming](https://developer.android.com/guide/topics/appwidgets/enhance#dynamic-colors) for more information.
+See [Add device theming](https://developer.android.com/develop/ui/views/appwidgets/enhance#dynamic-colors) for more information.
 ![Widget in light mode theme](https://developer.android.com/static/images/appwidgets/example-lightmode.png) **Figure 2:**Widget in light theme ![Widgets in dark mode theme](https://developer.android.com/static/images/appwidgets/example-darkmode.png) **Figure 3:**Widget in dark theme
 
 <br />
@@ -78,7 +78,7 @@ widget to their home screen.
 
 Android 12 adds new options to let you provide a better
 configuration experience for users. See [Enable users to configure
-widgets](https://developer.android.com/guide/topics/appwidgets/configuration) for details.
+widgets](https://developer.android.com/develop/ui/views/appwidgets/configuration) for details.
 
 ## Add new compound buttons
 
@@ -95,7 +95,7 @@ The widget is still stateless. Your app must store the state and register for
 state change events.
 ![](https://developer.android.com/static/images/appwidgets/home.png) **Figure 4:**Example widget with checkboxes
 
-For details, see [Support for stateful behavior](https://developer.android.com/guide/topics/appwidgets#stateful-behavior).
+For details, see [Support for stateful behavior](https://developer.android.com/develop/ui/views/appwidgets#stateful-behavior).
 
 ## Use improved APIs for widget sizes and layouts
 
@@ -103,21 +103,21 @@ Starting in Android 12, you can can take advantage of more refined size
 attributes and more flexible layouts, by specifying additional widget sizing
 constraints and by providing responsive layouts and exact layouts.
 
-See [Provide flexible widget layouts](https://developer.android.com/guide/topics/appwidgets/layouts) for details.
+See [Provide flexible widget layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts) for details.
 
 ## Improve your app's widget picker experience
 
 Android 12 enables you to improve the widget picker experience
 for your app by adding dynamic widget previews and widget descriptions. For
 details, see [Add scalable widget previews to the widget
-picker](https://developer.android.com/guide/topics/appwidgets/enhance#add-scalable-widget-previews) and [Add a description for
-your widget](https://developer.android.com/guide/topics/appwidgets/enhance#add-widget-description).
+picker](https://developer.android.com/develop/ui/views/appwidgets/enhance#add-scalable-widget-previews) and [Add a description for
+your widget](https://developer.android.com/develop/ui/views/appwidgets/enhance#add-widget-description).
 
 ## Enable smoother transitions
 
 Starting in Android 12, launchers provide a smoother transition
 when a user launches your app from a widget. See [Enable smoother
-transitions](https://developer.android.com/guide/topics/appwidgets/enhance#enable-smoother-transitions) for details.
+transitions](https://developer.android.com/develop/ui/views/appwidgets/enhance#enable-smoother-transitions) for details.
 
 ## Use simplified `RemoteViews` collections
 
@@ -129,7 +129,7 @@ method, which lets your app pass along a collection directly when populating a
 `RemoteViewsService` to return
 [`RemoteViewsFactory`](https://developer.android.com/reference/android/widget/RemoteViewsService.RemoteViewsFactory).
 
-For details, see [Use `RemoteViews` collections](https://developer.android.com/guide/topics/appwidgets/collections#use-remote-collections).
+For details, see [Use `RemoteViews` collections](https://developer.android.com/develop/ui/views/appwidgets/collections#use-remote-collections).
 
 ## Use runtime modification of `RemoteViews`
 
@@ -138,4 +138,4 @@ modification of `RemoteViews` attributes. See the `RemoteViews` API reference
 for the full list of added methods.
 
 For details, see [Use runtime modification of
-`RemoteViews`](https://developer.android.com/guide/topics/appwidgets/enhance#use-runtime-mod-of-remoteviews).
+`RemoteViews`](https://developer.android.com/develop/ui/views/appwidgets/enhance#use-runtime-mod-of-remoteviews).

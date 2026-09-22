@@ -4,30 +4,25 @@ url: https://developer.android.com/kotlin/build-better-apps
 source: md.txt
 ---
 
-# Build Better Apps with Kotlin
-
-[![](http://developer.android.com/static/images/cluster-illustrations/kotlin-hero.svg)](http://developer.android.com/kotlin/adopt-for-large-teams)  
+[![](http://developer.android.com/static/images/cluster-illustrations/kotlin-hero.svg)](http://developer.android.com/kotlin/adopt-for-large-teams)
 
 ### [Build Better Apps with Kotlin](http://developer.android.com/kotlin/adopt-for-large-teams)
 
-Kotlin helps development teams improve app quality, boost productivity, and increase developer satisfaction. Read more to see why over 60% of professional Android developers use Kotlin.  
-[Adopt Kotlin](http://developer.android.com/kotlin/adopt-for-large-teams)[Try Kotlin now](http://developer.android.com/training/kotlinplayground)
+Kotlin helps development teams improve app quality, boost productivity, and increase developer satisfaction. Read more to see why over 60% of professional Android developers use Kotlin. [Adopt Kotlin](http://developer.android.com/kotlin/adopt-for-large-teams) [Try Kotlin now](http://developer.android.com/training/kotlinplayground)
 
 *** ** * ** ***
 
 ## Why do teams adopt Kotlin?
 
-![](http://developer.android.com/static/images/picto-icons/increased-productivity.svg)  
+![](http://developer.android.com/static/images/picto-icons/increased-productivity.svg)
 
 ### Increased productivity
 
-With less boilerplate code to maintain, Kotlin allows developers to focus on expressing ideas.  
-![](http://developer.android.com/static/images/picto-icons/app-quality.svg)  
+With less boilerplate code to maintain, Kotlin allows developers to focus on expressing ideas. ![](http://developer.android.com/static/images/picto-icons/app-quality.svg)
 
 ### Better app quality
 
-Among the top 1,000 apps on Google Play, those that use Kotlin have 20% fewer crashes.  
-![](http://developer.android.com/static/images/picto-icons/happy-developers.svg)  
+Among the top 1,000 apps on Google Play, those that use Kotlin have 20% fewer crashes. ![](http://developer.android.com/static/images/picto-icons/happy-developers.svg)
 
 ### Happier developers
 
@@ -35,32 +30,31 @@ Android developers report being happier with Kotlin. Satisfaction using Kotlin i
 
 ### Join over 5.8 million developers
 
-Kotlin is already used by over 60% of professional Android developers, and 95% of the top 1,000 Android apps contain Kotlin code. We provide first-class support for Kotlin across our tools and resources. In fact, Android development is[Kotlin-first](https://developer.android.com/kotlin/first).
+Kotlin is already used by over 60% of professional Android developers, and 95% of the top 1,000 Android apps contain Kotlin code. We provide first-class support for Kotlin across our tools and resources. In fact, Android development is [Kotlin-first](https://developer.android.com/kotlin/first).
 
-We've also embraced Kotlin at Google. Over 70 of our apps contain Kotlin code.  
+We've also embraced Kotlin at Google. Over 70 of our apps contain Kotlin code.
 
 ### Build for quality
 
-Kotlin helps developers avoid Null Pointer Exceptions, the[#1 cause of crashes](https://developer.android.com/topic/performance/vitals/crash#prevent-crashes-null-pointer)on Google Play. When looking at the top 1,000 apps on Google Play, it was evident apps that use Kotlin have 20% fewer crashes per user. As one example, after adopting Kotlin, the Google Home team saw a[33% decrease in Null Pointer Exception crashes](https://developer.android.com/stories/apps/google-home)over one year.
+Kotlin helps developers avoid Null Pointer Exceptions, the [#1 cause of crashes](https://developer.android.com/topic/performance/issues/crash#prevent-crashes-null-pointer) on Google Play. When looking at the top 1,000 apps on Google Play, it was evident apps that use Kotlin have 20% fewer crashes per user. As one example, after adopting Kotlin, the Google Home team saw a [33% decrease in Null Pointer Exception crashes](https://developer.android.com/stories/apps/google-home) over one year.
 
 ### Boost productivity
 
 Kotlin allows developers to be more expressive and focus on shipping features instead of writing boilerplate, ultimately leading to less code to write and maintain. 67% of Android developers say Kotlin has increased their productivity.
 
-When the[Cash App team](https://www.youtube.com/watch?v=roSp-SsBPp4)started using Kotlin, they were able to eliminate many builders, and cut down on the amount of code they needed to write. In some cases, they saved 25% of their code.  
+When the [Cash App team](https://www.youtube.com/watch?v=roSp-SsBPp4) started using Kotlin, they were able to eliminate many builders, and cut down on the amount of code they needed to write. In some cases, they saved 25% of their code.
 
 ### Reinvigorate development
 
-Kotlin was the #4 most loved programming language in 2020 according to[Stack Overflow](https://insights.stackoverflow.com/survey/2020). This aligns with what we uncovered from surveying the Android developer community: Android developers report being happier with Kotlin, and satisfaction using Kotlin is 25 points higher than it is for other languages.
+Kotlin was the #4 most loved programming language in 2020 according to [Stack Overflow](https://insights.stackoverflow.com/survey/2020). This aligns with what we uncovered from surveying the Android developer community: Android developers report being happier with Kotlin, and satisfaction using Kotlin is 25 points higher than it is for other languages.
 
-As an example, after adopting Kotlin, Duolingo's internal developer satisfaction skyrocketed by[129 NPS points](https://developer.android.com/stories/apps/duolingo-kotlin), and Kotlin was a major factor cited in responses.
+As an example, after adopting Kotlin, Duolingo's internal developer satisfaction skyrocketed by [129 NPS points](https://developer.android.com/stories/apps/duolingo-kotlin), and Kotlin was a major factor cited in responses.
 
 ## Learn how Kotlin helps teams succeed
 
 ### [Developer Stories](http://developer.android.com/kotlin/stories)
 
-Over 95% of the top 1000 Android apps contain Kotlin code. Read more to learn about how they took their apps to the next level with Kotlin.  
-[View Developer Stories](http://developer.android.com/kotlin/stories)
+Over 95% of the top 1000 Android apps contain Kotlin code. Read more to learn about how they took their apps to the next level with Kotlin. [View Developer Stories](http://developer.android.com/kotlin/stories)
 - [![Slack](https://developer.android.com/static/images/kotlin/apps/slack.png)](https://play.google.com/store/apps/details?id=com.Slack)
 - [![Lyft](https://developer.android.com/static/images/kotlin/apps/lyft.png)](https://play.google.com/store/apps/details?id=me.lyft.android)
 - [![Robinhood](https://developer.android.com/static/images/kotlin/apps/robinhood.png)](https://play.google.com/store/apps/details?id=com.robinhood.android)
@@ -99,4 +93,4 @@ Over 95% of the top 1000 Android apps contain Kotlin code. Read more to learn ab
 
 ### [Have your team get started with adding Kotlin into your app](http://developer.android.com/kotlin/adopt-for-large-teams)
 
-[Adopt Kotlin](http://developer.android.com/kotlin/adopt-for-large-teams)[Try Kotlin now](http://developer.android.com/training/kotlinplayground)
+[Adopt Kotlin](http://developer.android.com/kotlin/adopt-for-large-teams) [Try Kotlin now](http://developer.android.com/training/kotlinplayground)

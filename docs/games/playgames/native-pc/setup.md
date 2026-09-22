@@ -25,6 +25,9 @@ Ready to get started?
 ## **Step 1**: Add the SDK to your project
 
 > [!NOTE]
+> **Note:** Make sure to use the [latest versions](https://developer.android.com/games/playgames/native-pc/downloads) of the Play Games PC SDK, Play Games PC Unity SDK, Play PC developer tool, and Play publishing tool.
+
+> [!NOTE]
 > **Note:** This page contains instructions for both Native C++ games and Unity C# games. All steps must be completed but watch out for unique steps that apply to only Native C++ project or Unity C# project and follow the steps that are relevant to the language you are using.
 
 ### C++
@@ -45,14 +48,14 @@ Ready to get started?
 
 ### C#
 
-- Download the [Play Games PC Unity SDK](https://developer.android.com/games/playgames/native-pc/downloads/unity) as a tarball (.tgz) file.
+- Download the [Play Games PC Unity SDK](https://developer.android.com/games/playgames/native-pc/downloads/unity) as a tar file (`.tgz`).
 
-- The SDK is distributed as a tarball (.tgz) compatible with the
+- The SDK is distributed as a tar file (`.tgz`) compatible with the
   **Unity Package Manager (UPM)** . To import the package, see
   [Install a UPM package from a local tar file](https://docs.unity3d.com/6000.3/Documentation/Manual/upm-ui-tarball.html)
 
 - For detailed documentation, setup instructions, and additional guidance,
-  please refer to the [Play PC Unity Package](https://developer.android.com/games/playgames/native-pc/unity) page.
+  see the [Play PC Unity Package](https://developer.android.com/games/playgames/native-pc/unity) page.
 
 ## **Step 2**: Add a manifest file
 
@@ -62,7 +65,7 @@ inside of the Play Console. This done by adding a `manifest.xml` file in the
 same directory as your game's executable.
 
 > [!CAUTION]
-> **Caution:** Please note that while there's a Manifest version, you will need to implement a self-update mechanism for your game executable or launcher. In the future, update functionality will be offered under a new Play-Managed-Installs feature.
+> **Caution:** While there's a Manifest version, you will need to implement a self-update mechanism for your game executable or launcher. In the future, update functionality will be offered under a new Play-Managed-Installs feature.
 
 Example `manifest.xml` contents:
 
@@ -169,7 +172,7 @@ called and have the continuation callback complete with `InitializeResult::ok()`
               // Handle specific, actionable errors
               if (result.Code == InitializationError.ActionRequiredShutdownClientProcess)
               {
-                  Log("This game must be launched through the Google Play Games client. Please exit all game processes immediately, GPG will relaunch the game safely.");
+                  Log("This game must be launched through the Google Play Games client. Exit all game processes immediately, GPG will relaunch the game safely.");
                   Application.Quit();
               }
           }

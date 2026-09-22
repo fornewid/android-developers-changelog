@@ -60,10 +60,10 @@ appears or disappears.
       android:name=".ui.MainActivity"
       android:label="@string/app_name"
       android:windowSoftInputMode="adjustResize"
-      android:theme="@style/Theme.MyApp>licatio<n"
-     > android:exported="true"
+      android:theme="@style/Theme.MyApplication"
+      android:exported="true">
       ...
-    /activity
+    </activity>
 
 ## 3. Handle overlaps using insets
 

@@ -24,7 +24,7 @@ To measure startup, we used [`PokedexStartupBenchmark`](https://cs.android.com/a
 `PokedexStartupBenchmark` measures the time it takes for the Pokedex app to be
 visible to the user.
 
-App launch can take place in one of [three states](https://developer.android.com/topic/performance/vitals/launch-time#startup-state): cold start, warm start,
+App launch can take place in one of [three states](https://developer.android.com/topic/performance/issues/launch-time#startup-state): cold start, warm start,
 or hot start. Each state affects how long it takes for an app to become visible
 to the user. In a cold start, the app starts from scratch. In this benchmark, we
 measure the app launch performance in cold start state. We recommend that you
@@ -32,7 +32,7 @@ always optimize the app based on an assumption of a cold start. Doing so can
 improve the performance of warm and hot starts as well.
 
 The metrics we use to measure the app startup time are [time to initial
-display](https://developer.android.com/topic/performance/vitals/launch-time#time-initial) and the [time to full display](https://developer.android.com/topic/performance/vitals/launch-time#time-full).
+display](https://developer.android.com/topic/performance/issues/launch-time#time-initial) and the [time to full display](https://developer.android.com/topic/performance/issues/launch-time#time-full).
 
 > [!NOTE]
 > **Note:** Because of significant changes to the `PokedexStartupBenchmark` methodology for Compose 1.11, the benchmark data is not shown for previous Compose versions.
@@ -51,7 +51,7 @@ TTID with a cold start.
 
 Time to full display (TTFD) measures the time until the app becomes interactive.
 This means that all data has been loaded and has been drawn. For more
-information about time to full display, see [App Startup Time](https://developer.android.com/topic/performance/vitals/launch-time#time-full).
+information about time to full display, see [App Startup Time](https://developer.android.com/topic/performance/issues/launch-time#time-full).
 
 In the `PokedexStartupBenchmark`, Compose 1.11 is 13.0% slower than Views for
 TTFD with a cold start.

@@ -248,7 +248,7 @@ by following the steps in [Installation issues](https://developer.android.com/to
 We highly recommend that you measure app improvements through benchmarking.
 However, if you'd like to measure improvements manually, you can get started by
 measuring the unoptimized [app
-startup](https://developer.android.com/topic/performance/vitals/launch-time#time-initial) for reference.
+startup](https://developer.android.com/topic/performance/issues/launch-time#time-initial) for reference.
 
     PACKAGE_NAME=com.example.app
     # Force Stop App
@@ -538,4 +538,4 @@ helps remap obfuscated symbols to their human readable versions for ease of use.
 - Note: link text is displayed when JavaScript is off
 - [Best practices for SQLite performance](https://developer.android.com/topic/performance/sqlite-performance-best-practices)
 - [Baseline Profiles {:#baseline-profiles}](https://developer.android.com/topic/performance/baselineprofiles/overview)
-- [Stuck partial wake locks](https://developer.android.com/topic/performance/vitals/wakelock)
+- [Stuck partial wake locks](https://developer.android.com/topic/performance/issues/stuck-wakelock)

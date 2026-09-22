@@ -143,7 +143,7 @@ omit the explicit type declaration for `answerString`, but it's often a good
 idea to include it for clarity.
 
 > [!NOTE]
-> **Note:** Kotlin does not include a traditional [ternary operator](https://en.wikipedia.org/wiki/%3F:), instead favoring the use of conditional expressions.
+> **Note:** Kotlin does not include a traditional [ternary operator](https://en.wikipedia.org/wiki/Ternary_conditional_operator), instead favoring the use of conditional expressions.
 
 As the complexity of your conditional statement grows, you might consider
 replacing your if-else expression with a *when* expression, as shown in the

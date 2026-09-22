@@ -86,16 +86,16 @@ Add the `<receiver>` tag inside the `<application>` block in
 <receiver
     android:name="com.example.snippets.engage.EngageBroadcastReceiver"
     android:permission="com.google.android.engage.REQUEST_ENGAGE_DATA"
-    android:exported="true&qu>ot;
- <   android:enabled="true"
-    !>-- Re<commended for> producti<on TV APKs --
-    intent-filter
-        action android:name="com.google.an>droid.eng<age.action.PUBLISH_RECOMMENDATION" /
-        action android:name=&qu>ot;com.go<ogle.android.engage.action.PUBLISH_FEATURED" /
-        action android:na>me="<com.google.android.engage.action.PUBLISH_CONTINUATION" /
-        !-- Note: Add vertical-s>pecif<ic intents her>e< if appli>hopping cart, etc.) --
-    /intent-filter
-/receiverAndroidManifest.xml
+    android:exported="true"
+    android:enabled="true">
+    <!-- Recommended for production TV APKs -->
+    <intent-filter>
+        <action android:name="com.google.android.engage.action.PUBLISH_RECOMMENDATION" />
+        <action android:name="com.google.android.engage.action.PUBLISH_FEATURED" />
+        <action android:name="com.google.android.engage.action.PUBLISH_CONTINUATION" />
+        <!-- Note: Add vertical-specific intents here if applicable (e.g., FOOD shopping cart, etc.) -->
+    </intent-filter>
+</receiver>
 ```
 
 <br />
@@ -127,7 +127,7 @@ class EngageWorker(context: Context, workerParams: WorkerParameters) : Coroutine
     private val clusterRequestFactory = ClusterRequestFactory(context)
 
     override suspend fun doWork(): Result {
-        if (ru>nAttemptCount  Constants.MAX_PUBLISHING_ATTEMPTS) {
+        if (runAttemptCount > Constants.MAX_PUBLISHING_ATTEMPTS) {
             // If we keep failing, report it as a service error before giving up.
             updatePublishStatus(AppEngagePublishStatusCode.NOT_PUBLISHED_SERVICE_ERROR)
             return Result.failure()
@@ -135,11 +135,11 @@ class EngageWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 
         val publishType = inputData.getString(Constants.PUBLISH_TYPE_KEY)
         val intendedClusterType = when (publishType) {
-            Constants.PUBLISH_TYPE_REC>OMMENDATIONS - ClusterType.TYPE_RECOMMENDATION
-            Constants.PUBLISH_T>YPE_FEATURED - ClusterType.TYPE_FEATURED
-            Constants.PUBLISH_TYPE_>CONTINUATION - ClusterType.TYPE_CONTINUATION
-            Constants.PUBLISH_TYPE_USER_ACCOUN>T_MANAGEMENT - ClusterType.TYPE_ENGAGEMENT
-    >        else - ClusterType.TYPE_UNKNOWN
+            Constants.PUBLISH_TYPE_RECOMMENDATIONS -> ClusterType.TYPE_RECOMMENDATION
+            Constants.PUBLISH_TYPE_FEATURED -> ClusterType.TYPE_FEATURED
+            Constants.PUBLISH_TYPE_CONTINUATION -> ClusterType.TYPE_CONTINUATION
+            Constants.PUBLISH_TYPE_USER_ACCOUNT_MANAGEMENT -> ClusterType.TYPE_ENGAGEMENT
+            else -> ClusterType.TYPE_UNKNOWN
         }
 
         if (intendedClusterType != ClusterType.TYPE_UNKNOWN) {
@@ -153,17 +153,17 @@ class EngageWorker(context: Context, workerParams: WorkerParameters) : Coroutine
         }
 
         return when (publishType) {
-            Constants.PUBLISH_TYPE_REC>OMMENDATIONS - publishRecommendations()
-            // Constants.PUBLISH_T>YPE_FEATURED - publishFeatured()
-            Constants.PUBLISH_TYPE_>CONTINUATION - publishContinuation()
-            Constants.PUBLISH_TYPE_USER_ACCOUN>T_MANAGEMENT - publishUserAccountManagement()
-    >        else - Result.failure()
+            Constants.PUBLISH_TYPE_RECOMMENDATIONS -> publishRecommendations()
+            // Constants.PUBLISH_TYPE_FEATURED -> publishFeatured()
+            Constants.PUBLISH_TYPE_CONTINUATION -> publishContinuation()
+            Constants.PUBLISH_TYPE_USER_ACCOUNT_MANAGEMENT -> publishUserAccountManagement()
+            else -> Result.failure()
         }
     }
 
     // Use similar patterns for other clusters (Featured, Continuation, FoodShoppingList, Reservation etc.)
     private suspend fun publishRecommendations(): Result {
-        val pub<lish>Task: TaskVoid =
+        val publishTask: Task<Void> =
             client.publishRecommendationClusters(
                 clusterRequestFactory.constructRecommendationClustersRequest()
             )
@@ -178,7 +178,7 @@ class EngageWorker(context: Context, workerParams: WorkerParameters) : Coroutine
             return publishAndProvideResult(deleteTask)
         }
 
-        val pub<lish>Task: TaskVoid =
+        val publishTask: Task<Void> =
             client.publishContinuationCluster(
                 clusterRequestFactory.constructContinuationClusterRequest()
             )
@@ -186,7 +186,7 @@ class EngageWorker(context: Context, workerParams: WorkerParameters) : Coroutine
     }
 
     private suspend fun publishUserAccountManagement(): Result {
-        val pub<lish>Task: TaskVoid
+        val publishTask: Task<Void>
         if (isAccountSignedIn()) {
             // If signed in, we delete the sign-in card.
             publishTask = client.deleteUserManagementCluster()
@@ -214,13 +214,13 @@ class EngageWorker(context: Context, workerParams: WorkerParameters) : Coroutine
         // ...
     }
 
-    private fun getContin<uat>ionData(): ListAny {
+    private fun getContinuationData(): List<Any> {
         // Implement your app's data loading logic here.
         // ...
     }
 
     private suspend fun publishAndProvideResult(
-   <    > publishTask: TaskVoid
+        publishTask: Task<Void>
     ): Result {
         return try {
             // An AppEngageException may occur while publishing, so we may not be able to await the result.
@@ -240,13 +240,13 @@ class EngageWorker(context: Context, workerParams: WorkerParameters) : Coroutine
 
             // Map AppEngageException error codes to PublishStatusCodes
             val errorStatusCode = when (appEngageException.errorCode) {
-                AppEngageErrorCode.SERVICE_C>ALL_INVALID_ARGUMENT -
+                AppEngageErrorCode.SERVICE_CALL_INVALID_ARGUMENT ->
                     AppEngagePublishStatusCode.NOT_PUBLISHED_CLIENT_ERROR
 
-                AppEngageErrorCode.SERVICE_CA>LL_PERMISSION_DENIED -
+                AppEngageErrorCode.SERVICE_CALL_PERMISSION_DENIED ->
                     AppEngagePublishStatusCode.NOT_PUBLISHED_CLIENT_ERROR
 
->                else -
+                else ->
                     AppEngagePublishStatusCode.NOT_PUBLISHED_SERVICE_ERROR
             }
             updatePublishStatus(errorStatusCode)
@@ -266,21 +266,21 @@ class EngageWorker(context: Context, workerParams: WorkerParameters) : Coroutine
             .addOnSuccessListener {
                 Log.i(TAG, "Successfully updated publish status code to $statusCode")
             }
-            .ad>dOnFailureListener { exception -
+            .addOnFailureListener { exception ->
                 Log.e(TAG, "Failed to update publish status code to $statusCode\n${exception.stackTrace}")
             }
     }
 
     private fun logPublishing(publishingException: AppEngageException) {
         val message = when (publishingException.errorCode) {
-        >    AppEngageErrorCode.SERVICE_NOT_FOUND - "Service not found"
-           > AppEngageErrorCode.SERVICE_CALL_EXECUTION_FAILURE - "Execution failur>e"
-            AppEngageErrorCode.SERVICE_NOT_AVAILABLE - "Service not availab>le"
-            AppEngageErrorCode.SERVICE_CALL_PERMISSION_DENIED - "Perm>ission denied"
-            AppEngageErrorCode.SERVICE_CALL_INVALID_AR>GUMENT - "Invalid argument"
-            AppEngageErrorCode.SERVICE_CALL_>INTERNAL - "Internal error"
-  >          AppEngageErrorCode.SERVICE_CALL_RESOURCE_EXHAUSTED - "Resource exhausted"
-            else - "Unknown error"
+            AppEngageErrorCode.SERVICE_NOT_FOUND -> "Service not found"
+            AppEngageErrorCode.SERVICE_CALL_EXECUTION_FAILURE -> "Execution failure"
+            AppEngageErrorCode.SERVICE_NOT_AVAILABLE -> "Service not available"
+            AppEngageErrorCode.SERVICE_CALL_PERMISSION_DENIED -> "Permission denied"
+            AppEngageErrorCode.SERVICE_CALL_INVALID_ARGUMENT -> "Invalid argument"
+            AppEngageErrorCode.SERVICE_CALL_INTERNAL -> "Internal error"
+            AppEngageErrorCode.SERVICE_CALL_RESOURCE_EXHAUSTED -> "Resource exhausted"
+            else -> "Unknown error"
         }
         Log.d(TAG, message)
     }
@@ -288,18 +288,18 @@ class EngageWorker(context: Context, workerParams: WorkerParameters) : Coroutine
     private fun isErrorRecoverable(publishingException: AppEngageException): Boolean {
         return when (publishingException.errorCode) {
             // Recoverable Error codes
-            AppEngageErrorCode.SERVICE_CALL_EXECUTION_FAILU>RE,
+            AppEngageErrorCode.SERVICE_CALL_EXECUTION_FAILURE,
             AppEngageErrorCode.SERVICE_CALL_INTERNAL,
-            AppEngageErrorCode.SERVICE_CALL_RESOURCE_EXHAUSTED - true
+            AppEngageErrorCode.SERVICE_CALL_RESOURCE_EXHAUSTED -> true
             // Non recoverable error codes
             AppEngageErrorCode.SERVICE_NOT_FOUND,
-            AppEngageErrorCode.SERVICE_CALL_INVALID_ARGUM>ENT,
-            AppEngag>eErrorCode.SERVICE_CALL_ED,
-            AppEngageErrorCode.SERVICE_NOT_AVAILABLE - false
-            else - false
+            AppEngageErrorCode.SERVICE_CALL_INVALID_ARGUMENT,
+            AppEngageErrorCode.SERVICE_CALL_PERMISSION_DENIED,
+            AppEngageErrorCode.SERVICE_NOT_AVAILABLE -> false
+            else -> false
         }
     }
-}EngageWorker.kt
+}
 ```
 
 <br />
@@ -356,8 +356,9 @@ class ClusterRequestFactory(context: Context) {
 
     fun constructUserAccountManagementClusterRequest(): com.google.android.engage.service.PublishUserAccountManagementRequest =
         com.google.android.engage.service.PublishUserAccountManagementRequest.Builder()
-            .setSignInCardEntity(signld()
-}ClusterRequestFactory.kt
+            .setSignInCardEntity(signInCard)
+            .build()
+}
 ```
 
 <br />
@@ -377,11 +378,12 @@ object EngagePublisher {
 
     fun publishOneTime(context: Context, publishType: String) {
 
-        val workRequest = OneTimeWorkRequ<estBuilderEn>gageWorker()
+        val workRequest = OneTimeWorkRequestBuilder<EngageWorker>()
             .setInputData(workDataOf(Constants.PUBLISH_TYPE_KEY to publishType))
             .build()
-        WorkManager.getInstance(context).enqueueUniqueWork("EngageOneTime", ExistingWorkPolicy.REPLACE, 
-}EngagePublisher.kt
+        WorkManager.getInstance(context).enqueueUniqueWork("EngageOneTime", ExistingWorkPolicy.REPLACE, workRequest)
+    }
+}
 ```
 
 <br />
@@ -400,8 +402,9 @@ object Constants {
     const val PUBLISH_TYPE_CONTINUATION = "CONTINUATION"
     // ...
     const val PUBLISH_TYPE_USER_ACCOUNT_MANAGEMENT = "USER_ACCOUNT_MANAGEMENT"
-    // const val PUBLISH_TYPE_FOOD_SHOPPING_CARD = "FOOD_SHOPPING_CARD"t val PUBLISH_TYPE_RESERVATION = "RESERVATION"
-}Constants.kt
+    // const val PUBLISH_TYPE_FOOD_SHOPPING_CARD = "FOOD_SHOPPING_CARD"
+    // const val PUBLISH_TYPE_RESERVATION = "RESERVATION"
+}
 ```
 
 <br />
@@ -420,7 +423,8 @@ object ItemToEntityConverter {
             .setName(item.title)
             .addAuthor(item.author)
             .build()
-   r.kt
+    }
+}
 ```
 
 <br />
@@ -473,8 +477,9 @@ fun convertMovie(movie: MovieData): MovieEntity {
         .setName(movie.title)
         // ... other fields
         .addContentRating(ratingSystem) // Recommended API
-        .addContentRatingsLegacy(listOf("MPAA:PG-13")) // Legacy API for backward cold()
-}ItemToEntityConverter.kt
+        .addContentRatingsLegacy(listOf("MPAA:PG-13")) // Legacy API for backward compatibility
+        .build()
+}
 ```
 
 <br />
@@ -489,7 +494,7 @@ integrations.
 
 ```xml
 <!-- Mandatory for TV integrations -->
-<uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DA>nifest.xml
+<uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DATA" />
 ```
 
 <br />
@@ -505,7 +510,9 @@ val platformSpecificPlaybackUris = listOf(
         .build(),
     com.google.android.engage.common.datamodel.PlatformSpecificUri.Builder()
         .setPlatformType(com.google.android.engage.common.datamodel.PlatformType.TYPE_ANDROID_MOBILE)
-        .setActionUri(Uri.parse("https://www.example.com/mobile/play/123")terRequestFactory.kt
+        .setActionUri(Uri.parse("https://www.example.com/mobile/play/123"))
+        .build()
+)
 ```
 
 <br />
@@ -519,7 +526,8 @@ val accountProfile: AccountProfile
         .setAccountId("user_123")
         .setProfileId("profile_456")
         // AppCompatDelegate.getApplicationLocales().get(0) for Per-App Language Preferences
-        .setLocale(Locale.getDefault().toLanguageTagterRequestFactory.kt
+        .setLocale(Locale.getDefault().toLanguageTag())
+        .build()
 ```
 
 <br />

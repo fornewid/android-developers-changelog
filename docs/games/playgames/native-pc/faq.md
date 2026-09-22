@@ -126,7 +126,8 @@ This document answers common questions about SDKs and publishing for Google Play
 
 2. Are there any limitations of WAB file size?
 
-   You can upload up to 10 GB file size for a WAB.
+   For Installer Publishing, you can upload up to 10 GB file size for a WAB.
+   For Play Managed Publishing, the maximum WAB file size limit is 200 GB.
 3. Why isn't my game installing or appearing after I uploaded my WAB?
 
    If your game is being onboarded without a pre-existing PC version (a "first-

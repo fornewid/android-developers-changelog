@@ -25,7 +25,7 @@ Implicit startup can be triggered in the following ways:
 - **Using layouts** : Calling `setContentView()` or `layoutInflater.inflate()` on an XML resource that includes a `<WebView>`.
 
 Implicit startup can also negatively affect your business metrics, such as [app
-startup time](https://developer.android.com/topic/performance/vitals/launch-time) and time-to-first-display. If implicit initialization isn't
+startup time](https://developer.android.com/topic/performance/issues/launch-time) and time-to-first-display. If implicit initialization isn't
 optimal for your app, use [`startUpWebView`](https://developer.android.com/reference/androidx/webkit/WebViewCompat#startUpWebView(android.content.Context,androidx.webkit.WebViewStartUpConfig,androidx.webkit.WebViewCompat.WebViewStartUpCallback)) instead.
 
 This page discusses how to optimize WebView startup performance using the

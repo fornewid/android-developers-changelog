@@ -10,8 +10,8 @@ ensure it displays correctly in Android 12 and later.
 
 Starting in Android 12, the system applies the [Android system default splash
 screen](https://developer.android.com/about/versions/12/features/splash-screen) on
-[cold](https://developer.android.com/topic/performance/vitals/launch-time#cold) and [warm
-starts](https://developer.android.com/topic/performance/vitals/launch-time#warm) for all apps. By default,
+[cold](https://developer.android.com/topic/performance/issues/launch-time#cold) and [warm
+starts](https://developer.android.com/topic/performance/issues/launch-time#warm) for all apps. By default,
 this system splash screen is constructed using your app's launcher icon element
 and the [`windowBackground`](https://developer.android.com/reference/android/R.attr#windowBackground) of your
 theme, if it's a single color.

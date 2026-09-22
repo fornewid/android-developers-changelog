@@ -4,11 +4,19 @@ url: https://developer.android.com/games/engines/unreal/unreal-memory-usage
 source: md.txt
 ---
 
-Representing the memory pressure of a process, '[**anonymous RSS + swap**](https://developer.android.com/topic/performance/vitals/memory-usage)' is a critical metric for maintaining game stability. It serves as both the memory limit threshold for [**Memory Limiter**](https://source.android.com/docs/core/perf/memory-limiter) (Android 17 and higher) and the standard benchmark for Memory Vitals in Google Play Console.
+Representing the memory pressure of a process, '[**anonymous RSS + swap**](https://developer.android.com/google/play/vitals/memory-usage)'
+is a critical metric for maintaining game stability. It serves as both the
+memory limit threshold for [**Memory Limiter**](https://source.android.com/docs/core/perf/memory-limiter) (Android 17 and
+higher) and the standard benchmark for Memory Vitals in Google Play Console.
 
-It's difficult to measure memory usage that exactly matches 'anonymous RSS + swap' either at runtime or statically within the Unreal Engine.
+It's difficult to measure memory usage that exactly matches
+'anonymous RSS + swap' either at runtime or statically within the Unreal
+Engine.
 
-For tracking memory usage, Unreal Engine provides the `VmRSS` + `VmSwap` metric. Even though it's broader than 'anonymous RSS + swap' because `VmRSS` includes `rssFile` and `rssShmem`, it still serves as a reliable estimate.
+For tracking memory usage, Unreal Engine provides the `VmRSS` + `VmSwap`
+metric. Even though it's broader than 'anonymous RSS + swap' because
+`VmRSS` includes `rssFile` and `rssShmem`, it still serves as a reliable
+estimate.
 
 Follow this guidance to analyze your game's memory footprint:
 
@@ -23,11 +31,17 @@ Use the following C++ APIs to query memory metrics:
 
 ### Lightweight memory query
 
-Use `GetMemoryUsedFast` for a lightweight memory query. On Android, this method returns the estimated footprint by parsing only the necessary memory fields from `/proc/self/status`, rather than reading the entire file.
+Use `GetMemoryUsedFast` for a lightweight memory query. On Android, this
+method returns the estimated footprint by parsing only the necessary
+memory fields from `/proc/self/status`, rather than reading the entire file.
 
 ### Detailed memory statistics
 
-Use `GetStats` to query detailed platform memory statistics. This method provides comprehensive platform memory statistics, returning both `FPlatformMemoryStats.UsedPhysical` and `FPlatformMemoryStats.RssFile`. Since `UsedPhysical` is the sum of `VmRSS` and `VmSwap`, you can get closer to the benchmark value by subtracting `RssFile` from it.
+Use `GetStats` to query detailed platform memory statistics. This method
+provides comprehensive platform memory statistics, returning both
+`FPlatformMemoryStats.UsedPhysical` and `FPlatformMemoryStats.RssFile`. Since
+`UsedPhysical` is the sum of `VmRSS` and `VmSwap`, you can get closer to the
+benchmark value by subtracting `RssFile` from it.
 
     #include "HAL/PlatformMemory.h"
 
@@ -44,7 +58,9 @@ Use `GetStats` to query detailed platform memory statistics. This method provide
 
 ## Monitor memory using console commands
 
-Use this approach to monitor memory trends while the game is running on the device. To open the console, tap the screen with four fingers, and then enter the following commands.
+Use this approach to monitor memory trends while the game is running on the
+device. To open the console, tap the screen with four fingers, and then enter
+the following commands.
 
 | Command | Description |
 |---|---|
@@ -59,7 +75,9 @@ Use this approach to monitor memory trends while the game is running on the devi
 
 ## Visualize memory with Unreal Insights
 
-[Unreal Insights](https://dev.epicgames.com/documentation/unreal-engine/how-to-use-unreal-insights-to-profile-android-games-for-unreal-engine) lets you monitor and visualize memory metrics, such as platform memory stats and custom counters, over time using frame-accurate timeline graphs.
+[Unreal Insights](https://dev.epicgames.com/documentation/unreal-engine/how-to-use-unreal-insights-to-profile-android-games-for-unreal-engine) lets you monitor and visualize memory metrics,
+such as platform memory stats and custom counters, over time using
+frame-accurate timeline graphs.
 
 1. Connect your device to the Memory Trace Channels with flags that include `default,counters` to view the `PlatformMemory/UsedPhysical` (`VmRSS + VmSwap`) graph alongside the frame timeline.
 2. Optional: To track custom memory metrics in more detail, declare and update a custom trace counter using `TRACE_DECLARE_MEMORY_COUNTER` and `TRACE_COUNTER_SET`.
@@ -83,7 +101,9 @@ Use this approach to monitor memory trends while the game is running on the devi
 
 ## Verify precise memory usage using Perfetto
 
-To verify exact Android OS '**anonymous RSS + swap** ' values rather than an estimate, use [Perfetto](https://developer.android.com/tools/perfetto). Perfetto captures system-level memory metrics to evaluate your game's exact footprint.
+To verify exact Android OS '**anonymous RSS + swap** ' values rather than an
+estimate, use [Perfetto](https://developer.android.com/tools/perfetto). Perfetto captures system-level memory metrics
+to evaluate your game's exact footprint.
 
 <br />
 

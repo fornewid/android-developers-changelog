@@ -39,9 +39,9 @@ issues or bottlenecks there.
 ![Android App Startups row with option to pin highlighted.](https://developer.android.com/static/topic/performance/images/gmail-wear-pin-app-startup.png) **Figure 2.** Pin the Android App Startups custom metric to the top of your dashboard for easier analysis.
 
 Note that the **Android App Startups** metric represents the
-[time to initial display](https://developer.android.com/topic/performance/vitals/launch-time#time-initial),
+[time to initial display](https://developer.android.com/topic/performance/issues/launch-time#time-initial),
 even if you're using `reportFullyDrawn()`. To identify the
-[time to full display](https://developer.android.com/topic/performance/vitals/launch-time#time-full), search
+[time to full display](https://developer.android.com/topic/performance/issues/launch-time#time-full), search
 for `reportFullyDrawn()` in the Perfetto search box.
 
 ## Check the main thread

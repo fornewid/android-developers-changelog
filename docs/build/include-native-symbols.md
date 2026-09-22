@@ -15,7 +15,7 @@ file with your app in Play Console.
 ## Upload a symbols file
 
 The Google Play Console reports native crashes under [Android
-vitals](https://developer.android.com/topic/performance/vitals/crash#diagnose-crashes). With a few steps, you
+vitals](https://developer.android.com/topic/performance/issues/crash#diagnose-crashes). With a few steps, you
 can generate and upload a native debug symbols file for your app. This file
 enables symbolicated native crash stack traces (that include class and function
 names) in Android vitals to help you debug your app in production. These steps

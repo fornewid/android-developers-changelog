@@ -28,7 +28,7 @@ Performance](https://www.youtube.com/watch?v=qXVxuLvzKek).
 In order to analyze startup time, you must first understand what happens
 during startup. If you want more information than what is explained
 on this page, the
-[documentation on App startup time](https://developer.android.com/topic/performance/vitals/launch-time)
+[documentation on App startup time](https://developer.android.com/topic/performance/issues/launch-time)
 provides an overview of the application startup process.
 
 The stages of app startup are:
@@ -50,7 +50,7 @@ We recommend capturing systraces
 If you'd like to use command-line tools, [Perfetto](http://perfetto.dev/docs)
 is available for use with Android 10 (API level 29) and higher, while devices
 on earlier versions should use
-[systrace](https://developer.android.com/topic/performance/vitals/launch-time).
+[systrace](https://developer.android.com/topic/performance/issues/launch-time).
 
 Note that the term "first frame" is a bit of a misnomer since applications can
 vary significantly in how they handle startup after creating the initial
@@ -92,7 +92,7 @@ watch out for background work during startup. Note that devices can have
 different CPU configurations, so the number of threads that can run in
 parallel can vary across devices.
 
-Also check out the guide on [common sources of jank](https://developer.android.com/topic/performance/vitals/render#common-jank)
+Also check out the guide on [common sources of jank](https://developer.android.com/topic/performance/issues/render#common-jank)
 
 ## Use Android Studio memory profiler
 

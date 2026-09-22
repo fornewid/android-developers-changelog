@@ -39,11 +39,11 @@ implementation to Android 12](https://developer.android.com/guide/topics/ui/spla
 
 Additionally, starting in Android 12, the system always applies the new [Android
 system default splash screen](https://developer.android.com/about/versions/12/features/splash-screen) on
-[cold](https://developer.android.com/topic/performance/vitals/launch-time#cold) and
-[warm starts](https://developer.android.com/topic/performance/vitals/launch-time#warm) for all apps.
+[cold](https://developer.android.com/topic/performance/issues/launch-time#cold) and
+[warm starts](https://developer.android.com/topic/performance/issues/launch-time#warm) for all apps.
 By default, this system default splash screen is constructed using your app's
 launcher icon element and the
-[`windowBackground`](https://developer.android.com/topic/performance/vitals/launch-time#solutions-3) of your
+[`windowBackground`](https://developer.android.com/topic/performance/issues/launch-time#solutions-3) of your
 theme (if it's a single color).
 
 For more details, see the [splash screens developer guide](https://developer.android.com/guide/topics/ui/splash-screen).
@@ -555,9 +555,9 @@ using the Home button or gesture.
 > filter](https://developer.android.com/reference/android/content/IntentFilter) with both [`ACTION_MAIN`](https://developer.android.com/reference/android/content/Intent#ACTION_MAIN) and [`CATEGORY_LAUNCHER`](https://developer.android.com/reference/android/content/Intent#CATEGORY_LAUNCHER). For other activities, the system handles Back press as it did before, by finishing the activity.
 
 For most apps, this change means that users who use Back to navigate out of your
-app are able to more quickly resume your app from a [warm state](https://developer.android.com/topic/performance/vitals/launch-time#warm),
+app are able to more quickly resume your app from a [warm state](https://developer.android.com/topic/performance/issues/launch-time#warm),
 instead of having to completely restart the app from a
-[cold state](https://developer.android.com/topic/performance/vitals/launch-time#cold).
+[cold state](https://developer.android.com/topic/performance/issues/launch-time#cold).
 
 We recommend testing your apps with this change. If your app currently overrides
 [`onBackPressed()`](https://developer.android.com/reference/android/app/Activity#onBackPressed()) to handle

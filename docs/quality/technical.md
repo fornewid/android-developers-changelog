@@ -28,8 +28,8 @@ files and settings between devices, or saving their progress.
 Stability issues cause your app or game to crash or stop responding, which
 interrupts user journeys and hurts the user experience. There are different
 types of issues, including
-[crashes](https://developer.android.com/topic/performance/vitals/crash),
-[ANRs](https://developer.android.com/topic/performance/vitals/anr), and
+[crashes](https://developer.android.com/topic/performance/issues/crash),
+[ANRs](https://developer.android.com/topic/performance/issues/anr), and
 [LMKs](https://developer.android.com/topic/performance/memory-management#low-memory_killer),
 but all are equally disruptive to users.
 
@@ -64,7 +64,7 @@ you to per-device issues.
 The discoverability of your app or game might be limited on devices where your
 stability metrics exceed Google Play's bad behavior threshold, and a warning
 might be shown on your store listing on those devices.
-[Learn more](https://developer.android.com/topic/performance/vitals#core-vitals)
+[Learn more](https://developer.android.com/google/play/vitals#core-vitals)
 
 ## Performance
 
@@ -83,11 +83,11 @@ feedback and abandonment rates to ensure you're meeting user expectations, and
 check that your performance isn't degrading over time.
 
 Leverage Android to optimize
-[startup time](https://developer.android.com/topic/performance/vitals/launch-time).
+[startup time](https://developer.android.com/topic/performance/issues/launch-time).
 Providing a
 [baseline profile](https://developer.android.com/topic/performance/baselineprofiles/overview)
 and declaring
-[reportFullyDrawn](https://developer.android.com/topic/performance/vitals/launch-time#retrieve-TTFD)
+[reportFullyDrawn](https://developer.android.com/topic/performance/issues/launch-time#retrieve-TTFD)
 will ensure the most important sections of your code load faster, and adopting
 the
 [Game State API](https://developer.android.com/reference/android/app/GameManager#setGameState(android.app.GameState))
@@ -155,7 +155,7 @@ performance metrics that matter most to users and Google Play. Android vitals
 reports startup time, loading time and rendering metrics daily for all apps and
 games. It also helps you compare your metrics to your peers, and alerts you if
 you're not meeting
-[Play's quality bar](https://developer.android.com/topic/performance/vitals#core-vitals).
+[Play's quality bar](https://developer.android.com/google/play/vitals#core-vitals).
 
 [Play as you Download](https://developer.android.com/games/distribute/play-as-you-download)
 is a Google Play feature that allows users to get into your game experience
@@ -166,7 +166,7 @@ gameplay.
 The discoverability of your app or game might be limited on devices where your
 performance metrics exceed Google Play's bad behavior threshold, and a warning
 might be shown on your store listing on those devices.
-[Learn more](https://developer.android.com/topic/performance/vitals#core-vitals)
+[Learn more](https://developer.android.com/google/play/vitals#core-vitals)
 
 ## Battery and network usage
 
@@ -275,4 +275,4 @@ API](https://developers.google.com/play/developer/reporting).
 Google Play evaluates technical quality across all users of your app regardless
 of what version they are using. Managing your release quality is therefore not
 only better for users, it's also better for your Google Play quality metrics.
-[Learn more](https://developer.android.com/topic/performance/vitals#core-vitals)
+[Learn more](https://developer.android.com/google/play/vitals#core-vitals)

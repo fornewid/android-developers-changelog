@@ -19,7 +19,7 @@ go well beyond what's described here.
 
 Each item in the quality checklist has a unique ID which you might find helpful to use when you
 communicate with your team. You can also [view the previous
-version of these guidelines](https://developer.android.com/docs/quality-guidelines/2021/02).  
+version of these guidelines](https://developer.android.com/docs/quality-guidelines/2021/02).
 
 ## Visual experience
 
@@ -27,7 +27,9 @@ version of these guidelines](https://developer.android.com/docs/quality-guidelin
 Your app should provide standard Android visual design
 and interaction patterns where appropriate, for a consistent and intuitive
 user experience.
-| We recommend using [Material Design Components](https://material.io/components?platform=android) for creating a user interface in place of Android platform components where possible. This enables the modern Android look and feel, and it helps provide UI consistency across Android versions.
+
+> [!IMPORTANT]
+> We recommend using [Material Design Components](https://material.io/components?platform=android) for creating a user interface in place of Android platform components where possible. This enables the modern Android look and feel, and it helps provide UI consistency across Android versions.
 
 | Area | ID | Tests | Description |
 |---|---|---|---|
@@ -72,9 +74,9 @@ responsiveness expected by users.
 
 | Area | ID | Tests | Description |
 |---|---|---|---|
-| Stability | PS-S1 | [CR-all](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#core) [SD-1](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#SD-1) | The app does not [crash](https://developer.android.com/topic/performance/vitals/crash) or [block the UI thread](https://developer.android.com/topic/performance/vitals/anr) causing ANR (Android Not Responding") errors. Utilize [Google Play's pre-launch report](https://support.google.com/googleplay/android-developer/answer/9842757) to identify potential stability issues. After deployment, pay attention to the [Android Vitals](https://developer.android.com/topic/performance/vitals) page in the Google Play developer console. |
+| Stability | PS-S1 | [CR-all](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#core) [SD-1](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#SD-1) | The app does not [crash](https://developer.android.com/topic/performance/issues/crash) or [block the UI thread](https://developer.android.com/topic/performance/issues/anr) causing ANR (Android Not Responding") errors. Utilize [Google Play's pre-launch report](https://support.google.com/googleplay/android-developer/answer/9842757) to identify potential stability issues. After deployment, pay attention to the [Android Vitals](https://developer.android.com/google/play/vitals) page in the Google Play developer console. |
 | Performance | PS-P1 | [CR-all](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#core) [SD-1](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#SD-1) | [The app loads quickly](https://medium.com/androiddevelopers/testing-app-startup-performance-36169c27ee55) or provides onscreen feedback to the user (a progress indicator or similar cue) if the app takes longer than two seconds to load. |
-| Performance | PS-P2 | [CR-all](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#CR-all) [SD-1](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#SD-1) | Apps should render frames every 16ms to achieve 60 frames per second. Developers can use the [Profile HWUI rendering](https://developer.android.com/topic/performance/rendering/inspect-gpu-rendering) option in testing. If there are issues, tools are available to help diagnose [slow rendering](https://developer.android.com/topic/performance/vitals/render). |
+| Performance | PS-P2 | [CR-all](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#CR-all) [SD-1](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#SD-1) | Apps should render frames every 16ms to achieve 60 frames per second. Developers can use the [Profile HWUI rendering](https://developer.android.com/topic/performance/rendering/inspect-gpu-rendering) option in testing. If there are issues, tools are available to help diagnose [slow rendering](https://developer.android.com/topic/performance/issues/render). |
 | Performance | PS-P3 | [PM-1](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#PM-1) | With StrictMode enabled (see [StrictMode Testing](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#strictmode), below), no red flashes (performance warnings from StrictMode) are visible when testing the app. Any red flashes indicate bad behaviors regarding storage, network access, or memory leaks. |
 | SDK | PS-T1 | [CR-0](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#CR-0) | The app runs on the latest public version of the Android platform without crashing or severely impacting core functionality. |
 | SDK | PS-T2 | [SP-1](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#SP-1) | The app [targets the latest Android SDK](https://developer.android.com/distribute/best-practices/develop/target-sdk) needed to align with Google Play requirements by setting the `targetSdk` value. |
@@ -110,7 +112,7 @@ policies](https://play.google.com/about/privacy-security/user-data/) to protect 
 | Identity | SC-ID3 | [CR-0](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#CR-0) | The app supports [biometric authentication](https://developer.android.com/training/sign-in/biometric-auth) to protect financial transactions or sensitive information, such as important user documents. |
 | App Components | SC-AC1 | [SC-5](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#SC-5) | The app sets the `android:exported` attribute explicitly for all [activities](https://developer.android.com/guide/topics/manifest/activity-element#exported), [services](https://developer.android.com/guide/topics/manifest/service-element#exported), [broadcast receivers,](https://developer.android.com/guide/topics/manifest/receiver-element#exported) and especially [content providers](https://developer.android.com/guide/topics/manifest/provider-element#exported). Only application components that *share data with other apps* , or components that *should be invoked by other apps* , are [exported](https://developer.android.com/guide/topics/manifest/service-element#exported). |
 | App Components | SC-AC2 | [CR-0](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#CR-0) [SC-4](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#SC-4) | All intents and broadcasts follow best practices: 1. [Use explicit intents](https://developer.android.com/guide/components/intents-filters#Types) if the destination application is well defined. 2. [Use Intents to defer permissions to a different app that already has the permission.](https://developer.android.com/topic/security/best-practices#permissions-intents) 3. [Share data securely across apps](https://developer.android.com/topic/security/best-practices#permissions-share-data). 4. Intents that contain a payload are [verified before use](https://developer.android.com/privacy-and-security/security-tips#input-validation). 5. If you need to pass an Intent to another app, so that the receiving app can invoke and expect a callback in the calling app, do not include a nested intent in the extras. Use a PendingIntent. 6. When setting up your PendingIntents, explicitly set the [immutable flag](https://developer.android.com/reference/android/app/PendingIntent#FLAG_IMMUTABLE), where applicable. |
-| App Components | SC-AC3 | [SC-3](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#SC-3) | All components that *share content between your apps* use [android:protectionLevel="signature"](https://developer.android.com/guide/topics/manifest/permission-element#plevel) for [custom permissions](https://developer.android.com/guide/topics/permissions/defining). This includes [activities](https://developer.android.com/guide/topics/manifest/activity-element#prmsn), [services](https://developer.android.com/guide/topics/manifest/service-element#prmsn), [broadcast receivers](https://developer.android.com/guide/topics/manifest/receiver-element#prmsn), and especially [content providers](https://developer.android.com/guide/topics/manifest/provider-element#prmsn). Apps should not rely on accessing a list of installed packages. The access has been restricted beginning in Android 11. |
+| App Components | SC-AC3 | [SC-3](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#SC-3) | All components that *share content between your apps* use `https://developer.android.com/guide/topics/manifest/permission-element#plevel` for [custom permissions](https://developer.android.com/guide/topics/permissions/defining). This includes [activities](https://developer.android.com/guide/topics/manifest/activity-element#prmsn), [services](https://developer.android.com/guide/topics/manifest/service-element#prmsn), [broadcast receivers](https://developer.android.com/guide/topics/manifest/receiver-element#prmsn), and especially [content providers](https://developer.android.com/guide/topics/manifest/provider-element#prmsn). Apps should not rely on accessing a list of installed packages. The access has been restricted beginning in Android 11. |
 | Networking | SC-N1 | [SC-9](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#SC-9) | All network traffic is sent over [SSL](https://developer.android.com/training/articles/security-ssl). |
 | Networking | SC-N2 | [SC-6](https://developer.android.com/docs/quality-guidelines/archive/core/core-app-quality-2021-05-17#SC-6) | The application declares a [network security configuration](https://developer.android.com/training/articles/security-config). |
 | Networking | SC-N3 |   | If the application uses Google Play services, the [security provider is initialized at application startup](https://developer.android.com/training/articles/security-gms-provider). |
@@ -147,7 +149,7 @@ For the purpose of setting up a test environment for this checklist, we recommen
 - **Test with the latest Android version** - In addition to testing representative Android versions for your target user base, you should always test against the latest version of Android (currently Android 14). This ensures that [the latest behavior changes](https://developer.android.com/about/versions/14/behavior-changes-14) do not negatively impact your user's experience.
 
 
-For more comprehensive guidance on testing including unit testing, integration testing and UI testing, check out the [Android testing fundamentals](https://developer.android.com/training/testing/fundamentals).  
+For more comprehensive guidance on testing including unit testing, integration testing and UI testing, check out the [Android testing fundamentals](https://developer.android.com/training/testing/fundamentals).
 
 ## Test procedures
 
@@ -192,17 +194,17 @@ criteria with these test procedures.
 
 ### Testing with StrictMode
 
-For performance testing, we recommend enabling [StrictMode](https://developer.android.com/reference/android/os/StrictMode) in your
+For performance testing, we recommend enabling `https://developer.android.com/reference/android/os/StrictMode` in your
 app and using it to catch operations that could affect performance, network accesses, file
 reads/writes, and so on. Look for potentially problematic operations both on the main thread and on
 other threads.
 
 You can set up a per-thread monitoring policy using
-[StrictMode.ThreadPolicy.Builder](https://developer.android.com/reference/android/os/StrictMode.ThreadPolicy.Builder)
+`https://developer.android.com/reference/android/os/StrictMode.ThreadPolicy.Builder`
 and enable all supported monitoring in the
 `ThreadPolicy` using
-[detectAll()](https://developer.android.com/reference/android/os/StrictMode.ThreadPolicy.Builder#detectAll()).
+`https://developer.android.com/reference/android/os/StrictMode.ThreadPolicy.Builder#detectAll()`.
 
 Make sure to enable **visual notification** of policy violations for the
 `ThreadPolicy` using
-[penaltyFlashScreen()](https://developer.android.com/reference/android/os/StrictMode.ThreadPolicy.Builder#penaltyFlashScreen()).
+`https://developer.android.com/reference/android/os/StrictMode.ThreadPolicy.Builder#penaltyFlashScreen()`.

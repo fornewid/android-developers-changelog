@@ -71,10 +71,10 @@ the following table.
 
 | Category | Assessment criteria |
 |---|---|
-| Application startup | Measured duration between app startup and the app becoming interactive [TTFD](https://developer.android.com/topic/performance/vitals/launch-time#time-full). |
+| Application startup | Measured duration between app startup and the app becoming interactive [TTFD](https://developer.android.com/topic/performance/issues/launch-time#time-full). |
 | Rendering performance | Percentage of slow and frozen frames for scrolling, animating and full screen renders. |
 
-<iframe src="https://android.devsite.google/frame/topic/performance/app-score/index_86cbf7b7ec0571249b2c940e15686064b55ced06420d17f36f8a448a284885ed.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/topic/performance/app-score/index_c44a88f56f601ba1d26535a1282ce0eb0513841c1f79fba5949979d365849e37.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 <br />
 
@@ -100,7 +100,7 @@ static App Performance Score.
 | Compose adoption | App uses latest stable version of [Compose](https://developer.android.com/compose) |
 | Monitoring and optimization | [`FullyDrawnReporter`](https://developer.android.com/reference/kotlin/androidx/activity/FullyDrawnReporter) or [`reportFullyDrawn`](https://developer.android.com/reference/android/app/Activity#reportFullyDrawn()) is used at an appropriate time |
 
-<iframe src="https://android.devsite.google/frame/topic/performance/app-score/index_f8657e903a8f4991184fbfcef56e33927260f123b999bf2ef660d8168fbd0361.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/topic/performance/app-score/index_b842c6f7f4d8d871616462bf9095e0568200652854173fe8e32bd81c3002518c.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Tips for evaluating your app
 
@@ -157,4 +157,4 @@ improve your app.
 - [Get started with Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles/overview)
 - [Create Startup Profiles](https://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations)
 - [Overview of measuring app performance](https://developer.android.com/topic/performance/measuring-performance)
-- [Frozen frames](https://developer.android.com/topic/performance/vitals/frozen)
+- [Frozen frames](https://developer.android.com/topic/performance/issues/render#frozen-frames)

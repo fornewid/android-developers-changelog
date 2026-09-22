@@ -87,10 +87,10 @@ metrics, see [Capture Macrobenchmark metrics](https://developer.android.com/topi
 
 ## Time to full display
 
-The previous example measures the [time to initial display](https://developer.android.com/topic/performance/vitals/launch-time#time-initial) (TTID), which is
+The previous example measures the [time to initial display](https://developer.android.com/topic/performance/issues/launch-time#time-initial) (TTID), which is
 the time taken by the app to produce its first frame. However, this doesn't
 necessarily reflect the time until the user can start interacting with your app.
-The [time to full display](https://developer.android.com/topic/performance/vitals/launch-time#time-full) (TTFD) metric is more useful in measuring and
+The [time to full display](https://developer.android.com/topic/performance/issues/launch-time#time-full) (TTFD) metric is more useful in measuring and
 optimizing the code paths necessary to have a fully useable app state.
 
 We recommend optimizing for both TTID and TTFD, as both are important. A low

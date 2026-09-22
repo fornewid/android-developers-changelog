@@ -87,9 +87,9 @@ any issues it discovers.
 
 - **What it tests:** whether an "Application Not Responding" (ANR) error was detected while the game was running.
 - **How to address test failures** : [Read about how to detect ANRs and the most
-  common kind](https://developer.android.com/topic/performance/vitals/anr), and address any issues that may have occurred when running the Game Readiness Checker.
+  common kind](https://developer.android.com/topic/performance/issues/anr), and address any issues that may have occurred when running the Game Readiness Checker.
 
 ### App crash test
 
 - **What it tests:** if the game crashed.
-- **How to address test failures:** [Diagnose and repair](https://developer.android.com/topic/performance/vitals/crash) any crashes that may have occurred when running the Game Readiness Checker.
+- **How to address test failures:** [Diagnose and repair](https://developer.android.com/topic/performance/issues/crash) any crashes that may have occurred when running the Game Readiness Checker.

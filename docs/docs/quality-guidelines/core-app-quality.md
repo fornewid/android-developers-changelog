@@ -123,14 +123,14 @@ Your app should provide optimal performance, stability, compatibility, and respo
 | ID | Tests | Description |
 |---|---|---|
 | App_Startup_Time | [T-App_Startup_Time](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-App_Startup_Time) | [App loads quickly](https://medium.com/androiddevelopers/testing-app-startup-performance-36169c27ee55) or provides onscreen feedback to the user (a progress indicator or similar cue) if the app takes longer than two seconds to load. |
-| Rendering_Performance | [T-Rendering_Performance](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-Rendering_Performance) | App renders frames every 16 (or fewer) milliseconds to display at least 60 frames per second. For help with rendering issues, see [Slow rendering](https://developer.android.com/topic/performance/vitals/render). |
+| Rendering_Performance | [T-Rendering_Performance](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-Rendering_Performance) | App renders frames every 16 (or fewer) milliseconds to display at least 60 frames per second. For help with rendering issues, see [Slow rendering](https://developer.android.com/topic/performance/issues/render). |
 | StrictMode_Compliance | [T-StrictMode_Compliance](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-StrictMode_Compliance) | With [`StrictMode`](https://developer.android.com/reference/kotlin/android/os/StrictMode) enabled (see the [StrictMode](https://developer.android.com/docs/quality-guidelines/core-app-quality#strictmode) testing section), no red flashes (performance warnings from `StrictMode`) are visible when testing the app. |
 
 #### Stability
 
 | ID | Tests | Description |
 |---|---|---|
-| Stability_ANR | [T-Stability_ANR](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-Stability_ANR) | App does not [crash](https://developer.android.com/topic/performance/vitals/crash) or block the UI thread causing[ANR (Android Not Responding)](https://developer.android.com/topic/performance/vitals/anr) errors. Use the Google Play [pre-launch report](https://support.google.com/googleplay/android-developer/answer/9842757) to identify potential stability issues. After deployment, monitor the [Android Vitals](https://developer.android.com/topic/performance/vitals) page in the Google Play console. |
+| Stability_ANR | [T-Stability_ANR](https://developer.android.com/docs/quality-guidelines/core-app-quality#T-Stability_ANR) | App does not [crash](https://developer.android.com/topic/performance/issues/crash) or block the UI thread causing[ANR (Android Not Responding)](https://developer.android.com/topic/performance/issues/anr) errors. Use the Google Play [pre-launch report](https://support.google.com/googleplay/android-developer/answer/9842757) to identify potential stability issues. After deployment, monitor the [Android Vitals](https://developer.android.com/google/play/vitals) page in the Google Play console. |
 
 #### SDK
 

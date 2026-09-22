@@ -339,10 +339,10 @@ timeToInitialDisplayMs   min 184.7,   median 196.9,   max 202.9
 
 The two key metrics for measuring app startup times are as follows:
 
-- [**Time to initial display (TTID)**](https://developer.android.com/topic/performance/vitals/launch-time#time-initial): The time it takes to display the
+- [**Time to initial display (TTID)**](https://developer.android.com/topic/performance/issues/launch-time#time-initial): The time it takes to display the
   first frame of the application UI.
 
-- [**Time to full display (TTFD)**](https://developer.android.com/topic/performance/vitals/launch-time#time-full): TTID plus the time to display content
+- [**Time to full display (TTFD)**](https://developer.android.com/topic/performance/issues/launch-time#time-full): TTID plus the time to display content
   that is loaded asynchronously after the initial frame is displayed.
 
 TTFD is reported once the [`reportFullyDrawn`](https://developer.android.com/reference/kotlin/androidx/activity/ComponentActivity#reportFullyDrawn()) method of the

@@ -48,7 +48,7 @@ choose from the following options:
 > **Note:** When a user places your app in the "restricted" state but later launches your app, the system temporarily treats your app as if it were in the "unrestricted" state. When the user stops interacting with your app and begins interacting with another app, the system places your app back in the "restricted" state.
 
 If an app exhibits some of the bad behaviors described in [Android
-vitals](https://developer.android.com/topic/performance/vitals), the system might prompt the user to restrict
+vitals](https://developer.android.com/google/play/vitals), the system might prompt the user to restrict
 that app's access to system resources.
 
 

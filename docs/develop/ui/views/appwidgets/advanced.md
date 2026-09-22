@@ -143,7 +143,7 @@ duration and priority of a widget update.
 As a rule, the system lets broadcast receivers, which usually run in the app's
 main thread, run for up to 10 seconds before considering them non-responsive and
 triggering an [Application Not
-Responding](https://developer.android.com/topic/performance/vitals/anr) (ANR) error. To avoid blocking the
+Responding](https://developer.android.com/topic/performance/issues/anr) (ANR) error. To avoid blocking the
 main thread while handling the broadcast, use the
 [`goAsync`](https://developer.android.com/reference/android/content/BroadcastReceiver#goAsync()) method. If it takes longer to update the widget, consider
 scheduling a task using [`WorkManager`](https://developer.android.com/reference/androidx/work/WorkManager).

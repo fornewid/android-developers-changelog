@@ -230,4 +230,4 @@ following snippet represents the generated JSON file:
 - Note: link text is displayed when JavaScript is off
 - [Best practices for SQLite performance](https://developer.android.com/topic/performance/sqlite-performance-best-practices)
 - [Create and measure Baseline Profiles without Macrobenchmark](https://developer.android.com/topic/performance/baselineprofiles/manually-create-measure)
-- [Stuck partial wake locks](https://developer.android.com/topic/performance/vitals/wakelock)
+- [Stuck partial wake locks](https://developer.android.com/topic/performance/issues/stuck-wakelock)

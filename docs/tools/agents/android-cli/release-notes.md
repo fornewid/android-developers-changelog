@@ -12,6 +12,17 @@ This page lists the new features in every Android CLI release. To download
 Android CLI, go to the [download page](https://developer.android.com/tools/agents). To learn more,
 see the [Android CLI overview](https://developer.android.com/tools/agents/android-cli).
 
+## Version 1.0.16406183 (September 2026)
+
+- **Faster startup**: Android CLI starts about twice as fast because the native downloader library is loaded only when it is used and is no longer unpacked to a temporary directory on every invocation.
+- **Fixed exit codes** : Commands now return a non-zero exit code when they fail, including `create`, `run`, `install`, `describe`, `layout`, `docs`, `info`, `skills`, and `update`, which makes scripting and CI more reliable.
+- **Screen annotation tuning** : `android screen --annotate` exposes tuning parameters for its feature detection, including edge detection thresholds, shape filtering, and clustering strategy, documented in `--help`.
+- **Project creation options** : `android create` supports the `--application-id` and `--namespace` flags and hyphenated option names such as `--min-sdk`. The Compose template now uses a `src/main/kotlin` source set and a Material 3 theme.
+- **Headless emulator** : Start an emulator without a window using `android emulator start --headless`.
+- **Sdk reliability** : `android sdk` commands take an inter-process lock so that concurrent invocations don't conflict, verify the path and version of installed packages, update legacy XML files only when needed, and report clearer errors.
+- **Compose preview output** : `android studio render-compose-preview` prints the absolute path of the rendered image, and confirms the write even when `--print-semantics` is used.
+- **Older API level support** : Fixed device interaction failures, such as `android layout`, on devices running API level 32 and lower.
+
 ## Version 1.0.16261425 (September 2026)
 
 - **Layout fixes** : Fixed problem with layout command not working on some scenarios. To temporarily revert to old layout behavior, `export ANDROID_CLI_LAYOUT_V1=1`.
