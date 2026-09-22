@@ -1,0 +1,12 @@
+diff --git a/docs/studio/profile/jank-detection.md b/docs/studio/profile/jank-detection.md
+index a3a89dbf..db4dc997 100644
+--- a/docs/studio/profile/jank-detection.md
++++ b/docs/studio/profile/jank-detection.md
+@@ -179,4 +179,4 @@ see the official [Perfetto documentation](https://perfetto.dev/docs/data-sources
+ ## Learn more
+ 
+ To learn more about how to reduce jank, see
+-[Common sources of jank](https://developer.android.com/topic/performance/vitals/render#common-jank).
+\ No newline at end of file
++[Common sources of jank](https://developer.android.com/topic/performance/issues/render#common-jank).
+\ No newline at end of file

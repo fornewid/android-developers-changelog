@@ -1,0 +1,13 @@
+diff --git a/docs/develop/background-work/background-tasks/bg-work-restrictions.md b/docs/develop/background-work/background-tasks/bg-work-restrictions.md
+index 4b54e364..a91b5d05 100644
+--- a/docs/develop/background-work/background-tasks/bg-work-restrictions.md
++++ b/docs/develop/background-work/background-tasks/bg-work-restrictions.md
+@@ -16,7 +16,7 @@ the right API for your needs.
+ 
+ ## User-initiated restrictions
+ 
+-If an app exhibits some of the bad behaviors described in [Android vitals](https://developer.android.com/topic/performance/vitals),
++If an app exhibits some of the bad behaviors described in [Android vitals](https://developer.android.com/google/play/vitals),
+ the system prompts the user to restrict that app's access to system resources.
+ 
+ If the system notices that an app is consuming excessive resources, it notifies

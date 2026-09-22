@@ -1,0 +1,31 @@
+diff --git a/docs/games/optimize/memory-monitoring.md b/docs/games/optimize/memory-monitoring.md
+index 34d2c377..7f1dfc34 100644
+--- a/docs/games/optimize/memory-monitoring.md
++++ b/docs/games/optimize/memory-monitoring.md
+@@ -16,7 +16,7 @@ To effectively analyze and debug your game's memory behavior, you must
+ understand the exact technical metrics the Android platform uses for memory
+ management. For detailed background information on how this telemetry parameter
+ is processed and monitored in the wild, see the
+-[Android Vitals - Memory usage (anonymous RSS + swap)](https://developer.android.com/topic/performance/vitals/memory-usage) documentation.
++[Android Vitals - Memory usage (anonymous RSS + swap)](https://developer.android.com/topic/performance/issues/memory-usage) documentation.
+ 
+ ### 1. Anonymous RSS (RssAnon)
+ 
+@@ -38,7 +38,7 @@ wear and latency constraints. Instead, it uses zRAM (Uncompressed Swap):
+ 
+ ### 3. Process states
+ 
+-The memory usage are [broken down by process states in Android Vitals](https://developer.android.com/topic/performance/vitals/memory-usage#identify-high).
++The memory usage are [broken down by process states in Android Vitals](https://developer.android.com/google/play/vitals/memory-usage#identify-high).
+ For game developers, third-party SDKs or games can also trigger
+ user-perceived services or background services unexpectedly.
+ 
+@@ -58,7 +58,7 @@ and avoid being killed by the [low-memory killer (LMK)](https://developer.androi
+ other apps to use.
+ 
+ If the system kills your app in the background, the user experiences a slow
+-[cold start](https://developer.android.com/topic/performance/vitals/launch-time#cold) on resume. Reducing background memory usage helps prevent these
++[cold start](https://developer.android.com/topic/performance/issues/launch-time#cold) on resume. Reducing background memory usage helps prevent these
+ background terminations.
+ 
+ When responding to trim events, release large, reconstructible memory

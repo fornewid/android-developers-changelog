@@ -1,0 +1,31 @@
+diff --git a/docs/games/pgs/integrate-gamestats.md b/docs/games/pgs/integrate-gamestats.md
+index 3bf70c6e..b66bd09a 100644
+--- a/docs/games/pgs/integrate-gamestats.md
++++ b/docs/games/pgs/integrate-gamestats.md
+@@ -82,14 +82,23 @@ To verify that the Game Stats work as designed, turn on logs in your device:
+    following commands in a terminal:
+ 
+    ```bash
+-   adb shell setprop log.tag.Games VERBOSE
+-   adb logcat -v time | grep -iE "EventService|GameStats|RecordEvent"
++   adb shell setprop log.tag.Games INFO
++   adb logcat -s "PlayGamesServices[GameStatsAgent]:I"
+    ```
+ 2. Verify that a successful log message appears, as shown in the following
+    example:
+ 
+    ```
+-   Successfully submitted GameStats event
++   Successfully uploaded batch of X events.
++   ```
++
++   *Note: Because the API supports partial uploads, this info log indicates
++   the batch was processed. If any individual events within the batch failed
++   schema validation, an error log will precede this message.*
++3. If any submitted events fail validation, you will see an error message detailing the failure:
++
++   ```
++   BatchRecordEvents validation failed for X event(s): ...
+    ```
+ 
+ ## Publish the Game Stats

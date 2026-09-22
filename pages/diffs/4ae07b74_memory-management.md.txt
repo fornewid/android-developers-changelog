@@ -1,0 +1,12 @@
+diff --git a/docs/topic/performance/memory-management.md b/docs/topic/performance/memory-management.md
+index 643835fd..0849ec0b 100644
+--- a/docs/topic/performance/memory-management.md
++++ b/docs/topic/performance/memory-management.md
+@@ -215,4 +215,4 @@ tailored to web content, see [Manage and diagnose WebView memory](https://develo
+ ## Recommended for you
+ 
+ - Note: link text is displayed when JavaScript is off
+-- [App startup time](https://developer.android.com/topic/performance/vitals/launch-time)
+\ No newline at end of file
++- [App startup time](https://developer.android.com/topic/performance/issues/launch-time)
+\ No newline at end of file

@@ -1,0 +1,13 @@
+diff --git a/docs/develop/background-work/background-tasks/awake/wakelock/identify-wls.md b/docs/develop/background-work/background-tasks/awake/wakelock/identify-wls.md
+index bd9349fb..0692b138 100644
+--- a/docs/develop/background-work/background-tasks/awake/wakelock/identify-wls.md
++++ b/docs/develop/background-work/background-tasks/awake/wakelock/identify-wls.md
+@@ -13,7 +13,7 @@ Incorrect API usage can cause your app to be flagged for excessive wake lock
+ usage, even if you aren't explicitly acquiring wake locks.
+ 
+ This document lists some common wake lock names you might encounter when using
+-the [wake lock debugging tools](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/debug-locally) or in reports from [vitals](https://developer.android.com/topic/performance/vitals). These names can
++the [wake lock debugging tools](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/debug-locally) or in reports from [vitals](https://developer.android.com/google/play/vitals). These names can
+ originate from a library or system API, or they might be obfuscated. By using
+ the debugging tools to identify misbehaving wake locks and then searching for
+ the wake lock name in this document, you can determine which API may be causing

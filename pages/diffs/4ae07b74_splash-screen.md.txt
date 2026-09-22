@@ -1,0 +1,24 @@
+diff --git a/docs/develop/ui/views/launch/splash-screen.md b/docs/develop/ui/views/launch/splash-screen.md
+index f4c45459..9c559dae 100644
+--- a/docs/develop/ui/views/launch/splash-screen.md
++++ b/docs/develop/ui/views/launch/splash-screen.md
+@@ -27,8 +27,8 @@ compat library, which wraps the `SplashScreen` API.
+ ## How the splash screen works
+ 
+ When a user launches an app while the app's process isn't running (a [cold
+-start](https://developer.android.com/topic/performance/vitals/launch-time#cold)) or the `Activity` isn't
+-created (a [warm start](https://developer.android.com/topic/performance/vitals/launch-time#warm)), the
++start](https://developer.android.com/topic/performance/issues/launch-time#cold)) or the `Activity` isn't
++created (a [warm start](https://developer.android.com/topic/performance/issues/launch-time#warm)), the
+ following events occur:
+ 
+ 1. The system shows the splash screen using themes and any animations that you
+@@ -37,7 +37,7 @@ following events occur:
+ 2. When the app is ready, the splash screen is dismissed and the app displays.
+ 
+ The splash screen never shows during a
+-[hot start](https://developer.android.com/topic/performance/vitals/launch-time#hot).
++[hot start](https://developer.android.com/topic/performance/issues/launch-time#hot).
+ 
+ ## Elements and mechanics of the splash screen
+ 

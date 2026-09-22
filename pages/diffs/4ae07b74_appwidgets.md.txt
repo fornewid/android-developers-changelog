@@ -1,0 +1,44 @@
+diff --git a/docs/develop/ui/views/appwidgets.md b/docs/develop/ui/views/appwidgets.md
+index 69327c94..b9597b5e 100644
+--- a/docs/develop/ui/views/appwidgets.md
++++ b/docs/develop/ui/views/appwidgets.md
+@@ -18,9 +18,9 @@ music widget:
+ 
+ This document describes how to publish a widget using a widget provider. For
+ details about creating your own [`AppWidgetHost`](https://developer.android.com/reference/android/appwidget/AppWidgetHost) to host
+-app widgets, see [Build a widget host](https://developer.android.com/guide/topics/appwidgets/host).
++app widgets, see [Build a widget host](https://developer.android.com/develop/ui/views/appwidgets/host).
+ 
+-For information about how to design your widget, see [App widgets overview](https://developer.android.com/guide/topics/appwidgets/overview).
++For information about how to design your widget, see [App widgets overview](https://developer.android.com/develop/ui/views/appwidgets/overview).
+ 
+ ## Widget components
+ 
+@@ -55,13 +55,13 @@ activity. This activity lets users modify widget settings---for example, the
+ time zone for a clock widget.
+ 
+ - Starting in Android 12 (API level 31), you can provide a default configuration and let users reconfigure the widget later. See [Use the
+-  widget's default configuration](https://developer.android.com/guide/topics/appwidgets/configuration#use-default) and [Enable users to reconfigure placed
+-  widgets](https://developer.android.com/guide/topics/appwidgets/configuration#reconfigure-widgets) for more details.
++  widget's default configuration](https://developer.android.com/develop/ui/views/appwidgets/configuration#use-default) and [Enable users to reconfigure placed
++  widgets](https://developer.android.com/develop/ui/views/appwidgets/configuration#reconfigure-widgets) for more details.
+ - In Android 11 (API level 30) or lower, this activity is launched every time the user adds the widget to their home screen.
+ 
+-We also recommend the following improvements: [flexible widget layouts](https://developer.android.com/guide/topics/appwidgets/layouts),
+-[miscellaneous enhancements](https://developer.android.com/guide/topics/appwidgets/enhance), [advanced widgets](https://developer.android.com/guide/topics/appwidgets/advanced), [collection
+-widgets](https://developer.android.com/guide/topics/appwidgets/collections), and [building a widget host](https://developer.android.com/guide/topics/appwidgets/host).
++We also recommend the following improvements: [flexible widget layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts),
++[miscellaneous enhancements](https://developer.android.com/develop/ui/views/appwidgets/enhance), [advanced widgets](https://developer.android.com/develop/ui/views/appwidgets/advanced), [collection
++widgets](https://developer.android.com/develop/ui/views/appwidgets/collections), and [building a widget host](https://developer.android.com/develop/ui/views/appwidgets/host).
+ 
+ ## Declare the AppWidgetProviderInfo XML
+ 
+@@ -88,7 +88,7 @@ documentation.
+ ## Create the widget layout
+ 
+ You must define an initial layout for your widget in XML and save it in the
+-project's `res/layout/` directory. Refer to [Design guidelines](https://developer.android.com/guide/topics/appwidgets/overview#design) for details.
++project's `res/layout/` directory. Refer to [Design guidelines](https://developer.android.com/develop/ui/views/appwidgets/overview#design) for details.
+ 
+ Creating the widget layout is straightforward if you're familiar with
+ [layouts](https://developer.android.com/guide/topics/ui/declaring-layout). However, be aware that widget layouts are based on

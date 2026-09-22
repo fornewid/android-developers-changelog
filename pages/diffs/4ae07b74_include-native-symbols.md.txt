@@ -1,0 +1,13 @@
+diff --git a/docs/build/include-native-symbols.md b/docs/build/include-native-symbols.md
+index 30a2332e..2d57d88b 100644
+--- a/docs/build/include-native-symbols.md
++++ b/docs/build/include-native-symbols.md
+@@ -15,7 +15,7 @@ file with your app in Play Console.
+ ## Upload a symbols file
+ 
+ The Google Play Console reports native crashes under [Android
+-vitals](https://developer.android.com/topic/performance/vitals/crash#diagnose-crashes). With a few steps, you
++vitals](https://developer.android.com/topic/performance/issues/crash#diagnose-crashes). With a few steps, you
+ can generate and upload a native debug symbols file for your app. This file
+ enables symbolicated native crash stack traces (that include class and function
+ names) in Android vitals to help you debug your app in production. These steps

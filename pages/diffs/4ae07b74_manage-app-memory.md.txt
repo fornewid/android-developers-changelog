@@ -1,0 +1,13 @@
+diff --git a/docs/topic/performance/memory/manage-app-memory.md b/docs/topic/performance/memory/manage-app-memory.md
+index ecad9c5c..ce817c62 100644
+--- a/docs/topic/performance/memory/manage-app-memory.md
++++ b/docs/topic/performance/memory/manage-app-memory.md
+@@ -370,7 +370,7 @@ can use the following commands:
+ - **Continuously monitor OOM Scores:** To continuously monitor changes to an app's OOM Score (which will be the lowest OOM Score among all its processes), you can use the `watch-uids` command.  
+   `shell
+   adb shell am watch-uids`
+-- **Measure memory footprints:** To get a fast reading of a process's core memory footprint, such as [Anonymous RSS and Swap memory usage](https://developer.android.com/topic/performance/vitals/memory-usage), read its status directly from the linux process file system.  
++- **Measure memory footprints:** To get a fast reading of a process's core memory footprint, such as [Anonymous RSS and Swap memory usage](https://developer.android.com/topic/performance/issues/memory-usage), read its status directly from the linux process file system.  
+   `shell
+   adb shell cat /proc/pid/status | grep -E "VmRSS|RssAnon|VmSwap"`  
+   For a more detailed and comprehensive breakdown of the memory allocations, use the `dumpsys meminfo` command:  

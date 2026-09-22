@@ -1,0 +1,13 @@
+diff --git a/docs/games/optimize/memory-overview.md b/docs/games/optimize/memory-overview.md
+index 133ce006..1baa5bbd 100644
+--- a/docs/games/optimize/memory-overview.md
++++ b/docs/games/optimize/memory-overview.md
+@@ -83,7 +83,7 @@ The warning and enforcement thresholds are scaled based on the device's physical
+ RAM capacity and process states. These limits apply in two distinct phases.
+ 
+ For detailed guidelines and memory limits, see the [Android vitals - 'What are
+-the bad behavior thresholds?](https://developer.android.com/topic/performance/vitals#what_are_the_bad_behavior_thresholds).
++the bad behavior thresholds?](https://developer.android.com/google/play/vitals#what_are_the_bad_behavior_thresholds).
+ 
+ ##### User-perceived services
+ 

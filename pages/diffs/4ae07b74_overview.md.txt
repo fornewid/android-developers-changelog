@@ -1,0 +1,88 @@
+diff --git a/docs/develop/ui/views/appwidgets/overview.md b/docs/develop/ui/views/appwidgets/overview.md
+index 68dd64bd..1fee3216 100644
+--- a/docs/develop/ui/views/appwidgets/overview.md
++++ b/docs/develop/ui/views/appwidgets/overview.md
+@@ -16,9 +16,8 @@ amount of information in the widget to their preference.
+ 
+ This documentation introduces the different types of widgets you can create and
+ the design principles to follow. To build an app widget using the Remote View
+-APIs and XML layouts, see [Create a simple widget](https://developer.android.com/guide/topics/appwidgets). To
+-build a widget using Kotlin and Compose style APIs, see
+-[Jetpack Glance](https://developer.android.com/jetpack/compose/glance).
++APIs and XML layouts, see [Create a basic widget](https://developer.android.com/develop/ui/views/appwidgets). To
++build a widget using Kotlin and Compose style APIs, see [Jetpack Glance](https://developer.android.com/develop/ui/compose/glance).
+ 
+ ## Widget types
+ 
+@@ -84,14 +83,14 @@ of other types as needed.
+ ## Integrate widgets with Google Assistant
+ 
+ Any type of widget can be displayed by Google Assistant in response to user
+-voice commands. You can configure your widgets to fulfill [App
+-Actions](https://developers.google.com/assistant/app), enabling users to
+-receive quick answers and interactive app experiences on Assistant surfaces like
+-Android and [Android
+-Auto](https://developers.google.com/cars/design/android-auto/product-experience/system-ui/widgets).
++voice commands. You can configure your widgets to fulfill [App Actions](https://developer.android.com/develop/devices/assistant/overview),
++enabling users to receive quick answers and interactive app experiences on
++Assistant surfaces like Android and [Android Auto](https://developers.google.com/cars/design/android-auto/product-experience/system-ui/widgets).
+ For more details on widget fulfillment for Assistant, see [Integrate App Actions
+-with Android
+-widgets](https://developers.google.com/assistant/app/widgets).
++with Android widgets](https://developer.android.com/develop/devices/assistant/widgets).
++
++> [!NOTE]
++> **Note:** While widgets can be displayed by Google Assistant, widgets can't currently be displayed by Google Gemini when selected as the digital assistant.
+ 
+ ## Widget limitations
+ 
+@@ -113,11 +112,13 @@ The only gestures available for widgets are **touch** and **vertical swipe**.
+ Given the limitations on gestures available for widgets, some UI building blocks
+ that rely on restricted gestures are not available for widgets. For a complete
+ list of supported building blocks and more information on layout restrictions,
+-see [Create the widget layout](https://developer.android.com/guide/topics/appwidgets#layout) and [Provide flexible widget
+-layouts](https://developer.android.com/guide/topics/appwidgets/layouts).
++see [Create the widget layout](https://developer.android.com/develop/ui/views/appwidgets#layout) and [Provide flexible widget layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts).
+ 
+ ## Design guidelines
+ 
++Follow these design guidelines to create an engaging, flexible, and
++consistent widget experience on the home screen.
++
+ ### Widget content
+ 
+ Widgets are a great way to attract a user to your app by "advertising" new and
+@@ -174,7 +175,7 @@ because resizing the widget expands or contracts the vertical scrolling area.
+ Regardless of the widget's size, the user can still scroll all information
+ elements into view.
+ 
+-Information widgets require more hands-on planning, because they aren't
++Information widgets require more precise planning, because they aren't
+ scrollable and all content has to fit within a given size. You must dynamically
+ adjust your widget's content and layout to the size the user defines through the
+ resize operation.
+@@ -213,11 +214,11 @@ approximation, but keep the following points in mind:
+ - As the user resizes a widget, the system responds with a dp size range in which your widget can redraw itself.
+ - Starting in Android 12, you can provide more refined size attributes and more flexible layouts. This includes:
+   - [Specifying widget size
+-    constraints](https://developer.android.com/guide/topics/appwidgets/layouts#specify-widget-size-constraints). For example, you can specify the target size for your widget---in grid cells---as well as the maximum possible size.
+-  - Providing [responsive layouts](https://developer.android.com/guide/topics/appwidgets/layouts#provide-responsive-layouts), which change depending on the size of the widget.
+-  - Providing [exact-size layouts](https://developer.android.com/guide/topics/appwidgets/layouts#provide-exact-layouts), which let the launcher respond with size options for portrait and landscape mode, for phones, or with four sizes for foldables.
++    constraints](https://developer.android.com/develop/ui/views/appwidgets/layouts#specify-widget-size-constraints). For example, you can specify the target size for your widget---in grid cells---as well as the maximum possible size.
++  - Providing [responsive layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-responsive-layouts), which change depending on the size of the widget.
++  - Providing [exact-size layouts](https://developer.android.com/develop/ui/views/appwidgets/layouts#provide-exact-layouts), which let the launcher respond with size options for portrait and landscape mode, for phones, or with four sizes for foldables.
+   - Using [updated guidance and new
+-    APIs](https://developer.android.com/guide/topics/appwidgets/layouts#anatomy_determining_size) to determine proper sizes for your widget.
++    APIs](https://developer.android.com/develop/ui/views/appwidgets/layouts#anatomy_determining_size) to determine proper sizes for your widget.
+ 
+ ### Widget configuration by users
+ 
+@@ -229,7 +230,7 @@ configuration choices right after the user drops the widget onto a home screen.
+ 
+ > [!NOTE]
+ > **Note:** Android 12 adds new options to let you provide a more seamless configuration experience for users. See [Enable users to configure app
+-> widgets](https://developer.android.com/guide/topics/appwidgets/configuration) for details on letting users reconfigure already-placed widgets and skip the default configuration step.
++> widgets](https://developer.android.com/develop/ui/views/appwidgets/configuration) for details on letting users reconfigure already-placed widgets and skip the default configuration step.
+ 
+ ## Widget design checklist
+ 
