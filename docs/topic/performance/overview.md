@@ -11,9 +11,9 @@ This guide provides an overview of libraries, tools, and best practices you can
 use to inspect, improve, and monitor performance on Android.
 
 
-Users want apps to launch quickly, render smoothly, and require little memory
-and battery usage. This guide's sections provide information and insights into tools,
-libraries, and best practices that help you achieve better app performance.
+Users want apps to launch quickly, render smoothly, and use memory efficiently.
+Optimizing your app's memory footprint is critical to preventing out-of-memory terminations
+and maintaining high performance across all device tiers.
 [![](http://developer.android.com/static/images/picto-icons/speedometer.svg)](http://developer.android.com/topic/performance/app-score) Featured
 
 ### [Get your App Performance Score](http://developer.android.com/topic/performance/app-score)
@@ -28,17 +28,21 @@ Learn about inspecting app performance during development. [Learn more](http://d
 
 Improve app performance where it matters the most---in production. [Learn more](http://developer.android.com/topic/performance/improving-overview)
 
-### [Monitor performance](http://developer.android.com/topic/performance/monitoring-overview)
+### [Monitor performance](http://developer.android.com/topic/performance/vitals)
 
-Monitor your app's performance in production to learn about potential bottlenecks. [Learn more](http://developer.android.com/topic/performance/monitoring-overview) [![](http://developer.android.com/static/images/picto-icons/measurement.svg)](http://developer.android.com/topic/performance/baselineprofiles/overview) Featured
+Monitor production stability, ANRs, and memory usage thresholds using Android vitals. [Android vitals](http://developer.android.com/topic/performance/vitals) [![](http://developer.android.com/static/images/picto-icons/measurement.svg)](http://developer.android.com/topic/performance/baselineprofiles/overview) Featured
 
 ### [Improve performance with Baseline Profiles](http://developer.android.com/topic/performance/baselineprofiles/overview)
 
-Implementing Baseline Profiles is the quickest, most efficient way to realize performance improvements in your app. [Learn more](http://developer.android.com/topic/performance/baselineprofiles/overview) [![](http://developer.android.com/static/images/picto-icons/app-optimization-2.svg)](http://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations) Featured
+Implementing Baseline Profiles is the quickest, most efficient way to realize performance improvements in your app. [Learn more](http://developer.android.com/topic/performance/baselineprofiles/overview) [![](http://developer.android.com/static/images/picto-icons/storage.svg)](http://developer.android.com/topic/performance/memory) Featured
 
-### [Improve app startup with DEX layout optimizations](http://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations)
+### [Optimize app memory](http://developer.android.com/topic/performance/memory)
 
-With DEX layout optimizations, you can improve the locality of code used during startup, reducing the number of major page faults. [Learn more](http://developer.android.com/topic/performance/baselineprofiles/dex-layout-optimizations)
+Learn core Android memory architecture, lifecycle best practices, and diagnostic workflows to reduce dynamic and bitmap memory usage across all device tiers. [Learn more](http://developer.android.com/topic/performance/memory) [![](http://developer.android.com/static/images/picto-icons/vitals.svg)](https://android-developers.googleblog.com/2026/08/app-broader-memory-limits.html) Blog
+
+### [Preparing your app for broader memory limits](https://android-developers.googleblog.com/2026/08/app-broader-memory-limits.html)
+
+Learn how Android is addressing hardware constraints with broader memory limits, and how new Google Play performance thresholds for memory and DEX code optimization help protect ecosystem quality. [Read blog post](https://android-developers.googleblog.com/2026/08/app-broader-memory-limits.html)
 
 ## Featured samples
 

@@ -10,8 +10,7 @@ A composable is defined by a function and annotated with `@Composable`:
 ```kotlin
 @Composable
 fun SimpleComposable() {
-    Text("Hello World")
-}
+    Text("Hello Worlnippets.kt
 ```
 
 <br />
@@ -80,9 +79,7 @@ to them:
 @Composable
 fun SquareComposablePreview() {
     Box(Modifier.background(Color.Yellow)) {
-        Text("Hello World")
-    }
-}
+        Text("Hello World"nippets.kt
 ```
 
 <br />
@@ -141,8 +138,7 @@ To test different user locales, add the `locale` parameter:
 @Preview(locale = "fr-rFR")
 @Composable
 fun DifferentLocaleComposablePreview() {
-    Text(text = stringResource(R.string.greeting))
-}
+    Text(text = stringResource(R.string.grnippets.kt
 ```
 
 <br />
@@ -162,8 +158,7 @@ value:
 @Preview(showBackground = true, backgroundColor = 0xFF00FF00)
 @Composable
 fun WithGreenBackground() {
-    Text("Hello World")
-}
+    Text("Hello Worlnippets.kt
 ```
 
 <br />
@@ -181,8 +176,7 @@ If you need to display the status and action bars inside a preview, add the
 @Preview(showSystemUi = true)
 @Composable
 fun DecoratedComposablePreview() {
-    Text("Hello World")
-}
+    Text("Hello Worlnippets.kt
 ```
 
 <br />
@@ -218,9 +212,7 @@ fun GreetingScreen(name: String) {
         Text("Hello preview user!")
     } else {
         // Show this text in the app:
-        Text("Hello $name!")
-    }
-}
+        Text("Hello $ioComposeSnippets.kt
 ```
 
 <br />
@@ -318,9 +310,7 @@ Start by creating your own custom annotation class:
 @Preview(
     name = "large font",
     group = "font scales",
-    fontScale = 1.5f
-)
-annotation class FontScalePreviews
+    fontScale = 1ePreviewsAndroidStudioComposeSnippets.kt
 ```
 
 <br />
@@ -332,8 +322,7 @@ You can use this custom annotation for your preview composables:
 @FontScalePreviews
 @Composable
 fun HelloWorldPreview() {
-    Text("Hello World")
-}
+    Text("Hello Worlnippets.kt
 ```
 
 <br />
@@ -358,8 +347,7 @@ annotation class CombinedPreviews
 @CombinedPreviews
 @Composable
 fun HelloWorldPreview2() {
-    MaterialTheme { Surface { Text(stringResource(R.string.hello_world)) } }
-}
+    MaterialTheme { Surface { Text(stringResourcndroidStudioComposeSnippets.kt
 ```
 
 <br />
@@ -399,9 +387,7 @@ class UserPreviewParameterProvider : PreviewParameterProvider<User> {
     override val values = sequenceOf(
         User("Elise"),
         User("Frank"),
-        User("Julia")
-    )
-}
+        UndroidStudioComposeSnippets.kt
 ```
 
 <br />
@@ -449,9 +435,9 @@ class UserAgePreviewParameterProvider : PreviewParameterProvider<User> {
     override fun getDisplayName(index: Int): String? {
         // Return null or an empty string to use the default index-based name
         val user = userList.getOrNull(index) ?: return null
-        return "${user.name} - ${user.age}"
+        return ";
     }
-}
+}AndroidStudioComposeSnippets.kt
 ```
 
 <br />
@@ -491,8 +477,7 @@ annotation class Preview(
     val backgroundColor: Long = 0,
     @UiMode val uiMode: Int = 0,
     @Device val device: String = Devices.DEFAULT,
-    @Wallpaper val wallpaper: Int = Wallpapers.NONE,
-)
+    @Wallpaper val wallpndroidStudioComposeSnippets.kt
 ```
 
 <br />

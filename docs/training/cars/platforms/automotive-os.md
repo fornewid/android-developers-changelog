@@ -91,18 +91,16 @@ optimized for use while driving.
 ![The activity blocking activity being displayed over an app not marked as
 distraction optimized.](https://developer.android.com/static/training/cars/images/activity-blocking-activity.png) **Figure 2**: An app being blocked by UX restrictions
 
-The exact set of rules that determine how and when UX restrictions are active
-are determined by vehicle manufacturers. These rules can vary by geography -- for
-example, the same vehicle sold in Europe may have different rules than those
-sold in the United States.
+Vehicle manufacturers determine the rules for how and when UX restrictions are
+active. These rules can vary by geography -- for example, the same vehicle sold
+in Europe may have different rules than those sold in the United States.
 
 UX restriction rules can also vary by display within a vehicle. For example,
-it is possible for a center display in the driver's line of sight to be
-restricted while the vehicle is in motion while a passenger display would
-remain unrestricted.
+a center display in the driver's line of sight might be restricted while the
+vehicle is in motion, while a passenger display remains unrestricted.
 
 If your app needs to adapt to UX restrictions, reference them directly -- don't
-attempt to reverse engineer their implementation. For example, if you assume
+reverse engineer their implementation. For example, if you assume
 that UX restrictions are active when the gear is not Park, you might
 unnecessarily restrict an app running on a passenger display.
 

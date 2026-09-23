@@ -75,7 +75,7 @@ For mobile devices, the Android vitals metric applies to non-exempted wake locks
 
 To debug and fix excessive wake lock issues, check out our [technical blog post](https://android-developers.googleblog.com/2025/09/guide-to-excessive-wake-lock-usage.html).
 
-Consult our [Android vitals documentation](https://developer.android.com/google/play/vitals) and continue your journey to better leverage Android vitals.
+Consult our [Android vitals documentation](https://developer.android.com/topic/performance/vitals) and continue your journey to better leverage Android vitals.
 
 ## **Level 2: Follow the App Performance Score action items**
 

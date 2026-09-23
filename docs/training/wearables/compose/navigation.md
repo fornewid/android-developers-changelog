@@ -107,15 +107,11 @@ In your Wear OS app, declare [`SwipeDismissableNavHost`](https://developer.andro
 fun MessageDetail(id: String) {
     // .. Screen level content goes here
     val scrollState = rememberTransformingLazyColumnState()
-
-    val padding = rememberResponsiveColumnPadding(
-        first = ColumnItemType.BodyText
-    )
+    val transformationSpec = rememberTransformationSpec()
 
     ScreenScaffold(
         scrollState = scrollState,
-        contentPadding = padding
-    ) { scaffoldPaddingValues ->
+    ) { contentPadding ->
         // Screen content goes here
         // ...
 ```

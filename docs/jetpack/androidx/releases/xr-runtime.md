@@ -6,18 +6,13 @@ source: md.txt
 
 # XR Runtime
 
-[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore)
-
-Start your custom AR or 3D session with our native runtime.
-
+[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore) Start your custom AR or 3D session with our native runtime.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
 | September 09, 2026 | - | [1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-rc01) | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.1.0-alpha01) |
 
-
 ## Declaring dependencies
-
 
 To add a dependency on XR runtime, you must add the Google Maven repository to your
 project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)

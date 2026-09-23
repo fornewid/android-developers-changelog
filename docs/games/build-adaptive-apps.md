@@ -14,7 +14,7 @@ supported device.
 
 ## Adaptive apps development hub
 
-Go to the [Adaptive apps development hub](https://developer.android.com/develop/adaptive-apps/guides/games/build-adaptive-apps-for-games) to learn about building adaptive
+Go to the [Adaptive apps development hub](https://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps) to learn about building adaptive
 games, including how to:
 
 - Create adaptive game layouts

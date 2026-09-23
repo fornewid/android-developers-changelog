@@ -6,7 +6,7 @@ source: md.txt
 
 ## Build adaptive apps
 
-Unlock your app's full potential on phones, tablets, foldables, ChromeOS, cars, and XR.  
+Unlock your app's full potential on phones, tablets, foldables, Googlebooks, cars, and XR.  
 Reach more users on more devices. Increase user engagement and retention. [![](http://developer.android.com/static/images/large-screens/adaptive-apps-hero.png)](http://developer.android.com/develop/adaptive-apps) [Build adaptive](http://developer.android.com/develop/adaptive-apps) [Get inspired](http://developer.android.com/large-screens/gallery) ![](http://developer.android.com/static/images/picto-icons/pencils.svg)
 
 ### Build for more devices, more users
@@ -19,7 +19,7 @@ Adaptive apps rank higher and are more often selected for [Editors' Choice on Go
 
 ### Attract and retain users
 
-Adaptive apps have higher user satisfaction, user engagement, and time-in-app metrics on large screen form factors such as foldables, tablets, and ChromeOS devices, where users spend 9x more in dollar value than users who have only a phone.
+Adaptive apps have higher user satisfaction, user engagement, and time-in-app metrics on large screen form factors such as foldables, tablets, and Googlebooks, where users spend 9x more in dollar value than users who have only a phone.
 
 ## Optimize the user experience on all devices
 

@@ -6,18 +6,13 @@ source: md.txt
 
 # ARCore for Jetpack XR
 
-[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore)
-
-Bring digital content into the real world with perception capabilities.
-
+[User Guide](https://developer.android.com/develop/xr/jetpack-xr-sdk/work-with-arcore) Bring digital content into the real world with perception capabilities.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
 | September 09, 2026 | - | [1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-rc01) | - | - |
 
-
 ## Declaring dependencies
-
 
 To add a dependency on ARCore for Jetpack XR, you must add the Google Maven repository to your
 project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)

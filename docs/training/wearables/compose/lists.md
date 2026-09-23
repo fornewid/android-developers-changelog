@@ -240,6 +240,127 @@ guidelines:
 - **Transform the container** : Apply the `transformedHeight` modifier and `transformationSpec` to the `SwipeToReveal` component itself.
 - **Do not double-transform** : Don't apply `transformedHeight` or `transformation` modifiers to the inner swiped item (the card or button inside the `SwipeToReveal` container).
 
+## Custom composables in lists
+
+When building custom surface components for a `TransformingLazyColumn`, follow
+these best practices so your composable scales, fades, and morphs smoothly near
+the display edges:
+
+- **Expose `SurfaceTransformation`** : Accept an optional [`SurfaceTransformation`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/SurfaceTransformation) parameter (defaulting to `null`), matching standard Wear Compose Material 3 components like `Card` and `Button`. This lets callers in a `TransformingLazyColumn` pass `SurfaceTransformation(transformationSpec)` while letting the component work normally outside of a list.
+- **Apply `Modifier.transformedHeight` first in calling code** : When placing your custom composable in a `TransformingLazyColumn`, pass `Modifier.transformedHeight(this, transformationSpec)` as the first modifier in the calling code's modifier chain. While `SurfaceTransformation` applies the visual scaling and fading effects, `transformedHeight` is critical for telling the list layout to recalculate the item's height as it shrinks.
+- **Apply transformation layers, caller `modifier`, and painter in order** :
+  1. **Container transformation layer** : Start the root container's modifier chain with `Modifier.graphicsLayer` and `applyContainerTransformation()`, so that both the background and the content are drawn within the scaled, tilted coordinate space.
+  2. **Caller `modifier`** : Apply the `modifier` parameter passed by the caller (which includes `Modifier.transformedHeight`) next, before any internal sizing or padding.
+  3. **Shape clip when there is no transformation** : If `transformation` is `null`, apply `Modifier.clip(shape)` *before* drawing the background. The painter returned by `createContainerPainter()` clips itself to the shape, but a plain painter doesn't, so without this the background is drawn with square corners outside of a list.
+  4. **Morphing background painter** : Draw the background inside the container layer using `Modifier.drawBehind` and a painter created from `createContainerPainter()`.
+  5. **Content transformation layer** : Apply a second `Modifier.graphicsLayer` with `applyContentTransformation()` and clip to the container shape so inner content fades out earlier as it approaches the bezel.
+
+The following snippet shows how to implement a custom `BoardingPassCard`
+composable that applies these transformations in order:
+
+```kotlin
+@Composable
+fun BoardingPassCard(
+    flightNumber: String,
+    origin: String,
+    destination: String,
+    gate: String,
+    seat: String,
+    departureTime: String,
+    modifier: Modifier = Modifier,
+    transformation: SurfaceTransformation? = null,
+    shape: Shape = RoundedCornerShape(18.dp),
+    statusBadge: @Composable () -> Unit = {}
+) {
+    // 1. Create morphing container painter
+    val backgroundPainter = ColorPainter(MaterialTheme.colorScheme.surfaceContainer)
+    val finalPainter = if (transformation != null) {
+        remember(transformation, backgroundPainter, shape) {
+            transformation.createContainerPainter(backgroundPainter, shape, border = null)
+        }
+    } else {
+        backgroundPainter
+    }
+
+    Column(
+        modifier = Modifier
+            // 2a. Container layer: Scales, fades, and tilts the whole card surface
+            .then(
+                if (transformation != null) {
+                    Modifier.graphicsLayer {
+                        transformation.run { applyContainerTransformation() }
+                    }
+                } else Modifier
+            )
+            // 2b. Caller modifier: Includes Modifier.transformedHeight in a list
+            .then(modifier)
+            .fillMaxWidth()
+            // 2c. Shape clip: Only needed without a transformation, because the
+            // painter from createContainerPainter clips itself to the shape
+            .then(if (transformation == null) Modifier.clip(shape) else Modifier)
+            // 2d. Morphing background: Drawn inside the transformed container layer
+            .drawBehind {
+                with(finalPainter) {
+                    draw(size)
+                }
+            }
+            // 2e. Content layer: Fades content earlier and clips children to shape
+            .then(
+                if (transformation != null) {
+                    Modifier.graphicsLayer {
+                        this.shape = shape
+                        this.clip = true
+                        transformation.run { applyContentTransformation() }
+                    }
+                } else Modifier
+            )
+            .padding(horizontal = 14.dp, vertical = 10.dp)
+    ) {
+        // Card content goes here
+    }
+}
+```
+**Figure 3.** A custom boarding pass composable transforming as it scrolls through a list.
+
+You can then use `BoardingPassCard` inside a `TransformingLazyColumn` by passing
+`Modifier.transformedHeight` as the first modifier, along with
+`SurfaceTransformation(transformationSpec)`:
+
+```kotlin
+@Composable
+fun BoardingPassListSample(flights: List<FlightInfo>) {
+    val listState = rememberTransformingLazyColumnState()
+    val transformationSpec = rememberTransformationSpec()
+
+
+    ScreenScaffold(scrollState = listState) { contentPadding ->
+        TransformingLazyColumn(
+            state = listState,
+            contentPadding = contentPadding,
+            modifier = Modifier.fillMaxSize()
+        ) {
+            items(flights.size) { index ->
+                val flight = flights[index]
+                BoardingPassCard(
+                    flightNumber = flight.number,
+                    origin = flight.origin,
+                    destination = flight.destination,
+                    gate = flight.gate,
+                    seat = flight.seat,
+                    departureTime = flight.time,
+                    modifier = Modifier
+                        .transformedHeight(this, transformationSpec)
+                        .minimumVerticalContentPadding(
+                            CardDefaults.minimumVerticalListContentPadding
+                        ),
+                    transformation = SurfaceTransformation(transformationSpec)
+                )
+            }
+        }
+    }
+}
+```
+
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off

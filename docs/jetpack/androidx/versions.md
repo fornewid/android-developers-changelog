@@ -63,7 +63,7 @@ In the release notes you'll find:
 
 **Minimum SDK Version**
 
-AndroidX libraries have the default `minSdk` of 23. Individual libraries might
+AndroidX libraries have the default `minSdk` of 24. Individual libraries might
 use a higher `minSdk` in cases when supporting the lowest API version is
 impossible or prohibitively expensive. The default `minSdk` is meant to cover
 99% of Android users based on the Google Play Store check-in information, as is

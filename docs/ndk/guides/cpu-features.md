@@ -53,3 +53,6 @@ The NDK still provides a deprecated library named `cpufeatures` for source
 compatibility with apps that already use it. Unlike the newer and more complete
 [cpu_features](https://github.com/google/cpu_features) library, this historical
 library does not have workarounds for as many specific SoCs.
+
+> [!NOTE]
+> **Note:** The cpufeatures library will be removed in a future NDK release. See [Issue 2247](https://github.com/android/ndk/issues/2247).
