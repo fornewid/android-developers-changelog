@@ -1,0 +1,15 @@
+diff --git a/docs/ndk/guides/cpu-features.md b/docs/ndk/guides/cpu-features.md
+index 5a660521..99c2b3ed 100644
+--- a/docs/ndk/guides/cpu-features.md
++++ b/docs/ndk/guides/cpu-features.md
+@@ -52,4 +52,7 @@ has workarounds for every problematic device they've encountered in the wild.
+ The NDK still provides a deprecated library named `cpufeatures` for source
+ compatibility with apps that already use it. Unlike the newer and more complete
+ [cpu_features](https://github.com/google/cpu_features) library, this historical
+-library does not have workarounds for as many specific SoCs.
+\ No newline at end of file
++library does not have workarounds for as many specific SoCs.
++
++> [!NOTE]
++> **Note:** The cpufeatures library will be removed in a future NDK release. See [Issue 2247](https://github.com/android/ndk/issues/2247).
+\ No newline at end of file

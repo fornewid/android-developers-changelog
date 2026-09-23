@@ -1,0 +1,53 @@
+diff --git a/docs/training/wearables/always-on.md b/docs/training/wearables/always-on.md
+index 64e742d5..3e09036e 100644
+--- a/docs/training/wearables/always-on.md
++++ b/docs/training/wearables/always-on.md
+@@ -96,14 +96,12 @@ To react to ambient mode events in Jetpack Compose on Wear OS:
+ 
+    <br />
+ 
+-For developers using Jetpack Compose, use [`LocalAmbientModeManager`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/rememberAmbientModeManager.composable), which
+-simplifies the implementation of this pattern.
+-
+ ### Ambient behavior flowchart
+ 
+ The following flowchart illustrates how the system determines the ambient
+ behavior based on the device's Wear OS version, your app's `targetSdkVersion`,
+-and whether it implements `AmbientLifecycleCallback`.
++and whether it observes ambient state transitions (using
++`LocalAmbientModeManager` or `AmbientLifecycleCallback`).
+ ![A flowchart illustrating the decision logic for Wear OS ambient mode. It shows how the device's OS version and the app's configuration determine one of three outcomes: a blurred overlay, Global AOD, or app-managed Ambiactive Mode.](https://developer.android.com/static/training/wearables/images/ambient-flowchart.png) **Figure 1.**: A flowchart illustrating the decision logic for Wear OS ambient mode.
+ 
+ ## Control screen-on duration
+@@ -188,21 +186,23 @@ experience, by preventing misleading information and reducing visual clutter,
+ while simultaneously optimizing display power.
+ 
+ - **Reduce visual clutter and display power.** A clean, minimalist UI signals to the user that the app is in a low-power state and saves significant battery by limiting bright pixels.
+-  - Keep at least 85% of the screen black.
++  - Keep at least 85% of the screen black (an on-pixel ratio of 15% or less).
+   - Show only the most critical information, moving secondary details to the interactive display.
+-  - Use outlines for large icons or buttons rather than solid fills.
++  - Use outlines for large icons or buttons rather than solid fills, adjusting outline contrast so elements remain legible without risking screen flickering or burn-in.
+   - Avoid large blocks of solid color and non-functional branding or background images.
+-- **Handle stale dynamic data**
++- **Handle stale dynamic data and animations**
+   - The `AmbientTickEffect` callback is invoked only periodically -- typically once per minute -- to conserve power. Because of this limitation, any data that changes frequently -- such as a stopwatch, heart rate, or workout distance -- becomes stale between updates. To avoid displaying misleading and incorrect information, replace these live values with static placeholder content, such as `--`.
++  - Remove progress indicators that require frequent updates to be useful for the user's current context or situation, such as progress rings for short media sessions. You can retain progress indicators where once-per-minute updates still provide value, such as for long timers.
++  - Pause or remove all animations in ambient mode, including animated progress indicators and scrolling marquee text.
+ - **Maintain a consistent layout**
+-  - Keep elements in the same position across *Interactive* and *Ambient* modes to create a smooth transition.
+-  - Always show the time.
++  - Keep elements in the same position across *Interactive* and *Ambient* modes to create a smooth transition. Interactive UI elements such as buttons can remain visible because modern Wear OS devices support touch input during ambient sessions.
++  - Always show the current time. In Jetpack Compose for Wear OS, [`TimeText`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/TimeText.composable) (included by default in [`ScreenScaffold`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/ScreenScaffold.composable)) is ambient-aware and automatically updates once per minute in ambient mode.
+ - **Be context aware**
+   - If the user was on a settings or configuration screen when the device enters ambient mode, consider showing a more relevant screen from your app instead of the settings view.
+ - **Handle device-specific requirements**
+-  - In the [`AmbientMode`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/AmbientMode) object returned from `currentAmbientMode`:
+-    - If `isLowBitAmbientSupported` is `true`, disable anti-aliasing where possible.
+-    - If `isBurnInProtectionRequired` is `true`, periodically shift the UI elements slightly and avoid solid white areas to prevent screen burn-in.
++  - When `currentAmbientMode` returns [`AmbientMode.Ambient`](https://developer.android.com/reference/kotlin/androidx/wear/compose/foundation/AmbientMode.Ambient):
++    - If `isLowBitAmbientSupported` is `true`, the display supports fewer bits per color in ambient mode. Disable anti-aliasing (for example, in custom `Canvas` or `Paint` drawing operations) and avoid color gradients where possible.
++    - If `isBurnInProtectionRequired` is `true`, the system periodically shifts the display content to prevent pixel burn-in. Don't manually shift UI elements in your app. Instead, avoid solid white areas and place critical UI elements at least 10 pixels away from the edge of the screen so they aren't clipped when the system shifts the display. (Standard Wear Compose layouts such as [`ScreenScaffold`](https://developer.android.com/reference/kotlin/androidx/wear/compose/material3/ScreenScaffold.composable) already provide sufficient edge padding.)
+ 
+ ## Debugging and testing
+ 

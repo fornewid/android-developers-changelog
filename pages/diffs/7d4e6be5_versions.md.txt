@@ -1,0 +1,13 @@
+diff --git a/docs/jetpack/androidx/versions.md b/docs/jetpack/androidx/versions.md
+index 06273460..210256cd 100644
+--- a/docs/jetpack/androidx/versions.md
++++ b/docs/jetpack/androidx/versions.md
+@@ -63,7 +63,7 @@ In the release notes you'll find:
+ 
+ **Minimum SDK Version**
+ 
+-AndroidX libraries have the default `minSdk` of 23. Individual libraries might
++AndroidX libraries have the default `minSdk` of 24. Individual libraries might
+ use a higher `minSdk` in cases when supporting the lowest API version is
+ impossible or prohibitively expensive. The default `minSdk` is meant to cover
+ 99% of Android users based on the Google Play Store check-in information, as is

@@ -1,0 +1,13 @@
+diff --git a/docs/jetpack/androidx/versions/all-channel.md b/docs/jetpack/androidx/versions/all-channel.md
+index cb9c8976..eda022e5 100644
+--- a/docs/jetpack/androidx/versions/all-channel.md
++++ b/docs/jetpack/androidx/versions/all-channel.md
+@@ -23,7 +23,7 @@ production was released on September 21, 2018.
+ > **Note:** the Jetpack team started signing Jetpack libraries in June 2023. For more information, see [verifying Jetpack dependencies](https://developer.android.com/jetpack/getting-started#verify_dependencies).
+ 
+ > [!NOTE]
+-> **Note:** Starting in June 2025, new releases of many AndroidX libraries previously targeting minSdk 21 will be updated to require minSdk 23. Some libraries won't be re-released and will therefore continue to support minSdk 21.
++> **Note:** Starting in July 2026, new releases of many AndroidX libraries previously targeting minSdk 23 will be updated to require minSdk 24. Some libraries won't be re-released and will therefore continue to support minSdk 23.
+ 
+ To get the latest product updates delivered to you in an RSS feed, add the URL of this page to your [feed reader](https://wikipedia.org/wiki/Comparison_of_feed_aggregators), or add the feed's URL directly: `https://developer.android.com/feeds/androidx-release-notes.xml`
+ 

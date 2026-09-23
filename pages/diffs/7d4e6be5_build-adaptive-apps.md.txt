@@ -1,0 +1,13 @@
+diff --git a/docs/games/build-adaptive-apps.md b/docs/games/build-adaptive-apps.md
+index 6f1be593..b9883dea 100644
+--- a/docs/games/build-adaptive-apps.md
++++ b/docs/games/build-adaptive-apps.md
+@@ -14,7 +14,7 @@ supported device.
+ 
+ ## Adaptive apps development hub
+ 
+-Go to the [Adaptive apps development hub](https://developer.android.com/develop/adaptive-apps/guides/games/build-adaptive-apps-for-games) to learn about building adaptive
++Go to the [Adaptive apps development hub](https://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps) to learn about building adaptive
+ games, including how to:
+ 
+ - Create adaptive game layouts

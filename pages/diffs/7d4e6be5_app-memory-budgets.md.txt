@@ -1,0 +1,45 @@
+diff --git a/docs/topic/performance/memory/app-memory-budgets.md b/docs/topic/performance/memory/app-memory-budgets.md
+index 806f56af..3b9f48f0 100644
+--- a/docs/topic/performance/memory/app-memory-budgets.md
++++ b/docs/topic/performance/memory/app-memory-budgets.md
+@@ -246,11 +246,11 @@ The runtime API lets you:
+ - Dynamically adjust your process budget downward.
+ - Listen for over-budget events to proactively trim caches before the operating system triggers direct reclaim.
+ 
+-### Kotlin API (`MemoryBudgetManager`)
++### Android SDK API (`MemoryBudgetManager`)
+ 
+-The [`MemoryBudgetManager`](https://developer.android.com/reference/android/app/MemoryBudgetManager) system service is available starting in
+-Android 17 QPR2 (minor SDK release, API level 37.2 /
+-`Build.VERSION_CODES_FULL.CINNAMON_BUN_2`).
++The [`MemoryBudgetManager`](https://developer.android.com/reference/android/app/MemoryBudgetManager) system service is available to apps written
++in Kotlin and Java starting in Android 17 QPR2 (minor SDK release, API level
++37.2 / `Build.VERSION_CODES_FULL.CINNAMON_BUN_2`).
+ 
+ #### Retrieve the service
+ 
+@@ -380,16 +380,16 @@ The NDK provides two ways to monitor memory events:
+ 
+ ## Runtime API examples
+ 
+-The following examples demonstrate how to implement the runtime APIs in
+-Kotlin and C++.
++The following examples demonstrate how to implement the runtime APIs using the
++Android SDK API (written in Kotlin) and the Native NDK API (written in C++).
+ 
+-### Kotlin example: Adaptive image editor
++### Android SDK example: Adaptive image editor
+ 
+-This example shows an image editing app (`com.example.imageeditor`) that
+-dynamically raises its memory budget when the user opens a multi-layer editing
+-canvas, and clears the dynamic budget when returning to the thumbnail gallery
+-view. It also registers an `OnOverBudgetListener` to evict cached preview
+-bitmaps under pressure.
++This example shows an image editing app (`com.example.imageeditor`) using the
++Android SDK API in Kotlin to dynamically raise its memory budget when the user
++opens a multi-layer editing canvas, and clear the dynamic budget when returning
++to the thumbnail gallery view. It also registers an `OnOverBudgetListener` to
++evict cached preview bitmaps under pressure.
+ 
+     package com.example.imageeditor.ui
+ 

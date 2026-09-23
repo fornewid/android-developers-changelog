@@ -1,0 +1,25 @@
+diff --git a/docs/studio/preview/compose-screenshot-testing-with-testsuites.md b/docs/studio/preview/compose-screenshot-testing-with-testsuites.md
+index 44ecf565..459b5c7f 100644
+--- a/docs/studio/preview/compose-screenshot-testing-with-testsuites.md
++++ b/docs/studio/preview/compose-screenshot-testing-with-testsuites.md
+@@ -19,8 +19,18 @@ the following reasons:
+ - **Multi-variant and custom suite support** : You can create multiple distinct screenshot test suites (such as `screenshotTest`, `uiTests`, or `smokeTests`) within a single module and target specific build variants (such as `demoDebug` or `release`), rather than being restricted to a single pre-configured source set.
+ - **Enhanced build performance and isolation**: AGP test suites use built-in artifact transforms (such as Layoutlib runtime extraction) and isolated classloading, with full support for Gradle Configuration Caching and Project Isolation.
+ 
+-> [!WARNING]
+-> **Deprecated:** The legacy standalone plugin approach (`com.android.compose.screenshot`) is deprecated in favor of AGP test suites.
++
++## Android skills
++
++[View on GitHub](https://github.com/android/skills/blob/main/testing/testing-setup)
++
++### Create screenshot tests
++
++Use the `testing-setup` [Android skill](https://developer.android.com/tools/agents/android-skills) to develop a testing strategy and create screenshot tests. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
++
++    android skills add testing-setup
++
++<br />
+ 
+ ## Requirements
+ 

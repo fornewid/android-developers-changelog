@@ -1,0 +1,65 @@
+diff --git a/docs/training/wearables/tiles/get_started.md b/docs/training/wearables/tiles/get_started.md
+index 4fc24f4f..4037b42b 100644
+--- a/docs/training/wearables/tiles/get_started.md
++++ b/docs/training/wearables/tiles/get_started.md
+@@ -59,8 +59,8 @@ dependencies {
+ }
+ ```
+ 
+-> [!NOTE]
+-> **Note:** This API is asynchronous and relies on [`ListenableFuture`](https://developer.android.com/guide/background/asynchronous/listenablefuture) extensively. If you prefer to use [Kotlin coroutines](https://kotlinlang.org/docs/coroutines-overview.html), consider using the [`SuspendingTileService.kt`](https://github.com/google/horologist/blob/main/tiles/src/main/java/com/google/android/horologist/tiles/SuspendingTileService.kt) from the [Horologist library](https://google.github.io/horologist/).
++> [!IMPORTANT]
++> **Important:** When building Material 3 tiles, always extend [`Material3TileService`](https://developer.android.com/reference/kotlin/androidx/wear/tiles/Material3TileService) instead of the base [`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService) class or Horologist's `SuspendingTileService`. `Material3TileService` provides an opinionated, Kotlin-first API with built-in coroutine support, automatic `MaterialScope` theming, and single-call resource handling.
+ 
+ ## Key concepts
+ 
+@@ -80,6 +80,39 @@ concepts:
+ 
+ ## Create a tile
+ 
++### Use `Material3TileService` (recommended)
++
++When building Material 3 tiles (`androidx.wear.tiles:tiles:1.6.0` and higher),
++always extend [`Material3TileService`](https://developer.android.com/reference/kotlin/androidx/wear/tiles/Material3TileService) instead of the lower-level
++[`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService) class. `Material3TileService` provides an opinionated,
++Kotlin-first architecture that simplifies tile development:
++
++- **Built-in Kotlin coroutines:** Implement a single suspending `MaterialScope.tileResponse(requestParams: TileRequest): Tile` function instead of using `ListenableFuture` and overriding `onTileRequest()`.
++- **Pre-configured `MaterialScope`:** `tileResponse()` runs with `MaterialScope` as its receiver (configured through constructor parameters such as `allowDynamicTheme` and `defaultColorScheme`), so you don't need to wrap your layout in a redundant `materialScope()` call.
++- **Single-call resource registration:** Includes `ProtoLayoutScope` to automatically register inline image resources and return both the tile layout and resources in a single system binder call. Because `Material3TileService` handles resources automatically (`final` `onTileResourcesRequest()`), don't override `onTileResourcesRequest()`.
++
++```kotlin
++class MyTileService : Material3TileService() {
++
++    override suspend fun MaterialScope.tileResponse(requestParams: TileRequest): Tile =
++        tile(
++            timeline =
++            Timeline.fromLayoutElement(
++                primaryLayout(
++                    mainSlot = {
++                        text("Hello, World!".layoutString, typography = BODY_LARGE)
++                    }
++                )
++            )
++        )
++}
++```
++
++### Underlying `TileService` architecture
++
++`Material3TileService` builds on top of the base [`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService) class,
++which the remaining examples in this guide use to illustrate low-level concepts.
++
+ To provide a tile from your app, implement a service of type [`TileService`](https://developer.android.com/reference/androidx/wear/tiles/TileService)
+ and register it in your manifest. From this, the system requests the necessary
+ *tiles* during calls to [`onTileRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService#onTileRequest(androidx.wear.tiles.RequestBuilders.TileRequest)) and *resources* during calls to
+@@ -620,6 +653,9 @@ private fun mySpannable(): LayoutElement =
+ 
+ ## Work with resources
+ 
++> [!IMPORTANT]
++> **Important:** When using [`Material3TileService`](https://developer.android.com/reference/kotlin/androidx/wear/tiles/Material3TileService), resources are registered automatically through its built-in `ProtoLayoutScope` when you pass an `ImageResource` (such as `imageResource(androidImageResource(R.drawable.icon))`) directly to Material 3 components like `icon()` or `backgroundImage()`. Don't override `onTileResourcesRequest()` in `Material3TileService`.
++
+ Tiles don't have access to any of your app's resources. This means that you
+ can't pass an Android image ID to an `Image` layout element and expect it to
+ resolve. Instead, override the [`onTileResourcesRequest()`](https://developer.android.com/reference/androidx/wear/tiles/TileService#onTileResourcesRequest(androidx.wear.protolayout.RequestBuilders.ResourcesRequest)) method and
