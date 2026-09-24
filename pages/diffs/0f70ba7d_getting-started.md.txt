@@ -1,0 +1,22 @@
+diff --git a/docs/develop/background-work/background-tasks/persistent/getting-started.md b/docs/develop/background-work/background-tasks/persistent/getting-started.md
+index 665683ad..dd5aa533 100644
+--- a/docs/develop/background-work/background-tasks/persistent/getting-started.md
++++ b/docs/develop/background-work/background-tasks/persistent/getting-started.md
+@@ -13,7 +13,7 @@ Add the following dependencies to your app's `build.gradle` file:
+ 
+ ```groovy
+ dependencies {
+-    def work_version = "2.11.2"
++    def work_version = "2.12.0"
+ 
+     // (Java only)
+     implementation "androidx.work:work-runtime:$work_version"
+@@ -39,7 +39,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    val work_version = "2.11.2"
++    val work_version = "2.12.0"
+ 
+     // (Java only)
+     implementation("androidx.work:work-runtime:$work_version")

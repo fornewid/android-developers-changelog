@@ -1,0 +1,52 @@
+diff --git a/docs/jetpack/androidx/releases/glance-wear.md b/docs/jetpack/androidx/releases/glance-wear.md
+index 7995d869..b057b9b0 100644
+--- a/docs/jetpack/androidx/releases/glance-wear.md
++++ b/docs/jetpack/androidx/releases/glance-wear.md
+@@ -10,7 +10,7 @@ Glance Wear is a library for building Widgets for Wear OS
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 09, 2026 | - | - | - | [1.0.0-alpha18](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha18) |
++| September 23, 2026 | - | - | - | [1.0.0-alpha19](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha19) |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,9 +25,9 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.glance.wear:wear:1.0.0-alpha18"
++    implementation "androidx.glance.wear:wear:1.0.0-alpha19"
+ 
+-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha18"
++    implementation "androidx.glance.wear:wear-core:1.0.0-alpha19"
+ }
+ ```
+ 
+@@ -35,9 +35,9 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.glance.wear:wear:1.0.0-alpha18")
++    implementation("androidx.glance.wear:wear:1.0.0-alpha19")
+ 
+-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha18")
++    implementation("androidx.glance.wear:wear-core:1.0.0-alpha19")
+ }
+ ```
+ 
+@@ -58,6 +58,14 @@ for more information.
+ 
+ ## Glance Wear Version 1.0
+ 
++### Version 1.0.0-alpha19
++
++September 23, 2026
++
++`androidx.glance.wear:wear:1.0.0-alpha19`, `androidx.glance.wear:wear-core:1.0.0-alpha19`, and `androidx.glance.wear:wear-tooling-preview:1.0.0-alpha19` are released. Version 1.0.0-alpha19 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f/glance/wear).
++
++Internal test changes only.
++
+ ### Version 1.0.0-alpha18
+ 
+ September 09, 2026

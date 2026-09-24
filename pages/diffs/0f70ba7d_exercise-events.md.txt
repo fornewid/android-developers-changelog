@@ -1,0 +1,22 @@
+diff --git a/docs/health-and-fitness/health-services/active-data/exercise-events.md b/docs/health-and-fitness/health-services/active-data/exercise-events.md
+index 2d5485d2..e2a2d9a3 100644
+--- a/docs/health-and-fitness/health-services/active-data/exercise-events.md
++++ b/docs/health-and-fitness/health-services/active-data/exercise-events.md
+@@ -22,7 +22,7 @@ Then, in your module-level `build.gradle` file, add the following dependency:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.health:health-services-client:1.1.0-rc02"
++    implementation "androidx.health:health-services-client:1.1.0"
+ }
+ ```
+ 
+@@ -30,7 +30,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.health:health-services-client:1.1.0-rc02")
++    implementation("androidx.health:health-services-client:1.1.0")
+ }
+ ```
+ 

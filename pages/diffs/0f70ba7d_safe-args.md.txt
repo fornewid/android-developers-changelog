@@ -1,0 +1,40 @@
+diff --git a/docs/guide/navigation/use-graph/safe-args.md b/docs/guide/navigation/use-graph/safe-args.md
+index 0143bed1..b8c10150 100644
+--- a/docs/guide/navigation/use-graph/safe-args.md
++++ b/docs/guide/navigation/use-graph/safe-args.md
+@@ -28,7 +28,7 @@ buildscript {
+         google()
+     }
+     dependencies {
+-        def nav_version = "2.10.1"
++        def nav_version = "2.10.2"
+         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+     }
+ }
+@@ -42,7 +42,7 @@ buildscript {
+         google()
+     }
+     dependencies {
+-        val nav_version = "2.10.1"
++        val nav_version = "2.10.2"
+         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
+     }
+ }
+@@ -166,7 +166,7 @@ buildscript {
+         google()
+     }
+     dependencies {
+-        def nav_version = "2.10.1"
++        def nav_version = "2.10.2"
+         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+     }
+ }
+@@ -180,7 +180,7 @@ buildscript {
+         google()
+     }
+     dependencies {
+-        val nav_version = "2.10.1"
++        val nav_version = "2.10.2"
+         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
+     }
+ }

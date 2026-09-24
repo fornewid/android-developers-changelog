@@ -1,0 +1,12 @@
+diff --git a/docs/health-and-fitness/health-connect/write-data.md b/docs/health-and-fitness/health-connect/write-data.md
+index 0770eafa..ada52ac5 100644
+--- a/docs/health-and-fitness/health-connect/write-data.md
++++ b/docs/health-and-fitness/health-connect/write-data.md
+@@ -394,6 +394,7 @@ To do this, you must supply the following metadata for each written record:
+ - **`device.type`** : You are required to specify a device type from one of the supported `Device` types.
+ - **`device.manufacturer`**: The device's manufacturer, for example, "Fitbit".
+ - **`device.model`**: The device's model, for example, "Charge 3".
++- **`device.udi`** : (Optional) The Device Identifier (DI) portion of the medical device's Unique Device Identifier (UDI). For details on the required permission and privacy guidelines, refer to the [metadata](https://developer.android.com/health-and-fitness/health-connect/metadata#device-udi) guide.
+ 
+ Setting metadata correctly is crucial for data transparency and helps
+ users understand where their health information comes from. For complete

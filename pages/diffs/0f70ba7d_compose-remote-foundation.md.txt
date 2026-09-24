@@ -1,0 +1,48 @@
+diff --git a/docs/jetpack/androidx/releases/compose-remote-foundation.md b/docs/jetpack/androidx/releases/compose-remote-foundation.md
+index bab287ca..e02bf2c1 100644
+--- a/docs/jetpack/androidx/releases/compose-remote-foundation.md
++++ b/docs/jetpack/androidx/releases/compose-remote-foundation.md
+@@ -10,7 +10,7 @@ TODO
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 09, 2026 | - | - | - | [1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose_remote_foundation#1.0.0-alpha02) |
++| September 23, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose_remote_foundation#1.0.0-alpha03) |
+ 
+ ## Declaring dependencies
+ 
+@@ -30,7 +30,7 @@ compose remote foundation deps
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.compose.remote.foundation:foundation:1.0.0-alpha02"
++    implementation "androidx.compose.remote.foundation:foundation:1.0.0-alpha03"
+ }
+ ```
+ 
+@@ -38,7 +38,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.compose.remote.foundation:foundation:1.0.0-alpha02")
++    implementation("androidx.compose.remote.foundation:foundation:1.0.0-alpha03")
+ }
+ ```
+ 
+@@ -62,6 +62,16 @@ for more information.
+ 
+ ### Version 1.0
+ 
++#### Version 1.0.0-alpha03
++
++September 23, 2026
++
++`androidx.compose.remote.foundation:foundation:1.0.0-alpha03` is released. Version 1.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..7b7434f12dfb811bb3828261e14cd5c87ce8fa66/compose/remote/foundation/foundation).
++
++**API Changes**
++
++- Added `ImageVector.toRemoteImageVector()` and `RemoteImageVector.vectorResource(@DrawableRes id: Int)` to convert Compose UI `ImageVector` and drawable vector resources to `RemoteImageVector`. ([Ia8383](https://android-review.googlesource.com/#/q/Ia8383096088ccfbf93f17af836cdff9fe34cc7e2))
++
+ #### Version 1.0.0-alpha02
+ 
+ September 09, 2026

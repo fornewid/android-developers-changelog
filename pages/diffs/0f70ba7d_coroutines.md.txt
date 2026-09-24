@@ -1,0 +1,13 @@
+diff --git a/docs/kotlin/coroutines.md b/docs/kotlin/coroutines.md
+index 3222b555..81ec9f2d 100644
+--- a/docs/kotlin/coroutines.md
++++ b/docs/kotlin/coroutines.md
+@@ -301,5 +301,4 @@ For a more detailed look at coroutines on Android, see
+ For more coroutines resources, see the following links:
+ 
+ - [Coroutines overview (JetBrains)](https://kotlinlang.org/docs/coroutines-overview.html)
+-- [Coroutines guide (JetBrains)](https://kotlinlang.org/docs/coroutines-guide.html)
+-- [Additional resources for Kotlin coroutines and flow](https://developer.android.com/kotlin/coroutines/additional-resources)
+\ No newline at end of file
++- [Coroutines guide (JetBrains)](https://kotlinlang.org/docs/coroutines-guide.html)
+\ No newline at end of file

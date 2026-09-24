@@ -1,0 +1,15 @@
+diff --git a/docs/ai.md b/docs/ai.md
+index 932b3709..32f1820d 100644
+--- a/docs/ai.md
++++ b/docs/ai.md
+@@ -44,6 +44,10 @@ Take advantage of Gemini Nano's audio capabilities with the Speech Recognition A
+ 
+ Join the AICore Developer Preview to prototype with on-device Gemini Nano models. Test custom prompts and optimize performance. [Learn more](http://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview) New feature
+ 
++### [Jetpack Compose A2UI Renderer](http://developer.android.com/develop/ui/compose/agentic)
++
++Use AI agents to dynamically render UIs in your Android app that are built with native Jetpack Compose and Material 3 components. [Learn more](http://developer.android.com/develop/ui/compose/agentic) New feature
++
+ ### [Gemma 4](http://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android)
+ 
+ Unlock local agentic intelligence on Android with Gemma 4, our open model featuring advanced reasoning and tool calling. Code with Gemma 4 in Android Studio, and build on-device AI features with ML Kit GenAI APIs today. [Learn more](http://developer.android.com/blog/posts/gemma-4-the-new-standard-for-local-agentic-intelligence-on-android) ![](http://developer.android.com/static/images/picto-icons/learning-resources_dt.svg)

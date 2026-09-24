@@ -1,0 +1,13 @@
+diff --git a/docs/training/wearables/notifications/ongoing-activity.md b/docs/training/wearables/notifications/ongoing-activity.md
+index d4ba1a22..4c5b9f4e 100644
+--- a/docs/training/wearables/notifications/ongoing-activity.md
++++ b/docs/training/wearables/notifications/ongoing-activity.md
+@@ -88,7 +88,7 @@ dependencies to your app's `build.gradle` file:
+ 
+     dependencies {
+       implementation "androidx.wear:wear-ongoing:1.1.0"
+-      implementation "androidx.core:core:1.19.0"
++      implementation "androidx.core:core:1.19.1"
+     }
+ 
+ ## Create an Ongoing Activity

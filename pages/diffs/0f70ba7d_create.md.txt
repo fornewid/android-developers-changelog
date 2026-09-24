@@ -1,0 +1,22 @@
+diff --git a/docs/guide/fragments/create.md b/docs/guide/fragments/create.md
+index e505ec36..72a7d0d1 100644
+--- a/docs/guide/fragments/create.md
++++ b/docs/guide/fragments/create.md
+@@ -49,7 +49,7 @@ dependencies in your app's `build.gradle` file:
+ 
+ ```groovy
+ dependencies {
+-    def fragment_version = "1.9.0"
++    def fragment_version = "1.9.1"
+ 
+     // Java language implementation
+     implementation "androidx.fragment:fragment:$fragment_version"
+@@ -62,7 +62,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    val fragment_version = "1.9.0"
++    val fragment_version = "1.9.1"
+ 
+     // Java language implementation
+     implementation("androidx.fragment:fragment:$fragment_version")

@@ -1,0 +1,60 @@
+diff --git a/docs/jetpack/androidx/releases/wear-compose-remote.md b/docs/jetpack/androidx/releases/wear-compose-remote.md
+index fcc67506..ea38b75d 100644
+--- a/docs/jetpack/androidx/releases/wear-compose-remote.md
++++ b/docs/jetpack/androidx/releases/wear-compose-remote.md
+@@ -10,7 +10,7 @@ Write Widgets and other Remote UI for Wear OS using the Material 3 Expressive de
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 09, 2026 | - | - | - | [1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha11) |
++| September 23, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha12) |
+ 
+ ## Declaring dependencies
+ 
+@@ -26,7 +26,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha11"
++    implementation "androidx.wear.compose.remote:remote-material3:1.0.0-alpha12"
+ }
+ ```
+ 
+@@ -34,7 +34,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha11")
++    implementation("androidx.wear.compose.remote:remote-material3:1.0.0-alpha12")
+ }
+ ```
+ 
+@@ -56,6 +56,28 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha12
++
++September 23, 2026
++
++`androidx.wear.compose.remote:remote-material3:1.0.0-alpha12` is released. Version 1.0.0-alpha12 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..7b7434f12dfb811bb3828261e14cd5c87ce8fa66/wear/compose/remote/remote-material3).
++
++**API Changes**
++
++- Added `ImageVector.toRemoteImageVector()` and `RemoteImageVector.vectorResource(@DrawableRes id: Int)` to convert Compose UI `ImageVector` and drawable vector resources to `RemoteImageVector`. ([Ia8383](https://android-review.googlesource.com/#/q/Ia8383096088ccfbf93f17af836cdff9fe34cc7e2))
++- Expose `RemoteSplitSwitchButton`, `RemoteSplitSwitchButtonDefaults`, and `RemoteSplitSwitchButtonColors` as public APIs in Wear Material 3 Remote Compose. ([Ic9b7f](https://android-review.googlesource.com/#/q/Ic9b7f96d61eb858080ace1cbc217ab10c5cf7bec))
++- Expose `RemoteSplitRadioButton`, `RemoteSplitRadioButtonDefaults`, and `RemoteSplitRadioButtonColors` as public APIs in Wear Material 3 Remote Compose. ([I4d0c2](https://android-review.googlesource.com/#/q/I4d0c215ae29e6e67debd3e0638be81157b167db4))
++- Expose `RemoteSplitCheckboxButton`, `RemoteSplitCheckboxButtonDefaults`, and `RemoteSplitCheckboxButtonColors` as public APIs in Wear Material 3 Remote Compose. ([Iffdef](https://android-review.googlesource.com/#/q/Iffdefc715e7c8057045db4fe08cbcac536417aa9))
++- Expose `RemoteSwitchButton`, `RemoteSwitchButtonDefaults`, and `RemoteSwitchButtonColors` as public APIs in Wear Material 3 Remote Compose. ([I0155b](https://android-review.googlesource.com/#/q/I0155b1ec3560bed817f3c419d405ab19a08fa2f8))
++- Expose `RemoteRadioButton`, `RemoteRadioButtonDefaults`, and `RemoteRadioButtonColors` as public APIs in Wear Material 3 Remote Compose. ([I513ce](https://android-review.googlesource.com/#/q/I513ce620df5ef45b77cdbe3a838633180e05aed9))
++- Expose `RemoteCheckboxButton`, `RemoteCheckboxButtonDefaults`, and `RemoteCheckboxButtonColors` as public APIs in Wear Material 3 Remote Compose. ([If5c8a](https://android-review.googlesource.com/#/q/If5c8a72db238d6411fcff3260bd73ea554e0a18d))
++- Add `filledIconButtonColors`, `filledTonalIconButtonColors`, `filledVariantIconButtonColors`, and `outlinedIconButtonColors` to `RemoteIconButtonDefaults` in Wear Material 3 Remote Compose, and update `iconButtonColors` and `textButtonColors` parameter defaults to null. ([Ib0b0e](https://android-review.googlesource.com/#/q/Ib0b0efb859f2fade902e5cead5afc3b8a4b5a94d))
++- Add `containerPainter` support to `RemoteCard` and `RemoteTitleCard` in Wear Material 3 Remote Compose. ([I4f1bc](https://android-review.googlesource.com/#/q/I4f1bc6f0abf6abc20a7760f852fb718bf37fc1b5))
++
++**Bug Fixes**
++
++- Fixed `RemoteEdgeButton` text spilling outside button arc shape on long labels. ([I2eb3d](https://android-review.googlesource.com/#/q/I2eb3d0d1f43d0f2bbef283789086a5841b577ea6))
++
+ ### Version 1.0.0-alpha11
+ 
+ September 09, 2026

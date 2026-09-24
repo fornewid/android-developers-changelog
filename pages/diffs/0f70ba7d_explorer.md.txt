@@ -1,0 +1,21 @@
+diff --git a/docs/jetpack/androidx/explorer.md b/docs/jetpack/androidx/explorer.md
+index cff5ccf8..a8a2903d 100644
+--- a/docs/jetpack/androidx/explorer.md
++++ b/docs/jetpack/androidx/explorer.md
+@@ -19,6 +19,8 @@ Select a category:
+ 
+ | Library | Description |
+ |---|---|
++| [a2ui](https://developer.android.com/jetpack/androidx/releases/a2ui) | The Jetpack Compose Agent-to-UI (A2UI) renderer provides an implementation of the [A2UI protocol](https://a2ui.org/), enabling AI agents to generate rich, interactive user interfaces that render native Compose components---without executing arbitrary code. |
++| [a2ui.compose](https://developer.android.com/jetpack/androidx/releases/a2ui_compose) | The Jetpack Compose Agent-to-UI (A2UI) renderer provides an implementation of the [A2UI protocol](https://a2ui.org/), enabling AI agents to generate rich, interactive user interfaces that render native Compose components---without executing arbitrary code. |
+ | [activity \*](https://developer.android.com/jetpack/androidx/releases/activity) | Access composable APIs built on top of Activity. |
+ | [ads](https://developer.android.com/jetpack/androidx/releases/ads) | Get an advertising ID with or without Play Services. |
+ | [annotation](https://developer.android.com/jetpack/androidx/releases/annotation) | Expose metadata that helps tools and other developers understand your app's code. |
+@@ -131,6 +133,7 @@ Select a category:
+ | [startup](https://developer.android.com/jetpack/androidx/releases/startup) | Implement a straightforward, performant way to initialize components at app startup. |
+ | [sqlite](https://developer.android.com/jetpack/androidx/releases/sqlite) | Work with local SQLite databases. If possible, use Room instead. |
+ | [swiperefreshlayout](https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout) | Implement the swipe-to-refresh UI pattern. |
++| [test.backup](https://developer.android.com/jetpack/androidx/releases/test_backup) | Automated testing framework to verify that user data and account credentials safely survive device upgrades and cloud restores. |
+ | [test \*](https://developer.android.com/jetpack/androidx/releases/test) | Testing in Android. |
+ | [test.ext](https://developer.android.com/jetpack/androidx/releases/test-ext) | TODO |
+ | [test.uiautomator](https://developer.android.com/jetpack/androidx/releases/test-uiautomator) | Framework for cross app functional UI testing |

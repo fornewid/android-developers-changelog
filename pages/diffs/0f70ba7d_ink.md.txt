@@ -1,0 +1,88 @@
+diff --git a/docs/jetpack/androidx/releases/ink.md b/docs/jetpack/androidx/releases/ink.md
+index 3b9c01c9..877f1eb2 100644
+--- a/docs/jetpack/androidx/releases/ink.md
++++ b/docs/jetpack/androidx/releases/ink.md
+@@ -10,7 +10,7 @@ Inspire best-in-class pen apps. Lower the developer barrier to entry for high pe
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 09, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha08](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha08) |
++| September 23, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0) | - | - | [1.1.0-alpha09](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha09) |
+ 
+ ## Declaring dependencies
+ 
+@@ -26,16 +26,16 @@ your app or module:
+ ```groovy
+ dependencies {
+   
+-    implementation "androidx.ink:ink-authoring:1.1.0-alpha08"
+-    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha08"
+-    implementation "androidx.ink:ink-brush:1.1.0-alpha08"
+-    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha08"
+-    implementation "androidx.ink:ink-geometry:1.1.0-alpha08"
+-    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha08"
+-    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha08"
+-    implementation "androidx.ink:ink-rendering:1.1.0-alpha08"
+-    implementation "androidx.ink:ink-storage:1.1.0-alpha08"
+-    implementation "androidx.ink:ink-strokes:1.1.0-alpha08"
++    implementation "androidx.ink:ink-authoring:1.1.0-alpha09"
++    implementation "androidx.ink:ink-authoring-compose:1.1.0-alpha09"
++    implementation "androidx.ink:ink-brush:1.1.0-alpha09"
++    implementation "androidx.ink:ink-brush-compose:1.1.0-alpha09"
++    implementation "androidx.ink:ink-geometry:1.1.0-alpha09"
++    implementation "androidx.ink:ink-geometry-compose:1.1.0-alpha09"
++    implementation "androidx.ink:ink-nativeloader:1.1.0-alpha09"
++    implementation "androidx.ink:ink-rendering:1.1.0-alpha09"
++    implementation "androidx.ink:ink-storage:1.1.0-alpha09"
++    implementation "androidx.ink:ink-strokes:1.1.0-alpha09"
+     
+ }
+ ```
+@@ -46,16 +46,16 @@ dependencies {
+ dependencies {
+ 
+ 
+-    implementation("androidx.ink:ink-authoring:1.1.0-alpha08")
+-    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha08")
+-    implementation("androidx.ink:ink-brush:1.1.0-alpha08")
+-    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha08")
+-    implementation("androidx.ink:ink-geometry:1.1.0-alpha08")
+-    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha08")
+-    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha08")
+-    implementation("androidx.ink:ink-rendering:1.1.0-alpha08")
+-    implementation("androidx.ink:ink-storage:1.1.0-alpha08")
+-    implementation("androidx.ink:ink-strokes:1.1.0-alpha08")
++    implementation("androidx.ink:ink-authoring:1.1.0-alpha09")
++    implementation("androidx.ink:ink-authoring-compose:1.1.0-alpha09")
++    implementation("androidx.ink:ink-brush:1.1.0-alpha09")
++    implementation("androidx.ink:ink-brush-compose:1.1.0-alpha09")
++    implementation("androidx.ink:ink-geometry:1.1.0-alpha09")
++    implementation("androidx.ink:ink-geometry-compose:1.1.0-alpha09")
++    implementation("androidx.ink:ink-nativeloader:1.1.0-alpha09")
++    implementation("androidx.ink:ink-rendering:1.1.0-alpha09")
++    implementation("androidx.ink:ink-storage:1.1.0-alpha09")
++    implementation("androidx.ink:ink-strokes:1.1.0-alpha09")
+ }
+ ```
+ 
+@@ -87,6 +87,20 @@ for more information.
+ 
+ ## Ink Version 1.1
+ 
++### Version 1.1.0-alpha09
++
++September 23, 2026
++
++`androidx.ink:ink-*:1.1.0-alpha09` is released. Version 1.1.0-alpha09 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..9ffbd68e415c0ab0e5ba565835e1080ad40f1b16/ink).
++
++**API Changes**
++
++- Change Brush color shift to operate in Oklab color space, which better preserves perceived lightness in hue shifts. Renamed `SATURATION` and `LUMINOSITY` shift Brush Target APIs to `CHROMA` and `LIGHTNESS` accordingly. ([I0ed42](https://android-review.googlesource.com/#/q/I0ed42fb8b3e258b46a2e7f0d53390afa7dc45efd))
++
++**Bug Fixes**
++
++- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
++
+ ### Version 1.1.0-alpha08
+ 
+ September 09, 2026

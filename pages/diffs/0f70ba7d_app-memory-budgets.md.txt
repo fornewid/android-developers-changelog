@@ -1,0 +1,159 @@
+diff --git a/docs/topic/performance/memory/app-memory-budgets.md b/docs/topic/performance/memory/app-memory-budgets.md
+index 3b9f48f0..ddb380d4 100644
+--- a/docs/topic/performance/memory/app-memory-budgets.md
++++ b/docs/topic/performance/memory/app-memory-budgets.md
+@@ -65,6 +65,9 @@ This sets a 256MB resident memory budget across all processes and states for
+ the package. When the app's memory footprint exceeds 256MB, the operating
+ system trims inactive memory pages using eviction and swap.
+ 
++> [!NOTE]
++> **Note:** A manifest budget can't exceed system memory limits. If a declared budget exceeds the device's system limit, the system limit is applied instead.
++
+ ### Vary budgets by process state
+ 
+ An app requires different amounts of memory depending on its user visibility:
+@@ -97,10 +100,12 @@ You can declare multiple `<memory-budget>` clauses to match these states:
+         </application>
+     </manifest>
+ 
+-You don't need to specify `android:state="foreground"` on the first clause. A
+-clause without `android:state` acts as the default fallback for all states. The
+-more restrictive clauses below it override the budget when the app transitions
+-into `perceptible` or `background` states.
++A base clause without `android:state` is not required; if you only specify
++state-specific clauses (for example, `android:state="background"`), other states
++remain unconstrained by an app budget. When included, a clause without
++`android:state` acts as the default fallback for unspecified states (such as
++foreground), which subsequent more restrictive clauses override when the app
++transitions into `perceptible` or `background` states.
+ 
+ ### Multi-process apps
+ 
+@@ -228,7 +233,7 @@ cgroup `memory.current` charge (which excludes shared memory like the Zygote).
+ | Attribute | Format | Default | Description |
+ |---|---|---|---|
+ | `android:maxMb` | Integer (\> 0) | **Required** | The baseline resident memory budget limit in MB. |
+-| `android:state` | Enum | Any | The process state this budget applies to: `foreground`, `perceptible`, or `background`. |
++| `android:state` | Enum | Any | The process state this budget applies to: `foreground`, `perceptible`, or `background`. If omitted, the clause acts as a fallback for any unspecified state. |
+ | `android:additionalMbPerDensity` | Integer (≥ 0) | `0` | Additional Megabytes to add per unit of [display density ratio](https://developer.android.com/guide/practices/screens_support#density-independence) relative to `mdpi` (1.0x). |
+ | `android:additionalBytesPerDisplayPixel` | Integer (≥ 0) | `0` | Additional bytes allocated per physical display pixel (Width × Height), useful for surface buffers and bitmaps. |
+ | `android:feature` | String | Any | Restricts the clause to devices declaring specific hardware features: `watch`, `automotive`, or `leanback`. |
+@@ -280,15 +285,15 @@ tasks, or clear it when the task finishes:
+     try {
+         budgetManager.processBudgetBytes = 96L * 1024L * 1024L
+     } catch (e: IllegalArgumentException) {
+-        // Thrown if the budget is <= 0 or exceeds the manifest-declared ceiling
++        // Thrown if the budget is <= 0 or exceeds the manifest ceiling or system limit
+         Log.e(TAG, "Requested budget exceeds manifest or system ceiling", e)
+     }
+ 
+-    // Clear the dynamic process budget to restore the manifest limit
++    // Clear the dynamic process budget to restore the manifest limit (or unconstrained baseline)
+     budgetManager.clearProcessBudget()
+ 
+ > [!NOTE]
+-> **Note:** A runtime budget can't exceed the budget declared in your manifest or the system memory limit. Attempting to set a budget higher than the manifest limit throws an `IllegalArgumentException`.
++> **Note:** Declaring a budget in the manifest isn't required to use runtime budgets. However, if a manifest budget is declared, a runtime budget can only tighten (reduce) memory limits within that manifest ceiling. In all cases, a runtime budget can't exceed system memory limits. Attempting to set a budget higher than the active ceiling throws an `IllegalArgumentException`.
+ 
+ #### Listen for over-budget pressure callbacks
+ 
+@@ -351,7 +356,7 @@ Android 17 QPR2 (API level 37.2).
+         // Handle error (e.g. AMEMORY_BUDGET_RESULT_ERROR_EXCEEDS_MANIFEST_LIMIT)
+     }
+ 
+-    // Clear the dynamic budget to resume manifest limits
++    // Clear the dynamic budget to resume manifest limits (or unconstrained baseline)
+     AMemoryBudgetManager_clearProcessBudget();
+ 
+ #### Monitor memory pressure events
+@@ -385,11 +390,21 @@ Android SDK API (written in Kotlin) and the Native NDK API (written in C++).
+ 
+ ### Android SDK example: Adaptive image editor
+ 
+-This example shows an image editing app (`com.example.imageeditor`) using the
+-Android SDK API in Kotlin to dynamically raise its memory budget when the user
+-opens a multi-layer editing canvas, and clear the dynamic budget when returning
+-to the thumbnail gallery view. It also registers an `OnOverBudgetListener` to
+-evict cached preview bitmaps under pressure.
++This example shows an image editing app (`com.example.imageeditor`) whose
++manifest declares a 256MB ceiling to accommodate its multi-layer canvas:
++
++    <manifest ... >
++        <application ... >
++            <!-- Manifest ceiling accommodates the heaviest editing workload -->
++            <memory-budget android:maxMb="256" />
++        </application>
++    </manifest>
++
++When the user is browsing the lightweight thumbnail gallery, the app uses the
++Android SDK API in Kotlin to dynamically tighten its process budget to 96MB.
++When the user opens the multi-layer editing canvas, the app clears the dynamic
++budget to restore the full 256MB manifest ceiling. It also registers an
++`OnOverBudgetListener` to evict cached preview bitmaps under pressure.
+ 
+     package com.example.imageeditor.ui
+ 
+@@ -423,6 +438,8 @@ evict cached preview bitmaps under pressure.
+             super.onStart()
+             // Register listener for process-level memory breaches
+             budgetManager.registerProcessOverBudgetListener(mainLooper, overBudgetListener)
++            // Constrain memory during lightweight gallery browsing
++            applyGalleryBudget()
+         }
+ 
+         override fun onStop() {
+@@ -432,24 +449,31 @@ evict cached preview bitmaps under pressure.
+ 
+         /**
+          * Called when the user enters the high-resolution editing canvas.
++         * Clears the dynamic budget, restoring the full 256MB manifest ceiling.
+          */
+         fun enterEditingCanvas() {
+-            try {
+-                // Dynamically set budget to 256MB for the editing canvas
+-                budgetManager.processBudgetBytes = 256L * 1024L * 1024L
+-                Log.i(TAG, "Dynamic budget applied: 256MB")
+-            } catch (e: IllegalArgumentException) {
+-                Log.e(TAG, "Could not apply dynamic budget", e)
+-            }
++            // Clear the tighter dynamic budget to restore the full manifest ceiling (256MB)
++            budgetManager.clearProcessBudget()
++            Log.i(TAG, "Restored manifest budget ceiling (256MB) for editing canvas")
+         }
+ 
+         /**
+          * Called when the user exits the editor back to the thumbnail gallery.
++         * Re-applies the tighter dynamic budget.
+          */
+         fun exitToGallery() {
+             previewCache.trimToSize(8 * 1024 * 1024)
+-            // Clear dynamic budget; restores the baseline manifest budget
+-            budgetManager.clearProcessBudget()
++            applyGalleryBudget()
++        }
++
++        private fun applyGalleryBudget() {
++            try {
++                // Dynamically tighten budget to 96MB for the lightweight gallery view
++                budgetManager.processBudgetBytes = 96L * 1024L * 1024L
++                Log.i(TAG, "Tighter dynamic budget applied for gallery: 96MB")
++            } catch (e: IllegalArgumentException) {
++                Log.e(TAG, "Could not apply dynamic budget", e)
++            }
+         }
+ 
+         companion object {
+@@ -460,8 +484,11 @@ evict cached preview bitmaps under pressure.
+ ### NDK C++ example: Native 3D engine
+ 
+ This example shows a native C++ game engine managing memory budgets based on the
+-active graphics quality level, using `AMemoryBudgetManager_Watcher_create` on an
+-`ALooper` to unload texture mipmaps when over budget.
++active graphics quality level, assuming the application's manifest declares a
++512MB ceiling to accommodate High quality graphics (`android:maxMb="512"`). The
++engine dynamically tightens the budget for lower quality presets and uses
++`AMemoryBudgetManager_Watcher_create` on an `ALooper` to unload texture mipmaps
++when over budget.
+ 
+     #include <android/memory_budget_manager.h>
+     #include <android/looper.h>

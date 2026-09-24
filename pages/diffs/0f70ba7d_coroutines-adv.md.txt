@@ -1,0 +1,13 @@
+diff --git a/docs/kotlin/coroutines/coroutines-adv.md b/docs/kotlin/coroutines/coroutines-adv.md
+index a7c373e3..0894dfee 100644
+--- a/docs/kotlin/coroutines/coroutines-adv.md
++++ b/docs/kotlin/coroutines/coroutines-adv.md
+@@ -323,5 +323,4 @@ class ExampleClass {
+ 
+ For more coroutines resources, see the following links:
+ 
+-- [Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines)
+-- [Additional resources for Kotlin coroutines and flow](https://developer.android.com/kotlin/coroutines/additional-resources)
+\ No newline at end of file
++- [Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines)
+\ No newline at end of file

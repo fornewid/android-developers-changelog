@@ -1,0 +1,66 @@
+diff --git a/docs/develop/ui/compose/sharing/receive.md b/docs/develop/ui/compose/sharing/receive.md
+index 462e3764..a4193a7b 100644
+--- a/docs/develop/ui/compose/sharing/receive.md
++++ b/docs/develop/ui/compose/sharing/receive.md
+@@ -119,13 +119,13 @@ in a separate thread rather than the main ("UI") thread.
+ ```kotlin
+ @Composable
+ fun SharesheetHandler() {
+-    val context = LocalContext.current
+-    val intent = (context as? Activity)?.intent
++    val activity = LocalActivity.current
++    val intent = activity?.intent
+ 
+     when (intent?.action) {
+-        ACTION_SEND -> {
+-            if ("text/plain" == intent.type) {
+-                handleSendText(intent) // Handle text being sent.
++        Intent.ACTION_SEND -> {
++            if (intent.type == "text/plain") {
++                handleSendText(intent) // Handle text being sent
+             } else if (intent.type?.startsWith("image/") == true) {
+                 handleSendImage(intent) // Handle single image being sent
+             }
+@@ -143,21 +143,24 @@ fun SharesheetHandler() {
+     }
+ }
+ 
+-fun handleSendText(intent: Intent) {
++private fun handleSendText(intent: Intent) {
+     intent.getStringExtra(Intent.EXTRA_TEXT)?.let {
+-        // Update ViewModel state to change state of text being shared
++        // Update UI state with the shared text
+     }
+ }
+ 
+-fun handleSendImage(intent: Intent) {
+-    IntentCompat.getParcelableExtra(intent, Intent.EXTRA_STREAM, Uri::class.java).let {
+-        // Update ViewModel state to change state of image being shared
++private fun handleSendImage(intent: Intent) {
++    val imageUri = IntentCompat.getParcelableExtra(intent, Intent.EXTRA_STREAM, Uri::class.java)
++    imageUri?.let {
++        // Update UI state with the shared image
+     }
+ }
+ 
+-fun handleSendMultipleImages(intent: Intent) {
+-    IntentCompat.getParcelableArrayListExtra(intent, Intent.EXTRA_STREAM, Uri::class.java).let {
+-        // Update ViewModel state to change state of image(s) being shared
++private fun handleSendMultipleImages(intent: Intent) {
++    val imageUris =
++        IntentCompat.getParcelableArrayListExtra(intent, Intent.EXTRA_STREAM, Uri::class.java)
++    imageUris?.let {
++        // Update UI state with the shared images
+     }
+ }
+ ```
+@@ -181,8 +184,7 @@ the `EXTRA_TEXT` field from the intent, as shown in the following example:
+ IntentCompat.getParcelableExtra(intent, Intent.EXTRA_STREAM, Uri::class.java).let {
+     // Handle the EXTRA_TEXT as well
+     val extraText = intent.getCharSequenceExtra(Intent.EXTRA_TEXT)
+-    // Update ViewModel state to change state image being shared and the EXTRA_TEXT
+-    // if available
++    // Update UI state with the shared image and the EXTRA_TEXT if available
+ }
+ ```
+ 

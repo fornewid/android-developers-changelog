@@ -1,0 +1,56 @@
+diff --git a/docs/jetpack/androidx/releases/xr-glimmer.md b/docs/jetpack/androidx/releases/xr-glimmer.md
+index 18e3772a..b9bfa835 100644
+--- a/docs/jetpack/androidx/releases/xr-glimmer.md
++++ b/docs/jetpack/androidx/releases/xr-glimmer.md
+@@ -10,7 +10,7 @@ Design language and UI toolkit for building augmented Android XR experiences
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 09, 2026 | - | - | - | [1.0.0-alpha19](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha19) |
++| September 23, 2026 | - | - | - | [1.0.0-alpha20](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha20) |
+ 
+ ## Declaring dependencies
+ 
+@@ -27,7 +27,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha19"
++    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha20"
+ }
+ ```
+ 
+@@ -35,7 +35,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha19")
++    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha20")
+ }
+ ```
+ 
+@@ -56,6 +56,24 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha20
++
++September 23, 2026
++
++`androidx.xr.glimmer:glimmer:1.0.0-alpha20` and `androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha20` are released. Version 1.0.0-alpha20 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..89e86b645127754c154f3679b6f0aa29678a0c47/xr/glimmer).
++
++**API Changes**
++
++- Adds Glimmer `AlertDialog` ([I01019](https://android-review.googlesource.com/#/q/I01019c1ac5da1d3c86175a57698ceda0bd3b185a))
++- Libraries now target Kotlin 2.2 and require kotlinc 2.2 ([I82396](https://android-review.googlesource.com/#/q/I823967fe6b9524b448184ef366c562316bd6a323), [b/498369605](https://issuetracker.google.com/issues/498369605))
++- add `LeadingImageCard` and `TrailingImageCard` ([Icdf91](https://android-review.googlesource.com/#/q/Icdf91f7c7f5af3b499975f1fbe0c6f85f100fab3))
++- Add `ImageCard` API and remove `header` param from `Card` and `ActionCard` ([I81f62](https://android-review.googlesource.com/#/q/I81f625f51086f9d51cdd08efca087f90621a46cd))
++- Added `IconMarker` components used for anchoring to real-world objects. ([I958d6](https://android-review.googlesource.com/#/q/I958d6008ef36935141bb7761326128655195a609))
++
++**Bug Fixes**
++
++- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
++
+ ### Version 1.0.0-alpha19
+ 
+ September 09, 2026

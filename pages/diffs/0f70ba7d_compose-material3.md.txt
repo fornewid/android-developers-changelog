@@ -1,0 +1,104 @@
+diff --git a/docs/jetpack/androidx/releases/compose-material3.md b/docs/jetpack/androidx/releases/compose-material3.md
+index 94575d4c..61f02df4 100644
+--- a/docs/jetpack/androidx/releases/compose-material3.md
++++ b/docs/jetpack/androidx/releases/compose-material3.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 09, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha28](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha28) |
++| September 23, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha29](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha29) |
+ 
+ > [!NOTE]
+ > **Note:** To develop UIs for Wear OS apps using Material 3 Expressive, use the [Wear Compose Material 3](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library instead of this one.
+@@ -48,7 +48,7 @@ your app or module:
+ dependencies {
+     implementation "androidx.compose.material3:material3:1.4.0"
+     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
+-    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha28"
++    implementation "androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha29"
+ }
+ 
+ android {
+@@ -72,7 +72,7 @@ android {
+ dependencies {
+     implementation("androidx.compose.material3:material3:1.4.0")
+     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
+-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha28")
++    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-alpha29")
+ }
+ 
+ android {
+@@ -105,6 +105,48 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Compose Material3 A2UI Version 1.0
++
++### Version 1.0.0-alpha01
++
++September 23, 2026
++
++`androidx.compose.material3:material3-a2ui:1.0.0-alpha01` is released. Version 1.0.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/4655a1cce41f181b9bbdb8f0a963f20b1f020101/compose/material3/material3-a2ui).
++
++**New Features**
++
++The Jetpack Compose Agent-to-UI (A2UI) renderer provides an implementation of the [A2UI protocol](https://a2ui.org/), enabling AI agents to generate rich, interactive user interfaces that render native Compose components---without executing arbitrary code. This library provides a ready-to-use implementation of the standard A2UI Basic Catalog specification, built using Material Design 3 components.
++
++**API Changes**
++
++- Update the order of components in `A2uiBasicCatalogV` to exactly match the basic catalog specification. ([I23093](https://android-review.googlesource.com/#/q/I230939bd796e442c60e4a9ca5b5965878916f802), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `ChecksProperty` to all relevant component interfaces under `A2uiBasicCatalogV1` and made the property value available via a parameter passed to `TypedContent` of each component. ([I9f393](https://android-review.googlesource.com/#/q/I9f39367d32484b6a5b728562acd3dbe7edfb7ccd), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `A2uiBasicCatalogV1.ChoicePicker` and `MaterialA2uiBasicCatalogV1Defaults.choicePicker`. ([I875a6](https://android-review.googlesource.com/#/q/I875a6aea544fe4efd44cd8b8d010b081d72cc66d), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `A2uiBasicCatalogV1.Modal` and `MaterialA2uiBasicCatalogV1Defaults.modal`. ([Icd553](https://android-review.googlesource.com/#/q/Icd553cf262a716b992a27c940d4bda2d8b4119d5), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `AccessibilityProperty` to all component interfaces under `A2uiBasicCatalogV1` and made the property value available via a parameter passed to `TypedContent` of each component. ([I76b80](https://android-review.googlesource.com/#/q/I76b8012d9e9efc3420e5345c3ea0f63019317395), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `A2uiBasicCatalogV1.TextField` and `MaterialA2uiBasicCatalogV1Defaults.textField`. ([Ifdaec](https://android-review.googlesource.com/#/q/Ifdaec8d793a88cb2904a32415e8dace4c488b47c), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `A2uiBasicCatalogV1.Video` and `MaterialA2uiBasicCatalogV1Defaults.video`. ([I8595c](https://android-review.googlesource.com/#/q/I8595cade4cf6adf80020d3540588674a6a073f0e), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `A2uiBasicCatalogV1.AudioPlayer` and `MaterialA2uiBasicCatalogV1Defaults.audioPlayer`. ([Ida509](https://android-review.googlesource.com/#/q/Ida5091b519aa2d888cda0e49c7d46c26425cc4f3), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `A2uiBasicCatalogV1.Slider` and `MaterialA2uiBasicCatalogV1Defaults.slider`. ([Ieb72d](https://android-review.googlesource.com/#/q/Ieb72dfb0fe03289d171f9257eb79de2f7ca996d8), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `A2uiBasicCatalogV1.CheckBox` and `MaterialA2uiBasicCatalogV1Defaults.checkBox`. ([I84525](https://android-review.googlesource.com/#/q/I84525d60795d5edd1e672c536e8ae593bf12b2cf), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `A2uiBasicCatalogV1.Divider` and `MaterialA2uiBasicCatalogV1Defaults.divider`. ([I91208](https://android-review.googlesource.com/#/q/I91208bc4ac1f919f99c6b1d2c5f1016914588f57), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `A2uiBasicCatalogV1.Tabs` and `MaterialA2uiBasicCatalogV1Defaults.tabs`. ([Ic33d3](https://android-review.googlesource.com/#/q/Ic33d317a0f1756c62f4bcff9b56ba70f8e2ace0a), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `A2uiBasicCatalogV1.List` and `MaterialA2uiBasicCatalogV1Defaults.list`. ([I89f73](https://android-review.googlesource.com/#/q/I89f736a2e2550dfb6070ebc051266f58f2fc3b55), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `A2uiBasicCatalogV1.Icon` and `MaterialA2uiBasicCatalogV1Defaults.icon`. ([I65524](https://android-review.googlesource.com/#/q/I655240181d4f69497bdefc9ecd729d1ea74ad0f2), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `A2uiBasicCatalogV1.Image` and `MaterialA2uiBasicCatalogV1Defaults.image`. ([I673b3](https://android-review.googlesource.com/#/q/I673b3a7125fc503bed486e836283a7b49d3a376d), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `A2uiBasicCatalogV1.Button` and `MaterialA2uiBasicCatalogV1Defaults.button`. ([I5215f](https://android-review.googlesource.com/#/q/I5215f800adf0c1fd42ec4f1b497fa2ab35ee764f), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `A2uiBasicCatalogV1.Row`/`A2uiBasicCatalogV1.Column` and `MaterialA2uiBasicCatalogV1Defaults.row`/ `MaterialA2uiBasicCatalogV1Defaults.column`. ([Ibcbe7](https://android-review.googlesource.com/#/q/Ibcbe7f4266c2c9b2d101690942496c4140ca22c2), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Added `MaterialImageComponent` to support rendering images in the A2UI catalog. Test: `MaterialImageComponentTest` into androidx-main
++- Added `MaterialImageComponent` to support rendering images in the A2UI catalog. ([I868fe](https://android-review.googlesource.com/#/q/I868feffde3d322619fd423fdf886ee7f4403a865))
++- Added `A2uiBasicCatalogV1.Card` and `MaterialA2uiBasicCatalogV1Defaults.card`. ([Icf604](https://android-review.googlesource.com/#/q/Icf604e02bd57ac18730e2058dc2e77f038b6dc31), [b/547851648](https://issuetracker.google.com/issues/547851648))
++- Deprecated stateless `Slider` and `RangeSlider` overloads in favor of their stateful versions. Renamed `activeRangeStart` and `activeRangeEnd` in `RangeSliderState` to `startValue` and `endValue`, deprecating older unpromoted and experimental Slider APIs with `DeprecationLevel.HIDDEN`. ([If8995](https://android-review.googlesource.com/#/q/If8995438653fe44d5d108787e920c7fe06f6ff69))
++- Added `A2uiSurface` composable and `A2uiSurfaceDefaults` for rendering A2UI surfaces. ([I6e276](https://android-review.googlesource.com/#/q/I6e276310a4560fe8994bd30848f164b4f9a323c2), [b/544713825](https://issuetracker.google.com/issues/544713825))
++- Added `A2uiTestSurface` composable to mount and test A2UI surfaces and components in isolation. ([I03c8a](https://android-review.googlesource.com/#/q/I03c8ab4aae08ead8a86ddc0504e90e83c43c532c), [b/527415570](https://issuetracker.google.com/issues/527415570))
++
++**Bug Fixes**
++
++- `compileSdk` for Compose libraries updated to 37.1. This will require transitively updating `compileSdk` for all apps and libraries using Compose. ([I05b0f](https://android-review.googlesource.com/#/q/I05b0f9385d2b99ddcc4041b2ce2d96aea3bd391e))
++
+ ## Compose Material3 Common Version 1.0
+ 
+ ### Version 1.0.0-alpha01
+@@ -318,6 +360,23 @@ Material3 adaptive pane scaffold APIs:
+ 
+ ## Compose Material3 Version 1.5
+ 
++### Version 1.5.0-alpha29
++
++September 23, 2026
++
++`androidx.compose.material3:material3-*:1.5.0-alpha29` is released. Version 1.5.0-alpha29 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..3991baac26fe4b1099b35ec36fc40a116cca22f5/compose/material3).
++
++**API Changes**
++
++- **Source breaking change** : `onValueChange` is now a required parameter in `Slider` and `RangeSlider` and its order in the parameter list has changed
++
++**Bug Fixes**
++
++- `DatePicker` now resolves in 1 frame by computing month navigation availability directly from the displayed month index. ([I08db7](https://android-review.googlesource.com/#/q/I08db7973b21ec076f76456926a35d6f15ffdb401))
++- `TimeInput` now internally uses the new `TextFieldState` text field APIs. ([Ia7492](https://android-review.googlesource.com/#/q/Ia7492b79370ed4c48ba6f6512021d9795e0ca0d1), [b/353692863](https://issuetracker.google.com/issues/353692863))
++- `DateInput` now internally uses the new `TextFieldState` text field APIs. ([I5ad3d](https://android-review.googlesource.com/#/q/I5ad3d9297690778c8f8403dbf9d90209418ec16a), [b/353692863](https://issuetracker.google.com/issues/353692863))
++- `Slider` and `RangeSlider` now handle `onValueChange` and `onValueChangeFinished` directly in their implementations instead of passing them into `SliderState` and `RangeSliderState`. ([I959ac](https://android-review.googlesource.com/#/q/I959ac9a6e2adbf55969b16c9dbe75e92faa1c7ad))
++
+ ### Version 1.5.0-alpha28
+ 
+ September 09, 2026

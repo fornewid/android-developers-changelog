@@ -1,0 +1,62 @@
+diff --git a/docs/jetpack/androidx/releases/text-vertical.md b/docs/jetpack/androidx/releases/text-vertical.md
+index 8788c978..aa7a3034 100644
+--- a/docs/jetpack/androidx/releases/text-vertical.md
++++ b/docs/jetpack/androidx/releases/text-vertical.md
+@@ -10,7 +10,7 @@ TODO
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| August 26, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-beta01) | - |
++| September 23, 2026 | - | - | [1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-beta02) | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,7 +25,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.text:text-vertical:1.0.0-beta01"
++    implementation "androidx.text:text-vertical:1.0.0-beta02"
+ }
+ ```
+ 
+@@ -33,7 +33,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.text:text-vertical:1.0.0-beta01")
++    implementation("androidx.text:text-vertical:1.0.0-beta02")
+ }
+ ```
+ 
+@@ -56,6 +56,30 @@ for more information.
+ 
+ ### Version 1.0
+ 
++#### Version 1.0.0-beta02
++
++September 23, 2026
++
++`androidx.text:text-vertical:1.0.0-beta02` and `androidx.text:text-vertical-compose:1.0.0-beta02` are released. Version 1.0.0-beta02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f3ed195f0c9ef9eafe437351d974c9ec49ecc2ea..b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f/text).
++
++**Important Changes**
++
++- We have added test cases to ensure backward compatibility down to **API 24 (Android 7.0)**, and the results have been highly positive!
++- The libraries now target Kotlin 2.2 and require kotlinc 2.2 ([I82396](https://android-review.googlesource.com/#/q/I823967fe6b9524b448184ef366c562316bd6a323), [b/498369605](https://issuetracker.google.com/issues/498369605))
++- The vertical text libraries now compile against SDK 37. Apps that use them must compile against SDK 37 and use AGP 9.1.0 or later. ([I0f757](https://android-review.googlesource.com/#/q/I0f757083a8068bdc06d31b94842e5a5471d699b5), [b/562182206](https://issuetracker.google.com/issues/562182206))
++
++**Bug Fixes**
++
++- `EmphasisSpan.position` now moves the emphasis mark. `AnnotationPosition.Before` puts the mark above horizontal text and right of vertical text. `AnnotationPosition.After` puts it on the opposite side. ([Ic9bfd](https://android-review.googlesource.com/#/q/Ic9bfdc67d49dcc3b3329fc1b8be9ad7bbc0be1d6), [b/559972132](https://issuetracker.google.com/issues/559972132))
++- Fixed the emphasis mark scale in horizontal text layout. The reserved line height no longer assumes an unscaled mark. ([I6d7fe](https://android-review.googlesource.com/#/q/I6d7feec59f8090ac78bb145e58d75c277c25895b), [b/562254557](https://issuetracker.google.com/issues/562254557))
++- Fixed the backport for vertical text advances. The backport ignored the requested offset on API levels less than 34. ([I8877a](https://android-review.googlesource.com/#/q/I8877a21180e95f54d2901e5ee97f213803ea92c4), [b/495457561](https://issuetracker.google.com/issues/495457561))
++- Fixed horizontal ruby text reserving too much vertical space on API levels below 28, which could leave a line taller than necessary. ([Iceb60](https://android-review.googlesource.com/#/q/Iceb605ffba433f0866e2435e0374bd52dcdd24bb), [b/561323466](https://issuetracker.google.com/issues/561323466))
++- The tests for vertical ruby and text orientation now run on all supported API levels. ([If07d4](https://android-review.googlesource.com/#/q/If07d41a7fbea93d0cea77fda3d948eeaa838da7e), [b/495457561](https://issuetracker.google.com/issues/495457561))
++- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I7264b](https://android-review.googlesource.com/#/q/I7264b7e87c38200b34c13e382a16a86fa0a7d2e6), [b/556807521](https://issuetracker.google.com/issues/556807521))
++- Fixed `RubySpan.position` being ignored in horizontal text layout. `AnnotationPosition.After` now correctly renders ruby text below the base text. ([Iaffa1](https://android-review.googlesource.com/#/q/Iaffa1b09f0eaffb80cbdb41929530ed39e9d6253), [b/559972124](https://issuetracker.google.com/issues/559972124), [b/561323466](https://issuetracker.google.com/issues/561323466))
++- Fixed `RubySpan.position` being ignored in vertical text layout. `AnnotationPosition.After` now correctly renders ruby text on the left side of the base text. ([I0be1c](https://android-review.googlesource.com/#/q/I0be1c5e85092cf7859d6505d5381bc668ef50959), [b/495457561](https://issuetracker.google.com/issues/495457561))
++- Upgrade Compose dependencies to 1.11.4 ([I9ef07](https://android-review.googlesource.com/#/q/I9ef070aeb2f36731da25ecf5ef5220ec34616f2d), [b/536925341](https://issuetracker.google.com/issues/536925341))
++
+ #### Version 1.0.0-beta01
+ 
+ August 26, 2026

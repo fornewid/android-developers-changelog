@@ -1,0 +1,16 @@
+diff --git a/docs/games/services/cpp/v2/api.md b/docs/games/services/cpp/v2/api.md
+index ce861da4..f5060abb 100644
+--- a/docs/games/services/cpp/v2/api.md
++++ b/docs/games/services/cpp/v2/api.md
+@@ -4,9 +4,9 @@ url: https://developer.android.com/games/services/cpp/v2/api
+ source: md.txt
+ ---
+ 
+-# Play Games Services C++ (v2) (beta) Reference
++# Play Games Services C++ (v2) Reference
+ 
+-These are the reference pages for the Play Games Services C++ (v2) (beta) API.
++These are the reference pages for the Play Games Services C++ (v2) API.
+ 
+ ## Additional Resources
+ 
