@@ -302,4 +302,3 @@ For more coroutines resources, see the following links:
 
 - [Coroutines overview (JetBrains)](https://kotlinlang.org/docs/coroutines-overview.html)
 - [Coroutines guide (JetBrains)](https://kotlinlang.org/docs/coroutines-guide.html)
-- [Additional resources for Kotlin coroutines and flow](https://developer.android.com/kotlin/coroutines/additional-resources)

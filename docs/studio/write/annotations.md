@@ -46,7 +46,7 @@ line in the `dependencies` block of your `build.gradle` or
 
 ```kotlin
 dependencies {
-    implementation("androidx.annotation:annotation:1.10.0")
+    implementation("androidx.annotation:annotation:1.11.0")
 }
 ```
 
@@ -54,7 +54,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation 'androidx.annotation:annotation:1.10.0'
+    implementation 'androidx.annotation:annotation:1.11.0'
 }
 ```
 Then, in the toolbar or sync notification that appears, click **Sync Now** .

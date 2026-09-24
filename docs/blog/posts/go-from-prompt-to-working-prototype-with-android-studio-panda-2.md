@@ -8,7 +8,7 @@ source: md.txt
 
 # Go from prompt to working prototype with Android Studio Panda 2
 
-3 min read ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) 03 Mar 2026 [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) Senior Product Manager Android Studio Panda 2 is now stable and ready for you to use in production. This release brings new agentic capabilities to Android Studio, enabling the agent to create an entire working application from scratch with the AI-powered New Project flow, and allowing the agent to automate the manual work of dependency updates.
+3 min read ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_ZcKD0l.webp) 03 Mar 2026 [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z1zsAdP.webp)](https://developer.android.com/blog/authors/matt-dyor) [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) Senior Product Manager Android Studio Panda 2 is now stable and ready for you to use in production. This release brings new agentic capabilities to Android Studio, enabling the agent to create an entire working application from scratch with the AI-powered New Project flow, and allowing the agent to automate the manual work of dependency updates.
 
 Whether you're building your first prototype or maintaining a large, established codebase, these updates bring new efficiency to your workflow by enabling Gemini in Android Studio to help more than ever.
 
@@ -31,14 +31,14 @@ To use the agent to set up a project, do the following:
 3. Select **Create with AI**.
 4. Type your prompt into the text entry field and click **Next** . For best results we recommend using a paid [Gemini API key](https://developer.android.com/studio/gemini/add-api-key) or third-party [remote model](https://developer.android.com/studio/gemini/use-a-remote-model).
 
-![img1-what_do_you_want_to_build.png](https://developer.android.com/static/blog/assets/img1_what_do_you_want_to_build_8b609005c6_Zxl3al.webp)
+![img1-what_do_you_want_to_build.png](https://developer.android.com/static/blog/assets/img1_what_do_you_want_to_build_8b609005c6_1pGtyM.webp)
 
 *Create a New Project with AI in Android Studio*
 
 5. Name your app and click **Finish** to start the generation process.
 
 6. Validate the finished app using the project plan and by running your app in the Android Emulator or on an Android device.
-![newprojectFlow.png](https://developer.android.com/static/blog/assets/newproject_Flow_86d8c2c331_1KBPK0.webp)
+![newprojectFlow.png](https://developer.android.com/static/blog/assets/newproject_Flow_86d8c2c331_Z1yBuwi.webp)
 
 *AI-powered New Project flow*
 
@@ -61,12 +61,12 @@ Keeping your project dependencies up to date is time-consuming and often causes 
 The Version Upgrade Assistant in Android Studio just made that a problem of the past. You can now let AI do the heavy lifting of managing dependencies and boilerplate so you can focus on creating unique experiences for your users.
 
 To use this feature, simply right-click in your version catalog, select **AI** , and then **Update Dependencies**.
-![versions.png](https://developer.android.com/static/blog/assets/versions_823cdf76df_11AfrC.webp)
+![versions.png](https://developer.android.com/static/blog/assets/versions_823cdf76df_Z1hpzmH.webp)
 
 *Version Upgrade Assistant accessed from Version Catalog*
 
 You can also access the Version Upgrade Assistant from the **Refactor** menu---just choose **Update all libraries with AI**.
-![versions2.png](https://developer.android.com/static/blog/assets/versions2_12062592c2_1iGQXa.webp)
+![versions2.png](https://developer.android.com/static/blog/assets/versions2_12062592c2_20zkOq.webp)
 
 *Version Upgrade Assistant accessed from the Refactor menu*
 
@@ -75,7 +75,7 @@ The agent runs multiple automated rounds---attempting builds, reading error mess
 ### **Gemini 3.1 Pro is available in Android Studio**
 
 We released Gemini 3.1 Pro preview, and it is even better than Gemini 3 Pro for reasoning and intelligence. You can access it in Android Studio by plugging in your Gemini API key. Put the new model to work on your toughest bugs, code completion, and UI logic. Let us know what you think of the new model.
-![geminipro2.png](https://developer.android.com/static/blog/assets/geminipro2_f3626b4f5d_1PAzQy.webp)
+![geminipro2.png](https://developer.android.com/static/blog/assets/geminipro2_f3626b4f5d_YwXkl.webp)
 
 * Gemini 3.1 Pro Now Available in Android Studio*
 
@@ -93,22 +93,22 @@ Written by:
   ###### Senior Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matt-dyor) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)
+  View profile](https://developer.android.com/blog/authors/matt-dyor) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z1zsAdP.webp) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z1zsAdP.webp)
 Continue reading
-- [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) 21 Apr 2026 21 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z1zsAdP.webp)](https://developer.android.com/blog/authors/matt-dyor) 21 Apr 2026 21 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_ZcKD0l.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Level up your development with Planning Mode and Next Edit Prediction in Android Studio Panda 4](https://developer.android.com/blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4)
 
   [arrow_forward](https://developer.android.com/blog/posts/level-up-your-development-with-planning-mode-and-next-edit-prediction-in-android-studio-panda-4) Android Studio Panda 4 is now stable and ready for you to use in production. This release brings Planning Mode, Next Edit Prediction, and more, making it easier than ever to build high-quality Android apps.
   [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) • 4 min read
-- [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z1zsAdP.webp)](https://developer.android.com/blog/authors/matt-dyor) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_ZcKD0l.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Increase Guidance and Control over Agent Mode with Android Studio Panda 3](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3)
 
   [arrow_forward](https://developer.android.com/blog/posts/increase-guidance-and-control-over-agent-mode-with-android-studio-panda-3) Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
   [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) • 3 min read
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
@@ -120,4 +120,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

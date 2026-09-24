@@ -10,7 +10,7 @@ The Navigation Event library provides a KMP-first API for handling system back a
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 12, 2026 | [1.1.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.2) | - | - | [1.2.0-alpha04](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-alpha04) |
+| September 23, 2026 | [1.1.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.2) | [1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigationevent:navigationevent:1.2.0-alpha04"
+    implementation "androidx.navigationevent:navigationevent:1.2.0-rc01"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigationevent:navigationevent:1.2.0-alpha04")
+    implementation("androidx.navigationevent:navigationevent:1.2.0-rc01")
 }
 ```
 
@@ -53,6 +53,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.2
+
+### Version 1.2.0-rc01
+
+September 23, 2026
+
+`androidx.navigationevent:navigationevent-*:1.2.0-rc01` is released. Version 1.2.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/384f3c27346bf5812f359330dc2310f0cbb66402..c2d87904d55128a19270a88ff4477f6cc8bd7319/navigationevent).
+
+**Dependency Updates**
+
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
 
 ### Version 1.2.0-alpha04
 

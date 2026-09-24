@@ -125,7 +125,7 @@ To include this module, add the following to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -133,7 +133,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -201,7 +201,7 @@ To include this module, add the following to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.fragment:fragment-ktx:1.9.0"
+    implementation "androidx.fragment:fragment-ktx:1.9.1"
 }
 ```
 
@@ -209,7 +209,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.fragment:fragment-ktx:1.9.0")
+    implementation("androidx.fragment:fragment-ktx:1.9.1")
 }
 ```
 
@@ -323,9 +323,9 @@ To include these modules, add the following to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation:navigation-runtime-ktx:2.10.1"
-    implementation "androidx.navigation:navigation-fragment-ktx:2.10.1"
-    implementation "androidx.navigation:navigation-ui-ktx:2.10.1"
+    implementation "androidx.navigation:navigation-runtime-ktx:2.10.2"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.10.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.10.2"
 }
 ```
 
@@ -333,9 +333,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation:navigation-runtime-ktx:2.10.1")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.10.1")
-    implementation("androidx.navigation:navigation-ui-ktx:2.10.1")
+    implementation("androidx.navigation:navigation-runtime-ktx:2.10.2")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.10.2")
+    implementation("androidx.navigation:navigation-ui-ktx:2.10.2")
 }
 ```
 
@@ -547,7 +547,7 @@ To include this module, add the following to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation "androidx.work:work-runtime-ktx:2.11.2"
+    implementation "androidx.work:work-runtime-ktx:2.12.0"
 }
 ```
 
@@ -555,7 +555,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.work:work-runtime-ktx:2.11.2")
+    implementation("androidx.work:work-runtime-ktx:2.12.0")
 }
 ```
 

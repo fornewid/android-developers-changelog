@@ -8,7 +8,7 @@ source: md.txt
 
 # Zoho Achieves 6x Faster Logins with Passkey and Credential Manager Integration
 
-10 min read ![](https://developer.android.com/static/blog/assets/ANDDM_Zoho_Header_6260da2eab_3BTtG.webp) 07 May 2025 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Joseph Lewis's profile](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_qbEP3.webp)](https://developer.android.com/blog/authors/joseph-lewis) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora) \& [Joseph Lewis](https://developer.android.com/blog/authors/joseph-lewis) As an Android developer, you're constantly looking for ways to enhance security, improve user experience, and streamline development. Zoho, a comprehensive cloud-based software suite focused on security and seamless experiences, achieved significant improvements by adopting passkeys in their [OneAuth](https://play.google.com/store/apps/details?id=com.zoho.accounts.oneauth) Android app.
+10 min read ![](https://developer.android.com/static/blog/assets/ANDDM_Zoho_Header_6260da2eab_1A8Wxb.webp) 07 May 2025 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Joseph Lewis's profile](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_ZFRmjb.webp)](https://developer.android.com/blog/authors/joseph-lewis) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora) \& [Joseph Lewis](https://developer.android.com/blog/authors/joseph-lewis) As an Android developer, you're constantly looking for ways to enhance security, improve user experience, and streamline development. Zoho, a comprehensive cloud-based software suite focused on security and seamless experiences, achieved significant improvements by adopting passkeys in their [OneAuth](https://play.google.com/store/apps/details?id=com.zoho.accounts.oneauth) Android app.
 
 Since integrating passkeys in 2024, Zoho achieved **login speeds up to 6x faster** than previous methods and a **31% month-over-month (MoM) growth in passkey adoption**.
 
@@ -32,7 +32,7 @@ Zoho, like many organizations, aimed to improve authentication security and user
 Passkeys were implemented in Zoho's apps to address authentication challenges by offering a password-less approach that significantly improves security and user experience. This solution leverages phishing-resistant authentication, cloud-synchronized credentials for effortless cross-device access, and biometrics (such as a fingerprint or facial recognition), PIN, or pattern for secure logins, thereby reducing the vulnerabilities and inconveniences associated with traditional passwords.
 
 By adopting passkeys with Credential Manager, Zoho cut login times by **up to 6x** , slashed password-related support costs, and saw **strong** user adoption -- **doubling** passkey sign-ins in 4 months with **31% MoM growth** . Zoho users now enjoy **faster, easier logins and phishing-resistant security**.
-![ANDDM_Zoho_Quote_fabrice.png](https://developer.android.com/static/blog/assets/ANDDM_Zoho_Quote_fabrice_356f884394_Z1JvEJx.webp)
+![ANDDM_Zoho_Quote_fabrice.png](https://developer.android.com/static/blog/assets/ANDDM_Zoho_Quote_fabrice_356f884394_ZDaFLt.webp)
 
 ## Implementation with Credential Manager on Android
 
@@ -44,7 +44,7 @@ Implementing passkeys at Zoho required both client-side and server-side adjustme
 
 ### Passkey creation
 
-![passkey.png](https://developer.android.com/static/blog/assets/passkey_45c3050ce8_Z1gp6Bb.webp)
+![passkey.png](https://developer.android.com/static/blog/assets/passkey_45c3050ce8_1uLcnq.webp)
 
 To [create a passkey](https://developer.android.com/identity/sign-in/credential-manager#registration-flows), the app first retrieves configuration details from Zoho's server. This process includes a unique verification, such as a fingerprint or facial recognition. This verification data, formatted as a `requestJson` string), is used by the app to build a `CreatePublicKeyCredentialRequest`. The app then calls the `credentialManager.createCredential` method, which prompts the user to authenticate using their device screen lock (biometrics, fingerprint, PIN, etc.).
 
@@ -251,7 +251,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)
+  View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)
 -
 
   ## [Joseph Lewis](https://developer.android.com/blog/authors/joseph-lewis)
@@ -259,22 +259,22 @@ Written by:
   ###### Staff Technical Writing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/joseph-lewis) ![View Joseph Lewis's profile](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_qbEP3.webp) ![View Joseph Lewis's profile](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_qbEP3.webp)
+  View profile](https://developer.android.com/blog/authors/joseph-lewis) ![View Joseph Lewis's profile](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_ZFRmjb.webp) ![View Joseph Lewis's profile](https://developer.android.com/static/blog/assets/Joseph_Lewis_a7854037dd_ZFRmjb.webp)
 Continue reading
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z1oNucg.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
   - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Zjh724.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Z2c5PaI.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How Uber is reducing manual logins by 4 million per year with the Restore Credentials API](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api) Uber leveraged the Android Restore Credentials API to streamline new device sign-in, projecting a reduction of 4 million manual logins per year and increasing user retention.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_G2vTP.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_ZkMOm6.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [X improved login success rate by 2x after adopting passkeys](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys)
 
@@ -286,4 +286,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

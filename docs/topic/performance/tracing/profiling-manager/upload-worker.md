@@ -33,7 +33,7 @@ libraries to your `build.gradle.kts` file. `WorkManager` needs them.
 
 ```kotlin
    dependencies {
-       implementation("androidx.work:work-runtime:2.11.2")
+       implementation("androidx.work:work-runtime:2.12.0")
    }
    
 ```
@@ -42,7 +42,7 @@ libraries to your `build.gradle.kts` file. `WorkManager` needs them.
 
 ```groovy
    dependencies {
-       implementation 'androidx.work:work-runtime:2.11.2'
+       implementation 'androidx.work:work-runtime:2.12.0'
    }
    
 ```

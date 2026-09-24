@@ -8,7 +8,7 @@ source: md.txt
 
 # What's new in Android for Cars: Unifying platforms and unlocking premium experiences
 
-3 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) 19 May 2026 3 Authors [Jan Kleinert,](https://developer.android.com/blog/authors/jan-kleinert) [Noam Gefen,](https://developer.android.com/blog/authors/noam-gefen) [Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers) We're thrilled to see developers continuing to bring their apps and experiences to Android for Cars! Over the past year, we've continued to see strong growth and momentum in the app ecosystem on Android Auto and cars with Google built-in. This year at Google I/O, we're introducing [updates](https://blog.google/products-and-platforms/platforms/android/android-in-cars-updates/) that benefit both drivers and developers by enabling richer, more differentiated in-car experiences. With new features and templates that allow you to build once to reach users across different infotainment screens and car platforms, it's easier than ever to build for the road.
+3 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) 19 May 2026 3 Authors [Jan Kleinert,](https://developer.android.com/blog/authors/jan-kleinert) [Noam Gefen,](https://developer.android.com/blog/authors/noam-gefen) [Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers) We're thrilled to see developers continuing to bring their apps and experiences to Android for Cars! Over the past year, we've continued to see strong growth and momentum in the app ecosystem on Android Auto and cars with Google built-in. This year at Google I/O, we're introducing [updates](https://blog.google/products-and-platforms/platforms/android/android-in-cars-updates/) that benefit both drivers and developers by enabling richer, more differentiated in-car experiences. With new features and templates that allow you to build once to reach users across different infotainment screens and car platforms, it's easier than ever to build for the road.
 
 ### What's new in the Car App Library
 
@@ -23,13 +23,13 @@ To help you test the experiences on Android Automotive OS, we'll be launching up
 ## Unlocking developer creativity with Car App Library 1.9.0 alpha
 
 With the [1.9.0-alpha01](https://developer.android.com/jetpack/androidx/releases/car-app#version_19_2) release of the Car App Library, we're bringing features to help you build more differentiated, expressive experiences across Android Auto and cars with Google built-in.
-![MediaHero1.gif](https://developer.android.com/static/blog/assets/Media_Hero1_a40e272f55_Z1YAerr.webp)
+![MediaHero1.gif](https://developer.android.com/static/blog/assets/Media_Hero1_a40e272f55_ZnIfBd.webp)
 
 We're increasing the modularity of existing templates to give developers more flexibility and options for laying out content. These improvements include expanded headers for better visual emphasis, such as on detail pages, spotlight sections that can be placed in scrollable areas to highlight specific content, and grid item variations to support different content types and states.
-![NewComponents.png](https://developer.android.com/static/blog/assets/New_Components_9ada36cd00_1L6URm.webp)
+![NewComponents.png](https://developer.android.com/static/blog/assets/New_Components_9ada36cd00_Z1y7poV.webp)
 
 We're introducing new [components](https://developer.android.com/design/ui/cars/guides/components/overview) and template capabilities to help developers build even more engaging experiences. For media apps, we're introducing an adaptive mini-player, so users can browse while still easily managing playback. Finally, we're adding more component types including [Chip](https://developer.android.com/reference/kotlin/androidx/car/app/model/Chip) and [CondensedItem](https://developer.android.com/reference/kotlin/androidx/car/app/model/CondensedItem) to increase the ways that content can be displayed and interacted with.
-![HomePage.png](https://developer.android.com/static/blog/assets/Home_Page_4a3eacd161_i3u4M.webp)
+![HomePage.png](https://developer.android.com/static/blog/assets/Home_Page_4a3eacd161_Zy07rq.webp)
 
 App developers, including those shown below, have already begun building upgraded media experiences using these new Car App Library features. You can join these developers and prepare to distribute your own media apps built with the Car App Library templates by applying to participate in our [early-access beta program](https://goo.gle/Media-Comms-EAP).
 
@@ -65,7 +65,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/jan-kleinert) ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_1Ce4cO.webp) ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_1Ce4cO.webp)
+  View profile](https://developer.android.com/blog/authors/jan-kleinert) ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp) ![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)
 -
 
   ## [Noam Gefen](https://developer.android.com/blog/authors/noam-gefen)
@@ -73,7 +73,7 @@ Written by:
   ###### Senior Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/noam-gefen) ![View Noam Gefen's profile](https://developer.android.com/static/blog/assets/PXL_20250405_073558833_2_6db88dff58_1qPfjF.webp) ![View Noam Gefen's profile](https://developer.android.com/static/blog/assets/PXL_20250405_073558833_2_6db88dff58_1qPfjF.webp)
+  View profile](https://developer.android.com/blog/authors/noam-gefen) ![View Noam Gefen's profile](https://developer.android.com/static/blog/assets/PXL_20250405_073558833_2_6db88dff58_46HBa.webp) ![View Noam Gefen's profile](https://developer.android.com/static/blog/assets/PXL_20250405_073558833_2_6db88dff58_46HBa.webp)
 -
 
   ## [Thomas Weathers](https://developer.android.com/blog/authors/thomas-weathers)
@@ -81,22 +81,22 @@ Written by:
   ###### Developer Relations Engineer, Android for Cars
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/thomas-weathers) ![View Thomas Weathers's profile](https://developer.android.com/static/blog/assets/DSC_0714_1_d2ffa1fb8f_ZtqlBA.webp) ![View Thomas Weathers's profile](https://developer.android.com/static/blog/assets/DSC_0714_1_d2ffa1fb8f_ZtqlBA.webp)
+  View profile](https://developer.android.com/blog/authors/thomas-weathers) ![View Thomas Weathers's profile](https://developer.android.com/static/blog/assets/DSC_0714_1_d2ffa1fb8f_Z1ktX8N.webp) ![View Thomas Weathers's profile](https://developer.android.com/static/blog/assets/DSC_0714_1_d2ffa1fb8f_Z1ktX8N.webp)
 Continue reading
-- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_1T1vC6.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_21k6io.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android UI Development is Compose First](https://developer.android.com/blog/posts/android-ui-development-is-compose-first)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-ui-development-is-compose-first) In the almost-5-years since Jetpack Compose launched, we've invested in bringing you all the features, performance and tools that you need to build amazing UIs across the variety of Android devices.
   [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 2 min read
   - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
@@ -109,4 +109,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -4,12 +4,12 @@ url: https://developer.android.com/blog/authors/georgia-doyle
 source: md.txt
 ---
 
-1 post ![](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_Z1cCMui.webp)
+1 post ![](https://developer.android.com/static/blog/assets/Georgia_Doyle_a2f5ebfcdb_ZxcbaG.webp)
 
 # Georgia Doyle
 
 Senior UX Writer and Content Designer
-- 21 Jan 2026 21 Jan 2026 ![](https://developer.android.com/static/blog/assets/260120_Header_7fdfbedb2d_105hHT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 21 Jan 2026 21 Jan 2026 ![](https://developer.android.com/static/blog/assets/260120_Header_7fdfbedb2d_2nrbh0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Ready to review some changes but not others? Try using Play Console's new Save for later feature](https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature)
 
@@ -21,4 +21,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

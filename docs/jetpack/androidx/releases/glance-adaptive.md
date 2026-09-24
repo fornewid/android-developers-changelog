@@ -10,7 +10,7 @@ TODO
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | - | - | - | [1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/glance_adaptive#1.0.0-alpha02) |
+| September 23, 2026 | - | - | - | [1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/glance_adaptive#1.0.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -30,9 +30,9 @@ glance adaptive deps
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha02"
-    implementation "androidx.glance.adaptive:adaptive-core:1.0.0-alpha02"
-    implementation "androidx.glance.adaptive:adaptive-wear:1.0.0-alpha02"
+    implementation "androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha03"
+    implementation "androidx.glance.adaptive:adaptive-core:1.0.0-alpha03"
+    implementation "androidx.glance.adaptive:adaptive-wear:1.0.0-alpha03"
 }
 ```
 
@@ -40,9 +40,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha02")
-    implementation("androidx.glance.adaptive:adaptive-core:1.0.0-alpha02")
-    implementation("androidx.glance.adaptive:adaptive-wear:1.0.0-alpha02")
+    implementation("androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha03")
+    implementation("androidx.glance.adaptive:adaptive-core:1.0.0-alpha03")
+    implementation("androidx.glance.adaptive:adaptive-wear:1.0.0-alpha03")
 }
 ```
 
@@ -63,6 +63,14 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha03
+
+September 23, 2026
+
+`androidx.glance.adaptive:adaptive-appwidget:1.0.0-alpha03`, `androidx.glance.adaptive:adaptive-core:1.0.0-alpha03`, and `androidx.glance.adaptive:adaptive-wear:1.0.0-alpha03` are released. Version 1.0.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f/glance/adaptive).
+
+Internal development to enable building template-first `RemoteCompose` Widgets for multiple surfaces across Android ecosystem. Public APIs to come.
 
 ### Version 1.0.0-alpha02
 

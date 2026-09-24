@@ -178,7 +178,7 @@ subset of functionality, each with its own set of release notes.
 | [compose.compiler](https://developer.android.com/jetpack/androidx/releases/compose-compiler) | August 7, 2024 | [1.5.15](https://developer.android.com/jetpack/androidx/releases/compose-compiler#1.5.15) | - | - | - |
 | [compose.foundation](https://developer.android.com/jetpack/androidx/releases/compose-foundation) | September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-alpha03) |
 | [compose.material](https://developer.android.com/jetpack/androidx/releases/compose-material) | September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-alpha03) |
-| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | September 09, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha28](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha28) |
+| [compose.material3](https://developer.android.com/jetpack/androidx/releases/compose-material3) | September 23, 2026 | [1.4.0](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.4.0) | - | - | [1.5.0-alpha29](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha29) |
 | [compose.runtime](https://developer.android.com/jetpack/androidx/releases/compose-runtime) | September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-alpha03) |
 | [compose.ui](https://developer.android.com/jetpack/androidx/releases/compose-ui) | September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-alpha03) |
 
@@ -218,6 +218,6 @@ This table lists all the artifacts in the `androidx.wear` group.
 | wear-input-testing | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#1.2.0) | - | - | - |
 | wear-ongoing | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#1.1.0) | - | - | - |
 | wear-phone-interactions | [1.1.1](https://developer.android.com/jetpack/androidx/releases/wear#1.1.1) | - | - | - |
-| wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#1.2.0) | - | - | [1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/wear#1.3.0-alpha01) |
+| wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#1.2.0) | - | [1.3.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear#1.3.0-beta01) | - |
 
-This library was last updated on: July 15, 2026 [View the Wear Library](https://developer.android.com/jetpack/androidx/releases/wear) <button class="devsite-dialog-close">Close</button>
+This library was last updated on: September 23, 2026 [View the Wear Library](https://developer.android.com/jetpack/androidx/releases/wear) <button class="devsite-dialog-close">Close</button>

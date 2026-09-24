@@ -4,12 +4,12 @@ url: https://developer.android.com/blog/authors/stevan-silva
 source: md.txt
 ---
 
-3 posts ![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)
+3 posts ![](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)
 
 # Stevan Silva
 
 Group Product Manager
-- 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1R62M0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1JMs6H.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
 
@@ -17,7 +17,7 @@ Group Product Manager
   2 min read
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Updates to the Android XR SDK: Introducing Developer Preview 4](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4)
 
@@ -29,7 +29,7 @@ Group Product Manager
   - [#Unity](https://developer.android.com/blog/topics/unity)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - +3 ↩
-- 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/how_Calm_edf30223a8_kG1yA.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/how_Calm_edf30223a8_Z7VLxu.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How Calm Reimagined Mindfulness for Android XR](https://developer.android.com/blog/posts/how-calm-reimagined-mindfulness-for-android-xr)
 
@@ -41,4 +41,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

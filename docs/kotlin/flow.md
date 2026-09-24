@@ -407,4 +407,4 @@ successful result.
 
 - [Testing Kotlin flows on Android](https://developer.android.com/kotlin/flow/test)
 - [`StateFlow` and `SharedFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow)
-- [Additional resources for Kotlin coroutines and flow](https://developer.android.com/kotlin/coroutines/additional-resources)
+- [Flows](https://kotlinlang.org/docs/coroutines-flow.html)

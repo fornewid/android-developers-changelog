@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0) | - | - | [1.6.0-alpha03](https://developer.android.com/jetpack/androidx/releases/savedstate#1.6.0-alpha03) |
+| September 23, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/savedstate#1.5.0) | - | - | [1.6.0-alpha04](https://developer.android.com/jetpack/androidx/releases/savedstate#1.6.0-alpha04) |
 
 ## Declaring dependencies
 
@@ -61,6 +61,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.6
+
+### Version 1.6.0-alpha04
+
+September 23, 2026
+
+`androidx.savedstate:savedstate-*:1.6.0-alpha04` is released. Version 1.6.0-alpha04 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f/savedstate).
+
+**Bug Fixes**
+
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
 
 ### Version 1.6.0-alpha03
 

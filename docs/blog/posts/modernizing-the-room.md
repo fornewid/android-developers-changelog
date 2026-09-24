@@ -8,7 +8,7 @@ source: md.txt
 
 # Room 3.0 - Modernizing the Room
 
-4 min read ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_1XxrMX.webp) 13 Mar 2026 [![View Daniel Santiago Rivera's profile](https://developer.android.com/static/blog/assets/Daniel_Santiago_Rivera_157422eedb_Z1DQYwY.webp)](https://developer.android.com/blog/authors/daniel-santiago-rivera) [Daniel Santiago Rivera](https://developer.android.com/blog/authors/daniel-santiago-rivera) Software Engineer The first alpha of Room 3.0 has been released! Room 3.0 is a major breaking version of the library that focuses on Kotlin Multiplatform (KMP) and adds support for JavaScript and WebAssembly (WASM) on top of the existing Android, iOS and JVM desktop support.
+4 min read ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_5IIEj.webp) 13 Mar 2026 [![View Daniel Santiago Rivera's profile](https://developer.android.com/static/blog/assets/Daniel_Santiago_Rivera_157422eedb_VG66u.webp)](https://developer.android.com/blog/authors/daniel-santiago-rivera) [Daniel Santiago Rivera](https://developer.android.com/blog/authors/daniel-santiago-rivera) Software Engineer The first alpha of Room 3.0 has been released! Room 3.0 is a major breaking version of the library that focuses on Kotlin Multiplatform (KMP) and adds support for JavaScript and WebAssembly (WASM) on top of the existing Android, iOS and JVM desktop support.
 
 In this blog we outline the breaking changes, the reasoning behind Room 3.0, and the various things you can do to migrate from Room 2.0.
 
@@ -77,22 +77,22 @@ Written by:
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/daniel-santiago-rivera) ![View Daniel Santiago Rivera's profile](https://developer.android.com/static/blog/assets/Daniel_Santiago_Rivera_157422eedb_Z1DQYwY.webp) ![View Daniel Santiago Rivera's profile](https://developer.android.com/static/blog/assets/Daniel_Santiago_Rivera_157422eedb_Z1DQYwY.webp)
+  View profile](https://developer.android.com/blog/authors/daniel-santiago-rivera) ![View Daniel Santiago Rivera's profile](https://developer.android.com/static/blog/assets/Daniel_Santiago_Rivera_157422eedb_VG66u.webp) ![View Daniel Santiago Rivera's profile](https://developer.android.com/static/blog/assets/Daniel_Santiago_Rivera_157422eedb_VG66u.webp)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -108,4 +108,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

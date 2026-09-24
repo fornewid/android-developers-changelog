@@ -8,7 +8,7 @@ source: md.txt
 
 # Giving your apps a new home on Samsung Galaxy XR, the first device powered by Android XR
 
-3 min read ![](https://developer.android.com/static/blog/assets/Galaxy_XR_BLOG_341f1e7643_2mbd4B.webp) 22 Oct 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer The first device powered by [Android XR](https://developer.android.com/xr) is here: engineered by Samsung, [Galaxy XR, is available now](https://blog.google/products/android/samsung-galaxy-xr), putting the possibilities of immersive experiences directly into users' hands. With this launch, the [Android XR platform](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html), built for the era of AI, leverages the helpfulness of Gemini to bring users new ways to use an AI assistant and experience apps and games.
+3 min read ![](https://developer.android.com/static/blog/assets/Galaxy_XR_BLOG_341f1e7643_ZX38cG.webp) 22 Oct 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer The first device powered by [Android XR](https://developer.android.com/xr) is here: engineered by Samsung, [Galaxy XR, is available now](https://blog.google/products/android/samsung-galaxy-xr), putting the possibilities of immersive experiences directly into users' hands. With this launch, the [Android XR platform](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html), built for the era of AI, leverages the helpfulness of Gemini to bring users new ways to use an AI assistant and experience apps and games.
 
 [Video](https://www.youtube.com/watch?v=AGFm8-O9VD4)
 
@@ -19,14 +19,14 @@ During this week, we'll deep dive into what you need to know about bringing your
 **Android XR extends your apps into a new reality**
 
 Galaxy XR offers a new way of interacting with computing that is anchored by natural input like hands, eyes, and voice input. It moves beyond the constraints of a physical screen, unlocking new ways for users to watch, create, and explore.
-![image_Lens_2025Q4_25H109x001_02_F_Talent_Scene1_0246_R03a_w_KB_QC (2).jpg](https://developer.android.com/static/blog/assets/image_Lens_2025_Q4_25_H109x001_02_F_Talent_Scene1_0246_R03a_w_KB_QC_2_8f7989febf_Z26KOK2.webp)
+![image_Lens_2025Q4_25H109x001_02_F_Talent_Scene1_0246_R03a_w_KB_QC (2).jpg](https://developer.android.com/static/blog/assets/image_Lens_2025_Q4_25_H109x001_02_F_Talent_Scene1_0246_R03a_w_KB_QC_2_8f7989febf_7y9dU.webp)
 
 [Android XR](https://developer.android.com/develop/xr)is an extension of the Android development foundation, offering a unified development target for the next generation of extended reality devices. This means you can efficiently scale your work, leveraging the established foundation of the Android ecosystem while utilizing familiar tools and APIs. The platform is built to simplify your transition to spatial development.
 
 You can adapt your existing apps and build new experiences using the [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk), which integrates seamlessly with Android Studio and the Android APIs you already use, or utilize industry-standard tools like the [Unity engine and open frameworks such as OpenXR and WebXR.](https://developer.android.com/develop/xr#build-with)
 
 Android XR is designed to lower the barrier to entry, allowing you to use your current expertise to create truly differentiated apps. The platform is ready for your innovation, offering both familiarity and powerful new capabilities.
-![hero_xr.webp](https://developer.android.com/static/blog/assets/hero_xr_ef3ea50c1f_ZiejEI.webp)
+![hero_xr.webp](https://developer.android.com/static/blog/assets/hero_xr_ef3ea50c1f_2sVYjS.webp)
 
 **Adapt your existing apps and build new immersive experiences**
 
@@ -35,12 +35,12 @@ Getting started on Android XR is a flexible process, allowing you to choose the 
 **Adapting existing apps:** In most cases, your mobile app will run great on Android XR with little to no additional development through [Google Play, now available on headsets](https://developer.android.com/develop/xr/package-and-distribute). Apps that require a bit of effort should start by ensuring your current Android apps are optimized using the [adaptive app principles](https://developer.android.com/develop/ui/compose/build-adaptive-apps). Many of the best practices you've already implemented for foldables and tablets will help your app shine on headsets.
 
 **Building new experiences:** The [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk) provides the tools you need to create entirely new spatial experiences that truly take advantage of the form factor. The SDK allows you to spatialize your UI, utilize [Jetpack Compose for XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui) to build declarative spatial layouts, and integrate 3D models and rich content using Jetpack SceneCore. And, with the addition of [ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore), you can include perception capabilities to seamlessly blend digital content with the real world.
-![image 2.png](https://developer.android.com/static/blog/assets/image_2_e303629fb9_ZbVRXe.webp)
+![image 2.png](https://developer.android.com/static/blog/assets/image_2_e303629fb9_Z2uWHMy.webp)
 
 Now is the time to design for focused productivity, immersive entertainment, and next-generation discovery. And, developers are already building for the platform. The team at Calm successfully transformed their mobile app into an immersive spatial experience by leveraging their existing Android codebase. They were able to build their first functional XR menus on the first day and a core XR experience in just two weeks, proving that building for XR is a natural extension of existing Android work.
 
 **Port your Unity titles with ease with OpenXR:** Android XR supports the [OpenXR](https://developer.android.com/develop/xr/openxr) standard, which ensures a common set of APIs and standards across devices. Early access partners have been impressed at how smooth it is to port existing XR titles, leveraging both OpenXR and the established [Android XR SDK for Unity](https://developer.android.com/develop/xr/unity). Building on this solid foundation gives you access to a wide array of features, from hand and eye tracking to scene meshing and anchor persistence, making truly immersive apps possible. To get started, [download Unity 6](https://developer.android.com/develop/xr/unity/setup) and bring your games and experiences to Android XR.
-![XR 1234 x 802 px.png](https://developer.android.com/static/blog/assets/XR_1234_x_802_px_c50e33adcf_18s437.webp)
+![XR 1234 x 802 px.png](https://developer.android.com/static/blog/assets/XR_1234_x_802_px_c50e33adcf_ZJlE5x.webp)
 
 **Start Building for Android XR Today**
 
@@ -62,23 +62,23 @@ Written by:
   ###### Vice President, Product Management, Android Developer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
 
@@ -91,4 +91,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -402,4 +402,4 @@ fun testLazilySharingViewModel() = runTest {
 - [Testing Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines/test)
 - [Kotlin flows on Android](https://developer.android.com/kotlin/flow)
 - [`StateFlow` and `SharedFlow`](https://developer.android.com/kotlin/flow/stateflow-and-sharedflow)
-- [Additional resources for Kotlin coroutines and flow](https://developer.android.com/kotlin/coroutines/additional-resources)
+- [Testing coroutines](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-test/)

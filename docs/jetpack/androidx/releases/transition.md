@@ -13,7 +13,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 26, 2026 | [1.7.1](https://developer.android.com/jetpack/androidx/releases/transition#1.7.1) | - | - | - |
+| September 23, 2026 | [1.7.2](https://developer.android.com/jetpack/androidx/releases/transition#1.7.2) | - | - | - |
 
 ## Declaring dependencies
 
@@ -29,9 +29,9 @@ your app or module:
 ```groovy
 dependencies {
     // Java language implementation
-    implementation "androidx.transition:transition:1.7.1"
+    implementation "androidx.transition:transition:1.7.2"
     // Kotlin
-    implementation "androidx.transition:transition-ktx:1.7.1"
+    implementation "androidx.transition:transition-ktx:1.7.2"
 }
 ```
 
@@ -40,9 +40,9 @@ dependencies {
 ```kotlin
 dependencies {
     // Java language implementation
-    implementation("androidx.transition:transition:1.7.1")
+    implementation("androidx.transition:transition:1.7.2")
     // Kotlin
-    implementation("androidx.transition:transition-ktx:1.7.1")
+    implementation("androidx.transition:transition-ktx:1.7.2")
 }
 ```
 
@@ -62,6 +62,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.7
+
+### Version 1.7.2
+
+September 23, 2026
+
+`androidx.transition:transition:1.7.2` and `androidx.transition:transition-ktx:1.7.2` are released. Version 1.7.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/8bbfd1897e869a1edab00c290206a73c4739863c..37d0a376538716b6534668616ee0ad8410c47774/transition).
 
 ### Version 1.7.1
 

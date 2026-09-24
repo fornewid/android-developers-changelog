@@ -8,7 +8,7 @@ source: md.txt
 
 # Bringing Androidify to XR with the Jetpack XR SDK
 
-9 min read ![](https://developer.android.com/static/blog/assets/xr_Week6_1e2e4ab4ae_e4Cvs.webp) 22 Oct 2025 [![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_1F9de3.webp)](https://developer.android.com/blog/authors/dereck-bridie) [Dereck Bridie](https://developer.android.com/blog/authors/dereck-bridie) Developer Relations Engineer [*Samsung Galaxy XR is here*](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html)*, powered by Android XR! This blog post is part of our *[*Android XR Spotlight Week*](https://android-developers.googleblog.com/2025/10/welcome-to-android-xr-spotlight-week.html)*, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.*
+9 min read ![](https://developer.android.com/static/blog/assets/xr_Week6_1e2e4ab4ae_ZeyaAC.webp) 22 Oct 2025 [![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_ZmA5Q1.webp)](https://developer.android.com/blog/authors/dereck-bridie) [Dereck Bridie](https://developer.android.com/blog/authors/dereck-bridie) Developer Relations Engineer [*Samsung Galaxy XR is here*](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html)*, powered by Android XR! This blog post is part of our *[*Android XR Spotlight Week*](https://android-developers.googleblog.com/2025/10/welcome-to-android-xr-spotlight-week.html)*, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR.*
 
 With the [launch of Samsung Galaxy XR](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html) , the first device powered by Android XR is officially here. People can now enjoy many of their favorite apps from the Play Store in a whole new dimension: the third dimension!
 
@@ -19,12 +19,12 @@ In this blog post, we'll tell you about our own journey as we brought the whimsy
 **A tour through Androidify**
 
 Androidify is an open source app that lets you create Android bots, using some of the latest technologies like Gemini, CameraX, Navigation 3, and of course, Jetpack Compose. Androidify was initially designed to look great on phones, foldables, and tablets by creating [adaptive layouts](https://developer.android.com/adaptive-apps).
-![customize.png](https://developer.android.com/static/blog/assets/customize_f193e77d06_ZdNHdf.webp)
+![customize.png](https://developer.android.com/static/blog/assets/customize_f193e77d06_1dyn49.webp)
 
 *Androidify looks great across multiple form factors*
 
 A key pillar of adaptive layouts is reusable composables. Jetpack Compose helps you create bite-sized UI components that can be laid out in different ways to create intuitive user experiences, no matter what type of device the user is on. In fact, Androidify is compatible with Android XR with zero modifications to the app!
-![customize_2.png](https://developer.android.com/static/blog/assets/customize_2_d96b6262eb_pG1B2.webp)
+![customize_2.png](https://developer.android.com/static/blog/assets/customize_2_d96b6262eb_ZGn0xc.webp)
 
 *Androidify adapts to XR using its large-screen-responsive layout with no code changes*
 
@@ -33,7 +33,7 @@ Apps that have no special handling for Android XR can be multi-tasked in an appr
 **Orienting yourself in XR**
 
 Let's go over key basic concepts for Android XR, starting with the two modes apps can be run in: Home Space and Full Space.
-![homespace.png](https://developer.android.com/static/blog/assets/homespace_cd0f028f26_16G2ol.webp) Apps in Home Space ![homespace2.png](https://developer.android.com/static/blog/assets/homespace2_0ff1119102_PpJyR.webp) App in Full Space
+![homespace.png](https://developer.android.com/static/blog/assets/homespace_cd0f028f26_1NyvfB.webp) Apps in Home Space ![homespace2.png](https://developer.android.com/static/blog/assets/homespace2_0ff1119102_ZCQWl.webp) App in Full Space
 
 In *Home Space*, multiple apps can be run side-by-side so users can multitask across different windows. In that sense, it's a lot like desktop windowing on a large screen Android device, but in virtual space!
 
@@ -56,7 +56,7 @@ We also considered possible hardware features and how the user would interact wi
 **Designing for the bigger shift to Full Space**
 
 [Full Space](https://developer.android.com/design/ui/xr/guides/foundations#full-space) was the biggest shift, but gave us the most creative room to adapt our design.
-![tablet_to_xr.webp](https://developer.android.com/static/blog/assets/tablet_to_xr_2c9197db81_1QUPDc.webp) From tablet to XR
+![tablet_to_xr.webp](https://developer.android.com/static/blog/assets/tablet_to_xr_2c9197db81_24Eekg.webp) From tablet to XR
 
 Androidify uses visual containment, or panes, to group features with a background and outline, like the "Take or choose a photo" pane. We also used components like the [top app bar](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design#top-app-bars) to create natural containment by framing the other panes. Finally, intrinsic containment is suggested by the proximity of certain elements to others, such as the "Start transformation" bottom button, which is near the "Choose my bot color" pane.
 
@@ -76,7 +76,7 @@ For more about XR UI design patterns, check out [Design for Android XR on Androi
 **Spatial UI basics**
 
 Now that we've covered Ivy's experience adapting her mindset while designing Androidify for XR, let's talk about developing spatial UI. Developing a spatial UI with the [Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk) should seem familiar if you're used to working with modern Android tools and libraries. You'll find concepts you're already familiar with, like creating layouts with Compose. In fact, spatial layouts are really similar to 2D layouts using rows, columns, and spacers:
-![spatialrows.png](https://developer.android.com/static/blog/assets/spatialrows_e2bbf24319_ZQrcce.webp)
+![spatialrows.png](https://developer.android.com/static/blog/assets/spatialrows_e2bbf24319_Z1Xvels.webp)
 
 *These elements are arranged in *`*SpatialRows*`* and *`*SpatialColumns*`
 
@@ -97,7 +97,7 @@ Subspace {
 A SpatialPanel is a *subspace composable*. Subspace composables must be contained within a Subspace, and are modified by `SubspaceModifier` objects. Subspaces can be placed anywhere within your app's UI hierarchy, and can only contain Subspace composables. [SubspaceModifier objects](https://developer.android.com/develop/xr/jetpack-xr-sdk/subspacemodifiers) are also really similar to Modifier objects: they control parameters like sizing and positioning.
 
 An `Orbiter`* *can be attached to a `SpatialPanel` and move along with the content it's attached to. They're often used to provide contextual controls about the content they're attached to, giving the content the primary focus. They can be placed at any of the four sides of the content, at a configurable distance.
-![orbiter.png](https://developer.android.com/static/blog/assets/orbiter_511f360873_22MELU.webp) An Orbiter is attached to the bottom of a SpatialPanel
+![orbiter.png](https://developer.android.com/static/blog/assets/orbiter_511f360873_Zgda2p.webp) An Orbiter is attached to the bottom of a SpatialPanel
 
 There are [many more spatial UI elements](https://developer.android.com/develop/xr/jetpack-xr-sdk/develop-ui), but these are the main ones we used to create spatial layouts for Androidify.
 
@@ -168,7 +168,7 @@ fun HomeScreenContents(layoutType: HomeScreenLayoutType) {
 **Implementing the design for the Home Screen**
 
 Let's go back to the spatial design for the Home Screen in Full Space to understand how it was implemented.
-![customize_3.png](https://developer.android.com/static/blog/assets/customize_3_b59e9428e8_QK9TK.webp)
+![customize_3.png](https://developer.android.com/static/blog/assets/customize_3_b59e9428e8_ZfiRet.webp)
 
 We identified two SpatialPanel elements here: one panel that the video card is in on the right, and one that contains the main UI. Finally, there's an Orbiter attached to the top. Let's start with the video player panel:
 
@@ -189,7 +189,7 @@ fun HomeScreenContentsSpatial(...) {
 ```
 
 We simply reused the 2D VideoPlayer component from the regular layouts into a `SpatialPanel` with no additional changes! Here's what it looks like standalone:
-![bluetiel.png](https://developer.android.com/static/blog/assets/bluetiel_2a543900ff_Z14Ob5K.webp)
+![bluetiel.png](https://developer.android.com/static/blog/assets/bluetiel_2a543900ff_ZmVHeu.webp)
 
 The main content panel followed the same story: we reused medium panel content in a `SpatialPanel`.
 
@@ -208,7 +208,7 @@ SpatialPanel(SubspaceModifier.fillMaxSize(),
 ```
 
 We gave this panel a ResizePolicy, which gives the panel some handles near the edges that let the user resize the panel. It also has a MovePolicy, which lets the user drag it around.
-![customize_4.png](https://developer.android.com/static/blog/assets/customize_4_c9dbdcece9_19Bwnt.webp)
+![customize_4.png](https://developer.android.com/static/blog/assets/customize_4_c9dbdcece9_2xuef.webp)
 
 Placing them in the same Subspace makes them independent of each other, so we made the VideoPlayer panel a child of the main content panel. This makes the VideoPlayer panel move when the main content panel is dragged through a parent-child relationship.
 
@@ -236,10 +236,10 @@ That's how we did the first screen!
 **Moving on to the other screens**
 
 I'll go over some of the other screens briefly too, highlighting specific considerations made for each one.
-![fullspace.png](https://developer.android.com/static/blog/assets/fullspace_385f4fedd1_1MPgw3.webp) The creation screen in Full Space
+![fullspace.png](https://developer.android.com/static/blog/assets/fullspace_385f4fedd1_VLDYP.webp) The creation screen in Full Space
 
 Here, we used SpatialRow and SpatialColumn composables to create a layout that fits the recommended viewing space, again reusing components from the Medium layout.
-![fullspace_2.png](https://developer.android.com/static/blog/assets/fullspace_2_08248eb67e_Z1jz8TL.webp)
+![fullspace_2.png](https://developer.android.com/static/blog/assets/fullspace_2_08248eb67e_Z2qDb40.webp)
 
 Results Screen in Full Space: *A bot generated with a prompt: red baseball cap, aviator sunglasses, a light blue t-shirt, red and white checkered shorts, green flip flops, and is holding a tennis racket.*
 
@@ -258,7 +258,7 @@ Now that the app is ready for XR with the spatial layouts, we went on to release
 ```
 
 This lets the Play Store know that this app has XR-differentiated features, showing a badge that lets users know that the app was made with XR in mind:
-![androidify2.png](https://developer.android.com/static/blog/assets/androidify2_e1a4f46a6c_pdEDq.webp) Androidify as shown in the Google Play Store on Android XR
+![androidify2.png](https://developer.android.com/static/blog/assets/androidify2_e1a4f46a6c_Z10Fh2V.webp) Androidify as shown in the Google Play Store on Android XR
 
 <br />
 
@@ -282,9 +282,9 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/dereck-bridie) ![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_1F9de3.webp) ![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_1F9de3.webp)
+  View profile](https://developer.android.com/blog/authors/dereck-bridie) ![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_ZmA5Q1.webp) ![View Dereck Bridie's profile](https://developer.android.com/static/blog/assets/unnamed_2fdf36b3fa_ZmA5Q1.webp)
 Continue reading
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
 
@@ -294,14 +294,14 @@ Continue reading
   - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
   - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
   - +1 ↩
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
   [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
 
@@ -314,4 +314,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

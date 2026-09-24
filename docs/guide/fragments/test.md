@@ -35,7 +35,7 @@ following example:
 
 ```groovy
 dependencies {
-    def fragment_version = "1.9.0"
+    def fragment_version = "1.9.1"
 
     debugImplementation "androidx.fragment:fragment-testing-manifest:$fragment_version"
 
@@ -47,7 +47,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val fragment_version = "1.9.0"
+    val fragment_version = "1.9.1"
 
     debugImplementation("androidx.fragment:fragment-testing-manifest:$fragment_version")
 

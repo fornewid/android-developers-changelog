@@ -153,7 +153,10 @@ Use both the devices and font-scaling preview definitions to see the following:
 - How your differentiated experience behaves across breakpoints.
 
 Ensure you implement previews using [`WearPreviewDevices`](https://developer.android.com/reference/kotlin/androidx/wear/compose/ui/tooling/preview/WearPreviewDevices) and
-[`WearPreviewFontScales`](https://developer.android.com/reference/kotlin/androidx/wear/compose/ui/tooling/preview/WearPreviewFontScales) for all the screens in your app.
+[`WearPreviewFontScales`](https://developer.android.com/reference/kotlin/androidx/wear/compose/ui/tooling/preview/WearPreviewFontScales) for all the screens in your app. For complete
+details on configuring Wear OS previews, custom hardware specs, and previewing
+scrolled lists, see
+[Preview your UI in Compose for Wear OS](https://developer.android.com/training/wearables/compose/previews).
 
 ```kotlin
 @WearPreviewDevices

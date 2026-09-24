@@ -177,7 +177,7 @@ Differentiated cursors provide immediate feedback on how users can interact with
 
 #### How
 
-See the [Cursors](https://developer.android.com/guide/topics/large-screens/custom-cursors) overview.
+See the [Cursors](https://developer.android.com/guide/topics/large-screens/cursors) overview.
 ![](https://developer.android.com/static/images/guide/topics/large-screens/quality-guidelines/tier-1/cross-device_icon.svg)
 
 #### [Cross device](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop#t1_cross-device)

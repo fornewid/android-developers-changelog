@@ -4,7 +4,7 @@ url: https://developer.android.com/health-and-fitness/health-connect/metadata
 source: md.txt
 ---
 
-> This guide is compatible with Health Connect version [1.1.0-alpha12](https://developer.android.com/jetpack/androidx/releases/health-connect#1.1.0-alpha12) and
+> This guide is compatible with Health Connect version [1.2.0-alpha05](https://developer.android.com/jetpack/androidx/releases/health-connect#1.2.0-alpha05) and
 > later.
 
 There are changes to metadata in Health Connect for
@@ -149,6 +149,77 @@ For example:
 ```
 
 <br />
+
+### Unique Device Identifier (UDI)
+
+For Health Connect on Android 17 (API level 37.1) or
+U extension 23 or later, the `Device` class includes support for the Unique
+Device Identifier (UDI). Associating a medical device's registered UDI model
+details with your written records allows downstream applications (such as
+telehealth platforms or clinical portals) to identify clinical-grade readings
+and distinguish them from general consumer-wearable data.
+
+#### Declare the permission
+
+To write UDI details to Health Connect, you must declare the
+`WRITE_DEVICE_UDI` permission in your app's `AndroidManifest.xml` file:
+
+    <uses-permission android:name="android.permission.health.WRITE_DEVICE_UDI" />
+
+Note that `WRITE_DEVICE_UDI` is a **normal permission**. You must declare it in
+your manifest, but you don't need to request it from the user at runtime. It's
+automatically granted to your app at install time.
+
+#### Write only the Device Identifier (DI) portion
+
+A complete UDI contains two parts:
+
+- **Device Identifier (UDI-DI)**: A globally recognized identifier assigned to a specific device model by an issuing agency (for example, GS1).
+- **Production Identifier (UDI-PI)**: Unit-specific attributes, such as serial numbers, batch numbers, manufacturing dates, or expiration dates.
+
+To protect user privacy, **only populate the UDI-DI portion** of the code in
+Health Connect. Don't include any production identifier attributes (such as
+serial numbers or batch numbers).
+
+#### Code example
+
+**Note:** You can set the UDI when constructing a `Device` instance.
+
+### Jetpack SDK
+
+```kotlin
+val device = Device(
+    type = Device.TYPE_CONSUMER_MEDICAL_DEVICE,
+    manufacturer = "Omron",
+    model = "HEM-7121",
+    udi = "04015674011832" // Device Identifier (UDI-DI) portion only
+)
+```
+
+### Platform API
+
+```kotlin
+val device = Device.Builder()
+    .setType(Device.DEVICE_TYPE_CONSUMER_MEDICAL_DEVICE)
+    .setManufacturer("Omron")
+    .setModel("HEM-7121")
+    .setUdi("04015674011832") // Device Identifier (UDI-DI) portion only
+    .build()
+```
+
+If you write data with a UDI without declaring the `WRITE_DEVICE_UDI`
+permission, Health Connect throws a `SecurityException` at write time.
+
+#### Use UDI to verify device clearance
+
+Health Connect serves as a transport layer and does **not** validate the
+authenticity or registration status of the UDI.
+
+For data readers, the presence of a UDI indicates that the data originates
+from a registered medical device. Reading apps should query regulatory
+databases like the FDA's Global Unique Device Identification Database (GUDID)
+or the EU's EUDAMED to verify device classifications, regulatory clearance
+status (for example, Class I, II, or III), or specific intended use.
 
 ### Snippets updated
 

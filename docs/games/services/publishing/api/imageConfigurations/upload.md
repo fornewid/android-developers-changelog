@@ -53,11 +53,10 @@ If successful, this method returns a response body with the following structure:
 
 ```
 {
-  "kind": "gamesConfiguration#imageConfiguration",
-  "url": string,
-  "resourceId": string,
+  "kind": "gamesConfiguration#imageConfiguration&quot;,
+  "url&quot;: string,
+  "resource}Id": string,
   "imageType": string
-}
 ```
 
 | Property name | Value | Description | Notes |

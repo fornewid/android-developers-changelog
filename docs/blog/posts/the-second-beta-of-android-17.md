@@ -8,7 +8,7 @@ source: md.txt
 
 # The Second Beta of Android 17
 
-6 min read ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp) 26 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today we're releasing the second beta of [Android 17](https://developer.android.com/about/versions/17), continuing our work to build a platform that prioritizes privacy, security, and refined performance. This update delivers a range of new capabilities, including the EyeDropper API and a privacy-preserving Contacts Picker. We're also adding advanced ranging, cross-device handoff APIs, and more.  
+6 min read ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) 26 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today we're releasing the second beta of [Android 17](https://developer.android.com/about/versions/17), continuing our work to build a platform that prioritizes privacy, security, and refined performance. This update delivers a range of new capabilities, including the EyeDropper API and a privacy-preserving Contacts Picker. We're also adding advanced ranging, cross-device handoff APIs, and more.  
 
 This release continues the shift in our release cadence, following this annual major SDK release in Q2 with a minor SDK update.
 
@@ -17,7 +17,7 @@ This release continues the shift in our release cadence, following this annual m
 #### Bubbles
 
 Bubbles is a windowing mode feature that offers a new floating UI experience separate from the [messaging bubbles API](https://developer.android.com/develop/ui/views/notifications/bubbles). Users can create an app bubble on their phone, foldable, or tablet by long-pressing an app icon on the launcher. On large screens, there is a bubble bar as part of the taskbar where users can organize, move between, and move bubbles to and from anchored points on the screen.
-![Bubbles.gif](https://developer.android.com/static/blog/assets/Bubbles_3804b5dbdd_Z2qebhJ.webp)
+![Bubbles.gif](https://developer.android.com/static/blog/assets/Bubbles_3804b5dbdd_BdDr8.webp)
 
 You should follow the [guidelines for supporting multi-window mode](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-multi-window-mode) to ensure your apps work correctly as bubbles.
 
@@ -26,7 +26,7 @@ Bubbles aren't yet fully enabled in Beta 2. Look for them in a future build of A
 #### **EyeDropper API**
 
 A new system-level EyeDropper API allows your app to request a color from any pixel on the display without requiring sensitive screen capture permissions.
-![Eyedropper_Tester.webp](https://developer.android.com/static/blog/assets/Eyedropper_Tester_0bb86c767e_WUEHE.webp)
+![Eyedropper_Tester.webp](https://developer.android.com/static/blog/assets/Eyedropper_Tester_0bb86c767e_2urHL9.webp)
 
 ```
 val eyeDropperLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -45,7 +45,7 @@ fun launchColorPicker() {
 #### Contacts Picker
 
 A new system-level contacts picker via [ACTION_PICK_CONTACTS](https://developer.android.com/reference/kotlin/android/provider/ContactsPickerSessionContract#ACTION_PICK_CONTACTS:kotlin.String) grants temporary, session-based read access to only the specific data fields requested by the user, reducing the need for the broad [READ_CONTACTS](https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS) permissions. It also allows for selections from the device's personal or work profiles.
-![android-17-contact-picker.gif](https://developer.android.com/static/blog/assets/android_17_contact_picker_abefb8ca84_2uQ92i.webp)
+![android-17-contact-picker.gif](https://developer.android.com/static/blog/assets/android_17_contact_picker_abefb8ca84_187BjM.webp)
 
 ```
 val contactPicker = rememberLauncherForActivityResult(StartActivityForResult()) {
@@ -137,12 +137,12 @@ All apps that rely on reading SMS messages for OTP extraction should transition 
 ### The Android 17 schedule
 
 We're going to be moving quickly from this Beta to our Platform Stability milestone, targeted for March. At this milestone, we'll deliver final SDK/NDK APIs. From that time forward, your app can target SDK 37 and publish to Google Play to help you complete your testing and collect user feedback in the several months before the general availability of Android 17.
-![Android Release Timeline.png](https://developer.android.com/static/blog/assets/Android_Release_Timeline_26e2e9e8a6_qXS2l.webp)
+![Android Release Timeline.png](https://developer.android.com/static/blog/assets/Android_Release_Timeline_26e2e9e8a6_ZkRxYR.webp)
 
 #### A year of releases
 
 We plan for Android 17 to continue to get updates in a series of quarterly releases. The upcoming release in Q2 is the only one where we introduce planned app breaking behavior changes. We plan to have a minor SDK release in Q4 with additional APIs and features.
-![Android Release Timeline_2.png](https://developer.android.com/static/blog/assets/Android_Release_Timeline_2_c6fb9f8c17_ZCyUws.webp)
+![Android Release Timeline_2.png](https://developer.android.com/static/blog/assets/Android_Release_Timeline_2_c6fb9f8c17_2qyhR7.webp)
 
 ### Get started with Android 17
 
@@ -177,23 +177,23 @@ Written by:
   ###### Vice President, Product Management, Android Developer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
 
@@ -206,4 +206,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

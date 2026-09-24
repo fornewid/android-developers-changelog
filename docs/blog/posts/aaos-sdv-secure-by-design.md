@@ -8,7 +8,7 @@ source: md.txt
 
 # AAOS SDV - Secure by Design
 
-5 min read ![](https://developer.android.com/static/blog/assets/Android_1_Strapi_6f49d09922_ZVXnJg.webp) 24 Aug 2026 3 Authors [Markus Vill,](https://developer.android.com/blog/authors/markus-vill) [Sean Keys,](https://developer.android.com/blog/authors/sean-keys) [István Nádor](https://developer.android.com/blog/authors/istvan-nador) At Google, we believe our products should be secure by design, which is why we built the Android Automotive Operating System for Software Defined Vehicle (AAOS SDV) on existing, [market-proven platforms](https://source.android.com/docs/automotive/sdv/workstreams/hardware/sdv-on-qnx), leveraging virtualization technologies like [Cuttlefish](https://source.android.com/docs/devices/cuttlefish). While our [release announcements](https://blog.google/products-and-platforms/platforms/android/android-automotive-os/) focused on the features, this blog post outlines some of the security concepts.
+5 min read ![](https://developer.android.com/static/blog/assets/Android_1_Strapi_6f49d09922_1I8TFC.webp) 24 Aug 2026 3 Authors [Markus Vill,](https://developer.android.com/blog/authors/markus-vill) [Sean Keys,](https://developer.android.com/blog/authors/sean-keys) [István Nádor](https://developer.android.com/blog/authors/istvan-nador) At Google, we believe our products should be secure by design, which is why we built the Android Automotive Operating System for Software Defined Vehicle (AAOS SDV) on existing, [market-proven platforms](https://source.android.com/docs/automotive/sdv/workstreams/hardware/sdv-on-qnx), leveraging virtualization technologies like [Cuttlefish](https://source.android.com/docs/devices/cuttlefish). While our [release announcements](https://blog.google/products-and-platforms/platforms/android/android-automotive-os/) focused on the features, this blog post outlines some of the security concepts.
 
 ## Foundation: Domain Isolation
 
@@ -110,7 +110,7 @@ Conversely, permissions for security-sensitive signals must be hard-coded into e
 
 ## Conclusion
 
-![image.png](https://developer.android.com/static/blog/assets/image_8478613bb7_11crDa.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_8478613bb7_Z1ICYMu.webp)
 
 AAOS SDV extends Android's security architecture to address specific automotive requirements through a secure-by-design approach. By leveraging virtualization for domain isolation and enforcing "deny-by-default" access policies, the platform establishes a resilient environment for software-defined vehicles. Cryptographic integrity is maintained via hardware-enforced, on-the-fly verification of executed code.
 
@@ -126,7 +126,7 @@ Written by:
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/markus-vill) ![View Markus Vill's profile](https://developer.android.com/static/blog/assets/unnamed_19_3405162c1c_JCTR1.webp) ![View Markus Vill's profile](https://developer.android.com/static/blog/assets/unnamed_19_3405162c1c_JCTR1.webp)
+  View profile](https://developer.android.com/blog/authors/markus-vill) ![View Markus Vill's profile](https://developer.android.com/static/blog/assets/unnamed_19_3405162c1c_ZhcqoU.webp) ![View Markus Vill's profile](https://developer.android.com/static/blog/assets/unnamed_19_3405162c1c_ZhcqoU.webp)
 -
 
   ## [Sean Keys](https://developer.android.com/blog/authors/sean-keys)
@@ -134,7 +134,7 @@ Written by:
   ###### Security Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/sean-keys) ![View Sean Keys's profile](https://developer.android.com/static/blog/assets/unnamed_20_bdf4e82cc6_Z1w21P7.webp) ![View Sean Keys's profile](https://developer.android.com/static/blog/assets/unnamed_20_bdf4e82cc6_Z1w21P7.webp)
+  View profile](https://developer.android.com/blog/authors/sean-keys) ![View Sean Keys's profile](https://developer.android.com/static/blog/assets/unnamed_20_bdf4e82cc6_2wjKGS.webp) ![View Sean Keys's profile](https://developer.android.com/static/blog/assets/unnamed_20_bdf4e82cc6_2wjKGS.webp)
 -
 
   ## [István Nádor](https://developer.android.com/blog/authors/istvan-nador)
@@ -142,22 +142,22 @@ Written by:
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/istvan-nador) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+  View profile](https://developer.android.com/blog/authors/istvan-nador) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -173,4 +173,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

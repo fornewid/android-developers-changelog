@@ -8,7 +8,7 @@ source: md.txt
 
 # Experimental hybrid inference and new Gemini models for Android
 
-2 min read ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_gOJm.webp) 17 Apr 2026 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) Senior Developer Relations Engineer If you are an Android developer looking to implement innovative AI features into your app, we recently launched powerful new updates:
+2 min read ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_ZIVyDm.webp) 17 Apr 2026 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) Senior Developer Relations Engineer If you are an Android developer looking to implement innovative AI features into your app, we recently launched powerful new updates:
 
 - Hybrid inference, a new API for Firebase AI Logic to leverage both on-device and Cloud inference,
 - Support for new Gemini models including latest Nano Banana models for image generation.
@@ -50,7 +50,7 @@ The Firebase API for hybrid inference for Android is still experimental, and we 
 Currently, on-device models are specialized for single-turn text generation based on text or single Bitmap image inputs. Review the [limitations](https://firebase.google.com/docs/ai-logic/hybrid/android/get-started?api=dev#features-not-yet-available) for more details.  
 
 We just published a [new sample in the AI Sample Catalog leveraging the Firebase API for hybrid](https://github.com/android/ai-samples/tree/main/samples/gemini-hybrid), it demonstrates how the Firebase API for hybrid inference can be used to generate a review based on a few selected topics and then translating it into various languages. Check out the code to see it in action!
-![Hybrid_Inference-Inline-imagery.gif](https://developer.android.com/static/blog/assets/Hybrid_Inference_Inline_imagery_36760c3326_l3eiI.webp) The new hybrid inference sample in action
+![Hybrid_Inference-Inline-imagery.gif](https://developer.android.com/static/blog/assets/Hybrid_Inference_Inline_imagery_36760c3326_2bK9En.webp) The new hybrid inference sample in action
 
 *The new hybrid inference sample in action*
 
@@ -68,7 +68,7 @@ Last year we released Nano Banana, a state-of-the-art image generation model. An
 The new Nano Banana models leverage real-world knowledge and deep reasoning capabilities to generate precise and detailed images.  
 
 We updated our Magic Selfie sample (use image generation to change the background of your selfie!) to use Nano Banana 2. The background segmentation is now handled directly with the image generation model which makes the implementation easier and lets Nano Banana 2 improved image generation capabilities shine. See it in action [here](https://github.com/android/ai-samples/tree/main/samples/magic-selfie).
-![magic_selfie.png](https://developer.android.com/static/blog/assets/magic_selfie_e5893f79e5_2ewAaS.webp) The updated Magic Selfie sample use Nanobana 2 to update a selfie background
+![magic_selfie.png](https://developer.android.com/static/blog/assets/magic_selfie_e5893f79e5_Z2bdVjr.webp) The updated Magic Selfie sample use Nanobana 2 to update a selfie background
 
 You can use it via Firebase AI Logic SDK. Read more about it in the [Android documentation](https://developer.android.com/ai/gemini/developer-api#generate-images).
 
@@ -92,21 +92,21 @@ Written by:
   ###### Senior Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
+  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)
 Continue reading
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_O0qYl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_2pRpOz.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Build smarter apps with Gemini 3 Flash](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash) Today, we're expanding the Gemini 3 model family with the release of Gemini 3 Flash, frontier intelligence built for speed at a fraction of the cost.
   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) • 2 min read
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)](https://developer.android.com/blog/authors/mozart-louis) 13 Oct 2025 13 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_ZsFAUM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_K6xYF.webp)](https://developer.android.com/blog/authors/mozart-louis) 13 Oct 2025 13 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_2daQMX.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Boost user engagement with AI Image Generation](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation)
 
   [arrow_forward](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation) Adding custom images to your app can significantly improve and personalize user experience and boost user engagement.
   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis) • 5 min read
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
@@ -118,4 +118,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

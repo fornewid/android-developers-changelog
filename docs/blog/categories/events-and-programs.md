@@ -4,12 +4,12 @@ url: https://developer.android.com/blog/categories/events-and-programs
 source: md.txt
 ---
 
-![](https://developer.android.com/static/blog/assets/events_and_programs_droid_1504f2ddaf_7c6edc9aef_ZS7rc9.webp)
+![](https://developer.android.com/static/blog/assets/events_and_programs_droid_1504f2ddaf_7c6edc9aef_sBIve.webp)
 
 # Events \& Programs
 
 Get the details on upcoming webinars, workshops, meetups, and special initiatives designed to help you grow.
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp)
 
   ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
 
@@ -19,7 +19,7 @@ Get the details on upcoming webinars, workshops, meetups, and special initiative
   - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
   - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
   - +1 ↩
-- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp)
+- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_Z20LEeM.webp)
 
   ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
 
@@ -27,25 +27,25 @@ Get the details on upcoming webinars, workshops, meetups, and special initiative
   1 min read
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
-- [![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) 11 Mar 2026 11 Mar 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_ZDM8Sn.webp)
+- [![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Z1ibqSI.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) 11 Mar 2026 11 Mar 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_27oFVg.webp)
 
   ## [Level Up: Test Sidekick and prepare for upcoming program milestones](https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones)
 
   [arrow_forward](https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones) Last September, we shared our vision for the future of Google Play Games grounded in a core belief: the best way to drive your game's success is to deliver a world-class player experience.
   [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) • 3 min read
-- 17 Feb 2026 17 Feb 2026 ![](https://developer.android.com/static/blog/assets/O_SVD_DAC_Banner_1600x476_4x1_1_21e5678d22_Z2feGk6.webp)
+- 17 Feb 2026 17 Feb 2026 ![](https://developer.android.com/static/blog/assets/O_SVD_DAC_Banner_1600x476_4x1_1_21e5678d22_Kv7SQ.webp)
 
   ## [Get ready for Google I/O May 19-20](https://developer.android.com/blog/posts/get-ready-for-google-io-may)
 
   [arrow_forward](https://developer.android.com/blog/posts/get-ready-for-google-io-may) Google I/O is back! Join us online as we share our latest AI breakthroughs and updates in products across the company, from Gemini to Android, Chrome, Cloud, and more.
   1 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/xr_Week4_07a795cac6_Z1lA8nY.webp)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 08 Dec 2025 08 Dec 2025 ![](https://developer.android.com/static/blog/assets/xr_Week4_07a795cac6_Z1OdVv4.webp)
 
   ## [Start building for glasses, new devices for Android XR and more in The Android Show \| XR Edition](https://developer.android.com/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show)
 
   [arrow_forward](https://developer.android.com/blog/posts/start-building-for-glasses-new-devices-for-android-xr-and-more-in-the-android-show) Today, during The Android Show \| XR Edition, we shared a look at the expanding Android XR platform, which is fundamentally evolving to bring a unified developer experience to the entire XR ecosystem.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 2 min read
-- [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](https://developer.android.com/blog/authors/don-turner) 01 Dec 2025 01 Dec 2025 ![](https://developer.android.com/static/blog/assets/Spotlightweek_Blog_banner_2_77cf3dc16b_Z1N257A.webp)
+- [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)](https://developer.android.com/blog/authors/don-turner) 01 Dec 2025 01 Dec 2025 ![](https://developer.android.com/static/blog/assets/Spotlightweek_Blog_banner_2_77cf3dc16b_Z9Ky13.webp)
 
   ## [Learn about our newest Jetpack Navigation library with the Nav3 Spotlight Week](https://developer.android.com/blog/posts/learn-about-our-newest-jetpack-navigation-library-with-the-nav3-spotlight-week)
 
@@ -63,4 +63,4 @@ Get the details on upcoming webinars, workshops, meetups, and special initiative
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

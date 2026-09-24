@@ -4,14 +4,14 @@ url: https://developer.android.com/blog/authors/greg-underwood
 source: md.txt
 ---
 
-1 post ![](https://developer.android.com/static/blog/assets/PXL_20260813_200301431_PORTRAIT_7a5276fd7a_Z1fcMvp.webp)
+1 post ![](https://developer.android.com/static/blog/assets/PXL_20260813_200301431_PORTRAIT_7a5276fd7a_Au7Pf.webp)
 
 # Greg Underwood
 
 Software Engineering Manager
 
 Android XR
-- 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_XR_beta_release_Strapi_a23ed1d892_Z1YdYO1.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_XR_beta_release_Strapi_a23ed1d892_2wR9tl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Jetpack XR SDK core libraries reach beta: The next milestone for Android XR](https://developer.android.com/blog/posts/jetpack-xr-sdk-core-libraries-reach-beta-the-next-milestone-for-android-xr)
 
@@ -27,4 +27,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

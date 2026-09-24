@@ -8,7 +8,7 @@ source: md.txt
 
 # The Intelligent OS: Making AI agents more helpful for Android apps
 
-3 min read ![](https://developer.android.com/static/blog/assets/intelligent_OS_215691a288_G81Rr.webp) 25 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer User expectations for AI on their devices are fundamentally shifting how they interact with their apps. Instead of opening apps to do tasks step-by-step, they're asking AI to do the heavy lifting for them. In this new interaction model, success is shifting from getting users to open your app, to successfully fulfilling their tasks and helping them get more done faster.
+3 min read ![](https://developer.android.com/static/blog/assets/intelligent_OS_215691a288_Z2cwx9U.webp) 25 Feb 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer User expectations for AI on their devices are fundamentally shifting how they interact with their apps. Instead of opening apps to do tasks step-by-step, they're asking AI to do the heavy lifting for them. In this new interaction model, success is shifting from getting users to open your app, to successfully fulfilling their tasks and helping them get more done faster.
 
 To help you evolve your apps for this agentic future, we're introducing early stage developer capabilities that bridge the gap between your apps and agentic apps and personalized assistants, such as Google Gemini. While we are in the early, beta stages of this journey, we're designing these features with privacy and security at their core as our first step in exploring this paradigm shift as an app ecosystem.
 
@@ -17,7 +17,7 @@ To help you evolve your apps for this agentic future, we're introducing early st
 Android [AppFunctions](https://developer.android.com/ai/appfunctions) allows apps to expose data and functionality directly to AI agents and assistants. With the[](https://developer.android.com/jetpack/androidx/releases/appfunctions)AppFunctions [Jetpack library](https://developer.android.com/jetpack/androidx/releases/appfunctions) and [platform APIs](https://developer.android.com/reference/android/app/appfunctions/package-summary), developers can create self-describing functions that agentic apps can discover and execute via natural language. Mirroring how backend capabilities are declared via MCP cloud servers, AppFunctions provides an on-device solution for Android apps. Much like [WebMCP](https://developer.chrome.com/blog/webmcp-epp), it executes these functions locally on the device rather than on a server.
 
 The **Samsung Gallery integration with Gemini on the Galaxy S26 series** showcases AppFunctions in action. Instead of manually scrolling through photo albums, you can now simply ask Gemini to "Show me pictures of my cat from Samsung Gallery." Gemini takes the user query, intelligently identifies and triggers the right function, and presents the returned photos from Samsung Gallery directly in the Gemini app, so users never need to leave. This experience is multimodal and can be done via voice or text. Users can even use the returned photos in follow-up conversations, like sending them to friends in a text message.
-![photos.gif](https://developer.android.com/static/blog/assets/photos_fea372e64a_Z1CIdkc.webp)
+![photos.gif](https://developer.android.com/static/blog/assets/photos_fea372e64a_ZttGWD.webp)
 
 This integration is currently available on the Galaxy S26 series and will soon expand to Samsung devices running OneUI 8.5 and higher. Through AppFunctions, Gemini can already automate tasks across app categories like [Calendar](https://support.google.com/gemini/answer/15305236?ref_topic=16695931&sjid=2355454043249888712-NC&co=GENIE.Platform%3DAndroid&oco=1), [Notes](https://support.google.com/gemini/answer/15230597?ref_topic=16695931&sjid=2355454043249888712-NC&co=GENIE.Platform%3DAndroid&oco=1), and [Tasks](https://support.google.com/gemini/answer/15230285?ref_topic=16695931&sjid=2355454043249888712-NC&co=GENIE.Platform%3DAndroid&oco=1), on devices from multiple manufacturers. Whether it's coordinating calendar events, organizing notes, or setting to-do reminders, users can streamline daily activities in one place.
 
@@ -26,7 +26,7 @@ This integration is currently available on the Galaxy S26 series and will soon e
 While AppFunctions provides a structured framework and more control for apps to communicate with AI agents and assistants, we know that not every interaction has a dedicated integration yet. We're also developing a UI automation framework for AI agents and assistants to intelligently execute generic tasks on users' installed apps, with user transparency and control built in. This is the platform doing the heavy lifting, so developers can get agentic reach with zero code. It's a low-effort way to extend their reach without a major engineering lift right now.   
 
 To get feedback as we refine this framework, we're starting with an early preview on the Galaxy S26 series and select Pixel 10 devices, where users will be able to delegate multi-step tasks to Gemini with just a long press of the power button. Launching as a beta feature in the Gemini app, this will support a curated selection of apps in the food delivery, grocery, and rideshare categories in the US and Korea to start. Whether users need to place a complex pizza order for their family members with particular tastes, coordinate a multi-stop rideshare with co-workers, or reorder their last grocery purchase, Gemini can help complete tasks using the context already available from your apps, without any developer work needed.
-![photos2.gif](https://developer.android.com/static/blog/assets/photos2_835c905721_Z1Q9cOu.webp)
+![photos2.gif](https://developer.android.com/static/blog/assets/photos2_835c905721_1biBTn.webp)
 
 Users are in control while a task is being actioned in the background through UI automation. For any automation action, users have the option to monitor a task's progress via notifications or "live view" and can switch to manual control at any point to take over the experience. Gemini is also designed to alert users before completing sensitive tasks, such as making a purchase.
 
@@ -44,23 +44,23 @@ Written by:
   ###### Vice President, Product Management, Android Developer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
 
@@ -73,4 +73,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

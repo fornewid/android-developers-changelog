@@ -8,7 +8,7 @@ source: md.txt
 
 # How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API
 
-3 min read ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp) 28 Jan 2026 4 Authors [Chetan Tekur,](https://developer.android.com/blog/authors/chetan-tekur) [Chao Zhao,](https://developer.android.com/blog/authors/chao-zhao) [Paul Zhou,](https://developer.android.com/blog/authors/paul-zhou) [Caren Chang](https://developer.android.com/blog/authors/caren-chang)
+3 min read ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_Zxdllo.webp) 28 Jan 2026 4 Authors [Chetan Tekur,](https://developer.android.com/blog/authors/chetan-tekur) [Chao Zhao,](https://developer.android.com/blog/authors/chao-zhao) [Paul Zhou,](https://developer.android.com/blog/authors/paul-zhou) [Caren Chang](https://developer.android.com/blog/authors/caren-chang)
 
 ## **Automated Prompt Optimization (APO)**
 
@@ -21,7 +21,7 @@ In the server-side world, the larger LLMs tend to be highly capable and require 
 But there is an alternate path that can be equally impactful. By leveraging **Automated Prompt Optimization (APO)** on Vertex AI, developers can achieve quality approaching fine-tuning, all while working seamlessly within the native Android execution environment. By focusing on superior system instruction, APO enables developers to tailor model behavior with greater robustness and scalability than traditional fine-tuning solutions.
 
 **Note:** Gemini Nano V3 is a quality optimized version of the highly acclaimed [Gemma 3N](https://developers.googleblog.com/en/introducing-gemma-3n/) model. Any prompt optimizations that are made on the open source Gemma 3N model will apply to Gemini Nano V3 as well. On [supported devices](https://developers.google.com/ml-kit/genai#prompt-device), ML Kit GenAI APIs leverage the nano-v3 model to maximize the quality for Android Developers
-![APO block diagram.jpg](https://developer.android.com/static/blog/assets/APO_block_diagram_a8538372af_5sQmK.webp)
+![APO block diagram.jpg](https://developer.android.com/static/blog/assets/APO_block_diagram_a8538372af_Z2jAY1i.webp)
 
 APO treats the prompt not as a static text, but as a programmable surface that can be optimized. It leverages server-side models (like Gemini Pro and Flash) to propose prompts, evaluate variations and find the optimal one for your specific task. This process employs three specific technical mechanisms to maximize performance:
 
@@ -71,7 +71,7 @@ Written by:
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/chetan-tekur) ![View Chetan Tekur's profile](https://developer.android.com/static/blog/assets/Chetan_Tekur_ef2e731d60_Z1vmMt4.webp) ![View Chetan Tekur's profile](https://developer.android.com/static/blog/assets/Chetan_Tekur_ef2e731d60_Z1vmMt4.webp)
+  View profile](https://developer.android.com/blog/authors/chetan-tekur) ![View Chetan Tekur's profile](https://developer.android.com/static/blog/assets/Chetan_Tekur_ef2e731d60_2rKjbD.webp) ![View Chetan Tekur's profile](https://developer.android.com/static/blog/assets/Chetan_Tekur_ef2e731d60_2rKjbD.webp)
 -
 
   ## [Chao Zhao](https://developer.android.com/blog/authors/chao-zhao)
@@ -79,7 +79,7 @@ Written by:
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/chao-zhao) ![View Chao Zhao's profile](https://developer.android.com/static/blog/assets/chao_zhao_f14947a7e2_ZsSDYG.webp) ![View Chao Zhao's profile](https://developer.android.com/static/blog/assets/chao_zhao_f14947a7e2_ZsSDYG.webp)
+  View profile](https://developer.android.com/blog/authors/chao-zhao) ![View Chao Zhao's profile](https://developer.android.com/static/blog/assets/chao_zhao_f14947a7e2_dXNQz.webp) ![View Chao Zhao's profile](https://developer.android.com/static/blog/assets/chao_zhao_f14947a7e2_dXNQz.webp)
 -
 
   ## [Paul Zhou](https://developer.android.com/blog/authors/paul-zhou)
@@ -87,7 +87,7 @@ Written by:
   ###### Senior Staff Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/paul-zhou) ![View Paul Zhou's profile](https://developer.android.com/static/blog/assets/Paul_Zhou_821eb8ffb9_Z1FoKNS.webp) ![View Paul Zhou's profile](https://developer.android.com/static/blog/assets/Paul_Zhou_821eb8ffb9_Z1FoKNS.webp)
+  View profile](https://developer.android.com/blog/authors/paul-zhou) ![View Paul Zhou's profile](https://developer.android.com/static/blog/assets/Paul_Zhou_821eb8ffb9_ZXwhWC.webp) ![View Paul Zhou's profile](https://developer.android.com/static/blog/assets/Paul_Zhou_821eb8ffb9_ZXwhWC.webp)
 -
 
   ## [Caren Chang](https://developer.android.com/blog/authors/caren-chang)
@@ -95,21 +95,21 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)
+  View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)
 Continue reading
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang)[![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_tqGIk.webp)](https://developer.android.com/blog/authors/david-chou) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z15e7FP.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang)[![View David Chou's profile](https://developer.android.com/static/blog/assets/David_Chou_226df78370_ZVseX2.webp)](https://developer.android.com/blog/authors/david-chou) 02 Apr 2026 02 Apr 2026 ![](https://developer.android.com/static/blog/assets/announcing_gemma4_aicore_ce479292b9_Z2rWEol.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Announcing Gemma 4 in the AICore Developer Preview](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview)
 
   [arrow_forward](https://developer.android.com/blog/posts/announcing-gemma-4-in-the-ai-core-developer-preview) At Google, we're committed to bringing the most capable AI models directly to the Android devices in your pocket. Today, we're thrilled to announce the release of our latest state-of-the-art open model: Gemma 4.
   [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [David Chou](https://developer.android.com/blog/authors/david-chou) • 3 min read
-- 3 Authors 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_8769e675f9_Z1GfWxl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/kakao_8769e675f9_Pq2bf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [ML Kit's Prompt API: Unlock Custom On-Device Gemini Nano Experiences](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences)
 
   [arrow_forward](https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences) AI is making it easier to create personalized app experiences that transform content into the right format for users. We previously enabled developers to integrate with Gemini Nano through ML Kit GenAI APIs tailored for specific use cases like summarization and image description.
   [Caren Chang](https://developer.android.com/blog/authors/caren-chang), [Chengji Yan](https://developer.android.com/blog/authors/chengji-yan), [Penny Li](https://developer.android.com/blog/authors/penny-li) • 2 min read
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
@@ -121,4 +121,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -26,4 +26,4 @@ high-productivity layouts.
 
 ## Learn more
 
-For ChromeOS development guidance, see [ChromeOS devices](https://developer.android.com/chrome-os/intro).
+For ChromeOS development guidance, see [ChromeOS devices](https://developer.android.com/chrome-os).

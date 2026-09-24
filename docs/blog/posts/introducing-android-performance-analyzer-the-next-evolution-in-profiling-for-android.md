@@ -8,7 +8,7 @@ source: md.txt
 
 # Introducing Android Performance Analyzer - The Next Evolution in Profiling for Android
 
-5 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) 19 May 2026 [![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_13HwUT.webp)](https://developer.android.com/blog/authors/blog-author)[![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_dskDu.webp)](https://developer.android.com/blog/authors/simon-cooke) [Mayank Jain](https://developer.android.com/blog/authors/blog-author) \& [Simon Cooke](https://developer.android.com/blog/authors/simon-cooke)
+5 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) 19 May 2026 [![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_2v5Cdi.webp)](https://developer.android.com/blog/authors/blog-author)[![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_1EPpUS.webp)](https://developer.android.com/blog/authors/simon-cooke) [Mayank Jain](https://developer.android.com/blog/authors/blog-author) \& [Simon Cooke](https://developer.android.com/blog/authors/simon-cooke)
 
 ### What is Android Performance Analyzer?
 
@@ -26,7 +26,7 @@ Developed in collaboration with Samsung Austin Research Center (SARC) and LunarG
 Devices running Android 12+ will provide the best experience for capturing system-wide performance and GPU counters and render stages.
 
 We're also working across the Android ecosystem with our esteemed industry partners to bring more profiling \& optimization related data into APA.
-![01-apa-hero.png](https://developer.android.com/static/blog/assets/01_apa_hero_c03f05cb0d_Su8od.webp)
+![01-apa-hero.png](https://developer.android.com/static/blog/assets/01_apa_hero_c03f05cb0d_ZdySK1.webp)
 
 ### How to get Android Performance Analyzer
 
@@ -60,13 +60,13 @@ You can open existing Perfetto traces, zoom through the timeline for precise det
 ### Workflow features
 
 **Tabbed interface and split windows**: You can open multiple traces in side-by-side tabs or split a single trace into two windows to compare different regions of the same trace simultaneously.
-![02-apa-side-by-side-tabs.png](https://developer.android.com/static/blog/assets/02_apa_side_by_side_tabs_8d692be1db_1tghjD.webp)
+![02-apa-side-by-side-tabs.png](https://developer.android.com/static/blog/assets/02_apa_side_by_side_tabs_8d692be1db_6wJB8.webp)
 
 **Project-based workflow:** APA uses a project model that allows you to keep track of multiple traces from the project sidebar. This is especially useful for gathering the results of A/B testing and longitudinal tests, and keeping all of your results together for comparison \& quick access purposes.
-![03-apa-workspace-management.png](https://developer.android.com/static/blog/assets/03_apa_workspace_management_c755c4a790_ZfwzCV.webp)
+![03-apa-workspace-management.png](https://developer.android.com/static/blog/assets/03_apa_workspace_management_c755c4a790_hHSMK.webp)
 
 **Navigate visually using screenshots**: APA lets you capture screenshots during a trace (without any noticeable performance overhead) to home in on areas where you saw something affect performance by scrubbing through the timeline. Or even just to get your bearings.
-![04-apa-netmarble-.gif](https://developer.android.com/static/blog/assets/04_apa_netmarble_62ea3ae1c6_Z1vkf7O.webp)
+![04-apa-netmarble-.gif](https://developer.android.com/static/blog/assets/04_apa_netmarble_62ea3ae1c6_1G3axs.webp)
 
 **Persistent view customizations:** When you pin or vertically resize tracks, we save those customizations so that they persist the next time you open the trace.
 
@@ -75,16 +75,16 @@ You can open existing Perfetto traces, zoom through the timeline for precise det
 **Vulkan debug trace markers for render passes:** We support Vulkan debug annotations for render passes - which allow you to view Render Pass names you set from your codebase directly in the tracks and slices shown in APA.
 
 This immensely helps you to make logical connections between the workloads you see in the profiler to where they are originating from in your codebase.
-![05-vulkan-debug-markers.png](https://developer.android.com/static/blog/assets/05_vulkan_debug_markers_7032b9b1f2_29pn3K.webp)
+![05-vulkan-debug-markers.png](https://developer.android.com/static/blog/assets/05_vulkan_debug_markers_7032b9b1f2_ZkdF6H.webp)
 
 **Use AI to build SQL queries for custom analysis work**: APA supports trace analysis via SQL queries and ships with a new Perfetto SQL skill for use with your favorite AI agents. This makes it easier to build queries without needing to remember Perfetto SQL schemas or the SQL syntax.
-![06-apa-sql-queries.png](https://developer.android.com/static/blog/assets/06_apa_sql_queries_708d5e839f_GBDEJ.webp)
+![06-apa-sql-queries.png](https://developer.android.com/static/blog/assets/06_apa_sql_queries_708d5e839f_NUel2.webp)
 
 **Ask Gemini to analyze traces for you:**We've also added another Perfetto Analysis skill to answer high-level questions for you - like "Why is my app startup slow?" - helping you to find starting points when analyzing complex traces, using your favorite AI agent to pinpoint the answers.
-![07-apa-sql-analysis.png](https://developer.android.com/static/blog/assets/07_apa_sql_analysis_3d7b6c6536_Z1K97Bg.webp)
+![07-apa-sql-analysis.png](https://developer.android.com/static/blog/assets/07_apa_sql_analysis_3d7b6c6536_1rfJVK.webp)
 
 **FPS and Frame Duration times :** You can review the FPS and Frame duration time at a glance in the tracks to correlate it with other activity happening in your trace.
-![08-apa-fps-track.png](https://developer.android.com/static/blog/assets/08_apa_fps_track_1e661cbe2c_Z1fmdN.webp)
+![08-apa-fps-track.png](https://developer.android.com/static/blog/assets/08_apa_fps_track_1e661cbe2c_Z1T45ms.webp)
 
 ## Speed \& robustness improvements
 
@@ -101,7 +101,7 @@ We've worked with our early access partners to create detailed case studies show
 You can read the full [case study from The Forge here](https://developer.android.com/android-performance-analyzer/case-study/the-forge).
 
 **Note:** This case study demonstrates how to use custom SQL queries in the profiler to generate a total rendering cost metric.
-![09-apa-the-forge.png](https://developer.android.com/static/blog/assets/09_apa_the_forge_fe64ec5d23_ZGuUMM.webp)
+![09-apa-the-forge.png](https://developer.android.com/static/blog/assets/09_apa_the_forge_fe64ec5d23_2uRtRu.webp)
 
 ## NetMarble -- Seven Deadly Sins: Origin
 
@@ -110,7 +110,7 @@ You can read the full [case study from The Forge here](https://developer.android
 This allowed them to reduce the GPU cost of rendering some scenes by up to 90%.
 
 Read the full [NetMarble case study here](https://developer.android.com/android-performance-analyzer/case-study/netmarble-perf-analyzer).
-![10-apa-netmarble.png](https://developer.android.com/static/blog/assets/10_apa_netmarble_00c3912087_sY2pC.webp)
+![10-apa-netmarble.png](https://developer.android.com/static/blog/assets/10_apa_netmarble_00c3912087_Z1oOFI2.webp)
 
 ## Profiling model complexity in Google's Filament engine
 
@@ -119,7 +119,7 @@ Google has been improving the [Filament](https://github.com/google/filament) glT
 We spent some time digging into the viewer with a variety of scenes, and showed how to use Android Performance Analyzer to identify scenes that are too complex for the GPU, and how to trim them down to hit a target 60FPS, by improving texture compression and optimizing geometry. Memory consumption was also reduced in this process.
 
 You can read [our exploration of Filament here](https://developer.android.com/android-performance-analyzer/case-study/filament).
-![11-apa-filament-02.png](https://developer.android.com/static/blog/assets/11_apa_filament_02_2c8ffaff8c_3068G.webp)
+![11-apa-filament-02.png](https://developer.android.com/static/blog/assets/11_apa_filament_02_2c8ffaff8c_1Nulxw.webp)
 
 ### Try out the Android Performance Analyzer Beta today!
 
@@ -142,7 +142,7 @@ Written by:
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/blog-author) ![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_13HwUT.webp) ![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_13HwUT.webp)
+  View profile](https://developer.android.com/blog/authors/blog-author) ![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_2v5Cdi.webp) ![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_2v5Cdi.webp)
 -
 
   ## [Simon Cooke](https://developer.android.com/blog/authors/simon-cooke)
@@ -150,22 +150,22 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/simon-cooke) ![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_dskDu.webp) ![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_dskDu.webp)
+  View profile](https://developer.android.com/blog/authors/simon-cooke) ![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_1EPpUS.webp) ![View Simon Cooke's profile](https://developer.android.com/static/blog/assets/unnamed_3_3e22f4965c_1EPpUS.webp)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -181,4 +181,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

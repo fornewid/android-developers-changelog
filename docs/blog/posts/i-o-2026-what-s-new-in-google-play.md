@@ -8,7 +8,7 @@ source: md.txt
 
 # I/O 2026: What's new in Google Play
 
-6 min read ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp) 19 May 2026 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) [Paul Feng](https://developer.android.com/blog/authors/paul-feng) VP, Google Play Eng, Product, UX At Google Play, we're passionate about helping people connect with the experiences they'll love, while empowering developers like you to turn great ideas into lasting business success.
+6 min read ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_7GyQM.webp) 19 May 2026 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) [Paul Feng](https://developer.android.com/blog/authors/paul-feng) VP, Google Play Eng, Product, UX At Google Play, we're passionate about helping people connect with the experiences they'll love, while empowering developers like you to turn great ideas into lasting business success.
 
 At this year's Google I/O, we talked about our [evolving business model](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) that offers more choice and new ways for your apps and content to be discovered on and off the store. We also unveiled advanced tools and insights that will help scale your business with less complexity. Watch the keynote video below, or keep reading for the biggest updates from this year's event.
 
@@ -24,7 +24,7 @@ We're unlocking new opportunities for your apps and content to be discovered acr
 
 - **Surfacing your apps and content in Gemini:** As people increasingly start their journeys with virtual assistants, we want to ensure your apps and their content are an essential part of this. In the coming weeks, we're enablingapp discovery in the Gemini app on Android and Web, connecting your apps and games to millions of Gemini users. Later this year, Gemini will also surface over 450,000 movies and TV shows, as well as where to stream live sports, and deep-link users directly into your app content.
 
-![IO26_BlogInLine_App-discovery-in-Gemini_1920x1080_1605 (1).gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_App_discovery_in_Gemini_1920x1080_1605_1_2ef70b1ed5_ZHSTAd.webp) Gemini will provide users with app suggestions and direct access to entertainment content during a search.
+![IO26_BlogInLine_App-discovery-in-Gemini_1920x1080_1605 (1).gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_App_discovery_in_Gemini_1920x1080_1605_1_2ef70b1ed5_Z2r7qH5.webp) Gemini will provide users with app suggestions and direct access to entertainment content during a search.
 
 - **Delivering personalized content across the ecosystem:** [**Engage SDK**](https://play.google.com/console/about/programs/EngageSDK/)surfaces deliver your content to over 30 million monthly active users and drive millions of app opens every month---a massive 45% increase year-over-year. And we're making it even more powerful by expanding support for new surfaces and devices.
 
@@ -40,11 +40,11 @@ We're also optimizing the Play Store to help grow your audience with engaging co
 
 - **Capturing attention with Play Shorts** :Our full-screen, portrait, short-form video feed gives users a glimpse of your app's look, feel, and functionality. [Play Shorts](https://support.google.com/googleplay/thread/409815059/see-apps-in-action-discover-your-next-favorite-with-the-launch-of-play-shorts) is rolling out to users in the US and select developers, and we look forward to expanding this to more markets and developers in the coming months.
 
-![IO26_BlogInLine_Play-Shorts_1920x1080_1605 (1).gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_Play_Shorts_1920x1080_1605_1_ead5ed8f3e_2opcGN.webp) Play Shorts provides a glimpse into your app's look, feel \& functionality.
+![IO26_BlogInLine_Play-Shorts_1920x1080_1605 (1).gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_Play_Shorts_1920x1080_1605_1_ead5ed8f3e_1V2zvJ.webp) Play Shorts provides a glimpse into your app's look, feel \& functionality.
 
 - **Enabling deeper search journeys with Ask Play:** Building on AI-powered Q\&A, which already answers 95% of user queries, we're introducing Ask Play. This AI-powered overlay turns discovery into a natural conversation, understanding the full context of a user's question and adapting to follow-ups to recommend the right app. Plus, with **Ask Play highlights**, users can get a high-level summary of complex searches directly on the search results page to help find the right apps or games more effortlessly.
 
-![IO26_BlogInLine_Ask-Play_1920x1080_1605.gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_Ask_Play_1920x1080_1605_ca75892b26_Zp3AeT.webp) Ask Play understands the full context and helps users find the right apps or games.
+![IO26_BlogInLine_Ask-Play_1920x1080_1605.gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_Ask_Play_1920x1080_1605_ca75892b26_Z3MFes.webp) Ask Play understands the full context and helps users find the right apps or games.
 
 ### **In your games: Deepening player engagement and community**
 
@@ -63,12 +63,12 @@ We're using Gemini models to handle the heavy lifting of localizing your store c
 
 - **Localize with less effort**: Eliminate manual copy-pasting by uploading a structured file (like a CSV or Google Sheet). Gemini models enable Play Console to pre-populate your listings across different languages for your review. You can also leverage AI-translated subscription benefits to quickly scale your localization efforts.
 
-![IO26_BlogInLine_Pre-populate-store_1920x1080_1605_v2 (2).gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_Pre_populate_store_1920x1080_1605_v2_2_e634f9855e_Z1pmK8E.webp) Instantly pre-populate store listings with localized translations.
+![IO26_BlogInLine_Pre-populate-store_1920x1080_1605_v2 (2).gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_Pre_populate_store_1920x1080_1605_v2_2_e634f9855e_Z1xzVfQ.webp) Instantly pre-populate store listings with localized translations.
 
 - **Convert search trends into growth:**We've simplified the path from insight to action. When you click a keyword recommendation on your Grow overview page, Gemini creates a new custom store listing automatically tailored to that keyword---ready to deploy with just one click.
 - **Simplify catalog management**: We're introducing agentic catalog management to help you manage your one-time products. Soon, you can leverage new in-console capabilities to execute bulk price changes, import SKUs, and configure metadata, saving hours of manual work.
 
-![IO26_BlogInLine_Catalog-management-_1920x1080_1605.gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_Catalog_management_1920x1080_1605_40f3cfffb4_2fC5G9.webp) New agentic capabilities in Play Console will make managing your catalog seamless.
+![IO26_BlogInLine_Catalog-management-_1920x1080_1605.gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_Catalog_management_1920x1080_1605_40f3cfffb4_ipNLT.webp) New agentic capabilities in Play Console will make managing your catalog seamless.
 
 For a detailed look at these features and more, [watch this video](https://www.youtube.com/watch?v=alVIYAu51V8&feature=youtu.be).
 
@@ -80,7 +80,7 @@ We're building tools to maximize your revenue at every stage---with zero develop
 - **Boosting renewals with extended recovery periods:** To prevent involuntary churn, we've extended the default account recovery period from 30 to 60 days to give subscribers more time to fix failed payments, like expired credit cards. This shift has driven up to an 18% reduction in involuntary churn and a 9% reduction in total churn for top developers**.**
 - **Maximizing retention with flexible flows:**A rigid experience makes retention nearly impossible. Coming soon, our new in-app subscription management API lets subscribers change plans or accept a downgrade offer the moment they hit "cancel." Combined with replacement modes that automate prorated refunds, you'll have a powerful toolkit to save at-risk subscribers.
 
-![IO26_BlogInLine_Retention-with-flexibiity_1920x1080_1605.gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_Retention_with_flexibiity_1920x1080_1605_b963599a2b_2bl4CT.webp) Flexible flows let subscribers change plans or accept downgrades to boost retention.
+![IO26_BlogInLine_Retention-with-flexibiity_1920x1080_1605.gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_Retention_with_flexibiity_1920x1080_1605_b963599a2b_s7xw2.webp) Flexible flows let subscribers change plans or accept downgrades to boost retention.
 
 ### **More reporting and AI-powered insights**
 
@@ -90,7 +90,7 @@ We're providing more data and more AI-powered insights to help you understand yo
 - **Optimize the path to purchase and retention:**We've added cart conversion rates to your core performance metrics to help you identify and fix friction in your checkout flow. New data on subscriber tenure and churn reasons allow you to better pinpoint why subscribers leave and which segments are most at risk.
 - **Get faster answers**: Using Gemini models, we're expanding chart descriptions from the Statistics page to the Reach \& Devices and Store Performance pages to help you spot trends instantly. With new interactive Q\&A and proactive monetization insights, you can ask why a metric shifted and instantly receive tailored recommendations to optimize your business.
 
-![IO26_BlogInLine_Interactive Q&A_800x450.gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_Interactive_Q_and_A_800x450_4ce5a51e5c_2gKx2K.webp) Get instant answers and recommendations for optimizing your business.
+![IO26_BlogInLine_Interactive Q&A_800x450.gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_Interactive_Q_and_A_800x450_4ce5a51e5c_1NwxVo.webp) Get instant answers and recommendations for optimizing your business.
 
 ## Protecting your success
 
@@ -98,7 +98,7 @@ In addition to [making it easier and faster to publish safer apps](https://andro
 
 - **Defend your business against fraud and abuse**: The new Protected with Play dashboard helps you monitor and configure your integrity, distribution, and monetization defenses all in one place. We're also reducing warm-up latency for Play Integrity API, so you can use these checks during speed-critical user journeys to block threats and risky devices faster.
 
-![IO26_BlogInLine_Protected-with-Play_1920x1080_1605_v2 (2).gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_Protected_with_Play_1920x1080_1605_v2_2_948e890422_Z14XXOx.webp) The Protected with Play dashboard provides centralized insights to help you safeguard your app.
+![IO26_BlogInLine_Protected-with-Play_1920x1080_1605_v2 (2).gif](https://developer.android.com/static/blog/assets/IO_26_Blog_In_Line_Protected_with_Play_1920x1080_1605_v2_2_948e890422_1GvC4H.webp) The Protected with Play dashboard provides centralized insights to help you safeguard your app.
 
 - **Get proactive protection for your store and revenue**: We work behind the scenes to help stop malicious activity before it impacts your business. Last year, our automated anti-spam protections blocked 160 million spam ratings and reviews while our anti-fraud efforts automatically protected apps using Play Billing from 3.2 billion dollars in fraud and abuse.
 
@@ -120,21 +120,21 @@ Written by:
   ###### VP, Google Play Eng, Product, UX
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/paul-feng) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)
+  View profile](https://developer.android.com/blog/authors/paul-feng) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)
 Continue reading
-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_ZrrS2v.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Delivering safer, age-appropriate experiences on Google Play](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play) Providing a safe online experience and protecting users from harm is a top priority at Google Play.
   [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 24 Jun 2026 24 Jun 2026 ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_HfapE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Expanded billing choice and lower fees on Google Play](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/expanded-billing-choice-and-lower-fees-on-google-play) At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed.
   [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_Zj9dt4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26)
 
@@ -151,4 +151,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

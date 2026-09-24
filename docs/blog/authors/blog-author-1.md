@@ -4,14 +4,14 @@ url: https://developer.android.com/blog/authors/blog-author-1
 source: md.txt
 ---
 
-1 post ![](https://developer.android.com/static/blog/assets/unnamed_6_5b79453d9b_Z2cXYIR.webp)
+1 post ![](https://developer.android.com/static/blog/assets/unnamed_6_5b79453d9b_ZKATrt.webp)
 
 # Azin Mehrnoosh
 
 Product Manager
 
 Android XR
-- 17 Jun 2026 17 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Geospatial_V02_Strapi_5c55395a9c_UkzvN.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 17 Jun 2026 17 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Geospatial_V02_Strapi_5c55395a9c_2h4Keb.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Building a Mixed-Reality Tour Guide with Android XR, the Geospatial API, and Gemini](https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini)
 
@@ -23,4 +23,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

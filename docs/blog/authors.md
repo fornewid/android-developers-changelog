@@ -14,7 +14,7 @@ source: md.txt
 
   [read_more
   1 post](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz) [read_more
-  1 post](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz) ![View Ulises Uriel Verduzco Díaz 's profile](https://developer.android.com/static/blog/assets/IMG_20260209_160438_447c913f52_1MR7JL.webp) ![View Ulises Uriel Verduzco Díaz 's profile](https://developer.android.com/static/blog/assets/IMG_20260209_160438_447c913f52_1MR7JL.webp)
+  1 post](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz) ![View Ulises Uriel Verduzco Díaz 's profile](https://developer.android.com/static/blog/assets/IMG_20260209_160438_447c913f52_Z4U8v9.webp) ![View Ulises Uriel Verduzco Díaz 's profile](https://developer.android.com/static/blog/assets/IMG_20260209_160438_447c913f52_Z4U8v9.webp)
 -
 
   ## [Adarsh Fernando](https://developer.android.com/blog/authors/adarsh-fernando)
@@ -23,7 +23,7 @@ source: md.txt
 
   [read_more
   1 post](https://developer.android.com/blog/authors/adarsh-fernando) [read_more
-  1 post](https://developer.android.com/blog/authors/adarsh-fernando) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_1Ut9s6.webp)
+  1 post](https://developer.android.com/blog/authors/adarsh-fernando) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp) ![View Adarsh Fernando's profile](https://developer.android.com/static/blog/assets/Adarsh_profile_picture_8e88f2831a_Z1Axs64.webp)
 -
 
   ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai)
@@ -32,7 +32,7 @@ source: md.txt
 
   [read_more
   4 posts](https://developer.android.com/blog/authors/ajesh-pai) [read_more
-  4 posts](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
+  4 posts](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)
 -
 
   ## [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia)
@@ -41,7 +41,7 @@ source: md.txt
 
   [read_more
   1 post](https://developer.android.com/blog/authors/alec-garcia) [read_more
-  1 post](https://developer.android.com/blog/authors/alec-garcia) ![View Alec Garcia's profile](https://developer.android.com/static/blog/assets/unnamed_23_8ee579621d_20gsnR.webp) ![View Alec Garcia's profile](https://developer.android.com/static/blog/assets/unnamed_23_8ee579621d_20gsnR.webp)
+  1 post](https://developer.android.com/blog/authors/alec-garcia) ![View Alec Garcia's profile](https://developer.android.com/static/blog/assets/unnamed_23_8ee579621d_Xq76V.webp) ![View Alec Garcia's profile](https://developer.android.com/static/blog/assets/unnamed_23_8ee579621d_Xq76V.webp)
 -
 
   ## [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan)
@@ -50,7 +50,7 @@ source: md.txt
 
   [read_more
   5 posts](https://developer.android.com/blog/authors/alice-yuan) [read_more
-  5 posts](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
+  5 posts](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)
 -
 
   ## [Alon Hetzroni](https://developer.android.com/blog/authors/alon-hetzroni)
@@ -59,7 +59,7 @@ source: md.txt
 
   [read_more
   1 post](https://developer.android.com/blog/authors/alon-hetzroni) [read_more
-  1 post](https://developer.android.com/blog/authors/alon-hetzroni) ![View Alon Hetzroni's profile](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_1Th2rE.webp) ![View Alon Hetzroni's profile](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_1Th2rE.webp)
+  1 post](https://developer.android.com/blog/authors/alon-hetzroni) ![View Alon Hetzroni's profile](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_ZuMMVo.webp) ![View Alon Hetzroni's profile](https://developer.android.com/static/blog/assets/ahetzroni_profile_3fbed6e24c_ZuMMVo.webp)
 -
 
   ## [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw)
@@ -68,7 +68,7 @@ source: md.txt
 
   [read_more
   2 posts](https://developer.android.com/blog/authors/amman-asfaw) [read_more
-  2 posts](https://developer.android.com/blog/authors/amman-asfaw) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)
+  2 posts](https://developer.android.com/blog/authors/amman-asfaw) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)
 -
 
   ## [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev)
@@ -77,7 +77,7 @@ source: md.txt
 
   [read_more
   2 posts](https://developer.android.com/blog/authors/amrit-sanjeev) [read_more
-  2 posts](https://developer.android.com/blog/authors/amrit-sanjeev) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
+  2 posts](https://developer.android.com/blog/authors/amrit-sanjeev) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)
 -
 
   ## [Amy Zeppenfeld](https://developer.android.com/blog/authors/amy-zeppenfeld)
@@ -86,7 +86,7 @@ source: md.txt
 
   [read_more
   2 posts](https://developer.android.com/blog/authors/amy-zeppenfeld) [read_more
-  2 posts](https://developer.android.com/blog/authors/amy-zeppenfeld) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)
+  2 posts](https://developer.android.com/blog/authors/amy-zeppenfeld) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1
@@ -99,4 +99,4 @@ source: md.txt
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

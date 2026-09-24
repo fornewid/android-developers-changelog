@@ -144,6 +144,16 @@ responses from a coroutine, as shown in the following code example:
         }
     }
 
+### Use agents to generate UI
+
+When your agent needs to return structured, interactive user interfaces---such as
+cards, forms, or lists---instead of plain text, use the [agent-to-UI (A2UI)](https://developer.android.com/develop/ui/compose/agentic)
+protocol.
+
+You can use the [Jetpack Compose A2UI Renderer](https://developer.android.com/develop/ui/compose/agentic) to automatically render
+A2UI responses as native Jetpack Compose and Material 3 components in your app's
+UI hierarchy. To get started, see the [Jetpack Compose A2UI guide](https://developer.android.com/develop/ui/compose/agentic).
+
 ## On-device models with Gemini Nano
 
 The ADK for Android artifact includes support for on-device inference using

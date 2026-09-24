@@ -8,7 +8,7 @@ source: md.txt
 
 # Android CLI Now Stable 1.0: Accelerate developing for Android using any agent
 
-5 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp) 19 May 2026 [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_ZDTMlF.webp)](https://developer.android.com/blog/authors/simona-milanovic)[![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)](https://developer.android.com/blog/authors/ben-trengrove) [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) \& [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove) As Android developers, you have many choices when it comes to the agents, tools, command-line interfaces (CLI), and LLMs you use for app development. Whether you use Gemini in Android Studio, Antigravity 2.0, Antigravity CLI, or third-party agents like Anthropic's Claude Code or OpenAI'sCodex, our mission remains the same: to ensure that high-quality Android development is possible everywhere.
+5 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_2hInNY.webp) 19 May 2026 [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic)[![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_Z1TO68U.webp)](https://developer.android.com/blog/authors/ben-trengrove) [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) \& [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove) As Android developers, you have many choices when it comes to the agents, tools, command-line interfaces (CLI), and LLMs you use for app development. Whether you use Gemini in Android Studio, Antigravity 2.0, Antigravity CLI, or third-party agents like Anthropic's Claude Code or OpenAI'sCodex, our mission remains the same: to ensure that high-quality Android development is possible everywhere.
 [Video](https://www.youtube.com/watch?v=aqmpZocmR8o)
 
 At **Google I/O '26** , we shared the latest leaps forward in agentic development, and showcased some of the newest capabilities of [Android CLI](https://developer.android.com/tools/agents/android-cli)---now stable at version 1.0 and ready for all Android developers to use. From new skills to enabling agent access to powerful Android Studio capabilities, we're giving your agents the right tools to build alongside you.
@@ -20,12 +20,12 @@ If you're already using Android CLI and want to jump into using all the new feat
 [Google Antigravity](https://antigravity.google/) now includes an optional bundle of Android resources---including the Android CLI and skills---that you can install. You can either install the bundle during onboarding after installation, or later from the **Settings \> Customizations \> Build With Google Plugins** menu.
 
 This provides Antigravity with all the powerful tools and knowledge of Android CLI, enabling it to perform the core tasks necessary for Android app development more easily and efficiently---from creating projects to deploying your app on a new Android virtual device.
-![agy-android-cli.png](https://developer.android.com/static/blog/assets/agy_android_cli_668b5f6f18_Z2niFn9.webp)
+![agy-android-cli.png](https://developer.android.com/static/blog/assets/agy_android_cli_668b5f6f18_ZsUT82.webp)
 
 ### Unlocking Android Studio capabilities for any agent
 
 Android CLI provides a lightweight interface for AI Agents to perform tasks and retrieve knowledge about Android development. However, there's benefits to specialization --- Android Studio contains over a decade of Android expertise, built to handle even the most complex Android projects. This includes Android Studio's powerful static analysis engine, refactoring tools, dependency management, UI design and rendering libraries, and more. AI Agents can now tap into Android Studio's tools to gain many of these same capabilities.
-![agy-android-studio.png](https://developer.android.com/static/blog/assets/agy_android_studio_a1414d1291_187NUY.webp)
+![agy-android-studio.png](https://developer.android.com/static/blog/assets/agy_android_studio_a1414d1291_1fqoBh.webp)
 
 The latest version of Android CLI introduces the new `android studio` command. This enables the agent of your choice to leverage the deep, contextual capabilities of Android Studio to better understand and perform actions on an open Android project. By running Android Studio alongside your preferred agent with Android CLI, your agent's tasks can more efficiently navigate the codebase to produce more precise code changes. And, when you use Android CLI to create and iterate on your project, transitioning to Android Studio is much easier, so that you can use the purpose built tools---such as, performance profilers, Compose Previews, and Android Device Streaming---to get that production-grade polish.
 
@@ -70,10 +70,10 @@ We've also updated the installation to a user-local directory, by default. You c
 
 ### Support for Journeys
 
-![android-cli-write-journey.png](https://developer.android.com/static/blog/assets/android_cli_write_journey_3dd0275369_1euJck.webp)
+![android-cli-write-journey.png](https://developer.android.com/static/blog/assets/android_cli_write_journey_3dd0275369_ZCwIlW.webp)
 
 We are also introducing support for [Journeys](https://developer.android.com/tools/agents/android-cli/journeys). With Journeys tools and skills included with Android CLI, any agent of your choice can now create and run Journeys---which are natural language descriptions of user journeys for your app that are saved directly to your project.
-![android-cli-journey-run.gif](https://developer.android.com/static/blog/assets/android_cli_journey_run_ff5ebd47bc_Z1N8cuX.webp)
+![android-cli-journey-run.gif](https://developer.android.com/static/blog/assets/android_cli_journey_run_ff5ebd47bc_ZeWFfc.webp)
 
 Agents can run these journeys using the Android CLI to navigate your app exactly like a user would. This unlocks entirely new ways to test, validate, or collect data across the critical experiences of your app, all driven by natural language and executed by your agent.
 
@@ -116,7 +116,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/simona-milanovic) ![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_ZDTMlF.webp) ![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_ZDTMlF.webp)
+  View profile](https://developer.android.com/blog/authors/simona-milanovic) ![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp) ![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)
 -
 
   ## [Ben Trengrove](https://developer.android.com/blog/authors/ben-trengrove)
@@ -124,15 +124,15 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/ben-trengrove) ![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp) ![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_2uVqlp.webp)
+  View profile](https://developer.android.com/blog/authors/ben-trengrove) ![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_Z1TO68U.webp) ![View Ben Trengrove's profile](https://developer.android.com/static/blog/assets/Ben_Trengrove_b9e17c8c2e_Z1TO68U.webp)
 Continue reading
-- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_ZDTMlF.webp)](https://developer.android.com/blog/authors/simona-milanovic) 09 Jun 2026 09 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Dev_Productivity_Strapi_b7e79722e6_45umk.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic) 09 Jun 2026 09 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Dev_Productivity_Strapi_b7e79722e6_Z1dSchf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Top 3 updates for Android developer productivity](https://developer.android.com/blog/posts/top-3-updates-for-android-developer-productivity)
 
   [arrow_forward](https://developer.android.com/blog/posts/top-3-updates-for-android-developer-productivity) Every year, Google I/O brings new announcements and resources across ecosystems and products, including Android development. As development shifts toward AI and agent-assisted tooling, we've expanded our offerings to better support you, however you decide to build for Android.
   [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) • 2 min read
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_Zj9dt4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26)
 
@@ -143,7 +143,7 @@ Continue reading
   - [#AppFunctions](https://developer.android.com/blog/topics/app-functions)
   - [#On-device](https://developer.android.com/blog/topics/on-device)
   - +2 ↩
-- [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins)[![View Ryan Bartley's profile](https://developer.android.com/static/blog/assets/Ryan_Bartley_35cf836cd8_ZgTUAO.webp)](https://developer.android.com/blog/authors/ryan-bartley) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_1yXUBh.webp)](https://developer.android.com/blog/authors/luke-hopkins)[![View Ryan Bartley's profile](https://developer.android.com/static/blog/assets/Ryan_Bartley_35cf836cd8_Z1nXWK3.webp)](https://developer.android.com/blog/authors/ryan-bartley) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_2hInNY.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android XR Updates for Unity, Unreal, and Godot](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot)
 
@@ -159,4 +159,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

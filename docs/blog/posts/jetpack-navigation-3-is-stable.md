@@ -8,7 +8,7 @@ source: md.txt
 
 # Jetpack Navigation 3 is stable
 
-3 min read ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z1dRNOI.webp) 19 Nov 2025 [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)](https://developer.android.com/blog/authors/don-turner) [Don Turner](https://developer.android.com/blog/authors/don-turner) Developer Relations Engineer [Jetpack Navigation 3](https://developer.android.com/guide/navigation/navigation-3) version 1.0 is stable 🎉. Go ahead and use it in your production apps today. JetBrains are [already using it in their KotlinConf app](https://github.com/JetBrains/kotlinconf-app/pull/504).
+3 min read ![](https://developer.android.com/static/blog/assets/jetpack_navigation_d1257f9ca2_Z16ze9q.webp) 19 Nov 2025 [![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)](https://developer.android.com/blog/authors/don-turner) [Don Turner](https://developer.android.com/blog/authors/don-turner) Developer Relations Engineer [Jetpack Navigation 3](https://developer.android.com/guide/navigation/navigation-3) version 1.0 is stable 🎉. Go ahead and use it in your production apps today. JetBrains are [already using it in their KotlinConf app](https://github.com/JetBrains/kotlinconf-app/pull/504).
 
 Navigation 3 is a new navigation library built from the ground up to embrace Jetpack Compose [state](https://developer.android.com/develop/ui/compose/state#state-in-composables). It gives you full control over your back stack, helps you retain navigation state, and allows you to easily create adaptive layouts (like list-detail). [There's even a cross-platform version from JetBrains](https://kotlinlang.org/docs/multiplatform/whats-new-compose-110.html#support-for-navigation-3).
 
@@ -17,7 +17,7 @@ Navigation 3 is a new navigation library built from the ground up to embrace Jet
 The original Jetpack Navigation library (now Nav2) was designed 7 years ago and, while it serves its original goals well and has been improved iteratively, the way apps are now built has fundamentally changed.
 
 Reactive programming with a declarative UI is now the norm. Nav3 embraces this approach. For example, NavDisplay (the Nav3 UI component that [displays your screens](https://developer.android.com/guide/navigation/navigation-3/basics#display-back)) simply observes a list of keys (each one representing a screen) backed by Compose state and updates its UI when that list changes.
-![nav-display.png](https://developer.android.com/static/blog/assets/nav_display_6244a3347c_POUFz.webp)
+![nav-display.png](https://developer.android.com/static/blog/assets/nav_display_6244a3347c_2rGTvN.webp)
 
 Nav2 can also make it difficult to have a [single source of truth](https://developer.android.com/topic/architecture#single-source-of-truth) for your navigation state because it has its own internal state. With Nav3, you supply your own state, which gives you complete control.
 
@@ -57,7 +57,7 @@ We'd love to hear how you or your agent performed, please [send your feedback he
 **Tasty navigation recipes for common scenarios**
 
 For common but nuanced use cases, we have [a recipes repository](https://github.com/android/nav3-recipes). This shows how to combine the Nav3 APIs in a particular way, allowing you to choose or modify the recipe to your particular needs. If a recipe turns out to be popular, we'll consider "graduating" the non-nuanced parts of it into the core Nav3 library or add-on libraries.
-![code-recipes.png](https://developer.android.com/static/blog/assets/code_recipes_fba1048f97_28Geau.webp)
+![code-recipes.png](https://developer.android.com/static/blog/assets/code_recipes_fba1048f97_Z1V9YB1.webp)
 
 There are currently 19 recipes, including for:
 
@@ -93,9 +93,9 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/don-turner) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_1ufD8A.webp)
+  View profile](https://developer.android.com/blog/authors/don-turner) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp) ![View Don Turner's profile](https://developer.android.com/static/blog/assets/don_bccb8c3f75_Z1p9Cc7.webp)
 Continue reading
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z2lMDgd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z103sxP.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Goodbye Mobile Only, Hello Adaptive: Three essential updates from 2025 for building adaptive apps](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive)
 
@@ -106,13 +106,13 @@ Continue reading
   - [#Compose](https://developer.android.com/blog/topics/compose)
   - [#Android 16](https://developer.android.com/blog/topics/android-16)
   - +2 ↩
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
@@ -125,4 +125,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

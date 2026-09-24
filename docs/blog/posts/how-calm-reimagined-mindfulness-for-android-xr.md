@@ -8,13 +8,13 @@ source: md.txt
 
 # How Calm Reimagined Mindfulness for Android XR
 
-4 min read ![](https://developer.android.com/static/blog/assets/how_Calm_edf30223a8_kG1yA.webp) 30 Oct 2025 [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva) [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva) Group Product Manager [Calm](https://play.google.com/store/apps/details?id=com.calm.android) is a leading mental health and wellness company with over 180 million downloads. When they started their development for[Android XR,](https://developer.android.com/xr) their core engineering team was able to build their first functional XR orbiter menus on Day 1 and a core experience in just two weeks. This demonstrates that building for XR can be an [extension of existing Android development work,](https://developer.android.com/adaptive-apps) not something that has to be started from scratch. As a company dedicated to helping users sleep better, stress less, and live more mindfully, their extensive library has made Calm a trusted source for well-being content on Android.
+4 min read ![](https://developer.android.com/static/blog/assets/how_Calm_edf30223a8_Z7VLxu.webp) 30 Oct 2025 [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)](https://developer.android.com/blog/authors/stevan-silva) [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva) Group Product Manager [Calm](https://play.google.com/store/apps/details?id=com.calm.android) is a leading mental health and wellness company with over 180 million downloads. When they started their development for[Android XR,](https://developer.android.com/xr) their core engineering team was able to build their first functional XR orbiter menus on Day 1 and a core experience in just two weeks. This demonstrates that building for XR can be an [extension of existing Android development work,](https://developer.android.com/adaptive-apps) not something that has to be started from scratch. As a company dedicated to helping users sleep better, stress less, and live more mindfully, their extensive library has made Calm a trusted source for well-being content on Android.
 [Video](https://www.youtube.com/watch?v=yUx8T06arKQ)
 
 With the introduction of the [Android XR platform](https://android-developers.googleblog.com/2024/12/introducing-android-xr-sdk-developer-preview.html), the Calm team saw an opportunity to not just optimize their existing Android app, but to truly create the next generation of immersive experiences.
 
 We sat down with Kristen Coke, Lead Product Manager, and Jamie Martini, Sr. Manager of Engineering at Calm, to dive into their journey building for Android XR and learn how other developers can follow their lead.
-![calm.png](https://developer.android.com/static/blog/assets/calm_fe96e2fdff_263o2O.webp)
+![calm.png](https://developer.android.com/static/blog/assets/calm_fe96e2fdff_ZL4guD.webp)
 
 ***Q: What was the vision for the Calm experience on Android XR, and how does it advance your mission?***
 
@@ -23,7 +23,7 @@ We sat down with Kristen Coke, Lead Product Manager, and Jamie Martini, Sr. Mana
 If I had to describe it in one sentence, Calm on Android XR reimagines mindfulness for the world around you, turning any room into a fully immersive, multi-sensory meditation experience.
 
 We wanted to create a version of Calm that couldn't exist anywhere else, a serene and emotionally intelligent sanctuary that users don't just want to visit, but will return to again and again.
-![calm2.gif](https://developer.android.com/static/blog/assets/calm2_9a4a2fdb19_Div3v.webp)
+![calm2.gif](https://developer.android.com/static/blog/assets/calm2_9a4a2fdb19_Z1TcD1P.webp)
 
 ***Q: For developers who might think building for XR is a massive undertaking, what was your initial approach to bringing your existing Android app over?***
 
@@ -44,7 +44,7 @@ The [Android XR design guides](https://developer.android.com/design/ui/xr/guides
 Two of the key features we evolved were the Immersive Breathe Bubble and the Immersive Scene Experiences.
 
 The Breathe Bubble is our beloved breathwork experience, but brought into 3D. It's a softly pulsing orb that anchors users to their breath with full environmental immersion.
-![breathe_bubble.webp](https://developer.android.com/static/blog/assets/breathe_bubble_e363524e14_Z1affoD.webp)
+![breathe_bubble.webp](https://developer.android.com/static/blog/assets/breathe_bubble_e363524e14_11hjmV.webp)
 
 And with our Immersive Scene Experiences, users can choose from a curated selection of ambient environments designed to gently wrap around them and fade into their physical environment. This was a fantastic way to take a proven 2D concept (the mobile app's customizable background scenes) and transform it for the spatial environment.
 
@@ -67,7 +67,7 @@ We quickly realized that in a multisensory environment, restraint was incredibly
 My advice to other developers? Begin by integrating the[Jetpack XR APIs](https://developer.android.com/develop/xr/jetpack-xr-sdk) into your existing Android app and reusing as much of your existing code as possible. That is the quickest way to get a functional prototype.
 
 **A (Kristen Coke, Lead Product Manager)**: Think as big as possible. Android XR gave us a whole new world to build our app within. Teams should ask themselves: What is the biggest, boldest version of your experience that you could possibly build? This is your opportunity to finally put into action what you've always wanted to do, because now, you have the platform that can make it real.
-![calm4.png](https://developer.android.com/static/blog/assets/calm4_7e5a953563_Z1CipDV.webp)
+![calm4.png](https://developer.android.com/static/blog/assets/calm4_7e5a953563_Zt3Thn.webp)
 
 **Building the next generation of spatial experiences**
 
@@ -83,23 +83,23 @@ Written by:
   ###### Group Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/stevan-silva) ![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp) ![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)
+  View profile](https://developer.android.com/blog/authors/stevan-silva) ![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp) ![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)
 Continue reading
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z1oNucg.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
   - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
 
   [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
   [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
   - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z1s2HD7.webp)](https://developer.android.com/blog/authors/jonathan-starup)[![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_EPI3Y.webp)](https://developer.android.com/blog/authors/andrei-shikov) 27 Jul 2026 27 Jul 2026 ![](https://developer.android.com/static/blog/assets/0707_Faster_Kotlin_coroutines_on_Android_with_R8_Strapi_5b162a2623_ZM78f7.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z2tS3U3.webp)](https://developer.android.com/blog/authors/jonathan-starup)[![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_27dNln.webp)](https://developer.android.com/blog/authors/andrei-shikov) 27 Jul 2026 27 Jul 2026 ![](https://developer.android.com/static/blog/assets/0707_Faster_Kotlin_coroutines_on_Android_with_R8_Strapi_5b162a2623_wPRs6.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How R8 made Kotlin Coroutines on Android 2x faster](https://developer.android.com/blog/posts/how-r8-made-kotlin-coroutines-on-android-2x-faster)
 
@@ -115,4 +115,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

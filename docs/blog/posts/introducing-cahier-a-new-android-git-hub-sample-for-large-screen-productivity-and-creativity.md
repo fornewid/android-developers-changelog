@@ -8,7 +8,7 @@ source: md.txt
 
 # Introducing Cahier: A new Android GitHub sample for large screen productivity and creativity
 
-11 min read ![](https://developer.android.com/static/blog/assets/introducing_Cahier_792458c981_Z15HUkw.webp) 29 Oct 2025 [![View Chris Assigbe's profile](https://developer.android.com/static/blog/assets/Chris_Assigbe_2_a72a1e1687_sAjN.webp)](https://developer.android.com/blog/authors/chris-assigbe) [Chris Assigbe](https://developer.android.com/blog/authors/chris-assigbe) Developer Relations Engineer [Ink API](https://developer.android.com/jetpack/androidx/releases/ink) is now in [beta](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0-beta01) and is ready to be integrated in your app. This milestone was made possible by valuable developer feedback, leading to continuous improvements in the API's performance, stability, and visual quality.
+11 min read ![](https://developer.android.com/static/blog/assets/introducing_Cahier_792458c981_Z2owFHS.webp) 29 Oct 2025 [![View Chris Assigbe's profile](https://developer.android.com/static/blog/assets/Chris_Assigbe_2_a72a1e1687_1TPmyU.webp)](https://developer.android.com/blog/authors/chris-assigbe) [Chris Assigbe](https://developer.android.com/blog/authors/chris-assigbe) Developer Relations Engineer [Ink API](https://developer.android.com/jetpack/androidx/releases/ink) is now in [beta](https://developer.android.com/jetpack/androidx/releases/ink#1.0.0-beta01) and is ready to be integrated in your app. This milestone was made possible by valuable developer feedback, leading to continuous improvements in the API's performance, stability, and visual quality.
 
 Google apps, such as [Google Docs](https://play.google.com/store/apps/details?id=com.google.android.apps.docs.editors.docs), [Pixel Studio](https://play.google.com/store/apps/details?id=com.google.android.apps.pixel.creativeassistant), [Google Photos](https://play.google.com/store/apps/details?id=com.google.android.apps.photos), [Chrome PDF](https://www.google.com/chrome/?brand=FHFK&ds_kid=10484928882&gclsrc=aw.ds&gad_source=1&gad_campaignid=22668273831&gbraid=0AAAAAoY3CA6P2Qnecu3wa4SGbiQesRxPr&gclid=CjwKCAjwx-zHBhBhEiwA7Kjq65_0B9_-VnywwemCbmR19p7LrWt-Zg8Ych8WNzYj_aF60bs5Xi2PlBoCtWQQAvD_BwE), [Youtube Effect Maker,](https://effects.youtube.com/) and unique features on Android such as [Circle to Search](https://search.google/ways-to-search/circle-to-search/) all use the latest APIs.
 
@@ -38,7 +38,7 @@ For the initial launch, we're centering the announcement on a few core features 
 #### A foundation of adaptivity
 
 **Cahier** is built to be adaptive from the ground up. The sample utilizes the [material3-adaptive](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive) library specifically [ListDetailPaneScaffold](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/package-summary#ListDetailPaneScaffold(androidx.compose.material3.adaptive.layout.PaneScaffoldDirective,androidx.compose.material3.adaptive.layout.ThreePaneScaffoldValue,kotlin.Function1,kotlin.Function1,androidx.compose.ui.Modifier,kotlin.Function1)) and [NavigationSuiteScaffold](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/navigationsuite/package-summary#NavigationSuiteScaffold(kotlin.Function1,androidx.compose.ui.Modifier,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteType,androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteColors,androidx.compose.ui.graphics.Color,androidx.compose.ui.graphics.Color,kotlin.Function0)) to seamlessly adapt the app layout to various screen sizes and orientations. This is a crucial element for a modern Android app, and **Cahier** provides a clear example of how to implement it effectively.
-![Cahier adaptive UI built with Material 3 Adaptive library..gif](https://developer.android.com/static/blog/assets/Cahier_adaptive_UI_built_with_Material_3_Adaptive_library_9bc6538d7c_gy0Dn.webp)
+![Cahier adaptive UI built with Material 3 Adaptive library..gif](https://developer.android.com/static/blog/assets/Cahier_adaptive_UI_built_with_Material_3_Adaptive_library_9bc6538d7c_ZxJ72m.webp)
 
 *Cahier adaptive UI built with Material 3 Adaptive library*
 
@@ -71,17 +71,17 @@ Ink API offers a modular architecture, so you can tailor it to your app's specif
   - The eraser tool within the toolbox and functionality in [DrawingCanvasViewModel](https://github.com/android/cahier/blob/main/app/src/main/java/com/example/cahier/ui/viewmodels/DrawingCanvasViewModel.kt) rely on the geometry module. When the eraser is active, it creates a [MutableParallelogram](https://developer.android.com/reference/androidx/ink/geometry/MutableParallelogram) around the path of the user's gesture. The eraser then checks for intersections between the shape and bounding boxes of existing strokes to determine which strokes to erase, making the eraser feel intuitive and precise.
 - [**Storage**](https://developer.android.com/reference/kotlin/androidx/ink/storage/package-summary)**module:** Provides efficient serialization and deserialization capabilities for ink data, leading to significant disk and network size savings. To save drawings, Cahier persists the [Stroke](https://developer.android.com/reference/kotlin/androidx/ink/strokes/Stroke) objects in its Room database. In [Converters](https://github.com/android/cahier/blob/main/app/src/main/java/com/example/cahier/data/Converters.kt), the sample uses the storage module's [encode](https://developer.android.com/reference/kotlin/androidx/ink/storage/package-summary#(androidx.ink.brush.BrushFamily).encode(java.io.OutputStream)) function to serialize the [StrokeInputBatch](https://developer.android.com/reference/kotlin/androidx/ink/strokes/StrokeInputBatch) (the raw point data) into a [ByteArray](https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-byte-array/#). The byte array, along with brush properties, is saved as a JSON string. The [decode](https://developer.android.com/reference/kotlin/androidx/ink/storage/package-summary#(androidx.ink.strokes.StrokeInputBatch.Companion).decode(java.io.InputStream)) function is used to reconstruct the strokes when a note is loaded.
 
-![orion.png](https://developer.android.com/static/blog/assets/orion_df400b782b_Z10OIzg.webp)
+![orion.png](https://developer.android.com/static/blog/assets/orion_df400b782b_1jvWN1.webp)
 
 Beyond these core modules, recent updates have expanded the Ink API's capabilities:
 
 - New experimental APIs for custom `BrushFamily` objects empower developers to create creative and unique brush types, providing the possibilities for tools like **Pencil** and **Laser Pointer** brushes.
 
 Cahier leverages custom brushes, including the unique music brush showcased below, to illustrate advanced creative possibilities.
-![Rainbow laser created with Ink API's custom brushes..gif](https://developer.android.com/static/blog/assets/Rainbow_laser_created_with_Ink_API_s_custom_brushes_1242177640_1NFmpG.webp)
+![Rainbow laser created with Ink API's custom brushes..gif](https://developer.android.com/static/blog/assets/Rainbow_laser_created_with_Ink_API_s_custom_brushes_1242177640_ZNSQqE.webp)
 
 *Rainbow laser created with Ink API's custom brushes*
-![notes.png](https://developer.android.com/static/blog/assets/notes_d782283635_Z1FtRzW.webp)
+![notes.png](https://developer.android.com/static/blog/assets/notes_d782283635_DQNMk.webp)
 
 *Music brush created with Ink API's custom brushes*
 
@@ -111,7 +111,7 @@ Implementing the notes role involves a few key steps, all demonstrated in the sa
 4. **Updating the UI** : After the user returns from the settings screen, the [ActivityResultLauncher](https://developer.android.com/reference/kotlin/androidx/activity/result/ActivityResultLauncher) callback triggers a function in the ViewModel to update the role status, ensuring the UI accurately reflects whether the app is now the default.
 
 Learn how to integrate the notes role in your app in our [create a note-taking app guide](https://developer.android.com/develop/ui/views/touch-and-input/stylus-input/create-a-note-taking-app).
-![helloworld.png](https://developer.android.com/static/blog/assets/helloworld_757f054326_k0u1v.webp)
+![helloworld.png](https://developer.android.com/static/blog/assets/helloworld_757f054326_Z15SrEQ.webp)
 
 *Cahier launched in a floating window as the default note-taking app on a Lenovo tablet*
 
@@ -129,7 +129,7 @@ Productivity on a large screen is all about managing information and workflows e
 - **Multi-instance** : This is where true multitasking shines. Cahier allows users to open *multiple, independent windows of the app simultaneously*. Imagine comparing two different notes side by side or referencing a text note in one window while working on a drawing in another. Cahier demonstrates how to manage these separate instances, each with its own state, turning your app into a powerful, multifaceted tool.
 - **Desktop windowing**: When connected to an external display, Android desktop mode transforms a tablet or foldable into a workstation. Because Cahier is built with an adaptive UI and supports multi-instance, the app performs beautifully in this environment. Users can open, resize, and position multiple Cahier windows just like on a traditional desktop, enabling complex workflows that were previously out of reach on mobile devices.
 
-![cahier-desktop-windowing.webp](https://developer.android.com/static/blog/assets/cahier_desktop_windowing_c7fb0bcc05_1rmEal.webp)
+![cahier-desktop-windowing.webp](https://developer.android.com/static/blog/assets/cahier_desktop_windowing_c7fb0bcc05_Z2wtuFw.webp)
 
 *Cahier running in desktop window mode on Pixel Tablet*
 
@@ -390,9 +390,9 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/chris-assigbe) ![View Chris Assigbe's profile](https://developer.android.com/static/blog/assets/Chris_Assigbe_2_a72a1e1687_sAjN.webp) ![View Chris Assigbe's profile](https://developer.android.com/static/blog/assets/Chris_Assigbe_2_a72a1e1687_sAjN.webp)
+  View profile](https://developer.android.com/blog/authors/chris-assigbe) ![View Chris Assigbe's profile](https://developer.android.com/static/blog/assets/Chris_Assigbe_2_a72a1e1687_1TPmyU.webp) ![View Chris Assigbe's profile](https://developer.android.com/static/blog/assets/Chris_Assigbe_2_a72a1e1687_1TPmyU.webp)
 Continue reading
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
 
@@ -402,14 +402,14 @@ Continue reading
   - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
   - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
   - +1 ↩
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
   [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
 
@@ -422,4 +422,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

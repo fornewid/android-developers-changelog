@@ -16,6 +16,30 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## September 23, 2026
+
+- [A2UI-engine A2UI-model Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/a2ui#1.0.0-alpha01)
+- [A2UI-compose Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/a2ui-compose#1.0.0-alpha01)
+- [Activity Version 1.14.0-alpha03](https://developer.android.com/jetpack/androidx/releases/activity#1.14.0-alpha03)
+- [Appfunctions Version 1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha12)
+- [Automated Backup Restore Test Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/test-backup#1.0.0-alpha01)
+- [Compose Material 3 A2UI Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/compose-material3#material3-a2ui-1.0.0-alpha01)
+- [Compose Material 3 Version 1.5.0-alpha29](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-alpha29)
+- [Compose Remote Version 1.0.0-alpha20](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha20)
+- [Compose-runtime Compose-ui Compose-ui-testing Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/a2ui-compose#1.0.0-alpha01)
+- [Foundation Version 1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-remote-foundation#foundation-1.0.0-alpha03)
+- [Glance Adaptive Version 1.0.0-alpha03](https://developer.android.com/jetpack/androidx/releases/glance-adaptive#1.0.0-alpha03)
+- [Glance Wear Version 1.0.0-alpha19](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha19)
+- [Glimmer Glimmer-google-fonts Version 1.0.0-alpha20](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha20)
+- [Ink Version 1.1.0-alpha09](https://developer.android.com/jetpack/androidx/releases/ink#1.1.0-alpha09)
+- [Lifecycle Version 2.12.0-alpha04](https://developer.android.com/jetpack/androidx/releases/lifecycle#2.12.0-alpha04)
+- [Navigation3 Version 1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.3.0-alpha01)
+- [Remote-material3 Version 1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#remote-material3-1.0.0-alpha12)
+- [Savedstate Version 1.6.0-alpha04](https://developer.android.com/jetpack/androidx/releases/savedstate#1.6.0-alpha04)
+- [Wear-core Version 1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/wear#wear-core-1.2.0-alpha01)
+- [Webkit Version 1.18.0-alpha02](https://developer.android.com/jetpack/androidx/releases/webkit#webkit-1.18.0-alpha02)
+- [Xr Projected Version 1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha13)
+
 ## September 09, 2026
 
 - [Activity Version 1.14.0-alpha02](https://developer.android.com/jetpack/androidx/releases/activity#1.14.0-alpha02)

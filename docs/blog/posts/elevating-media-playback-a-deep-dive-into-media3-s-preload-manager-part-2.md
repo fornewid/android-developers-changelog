@@ -8,7 +8,7 @@ source: md.txt
 
 # Elevating media playback: A deep dive into Media3's PreloadManager - Part 2
 
-9 min read ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_1XxrMX.webp) 22 Sep 2025 [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](https://developer.android.com/blog/authors/mayuri-khabya) [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) Developer Relations Engineer Welcome to the second installment of our three-part series on media preloading with Media3. This series is designed to guide you through the process of building highly responsive, low-latency media experiences in your Android apps.
+9 min read ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_5IIEj.webp) 22 Sep 2025 [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)](https://developer.android.com/blog/authors/mayuri-khabya) [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) Developer Relations Engineer Welcome to the second installment of our three-part series on media preloading with Media3. This series is designed to guide you through the process of building highly responsive, low-latency media experiences in your Android apps.
 
 - [Part 1: Introducing Preloading with Media3](https://android-developers.googleblog.com/2025/09/introducing-preloading-with-media3.html) covered the fundamentals. We explored the distinction between [PreloadConfiguration](https://developers.google.com/admob/android/reference/com/google/android/gms/ads/preload/PreloadConfiguration) for simple playlists and the more powerful [DefaultPreloadManager](https://developer.android.com/reference/androidx/media3/exoplayer/source/preload/DefaultPreloadManager) for dynamic user interfaces. You learned how to implement the basic API lifecycle: adding media with add(), retrieving a prepared MediaSource with getMediaSource(), managing priorities with setCurrentPlayingIndex() and invalidate(), and releasing resources with remove() and release().
 - Part 2 (This post): In this blog, we explore the advanced capabilities of the DefaultPreloadManager. We cover how to gain insights with [PreloadManagerListener](https://developer.android.com/reference/kotlin/androidx/media3/exoplayer/source/preload/PreloadManagerListener), implement production-ready best practices like sharing core components with ExoPlayer, and master the sliding window pattern to effectively manage memory.
@@ -64,7 +64,7 @@ Additionally, by inspecting the [PreloadException](https://developer.android.com
 The DefaultPreloadManager and ExoPlayer are designed to work together. To ensure stability and efficiency, they must share several core [components](https://developer.android.com/media/media3/exoplayer/customization). If they operate with separate, uncoordinated components, it could impact thread safety and usability of preloaded tracks on the player since we need to ensure that preloaded tracks should be played on the correct player. The separate components could also compete for limited resources like network bandwidth and memory, which could lead to performance degradation. An important part of the lifecycle is handling appropriate disposal, the recommended order of disposal is to release the PreloadManager first, followed by the ExoPlayer.
 
 The DefaultPreloadManager.Builder is designed to facilitate this sharing and has APIs to [instantiate](https://developer.android.com/media/media3/exoplayer/preloading-media/preloadmanager/create#create-dpm) both your PreloadManager and a linked player instance. Let's see why components like BandwidthMeter, LoadControl, TrackSelector, Looper must be shared. Check the [visual representation](https://developer.android.com/reference/kotlin/androidx/media3/exoplayer/ExoPlayer#threading-model) of how these components interact with ExoPlayer Playback.
-![preloadManager2.png](https://developer.android.com/static/blog/assets/preload_Manager2_66609d424a_1ELxyA.webp)
+![preloadManager2.png](https://developer.android.com/static/blog/assets/preload_Manager2_66609d424a_Zd2az4.webp)
 
 ### Preventing bandwidth conflicts with a shared BandwidthMeter
 
@@ -127,7 +127,7 @@ val preloadManager = val preloadManagerBuilder.build()
 ## Production-ready preloading: The sliding window pattern
 
 In a dynamic feed, a user can scroll through a virtually infinite amount of content. If you continuously add videos to the DefaultPreloadManager without a corresponding removal strategy, you will inevitably cause an OutOfMemoryError. Each preloaded MediaSource holds onto a [**SampleQueue**](https://developer.android.com/reference/androidx/media3/exoplayer/source/SampleQueue), which allocates memory buffers. As these accumulate, they can exhaust the application's heap space. The solution is an algorithm you may already be familiar with, called the sliding window. The sliding window pattern maintains a small, manageable set of items in memory that are logically adjacent to the user's current position in the feed. As the user scrolls, this "window" of managed items slides with them, adding new items that come into view, and also removing items that are now distant.
-![slidingwindow.png](https://developer.android.com/static/blog/assets/slidingwindow_a063aa1f77_Z2aUSm9.webp)
+![slidingwindow.png](https://developer.android.com/static/blog/assets/slidingwindow_a063aa1f77_Z1vuh2x.webp)
 
 ### Implementing the sliding window pattern
 
@@ -170,21 +170,21 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/mayuri-khabya) ![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp) ![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)
+  View profile](https://developer.android.com/blog/authors/mayuri-khabya) ![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp) ![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)
 Continue reading
-- [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](https://developer.android.com/blog/authors/mayuri-khabya) 05 Sep 2025 05 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media_Playback_16bfc9b0d6_25Uc6u.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)](https://developer.android.com/blog/authors/mayuri-khabya) 05 Sep 2025 05 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media_Playback_16bfc9b0d6_Z1RUWJn.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Elevating media playback: Introducing preloading with Media3 - Part 1](https://developer.android.com/blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1)
 
   [arrow_forward](https://developer.android.com/blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1) In today's media-centric apps, delivering a smooth, uninterrupted playback experience is key to a delightful user experience. Users expect their videos to start instantly and play seamlessly without pauses.
   [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) • 8 min read
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
@@ -197,4 +197,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

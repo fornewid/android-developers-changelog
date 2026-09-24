@@ -467,5 +467,4 @@ in the Kotlin documentation.
 ## Learn more about coroutines
 
 For more coroutines resources, see the
-[Additional resources for Kotlin coroutines and flow](https://developer.android.com/kotlin/coroutines/additional-resources)
-page.
+[Coroutines guide](https://kotlinlang.org/docs/coroutines-guide.html) in the Kotlin documentation.

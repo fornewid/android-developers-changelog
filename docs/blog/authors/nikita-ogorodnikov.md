@@ -4,14 +4,14 @@ url: https://developer.android.com/blog/authors/nikita-ogorodnikov
 source: md.txt
 ---
 
-1 post ![](https://developer.android.com/static/blog/assets/nickolay_profile_blog_4e456d6b31_Z1NuT0q.webp)
+1 post ![](https://developer.android.com/static/blog/assets/nickolay_profile_blog_4e456d6b31_1rbt1v.webp)
 
 # Nikita Ogorodnikov
 
 Staff Software Engineer
 
 Datadog Continuous Profiling
-- 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_prXkK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Datadog delivers millions of in-depth performance insights with ProfilingManager](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager)
 
@@ -27,4 +27,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

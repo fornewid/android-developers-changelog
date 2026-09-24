@@ -146,17 +146,17 @@ dependencies {
     // Other compose dependencies
 
     // Compose for Wear OS dependencies
-    implementation("androidx.wear.compose:compose-material3:1.6.2")
+    implementation("androidx.wear.compose:compose-material3:1.7.0")
 
     // Foundation is additive, so you can use the mobile version in your Wear OS app.
-    implementation("androidx.wear.compose:compose-foundation:1.6.2")
+    implementation("androidx.wear.compose:compose-foundation:1.7.0")
 
     // Wear OS preview annotations
-    implementation("androidx.wear.compose:compose-ui-tooling:1.6.2")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.7.0")
 
     // If you are using Compose Navigation, use the Wear OS version (NOT THE MOBILE VERSION).
     // Uncomment the line below and update the version number.
-    // implementation("androidx.wear.compose:compose-navigation:1.6.2")
+    // implementation("androidx.wear.compose:compose-navigation:1.7.0")
 
     // Testing
     testImplementation("junit:junit:4.13.2")

@@ -16,6 +16,11 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## September 23, 2026
+
+- [Collection Version 1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/collection#1.7.0-rc01)
+- [Navigationevent Version 1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-rc01)
+
 ## September 09, 2026
 
 - [Annotation Version 1.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0-rc01)

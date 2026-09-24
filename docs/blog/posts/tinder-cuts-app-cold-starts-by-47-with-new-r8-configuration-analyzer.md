@@ -8,7 +8,7 @@ source: md.txt
 
 # Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer
 
-4 min read ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) 18 Aug 2026 3 Authors [Ajesh Pai,](https://developer.android.com/blog/authors/ajesh-pai) [Ulises Uriel Verduzco Díaz ,](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz) [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles. However, as their Android application codebase grew in size, so did its complexity. Prior to their latest optimization efforts, approximately 70% of the application was not optimized, carrying 17 dex files,including three dedicated just to startup. Although they had enabled R8, much of its optimization potential was blocked due to keep rules, and the team was unable to identify which specific rules were preventing optimization. To reduce startup time and decrease user-perceived Application Not Responding (ANR) errors, Tinder turned to the new R8 Configuration Analyzer to tackle these challenges.
+4 min read ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) 18 Aug 2026 3 Authors [Ajesh Pai,](https://developer.android.com/blog/authors/ajesh-pai) [Ulises Uriel Verduzco Díaz ,](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz) [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles. However, as their Android application codebase grew in size, so did its complexity. Prior to their latest optimization efforts, approximately 70% of the application was not optimized, carrying 17 dex files,including three dedicated just to startup. Although they had enabled R8, much of its optimization potential was blocked due to keep rules, and the team was unable to identify which specific rules were preventing optimization. To reduce startup time and decrease user-perceived Application Not Responding (ANR) errors, Tinder turned to the new R8 Configuration Analyzer to tackle these challenges.
 
 By utilizing the [R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer), Tinder successfully identified and removed unintentional optimization blockers. The results were immediate and impactful: Tinder achieved a 47% reduction in app cold starts, shrank their app download size by 28.98% (down to 61.5 MB), and reduced user-perceived ANRs by 28%.
 
@@ -31,13 +31,13 @@ Use the analyzer to audit keep rules and their impacts:
 - **Find subsumed rules:** Clean up specific rules already covered by broader configurations.
 - **Identify problematic libraries:** Check the combined optimization impact of merged consumer keep rules from all libraries.
 
-![R8-Configuration-Analyzer-Screenshot.png](https://developer.android.com/static/blog/assets/R8_Configuration_Analyzer_Screenshot_f39649ce62_1brnaH.webp) R8 Configuration Analyzer report of a sample application
+![R8-Configuration-Analyzer-Screenshot.png](https://developer.android.com/static/blog/assets/R8_Configuration_Analyzer_Screenshot_f39649ce62_Z2d11P6.webp) R8 Configuration Analyzer report of a sample application
 
 To assist you in using the R8 Configuration Analyzer with agentic tools, we have published an [R8 Analyzer skill](https://github.com/android/skills/blob/main/performance/r8-analyzer/SKILL.md). This skill optimizes automated development workflows by summarizing the R8 Configuration Analyzer report to display key metrics: optimization, obfuscation, and shrinking scores. It also highlights the five most impactful keep rules, giving you clear insight into what blocks code optimization.
 
 ## **Pinpointing hidden optimization blockers**
 
-![image.png](https://developer.android.com/static/blog/assets/image_5ab49108cf_nz4Ei.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_5ab49108cf_Z2mgmLm.webp)
 
 Prior to integrating the R8 Configuration Analyzer, Tinder's Android app suffered from significant technical debt due to a heavily unoptimized codebase. This lack of optimization directly degraded the user experience, leading to users experiencing slow cold starts
 
@@ -65,7 +65,7 @@ Beyond these technical performance enhancements, the increased application optim
 - **Regional Engagement:** Countries where Low RAM devices take a huge portion of the market, presented the largest increase in engagement, and decreasing the ANR rates was key to improving engagement in this vast market.
 - **Engagement Growth:** Engagement has increased 3% since the increase in app optimization.
 
-![image.png](https://developer.android.com/static/blog/assets/image_cae300b10c_ZK9gQO.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_cae300b10c_1LwHQL.webp)
 
 ## **Safeguarding future performance with continuous integration**
 
@@ -108,7 +108,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
+  View profile](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)
 -
 
   ## [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz)
@@ -116,7 +116,7 @@ Written by:
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz) ![View Ulises Uriel Verduzco Díaz 's profile](https://developer.android.com/static/blog/assets/IMG_20260209_160438_447c913f52_1MR7JL.webp) ![View Ulises Uriel Verduzco Díaz 's profile](https://developer.android.com/static/blog/assets/IMG_20260209_160438_447c913f52_1MR7JL.webp)
+  View profile](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz) ![View Ulises Uriel Verduzco Díaz 's profile](https://developer.android.com/static/blog/assets/IMG_20260209_160438_447c913f52_Z4U8v9.webp) ![View Ulises Uriel Verduzco Díaz 's profile](https://developer.android.com/static/blog/assets/IMG_20260209_160438_447c913f52_Z4U8v9.webp)
 -
 
   ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
@@ -124,23 +124,23 @@ Written by:
   ###### Product Marketing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
+  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 Continue reading
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z1oNucg.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
   - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_276PBK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
 
   [arrow_forward](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature) Karrot is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 2 min read
   - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/monzo_boosts_performance_aff3a37917_6VY99.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/monzo_boosts_performance_aff3a37917_1dhX7d.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Monzo boosts performance metrics by up to 35% with a simple R8 update](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update)
 
@@ -152,4 +152,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

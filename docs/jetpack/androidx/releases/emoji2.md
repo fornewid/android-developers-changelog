@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/emoji2#1.6.0) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/emoji2#1.7.0-rc01) | - | - |
+| September 23, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/emoji2#1.7.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    def emoji2_version = "1.6.0"
+    def emoji2_version = "1.7.0"
 
     implementation "androidx.emoji2:emoji2:$emoji2_version"
     implementation "androidx.emoji2:emoji2-views:$emoji2_version"
@@ -37,7 +37,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val emoji2_version = "1.6.0"
+    val emoji2_version = "1.7.0"
 
     implementation("androidx.emoji2:emoji2:$emoji2_version")
     implementation("androidx.emoji2:emoji2-views:$emoji2_version")
@@ -61,6 +61,51 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.7
+
+### Version 1.7.0
+
+September 23, 2026
+
+`androidx.emoji2:emoji2-*:1.7.0` is released. Version 1.7.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9ed4b1acacae02bd637e1932def67751b89244cb..ff41cd57cc559059699d8e39a95b7224981f0be5/emoji2).
+
+**Important changes since 1.6.0:**
+
+1. **Disabled `EmojiCompat` by default.** On Android 15 and above, `EmojiCompat` is disabled by default.
+2. **Performance improvements.** Text scanning is 4-6x faster and startup allocations are down 99.6%.
+3. **`minSdk` is now 24.**
+
+#### `EmojiCompat` is off by default on Android 15+
+
+On API 35 and above the system has universal coverage with Updatable System Fonts, so for most apps `EmojiCompat` is not doing anything.
+
+The new API is `EmojiCompat.Config.setUseAfterUpdatableSystemFonts(boolean)` to configure this behavior, and it defaults to `false`. When it's off, `EmojiCompat` is disabled on Android 15+ and your app draws emoji with the system font installed via Updatable System Fonts.
+
+There is no API to detect that `EmojiCompat` is disabled, and to be clear even when `setUseAfterUpdatableSystemFonts` is `false` `getLoadState()` still returns `LOAD_STATE_SUCCEEDED`.
+
+##### Re-enabling on Android 15+ with new flag
+
+    EmojiCompat.init(
+        FontRequestEmojiCompatConfig(context, fontRequest)
+            .setUseAfterUpdatableSystemFonts(true)
+    )
+
+#### Text scanning is faster
+
+Text parsing and startup allocations:
+
+| p50 | 1.6.0 | 1.7.0 |
+|---|---|---|
+| `pureLatin` | 16.43 µs | 2.66 µs |
+| `latinWithOneSimpleEmoji` | 12.13 µs | 2.43 µs |
+| `latinWithOneComplexEmoji` | 13.42 µs | 3.11 µs |
+
+Startup allocations are down 99.6%. Total memory usage is also down.
+
+When `setUseAfterUpdatableSystemFonts` is `false` (the default) on Android 15+, `EmojiCompat` costs empty method calls and holds no emoji metadata in memory.
+
+#### `minSdk` is 24
+
+`minSdk` is now 24.
 
 ### Version 1.7.0-rc01
 

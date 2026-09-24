@@ -8,7 +8,7 @@ source: md.txt
 
 # Best practices for migrating users to passkeys with Credential Manager
 
-6 min read ![](https://developer.android.com/static/blog/assets/passkeys_Credential_27ba66338c_ZzmQtB.webp) 04 Sep 2025 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_2x1elG.webp)](https://developer.android.com/blog/authors/vinisha-athwani) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora) \& [Vinisha Athwani](https://developer.android.com/blog/authors/vinisha-athwani) In a world where digital security is becoming increasingly critical, passwords have become a notorious weak link -- they're cumbersome, often insecure, and a source of frustration for users and developers. But there's good news: [passkeys](https://fidoalliance.org/passkeys/) are gaining popularity as the most user-friendly, phishing-resistant, and secure authentication mechanism available. For Android developers, the [Credential Manager API](https://developer.android.com/identity/sign-in/credential-manager) helps you guide your users towards using passkeys while ensuring continued support for traditional sign-in mechanisms, such as passwords.
+6 min read ![](https://developer.android.com/static/blog/assets/passkeys_Credential_27ba66338c_Z1W7Rjo.webp) 04 Sep 2025 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_ZMd6UB.webp)](https://developer.android.com/blog/authors/vinisha-athwani) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora) \& [Vinisha Athwani](https://developer.android.com/blog/authors/vinisha-athwani) In a world where digital security is becoming increasingly critical, passwords have become a notorious weak link -- they're cumbersome, often insecure, and a source of frustration for users and developers. But there's good news: [passkeys](https://fidoalliance.org/passkeys/) are gaining popularity as the most user-friendly, phishing-resistant, and secure authentication mechanism available. For Android developers, the [Credential Manager API](https://developer.android.com/identity/sign-in/credential-manager) helps you guide your users towards using passkeys while ensuring continued support for traditional sign-in mechanisms, such as passwords.
 
 In this blog, we discuss some of the best practices you should follow while encouraging users to transition to passkeys.
 
@@ -47,25 +47,25 @@ The following are a list of UX flows in which you can promote passkeys:
 
 - **User account registration:** Introduce passkey [creation](https://developer.android.com/identity/sign-in/credential-manager#create-passkey) prompts at key moments, such as when your users create their accounts:
 
-![contextualprompts.png](https://developer.android.com/static/blog/assets/contextualprompts_ec9b3bf2aa_1U09TJ.webp)
+![contextualprompts.png](https://developer.android.com/static/blog/assets/contextualprompts_ec9b3bf2aa_Z1CEUPH.webp)
 
 *Contextual Prompts during account creation*
 
 - **Sign in:** We recommend you encourage users to prompt passkeys in the moment after a user [signs](https://developer.android.com/identity/sign-in/credential-manager#sign-in) in with an OTP, password, or other-sign in mechanisms.
 
-![passkeys-credential-manager-sign-in.png](https://developer.android.com/static/blog/assets/passkeys_credential_manager_sign_in_3e69b4ba8d_Z2eOysy.webp)
+![passkeys-credential-manager-sign-in.png](https://developer.android.com/static/blog/assets/passkeys_credential_manager_sign_in_3e69b4ba8d_Z229m1V.webp)
 
 *Prompt passkey creation during sign-in*
 
 - **Account recovery:** The critical user journey (CUJ) for account recovery is one that historically presents friction to users. Prompting users to adopt passkeys during account recovery is a recommended path. Users who adopt passkeys experience a familiar account recovery experience as during sign-in.
 
-![passkeys-account-recovery.png](https://developer.android.com/static/blog/assets/passkeys_account_recovery_65d119446f_ZPCoxI.webp)
+![passkeys-account-recovery.png](https://developer.android.com/static/blog/assets/passkeys_account_recovery_65d119446f_2mwgGV.webp)
 
 *Account Recovery flow*
 
 - **Password resets:** This is the perfect moment to prompt users to create a passkey; after the frustration of a password reset, users are typically more receptive to the convenience and security passkeys offer.
 
-![passkeys-new-password-created.png](https://developer.android.com/static/blog/assets/passkeys_new_password_created_4f0566c0a0_ZT7ljG.webp)
+![passkeys-new-password-created.png](https://developer.android.com/static/blog/assets/passkeys_new_password_created_4f0566c0a0_Z1Eh5VL.webp)
 
 *Create a passkey for faster sign-in next time*
 
@@ -79,7 +79,7 @@ Encouraging users to transition from passwords to passkeys requires a clear stra
   - Ability to use the same passkey across devices/platforms.
   - A consistent authentication experience.
 
-![create-passkeys-clear-value-proposition.png](https://developer.android.com/static/blog/assets/create_passkeys_clear_value_proposition_6ab75cb095_snx5w.webp)
+![create-passkeys-clear-value-proposition.png](https://developer.android.com/static/blog/assets/create_passkeys_clear_value_proposition_6ab75cb095_Z1VmiXB.webp)
 
 *Passkey prompt with clear value proposition*
 
@@ -89,7 +89,7 @@ Encouraging users to transition from passwords to passkeys requires a clear stra
   - Make sure that users can fall back to their traditional sign-in methods or a recovery method, such as a username and password, if a passkey is not available or if they are using a different device.
 - **Provide users with clarity about credentials within your app's Settings UI:** Make sure your users understand their authentications options by displaying helpful information about each passkey within your app's settings. To learn more about adding credentials metadata, see the [Credential Manager documentation](https://developer.android.com/identity/sign-in/credential-manager#show-info).
 
-![passkeys-authentication-settings-ui.png](https://developer.android.com/static/blog/assets/passkeys_authentication_settings_ui_875626c229_ZU2NzI.webp)
+![passkeys-authentication-settings-ui.png](https://developer.android.com/static/blog/assets/passkeys_authentication_settings_ui_875626c229_ZHmB96.webp)
 
 *Passkey Metadata on App's Settings screen*
 
@@ -110,7 +110,7 @@ To accelerate passkeys adoption, [Uber](https://play.google.com/store/apps/detai
 
 - **Offer passkeys without disrupting the core user experience:** Uber added a new account checkup experience in their account settings to highlight passkey benefits, resulting in high passkey adoption rates.
 
-![checkupflow.png](https://developer.android.com/static/blog/assets/checkupflow_f30ae96b3e_18cHAq.webp)
+![checkupflow.png](https://developer.android.com/static/blog/assets/checkupflow_f30ae96b3e_Z2l7rnh.webp)
 
 *User Account checkup flow*
 
@@ -137,7 +137,7 @@ To accelerate passkeys adoption, [Uber](https://play.google.com/store/apps/detai
 - **Targeted prompts:** They strategically maintained passkey generation in areas where user intent to sign-in or manage authentication is high, such as initial sign-up flows, explicit sign in pages, or account management sections.
 - **Positive outcome:** This refined deployment resulted in improved passkey generation numbers, indicating strong user adoption, without compromising user experience in critical business flows.
 
-![econiomic-times-passkeys-workflow.png](https://developer.android.com/static/blog/assets/econiomic_times_passkeys_workflow_d65a18f3ca_3Cbr1.webp)
+![econiomic-times-passkeys-workflow.png](https://developer.android.com/static/blog/assets/econiomic_times_passkeys_workflow_d65a18f3ca_ZAj6S8.webp)
 
 *Passkeys Management Screen*
 
@@ -162,7 +162,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)
+  View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)
 -
 
   ## [Vinisha Athwani](https://developer.android.com/blog/authors/vinisha-athwani)
@@ -170,15 +170,15 @@ Written by:
   ###### Technical Writer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/vinisha-athwani) ![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_2x1elG.webp) ![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_2x1elG.webp)
+  View profile](https://developer.android.com/blog/authors/vinisha-athwani) ![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_ZMd6UB.webp) ![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_ZMd6UB.webp)
 Continue reading
-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2iNrsg.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) 22 Apr 2026 22 Apr 2026 ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_Z2uVN2E.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Streamline User Journeys with Verified Email via Credential Manager](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager)
 
   [arrow_forward](https://developer.android.com/blog/posts/streamline-user-journeys-with-verified-email-via-credential-manager) Today, we're excited to announce a new verified email credential issued by Google, which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) • 3 min read
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
 
@@ -188,7 +188,7 @@ Continue reading
   - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
   - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
   - +1 ↩
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
 
@@ -201,4 +201,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

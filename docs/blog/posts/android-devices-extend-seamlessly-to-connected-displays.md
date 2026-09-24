@@ -8,7 +8,7 @@ source: md.txt
 
 # Android devices extend seamlessly to connected displays
 
-7 min read ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_1A0pVS.webp) 03 Mar 2026 [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) Developer Relations Engineer, Android We are excited to announce a major milestone in bringing mobile and desktop computing closer together on Android: connected display support has reached general availability with the [Android 16 QPR3](https://developer.android.com/about/versions/16/qpr3/release-notes) release!  
+7 min read ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_Z1IGssd.webp) 03 Mar 2026 [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_Zn1KD7.webp)](https://developer.android.com/blog/authors/francesco-romano) [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) Developer Relations Engineer, Android We are excited to announce a major milestone in bringing mobile and desktop computing closer together on Android: connected display support has reached general availability with the [Android 16 QPR3](https://developer.android.com/about/versions/16/qpr3/release-notes) release!  
 
 As shown at [Google I/O 2025](https://www.youtube.com/watch?v=MmeJSLAnB-M), connected displays allow users to connect their Android devices to an external monitor and instantly access a desktop windowing environment. Apps can be used in free-form or maximized windows and users can multitask just like they would on a desktop OS.
 
@@ -20,12 +20,12 @@ This is now generally available on supported devices\* to users who can connect 
 When a supported Android phone or foldable is connected to an external display, a new desktop session starts on the connected display.
 
 The experience on the connected display is similar to the experience on a desktop, including a taskbar that shows active apps and lets users pin apps for quick access. Users are able to run multiple apps side by side simultaneously in freely resizable windows on the connected display.
-![materialDisplay.gif](https://developer.android.com/static/blog/assets/material_Display_6b57bc3b79_ePKt3.webp)
+![materialDisplay.gif](https://developer.android.com/static/blog/assets/material_Display_6b57bc3b79_29dwIa.webp)
 
 *Phone connected to an external display with a desktop session on the display while the phone maintains its own state.*
 
 When a device that supports desktop windowing (such as a tablet like the Samsung Galaxy Tab S11) is connected to an external display, the desktop session is extended across both displays, unlocking an even more expansive workspace. The two displays then function as one continuous system, allowing app windows, content, and the cursor to move freely between the displays.
-![materialDisplay2.gif](https://developer.android.com/static/blog/assets/material_Display2_2c36188b82_1iPoD2.webp)
+![materialDisplay2.gif](https://developer.android.com/static/blog/assets/material_Display2_2c36188b82_Z16eqK1.webp)
 
 *Tablet connected to an external display, extending the desktop session across both displays.*
 
@@ -58,7 +58,7 @@ Here are the new width breakpoints:
 - Large: For widths between 1200dp and 1600dp
 - Extra-large: For widths ≥1600dp
 
-![windowClasses.png](https://developer.android.com/static/blog/assets/window_Classes_b75579f205_J3qef.webp)
+![windowClasses.png](https://developer.android.com/static/blog/assets/window_Classes_b75579f205_Z29B8N7.webp)
 
 *The different window size classes based on display width.*
 
@@ -165,7 +165,7 @@ NavDisplay(...,
 If there isn't enough space to display three or two panes---both our custom scene strategies return `null`. In this case, `NavDisplay` falls back to displaying the last entry in the back stack in a single pane using `SinglePaneScene`.   
 
 By using scenes and strategies, you can add one, two, and three pane layouts to your app!
-![adaptivepane.gif](https://developer.android.com/static/blog/assets/adaptivepane_c2f34f0b31_2qrog2.webp)
+![adaptivepane.gif](https://developer.android.com/static/blog/assets/adaptivepane_c2f34f0b31_1jnm6N.webp)
 
 *An adaptive app showing three-pane navigation on wide screens.*
 
@@ -205,9 +205,9 @@ Written by:
   ###### Developer Relations Engineer, Android
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/francesco-romano) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)
+  View profile](https://developer.android.com/blog/authors/francesco-romano) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_Zn1KD7.webp) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_Zn1KD7.webp)
 Continue reading
-- [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) 10 Oct 2025 10 Oct 2025 ![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Z20PMAS.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_Zn1KD7.webp)](https://developer.android.com/blog/authors/francesco-romano) 10 Oct 2025 10 Oct 2025 ![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Ok8qq.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Jetpack WindowManager 1.5 is stable](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable)
 
@@ -215,13 +215,13 @@ Continue reading
 
   This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes.
   [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 2 min read
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
@@ -234,4 +234,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

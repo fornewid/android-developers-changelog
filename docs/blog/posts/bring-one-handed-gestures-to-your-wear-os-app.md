@@ -8,7 +8,7 @@ source: md.txt
 
 # Bring one-handed gestures to your Wear OS app
 
-3 min read ![](https://developer.android.com/static/blog/assets/Bring_one_handed_gestures_Strapi_defff06599_Z1FDx9g.webp) 11 Aug 2026 [![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_Derb5.webp)](https://developer.android.com/blog/authors/chiara-chiappini) [Chiara Chiappini](https://developer.android.com/blog/authors/chiara-chiappini) Developer Relation Engineer, Android Developer Relations One-handed gestures offer a convenient and touch-free way for users to interact with their watches, enabling them to perform key actions using only the hand on which the device is worn. First introduced on Pixel Watch with Wear OS 6.1, one-handed gestures made quick interactions effortless, such as starting and stopping a timer, accepting calls, and controlling media.
+3 min read ![](https://developer.android.com/static/blog/assets/Bring_one_handed_gestures_Strapi_defff06599_ZRTaFd.webp) 11 Aug 2026 [![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_ZnAT5Q.webp)](https://developer.android.com/blog/authors/chiara-chiappini) [Chiara Chiappini](https://developer.android.com/blog/authors/chiara-chiappini) Developer Relation Engineer, Android Developer Relations One-handed gestures offer a convenient and touch-free way for users to interact with their watches, enabling them to perform key actions using only the hand on which the device is worn. First introduced on Pixel Watch with Wear OS 6.1, one-handed gestures made quick interactions effortless, such as starting and stopping a timer, accepting calls, and controlling media.
 
 Now, with Wear OS 7, we're expanding this functionality with a new Gestures framework that allows OEMs to map gestures to primary actions and dismissals, and an API to bring gesture control to the developer community.
 
@@ -135,10 +135,10 @@ OutlinedIconButton(
     }
 }
 ```
-![sample-app.gif](https://developer.android.com/static/blog/assets/sample_app_38a9b816fe_Z8867z.webp) Sample app showing gesture hint for media controls
+![sample-app.gif](https://developer.android.com/static/blog/assets/sample_app_38a9b816fe_Z19Xrov.webp) Sample app showing gesture hint for media controls
 
 We are already seeing early adoption of these APIs from partners like Spotify, who are using one-handed gestures to make music control more seamless on the go. By adopting the Modifier.oneHandedGesture into their Wear OS app, Spotify allows users to play or pause their music with the primary gesture action, which on Pixel Watch devices is the double-pinch gesture. This action triggers the same behavior as the physical play/pause button, and the user doesn't need to touch the screen.
-![spotify.gif](https://developer.android.com/static/blog/assets/spotify_97253c677a_Z9cFov.webp) Spotify app with gesture integration
+![spotify.gif](https://developer.android.com/static/blog/assets/spotify_97253c677a_Z2bVYtz.webp) Spotify app with gesture integration
 
 ### Bring one-handed gestures to your app
 
@@ -157,9 +157,9 @@ Written by:
   ###### Developer Relation Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/chiara-chiappini) ![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_Derb5.webp) ![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_Derb5.webp)
+  View profile](https://developer.android.com/blog/authors/chiara-chiappini) ![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_ZnAT5Q.webp) ![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_ZnAT5Q.webp)
 Continue reading
-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
 
@@ -173,7 +173,7 @@ Continue reading
   - [#Foldables](https://developer.android.com/blog/topics/foldables)
   - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
   - +5 ↩
-- [![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_ZXRdHk.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_Z2f8lth.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Building Premium Android Experiences at Google I/O '26](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26)
 
@@ -186,7 +186,7 @@ Continue reading
   - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
   - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
   - +4 ↩
-- [![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp)](https://developer.android.com/blog/authors/john-zoeller) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Developer_Blog_2_1_1440x720_6_64da0326e3_Z1M1YEl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_i6BeP.webp)](https://developer.android.com/blog/authors/john-zoeller) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Developer_Blog_2_1_1440x720_6_64da0326e3_b0x4M.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [What's New in Wear OS 7](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7)
 
@@ -202,4 +202,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

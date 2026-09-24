@@ -8,12 +8,12 @@ source: md.txt
 
 # Redefining Location Privacy: New Tools and Improvements for Android 17
 
-3 min read ![](https://developer.android.com/static/blog/assets/Redefining_Location_5e4a362604_Z1wl0mf.webp) 26 Mar 2026 [![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)](https://developer.android.com/blog/authors/robert-clifford) [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford) Developer Relations Engineer A pillar of the Android ecosystem is our shared commitment to user trust. As the mobile landscape has evolved, so does our approach to protecting sensitive information. In Android 17, we're introducing a suite of new location privacy features designed to give users more control and provide developers elegant solutions for data minimization and product safety. Our strategy focuses on introducing new tools to balance high-quality experiences with robust privacy protections, and improving transparency for users to help manage their data.
+3 min read ![](https://developer.android.com/static/blog/assets/Redefining_Location_5e4a362604_2b67BT.webp) 26 Mar 2026 [![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_Z2wbL3d.webp)](https://developer.android.com/blog/authors/robert-clifford) [Robert Clifford](https://developer.android.com/blog/authors/robert-clifford) Developer Relations Engineer A pillar of the Android ecosystem is our shared commitment to user trust. As the mobile landscape has evolved, so does our approach to protecting sensitive information. In Android 17, we're introducing a suite of new location privacy features designed to give users more control and provide developers elegant solutions for data minimization and product safety. Our strategy focuses on introducing new tools to balance high-quality experiences with robust privacy protections, and improving transparency for users to help manage their data.
 
 #### Introducing the location button: simplified access for one time use
 
 For many common tasks, like finding a nearby shop or tagging a social post, your app doesn't need permanent or background access to a user's precise location.With Android 17, we are introducing the location button, a new UI element designed to provide a well-lit path for responsible one time precise location access. Industry partners have requested this new feature as a way to bring a simpler, and more private location flow to their users.
-![local-cafe.gif](https://developer.android.com/static/blog/assets/local_cafe_c248e0055c_1T3F4r.webp)
+![local-cafe.gif](https://developer.android.com/static/blog/assets/local_cafe_c248e0055c_1303xe.webp)
 
 #### Users get better privacy protection
 
@@ -28,7 +28,7 @@ The location button provides extensive customization options to ensure integrati
 - Size and shape
 
 Additionally, you can select the appropriate text label from a predefined list of options. To ensure security and trust, the location icon itself remains mandatory and non-customizable, while the font size is system-managed to respect user accessibility settings.
-![location-buttons-examples.png](https://developer.android.com/static/blog/assets/location_buttons_examples_9fda058cb6_160lV0.webp)
+![location-buttons-examples.png](https://developer.android.com/static/blog/assets/location_buttons_examples_9fda058cb6_ZgIaLv.webp)
 
 #### Simplified Integration with Jetpack and automatic backwards compatibility
 
@@ -39,7 +39,7 @@ The Android location button is available for testing as of Android 17 Beta 3.
 #### Location access transparency
 
 Users often struggle to understand the tools they can use to monitor and control access to their location data. In Android 17, we are aligning location permission transparency with the high standards already set for the Microphone and Camera.
-![Location-access-transparency.png](https://developer.android.com/static/blog/assets/Location_access_transparency_67f8904e53_Z1YyQNd.webp)
+![Location-access-transparency.png](https://developer.android.com/static/blog/assets/Location_access_transparency_67f8904e53_Z1S9YEM.webp)
 
 - Updated Location Indicator: A persistent indicator will now appear to inform a user whenever a non-system app accesses their location
 - Attribution \& Control: Users can tap the indicator to see exactly which apps have recently accessed their location and manage those permissions immediately through a "Recent app use" dialog.
@@ -51,7 +51,7 @@ Android 17 is also improving the algorithm for approximate (coarse) locations to
 #### Improved runtime permission dialog
 
 The runtime permission dialog for location is one of the more complex flows for users to navigate, with users being asked to decide on the granularity and length of permission access they are willing to grant to each app. In an effort to help users to make the most informed privacy decisions with less friction, we've redesigned the dialog to make "**Precise** " and "**Approximate**" choices more visually distinct, encouraging users to select the level of access which best suits their needs.
-![location-grant-dialog.gif](https://developer.android.com/static/blog/assets/location_grant_dialog_e2870b657c_Z5crBH.webp)
+![location-grant-dialog.gif](https://developer.android.com/static/blog/assets/location_grant_dialog_e2870b657c_1OgP1I.webp)
 
 #### Start building for Android 17
 
@@ -70,9 +70,9 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/robert-clifford) ![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp) ![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_N2ze5.webp)
+  View profile](https://developer.android.com/blog/authors/robert-clifford) ![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_Z2wbL3d.webp) ![View Robert Clifford's profile](https://developer.android.com/static/blog/assets/robert_clifford_a139ee8d05_Z2wbL3d.webp)
 Continue reading
-- [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_Z1URmUI.webp)](https://developer.android.com/blog/authors/blair-harmon) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1hkk5a.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_27tpBh.webp)](https://developer.android.com/blog/authors/blair-harmon) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1o8xIO.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Preparing your app for broader memory limits](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits)
 
@@ -84,14 +84,14 @@ Continue reading
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - +3 ↩
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [The Third Beta of Android 17](https://developer.android.com/blog/posts/the-third-beta-of-android-17)
 
@@ -105,4 +105,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

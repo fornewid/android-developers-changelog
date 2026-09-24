@@ -8,12 +8,12 @@ source: md.txt
 
 # The Third Beta of Android 17
 
-5 min read ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp) 26 Mar 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer [Android 17](https://developer.android.com/about/versions/17) has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store. In addition, Beta 3 brings a host of new capabilities to help you build better, more secure, and highly integrated applications.
+5 min read ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) 26 Mar 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer [Android 17](https://developer.android.com/about/versions/17) has officially reached platform stability today with Beta 3. That means that the API surface is locked; you can perform final compatibility testing and push your Android 17-targeted apps to the Play Store. In addition, Beta 3 brings a host of new capabilities to help you build better, more secure, and highly integrated applications.
 
 ### Get your apps, libraries, tools, and game engines ready!
 
 If you develop an SDK, library, tool, or game engine, it's even more important to prepare any necessary updates now to prevent your downstream app and game developers from being blocked by compatibility issues and allow them to target the latest SDK features. Please let your downstream developers know if updates are needed to fully support Android 17.
-![large_Android17Timeline01.png](https://developer.android.com/static/blog/assets/large_Android17_Timeline01_134db2bea6_Z1i8Hgs.webp)
+![large_Android17Timeline01.png](https://developer.android.com/static/blog/assets/large_Android17_Timeline01_134db2bea6_2grutv.webp)
 
 Testing involves installing your production app or a test app making use of your library or engine using Google Play or other means onto a device or emulator running Android 17 Beta 3. Work through all your app's flows and look for functional or UI issues. Review the behavior changes to focus your testing. Each release of Android contains platform changes that improve privacy, security, and overall user experience, and these changes can affect your apps. Here are some changes to focus on:
 
@@ -27,7 +27,7 @@ Testing involves installing your production app or a test app making use of your
 #### Photo Picker customization options
 
 Android now allows you to tailor the visual presentation of the photo picker to better complement your app's user interface. By leveraging the new [PhotoPickerUiCustomizationParams](https://developer.android.com/reference/android/widget/photopicker/PhotoPickerUiCustomizationParams) API, you can modify the grid view aspect ratio from the standard 1:1 square to a 9:16 portrait display. This flexibility extends to both the ACTION_PICK_IMAGES intent and the embedded photo picker, enabling you to maintain a cohesive aesthetic when users interact with media.
-![large_(Default)11aspectratio.png](https://developer.android.com/static/blog/assets/large_Default_11aspectratio_7ae50afc21_ZxN28a.webp)
+![large_(Default)11aspectratio.png](https://developer.android.com/static/blog/assets/large_Default_11aspectratio_7ae50afc21_ZxxGt.webp)
 
 This is all part of our effort to help make the privacy-preserving Android photo picker fit seamlessly with your app experience. [Learn more about how you can embed the photo picker directly into your app for the most native experience](https://android-developers.googleblog.com/2026/01/httpsandroid-developers.googleblog.com202506android-embedded-photo-picker.html%20.html).
 
@@ -96,7 +96,7 @@ null
 
 #### System-provided Location Button
 
-![localcafe.jpg](https://developer.android.com/static/blog/assets/localcafe_7b76defb90_Z7SFAI.webp)
+![localcafe.jpg](https://developer.android.com/static/blog/assets/localcafe_7b76defb90_1jtoFF.webp)
 
 Android is introducing a system-rendered location button that you will be able to embed directly into your app's layout using an Android Jetpack library. When a user taps this system button, your app is granted precise location access for the current session only. To implement this, you need to declare the USE_LOCATION_BUTTON permission.
 
@@ -145,7 +145,7 @@ TypedValue.COMPLEX_UNIT_DIP
 
 #### Hidden app labels on the home screen
 
-![Hiddenapplabelsonthehomescreen.png](https://developer.android.com/static/blog/assets/Hiddenapplabelsonthehomescreen_564d344c7c_2aR4X3.webp)
+![Hiddenapplabelsonthehomescreen.png](https://developer.android.com/static/blog/assets/Hiddenapplabelsonthehomescreen_564d344c7c_1BL5rt.webp)
 
 Android now provides a user setting to hide app names (labels) on the home screen workspace. Ensure your app icon is distinct and recognizable.
 
@@ -171,7 +171,7 @@ override fun onError(error: Exception) {}
 
 #### Redesigned screen recording toolbar
 
-![large_Recording-redesign.png](https://developer.android.com/static/blog/assets/large_Recording_redesign_80bab493fe_1Xu1kV.webp)
+![large_Recording-redesign.png](https://developer.android.com/static/blog/assets/large_Recording_redesign_80bab493fe_Z20m8uV.webp)
 
 ### Core functionality
 
@@ -209,23 +209,23 @@ Written by:
   ###### Vice President, Product Management, Android Developer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_Z1URmUI.webp)](https://developer.android.com/blog/authors/blair-harmon) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1hkk5a.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_27tpBh.webp)](https://developer.android.com/blog/authors/blair-harmon) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1o8xIO.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Preparing your app for broader memory limits](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits)
 
@@ -243,4 +243,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

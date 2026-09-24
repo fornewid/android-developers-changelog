@@ -4,12 +4,12 @@ url: https://developer.android.com/blog/authors/jose-alcerreca
 source: md.txt
 ---
 
-2 posts ![](https://developer.android.com/static/blog/assets/jose_21a476d0ec_23cCms.webp)
+2 posts ![](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)
 
 # Jose Alcérreca
 
 Developer Relations Engineer
-- 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_MYo9i.webp) [Community](https://developer.android.com/blog/categories/community)
+- 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_Z25NBy7.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation)
 
@@ -17,7 +17,7 @@ Developer Relations Engineer
   4 min read
   - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
   - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
-- 22 Apr 2022 22 Apr 2022 ![](https://developer.android.com/static/blog/assets/alternativesto_Idiling_13a59b7d0b_Z1sfmFQ.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 22 Apr 2022 22 Apr 2022 ![](https://developer.android.com/static/blog/assets/alternativesto_Idiling_13a59b7d0b_1mUyls.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Alternatives to Idling Resources in Compose tests: the waitUntil APIs (updated)](https://developer.android.com/blog/posts/alternatives-to-idling-resources-in-compose-tests-the-wait-until-ap-is-updated)
 
@@ -33,4 +33,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

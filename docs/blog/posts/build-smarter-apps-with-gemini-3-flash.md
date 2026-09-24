@@ -9,7 +9,7 @@ source: md.txt
 
 # Build smarter apps with Gemini 3 Flash
 
-2 min read ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_O0qYl.webp) 17 Dec 2025 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) Senior Developer Relations Engineer Today, we're expanding the Gemini 3 model family with the [release of Gemini 3 Flash](https://blog.google/products/gemini/gemini-3-flash), frontier intelligence built for speed at a fraction of the cost. You can start building with it immediately, as we're officially launching **Gemini 3 Flash** on [Firebase AI Logic](https://firebase.google.com/docs/ai-logic/get-started?platform=android&api=dev). Available globally, you [can securely access the Gemini 3 Flash preview model](https://blog.google/technology/developers/build-with-gemini-3-flash/) directly from your app via the Gemini Developer API or the Vertex AI Gemini API using Firebase AI Logic client SDKs. Gemini 3 Flash's strong performance in reasoning, tool use, and multimodal capabilities is ideal for developers looking to do more complex video analysis, data extraction and visual Q\&A.
+2 min read ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_2pRpOz.webp) 17 Dec 2025 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) Senior Developer Relations Engineer Today, we're expanding the Gemini 3 model family with the [release of Gemini 3 Flash](https://blog.google/products/gemini/gemini-3-flash), frontier intelligence built for speed at a fraction of the cost. You can start building with it immediately, as we're officially launching **Gemini 3 Flash** on [Firebase AI Logic](https://firebase.google.com/docs/ai-logic/get-started?platform=android&api=dev). Available globally, you [can securely access the Gemini 3 Flash preview model](https://blog.google/technology/developers/build-with-gemini-3-flash/) directly from your app via the Gemini Developer API or the Vertex AI Gemini API using Firebase AI Logic client SDKs. Gemini 3 Flash's strong performance in reasoning, tool use, and multimodal capabilities is ideal for developers looking to do more complex video analysis, data extraction and visual Q\&A.
 
 ## Gemini 3 optimized for low-latency
 
@@ -34,7 +34,7 @@ In addition, Firebase enables you to keep your growth secure and manageable with
 ## AI Monitoring
 
 The [Firebase AI monitoring](https://firebase.google.com/docs/ai-logic/monitoring#ai-monitoring-in-console) dashboard gives you visibility into latency, success rates, and costs, allowing you to slice data by model name to see exactly how the model performs.
-![image.png](https://developer.android.com/static/blog/assets/image_161aa78890_Lip5R.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_161aa78890_1UwUsq.webp)
 
 ## Server Prompt Templates
 
@@ -117,21 +117,21 @@ Written by:
   ###### Senior Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
+  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)
 Continue reading
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Apr 2026 17 Apr 2026 ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_gOJm.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Apr 2026 17 Apr 2026 ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_ZIVyDm.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Experimental hybrid inference and new Gemini models for Android](https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android)
 
   [arrow_forward](https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android) If you are an Android developer looking to implement innovative AI features into your app, we recently launched powerful new updates.
   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) • 2 min read
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)](https://developer.android.com/blog/authors/mozart-louis) 13 Oct 2025 13 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_ZsFAUM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_K6xYF.webp)](https://developer.android.com/blog/authors/mozart-louis) 13 Oct 2025 13 Oct 2025 ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_2daQMX.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Boost user engagement with AI Image Generation](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation)
 
   [arrow_forward](https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation) Adding custom images to your app can significantly improve and personalize user experience and boost user engagement.
   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis) • 5 min read
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
@@ -143,5 +143,5 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)
 {% endraw %}

@@ -8,7 +8,7 @@ source: md.txt
 
 # Unfold new possibilities with Compose Adaptive Layouts 1.2 beta
 
-3 min read ![](https://developer.android.com/static/blog/assets/yt_MBG_2_a56f169e60_ZSoFHF.webp) 03 Sep 2025 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) \& [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) [Video](https://www.youtube.com/watch?v=-9zVrVmnbO4)
+3 min read ![](https://developer.android.com/static/blog/assets/yt_MBG_2_a56f169e60_Z1m2tOK.webp) 03 Sep 2025 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) \& [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) [Video](https://www.youtube.com/watch?v=-9zVrVmnbO4)
 
 With new form factors like the [Pixel 10 Pro Fold](https://android-developers.googleblog.com/2025/08/build-your-app-to-meet-users-on-newest-pixel-devices.html) joining the Android ecosystem, [adaptive app development](https://developer.android.com/develop/ui/compose/build-adaptive-apps#why_build_adaptive_uis) is essential for creating high-quality user experiences across phones, tablets, and foldables. Users expect your app's UI to seamlessly adapt to these different sizes and postures.
 
@@ -21,7 +21,7 @@ The [Compose Adaptive Layouts library](https://developer.android.com/develop/ui/
 - **Powerful new layout strategies:** The beta introduces new layout strategies like [reflow](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/AdaptStrategy.Reflow) and [levitate](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/AdaptStrategy.Levitate), designed to help you build dynamic layouts that look great on both the outer and inner displays of a device like the [Pixel 10 Pro Fold](https://blog.google/products/pixel/google-pixel-10-pro-fold/), [Galaxy Z Fold7 and Z Flip7](https://news.samsung.com/global/design-story-the-next-chapter-in-innovation-galaxy-z-fold7-and-galaxy-z-flip7).
 - **New Window Size Classes:** The release adds built-in support for the new Large and Extra-Large [window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes). These new breakpoints are essential for designing and triggering rich, multi-pane UI changes on expansive screens like tablets and large foldables.
 
-![new-pane-adaptation.webp](https://developer.android.com/static/blog/assets/new_pane_adaptation_e6d40f43ac_1tj7qu.webp)
+![new-pane-adaptation.webp](https://developer.android.com/static/blog/assets/new_pane_adaptation_e6d40f43ac_Zot8Oq.webp)
 
 *Two new pane adaptation strategies: reflow (left) and levitate (right)*
 
@@ -30,7 +30,7 @@ For a full list of changes, check out the [official release documentation](https
 ## Engage more users on every screen
 
 Embracing an [adaptive mindset](https://developer.android.com/develop/ui/compose/build-adaptive-apps#why_build_adaptive_uis) is more than a best practice, it's a strategy for growth. The goal isn't just to make your app work on a larger screen, but to make it shine by becoming more intuitive for users. Instead of simply stretching a single-column layout, think about how you can use the extra space to create more efficient and immersive experiences.
-![adaptive2.png](https://developer.android.com/static/blog/assets/adaptive2_788bbb555d_YU6Ao.webp)
+![adaptive2.png](https://developer.android.com/static/blog/assets/adaptive2_788bbb555d_2ribRM.webp)
 
 This is the core principle behind dynamic layout strategies like [`reflow`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/layout/AdaptStrategy.Reflow), a powerful new feature in the Compose Adaptive Layouts 1.2 beta designed to help you build these UIs. For example, a great starting point is adopting a multi-pane layout. By showing a list and its corresponding detail view side-by-side, you reduce taps and allow users to accomplish tasks more quickly.
 
@@ -39,7 +39,7 @@ This kind of thoughtful adaptive development is what truly boosts engagement. An
 ## The expanding Android ecosystem, from foldables to desktops
 
 This shift toward adaptive design extends across the entire Android ecosystem. From the new Pixel 10 Pro Fold to the latest Samsung Galaxy foldables, developers have the opportunity to engage a large and growing user base on over 500 million large-screen devices.
-![material.png](https://developer.android.com/static/blog/assets/material_3f86236eeb_Xwexu.webp)
+![material.png](https://developer.android.com/static/blog/assets/material_3f86236eeb_uSqqp.webp)
 
 This is also why we're continuing to invest in forward-looking experiences like [Connected Displays](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-connected-displays), currently available to try in [developer preview](https://android-developers.googleblog.com/2025/06/developer-preview-enhanced-android-desktop-experiences-connected-displays.html). This feature opens up new surfaces and interaction models for apps to run on, enabling true desktop-class features and multi-instance workflows. We've previously shared details on how you can get started with the [Connected Displays developer preview](https://android-developers.googleblog.com/2025/06/developer-preview-enhanced-android-desktop-experiences-connected-displays.html) and see how it's shaping the future of multi-device experiences.
 
@@ -61,7 +61,7 @@ Written by:
   ###### Senior Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
+  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)
 -
 
   ## [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor)
@@ -69,15 +69,15 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/miguel-montemayor) ![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp) ![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)
+  View profile](https://developer.android.com/blog/authors/miguel-montemayor) ![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp) ![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)
 Continue reading
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_Z1BKgnT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_1vfHD.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices)
 
   [arrow_forward](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices) Today at Galaxy Unpacked, Samsung unveiled its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
   [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
 
@@ -91,7 +91,7 @@ Continue reading
   - [#Foldables](https://developer.android.com/blog/topics/foldables)
   - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
   - +5 ↩
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_Z14DWX.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
 
@@ -107,4 +107,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

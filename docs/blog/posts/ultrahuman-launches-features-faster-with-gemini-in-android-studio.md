@@ -8,20 +8,20 @@ source: md.txt
 
 # Ultrahuman launches features 15% faster with Gemini in Android Studio
 
-2 min read ![](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Banner_1612731319_Z23acG3.webp) 08 Jan 2026 [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev) \& [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) [Ultrahuman](https://play.google.com/store/apps/details?id=com.ultrahuman.android) is a consumer health-tech startup that provides daily well-being insights to users based on biometric data from the company's wearables, like the [RING Air](https://www.ultrahuman.com/ring/buy/us/) and the [M1 Live](https://www.ultrahuman.com/m1/) Continuous Glucose Monitor (CGM). The Ultrahuman team leaned on [Gemini in Android Studio's](https://developer.android.com/gemini-in-android) contextually aware tools to streamline and accelerate their development process.
+2 min read ![](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Banner_1612731319_1Eiopn.webp) 08 Jan 2026 [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns) [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev) \& [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) [Ultrahuman](https://play.google.com/store/apps/details?id=com.ultrahuman.android) is a consumer health-tech startup that provides daily well-being insights to users based on biometric data from the company's wearables, like the [RING Air](https://www.ultrahuman.com/ring/buy/us/) and the [M1 Live](https://www.ultrahuman.com/m1/) Continuous Glucose Monitor (CGM). The Ultrahuman team leaned on [Gemini in Android Studio's](https://developer.android.com/gemini-in-android) contextually aware tools to streamline and accelerate their development process.
 
 Ultrahuman's app is maintained by a lean team of just eight developers. They prioritize building features that their users love, and have a backlog of bugs and needed performance improvements that take a lot of time. The team needed to scale up their output of feature improvements, and also needed to handle their performance improvements, without increasing headcount. One of their biggest opportunities was reducing the amount of time and effort for their backlog: every hour saved on maintenance could be reinvested into working on features for their users.
-![UltrahumanxGiAS_Image_01.webp](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Image_01_645a0baed3_Z1krKy4.webp)
+![UltrahumanxGiAS_Image_01.webp](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Image_01_645a0baed3_2rKFBi.webp)
 
 **Solving technical hurdles and boosting performance with Gemini**
 
 The team integrated Gemini in Android Studio to see if the AI enhanced tools could improve their workflow by handling many Android tasks. First, the team turned to the [Gemini chat](https://developers.google.com/gemini-code-assist/docs/use-gemini-code-assist-chat) inside Android Studio. The goal was to prototype a [GATT Server](https://learn.adafruit.com/introduction-to-bluetooth-low-energy/gatt) implementation for their application's Bluetooth Low Energy (BLE) connectivity.
-![arka.png](https://developer.android.com/static/blog/assets/arka_674b22b8fe_t79PE.webp)
+![arka.png](https://developer.android.com/static/blog/assets/arka_674b22b8fe_Z2o0uGN.webp)
 
 As Ultrahuman's Android Development Lead, Arka, noted, "**Gemini helped us reach a working prototype in under an hour**---something that would have otherwise taken us several hours." The BLE implementation provided by Gemini worked perfectly for syncing large amounts of health sensor data while the app ran in the background, improving the data syncing process and saving battery life on both the user's Android phone and Ultrahuman's paired wearable device.
 
 Beyond this core challenge, Gemini also proved invaluable for finding algorithmic optimizations in a custom open-source library, pointing to helpful documentation, assisting with code commenting, and analyzing crash logs. The Ultrahuman team also used [code completion](https://developer.android.com/studio/preview/gemini/ai-code-completion) to help them breeze through writing otherwise repetitive code, [Jetpack Compose Preview Generation](https://developer.android.com/studio/gemini/generate-compose-previews) to enable rapid iteration during UI design, and [Agent Mode](https://developer.android.com/studio/gemini/agent-mode) for managing complex, project-wide changes, such as rendering a new stacked bar graph that mapped to backend data models and UI models.
-![arka2.png](https://developer.android.com/static/blog/assets/arka2_812923fa66_Z10WPE.webp)
+![arka2.png](https://developer.android.com/static/blog/assets/arka2_812923fa66_2jkIwC.webp)
 
 <br />
 
@@ -43,7 +43,7 @@ Written by:
   ###### Staff Developer Advocate
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/amrit-sanjeev) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
+  View profile](https://developer.android.com/blog/authors/amrit-sanjeev) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)
 -
 
   ## [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns)
@@ -51,22 +51,22 @@ Written by:
   ###### Staff Developer Programs Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/trevor-johns) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+  View profile](https://developer.android.com/blog/authors/trevor-johns) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 Continue reading
-- [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)](https://developer.android.com/blog/authors/ash-nohe) 08 May 2026 08 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_Z2vwfIA.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_1SuI5e.webp)](https://developer.android.com/blog/authors/ash-nohe) 08 May 2026 08 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_1gGbqL.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Gratitude saw 25% higher retention for widget users](https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users)
 
   [arrow_forward](https://developer.android.com/blog/posts/gratitude-saw-25-higher-retention-for-widget-users) The mindfulness app Gratitude encourages consistency through micro daily journaling, affirmations, and vision boards. The app has over 6 million downloads, 150 thousand 5 star ratings, and 100 million journal entries logged.
   [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev), [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe) • 3 min read
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z1oNucg.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
   - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
 
@@ -79,4 +79,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

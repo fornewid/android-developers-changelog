@@ -8,17 +8,17 @@ source: md.txt
 
 # Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks
 
-2 min read ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp) 04 May 2026 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) [Karrot](https://play.google.com/store/apps/details?id=com.towneers.www&pcampaignid=web_share) is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
+2 min read ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_276PBK.webp) 04 May 2026 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) [Karrot](https://play.google.com/store/apps/details?id=com.towneers.www&pcampaignid=web_share) is a hyperlocal, community-driven peer-to-peer marketplace app that enables users to buy, sell, and trade items with other verified users. Since launching in South Korea in 2015, the platform has expanded into global markets, amassing over 43 million registered users.
 
 After launching in North America, engineers at Karrot observed that 30% of users in the region use a non-English device language, such as Spanish. To make the app more accessible, the team wanted to bring seamless translation functionality to Karrot quickly and at scale. The developers determined that the most efficient way to implement quality translations would be through integrating an AI service directly into the app, so they selected the Firebase AI Logic and its Android SDK to access Gemini Flash Lite, which led to higher purchasing conversion among non-English users.
-![AndDev_KARROT_Inline.gif](https://developer.android.com/static/blog/assets/And_Dev_KARROT_Inline_29a75f8bf3_25D1By.webp)
+![AndDev_KARROT_Inline.gif](https://developer.android.com/static/blog/assets/And_Dev_KARROT_Inline_29a75f8bf3_g8fOy.webp)
 
 **Integrating Gemini Firebase AI Logic**
 
 The team initially tested two on-device options: the ML Kit Translation SDK and Gemini Nano. But the team found challenges with each: ML Kit Translation didn't meet the team's quality expectations, and Gemini Nano, if it isn't already on the device, required the user to download the model data.
 
 The team then tested Firebase AI Logic. By calling the Gemini API directly from the app, Firebase AI Logic delivered accuracy at speeds that mirrored a natural conversational cadence.
-![AANDDM_KARROT_Quote_02.png](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Quote_02_0c321aaa68_Z1cNYLW.webp)
+![AANDDM_KARROT_Quote_02.png](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Quote_02_0c321aaa68_1ClVfm.webp)
 
 Integrating Firebase AI Logic into the app was a "remarkably straightforward experience," according to TaeGyu An, an Android Software Engineer on Karrot's Mobile Platform team. TaeGyu and the team used the platform's [documentation](https://firebase.google.com/docs/ai-logic/get-started) and code samples to build a proof of concept in under three hours.
 
@@ -27,7 +27,7 @@ This allowed the team to spend more time refining prompts and finding optimal co
 This low barrier to entry and rapid turnaround time enabled engineers to keep development costs low and go from proof of concept to production code in just two weeks---all without setting up a dedicated backend. That also freed up time to focus on UX and policy design, such as opt-in behavior and the conditions for the translation banner.
 
 **Driving sales with enhanced AI features**
-![AANDDM_KARROT_Quote_01.png](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Quote_01_0a6e7dd58e_swee9.webp)
+![AANDDM_KARROT_Quote_01.png](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Quote_01_0a6e7dd58e_Z1LtXxt.webp)
 
 Since implementing translation using Gemini and Firebase AI Logic, the Karrot team observed higher purchasing conversion among non-English users, indicating that the translation feature is helping drive sales.
 
@@ -50,7 +50,7 @@ Written by:
   ###### Senior Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
+  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)
 -
 
   ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
@@ -58,22 +58,22 @@ Written by:
   ###### Product Marketing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
+  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 Continue reading
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/thomas_bc2cd0efa0_19rH0O.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 30 Oct 2025 30 Oct 2025 ![](https://developer.android.com/static/blog/assets/thomas_bc2cd0efa0_1fqCJy.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [redBus uses Gemini Flash via Firebase AI Logic to boost the length of customer reviews by 57%](https://developer.android.com/blog/posts/red-bus-uses-gemini-flash-via-firebase-ai-logic-to-boost-the-length-of-customer-reviews-by-57)
 
   [arrow_forward](https://developer.android.com/blog/posts/red-bus-uses-gemini-flash-via-firebase-ai-logic-to-boost-the-length-of-customer-reviews-by-57) As the world's largest online bus ticketing platform, redBus serves millions of travelers across India, Southeast Asia, and Latin America.
   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 3 min read
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z1oNucg.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
   - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
 
@@ -86,4 +86,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

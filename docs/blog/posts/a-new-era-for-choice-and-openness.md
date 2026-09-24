@@ -8,7 +8,7 @@ source: md.txt
 
 # A new era for choice and openness
 
-3 min read ![](https://developer.android.com/static/blog/assets/android_Ecosystem_208dfb20df_6DzUd.webp) 04 Mar 2026 [![View Sameer Samat's profile](https://developer.android.com/static/blog/assets/sameer_samat_a8edc4d0ef_Z1LfvLq.webp)](https://developer.android.com/blog/authors/sameer-samat) [Sameer Samat](https://developer.android.com/blog/authors/sameer-samat) President of Android Ecosystem Android has always driven innovation in the industry through its unique flexibility and openness. At this important moment, we want to continue leading the way in how developers distribute their apps and games to people on billions of devices across many form factors. A modern platform must be flexible, providing developers and users with choice and openness as well as a safe experience.
+3 min read ![](https://developer.android.com/static/blog/assets/android_Ecosystem_208dfb20df_1DaCXH.webp) 04 Mar 2026 [![View Sameer Samat's profile](https://developer.android.com/static/blog/assets/sameer_samat_a8edc4d0ef_2bRzSh.webp)](https://developer.android.com/blog/authors/sameer-samat) [Sameer Samat](https://developer.android.com/blog/authors/sameer-samat) President of Android Ecosystem Android has always driven innovation in the industry through its unique flexibility and openness. At this important moment, we want to continue leading the way in how developers distribute their apps and games to people on billions of devices across many form factors. A modern platform must be flexible, providing developers and users with choice and openness as well as a safe experience.
 
 Today we are announcing substantial updates that evolve our business model and build on our long history of openness globally. We're doing that in three ways: more billing options, a program for registered app stores, and lower fees and new programs for developers.
 
@@ -25,7 +25,7 @@ Once this change has rolled out, app stores that choose to participate in this o
 This gives app stores more ways to reach users and gives users more ways to easily and safely access the apps and games they love.
 
 This Registered App Store program will begin outside of the US first, and we intend to bring it to the US as well, subject to court approval.
-![xyz.png](https://developer.android.com/static/blog/assets/xyz_50eb894328_mWPYF.webp)
+![xyz.png](https://developer.android.com/static/blog/assets/xyz_50eb894328_Z2wrpl2.webp)
 
 **Lower pricing and new programs to support developers**
 
@@ -37,7 +37,7 @@ Google Play's fees are already the lowest among major app stores, and today we a
    2. We are launching an Apps Experience Program and revamping our Google Play Games Level Up program to incentivize building great software experiences across Android form factors associated with clear quality benchmarks and enhanced user benefits. Those developers who choose to participate in these programs will have even lower rates. Participating IAP developers will have a 20% service fee for transactions from existing installs and a 15% fee on transactions from new app installs.
    3. Our service fee for recurring subscriptions will be 10%.
 
-![acme.jpg](https://developer.android.com/static/blog/assets/acme_c450f53701_Z2pn6uR.webp) ![acme2.png](https://developer.android.com/static/blog/assets/acme2_a3156652f4_2436nn.webp)
+![acme.jpg](https://developer.android.com/static/blog/assets/acme_c450f53701_ZciCeo.webp) ![acme2.png](https://developer.android.com/static/blog/assets/acme2_a3156652f4_ZFMl3h.webp)
 
 **Rollout timelines**
 
@@ -66,22 +66,22 @@ Written by:
   ###### President of Android Ecosystem
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/sameer-samat) ![View Sameer Samat's profile](https://developer.android.com/static/blog/assets/sameer_samat_a8edc4d0ef_Z1LfvLq.webp) ![View Sameer Samat's profile](https://developer.android.com/static/blog/assets/sameer_samat_a8edc4d0ef_Z1LfvLq.webp)
+  View profile](https://developer.android.com/blog/authors/sameer-samat) ![View Sameer Samat's profile](https://developer.android.com/static/blog/assets/sameer_samat_a8edc4d0ef_2bRzSh.webp) ![View Sameer Samat's profile](https://developer.android.com/static/blog/assets/sameer_samat_a8edc4d0ef_2bRzSh.webp)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -97,4 +97,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

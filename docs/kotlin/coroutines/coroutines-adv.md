@@ -324,4 +324,3 @@ class ExampleClass {
 For more coroutines resources, see the following links:
 
 - [Kotlin coroutines on Android](https://developer.android.com/kotlin/coroutines)
-- [Additional resources for Kotlin coroutines and flow](https://developer.android.com/kotlin/coroutines/additional-resources)

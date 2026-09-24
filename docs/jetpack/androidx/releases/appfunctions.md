@@ -10,7 +10,7 @@ Allows apps to share functionality and data with AI assistants, enabling them to
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 26, 2026 | - | - | - | [1.0.0-alpha11](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha11) |
+| September 23, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha12) |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.appfunctions:appfunctions:1.0.0-alpha11"
+    implementation "androidx.appfunctions:appfunctions:1.0.0-alpha12"
     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
     // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
-    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-alpha11"
+    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-alpha12"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.appfunctions:appfunctions:1.0.0-alpha11")
+    implementation("androidx.appfunctions:appfunctions:1.0.0-alpha12")
     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
     // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
-    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha11")
+    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha12")
 }
 ```
 
@@ -61,6 +61,23 @@ for more information.
 There are no release notes for this artifact.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha12
+
+September 23, 2026
+
+`androidx.appfunctions:appfunctions:1.0.0-alpha12`, `androidx.appfunctions:appfunctions-compiler:1.0.0-alpha12`, and `androidx.appfunctions:appfunctions-testing:1.0.0-alpha12` are released. Version 1.0.0-alpha12 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c99f838c940f9efc7418c943dd43bb1f36b38529..f77468c7762fc61d6c4489eec93f95b8e27410fc/appfunctions).
+
+**API Changes**
+
+- Requires `AppFunctionData#serialize` caller to provide metadata. ([I61eca](https://android-review.googlesource.com/#/q/I61eca34a3a31514bc85d65c4e90fac292d472ee5))
+- Adds inline reified `getHandleAppFunctionRequestAdapter` in addition to the existing `Class`-based overload. ([Ic1b4e](https://android-review.googlesource.com/#/q/Ic1b4e594ae32b5d63f090b1456e2b2f6892db0ea))
+- Removes `AppFunctionContext` and `AppFunctionConfiguration` ([I9dd8f](https://android-review.googlesource.com/#/q/I9dd8f79a0a4a1463cdb95117f35c74ac0f07aad9))
+- Adds `activityId` to `ExecuteAppFunctionRequest` ([I6ac86](https://android-review.googlesource.com/#/q/I6ac86d38a464e91ae20c812826aa94f65d64b91f))
+- Adds `registerAppFunction`, `registerAppFunctions`, `RegisterAppFunctionRequest`, and `CallbackAppFunction` as `@ExperimentalAppFunctionsApi`. ([Idb2ca](https://android-review.googlesource.com/#/q/Idb2cafbb8342003c29b79a59a4ce51867e49d768))
+- Adds `scope` in `AppFunctionMetadata` and `AppFunctionSearchSpec` ([I4344c](https://android-review.googlesource.com/#/q/I4344ccd3a3e056dff4f6cea9702b615c8b012f94))
+- Adds `AppFunctionUriValueConstraint` as a public API. ([I75070](https://android-review.googlesource.com/#/q/I750702dcd86703ff2e493d4918686e83dc98b891))
+- Update `AppFunctionPackageMetadata` constructor ([I096f7](https://android-review.googlesource.com/#/q/I096f7901d6ca95efb6cd376d443f7ab5667c8020))
 
 ### Version 1.0.0-alpha11
 

@@ -8,7 +8,7 @@ source: md.txt
 
 # Adaptive development for the expanding Android ecosystem
 
-3 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp) 19 May 2026 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) Senior Product Manager, Android Developer Experience With the release of Android 17, we are transitioning into an [adaptive first development](https://developer.android.com/adaptive-apps) standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
+3 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_Z14DWX.webp) 19 May 2026 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) Senior Product Manager, Android Developer Experience With the release of Android 17, we are transitioning into an [adaptive first development](https://developer.android.com/adaptive-apps) standard. Your users no longer rely on a single form factor; they transition between phones, foldables, tablets, laptops, automotive displays, and immersive XR environments throughout their day.
 
 Now, with over **580 million large screen devices** in the hands of users, adaptive is no longer just a technical goal. It's a massive opportunity to reach highly engaged users. To thrive in this multi-device ecosystem, your app must be resilient, responsive, and ready for virtually any surface.
 
@@ -20,7 +20,7 @@ The Android device universe is now a multi device reality. Users are buying into
 - **Capture high-value segments:** Large-screen users (tablets, foldables, and Chromebooks) typically spend roughly **5x more** than phone-only users.
 
 To help amplify your reach with these users, we've rolled out a new badge in Google Play. Apps meeting adaptive quality standards now earn an "Optimized for large screens" badge, making it easier for users to discover high quality experiences.
-![image5.png](https://developer.android.com/static/blog/assets/image5_506f2d57fd_Z7e1im.webp)
+![image5.png](https://developer.android.com/static/blog/assets/image5_506f2d57fd_Z29Xknq.webp)
 
 ### Latest in adaptive Android development from Google I/O
 
@@ -29,7 +29,7 @@ Android 17, new Jetpack updates and advanced tools help you build apps that feel
 **Adaptive by default: Android 17 updates**
 
 In Android 16, we [introduced significant changes](https://android-developers.googleblog.com/2025/01/orientation-and-resizability-changes-in-android-16.html) to orientation and resizability APIs to facilitate adaptive behavior, while providing a temporary opt-out to help you make the transition. Android 17 (API level 37) sets a new quality baseline by removing that developer opt-out for orientation and resizability restrictions on large screen devices (sw \> 600 dp). When you target API level 37, your app must be capable of adapting to a variety of display sizes. This helps your app deliver an experience that matches the users' expectations.
-![image1.png](https://developer.android.com/static/blog/assets/image1_f0544ba938_1S4Wev.webp)
+![image1.png](https://developer.android.com/static/blog/assets/image1_f0544ba938_Z9ElPy.webp)
 
 **Your app on even more surfaces**
 
@@ -38,7 +38,7 @@ In addition to your mobile app running on large screens devices including foldab
 - **Connected Displays:** Now in stable as of Android 16 QPR3, Connected Displays support enables supported Pixel and Samsung mobile devices to transform into a desktop environment via external display support.
 - **Automotive \& TV:** With the [Car Ready Mobile Apps program](https://developer.android.com/training/cars/car-ready-mobile-apps) and enhanced [pointer support for Android TV](http://android-developers.googleblog.com/2026/05/increase-google-tv-app-discovery.html), your adaptive app can now benefit from engagement on the infotainment system and the living room with ease.
 
-![image4.png](https://developer.android.com/static/blog/assets/image4_87419e4a30_2v7wPp.webp)
+![image4.png](https://developer.android.com/static/blog/assets/image4_87419e4a30_Z1pP5AX.webp)
 
 **Googlebook: Evolving desktop computing**
 
@@ -49,7 +49,7 @@ Building with adaptive principles today helps ensure your app is ready for this 
 To help you prepare for this new generation of devices, we've released comprehensive new documentation including comprehensive [design guidance](https://developer.android.com/design/ui/desktop) and [developer guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop). Built on the principles of adaptive, these guidelines offer a playbook for transitioning your mobile apps to offer a premium desktop class experience.
 
 Try out the new Desktop Emulator, available now in the Android Studio Canary to get started today.
-![google_aluminium_hype_film_hp_sh18019_main_design_v04_00068 (1).png](https://developer.android.com/static/blog/assets/google_aluminium_hype_film_hp_sh18019_main_design_v04_00068_1_5add00913d_2evn14.webp)
+![google_aluminium_hype_film_hp_sh18019_main_design_v04_00068 (1).png](https://developer.android.com/static/blog/assets/google_aluminium_hype_film_hp_sh18019_main_design_v04_00068_1_5add00913d_Z2onKfk.webp)
 
 **Beyond layouts: non-touch input**
 
@@ -67,7 +67,7 @@ We are now [Compose first](https://goo.gle/Compose_IO26) and Jetpack Compose is 
 - **MediaQuery API:** The new experimental [MediaQuery API](https://developer.android.com/reference/kotlin/androidx/compose/ui/mediaQuery.composable) provides observable device UI capabilities, such as window size and pointer precision, that allow you to adapt and optimize your app's UI for the current device configuration.
 - **Styles API:** Dynamically evolve the visual properties of your app using the new state-based experimental [Styles API](https://developer.android.com/develop/ui/compose/styles).
 
-![morph-to-tablet.gif](https://developer.android.com/static/blog/assets/morph_to_tablet_bce353ffb9_sf8cy.webp)
+![morph-to-tablet.gif](https://developer.android.com/static/blog/assets/morph_to_tablet_bce353ffb9_2mBTrF.webp)
 
 <br />
 
@@ -78,7 +78,7 @@ Android Studio and [Android CLI](https://developer.android.com/tools/agents/andr
 - **Android Skills:** These modular AI instructions are designed to assist any LLM through complex architectural tasks, including helping you with View-to-Compose migrations, implementing adaptive layouts, Navigation 2 to Navigation 3 transformation, and migrating off of legacy camera libraries to CameraX. Get started with these latest skills on the Android Skills [Github repo](https://github.com/android/skills) and [via Android CLI.](https://developer.android.com/tools/agents/android-cli#skills-add)
 - **New Project Agent:** Available in Android Studio Panda 2, this agent initializes new projects with adaptive best practices by default.
 
-![O26_315_PKLS_Adaptive development for the expanding Android ecosystem.png](https://developer.android.com/static/blog/assets/O26_315_PKLS_Adaptive_development_for_the_expanding_Android_ecosystem_081c6533be_2ejjaD.webp)
+![O26_315_PKLS_Adaptive development for the expanding Android ecosystem.png](https://developer.android.com/static/blog/assets/O26_315_PKLS_Adaptive_development_for_the_expanding_Android_ecosystem_081c6533be_ZBxPEl.webp)
 
 For developers working with cross-platform frameworks, we continue to provide full support for Web, Qt, and Unity. Whether you are building from scratch or modernizing a legacy codebase, these tools are designed to meet your users exactly where they are.
 
@@ -99,9 +99,9 @@ Written by:
   ###### Senior Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
+  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)
 Continue reading
-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
 
@@ -115,7 +115,7 @@ Continue reading
   - [#Foldables](https://developer.android.com/blog/topics/foldables)
   - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
   - +5 ↩
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z2lMDgd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 Dec 2025 19 Dec 2025 ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z103sxP.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Goodbye Mobile Only, Hello Adaptive: Three essential updates from 2025 for building adaptive apps](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive)
 
@@ -126,7 +126,7 @@ Continue reading
   - [#Compose](https://developer.android.com/blog/topics/compose)
   - [#Android 16](https://developer.android.com/blog/topics/android-16)
   - +2 ↩
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_Z1BKgnT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_1vfHD.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices)
 
@@ -138,4 +138,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -8,7 +8,7 @@ source: md.txt
 
 # Brighten Your Real-Time Camera Feeds with Low Light Boost
 
-7 min read ![](https://developer.android.com/static/blog/assets/Brighten_Real_Time_0d4c07ef35_U1qMY.webp) 17 Dec 2025 [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp)](https://developer.android.com/blog/authors/donovan-mcmurray) [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray) Developer Relations Engineer We recently shared[how Instagram enabled users to take stunning low light photos](https://android-developers.googleblog.com/2024/12/instagram-on-android-low-light-photos.html) using Night Mode. That feature is perfect for still images, where there's time to combine multiple exposures to create a high-quality static shot. But what about the moments that happen *between* the photos? Users need to interact with the camera more than just the moment the shutter button is pressed. They also use the preview to compose their scene or scan QR codes.
+7 min read ![](https://developer.android.com/static/blog/assets/Brighten_Real_Time_0d4c07ef35_ZnMjzn.webp) 17 Dec 2025 [![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)](https://developer.android.com/blog/authors/donovan-mcmurray) [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray) Developer Relations Engineer We recently shared[how Instagram enabled users to take stunning low light photos](https://android-developers.googleblog.com/2024/12/instagram-on-android-low-light-photos.html) using Night Mode. That feature is perfect for still images, where there's time to combine multiple exposures to create a high-quality static shot. But what about the moments that happen *between* the photos? Users need to interact with the camera more than just the moment the shutter button is pressed. They also use the preview to compose their scene or scan QR codes.
 
 Today, we're diving into [Low Light Boost (LLB)](https://developer.android.com/media/camera/lowlight), a powerful feature designed to brighten real-time camera streams. Unlike Night Mode, which requires a hold-still capture duration, Low Light Boost works instantaneously on your live preview and video recordings. LLB automatically adjusts how much brightening is needed based on available light, so it's optimized for every environment.
 
@@ -24,13 +24,13 @@ While Night Mode aims to improve final image quality, Low Light Boost is intende
 
 ## The Difference in Instagram
 
-![LLB_IG_demo_white_background.gif](https://developer.android.com/static/blog/assets/LLB_IG_demo_white_background_c12989c682_k2r0k.webp)
+![LLB_IG_demo_white_background.gif](https://developer.android.com/static/blog/assets/LLB_IG_demo_white_background_c12989c682_1XiX6R.webp)
 
 The engineering team behind the Android Instagram app is always hard at work to provide a state-of-the-art camera experience for their users. You can see in the above example just what a difference LLB makes on a Pixel 10 Pro.
-![lowlight.png](https://developer.android.com/static/blog/assets/lowlight_b6a40d505e_QudAb.webp)
+![lowlight.png](https://developer.android.com/static/blog/assets/lowlight_b6a40d505e_nQpt6.webp)
 
 It's easy to imagine the difference this makes in the user experience. If users aren't able to see what they're capturing, then there's a higher chance they'll abandon the capture.
-![lowlight1.png](https://developer.android.com/static/blog/assets/lowlight1_136eb50ee9_ZIxJEY.webp)
+![lowlight1.png](https://developer.android.com/static/blog/assets/lowlight1_136eb50ee9_HOkBp.webp)
 
 ## Choosing Your Implementation
 
@@ -71,7 +71,7 @@ The HDRNet model and its accompanying logic are orchestrated by the Low Light Bo
 3. Blending:  
    The original and HDRNet processed frames are blended. The amount of blending applied is dynamically controlled by the scene brightness calculator, ensuring a smooth transition between boosted and unboosted states.
 
-![low-light-boost-processor-diagram.png](https://developer.android.com/static/blog/assets/low_light_boost_processor_diagram_0dd70eed34_1IY9im.webp)
+![low-light-boost-processor-diagram.png](https://developer.android.com/static/blog/assets/low_light_boost_processor_diagram_0dd70eed34_152PXd.webp)
 
 **Advantage:**   
 Works on a broader range of devices (currently supports Samsung S22 Ultra, S23 Ultra, S24 Ultra, S25 Ultra, and Pixel 6 through Pixel 9) without requiring specific HAL support. Maintains the camera's frame rate as it's a post-processing effect.
@@ -241,22 +241,22 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/donovan-mcmurray) ![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp) ![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_ZJ6yBx.webp)
+  View profile](https://developer.android.com/blog/authors/donovan-mcmurray) ![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp) ![View Donovan McMurray's profile](https://developer.android.com/static/blog/assets/Donovan_Mc_Murray_9413499dd8_1V0INl.webp)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -272,4 +272,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

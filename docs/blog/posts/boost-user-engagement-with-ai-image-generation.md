@@ -8,26 +8,26 @@ source: md.txt
 
 # Boost user engagement with AI Image Generation
 
-5 min read ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_ZsFAUM.webp) 13 Oct 2025 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)](https://developer.android.com/blog/authors/mozart-louis) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) \& [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis) Adding custom images to your app can significantly improve and personalize user experience and boost user engagement. This post explores two new capabilities for image generation with Firebase AI Logic: the specialized Imagen editing features, currently in preview, and the general availability of Gemini 2.5 Flash Image (a.k.a "Nano Banana"), designed for contextual or conversational image generation.
+5 min read ![](https://developer.android.com/static/blog/assets/Android_Blog_banners_dd5c7be5f2_2daQMX.webp) 13 Oct 2025 [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_K6xYF.webp)](https://developer.android.com/blog/authors/mozart-louis) [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) \& [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis) Adding custom images to your app can significantly improve and personalize user experience and boost user engagement. This post explores two new capabilities for image generation with Firebase AI Logic: the specialized Imagen editing features, currently in preview, and the general availability of Gemini 2.5 Flash Image (a.k.a "Nano Banana"), designed for contextual or conversational image generation.
 
 **Boost user engagement with images generated via Firebase AI Logic**
 
 Image generation models can be used to create custom user profile avatars or to integrate personalized visual assets directly into key screen flows.
 
 For example, Imagen offers new editing features (in developer preview). You can now draw a mask and utilize inpainting to generate pixels within the masked area. Additionally, outpainting is available to generate pixels outside the mask.
-![Imagen inpainting.png](https://developer.android.com/static/blog/assets/Imagen_inpainting_d99f009550_Z15Eg9B.webp)
+![Imagen inpainting.png](https://developer.android.com/static/blog/assets/Imagen_inpainting_d99f009550_1zs2gh.webp)
 
 *Imagen supports inpainting, letting generate only a part of an image. *
 
 Alternatively, Gemini 2.5 Flash Image (a.k.a Nano Banana), can use extended world knowledge and the reasoning capabilities of the Gemini models to generate contextually relevant images, which is ideal for creating dynamic illustrations that align with a user's current in-app experience.
 
-![In-context nano banana illustration.png](https://developer.android.com/static/blog/assets/In_context_nano_banana_illustration_af21b7247f_dveip.webp)
+![In-context nano banana illustration.png](https://developer.android.com/static/blog/assets/In_context_nano_banana_illustration_af21b7247f_1GXGPt.webp)
 
 *Use Gemini 2.5 Flash Image to create dynamic illustrations contextually relevant to your app.*
 
 Finally, the ability to conversationally and iteratively edit images allow users to edit a photo using natural language.
 
-![photo edit natural language.png](https://developer.android.com/static/blog/assets/photo_edit_natural_language_52f7a73044_ZFdaDz.webp)
+![photo edit natural language.png](https://developer.android.com/static/blog/assets/photo_edit_natural_language_52f7a73044_Z1XbRi9.webp)
 
 *Use Gemini 2.5 Flash Image to edit a picture using natural language.*
 
@@ -50,7 +50,7 @@ Let's see how to use them in your app.
 A few months ago, we released new editing features for Imagen. Although Imagen is now ready for production for image generation, editing features are still in *developer preview*.
 
 Imagen editing features include *inpainting* and *outpainting*, mask-based image editing features. This new capability allows users to modify specific areas of an image without regenerating the entire picture. This means you can preserve the best parts of your image and only alter what you wish to change.
-![Imagen inpainting dog.png](https://developer.android.com/static/blog/assets/Imagen_inpainting_dog_f415940aad_RQtQD.webp)
+![Imagen inpainting dog.png](https://developer.android.com/static/blog/assets/Imagen_inpainting_dog_f415940aad_Z2hQmiR.webp)
 
 *Use Imagen editing features to make precise targeted changes in an image and guaranteeing the rest of the image integrity*
 
@@ -170,7 +170,7 @@ Written by:
   ###### Senior Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)
+  View profile](https://developer.android.com/blog/authors/thomas-ezan) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp) ![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)
 -
 
   ## [Mozart Louis](https://developer.android.com/blog/authors/mozart-louis)
@@ -178,21 +178,21 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/mozart-louis) ![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp) ![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_1RaA8T.webp)
+  View profile](https://developer.android.com/blog/authors/mozart-louis) ![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_K6xYF.webp) ![View Mozart Louis's profile](https://developer.android.com/static/blog/assets/Mozart_Louis_622373dab1_K6xYF.webp)
 Continue reading
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Apr 2026 17 Apr 2026 ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_gOJm.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Apr 2026 17 Apr 2026 ![](https://developer.android.com/static/blog/assets/Hybrid_inference_solution_for_Android_Blog_1_518db36e12_ZIVyDm.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Experimental hybrid inference and new Gemini models for Android](https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android)
 
   [arrow_forward](https://developer.android.com/blog/posts/experimental-hybrid-inference-and-new-gemini-models-for-android) If you are an Android developer looking to implement innovative AI features into your app, we recently launched powerful new updates.
   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) • 2 min read
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_O0qYl.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_2pRpOz.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Build smarter apps with Gemini 3 Flash](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash) Today, we're expanding the Gemini 3 model family with the release of Gemini 3 Flash, frontier intelligence built for speed at a fraction of the cost.
   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) • 2 min read
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
@@ -204,4 +204,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

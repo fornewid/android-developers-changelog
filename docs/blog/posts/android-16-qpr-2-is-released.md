@@ -8,7 +8,7 @@ source: md.txt
 
 # Android 16 QPR2 is Released
 
-4 min read ![](https://developer.android.com/static/blog/assets/a16released_7cb13cc79d_23qyL9.webp) 02 Dec 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Android 16 QPR2 is Released
+4 min read ![](https://developer.android.com/static/blog/assets/a16released_7cb13cc79d_Z1pSAcy.webp) 02 Dec 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Android 16 QPR2 is Released
 
 Faster Innovation with Android's first Minor SDK Release
 
@@ -33,7 +33,7 @@ QPR2 improves Android's personalization and accessibility, giving users more con
 ## Expanded Dark Theme
 
 To create a more consistent user experience for users who have low vision, photosensitivity, or simply those who prefer a dark system-wide appearance, QPR2 introduced an expanded option under dark theme.
-![image.png](https://developer.android.com/static/blog/assets/image_d2ad547106_FLznI.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_d2ad547106_Z1QIyGC.webp)
 
 The old Fitbit app showing the impact of expanded dark theme; the new Fitbit app directly supports a dark theme
 
@@ -46,9 +46,9 @@ This is largely intended as an accessibility feature. We strongly recommend impl
 In QPR2, users can select specific shapes for their app icons, which apply to all icons and folder previews. Additionally, if your app does not provide a dedicated themed icon, the system can now automatically generate one by applying a color filtering algorithm to your existing launcher icon.
 
 |---|---|
-| ![image.png](https://developer.android.com/static/blog/assets/image_929bed7f05_1nIksG.webp) | ![image.png](https://developer.android.com/static/blog/assets/image_d8db5a2ae5_Z1ueAkI.webp) |
+| ![image.png](https://developer.android.com/static/blog/assets/image_929bed7f05_Z19LNBE.webp) | ![image.png](https://developer.android.com/static/blog/assets/image_d8db5a2ae5_12ronR.webp) |
 | Custom Icon Shapes ||
-| ![image.png](https://developer.android.com/static/blog/assets/image_a4a5af6aa4_Z1QyBx3.webp) | ![image.png](https://developer.android.com/static/blog/assets/image_e982588671_7zJrO.webp) |
+| ![image.png](https://developer.android.com/static/blog/assets/image_a4a5af6aa4_F7nbx.webp) | ![image.png](https://developer.android.com/static/blog/assets/image_e982588671_Z2pUoCw.webp) |
 | Test Icon Shape \& Color in Android Studio | Automatic system icon color filtering |
 
 ## Interactive Chooser Sessions
@@ -62,7 +62,7 @@ We are introducing tools and updates designed to streamline your workflow and im
 ## Linux Development Environment with GUI Applications
 
 The Linux development environment feature has been expanded to support running Linux GUI applications directly within the terminal environment.
-![image.png](https://developer.android.com/static/blog/assets/image_6ba40ffe74_ZytA5.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_6ba40ffe74_2w7v8v.webp)
 
 Wilber, the GIMP mascot, designed by Aryeom Han, is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The screenshot of the GIMP interface is used with courtesy.
 
@@ -77,7 +77,7 @@ You can now [query user interaction events](https://developer.android.com/develo
 ## 16KB Page Size Readiness
 
 To help prepare for future architecture requirements, we have added early warning dialogs for debuggable apps that are not 16KB page-aligned.
-![image.png](https://developer.android.com/static/blog/assets/image_93c4af378a_2d2xhB.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_93c4af378a_ZksAMJ.webp)
 
 ## Media, Connectivity, and Health
 
@@ -86,7 +86,7 @@ QPR2 brings robust updates to media standards and device connectivity.
 ## IAMF and Audio Sharing
 
 We have added software decoding support for Immersive Audio Model and Formats (IAMF), an open-source spatial audio format. Additionally, Personal Audio Sharing for Bluetooth LE Audio is now integrated directly into the system Output Switcher.
-![image.png](https://developer.android.com/static/blog/assets/image_7428c09460_ZuCMrK.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_7428c09460_223cgP.webp)
 
 ## **Health Connect Updates**
 
@@ -130,23 +130,23 @@ Written by:
   ###### Vice President, Product Management, Android Developer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
 
@@ -159,4 +159,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

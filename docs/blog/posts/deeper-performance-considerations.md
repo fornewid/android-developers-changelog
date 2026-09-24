@@ -8,7 +8,7 @@ source: md.txt
 
 # Deeper Performance Considerations
 
-8 min read ![](https://developer.android.com/static/blog/assets/performance_Week11_efe6dd10be_Z1PApe6.webp) 19 Nov 2025 3 Authors [Ben Weiss,](https://developer.android.com/blog/authors/ben-weiss) [Breana Tate,](https://developer.android.com/blog/authors/breana-tate) [Jossi Wolf](https://developer.android.com/blog/authors/jossi-wolf) Compose yourselves and let us guide you through more background on performance.
+8 min read ![](https://developer.android.com/static/blog/assets/performance_Week11_efe6dd10be_1ULXct.webp) 19 Nov 2025 3 Authors [Ben Weiss,](https://developer.android.com/blog/authors/ben-weiss) [Breana Tate,](https://developer.android.com/blog/authors/breana-tate) [Jossi Wolf](https://developer.android.com/blog/authors/jossi-wolf) Compose yourselves and let us guide you through more background on performance.
 
 Welcome to day 3 of Performance Spotlight Week. Today we're continuing to share details and guidance on important areas of app performance. We're covering Profile Guided Optimization, Jetpack Compose performance improvements and considerations on working behind the scenes. Let's dive right in.
 
@@ -23,14 +23,14 @@ Baseline Profiles effectively move the Just in Time (JIT) compilation steps away
 ## **Trello and Baseline Profiles**
 
 We asked engineers on the Trello app how Baseline Profiles affected their app's performance. After applying Baseline Profiles to their main user journey, Trello saw a significant 25 % reduction in app startup time.
-![image.png](https://developer.android.com/static/blog/assets/image_be5bddd852_Q2Oe7.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_be5bddd852_Z1GsjQe.webp)
 
 Trello was able to improve their app's startup time by 25 % by using baseline profiles.
 
 ## **Baseline Profiles at Meta**
 
 Also, engineers at Meta recently published an article on how they are [accelerating their Android apps with Baseline Profiles](https://engineering.fb.com/2025/10/01/android/accelerating-our-android-apps-with-baseline-profiles/).
-![image.png](https://developer.android.com/static/blog/assets/image_557c651300_QsKjS.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_557c651300_Z1G2nKs.webp)
 
 Across Meta's apps the teams have seen various critical metrics improve by up to 40 % after applying Baseline Profiles.
 
@@ -88,7 +88,7 @@ We also have extensive guidance on [Baseline Profiles](https://developer.android
 ## **Jetpack Compose performance improvements**
 
 The UI framework for Android has seen the performance investment of the engineering team pay off. From version 1.9 of Jetpack Compose, scroll jank has dropped to 0.2 % during an internal long scrolling benchmark test.
-![jankyFrames.png](https://developer.android.com/static/blog/assets/janky_Frames_69aa7bc2c6_Z11r8x3.webp)
+![jankyFrames.png](https://developer.android.com/static/blog/assets/janky_Frames_69aa7bc2c6_Z28vaGh.webp)
 
 These improvements were made possible because of several features packed into the most recent releases.
 
@@ -113,7 +113,7 @@ LazyColumn(state = state) {
 ## Pausable composition
 
 This feature allows compositions to be paused, and their work split up over several frames. The APIs landed in 1.9 and it is now used by default in 1.10 in lazy layout prefetch. You should see the most benefit with complex items with longer composition times.
-![image.png](https://developer.android.com/static/blog/assets/image_d2fb84104a_KYPwr.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_d2fb84104a_Z1LvixT.webp)
 
 ## More Compose performance optimizations
 
@@ -181,10 +181,10 @@ The Background Task Inspector is a powerful tool integrated directly into Androi
 To debug why scheduled work is not executing with the Background Task Inspector, consult the listed Work status(es). An 'Enqueued' status indicates your Work was scheduled, but is still waiting to run.
 
 **Benefits:** Aside from providing an easy way to view all tasks, this tool is especially useful if you have chained work. The Background Task inspector offers a graph view that can visualize if a previous task failing may have impacted the execution of the following task.
-![image.png](https://developer.android.com/static/blog/assets/image_33bce8e74c_xt83U.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_33bce8e74c_Z20211q.webp)
 
 *Background Task Inspector list view*
-![image.png](https://developer.android.com/static/blog/assets/image_2ae46bdf75_ZphdIK.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_2ae46bdf75_27oKYP.webp)
 
 *Background Task Inspector graph view*
 
@@ -233,7 +233,7 @@ First confirm in the [Android vitals excessive wake lock dashboard](https://play
 [Perfetto](http://ui.perfetto.dev/) is a tool for analyzing system traces. When using it for debugging WorkManager specifically, you can view the "Device State" section to see when your work started, how long it ran, and how it contributes to power consumption.
 
 Under "Device State: Jobs" track, you can see any workers that have been executed and their associated wake locks.
-![deviceState.png](https://developer.android.com/static/blog/assets/device_State_08fad1075f_1djS9E.webp)
+![deviceState.png](https://developer.android.com/static/blog/assets/device_State_08fad1075f_2dENc5.webp)
 
 *Device State section in Perfetto, showing CleanupWorker and BlurWorker execution.*
 
@@ -276,7 +276,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
+  View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)
 -
 
   ## [Breana Tate](https://developer.android.com/blog/authors/breana-tate)
@@ -284,7 +284,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/breana-tate) ![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp) ![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_Z1NRigS.webp)
+  View profile](https://developer.android.com/blog/authors/breana-tate) ![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp) ![View Breana Tate's profile](https://developer.android.com/static/blog/assets/Breana_Tate_24c1d03bf2_1PpSPG.webp)
 -
 
   ## [Jossi Wolf](https://developer.android.com/blog/authors/jossi-wolf)
@@ -292,16 +292,16 @@ Written by:
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/jossi-wolf) ![View Jossi Wolf's profile](https://developer.android.com/static/blog/assets/Jossi_Wolf_d703979815_1D5j3e.webp) ![View Jossi Wolf's profile](https://developer.android.com/static/blog/assets/Jossi_Wolf_d703979815_1D5j3e.webp)
+  View profile](https://developer.android.com/blog/authors/jossi-wolf) ![View Jossi Wolf's profile](https://developer.android.com/static/blog/assets/Jossi_Wolf_d703979815_M1Gw1.webp) ![View Jossi Wolf's profile](https://developer.android.com/static/blog/assets/Jossi_Wolf_d703979815_M1Gw1.webp)
 Continue reading
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZbOM76.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZRbYap.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post, we explored how to leverage Firebase AI Logic to build cloud-hosted and hybrid AI features.
   [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 6 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_p8Pb2.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_1VESew.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Get your app on the fast track with Android Performance Spotlight Week!](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week)
 
@@ -309,7 +309,7 @@ Continue reading
   [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 3 min read
   - [#Performance](https://developer.android.com/blog/topics/performance)
   - [#R8](https://developer.android.com/blog/topics/r8)
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
 
@@ -325,4 +325,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

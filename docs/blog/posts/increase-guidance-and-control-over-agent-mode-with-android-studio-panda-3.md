@@ -8,7 +8,7 @@ source: md.txt
 
 # Increase Guidance and Control over Agent Mode with Android Studio Panda 3
 
-3 min read ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_Z1E8IhJ.webp) 02 Apr 2026 [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)](https://developer.android.com/blog/authors/matt-dyor) [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) Senior Product Manager Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
+3 min read ![](https://developer.android.com/static/blog/assets/as_Panda3_385cde5eac_ZcKD0l.webp) 02 Apr 2026 [![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z1zsAdP.webp)](https://developer.android.com/blog/authors/matt-dyor) [Matt Dyor](https://developer.android.com/blog/authors/matt-dyor) Senior Product Manager Android Studio Panda 3 is now stable and ready for you to use in production. This release gives you even more control and customization over your AI-powered workflows, making it easier than ever to build high-quality Android apps.
 
 Whether you're bringing new capabilities to an existing app or standing up a brand new app, these updates elevate your development experience by allowing your AI Agent in Android Studio to learn your specific practices and giving you granular control over its permissions.
 
@@ -23,7 +23,7 @@ Create a more helpful AI agent by using agent skills in Android Studio. Agent sk
 You and members of your team can create skills that tell the agent exactly how you want to handle specific tasks in your codebase. For example, you could create a custom "code review" skill tailored to your organization's coding standards, or custom skill to provide the agent with more information on using an in-house library.
 
 Once you have created a skill, the agent will be able to use it automatically, or you can manually trigger it by typing @ followed by the skill name. Check out the [documentation](http://d.android.com/studio/gemini/skills) to learn more about how to create skills for your codebase, or better yet---ask your agent to help you build a new skill and it will guide you through the details!
-![large_CROPPED-1-3-skill-used-REV.png](https://developer.android.com/static/blog/assets/large_CROPPED_1_3_skill_used_REV_c50fa79b7a_YtsKV.webp) Manually Trigger Agent Skill in Android Studio
+![large_CROPPED-1-3-skill-used-REV.png](https://developer.android.com/static/blog/assets/large_CROPPED_1_3_skill_used_REV_c50fa79b7a_2k6vKY.webp) Manually Trigger Agent Skill in Android Studio
 
 #### Getting Started
 
@@ -34,19 +34,19 @@ To build a skill for your project, do the following:
 - Add a name and description to the file to define your custom workflow, and your skill is ready.
 - Optionally include scripts, assets, and references to provide even more guidance to your agent.
 
-![large_CROPPED-1-2-skill-md-REV.png](https://developer.android.com/static/blog/assets/large_CROPPED_1_2_skill_md_REV_cfae04a78f_pKwUV.webp) Agent skills in Android Studio
+![large_CROPPED-1-2-skill-md-REV.png](https://developer.android.com/static/blog/assets/large_CROPPED_1_2_skill_md_REV_cfae04a78f_oEr2M.webp) Agent skills in Android Studio
 
 ## Manage permissions for Agent Mode
 
 You control your codebase, and you can now be more deliberate with which data and capabilities you choose to share with AI agents. The new granular agent permissions in Android Studio let you decide exactly what agents can do for you.
 
 When Agent Mode needs to read files, run shell commands, or access the web, it explicitly asks for your permission. We know that 'approval fatigue' is a real risk in AI workflows---when a tool asks for permission too often, it's easy to start clicking 'Allow' without fully reviewing the action. By offering granular 'Always Allow' rules for trusted operations and an optional sandbox for experimental ones, Android Studio helps you stay focused on the high-stakes decisions that actually require your manual sign-off.
-![large_2-2-alt-permission-request-REV (1).png](https://developer.android.com/static/blog/assets/large_2_2_alt_permission_request_REV_1_e8252696bb_19ChPO.webp) Agent Permissions
+![large_2-2-alt-permission-request-REV (1).png](https://developer.android.com/static/blog/assets/large_2_2_alt_permission_request_REV_1_e8252696bb_Z2cucI9.webp) Agent Permissions
 
 Agent permissions are intuitive to set up and use. For example, granting high-level permissions automatically authorizes related sub-tools, while commands you have previously approved will run automatically without interrupting your flow. Rest assured, accessing sensitive files like SSH keys will always require your explicit sign-off.
 
 For even more security, you can also use an optional sandbox to enforce strict, isolated control over the agent.
-![large_2-3-sandbox-REV.png](https://developer.android.com/static/blog/assets/large_2_3_sandbox_REV_8390abb783_Z1RIqE6.webp) Agent Shell Sandbox
+![large_2-3-sandbox-REV.png](https://developer.android.com/static/blog/assets/large_2_3_sandbox_REV_8390abb783_1mWVmP.webp) Agent Shell Sandbox
 
 ## Empty Car App Library App template
 
@@ -62,7 +62,7 @@ To use the new template:
 - Search for or select the **Empty Car App Library App** template.
 - Name your app and click **Finish** to generate your driving-optimized app.
 
-![large_3-1-empty-car-app-library-app-template-REV.png](https://developer.android.com/static/blog/assets/large_3_1_empty_car_app_library_app_template_REV_76dd6fd360_brsRp.webp) Empty Car App Library App template
+![large_3-1-empty-car-app-library-app-template-REV.png](https://developer.android.com/static/blog/assets/large_3_1_empty_car_app_library_app_template_REV_76dd6fd360_IvFzC.webp) Empty Car App Library App template
 
 ## Android Studio Panda releases
 
@@ -83,9 +83,9 @@ Written by:
   ###### Senior Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matt-dyor) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z2hl456.webp)
+  View profile](https://developer.android.com/blog/authors/matt-dyor) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z1zsAdP.webp) ![View Matt Dyor's profile](https://developer.android.com/static/blog/assets/matt_dyor_b779fca40e_Z1zsAdP.webp)
 Continue reading
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -95,7 +95,7 @@ Continue reading
   - [#ADB Wi-Fi 2.0](https://developer.android.com/blog/topics/adb-wi-fi-2-0)
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
   - +1 ↩
-- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_Z2bRC9Y.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_ZqnmK9.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4)
 
@@ -103,7 +103,7 @@ Continue reading
   [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 5 min read
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
   - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
-- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_ZzldHB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_1b91Ge.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
 
@@ -119,4 +119,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

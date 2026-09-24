@@ -259,4 +259,4 @@ function if you don't want to replay the latest information sent to the flow.
 - [Testing Kotlin flows on Android](https://developer.android.com/kotlin/flow/test)
 - [Things to know about Flow's shareIn and stateIn operators](https://medium.com/androiddevelopers/things-to-know-about-flows-sharein-and-statein-operators-20e6ccb2bc74)
 - [Migrating from LiveData to Kotlin Flow](https://medium.com/androiddevelopers/migrating-from-livedata-to-kotlins-flow-379292f419fb)
-- [Additional resources for Kotlin coroutines and flow](https://developer.android.com/kotlin/coroutines/additional-resources)
+- [Flows](https://kotlinlang.org/docs/coroutines-flow.html)

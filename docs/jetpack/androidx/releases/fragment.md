@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 29, 2026 | [1.8.9](https://developer.android.com/jetpack/androidx/releases/fragment#1.8.9) | [1.9.0-rc01](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.0-rc01) | - | - |
+| September 23, 2026 | [1.9.1](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.1) | - | - | - |
 
 > [!CAUTION]
 > **Caution:** This library is in maintenance mode and will only receive critical fixes; new features are not planned. We recommend using [Jetpack Compose](https://developer.android.com/jetpack/compose) for building Android UIs. See [Compose-first](https://developer.android.com/develop/ui/compose/first) for more information.
@@ -28,7 +28,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    def fragment_version = "1.9.0"
+    def fragment_version = "1.9.1"
 
     // Java language implementation
     implementation "androidx.fragment:fragment:$fragment_version"
@@ -46,7 +46,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val fragment_version = "1.9.0"
+    val fragment_version = "1.9.1"
 
     // Java language implementation
     implementation("androidx.fragment:fragment:$fragment_version")
@@ -75,6 +75,24 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.9
+
+### Version 1.9.1
+
+September 23, 2026
+
+`androidx.fragment:fragment-*:1.9.1` is released. Version 1.9.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/c3656c9a5f4a53bf56c5d6e2cb651be7ba362010..c7972964157bfe3513d2a89b1cc14205d132148a/fragment).
+
+### Version 1.9.0
+
+August 12, 2026
+
+`androidx.fragment:fragment-*:1.9.0` is released. Version 1.9.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f39ca3510efb2347ebfef231e25a3e804922450d..c3656c9a5f4a53bf56c5d6e2cb651be7ba362010/fragment).
+
+**Important changes since 1.8.0:**
+
+- `Fragment` now implements the `ContextAware` interface and can be used to execute code when the fragment is attached.
+- The `AndroidFragment` composable now accepts a `maxLifecycle` paramater that allows you to cap the lifecycle state of the embedded `Fragment`.
+- `Fragment` library now supports system tracing of the lifecycle event via `Jetpack Tracing`.
 
 ### Version 1.9.0-rc01
 

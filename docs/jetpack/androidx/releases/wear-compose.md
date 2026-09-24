@@ -12,7 +12,7 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.6.2](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.6.2) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0-rc01) | - | - |
+| September 23, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0) | - | - | - |
 
 > [!NOTE]
 > **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
@@ -30,16 +30,16 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.wear.compose:compose-foundation:1.6.2"
+    implementation "androidx.wear.compose:compose-foundation:1.7.0"
 
     // For Wear Material Design UX guidelines and specifications
-    implementation "androidx.wear.compose:compose-material:1.6.2"
+    implementation "androidx.wear.compose:compose-material:1.7.0"
 
     // For integration between Wear Compose and Androidx Navigation libraries
-    implementation "androidx.wear.compose:compose-navigation:1.6.2"
+    implementation "androidx.wear.compose:compose-navigation:1.7.0"
 
     // For Wear preview annotations
-    implementation("androidx.wear.compose:compose-ui-tooling:1.6.2")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.7.0")
     
     // NOTE: DO NOT INCLUDE a dependency on androidx.compose.material:material.
     // androidx.wear.compose:compose-material is designed as a replacement
@@ -53,16 +53,16 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.wear.compose:compose-foundation:1.6.2")
+    implementation("androidx.wear.compose:compose-foundation:1.7.0")
 
     // For Wear Material Design UX guidelines and specifications
-    implementation("androidx.wear.compose:compose-material:1.6.2")
+    implementation("androidx.wear.compose:compose-material:1.7.0")
 
     // For integration between Wear Compose and Androidx Navigation libraries
-    implementation("androidx.wear.compose:compose-navigation:1.6.2")
+    implementation("androidx.wear.compose:compose-navigation:1.7.0")
     
     // For Wear preview annotations
-    implementation("androidx.wear.compose:compose-ui-tooling:1.6.2")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.7.0")
 
     // NOTE: DO NOT INCLUDE a dependency on androidx.compose.material:material.
     // androidx.wear.compose:compose-material is designed as a replacement
@@ -90,6 +90,25 @@ for more information.
 <br />
 
 ## Version 1.7
+
+### Version 1.7.0
+
+September 23, 2026
+
+`androidx.wear.compose:compose-*:1.7.0` is released. Version 1.7.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f65727cc5cc63d05724c0edb55900bc8790b14e8..974f75a2305793f54e6bb6e29da386db7b44b202/wear/compose).
+
+**Important changes since 1.6.0:**
+
+- Introduced new API for one-handed gestures, consisting of gesture handlers for primary action (double-pinch) and dismiss action (wrist-turn) as well as animated indicators for clicking/scrolling/paging that show when the gestures are available.
+- Added `PinnableContainer` support to `TransformingLazyColumn`, for holding an item in memory instead of disposing when the item is scrolled out of the viewport.
+- `TransformingLazyColumn` now has support for animating items as they move out of the viewport, allowing them to smoothly slide off-screen instead of fading out.
+- Added `firstLayoutItemProvider` to `TransformingLazyColumn` as an optional customization for the first layout item. When specified, the provider defines the item and its edge used as the initial placement reference, which is useful for controlling the direction of content-shifting when items are dynamically updated.
+- Improvements to `SwipeToReveal` to support nested scroll, fast flings, a second haptic at the partial reveal state and `actionContentSpacing` for the distance between the main content and the action buttons.
+- Introduced `@FrequentlyChangingValue` and `@RememberInComposition` annotations that provide lint warnings to prevent performance issues caused by reading high-frequency state updates or failing to remember objects during composition.
+
+**Bug Fixes**
+
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([If8e16](https://android-review.googlesource.com/#/q/If8e165062c3055b1dedd62de9c49de33e68a3c10))
 
 ### Version 1.7.0-rc01
 

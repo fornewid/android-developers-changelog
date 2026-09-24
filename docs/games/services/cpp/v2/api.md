@@ -4,9 +4,9 @@ url: https://developer.android.com/games/services/cpp/v2/api
 source: md.txt
 ---
 
-# Play Games Services C++ (v2) (beta) Reference
+# Play Games Services C++ (v2) Reference
 
-These are the reference pages for the Play Games Services C++ (v2) (beta) API.
+These are the reference pages for the Play Games Services C++ (v2) API.
 
 ## Additional Resources
 

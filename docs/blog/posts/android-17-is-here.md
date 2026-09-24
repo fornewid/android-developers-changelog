@@ -8,8 +8,8 @@ source: md.txt
 
 # Android 17 is Here
 
-13 min read ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) 16 Jun 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
-![AfD-Android-17.gif](https://developer.android.com/static/blog/assets/Af_D_Android_17_7410a1af06_Z2bzxdy.webp)
+13 min read ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) 16 Jun 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
+![AfD-Android-17.gif](https://developer.android.com/static/blog/assets/Af_D_Android_17_7410a1af06_ZhcKXr.webp)
 
 Android 17 marks the start of our transition to an intelligence system, putting your apps at the center. Android is shifting to adaptive-first development standards by introducing mandatory large-screen resizability, while simultaneously delivering next-generation privacy, security, media, camera, and performance. We'll cover all that in this post, as well as how we're bringing together next generation tools, libraries, and agent skills to help your apps embrace this opportunity.
 
@@ -68,7 +68,7 @@ Android 17 introduces powerful new windowing capabilities that redefine how user
 - **The Bubble Bar:** On large screens (tablets and foldables), the system taskbar now includes a dedicated Bubble Bar to organize, transition between, and dock these floating app bubbles.
 - **Desktop interactive PiP:** In desktop environments, Android 17 introduces interactive Picture-in-Picture (PiP). Unlike traditional PiP windows which are read-only, these pinned windows remain fully interactive while staying always-on-top of other application windows.
 
-![Bubbles (1).gif](https://developer.android.com/static/blog/assets/Bubbles_1_87589bd167_22skB6.webp) App Bubbles and Bubble Bar in action
+![Bubbles (1).gif](https://developer.android.com/static/blog/assets/Bubbles_1_87589bd167_1boI4S.webp) App Bubbles and Bubble Bar in action
 
 ### Activity recreation updates
 
@@ -79,7 +79,7 @@ Instead, running activities will receive these updates via onConfigurationChange
 ### Continue On
 
 Android 17 adds Continue On to help users seamlessly transition a task between Android devices. The user sees a suggestion for the most recently opened app from their mobile device in their tablet taskbar, providing a one-tap affordance to launch the app and deep-link where they left off. Continue on can support app-to-web transitions, including falling back to using the web if the app isn't installed.
-![Continue On.png](https://developer.android.com/static/blog/assets/Continue_On_1a1c25e5ac_ZnJQqY.webp) Handoff Suggestion on a Tablet
+![Continue On.png](https://developer.android.com/static/blog/assets/Continue_On_1a1c25e5ac_Z1uNSAd.webp) Handoff Suggestion on a Tablet
 
 ```
 class MyHandoffActivity : Activity() {
@@ -133,7 +133,7 @@ Starting in Android 17, the system will enforce strict app memory limits based o
 
 - **R8 Optimizer:** TheR8 optimizer significantly reduces your app's bytecode memory footprint by shrinking classes, methods, and fields into shorter names, and stripping out unused code and resources. Use R8 in full mode along with the new [R8 configuration analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer) to make sure your app is getting the most from R8.
 
-![R8 Configuration Analyzer.png](https://developer.android.com/static/blog/assets/R8_Configuration_Analyzer_78f2101657_Z18pPMX.webp) The R8 Configuration Analyzer
+![R8 Configuration Analyzer.png](https://developer.android.com/static/blog/assets/R8_Configuration_Analyzer_78f2101657_24IOrG.webp) The R8 Configuration Analyzer
 
 - **LeakCanary in Android Studio Panda:**The profiler now features native LeakCanary integration as a dedicated task, fully integrated with your IDE and source code.
 - **ApplicationExitInfo:** If your app is terminated by these limits, getDescription() from ApplicationExitInfo will return "MemoryLimiter:AnonSwap".
@@ -195,7 +195,7 @@ fun launchColorPicker() {
    eyeDropperLauncher.launch(intent)
 }
 ```
-![Eyedropper Tester.webp](https://developer.android.com/static/blog/assets/Eyedropper_Tester_e6d521ab0a_1iI9YJ.webp) Picking a color from anywhere on the screen with the system EyeDropper
+![Eyedropper Tester.webp](https://developer.android.com/static/blog/assets/Eyedropper_Tester_e6d521ab0a_Z20XIpm.webp) Picking a color from anywhere on the screen with the system EyeDropper
 
 ### Local network access
 
@@ -228,7 +228,7 @@ With Android 17, we're making it safer to enter passwords, PINs, and other secre
 Users can still easily customize these display settings to match their preferences (availability may vary by device manufacturer).
 
 These enhanced privacy protections are automatically supported byAndroid's built-in SDK components and will be supported in Compose 1.12 for `SecureTextFields`.   
-![Hide First Letter.gif](https://developer.android.com/static/blog/assets/Hide_First_Letter_274ffb63c2_p6kOS.webp) Smarter password protection for physical inputs
+![Hide First Letter.gif](https://developer.android.com/static/blog/assets/Hide_First_Letter_274ffb63c2_Z1YXuya.webp) Smarter password protection for physical inputs
 
 ## Media and camera features that empower creators and delight users
 
@@ -275,7 +275,7 @@ Your Pixel device should get Android 17 shortly if you haven't already been on t
 ## Getting the Android 17 beta on partner devices
 
 Android 17 is available in beta on handset, tablet, and foldable form factors [from partners](https://developer.android.com/about/versions/17/devices) including Honor, iQOO, Lenovo, OnePlus, OPPO, Realme, Sharp, vivo, and Xiaomi.
-![android-17-beta-partners.jpg](https://developer.android.com/static/blog/assets/android_17_beta_partners_f983e5def9_Z1fKXPq.webp)
+![android-17-beta-partners.jpg](https://developer.android.com/static/blog/assets/android_17_beta_partners_f983e5def9_Z9pYRm.webp)
 
 For the best development experience with Android 17, we recommend that you use the latest Canary build of [Android Studio Quail](https://developer.android.com/studio/preview). Once you're set up, here are some of the things you should do:
 
@@ -294,9 +294,9 @@ Written by:
   ###### Vice President, Product Management, Android Developer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_Z1HMAIH.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 26 Mar 2026 26 Mar 2026 ![](https://developer.android.com/static/blog/assets/android17banner_359909419a_1M5BEL.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [The Third Beta of Android 17](https://developer.android.com/blog/posts/the-third-beta-of-android-17)
 
@@ -304,14 +304,14 @@ Continue reading
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 5 min read
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
   - [#beta](https://developer.android.com/blog/topics/beta)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_Z1URmUI.webp)](https://developer.android.com/blog/authors/blair-harmon) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1hkk5a.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_27tpBh.webp)](https://developer.android.com/blog/authors/blair-harmon) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1o8xIO.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Preparing your app for broader memory limits](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits)
 
@@ -329,4 +329,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

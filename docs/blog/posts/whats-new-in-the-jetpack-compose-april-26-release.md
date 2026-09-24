@@ -8,7 +8,7 @@ source: md.txt
 
 # What's new in the Jetpack Compose April '26 release
 
-6 min read ![](https://developer.android.com/static/blog/assets/0420_Compose_1_11_Strapi_9c17b19a5e_1zjMqo.webp) 22 Apr 2026 [![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z21FLk.webp)](https://developer.android.com/blog/authors/meghan-mehta) [Meghan Mehta](https://developer.android.com/blog/authors/meghan-mehta) Developer Advocate, Android Today, the Jetpack Compose April '26 release is stable. This release contains version 1.11 of core Compose modules (see the full [BOM mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping)), shared element debug tools, trackpad events, and more. We also have a few experimental APIs that we'd love you to try out and give us feedback on.
+6 min read ![](https://developer.android.com/static/blog/assets/0420_Compose_1_11_Strapi_9c17b19a5e_cAfHS.webp) 22 Apr 2026 [![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z2r6wan.webp)](https://developer.android.com/blog/authors/meghan-mehta) [Meghan Mehta](https://developer.android.com/blog/authors/meghan-mehta) Developer Advocate, Android Today, the Jetpack Compose April '26 release is stable. This release contains version 1.11 of core Compose modules (see the full [BOM mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping)), shared element debug tools, trackpad events, and more. We also have a few experimental APIs that we'd love you to try out and give us feedback on.
 
 To use today's release, upgrade your [Compose BOM](https://developer.android.com/develop/ui/compose/bom) version to:
 
@@ -57,7 +57,7 @@ We also added support for more complicated trackpad gestures as recognized by th
 These changes improve behavior for trackpads across built-in components, with redundant touch slop removed, a more intuitive drag-and-drop starting gesture, double-click and triple-click selection in text fields, and desktop-styled context menus in text fields.
 
 To test trackpad behavior, there are new testing APIs with [`performTrackpadInput`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/SemanticsNodeInteraction#(androidx.compose.ui.test.SemanticsNodeInteraction).performTrackpadInput(kotlin.Function1))`,` which allow validating the behavior of your apps when being used with a trackpad. If you have custom gesture detectors, validate behavior across input types, including touchscreens, mice, trackpads, and styluses, and ensure support for mouse scroll wheels and trackpad gestures.
-![beforeAndAfter.webp](https://developer.android.com/static/blog/assets/before_And_After_9a75e8a0d1_Zx1J0g.webp)
+![beforeAndAfter.webp](https://developer.android.com/static/blog/assets/before_And_After_9a75e8a0d1_285ypC.webp)
 
 **Composition host defaults (Compose runtime)**
 
@@ -142,7 +142,7 @@ fun LoginButton(modifier: Modifier = Modifier) {
     }
 }
 ```
-![styles.webp](https://developer.android.com/static/blog/assets/styles_dccbb26cfe_Z3sMfB.webp)
+![styles.webp](https://developer.android.com/static/blog/assets/styles_dccbb26cfe_2v8t8.webp)
 
 Check out the [documentation](https://developer.android.com/develop/ui/compose/styles) and file any bugs [here](https://issuetracker.google.com/issues/new?component=612128).
 
@@ -220,7 +220,7 @@ fun GridExample() {
 ```
 
 You can place items automatically or explicitly span them across multiple rows and columns for precision. Best of all, it's highly adaptive---you can dynamically reconfigure your grid tracks and spans to respond to device states like tabletop mode or orientation changes, ensuring your UI looks great across form factors.
-![Grid.gif](https://developer.android.com/static/blog/assets/Grid_eb3d39af12_18MCYj.webp)
+![Grid.gif](https://developer.android.com/static/blog/assets/Grid_eb3d39af12_Z23XoM7.webp)
 
 Check out the [documentation](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid) and file any bugs [here](https://issuetracker.google.com/issues/new?component=1876021&template=1424126).
 
@@ -245,7 +245,7 @@ fun FlexBoxWrapping(){
     }
 }
 ```
-![AnimationGif.gif](https://developer.android.com/static/blog/assets/Animation_Gif_9b060dce28_1i16ER.webp)
+![AnimationGif.gif](https://developer.android.com/static/blog/assets/Animation_Gif_9b060dce28_Z2oO8zX.webp)
 
 Check out the [documentation](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox) and file any bugs [here](https://b.corp.google.com/issues/new?component=1876021&title=%5BFlexBox%5D&pli=1&template=0).
 
@@ -267,22 +267,22 @@ Written by:
   ###### Developer Advocate, Android
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/meghan-mehta) ![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z21FLk.webp) ![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z21FLk.webp)
+  View profile](https://developer.android.com/blog/authors/meghan-mehta) ![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z2r6wan.webp) ![View Meghan Mehta's profile](https://developer.android.com/static/blog/assets/meghan_d663ed9c69_e0a5b5a564_Z2r6wan.webp)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -298,4 +298,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -8,7 +8,7 @@ source: md.txt
 
 # Fully Optimized: Wrapping up Performance Spotlight Week
 
-3 min read ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_2b3WAh.webp) 21 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/sara-hamilton) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) \& [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton) We spent the past week diving deep into sharing best practices and guidance that helps to make Android apps faster, smaller, and more stable. From the foundational powers of the **R8 optimizer** and **Profile Guided Optimizations,** to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the *low effort, high impact* tools you need to build a performant app.
+3 min read ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_RfccU.webp) 21 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/sara-hamilton) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) \& [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton) We spent the past week diving deep into sharing best practices and guidance that helps to make Android apps faster, smaller, and more stable. From the foundational powers of the **R8 optimizer** and **Profile Guided Optimizations,** to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the *low effort, high impact* tools you need to build a performant app.
 
 This post serves as your index and roadmap to revisit these resources whenever you need to optimize. Here are the five key takeaways from our journey together.
 
@@ -21,10 +21,10 @@ Our newly [updated and expanded documentation](http://d.android.com/r8) on the R
 **Reddit** observed a **40% faster cold startup** and **30% fewer ANR errors** after enabling R8 full mode.
 
 You can read the [full case study on our blog](https://android-developers.googleblog.com/2025/11/how-reddit-used-r8-optimizer-for-high.html).
-![image.png](https://developer.android.com/static/blog/assets/image_6786830a66_ICScn.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_6786830a66_Z1NRfRX.webp)
 
 Engineers at **Disney+** invest in app performance and are optimizing the app's user experience. Sometimes even seemingly small changes can make a huge impact. While inspecting their R8 configuration, the team found that the `-dontoptimize` flag was being used. After enabling optimizations by removing this flag, the Disney+ team saw significant improvements in their app's performance.
-![image.png](https://developer.android.com/static/blog/assets/image_50bd3a4d41_1kTMqB.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_50bd3a4d41_Z1cAlDJ.webp)
 
 So next time someone asks you what you could do to improve app performance, just link them to this post.
 
@@ -64,7 +64,7 @@ Starting in Android Studio Narwhal, stack traces can automatically be de-obfusca
 On Tuesday we demystified the Keep Rules needed to fix runtime crashes, emphasizing writing specific, member-level rules over overly-broad wildcards. And because it's an important topic, we made you a video as well.
 
 And with the new lint check for wide Keep Rules, the Android Studio Otter 3 Feature Drop has you covered here as well.
-![image.png](https://developer.android.com/static/blog/assets/image_eff7d19348_1V9VpA.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_eff7d19348_ZBlcEK.webp)
 
 We also released new guidance on [testing](https://developer.android.com/topic/performance/app-optimization/test-the-optimization) and [troubleshooting](https://developer.android.com/topic/performance/app-optimization/troubleshoot-the-optimization) your R8 configuration to help you get the configuration right with confidence.
 [Video](https://www.youtube.com/watch?v=A0I6pNSM14o)
@@ -96,7 +96,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
+  View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)
 -
 
   ## [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton)
@@ -104,15 +104,15 @@ Written by:
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/sara-hamilton) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+  View profile](https://developer.android.com/blog/authors/sara-hamilton) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 Continue reading
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_2su32q.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_19FhE4.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Use R8 to shrink, optimize, and fast-track your app](https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app)
 
   [arrow_forward](https://developer.android.com/blog/posts/use-r8-to-shrink-optimize-and-fast-track-your-app) We're kicking things off with the single most impactful, low-effort change you can make to improve your app's performance: enabling the R8 optimizer in full mode.
   [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) • 5 min read
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
 
@@ -122,7 +122,7 @@ Continue reading
   - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
   - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
   - +1 ↩
-- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_Z20LEeM.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
 
@@ -136,4 +136,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

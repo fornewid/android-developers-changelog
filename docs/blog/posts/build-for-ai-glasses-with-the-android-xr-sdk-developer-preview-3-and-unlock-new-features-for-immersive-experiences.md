@@ -8,21 +8,21 @@ source: md.txt
 
 # Build for AI Glasses with the Android XR SDK Developer Preview 3 and unlock new features for immersive experiences
 
-3 min read ![](https://developer.android.com/static/blog/assets/buildfor_A_Iglassesxr_5141a407fc_7gpQN.webp) 08 Dec 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer In October, Samsung launched [Galaxy XR](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html) - the first device powered by [Android XR](http://d.android.com/xr). And it's been amazing seeing what some of you have been building! Here's what some of our developers have been saying about their journey into Android XR.
+3 min read ![](https://developer.android.com/static/blog/assets/buildfor_A_Iglassesxr_5141a407fc_Z1HekUc.webp) 08 Dec 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer In October, Samsung launched [Galaxy XR](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html) - the first device powered by [Android XR](http://d.android.com/xr). And it's been amazing seeing what some of you have been building! Here's what some of our developers have been saying about their journey into Android XR.
 
 *Android XR gave us a whole new world to build our app within. Teams should ask themselves: What is the biggest, boldest version of your experience that you could possibly build? This is your opportunity to finally put into action what you've always wanted to do, because now, you have the platform that can make it real. - *[Kristen Coke, Calm, Lead Product Manager](https://android-developers.googleblog.com/2025/10/how-calm-reimagined-mindfulness-for.html)
 
 You've also seen us share a first look at other upcoming devices that work with Android XR like Project Aura from [XREAL](http://www.xreal.com/aura) and [stylish glasses](https://blog.google/products/android/android-xr-gemini-glasses-headsets/) from Gentle Monster and Warby Parker.
 
 To support the expanding selection of XR devices, we are announcing **Android XR SDK Developer Preview 3!**
-![image.png](https://developer.android.com/static/blog/assets/image_8c8c9dea97_2r9k3z.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_8c8c9dea97_Z6lO1L.webp)
 
 With Android XR SDK Developer Preview 3, on top of building [**immersive experiences**](https://developer.android.com/develop/xr/explore/immersive) for devices such as Galaxy XR, you can also now build [**augmented experiences**](https://developer.android.com/develop/xr/explore/augmented) for upcoming AI Glasses with Android XR.
 
 ### New tools and libraries for augmented experiences
 
 With developer preview 3, we are unlocking the tools and libraries you need to build intelligent and hands-free augmented experiences for AI Glasses. AI Glasses are lightweight and portable for all day wear. You can extend your existing mobile app to take advantage of the built-in speakers, camera, and microphone to provide new, thoughtful and helpful user interactions. With the addition of a small display on display AI Glasses, you can privately present information to users. AI Glasses are perfect for experiences that can help enhance a user's focus and presence in the real world.
-![image.png](https://developer.android.com/static/blog/assets/image_4dc96f367c_ZfWgSV.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_4dc96f367c_2gIHOE.webp)
 
 To power augmented experiences on AI Glasses, we are introducing two new, purpose-built libraries to the Jetpack XR SDK:
 
@@ -30,13 +30,13 @@ To power augmented experiences on AI Glasses, we are introducing two new, purpos
 - **Jetpack Compose Glimmer** - new design language and [UI components](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/whats-included#components) for crafting and styling your augmented experiences on display AI Glasses
 
 Jetpack Compose Glimmer is a demonstration of design best practices for beautiful, optical see-through augmented experiences. With UI components optimized for the input modality and styling requirements of display AI Glasses, Jetpack Compose Glimmer is designed for clarity, legibility, and minimal distraction.
-![image.png](https://developer.android.com/static/blog/assets/image_266f9f13a9_SEuUo.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_266f9f13a9_Z1DPD9W.webp)
 
 To help visualize and test your Jetpack Compose Glimmer UI we are introducing the AI Glasses emulator in [Android Studio](https://developer.android.com/studio/preview). The new AI Glasses emulator can simulate glasses-specific interactions such as touchpad and voice input.
-![AI Glasses Emulator.gif](https://developer.android.com/static/blog/assets/AI_Glasses_Emulator_301e46b50c_ZEknF2.webp)
+![AI Glasses Emulator.gif](https://developer.android.com/static/blog/assets/AI_Glasses_Emulator_301e46b50c_Zx1MYJ.webp)
 
 Beyond the new Jetpack Projected and Jetpack Compose Glimmer libraries, we are also expanding **ARCore for Jetpack XR** to support AI Glasses. We are starting off with [motion tracking](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/device-pose) and [geospatial capabilities](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/geospatial) for augmented experiences - the exact features that enable you to create helpful navigation experiences perfect for all-day-wear devices like AI Glasses.
-![navigation.webp](https://developer.android.com/static/blog/assets/navigation_961934fb0b_Z2aCM5M.webp)
+![navigation.webp](https://developer.android.com/static/blog/assets/navigation_961934fb0b_1tEp1M.webp)
 
 ### Expanding support for immersive experiences
 
@@ -53,7 +53,7 @@ In **Material Design for XR** , new components automatically adapt spatially via
 And in **ARCore for Jetpack XR** , new perception capabilities have been added, including [face tracking](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/face) with 68 blendshape values unlocking a world of facial gestures. You can also use [eye tracking](https://developer.android.com/reference/kotlin/androidx/xr/arcore/Eye) to power virtual avatars, and [depth maps](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore/depth) to enable more-realistic interactions with a user's environment.
 
 For devices like Project Aura from XREAL, we are introducing the [XR Glasses emulator](https://developer.android.com/studio/releases/emulator) in Android Studio. This essential tool is designed to give you accurate content visualization, while matching real device specifications for Field of View (FoV), Resolution, and DPI to accelerate your development.
-![xrglasses-emulator-haxr-cropped.webp](https://developer.android.com/static/blog/assets/xrglasses_emulator_haxr_cropped_b46d37d949_Z5ggmm.webp)
+![xrglasses-emulator-haxr-cropped.webp](https://developer.android.com/static/blog/assets/xrglasses_emulator_haxr_cropped_b46d37d949_1flLCG.webp)
 
 If you build immersive experiences with [Unity](https://unity.com/), we're also expanding your perception capabilities in the **Android XR SDK for Unity**. In addition to lots of bug fixes and other improvements, we are expanding tracking capabilities to include: QR and ArUco codes, planar images, and body tracking (experimental). We are also introducing a much-requested feature: scene meshing. It enables you to have much deeper interactions with your user's environment - your digital content can now bounce off of walls and climb up couches!
 
@@ -71,23 +71,23 @@ Written by:
   ###### Vice President, Product Management, Android Developer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
 
@@ -100,4 +100,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

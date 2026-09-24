@@ -8,17 +8,17 @@ source: md.txt
 
 # Goodbye Mobile Only, Hello Adaptive: Three essential updates from 2025 for building adaptive apps
 
-2 min read ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z2lMDgd.webp) 19 Dec 2025 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) Senior Product Manager, Android Developer Experience
+2 min read ![](https://developer.android.com/static/blog/assets/Android_adaptives_festivity_01_blog_f70d48134f_Z103sxP.webp) 19 Dec 2025 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) Senior Product Manager, Android Developer Experience
 
 ### **Goodbye Mobile Only, Hello Adaptive: Three essential updates from 2025 for building adaptive apps**
 
 In 2025 the Android ecosystem has grown far beyond the phone. Today, developers have the opportunity to reach over 500 million active devices, including foldables, tablets, XR, Chromebooks, and compatible cars.
-![9x.png](https://developer.android.com/static/blog/assets/9x_fe972fcca6_XjGI9.webp)
+![9x.png](https://developer.android.com/static/blog/assets/9x_fe972fcca6_2lE7my.webp)
 
 These aren't just additional screens; they represent a higher-value audience. We've seen that users who own both a phone and a tablet spend 9x more on apps and in-app purchases than those with just a phone. For foldable users, that average spend jumps to roughly 14x more\*.
 
 This engagement signals a necessary shift in development: [goodbye mobile apps, hello adaptive apps](https://developer.android.com/adaptive-apps).
-![adaptive-apps.png](https://developer.android.com/static/blog/assets/adaptive_apps_11b88516c3_Z1CoNWu.webp)
+![adaptive-apps.png](https://developer.android.com/static/blog/assets/adaptive_apps_11b88516c3_Zf2Uoo.webp)
 
 <br />
 
@@ -35,7 +35,7 @@ Because this means your app context will change more frequently, it's important 
 As devices evolve, our existing definitions of "large" need to evolve with them. In October, we [released Jetpack WindowManager 1.5.0](https://android-developers.googleblog.com/2025/10/jetpack-windowmanager-15-is-stable.html) to better support the growing number of very large screens and desktop environments.
 
 On these surfaces, the standard "Expanded" layout, which usually fits two panes comfortably, often isn't enough. On a 27-inch monitor, two panes can look stretched and sparse, leaving valuable screen real estate unused. To solve this, WindowManager 1.5.0 introduced two new width window size classes: Large (1200dp to 1600dp) and Extra-large (1600dp+).
-![window_size_classes_width.png](https://developer.android.com/static/blog/assets/window_size_classes_width_fc5a56047b_1Vja4S.webp)
+![window_size_classes_width.png](https://developer.android.com/static/blog/assets/window_size_classes_width_fc5a56047b_4gGvB.webp)
 
 These new breakpoints signal when to switch to high-density interfaces. Instead of stretching a typical list-detail view, you can take advantage of the width to show three or even four panes simultaneously. Imagine an email client that comfortably displays your folders, the inbox list, the open message, and a calendar sidebar, all in a single view. Support for these window size classes was added to [Compose Material 3 adaptive](https://developer.android.com/develop/ui/compose/layouts/adaptive)in the [1.2 release](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.2.0).
 
@@ -47,7 +47,7 @@ Built for Compose, [Nav3](https://developer.android.com/guide/navigation/navigat
 
 ### **A foundation for an adaptive future**
 
-![unnamed (1).png](https://developer.android.com/static/blog/assets/unnamed_1_35df31a846_28qm56.webp)
+![unnamed (1).png](https://developer.android.com/static/blog/assets/unnamed_1_35df31a846_Z1unGrr.webp)
 
 <br />
 
@@ -69,9 +69,9 @@ Written by:
   ###### Senior Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
+  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)
 Continue reading
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_Z14DWX.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
 
@@ -81,7 +81,7 @@ Continue reading
   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - +1 ↩
-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
 
@@ -95,7 +95,7 @@ Continue reading
   - [#Foldables](https://developer.android.com/blog/topics/foldables)
   - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
   - +5 ↩
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_Z1BKgnT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_1vfHD.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices)
 
@@ -107,4 +107,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -31,9 +31,9 @@ your app must declare the `androidx.car.app.ACCESS_SURFACE` permission in its
 
     <manifest ...>
       ...
-      <uses-permission android:name="androidx.car.app.ACCESS_SURFACE" />
-      ...
-    </manifest>
+      <uses-permission android:name="androidx.car.app.ACCESS_SURFA>CE"<; /
+      ...>
+    /manifest
 
 ## Access the surface
 

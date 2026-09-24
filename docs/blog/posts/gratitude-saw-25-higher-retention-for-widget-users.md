@@ -8,19 +8,19 @@ source: md.txt
 
 # Gratitude saw 25% higher retention for widget users
 
-3 min read ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_Z2vwfIA.webp) 08 May 2026 [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)](https://developer.android.com/blog/authors/ash-nohe) [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev) \& [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe) Practicing gratitude may decrease symptoms of depression and anxiety, and improve mental health and life satisfaction¹. Consistent gratitude practice may lead to sustained improvements that last months². The mindfulness app [Gratitude](https://play.google.com/store/apps/details?id=com.northstar.gratitude) encourages consistency through micro daily journaling, affirmations, and vision boards. The app has over 6 million downloads, 150 thousand 5 star ratings, and 100 million journal entries logged.
+3 min read ![](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_2000x1000_7d5a00e6c2_1gGbqL.webp) 08 May 2026 [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_1SuI5e.webp)](https://developer.android.com/blog/authors/ash-nohe) [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev) \& [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe) Practicing gratitude may decrease symptoms of depression and anxiety, and improve mental health and life satisfaction¹. Consistent gratitude practice may lead to sustained improvements that last months². The mindfulness app [Gratitude](https://play.google.com/store/apps/details?id=com.northstar.gratitude) encourages consistency through micro daily journaling, affirmations, and vision boards. The app has over 6 million downloads, 150 thousand 5 star ratings, and 100 million journal entries logged.
 
 Developers Divij Gupta and Narendra Aanjna developed widgets for each of their app's core user journeys. Their goal was to meet users in their everyday moments without requiring the overhead of a full app session.
 
 By surfacing interactive journaling prompts, affirmations, vision board images and metrics directly on the user's home screen, the team lowered the barrier to entry for daily reflection and reported **a 25% increase in retention** for widget users and **\~1K weekly journal entries from widgets**. This increase in user loyalty translates to tangible health outcomes for the users: consistent habit formations that support long-term mental well-being.
 
 *"Widgets helped us make the app more present in users' daily routines by providing quick inspiration, reminders, and reflections directly on the home screen. This increased engagement and made it easier for users to stay consistent with their mindfulness practices." -- Divij Gupta*
-![AANDDM_Gratitude_01.png](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_01_5480b69b77_Z24hDBG.webp)
+![AANDDM_Gratitude_01.png](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_01_5480b69b77_1D9tms.webp)
 
 ### The Challenge: modernize without decreasing retention
 
 While the impact of widgets was clear, Gratitude's original XML-based RemoteViews implementation created technical debt. As the app's design system evolved toward Material 3, the legacy widgets became increasingly difficult to align with the modern UI. Every visual update required manual XML overhead and brittle workarounds, slowing developer velocity.
-![AANDDM_Gratitude_02.png](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_02_bf11ffc3b7_EmHcu.webp)
+![AANDDM_Gratitude_02.png](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_02_bf11ffc3b7_ZHniCi.webp)
 
 ### The Solution Part 1: migrating from XML to Jetpack Glance
 
@@ -33,10 +33,10 @@ Then, they migrated their widget suite to Jetpack Glance. This declarative frame
 - Replacing restrictive XML layouts with declarative code made the codebase easier to read, maintain, and reduced developer effort.
 - Jetpack Glance allowed the team to more easily implement [dynamic colors](https://developer.android.com/develop/ui/compose/glance/theme), flexible [resizing](https://developer.android.com/develop/ui/compose/glance/build-ui#sizemode.exact), and expanded configuration options. These features ensure the widgets harmonize with a user's unique home screen layout.
 
-![AANDDM_Gratitude_03.png](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_03_f177cefe5d_GJLdE.webp)
+![AANDDM_Gratitude_03.png](https://developer.android.com/static/blog/assets/AANDDM_Gratitude_03_f177cefe5d_ZF0eB8.webp)
 
 The following GIF shows two Gratitude widgets and adaptive resizing:
-![GratitudeAdaptiveWidgets.gif](https://developer.android.com/static/blog/assets/Gratitude_Adaptive_Widgets_fb927de278_ZJOx6n.webp)
+![GratitudeAdaptiveWidgets.gif](https://developer.android.com/static/blog/assets/Gratitude_Adaptive_Widgets_fb927de278_Z2gqtal.webp)
 
 While Glance simplified the UI, the team noted that testing across various OEM launchers was also essential to ensure layout consistency across devices.
 
@@ -93,7 +93,7 @@ Written by:
   ###### Staff Developer Advocate
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/amrit-sanjeev) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)
+  View profile](https://developer.android.com/blog/authors/amrit-sanjeev) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp) ![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)
 -
 
   ## [Ash Nohe](https://developer.android.com/blog/authors/ash-nohe)
@@ -101,22 +101,22 @@ Written by:
   ###### Sr. Android Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/ash-nohe) ![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp) ![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_Zhh9o0.webp)
+  View profile](https://developer.android.com/blog/authors/ash-nohe) ![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_1SuI5e.webp) ![View Ash Nohe's profile](https://developer.android.com/static/blog/assets/ash_32bd9f9ed7_1SuI5e.webp)
 Continue reading
-- [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_CrDLy.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/trevor-johns) 08 Jan 2026 08 Jan 2026 ![](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Banner_1612731319_Z23acG3.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Amrit Sanjeev's profile](https://developer.android.com/static/blog/assets/Amrit_Sanjeev_5215e0d7cc_1hSg6a.webp)](https://developer.android.com/blog/authors/amrit-sanjeev)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns) 08 Jan 2026 08 Jan 2026 ![](https://developer.android.com/static/blog/assets/Ultrahumanx_Gi_AS_Banner_1612731319_1Eiopn.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Ultrahuman launches features 15% faster with Gemini in Android Studio](https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio)
 
   [arrow_forward](https://developer.android.com/blog/posts/ultrahuman-launches-features-faster-with-gemini-in-android-studio) Ultrahuman is a consumer health-tech startup that provides daily well-being insights to users based on biometric data from the company's wearables, like the RING Air and the M1 Live Continuous Glucose Monitor (CGM).
   [Amrit Sanjeev](https://developer.android.com/blog/authors/amrit-sanjeev), [Trevor Johns](https://developer.android.com/blog/authors/trevor-johns) • 2 min read
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z1oNucg.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
   - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
 
@@ -129,4 +129,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

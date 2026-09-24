@@ -13,7 +13,7 @@ This table lists all the artifacts in the `androidx.core` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| core | [1.19.0](https://developer.android.com/jetpack/androidx/releases/core#1.19.0) | - | - | - |
+| core | [1.19.1](https://developer.android.com/jetpack/androidx/releases/core#1.19.1) | - | - | - |
 | core-animation | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core#core-animation-1.0.0) | - | - | - |
 | core-google-shortcuts | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-google-shortcuts-1.1.0) | - | - | [1.2.0-alpha01](https://developer.android.com/jetpack/androidx/releases/core#core-google-shortcuts-1.2.0-alpha01) |
 | core-performance | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core#1.0.0) | - | - | - |
@@ -21,7 +21,7 @@ This table lists all the artifacts in the `androidx.core` group.
 | core-role | [1.1.0](https://developer.android.com/jetpack/androidx/releases/core#core-role-1.1.0) | - | - | - |
 | core-splashscreen | [1.2.0](https://developer.android.com/jetpack/androidx/releases/core#core-splashscreen-1.2.0) | - | - | - |
 
-This library was last updated on: August 26, 2026
+This library was last updated on: September 23, 2026
 
 ## Declaring dependencies
 
@@ -36,7 +36,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    def core_version = "1.19.0"
+    def core_version = "1.19.1"
 
     // Java language implementation
     implementation "androidx.core:core:$core_version"
@@ -69,7 +69,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val core_version = "1.19.0"
+    val core_version = "1.19.1"
 
     // Java language implementation
     implementation("androidx.core:core:$core_version")
@@ -116,6 +116,16 @@ for more information.
 ## Core and Core-ktx
 
 ### Version 1.19
+
+#### Version 1.19.1
+
+September 23, 2026
+
+`androidx.core:core:1.19.1`, `androidx.core:core-ktx:1.19.1`, and `androidx.core:core-testing:1.19.1` are released. Version 1.19.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a95266623bd2e6b286cbd12c2eefec5b9845316a..ee9b3bd4e15861a649335dca51923b358357b151/core).
+
+**Bug Fixes**
+
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([Ic4c56](https://android-review.googlesource.com/#/q/Ic4c56aae973780644be8a136885c1228b54da4d1), [b/556807521](https://issuetracker.google.com/issues/556807521))
 
 #### Version 1.19.0
 

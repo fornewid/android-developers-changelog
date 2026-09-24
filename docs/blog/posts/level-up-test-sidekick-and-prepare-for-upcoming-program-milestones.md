@@ -8,7 +8,7 @@ source: md.txt
 
 # Level Up: Test Sidekick and prepare for upcoming program milestones
 
-3 min read ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_ZDM8Sn.webp) 11 Mar 2026 [![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) PM Director, Games on Google Play Last September, we shared our vision for the future of Google Play Games grounded in a core belief: the best way to drive your game's success is to deliver a [world-class player experience](https://blog.google/products-and-platforms/platforms/google-play/curation-update-september-2025/). We launched the [Google Play Games Level Up](https://play.google.com/console/about/levelup/) program to recognize and reward great gaming experiences, while providing you with a powerful toolkit and new promotional opportunities to grow your games.
+3 min read ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_27oFVg.webp) 11 Mar 2026 [![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Z1ibqSI.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) [Maru Ahues Bouza](https://developer.android.com/blog/authors/maru-ahues-bouza) PM Director, Games on Google Play Last September, we shared our vision for the future of Google Play Games grounded in a core belief: the best way to drive your game's success is to deliver a [world-class player experience](https://blog.google/products-and-platforms/platforms/google-play/curation-update-september-2025/). We launched the [Google Play Games Level Up](https://play.google.com/console/about/levelup/) program to recognize and reward great gaming experiences, while providing you with a powerful toolkit and new promotional opportunities to grow your games.
 
 The momentum since our announcement has been incredibly positive, with more than 600 million gamers now using Play Games Services every month. Developers are also finding success, with one-third of all game installs on the Play Store now coming from editorially-driven organic discovery. In fact, in 2025, **Level Up features have driven over 2.5 billion incremental acquisitions for featured games, in addition to an average uplift of 25% in installs during the featuring windows**.
 
@@ -17,12 +17,12 @@ Today, we're inviting you to start testing Play Games Sidekick to keep your play
 ### **Boost retention and immersion with Play Games Sidekick**
 
 Play Games Sidekick is a helpful in-game overlay that gives players instant access to relevant gaming information---like rewards, offers, achievements, and quest progress--- keeping them immersed while driving higher engagement for developers. It serves as a seamless bridge to the highly visible "You" tab, connecting your game to 160 million monthly active users already engaging there and doubles as an active gaming companion that enhances the player experience with helpful, AI-generated Game Tips.
-![GooglePlayDevGTM_SideKick_1080_low_v004.gif](https://developer.android.com/static/blog/assets/Google_Play_Dev_GTM_Side_Kick_1080_low_v004_5bb9c193fd_Z1cQyuS.webp)
+![GooglePlayDevGTM_SideKick_1080_low_v004.gif](https://developer.android.com/static/blog/assets/Google_Play_Dev_GTM_Side_Kick_1080_low_v004_5bb9c193fd_ZzanU2.webp)
 
 *Deep Rock Galactic: Survivor keeps players in the action with Play Games Sidekick *
 
 Today, Sidekick [officially debuts in over 90 games](https://play.google.com/store/apps/editorial?id=mc_games_editorialmd_gdc_sidekick_fcp), with the experience expanding to all Level Up titles later this year. But you don't need to wait for the broader rollout to get your game ready. You can now[enable Sidekick through Play Console](https://developer.android.com/games/pgs/play-games-sidekick#sidekick-beta) to preview and test how your players will interact with features like Achievements, Streaks, Play Points Coupons, and Game Tips. Upon completing your testing, be sure to push Sidekick for production to ensure your game meets the Level Up user experience guidelines.
-![Level Up_ Test Sidekick and prepare for upcoming program milestones.png](https://developer.android.com/static/blog/assets/Level_Up_Test_Sidekick_and_prepare_for_upcoming_program_milestones_d933eb6dc7_1IMtL6.webp)
+![Level Up_ Test Sidekick and prepare for upcoming program milestones.png](https://developer.android.com/static/blog/assets/Level_Up_Test_Sidekick_and_prepare_for_upcoming_program_milestones_d933eb6dc7_Z27yAK1.webp)
 
 *Enable Play Games Sidekick in Play Console to begin testing*
 
@@ -32,7 +32,7 @@ We are also rolling out two new Play Console updates to help you optimize your r
 
 - **Pre-reg device breakdowns:** To aid launch decisions, you can now analyze the [device distribution of your pre-registered audience](https://play.google.com/console/developers/app/devices/dashboard) by key device attributes including Android version, RAM and SoC. This enables you to optimize game performance, minimum specs, and marketing spend for the players already waiting for your game.
 
-![sidekick2.webp](https://developer.android.com/static/blog/assets/sidekick2_47b53ffe7e_ZoYsMf.webp)
+![sidekick2.webp](https://developer.android.com/static/blog/assets/sidekick2_47b53ffe7e_12nBu9.webp)
 
 *Identify launch-day risks and optimize performance for your players with new pre-registration device breakdowns*
 
@@ -63,9 +63,9 @@ Written by:
   ###### PM Director
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/maru-ahues-bouza) ![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp) ![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)
+  View profile](https://developer.android.com/blog/authors/maru-ahues-bouza) ![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Z1ibqSI.webp) ![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Z1ibqSI.webp)
 Continue reading
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
 
@@ -75,7 +75,7 @@ Continue reading
   - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
   - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
   - +1 ↩
-- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_Z20LEeM.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
 
@@ -83,7 +83,7 @@ Continue reading
   1 min read
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
-- 17 Feb 2026 17 Feb 2026 ![](https://developer.android.com/static/blog/assets/O_SVD_DAC_Banner_1600x476_4x1_1_21e5678d22_Z2feGk6.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 17 Feb 2026 17 Feb 2026 ![](https://developer.android.com/static/blog/assets/O_SVD_DAC_Banner_1600x476_4x1_1_21e5678d22_Kv7SQ.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Get ready for Google I/O May 19-20](https://developer.android.com/blog/posts/get-ready-for-google-io-may)
 
@@ -95,4 +95,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

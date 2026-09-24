@@ -8,13 +8,13 @@ source: md.txt
 
 # How Uber is reducing manual logins by 4 million per year with the Restore Credentials API
 
-5 min read ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Zjh724.webp) 18 Nov 2025 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) [Uber](https://www.uber.com/in/en/) is the world's largest ridesharing company, getting millions of people from here to there while also supporting food delivery, healthcare transportation, and freight logistics. Simplicity of access is crucial to its success; when users switch to a new device, they expect a seamless transition without needing to log back into the Uber app or go through SMS-based one-time password authentication. This frequent device turnover presents a challenge, as well as an opportunity for strong user retention.
+5 min read ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Z2c5PaI.webp) 18 Nov 2025 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) [Uber](https://www.uber.com/in/en/) is the world's largest ridesharing company, getting millions of people from here to there while also supporting food delivery, healthcare transportation, and freight logistics. Simplicity of access is crucial to its success; when users switch to a new device, they expect a seamless transition without needing to log back into the Uber app or go through SMS-based one-time password authentication. This frequent device turnover presents a challenge, as well as an opportunity for strong user retention.
 
 To maintain user continuity, Uber's engineers turned to the [Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials) feature, an essential tool for a time when 40% of people in the United States replace their smartphone every year. Following an assessment of user demand and code prototyping, they introduced Restore Credentials support in the [Uber rider app](https://play.google.com/store/apps/details?id=com.ubercab). To validate that restoring credentials helps remove friction for re-logins, the Uber team ran a successful A/B experiment for a five-week period. The integration led to a reduction in manual logins that, when projected across Uber's massive user base, is estimated to eliminate 4 million manual logins annually.
 
 ### **Eliminating login friction with Restore Credentials**
 
-![restore-credentials.gif](https://developer.android.com/static/blog/assets/restore_credentials_e5878fb6dd_Z2lRiR5.webp)
+![restore-credentials.gif](https://developer.android.com/static/blog/assets/restore_credentials_e5878fb6dd_1lyO74.webp)
 
 There were past attempts at account restoration on new devices using solutions like regular data [backup](https://developer.android.com/identity/data/backup) and [BlockStore](https://www.google.com/search?q=blockstore&oq=blockstore&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDIHCAEQABiABDIHCAIQABiABDIGCAMQABgeMgYIBBAAGB4yBggFEEUYQDIGCAYQRRhAMgYIBxBFGEDSAQgyMzY3ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8), though both solutions required sharing authentication tokens directly, from source device to destination device. Since token information is highly sensitive, these solutions are only used to some extent, to pre-fill login fields on the destination device and reduce some friction during the sign-in flows. Passkeys are also used to provide a secure and fast login method, but their user-initiated nature limits their impact on seamless device transitions.
 
@@ -25,7 +25,7 @@ With [Restore Credentials](https://developer.android.com/identity/sign-in/restor
 **Note:** Restore keys and passkeys use the same underlying server implementation. However, when you save them in your database, you must differentiate between them. This distinction is crucial because user-created passkeys can be managed directly by the user, while restore keys are system-managed and hidden from the user interface.
 
 "With the adoption of Restore Credentials on Uber's rider app, we started seeing consistent usage," Thomás said. "An average of **10,000 unique daily users** have signed in with Restore Credentials in the current rollout stage, and they've enjoyed a seamless experience when opening the app for the first time on a new device. We expect that number to **double** once we expand the rollout to our whole user base."
-![image_thomas2.png](https://developer.android.com/static/blog/assets/image_thomas2_540836154e_Zd2DWB.webp)
+![image_thomas2.png](https://developer.android.com/static/blog/assets/image_thomas2_540836154e_rnWm0.webp)
 
 ### **Implementation Considerations**
 
@@ -67,10 +67,10 @@ By eliminating manual logins on new devices, Uber retained users who might have 
 - 0.614% rise in devices with completed trips.
 
 Today, Restore Credentials is well on its way to becoming a **standard** part of Uber's rider app, with over **95% of users** in the trial group registered.
-![uber-devices.png](https://developer.android.com/static/blog/assets/uber_devices_66c9180609_Zcyhtd.webp)
+![uber-devices.png](https://developer.android.com/static/blog/assets/uber_devices_66c9180609_MLCyd.webp)
 
 During new device setup, users can restore app data and credentials from a backup. After selecting Uber for restoration and the background process finishes, the app will automatically sign the user in on the new device's first launch.
-![image_thomas.png](https://developer.android.com/static/blog/assets/image_thomas_cfa94e0c4f_254KJd.webp)
+![image_thomas.png](https://developer.android.com/static/blog/assets/image_thomas_cfa94e0c4f_Z1YLs2i.webp)
 
 ### **The invisible yet massive impact of Restore Credentials**
 
@@ -92,7 +92,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)
+  View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)
 -
 
   ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
@@ -100,22 +100,22 @@ Written by:
   ###### Product Marketing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
+  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 Continue reading
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z1oNucg.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
   - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_G2vTP.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_ZkMOm6.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [X improved login success rate by 2x after adopting passkeys](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys) From breaking news and entertainment to sports and politics, X is a social media app that aims to help nearly 500 million users worldwide get the full story with all the live commentary.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 3 min read
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
 
@@ -128,4 +128,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

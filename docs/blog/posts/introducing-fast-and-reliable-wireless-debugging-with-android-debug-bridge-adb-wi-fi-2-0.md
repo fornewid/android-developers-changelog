@@ -8,7 +8,7 @@ source: md.txt
 
 # Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0
 
-1 min read ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) 09 Sep 2026 3 Authors [Steven Jenkins,](https://developer.android.com/blog/authors/steven-jenkins) [Sherif Eid,](https://developer.android.com/blog/authors/sherif-eid) [Fabien Sanglard](https://developer.android.com/blog/authors/fabien-sanglard) Wireless debugging on Android is now faster, more reliable, and easier to set up than ever. With ADB Wi-Fi 2.0, we've introduced a new server stack and smarter network handling to directly address developer feedback around usability gaps.
+1 min read ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) 09 Sep 2026 3 Authors [Steven Jenkins,](https://developer.android.com/blog/authors/steven-jenkins) [Sherif Eid,](https://developer.android.com/blog/authors/sherif-eid) [Fabien Sanglard](https://developer.android.com/blog/authors/fabien-sanglard) Wireless debugging on Android is now faster, more reliable, and easier to set up than ever. With ADB Wi-Fi 2.0, we've introduced a new server stack and smarter network handling to directly address developer feedback around usability gaps.
 
 ## How ADB Wi-Fi 2.0 Improves Wireless Debugging
 
@@ -21,7 +21,7 @@ Here are the new features:
 - **Improved discoverability in Android Studio:** Previously, Wi-Fi pairing was difficult to find. Now, you simply enable wireless debugging on your phone and it will show in Android Studio's Device Manager.
 
 With ADB Wi-Fi 2.0, auto-connection success rates improved by 32% and connection speeds increased by 66% for 90% of connections.
-![adb-metric.png](https://developer.android.com/static/blog/assets/adb_metric_28f66239c0_2vH3eG.webp)
+![adb-metric.png](https://developer.android.com/static/blog/assets/adb_metric_28f66239c0_15N6xk.webp)
 
 ## Getting Started
 
@@ -48,7 +48,7 @@ Written by:
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/steven-jenkins) ![View Steven Jenkins's profile](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp) ![View Steven Jenkins's profile](https://developer.android.com/static/blog/assets/headshot_e042d23f90_2x0LLK.webp)
+  View profile](https://developer.android.com/blog/authors/steven-jenkins) ![View Steven Jenkins's profile](https://developer.android.com/static/blog/assets/headshot_e042d23f90_dYVWq.webp) ![View Steven Jenkins's profile](https://developer.android.com/static/blog/assets/headshot_e042d23f90_dYVWq.webp)
 -
 
   ## [Sherif Eid](https://developer.android.com/blog/authors/sherif-eid)
@@ -56,7 +56,7 @@ Written by:
   ###### Senior Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/sherif-eid) ![View Sherif Eid's profile](https://developer.android.com/static/blog/assets/unnamed_21_15c8771770_Z2fzQLn.webp) ![View Sherif Eid's profile](https://developer.android.com/static/blog/assets/unnamed_21_15c8771770_Z2fzQLn.webp)
+  View profile](https://developer.android.com/blog/authors/sherif-eid) ![View Sherif Eid's profile](https://developer.android.com/static/blog/assets/unnamed_21_15c8771770_1MKUKC.webp) ![View Sherif Eid's profile](https://developer.android.com/static/blog/assets/unnamed_21_15c8771770_1MKUKC.webp)
 -
 
   ## [Fabien Sanglard](https://developer.android.com/blog/authors/fabien-sanglard)
@@ -64,9 +64,9 @@ Written by:
   ###### Staff Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/fabien-sanglard) ![View Fabien Sanglard's profile](https://developer.android.com/static/blog/assets/unnamed_22_2cb6a389f1_1ReCmm.webp) ![View Fabien Sanglard's profile](https://developer.android.com/static/blog/assets/unnamed_22_2cb6a389f1_1ReCmm.webp)
+  View profile](https://developer.android.com/blog/authors/fabien-sanglard) ![View Fabien Sanglard's profile](https://developer.android.com/static/blog/assets/unnamed_22_2cb6a389f1_Poh5q.webp) ![View Fabien Sanglard's profile](https://developer.android.com/static/blog/assets/unnamed_22_2cb6a389f1_Poh5q.webp)
 Continue reading
-- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_Z2bRC9Y.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_ZqnmK9.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4)
 
@@ -74,7 +74,7 @@ Continue reading
   [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 5 min read
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
   - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
-- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_ZzldHB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_1b91Ge.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
 
@@ -84,7 +84,7 @@ Continue reading
   - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
   - +1 ↩
-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
 
@@ -101,4 +101,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

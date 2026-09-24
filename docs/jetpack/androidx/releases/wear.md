@@ -18,9 +18,9 @@ This table lists all the artifacts in the `androidx.wear` group.
 | wear-input-testing | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-input-testing-1.2.0) | - | - | - |
 | wear-ongoing | [1.1.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-ongoing-1.1.0) | - | - | - |
 | wear-phone-interactions | [1.1.1](https://developer.android.com/jetpack/androidx/releases/wear#wear-phone-interactions-1.1.1) | - | - | - |
-| wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.2.0) | - | - | [1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.3.0-alpha01) |
+| wear-remote-interactions | [1.2.0](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.2.0) | - | [1.3.0-beta01](https://developer.android.com/jetpack/androidx/releases/wear#wear-remote-interactions-1.3.0-beta01) | - |
 
-This library was last updated on: July 15, 2026
+This library was last updated on: September 23, 2026
 
 ## Declaring dependencies
 
@@ -87,6 +87,18 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Wear-Core
+
+### Version 1.2
+
+#### Version 1.2.0-alpha01
+
+September 23, 2026
+
+`androidx.wear:wear-core:1.2.0-alpha01` is released. Version 1.2.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/76ea36d68e54cfab01f698cd2f5de4dd4950ba3e..b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f/wear/wear-core).
+
+**API Changes**
+
+- Added `WEAR_CINNAMON_BUN_1` and `WEAR_CINNAMON_BUN_2` constants for new Wear OS versions to the `WearApiVersionHelper`. ([Ifec88](https://android-review.googlesource.com/#/q/Ifec880a64a21e70ea213de137d6deb5efa4bdd56))
 
 ### Version 1.1
 
@@ -705,6 +717,14 @@ April 15, 2020
 ## Wear-Remote-Interactions
 
 ### Version 1.3.0
+
+#### Version 1.3.0-beta01
+
+September 23, 2026
+
+`androidx.wear:wear-remote-interactions:1.3.0-beta01` is released. Version 1.3.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b5d2acb5ad0a36c9d2aba8feb4c7951165f30fbe..b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f/wear/wear-remote-interactions).
+
+- Added `startRemoteActivityAttemptUnlock` and `startPhoneActivityWithUnlock` to `RemoteActivityHelper`, allowing Wear OS applications to start an activity on the connected phone after unlocking the phone, subject to user enrolling in feature and platform capability. `startRemoteActivityAttemptUnlock` can fall back to existing `startRemoteActivity` when feature is not available.
 
 #### Version 1.3.0-alpha01
 

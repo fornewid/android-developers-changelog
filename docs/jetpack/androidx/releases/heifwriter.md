@@ -10,7 +10,7 @@ Encode an image or image collection in HEIF format using the available codecs on
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.1.0) | - | - | [1.2.0-alpha02](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.2.0-alpha02) |
+| September 23, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.1.0) | - | [1.2.0-beta01](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.2.0-beta01) | - |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.heifwriter:heifwriter:1.2.0-alpha02"
+    implementation "androidx.heifwriter:heifwriter:1.2.0-beta01"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.heifwriter:heifwriter:1.2.0-alpha02")
+    implementation("androidx.heifwriter:heifwriter:1.2.0-beta01")
 }
 ```
 
@@ -51,6 +51,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.2
+
+### Version 1.2.0-beta01
+
+September 23, 2026
+
+`androidx.heifwriter:heifwriter:1.2.0-beta01` is released. Version 1.2.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f/heifwriter/heifwriter).
 
 ### Version 1.2.0-alpha02
 

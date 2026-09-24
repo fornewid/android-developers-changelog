@@ -8,14 +8,14 @@ source: md.txt
 
 # Optimize your app battery using Android vitals wake lock metric
 
-7 min read ![](https://developer.android.com/static/blog/assets/6m_Evk_L_Olno_HD_56e1732bf5_2enBUx.webp) 02 Oct 2025 [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) Developer Relations Engineer, Android Battery life is a crucial aspect of user experience and wake locks play a major role. Are you using them excessively? In this blog post we'll explore what wake locks are, what are some best practices for using them and how you can better understand your own app's behavior with the Play Console metric.
+7 min read ![](https://developer.android.com/static/blog/assets/6m_Evk_L_Olno_HD_56e1732bf5_lySLS.webp) 02 Oct 2025 [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan) [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) Developer Relations Engineer, Android Battery life is a crucial aspect of user experience and wake locks play a major role. Are you using them excessively? In this blog post we'll explore what wake locks are, what are some best practices for using them and how you can better understand your own app's behavior with the Play Console metric.
 
 ## Excessive partial wake lock usage in Android Vitals
 
 The Play Console now monitors battery drain, with a focus on [**excessive partial wake lock usage**](https://play.google.com/console/developers/app/vitals/metrics/details?metric=EXCESSIVE_BACKGROUND_WAKELOCKS&days=28), as a key performance indicator.
 
 This feature elevates the importance of battery efficiency alongside existing core metric stability indicators: excessive user-perceived crashes and ANRs. **We have** [**defined a bad behavior threshold for excessive wake locks**](https://android-developers.googleblog.com/2025/11/raising-bar-on-battery-performance.html)**. Starting March 1, 2026, if your title does not meet this quality threshold, we may exclude the title from prominent discovery surfaces such as recommendations. In some cases, we may display a warning on your store listing to indicate to users that your app may cause excessive battery drain.**
-![warning.png](https://developer.android.com/static/blog/assets/warning_acc52c9e53_29d4gO.webp)
+![warning.png](https://developer.android.com/static/blog/assets/warning_acc52c9e53_Z9MKxv.webp)
 
 *The excessive wake lock warning in the *[*Android vitals overview*](https://play.google.com/console/developers/app/vitals/metrics/overview)*.*
 
@@ -50,7 +50,7 @@ Consider these four critical questions.
 **1. Have you considered alternative wake lock options?**
 
 Before considering acquiring a manual partial wake lock, follow this decision-making flowchart:
-![wakelock.png](https://developer.android.com/static/blog/assets/wakelock_503e30ff8a_Zt4oMN.webp)
+![wakelock.png](https://developer.android.com/static/blog/assets/wakelock_503e30ff8a_ZVHcTS.webp)
 
 *Flowchart to decide when to manually acquire a wake lock*
 
@@ -115,7 +115,7 @@ Even with the best intentions, excessive wake lock usage can occur. If your app 
 **Initial identification with Play Console**
 
 The Android vitals excessive partial wake lock dashboard provides breakdowns of non-exempted wake lock names associated with your app, showing affected sessions and durations. Reminder to use the [documentation](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls) to help you identify if the wake lock name is app-held or held by another API.
-![breakdowns2.png](https://developer.android.com/static/blog/assets/breakdowns2_987ee7d6f2_1HmfEt.webp)
+![breakdowns2.png](https://developer.android.com/static/blog/assets/breakdowns2_987ee7d6f2_Z1KWTje.webp)
 
 *The Android vitals excessive partial wake lock dashboard scrolled down to the breakdowns section to view excessive wake lock tags.*
 
@@ -128,7 +128,7 @@ You can identify worker-held wake locks with this wake lock name:
 The full list of variations of worker-held wake lock names is available in [documentation](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/identify-wls#wake_lock_names_6). To debug these wake locks, you can use Background Task Inspector to debug locally, or leverage getStopReason to debug issues in the field.
 
 **Android Studio Background Task Inspector**
-![taskinspector.png](https://developer.android.com/static/blog/assets/taskinspector_60a38ee510_Z1iDBkV.webp)
+![taskinspector.png](https://developer.android.com/static/blog/assets/taskinspector_60a38ee510_4Hhda.webp)
 
 <br />
 
@@ -173,7 +173,7 @@ You can capture a system trace using several methods:
 - Using the [Perfetto UI](https://perfetto.dev/docs/getting-started/system-tracing)
 - Recording a trace manually on the device [directly from the developer options](https://developer.android.com/topic/performance/tracing/on-device).
 
-![powermgmt.png](https://developer.android.com/static/blog/assets/powermgmt_72d69d505f_1A6Uxu.webp)
+![powermgmt.png](https://developer.android.com/static/blog/assets/powermgmt_72d69d505f_Z22H7Y3.webp)
 
 *Enable "power:PowerManagement" Atrace category in the Perfetto UI under the Android apps \& svcs tab. *
 
@@ -182,7 +182,7 @@ Regardless of the chosen method, it's crucial to ensure that you are collecting 
 **Perfetto UI inspection and SQL analysis**
 
 System traces can be opened and inspected in the **Perfetto UI**. When you open the trace, you will see a visualization of various processes on a timeline. The tracks we will be focused on in this guide are the ones under "Device State".
-![perfetto.png](https://developer.android.com/static/blog/assets/perfetto_d7ad363bc9_2vnHBF.webp)
+![perfetto.png](https://developer.android.com/static/blog/assets/perfetto_d7ad363bc9_22JTuA.webp)
 
 <br />
 
@@ -224,22 +224,22 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
+  View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -255,4 +255,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

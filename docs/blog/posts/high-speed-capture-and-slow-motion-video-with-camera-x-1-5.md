@@ -8,7 +8,7 @@ source: md.txt
 
 # High-Speed Capture and Slow-Motion Video with CameraX 1.5
 
-6 min read ![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_High_speed_Slomo_Blog_1_fc4509cdb7_1dTrfW.webp) 28 Oct 2025 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/leo-huang) [Leo Huang](https://developer.android.com/blog/authors/leo-huang) Software Engineer Capturing fast-moving action with clarity is a key feature for modern camera apps. This is achieved through **high-speed capture** ---the process of acquiring frames at rates like 120 or 240 fps. This high-fidelity capture can be used for two distinct purposes: creating a **high-frame-rate video** for detailed, frame-by-frame analysis, or generating a **slow-motion video** where action unfolds dramatically on screen.
+6 min read ![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_High_speed_Slomo_Blog_1_fc4509cdb7_1QABPN.webp) 28 Oct 2025 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/leo-huang) [Leo Huang](https://developer.android.com/blog/authors/leo-huang) Software Engineer Capturing fast-moving action with clarity is a key feature for modern camera apps. This is achieved through **high-speed capture** ---the process of acquiring frames at rates like 120 or 240 fps. This high-fidelity capture can be used for two distinct purposes: creating a **high-frame-rate video** for detailed, frame-by-frame analysis, or generating a **slow-motion video** where action unfolds dramatically on screen.
 
 Previously, implementing these features with the Camera2 API was a more hands-on process. Now, with the new [**high-speed API**](https://developer.android.com/reference/androidx/camera/video/HighSpeedVideoSessionConfig) in CameraX 1.5, the entire process is simplified, giving you the flexibility to create either true high-frame-rate videos or ready-to-play slow-motion clips. This post will show you how to master both. For those new to CameraX, you can get up to speed with the [**CameraX Overview**](https://developer.android.com/media/camera/camerax).
 
@@ -261,13 +261,13 @@ When you enable `setSlowMotionEnabled(true)` in CameraX, the resulting video fil
 - **Distinct UI Recognition in Thumbnail:** In your Google Photos library, slow-motion videos can be identified by specific UI elements, distinguishing them from normal videos.
 
 |---|---|
-| ![normal.png](https://developer.android.com/static/blog/assets/normal_e584da1c42_Z9i5AN.webp) | ![slowmotion.png](https://developer.android.com/static/blog/assets/slowmotion_af17b75fb9_Z1l2CLu.webp) |
+| ![normal.png](https://developer.android.com/static/blog/assets/normal_e584da1c42_Z3j9R4.webp) | ![slowmotion.png](https://developer.android.com/static/blog/assets/slowmotion_af17b75fb9_Z2mRY3q.webp) |
 | Normal video thumbnail | Slow-motion video thumbnail |
 
 - **Adjustable Speed Segments during Playback:** When playing a slow-motion video, Google Photos provides controls to adjust which parts of the video play at slow speed and which play at normal speed, giving users creative control. The edited video can then be exported as a new video file using the **Share** button, preserving the slow-motion segments you defined.
 
 |---|---|
-| ![normal2.png](https://developer.android.com/static/blog/assets/normal2_865208c389_utnXO.webp) | ![slowmotion2.png](https://developer.android.com/static/blog/assets/slowmotion2_2378e880d0_ZqsQxG.webp) |
+| ![normal2.png](https://developer.android.com/static/blog/assets/normal2_865208c389_Z1R9yL0.webp) | ![slowmotion2.png](https://developer.android.com/static/blog/assets/slowmotion2_2378e880d0_1ao7hx.webp) |
 | Normal video playback | Slow-motion video playback with editing controls |
 
 *** ** * ** ***
@@ -294,9 +294,9 @@ Written by:
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/leo-huang) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+  View profile](https://developer.android.com/blog/authors/leo-huang) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 Continue reading
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
 
@@ -306,14 +306,14 @@ Continue reading
   - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
   - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
   - +1 ↩
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
   [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
 
@@ -326,4 +326,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

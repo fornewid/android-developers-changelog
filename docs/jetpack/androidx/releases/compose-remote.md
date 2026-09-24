@@ -10,7 +10,7 @@ Remote Compose is a framework to create UI for remote surfaces
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | - | - | - | [1.0.0-alpha19](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha19) |
+| September 23, 2026 | - | - | - | [1.0.0-alpha20](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha20) |
 
 ## Declaring dependencies
 
@@ -26,20 +26,20 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.remote:remote-core:1.0.0-alpha19"
+    implementation "androidx.compose.remote:remote-core:1.0.0-alpha20"
 
     // Use to create Remote Compose documents
-    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha19"
-    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha19"
-    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha19"
-    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha19"
-    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha19"
+    implementation "androidx.compose.remote:remote-creation:1.0.0-alpha20"
+    implementation "androidx.compose.remote:remote-creation-core:1.0.0-alpha20"
+    implementation "androidx.compose.remote:remote-creation-android:1.0.0-alpha20"
+    implementation "androidx.compose.remote:remote-creation-jvm:1.0.0-alpha20"
+    implementation "androidx.compose.remote:remote-creation-compose:1.0.0-alpha20"
 
     // Use to render a Remote Compose document
-    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha19"
-    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha19"
+    implementation "androidx.compose.remote:remote-player-core:1.0.0-alpha20"
+    implementation "androidx.compose.remote:remote-player-view:1.0.0-alpha20"
 
-    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha19"
+    implementation "androidx.compose.remote:remote-tooling-preview:1.0.0-alpha20"
 }
 ```
 
@@ -47,20 +47,20 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.remote:remote-core:1.0.0-alpha19")
+    implementation("androidx.compose.remote:remote-core:1.0.0-alpha20")
 
     // Use to create Remote Compose documents
-    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha19")
-    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha19")
-    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha19")
-    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha19")
-    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha19")
+    implementation("androidx.compose.remote:remote-creation:1.0.0-alpha20")
+    implementation("androidx.compose.remote:remote-creation-core:1.0.0-alpha20")
+    implementation("androidx.compose.remote:remote-creation-android:1.0.0-alpha20")
+    implementation("androidx.compose.remote:remote-creation-jvm:1.0.0-alpha20")
+    implementation("androidx.compose.remote:remote-creation-compose:1.0.0-alpha20")
 
     // Use to render a Remote Compose document
-    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha19")
-    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha19")
+    implementation("androidx.compose.remote:remote-player-core:1.0.0-alpha20")
+    implementation("androidx.compose.remote:remote-player-view:1.0.0-alpha20")
 
-    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha19")
+    implementation("androidx.compose.remote:remote-tooling-preview:1.0.0-alpha20")
 }
 ```
 
@@ -81,6 +81,29 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha20
+
+September 23, 2026
+
+`androidx.compose.remote:remote-*:1.0.0-alpha20` is released. Version 1.0.0-alpha20 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..7b7434f12dfb811bb3828261e14cd5c87ce8fa66/compose/remote).
+
+**API Changes**
+
+- Expose `animateRemoteFloatAsState`, `animateRemoteDpAsState`, `RemoteAnimationSpec`, `RemoteModifier.sharedElement`, `RemoteModifier.sharedBounds`, and `RemoteModifier.animateEnterExit` as public APIs ([I382ec](https://android-review.googlesource.com/#/q/I382ec85638618ee838f2c46cb400257cf86040e9))
+- Added `relative*To` naming aliases and `quadraticTo`/`cubicTo` overloads to `RemotePathScope`. ([I4ebca](https://android-review.googlesource.com/#/q/I4ebcadde1d7cfdc918b3191d50b36217daeceeb1))
+- Added shape helpers (`addRect`, `addOval`, `addCircle`, `addRoundRect`, `addArc`, `addPath`) and `RemoteOffset`/`RemoteSize` overloads to `RemotePathScope`. ([I14972](https://android-review.googlesource.com/#/q/I14972b389d644bebe3d33b38e43b46bd9bea9dfb))
+- Add `arcTo` with `forceMoveTo` support to `RemotePathScope`. ([Ib5cf0](https://android-review.googlesource.com/#/q/Ib5cf078fadebe8fa46143611a6acdba6f0096b1b))
+
+**Bug Fixes**
+
+- Fixed an issue where `CollapsibleColumnLayout` and `CollapsibleRowLayout` `minIntrinsicWidth`/Height exceeded exact constraints when children were present. ([Ic2a6f](https://android-review.googlesource.com/#/q/Ic2a6fd28d9d4c471ab78b3fbb165711a411a1b5d))
+- Added a new `EventActionOperation` that allows users to specify custom event handlers. ([I161bc](https://android-review.googlesource.com/#/q/I161bc655d32d1f8f88be945b21bb1bdf3c0cbc3f))
+- Fixed named `RemoteDp` expressions mis-scaling by display density. ([I78bf5](https://android-review.googlesource.com/#/q/I78bf529c347148ca071ff999d55fca4edfb09ff4))
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
+- Added Brush styling, alpha, winding (`PathFillType`), and procedural drawing support to `RemoteVectorPainter` and `RemoteImageVector`. ([I7e69e](https://android-review.googlesource.com/#/q/I7e69e8894de5daab01900415190ad9667e0691d5))
+- Added support for Animated Vector Drawables (AVD) in Remote Compose with injectable progress and default continuous animation. ([Ic0223](https://android-review.googlesource.com/#/q/Ic02232e72411b5fdbf0ac2727415d358132fe933))
+- Fixed performance regression when recording padding and offset modifiers with `RemoteDp`. ([Id8bc9](https://android-review.googlesource.com/#/q/Id8bc9abb69cc814316b57675a97c0d83650d3969), [b/555795653](https://issuetracker.google.com/issues/555795653))
 
 ### Version 1.0.0-alpha19
 

@@ -19,6 +19,22 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
 
+## September 23, 2026
+
+- [Annotation Version 1.11.0](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0)
+- [Core Core-ktx Core-testing Version 1.19.1](https://developer.android.com/jetpack/androidx/releases/core#1.19.1)
+- [Emoji2 Version 1.7.0](https://developer.android.com/jetpack/androidx/releases/emoji2#1.7.0)
+- [Fragment Version 1.9.1](https://developer.android.com/jetpack/androidx/releases/fragment#1.9.1)
+- [Health-services-client Health-services-client-external-protobuf Health-services-client-proto Version 1.1.0](https://developer.android.com/jetpack/androidx/releases/health#1.1.0)
+- [Javascriptengine Version 1.1.1](https://developer.android.com/jetpack/androidx/releases/javascriptengine#javascriptengine-1.1.1)
+- [Navigation Version 2.10.2](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.2)
+- [Navigation3 Version 1.2.0](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0)
+- [Tracing Version 2.0.3](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.3)
+- [Transition Version 1.7.2](https://developer.android.com/jetpack/androidx/releases/transition#1.7.2)
+- [Wear Compose Version 1.7.0](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0)
+- [Webkit Version 1.17.1](https://developer.android.com/jetpack/androidx/releases/webkit#webkit-1.17.1)
+- [WorkManager Version 2.12.0](https://developer.android.com/jetpack/androidx/releases/work#2.12.0)
+
 ## September 10, 2026
 
 - [Media3 Version 1.11.1](https://developer.android.com/jetpack/androidx/releases/media3#1.11.1)

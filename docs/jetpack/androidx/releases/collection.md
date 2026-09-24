@@ -10,7 +10,7 @@ Reduce the memory impact of existing and new collections that are small.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/collection#1.6.0) | - | - | [1.7.0-alpha01](https://developer.android.com/jetpack/androidx/releases/collection#1.7.0-alpha01) |
+| September 23, 2026 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/collection#1.6.0) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/collection#1.7.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -55,6 +55,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.7
+
+### Version 1.7.0-rc01
+
+September 23, 2026
+
+`androidx.collection:collection-*:1.7.0-rc01` is released. Version 1.7.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/d89e253295f3ed4e745116313f7334f559734222..5141e4240fa5bf9c0d3740d3437493c659741cbf/collection).
 
 ### Version 1.7.0-alpha01
 

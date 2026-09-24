@@ -8,7 +8,7 @@ source: md.txt
 
 # Health Connect Jetpack v1.1.0 is now available!
 
-2 min read ![](https://developer.android.com/static/blog/assets/health_Connect1_49b5a00627_1xwJyg.webp) 03 Nov 2025 [![View Brenda Shaw's profile](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Zriy5T.webp)](https://developer.android.com/blog/authors/brenda-shaw) [Brenda Shaw](https://developer.android.com/blog/authors/brenda-shaw) Technical Writer, Devices \& Services Partner Engineering Health Connect is Android's on-device platform designed to simplify connectivity between health and fitness apps, allowing developers to build richer experiences with secure, centralized data. Today, we're thrilled to announce three major updates that empower you to create more intelligent, connected, and nuanced applications: the stable release of the Health Connect Jetpack library 1.1.0 and the expanded device type support.
+2 min read ![](https://developer.android.com/static/blog/assets/health_Connect1_49b5a00627_Z1LaQc.webp) 03 Nov 2025 [![View Brenda Shaw's profile](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Z1RcuMg.webp)](https://developer.android.com/blog/authors/brenda-shaw) [Brenda Shaw](https://developer.android.com/blog/authors/brenda-shaw) Technical Writer, Devices \& Services Partner Engineering Health Connect is Android's on-device platform designed to simplify connectivity between health and fitness apps, allowing developers to build richer experiences with secure, centralized data. Today, we're thrilled to announce three major updates that empower you to create more intelligent, connected, and nuanced applications: the stable release of the Health Connect Jetpack library 1.1.0 and the expanded device type support.
 
 ## Health Connect Jetpack Library 1.1.0 is Now Stable
 
@@ -46,22 +46,22 @@ Written by:
   ###### Technical Writer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/brenda-shaw) ![View Brenda Shaw's profile](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Zriy5T.webp) ![View Brenda Shaw's profile](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Zriy5T.webp)
+  View profile](https://developer.android.com/blog/authors/brenda-shaw) ![View Brenda Shaw's profile](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Z1RcuMg.webp) ![View Brenda Shaw's profile](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Z1RcuMg.webp)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -77,4 +77,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

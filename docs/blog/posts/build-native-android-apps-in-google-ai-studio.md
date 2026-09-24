@@ -8,7 +8,7 @@ source: md.txt
 
 # Build native Android apps in Google AI Studio
 
-4 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo2_Strapi_2000x1000_6de0464afd_1KAI63.webp) 19 May 2026 [![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_16g0DP.webp)](https://developer.android.com/blog/authors/emma-louise-leavey)[![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_Z1VdIJy.webp)](https://developer.android.com/blog/authors/mike-taylor-cai) [Emma-Louise Leavey](https://developer.android.com/blog/authors/emma-louise-leavey) \& [Mike Taylor-Cai](https://developer.android.com/blog/authors/mike-taylor-cai) Starting today [Google AI Studio](https://ai.dev/apps?features=build_android_app) can build entire Android apps for you in minutes from just a prompt. You don't need to install any software or configure any libraries, which significantly lowers the barrier to development. Whether you're a seasoned developer looking to prototype at lightning speed or a creator building your first-ever mobile experience, you can now go from a single prompt to a high-quality, Kotlin-based Android app in AI Studio. You can easily install the app on your device, share it with others for testing, or send it to Android Studio for any further development.
+4 min read ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo2_Strapi_2000x1000_6de0464afd_iDINx.webp) 19 May 2026 [![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_1dyAk8.webp)](https://developer.android.com/blog/authors/emma-louise-leavey)[![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_1jsDhn.webp)](https://developer.android.com/blog/authors/mike-taylor-cai) [Emma-Louise Leavey](https://developer.android.com/blog/authors/emma-louise-leavey) \& [Mike Taylor-Cai](https://developer.android.com/blog/authors/mike-taylor-cai) Starting today [Google AI Studio](https://ai.dev/apps?features=build_android_app) can build entire Android apps for you in minutes from just a prompt. You don't need to install any software or configure any libraries, which significantly lowers the barrier to development. Whether you're a seasoned developer looking to prototype at lightning speed or a creator building your first-ever mobile experience, you can now go from a single prompt to a high-quality, Kotlin-based Android app in AI Studio. You can easily install the app on your device, share it with others for testing, or send it to Android Studio for any further development.
 
 #### The power of native Android
 
@@ -20,18 +20,18 @@ We have streamlined the entire development lifecycle so you can focus on your id
 
 1. **Create your app and iterate in the cloud:** Use the embedded Android Emulator directly in your browser to preview and interact with your app as it's being built. No heavy SDKs to download, no local setup required.
 
-   ![image.png](https://developer.android.com/static/blog/assets/image_824927d6b1_Z2hieY4.webp)
+   ![image.png](https://developer.android.com/static/blog/assets/image_824927d6b1_fnJJw.webp)
 2. **Install instantly:** Connect your Android phone using a USB cable and install your app directly from AI Studio using the integrated Android Debug Bridge (adb).
 
-   ![image.png](https://developer.android.com/static/blog/assets/image_f249b4100f_ZQodx5.webp)
+   ![image.png](https://developer.android.com/static/blog/assets/image_f249b4100f_1FhLbv.webp)
 3. **Streamlined testing on the Google Play Console:** Using your [Google Play developer account](https://play.google.com/console/signup), you can now publish your app directly from AI Studio for testing. AI Studio will automatically create your app record, package the bundle, and upload it to an internal testing track in Google Play Developer Console. Your app is available for you to install within minutes, and you can automatically update your app on your device as you develop it further in AI Studio.
 
-   ![image.png](https://developer.android.com/static/blog/assets/image_075925281f_dVqmr.webp)
+   ![image.png](https://developer.android.com/static/blog/assets/image_075925281f_Z2jyHHT.webp)
 
 #### Seamless app development handoff
 
 As you iterate on your app in AI Studio, you may find you need more advanced Android tools or support for a wider variety of Android device types. To move beyond the browser, you can seamlessly hand off your project to [Android Studio](https://developer.android.com/studio) by downloading a ZIP file or exporting it directly to GitHub.
-![AI_Studio_Download.png](https://developer.android.com/static/blog/assets/AI_Studio_Download_6346ff1740_ZiNLJD.webp)
+![AI_Studio_Download.png](https://developer.android.com/static/blog/assets/AI_Studio_Download_6346ff1740_Z1BCx80.webp)
 
 When transitioning to a team environment or local development, you can leverage any IDE or agent you prefer. For a specialized experience, we recommend [Gemini in Android Studio](https://developer.android.com/gemini-in-android), which features models designed with Android in mind, or Antigravity, which integrates [Android CLI](https://developer.android.com/tools/agents/android-cli) commands into Google's agentic development platform. This workflow makes building high-quality apps more accessible while giving you total flexibility in how you use AI to scale your project.
 
@@ -55,17 +55,17 @@ Head over to [Google AI Studio](https://ai.dev/apps?features=build_android_app) 
 Turn your Google Pixel Watch into an aviation assistant
 
 |---|---|
-| **Prompt:** Build a small airplane "6-pack" instrument app for Google Pixel Watch. The 6 instruments should include attitude indicator, airspeed indicator, altimeter, turn coordinator, vertical speed indicator, and heading indicator. Use the Google Pixel Watch's sensors to power the instruments and display them clearly. Display one instrument at a time on the display. Swiping to the left or right should cycle through the instruments. | ![Watch_OS_AI_Studio.gif](https://developer.android.com/static/blog/assets/Watch_OS_AI_Studio_9e8ac4acce_XJ8KR.webp) |
+| **Prompt:** Build a small airplane "6-pack" instrument app for Google Pixel Watch. The 6 instruments should include attitude indicator, airspeed indicator, altimeter, turn coordinator, vertical speed indicator, and heading indicator. Use the Google Pixel Watch's sensors to power the instruments and display them clearly. Display one instrument at a time on the display. Swiping to the left or right should cycle through the instruments. | ![Watch_OS_AI_Studio.gif](https://developer.android.com/static/blog/assets/Watch_OS_AI_Studio_9e8ac4acce_Zk4BBu.webp) |
 
 Interactive Harmonium app on Google Pixel Fold
 
 |---|---|
-| **Prompt:** Build a Harmonium app for Pixel Fold devices, which plays like the instrument based on the hinge angle and touch gestures. The app should simulate the bellows and reeds accurately. | ![Tiny-Harmonica-demo.gif](https://developer.android.com/static/blog/assets/Tiny_Harmonica_demo_6cfe1bcff2_ZKHNnA.webp) |
+| **Prompt:** Build a Harmonium app for Pixel Fold devices, which plays like the instrument based on the hinge angle and touch gestures. The app should simulate the bellows and reeds accurately. | ![Tiny-Harmonica-demo.gif](https://developer.android.com/static/blog/assets/Tiny_Harmonica_demo_6cfe1bcff2_ZDpdHi.webp) |
 
 An Android app for guitarists to become better musicians by jamming to backing tracks
 
 |---|---|
-| **Prompt:** Build an Android guitar practice companion app that features a two-tab navigation system: 'Fretboard' and 'Library'. The 'Fretboard' primary screen must contain an interactive guitar neck UI that visually maps out user-selected root notes, musical scales, and chords. Above the fretboard, implement a WebView-based YouTube player configured to play embedded videos inline. Additionally, include an AI generation feature that uses Retrofit to call Gemini Lyria 3 to create custom, 30-second backing tracks based on the user's currently selected key and scale. The generated audio files and their metadata must be saved locally using a database and displayed as a list in the 'Library' tab, where users can delete or play them. Finally, implement a persistent, globally visible mini audio player at the bottom of the screen, complete with play/pause toggles, a progress slider for seeking, and timestamp text, allowing the user to seamlessly practice on the fretboard tab while listening to their tracks. | ![guitar_app_AI_Studio.gif](https://developer.android.com/static/blog/assets/guitar_app_AI_Studio_e084cd33f2_qPDQy.webp) |
+| **Prompt:** Build an Android guitar practice companion app that features a two-tab navigation system: 'Fretboard' and 'Library'. The 'Fretboard' primary screen must contain an interactive guitar neck UI that visually maps out user-selected root notes, musical scales, and chords. Above the fretboard, implement a WebView-based YouTube player configured to play embedded videos inline. Additionally, include an AI generation feature that uses Retrofit to call Gemini Lyria 3 to create custom, 30-second backing tracks based on the user's currently selected key and scale. The generated audio files and their metadata must be saved locally using a database and displayed as a list in the 'Library' tab, where users can delete or play them. Finally, implement a persistent, globally visible mini audio player at the bottom of the screen, complete with play/pause toggles, a progress slider for seeking, and timestamp text, allowing the user to seamlessly practice on the fretboard tab while listening to their tracks. | ![guitar_app_AI_Studio.gif](https://developer.android.com/static/blog/assets/guitar_app_AI_Studio_e084cd33f2_Z1Wu1dC.webp) |
 
 We are looking forward to seeing what you build next!
 
@@ -79,7 +79,7 @@ Written by:
   ###### Group Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/emma-louise-leavey) ![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_16g0DP.webp) ![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_16g0DP.webp)
+  View profile](https://developer.android.com/blog/authors/emma-louise-leavey) ![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_1dyAk8.webp) ![View Emma-Louise Leavey's profile](https://developer.android.com/static/blog/assets/Emma_Louise_profile_c6ba45f450_1dyAk8.webp)
 -
 
   ## [Mike Taylor-Cai](https://developer.android.com/blog/authors/mike-taylor-cai)
@@ -87,22 +87,22 @@ Written by:
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/mike-taylor-cai) ![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_Z1VdIJy.webp) ![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_Z1VdIJy.webp)
+  View profile](https://developer.android.com/blog/authors/mike-taylor-cai) ![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_1jsDhn.webp) ![View Mike Taylor-Cai's profile](https://developer.android.com/static/blog/assets/michaelct_profile_pic_177ddafb7b_1jsDhn.webp)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -118,4 +118,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -8,19 +8,19 @@ source: md.txt
 
 # How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys
 
-8 min read ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z1oNucg.webp) 27 Aug 2026 3 Authors [Niharika Arora,](https://developer.android.com/blog/authors/niharika-arora) [Tracy Agyemang,](https://developer.android.com/blog/authors/tracy-agyemang) [Mayank Jain](https://developer.android.com/blog/authors/blog-author) [WhatsApp](https://play.google.com/store/apps/details?id=com.whatsapp) is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
+8 min read ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) 27 Aug 2026 3 Authors [Niharika Arora,](https://developer.android.com/blog/authors/niharika-arora) [Tracy Agyemang,](https://developer.android.com/blog/authors/tracy-agyemang) [Mayank Jain](https://developer.android.com/blog/authors/blog-author) [WhatsApp](https://play.google.com/store/apps/details?id=com.whatsapp) is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
 
 "What excites me most is the sheer scale of WhatsApp's impact. Even a small improvement to WhatsApp touches billions of users worldwide," says Mayank Manuja, an Android Engineer on the WhatsApp Registration and Access team who led the design and implementation of passkey-based authentication for WhatsApp.
 
 Building for an audience of this magnitude requires navigating a vast range of network conditions, device capabilities, and levels of digital literacy. Recognizing the potential early, WhatsApp committed to adopting passkeys in 2023, becoming one of the first major consumer apps to integrate the technology. By implementing passkeys, WhatsApp aimed to provide a fast, phishing-resistant option that significantly reduces user friction while providing robust protection against account takeovers and credential theft.* *
-![1787852638767.gif](https://developer.android.com/static/blog/assets/1787852638767_96e6b5e0ff_26rLRq.webp) A user creating a passkey on WhatsApp for faster, more secure sign-ins.
+![1787852638767.gif](https://developer.android.com/static/blog/assets/1787852638767_96e6b5e0ff_2jbayu.webp) A user creating a passkey on WhatsApp for faster, more secure sign-ins.
 
 ## **The Decision to Adopt Passkeys**
 
 For WhatsApp, offering multiple access methods is key to making it easier for users to stay connected and regain access when needed. [Passkeys](https://developer.android.com/identity/passkeys) offer users a streamlined, one-tap login experience that eliminates phishing risks and functions reliably even in regions where OTP message delivery can be inconsistent.
 
 Underneath, passkeys leverage public-private key cryptography to replace manual entry with biometric or screen lock authentication. This workflow drastically improves sign-in speeds by reducing the process to a single tap via a unified, bottom-sheet interface that keeps users engaged within the app's context. The benefits are twofold: passkeys offer users a streamlined login experience while simultaneously providing robust, native protection against phishing attacks. Crucially, they function reliably even in regions where traditional SMS OTP delivery can be inconsistent.
-![unnamed.png](https://developer.android.com/static/blog/assets/unnamed_e49af64ee9_2igilB.webp) How passkeys are saved and used to authenticate using public-private key cryptography ![AANDDM_KARROT_Quote_02.png](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Quote_02_30c9e63364_Z2pS4SE.webp)
+![unnamed.png](https://developer.android.com/static/blog/assets/unnamed_e49af64ee9_Z4mEod.webp) How passkeys are saved and used to authenticate using public-private key cryptography ![AANDDM_KARROT_Quote_02.png](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Quote_02_30c9e63364_phQ8E.webp)
 
 Having robust and diverse account access methods ensures that users are never locked out of what matters most to them.
 
@@ -42,7 +42,7 @@ To overcome these hurdles, the WhatsApp and Google teams collaborated deeply and
 ## **Refining the User Experience**
 
 Because passkeys were an entirely new concept in early 2023, there were no established patterns for prompting their creation. Through extensive A/B testing, WhatsApp developed a contextual framework targeting users who would benefit most. This strategy continuously evolved: as Android OS flows matured into a streamlined, single-screen experience, WhatsApp simplified its own prompts to avoid redundant or confusing UI.
-![Case-Study-1.png](https://developer.android.com/static/blog/assets/Case_Study_1_af891817ea_2aNXUe.webp) WhatsApp's streamlined, single-screen passkey creation flow
+![Case-Study-1.png](https://developer.android.com/static/blog/assets/Case_Study_1_af891817ea_Z2eVxz6.webp) WhatsApp's streamlined, single-screen passkey creation flow
 
 ## **Server-Side Architecture and Cross-Platform Hurdles**
 
@@ -53,7 +53,7 @@ The server architecture orchestrates these core ceremonies through four primary 
 ### **1. Passkey registration**
 
 This sequence handles issuing creation options to the client, verifying the attestation once the client acknowledges successful creation, and securely persisting the credential.
-![unnamed (1).png](https://developer.android.com/static/blog/assets/unnamed_1_3c81183413_1P2NI.webp) The server \& client interaction architecture during passkey registration
+![unnamed (1).png](https://developer.android.com/static/blog/assets/unnamed_1_3c81183413_1td867.webp) The server \& client interaction architecture during passkey registration
 
 #### Erlang: Begin Registration
 
@@ -138,7 +138,7 @@ finish_authentication(UserId, Assertion) ->
 - **Refresh if needed:** If the user is successfully verified, the server checks a needs_update flag. The WebAuthn library uses this flag to signal if the stored credential state needs to be refreshed on the server.
 - **Finalize:** The server marks the credential as used and successfully completes the login process.
 
-![Case-Study-2.png](https://developer.android.com/static/blog/assets/Case_Study_2_1c9e0042cd_sRO6T.webp) The step-by-step passkey login experience on the WhatsApp app.
+![Case-Study-2.png](https://developer.android.com/static/blog/assets/Case_Study_2_1c9e0042cd_18jqqv.webp) The step-by-step passkey login experience on the WhatsApp app.
 
 To know more about server registration, follow the integration guide [here](https://developers.google.com/identity/passkeys/developer-guides/server-registration).
 
@@ -172,7 +172,7 @@ For developers preparing to integrate passkeys at scale, the WhatsApp team share
 - **Upsell contextually and educate:** Present passkey creation naturally during security-relevant actions. Clearly emphasize the value proposition (speed and security) using accessible language to drive user adoption.
 - **Monitor proactively:** The ecosystem evolves with every OS update. Continuously track latency and error patterns to stay ahead of shifting device landscapes.
 
-![AANDDM_Passkeys_Quote_01.png](https://developer.android.com/static/blog/assets/AANDDM_Passkeys_Quote_01_a60bced35d_ZCJM7V.webp)
+![AANDDM_Passkeys_Quote_01.png](https://developer.android.com/static/blog/assets/AANDDM_Passkeys_Quote_01_a60bced35d_sAbP8.webp)
 
 ## **Get Started with Passkeys and Credential Manager**
 
@@ -189,7 +189,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)
+  View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)
 -
 
   ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
@@ -197,7 +197,7 @@ Written by:
   ###### Product Marketing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
+  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 -
 
   ## [Mayank Jain](https://developer.android.com/blog/authors/blog-author)
@@ -205,21 +205,21 @@ Written by:
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/blog-author) ![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_13HwUT.webp) ![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_13HwUT.webp)
+  View profile](https://developer.android.com/blog/authors/blog-author) ![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_2v5Cdi.webp) ![View Mayank Jain's profile](https://developer.android.com/static/blog/assets/unnamed_2_feee4f83eb_2v5Cdi.webp)
 Continue reading
-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Zjh724.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 18 Nov 2025 18 Nov 2025 ![](https://developer.android.com/static/blog/assets/uber_Credentials_12e7f1f5c4_Z2c5PaI.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How Uber is reducing manual logins by 4 million per year with the Restore Credentials API](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-uber-is-reducing-manual-logins-by-4-million-per-year-with-the-restore-credentials-api) Uber leveraged the Android Restore Credentials API to streamline new device sign-in, projecting a reduction of 4 million manual logins per year and increasing user retention.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 5 min read
-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_G2vTP.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 21 Nov 2024 21 Nov 2024 ![](https://developer.android.com/static/blog/assets/x_Passkeys_45bf854440_ZkMOm6.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [X improved login success rate by 2x after adopting passkeys](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/x-improved-login-success-rate-after-adopting-passkeys) From breaking news and entertainment to sports and politics, X is a social media app that aims to help nearly 500 million users worldwide get the full story with all the live commentary.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 3 min read
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
 
@@ -232,4 +232,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

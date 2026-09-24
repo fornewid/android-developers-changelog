@@ -8,24 +8,24 @@ source: md.txt
 
 # Enhance your app for the new Pixel lineup: Unveiled at Made by Google
 
-4 min read ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) 11 Aug 2026 3 Authors [Fahd Imtiaz,](https://developer.android.com/blog/authors/fahd-imtiaz) [Loryn Hairston,](https://developer.android.com/blog/authors/loryn-hairston) [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) [Made by Google](https://www.youtube.com/live/c84y9gAY90c?si=4T2AofHVbkWGbig1) expands what's possible across the Android ecosystem. With the introduction of the [Pixel 11 Pro Fold](https://blog.google/products-and-platforms/devices/pixel/google-pixel-11-pro-fold/), [Pixel Watch 5](https://blog.google/products-and-platforms/devices/pixel/pixel-watch-5/), and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences. For you, the developer, this represents a massive opportunity: foldable users spend about 14x more than standard phone users. To help you elevate your existing experience without starting from scratch, we're sharing our latest platform guidance alongside real-world examples from developers already putting these features into production.
+4 min read ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) 11 Aug 2026 3 Authors [Fahd Imtiaz,](https://developer.android.com/blog/authors/fahd-imtiaz) [Loryn Hairston,](https://developer.android.com/blog/authors/loryn-hairston) [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) [Made by Google](https://www.youtube.com/live/c84y9gAY90c?si=4T2AofHVbkWGbig1) expands what's possible across the Android ecosystem. With the introduction of the [Pixel 11 Pro Fold](https://blog.google/products-and-platforms/devices/pixel/google-pixel-11-pro-fold/), [Pixel Watch 5](https://blog.google/products-and-platforms/devices/pixel/pixel-watch-5/), and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences. For you, the developer, this represents a massive opportunity: foldable users spend about 14x more than standard phone users. To help you elevate your existing experience without starting from scratch, we're sharing our latest platform guidance alongside real-world examples from developers already putting these features into production.
 
 ## **Deliver adaptive experiences across foldables and expanded displays**
 
-![crop pixelfold.jpg](https://developer.android.com/static/blog/assets/crop_pixelfold_8cad10315a_ZPnIiW.webp)
+![crop pixelfold.jpg](https://developer.android.com/static/blog/assets/crop_pixelfold_8cad10315a_1l8PsC.webp)
 
 The Pixel 11 Pro Fold gives your app a chance to flex its capabilities with an expanded inner display and a standard size outer screen. Building for the foldable form factor requires dropping hardcoded layout rules and designing around available window space. Leveraging Jetpack Compose APIs like [Navigation 3](https://developer.android.com/guide/navigation/navigation-3) with [Scene](https://developer.android.com/guide/navigation/navigation-3/scenes) strategies or our newest layout APIs like [Grid](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid) and [FlexBox](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox) allows your layout containers to automatically wrap, span, and reflow. You can also use the experimental [MediaQuery](https://developer.android.com/develop/ui/compose/layouts/adaptive/mediaquery) API to dynamically adapt your UI to environmental signals like foldable posture, and keyboard states.
 
 Building adaptively requires tracking actual app dimensions rather than physical device size, especially during split-screen and multitasking flows. Using [Window Size Classes](https://developer.android.com/develop/adaptive-apps/guides/use-window-size-classes) from the [WindowManager library](https://developer.android.com/blog/posts/jetpack-window-manager-1-5-is-stable) allows your layout to respect folds and hinges as natural content separators.
-![image.png](https://developer.android.com/static/blog/assets/image_accb606a2f_Z1JKChD.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_accb606a2f_LUmqW.webp)
 
 For instance, Notability leveraged Material 3 Window Size Classes to create a responsive two-pane layout that transitions smoothly between folded and expanded screens. As Ryan Shea, Android Engineering Manager at Notability, shared, tracking the window itself allows their layout and canvas zoom to ensure notes stay fit to the page through every fold, rotation, or split-screen resize, noting that they wanted the app "to feel native at every size, not just stretched to fit."
-![image.png](https://developer.android.com/static/blog/assets/image_c4e847ad69_Z2s8W8h.webp) Notability's quiz UI adapted for expanded screens
+![image.png](https://developer.android.com/static/blog/assets/image_c4e847ad69_4x2Aj.webp) Notability's quiz UI adapted for expanded screens
 
 Ensuring these transitions feel seamless also requires state preservation across configuration changes. Using [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) retains UI state so interactions like scroll position, form inputs, and open dialogs remain uninterrupted when transitioning between inner and outer screens.
 
 Taking this approach, Flo Health used Jetpack Compose state primitives, ViewModel, and Window Size Classes to make their highest-traffic user journeys resilient to rotation, fold/unfold and resizing transitions. As Aleksandr Kolodiazhnyi, Senior Android Engineer at Flo Health, shared, "Android's adaptive guidance turned what looked like a major refactor into a templated rollout," allowing them to adopt Compose primitives without a rewrite, "cutting \[their\] state-preservation code by roughly 30% while fixing lifecycle and analytics correctness issues that improved the app on every form factor."
-![image.png](https://developer.android.com/static/blog/assets/image_528ab870cc_i8dQg.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_528ab870cc_Z2fmUe5.webp)
 
 To take full advantage of the foldable form factor, leverage [FoldingFeature updates](https://developer.android.com/develop/adaptive-apps/guides/foldables/make-your-app-fold-aware) to trigger posture-specific layouts. When a user partially folds their device into tabletop posture, you can split your UI automatically by placing primary controls on the lower display and main content or viewfinders on the upper display.
 
@@ -35,17 +35,17 @@ Prepare your app for these form factors today by exploring our complete adaptive
 
 ## **Bring delightful, gesture-driven experiences to the wrist**
 
-![croppixelwatch.jpg](https://developer.android.com/static/blog/assets/croppixelwatch_f7f078730b_f7f9G.webp)
+![croppixelwatch.jpg](https://developer.android.com/static/blog/assets/croppixelwatch_f7f078730b_2qDNVg.webp)
 
 The new Pixel Watch 5 is here, and we've optimized it to take advantage of the intelligent, power-efficient, touch-free convenience of [Wear OS 7.](https://developer.android.com/blog/posts/what-s-new-in-wear-os-7) Thanks to system-wide performance optimizations and a collection of new features built to help users complete tasks efficiently, you can provide rich experiences that require only a single user action to complete.
 
 The [one-handed gestures framework](http://android-developers.googleblog.com/2026/08/one-handed-gestures-wear-os.html) provides a convenient way for users to interact with their watches without needing to touch the screen with their opposite hand. Starting with the [1.7 beta release of Compose for Wear OS 7](https://developer.android.com/jetpack/androidx/releases/wear-compose), you can seamlessly integrate one-handed gesture control into your Wear Compose apps with simple physical inputs on the watch-wearing arm, like a double-pinch or wrist turn.
 
 Spotify is [adopting this framework](https://developer.android.com/design/ui/wear/guides/patterns/gestures)to make controlling media more effortless. By mapping Wear OS gesture events directly to the media player state, users will be able to pause or resume playback using a simple double-pinch, keeping music controls accessible even when their hands are full.
-![image6.gif](https://developer.android.com/static/blog/assets/image6_b680226851_Z29z5jB.webp) Pause Spotify media with a pinch gesture
+![image6.gif](https://developer.android.com/static/blog/assets/image6_b680226851_Z10kyW3.webp) Pause Spotify media with a pinch gesture
 
 Wear OS 7 also brings [Live Updates](https://developer.android.com/develop/ui/views/notifications/live-update) directly to the wrist to surface real-time information like live sports scores, workout progress, and delivery status, which can also appear in the At-a-Glance surface on Pixel Watch 5. For example, Just Eat uses Live Updates to keep users informed on order arrival times at a glance. You can publish updates locally from your watch app or leverage phone notification bridging on supported devices to deliver real-time tracking across screens.
-![image.png](https://developer.android.com/static/blog/assets/image_1bf8c92528_1sBBaU.webp) Live Updates from Just Eat delivering real-time status and delivery ETAs at a glance
+![image.png](https://developer.android.com/static/blog/assets/image_1bf8c92528_Z14SwTq.webp) Live Updates from Just Eat delivering real-time status and delivery ETAs at a glance
 
 You can also extend glanceable interactions across watch surfaces on Wear OS 7 by using Wear Widgets, powered by [Jetpack Glance](https://developer.android.com/jetpack/androidx/releases/glance-wear) and [RemoteCompose](https://developer.android.com/jetpack/androidx/releases/compose-remote). Wear Widgets with Compose offer greater expressiveness and consistency than the old Tiles framework, and the two available widget layouts---small and large-- align perfectly with the 2x1 and 2x2 formats on mobile, ensuring your designs feel cohesive across devices.
 
@@ -55,7 +55,7 @@ To get started developing for Wear OS 7, use the new [emulator](https://develope
 
 ## **Unlock on-device intelligence with Gemini Nano 4**
 
-![crop pixel11.jpg](https://developer.android.com/static/blog/assets/crop_pixel11_1a96b9a783_zdrmX.webp)
+![crop pixel11.jpg](https://developer.android.com/static/blog/assets/crop_pixel11_1a96b9a783_1zympo.webp)
 
 Pixel 11 devices are built to run Gemini Nano 4, bringing fast, responsive, on-device intelligence to the hardware. By running AI workflows directly on device, you can offer low-latency, real-time interactions that feel instant and integrated without needing round trips to the cloud.
 
@@ -86,7 +86,7 @@ Written by:
   ###### Senior Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
+  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)
 -
 
   ## [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston)
@@ -94,7 +94,7 @@ Written by:
   ###### Product Marketing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/loryn-hairston) ![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_Z1Y5zeh.webp) ![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_Z1Y5zeh.webp)
+  View profile](https://developer.android.com/blog/authors/loryn-hairston) ![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp) ![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)
 -
 
   ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
@@ -102,9 +102,9 @@ Written by:
   ###### Product Marketing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
+  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 Continue reading
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_Z14DWX.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
 
@@ -114,14 +114,14 @@ Continue reading
   - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - +1 ↩
-- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_1w4qDC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_ZrjgNw.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
 
   [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release) Today, the Jetpack Compose August '26 release is stable!
   [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
   - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- [![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_Derb5.webp)](https://developer.android.com/blog/authors/chiara-chiappini) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Bring_one_handed_gestures_Strapi_defff06599_Z1FDx9g.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_ZnAT5Q.webp)](https://developer.android.com/blog/authors/chiara-chiappini) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Bring_one_handed_gestures_Strapi_defff06599_ZRTaFd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Bring one-handed gestures to your Wear OS app](https://developer.android.com/blog/posts/bring-one-handed-gestures-to-your-wear-os-app)
 
@@ -137,4 +137,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

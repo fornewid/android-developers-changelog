@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.8.1](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.8.1) | - | - | [1.9.0-alpha02](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-alpha02) |
+| September 23, 2026 | [1.8.1](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.8.1) | - | [1.9.0-beta01](https://developer.android.com/jetpack/androidx/releases/mediarouter#1.9.0-beta01) | - |
 
 ## Declaring dependencies
 
@@ -53,6 +53,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.9
+
+### Version 1.9.0-beta01
+
+September 23, 2026
+
+`androidx.mediarouter:mediarouter:1.9.0-beta01` and `androidx.mediarouter:mediarouter-testing:1.9.0-beta01` are released. Version 1.9.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..37705d642c4e1b8a8c2bf2b34b5d6d0d3537660e/mediarouter).
+
+**Bug Fixes**
+
+- Fixed a `NullPointerException` in `RegisteredMediaRouteProvider` when receiving unsolicited dynamic route controller responses or null descriptor bundles from route providers. ([I94579](https://android-review.googlesource.com/#/q/I94579491fc9c3fb80ee0f300bf1daa9fc1777727))
 
 ### Version 1.9.0-alpha02
 

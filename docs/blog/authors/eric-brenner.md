@@ -4,12 +4,12 @@ url: https://developer.android.com/blog/authors/eric-brenner
 source: md.txt
 ---
 
-1 post ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+1 post ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 
 # Eric Brenner
 
 PM Rotator \& Software Engineer
-- 10 Nov 2025 10 Nov 2025 ![](https://developer.android.com/static/blog/assets/raising_The_Bar_1e7745ca31_Z29xq01.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 10 Nov 2025 10 Nov 2025 ![](https://developer.android.com/static/blog/assets/raising_The_Bar_1e7745ca31_1lkMos.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Raising the bar on battery performance: excessive partial wake locks metric is now out of beta](https://developer.android.com/blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta)
 
@@ -21,4 +21,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

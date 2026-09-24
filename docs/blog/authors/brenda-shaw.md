@@ -4,14 +4,14 @@ url: https://developer.android.com/blog/authors/brenda-shaw
 source: md.txt
 ---
 
-1 post ![](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Zriy5T.webp)
+1 post ![](https://developer.android.com/static/blog/assets/Brenda_Shaw_eaa3b6d259_Z1RcuMg.webp)
 
 # Brenda Shaw
 
 Technical Writer
 
 Devices \& Services Partner Engineering
-- 03 Nov 2025 03 Nov 2025 ![](https://developer.android.com/static/blog/assets/health_Connect1_49b5a00627_1xwJyg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 03 Nov 2025 03 Nov 2025 ![](https://developer.android.com/static/blog/assets/health_Connect1_49b5a00627_Z1LaQc.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Health Connect Jetpack v1.1.0 is now available!](https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available)
 
@@ -23,4 +23,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -8,7 +8,7 @@ source: md.txt
 
 # New tools and programs to accelerate your success on Google Play
 
-4 min read ![](https://developer.android.com/static/blog/assets/platime_53a39a9cc7_ZmGlDX.webp) 30 Oct 2025 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) [Paul Feng](https://developer.android.com/blog/authors/paul-feng) VP, Google Play Eng, Product, UX Last month, we shared new updates showcasing [our evolving vision for Google Play](https://blog.google/products/google-play/curation-update-september-2025/): a place where people can discover the content and experiences they love and where you can build and grow sustainable businesses. Our commitment to your success is at the heart of our continued investments.  
+4 min read ![](https://developer.android.com/static/blog/assets/platime_53a39a9cc7_2otWkD.webp) 30 Oct 2025 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) [Paul Feng](https://developer.android.com/blog/authors/paul-feng) VP, Google Play Eng, Product, UX Last month, we shared new updates showcasing [our evolving vision for Google Play](https://blog.google/products/google-play/curation-update-september-2025/): a place where people can discover the content and experiences they love and where you can build and grow sustainable businesses. Our commitment to your success is at the heart of our continued investments.  
 
 Today, we're excited to introduce a new bundle of tools and programs designed to enhance your productivity and accelerate your growth. From simplifying technical integration and localization, to offering deeper insights and creating powerful new ways to engage your audience these features will help streamline your development lifecycle.
 
@@ -25,7 +25,7 @@ We're launching new tools to remove friction from your tedious development tasks
 
 **Simplify deep link validation with a built-in emulator**   
 Troubleshooting deep links can be complex and time-consuming so we're excited to launch a new, streamlined experience that allows you to instantly [validate your deep links directly within Play Console](https://support.google.com/googleplay/android-developer/answer/12463044). This means you can use a built-in emulator to test a deep link and immediately see the expected user experience on the spot, just as if someone clicked the URL on a real device.
-![Built in emulator 2.jpg](https://developer.android.com/static/blog/assets/Built_in_emulator_2_b70f1ab3a8_QN2y9.webp)
+![Built in emulator 2.jpg](https://developer.android.com/static/blog/assets/Built_in_emulator_2_b70f1ab3a8_Y6Cer.webp)
 
 *Instantly validate your deep links using the new built-in emulator*  
 
@@ -41,13 +41,13 @@ We're launching new ways to help you reach and retain users, Including AI-powere
 
 **Get faster insights with automated chart summaries**   
 To help you spend less time interpreting data and more time acting on key insights, a new Gemini-powered feature on the Statistics page automatically generates descriptions of your charts. These summaries help you quickly understand key trends and events that might be affecting your metrics. For developers who use a screen reader, this feature also provides access to reporting in a way you haven't had before.
-![Automated chart summaries.gif](https://developer.android.com/static/blog/assets/Automated_chart_summaries_8a5e9366b3_Z2cE06j.webp)
+![Automated chart summaries.gif](https://developer.android.com/static/blog/assets/Automated_chart_summaries_8a5e9366b3_10uF9l.webp)
 
 *Get faster insights with new Gemini-powered chart summaries*
 
 **Access objective-related metrics and actionable advice for audience growth**   
 Earlier this year, we launched [objective-based overview pages](https://android-developers.googleblog.com/2025/04/play-console-insights.html) in Play Console to consolidate your key metrics, app performance, and actionable steps across essential workflows. With dedicated pages for Test \& Release, Monitor \& Improve, and Monetize with Play already live, we're excited to announce the full completion of this toolkit. The new Grow users overview page is now available, giving you a comprehensive, tailored view to help you acquire new users and expand your reach.
-![growusers.png](https://developer.android.com/static/blog/assets/growusers_138db0c4ba_2tDonq.webp)
+![growusers.png](https://developer.android.com/static/blog/assets/growusers_138db0c4ba_1CzLQd.webp)
 
 *Track your key audience growth metrics on the new "Grow users" overview page*
 
@@ -68,7 +68,7 @@ We're launching powerful new ways to configure your one-time products and track 
 
 **Simplify catalog management for one-time products**   
 Earlier this year, we introduced [more flexible ways to configure one-time purchases](https://android-developers.googleblog.com/2025/07/new-tools-to-help-drive-success-for-one-time-products.html). You can now offer your in-app products as limited-time rentals, and [sign up for our early access program](https://docs.google.com/forms/d/e/1FAIpQLSfBsxfQg4a8uC7Ct9O4ssn121KE6l8TC4qh3ZvA5tJpFLycqw/viewform) to get started with pre-orders. We've also launched a new taxonomy, building on our existing subscription model, to help you manage your catalog more efficiently. This new model unlocks significant flexibility to help you reach a wider audience and cater to different user preferences by letting you offer the same item in multiple ways. For example, you can sell an item in one country and rent it in another---helping Play better surface relevant offerings to users. Explore these new capabilities today [in Play Console](https://support.google.com/googleplay/android-developer/answer/16430488).
-![editonetime.png](https://developer.android.com/static/blog/assets/editonetime_25208f343c_Z1gqOwN.webp)
+![editonetime.png](https://developer.android.com/static/blog/assets/editonetime_25208f343c_Z2nuQG2.webp)
 
 *Manage your catalog more efficiently with new ways to configure one-time products*
 
@@ -76,9 +76,9 @@ Earlier this year, we introduced [more flexible ways to configure one-time purch
 
 **Understand the impact and performance of Play Points promotions**   
 With Play Points recently opened to all eligible titles, you can now better understand the impact of your promotions. The new Play Points page in Play Console lets you see the total revenue, buyers and acquisitions that all Play Points promotions have generated. This reporting covers both your developer-created offers, as well as new reporting for Google-funded Play Points promotions, which includes direct and post-promotion performance metrics.
-![playpoints.png](https://developer.android.com/static/blog/assets/playpoints_2ebcfe930a_R80kW.webp)
+![playpoints.png](https://developer.android.com/static/blog/assets/playpoints_2ebcfe930a_ZxKVlp.webp)
 
-![playpoints2.png](https://developer.android.com/static/blog/assets/playpoints2_91e8d52d78_Z1i1TR6.webp)
+![playpoints2.png](https://developer.android.com/static/blog/assets/playpoints2_91e8d52d78_iP3X8.webp)
 
 *New reporting for Play Points promotions*
 
@@ -92,9 +92,9 @@ Written by:
   ###### VP, Google Play Eng, Product, UX
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/paul-feng) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)
+  View profile](https://developer.android.com/blog/authors/paul-feng) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)
 Continue reading
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
 
@@ -104,14 +104,14 @@ Continue reading
   - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
   - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
   - +1 ↩
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
   [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
 
@@ -124,4 +124,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

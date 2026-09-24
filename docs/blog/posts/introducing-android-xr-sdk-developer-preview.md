@@ -8,7 +8,7 @@ source: md.txt
 
 # Introducing Android XR SDK Developer Preview
 
-5 min read ![](https://developer.android.com/static/blog/assets/Android_XR_Unlocked_2a393b1726_2cbGb7.webp) 12 Dec 2024 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today, we're launching the developer preview of the [**Android XR SDK**](http://developer.android.com/xr) - a comprehensive development kit for [Android XR](https://blog.google/products/android/android-xr). It's the newest platform in the Android family built for extended reality (XR) headsets (and glasses in the future!). You'll have endless opportunities to create and develop experiences that blend digital and physical worlds, using familiar Android APIs, tools and open standards created for XR. All of this means: if you build for Android, you're already building for XR! Read on to get started with development for headsets.
+5 min read ![](https://developer.android.com/static/blog/assets/Android_XR_Unlocked_2a393b1726_OqFlk.webp) 12 Dec 2024 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Today, we're launching the developer preview of the [**Android XR SDK**](http://developer.android.com/xr) - a comprehensive development kit for [Android XR](https://blog.google/products/android/android-xr). It's the newest platform in the Android family built for extended reality (XR) headsets (and glasses in the future!). You'll have endless opportunities to create and develop experiences that blend digital and physical worlds, using familiar Android APIs, tools and open standards created for XR. All of this means: if you build for Android, you're already building for XR! Read on to get started with development for headsets.
 
 With the Android XR SDK you can:
 
@@ -22,7 +22,7 @@ With the Android XR SDK you can:
 ### Your apps on Android XR
 
 The Android XR SDK is built on the existing foundations of Android app development. We're also bringing the Play Store to Android XR, where [**most Android**](https://developer.android.com/develop/xr/get-started#app-manifest)**apps will automatically be made available** without any additional development effort. Users will be able to discover and use your existing apps in a whole new dimension. To differentiate your existing Compose app, you may [opt-in](https://developer.android.com/develop/xr/jetpack-xr-sdk/material-design#use-enablexrcomponentoverrides), to automatically spatialize Material Design (M3) components and [Compose for adaptive layouts](https://developer.android.com/develop/ui/compose/layouts/adaptive) in XR.
-![apps_optimized.webp](https://developer.android.com/static/blog/assets/apps_optimized_9427c22aa9_Z1rpw7o.webp)
+![apps_optimized.webp](https://developer.android.com/static/blog/assets/apps_optimized_9427c22aa9_ixgpf.webp)
 
 *Apps optimized for large screens take advantage of sizing capabilities in Android XR*
 
@@ -49,7 +49,7 @@ The Jetpack XR SDK includes new [Jetpack](https://developer.android.com/jetpack)
 Kickstart your Jetpack XR SDK journey with the [**Hello XR Sample**](https://github.com/android/xr-samples), a straightforward introduction to the essential features of Jetpack Compose for XR.
 
 Learn more about [developing with the Jetpack XR SDK](https://developer.android.com/develop/xr/jetpack-xr-sdk).
-![jetnews.webp](https://developer.android.com/static/blog/assets/jetnews_6820eb2c7d_Z1cnsAA.webp)
+![jetnews.webp](https://developer.android.com/static/blog/assets/jetnews_6820eb2c7d_1yMPo1.webp)
 
 *The JetNews sample app is an Android large-screen app adapted for Android XR*
 
@@ -60,7 +60,7 @@ We're also introducing new tools and capabilities to the latest preview of [Andr
 - Use the updated Layout Inspector to inspect and debug spatialized UI components created with Jetpack Compose for XR.
 
 Learn more about the XR enabled tools in [Android Studio and the Android XR Emulator](https://developer.android.com/develop/xr/jetpack-xr-sdk/studio-tools).
-![xr_emulator2.webp](https://developer.android.com/static/blog/assets/xr_emulator2_0d97fadcd3_6dHpr.webp)
+![xr_emulator2.webp](https://developer.android.com/static/blog/assets/xr_emulator2_0d97fadcd3_KEjJ3.webp)
 
 *The Android XR Emulator in Android Studio has new controls to explore 3D space within the emulator*
 
@@ -82,7 +82,7 @@ We're also rolling out the Android XR Extensions for Unity with samples and inno
 -- Johan Gastrin, CTO at [**Resolution Games**](https://www.resolutiongames.com/)
 
 Check out our [getting started guide for unity](https://developer.android.com/develop/xr/unity) and [Unity's blog post](https://on.unity.com/3DdnxJW) to learn more.
-![vacation_simulator.webp](https://developer.android.com/static/blog/assets/vacation_simulator_65f68eaafa_VwB4c.webp)
+![vacation_simulator.webp](https://developer.android.com/static/blog/assets/vacation_simulator_65f68eaafa_13PbJu.webp)
 
 [*Vacation Simulator*](https://owlchemylabs.com/blog/owlchemy-labs-announces-android-xr-support-for-job-simulator-vacation-simulator)* has been updated to Unity 6 and supports Android XR*
 
@@ -91,7 +91,7 @@ Check out our [getting started guide for unity](https://developer.android.com/de
 Chrome on Android XR supports the **WebXR** standard. If you're building for the web, you can enhance existing sites with 3D content or build new immersive experiences. You can also use full-featured frameworks like [three.js](https://threejs.org/), [A-Frame](https://aframe.io/), or [PlayCanvas](https://github.com/playcanvas/engine) to create virtual worlds, or you can use a simpler API like [model-viewer](https://modelviewer.dev/) so your users can visualize products in an e-commerce site. And because WebXR is an [open standard](https://www.w3.org/TR/webxr/), the same experiences you build for mobile AR devices or dedicated VR hardware seamlessly work on Android XR.
 
 Learn more about [developing with WebXR](https://developer.android.com/develop/xr/develop-with-webxr).
-![webxr_blur.webp](https://developer.android.com/static/blog/assets/webxr_blur_fe9ecfa326_1zv9Yg.webp)
+![webxr_blur.webp](https://developer.android.com/static/blog/assets/webxr_blur_fe9ecfa326_9BdhT.webp)
 
 *Chrome on Android XR supports WebXR features including depth maps allowing virtual objects to interact with real world surfaces*
 
@@ -122,23 +122,23 @@ Written by:
   ###### Vice President, Product Management, Android Developer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-17-is-here) Today we're releasing Android 17 and making it available on most supported Pixel devices. Look for new devices running Android 17 in the coming months.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 13 min read
   - [#Android 17](https://developer.android.com/blog/topics/android-17)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [17 Things to know for Android developers at Google I/O!](https://developer.android.com/blog/posts/17-things-to-know-for-android-developers-at-google-i-o)
 
@@ -151,4 +151,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

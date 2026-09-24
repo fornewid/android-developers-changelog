@@ -29,7 +29,7 @@ Use the following dependency in your app module's build.gradle file:
 
 ```kotlin
 dependencies {
-    def wear_compose_version = "1.6.2"
+    def wear_compose_version = "1.7.0"
     implementation "androidx.wear.compose:compose-navigation:$wear_compose_version"
 }
 ```

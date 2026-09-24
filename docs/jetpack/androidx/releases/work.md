@@ -13,7 +13,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 12, 2026 | [2.11.2](https://developer.android.com/jetpack/androidx/releases/work#2.11.2) | [2.12.0-rc01](https://developer.android.com/jetpack/androidx/releases/work#2.12.0-rc01) | - | - |
+| September 23, 2026 | [2.12.0](https://developer.android.com/jetpack/androidx/releases/work#2.12.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -27,7 +27,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    def work_version = "2.11.2"
+    def work_version = "2.12.0"
 
     // (Java only)
     implementation "androidx.work:work-runtime:$work_version"
@@ -53,7 +53,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val work_version = "2.11.2"
+    val work_version = "2.12.0"
 
     // (Java only)
     implementation("androidx.work:work-runtime:$work_version")
@@ -93,6 +93,18 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 2.12
+
+### Version 2.12.0
+
+September 23, 2026
+
+`androidx.work:work-*:2.12.0` is released. Version 2.12.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/ca9838b48d87bc75d30b12a4b187c2f6da47308f..cbf5ea2a1e5a7e5999144c2cb7f170802046e1c9/work).
+
+**Important changes since 2.11.0:**
+
+- The `minSdk` has been updated from API 23 to API 24
+- A new artifact, `androidx.work:work-analytics`, adds experimental Work Metrics APIs for inspecting the execution history of your work. `WorkMetricsInfoRepository` records a `WorkMetricsInfo` per work event timestamps, worker duration, total cumulative runtime, and run attempts breakdowns. Metrics can be read via configurable queries or observed as a `Flow` of finished work. These APIs require opting in to `@ExperimentalWorkMetricsApi`.
+- New experimental event listener APIs let you observe `WorkManager`'s execution and scheduling directly. `Configuration.Builder` now accepts a listener for worker execution events (start, finish, stop, and uncaught exceptions) and a listener for scheduling events (enqueue, unblock, update, cancellation, and failed prerequisites). These are the building blocks that `work-analytics` itself is built on.
 
 ### Version 2.12.0-rc01
 

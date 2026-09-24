@@ -8,30 +8,30 @@ source: md.txt
 
 # Start building for glasses, new devices for Android XR and more in The Android Show \| XR Edition
 
-2 min read ![](https://developer.android.com/static/blog/assets/xr_Week4_07a795cac6_Z1lA8nY.webp) 08 Dec 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer [Video](https://www.youtube.com/watch?v=a3-OJxxW810)
+2 min read ![](https://developer.android.com/static/blog/assets/xr_Week4_07a795cac6_Z1OdVv4.webp) 08 Dec 2025 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer [Video](https://www.youtube.com/watch?v=a3-OJxxW810)
 
 Today, during [The Android Show \| XR Edition](https://blog.google/products/android/android-show-xr-edition-updates), we shared a look at the expanding [Android XR platform](http://d.android.com/xr), which is fundamentally evolving to bring a unified developer experience to the entire XR ecosystem. The latest announcements, from [Developer Preview 3](https://android-developers.googleblog.com/2025/12/build-for-ai-glasses-with-android-xr.html) to exciting new form factors, are designed to give you the tools and platform you need to create the next generation of XR experiences. Let's dive into the details!
 
 ### **A spectrum of new devices ready for your apps**
 
 The Android XR platform is quickly expanding, providing more users and more opportunities for your apps. This growth is anchored by several new form factors that expand the possibilities for XR experiences.
-![image_Lens_2024Q4_24H171x001_07_XR_Glasses_Talent_T_R01_QC.jpg](https://developer.android.com/static/blog/assets/image_Lens_2024_Q4_24_H171x001_07_XR_Glasses_Talent_T_R01_QC_9efadf543d_12Qs9l.webp)
+![image_Lens_2024Q4_24H171x001_07_XR_Glasses_Talent_T_R01_QC.jpg](https://developer.android.com/static/blog/assets/image_Lens_2024_Q4_24_H171x001_07_XR_Glasses_Talent_T_R01_QC_9efadf543d_Z1z1p9f.webp)
 
 A major focus is on lightweight, all-day wearables. At I/O, we announced we are working with Samsung and our partners Gentle Monster and Warby Parker to design stylish, lightweight AI glasses and Display AI glasses that you can wear comfortably all day. The integration of Gemini on glasses is set to unlock helpful, intelligent experiences like live translation and searching what you see.
-![Glasses - Universal Translator GIF.gif](https://developer.android.com/static/blog/assets/Glasses_Universal_Translator_GIF_9e9aa3da3a_Z1Rf5IA.webp)
+![Glasses - Universal Translator GIF.gif](https://developer.android.com/static/blog/assets/Glasses_Universal_Translator_GIF_9e9aa3da3a_Z1xamV.webp)
 
 And, partners like Uber are already exploring how AI Glasses can streamline the rider experience by providing simple, contextual directions and trip status right in the user's view
-![Aura XREAL Glasses - Black Background.jpg](https://developer.android.com/static/blog/assets/Aura_XREAL_Glasses_Black_Background_853fbbbb9b_Z2wv9AU.webp)
+![Aura XREAL Glasses - Black Background.jpg](https://developer.android.com/static/blog/assets/Aura_XREAL_Glasses_Black_Background_853fbbbb9b_Z2jOWai.webp)
 
 The ecosystem is simultaneously broadening its scope to include wired XR glasses, exemplified by Project Aura from XREAL. This device blends the immersive experiences typically found in headsets with portability and real-world presence. Project Aura is scheduled for launch next year.
 
 ### **New tools unlock development for all form factors**
 
 If you are developing for Android, you are already developing for Android XR. The release of Android XR SDK Developer Preview 3 brings increased stability for headset APIs and, most significantly, opens up development for AI Glasses.
-![glimmer-poster.png](https://developer.android.com/static/blog/assets/glimmer_poster_878c7ed70f_ZPpcKY.webp)
+![glimmer-poster.png](https://developer.android.com/static/blog/assets/glimmer_poster_878c7ed70f_1l7m0A.webp)
 
 You can now build augmented experiences for AI glasses using new libraries like [Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk#jetpack-compose-glimmer), a UI toolkit for transparent displays , and [Jetpack Projected](https://developer.android.com/develop/xr/jetpack-xr-sdk#jetpack-projected), which lets you extend your Android mobile app directly to glasses. Furthermore, the SDK now includes powerful [ARCore for Jetpack XR](https://developer.android.com/develop/xr/jetpack-xr-sdk/arcore) updates, such as Geospatial capabilities for wayfinding.
-![image1.webp](https://developer.android.com/static/blog/assets/image1_613b2adb6a_Z1KOBi4.webp)
+![image1.webp](https://developer.android.com/static/blog/assets/image1_613b2adb6a_1gCdqN.webp)
 
 For immersive experiences on headsets and wired XR glasses like Project Aura from XREAL, this release also provides new APIs for detecting a device's field-of-view, helping your adaptive apps adjust their UI.
 
@@ -44,7 +44,7 @@ The Android XR platform is built on the OpenXR standard, enabling integration wi
 Developers can utilize Unreal Engine's native Android and OpenXR capabilities, today, to build for Android XR leveraging the existing [VR Template](https://dev.epicgames.com/documentation/en-us/unreal-engine/vr-template-in-unreal-engine) for immersive experiences. To provide additional, optimized extensions for the Android XR platform, a Google vendor plug, including support for hand tracking, hand mesh, and more, will be released early next year.
 
 Godot now includes Android XR support, leveraging its focus on OpenXR to enable development for devices like Samsung Galaxy XR. The new [Godot OpenXR vendor plugin v4.2.2](https://store-beta.godotengine.org/asset/godot-xr/godot-openxr-vendors-plugin/) stable allows developers to port their existing projects to the platform.
-![16_9_Launch Thumb - Glasses.png](https://developer.android.com/static/blog/assets/16_9_Launch_Thumb_Glasses_b103ad731d_ZT9E3n.webp)
+![16_9_Launch Thumb - Glasses.png](https://developer.android.com/static/blog/assets/16_9_Launch_Thumb_Glasses_b103ad731d_2j01ch.webp)
 
 ### **Watch The Android Show \| XR Edition**
 
@@ -58,9 +58,9 @@ Written by:
   ###### Vice President, Product Management, Android Developer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
 
@@ -70,7 +70,7 @@ Continue reading
   - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
   - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
   - +1 ↩
-- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_Z20LEeM.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
 
@@ -78,7 +78,7 @@ Continue reading
   1 min read
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Generative AI](https://developer.android.com/blog/topics/generative-ai)
-- [![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Zr7Omv.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) 11 Mar 2026 11 Mar 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_ZDM8Sn.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- [![View Maru Ahues Bouza's profile](https://developer.android.com/static/blog/assets/maru_ahues_7598dede84_Z1ibqSI.webp)](https://developer.android.com/blog/authors/maru-ahues-bouza) 11 Mar 2026 11 Mar 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Level_Up_metadata_banner_2048x1323_33658d545a_27oFVg.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Level Up: Test Sidekick and prepare for upcoming program milestones](https://developer.android.com/blog/posts/level-up-test-sidekick-and-prepare-for-upcoming-program-milestones)
 
@@ -90,4 +90,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

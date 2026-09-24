@@ -8,7 +8,7 @@ source: md.txt
 
 # Android Studio Narwhal 4 Feature Drop: watch face support and improved stability
 
-5 min read ![](https://developer.android.com/static/blog/assets/as_Narwhal_7bf25b6657_Zl5Grc.webp) 09 Oct 2025 [![View Paris Hsu's profile](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_Z2izffS.webp)](https://developer.android.com/blog/authors/paris-hsu) [Paris Hsu](https://developer.android.com/blog/authors/paris-hsu) Product Manager, Android Studio [Android Studio Narwhal 4 Feature Drop](https://developer.android.com/studio) is now stable and ready for you to use! This release brings targeted support for declarative Wear OS watch faces, a new customization option for your Project view, and continues our focus on quality by fixing 550+ numbers of bugs to improve stability and performance. You told us Agent Mode has been really helpful for your productivity, and we've now graduated it from being in preview to being stable.
+5 min read ![](https://developer.android.com/static/blog/assets/as_Narwhal_7bf25b6657_Z1mV2I8.webp) 09 Oct 2025 [![View Paris Hsu's profile](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_ZASx4V.webp)](https://developer.android.com/blog/authors/paris-hsu) [Paris Hsu](https://developer.android.com/blog/authors/paris-hsu) Product Manager, Android Studio [Android Studio Narwhal 4 Feature Drop](https://developer.android.com/studio) is now stable and ready for you to use! This release brings targeted support for declarative Wear OS watch faces, a new customization option for your Project view, and continues our focus on quality by fixing 550+ numbers of bugs to improve stability and performance. You told us Agent Mode has been really helpful for your productivity, and we've now graduated it from being in preview to being stable.
 
 This is also the final feature drop for the Android Studio Narwhal releases. With the [new monthly release cadence](https://android-developers.googleblog.com/2025/08/accelerating-development-with-monthly-releases-android-studio-2x-more-than-before.html), we've been delivering new features and bug fixes every month. The last three Narwhal releases have been packed with features, including the launch of Agent Mode and Compose previews. We'd like to not only share what's new in this release, but also recap some key features from the Narwhal releases.
 
@@ -19,14 +19,14 @@ Here are the new features shipping with this release:
 ### Declarative Wear OS watch faces support in Android Studio ⌚
 
 Android Studio Narwhal 4 Feature Drop improves the workflow for creating Wear OS [watch faces](https://developer.android.com/training/wearables/watch-faces) by introducing editor support for the [Watch Face XML Format](https://developer.android.com/training/wearables/wff) to write, debug, and fine-tune your watch face designs directly within the IDE. This helps you work faster by bringing the Android development process into the IDE instead of having to change context and work with multiple programs when developing watch faces.
-![Declarative-watchfaces.gif](https://developer.android.com/static/blog/assets/Declarative_watchfaces_4fa8d2cf1c_Z41FCK.webp)
+![Declarative-watchfaces.gif](https://developer.android.com/static/blog/assets/Declarative_watchfaces_4fa8d2cf1c_1u8PC1.webp)
 
 Android Studio lets you directly edit the XML files used in the Watch Face Format. It now provides code completion for tags and attributes based on the official Watch Face Format schemas and live error validation that helps identify issues like missing required attributes. Android Studio also includes resource linking to quickly navigate to drawable resources and other referenced XML elements along with advanced syntax support for handling arithmetic expressions and data source references embedded in the XML. Finally, you can deploy watch faces directly to a Wear OS emulator or physical device from Android Studio.
 
 ### Option to make Project view your default 📂
 
 Tired of always having to switch to the Project view every time you open a new project? There is a new setting to have new projects open in Project view by default. To enable the setting go to **File** (**Android Studio** on macOS) **\> Settings \> Advanced Settings \> Project View** and select **Set Project view as the default**.
-![large_Project_view_default_8f84ca0259.png](https://developer.android.com/static/blog/assets/large_Project_view_default_8f84ca0259_6a23e31a8f_1NTvk1.webp)
+![large_Project_view_default_8f84ca0259.png](https://developer.android.com/static/blog/assets/large_Project_view_default_8f84ca0259_6a23e31a8f_Z1TxiHc.webp)
 
 ## A look back: key features from the Android Studio Narwhal releases
 
@@ -37,27 +37,27 @@ Here's a quick summary of some of the top features you should be trying out:
 ### Agent Mode (now stable!)
 
 Have Google Gemini help with your tasks by using [Agent Mode](https://developer.android.com/studio/gemini/agent-mode). The AI agent can understand your project, break down complex tasks into smaller steps, make edits on your behalf, and help you with multi-step operations --- like adding new features, refactoring code, or debugging complex issues right inside your IDE. [Developers such as Entri used Agent Mode](https://youtu.be/zpAy91KUkfg?si=AM2U73VviAheBXxu&t=146) to generate Jetpack Compose layouts from UI mockups, and found that Gemini in Android Studio reduced their overall UI development time by 40%.
-![large_agent_mode_bc15d51e81.png](https://developer.android.com/static/blog/assets/large_agent_mode_bc15d51e81_398cb81353_1uY2CM.webp)
+![large_agent_mode_bc15d51e81.png](https://developer.android.com/static/blog/assets/large_agent_mode_bc15d51e81_398cb81353_23ew4t.webp)
 
 ### Android partner device labs (using Android Device Streaming)
 
 We expanded Android Device Streaming by adding [Android Partner Device Labs](https://developer.android.com/studio/run/android-device-streaming#2P). This gives you secure access to a wide range of remote, physical devices from partners like Samsung, enabling you to test your app's compatibility and performance on some of the most popular devices in the market, directly from Android Studio.
-![large_Partner_device_labs_9f591f44d0.png](https://developer.android.com/static/blog/assets/large_Partner_device_labs_9f591f44d0_a8477e5007_rQ32e.webp)
+![large_Partner_device_labs_9f591f44d0.png](https://developer.android.com/static/blog/assets/large_Partner_device_labs_9f591f44d0_a8477e5007_1Odkwr.webp)
 
 ### Test app backup and restore
 
 We added tools to test your app's data backup and restoration flow. This is critical for ensuring a smooth user experience when switching to a new device. You can generate a backup of your app's data, restore it to another device, and even attach backups to your run configurations to test this flow easily.
-![large_Backup_restore_50901ad504.png](https://developer.android.com/static/blog/assets/large_Backup_restore_50901ad504_4255c19f0b_1HOTJb.webp)
+![large_Backup_restore_50901ad504.png](https://developer.android.com/static/blog/assets/large_Backup_restore_50901ad504_4255c19f0b_ZlBoPN.webp)
 
 ### Resizable Compose Preview
 
 Building responsive UIs became much easier in Android Studio Narwhal. [Compose Preview](https://developer.android.com/develop/ui/compose/tooling/previews) now supports dynamic resizing, giving you instant visual feedback on how your UI adapts to different screen sizes. You can simply enter Focus mode in the Compose Preview and drag the edges to see your layout change in real time.
-![resizable_preview_87e89db34a.gif](https://developer.android.com/static/blog/assets/resizable_preview_87e89db34a_dfee635ba1_9JDEi.webp)
+![resizable_preview_87e89db34a.gif](https://developer.android.com/static/blog/assets/resizable_preview_87e89db34a_dfee635ba1_1N1aKP.webp)
 
 ### Google Play policy insights
 
 Get early warnings about potential Google Play policy violations to help you build more compliant apps with Play Policy Insights, now in Android Studio. The IDE now shows lint warnings directly in your code when it relates to a Google Play policy requirement. You can also integrate these lint checks into your CI/CD pipelines. These insights provide an overview of the policy, dos and don'ts, and links more resources, helping you address potential issues early in your development cycle.
-![small_unnamed_488ff3b00e.png](https://developer.android.com/static/blog/assets/small_unnamed_488ff3b00e_0c9103612e_Z21HyvP.webp)
+![small_unnamed_488ff3b00e.png](https://developer.android.com/static/blog/assets/small_unnamed_488ff3b00e_0c9103612e_2gC8fS.webp)
 
 *** ** * ** ***
 
@@ -120,9 +120,9 @@ Written by:
   ###### Product Manager, Android Studio
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/paris-hsu) ![View Paris Hsu's profile](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_Z2izffS.webp) ![View Paris Hsu's profile](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_Z2izffS.webp)
+  View profile](https://developer.android.com/blog/authors/paris-hsu) ![View Paris Hsu's profile](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_ZASx4V.webp) ![View Paris Hsu's profile](https://developer.android.com/static/blog/assets/2_o2_H5_V1lr_Zrcfhto_Au9_B2_Q_fd3ec10461_acae303cd5_ZASx4V.webp)
 Continue reading
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -132,7 +132,7 @@ Continue reading
   - [#ADB Wi-Fi 2.0](https://developer.android.com/blog/topics/adb-wi-fi-2-0)
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
   - +1 ↩
-- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_Z2bRC9Y.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw) 01 Sep 2026 01 Sep 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_ZqnmK9.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Leverage Android skills and Gemma 4 in Android Studio Quail 4](https://developer.android.com/blog/posts/leverage-android-skills-and-gemma-4-in-android-studio-quail-4)
 
@@ -140,7 +140,7 @@ Continue reading
   [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) • 5 min read
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
   - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
-- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_ZzldHB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_1b91Ge.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
 
@@ -156,4 +156,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0) | - | - | [1.14.0-alpha02](https://developer.android.com/jetpack/androidx/releases/activity#1.14.0-alpha02) |
+| September 23, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0) | - | - | [1.14.0-alpha03](https://developer.android.com/jetpack/androidx/releases/activity#1.14.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -63,6 +63,22 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.14
+
+### Version 1.14.0-alpha03
+
+September 23, 2026
+
+`androidx.activity:activity:1.14.0-alpha03`, `androidx.activity:activity-compose:1.14.0-alpha03`, and `androidx.activity:activity-ktx:1.14.0-alpha03` are released. Version 1.14.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f/activity).
+
+**API Changes**
+
+- Use `WindowCompat#enableEdgeToEdge(Window)` instead of `EdgeToEdge#enable()` ([Ibff3e](https://android-review.googlesource.com/#/q/Ibff3ee1970f18642d5be7177c7ee74ea7b0df73e))
+- Material 2 text field overloads that accept `value, onValueChange` parameters are deprecated. Please migrate to the overload that uses `TextFieldState` to hoist its state. ([I6b841](https://android-review.googlesource.com/#/q/I6b841e6850afbc22bec2424c3762927ec4f65670), [b/556234973](https://issuetracker.google.com/issues/556234973))
+
+**Bug Fixes**
+
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
+- `ComponentActivity` new `defaultViewModelArgs` now supports direct boot configuration as well. ([I10a08](https://android-review.googlesource.com/#/q/I10a08f430362f9e809763fe70db60e68edcc4b42))
 
 ### Version 1.14.0-alpha02
 

@@ -26,7 +26,7 @@ described in the following list:
 - **Health Connect ID:** Each point of data is assigned with a unique identifier (UID) upon creation. This is useful for standard read and write operations. See [Health Connect ID](https://developer.android.com/health-and-fitness/health-connect/data-format#health-connect-id) for more details.
 - **Last modified time:** This marks the timestamp the last instance a record has an update. It's automatically generated on the first creation of the record or on every update.
 - **Data origin:** Health Connect stores information about the app where the data came from. It contains the package name of that origin, which is automatically added upon creation.
-- **Device:** Health Connect stores information about the device where the data came from. It contains the manufacturer and model of that device, which you manually supply the value.
+- **Device:** Health Connect stores information about the device where the data came from. Only the device type is mandatory; all other fields (manufacturer, model, display name, and Unique Device Identifier (UDI)) are optional.
 - **Client ID:** Health Connect provides Client IDs so that client apps can refer to data using their own IDs, which helps with conflict resolution and makes syncing easier. This is supplied to the record manually.
 - **Client record version:** Along with the Client ID, Health Connect provides versioning to help tracking changes during data syncing. This is supplied to the record manually.
 - **Recording method:** Health Connect lets you understand how data is recorded. These methods include apps recording data passively (automatically), and users recording data actively or manually.

@@ -8,7 +8,7 @@ source: md.txt
 
 # Under the hood: Android 17's lock-free MessageQueue
 
-16 min read ![](https://developer.android.com/static/blog/assets/Android_17_s_Lock_Free_Message_Queue_Blog_2169eab465_1EHW3E.webp) 17 Feb 2026 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/charles-munger)[![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp)](https://developer.android.com/blog/authors/shai-barack) [Charles Munger](https://developer.android.com/blog/authors/charles-munger) \& [Shai Barack](https://developer.android.com/blog/authors/shai-barack) In Android 17, apps targeting SDK 37 or higher will receive a new implementation of MessageQueue where the implementation is lock-free. The new implementation improves performance and reduces missed frames, but may break clients that reflect on MessageQueue private fields and methods. To learn more about the behavior change and how you can mitigate impact, [check out the MessageQueue behavior change documentation](http://developer.android.com/about/versions/17/changes/messagequeue). This technical blog post provides an overview of the MessageQueue rearchitecture and how you can analyze lock contention issues using Perfetto.
+16 min read ![](https://developer.android.com/static/blog/assets/Android_17_s_Lock_Free_Message_Queue_Blog_2169eab465_1v3Azi.webp) 17 Feb 2026 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/charles-munger)[![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_2aBzdV.webp)](https://developer.android.com/blog/authors/shai-barack) [Charles Munger](https://developer.android.com/blog/authors/charles-munger) \& [Shai Barack](https://developer.android.com/blog/authors/shai-barack) In Android 17, apps targeting SDK 37 or higher will receive a new implementation of MessageQueue where the implementation is lock-free. The new implementation improves performance and reduces missed frames, but may break clients that reflect on MessageQueue private fields and methods. To learn more about the behavior change and how you can mitigate impact, [check out the MessageQueue behavior change documentation](http://developer.android.com/about/versions/17/changes/messagequeue). This technical blog post provides an overview of the MessageQueue rearchitecture and how you can analyze lock contention issues using Perfetto.
 
 The [Looper](https://developer.android.com/reference/android/os/Looper) drives the UI thread of every Android application. It pulls work from a [MessageQueue](https://developer.android.com/reference/android/os/MessageQueue), dispatches it to a [Handler](https://developer.android.com/reference/android/os/Handler), and repeats. For two decades, `MessageQueue` used a single monitor lock (i.e. a `synchronized` code block) to protect its state.
 
@@ -29,7 +29,7 @@ Priority inversion can happen when a high-priority thread (like the UI thread) i
 3. The *high priority* UI thread finishes its current task and attempts to read from the queue, but is blocked because the low priority thread holds the lock.
 
 The low-priority thread blocks the UI thread, and the medium-priority work delays it further.
-![perfetto1.png](https://developer.android.com/static/blog/assets/perfetto1_441f23086c_22PETm.webp)
+![perfetto1.png](https://developer.android.com/static/blog/assets/perfetto1_441f23086c_Z2kt03j.webp)
 
 #### **Analyzing contention with Perfetto**
 
@@ -40,7 +40,7 @@ When you query trace data, look for slices named "monitor contention with ..." f
 #### **Case study: Launcher jank**
 
 To illustrate, let's analyze a trace where a user experienced jank while navigating home on a Pixel phone immediately after taking a photo in the camera app. Below we see a screenshot of Perfetto showing the events leading up to the missed frame:
-![launcherJ.png](https://developer.android.com/static/blog/assets/launcher_J_74ad16e6d4_ZRDexG.webp)
+![launcherJ.png](https://developer.android.com/static/blog/assets/launcher_J_74ad16e6d4_Z1TtzOC.webp)
 
 - **Symptom:** The Launcher main thread missed its frame deadline. It blocked for 18ms, which exceeds the 16ms deadline required for 60Hz rendering.
 - **Diagnosis:** Perfetto showed the main thread blocked on the `MessageQueue` lock. A "BackgroundExecutor" thread owned the lock.
@@ -188,7 +188,7 @@ Any producer can push new `Message`s to the stack at any time. This is like pull
 #### **Dequeue: bulk transfer to a min-heap**
 
 To find the next `Message` to handle, the `Looper` processes new `Message`s from the Treiber stack by walking the stack starting from the top and iterating until it finds the last `Message` that it previously processed. As the `Looper` traverses down the stack, it inserts `Message`s into the deadline-ordered min-heap. Since the `Looper` exclusively owns the heap, it orders and processes `Message`s without locks or atomics.
-![dequeue.png](https://developer.android.com/static/blog/assets/dequeue_17341af975_ZornaQ.webp)
+![dequeue.png](https://developer.android.com/static/blog/assets/dequeue_17341af975_2j6MSg.webp)
 
 In walking down the stack, the `Looper` also creates links from stacked `Message`s back to their predecessors, thus forming a doubly-linked list. Creating the linked list is safe because links pointing down the stack are added via the Treiber stack algorithm with CAS, and links up the stack are only ever read and modified by the `Looper` thread. These back links are then used to remove `Message`s from arbitrary points in the stack in O(1) time.
 
@@ -224,10 +224,10 @@ Most concurrency APIs, such as `Future` in the Java standard library, or Kotlin'
 Today's Android devices have multi-core CPUs and concurrent, generational garbage collection. But when Android was first developed, it was too expensive to allocate one object for each unit of work. Consequently, Android's `Handler` supports cancellation via numerous overloads of `removeMessages` - rather than removing a *specific* `Message`, it removes all `Message`s that match the specified criteria. In practice, this requires iterating through all `Message`s inserted before `removeMessages` was called and removing the ones that match.
 
 When iterating forward, a thread only requires one ordered atomic operation, to read the current head of the stack. After that, ordinary field reads are used to find the next `Message`. If the Looper thread modifies the `next` fields while removing `Message`s, the `Looper`'s write and another thread's read are unsynchronized - this is a *data race*. Normally, a data race is a serious bug that can cause huge problems in your app - leaks, infinite loops, crashes, freezes, and more. However, under certain narrow conditions, data races can be benign within the Java Memory Model. Suppose we start with a stack of:
-![headMessage.png](https://developer.android.com/static/blog/assets/head_Message_c0bf0dd8c3_mm1mr.webp)
+![headMessage.png](https://developer.android.com/static/blog/assets/head_Message_c0bf0dd8c3_1Xe0cF.webp)
 
 We perform an atomic read of the head, and see A. A's next pointer points to B. At the same time as we process B, the looper might remove B and C, by updating A to point to C and then D.
-![headMessage2.png](https://developer.android.com/static/blog/assets/head_Message2_2faa5aad41_ZrmXie.webp)
+![headMessage2.png](https://developer.android.com/static/blog/assets/head_Message2_2faa5aad41_d3D1n.webp)
 
 Even though `B` and `C` are logically removed, `B` retains its next pointer to `C`, and `C` to `D`. The reading thread continues traversing through the detached removed nodes and eventually rejoins the live stack at `D`.
 
@@ -240,7 +240,7 @@ By designing DeliQueue to handle races between traversal and removal, we allow f
 Before using the native allocation, a thread reads the refcount atomic. If the quitting bit is set, it returns that the `Looper` is quitting and the native allocation must not be used. If not, it attempts a CAS to increment the number of active threads using the native allocation. After doing what it needs to, it decrements the count. If the quitting bit was set after its increment but before the decrement, and the count is now zero, then it wakes up the `Looper` thread.
 
 When the `Looper` thread is ready to quit, it uses CAS to set the quitting bit in the atomic. If the refcount was 0, it can proceed to free its native allocation. Otherwise, it parks itself, knowing that it will be woken up when the last user of the native allocation decrements the refcount. This approach does mean that the `Looper` thread waits for the progress of other threads, but only when it's quitting. That only happens once and is not performance sensitive, and it keeps the other code for using the native allocation fully lock-free.
-![atomicLayout.png](https://developer.android.com/static/blog/assets/atomic_Layout_a0595dfd75_Z1zR6hw.webp)
+![atomicLayout.png](https://developer.android.com/static/blog/assets/atomic_Layout_a0595dfd75_Z1n8HAs.webp)
 
 There's a lot of other tricks and complexity in the implementation. You can learn more about DeliQueue by reviewing the source code.
 
@@ -276,7 +276,7 @@ static int compareMessages(@NonNull Message m1, @NonNull Message m2) {
 This code compiles to conditional jumps (`b.le` and `cbnz` instructions). When the CPU encounters a conditional branch, it can't know whether the branch is taken until the condition is computed, so it doesn't know which instruction to read next, and has to guess, using a technique called *branch prediction*. In a case like binary search, the branch direction will be unpredictably different at each step, so it's likely that half the predictions will be wrong. Branch prediction is often ineffective in searching and sorting algorithms (such as the one used in a min-heap), because the cost of guessing wrong is larger than the improvement from guessing correctly. When the branch predictor guesses wrong, it must throw away the work it did after assuming the predicted value, and start again from the path that was actually taken - this is called a *pipeline flush*.
 
 To find this issue, we profiled our benchmarks using the `branch-misses` performance counter, which records stack traces where the branch predictor guesses wrong. We then visualized the results with [Google pprof](https://github.com/google/pprof), as shown below:
-![flame2.png](https://developer.android.com/static/blog/assets/flame2_7a4a6d0dfd_LQVaM.webp)
+![flame2.png](https://developer.android.com/static/blog/assets/flame2_7a4a6d0dfd_1V6rxl.webp)
 
 Recall that the original `MessageQueue` code used a singly-linked list for the ordered queue. Insertion would traverse the list in sorted order as a linear search, stopping at the first element that's past the point of insertion and linking the new `Message` ahead of it. Removal from the head simply required unlinking the head. Whereas DeliQueue uses a min-heap, where mutations require reordering some elements (sifting up or down) with logarithmic complexity in a balanced data structure, where any comparison has an even chance of directing the traversal to a left child or to a right child. The new algorithm is asymptotically faster, but exposes a new bottleneck as the search code stalls on branch misses half the time.
 
@@ -363,7 +363,7 @@ In addition to standard unit tests for continuous validation during development,
 With [**Java ThreadSanitizer**](https://github.com/google/java-thread-sanitizer) (JTSan) instrumentation, we could use the same tests to also detect some data races in our code. JTSan did not find any problematic data races in DeliQueue, but - surprisingly -actually detected two concurrency bugs in the Robolectric framework, which we promptly fixed.
 
 To improve our debugging capabilities, we built new **analysis tools** . Below is an example showing an issue in Android platform code where one thread is overloading another thread with `Message`s, causing a large backlog, visible in Perfetto thanks to the `MessageQueue` instrumentation feature that we added.
-![workspace.png](https://developer.android.com/static/blog/assets/workspace_9a45a242f0_Z6jExF.webp)
+![workspace.png](https://developer.android.com/static/blog/assets/workspace_9a45a242f0_ZWnh4S.webp)
 
 To enable `MessageQueue` tracing in the `system_server` process, include the following in your Perfetto configuration:
 
@@ -408,7 +408,7 @@ Written by:
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/charles-munger) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+  View profile](https://developer.android.com/blog/authors/charles-munger) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 -
 
   ## [Shai Barack](https://developer.android.com/blog/authors/shai-barack)
@@ -416,22 +416,22 @@ Written by:
   ###### Android Platform Performance Lead
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/shai-barack) ![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp) ![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_ibtbq.webp)
+  View profile](https://developer.android.com/blog/authors/shai-barack) ![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_2aBzdV.webp) ![View Shai Barack's profile](https://developer.android.com/static/blog/assets/shai_1d2925f4dc_2aBzdV.webp)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -447,4 +447,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

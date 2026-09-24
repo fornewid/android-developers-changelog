@@ -8,7 +8,7 @@ source: md.txt
 
 # SoundCloud uses Jetpack Glance to build Liked Tracks widget in just 2 weeks
 
-3 min read ![](https://developer.android.com/static/blog/assets/soundcloud_Jet_Pack_8602d748f3_1zRpWT.webp) 04 Mar 2025 [![View Summers Pittman's profile](https://developer.android.com/static/blog/assets/Summers_Pittman_e1dd057c92_Z1pDsqU.webp)](https://developer.android.com/blog/authors/summers-pittman)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) [Summers Pittman](https://developer.android.com/blog/authors/summers-pittman) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) To make it even easier for users to listen on Android, developers at [SoundCloud](https://soundcloud.com/) --- an artist-first music platform --- turned to [Jetpack Glance](https://developer.android.com/develop/ui/compose/glance) to create a Liked Tracks widget for their highly-rated app, which boasts 4.6 stars and over 100 million downloads. With a catalog of over 400 million tracks from more than 40 million creators, SoundCloud is dedicated to connecting artists and fans through music, and this latest update to its Android app offers listeners an even more convenient way to enjoy their favorite tracks. **Propelled by Glance, the team was able to complete the project in just two weeks, saving precious development time and boosting engagement.**
+3 min read ![](https://developer.android.com/static/blog/assets/soundcloud_Jet_Pack_8602d748f3_d7p87.webp) 04 Mar 2025 [![View Summers Pittman's profile](https://developer.android.com/static/blog/assets/Summers_Pittman_e1dd057c92_kjk5I.webp)](https://developer.android.com/blog/authors/summers-pittman)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) [Summers Pittman](https://developer.android.com/blog/authors/summers-pittman) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) To make it even easier for users to listen on Android, developers at [SoundCloud](https://soundcloud.com/) --- an artist-first music platform --- turned to [Jetpack Glance](https://developer.android.com/develop/ui/compose/glance) to create a Liked Tracks widget for their highly-rated app, which boasts 4.6 stars and over 100 million downloads. With a catalog of over 400 million tracks from more than 40 million creators, SoundCloud is dedicated to connecting artists and fans through music, and this latest update to its Android app offers listeners an even more convenient way to enjoy their favorite tracks. **Propelled by Glance, the team was able to complete the project in just two weeks, saving precious development time and boosting engagement.**
 
 <br />
 
@@ -21,12 +21,12 @@ source: md.txt
 By showcasing the artwork of their recently liked tracks, the new Liked Tracks widget allows users to to jump directly to a specific song or access their full track list right from their home screen. This keeps SoundCloud front and center for listeners, acting as a shortcut to their personal libraries and encouraging them to tune back in.
 
 Liked Tracks isn't SoundCloud's first widget. Over a decade ago, SoundCloud developers used RemoteViews to create a Player widget that let users easily control playback and like tracks. After recently updating the Player widget based on design feedback, developers made sure to prioritize a personalized interface for Liked Tracks. The new widget features both light and dark modes, resizes freely to accommodate user preferences, and dynamically adapts its theme to complement the user's wallpaper. Backed by Glance, these design choices ensured the widget isn't just seamless to use but also serves as an appealing and tailored gateway into the SoundCloud app.
-![souncloudJetPack2.png](https://developer.android.com/static/blog/assets/souncloud_Jet_Pack2_9e2d2f9827_1Gp5no.webp) SoundCloud's Liked Tracks widget in action.
+![souncloudJetPack2.png](https://developer.android.com/static/blog/assets/souncloud_Jet_Pack2_9e2d2f9827_jE4xB.webp) SoundCloud's Liked Tracks widget in action.
 
 ## Accelerate development cycles with Glance
 
 Glance also played a crucial role in streamlining the development of Liked Tracks. For developers already proficient in Compose, Glance's intuitive design felt familiar, minimizing the learning curve and accelerating the team's onboarding. The platform's collection of code samples provided a useful starting point, too, helping developers quickly grasp its capabilities and best practices. "Using sample app repositories is a great way to learn. I can check out an entire repository and inspect how the code operates," said Sigute Kateivaite, lead SoundCloud engineer on the Android team. "It sped up our widget development by a lot."
-![SoundCloudJetPack3.png](https://developer.android.com/static/blog/assets/Sound_Cloud_Jet_Pack3_2faacf3a06_1oK7UO.webp)
+![SoundCloudJetPack3.png](https://developer.android.com/static/blog/assets/Sound_Cloud_Jet_Pack3_2faacf3a06_ZpJCQb.webp)
 
 The declarative nature of Glance's UI was especially beneficial to developers. Because they didn't have to use additional XML files when building, developers could create cleaner, more readable code with less boilerplate. Glance also allowed them to work with modules separately, meaning components could be written and integrated one at a time and reused for later iterations. By isolating components, developers could quickly test modules, identify and resolve issues, and build for different states without duplication, leading to more efficient workflows.
 
@@ -35,7 +35,7 @@ Glance's design also improved the overall code quality. The ability to make chan
 ## Elevate app widgets with the power of Glance
 
 With effective new workflows and no major development issues, the SoundCloud team applauds Glance for streamlining a successful production. "With the new Liked Tracks widget, rollout has been really stable," Sigute said. "Development and the testing process went really smoothly." Early data also shows promising results --- active users now interact with the widget to access the app multiple times a day on average.
-![SoundCloud4.png](https://developer.android.com/static/blog/assets/Sound_Cloud4_a50166d986_Z20fTnb.webp) 2X average daily active user interaction with widget feature.
+![SoundCloud4.png](https://developer.android.com/static/blog/assets/Sound_Cloud4_a50166d986_ZYTYkK.webp) 2X average daily active user interaction with widget feature.
 
 Looking ahead, the SoundCloud team is eager to employ more of Glance to improve existing widgets, like adopting canonical layouts, and even develop new ones. While the current Liked Tracks widget focuses primarily on image display, the team is interested in including other types of content to further enrich user experience. Developers also hope to migrate the Player widget over to Glance to access the framework's robust theming options, simplify resizing processes, and address some long-standing bugs.
 
@@ -59,7 +59,7 @@ Written by:
   ###### Technical Solutions Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/summers-pittman) ![View Summers Pittman's profile](https://developer.android.com/static/blog/assets/Summers_Pittman_e1dd057c92_Z1pDsqU.webp) ![View Summers Pittman's profile](https://developer.android.com/static/blog/assets/Summers_Pittman_e1dd057c92_Z1pDsqU.webp)
+  View profile](https://developer.android.com/blog/authors/summers-pittman) ![View Summers Pittman's profile](https://developer.android.com/static/blog/assets/Summers_Pittman_e1dd057c92_kjk5I.webp) ![View Summers Pittman's profile](https://developer.android.com/static/blog/assets/Summers_Pittman_e1dd057c92_kjk5I.webp)
 -
 
   ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
@@ -67,23 +67,23 @@ Written by:
   ###### Product Marketing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
+  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 Continue reading
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z1oNucg.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
   - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
 
   [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
   [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
   - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_276PBK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
 
@@ -96,4 +96,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -8,7 +8,7 @@ source: md.txt
 
 # A product manager's guide to adapting Android apps across devices
 
-6 min read ![](https://developer.android.com/static/blog/assets/across_Devices_1742e15ff4_ZE5L7I.webp) 10 Jun 2025 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) Senior Product Manager, Android Developer Experience *Today, Android is launching a few updates across the platform! This includes the start of Android 16's rollout, with details for both *[*developers*](https://android-developers.googleblog.com/2025/06/android-16-is-here.html)* and *[*users*](https://blog.google/products/android/android-16)*, a *[*Developer Preview for enhanced Android desktop experiences with connected displays*](https://android-developers.googleblog.com/2025/06/developer-preview-enhanced-android-desktop-experiences-connected-displays.html)*, and *[*updates for Android users across Google apps and more*](https://blog.google/products/android/new-android-features-june-2025/)*, plus the *[*June Pixel Drop*](https://blog.google/products/pixel/pixel-drop-june-2025/)*. We're also *[*recapping all the Google I/O updates for Android developers focused on building excellent, adaptive Android apps*](https://android-developers.googleblog.com/2025/06/top-3-updates-for-building-excellent-adaptive-apps-google-io-25.html)*.*
+6 min read ![](https://developer.android.com/static/blog/assets/across_Devices_1742e15ff4_1wqMDQ.webp) 10 Jun 2025 [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz) Senior Product Manager, Android Developer Experience *Today, Android is launching a few updates across the platform! This includes the start of Android 16's rollout, with details for both *[*developers*](https://android-developers.googleblog.com/2025/06/android-16-is-here.html)* and *[*users*](https://blog.google/products/android/android-16)*, a *[*Developer Preview for enhanced Android desktop experiences with connected displays*](https://android-developers.googleblog.com/2025/06/developer-preview-enhanced-android-desktop-experiences-connected-displays.html)*, and *[*updates for Android users across Google apps and more*](https://blog.google/products/android/new-android-features-june-2025/)*, plus the *[*June Pixel Drop*](https://blog.google/products/pixel/pixel-drop-june-2025/)*. We're also *[*recapping all the Google I/O updates for Android developers focused on building excellent, adaptive Android apps*](https://android-developers.googleblog.com/2025/06/top-3-updates-for-building-excellent-adaptive-apps-google-io-25.html)*.*
 
 With new form factors emerging continually, the Android ecosystem is more dynamic than ever.
 
@@ -18,7 +18,7 @@ With this in mind, [Android 16 introduced API changes](https://android-developer
 
 ## Why you should prioritize adaptive now
 
-![500-plus-devices.png](https://developer.android.com/static/blog/assets/500_plus_devices_6428a9ddd7_Z2f6hLh.webp)
+![500-plus-devices.png](https://developer.android.com/static/blog/assets/500_plus_devices_6428a9ddd7_Wh7T0.webp)
 
 *Source: internal Google data*
 
@@ -27,7 +27,7 @@ Prioritizing optimizations to make your app *adaptive* isn't just about keeping 
 - **Mobile apps can now reach users on over 500 million active large screen devices:** Mobile apps run on foldables, tablets, Chromebooks, and even compatible cars, with minimal changes. Android 16 will introduce significant advancements in desktop windowing for a true desktop-like experience on large screens, including connected displays. And Android XR opens a new dimension, allowing your existing apps to be available in immersive environments. The user expectation is clear: a consistent, high-quality experience that intelligently adapts to any screen -- be it a foldable, a tablet with a keyboard, or a movable, resizable window on a Chromebook.
 - **"The new baseline" with orientation and resizability API changes in Android 16:** We believe mobile apps are undergoing a shift to have UI adapt responsively to any screen size, just like websites. Android 16 will ignore app-defined restrictions like fixed orientation (portrait-only) and non-resizable windows, beginning with large screens (smallest width of the device is \>= 600dp) including tablets and inner displays on foldables. For most apps, it's key to helping them stretch to any screen size. In some cases if your app isn't adaptive, it could deliver a broken user experience on these screens. This moves adaptive design from a nice-to-have to a foundational requirement.
 
-![goodbye.png](https://developer.android.com/static/blog/assets/goodbye_80078e92da_Z1xEPSX.webp)
+![goodbye.png](https://developer.android.com/static/blog/assets/goodbye_80078e92da_19Ska9.webp)
 
 - **Increase user reach and app discoverability in Play:** Adaptive apps are better positioned to be ranked higher in Play, and featured in editorial articles across form factors, reaching a wider audience across Play search and homepages. Additionally, Google Play Store surfaces ratings and reviews across all form factors. If your app is not optimized, a potential user's first impression might be tainted by a 1-star review complaining about a stretched UI on a device they don't even own yet. Users are also more likely to engage with apps that provide a great experience across their devices.
 - **Increased engagement on large screens:** Users on large screen devices often have different interaction patterns. On large screens, users may engage for longer sessions, perform more complex tasks, and consume more content.
@@ -39,7 +39,7 @@ Usage for 6 major media streaming apps in the US was up to **3x more for tablet 
 
 ## Today, most apps are building for smartphones only
 
-![android-16-form-factors_2.png](https://developer.android.com/static/blog/assets/android_16_form_factors_2_a6f81b479e_Z1eUyG0.webp)
+![android-16-form-factors_2.png](https://developer.android.com/static/blog/assets/android_16_form_factors_2_a6f81b479e_1Xe6yE.webp)
 
 *"...looking at the number of users, the ROI does not justify the investment".*
 
@@ -57,7 +57,7 @@ Let's take a deeper look into why:
 
 ## Okay, I am convinced. Where do I start?
 
-![three-step-workflow.png](https://developer.android.com/static/blog/assets/three_step_workflow_d6b69bf56a_Z20A1oX.webp)
+![three-step-workflow.png](https://developer.android.com/static/blog/assets/three_step_workflow_d6b69bf56a_1GQ6zb.webp)
 
 For organizations ready to move forward, Android offers many resources and developer tools to optimize apps to be adaptive. See below for how to get started:
 
@@ -90,9 +90,9 @@ Written by:
   ###### Senior Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)
+  View profile](https://developer.android.com/blog/authors/fahd-imtiaz) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp) ![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)
 Continue reading
-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
 
@@ -106,13 +106,13 @@ Continue reading
   - [#Foldables](https://developer.android.com/blog/topics/foldables)
   - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
   - +5 ↩
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_Z1tItyG.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_Z1BKgnT.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz)[![View Miguel Montemayor's profile](https://developer.android.com/static/blog/assets/miguel_montemayor_552207c1c6_1bnNQc.webp)](https://developer.android.com/blog/authors/miguel-montemayor) 22 Jul 2026 22 Jul 2026 ![](https://developer.android.com/static/blog/assets/MM_Adaptive_and_device_Meta_18e67bafd8_1vfHD.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Optimize your apps for the next generation of Samsung Galaxy devices](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices)
 
   [arrow_forward](https://developer.android.com/blog/posts/optimize-your-apps-for-the-next-generation-of-samsung-galaxy-devices) Today at Galaxy Unpacked, Samsung unveiled its latest lineup of foldable and wearable devices. For developers, this means that the variety of form factors, screen sizes, and device postures your app needs to support is expanding once again.
   [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Miguel Montemayor](https://developer.android.com/blog/authors/miguel-montemayor) • 3 min read
-- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z15U8cx.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_ZQaFMJ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Fahd Imtiaz's profile](https://developer.android.com/static/blog/assets/Fahd_Imtiaz_259fcb7c47_Z2vO4ST.webp)](https://developer.android.com/blog/authors/fahd-imtiaz) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Combo_IO_Strapi_2000x1000_0370ff6d2c_Z14DWX.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Adaptive development for the expanding Android ecosystem](https://developer.android.com/blog/posts/adaptive-development-for-the-expanding-android-ecosystem)
 
@@ -128,4 +128,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

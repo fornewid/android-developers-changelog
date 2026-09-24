@@ -8,7 +8,7 @@ source: md.txt
 
 # Leverage Android skills and Gemma 4 in Android Studio Quail 4
 
-5 min read ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_Z2bRC9Y.webp) 01 Sep 2026 [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) Product Manager, Android Studio **Android Studio Quail 4 is now stable and ready for you to use in production.**
+5 min read ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_c8d4ba2105_ZqnmK9.webp) 01 Sep 2026 [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw) [Amman Asfaw](https://developer.android.com/blog/authors/amman-asfaw) Product Manager, Android Studio **Android Studio Quail 4 is now stable and ready for you to use in production.**
 
 This is the final stable release for Android Studio Quail. The new features in Android Studio enable you to build premium apps with AI efficiently and effectively. Check out the video below to see the most helpful new features from the last 4 releases that can help improve and speed up your development.
 [Video](https://www.youtube.com/watch?v=lKqh34XT7Q8)
@@ -29,7 +29,7 @@ Android Studio comes preloaded with [23 curated skills](https://developer.androi
 - **Adapting your app UI to different Android devices?** You have the [Adaptive](https://github.com/android/skills/tree/main/jetpack-compose/adaptive) skill.
 
 We also encourage you to [create your own custom skills](https://developer.android.com/studio/gemini/skills) to extend Agent Mode with specialized experience and custom workflows for your team. And if you want to use Android skills with other command line interface (CLI) AIs outside of Android Studio, install Android CLI and run android skills add --all to quickly get started. If you ever want to disable bundled skills entirely, you can easily opt out via an IDE-wide toggle in Settings.
-![as-agent-skill1.gif](https://developer.android.com/static/blog/assets/as_agent_skill1_94460a47aa_Zjq0Xo.webp) Android Studio comes preloaded with 23 curated Android skills.
+![as-agent-skill1.gif](https://developer.android.com/static/blog/assets/as_agent_skill1_94460a47aa_1zVKgI.webp) Android Studio comes preloaded with 23 curated Android skills.
 
 ### **Gemma 4 local model integration (private, secure, and offline AI coding)**
 
@@ -40,7 +40,7 @@ Many developers enjoy having access to local models, and Android Studio now nati
 - **Bundled inference engine:** We have bundled a lightweight inference engine to run Gemma 4 models directly in the IDE.
 - **On-device AI agent:** Because Gemma 4 features native agentic tool-calling capabilities, you can run complex, multi-file refactoring plans with the agent completely offline. Your source code never leaves your local machine and you never hit token quota limits.
 
-![as-agent-gemma2.gif](https://developer.android.com/static/blog/assets/as_agent_gemma2_89c9104c58_1hTG1Y.webp) Choose the Gemma model you'd like to download and use.
+![as-agent-gemma2.gif](https://developer.android.com/static/blog/assets/as_agent_gemma2_89c9104c58_Z1RTFwP.webp) Choose the Gemma model you'd like to download and use.
 
 ### **Parallel Agents UX notifications and other enhancements**
 
@@ -51,7 +51,7 @@ In Android Studio Quail 2 we brought you [agentic multitasking with parallel cha
 - **Unified Summary of Changes:** After the agent completes a multi-step coding task, the separate **Task** and **Walkthrough** artifacts are now consolidated into a clean, dedicated **Summary of Changes** tab, giving you a clear diff and review experience before applying modifications.
 - **Collapsible thought process rendering:** For reasoning models, the agent's step-by-step thinking process is neatly organized into collapsible blocks, keeping your chat conversation easy to scan while allowing you to inspect the underlying logic on demand.
 
-![Qual4InlineAsset_Canavs.png](https://developer.android.com/static/blog/assets/Qual4_Inline_Asset_Canavs_367ae7672f_ZcsFEm.webp) You can now monitor the progress of parallel chats in real time in the Recent Chats panel
+![Qual4InlineAsset_Canavs.png](https://developer.android.com/static/blog/assets/Qual4_Inline_Asset_Canavs_367ae7672f_Z2dwB4I.webp) You can now monitor the progress of parallel chats in real time in the Recent Chats panel
 
 ### **Upgrade for premium AI capabilities**
 
@@ -100,9 +100,9 @@ Written by:
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/amman-asfaw) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)
+  View profile](https://developer.android.com/blog/authors/amman-asfaw) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp) ![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)
 Continue reading
-- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_ZARb6S.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_ZzldHB.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Amman Asfaw's profile](https://developer.android.com/static/blog/assets/unnamed_11_a00df7e0e8_Z1CHwnO.webp)](https://developer.android.com/blog/authors/amman-asfaw) 16 Jul 2026 16 Jul 2026 ![](https://developer.android.com/static/blog/assets/Quail_Blog_Strapi_46fcc9f1a1_1b91Ge.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Studio Quail 2 is Stable: Multi-task with the Android Studio AI agent](https://developer.android.com/blog/posts/android-studio-quail-2-is-stable-multi-task-with-the-android-studio-ai-agent)
 
@@ -112,7 +112,7 @@ Continue reading
   - [# Quail 2](https://developer.android.com/blog/topics/quail-2)
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
   - +1 ↩
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -122,7 +122,7 @@ Continue reading
   - [#ADB Wi-Fi 2.0](https://developer.android.com/blog/topics/adb-wi-fi-2-0)
   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
   - +1 ↩
-- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_Z2c1VNu.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_ZVoYvg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo_Strapi_2000x1000_5793c01e36_2bzRoq.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Studio I/O Edition: What's new in Android Developer tools](https://developer.android.com/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools)
 
@@ -139,4 +139,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

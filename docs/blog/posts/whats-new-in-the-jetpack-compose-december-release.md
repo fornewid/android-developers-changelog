@@ -8,7 +8,7 @@ source: md.txt
 
 # What's new in the Jetpack Compose December '25 release
 
-6 min read ![](https://developer.android.com/static/blog/assets/jetpack_Compose_99733114d6_Z2c0xrB.webp) 03 Dec 2025 [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) Product Manager Today, the [Jetpack Compose December '25 release](https://developer.android.com/jetpack/androidx/releases/compose) is stable. This contains version 1.10 of the core Compose modules and version 1.4 of Material 3 (see the full [BOM mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping)), adding new features and major performance improvements.
+6 min read ![](https://developer.android.com/static/blog/assets/jetpack_Compose_99733114d6_1iREVR.webp) 03 Dec 2025 [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher) [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) Product Manager Today, the [Jetpack Compose December '25 release](https://developer.android.com/jetpack/androidx/releases/compose) is stable. This contains version 1.10 of the core Compose modules and version 1.4 of Material 3 (see the full [BOM mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping)), adding new features and major performance improvements.
 
 To use today's release, upgrade your Compose BOM version to `2025.12.00`:
 
@@ -19,7 +19,7 @@ implementation(platform("androidx.compose:compose-bom:2025.12.00"))
 ## **Performance improvements**
 
 We know that the runtime performance of your app is hugely important to you and your users, so performance has been a major priority for the Compose team. This release brings a number of improvements---and you get them all by just upgrading to the latest version. Our internal scroll benchmarks show that Compose now matches the performance you would see if using Views:
-![janky.png](https://developer.android.com/static/blog/assets/janky_a31ad00e7e_Z1TjsfD.webp)
+![janky.png](https://developer.android.com/static/blog/assets/janky_a31ad00e7e_CmwsW.webp)
 
 *Scroll performance benchmark comparing Views and Jetpack Compose across different versions of Compose*
 
@@ -28,7 +28,7 @@ We know that the runtime performance of your app is hugely important to you and 
 Pausable composition in lazy prefetch is now enabled by default. This is a fundamental change to how the Compose runtime schedules work, designed to significantly reduce jank during heavy UI workloads.
 
 Previously, once a composition started, it had to run to completion. If a composition was complex, this could block the main thread for longer than a single frame, causing the UI to freeze. With pausable composition, the runtime can now "pause" its work if it's running out of time and resume the work in the next frame. This is particularly effective when used with lazy layout prefetch to prepare frames ahead of time. The Lazy layout [CacheWindow](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/package-summary#rememberLazyListState(androidx.compose.foundation.lazy.layout.LazyLayoutCacheWindow,kotlin.Int,kotlin.Int)) APIs introduced in Compose 1.9 are a great way to prefetch more content and benefit from pausable composition to produce much smoother UI performance.
-![pausable.gif](https://developer.android.com/static/blog/assets/pausable_b582aa09f6_ZPIm6y.webp)
+![pausable.gif](https://developer.android.com/static/blog/assets/pausable_b582aa09f6_Z1jmadD.webp)
 
 *Pausable composition combined with Lazy prefetch help reduce jank*
 
@@ -65,7 +65,7 @@ Version 1.4.0 of the `material3` library adds a number of new components and enh
 - [`TimePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary?_gl=1*1h4dj5y*_up*MQ..*_ga*NDE1MzI0NzAwLjE3NjQ2MTM1MzU.*_ga_6HH9YJMN9M*czE3NjQ2MTM1MzQkbzEkZzAkdDE3NjQ2MTM1MzQkajYwJGwwJGgxODIyOTM4OTMy#TimePicker(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors,androidx.compose.material3.TimePickerLayoutType)) now supports switching between the picker and input modes.
 - A [vertical drag handle](https://developer.android.com/reference/kotlin/androidx/compose/material3/package-summary#VerticalDragHandle(androidx.compose.ui.Modifier,androidx.compose.material3.DragHandleSizes,androidx.compose.material3.DragHandleColors,androidx.compose.material3.DragHandleShapes,androidx.compose.foundation.interaction.MutableInteractionSource)) helps users to change an adaptive pane's size and/or position.
 
-![centered-hero-carousel.webp](https://developer.android.com/static/blog/assets/centered_hero_carousel_9ef806cd6e_Z79z7U.webp)
+![centered-hero-carousel.webp](https://developer.android.com/static/blog/assets/centered_hero_carousel_9ef806cd6e_Z2maLTx.webp)
 
 *Horizontal centered hero carousel*
 
@@ -144,14 +144,14 @@ Modifier.fillMaxSize()
 
     )
 ```
-![fling-shared.gif](https://developer.android.com/static/blog/assets/fling_shared_0611ccdf1b_ZpTb5k.webp)
+![fling-shared.gif](https://developer.android.com/static/blog/assets/fling_shared_0611ccdf1b_Z1wXdey.webp)
 
 *A shared element transition that starts with an initial velocity from a gesture*
 
 ### **Veiled transitions**
 
 [`EnterTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/EnterTransition) and [`ExitTransition`](https://developer.android.com/reference/kotlin/androidx/compose/animation/ExitTransition?_gl=1*1m00og2*_up*MQ..*_ga*MjU3NDMyNzc5LjE3NjQ2MTE4NjM.*_ga_6HH9YJMN9M*czE3NjQ2MTE4NjMkbzEkZzAkdDE3NjQ2MTE4NjMkajYwJGwwJGgxMTk2NzM1MDk0) define how an [`AnimatedVisibility`](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary#AnimatedVisibility(kotlin.Boolean,androidx.compose.ui.Modifier,androidx.compose.animation.EnterTransition,androidx.compose.animation.ExitTransition,kotlin.String,kotlin.Function1))/[`AnimatedContent`](https://developer.android.com/reference/kotlin/androidx/compose/animation/package-summary?_gl=1*18ofha4*_up*MQ..*_ga*MjU3NDMyNzc5LjE3NjQ2MTE4NjM.*_ga_6HH9YJMN9M*czE3NjQ2MTE4NjMkbzEkZzAkdDE3NjQ2MTIyMjEkajYwJGwwJGgxMTk2NzM1MDk0#AnimatedContent(kotlin.Any,androidx.compose.ui.Modifier,kotlin.Function1,androidx.compose.ui.Alignment,kotlin.String,kotlin.Function1,kotlin.Function2)) composable appears or disappears. A new experimental veil option allows you to specify a color to veil or scrim content; e.g., fading in/out a semi-opaque black layer over content:
-![veil_2.gif](https://developer.android.com/static/blog/assets/veil_2_a4f7244888_190Y0O.webp)
+![veil_2.gif](https://developer.android.com/static/blog/assets/veil_2_a4f7244888_2ifunn.webp)
 
 *Veiled animated content -- note the semi-opaque veil (or scrim) over the grid content during the animation*
 
@@ -256,22 +256,22 @@ Written by:
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/nick-butcher) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)
+  View profile](https://developer.android.com/blog/authors/nick-butcher) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)
 Continue reading
-- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_1w4qDC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_ZrjgNw.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
 
   [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release) Today, the Jetpack Compose August '26 release is stable!
   [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
   - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- 3 Authors 28 Jul 2026 28 Jul 2026 ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z1F9b9M.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 28 Jul 2026 28 Jul 2026 ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z6XDT1.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
 
   [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
   [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
-- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_1T1vC6.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_21k6io.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android UI Development is Compose First](https://developer.android.com/blog/posts/android-ui-development-is-compose-first)
 
@@ -284,4 +284,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

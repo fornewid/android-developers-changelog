@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| August 12, 2026 | - | - | - | [1.0.0-alpha17](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-alpha17) |
+| September 23, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/xr-compose#1.0.0-beta01) | - |
 
 ## Declaring dependencies
 
@@ -25,10 +25,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.xr.compose:compose:1.0.0-alpha17"
+    implementation "androidx.xr.compose:compose:1.0.0-beta01"
 
     // Use to write unit tests
-    testImplementation "androidx.xr.compose:compose-testing:1.0.0-alpha17"
+    testImplementation "androidx.xr.compose:compose-testing:1.0.0-beta01"
 }
 ```
 
@@ -36,10 +36,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.xr.compose:compose:1.0.0-alpha17")
+    implementation("androidx.xr.compose:compose:1.0.0-beta01")
 
     // Use to write unit tests
-    testImplementation("androidx.xr.compose:compose-testing:1.0.0-alpha17")
+    testImplementation("androidx.xr.compose:compose-testing:1.0.0-beta01")
 }
 ```
 
@@ -59,6 +59,33 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-beta01
+
+September 23, 2026
+
+`androidx.xr.compose:compose:1.0.0-beta01` and `androidx.xr.compose:compose-testing:1.0.0-beta01` are released. Version 1.0.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/21d3a25e98cb0aafed30e30d4e1d89bba15ed1d7..bc67eb1589ba68a62d1d7b5fa7c920116520b682/xr/compose).
+
+**API Changes**
+
+- Removed deprecated `DragPolicy`. Use `SubspaceModifier.movable()` instead. ([I108d4](https://android-review.googlesource.com/#/q/I108d4df07a11b4020070c9218f7999a7171f7260))
+- Removed the deprecated `ResizePolicy` and its usages in `SpatialPanel` and `SpatialExternalSurface`. Remove a deprecated `SubspaceModifier.resizable` function. Use the new `SubspaceModifier.resizable` with a new `ResizePolicy` instead. ([I59e6b](https://android-review.googlesource.com/#/q/I59e6b80b3ee2cc7e50076e37c9a2e126fd4c0ed4))
+- Added `isPitchUpdateEnabled` parameter to allow enabling or disabling pitch tracking independently. ([Ie9e86](https://android-review.googlesource.com/#/q/Ie9e86bc714cc38b1998baafb421b4a55bbfe5e53))
+- Removed nullability of `pitchLimits` and renamed `PitchLimits.UNCONSTRAINED` to `PitchLimits.FullRange`. ([I0154f](https://android-review.googlesource.com/#/q/I0154f92547a4af8218fc3a942370c8aa65c24076))
+- `ExposedDropdownMenu` is now an extension function on `ExposedDropdownMenuBoxScope` instead of a member. You may need to update your code with a new import. ([Ie8a65](https://android-review.googlesource.com/#/q/Ie8a65e982bcc6ee222ce0a84ed63ad9445760f6d))
+- Removed deprecated `SurfaceProtection` class. Use `SpatialExternalSurfaceProtection` instead. ([Iab2c6](https://android-review.googlesource.com/#/q/Iab2c6a066c4a807f909c59fa692bed9fb05676d7))
+- The Orbiter function that takes an `OrbiterPoseProvider` has been deprecated in favor of the one that uses `SpatialAlignment`. ([I4d12b](https://android-review.googlesource.com/#/q/I4d12b1e15213ec2b5ea91241ac0295dbacb0cb48))
+- `SpatialActivityPanel` now requires a `SpatialActivityPanelController` (instantiated using `rememberSpatialActivityPanelController`) to launch and manage embedded activities. ([Id25c6](https://android-review.googlesource.com/#/q/Id25c6ca2933a01f1174f30ebd62c550680805bd7))
+- Removed the `upDirection` parameter from `rotateToLookAtUser` and added rotation constraints parameters (`isYawUpdateEnabled` and `pitchLimits`). ([I1370a](https://android-review.googlesource.com/#/q/I1370a2cf7213c6a510cc0a99f2a3ae9566dee1da))
+
+**Bug Fixes**
+
+- Fixed various `InteractionPolicy` issues. A crash occurred if an input event occurred right as the Composable or child (for instance an Orbiter) initiated a disposal sequence. Also fixes an issue where a child would receive hover events. ([Ifc477](https://android-review.googlesource.com/#/q/Ifc4776ee8d89072be3331d35e621740d8ea56f3b))
+- Reduced panel size in `RotateToLookAtUserActivity` to prevent clipping on smaller FOV devices. ([I8d672](https://android-review.googlesource.com/q/I8d6729960d2128d748d197cc65a231d81eb9f28f))
+
+**Known Issues**
+
+- There is an issue with Compose XR panels where creating many panels in a single Activity may cause some corruption on what is being viewed even after the panels are destroyed.
 
 ### Version 1.0.0-alpha17
 

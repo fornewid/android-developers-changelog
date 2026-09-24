@@ -8,7 +8,7 @@ source: md.txt
 
 # How R8 made Kotlin Coroutines on Android 2x faster
 
-7 min read ![](https://developer.android.com/static/blog/assets/0707_Faster_Kotlin_coroutines_on_Android_with_R8_Strapi_5b162a2623_ZM78f7.webp) 27 Jul 2026 [![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z1s2HD7.webp)](https://developer.android.com/blog/authors/jonathan-starup)[![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_EPI3Y.webp)](https://developer.android.com/blog/authors/andrei-shikov) [Jonathan Starup](https://developer.android.com/blog/authors/jonathan-starup) \& [Andrei Shikov](https://developer.android.com/blog/authors/andrei-shikov) Starting from AGP 9.2.0, R8 optimizes most Atomic\*FieldUpdater calls into Unsafe variants that perform [2x to 4x better on common operations](https://github.com/Kotlin/kotlinx.coroutines/issues/3950). This has a particularly large impact on the kotlinx.atomicfu library that implements atomics for `kotlinx.coroutines`, making launching and cancelling coroutines up to 2x faster. In order to get the benefits, update your AGP to 9.2.0 or above.
+7 min read ![](https://developer.android.com/static/blog/assets/0707_Faster_Kotlin_coroutines_on_Android_with_R8_Strapi_5b162a2623_wPRs6.webp) 27 Jul 2026 [![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z2tS3U3.webp)](https://developer.android.com/blog/authors/jonathan-starup)[![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_27dNln.webp)](https://developer.android.com/blog/authors/andrei-shikov) [Jonathan Starup](https://developer.android.com/blog/authors/jonathan-starup) \& [Andrei Shikov](https://developer.android.com/blog/authors/andrei-shikov) Starting from AGP 9.2.0, R8 optimizes most Atomic\*FieldUpdater calls into Unsafe variants that perform [2x to 4x better on common operations](https://github.com/Kotlin/kotlinx.coroutines/issues/3950). This has a particularly large impact on the kotlinx.atomicfu library that implements atomics for `kotlinx.coroutines`, making launching and cancelling coroutines up to 2x faster. In order to get the benefits, update your AGP to 9.2.0 or above.
 
 With the majority of Android apps adopting Kotlin as their main language of choice, [`kotlinx.coroutines`](https://github.com/Kotlin/kotlinx.coroutines) has become a de-facto standard for asynchronous programming. The library offers a well-designed and structured way of managing concurrent flows that is native to Kotlin. Jetpack Compose was no exception, adopting coroutines for managing pointer events, animations and other interactions. At the time of writing, most concurrent APIs in Compose call `suspend` functions under the hood and are launching and/or cancelling coroutines to handle updates.
 
@@ -17,7 +17,7 @@ As the Compose team started to investigate performance, coroutines were discover
 ## **The cost of a coroutine**
 
 The easiest way to analyze a function's internal behavior on Android is to capture an Android Runtime (ART) method trace. An ART method trace is a tool that records the execution flow of an app, showing exactly which methods are called, their order, and how much time is spent in each, allowing developers to identify performance bottlenecks. For an empty `LaunchedEffect { }` call, it would look something like this:
-![pic01_enhanced.png](https://developer.android.com/static/blog/assets/pic01_enhanced_d0e96f6d9c_2mRqPo.webp) LaunchedEffect method trace visualized in the Perfetto UI
+![pic01_enhanced.png](https://developer.android.com/static/blog/assets/pic01_enhanced_d0e96f6d9c_ZWlTqT.webp) LaunchedEffect method trace visualized in the Perfetto UI
 
 The method trace above can be separated into three parts:
 
@@ -28,7 +28,7 @@ The method trace above can be separated into three parts:
 Cancelling `LaunchedEffect `is similar to normal completion, except it also creates a `CancellationException`.
 
 From the profile above, one thing that is immediately suspicious is frequent calls into `java.util.concurrent.AtomicReferenceFieldUpdater` (purple or green boxes with j... labels). While each call is relatively fast, the frequency is concerning; any non-negligible overhead that is spread out across multiple invocations might add up to a noticeable regression. Zooming in on a call reveals that most of the time is spent on... reflection checks?
-![pic02-enhanced.png](https://developer.android.com/static/blog/assets/pic02_enhanced_a3ff3d0f67_2vrnuU.webp) An up-close look at the method trace of AtomicReferenceFieldUpdater.get during LaunchedEffect initialization
+![pic02-enhanced.png](https://developer.android.com/static/blog/assets/pic02_enhanced_a3ff3d0f67_V8s5s.webp) An up-close look at the method trace of AtomicReferenceFieldUpdater.get during LaunchedEffect initialization
 
 Coroutines implement a lock-free tree structure for parent-child relationships that makes structured concurrency possible. Turns out, the `kotlinx.atomicfu` library implements lock-free atomic operations using a well-known JVM primitive, [AtomicReferenceFieldUpdater](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicReferenceFieldUpdater.html). The updater uses a class reference and a field name to perform atomic operations at runtime, and it has to run several reflective safety checks to make sure the field exists and is accessible. Each operation in coroutines (starting, suspending, cancelling, completing) calls at least one atomic operation, so if it is slow, coroutines will not perform well.
 
@@ -150,7 +150,7 @@ In the end, the simple updater example shown above looks like this after optimiz
 After these optimizations, `kotlinx.atomicfu` and most explicit uses of `AtomicInt/Long/ReferenceFieldUpdater` now match `AtomicReference` performance with R8 applied. In fact, it is even faster in some benchmarks; `kotlinx.atomicfu` has [a compiler plugin](https://github.com/Kotlin/kotlinx-atomicfu#atomicfu-compiler-plugin) that can inline `atomic` instances into fields, reducing allocations required to create an atomically updated field.
 
 Jetpack Compose was the main beneficiary of this work. Compose runtime has a number of microbenchmarks that track coroutine performance very closely to catch performance regressions early. When the benchmarks were updated to a new version of R8, we noticed a [2x improvement](https://androidx-perf.skia.org/m?begin=1774346923.115&domain=date&end=1774504110.752&shortcut=1c7e462efddcffab76890e38f3888b84) when launching and cancelling coroutines in `LaunchedEffect`!
-![pic03_enhanced.png](https://developer.android.com/static/blog/assets/pic03_enhanced_c6780d9684_2wRC36.webp) Benchmark graph illustrating the time taken when starting and cancelling coroutines in LaunchedEffect (lower is better). The change in the graph corresponds to an R8 update, showcasing 2x improvement.
+![pic03_enhanced.png](https://developer.android.com/static/blog/assets/pic03_enhanced_c6780d9684_ZMlIec.webp) Benchmark graph illustrating the time taken when starting and cancelling coroutines in LaunchedEffect (lower is better). The change in the graph corresponds to an R8 update, showcasing 2x improvement.
 
 Aside from that, the ART team is implementing these optimizations natively at the VM level. If your app is targeting API 36 and is running on a recent version of Android, it is possible that your device is already optimizing coroutines in a similar way. The coroutine benchmarks above observed \~15% improvement in performance after JIT updates in the recent versions of ART.
 
@@ -167,7 +167,7 @@ Written by:
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/jonathan-starup) ![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z1s2HD7.webp) ![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z1s2HD7.webp)
+  View profile](https://developer.android.com/blog/authors/jonathan-starup) ![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z2tS3U3.webp) ![View Jonathan Starup's profile](https://developer.android.com/static/blog/assets/unnamed_10_16ef5ad5c7_Z2tS3U3.webp)
 -
 
   ## [Andrei Shikov](https://developer.android.com/blog/authors/andrei-shikov)
@@ -175,23 +175,23 @@ Written by:
   ###### Senior Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/andrei-shikov) ![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_EPI3Y.webp) ![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_EPI3Y.webp)
+  View profile](https://developer.android.com/blog/authors/andrei-shikov) ![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_27dNln.webp) ![View Andrei Shikov's profile](https://developer.android.com/static/blog/assets/unnamed_9_1eaaffc6a9_27dNln.webp)
 Continue reading
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z1oNucg.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
   - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
 
   [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
   [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
   - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_i9nEs.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 08 Jun 2026 08 Jun 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_TITLE_Strapi_b83ae0beee_prXkK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Datadog delivers millions of in-depth performance insights with ProfilingManager](https://developer.android.com/blog/posts/datadog-delivers-millions-of-in-depth-performance-insights-with-profiling-manager)
 
@@ -207,4 +207,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

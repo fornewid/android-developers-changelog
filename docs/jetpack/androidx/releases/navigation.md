@@ -13,7 +13,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [2.10.1](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.1) | - | - | - |
+| September 23, 2026 | [2.10.2](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.2) | - | - | - |
 
 ## Declaring dependencies
 
@@ -33,7 +33,7 @@ plugins {
 }
   
 dependencies {
-  def nav_version = "2.10.1"
+  def nav_version = "2.10.2"
 
   // Jetpack Compose Integration
   implementation "androidx.navigation:navigation-compose:$nav_version"
@@ -62,7 +62,7 @@ plugins {
 }
 
 dependencies {
-  val nav_version = "2.10.1"
+  val nav_version = "2.10.2"
 
   // Jetpack Compose integration
   implementation("androidx.navigation:navigation-compose:$nav_version")
@@ -95,7 +95,7 @@ buildscript {
         google()
     }
     dependencies {
-        def nav_version = "2.10.1"
+        def nav_version = "2.10.2"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }
@@ -109,7 +109,7 @@ buildscript {
         google()
     }
     dependencies {
-        val nav_version = "2.10.1"
+        val nav_version = "2.10.2"
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
     }
 }
@@ -176,6 +176,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Navigation Version 2.10
+
+### Version 2.10.2
+
+September 23, 2026
+
+`androidx.navigation:navigation-*:2.10.2` is released. Version 2.10.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3a4067bc71f93f5db86732b3d7b94ef572627b32..b103583c697f6eae01cb451193bc90d56034380b/navigation).
+
+**Dependency Updates**
+
+- Updated `androidx.lifecycle` dependencies to version 2.10.0. [I4505a9f9a](https://android-review.googlesource.com/q/I4505a9f9a6b76a96a73fccbf8d33c1b0d422f053)
 
 ### Version 2.10.1
 

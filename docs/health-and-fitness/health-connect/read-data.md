@@ -359,6 +359,14 @@ try {
 
 <br />
 
+## Read Unique Device Identifier (UDI)
+
+For records originating from medical-grade devices, reading applications can
+extract the Device Identifier (DI) portion of the Unique Device Identifier (UDI)
+from the device metadata.
+For guidance on how to process this information and map it against regulatory
+databases, see the [metadata](https://developer.android.com/health-and-fitness/health-connect/metadata#device-udi) guide.
+
 ## Read data older than 30 days
 
 By default, all applications can read data from Health Connect for up to 30 days

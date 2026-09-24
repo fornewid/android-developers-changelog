@@ -8,7 +8,7 @@ source: md.txt
 
 # 18% Faster Compiles, 0% Compromises
 
-8 min read ![](https://developer.android.com/static/blog/assets/Android_Compile_Speed_d1a7744c0f_ZJfSB.webp) 15 Dec 2025 [![View Santiago Aboy Solanes's profile](https://developer.android.com/static/blog/assets/Santiago_Aboy_Solanes_a5f0203d61_1YKhxs.webp)](https://developer.android.com/blog/authors/santiago-solanes)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/vladimir-marko) [Santiago Aboy Solanes](https://developer.android.com/blog/authors/santiago-solanes) \& [Vladimír Marko](https://developer.android.com/blog/authors/vladimir-marko) The [Android Runtime (ART)](https://source.android.com/docs/core/runtime) team has reduced compile time by 18% without compromising the compiled code or any peak memory regressions. This improvement was part of our 2025 initiative to improve compile time without sacrificing memory usage or the quality of the compiled code.
+8 min read ![](https://developer.android.com/static/blog/assets/Android_Compile_Speed_d1a7744c0f_ZJbrhk.webp) 15 Dec 2025 [![View Santiago Aboy Solanes's profile](https://developer.android.com/static/blog/assets/Santiago_Aboy_Solanes_a5f0203d61_Z1aWyC3.webp)](https://developer.android.com/blog/authors/santiago-solanes)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/vladimir-marko) [Santiago Aboy Solanes](https://developer.android.com/blog/authors/santiago-solanes) \& [Vladimír Marko](https://developer.android.com/blog/authors/vladimir-marko) The [Android Runtime (ART)](https://source.android.com/docs/core/runtime) team has reduced compile time by 18% without compromising the compiled code or any peak memory regressions. This improvement was part of our 2025 initiative to improve compile time without sacrificing memory usage or the quality of the compiled code.
 
 Optimizing compile-time speed is crucial for ART. For example, when just-in-time (JIT) compiling it directly impacts the efficiency of applications and overall device performance. Faster compilations reduce the time before the optimizations kick in, leading to a smoother and more responsive user experience. Furthermore, for both JIT and ahead-of-time (AOT), improvements in compile-time speed translate to reduced resource consumption during the compilation process, benefiting battery life and device thermals, especially on lower-end devices.
 
@@ -27,14 +27,14 @@ Before you can begin to optimize a metric, you have to be able to measure it. Ot
 Since the resource we were sacrificing for these improvements was our development time, we wanted to be able to iterate as fast as we could. This meant that we grabbed a handful of representative apps (a mix of first-party apps, third-party apps, and the Android operating system itself) to prototype solutions. Later, we verified that the final implementation was worth it with both manual and automated testing in a widespread manner.
 
 With that set of hand-picked apks we would trigger a manual compile locally, get a profile of the compilation, and use [pprof](https://github.com/google/pprof) to visualize where we are spending our time.
-![image.png](https://developer.android.com/static/blog/assets/image_dd9a9ee49a_ZTEwkN.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_dd9a9ee49a_1C1snM.webp)
 
 *Example of a profile's flame graph in pprof*
 
 The pprof tool is very powerful and allows us to slice, filter, and sort the data to see, for example, which compiler phases or methods are taking most of the time. We will not go into detail about pprof itself; just know that if the bar is bigger then it means it took more time of the compilation.
 
 One of these views is the "bottom up" one where you can see which methods are taking most of the time. In the image below we can see a method called Kill, accounting for over a 1% of the compile time. Some of the other top methods will also be discussed later in the blog post.
-![image.png](https://developer.android.com/static/blog/assets/image_b1d0d17b7f_ZXFa8t.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_b1d0d17b7f_1y0OA7.webp)
 
 *Bottom up view of a profile*
 
@@ -115,7 +115,7 @@ Written by:
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/santiago-solanes) ![View Santiago Aboy Solanes's profile](https://developer.android.com/static/blog/assets/Santiago_Aboy_Solanes_a5f0203d61_1YKhxs.webp) ![View Santiago Aboy Solanes's profile](https://developer.android.com/static/blog/assets/Santiago_Aboy_Solanes_a5f0203d61_1YKhxs.webp)
+  View profile](https://developer.android.com/blog/authors/santiago-solanes) ![View Santiago Aboy Solanes's profile](https://developer.android.com/static/blog/assets/Santiago_Aboy_Solanes_a5f0203d61_Z1aWyC3.webp) ![View Santiago Aboy Solanes's profile](https://developer.android.com/static/blog/assets/Santiago_Aboy_Solanes_a5f0203d61_Z1aWyC3.webp)
 -
 
   ## [Vladimír Marko](https://developer.android.com/blog/authors/vladimir-marko)
@@ -123,22 +123,22 @@ Written by:
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/vladimir-marko) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+  View profile](https://developer.android.com/blog/authors/vladimir-marko) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -154,4 +154,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

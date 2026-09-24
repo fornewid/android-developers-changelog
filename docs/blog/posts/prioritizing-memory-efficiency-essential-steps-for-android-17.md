@@ -8,7 +8,7 @@ source: md.txt
 
 # Prioritizing Memory Efficiency: Essential Steps for Android 17
 
-10 min read ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z2i8kF7.webp) 02 Jun 2026 3 Authors [Alice Yuan,](https://developer.android.com/blog/authors/alice-yuan) [Ajesh Pai,](https://developer.android.com/blog/authors/ajesh-pai) [Fung Lam](https://developer.android.com/blog/authors/fung-lam) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever. Not only have we made strides in Android memory optimizations with Android 17, we're providing the tooling and API support to help you stay ahead of stricter memory requirements later this year.
+10 min read ![](https://developer.android.com/static/blog/assets/Engineering_Memory_Blog_Strapi_3_bfd74f43e5_Z1unXc4.webp) 02 Jun 2026 3 Authors [Alice Yuan,](https://developer.android.com/blog/authors/alice-yuan) [Ajesh Pai,](https://developer.android.com/blog/authors/ajesh-pai) [Fung Lam](https://developer.android.com/blog/authors/fung-lam) While app performance is often equated with a smooth UI and fast start times, memory serves as the silent foundation upon which these visible metrics are built. It's no secret that we're seeing a shift where device memory is more important than ever. Not only have we made strides in Android memory optimizations with Android 17, we're providing the tooling and API support to help you stay ahead of stricter memory requirements later this year.
 
 To ensure device stability, starting in Android 17, the system will begin enforcing app memory limits based on the device's total RAM. If an app exceeds those limits, Android will kill the process with no associated stack trace.
 
@@ -44,7 +44,7 @@ We have also expanded our [memory limits documentation](https://developer.androi
 A highly effective way to reduce your app's memory footprint is to enable the R8 optimizer. By shrinking classes, methods, and fields into shorter names and stripping out unused code and resources, R8 significantly reduces your app's memory footprint by minimizing the amount of resident code required during execution.
 
 R8 minimizes resident code, shrinking the memory footprint and lowering LMK termination risk. This results in more frequent warm starts over slow cold starts. Additionally, streamlined bytecode reduces main-thread CPU overhead, directly cutting ANR rates for a more fluid user experience. For example, the digital bank [Monzo](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update) enabled full R8 optimization and saw a 35% reduction in their ANR rate, a 30% improvement in cold start rate, and a 9% reduction in overall app size.
-![pic1-IO26_113_TSV-monzo-casestudy.jpg](https://developer.android.com/static/blog/assets/pic1_IO_26_113_TSV_monzo_casestudy_dd704820ee_Z1oiKwQ.webp) The digital bank Monzo enabled full R8 optimization and boosted performance metrics by up to 35%.
+![pic1-IO26_113_TSV-monzo-casestudy.jpg](https://developer.android.com/static/blog/assets/pic1_IO_26_113_TSV_monzo_casestudy_dd704820ee_59H0d.webp) The digital bank Monzo enabled full R8 optimization and boosted performance metrics by up to 35%.
 
 To properly configure R8 in your `build.gradle` file:
 
@@ -71,7 +71,7 @@ If you are a library developer, strictly place the rules your consumers need int
 To audit your R8 optimization, use the [**Configuration Analyzer**](http://developer.android.com/r8-analyzer).Configuration analyzer shows the current state of optimization withObfuscation, Optimization, and Shrinking scores. With configuration analyzer, you can also understand how many classes, methods or fields are prevented from optimization by each keep rule. Refine these broad package wide keep rules to unlock the maximum optimization.
 
 Using configuration analyzer, you can also identify keep rules that are subsuming other keep rules, redundant keep rules and unused keep rules.
-![pic2-r8-config-analyzer.png](https://developer.android.com/static/blog/assets/pic2_r8_config_analyzer_87a3feafc8_ZUSazT.webp) The Configuration Analyzer shows the current state of optimization with Obfuscation, Optimization, and Shrinking scores.
+![pic2-r8-config-analyzer.png](https://developer.android.com/static/blog/assets/pic2_r8_config_analyzer_87a3feafc8_Z1HJBC7.webp) The Configuration Analyzer shows the current state of optimization with Obfuscation, Optimization, and Shrinking scores.
 
 ### R8 Agent Skill
 
@@ -103,7 +103,7 @@ You can also eliminate redundant bitmaps using Android Studio Narwhal 4. Here is
 4. Click on any flagged entry to open the **Bitmap Preview** pane, allowing you to see exactly which image is the repeat offender.
 5. Use that visual confirmation to track down the redundant loading logic in your code and implement a better caching strategy.
 
-![pic3-IO26_113_TSV -dup-bitmaps-cropped.jpg](https://developer.android.com/static/blog/assets/pic3_IO_26_113_TSV_dup_bitmaps_cropped_0b5bed0efb_Z1vcMMk.webp) Look for the yellow warning triangle ⚠️ in heap dumps when using the Android Studio Profiler.
+![pic3-IO26_113_TSV -dup-bitmaps-cropped.jpg](https://developer.android.com/static/blog/assets/pic3_IO_26_113_TSV_dup_bitmaps_cropped_0b5bed0efb_129GCj.webp) Look for the yellow warning triangle ⚠️ in heap dumps when using the Android Studio Profiler.
 
 ## Detect and fix memory leaks with Android Studio
 
@@ -112,7 +112,7 @@ Memory leaks in Android occur when your code holds onto an object's reference lo
 Android Studio Panda 3 features a dedicated [LeakCanary](https://square.github.io/leakcanary/) profiler task, allowing developers to analyze real-time memory leaks and map traces directly within the IDE.
 
 The LeakCanary profiler task in Android Studio actively moves the memory leak analysis from your device to your development machine, resulting in a significant performance boost during the leak analysis phase as compared to on-device leak analysis.
-![pic4-android-studio-leaks.png](https://developer.android.com/static/blog/assets/pic4_android_studio_leaks_b312cc5ab6_Z1B4c5f.webp) LeakCanary memory leak analysis contextualized with Go to declaration for debugging
+![pic4-android-studio-leaks.png](https://developer.android.com/static/blog/assets/pic4_android_studio_leaks_b312cc5ab6_1B5tap.webp) LeakCanary memory leak analysis contextualized with Go to declaration for debugging
 
 Additionally, the leak analysis is now contextualized within the IDE and fully integrated with your source code, providing features like go to declaration and other helpful code connections that drastically reduce the friction and time required to investigate and fix memory leaks.
 
@@ -204,7 +204,7 @@ applicationContext.getSystemService(ProfilingManager::class.java)
 ```
 
 Once you've collected the heap dump, you can download the profile from the server, or locally via adb pull and drag and drop the file into the [Perfetto UI](http://ui.perfetto.dev/). To streamline your memory debugging workflow, use the [Heap Dump Explorer](https://perfetto.dev/docs/visualization/heap-dump-explorer), this is the new default view for heap dumps in Perfetto UI. This tool provides an intuitive interface for inspecting Java heap dumps, allowing you to visualize object allocation hierarchies, compute retained memory sizes, and identify the shortest path from garbage collection root. By leveraging the Heap Dump Explorer, you can rapidly pinpoint memory leaks, bloated retained objects such as excessive bitmap allocations, and analyze heap object allocations all in one place.
-![pic5-perfettoheapdump-analyzer.png](https://developer.android.com/static/blog/assets/pic5_perfettoheapdump_analyzer_6e0de76fa1_ZLfxne.webp) Use the Heap Dump Explorer's embedded flamegraph to visually inspect and navigate through objects with the highest heap allocations.
+![pic5-perfettoheapdump-analyzer.png](https://developer.android.com/static/blog/assets/pic5_perfettoheapdump_analyzer_6e0de76fa1_Z1klwSN.webp) Use the Heap Dump Explorer's embedded flamegraph to visually inspect and navigate through objects with the highest heap allocations.
 
 ## Conclusion
 
@@ -221,7 +221,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)
+  View profile](https://developer.android.com/blog/authors/alice-yuan) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp) ![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)
 -
 
   ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai)
@@ -229,7 +229,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_Z1G5g2B.webp)
+  View profile](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)
 -
 
   ## [Fung Lam](https://developer.android.com/blog/authors/fung-lam)
@@ -237,21 +237,21 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/fung-lam) ![View Fung Lam's profile](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_Z1o4ef9.webp) ![View Fung Lam's profile](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_Z1o4ef9.webp)
+  View profile](https://developer.android.com/blog/authors/fung-lam) ![View Fung Lam's profile](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_viwYX.webp) ![View Fung Lam's profile](https://developer.android.com/static/blog/assets/Fung_Lam_profile_633041f048_viwYX.webp)
 Continue reading
-- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_Z1IAO0P.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan) 04 Mar 2026 04 Mar 2026 ![](https://developer.android.com/static/blog/assets/battery_Performance_08d6713f94_1XPiXj.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Battery Technical Quality Enforcement is Here: How to Optimize Common Wake Lock Use Cases](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases)
 
   [arrow_forward](https://developer.android.com/blog/posts/battery-technical-quality-enforcement-is-here-how-to-optimize-common-wake-lock-use-cases) In recognition that excessive battery drain is top of mind for Android users, Google has been taking significant steps to help developers build more power-efficient apps.
   [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 8 min read
-- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_ZlDEgJ.webp)](https://developer.android.com/blog/authors/alice-yuan) 20 Nov 2025 20 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week8_4d6efcacbe_ZI6a5e.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Alice Yuan's profile](https://developer.android.com/static/blog/assets/Alice_Yuan_552a4dd4ee_Z1cHgMW.webp)](https://developer.android.com/blog/authors/alice-yuan) 20 Nov 2025 20 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week8_4d6efcacbe_NpRXg.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Leveling Guide for your Performance Journey](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey)
 
   [arrow_forward](https://developer.android.com/blog/posts/leveling-guide-for-your-performance-journey) The performance leveling guide features 5 levels. We'll start with level 1, which introduces minimal adoption effort performance tooling, and we'll go up to level 5, ideal for apps that have the resourcing to maintain a bespoke performance framework.
   [Alice Yuan](https://developer.android.com/blog/authors/alice-yuan) • 8 min read
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_p8Pb2.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) 17 Nov 2025 17 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week9_2c643934fa_1VESew.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Get your app on the fast track with Android Performance Spotlight Week!](https://developer.android.com/blog/posts/get-your-app-on-the-fast-track-with-android-performance-spotlight-week)
 
@@ -265,4 +265,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -10,7 +10,7 @@ Navigation 3 is a new navigation library designed to work with Compose.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.1.7](https://developer.android.com/jetpack/androidx/releases/navigation3#1.1.7) | [1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0-rc01) | - | - |
+| September 23, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0) | - | - | [1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.3.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -25,8 +25,8 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation3:navigation3-runtime:1.2.0-rc01"
-    implementation "androidx.navigation3:navigation3-ui:1.2.0-rc01"
+    implementation "androidx.navigation3:navigation3-runtime:1.3.0-alpha01"
+    implementation "androidx.navigation3:navigation3-ui:1.3.0-alpha01"
 }
 ```
 
@@ -34,8 +34,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation3:navigation3-runtime:1.2.0-rc01")
-    implementation("androidx.navigation3:navigation3-ui:1.2.0-rc01")
+    implementation("androidx.navigation3:navigation3-runtime:1.3.0-alpha01")
+    implementation("androidx.navigation3:navigation3-ui:1.3.0-alpha01")
 }
 ```
 
@@ -54,9 +54,56 @@ clicking the star button.
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
 
+## Version 1.3
+
+### Version 1.3.0-alpha01
+
+September 23, 2026
+
+`androidx.navigation3:navigation3-*:1.3.0-alpha01` is released. Version 1.3.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/811e8c9c37f4955d520fe0cf7e39d96866066abc..b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f/navigation3).
+
+\*\* Bug Fixes \*\*
+
+- Fixed predictive back animation handoff in `NavDisplay` by migrating to `DeferredAnimatedContent` and resolving transition handoff issues. [I145eaedd](https://android-review.googlesource.com/q/I145eaedd3e2074826b14164f19369002f1cde37a) [b/430807423](https://buganizer.corp.google.com/issues/430807423)
+
 There are no release notes for this artifact.
 
 ## Navigation3 Version 1.2
+
+### Version 1.2.0
+
+September 23, 2026
+
+`androidx.navigation3:navigation3-*:1.2.0` is released. Version 1.2.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4c75cb32a85803fd367372061035e6e358ad650..811e8c9c37f4955d520fe0cf7e39d96866066abc/navigation3).
+
+**1.2.0 is now stable!**
+
+**Important changes since 1.1.0**
+
+**Result API**
+
+- This new API allows passing results between `NavEntries` using the `ResultEventBus` provided by `LocalResultEventBus` and `ResultEventBusNavEntryDecorator`.
+- Added `rememberResultEventBus` to support hoisting a `ResultEventBus` outside `ResultEventBusNavEntryDecorator` and passing it to `rememberResultEventBusNavEntryDecorator`.
+- Passed-in results can be accessed as state with `ResultEventBus#conflateAsState` or collected as a flow of results with `ResultEffect`.
+
+**Deep Link API**
+
+`Navigation3` now supports Kotlin Multiplatform (KMP) deep links in `androidx.navigation3.runtime.deeplink` via `DeepLinkRequest`, `DeepLinkUri`, and `DeepLinkMatcher`.
+
+- `DeepLinkRequest` and `RequestExtras`: Represents a deep link request created from a `DeepLinkUri`, a URI string, or an Android `Intent`. Additional request metadata can be attached using the type-safe `RequestExtras` container built with the `requestExtras` DSL and `RequestExtrasKey<T>`.
+- `DeepLinkMatcher`: Represents a deep link that can be matched with a `DeepLinkRequest`. Each matcher instance is associated with the navigation key that supports this deep link. A navigation key can be associated with multiple matchers. Calling `DeepLinkMatcher.match` will return a `MatchResult` that contains the associated navigation key if match succeeds. There are two default `DeepLinkMatcher` implementations: `UriDeepLinkMatcher` for matching deep links based on `Uri`, and `StaticKeyDeepLinkMatcher` for matching deep links with only `DeepLinkMatcher.Filter` that match by a Boolean.
+- `BackStackMatcher`: A `DeepLinkMatcher` to construct a synthetic back stack upon a successful deep link match. `BackStackMatcher` can be created via the `DeepLinkMatcher.withBackStack` extension function.
+
+**Predictive Back Handling**
+
+- Added `NavigationBackHandler` and `rememberNavigationEventState` to simplify connecting `SceneState` with predictive back handling (`onBackCompleted` and `onBackCancelled`). This allows custom UI components to support standard back navigation and predictive back gestures without manually calculating back stack deltas.
+- Improved predictive back transitions, including support for predictive back gestures triggered mid-flight during forward animations.
+
+**Other Changes**
+
+- `NavEntry.contentKey` now defaults to a composite of `key.toString()` and `key::class.toString()`, preventing key collisions between `data object` keys that share the same simple name across different interfaces.
+- `EntryProvider` now prioritizes matching based on key instances over key types.
+- Added a lint check to ensure `Scene` implementations are either `data class`es or implement `equals` and `hashCode`.
 
 ### Version 1.2.0-rc01
 

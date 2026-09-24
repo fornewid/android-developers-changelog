@@ -8,7 +8,7 @@ source: md.txt
 
 # Introducing CameraX 1.5: Powerful Video Recording and Pro-level Image Capture
 
-7 min read ![](https://developer.android.com/static/blog/assets/camera_X1_5_9f8216fa59_1XU56O.webp) 13 Nov 2025 [![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_F68BQ.webp)](https://developer.android.com/blog/authors/scott-nien) [Scott Nien](https://developer.android.com/blog/authors/scott-nien) Software Engineer The CameraX team is thrilled to announce the release of version 1.5! This latest update focuses on bringing professional-grade capabilities to your fingertips while making the camera session easier to configure than ever before.
+7 min read ![](https://developer.android.com/static/blog/assets/camera_X1_5_9f8216fa59_Z1up4QS.webp) 13 Nov 2025 [![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_ZaWsTm.webp)](https://developer.android.com/blog/authors/scott-nien) [Scott Nien](https://developer.android.com/blog/authors/scott-nien) Software Engineer The CameraX team is thrilled to announce the release of version 1.5! This latest update focuses on bringing professional-grade capabilities to your fingertips while making the camera session easier to configure than ever before.
 
 For **video recording** , users can now effortlessly capture stunning slow-motion or high-frame-rate videos. More importantly, the new [Feature Group API](https://developer.android.com/reference/androidx/camera/core/SessionConfig.Builder#setPreferredFeatureGroup(kotlin.Array)) allows you to confidently enable complex combinations like **10-bit HDR and 60 FPS**, ensuring consistent results across supported devices.
 
@@ -119,7 +119,7 @@ In this example, CameraX tries to enable features in this order:
 **Use Case 2: Building a User-Facing Settings UI**
 
 You can now accurately reflect which feature combinations are supported in your app's settings UI, disabling toggles for unsupported options like the picture below.
-![unsupported-features-disabled.gif](https://developer.android.com/static/blog/assets/unsupported_features_disabled_3da0c273f4_ZOJN6L.webp)
+![unsupported-features-disabled.gif](https://developer.android.com/static/blog/assets/unsupported_features_disabled_3da0c273f4_2pScar.webp)
 
 To determine whether to gray out a toggle, use the following codes to check for feature combination support. Initially, query the status of every individual feature. Once a feature is enabled, re-query the remaining features with the enabled features to see if their toggles must now be grayed out due to compatibility constraints.
 
@@ -292,22 +292,22 @@ Written by:
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/scott-nien) ![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_F68BQ.webp) ![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_F68BQ.webp)
+  View profile](https://developer.android.com/blog/authors/scott-nien) ![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_ZaWsTm.webp) ![View Scott Nien's profile](https://developer.android.com/static/blog/assets/scottnien_c517be4920_ZaWsTm.webp)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -323,4 +323,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -8,7 +8,7 @@ source: md.txt
 
 # Boosting Android Performance: Introducing AutoFDO for the Kernel
 
-4 min read ![](https://developer.android.com/static/blog/assets/P_Mguide_a86dec5079_EWlMa.webp) 10 Mar 2026 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/yabin-cui) [Yabin Cui](https://developer.android.com/blog/authors/yabin-cui) Software Engineer We are the Android LLVM toolchain team. One of our top priorities is to improve Android performance through optimization techniques in the LLVM ecosystem. We are constantly searching for ways to make Android faster, smoother, and more efficient. While much of our optimization work happens in userspace, the kernel remains the heart of the system. Today, we're excited to share how we are bringing [Automatic Feedback-Directed Optimization (AutoFDO)](https://research.google/pubs/autofdo-automatic-feedback-directed-optimization-for-warehouse-scale-applications/) to the Android kernel to deliver significant performance wins for users.
+4 min read ![](https://developer.android.com/static/blog/assets/P_Mguide_a86dec5079_cjxF5.webp) 10 Mar 2026 [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/yabin-cui) [Yabin Cui](https://developer.android.com/blog/authors/yabin-cui) Software Engineer We are the Android LLVM toolchain team. One of our top priorities is to improve Android performance through optimization techniques in the LLVM ecosystem. We are constantly searching for ways to make Android faster, smoother, and more efficient. While much of our optimization work happens in userspace, the kernel remains the heart of the system. Today, we're excited to share how we are bringing [Automatic Feedback-Directed Optimization (AutoFDO)](https://research.google/pubs/autofdo-automatic-feedback-directed-optimization-for-warehouse-scale-applications/) to the Android kernel to deliver significant performance wins for users.
 
 ## What is AutoFDO?
 
@@ -26,14 +26,14 @@ To understand the impact of this optimization, consider these key facts:
 We have seen impressive improvements across key Android metrics by leveraging profiles from controlled lab environments. These profiles were collected using app crawling and launching, and measured on Pixel devices across the 6.1, 6.6, and 6.12 kernels.  
 
 The most noticeable improvements are listed below. Details on the AutoFDO profiles for these kernel versions can be found in the respective Android kernel repositories for [android16-6.12](https://android.googlesource.com/kernel/common/+/refs/heads/android16-6.12/gki/aarch64/afdo/) and [android15-6.6](https://android.googlesource.com/kernel/common/+/refs/heads/android15-6.6/android/gki/aarch64/afdo/) kernels.
-![boosting_2.png](https://developer.android.com/static/blog/assets/boosting_2_9a4c45f66e_Z17BvwU.webp)
+![boosting_2.png](https://developer.android.com/static/blog/assets/boosting_2_9a4c45f66e_Z1XF848.webp)
 
 These aren't just theoretical numbers. They translate to a snappier interface, faster app switching, extended battery life, and an overall more responsive device for the end user.
 
 ## How It Works: The Pipeline
 
 Our deployment strategy involves a sophisticated pipeline to ensure profiles stay relevant and performance remains stable.
-![boosting_3.png](https://developer.android.com/static/blog/assets/boosting_3_46277fc83c_ZOJb7N.webp)
+![boosting_3.png](https://developer.android.com/static/blog/assets/boosting_3_46277fc83c_Z1FMME1.webp)
 
 #### **Step 1: Profile Collection**
 
@@ -94,22 +94,22 @@ Written by:
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/yabin-cui) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+  View profile](https://developer.android.com/blog/authors/yabin-cui) ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg) ![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -125,4 +125,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -8,7 +8,7 @@ source: md.txt
 
 # Build intelligent Android apps: On-device inference
 
-6 min read ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp) 21 Jul 2026 [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) [Caren Chang](https://developer.android.com/blog/authors/caren-chang) Developer Relations Engineer Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a **personalized** , **intelligent** , and **agentic** experience. In our [previous post we introduced Jetpacker](http://android-developers.googleblog.com/2026/07/build-intelligent-android-apps-introduction-jetpack.html), the demo app we'll use throughout this series.
+6 min read ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) 21 Jul 2026 [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) [Caren Chang](https://developer.android.com/blog/authors/caren-chang) Developer Relations Engineer Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a **personalized** , **intelligent** , and **agentic** experience. In our [previous post we introduced Jetpacker](http://android-developers.googleblog.com/2026/07/build-intelligent-android-apps-introduction-jetpack.html), the demo app we'll use throughout this series.
 
 In this blog post, we will share how you can use Gemini Nano through [ML Kit's Prompt API](https://developers.google.com/ml-kit/genai/prompt/android) to build intelligent on-device features.
 
@@ -19,12 +19,12 @@ Building intelligent on-device features refers to the ability to process prompts
 - No additional cloud inference **cost**, since everything runs on the user's hardware
 
 With the benefits of on-device in mind, we identified three features to add in Jetpacker that can improve the user experience: summarizing trip itineraries, managing expenses, and capturing voice notes.
-![Screenshot 2026-07-02 at 12.57.08 PM.png](https://developer.android.com/static/blog/assets/Screenshot_2026_07_02_at_12_57_08_PM_808698b355_1A8yMF.webp) On-device features in Jetpacker: Summarizing trip itineraries, managing expenses, and voice notes
+![Screenshot 2026-07-02 at 12.57.08 PM.png](https://developer.android.com/static/blog/assets/Screenshot_2026_07_02_at_12_57_08_PM_808698b355_Z1NjPd8.webp) On-device features in Jetpacker: Summarizing trip itineraries, managing expenses, and voice notes
 
 ### High quality tailored summarization of short texts
 
 The itinerary screen gives users a quick overview of all activities for a given trip. Since this screen contains a lot of information, it can quickly become overwhelming. To help users prepare without feeling overwhelmed, we can add a **'Get ready for your trip'** section at the top.
-![Screenshot_20260702_111934.png](https://developer.android.com/static/blog/assets/Screenshot_20260702_111934_b931d91d9d_uKc3d.webp) The romantic Paris trip is summarized as a classic Parisian adventure blending art, sights, and delicious food. A tip and some useful phrases are also added.
+![Screenshot_20260702_111934.png](https://developer.android.com/static/blog/assets/Screenshot_20260702_111934_b931d91d9d_ZMduAm.webp) The romantic Paris trip is summarized as a classic Parisian adventure blending art, sights, and delicious food. A tip and some useful phrases are also added.
 
 By inputting a trip itinerary and asking an LLM to summarize it, we can generate a quick summary of the trip along with packing tips and useful local phrases. This is a great use case for an on-device model for several reasons:
 
@@ -37,7 +37,7 @@ To build with on-device, we use **Gemini Nano** , Google's most efficient model 
 Using ML Kit's**Prompt API**, we can take advantage of Gemini Nano 4's new model capabilities to prototype our on-device features. We'll create a prompt that includes the itinerary of a trip and ask the model to generate a summary along with any preparation tips.
 
 Finding the optimal prompt usually requires some iteration, and the AICore app is perfect for this step in the process. After opting into the [developer preview option for AICore](https://developers.google.com/ml-kit/genai/aicore-dev-preview), we can download preview models such as Gemini Nano 4 to test prompts and see the model's expected outputs. With a few iterations on the prompt, we were able to improve the speed of the response from 13 seconds to under 2 seconds! Check out the final code implementation and prompt here.
-![Screen Recording 2026-07-02 at 12.28.51 PM (1) (1)_compressed.gif](https://developer.android.com/static/blog/assets/Screen_Recording_2026_07_02_at_12_28_51_PM_1_1_compressed_dfe3f28d2a_Z1MuTQu.webp) The first iteration of our prompt generated way too many tokens, and optimizing it helped keep responses quick and to the point.
+![Screen Recording 2026-07-02 at 12.28.51 PM (1) (1)_compressed.gif](https://developer.android.com/static/blog/assets/Screen_Recording_2026_07_02_at_12_28_51_PM_1_1_compressed_dfe3f28d2a_2so6gH.webp) The first iteration of our prompt generated way too many tokens, and optimizing it helped keep responses quick and to the point.
 
 ### Local processing for sensitive user input
 
@@ -89,7 +89,7 @@ val parsedReceipt: ParsedReceipt? = response.candidates.firstOrNull()?.response
 ### Multimodal input
 
 Lastly, to help users record audio memos during the trip, let's build a fully on-device voice notes feature. Using [ML Kit's Speech Recognition API](https://developers.google.com/ml-kit/genai/speech-recognition/android), we'll enable users to record short voice notes that are automatically transcribed to text. With the transcribed text, we'll use ML Kit's Prompt API to identify which trip activity is associated with the recorded voice note, letting users easily recap their trip as they scroll through the trip's itinerary.
-![Screenshot_20260702_115529.png](https://developer.android.com/static/blog/assets/Screenshot_20260702_115529_506ad03837_ZMEjEn.webp) The Roman holiday itinerary shows voice note extracts.
+![Screenshot_20260702_115529.png](https://developer.android.com/static/blog/assets/Screenshot_20260702_115529_506ad03837_Z25D1iW.webp) The Roman holiday itinerary shows voice note extracts.
 
 The [**ML Kit GenAI Speech Recognition API**](https://developers.google.com/ml-kit/genai/speech-recognition/android) allows you to transcribe audio content to text fully on-device using two distinct modes. **Basic mode** uses a traditional on-device speech recognition model and is available on most Android devices with API level 31 and higher. **Advanced mode** uses Gemini Nano to offer broader language coverage and better quality, and is currently supported on Pixel 10 devices.
 
@@ -180,23 +180,23 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)
+  View profile](https://developer.android.com/blog/authors/caren-chang) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp) ![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)
 Continue reading
-- 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_21AGRW.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- 3 Authors 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/features_in_Jetpacker_Features_with_Firebase_AI_Logic_Strapi_0a6fbb7edb_28oUwB.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Cloud and hybrid inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-cloud-and-hybrid-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience.
   [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan), [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef), [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 8 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
   [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZbOM76.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZRbYap.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions)
 
@@ -209,4 +209,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

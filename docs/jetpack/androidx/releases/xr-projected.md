@@ -10,7 +10,7 @@ Build experiences that leverage the unique capabilities of connected XR devices.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha12) |
+| September 23, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha13) |
 
 ## Declaring dependencies
 
@@ -26,7 +26,7 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement xr projecteds
-    implementation "androidx.xr.projected:projected:1.0.0-alpha12"
+    implementation "androidx.xr.projected:projected:1.0.0-alpha13"
 }
 ```
 
@@ -35,20 +35,20 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement xr projecteds
-    implementation("androidx.xr.projected:projected:1.0.0-alpha12")
+    implementation("androidx.xr.projected:projected:1.0.0-alpha13")
 
     // Use to implement xr projected complications
-    implementation "androidx.xr.projected:projected-complications-data-source:1.0.0-alpha12"
+    implementation "androidx.xr.projected:projected-complications-data-source:1.0.0-alpha13"
     // (Kotlin-specific extensions)
-    implementation "androidx.xr.projected:projected-complications-data-source-ktx:1.0.0-alpha12"
+    implementation "androidx.xr.projected:projected-complications-data-source-ktx:1.0.0-alpha13"
 
     // Use to implement a projected style and complication editor
-    implementation("androidx.xr.projected:projected-editor:1.0.0-alpha12")
+    implementation("androidx.xr.projected:projected-editor:1.0.0-alpha13")
 
     // Can use to render complications.
     // This library is optional and projecteds may have custom implementation for rendering
     // complications.
-    implementation "androidx.xr.projected:projected-complications-rendering:1.0.0-alpha12"
+    implementation "androidx.xr.projected:projected-complications-rendering:1.0.0-alpha13"
 }
 ```
 
@@ -68,6 +68,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.0
+
+### Version 1.0.0-alpha13
+
+September 23, 2026
+
+`androidx.xr.projected:projected:1.0.0-alpha13`, `androidx.xr.projected:projected-binding:1.0.0-alpha13`, and `androidx.xr.projected:projected-testing:1.0.0-alpha13` are released. Version 1.0.0-alpha13 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7f25ba0f3473985c25494700a2dec2e4cfe5e31d..4f7372e20767a86bc5f09610ba831c35d53fc8d8/xr/projected).
+
+**API Changes**
+
+- Added `ProjectedActivityCompat.setActivityAsInputReceiver` and `clearActivityAsInputReceiver` to allow apps to specify exactly which component should be relaunched and receive input focus when system-initiated focus shifts occur on displayless devices. ([Id21e5](https://android-review.googlesource.com/#/q/Id21e5399f86bc19058af5c33b6e674cb0bb4bfd3))
 
 ### Version 1.0.0-alpha12
 

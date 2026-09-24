@@ -8,7 +8,7 @@ source: md.txt
 
 # Use R8 to shrink, optimize, and fast-track your app
 
-5 min read ![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_2su32q.webp) 17 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) Developer Relations Engineer **Use R8 to shrink, optimize, and fast-track your app**
+5 min read ![](https://developer.android.com/static/blog/assets/performance_Week10_467f2693b4_19FhE4.webp) 17 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) Developer Relations Engineer **Use R8 to shrink, optimize, and fast-track your app**
 
 Welcome to day one of Android Performance Spotlight Week!
 
@@ -23,7 +23,7 @@ After reading this article, check out the Performance Spotlight Week introductio
 
 ## **How R8 makes your app more performant**
 
-![image.png](https://developer.android.com/static/blog/assets/image_dca3cc5295_Z1A8Xzp.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_dca3cc5295_Vx19b.webp)
 
 Let's shine a spotlight on the largest steps that the R8 optimizer takes to improve app performance.
 
@@ -42,7 +42,7 @@ By applying these steps the R8 optimizer improves **app startup times** , enable
 ## **Case Study: Reddit's performance improvements with R8**
 
 As one example of the performance improvements that R8 can bring, let's take a look at an example from Reddit. After enabling R8 in full mode, the Reddit for Android app saw significant performance improvements in various areas.
-![image.png](https://developer.android.com/static/blog/assets/image_a2ed383169_1pIfAy.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_a2ed383169_Z17LStM.webp)
 
 Caption: How R8 improved Reddit's app performance
 
@@ -55,7 +55,7 @@ You can read more about their improvements [on our blog](https://android-develop
 ## **Non-technical side effects of using R8**
 
 During our work with partners we have seen that these technical improvements have a direct impact on user satisfaction and can be reflected in user retention, engagement and session length. User stickiness, which can be measured with daily, weekly or monthly active users, has also been positively affected by technical performance improvements. And we've seen app ratings on the Play Store rise in correlation with R8 adoption. Sharing this with your product owners, CTOs and decision makers can help speed up your app's performance.
-![image.png](https://developer.android.com/static/blog/assets/image_68c1afc874_ZvmMzr.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_68c1afc874_21jc99.webp)
 
 So let's call it what it is: Deliberate performance optimization is a **virtue**.
 
@@ -100,7 +100,7 @@ release {
 Engineers at **Disney+** invest in app performance and are optimizing the app's user experience. Sometimes even seemingly small changes can make a huge impact. While inspecting their R8 configuration, the team found that the `-dontoptimize` flag was being used. It was brought in by a default configuration file, which is still used in many apps today.
 
 After replacing `proguard-android.txt` with `proguard-android-optimize.txt`, the Disney+ team saw significant improvements in their app's performance.
-![image.png](https://developer.android.com/static/blog/assets/image_e1c31bed94_Z22pPju.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_e1c31bed94_ug9p6.webp)
 
 After a new version of the app containing this change was rolled out to users, Disney+ saw 30% faster app startup and 25% fewer user-perceived ANRs.
 
@@ -109,7 +109,7 @@ Today many apps still use the `proguard-android.txt` file which contains the -`d
 ## **Tooling support**
 
 Starting with [Android Studio Narwhal 3 Feature Drop](https://developer.android.com/studio/releases/past-releases/as-narwhal-3-feature-drop-release-notes#r8-inspections), you will see a lint warning when using `proguard-android.txt`
-![image.png](https://developer.android.com/static/blog/assets/image_d82ca43ebb_1tMLY0.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_d82ca43ebb_Z13Hm6l.webp)
 
 And from AGP 9.0 onwards we are **entirely dropping support** for the file. This means you will have to migrate to `proguard-android-optimize.txt`.
 
@@ -144,15 +144,15 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
+  View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)
 Continue reading
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)](https://developer.android.com/blog/authors/sara-hamilton) 21 Nov 2025 21 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_2b3WAh.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/sara-hamilton) 21 Nov 2025 21 Nov 2025 ![](https://developer.android.com/static/blog/assets/performance_Week12_b8eed5b989_RfccU.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Fully Optimized: Wrapping up Performance Spotlight Week](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week)
 
   [arrow_forward](https://developer.android.com/blog/posts/fully-optimized-wrapping-up-performance-spotlight-week) From the foundational powers of the R8 optimizer and Profile Guided Optimizations, to performance improvements with Jetpack Compose, to a new guide on leveling up your app's performance, we've covered the low effort, high impact tools you need to build a performant app.
   [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Sara Hamilton](https://developer.android.com/blog/authors/sara-hamilton) • 3 min read
-- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Build for the future with the Android XR Developer Catalyst Program --- Apply now!](https://developer.android.com/blog/posts/build-for-the-future-with-the-android-xr-developer-catalyst-program-apply-now)
 
@@ -162,7 +162,7 @@ Continue reading
   - [#intelligent eyewear](https://developer.android.com/blog/topics/intelligent-eyewear)
   - [#Wired XR glasses](https://developer.android.com/blog/topics/wired-xr-glasses)
   - +1 ↩
-- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_ZbdvH4.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
+- 14 Apr 2026 14 Apr 2026 ![](https://developer.android.com/static/blog/assets/Blog_banner_Dark_2000x1000_B_c6418d3a5c_Z20LEeM.webp) [Events \& Programs](https://developer.android.com/blog/categories/events-and-programs)
 
   ## [Get ready for Google I/O: Livestream schedule revealed](https://developer.android.com/blog/posts/get-ready-for-google-io-livestream-schedule-revealed)
 
@@ -176,4 +176,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -8,7 +8,7 @@ source: md.txt
 
 # Media3 1.9.0 - What's new
 
-6 min read ![](https://developer.android.com/static/blog/assets/Android_Evergreen_Hero_Banner_AI_Weband_App_Option_B_627622b909_10sGeD.webp) 19 Dec 2025 [![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_a9nfE.webp)](https://developer.android.com/blog/authors/kristina-simakova) [Kristina Simakova](https://developer.android.com/blog/authors/kristina-simakova) Engineering Manager Media3 1.9.0 is out! Besides the usual bug fixes and performance improvements, the latest release also contains **four** new or largely rewritten modules:
+6 min read ![](https://developer.android.com/static/blog/assets/Android_Evergreen_Hero_Banner_AI_Weband_App_Option_B_627622b909_Z20tTTu.webp) 19 Dec 2025 [![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_Z2eUs8o.webp)](https://developer.android.com/blog/authors/kristina-simakova) [Kristina Simakova](https://developer.android.com/blog/authors/kristina-simakova) Engineering Manager Media3 1.9.0 is out! Besides the usual bug fixes and performance improvements, the latest release also contains **four** new or largely rewritten modules:
 
 - `media3-inspector` - Extract metadata and frames outside of playback
 - `media3-ui-compose-material3` - Build a basic Material3 Compose Media UI in just a few steps
@@ -67,7 +67,7 @@ fun SimplePlayerUI(player: Player, modifier: Modifier = Modifier) {
 }
 ```
 
-![image.png](https://developer.android.com/static/blog/assets/image_c643ce55c4_miyY9.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_c643ce55c4_Z2bcz6c.webp)
 
 *Simple Compose player UI with out-of-the-box elements*
 
@@ -94,7 +94,7 @@ val session = MediaSession.Builder(context, castPlayer).build()
 
 }
 ```
-![image.png](https://developer.android.com/static/blog/assets/image_da153aa491_14UjYy.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_da153aa491_Z1szO5M.webp)
 
 *New CastPlayer integration in Media3 session demo app*
 
@@ -134,7 +134,7 @@ session.setMediaButtonPreferences(listOf(
       .build()
 ))
 ```
-![image.png](https://developer.android.com/static/blog/assets/image_9f184d8c74_9UQMh.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_9f184d8c74_Z2nzhi4.webp)
 
 *Media button preferences with fast forward button*
 
@@ -207,22 +207,22 @@ Written by:
   ###### Engineering Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/kristina-simakova) ![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_a9nfE.webp) ![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_a9nfE.webp)
+  View profile](https://developer.android.com/blog/authors/kristina-simakova) ![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_Z2eUs8o.webp) ![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_Z2eUs8o.webp)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -238,4 +238,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

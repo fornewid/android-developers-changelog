@@ -8,7 +8,7 @@ source: md.txt
 
 # Streamline User Journeys with Verified Email via Credential Manager
 
-3 min read ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_SvAX9.webp) 22 Apr 2026 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora) \& [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) In the modern digital landscape, the first encounter a user has with an app is often the most critical. Yet, for decades, this initial interaction has been hindered by the friction of traditional verification methods. Today, we're excited to announce a [new verified email credential issued by Google](https://developer.android.com/identity/digital-credentials/email-verification), which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
+3 min read ![](https://developer.android.com/static/blog/assets/Streamline_user_animation_V02_Strapi_abd12985d7_Z2uVN2E.webp) 22 Apr 2026 [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2iNrsg.webp)](https://developer.android.com/blog/authors/jean-pierre-pralle) [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora) \& [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle) In the modern digital landscape, the first encounter a user has with an app is often the most critical. Yet, for decades, this initial interaction has been hindered by the friction of traditional verification methods. Today, we're excited to announce a [new verified email credential issued by Google](https://developer.android.com/identity/digital-credentials/email-verification), which developers can now retrieve directly from Android's Credential Manager Digital Credential API.
 
 ### **The Problem: Authentication Friction in the Modern Era**
 
@@ -42,19 +42,19 @@ The beauty of this API lies in its simplicity for the end user. Instead of hunti
 ### **Use case 1. Sign up**
 
 Accelerate onboarding by fetching a verified email the moment the user taps "Sign up". We strongly recommend you pair the verified email retrieval with passkey creation, also part of the Credential Manager API:
-![UseCase1.png](https://developer.android.com/static/blog/assets/Use_Case1_01f7f551f9_Z1z8zha.webp)
+![UseCase1.png](https://developer.android.com/static/blog/assets/Use_Case1_01f7f551f9_2tddfP.webp)
 
 *Note: You can also fetch other unverified fields such as a user's given name, family name, name, profile picture and the hosted domain connected with the verified email.*
 
 ### **Use case 2. Account recovery**
 
 Eliminate the frustration of users hunting for recovery codes in their spam folders by allowing them to recover their account using the verified email securely stored on their device:
-![UseCase2.png](https://developer.android.com/static/blog/assets/Use_Case2_65aec97666_2gaag0.webp)
+![UseCase2.png](https://developer.android.com/static/blog/assets/Use_Case2_65aec97666_1ejNY4.webp)
 
 ### **Use case 3. Re-authentication for sensitive actions**
 
 Protect sensitive user actions, such as changing settings or updating profile details, by requiring a quick re-authentication step. Instead of an OTP, you can provide a low-friction verification using the device's verified email:
-![UseCase3.png](https://developer.android.com/static/blog/assets/Use_Case3_ea0ca9b117_1NwCFc.webp)
+![UseCase3.png](https://developer.android.com/static/blog/assets/Use_Case3_ea0ca9b117_Wt18Y.webp)
 
 ### **Important Considerations**
 
@@ -81,7 +81,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)
+  View profile](https://developer.android.com/blog/authors/niharika-arora) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp) ![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)
 -
 
   ## [Jean-Pierre Pralle](https://developer.android.com/blog/authors/jean-pierre-pralle)
@@ -89,15 +89,15 @@ Written by:
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/jean-pierre-pralle) ![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp) ![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2buQLX.webp)
+  View profile](https://developer.android.com/blog/authors/jean-pierre-pralle) ![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2iNrsg.webp) ![View Jean-Pierre Pralle's profile](https://developer.android.com/static/blog/assets/Jean_Pierre_Pralle_2bf889a65a_2iNrsg.webp)
 Continue reading
-- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_C99s1.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_2x1elG.webp)](https://developer.android.com/blog/authors/vinisha-athwani) 04 Sep 2025 04 Sep 2025 ![](https://developer.android.com/static/blog/assets/passkeys_Credential_27ba66338c_ZzmQtB.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Niharika Arora's profile](https://developer.android.com/static/blog/assets/niharika_2910f6d612_Z1FQFmj.webp)](https://developer.android.com/blog/authors/niharika-arora)[![View Vinisha Athwani's profile](https://developer.android.com/static/blog/assets/Vinisha_Athwani_e54ba64bd3_ZMd6UB.webp)](https://developer.android.com/blog/authors/vinisha-athwani) 04 Sep 2025 04 Sep 2025 ![](https://developer.android.com/static/blog/assets/passkeys_Credential_27ba66338c_Z1W7Rjo.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Best practices for migrating users to passkeys with Credential Manager](https://developer.android.com/blog/posts/best-practices-for-migrating-users-to-passkeys-with-credential-manager)
 
   [arrow_forward](https://developer.android.com/blog/posts/best-practices-for-migrating-users-to-passkeys-with-credential-manager) For Android developers, the Credential Manager API helps you guide your users towards using passkeys while ensuring continued support for traditional sign-in mechanisms, such as passwords.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Vinisha Athwani](https://developer.android.com/blog/authors/vinisha-athwani) • 6 min read
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
 
@@ -107,7 +107,7 @@ Continue reading
   - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
   - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
   - +1 ↩
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
 
@@ -120,4 +120,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

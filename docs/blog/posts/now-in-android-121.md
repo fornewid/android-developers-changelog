@@ -8,7 +8,7 @@ source: md.txt
 
 # Now in Android #121
 
-9 min read ![](https://developer.android.com/static/blog/assets/Now_In_Android121_f4ff784252_Z2dFDgg.webp) 20 Oct 2025 [![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp)](https://developer.android.com/blog/authors/daniel-galpin) [Daniel Galpin](https://developer.android.com/blog/authors/daniel-galpin) Developer Advocate Welcome to Now in Android, your ongoing guide to what's new and notable in the world of Android development.
+9 min read ![](https://developer.android.com/static/blog/assets/Now_In_Android121_f4ff784252_ZG9AcL.webp) 20 Oct 2025 [![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_16cSIX.webp)](https://developer.android.com/blog/authors/daniel-galpin) [Daniel Galpin](https://developer.android.com/blog/authors/daniel-galpin) Developer Advocate Welcome to Now in Android, your ongoing guide to what's new and notable in the world of Android development.
 
 Read on for coverage of [Android 16 QPR2 beta 1](http://android-developers.googleblog.com/2025/08/android-16-qpr2-beta-1-is-here.html), the [Android Studio Narwhal feature drop](http://android-developers.googleblog.com/2025/07/android-studio-narwhal-feature-drop-stable-agent-mode.html), [Jetpack Compose 1.9](http://android-developers.googleblog.com/2025/08/whats-new-in-jetpack-compose-august-25-release.html), [Media 3 1.8](http://android-developers.googleblog.com/2025/08/media3-180-whats-new.html), [Shape Morphing](https://www.youtube.com/watch?v=0moEXBqNDZI) and [Autofill in Compose](https://www.youtube.com/watch?v=Tb6bGiha6xg), and much more.
 
@@ -23,7 +23,7 @@ But this post has the most in-depth information, so read on!
 ## [**Android 16 QPR2 Beta 1 is here ✨**](http://android-developers.googleblog.com/2025/08/android-16-qpr2-beta-1-is-here.html)
 
 The first beta of Android 16 QPR2 is now available, the inaugural Android release with an Android minor SDK version. Minor SDK versions can include new APIs that extend platform features but cannot introduce `targetSdkVersion` gated behavior changes, minimizing the amount you need to test your apps against it.
-![sdk-release-graph.webp](https://developer.android.com/static/blog/assets/sdk_release_graph_ca4f9433af_Z2x3V3y.webp)
+![sdk-release-graph.webp](https://developer.android.com/static/blog/assets/sdk_release_graph_ca4f9433af_Z10wS04.webp)
 
 You can call new APIs by checking [`SDK_INT_FULL`](https://developer.android.com/reference/android/os/Build.VERSION#SDK_INT_FULL) against the [`VERSION_CODES_FULL`](https://developer.android.com/reference/android/os/Build.VERSION_CODES_FULL) enumeration:
 
@@ -83,7 +83,7 @@ You can enroll any supported Pixel device to receive Beta updates over-the-air o
 
 ## [**Android Studio Narwhal Feature Drop is stable --- start using Agent Mode 🐳**](http://android-developers.googleblog.com/2025/07/android-studio-narwhal-feature-drop-stable-agent-mode.html)
 
-![narwhal.webp](https://developer.android.com/static/blog/assets/narwhal_563c249dd3_ZAgX3B.webp)
+![narwhal.webp](https://developer.android.com/static/blog/assets/narwhal_563c249dd3_2aTkV0.webp)
 
 Android Studio Narwhal Feature Drop is now stable, new features and enhancements include:
 
@@ -98,19 +98,19 @@ Android Studio Narwhal Feature Drop is now stable, new features and enhancements
 
 ## [**Android Device Streaming, powered by Firebase**](https://developer.android.com/studio/run/android-device-streaming)
 
-![device-streaming.webp](https://developer.android.com/static/blog/assets/device_streaming_7c15cea8ba_1eNAaf.webp)
+![device-streaming.webp](https://developer.android.com/static/blog/assets/device_streaming_7c15cea8ba_Z1agfdN.webp)
 
 Android Device Streaming, powered by Firebase, has introduced stable support for Android Partner Device Labs, allowing you to remotely connect to physical Android devices hosted by OEM partners, including Samsung, Xiaomi, OPPO, OnePlus, and vivo.
 
 ## [**Accelerating development with monthly releases for Android Studio --- releasing 2X more often than before**](https://android-developers.googleblog.com/2025/08/accelerating-development-with-monthly-releases-android-studio-2x-more-than-before.html)
 
-![accelarating-releases.webp](https://developer.android.com/static/blog/assets/accelarating_releases_838f00cb86_1jLaua.webp)
+![accelarating-releases.webp](https://developer.android.com/static/blog/assets/accelarating_releases_838f00cb86_AjY6r.webp)
 
 Android Studio is transitioning to a monthly stable release cadence to speed up getting you new features and critical bug fixes. While the Android Studio IDE will update monthly, new IntelliJ platform versions will be introduced every few months, with Feature Drops filling the interim stable releases. The Android Emulator and Android Gradle Plugin will continue to update separately every two months. This accelerated release schedule is supported by long-term investments in testing infrastructure.
 
 ## [**What's new in the Jetpack Compose August '25 release 🚀**](http://android-developers.googleblog.com/2025/08/whats-new-in-jetpack-compose-august-25-release.html)
 
-![jetpack-compose.webp](https://developer.android.com/static/blog/assets/jetpack_compose_d464ba7360_Z22e0L6.webp)
+![jetpack-compose.webp](https://developer.android.com/static/blog/assets/jetpack_compose_d464ba7360_Z7QevY.webp)
 
 The Jetpack Compose August '25 release (version 1.9) is now stable. This release introduces [`Modifier.dropShadow`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).dropShadow(androidx.compose.ui.graphics.Shape,kotlin.Function1)) and [`Modifier.innerShadow`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).innerShadow(androidx.compose.ui.graphics.Shape,kotlin.Function1)) for rendering box-shadow effects. New [`onVisibilityChanged`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).onVisibilityChanged(kotlin.Long,kotlin.Float,androidx.compose.ui.layout.LayoutBoundsHolder,kotlin.Function1)) and [`onFirstVisible`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).onFirstVisible(kotlin.Long,kotlin.Float,androidx.compose.ui.layout.LayoutBoundsHolder,kotlin.Function0)) modifiers let you track element visibility for UI updates or impression logging. You can apply rich styling within [`OutputTransformation`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/OutputTransformation) using [`TextFieldBuffer.addStyle`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/text/input/TextFieldBuffer#addStyle(androidx.compose.ui.text.ParagraphStyle,kotlin.Int,kotlin.Int)) for text transformations.
 
@@ -118,7 +118,7 @@ The [`LazyLayout`](https://developer.android.com/reference/kotlin/androidx/compo
 
 ## [**Media3 1.8.0 --- What's new? 🚀**](http://android-developers.googleblog.com/2025/08/media3-180-whats-new.html)
 
-![media3.webp](https://developer.android.com/static/blog/assets/media3_9fe9c8b32e_2tn1Cu.webp)
+![media3.webp](https://developer.android.com/static/blog/assets/media3_9fe9c8b32e_qCHxq.webp)
 
 Media3 1.8.0 is now available, introducing several new features and improvements. ExoPlayer gains a scrubbing mode for frequent, user-driven seeks, which you can enable via [`ExoPlayer.setScrubbingModeEnabled`](https://developer.android.com/reference/kotlin/androidx/media3/exoplayer/ExoPlayer#setScrubbingModeEnabled(boolean)). [`HlsInterstitialsAdsLoader`](https://developer.android.com/media/media3/exoplayer/hls#interstitials)` `now supports live streams for server-guided ad insertion.
 
@@ -130,13 +130,13 @@ Additional updates include partial download support in [`Downloader`](https://de
 
 ## [**#WeArePlay: Meet the people coding a more sustainable world**](https://android-developers.googleblog.com/2025/08/weareplay-meet-people-coding-sustainable-world.html)
 
-![weareplay.webp](https://developer.android.com/static/blog/assets/weareplay_876ac415c7_8eqM0.webp)
+![weareplay.webp](https://developer.android.com/static/blog/assets/weareplay_876ac415c7_ZHOaJd.webp)
 
 The [**#WeArePlay**](https://play.google.com/console/about/weareplay/) initiative highlights [**Android apps and games that address environmental challenges**](https://android-developers.googleblog.com/2025/08/weareplay-meet-people-coding-sustainable-world.html). The game BoRa --- Iguaçu National Park, developed by Mayla, Flávia, Andréia, and Ariane, provides gamified and accessible interactive experiences for nature education during park visits. Louis and Justin's app, CyberTracker, allows non-literate indigenous trackers to record biodiversity data through an icon-based interface, supporting conservation efforts. Lastly, Earth5R, co-founded by Bharati and Saurabh, offers environmental education and connects users with internships and projects to develop skills for the green economy.
 
 ## [**What is HDR?**](https://android-developers.googleblog.com/2025/08/what-is-hdr.html)**🌟**
 
-![hdr.webp](https://developer.android.com/static/blog/assets/hdr_e3904dfe4c_1q7vWT.webp)
+![hdr.webp](https://developer.android.com/static/blog/assets/hdr_e3904dfe4c_Z1LDvNw.webp)
 
 [**High Dynamic Range (HDR)**](https://android-developers.googleblog.com/2025/08/what-is-hdr.html) enables increased peak brightness beyond Standard Dynamic Range (SDR) for Android developers, offering enhanced visual fidelity. Android supports HDR for video and images, including technologies like UltraHDR for backward compatibility.
 
@@ -252,9 +252,9 @@ Written by:
   ###### Developer Advocate
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/daniel-galpin) ![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp) ![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_Z1EXpfD.webp)
+  View profile](https://developer.android.com/blog/authors/daniel-galpin) ![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_16cSIX.webp) ![View Daniel Galpin's profile](https://developer.android.com/static/blog/assets/dgalpin_30033d2d42_16cSIX.webp)
 Continue reading
-- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_Z1m5WWD.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 30 Sep 2025 30 Sep 2025 ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_rfy1m.webp) [Community](https://developer.android.com/blog/categories/community)
+- [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) 30 Sep 2025 30 Sep 2025 ![](https://developer.android.com/static/blog/assets/lets_Talk_Security_3e0a595955_ZQycm0.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Let's talk security: Answering your top questions about Android developer verification](https://developer.android.com/blog/posts/lets-talk-security-answering-your-top)
 
@@ -262,7 +262,7 @@ Continue reading
   [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) • 2 min read
   - [#Android](https://developer.android.com/blog/topics/android)
   - [#identity](https://developer.android.com/blog/topics/identity)
-- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_23cCms.webp)](https://developer.android.com/blog/authors/jose-alcerreca) 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_MYo9i.webp) [Community](https://developer.android.com/blog/categories/community)
+- [![View Jose Alcérreca's profile](https://developer.android.com/static/blog/assets/jose_21a476d0ec_Z19ypoX.webp)](https://developer.android.com/blog/authors/jose-alcerreca) 06 Aug 2026 06 Aug 2026 ![](https://developer.android.com/static/blog/assets/Inside_Android_Skills_Built_for_deprecation_Strapi_V01_8f34b79673_Z25NBy7.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Inside Android Skills - Built for deprecation](https://developer.android.com/blog/posts/inside-android-skills-built-for-deprecation)
 
@@ -270,7 +270,7 @@ Continue reading
   [Jose Alcérreca](https://developer.android.com/blog/authors/jose-alcerreca) • 4 min read
   - [#AI-assisted coding](https://developer.android.com/blog/topics/ai-assisted-coding)
   - [#Android Skills](https://developer.android.com/blog/topics/android-skills)
-- [![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_1fkXBh.webp)](https://developer.android.com/blog/authors/steph-pio) 06 Jul 2026 06 Jul 2026 ![](https://developer.android.com/static/blog/assets/IG_Fund26_Strapi_Header_716b75cbab_1E2Dt5.webp) [Community](https://developer.android.com/blog/categories/community)
+- [![View Steph Pio's profile](https://developer.android.com/static/blog/assets/security_pass_photo_b9ab37d5bf_Z18YGsT.webp)](https://developer.android.com/blog/authors/steph-pio) 06 Jul 2026 06 Jul 2026 ![](https://developer.android.com/static/blog/assets/IG_Fund26_Strapi_Header_716b75cbab_RbcqR.webp) [Community](https://developer.android.com/blog/categories/community)
 
   ## [Google Play launches the first Indie Games Fund in Africa](https://developer.android.com/blog/posts/google-play-launches-the-first-indie-games-fund-in-africa)
 
@@ -283,4 +283,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

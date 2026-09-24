@@ -8,7 +8,7 @@ source: md.txt
 
 # Building for the Intelligence System on Android
 
-4 min read ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_Z2pmmBN.webp) 12 May 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Announced today during [The Android Show](https://developer.android.com/events/show), Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps. Through deep integration between hardware and software, Android devices will be able to handle the heavy lifting of anticipating user needs, so your app can focus on delivering that experience at the right moment. As part of this, we are [announcing](https://blog.google/products-and-platforms/platforms/android/gemini-intelligence) Gemini Intelligence, a suite of new features that bring the best of Gemini to our most advanced Android devices.
+4 min read ![](https://developer.android.com/static/blog/assets/Tas_Developers_cut_Strapi_3636223c9c_DKPLL.webp) 12 May 2026 [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) Vice President, Product Management, Android Developer Announced today during [The Android Show](https://developer.android.com/events/show), Android is transitioning from an operating system to an intelligence system, creating more opportunities for engagement with your apps. Through deep integration between hardware and software, Android devices will be able to handle the heavy lifting of anticipating user needs, so your app can focus on delivering that experience at the right moment. As part of this, we are [announcing](https://blog.google/products-and-platforms/platforms/android/gemini-intelligence) Gemini Intelligence, a suite of new features that bring the best of Gemini to our most advanced Android devices.
 [Video](https://www.youtube.com/watch?v=KvTRMSa1w4E)
 
 **Task Automation with Gemini**
@@ -16,7 +16,7 @@ source: md.txt
 With Gemini Intelligence, we're expanding Gemini's ability to [automate tasks](http://d.android.com/ai/computer-control) across selected apps on behalf of the user with built-in transparency and control. This creates another avenue for user engagement, driving high-intent traffic to your app without requiring code or major engineering work from you. By allowing Gemini to navigate complex, multi-step tasks, such as ordering a latte from a cafe or building a shopping cart from a grocery list in a notes app, Gemini handles the logistics for users, so you're free to focus on innovation and building great features.
 
 We know there are times when people like to browse, and others when they want to quickly handle a task. Initially launched with selected food and ridesharing partners to build a grocery order or request a ride, this capability is expanding across more verticals and form factors, including foldables, watches, cars, and XR glasses.
-![TAS-Gif (1).gif](https://developer.android.com/static/blog/assets/TAS_Gif_1_df328d11d1_2r1NcV.webp)
+![TAS-Gif (1).gif](https://developer.android.com/static/blog/assets/TAS_Gif_1_df328d11d1_1zXbFI.webp)
 
 **Increase Engagement with AppFunctions**
 
@@ -38,7 +38,7 @@ Furthermore, RemoteCompose is the engine behind Create My Widget, a feature wher
 **Building Adaptively Beyond the Phone**
 
 From foldables, tablets, compatible cars, and XR headsets to the new [Googlebooks](http://developer.android.com/googlebook), the canvas for Android apps has expanded across screens and form factors. Here are some of the updates to help you build adaptively:
-![morph-to-tablet.gif](https://developer.android.com/static/blog/assets/morph_to_tablet_6f8146a89f_QKlEe.webp)
+![morph-to-tablet.gif](https://developer.android.com/static/blog/assets/morph_to_tablet_6f8146a89f_Z2j40TA.webp)
 
 - **Jetpack Navigation 3:** Our latest [Jetpack Navigation 3](https://developer.android.com/guide/navigation/navigation-3) offers deeper adaptive support adding Scene decorators to the Scene API. Scene decorators can be used to modify the scene calculated by your app's scene strategy. For example, they can be used to add common UI elements such as top app bars and navigation bars/rails that you'd like to add at the scene, rather than nav entry level. NavDisplay now includes built-in functionality that makes [nav entries shared elements](https://goo.gle/4c6GYCc) so now you can smoothly transition between scenes. Check out our [Nav3-recipes](https://www.linkedin.com/safety/go/?url=https://goo.gle/47Nremk&urlhash=UkxR&mt=uOHz8Ihh6kWHjeLkaF4T2l_hcsc2xyLREGGFpnlMl9imj-qfu9P1k6qWM0liAVmypDYOVs9Bb04x1g3qvtJPLm2w03hUoWtZhP8JaF7Or26Y2HJKdHHNnYrECQ&isSdui=true) for more.
 - **Jetpack Compose:** Adopting Compose into your app remains the easiest way to start building adaptive UIs, and we want to ensure that you have the right level of architectural support. We are working on a new set of building blocks in Compose 1.11 for responsive layouts and customization with [Grid](https://developer.android.com/develop/ui/compose/layouts/adaptive/grid), [Flexbox](https://developer.android.com/develop/ui/compose/layouts/adaptive/flexbox), [MediaQuery](https://developer.android.com/develop/ui/compose/layouts/adaptive/mediaquery) and [Style](https://developer.android.com/develop/ui/compose/styles). We would love your [feedback](https://b.corp.google.com/issues/new?component=612128&pli=1&template=1253476) on them before removing the Experimental flag.
@@ -66,23 +66,23 @@ Written by:
   ###### Vice President, Product Management, Android Developer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)
+  View profile](https://developer.android.com/blog/authors/matthew-mccullough) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp) ![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)
 Continue reading
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 20 May 2025 20 May 2025 ![](https://developer.android.com/static/blog/assets/IO_25_Blog_Hero_Template_Art_Long_01_126026f6a9_Z2cQC8F.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 20 May 2025 20 May 2025 ![](https://developer.android.com/static/blog/assets/IO_25_Blog_Hero_Template_Art_Long_01_126026f6a9_ZPukDs.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Updates to the Android XR SDK: Introducing Developer Preview 2](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2)
 
   [arrow_forward](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-2) Since launching the Android XR SDK Developer Preview alongside Samsung, Qualcomm, and Unity last year, we've been blown away by all of the excitement we've been hearing from the broader Android community.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 4 min read
   - [#Android](https://developer.android.com/blog/topics/android)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_Z1qQbv3.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 16 Jun 2026 16 Jun 2026 ![](https://developer.android.com/static/blog/assets/Strapi_Hero_White_e4dbee04d8_jD3SM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android 17 is Here](https://developer.android.com/blog/posts/android-17-is-here)
 
@@ -95,4 +95,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

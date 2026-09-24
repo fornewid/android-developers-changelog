@@ -8,7 +8,7 @@ source: md.txt
 
 # Jetpack XR SDK core libraries reach beta: The next milestone for Android XR
 
-2 min read ![](https://developer.android.com/static/blog/assets/Android_XR_beta_release_Strapi_a23ed1d892_Z1YdYO1.webp) 18 Aug 2026 3 Authors [Amy Zeppenfeld,](https://developer.android.com/blog/authors/amy-zeppenfeld) [Greg Underwood,](https://developer.android.com/blog/authors/greg-underwood) [Yasmine Evjen](https://developer.android.com/blog/authors/yasmine-evjen) Since introducing the Android XR SDK, developers have transformed their ideas into innovative, immersive experiences for XR headsets and wired XR glasses. As the ecosystem expands, you can more easily take those experiences from preview to production and reach users wherever they are.
+2 min read ![](https://developer.android.com/static/blog/assets/Android_XR_beta_release_Strapi_a23ed1d892_2wR9tl.webp) 18 Aug 2026 3 Authors [Amy Zeppenfeld,](https://developer.android.com/blog/authors/amy-zeppenfeld) [Greg Underwood,](https://developer.android.com/blog/authors/greg-underwood) [Yasmine Evjen](https://developer.android.com/blog/authors/yasmine-evjen) Since introducing the Android XR SDK, developers have transformed their ideas into innovative, immersive experiences for XR headsets and wired XR glasses. As the ecosystem expands, you can more easily take those experiences from preview to production and reach users wherever they are.
 
 Today, we're excited to announce that **Jetpack SceneCore** , **ARCore for Jetpack XR** , and **XR Runtime** have reached beta with **Jetpack Compose for XR** to follow soon! This means the APIs are stabilizing, making it a great time to start integrating them into your production workflows and creating for Android XR.
 
@@ -61,7 +61,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/amy-zeppenfeld) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)
+  View profile](https://developer.android.com/blog/authors/amy-zeppenfeld) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp) ![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)
 -
 
   ## [Greg Underwood](https://developer.android.com/blog/authors/greg-underwood)
@@ -69,7 +69,7 @@ Written by:
   ###### Software Engineering Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/greg-underwood) ![View Greg Underwood's profile](https://developer.android.com/static/blog/assets/PXL_20260813_200301431_PORTRAIT_7a5276fd7a_Z1fcMvp.webp) ![View Greg Underwood's profile](https://developer.android.com/static/blog/assets/PXL_20260813_200301431_PORTRAIT_7a5276fd7a_Z1fcMvp.webp)
+  View profile](https://developer.android.com/blog/authors/greg-underwood) ![View Greg Underwood's profile](https://developer.android.com/static/blog/assets/PXL_20260813_200301431_PORTRAIT_7a5276fd7a_Au7Pf.webp) ![View Greg Underwood's profile](https://developer.android.com/static/blog/assets/PXL_20260813_200301431_PORTRAIT_7a5276fd7a_Au7Pf.webp)
 -
 
   ## [Yasmine Evjen](https://developer.android.com/blog/authors/yasmine-evjen)
@@ -77,9 +77,9 @@ Written by:
   ###### Senior Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/yasmine-evjen) ![View Yasmine Evjen's profile](https://developer.android.com/static/blog/assets/unnamed_3_41b10aa98e_Z1Fjttc.webp) ![View Yasmine Evjen's profile](https://developer.android.com/static/blog/assets/unnamed_3_41b10aa98e_Z1Fjttc.webp)
+  View profile](https://developer.android.com/blog/authors/yasmine-evjen) ![View Yasmine Evjen's profile](https://developer.android.com/static/blog/assets/unnamed_3_41b10aa98e_ZXr0BV.webp) ![View Yasmine Evjen's profile](https://developer.android.com/static/blog/assets/unnamed_3_41b10aa98e_ZXr0BV.webp)
 Continue reading
-- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z1LAQnM.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_ZtW7eg.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Amy Zeppenfeld's profile](https://developer.android.com/static/blog/assets/Amyzeppenfeld_50a8b9e7f8_Z17af4b.webp)](https://developer.android.com/blog/authors/amy-zeppenfeld)[![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)](https://developer.android.com/blog/authors/stevan-silva) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Updates to the Android XR SDK: Introducing Developer Preview 4](https://developer.android.com/blog/posts/updates-to-the-android-xr-sdk-introducing-developer-preview-4)
 
@@ -91,7 +91,7 @@ Continue reading
   - [#Unity](https://developer.android.com/blog/topics/unity)
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - +3 ↩
-- [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_V4WGm.webp)](https://developer.android.com/blog/authors/stevan-silva)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_2kh65s.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1R62M0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Stevan Silva's profile](https://developer.android.com/static/blog/assets/Stevan_Silva_7661118077_ZaY4rR.webp)](https://developer.android.com/blog/authors/stevan-silva)[![View Vinny DaSilva's profile](https://developer.android.com/static/blog/assets/unnamed_5_cdab7ecfba_Z1iwWr5.webp)](https://developer.android.com/blog/authors/vinny-da-silva) 15 Jun 2026 15 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Android_XR_Meta_a489e757ed_Z1JMs6H.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [What's New in Android XR: Tooling, Engine Support, and Ecosystem Updates](https://developer.android.com/blog/posts/what-s-new-in-android-xr-tooling-engine-support-and-ecosystem-updates)
 
@@ -99,7 +99,7 @@ Continue reading
   [Stevan Silva](https://developer.android.com/blog/authors/stevan-silva), [Vinny DaSilva](https://developer.android.com/blog/authors/vinny-da-silva) • 2 min read
   - [#Android XR](https://developer.android.com/blog/topics/android-xr)
   - [#Developer Preview 4](https://developer.android.com/blog/topics/developer-preview-4)
-- [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins)[![View Ryan Bartley's profile](https://developer.android.com/static/blog/assets/Ryan_Bartley_35cf836cd8_ZgTUAO.webp)](https://developer.android.com/blog/authors/ryan-bartley) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_Z1kvKHr.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_1yXUBh.webp)](https://developer.android.com/blog/authors/luke-hopkins)[![View Ryan Bartley's profile](https://developer.android.com/static/blog/assets/Ryan_Bartley_35cf836cd8_Z1nXWK3.webp)](https://developer.android.com/blog/authors/ryan-bartley) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Combo3_Strapi_2000x1000_56726aebea_2hInNY.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android XR Updates for Unity, Unreal, and Godot](https://developer.android.com/blog/posts/android-xr-updates-for-unity-unreal-and-godot)
 
@@ -115,4 +115,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

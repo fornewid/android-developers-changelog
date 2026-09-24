@@ -8,7 +8,7 @@ source: md.txt
 
 # What's new in the Jetpack Compose August '26 release
 
-5 min read ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_1w4qDC.webp) 11 Aug 2026 [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) Product Manager Today, the Jetpack Compose August '26 release is stable! This release brings version 1.12 across core Compose modules (see the full [BOM mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping)), introducing rich visual APIs like Mesh Gradients and Wide Color Gamut (WCG) support, structural layout features like named areas in `Grid`, seamless integration with Android's Credential Manager, and significant testing and performance improvements.
+5 min read ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_ZrjgNw.webp) 11 Aug 2026 [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher) [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) Product Manager Today, the Jetpack Compose August '26 release is stable! This release brings version 1.12 across core Compose modules (see the full [BOM mapping](https://developer.android.com/develop/ui/compose/bom/bom-mapping)), introducing rich visual APIs like Mesh Gradients and Wide Color Gamut (WCG) support, structural layout features like named areas in `Grid`, seamless integration with Android's Credential Manager, and significant testing and performance improvements.
 
 To update your project to today's release, upgrade your [Compose BOM](https://developer.android.com/develop/ui/compose/bom) version to `2026.08.00`:
 
@@ -26,7 +26,7 @@ implementation(platform("androidx.compose:compose-bom:2026.08.00"))
 ### **Mesh Gradients**
 
 Compose 1.12 introduces [`MeshGradientPainter`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/MeshGradientPainter) to help you create multi-point, organic color gradients.
-![meshGradient.gif](https://developer.android.com/static/blog/assets/mesh_Gradient_29b3ff9c73_Z27W84u.webp)
+![meshGradient.gif](https://developer.android.com/static/blog/assets/mesh_Gradient_29b3ff9c73_Z1svvJS.webp)
 
 ```kotlin
 val rows = 1
@@ -116,7 +116,7 @@ transition.DeferredAnimatedContent(
 ```
 
 Below are two demos of use cases where a gesture-driven animation is handed off to a triggered animation:
-![colorCards.gif](https://developer.android.com/static/blog/assets/color_Cards_adbc3d38c4_28saLx.webp)
+![colorCards.gif](https://developer.android.com/static/blog/assets/color_Cards_adbc3d38c4_Hye5b.webp)
 
 ## **Text, Input \& Platform Integrations**
 
@@ -226,7 +226,7 @@ For more information, see the [documentation](https://developer.android.com/deve
 ## **Performance**
 
 As with every release, we continue to invest in Compose's performance to ensure that the framework helps you to build beautiful, performant apps. In this release we've focused on improving startup performance and are now seeing Time to Initial Display (the time it takes for an app to produce its first frame) that is comparable to Views in our [benchmarks](https://developer.android.com/develop/ui/compose/performance/herobenchmark).
-![timetoinitialdisplay@2x _v2.png](https://developer.android.com/static/blog/assets/timetoinitialdisplay_2x_v2_26db919929_25qsbc.webp)
+![timetoinitialdisplay@2x _v2.png](https://developer.android.com/static/blog/assets/timetoinitialdisplay_2x_v2_26db919929_MrKwC.webp)
 
 ## **Testing \& Tooling Upgrades**
 
@@ -281,9 +281,9 @@ Written by:
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/nick-butcher) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)
+  View profile](https://developer.android.com/blog/authors/nick-butcher) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)
 Continue reading
-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
 
@@ -297,13 +297,13 @@ Continue reading
   - [#Foldables](https://developer.android.com/blog/topics/foldables)
   - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
   - +5 ↩
-- 3 Authors 28 Jul 2026 28 Jul 2026 ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z1F9b9M.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 28 Jul 2026 28 Jul 2026 ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z6XDT1.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Celebrating 5 years of Jetpack Compose](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose)
 
   [arrow_forward](https://developer.android.com/blog/posts/celebrating-5-years-of-jetpack-compose) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version 1.0, announced on July 28th, 2021, to our latest 1.11 release, we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
   [Rebecca Franks](https://developer.android.com/blog/authors/rebecca-franks), [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) • 4 min read
-- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_1T1vC6.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_21k6io.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android UI Development is Compose First](https://developer.android.com/blog/posts/android-ui-development-is-compose-first)
 
@@ -316,4 +316,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

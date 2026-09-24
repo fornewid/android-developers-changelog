@@ -4,12 +4,12 @@ url: https://developer.android.com/blog/authors/chao-zhao
 source: md.txt
 ---
 
-1 post ![](https://developer.android.com/static/blog/assets/chao_zhao_f14947a7e2_ZsSDYG.webp)
+1 post ![](https://developer.android.com/static/blog/assets/chao_zhao_f14947a7e2_dXNQz.webp)
 
 # Chao Zhao
 
 Software Engineer
-- 28 Jan 2026 28 Jan 2026 ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_1kyTTw.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 28 Jan 2026 28 Jan 2026 ![](https://developer.android.com/static/blog/assets/Prompt_API_Banner_1_ff0c780828_Zxdllo.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API](https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api)
 
@@ -21,4 +21,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

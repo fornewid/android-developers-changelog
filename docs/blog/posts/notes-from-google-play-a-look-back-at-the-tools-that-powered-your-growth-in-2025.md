@@ -8,7 +8,7 @@ source: md.txt
 
 # Notes from Google Play: A look back at the tools that powered your growth in 2025
 
-7 min read ![](https://developer.android.com/static/blog/assets/image_8_8d65429579_7b1Fx.webp) 15 Dec 2025 [![View Sam Bright's profile](https://developer.android.com/static/blog/assets/Sam_Bright_Headshot_2023_ca4877d69c_1VeLdh.webp)](https://developer.android.com/blog/authors/sam-bright) [Sam Bright](https://developer.android.com/blog/authors/sam-bright) VP \& General Manager, Google Play + Developer Ecosystem Hi everyone,
+7 min read ![](https://developer.android.com/static/blog/assets/image_8_8d65429579_Z2frV4h.webp) 15 Dec 2025 [![View Sam Bright's profile](https://developer.android.com/static/blog/assets/Sam_Bright_Headshot_2023_ca4877d69c_yveuL.webp)](https://developer.android.com/blog/authors/sam-bright) [Sam Bright](https://developer.android.com/blog/authors/sam-bright) VP \& General Manager, Google Play + Developer Ecosystem Hi everyone,
 
 Thank you for making 2025 another amazing year for Google Play.
 
@@ -30,14 +30,14 @@ Just a few months ago, we shared our vision for a more [unified experience that 
 - **The** **new Play Games Sidekick** , a helpful in-game overlay that curates and organizes relevant gaming info, and provides direct access to Gemini Live for real-time AI-powered guidance in the game. We recently rolled out the [open beta](https://developer.android.com/games/pgs/play-games-sidekick?utm_source=email&utm_campaign=Games-december25) to developers, and we encourage you to start testing the sidekick in your games and share your feedback.
 - **Integrated gameplay across devices**is now fully realized as Google Play Games on PC has graduated from beta to general availability, solidifying our commitment to cross-platform play and making our catalog of over 200,000 titles available across mobile and PC.
 
-![251212_Phone_gif_01_v02.webp](https://developer.android.com/static/blog/assets/251212_Phone_gif_01_v02_dea160bc78_Z1SlRFN.webp) Play Games Sidekick is a new in-game overlay that gives players instant access to their rewards, offers, and achievements, driving higher engagement for your game.
+![251212_Phone_gif_01_v02.webp](https://developer.android.com/static/blog/assets/251212_Phone_gif_01_v02_dea160bc78_ZM0SHJ.webp) Play Games Sidekick is a new in-game overlay that gives players instant access to their rewards, offers, and achievements, driving higher engagement for your game.
 
 To help you get the most out of this unified gaming experience, we introduced the [Google Play Games Level Up](https://android-developers.googleblog.com/2025/09/introducing-google-play-games-level-up.html) program, a new way to unlock greater success for your business. For titles that meet core user experience guidelines, you can unlock a powerful suite of benefits including the ability to:
 
 - **Re-engage players on the new You tab,**a new personalized destination on the Play Store that is designed to help you re-engage and retain players by showcasing content and rewards from recently played games in one dedicated space. You can utilize engagement tools in Play Console to feature your latest events, offers, and updates.
 - **Maximize your game's reach** with prominent boosts across the store, including featuring opportunities, Play Points boosters and quests, and enhanced visibility on editorial surfaces like the Games Home and Play Points Home.
 
-![251212_Phone_gif_01_v02.webp](https://developer.android.com/static/blog/assets/251212_Phone_gif_01_v02_dea160bc78_Z1SlRFN.webp) You tab is a personalized destination designed to help you re-engage and retain players by showcasing your latest events, offers, and updates.
+![251212_Phone_gif_01_v02.webp](https://developer.android.com/static/blog/assets/251212_Phone_gif_01_v02_dea160bc78_ZM0SHJ.webp) You tab is a personalized destination designed to help you re-engage and retain players by showcasing your latest events, offers, and updates.
 
 **Unlocking more discovery and engagement for your apps and its content**
 
@@ -45,11 +45,11 @@ Last year, we shared our vision for a content-rich Google Play that has already 
 
 - **Curated spaces** , launched last year, have been a success, fostering routine engagement by delivering daily, locally relevant content (such as football highlights in Brazil, cricket in India, and comics in Japan) directly to the Apps Home. Building on this, we expanded to new categories and locations, including a [new entertainment-focused space in Korea](https://blog.google/products/google-play/curation-update-september-2025/#:~:text=In%20Korea%2C%20we%E2%80%99re%20launching%20a%20new%20entertainment%2Ddedicated%20space%20in%20the%20Apps%20tab.%20This%20new%20space%20brings%20together%20movies%2C%20TV%20shows%20and%20short%2Dform%20dramas%20optimized%20to%20enjoy%20on%20mobile.%20And%20in%20the%20United%20States%2C%20users%20can%20now%20sample%20short%2Dform%20dramas%2C%20webcomics%20and%20trending%20TV%20and%20movies%20from%20the%20Apps%20tab.).
 
-![251209_Three_phone_asset_v01.webp](https://developer.android.com/static/blog/assets/251209_Three_phone_asset_v01_f4809ad447_Z1qiuyG.webp) Curated spaces make it easier to find and engage with local interests.
+![251209_Three_phone_asset_v01.webp](https://developer.android.com/static/blog/assets/251209_Three_phone_asset_v01_f4809ad447_1OkuHw.webp) Curated spaces make it easier to find and engage with local interests.
 
 - We significantly increased timely, relevant content on Google Play through **Spotlight** and **new topic browse pages**. Spotlight, located at the top of Apps Home, offers seasonal content feeds---like Taylor Swift's recent album launch or holiday movie guides---in a new, immersive way to connect users with current cultural moments. Concurrently, new topic browse pages were integrated across the store in the U.S., Japan, and South Korea, allowing content deep dives into over 100,000 shows and movies.
 
-![TaylorSwiftNotesFromGooglePlay.png](https://developer.android.com/static/blog/assets/Taylor_Swift_Notes_From_Google_Play_3419bbc62f_1fS8dv.webp) Spotlight offers an immersive experience connecting users with relevant apps during current cultural moments.
+![TaylorSwiftNotesFromGooglePlay.png](https://developer.android.com/static/blog/assets/Taylor_Swift_Notes_From_Google_Play_3419bbc62f_1sykE8.webp) Spotlight offers an immersive experience connecting users with relevant apps during current cultural moments.
 
 Last year, we introduced [**Engage SDK**](https://play.google.com/console/about/programs/EngageSDK/) to help you deliver personalized content to users across surfaces and seamlessly guide them into the relevant in-app experiences. Integrating it unlocks surfaces like [Collections](https://play.google.com/console/about/programs/EngageSDK/#spotlight-on-collections), our immersive full-screen experience bringing content directly to the user's home screen. This year, we rolled out updates to expand your content's reach even further:
 
@@ -68,7 +68,7 @@ We launched key updates in Android Studio and Play Console to help you build mor
 - You can now [**halt fully rolled-out releases**](https://support.google.com/googleplay/android-developer/answer/16285429) to stop the distribution of problematic app versions through Play Console and the Publishing API.
 - We also added [**new Android vitals performance metrics**](https://android-developers.googleblog.com/2025/04/play-console-insights.html), including low memory kill metrics which provides device-specific insights to resolve stability problems and [excessive partial wake lock metrics](https://android-developers.googleblog.com/2025/11/raising-bar-on-battery-performance.html) to help you address battery drain.
 
-![Rectangle-Androidvitals.png](https://developer.android.com/static/blog/assets/Rectangle_Androidvitals_36256ea19a_1oNRn6.webp) New Android vitals metrics help you resolve stability problems and address battery drain.
+![Rectangle-Androidvitals.png](https://developer.android.com/static/blog/assets/Rectangle_Androidvitals_36256ea19a_Z14OaMm.webp) New Android vitals metrics help you resolve stability problems and address battery drain.
 
 **Boosting your productivity and workflow**
 
@@ -78,7 +78,7 @@ We refined the Play Console experience to make managing your app and your market
 - To repurpose creative content across Play Console more easily, we launched an [**asset library**](https://support.google.com/googleplay/android-developer/answer/16386748) that lets you upload from Google Drive, organize with tags, and crop existing visuals.
 - You can now automatically[**translate app strings with Gemini**](https://support.google.com/googleplay/android-developer/answer/9844778) at no cost. This feature eliminates manual translation work for new releases, making updates seamless. You remain in full control with the ability to preview translations using a built-in emulator, and can easily edit or disable the service.
 
-![AI translations- Updated for Blog.jpg](https://developer.android.com/static/blog/assets/AI_translations_Updated_for_Blog_18e0b178c5_JaBbS.webp) Translate app strings automatically with Gemini, while maintaining full control for previewing and editing.
+![AI translations- Updated for Blog.jpg](https://developer.android.com/static/blog/assets/AI_translations_Updated_for_Blog_18e0b178c5_24MEbV.webp) Translate app strings automatically with Gemini, while maintaining full control for previewing and editing.
 
 **Maximizing your revenue with secure, frictionless payments**
 
@@ -88,7 +88,7 @@ We introduced new features focused on driving purchases and maximizing subscript
 - To maximize recurring revenue from over 400 million paid subscriptions, we introduced [**multi-product checkout**](https://android-developers.googleblog.com/2025/05/io-2025-whats-new-in-google-play.html), allowing you to sell base subscriptions and add-ons under a simple, single transaction.
 - To combat churn, we began showcasing subscription benefits in more places and provided you with more flexible options like**extended grace periods and account holds** for declined payments, which has proven effective in reducing involuntary churn by an average of 10%\*.
 
-![voluntarychurn.png](https://developer.android.com/static/blog/assets/voluntarychurn_51b524a588_2mdIIJ.webp) To help reduce voluntary churn, we're showcasing your subscriptions benefits across Play.
+![voluntarychurn.png](https://developer.android.com/static/blog/assets/voluntarychurn_51b524a588_ZwqPiC.webp) To help reduce voluntary churn, we're showcasing your subscriptions benefits across Play.
 
 #### **Investing in our app and game community with developer programs**
 
@@ -96,7 +96,7 @@ We're proud to invest in programs for app and game companies around the world to
 
 - [**Google Play Apps Accelerator**](https://rsvp.withgoogle.com/events/play-apps-accelerator): We've opened submissions for our program that will help early-stage app companies scale their business. Selected companies from over 80 eligible countries will join a 12-week accelerator starting in March 2026, where they can learn more about creating high-quality apps, go-to-market strategies, user acquisition, and more.
 
-![applynow.png](https://developer.android.com/static/blog/assets/applynow_8cc22afe34_Z1xMUcw.webp) Submissions are still open for our 12-week accelerator, which starts in March 2026. Apply by January 7, 2026 for consideration.
+![applynow.png](https://developer.android.com/static/blog/assets/applynow_8cc22afe34_Z21qIjB.webp) Submissions are still open for our 12-week accelerator, which starts in March 2026. Apply by January 7, 2026 for consideration.
 
 - [**Indie Games Fund**](https://blog.google/products/google-play/indie-games-fund-latin-america-2025/) (Latin America): Now in its fourth year, this fund provides support to 10 promising game studios in Latin America with funding and hands-on support from Google Play. In October, we announced the 2025 recipients.
 - [**ChangGoo Program**](https://blog.google/intl/ko-kr/company-news/outreach-initiatives/changgoo-program-2025-kickoff-kr/) (South Korea): Now in its seventh year, this program works with over 100 Korean mobile app and game startups to foster their growth and expansion in collaboration with the Ministry of SMEs and Startups and the Korean Institute of Startup and Entrepreneurship Development (KISED).
@@ -114,7 +114,7 @@ To offer stronger protection for your business and users, we continued to enhanc
 - **Combat repeat bad actors:**Device recall is a powerful new tool that lets you store and recall limited data associated with a device, even if the device is reset, helping protect your business model from repeat bad actors.
 - **Strengthen revenue protection:**We've introduced stronger protections against abuse, including refining pricing arbitrage detection and enhancing protection against free trial and intro pricing abuse for subscriptions, helping your business models remain profitable.
 
-![InAppRemediation.gif](https://developer.android.com/static/blog/assets/In_App_Remediation_5bb73d565d_1e07Cb.webp) With in-app remediation prompts, Play automatically handles a wide range of issues to guide your users back to a good state.
+![InAppRemediation.gif](https://developer.android.com/static/blog/assets/In_App_Remediation_5bb73d565d_1liHit.webp) With in-app remediation prompts, Play automatically handles a wide range of issues to guide your users back to a good state.
 
 For a full breakdown of new ways we're keeping the ecosystem safe, check out our deep-dive blog post [here](https://android-developers.googleblog.com/2025/12/building-safer-android-and-google-play.html).
 
@@ -138,22 +138,22 @@ Written by:
   ###### VP \& General Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/sam-bright) ![View Sam Bright's profile](https://developer.android.com/static/blog/assets/Sam_Bright_Headshot_2023_ca4877d69c_1VeLdh.webp) ![View Sam Bright's profile](https://developer.android.com/static/blog/assets/Sam_Bright_Headshot_2023_ca4877d69c_1VeLdh.webp)
+  View profile](https://developer.android.com/blog/authors/sam-bright) ![View Sam Bright's profile](https://developer.android.com/static/blog/assets/Sam_Bright_Headshot_2023_ca4877d69c_yveuL.webp) ![View Sam Bright's profile](https://developer.android.com/static/blog/assets/Sam_Bright_Headshot_2023_ca4877d69c_yveuL.webp)
 Continue reading
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_1bHKv4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
 
@@ -169,4 +169,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -8,7 +8,7 @@ source: md.txt
 
 # Celebrating 5 years of Jetpack Compose
 
-4 min read ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z1F9b9M.webp) 28 Jul 2026 3 Authors [Rebecca Franks,](https://developer.android.com/blog/authors/rebecca-franks) [Nick Butcher,](https://developer.android.com/blog/authors/nick-butcher) [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version [1.0, announced on July 28th, 2021](https://android-developers.googleblog.com/2021/07/jetpack-compose-announcement.html), to our latest [1.11 release](https://android-developers.googleblog.com/2026/04/jetpack-compose-april-2026-updates.html), we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
+4 min read ![](https://developer.android.com/static/blog/assets/Jetpack_compose_Strapi_123481f79e_Z6XDT1.webp) 28 Jul 2026 3 Authors [Rebecca Franks,](https://developer.android.com/blog/authors/rebecca-franks) [Nick Butcher,](https://developer.android.com/blog/authors/nick-butcher) [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston) Today, we officially celebrate five years since the release of Jetpack Compose 1.0. From version [1.0, announced on July 28th, 2021](https://android-developers.googleblog.com/2021/07/jetpack-compose-announcement.html), to our latest [1.11 release](https://android-developers.googleblog.com/2026/04/jetpack-compose-april-2026-updates.html), we've seen the APIs evolve significantly over the years, and we're taking a moment to celebrate.
 
 When we officially announced the 1.0 release, we promised a simpler, faster, and more intuitive way to build native interfaces on Android. Looking back, it's safe to say that Compose didn't just deliver on that promise, but also completely changed the Android ecosystem, with more than 68% of the top 1,000 apps using it in production today.
 [Video](https://www.youtube.com/watch?v=6qyCXugCU6w)
@@ -16,17 +16,17 @@ When we officially announced the 1.0 release, we promised a simpler, faster, and
 ## History
 
 Over the last five years, Compose has grown steadily. In the [early days](https://www.youtube.com/watch?v=VsStyq4Lzxo), we explored showing you how to build layouts with the basic Box, Row, and Column. Today, we've expanded Compose to work not just on mobile devices, but to other form factors such as [Compose for TV](https://developer.android.com/training/tv/playback/compose), [WearOS](https://developer.android.com/training/wearables/compose?version=3), [Glance for Widgets](https://developer.android.com/develop/ui/compose/glance), and even display glasses with [Jetpack Compose Glimmer](https://developer.android.com/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer).
-![jetpack_compose_everywhere.png](https://developer.android.com/static/blog/assets/jetpack_compose_everywhere_644011c17b_LvUla.webp)
+![jetpack_compose_everywhere.png](https://developer.android.com/static/blog/assets/jetpack_compose_everywhere_644011c17b_ZJ50HN.webp)
 
 We recorded an Android Developers Backstage episode with [Clara Bayarri](https://uk.linkedin.com/in/clara-bayarri-815b7333), Engineering Lead for Jetpack, and two former leads of the team, [Romain Guy](https://www.romainguy.dev/) and [Chet Haase](https://www.chethaase.com/), along with [Tor Norbye](https://www.linkedin.com/in/tor-norbye), Senior Engineering Director. In this episode, they discuss the history of Compose and the early days of development.
-[Video](https://www.youtube.com/watch?v=HEqXwUm6vd0) ![timeline.png](https://developer.android.com/static/blog/assets/timeline_abf1093a92_Z1WabAH.webp) Compose highlights over the years
+[Video](https://www.youtube.com/watch?v=HEqXwUm6vd0) ![timeline.png](https://developer.android.com/static/blog/assets/timeline_abf1093a92_Z1fhHJr.webp) Compose highlights over the years
 
 ## Looking back
 
 The beginnings of Compose were very different from what you know today. Two projects were happening in parallel inside the Android team.
 
 At the time, the Views toolkit team was thinking of unbundling the UI Toolkit into a library to help with development speed, and make it easier for developers to adopt and control updates. Meanwhile, a team was working on a novel idea to build declarative layouts by embedding XML inside Kotlin, which looked something like this:
-![jetpack_compose_early_code.png](https://developer.android.com/static/blog/assets/jetpack_compose_early_code_cf4e4e9b15_2rSuJf.webp)
+![jetpack_compose_early_code.png](https://developer.android.com/static/blog/assets/jetpack_compose_early_code_cf4e4e9b15_19TN5F.webp)
 
 Those two efforts merged to produce what you know today - a fully declarative UI Toolkit that utilizes the power of a compiler plugin, runtime, and Kotlin:
 
@@ -58,7 +58,7 @@ One of our favorite memories is the Android Dev Challenge. We challenged the com
 [Video](https://www.youtube.com/watch?v=9AAmOcgdA2s)
 
 Compose has continued to evolve, from launching with a set of Material 2 components to now supporting [Material 3 Expressive](https://m3.material.io/blog/building-with-m3-expressive).
-![material2.png](https://developer.android.com/static/blog/assets/material2_dea8334b65_ZnHpUk.webp) Material 2 in Compose
+![material2.png](https://developer.android.com/static/blog/assets/material2_dea8334b65_13EEm4.webp) Material 2 in Compose
 
 ## Looking ahead
 
@@ -73,12 +73,12 @@ Over the years, you've inspired us with creative examples of how you've used Com
 We've really enjoyed following our most beloved newsletters from [JetpackCompose.app's Dispatch](https://www.jetpackcompose.app/newsletter), [AndroidWeekly](https://androidweekly.net/), to [jetc](https://jetc.dev/) - helping Android Developers stay up-to-date with the latest in the world of Compose and Android.
 
 Another standout contributor is [sinasamaki](https://www.sinasamaki.com/). They've created many delightful experiences using Compose, such as this fun ribbon modifier and the glitchy effect:
-![ribbon_modifier_sinasamaki.gif](https://developer.android.com/static/blog/assets/ribbon_modifier_sinasamaki_78f5da0296_Z1oSbMA.webp)
+![ribbon_modifier_sinasamaki.gif](https://developer.android.com/static/blog/assets/ribbon_modifier_sinasamaki_78f5da0296_1Ef1AY.webp)
 
 [Saket Narayan](https://github.com/saket) has also always been an inspiration when it comes to creating useful tools for Compose, such as [telephoto](https://github.com/saket/telephoto), a library featuring support for pan and zoom gestures and automatic sub-sampling of large images, or the latest library, [Touch Robot](https://github.com/saket/touch-robot), which allows you to easily test interaction animations:
 
 |---|---|
-| ```kotlin paparazzi.gif(end = 3_000) { DebitCard( Modifier.testTag("card") ) val touchRobot = rememberTouchRobot() LaunchedEffect(Unit) { touchRobot.onNode(hasTestTag("card")).performGesture { draw( path = createAndroidHeadPath(), duration = 3.seconds, ) } } } /** A path drawing the Android head. */ fun createAndroidHeadPath(bounds: Rect): Path = TODO() ``` | ![saket_touch_robot.gif](https://developer.android.com/static/blog/assets/saket_touch_robot_2618c77371_ZSWECt.webp) |
+| ```kotlin paparazzi.gif(end = 3_000) { DebitCard( Modifier.testTag("card") ) val touchRobot = rememberTouchRobot() LaunchedEffect(Unit) { touchRobot.onNode(hasTestTag("card")).performGesture { draw( path = createAndroidHeadPath(), duration = 3.seconds, ) } } } /** A path drawing the Android head. */ fun createAndroidHeadPath(bounds: Rect): Path = TODO() ``` | ![saket_touch_robot.gif](https://developer.android.com/static/blog/assets/saket_touch_robot_2618c77371_1L9CMp.webp) |
 
 [Jake Wharton](https://jakewharton.com/), who has used Compose in innovative ways (like [molecule](https://github.com/cashapp/molecule), and even building UI with Compose for the terminal with [mosaic](https://github.com/JakeWharton/mosaic)). Chris Banes, who has built many Compose libraries over the years, with our most recent favourite - [Haze](https://github.com/chrisbanes/haze) for background blurring, and many of the [Android Google Developer Experts](https://developers.google.com/community/experts) like [Akshay Chordiya](https://github.com/AkshayChordiya), [Huyen Tue Dao](https://www.randomlytyping.com/), and [Katie Barnett](https://katiebarnett.dev/), who've contributed to the success of Compose. But this is not about selecting individuals - there have been so many great contributors to the Compose codebase, and many of you continue to inspire us with your fun examples, libraries, and in-depth talks. Without the community, Jetpack Compose wouldn't be as successful as it is today.
 
@@ -98,7 +98,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/rebecca-franks) ![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_ZVxp9e.webp) ![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_ZVxp9e.webp)
+  View profile](https://developer.android.com/blog/authors/rebecca-franks) ![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp) ![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)
 -
 
   ## [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher)
@@ -106,7 +106,7 @@ Written by:
   ###### Product Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/nick-butcher) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)
+  View profile](https://developer.android.com/blog/authors/nick-butcher) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp) ![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)
 -
 
   ## [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston)
@@ -114,16 +114,16 @@ Written by:
   ###### Product Marketing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/loryn-hairston) ![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_Z1Y5zeh.webp) ![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_Z1Y5zeh.webp)
+  View profile](https://developer.android.com/blog/authors/loryn-hairston) ![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp) ![View Loryn Hairston's profile](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)
 Continue reading
-- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_1w4qDC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Social_Android_Jetpack_Compose_January_24_ba31d9063b_ZrjgNw.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [What's new in the Jetpack Compose August '26 release](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release)
 
   [arrow_forward](https://developer.android.com/blog/posts/what-s-new-in-the-jetpack-compose-august-26-release) Today, the Jetpack Compose August '26 release is stable!
   [Nick Butcher](https://developer.android.com/blog/authors/nick-butcher) • 5 min read
   - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_Z1hF7qE.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
 
@@ -137,7 +137,7 @@ Continue reading
   - [#Foldables](https://developer.android.com/blog/topics/foldables)
   - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
   - +5 ↩
-- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_19h6h7.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_1T1vC6.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Nick Butcher's profile](https://developer.android.com/static/blog/assets/Nick_Butcher_5393f4552a_2d47S.webp)](https://developer.android.com/blog/authors/nick-butcher) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Compose_first_Meta_04fd0498ba_21k6io.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android UI Development is Compose First](https://developer.android.com/blog/posts/android-ui-development-is-compose-first)
 
@@ -150,4 +150,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

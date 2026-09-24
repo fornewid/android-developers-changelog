@@ -8,7 +8,7 @@ source: md.txt
 
 # Media3 1.11 - What's new?
 
-3 min read ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) 11 Aug 2026 [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) Software Engineer, Android Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components. We're expanding our Jetpack Compose UI modules with customizable `Player` slots and easy to use defaults, interactive gestures, state observers, and short-form video preloading using `PlayerPool`. We also modernized the Media3 Cast integration with SystemUI Output Switcher support, introduced a new Ktor HTTP client network extension, and added new muxing utilities for Ogg and WAV files.
+3 min read ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) 11 Aug 2026 [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) [Toni Heidenreich](https://developer.android.com/blog/authors/toni-heidenreich) Software Engineer, Android Media3 1.11 is out. Powering the vast majority of top Android media apps, this release brings new features, bug fixes, and improvements across playback, editing, and UI components. We're expanding our Jetpack Compose UI modules with customizable `Player` slots and easy to use defaults, interactive gestures, state observers, and short-form video preloading using `PlayerPool`. We also modernized the Media3 Cast integration with SystemUI Output Switcher support, introduced a new Ktor HTTP client network extension, and added new muxing utilities for Ogg and WAV files.
 
 Read on for key highlights, and check out the full [release notes](https://github.com/androidx/media/releases/tag/1.11.0) for a comprehensive list of changes.
 
@@ -30,7 +30,7 @@ Player(
 ```
 
 The `Player` Composable also integrates `FocusRequester` support, enabling seamless D-pad and keyboard navigation on Android TV, foldables, and desktop environments.
-![player_video.png](https://developer.android.com/static/blog/assets/player_video_98aaa49b87_Z1yndyT.webp) Example for a Composable Player with customized controls
+![player_video.png](https://developer.android.com/static/blog/assets/player_video_98aaa49b87_Zy2iwt.webp) Example for a Composable Player with customized controls
 
 ### Gestures and playback speed control
 
@@ -45,7 +45,7 @@ The new `ShortFormPlayerScreen` in `demo-compose` shows this in action, a vertic
 ### MiniController
 
 A new `MiniController` Composable in `media3-ui-compose-material3` provides a compact playback bar displaying the current item's title, artist, artwork, and progress alongside play/pause controls. As all our default Composables in `media3-ui-compose-material3`, the `MiniController` supports Material3 Dynamic Color integration, allowing it to automatically adapt to the user's wallpaper theme.This is ideal for persistent bottom-sheet or mini-player affordances, for example while the user browses content or during active Cast sessions.
-![mini_player.png](https://developer.android.com/static/blog/assets/mini_player_642c57d3da_si8g7.webp) The Media3 MiniController showing album art, media metadata and basic controls
+![mini_player.png](https://developer.android.com/static/blog/assets/mini_player_642c57d3da_24a76l.webp) The Media3 MiniController showing album art, media metadata and basic controls
 
 ### Expanded state holders for metadata and errors
 
@@ -89,7 +89,7 @@ fun TopAppBarWithCast() {
   }
 }
 ```
-![cast_button_2.png](https://developer.android.com/static/blog/assets/cast_button_2_196135917f_Z1DNqyf.webp) Media3 media route button in an app launching the default output switcher dialog
+![cast_button_2.png](https://developer.android.com/static/blog/assets/cast_button_2_196135917f_Z1r52Rb.webp) Media3 media route button in an app launching the default output switcher dialog
 
 ## Core playback and session enhancements
 
@@ -98,7 +98,7 @@ fun TopAppBarWithCast() {
 [Eclipsa Video](https://developer.android.com/blog/posts/eclipsa-video-hdr-that-looks-right-on-every-screen) promises a more consistent HDR experience across devices, with a consistent baseline HDR white, adaptive headroom depending on the screen and the surroundings, ensuring the creative intent is preserved on all devices.
 
 ExoPlayer now supports playback of the necessary HAGC (ST 2094-50) timed metadata for progressive media (MP4, Matroska). The player automatically merges HAGC metadata tracks with the associated video track and delivers the metadata out-of-band to the decoder on API 37+ devices. On older devices, ExoPlayer seamlessly falls back to providing a standard HDR playback experience without the adjustments.
-![eclipsa.png](https://developer.android.com/static/blog/assets/eclipsa_90a4444436_1jGL9D.webp) Illustration to show benefits of Eclipsa Video HDR, like more consistent color contract
+![eclipsa.png](https://developer.android.com/static/blog/assets/eclipsa_90a4444436_Z12VbAb.webp) Illustration to show benefits of Eclipsa Video HDR, like more consistent color contract
 
 ### New Ktor HTTP client extension
 
@@ -145,23 +145,23 @@ Written by:
   ###### Software Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/toni-heidenreich) ![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp) ![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)
+  View profile](https://developer.android.com/blog/authors/toni-heidenreich) ![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp) ![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)
 Continue reading
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
   [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker) Jetpacker is a technical showcase app that our team built from the ground up for this year's Google I/O (built using Antigravity). At its core, Jetpacker helps users plan, explore, and enjoy their next big adventure.
   [Jolanda Verhoef](https://developer.android.com/blog/authors/jolanda-verhoef) • 4 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZbOM76.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_104_Jet_Packer_App_Functions_Strapi_6b8d975401_ZRbYap.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Integrate into Android's intelligence system using AppFunctions](https://developer.android.com/blog/posts/build-intelligent-android-apps-integrate-into-android-s-intelligence-system-using-app-functions)
 
@@ -174,4 +174,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

@@ -8,7 +8,7 @@ source: md.txt
 
 # Instagram and Facebook deliver instant playback and boost user engagement with Media3 PreloadManager
 
-4 min read ![](https://developer.android.com/static/blog/assets/meta_Header_2ac893569c_ZLkD4s.webp) 05 Mar 2026 [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)](https://developer.android.com/blog/authors/mayuri-khabya)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) In the dynamic world of social media, user attention is won or lost quickly. Meta apps (Facebook and Instagram) are among the world's largest social platforms and serve billions of users globally. For Meta, delivering videos seamlessly isn't just a feature, it's the core of their user experience. Short-form videos, particularly Facebook Newsfeed and Instagram Reels, have become a primary driver of engagement. They enable creative expression and rapid content consumption; connecting and entertaining people around the world.
+4 min read ![](https://developer.android.com/static/blog/assets/meta_Header_2ac893569c_OwkKL.webp) 05 Mar 2026 [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)](https://developer.android.com/blog/authors/mayuri-khabya)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) \& [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) In the dynamic world of social media, user attention is won or lost quickly. Meta apps (Facebook and Instagram) are among the world's largest social platforms and serve billions of users globally. For Meta, delivering videos seamlessly isn't just a feature, it's the core of their user experience. Short-form videos, particularly Facebook Newsfeed and Instagram Reels, have become a primary driver of engagement. They enable creative expression and rapid content consumption; connecting and entertaining people around the world.
 
 This blog post takes you through the journey of how Meta transformed video playback for billions by delivering true instant playback.
 
@@ -29,7 +29,7 @@ Previously, Meta used a combination of warmup (to get players ready) and prefetc
 ### **Integrating Media3 PreloadManager**
 
 To achieve truly instant playback, Meta's Media Foundation Client team integrated the Jetpack Media3 PreloadManager into Facebook and Instagram. They chose the DefaultPreloadManager to unify their preloading and playback systems. This integration required refactoring Meta's existing architecture to enable efficient resource sharing between the PreloadManager and ExoPlayer instances. This strategic shift provided a key architectural advantage: the ability to parallelize preloading tasks and manage many videos using a single player instance. This dramatically increased preloading capacity while eliminating the high memory complexities of their previous approach.
-![colinKho.png](https://developer.android.com/static/blog/assets/colin_Kho_fc40711178_Y5Hbs.webp)
+![colinKho.png](https://developer.android.com/static/blog/assets/colin_Kho_fc40711178_2qsMsQ.webp)
 
 ### **Optimization and Performance Tuning**
 
@@ -47,7 +47,7 @@ Meta applied different preloading strategies and tailored the behavior to match 
 Scaling a high-performance video stack across billions of devices requires more than just aggressive preloading; it requires intelligence. Meta faced initial challenges with memory pressure and scroll lag, particularly on mid-to-low-end hardware. To solve this, they built a *Device Stress Detection* system around the Media3 implementation. The apps now monitor I/O and CPU signals in real-time. If a device is under heavy load, preloading is paused to prioritize UI responsiveness.
 
 This device-aware optimization ensures that the benefit of instant playback doesn't come at the cost of system stability, allowing even users on older hardware to experience a smoother, uninterrupted feed.
-![mirabelHu.png](https://developer.android.com/static/blog/assets/mirabel_Hu_c2c154dbc2_Z2nSukS.webp)
+![mirabelHu.png](https://developer.android.com/static/blog/assets/mirabel_Hu_c2c154dbc2_1Esic7.webp)
 
 ### **Architectural wins and code health**
 
@@ -62,7 +62,7 @@ The proactive architecture delivered immediate and measurable improvements acros
 - Facebook experienced **faster playback starts, decreased playback stall rates and a reduction in bad sessions** (like rebuffering, delayed start time, lower quality,etc) which overall resulted in higher watch time.
 - Instagram saw **faster playback starts and an increase in total watch time. Eliminating join latency** (the interval from the user's action to the first frame display) directly increased engagement metrics. The **fewer interruptions** due to reduced buffering meant users watched more content, which showed through engagement metrics.
 
-![beforeAfterPreload.gif](https://developer.android.com/static/blog/assets/before_After_Preload_57acfe3175_k1TQ5.webp)
+![beforeAfterPreload.gif](https://developer.android.com/static/blog/assets/before_After_Preload_57acfe3175_Z1xKloP.webp)
 
 ## **Key engineering learnings at scale**
 
@@ -75,7 +75,7 @@ Focus on delivering a reliable experience by minimizing stutters and loading tim
 - **Align your implementation with UI patterns**
 
 Customize preloading behavior as per your apps's UI. For example, use a "current-only" focus for mixed feeds like Facebook to save memory, and an "adjacent preload" strategy for vertical environments like Instagram Reels.
-![preloadingStrategy.png](https://developer.android.com/static/blog/assets/preloading_Strategy_381de8a469_Z1CnbTE.webp)
+![preloadingStrategy.png](https://developer.android.com/static/blog/assets/preloading_Strategy_381de8a469_Z1v4Bem.webp)
 
 - **Leverage Media3 for long-term code health**
 
@@ -105,7 +105,7 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/mayuri-khabya) ![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp) ![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_1xSr0w.webp)
+  View profile](https://developer.android.com/blog/authors/mayuri-khabya) ![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp) ![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)
 -
 
   ## [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang)
@@ -113,23 +113,23 @@ Written by:
   ###### Product Marketing Manager
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)
+  View profile](https://developer.android.com/blog/authors/tracy-agyemang) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp) ![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)
 Continue reading
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z1oNucg.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
   - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
 
   [arrow_forward](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer) Tinder is on a mission to power and inspire real connections by making meeting easy and fun for every new generation of singles.
   [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai), [Ulises Uriel Verduzco Díaz](https://developer.android.com/blog/authors/ulises-uriel-verduzco-diaz), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
   - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_l9O72.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_cCxXk.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 04 May 2026 04 May 2026 ![](https://developer.android.com/static/blog/assets/AANDDM_KARROT_Strapi_eed79b0e1b_276PBK.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Gemini and Firebase AI Logic enabled Karrot to increase sales with a translation feature built in under 2 weeks](https://developer.android.com/blog/posts/gemini-and-firebase-ai-logic-enabled-karrot-to-increase-sales-with-a-translation-feature)
 
@@ -142,4 +142,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

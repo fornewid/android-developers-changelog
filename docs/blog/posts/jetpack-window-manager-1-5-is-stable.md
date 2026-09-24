@@ -8,7 +8,7 @@ source: md.txt
 
 # Jetpack WindowManager 1.5 is stable
 
-2 min read ![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Z20PMAS.webp) 10 Oct 2025 [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) Developer Relations Engineer, Android We're excited to announce that[Jetpack WindowManager 1.5.0](https://developer.android.com/jetpack/androidx/releases/window#version_15_2) is now stable!
+2 min read ![](https://developer.android.com/static/blog/assets/jetpack_Window_Manager_931d67ec18_Ok8qq.webp) 10 Oct 2025 [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_Zn1KD7.webp)](https://developer.android.com/blog/authors/francesco-romano) [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) Developer Relations Engineer, Android We're excited to announce that[Jetpack WindowManager 1.5.0](https://developer.android.com/jetpack/androidx/releases/window#version_15_2) is now stable!
 
 This release builds on the strong foundation of adaptability in WindowManager, making it even easier to create polished, adaptive UIs that look great on all screen sizes. As the Android ecosystem continues to grow, users are engaging with apps on a wider variety of devices than ever before: from phones and foldables to tablets, connected displays, Chromebooks, and even car displays in parked mode.
 
@@ -29,14 +29,14 @@ Here are the new width breakpoints:
 - **Large:** For widths between 1200dp and 1600dp
 - **Extra-large:** For widths ≥1600dp
 
-![window_size_classes_width.png](https://developer.android.com/static/blog/assets/window_size_classes_width_99888c6d9f_Z1z4M9.webp)
+![window_size_classes_width.png](https://developer.android.com/static/blog/assets/window_size_classes_width_99888c6d9f_Z1SBxlq.webp)
 
 *The different window size classes based on display width. *
 
 ### Why are these important?
 
 Starting with Android 16 QPR1 Beta 2, Android supports [connected displays](https://developer.android.com/develop/ui/compose/layouts/adaptive/support-connected-displays), enabling users to attach an external display to their device and transform it into a desktop-like tool with a large screen.
-![ADB_5350_asset.gif](https://developer.android.com/static/blog/assets/ADB_5350_asset_b3a38e5a7b_Z1HIJW5.webp)
+![ADB_5350_asset.gif](https://developer.android.com/static/blog/assets/ADB_5350_asset_b3a38e5a7b_sMNOu.webp)
 
 *Phone connected to an external display, with a desktop session on the external display. *
 
@@ -126,21 +126,21 @@ Written by:
   ###### Developer Relations Engineer, Android
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/francesco-romano) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)
+  View profile](https://developer.android.com/blog/authors/francesco-romano) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_Zn1KD7.webp) ![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_Zn1KD7.webp)
 Continue reading
-- [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_1EHxqW.webp)](https://developer.android.com/blog/authors/francesco-romano) 03 Mar 2026 03 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_1A0pVS.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_Zn1KD7.webp)](https://developer.android.com/blog/authors/francesco-romano) 03 Mar 2026 03 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_Z1IGssd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android devices extend seamlessly to connected displays](https://developer.android.com/blog/posts/android-devices-extend-seamlessly-to-connected-displays)
 
   [arrow_forward](https://developer.android.com/blog/posts/android-devices-extend-seamlessly-to-connected-displays) We are excited to announce a major milestone in bringing mobile and desktop computing closer together on Android: connected display support has reached general availability with the Android 16 QPR3 release!
   [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 7 min read
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
   [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
   [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
-- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_Z1Fsr5h.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_Z1ywTQ0.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
 
@@ -153,4 +153,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

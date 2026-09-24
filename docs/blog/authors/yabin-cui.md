@@ -4,12 +4,12 @@ url: https://developer.android.com/blog/authors/yabin-cui
 source: md.txt
 ---
 
-1 post ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_pd2P1.svg)
+1 post ![](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)
 
 # Yabin Cui
 
 Software Engineer
-- 10 Mar 2026 10 Mar 2026 ![](https://developer.android.com/static/blog/assets/P_Mguide_a86dec5079_EWlMa.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 10 Mar 2026 10 Mar 2026 ![](https://developer.android.com/static/blog/assets/P_Mguide_a86dec5079_cjxF5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Boosting Android Performance: Introducing AutoFDO for the Kernel](https://developer.android.com/blog/posts/boosting-android-performance-introducing-autofdo-for-the-kernel)
 
@@ -21,4 +21,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

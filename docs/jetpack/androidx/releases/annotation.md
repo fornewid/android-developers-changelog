@@ -13,10 +13,10 @@ This table lists all the artifacts in the `androidx.annotation` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| annotation | [1.10.0](https://developer.android.com/jetpack/androidx/releases/annotation#1.10.0) | [1.11.0-rc01](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0-rc01) | - | - |
+| annotation | [1.11.0](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0) | - | - | - |
 | annotation-experimental | [1.6.0](https://developer.android.com/jetpack/androidx/releases/annotation#annotation-experimental-1.6.0) | - | - | - |
 
-This library was last updated on: September 09, 2026
+This library was last updated on: September 23, 2026
 
 ## Declaring dependencies
 
@@ -31,7 +31,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.annotation:annotation:1.10.0"
+    implementation "androidx.annotation:annotation:1.11.0"
     // To use the Java-compatible @androidx.annotation.OptIn API annotation
     implementation "androidx.annotation:annotation-experimental:1.6.0"
 }
@@ -41,7 +41,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.annotation:annotation:1.10.0")
+    implementation("androidx.annotation:annotation:1.11.0")
     // To use the Java-compatible @androidx.annotation.OptIn API annotation
     implementation("androidx.annotation:annotation-experimental:1.6.0")
 }
@@ -65,6 +65,18 @@ for more information.
 ## Annotation
 
 ### Version 1.11
+
+#### Version 1.11.0
+
+September 23, 2026
+
+`androidx.annotation:annotation-*:1.11.0` is released. Version 1.11.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/8975ffa5b6e4e1dbd6e79a89d5779d4e4e553103..4b44e717d29715b0b7c9700d763cdd8c9e513b32/annotation/annotation).
+
+**Important changes since 1.10.0:**
+
+- Allow `@WorkerThread` annotation to be used from Kotlin Multiplatform common sourcesets.
+- Allow `@DoNotInline` annotation to be applied to fields
+- Update keep rules to allow shrinking items annotated with `@DoNotInline`
 
 #### Version 1.11.0-rc01
 

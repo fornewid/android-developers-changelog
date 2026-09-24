@@ -8,14 +8,14 @@ source: md.txt
 
 # Getting started with Unity and Android XR
 
-6 min read ![](https://developer.android.com/static/blog/assets/xr_Week3_984ec91c60_mkqpQ.webp) 23 Oct 2025 [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)](https://developer.android.com/blog/authors/luke-hopkins) [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins) Developer Relations Engineer, Android [*Samsung Galaxy XR is here*](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html)*, powered by Android XR! This blog post is part of our *[*Android XR Spotlight Week*](https://android-developers.googleblog.com/2025/10/welcome-to-android-xr-spotlight-week.html)*, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR. *
+6 min read ![](https://developer.android.com/static/blog/assets/xr_Week3_984ec91c60_Z6imGe.webp) 23 Oct 2025 [![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_1yXUBh.webp)](https://developer.android.com/blog/authors/luke-hopkins) [Luke Hopkins](https://developer.android.com/blog/authors/luke-hopkins) Developer Relations Engineer, Android [*Samsung Galaxy XR is here*](https://android-developers.googleblog.com/2025/10/giving-your-apps-new-home-on-samsung.html)*, powered by Android XR! This blog post is part of our *[*Android XR Spotlight Week*](https://android-developers.googleblog.com/2025/10/welcome-to-android-xr-spotlight-week.html)*, where we provide resources---blog posts, videos, sample code, and more---all designed to help you learn, build, and prepare your apps for Android XR. *
 
 There's never been a better time to get into XR development. Last December, we announced [Android XR](https://blog.google/products/android/android-xr/), Google's new Android platform built on open standards such as OpenXR and Vulkan, which makes XR development more accessible than it's ever been.
 
 <br />
 
 And when combined with [Unity](https://unity.com/)'s existing XR tools, you get a powerful and mature development stack. This makes it possible to create and deploy XR apps that work across multiple devices.
-![openxr_face_tracking2.webp](https://developer.android.com/static/blog/assets/openxr_face_tracking2_d1bed7ef87_2snsjU.webp)
+![openxr_face_tracking2.webp](https://developer.android.com/static/blog/assets/openxr_face_tracking2_d1bed7ef87_CRGwU.webp)
 
 No matter whether you've done XR development before or not, we want to help you get started.  
 
@@ -46,7 +46,7 @@ Here are some sample projects to get an idea of what can be done:
 ### Unity 6 requirements and installation
 
 You'll need Unity 6 to create your app, as earlier versions don't support Android XR. Install Unity Hub first, then Unity 6 with the Android Build Support module, following [these steps](https://developer.android.com/develop/xr/unity/setup).
-![unity6.png](https://developer.android.com/static/blog/assets/unity6_a0ea079402_1UkljO.webp)
+![unity6.png](https://developer.android.com/static/blog/assets/unity6_a0ea079402_21jh3y.webp)
 
 ### Android XR build profiles: simplifying configuration
 
@@ -56,7 +56,7 @@ You can create your own build profiles, but for now we recommend using the dedic
 *You can select your build profile by selecting File \> Build Profile from your Unity project. For full instructions, see the *[*Develop for Android XR*](https://docs.unity3d.com/6000.1/Documentation/Manual/xr-android-xr-develop.html)* workflow page.*
 
 If you make any changes of your own, you can then create a new build profile to share with your team. This way you ensure consistent build experience across the board.
-![buildprofiles.png](https://developer.android.com/static/blog/assets/buildprofiles_c607c069d3_kya9A.webp)
+![buildprofiles.png](https://developer.android.com/static/blog/assets/buildprofiles_c607c069d3_xhxPE.webp)
 
 After these steps you can build and run your APK for Android XR devices.
 
@@ -69,7 +69,7 @@ These standards provide the best compatibility for your existing applications an
 Unity 6 handles Vulkan automatically, so when you use the Android XR build profile, Unity will configure Vulkan as your graphics API. This ensures you get access to all the advanced Android XR features without any manual configuration.
 
 *You can verify your graphics API settings by going to 'Edit' \>' Project Settings' \> 'Player' \> 'Android tab' \> 'Other settings' \> 'Graphics APIs'.*
-![graphics-api.png](https://developer.android.com/static/blog/assets/graphics_api_da76372ba1_ZHI40i.webp) ![appentrypoint.png](https://developer.android.com/static/blog/assets/appentrypoint_fb4df59e49_Z1aJDtB.webp)
+![graphics-api.png](https://developer.android.com/static/blog/assets/graphics_api_da76372ba1_hBQ28.webp) ![appentrypoint.png](https://developer.android.com/static/blog/assets/appentrypoint_fb4df59e49_ZX1fMx.webp)
 
 ### Understanding the package ecosystem
 
@@ -97,34 +97,34 @@ From here you can install these packages from the 'Unity Registry' tab:
 - '[XR Interaction Toolkit](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@3.2/manual/index.html)'
 - '[XR Hands](https://docs.unity3d.com/Packages/com.unity.xr.hands@1.6/manual/index.html)'
 
-![packagemanager.png](https://developer.android.com/static/blog/assets/packagemanager_6e226e5295_OafUg.webp)
+![packagemanager.png](https://developer.android.com/static/blog/assets/packagemanager_6e226e5295_Z2v45m2.webp)
 
 You can install the Android XR for unity package via Github by selecting the ➕ icon, selecting 'Install package from git URL', then entering 'https://github.com/android/android-xr-unity-package.git'
-![packagemanager2.png](https://developer.android.com/static/blog/assets/packagemanager2_a246c33bc1_ZUlTpI.webp)
+![packagemanager2.png](https://developer.android.com/static/blog/assets/packagemanager2_a246c33bc1_OAS6U.webp)
 
 ## Required OpenXR features
 
 Now you have the packages you need installed, let's enable some core features in order to get our project working.
 
 You can enable OpenXR setting for Android: *'Edit' -\> 'Project Settings' -\> 'XR Plugin Management' -\> Click the Android and enable OpenXR*
-![xrpluginmgmt.png](https://developer.android.com/static/blog/assets/xrpluginmgmt_eb1c0ead10_ZViJFq.webp)
+![xrpluginmgmt.png](https://developer.android.com/static/blog/assets/xrpluginmgmt_eb1c0ead10_42am0.webp)
 
 Next we need to enable support for: 'Android XR support', we will cover other OpenXR features as we need them. For now we just need Android XR support to be enabled.
 
 ## Input
 
 Android XR supports input for Hands, Voice, Eye tracking, Keyboard and Controllers. We recommend installing the [XR Interaction Toolkit](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@3.0/manual/index.html) and [XR Hands](https://docs.unity3d.com/Packages/com.unity.xr.hands@1.6/manual/index.html) as these contain the best prefabs for getting started. By using these prefabs, you'll have everything you need to support Hands and Controllers in your app.
-![xrinteractiontoolkit.png](https://developer.android.com/static/blog/assets/xrinteractiontoolkit_2a499ad14f_Zrb9Op.webp)
+![xrinteractiontoolkit.png](https://developer.android.com/static/blog/assets/xrinteractiontoolkit_2a499ad14f_Z2jXq5k.webp)
 
 Once the XR Hands and XR Interactive toolkit are both installed, I recommend importing the Starter Assets and [Hands Interaction Demo](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@2.5/manual/samples-hands-interaction-demo.html). Then you need to enable the [Hand Interaction](https://docs.unity3d.com/Packages/com.unity.xr.openxr@1.8/manual/features/handinteractionprofile.html) and [Khronos Simple Controller](https://docs.unity3d.com/Packages/com.unity.xr.openxr@1.1/manual/features/khrsimplecontrollerprofile.html) profiles, and turn on the Hand Tracking Subsystem and Meta Hand Tracking Aim features.
 
 You can edit these settings by going to *'Edit' \> 'Project Settings' \> XR Plug-in Management' \> 'OpenXR'*
-![profiles.png](https://developer.android.com/static/blog/assets/profiles_966997c02a_Z1DdhS7.webp)
+![profiles.png](https://developer.android.com/static/blog/assets/profiles_966997c02a_Z26Q60c.webp)
 
 We'd also recommend Unity's prefab, [XR Origin](https://docs.unity3d.com/6000.2/Documentation/Manual/xr-origin.html), that represents the user's position and orientation in XR space. This contains the camera rig and tracking components needed to render your XR experience from the correct viewpoint.
 
 The simplest way to add this prefab is to import it from the hands integration demo we imported earlier which can be found here *'Hands Integration Toolkit' \> 'Hand Interaction' \> 'Prefabs' \> 'XR Origin'*
-![prefabs.png](https://developer.android.com/static/blog/assets/prefabs_d7826eadd0_2hDE0k.webp)
+![prefabs.png](https://developer.android.com/static/blog/assets/prefabs_d7826eadd0_eTkUg.webp)
 
 I recommend using this Prefab over the 'XR Origin' option in your game objects as it uses the [XR Input Modality Manager](https://docs.unity3d.com/Packages/com.unity.xr.interaction.toolkit@2.4/manual/xr-input-modality-manager.html) which automatically switches between users hands and controllers. This will give you the best success for switching between hands and controllers.
 
@@ -208,9 +208,9 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/luke-hopkins) ![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp) ![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_Z2o9b3q.webp)
+  View profile](https://developer.android.com/blog/authors/luke-hopkins) ![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_1yXUBh.webp) ![View Luke Hopkins's profile](https://developer.android.com/static/blog/assets/Luke_Hopkins_9c1e15d778_1yXUBh.webp)
 Continue reading
-- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_1RLN0R.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Z1LP4Os.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Toni Heidenreich's profile](https://developer.android.com/static/blog/assets/profile_picture_6cdbf09ec9_Z1i2yxW.webp)](https://developer.android.com/blog/authors/toni-heidenreich) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/AFD_ABL_101_Media3_1_11_is_out_Strapi_bebd1c9efc_Zpob7z.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Media3 1.11 - What's new?](https://developer.android.com/blog/posts/media3-1-11-whats-new)
 
@@ -220,14 +220,14 @@ Continue reading
   - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
   - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
   - +1 ↩
-- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_1i40VV.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1UrFxh.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Caren Chang's profile](https://developer.android.com/static/blog/assets/Caren_Chang_e58d793559_Z7OUJq.webp)](https://developer.android.com/blog/authors/caren-chang) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0625_Building_Jet_Packer_with_Intelligent_On_Device_features_Strapi_v02_3f5a8b17b0_1hYFMP.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: On-device inference](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference)
 
   [arrow_forward](https://developer.android.com/blog/posts/build-intelligent-android-apps-on-device-inference) Welcome back to the blog post series "Build intelligent Android apps" where we take a basic Android app and transform it into a personalized, intelligent, and agentic experience. In our previous post we introduced Jetpacker, the demo app we'll use throughout this series.
   [Caren Chang](https://developer.android.com/blog/authors/caren-chang) • 6 min read
   - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
-- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_Z1KU2ms.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z1tB3HE.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
+- [![View Jolanda Verhoef's profile](https://developer.android.com/static/blog/assets/jolanda_b0e2beee3e_1gwMmp.webp)](https://developer.android.com/blog/authors/jolanda-verhoef) 21 Jul 2026 21 Jul 2026 ![](https://developer.android.com/static/blog/assets/0713_Jetpacker_Strapi_d07d6f2d4b_Z2d3f6n.webp) [How-tos](https://developer.android.com/blog/categories/how-tos)
 
   ## [Build intelligent Android apps: Introduction to Jetpacker](https://developer.android.com/blog/posts/build-intelligent-android-apps-introduction-to-jetpacker)
 
@@ -240,4 +240,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

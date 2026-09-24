@@ -8,7 +8,7 @@ source: md.txt
 
 # How Reddit used the R8 optimizer for high impact performance improvements
 
-4 min read ![](https://developer.android.com/static/blog/assets/REDDIT_casestudy01_1_f3fc4706f3_ZQQjCi.webp) 17 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) Developer Relations Engineer In today's world of mobile applications, a seamless user experience is not just a feature---it's a necessity. Slow load times, unresponsive interfaces, and instability can be significant barriers to user engagement and retention. During their work with the Android Developer Relations team, the engineering team at [Reddit](https://play.google.com/store/apps/details?id=com.reddit.frontpage) used the [App Performance Score](https://developer.android.com/topic/performance/app-score) to evaluate their app. After assessing their performance, they identified significant improvement potential and decided to take the steps to enable the full power of [R8, the Android app optimizer](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization). This focused initiative led to remarkable improvements in startup times, reductions in slow or frozen frames and ANRs, and an overall increase in Play Store ratings. This case study breaks down how Reddit achieved these impressive results.
+4 min read ![](https://developer.android.com/static/blog/assets/REDDIT_casestudy01_1_f3fc4706f3_1O096s.webp) 17 Nov 2025 [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) Developer Relations Engineer In today's world of mobile applications, a seamless user experience is not just a feature---it's a necessity. Slow load times, unresponsive interfaces, and instability can be significant barriers to user engagement and retention. During their work with the Android Developer Relations team, the engineering team at [Reddit](https://play.google.com/store/apps/details?id=com.reddit.frontpage) used the [App Performance Score](https://developer.android.com/topic/performance/app-score) to evaluate their app. After assessing their performance, they identified significant improvement potential and decided to take the steps to enable the full power of [R8, the Android app optimizer](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization). This focused initiative led to remarkable improvements in startup times, reductions in slow or frozen frames and ANRs, and an overall increase in Play Store ratings. This case study breaks down how Reddit achieved these impressive results.
 
 ## **How the R8 Optimizer helped Reddit**
 
@@ -20,14 +20,14 @@ The R8 Optimizer is a foundational tool for performance optimization on Android.
 - **Identifier minification** changes the names of classes, fields, and methods to shorter, meaningless names. So instead of `MyDataModel` you might end up with a class called a.
 - **Resource shrinking**removes unused resources such as xml files and drawables to further reduce app size.
 
-![image.png](https://developer.android.com/static/blog/assets/image_b659849bba_ZGIfFG.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_b659849bba_1OWJ2T.webp)
 
 *Main stages of R8 Optimization*
 
 ## **From hard data to user satisfaction: Identifying success in production**
 
 Reddit saw improved performance results immediately after a new version of the app was rolled out to users. By using [**Android Vitals**](https://developer.android.com/topic/performance/vitals) and [**Crashlytics**](https://firebase.google.com/docs/crashlytics), Reddit was able to capture performance metrics on real devices with actual users, allowing them to compare the new release against previous versions.
-![image.png](https://developer.android.com/static/blog/assets/image_87410c5b2a_2KU1w.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_87410c5b2a_Z2uJe3O.webp)
 
 *How R8 improved Reddit's app performance*
 
@@ -36,7 +36,7 @@ The team observed a **40% faster cold startup** , a **30% reduction in "Applicat
 These enhancements are crucial for user satisfaction. A faster startup means less waiting and quicker access to content. Fewer ANRs lead to a more stable and reliable app, reducing user frustration. Smoother frame rendering removes UI jank, making scrolling and animations feel fluid and responsive. This positive technical impact was also clearly visible in user sentiment.
 
 User satisfaction indicators of the optimization's success were directly visible on the Google Play Store. Following the rollout of the R8-optimized version, the team saw a dramatic and positive shift in user sentiment and engagement.
-![image.png](https://developer.android.com/static/blog/assets/image_e608c65b7f_1xXwkR.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_e608c65b7f_ZYwBJt.webp)
 
 *Drew Heavner: "Enabling R8's full potential tool less than 2 weeks"*
 
@@ -73,7 +73,7 @@ uiAutomator {
 ```
 
 The benchmark data confirmed the field observations and provided deeper insights. The fully optimized app started **55% faster** and users could begin to browse **18% sooner** . The optimized app also showed a **two-thirds reduction in Just in Time (JIT) compilation occurrences** and a **one-third decrease in JIT compilation time** . Frame rendering improved, resulting in **19% more frames** being rendered over the benchmarked user journey. Finally, the app's size was reduced by over a third.
-![image.png](https://developer.android.com/static/blog/assets/image_ef7fbd0f3a_TslQi.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_ef7fbd0f3a_Z1D2Me3.webp)
 
 *Reddit's overall performance improvements*
 
@@ -135,22 +135,22 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)
+  View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)
 Continue reading
-- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2dcD9g.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_1hBimO.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/monzo_boosts_performance_aff3a37917_6VY99.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- [![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss)[![View Tracy Agyemang's profile](https://developer.android.com/static/blog/assets/Tracy_Agyemang_Headshot_9a0c523435_Z2epjbl.webp)](https://developer.android.com/blog/authors/tracy-agyemang) 30 Mar 2026 30 Mar 2026 ![](https://developer.android.com/static/blog/assets/monzo_boosts_performance_aff3a37917_1dhX7d.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Monzo boosts performance metrics by up to 35% with a simple R8 update](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update)
 
   [arrow_forward](https://developer.android.com/blog/posts/monzo-boosts-performance-metrics-by-up-to-35-with-a-simple-r8-update) Monzo is a UK digital bank with 15 million customers and growing. As the app scaled, the engineering team identified app startup time as a critical area for improvement but worried it would require significant changes to their codebase.
   [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 2 min read
-- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z1oNucg.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 27 Aug 2026 27 Aug 2026 ![](https://developer.android.com/static/blog/assets/ANDDM_Passkeys_Strapi_2fc9df18a8_Z28fFzY.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [How WhatsApp Upgraded to Secure, Seamless Sign-In for 1 Billion Users with Passkeys](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys)
 
   [arrow_forward](https://developer.android.com/blog/posts/how-whats-app-upgraded-to-secure-seamless-sign-in-for-1-billion-users-with-passkeys) WhatsApp is the world's largest messaging platform, serving billions of users globally. It is the default communication tool for people across diverse regions, connecting users through private, reliable, and secure messaging.
   [Niharika Arora](https://developer.android.com/blog/authors/niharika-arora), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang), [Mayank Jain](https://developer.android.com/blog/authors/blog-author) • 8 min read
   - [#Passkeys](https://developer.android.com/blog/topics/passkeys)
-- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_j79Hm.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+- 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
 
   ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
 
@@ -163,4 +163,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

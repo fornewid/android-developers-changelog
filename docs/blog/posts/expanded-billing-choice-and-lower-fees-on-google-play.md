@@ -8,14 +8,14 @@ source: md.txt
 
 # Expanded billing choice and lower fees on Google Play
 
-2 min read ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_lYfpd.webp) 24 Jun 2026 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) [Paul Feng](https://developer.android.com/blog/authors/paul-feng) VP, Google Play Eng, Product, UX At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed. Guided by this commitment, [**earlier this year**](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) we announced updates to our business model introducing more billing flexibility, lower fees, and new programs to help your business thrive.
+2 min read ![](https://developer.android.com/static/blog/assets/Apps_Experience_Play_Blog_Header_2000x1000_8c3a95404a_HfapE.webp) 24 Jun 2026 [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) [Paul Feng](https://developer.android.com/blog/authors/paul-feng) VP, Google Play Eng, Product, UX At Google Play, we are committed to delivering the best possible experience to users, while ensuring developers have the tools and adaptability to succeed. Guided by this commitment, [**earlier this year**](https://android-developers.googleblog.com/2026/03/a-new-era-for-choice-and-openness.html) we announced updates to our business model introducing more billing flexibility, lower fees, and new programs to help your business thrive.
 
 With some of these changes rolling out soon, the breakdown below outlines what is coming, where to find more information, key dates, and how to get started.
 
 ## More billing flexibility
 
 Google Play's billing system safely, efficiently, and intuitively handles the complexities of taxes, compliance, and subscriptions across 195+ markets with 300+ local payment methods. However, we understand there are situations where your business needs more flexibility, and that's why we're offering you more options in how you handle digital commerce.
-![MM6_Offer alt billing.jpg](https://developer.android.com/static/blog/assets/MM_6_Offer_alt_billing_4648fa3b66_29Q9lz.webp)
+![MM6_Offer alt billing.jpg](https://developer.android.com/static/blog/assets/MM_6_Offer_alt_billing_4648fa3b66_Z1mascA.webp)
 
 Building from existing programs, the new billing choice program is available to all developers globally who provide digital services or content to users within the United Kingdom and the European Economic Area, alongside programs in the United States. Following this initial phase, we will continue expanding availability to additional markets. You will find the global release schedule at the bottom of this post.
 
@@ -28,7 +28,7 @@ Please find all the details in the [**program page here**](https://support.googl
 To enable this new level of flexibility, we're separating our service fee from the billing fee. This starts on June 30, 2026, beginning with the United States, European Economic Area, and United Kingdom.
 
 Regardless of whether you use Google Play's billing system, alternative billing, or external web links, the service fee starts at 10% on your first $1M (USD) in annual earnings. This 10% service fee also applies to all auto-renewing subscriptions. For all other transactions, the rates in the table below applies:
-![MM6 rate card without border.jpg](https://developer.android.com/static/blog/assets/MM_6_rate_card_without_border_afb62ddf6d_Z10TXaH.webp)
+![MM6 rate card without border.jpg](https://developer.android.com/static/blog/assets/MM_6_rate_card_without_border_afb62ddf6d_W7yyq.webp)
 
 For other transactions, the service fee will be determined by whether the transacting user's install is new or existing relative to the regional rollout date:
 
@@ -44,14 +44,14 @@ Review[**this Help Center article**](https://support.google.com/googleplay/andro
 We are also excited to announce even more opportunities for partners who deliver exceptional user experiences across the Android ecosystem: the revamped [**Games Level Up**](https://play.google.com/console/about/levelup/) and the new [**Apps Experience**](https://play.google.com/console/about/programs/appsexperience/) program. Detailed guidelines are now available on the respective program websites.
 
 Apps and games that meet all requirements are eligible for a new program rate card with reduced rates. See the table below for details:
-![MM6 rate card with border.jpg](https://developer.android.com/static/blog/assets/MM_6_rate_card_with_border_ebdc11a285_Z1KgQNq.webp)
+![MM6 rate card with border.jpg](https://developer.android.com/static/blog/assets/MM_6_rate_card_with_border_ebdc11a285_21VzlV.webp)
 
 Visit the [**Games Level Up**](https://play.google.com/console/about/levelup/) and [**Apps Experience**](https://play.google.com/console/about/programs/appsexperience/)program websites, review the guidelines, and start preparing your games and apps ahead of September 30, 2026, when the program rate cards officially become available.
 
 ## Global release schedule
 
 Evolving our business model requires technical infrastructure and alignment with local regulations, so these updates will roll out on a staggered timeline. To help you plan, here is the previously announced release schedule for each update across all markets:
-![MM6 Release Schedule.jpg](https://developer.android.com/static/blog/assets/MM_6_Release_Schedule_d93eab417f_2b2oj2.webp)
+![MM6 Release Schedule.jpg](https://developer.android.com/static/blog/assets/MM_6_Release_Schedule_d93eab417f_1rAcUj.webp)
 
 Here is a quick recap of the resources available to help you get started:
 
@@ -69,15 +69,15 @@ Written by:
   ###### VP, Google Play Eng, Product, UX
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/paul-feng) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)
+  View profile](https://developer.android.com/blog/authors/paul-feng) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp) ![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)
 Continue reading
-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_Z298Ads.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 29 Jul 2026 29 Jul 2026 ![](https://developer.android.com/static/blog/assets/Google_Play_Age_Signals_API_Blog_Strapi_d532f6c0b8_ZrrS2v.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Delivering safer, age-appropriate experiences on Google Play](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play)
 
   [arrow_forward](https://developer.android.com/blog/posts/delivering-safer-age-appropriate-experiences-on-google-play) Providing a safe online experience and protecting users from harm is a top priority at Google Play.
   [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 2 min read
-- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_spvRU.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_Z1e2APA.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/IO_26_Blog_Strapi_Icons_2000x1000px_0a8b06b49b_7GyQM.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [I/O 2026: What's new in Google Play](https://developer.android.com/blog/posts/i-o-2026-what-s-new-in-google-play)
 
@@ -89,7 +89,7 @@ Continue reading
   - [#Google I/O](https://developer.android.com/blog/topics/google-i-o)
   - [#Android Developers](https://developer.android.com/blog/topics/android-developers)
   - +2 ↩
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_ZGGaOR.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
 
@@ -101,4 +101,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

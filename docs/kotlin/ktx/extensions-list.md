@@ -168,7 +168,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -176,7 +176,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -202,7 +202,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -210,7 +210,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -241,7 +241,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -249,7 +249,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -283,7 +283,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -291,7 +291,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -316,7 +316,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -324,7 +324,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -343,7 +343,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -351,7 +351,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -592,7 +592,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -600,7 +600,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -647,7 +647,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -655,7 +655,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -675,7 +675,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -683,7 +683,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -712,7 +712,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -720,7 +720,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -747,7 +747,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -755,7 +755,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -823,7 +823,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -831,7 +831,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -855,7 +855,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -863,7 +863,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -1066,7 +1066,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -1074,7 +1074,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -1164,7 +1164,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.core:core-ktx:1.19.0"
+    implementation "androidx.core:core-ktx:1.19.1"
 }
 ```
 
@@ -1172,7 +1172,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.core:core-ktx:1.19.0")
+    implementation("androidx.core:core-ktx:1.19.1")
 }
 ```
 
@@ -1227,7 +1227,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.fragment:fragment-ktx:1.9.0"
+    implementation "androidx.fragment:fragment-ktx:1.9.1"
 }
 ```
 
@@ -1235,7 +1235,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.fragment:fragment-ktx:1.9.0")
+    implementation("androidx.fragment:fragment-ktx:1.9.1")
 }
 ```
 
@@ -1275,7 +1275,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.fragment:fragment-testing:1.9.0"
+    implementation "androidx.fragment:fragment-testing:1.9.1"
 }
 ```
 
@@ -1283,7 +1283,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.fragment:fragment-testing:1.9.0")
+    implementation("androidx.fragment:fragment-testing:1.9.1")
 }
 ```
 
@@ -1397,9 +1397,9 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation:navigation-runtime-ktx:2.10.1"
-    implementation "androidx.navigation:navigation-fragment-ktx:2.10.1"
-    implementation "androidx.navigation:navigation-ui-ktx:2.10.1"
+    implementation "androidx.navigation:navigation-runtime-ktx:2.10.2"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.10.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.10.2"
 }
 ```
 
@@ -1407,9 +1407,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation:navigation-runtime-ktx:2.10.1")
-    implementation("androidx.navigation:navigation-fragment-ktx:2.10.1")
-    implementation("androidx.navigation:navigation-ui-ktx:2.10.1")
+    implementation("androidx.navigation:navigation-runtime-ktx:2.10.2")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.10.2")
+    implementation("androidx.navigation:navigation-ui-ktx:2.10.2")
 }
 ```
 
@@ -1479,7 +1479,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation:navigation-fragment-ktx:2.10.1"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.10.2"
 }
 ```
 
@@ -1487,7 +1487,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation:navigation-fragment-ktx:2.10.1")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.10.2")
 }
 ```
 
@@ -1520,7 +1520,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation:navigation-ui-ktx:2.10.1"
+    implementation "androidx.navigation:navigation-ui-ktx:2.10.2"
 }
 ```
 
@@ -1528,7 +1528,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation:navigation-ui-ktx:2.10.1")
+    implementation("androidx.navigation:navigation-ui-ktx:2.10.2")
 }
 ```
 
@@ -1836,7 +1836,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.work:work-testing:2.11.2"
+    implementation "androidx.work:work-testing:2.12.0"
 }
 ```
 
@@ -1844,7 +1844,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.work:work-testing:2.11.2")
+    implementation("androidx.work:work-testing:2.12.0")
 }
 ```
 

@@ -8,7 +8,7 @@ source: md.txt
 
 # What's New in Wear OS 7
 
-9 min read ![](https://developer.android.com/static/blog/assets/Developer_Blog_2_1_1440x720_6_64da0326e3_Z1M1YEl.webp) 19 May 2026 [![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp)](https://developer.android.com/blog/authors/john-zoeller) [John Zoeller](https://developer.android.com/blog/authors/john-zoeller) Developer Relations Engineer, Wear OS Today, we are excited to introduce Wear OS 7, a major update that brings a new era of power efficiency and intelligence to users and developers alike.
+9 min read ![](https://developer.android.com/static/blog/assets/Developer_Blog_2_1_1440x720_6_64da0326e3_b0x4M.webp) 19 May 2026 [![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_i6BeP.webp)](https://developer.android.com/blog/authors/john-zoeller) [John Zoeller](https://developer.android.com/blog/authors/john-zoeller) Developer Relations Engineer, Wear OS Today, we are excited to introduce Wear OS 7, a major update that brings a new era of power efficiency and intelligence to users and developers alike.
 
 We recognize that watches are essential, all-day companions to your users. That's why we're continuing to invest in power optimizations so your users can do more with their favorite apps. For watches upgrading from Wear OS 6 to Wear OS 7, average users can expect up to 10% improvement in battery life.
 
@@ -30,7 +30,7 @@ Check out [what's changed](https://developer.android.com/training/wearables/vers
 
 ### Wear OS Widgets
 
-![Widgets (1).png](https://developer.android.com/static/blog/assets/Widgets_1_9385fff276_Z2hx7Dz.webp)
+![Widgets (1).png](https://developer.android.com/static/blog/assets/Widgets_1_9385fff276_1VAoD9.webp)
 
 Full-screen Tiles have been a go-to surface on Wear OS, providing users with instant, glanceable access to their essential updates. As the Android ecosystem moves toward a unified vision for widgets, we're bringing the watch closer to the rest of the Android family with the goal of minimizing efforts for developers.
 
@@ -39,13 +39,13 @@ Today, we're excited to introduce the next step in the evolution of Tiles: flexi
 Powered by [Jetpack Glance](https://developer.android.com/jetpack/androidx/releases/glance-wear) and the new [RemoteCompose](https://developer.android.com/jetpack/androidx/releases/compose-remote) framework, Wear Widgets offer greater expressiveness and consistency with Compose than the Tiles ProtoLayout libraries. Wear Widgets support two new card layouts---small and large, that align perfectly with the 2x1 and 2x2 formats on mobile, ensuring your designs feel cohesive across devices, while still allowing you to [optimize your designs for the wrist](https://developer.android.com/design/ui/wear/guides/get-started/design-for-wearables/principles#optimize-for-wrist).
 
 It's easy to adapt the UI from the mainSlot of your full-screen tile to a 2x2 Widget. Take a look!
-![widgets code (1).png](https://developer.android.com/static/blog/assets/widgets_code_1_92a293da4f_2ka43r.webp)
+![widgets code (1).png](https://developer.android.com/static/blog/assets/widgets_code_1_92a293da4f_Z104hdQ.webp)
 
 Check out the Widgets I/O Talk later this week for full details on the new features, and try out our Widgets Getting Started Guide to add a Widget to your Wear OS experience.
 
 ### Live Updates
 
-![Live Updates Blog post (1).png](https://developer.android.com/static/blog/assets/Live_Updates_Blog_post_1_9cbb36aa43_CP84Y.webp)
+![Live Updates Blog post (1).png](https://developer.android.com/static/blog/assets/Live_Updates_Blog_post_1_9cbb36aa43_ZISoCw.webp)
 
 Wear OS 7 brings [Live Updates](https://developer.android.com/develop/ui/views/notifications/live-update) to watches!
 
@@ -65,7 +65,7 @@ We'll announce these on our developer blog when they're ready, and provide an al
 
 #### **AppFunctions**
 
-![Watch_IO26_Samsung_App_Functions (1).gif](https://developer.android.com/static/blog/assets/Watch_IO_26_Samsung_App_Functions_1_bfa1da8f03_TA6BG.webp)
+![Watch_IO26_Samsung_App_Functions (1).gif](https://developer.android.com/static/blog/assets/Watch_IO_26_Samsung_App_Functions_1_bfa1da8f03_17gj3j.webp)
 
 The [AppFunctions API](http://d.android.com/ai/appfunctions) allows developers to integrate their apps with agents and assistants, like Google Gemini, enabling users to complete tasks using voice, often replacing the need for step-by-step, manual navigation with your UI.
 
@@ -75,7 +75,7 @@ We're currently running an Early Access Program for any developers who are inter
 
 #### **Task automation**
 
-![Watch_IO26_RemoteBonobo_Doordash_onBG_a22_GIF (1).gif](https://developer.android.com/static/blog/assets/Watch_IO_26_Remote_Bonobo_Doordash_on_BG_a22_GIF_1_577472e37a_17Aj1y.webp)
+![Watch_IO26_RemoteBonobo_Doordash_onBG_a22_GIF (1).gif](https://developer.android.com/static/blog/assets/Watch_IO_26_Remote_Bonobo_Doordash_on_BG_a22_GIF_1_577472e37a_ZUEmdy.webp)
 
 Also coming soon, without any development effort at all, users will be able to invoke and track [automated app tasks](https://developer.android.com/ai/computer-control), for selected phone apps, directly from their watch, like placing an order with DoorDash!
 
@@ -83,7 +83,7 @@ Keep an eye out for these flexible options on how to prepare and connect your ap
 
 ### Wear Workout Tracker
 
-![Watch_IO26_SystemFitnessTracker_onBG_a05 (1).gif](https://developer.android.com/static/blog/assets/Watch_IO_26_System_Fitness_Tracker_on_BG_a05_1_e25471e0b7_SoScG.webp)
+![Watch_IO26_SystemFitnessTracker_onBG_a05 (1).gif](https://developer.android.com/static/blog/assets/Watch_IO_26_System_Fitness_Tracker_on_BG_a05_1_e25471e0b7_1MSLqj.webp)
 
 We know that building a full-featured, high-quality fitness tracking experience on Wear OS from scratch is resource-intensive, so we built the all new Wear Workout Tracker experience for exercise apps. It will be included in Wear OS later in the year.
 
@@ -97,7 +97,7 @@ Wear OS 7 enhances the System Media Controls, giving users more control and seam
 
 #### Per-App media auto-launch controls
 
-![Watch_IO26_AutoLaunch_Media_onBG_a05 (1).gif](https://developer.android.com/static/blog/assets/Watch_IO_26_Auto_Launch_Media_on_BG_a05_1_03bf6ae666_2vNW1O.webp)
+![Watch_IO26_AutoLaunch_Media_onBG_a05 (1).gif](https://developer.android.com/static/blog/assets/Watch_IO_26_Auto_Launch_Media_on_BG_a05_1_03bf6ae666_xqeyF.webp)
 
 Users can now personalize their media auto-launch experience per-app directly from the System Media Controls on the watch.
 
@@ -107,7 +107,7 @@ Developers with an existing implementation of [media apps that extend on the wat
 
 #### Seamless audio routing with the Remote Output Switcher
 
-![Remote Output Switcher (1).png](https://developer.android.com/static/blog/assets/Remote_Output_Switcher_1_1590390663_1scbtb.webp)
+![Remote Output Switcher (1).png](https://developer.android.com/static/blog/assets/Remote_Output_Switcher_1_1590390663_5sDKF.webp)
 
 Managing audio output is now easier than ever with the new Remote Output Switcher integrated into the System Media Controls.
 
@@ -265,9 +265,9 @@ Written by:
   ###### Developer Relations Engineer
 
   [read_more
-  View profile](https://developer.android.com/blog/authors/john-zoeller) ![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp) ![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_aN1yx.webp)
+  View profile](https://developer.android.com/blog/authors/john-zoeller) ![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_i6BeP.webp) ![View John Zoeller's profile](https://developer.android.com/static/blog/assets/John_Zoeller_photo_15badd5d35_i6BeP.webp)
 Continue reading
-- [![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_Derb5.webp)](https://developer.android.com/blog/authors/chiara-chiappini) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Bring_one_handed_gestures_Strapi_defff06599_Z1FDx9g.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Chiara Chiappini's profile](https://developer.android.com/static/blog/assets/unnamed_14_383c39c2c2_ZnAT5Q.webp)](https://developer.android.com/blog/authors/chiara-chiappini) 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Bring_one_handed_gestures_Strapi_defff06599_ZRTaFd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Bring one-handed gestures to your Wear OS app](https://developer.android.com/blog/posts/bring-one-handed-gestures-to-your-wear-os-app)
 
@@ -277,7 +277,7 @@ Continue reading
   - [#made by google](https://developer.android.com/blog/topics/made-by-google)
   - [#pixel watch](https://developer.android.com/blog/topics/pixel-watch)
   - +1 ↩
-- [![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_r1HY2.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_19k3ww.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Ataul Munim's profile](https://developer.android.com/static/blog/assets/Ataul_Munim_cf0796f68c_ZXRdHk.webp)](https://developer.android.com/blog/authors/ataul-munim) 02 Jun 2026 02 Jun 2026 ![](https://developer.android.com/static/blog/assets/MM_Differentiated_Experiences_Strapi_bbe8e7618b_Z2f8lth.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Building Premium Android Experiences at Google I/O '26](https://developer.android.com/blog/posts/building-premium-android-experiences-at-google-i-o-26)
 
@@ -290,7 +290,7 @@ Continue reading
   - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
   - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)
   - +4 ↩
-- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_ZXPVGC.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_1yD2LQ.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+- [![View Jingyu Shi's profile](https://developer.android.com/static/blog/assets/Jingyu_Shi_ab6f01bd32_Z1OTydP.webp)](https://developer.android.com/blog/authors/jingyu-shi) 26 May 2026 26 May 2026 ![](https://developer.android.com/static/blog/assets/Blog_hero_Strapi_2x_0147a8b012_Zj9dt4.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Top AI on Android updates for building intelligent experiences from Google I/O '26](https://developer.android.com/blog/posts/top-ai-on-android-updates-for-building-intelligent-experiences-from-google-i-o-26)
 
@@ -307,4 +307,4 @@ Stay in the loop
 Get the latest Android development insights delivered to your inbox
 weekly.
 [mail
-Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1PnraM.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)
