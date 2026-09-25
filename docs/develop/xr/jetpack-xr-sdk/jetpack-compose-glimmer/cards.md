@@ -75,14 +75,7 @@ Card(
     title = { Text("Card Title", style = GlimmerTheme.typography.titleMedium) },
     subtitle = { Text("Sub-heading text", style = GlimmerTheme.typography.titleSmall) },
     leadingIcon = { Icon(FavoriteIcon, contentDescription = "Favorite") },
-    trailingIcon = { Icon(BookmarkIcon, contentDescription = "Bookmark") },
-    header = {
-        Image(
-            painter = myHeaderImage,
-            contentDescription = "Header image",
-            contentScale = ContentScale.FillWidth
-        )
-    },
+    trailingIcon = { Icon(BookmarkIcon, contentDescription = "Bookmark") }
 ) {
     Text("This is a complete card")
 }
@@ -131,13 +124,6 @@ ActionCard(
     title = { Text("Card Title", style = GlimmerTheme.typography.titleMedium) },
     subtitle = { Text("Sub-heading text", style = GlimmerTheme.typography.titleSmall) },
     leadingIcon = { Icon(FavoriteIcon, contentDescription = "Favorite") },
-    header = {
-        Image(
-            painter = myHeaderImage,
-            contentDescription = "Header image",
-            contentScale = ContentScale.FillWidth
-        )
-    },
     action = {
         Button(onClick = { /* Handle action */ }) {
             Text("Action")

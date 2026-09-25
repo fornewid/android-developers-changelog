@@ -19,6 +19,12 @@ Play Games PC SDK runtime.
 | `Class` | `GooglePlayInitialization` | The static entry point for the SDK. Contains methods to initialize the connection asynchronously. |
 | `Class` | `InitializeResult` | Represents the result of an initialization operation. |
 
+### Structs
+
+| Type | Name | Description |
+|---|---|---|
+| `Struct` | `GooglePlayInitializeParams` | Initialization parameters for `GooglePlayInitialization`. Contains `PackageName`. |
+
 ### Enums
 
 | Type | Name | Description |

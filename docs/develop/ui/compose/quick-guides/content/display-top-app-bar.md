@@ -31,7 +31,7 @@ higher.
 Create a top app bar using the [`MediumTopAppBar`](https://developer.android.com/reference/kotlin/androidx/compose/material3/MediumTopAppBar.composable#MediumTopAppBar(kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,kotlin.Function1,androidx.compose.ui.unit.Dp,androidx.compose.ui.unit.Dp,androidx.compose.foundation.layout.WindowInsets,androidx.compose.material3.TopAppBarColors,androidx.compose.material3.TopAppBarScrollBehavior)) composable that collapses
 when the user scrolls down the content area, and expands when the user scrolls
 back to the top of the content:
-<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-top-app-bar_e8ca342bcd88738d54f0bafa75e33a7cec28970c927b394d1ab560224d5f9be6.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/develop/ui/compose/quick-guides/content/display-top-app-bar_83f10320d016b2b5787850c8d442e9d2e0d279317c0c42a509e6709c749d1102.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ### Key points about the code
 

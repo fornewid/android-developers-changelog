@@ -14,7 +14,7 @@ off.
 on and off](https://developer.android.com/static/develop/ui/views/images/quick-settings-vpn-on-off.png) **Figure 1.** Quick Settings panel with the VPN tile turned on and off.
 
 > [!NOTE]
-> **Note:** This guide only discusses non-Wear tiles --- Quick Settings tiles have no relation to the tiles defined within Wear OS. For Wear OS tiles, see the [WearOS Tiles Guide](https://developer.android.com/training/wearables/tiles).
+> **Note:** This guide only discusses non-Wear tiles: Quick Settings tiles have no relation to the tiles defined within Wear OS. For Wear OS tiles, see the [WearOS Tiles Guide](https://developer.android.com/training/wearables/tiles).
 
 ## Decide when to create a tile
 
@@ -49,7 +49,7 @@ To create a tile, you need to first create an appropriate tile icon, then
 create and declare your `TileService` in your app's manifest file.
 
 > [!NOTE]
-> **Note:** Creating a `TileService` for your app does not add it to the user's Quick Settings panel. Your `TileService` acts as an interface with the tile only after the user has added it.
+> **Note:** Creating a `TileService` for your app doesn't add it to the user's Quick Settings panel. Your `TileService` acts as an interface with the tile only after the user has added it.
 
 The [Quick Settings sample](https://github.com/android/platform-samples/tree/main/samples/user-interface/quicksettings) provides an example of how to create
 and manage a tile.
@@ -64,7 +64,7 @@ transparent background, measure 24 x 24dp, and be in the form of a
 ![Example of a vector drawable](https://developer.android.com/static/develop/ui/views/images/vector-drawable.png) **Figure 3.** Example of a vector drawable.
 
 Create an icon that visually hints at the purpose of your tile. This helps users
-easily identify if your tile fits their needs. For example, you might create an
+identify if your tile fits their needs. For example, you might create an
 icon of a stopwatch for a tile for a fitness app that allows users to start a
 workout session.
 
@@ -72,81 +72,46 @@ workout session.
 
 Create a service for your tile that extends the `TileService` class.
 
-### Kotlin
 
 ```kotlin
-class MyQSTileService: TileService() {
+class MyQSTileService : TileService() {
 
-  // Called when the user adds your tile.
-  override fun onTileAdded() {
-    super.onTileAdded()
-  }
-  // Called when your app can update your tile.
-  override fun onStartListening() {
-    super.onStartListening()
-  }
+    // Called when the user adds your tile.
+    override fun onTileAdded() {
+        super.onTileAdded()
+    }
+    // Called when your app can update your tile.
+    override fun onStartListening() {
+        super.onStartListening()
+    }
 
-  // Called when your app can no longer update your tile.
-  override fun onStopListening() {
-    super.onStopListening()
-  }
+    // Called when your app can no longer update your tile.
+    override fun onStopListening() {
+        super.onStopListening()
+    }
 
-  // Called when the user taps on your tile in an active or inactive state.
-  override fun onClick() {
-    super.onClick()
-  }
-  // Called when the user removes your tile.
-  override fun onTileRemoved() {
-    super.onTileRemoved()
-  }
+    // Called when the user taps on your tile in an active or inactive state.
+    override fun onClick() {
+        super.onClick()
+    }
+    // Called when the user removes your tile.
+    override fun onTileRemoved() {
+        super.onTileRemoved()
+    }
 }
 ```
 
-### Java
-
-```java
-public class MyQSTileService extends TileService {
-
-  // Called when the user adds your tile.
-  @Override
-  public void onTileAdded() {
-    super.onTileAdded();
-  }
-
-  // Called when your app can update your tile.
-  @Override
-  public void onStartListening() {
-    super.onStartListening();
-  }
-
-  // Called when your app can no longer update your tile.
-  @Override
-  public void onStopListening() {
-    super.onStopListening();
-  }
-
-  // Called when the user taps on your tile in an active or inactive state.
-  @Override
-  public void onClick() {
-    super.onClick();
-  }
-
-  // Called when the user removes your tile.
-  @Override
-  public void onTileRemoved() {
-    super.onTileRemoved();
-  }
-}
-```
+<br />
 
 Declare your `TileService` in your app's manifest file. Add the name and label
-of your `TileService`, the custom icon you created in the preceding section,
-and the appropriate permission.
+of your `TileService` (up to 18 characters for `android:label`), the custom icon
+you created in the preceding section, and the appropriate permission.
 
+     <!-- 18-character limit for android:label. -->
      <service
          android:name=".MyQSTileService"
          android:exported="true"
-         android:label="@string/my_default_tile_label"  // 18-character limit.
+         android:label="@string/my_default_tile_label"
          android:icon="@drawable/my_default_icon_label"
          android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
          <intent-filter>
@@ -202,10 +167,11 @@ by the system each time your `TileService` enters a new lifecycle phase:
 ### Select a listening mode
 
 Your `TileService` listens in *active* mode or *non-active* mode. We recommend
-using active mode, which you'll need to declare in the app manifest. Otherwise,
+using active mode, which you will need to declare in the app manifest.
+Otherwise,
 the `TileService` is the standard mode and doesn't need to be declared.
 
-Do not assume your `TileService` will live outside of `onStartListening()` and
+Don't assume your `TileService` will live outside of `onStartListening()` and
 `onStopListening()` pair of methods.
 
 #### Active mode (recommended)
@@ -216,19 +182,19 @@ own process. A `TileService` in active mode is bound for `onTileAdded()`,
 
 We recommend active mode if your `TileService` is notified when your tile state
 should be updated by its own process. Active tiles limit the strain on the
-system because they do not have to be bound every time the Quick Settings panel
+system because they don't have to be bound every time the Quick Settings panel
 becomes visible to the user.
 
-The static [`TileService.requestListeningState()`](https://developer.android.com/reference/android/service/quicksettings/TileService.html?utm_campaign=adp_series_quicksettingstiles_092916&utm_source=medium&utm_medium=blog#requestListeningState(android.content.Context,%20android.content.ComponentName)) method can be called to
+The static [`TileService.requestListeningState()`](https://developer.android.com/reference/android/service/quicksettings/TileService#requestListeningState(android.content.Context,%20android.content.ComponentName)) method can be called to
 request the start of the listening state and receive a callback to
 `onStartListening()`.
 
-You can declare active mode by adding the [`META_DATA_ACTIVE_TILE`](https://developer.android.com/reference/android/service/quicksettings/TileService.html?utm_campaign=adp_series_quicksettingstiles_092916&utm_source=medium&utm_medium=blog#META_DATA_ACTIVE_TILE) to your
+You can declare active mode by adding the [`META_DATA_ACTIVE_TILE`](https://developer.android.com/reference/android/service/quicksettings/TileService#META_DATA_ACTIVE_TILE) to your
 app's manifest file.
 
     <service ...>
         <meta-data android:name="android.service.quicksettings.ACTIVE_TILE"
-             android:value="true" />
+           android:value="true" />
         ...
     </service>
 
@@ -246,26 +212,26 @@ want between `onStartListening()` and `onStopListening()`.
 > [!CAUTION]
 > **Caution:** If you use non-active mode instead of active mode, your `TileService` may be bound every time the user opens their Quick Settings panel.
 
-You do not need to declare non-active mode---simply do not add the
+You don't need to declare non-active mode: don't add the
 `META_DATA_ACTIVE_TILE` to your app's manifest file.
 
 ### Tile states overview
 
 After a user adds your tile, it always exists in one of the following states.
 
-- [`STATE_ACTIVE`](https://developer.android.com/reference/android/service/quicksettings/Tile.html?utm_campaign=adp_series_quicksettingstiles_092916&utm_source=medium&utm_medium=blog#STATE_ACTIVE): Indicates an on or enabled state. The user can
+- [`STATE_ACTIVE`](https://developer.android.com/reference/android/service/quicksettings/Tile#STATE_ACTIVE): Indicates an on or enabled state. The user can
   interact with your tile while in this state.
 
   For example, for a fitness app tile that lets users initiate a timed workout
   session, `STATE_ACTIVE` would mean that the user has initiated a workout
   session and the timer is running.
-- [`STATE_INACTIVE`](https://developer.android.com/reference/android/service/quicksettings/Tile.html?utm_campaign=adp_series_quicksettingstiles_092916&utm_source=medium&utm_medium=blog#STATE_INACTIVE): Indicates an off or paused state. The user can
+- [`STATE_INACTIVE`](https://developer.android.com/reference/android/service/quicksettings/Tile#STATE_INACTIVE): Indicates an off or paused state. The user can
   interact with your tile while in this state.
 
   To use the fitness app tile example again, a tile in `STATE_INACTIVE` would
   mean that the user hasn't initiated a workout session, but could do so if
   they wanted to.
-- [`STATE_UNAVAILABLE`](https://developer.android.com/reference/android/service/quicksettings/Tile.html?utm_campaign=adp_series_quicksettingstiles_092916&utm_source=medium&utm_medium=blog#STATE_UNAVAILABLE): Indicates a temporarily unavailable state. The
+- [`STATE_UNAVAILABLE`](https://developer.android.com/reference/android/service/quicksettings/Tile#STATE_UNAVAILABLE): Indicates a temporarily unavailable state. The
   user cannot interact with your tile while in this state.
 
   For example, a tile in `STATE_UNAVAILABLE` means that the tile is not
@@ -296,7 +262,7 @@ many times as you want between `onStartListening()` and `onStopListening()`.
 > [!NOTE]
 > **Note:** Active mode lets you update your tile regardless of whether your tile is visible to the user or not.
 
-You can retrieve your `Tile` object by calling [`getQsTile()`](https://developer.android.com/reference/android/service/quicksettings/TileService.html?utm_campaign=adp_series_quicksettingstiles_092916&utm_source=medium&utm_medium=blog#getQsTile()). To update
+You can retrieve your `Tile` object by calling [`getQsTile()`](https://developer.android.com/reference/android/service/quicksettings/TileService#getQsTile()). To update
 specific fields of your `Tile` object, call the following methods:
 
 - [`setContentDescription()`](https://developer.android.com/reference/android/service/quicksettings/Tile#setContentDescription(java.lang.CharSequence))
@@ -313,49 +279,22 @@ You must call `updateTile()` to update your tile once you're done setting the
 fields of the `Tile` object to the correct values. This will make the system
 parse the updated tile data and update the UI.
 
-### Kotlin
 
 ```kotlin
 data class StateModel(val enabled: Boolean, val label: String, val icon: Icon)
 
 override fun onStartListening() {
-  super.onStartListening()
-  val state = getStateFromService()
-  qsTile.label = state.label
-  qsTile.contentDescription = tile.label
-  qsTile.state = if (state.enabled) Tile.STATE_ACTIVE else Tile.STATE_INACTIVE
-  qsTile.icon = state.icon
-  qsTile.updateTile()
+    super.onStartListening()
+    val state = getStateFromService()
+    qsTile.label = state.label
+    qsTile.contentDescription = state.label
+    qsTile.state = if (state.enabled) Tile.STATE_ACTIVE else Tile.STATE_INACTIVE
+    qsTile.icon = state.icon
+    qsTile.updateTile()
 }
 ```
 
-### Java
-
-```java
-public class StateModel {
-  final boolean enabled;
-  final String label;
-  final Icon icon;
-
-  public StateModel(boolean e, String l, Icon i) {
-    enabled = e;
-    label = l;
-    icon = i;
-  }
-}
-
-@Override
-public void onStartListening() {
-  super.onStartListening();
-  StateModel state = getStateFromService();
-  Tile tile = getQsTile();
-  tile.setLabel(state.label);
-  tile.setContentDescription(state.label);
-  tile.setState(state.enabled ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
-  tile.setIcon(state.icon);
-  tile.updateTile();
-}
-```
+<br />
 
 ### Handle taps
 
@@ -366,36 +305,20 @@ Users can tap on your tile to trigger an action if your tile is in
 Once your app receives a callback to `onClick()`, it can launch a dialog or
 activity, trigger background work, or change the state of your tile.
 
-### Kotlin
 
 ```kotlin
-var clicks = 0
+var counter = 0
 override fun onClick() {
-  super.onClick()
-  counter++
-  qsTile.state = if (counter % 2 == 0) Tile.STATE_ACTIVE else Tile.STATE_INACTIVE
-  qsTile.label = "Clicked $counter times"
-  qsTile.contentDescription = qsTile.label
-  qsTile.updateTile()
+    super.onClick()
+    counter++
+    qsTile.state = if (counter % 2 == 0) Tile.STATE_ACTIVE else Tile.STATE_INACTIVE
+    qsTile.label = "Clicked $counter times"
+    qsTile.contentDescription = qsTile.label
+    qsTile.updateTile()
 }
 ```
 
-### Java
-
-```java
-int clicks = 0;
-
-@Override
-public void onClick() {
-  super.onClick();
-  counter++;
-  Tile tile = getQsTile();
-  tile.setState((counter % 2 == 0) ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
-  tile.setLabel("Clicked " + counter + " times");
-  tile.setContentDescription(tile.getLabel());
-  tile.updateTile();
-}
-```
+<br />
 
 #### Launch a dialog
 
@@ -408,7 +331,7 @@ or user consent.
 
 #### Launch an activity
 
-[`startActivityAndCollapse()`](https://developer.android.com/reference/android/service/quicksettings/TileService.html?utm_campaign=adp_series_quicksettingstiles_092916&utm_source=medium&utm_medium=blog#startActivityAndCollapse(android.app.PendingIntent)) starts an activity while collapsing the
+[`startActivityAndCollapse()`](https://developer.android.com/reference/android/service/quicksettings/TileService#startActivityAndCollapse(android.app.PendingIntent)) starts an activity while collapsing the
 panel. Activities are useful if there's more detailed information to display
 than within a dialog, or if your action is highly interactive.
 
@@ -418,14 +341,19 @@ activity only as a last resort. Instead, consider using a dialog or a toggle.
 Long-tapping a tile prompts the **App Info** screen for the user. To override
 this behavior and instead launch an activity for setting preferences, add an
 `<intent-filter>` to one of your activities with
-[`ACTION_QS_TILE_PREFERENCES`](https://developer.android.com/reference/android/service/quicksettings/TileService.html?utm_campaign=adp_series_quicksettingstiles_092916&utm_source=medium&utm_medium=blog#ACTION_QS_TILE_PREFERENCES).
+[`ACTION_QS_TILE_PREFERENCES`](https://developer.android.com/reference/android/service/quicksettings/TileService#ACTION_QS_TILE_PREFERENCES).
 
 Starting with Android API 28, the `PendingIntent` must
 have the `Intent.FLAG_ACTIVITY_NEW_TASK`:
 
-    if (Build.VERSION.SDK_INT >= 28) {
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-    }
+
+```kotlin
+if (Build.VERSION.SDK_INT >= 28) {
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+}
+```
+
+<br />
 
 You can alternatively add the flag in the `AndroidManifest.xml` in the specific
 `Activity` section.
@@ -447,7 +375,7 @@ Set the `TOGGLEABLE_TILE` metadata to `true` to mark your tile as toggleable.
 ### Perform only safe actions on securely-locked devices
 
 Your tile may display on top of the lock screen on locked devices. If the tile
-contains sensitive information, check the value of [`isSecure()`](https://developer.android.com/reference/android/service/quicksettings/TileService.html?utm_campaign=adp_series_quicksettingstiles_092916&utm_source=medium&utm_medium=blog#isSecure()) to
+contains sensitive information, check the value of [`isSecure()`](https://developer.android.com/reference/android/service/quicksettings/TileService#isSecure()) to
 determine whether the device is in a secure state, and your `TileService` should
 change its behavior accordingly.
 
@@ -491,8 +419,8 @@ are defined as string constants within the `TileService` class.
 If a category is not specified, the system automatically assigns a default
 category:
 
-- **From system apps:** For tiles that are part of a system application.
-- **From apps you installed:** For tiles from user-installed applications.
+- **From system apps**: For tiles that are part of a system application.
+- **From apps you installed**: For tiles from user-installed applications.
 
 Although Google Pixel devices make use of categories in Quick Settings,
 OEMs can either use or disregard this category information in their respective
@@ -528,13 +456,13 @@ The callback contains information about whether or not the tile was added, not
 added, if it was already there, or if any error occurred.
 
 Use your discretion when deciding when and how often to prompt users. We
-recommend calling `requestAddTileService()` only in context -- such as
+recommend calling `requestAddTileService()` only in context, such as
 when the user first interacts with a feature that your tile facilitates.
 
 The system can choose to stop processing requests for a given
 [`ComponentName`](https://developer.android.com/reference/android/content/ComponentName) if it has been denied by the user enough times before. The
 user is determined from the [`Context`](https://developer.android.com/reference/android/content/Context) used to retrieve this
-service---it must match the current user.
+service: it must match the current user.
 
 > [!NOTE]
 > **Note:** We recommend calling `requestAddTileService()` to increase the discoverability of your tile and reduce the burden on the user to add your tile to their Quick Settings panel.

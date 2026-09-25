@@ -55,25 +55,25 @@ Optimize your app for screens of all sizes to provide the best experience for yo
 
 ## Latest news
 
-[View all news](http://developer.android.com/news) [![](http://developer.android.com/static/adaptive-apps/connected-displays-hero.png)](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive) BLOG
+[View all news](http://developer.android.com/news) [![](http://developer.android.com/static/adaptive-apps/googlebook-intelligence-hero.png)](https://blog.google/products-and-platforms/devices/googlebook/) NEWS
 
-### [Goodbye Mobile Only, Hello Adaptive: Three essential updates](https://developer.android.com/blog/posts/goodbye-mobile-only-hello-adaptive)
+### [Introducing Googlebook, designed for Gemini Intelligence](https://blog.google/products-and-platforms/devices/googlebook/)
 
-Updated December 19, 2025  
+Updated September 23, 2026  
 
-In 2025 the Android ecosystem has grown far beyond the phone. Today, developers have the opportunity to reach over 500 million active devices, including foldables, tablets, XR, Chromebooks, and... [![](http://developer.android.com/static/adaptive-apps/unfold-adaptive-layouts-hero.png)](https://android-developers.googleblog.com/2025/09/unfold-new-possibilities-with-compose-adaptive-layouts-1-2-beta.html) BLOG
+Introducing Googlebook, a new category of laptops designed for Gemini Intelligence and perfectly in sync with your Android phone... [![](http://developer.android.com/static/adaptive-apps/googlebooks-hero.svg)](https://android-developers.googleblog.com/2026/09/adaptive-development-scale-app-googlebook.html) BLOG
 
-### [Unfold new possibilities with Compose Adaptive Layouts 1.2 beta](https://android-developers.googleblog.com/2025/09/unfold-new-possibilities-with-compose-adaptive-layouts-1-2-beta.html)
+### [Land your apps on Googlebook with adaptive development](https://android-developers.googleblog.com/2026/09/adaptive-development-scale-app-googlebook.html)
 
-Updated September 3, 2025  
+Updated September 23, 2026  
 
-Compose Adaptive Layouts 1.2 is now in beta, introducing powerful new layout strategies like reflow and levitate. Build polished, responsive UIs with less code for the expanding foldable ecosystem... [![](http://developer.android.com/static/adaptive-apps/pm-guide-scaling-devices-hero.png)](https://android-developers.googleblog.com/2025/06/a-product-manager-guide-to-scaling-android-apps-across-from-factors.html) BLOG
+Googlebook introduces a new category of laptops built on a shared Android foundation. High‑performance hardware from top partners... [![](http://developer.android.com/static/adaptive-apps/pm-guide-scaling-devices-hero.png)](https://android-developers.googleblog.com/2025/06/a-product-manager-guide-to-scaling-android-apps-across-from-factors.html) BLOG
 
 ### [A product manager's guide to adapting Android apps across devices](https://android-developers.googleblog.com/2025/06/a-product-manager-guide-to-scaling-android-apps-across-from-factors.html)
 
 Updated June 10, 2025  
 
-Reach users on over 500 million active large screen devices. Explore the ROI of adaptive apps, from increased discoverability in Google Play to significantly higher user engagement and retention...
+Reach users on over 500 million active large screen devices. Explore the ROI of adaptive apps, from increased discoverability in Google Play to...
 
 ## Latest videos
 

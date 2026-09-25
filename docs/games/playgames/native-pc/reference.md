@@ -55,6 +55,7 @@ Play Games PC SDK API Reference
 
 | ### Structs ||
 |---|---|
+| [google::play::initialization::GooglePlayInitializeParams](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/initialization/google-play-initialize-params) | Initialization parameters for GooglePlayInitialize. |
 | [google::play::initialization::InitializeResultValue](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/initialization/initialize-result-value) | Result value for initialization. |
 
 ## [google::play::install_referrer](https://developer.android.com/games/playgames/native-pc/reference/namespace/google/play/install-referrer)

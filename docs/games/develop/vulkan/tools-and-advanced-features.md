@@ -4,8 +4,6 @@ url: https://developer.android.com/games/develop/vulkan/tools-and-advanced-featu
 source: md.txt
 ---
 
-# Tools and advanced features
-
 ## Debuggers
 
 ### Debugging with validation layer

@@ -10,7 +10,7 @@ A modern GPU API for graphics and compute from Kotlin.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| February 11, 2026 | - | - | - | [1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/webgpu#1.0.0-alpha04) |
+| April 22, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/webgpu#1.0.0-alpha05) |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.webgpu:webgpu:1.0.0-alpha04"
+    implementation "androidx.webgpu:webgpu:1.0.0-alpha05"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.webgpu:webgpu:1.0.0-alpha04")
+    implementation("androidx.webgpu:webgpu:1.0.0-alpha05")
 }
 ```
 
@@ -54,7 +54,43 @@ for more information.
 
 There are no release notes for this artifact.
 
-# Version 1.0
+## Webgpu Version 1.0
+
+### Version 1.0.0-alpha05
+
+April 22, 2026
+
+`androidx.webgpu:webgpu:1.0.0-alpha05` is released. Version 1.0.0-alpha05 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/109ce75edc35d51a0e01eee5396841d7a29fd865..c48b772dd76241af6af60bee13d3cad0e4520306/webgpu/webgpu).
+
+### New Features \& Constants
+
+- **Compatibility Mode Limits**
+
+  - Added `GPUCompatibilityModeLimits` (and its corresponding `Builder`) to define limits specifically for compatibility mode.
+  - Includes specific limits such as `maxStorageBuffersInVertexStage` and `maxStorageTexturesInFragmentStage`.
+  - This object has been integrated as an optional property within `GPULimits`.
+- **Texture Binding View Dimensions**
+
+  - Added `GPUTextureBindingViewDimension` to provide more granular control over texture view bindings.
+  - These can now be specified within `GPUTextureDescriptor`.
+- **New Constants and Supported Features**
+
+  - **TextureUsage:** Added `TransientAttachment`.
+  - **WGSLLanguageFeatureName:**
+    - Added `SubgroupUniformity`.
+    - Added `TextureFormatsTier1`.
+  - **SType:** Added the following:
+    - `ExternalTextureBindingLayout`
+    - `ExternalTextureBindingEntry`
+    - `CompatibilityModeLimits`
+    - `TextureBindingViewDimension`
+
+### API Changes
+
+- **IntDef Annotation Refactoring:** The structural definition of all enums (such as `AdapterType`, `TextureFormat`, `BufferUsage`, `LoadOp`, etc.) are refactored. They have transitioned from public annotation classes to private constructor classes containing a nested `.Type` annotation class. Consequently, parameter annotations across the library have been updated from `@FormatName` to `@FormatName.Type` (e.g., changing `@TextureFormat` to `@TextureFormat.Type`).
+- **Texture View Descriptor Updates:** `GPUTextureViewDescriptor` now accepts a `usage` parameter (`@TextureUsage.Type`), allowing specific usages to be defined directly on the texture view.
+
+**Important Note:** The documentation provided in this library release has been generated utilizing Google Gemini and may contain errors.
 
 ### Version 1.0.0-alpha04
 

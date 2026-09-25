@@ -63,8 +63,8 @@ your module-level build file:
 
 ```kotlin
 android {
-    jacoco {
-        version = "JACOCO_VERSION"
+    testCoverage {
+        jacocoVersion = "JACOCO_VERSION"
     }
 }
 ```
@@ -73,8 +73,8 @@ android {
 
 ```groovy
 android {
-    jacoco {
-        version = 'JACOCO_VERSION'
+    testCoverage {
+        jacocoVersion = 'JACOCO_VERSION'
     }
 }
 ```

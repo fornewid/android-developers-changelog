@@ -99,7 +99,7 @@ of the following cases:
 > **Note:** Failure to avoid these exceptions may cause delays in your deployment process and result in the remapping feature being disabled for your game.
 
 > [!NOTE]
-> **Note:** If your game implements Input SDK v1.0.0-beta and has the remapping feature disabled, migrate to the [latest Input SDK version](https://developer.android.com/games/playgames/(#remapping-listener)) and fix any error you find. If you are using the latest version and still find the remapping feature disabled for your game, contact your Google Play Games on PC advocate.
+> **Note:** If your game implements Input SDK v1.0.0-beta and has the remapping feature disabled, migrate to the [latest Input SDK version](https://developer.android.com/games/playgames/input-sdk-start#remapping-listener) and fix any error you find. If you are using the latest version and still find the remapping feature disabled for your game, contact your Google Play Games on PC advocate.
 
 ### Limitations of remapping
 
