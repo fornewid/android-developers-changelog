@@ -1,0 +1,168 @@
+diff --git a/docs/games/playgames/native-pc/setup.md b/docs/games/playgames/native-pc/setup.md
+index 93afbaa2..465c6fdf 100644
+--- a/docs/games/playgames/native-pc/setup.md
++++ b/docs/games/playgames/native-pc/setup.md
+@@ -110,73 +110,102 @@ as possible and avoids your game window briefly appearing in cases where your
+ game process needs to exit.
+ 
+ Start using the SDK by calling
+-[`GooglePlayInitialize`](https://developer.android.com/games/playgames/native-pc/reference/namespace/google/play/initialization) (C++) /
+-[`GooglePlayInitialization.InitializeAsync`](https://developer.android.com/games/playgames/native-pc/reference/namespace/google/play/initialization) (C#)
+-to initialize the API. This will setup global state, connect with the SDK
+-runtime, and verify the application was started correctly. This **MUST** be
+-called and have the continuation callback complete with `InitializeResult::ok()`
+-(C++) / `Result.IsOk` (C#) equal to `true` before any other API may be used.
++[`GooglePlayInitialize`](https://developer.android.com/games/playgames/native-pc/reference/namespace/google/play/initialization) (C++) or
++[`GooglePlayInitialization.InitializeAsync`](https://developer.android.com/games/playgames/native-pc/unity/api_reference#playpcsdkmanaged-initialization) (C#)
++to initialize the API. We recommend passing your game's Android package name in
++[`GooglePlayInitializeParams`](https://developer.android.com/games/playgames/native-pc/reference/struct/google/play/initialization/google-play-initialize-params) during
++initialization. This sets up global state, connects with the SDK runtime, and
++verifies the application was started correctly. You must call this and have the
++continuation callback complete with `InitializeResult::ok()` (C++) or
++`Result.IsOk` (C#) equal to `true` before you can use any other API.
+ 
+ ### C++
+ 
+-      // Initialize the SDK as part of the startup sequence of your application.
+-      auto promise = std::make_shared<std::promise<InitializeResult>>();
+-      GooglePlayInitialize(
+-        [promise](InitializeResult result) {
+-          promise->set_value(std::move(result));
+-        });
+-
+-      auto initialize_result = promise->get_future().get();
+-      if (initialize_result.ok()) {
+-        // The SDK succeeded with initialization. Continue with the startup sequence
+-        // of the game.
+-        // ...
+-      } else if (initialize_result.code() == InitializationError::kActionRequiredShutdownClientProcess) {
+-        // The SDK failed to initialize and has requested that your game process exit
+-        // as soon as possible.
+-        exit(1);
+-      } else {
+-        // The SDK failed to initialize for an alternative reason. It is still
+-        // generally recommended that you exit the game process as soon as possible,
+-        // because it won't be possible to access any APIs in the SDK. Critical
+-        // operations such as verifying the user owns a valid license to your game
+-        // won't be possible.
+-        // ...
+-      }
++```c++
++// Initialize the SDK as part of the startup sequence of your
++// application.
++auto promise = std::make_shared<std::promise<InitializeResult>>();
++GooglePlayInitializeParams params;
++// Replace with your game's package name.
++params.package_name = "com.example.game";
++GooglePlayInitialize(
++  [promise] (InitializeResult result) {
++    promise->set_value(std::move(result));
++  }, params);
++
++auto initialize_result = promise->get_future().get();
++if (initialize_result.ok()) {
++  // The SDK succeeded with initialization. Continue with the startup
++  // sequence of the game.
++  // ...
++
++  // Retrieve the operating environment and device form factor.
++  auto env = initialize_result.value().environment;
++  auto form_factor = initialize_result.value().form_factor;
++  // ...
++} else if (
++    initialize_result.code() ==
++    InitializationError::kActionRequiredShutdownClientProcess) {
++  // The SDK failed to initialize and has requested that your game
++  // process exit as soon as possible.
++  exit(1);
++} else {
++  // The SDK failed to initialize for an alternative reason. It is
++  // still generally recommended that you exit the game process as
++  // soon as possible, because it won't be possible to access any
++  // APIs in the SDK. Critical operations such as verifying the user
++  // owns a valid license to your game won't be possible.
++  // ...
++}
++```
+ 
+ ### C#
+ 
+-      // SDK Clients
+-      private BillingClient _billingClient;
+-      private IntegrityClient _integrityClient;
+-
+-      // Stored product information
+-      private string _offerToken;
+-
+-      private async void InitializeSDK()
+-      {
+-          // The factory provides the necessary handler for initialization.
+-          var initializationHandler = PlayPcSdkFactory.InitializationHandler;
+-          var result = await GooglePlayInitialization.InitializeAsync(initializationHandler);
+-
+-          if (result.IsOk)
+-          {
+-              // Use the factory to get Unity-compatible instances of the clients
+-              _billingClient = PlayPcSdkFactory.CreateBillingClient();
+-              _integrityClient = PlayPcSdkFactory.CreateIntegrityClient();
+-
+-              // SDK is ready for use
+-          }
+-          else
+-          {
+-              // Handle specific, actionable errors
+-              if (result.Code == InitializationError.ActionRequiredShutdownClientProcess)
+-              {
+-                  Log("This game must be launched through the Google Play Games client. Exit all game processes immediately, GPG will relaunch the game safely.");
+-                  Application.Quit();
+-              }
+-          }
+-      }
++```c#
++// SDK Clients
++private BillingClient _billingClient;
++private IntegrityClient _integrityClient;
++
++// Stored product information
++private string _offerToken;
++
++private async void InitializeSDK()
++{
++    // The factory provides the necessary handler for initialization.
++    var initializationHandler =
++        PlayPcSdkFactory.InitializationHandler;
++    var initializeParams = new GooglePlayInitializeParams {
++        // Replace with your game's package name.
++        PackageName = "com.example.game"
++    };
++    var result = await GooglePlayInitialization.InitializeAsync(
++        initializationHandler, initializeParams);
++
++    if (result.IsOk)
++    {
++        // Use the factory to get Unity-compatible instances of the
++        // clients
++        _billingClient = PlayPcSdkFactory.CreateBillingClient();
++        _integrityClient = PlayPcSdkFactory.CreateIntegrityClient();
++
++        // Retrieve the operating environment and device form factor.
++        var env = result.Value.Environment;
++        var form_factor = result.Value.FormFactor;
++
++        // SDK is ready for use
++    }
++    else
++    {
++        // Handle specific, actionable errors
++        if (result.Code ==
++            InitializationError.ActionRequiredShutdownClientProcess)
++        {
++            Log("This game must be launched through the Google Play Games client. Exit all game processes immediately, GPG will relaunch the game safely.");
++            Application.Quit();
++        }
++    }
++}
++```
+ 
+ If the initialization fails with the code `kActionRequiredShutdownClientProcess`
+ (C++) / `InitializationError.ActionRequiredShutdownClientProcess` (C#),

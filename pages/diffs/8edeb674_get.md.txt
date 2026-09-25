@@ -1,0 +1,21 @@
+diff --git a/docs/about/versions/17/qpr2/get.md b/docs/about/versions/17/qpr2/get.md
+index 183f0e16..565932e7 100644
+--- a/docs/about/versions/17/qpr2/get.md
++++ b/docs/about/versions/17/qpr2/get.md
+@@ -62,15 +62,11 @@ devices:
+ - Pixel 10 Pro XL
+ - Pixel 10 Pro Fold
+ - Pixel 10a
+-- Pixel 11
+-- Pixel 11 Pro
+-- Pixel 11 Pro XL
+-- Pixel 11 Pro Fold
+ 
+ ### Flash or manually install a system image
+ 
+ Alternatively, if you'd rather flash your device, we recommend using the [Android Flash
+-Tool](https://flash.android.com/preview/cinnamonbun-qpr2-beta5). If you need to flash your device manually for some other reason, you can get an Android 17 QPR 2 system image for your device on the [Pixel downloads page](https://developer.android.com/about/versions/17/qpr2/download). See the general instructions on the downloads page for how to flash a system image to your device. This approach can be useful when you need more control over testing, such as for automated testing or regression testing. Android 17 QPR 2 Beta images are available for [supported Pixel devices](https://developer.android.com/about/versions/17/qpr2/get#google-pixel-devices).
++Tool](https://flash.android.com/preview/cinnamonbun-qpr2-beta6). If you need to flash your device manually for some other reason, you can get an Android 17 QPR 2 system image for your device on the [Pixel downloads page](https://developer.android.com/about/versions/17/qpr2/download). See the general instructions on the downloads page for how to flash a system image to your device. This approach can be useful when you need more control over testing, such as for automated testing or regression testing. Android 17 QPR 2 Beta images are available for [supported Pixel devices](https://developer.android.com/about/versions/17/qpr2/get#google-pixel-devices).
+ 
+ <br />
+ 

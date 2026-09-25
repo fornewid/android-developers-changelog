@@ -1,0 +1,22 @@
+diff --git a/docs/games/playgames/native-pc/downloads.md b/docs/games/playgames/native-pc/downloads.md
+index 694b0e27..c1fb31f1 100644
+--- a/docs/games/playgames/native-pc/downloads.md
++++ b/docs/games/playgames/native-pc/downloads.md
+@@ -16,7 +16,7 @@ With the Play Games PC SDK you can access Google Play services to build and mone
+ 
+ | Name | Language | Version |
+ |---|---|---|
+-| [Play Games PC C++ SDK](https://developer.android.com/games/playgames/native-pc/downloads/cpp) | C/C++ | 26.3.312.0 |
++| [Play Games PC C++ SDK](https://developer.android.com/games/playgames/native-pc/downloads/cpp) | C/C++ | 26.9.261.0 |
+ 
+ *** ** * ** ***
+ 
+@@ -26,7 +26,7 @@ The Play Games PC Unity SDK provides a Unity interface to the Play Games PC SDK.
+ 
+ | Name | Language | Version |
+ |---|---|---|
+-| [Play Games PC Unity SDK](https://developer.android.com/games/playgames/native-pc/downloads/unity) | C# | 26.3.312.0 |
++| [Play Games PC Unity SDK](https://developer.android.com/games/playgames/native-pc/downloads/unity) | C# | 26.9.261.0 |
+ 
+ *** ** * ** ***
+ 

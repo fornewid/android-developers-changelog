@@ -1,0 +1,45 @@
+diff --git a/docs/about/versions/17/qpr2/release-notes.md b/docs/about/versions/17/qpr2/release-notes.md
+index 9eaf819e..526fc4cd 100644
+--- a/docs/about/versions/17/qpr2/release-notes.md
++++ b/docs/about/versions/17/qpr2/release-notes.md
+@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr2/release-notes
+ source: md.txt
+ ---
+ 
++### Beta 6
++
++|---|---|
++| **Release date** | September 24, 2026 |
++| **Builds** | CP41.260831.007 |
++| **Emulator support** | x86 (64-bit), ARM (v8-A) |
++| **Security patch level** | 2026-08-05 |
++| **Google Play services** | 26.28.33 |
++
+ ### Beta 5
+ 
+ |---|---|
+@@ -49,7 +58,7 @@ source: md.txt
+ | **Security patch level** | 2026-07-05 |
+ | **Google Play services** | 26.23.34 |
+ 
+-### Android 17 QPR 2 Beta 5 (September 2026)
++### Android 17 QPR 2 Beta 6 (September 2026)
+ 
+ Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
+ update the platform with fixes and improvements that are then rolled out to
+@@ -79,6 +88,15 @@ restricts call-forwarding USSD codes (such as `*21#`) executed using the
+ - **Non-Call Forwarding USSD:** Non-call forwarding enabling USSD requests (such as mobile money transfers and account checks) are unaffected by this change.
+ - **Mitigation:** If your app is affected, verify that it handles the `USSD_ERROR_NOT_ALLOWED` failure callback gracefully. For apps requiring call-forwarding setup that don't qualify for an exempted role, migrate your flow to use the `ACTION_DIAL` intent to pre-fill the dialer, allowing the user to manually confirm the action.
+ 
++### Top Issues fixed in Beta 6 (September 2026)
++
++- *A visual regression causing letterboxed content to leak through the status bar during activity transitions. ([**Issue #493438057**](https://issuetracker.google.com/issues/493438057))*
++- *The screensaver displays a blank screen while charging. ([**Issue #516262713**](https://issuetracker.google.com/issues/516262713), [**Issue #526560397**](https://issuetracker.google.com/issues/526560397))*
++- *Unexpected device reboots on Pixel 9 Pro Fold when initializing the camera viewfinder in third-party applications. ([**Issue #555960820**](https://issuetracker.google.com/issues/555960820), [**Issue #558564487**](https://issuetracker.google.com/issues/558564487), [**Issue #554763027**](https://issuetracker.google.com/issues/554763027), [**Issue #559421409**](https://issuetracker.google.com/issues/559421409))*
++- *Locked applications could not be dismissed using swipe gestures in Recents. ([**Issue #555579953**](https://issuetracker.google.com/issues/555579953))*
++- *A system kernel crash causing devices to unexpectedly reboot when third-party applications requested simultaneous camera and microphone access during biometric identity verification. ([**Issue #557712189**](https://issuetracker.google.com/issues/557712189))*
++- *An issue that caused device crashes, reboots, or hangs when scrolling. ([**Issue #559054323**](https://issuetracker.google.com/issues/559054323))*
++
+ ### Top Issues fixed in Beta 5 (September 2026)
+ 
+ - *Changing a Bluetooth device type in settings failed to update its icon visually. ([**Issue #516071134**](https://issuetracker.google.com/issues/516071134))*

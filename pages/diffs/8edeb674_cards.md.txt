@@ -1,0 +1,34 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/cards.md b/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/cards.md
+index 310b436e..85436903 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/cards.md
++++ b/docs/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/cards.md
+@@ -75,14 +75,7 @@ Card(
+     title = { Text("Card Title", style = GlimmerTheme.typography.titleMedium) },
+     subtitle = { Text("Sub-heading text", style = GlimmerTheme.typography.titleSmall) },
+     leadingIcon = { Icon(FavoriteIcon, contentDescription = "Favorite") },
+-    trailingIcon = { Icon(BookmarkIcon, contentDescription = "Bookmark") },
+-    header = {
+-        Image(
+-            painter = myHeaderImage,
+-            contentDescription = "Header image",
+-            contentScale = ContentScale.FillWidth
+-        )
+-    },
++    trailingIcon = { Icon(BookmarkIcon, contentDescription = "Bookmark") }
+ ) {
+     Text("This is a complete card")
+ }
+@@ -131,13 +124,6 @@ ActionCard(
+     title = { Text("Card Title", style = GlimmerTheme.typography.titleMedium) },
+     subtitle = { Text("Sub-heading text", style = GlimmerTheme.typography.titleSmall) },
+     leadingIcon = { Icon(FavoriteIcon, contentDescription = "Favorite") },
+-    header = {
+-        Image(
+-            painter = myHeaderImage,
+-            contentDescription = "Header image",
+-            contentScale = ContentScale.FillWidth
+-        )
+-    },
+     action = {
+         Button(onClick = { /* Handle action */ }) {
+             Text("Action")

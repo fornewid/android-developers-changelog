@@ -1,0 +1,25 @@
+diff --git a/docs/distribute/aep/aep-req-media-3.md b/docs/distribute/aep/aep-req-media-3.md
+index d2e7e410..ea2bd524 100644
+--- a/docs/distribute/aep/aep-req-media-3.md
++++ b/docs/distribute/aep/aep-req-media-3.md
+@@ -39,13 +39,13 @@ alternative implementation must meet the following benchmarks:
+ | ID | Exemption |
+ |---|---|
+ | AEP-M3-EAA | On a fast network, the first video frame must be displayed within 500 ms of user initiation. |
+-| AEP-M3-EAB | Playback must remain smooth, with no visible frame drops or audible audio underruns during a 30-second window. |
+-| AEP-M3-EAC | The app must properly manage [audio focus](https://developer.android.com/media/optimize/audio-focus). |
+-| AEP-M3-EAD | The app must respond to hardware media keys, even when running in the background. |
+-| AEP-M3-EAE | If background playback is supported, the app must post a media-style notification and use a foreground service. |
+-| AEP-M3-EAF | If the app supports resuming playback, it must implement [media resumption](https://developer.android.com/media/media3/session/background-playback#resumption). |
+-| AEP-M3-EAG | Headphone disconnections must be handled gracefully. For example, pausing playback instead of switching to the speaker. |
+-| AEP-M3-EAH | Playback must continue without dropped frames when switching between device orientations. |
++| AEP-M3-EAA | Playback must remain smooth, with no visible frame drops or audible audio underruns during a 30-second window. |
++| AEP-M3-EAA | The app must properly manage [audio focus](https://developer.android.com/media/optimize/audio-focus). |
++| AEP-M3-EAA | The app must respond to hardware media keys, even when running in the background. |
++| AEP-M3-EAA | If background playback is supported, the app must post a media-style notification and use a foreground service. |
++| AEP-M3-EAA | If the app supports resuming playback, it must implement [media resumption](https://developer.android.com/media/media3/session/background-playback#resumption). |
++| AEP-M3-EAA | Headphone disconnections must be handled gracefully. For example, pausing playback instead of switching to the speaker. |
++| AEP-M3-EAA | Playback must continue without dropped frames when switching between device orientations. |
+ 
+ ## Feature documentation and resources
+ 

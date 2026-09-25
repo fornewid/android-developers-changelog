@@ -1,0 +1,14 @@
+diff --git a/docs/google/play/billing/manage-purchases.md b/docs/google/play/billing/manage-purchases.md
+index e2cc13ba..d954dd39 100644
+--- a/docs/google/play/billing/manage-purchases.md
++++ b/docs/google/play/billing/manage-purchases.md
+@@ -228,6 +228,9 @@ entitlement time, issue a prorated refund. Use the
+ [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke)
+ function, and set `"proratedRefund": {}` as the refund type.
+ 
++Prorated refunds are supported for both auto-renewing subscriptions and prepaid
++plans with a duration of at least one week.
++
+ Example:
+ 
+ 1. Maria has an auto-renewing 30-day subscription to SuperMovies streaming

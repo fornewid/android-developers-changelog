@@ -1,0 +1,41 @@
+diff --git a/docs/studio/preview/features.md b/docs/studio/preview/features.md
+index a969a07a..34f50b96 100644
+--- a/docs/studio/preview/features.md
++++ b/docs/studio/preview/features.md
+@@ -152,6 +152,36 @@ The following are new features in Android Studio Rabbit 2.
+ To see what's been fixed in this version of Android Studio, see the [closed
+ issues](https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.2).
+ 
++### Bring Your Own Agent (BYOA): Integrate your preferred coding agents
++
++Building on Android Studio's support for [custom AI
++models](https://developer.android.com/studio/gemini/use-a-remote-model), Android Studio Rabbit 2 Canary 2
++introduces Bring Your Own Agent (BYOA). Using BYOA, you can connect your
++preferred AI coding agents---including Claude Agent, OpenAI Codex, and Google
++Antigravity---directly into Android Studio using the open Agent Client Protocol
++(ACP).
++
++BYOA pairs your chosen agent with IDE-native intelligence, passing the full
++project graph, build diagnostics, and emulator controls directly into your agent
++for faster execution and lower token consumption. You can authenticate with your
++personal or enterprise subscriptions, while Android Studio's built-in agent
++remains available at no extra charge.
++![Select an AI agent from the Agents menu in the Agent tool window.](https://developer.android.com/static/studio/gemini/images/byoa.png)
++
++BYOA offers the following benefits:
++
++- Support for any ACP-compliant agent.
++- Direct IDE access to build diagnostics, Android SDK tools, terminal and shell execution, and emulator management.
++- Flexible sign-in options supporting personal API keys and consumer subscriptions.
++
++#### Get started
++
++To get started with BYOA, follow these steps:
++
++1. Update Android Studio to the latest canary release.
++2. Connect your agents: In the agent window, select one of the default agents (Claude Agent, Codex, or Antigravity) and sign in or provide an API key. Additional agents can be found in the registry at **File** (**Android
++   Studio** on macOS) **\> Settings \> Tools \> AI \> Agents**.
++
+ ### Compose Preview Screenshot Testing tool
+ 
+ Use the Compose Preview Screenshot Testing tool to test your Compose UIs and
