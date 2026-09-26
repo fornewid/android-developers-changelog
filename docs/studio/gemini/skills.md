@@ -34,7 +34,7 @@ locations, move them to `.agents/skills` or `.android-studio/skills` when
 upgrading Android Studio to Quail 1 or later versions.
 
 > [!NOTE]
-> **Note:** If you customize a skill, you should rename it, or it might get overwritten when updating the skill using [Android CLI](https://developer.android.com/tools/agents/android-cli#skills-add).
+> **Note:** If you customize a skill, you should rename it, or it might get overwritten when updating the skill using [Android CLI](https://developer.android.com/tools/agents/android-cli/commands/skills_add).
 
 To learn more about Android skills, see
 [Intro to Android skills](https://developer.android.com/tools/agents/android-skills).

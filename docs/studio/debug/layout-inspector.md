@@ -18,7 +18,7 @@ display a magnified view of your app.
 
 Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
 
-For example, use the [`android layout`](https://developer.android.com/tools/agents/android-cli#layout) command when you need to inspect and debug your layout.
+For example, use the [`android layout`](https://developer.android.com/tools/agents/android-cli/commands/layout) command when you need to inspect and debug your layout.
 
     android layout
 

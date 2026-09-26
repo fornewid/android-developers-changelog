@@ -23,11 +23,11 @@ Adaptive apps have higher user satisfaction, user engagement, and time-in-app me
 
 ## Optimize the user experience on all devices
 
-Build your app to work seamlessly on a wide variety of devices. Support configuration changes to ensure your app looks and works great in every window size, aspect ratio, orientation, and posture. Maintain continuity---enable users to pick up where they left off across different form factors and platforms. Avoid bad user experiences like compatibility modes and letterboxing. [Learn more](http://developer.android.com/develop/ui/compose/layouts/adaptive/adaptive-dos-and-donts)
+Build your app to work seamlessly on a wide variety of devices. Support configuration changes to ensure your app looks and works great in every window size, aspect ratio, orientation, and posture. Maintain continuity---enable users to pick up where they left off across different form factors and platforms. Avoid bad user experiences like compatibility modes and letterboxing. [Learn more](http://developer.android.com/develop/adaptive-apps/guides/adaptive-dos-and-donts)
 
 ### Create adaptive layouts
 
-Provide a great user experience on all device form factors, from conventional phones to tablets to cars. Adapt your app's UI to different display sizes and configurations to enhance the user experience, improve accessibility, future-proof your app for new devices, and reduce development and maintenance costs. [Learn more](https://developer.android.com/develop/ui/compose/layouts/adaptive)
+Provide a great user experience on all device form factors, from conventional phones to tablets to cars. Adapt your app's UI to different display sizes and configurations to enhance the user experience, improve accessibility, future-proof your app for new devices, and reduce development and maintenance costs. [Learn more](https://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps)
 
 ### Support external input devices
 
@@ -35,7 +35,7 @@ Increase your app's reach and accessibility. Create a truly inclusive user exper
 
 ### Showcase differentiating experiences
 
-Leverage the latest advancements in the Android ecosystem to create unique user experiences. New form factors, such as foldable devices, offer innovative device configurations, like tabletop posture, which enables users to operate their foldable device without holding it in their hands. Differentiate your app from the ordinary with exceptional capabilities. [Learn more](https://developer.android.com/guide/topics/large-screens/learn-about-foldables)
+Leverage the latest advancements in the Android ecosystem to create unique user experiences. New form factors, such as foldable devices, offer innovative device configurations, like tabletop posture, which enables users to operate their foldable device without holding it in their hands. Differentiate your app from the ordinary with exceptional capabilities. [Learn more](https://developer.android.com/develop/adaptive-apps/guides/foldables/learn-about-foldables)
 
 ## Guarantee reliability with automated testing
 

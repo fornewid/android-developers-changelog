@@ -23,7 +23,7 @@ process, eliminating tedious work and improving project maintainability.
 
 Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
 
-For example, use the [`android studio version-lookup`](https://developer.android.com/tools/agents/android-cli#studio-version-lookup) command when you need to upgrade dependencies.
+For example, use the [`android studio version-lookup`](https://developer.android.com/tools/agents/android-cli/commands/studio_version-lookup) command when you need to upgrade dependencies.
 
     android studio version-lookup <artifacts...>
 

@@ -225,3 +225,15 @@ Kotlin and Jetpack Compose-based Android app. The integrated progress UI
 provides end-to-end visibility across task planning, code transformation, and
 compilation checks, producing a functional project that's ready for testing and
 verification.
+
+### Resize Running Devices tool window by double-clicking empty space
+
+You can eliminate unused space around your virtual or mirrored physical devices
+in the **Running Devices** tool window. Double-click anywhere in the empty
+background area outside the device screen (and frame, if visible) to
+automatically resize the tool window or adjust split pane proportions to snugly
+fit the device display.
+
+- **Docked tool windows:** Adjusts the tool window's width (when docked to the left or right) or height (when docked to the top or bottom) to remove excess margin around the device.
+- **Floating and windowed modes:** Resizes both width and height of the window to wrap tightly around the device display.
+- **Split views:** Automatically adjusts internal splitters when viewing multiple displays or devices side by side.

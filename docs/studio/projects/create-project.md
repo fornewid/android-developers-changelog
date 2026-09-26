@@ -27,7 +27,7 @@ If you have a project open, create a new project by selecting
 
 Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
 
-For example, use the [`android create`](https://developer.android.com/tools/agents/android-cli#create) command when you need to create a new project.
+For example, use the [`android create`](https://developer.android.com/tools/agents/android-cli/commands/create) command when you need to create a new project.
 
     android create empty-activity --name=MyApp
 

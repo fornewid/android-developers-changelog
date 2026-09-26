@@ -34,7 +34,7 @@ Navigation 3. Refer to Android documentation for guidance."
 
 The Android Knowledge Base is also accessible using [Android CLI](https://developer.android.com/tools/agents)
 using any agent and IDE of your choice. To learn more, see
-[`android docs`](https://developer.android.com/tools/agents/android-cli#docs).
+[`android docs`](https://developer.android.com/tools/agents/android-cli/commands/docs).
 
 ## Agent Web Search
 

@@ -20,7 +20,7 @@ helps you create and manage AVDs.
 
 Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
 
-For example, use the [`android emulator`](https://developer.android.com/tools/agents/android-cli#emulator-create) command when you need to create, start, and stop an AVD.
+For example, use the [`android emulator`](https://developer.android.com/tools/agents/android-cli/commands/emulator) command when you need to create, start, and stop an AVD.
 
     android emulator [create <profile-name>|start <device-name>|stop <device-serial-number>|list]
 

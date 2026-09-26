@@ -29,7 +29,7 @@ To improve linting performance, you can also
 
 Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
 
-For example, use the [`android studio analyze-file`](https://developer.android.com/tools/agents/android-cli#studio-analyze-file) command when you need to analyze your file for errors, warnings, and lint issues.
+For example, use the [`android studio analyze-file`](https://developer.android.com/tools/agents/android-cli/commands/studio_analyze-file) command when you need to analyze your file for errors, warnings, and lint issues.
 
     android studio analyze-file <path>
 

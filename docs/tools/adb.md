@@ -30,7 +30,7 @@ Assistant to troubleshoot common problems, see
 
 Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
 
-For example, use the [`android run`](https://developer.android.com/tools/agents/android-cli#run) or [`screen capture`](https://developer.android.com/tools/agents/android-cli#screen-capture) commands when you need to deploy and interact with an app on a device from the command line.
+For example, use the [`android run`](https://developer.android.com/tools/agents/android-cli/commands/run) or [`screen capture`](https://developer.android.com/tools/agents/android-cli/commands/screen_capture) commands when you need to deploy and interact with an app on a device from the command line.
 
     android [install|run|screen capture|layout]
 

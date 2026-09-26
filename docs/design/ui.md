@@ -10,7 +10,7 @@ Design beautiful and modern Android apps that meet your user where they are, whe
 
 ## Design for mobile
 
-Create a beautiful and usable modern app design using Android themes, components, and adaptive layouts. [Explore mobile design →](http://developer.android.com/design/ui/mobile) ![](http://developer.android.com/static/images/design/ui/mobile-promo.png)
+Create a beautiful and usable modern app design using Android themes, components, and adaptive layouts across phones, foldables, and tablets. [Explore mobile design →](http://developer.android.com/design/ui/mobile) ![](http://developer.android.com/static/images/design/ui/mobile-promo.png)
 
 ## Enhance your app's productivity
 

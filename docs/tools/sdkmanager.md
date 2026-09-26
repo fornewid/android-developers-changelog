@@ -16,7 +16,7 @@ SDK packages from the IDE](https://developer.android.com/studio/intro/update#sdk
 
 ### Use Android CLI to manage packages for the Android SDK
 
-The `sdkmanager` tool is deprecated. Instead, use the Android CLI [`android sdk`](https://developer.android.com/tools/agents/android-cli#sdk-install) command.
+The `sdkmanager` tool is deprecated. Instead, use the Android CLI [`android sdk`](https://developer.android.com/tools/agents/android-cli/commands/sdk) command.
 
     android sdk [install|list|update|remove]
 
