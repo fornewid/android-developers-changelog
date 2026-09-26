@@ -1,0 +1,35 @@
+diff --git a/docs/studio/test/command-line.md b/docs/studio/test/command-line.md
+index 2a2e21c0..6c1e9ddf 100644
+--- a/docs/studio/test/command-line.md
++++ b/docs/studio/test/command-line.md
+@@ -230,19 +230,22 @@ API reference.
+ 
+ ## View unified test reports
+ 
+-The Android Gradle Plugin provides unified test report tasks, which generate
++The Android Gradle Plugin provides unified test tasks, which generate
+ HTML dashboards that merge results from unit and instrumented tests.
+ 
+ > [!WARNING]
+ > **Experimental:** This is an experimental feature. To enable this feature, set `android.experimental.reportAggregationSupport=true` in your `gradle.properties` file.
+ 
+-### Prerequisites
++**Prerequisites**
+ 
+-- Android Gradle Plugin 9.2.0-alpha07 or higher.
++- Android Gradle Plugin 9.5.0-alpha05 or higher.
+ 
+-To generate unified test reports, run one of the following tasks:
++To test all test suites, run one of the following tasks:
+ 
+ | Report scope | Command | Description | Report location |
+ |---|---|---|---|
+-| Current module | `./gradlew :module_name:createTestReport` | Generates a unified test report for the current module, merging unit and instrumented test results. | `path_to_your_project/module_name/build/reports/tests/test-report/` |
+-| Current module and dependencies | `./gradlew :module_name:createAggregatedTestReport` | Generates a unified test report for the current app module and its library dependencies. | `path_to_your_project/module_name/build/reports/tests/aggregated-test-report/` |
+\ No newline at end of file
++| Current module | `./gradlew :module_name:testAllSuites` | Generates a unified test report for the current module, merging unit and instrumented test results. | `path_to_your_project/module_name/build/reports/tests/test-report/` |
++| Current module and dependencies | `./gradlew :module_name:testAllSuitesWithDependencies` | Generates a unified test report for the current module and its library dependencies, merging unit and instrumented test results. | `path_to_your_project/module_name/build/reports/tests/aggregated-test-report/` |
++
++> [!NOTE]
++> **Note:** If you've [enabled coverage support](https://developer.android.com/studio/test/coverage-report#enable-coverage) in any of your modules, the [unified code coverage report](https://developer.android.com/studio/test/coverage-report#unified) is also generated.
+\ No newline at end of file

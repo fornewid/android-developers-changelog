@@ -1,0 +1,13 @@
+diff --git a/docs/studio/run/emulator-commandline.md b/docs/studio/run/emulator-commandline.md
+index 3994701c..8d86813c 100644
+--- a/docs/studio/run/emulator-commandline.md
++++ b/docs/studio/run/emulator-commandline.md
+@@ -19,7 +19,7 @@ For information about using the Android Emulator UI, see
+ 
+ ### Use Android CLI to manage the Android emulator
+ 
+-The `emulator` tool is deprecated. Instead, use the Android CLI [`android emulator`](https://developer.android.com/tools/agents/android-cli#emulator-create) command to manage the Android emulator from the command line.
++The `emulator` tool is deprecated. Instead, use the Android CLI [`android emulator`](https://developer.android.com/tools/agents/android-cli/commands/emulator) command to manage the Android emulator from the command line.
+ 
+     android emulator [create <profile-name>|start <device-name>|stop <device-serial-number>|list]
+ 
