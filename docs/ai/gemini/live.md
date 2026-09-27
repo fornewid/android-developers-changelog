@@ -109,8 +109,8 @@ Use a model that supports the Live API, like
 `gemini-2.5-flash-native-audio-preview-12-2025`.
 See the Firebase documentation for [available Live API models](https://firebase.google.com/docs/ai-logic/live-api?api=dev#supported-models).
 
-To specify a voice, set the [voice name](https://firebase.google.com/docs/docs/ai-logic/live-api/configuration?api=dev#specify-response-voice) within the
-`speechConfig` object as part of the [model configuration](https://firebase.google.com/docs/docs/ai-logic/model-parameters?api=dev#config-gemini-live-api). If
+To specify a voice, set the [voice name](https://firebase.google.com/docs/ai-logic/live-api/configuration?api=dev#specify-response-voice) within the
+`speechConfig` object as part of the [model configuration](https://firebase.google.com/docs/ai-logic/model-parameters?api=dev#config-gemini-live-api). If
 you don't specify a voice, the default is `Puck`.
 
 ### Kotlin
@@ -319,7 +319,7 @@ val model = Firebase.ai(backend = GenerativeBackend.googleAI()).liveModel(
         GenerativeBackend.googleAI()).liveModel(
             "gemini-2.5-flash-native-audio-preview-12-2025",
       new LiveGenerationConfig.Builder()
-            .setResponseModalities(ResponseModality.AUDIO)
+            .setResponseModality(ResponseModality.AUDIO)
             .setSpeechConfig(new SpeechConfig(new Voice("FENRIR")))
             .build(),
       List.of(Tool.functionDeclarations(List.of(addListFunctionDeclaration))),

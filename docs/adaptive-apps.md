@@ -41,17 +41,9 @@ Leverage the latest advancements in the Android ecosystem to create unique user 
 
 Automate testing with tools like the [Espresso testing framework](https://developer.android.com/training/testing/espresso) and [Jetpack Compose testing APIs](https://developer.android.com/develop/ui/compose/testing/apis). Automated testing speeds up development by providing rapid feedback, eliminating errors caused by human intervention, and improving app stability through comprehensive testing. The result: lower development cost, better resource allocation, and faster release cycles to ultimately enhance the user experience with a more stable and reliable app. [Learn more](http://developer.android.com/develop/ui/compose/testing)
 
-## Get inspired
+## Explore adaptive app success stories
 
-[![](http://developer.android.com/static/images/large-screens/tour-the-gallery.png)](http://developer.android.com/large-screens/gallery)
-
-### [Tour the large screen gallery](http://developer.android.com/large-screens/gallery)
-
-Explore inspiring, optimized designs for large screen devices. Browse UI/UX templates for popular app categories, including media, creativity, games, and more. [View the gallery](http://developer.android.com/large-screens/gallery) [![](http://developer.android.com/static/images/large-screens/many-apps.png)](http://developer.android.com/large-screens/stories)
-
-### [Check out adaptive app success stories](http://developer.android.com/large-screens/stories)
-
-Optimize your app for screens of all sizes to provide the best experience for your users and deliver positive business results. More and more apps across all categories have been taking advantage of the opportunities presented by multiple form factors. See the experiences developers have built, learn about the implementations they've created, and find out why adaptive app development is important to their businesses. [View developer stories](http://developer.android.com/large-screens/stories)
+Optimize your app for screens of all sizes to provide the best experience for your users and deliver positive business results. More and more apps across all categories have been taking advantage of the opportunities presented by multiple form factors. See the experiences developers have built, learn about the implementations they've created, and find out why adaptive app development is important to their businesses. ![](https://developer.android.com/static/images/large-screens/many-apps.png) [View developer stories](http://developer.android.com/large-screens/stories)
 
 ## Latest news
 
