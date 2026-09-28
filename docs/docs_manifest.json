@@ -11510,8 +11510,8 @@
     },
     "latest-updates.md": {
       "original_url": "https://developer.android.com/latest-updates",
-      "hash": "39c866f0fea5a4d181a59800f5bd1fdac6cfb20998f2fad477ed63075945f3b0",
-      "last_updated": "2026-09-25T15:09:16.505558",
+      "hash": "59487f6e6bdd6a65ddece015afef0ba140260acae068a090861f968e2991cd06",
+      "last_updated": "2026-09-28T15:09:27.591049",
       "fetch_method": "md.txt"
     },
     "design/ui/cars/guides/templates/map-content-template.md": {
@@ -13880,8 +13880,8 @@
     },
     "studio/nightly.md": {
       "original_url": "https://developer.android.com/studio/nightly",
-      "hash": "d353d5812c60732ff347c6dccbce9f98c3dbb68c079b29819a9ac89b74810a9d",
-      "last_updated": "2026-09-25T15:05:36.767283",
+      "hash": "aaf680d1ed8da74f5b599aea0cd1897d1ec3dab54b6ae6f072cc07dbb45403d5",
+      "last_updated": "2026-09-28T15:05:54.231085",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/arcore/hands.md": {
@@ -17780,8 +17780,8 @@
     },
     "develop/ui/compose/text/user-input.md": {
       "original_url": "https://developer.android.com/develop/ui/compose/text/user-input",
-      "hash": "dd88654e212892486d09ac96d74e10ec5b7bcb237af3515e448a965e93f6eb2e",
-      "last_updated": "2026-08-14T15:20:20.300176",
+      "hash": "eedc81f4fc39d8a92d18513f2821b5b2d6ff0a62216b51309e373f690b9a7913",
+      "last_updated": "2026-09-28T15:09:00.909869",
       "fetch_method": "md.txt"
     },
     "guide/components/activities/recents.md": {
@@ -33895,5 +33895,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-09-27T15:08:54.810243"
+  "last_updated": "2026-09-28T15:09:41.945429"
 }
