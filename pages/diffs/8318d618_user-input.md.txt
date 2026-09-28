@@ -1,0 +1,14 @@
+diff --git a/docs/develop/ui/compose/text/user-input.md b/docs/develop/ui/compose/text/user-input.md
+index bd934bc4..b7e9f6dc 100644
+--- a/docs/develop/ui/compose/text/user-input.md
++++ b/docs/develop/ui/compose/text/user-input.md
+@@ -15,9 +15,6 @@ reliable approach to managing the state of a `TextField`. The following table
+ outlines differences between these types of text fields, and includes the key
+ advantages state-based text fields offer:
+ 
+-> [!WARNING]
+-> **Experimental:** State-based text fields rely on Material 3 version 1.4.0-alpha14. File any bugs on the [issue tracker](https://issuetracker.google.com/issues/new?component=779818&template=1371638).
+-
+ | **Feature** | **Value-based text fields** | **State-based text fields** | **State-based benefit** |
+ |---|---|---|---|
+ | State management | Updates text field state with the `onValueChange` callback. You are responsible for updating the `value` in your own state based on the changes reported by `onValueChange`. | Explicitly uses a `TextFieldState` object to manage the text input state (value, selection, and composition). This state can be remembered and shared. | - The `onValueChange` callback has been removed, which prevents you from introducing async behaviors. - The state survives recomposition, configuration, and process death. |
