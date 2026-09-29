@@ -4,17 +4,31 @@ url: https://developer.android.com/develop/ui/views/haptics/custom-haptic-effect
 source: md.txt
 ---
 
+Provide examples and guidance on how to create custom haptic effects in
+Android, including timeline anchored compositions with
+VibrationEffect.Builder, custom vibration patterns, and advanced waveform
+envelopes.
+keywords_public: \>
+Android, haptics, custom effects, vibration, haptic APIs, vibration patterns,
+VibrationEffect.Builder, compositions, haptic primitives, waveform envelopes,
+UI
+
 This page covers the examples of how to use different [haptics APIs](https://developer.android.com/develop/ui/views/haptics/haptics-apis) to
 create custom effects beyond the standard [vibration waveforms](https://developer.android.com/develop/ui/views/haptics/actuators) in an Android
 app.
 
 This page includes the following examples:
 
+- [Timeline anchored compositions with `VibrationEffect.Builder`](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#composition-builder)
+  - [Compose with presets](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#builder_presets): Sequence predefined haptic sensations.
+  - [Compose with envelopes and presets](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#builder_envelopes): Combine envelopes and presets along a timeline.
+  - [Reuse and shift events](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#builder_reuse_events): Shift and reuse existing composition events.
+  - [Repeating compositions](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#builder_repeating): Create repeating timeline effects.
 - [Custom vibration patterns](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#custom_vibration_patterns)
   - [Ramp up pattern](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#ramp_up_pattern): A pattern that begins smoothly.
   - [Repeating pattern](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#repeating_pattern): A pattern with no end.
   - [Pattern with fallback](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#pattern_with_fallback): A fallback demonstration.
-- [Vibration compositions](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#vibration_compositions)
+- [Vibration primitives compositions](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#vibration_compositions)
   - [Resist](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#resist): A drag effect with dynamic intensity.
   - [Expand](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#expand): A rise then fall effect.
   - [Wobble](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#wobble): A wobbly effect using the `SPIN` primitive.
@@ -28,31 +42,13 @@ follow [haptics design principles](https://developer.android.com/develop/ui/view
 
 ## Use fallbacks to handle device compatibility
 
-When implementing any custom effect, consider the following:
+When implementing custom haptic effects, device compatibility and fallback
+behavior depend on the API surface you choose:
 
-- Which device capabilities are required for the effect
-- What to do when the device is not capable of playing the effect
-
-The [Android haptics API reference](https://developer.android.com/develop/ui/views/haptics/haptics-apis) provides details on how to check for
-support for components involved in your haptics, so that your app can provide a
-consistent overall experience.
-
-Depending on your use case, you might want to disable custom effects or to
-provide alternative custom effects based on different potential capabilities.
-
-Plan for the following high-level classes of device capability:
-
-- If you're using haptic *primitives*: devices supporting those primitives
-  needed by the custom effects. (See the next section for details on
-  primitives.)
-
-- Devices with *amplitude control*.
-
-- Devices with *basic* vibration support (on/off)---in other words, those
-  lacking amplitude control.
-
-If your app's haptic effect choice accounts for these categories, then its
-haptic user experience should remain predictable for any individual device.
+- **[`VibrationEffect.Builder`](https://developer.android.com/reference/android/os/VibrationEffect.Builder) (Recommended):** Starting in Android 16 (26Q4), effects created using `VibrationEffect.Builder` include **automatic framework-level fallback** . If a device doesn't natively support a requested `Preset` or basic `Envelope`, the framework automatically translates it into an appropriate alternative at playback time with best effort. You don't need to manually check per-primitive device capabilities before playing effects composed with `VibrationEffect.Builder`.
+  - *Exception:* Advanced waveform envelopes created with [`WaveformEnvelopeBuilder`](https://developer.android.com/reference/android/os/VibrationEffect.WaveformEnvelopeBuilder) don't support automatic fallback because they depend on specific hardware frequency mappings ([FOAM](https://developer.android.com/develop/ui/views/haptics/actuators#vibrator-output-acceleratio)). If unsupported, they won't play.
+- **[`VibrationEffect.Composition`](https://developer.android.com/reference/android/os/VibrationEffect.Composition):** Compositions created with the `startComposition()` API don't have automatic fallbacks. If a composition contains even one unsupported primitive, the entire vibration fails to play. You must manually check capabilities using [`vibrator.arePrimitivesSupported()`](https://developer.android.com/reference/android/os/Vibrator#getPrimitiveDurations(int...)).
+- **Waveforms with amplitude control:** Non-zero amplitudes are rounded up to 100% on devices lacking amplitude control. Check [`vibrator.hasAmplitudeControl()`](https://developer.android.com/develop/ui/views/haptics/haptics-apis#amplitude_control) and fall back to an explicitly designed ON/OFF pattern if needed.
 
 ## Usage of haptic primitives
 
@@ -200,32 +196,256 @@ as a fallback instead.
 > [!NOTE]
 > **Note:** The ON/OFF pattern is actually specified in the API as a OFF/ON sequence of durations. See more details in the [API reference documentation](https://developer.android.com/reference/android/os/VibrationEffect#createWaveform(long%5B%5D,%20int)).
 
-## Create vibration compositions
+## Timeline anchored compositions with `VibrationEffect.Builder`
 
-This section presents ways to compose vibrations into longer and more complex
-custom effects, and goes beyond that to explore rich haptics using more advanced
-hardware capabilities. You can use combinations of effects that vary amplitude
-and frequency to create more complex haptic effects on devices with haptic
-actuators that have a wider frequency bandwidth.
+Starting in Android 16 (26Q4), [`VibrationEffect.Builder`](https://developer.android.com/reference/android/os/VibrationEffect.Builder) is the
+**preferred API** for creating complex vibration effects and compositions. It
+lets you construct expressive haptic sensations by sequencing discrete haptic
+elements along an absolute timeline with `startTimeMillis`.
+
+`VibrationEffect.Builder` supports combining multiple vibration types:
+
+- **Presets:** Predefined haptic pulses ([`VibrationEffect.Preset`](https://developer.android.com/reference/android/os/VibrationEffect.Preset)) such as clicks and ticks.
+- **Envelopes:** Dynamic continuous waveforms, including hardware-agnostic basic envelopes ([`BasicEnvelopeBuilder`](https://developer.android.com/reference/android/os/VibrationEffect.BasicEnvelopeBuilder)) and advanced frequency-modulated envelopes ([`WaveformEnvelopeBuilder`](https://developer.android.com/reference/android/os/VibrationEffect.WaveformEnvelopeBuilder)).
+- **Existing VibrationEffects:** Primitive compositions ([`VibrationEffect.Composition`](https://developer.android.com/reference/android/os/VibrationEffect.Composition)), step waveforms ([`VibrationEffect.createWaveform`](https://developer.android.com/reference/android/os/VibrationEffect#createWaveform(long%5B%5D,%20int))), predefined effects ([`VibrationEffect.createPredefined`](https://developer.android.com/reference/android/os/VibrationEffect#createPredefined(int))), and one-shots ([`VibrationEffect.createOneShot`](https://developer.android.com/reference/android/os/VibrationEffect#createOneShot(long,%20int))) imported using `addEvents()` or constructor copying.
+- **Repeating sequences:** Continuous patterns configured with `setRepeatingEffect()`.
+
+Vibrations built with `VibrationEffect.Builder` have built-in,
+framework-level [automatic fallback](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#fallbacks) across their elements (including
+presets, basic envelopes, and combined vibration effects), ensuring a
+consistent user experience across different devices without requiring manual
+capability checks. (Advanced waveform envelopes created with
+`WaveformEnvelopeBuilder` require hardware support and don't have automatic
+fallback support.)
+
+### Compose with presets
+
+Use [`VibrationEffect.Preset`](https://developer.android.com/reference/android/os/VibrationEffect.Preset) to add common, predefined short haptic pulses
+(such as `PRESET_CLICK`, `PRESET_TICK`, or `PRESET_LOW_TICK`) to a composition.
+Presets are implemented by the device manufacturer to provide a crisp, short,
+and pleasant vibration that aligns with [haptics principles](https://developer.android.com/develop/ui/views/haptics/haptics-principles) for clear
+haptics. For more details about these capabilities and how they work, see
+[Vibration actuators primer](https://developer.android.com/develop/ui/views/haptics/actuators).
+
+Presets replace the short primitives from the `VibrationEffect.Composition` API.
+For longer or continuous haptic sensations---such as ramping up and down---use
+[envelope waveforms](https://developer.android.com/reference/android/os/VibrationEffect.Envelope) (PWLE) instead.
+
+Each preset can be assigned an optional scale between `0.0f` and `1.0f` and is
+placed at an explicit start time (in milliseconds) from the start of the
+composition.
+
+### Kotlin
+
+    val clickPreset = VibrationEffect.Preset.create(
+        VibrationEffect.Preset.PRESET_CLICK, /* scale= */ 0.8f
+    )
+    val tickPreset = VibrationEffect.Preset.create(
+        VibrationEffect.Preset.PRESET_TICK, /* scale= */ 0.5f
+    )
+
+    val effect = VibrationEffect.Builder()
+        .addPreset(/* startTimeMillis= */ 0L, clickPreset)
+        .addPreset(/* startTimeMillis= */ 100L, tickPreset)
+        .build()
+
+    vibrator.vibrate(effect)
+
+### Java
+
+    VibrationEffect.Preset clickPreset = VibrationEffect.Preset.create(
+        VibrationEffect.Preset.PRESET_CLICK, /* scale= */ 0.8f
+    );
+    VibrationEffect.Preset tickPreset = VibrationEffect.Preset.create(
+        VibrationEffect.Preset.PRESET_TICK, /* scale= */ 0.5f
+    );
+
+    VibrationEffect effect = new VibrationEffect.Builder()
+        .addPreset(/* startTimeMillis= */ 0L, clickPreset)
+        .addPreset(/* startTimeMillis= */ 100L, tickPreset)
+        .build();
+
+    vibrator.vibrate(effect);
+
+### Compose with envelopes and presets
+
+You can seamlessly combine [`VibrationEffect.Envelope`](https://developer.android.com/reference/android/os/VibrationEffect.Envelope) instances (created
+using [`BasicEnvelopeBuilder`](https://developer.android.com/reference/android/os/VibrationEffect.BasicEnvelopeBuilder) or [`WaveformEnvelopeBuilder`](https://developer.android.com/reference/android/os/VibrationEffect.WaveformEnvelopeBuilder)) with
+presets to create rich, multi-segment haptic patterns.
+
+Here is an example that plays a smooth ramp-up and fade-out envelope followed by
+a sharp click preset:
+
+### Kotlin
+
+    val basicEnvelope = VibrationEffect.Envelope.create(
+        VibrationEffect.BasicEnvelopeBuilder()
+            .setInitialSharpness(0.0f)
+            .addControlPoint(1.0f, 1.0f, 300L)
+            .addControlPoint(0.0f, 0.5f, 100L)
+    )
+    val clickPreset = VibrationEffect.Preset.create(
+        VibrationEffect.Preset.PRESET_CLICK, 0.9f
+    )
+
+    val mixedEffect = VibrationEffect.Builder()
+        .addEnvelope(/* startTimeMillis= */ 0L, basicEnvelope)
+        .addPreset(/* startTimeMillis= */ 450L, clickPreset)
+        .build()
+
+    vibrator.vibrate(mixedEffect)
+
+### Java
+
+    VibrationEffect.Envelope basicEnvelope = VibrationEffect.Envelope.create(
+        new VibrationEffect.BasicEnvelopeBuilder()
+            .setInitialSharpness(0.0f)
+            .addControlPoint(1.0f, 1.0f, 300L)
+            .addControlPoint(0.0f, 0.5f, 100L)
+    );
+    VibrationEffect.Preset clickPreset = VibrationEffect.Preset.create(
+        VibrationEffect.Preset.PRESET_CLICK, 0.9f
+    );
+
+    VibrationEffect mixedEffect = new VibrationEffect.Builder()
+        .addEnvelope(/* startTimeMillis= */ 0L, basicEnvelope)
+        .addPreset(/* startTimeMillis= */ 450L, clickPreset)
+        .build();
+
+    vibrator.vibrate(mixedEffect);
+
+### Reuse and shift existing events
+
+To reuse or concatenate an existing `VibrationEffect` (including
+`VibrationEffect.Composition`), retrieve its list of
+[`VibrationEffect.Event`](https://developer.android.com/reference/android/os/VibrationEffect.Event) objects using `getEvents()` and append them with
+an offset using `addEvents(startTimeShiftMillis, events)` (or pass the effect
+directly to the `VibrationEffect.Builder(effect)` constructor). When importing
+`VibrationEffect.Composition` instances this way, the framework automatically
+converts their primitives into presets, enabling runtime fallback support.
+
+### Kotlin
+
+    val existingEffect = VibrationEffect.Builder()
+        .addPreset(
+            0L,
+            VibrationEffect.Preset.create(VibrationEffect.Preset.PRESET_CLICK)
+        )
+        .addPreset(
+            80L,
+            VibrationEffect.Preset.create(VibrationEffect.Preset.PRESET_TICK)
+        )
+        .build()
+
+    // Shift and append the existing events 200ms into the new composition.
+    val combinedEffect = VibrationEffect.Builder()
+        .addEvents(/* startTimeShiftMillis= */ 200L, existingEffect.events)
+        .build()
+
+    vibrator.vibrate(combinedEffect)
+
+### Java
+
+    VibrationEffect existingEffect = new VibrationEffect.Builder()
+        .addPreset(
+            0L,
+            VibrationEffect.Preset.create(VibrationEffect.Preset.PRESET_CLICK)
+        )
+        .addPreset(
+            80L,
+            VibrationEffect.Preset.create(VibrationEffect.Preset.PRESET_TICK)
+        )
+        .build();
+
+    // Shift and append the existing events 200ms into the new composition.
+    VibrationEffect combinedEffect = new VibrationEffect.Builder()
+        .addEvents(/* startTimeShiftMillis= */ 200L, existingEffect.getEvents())
+        .build();
+
+    vibrator.vibrate(combinedEffect);
+
+### Create repeating compositions
+
+Use `setRepeatingEffect(startTimeMillis, repeatingEffect, durationMillis)`
+to add a repeating pattern to a composition:
+
+### Kotlin
+
+    val repeatingPattern = VibrationEffect.Builder()
+        .addPreset(
+            0L,
+            VibrationEffect.Preset.create(
+                VibrationEffect.Preset.PRESET_CLICK, 1.0f
+            )
+        )
+        .addPreset(
+            150L,
+            VibrationEffect.Preset.create(
+                VibrationEffect.Preset.PRESET_LOW_TICK, 0.6f
+            )
+        )
+        .build()
+
+    val repeatingEffect = VibrationEffect.Builder()
+        .setRepeatingEffect(
+            /* startTimeMillis= */ 0L,
+            /* effect= */ repeatingPattern,
+            /* durationMillis= */ 300L
+        )
+        .build()
+
+    vibrator.vibrate(repeatingEffect)
+
+### Java
+
+    VibrationEffect repeatingPattern = new VibrationEffect.Builder()
+        .addPreset(
+            0L,
+            VibrationEffect.Preset.create(
+                VibrationEffect.Preset.PRESET_CLICK, 1.0f
+            )
+        )
+        .addPreset(
+            150L,
+            VibrationEffect.Preset.create(
+                VibrationEffect.Preset.PRESET_LOW_TICK, 0.6f
+            )
+        )
+        .build();
+
+    VibrationEffect repeatingEffect = new VibrationEffect.Builder()
+        .setRepeatingEffect(
+            /* startTimeMillis= */ 0L,
+            /* effect= */ repeatingPattern,
+            /* durationMillis= */ 300L
+        )
+        .build();
+
+    vibrator.vibrate(repeatingEffect);
+
+### Timing, validation, and drift management
+
+When designing compositions with `VibrationEffect.Builder`, keep the following
+timing and validation rules in mind:
+
+- **Strictly increasing start times:** Every element added to the builder must have a `startTimeMillis` that's strictly greater than or equal to the preceding element's start time.
+- **Build-time validation:** The builder performs best-effort validation at `build()` time using known element durations (or a 1 ms minimum for presets). If an impossible overlap is detected, it throws an `IllegalArgumentException`.
+- **Playback sequential shifting:** If a previous vibration element is still physically playing when the next element's start time arrives, the framework automatically shifts the next element to the earliest available time slot. This ensures that events don't overlap and no vibrations are dropped, though it may introduce slight timing drift if events are scheduled too close together. To minimize drift, allow sufficient time (e.g. 50 ms or more) between consecutive haptic events.
+
+## Create vibration primitives compositions
 
 > [!NOTE]
-> **Note:** See [Add haptics feedback to events](https://developer.android.com/develop/ui/views/haptics/haptic-feedback) for predefined haptic effects and how to use them.
+> **Note:** On Android 16 (26Q4) and higher, [`VibrationEffect.Builder`](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#composition-builder) is the preferred API for composing vibration effects. `VibrationEffect.Composition` was introduced in Android 11 and remains supported for compatibility with earlier Android versions.
 
-The process for [creating custom vibration patterns](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#custom_vibration_patterns), described previously on
-this page, explains how to control the vibration amplitude to create smooth
-effects of ramping up and down. Rich haptics improves on this concept by
-exploring the wider frequency range of the device vibrator to make the effect
-even smoother. These waveforms are especially effective at creating a crescendo
-or diminuendo effect.
+This section presents how to compose vibrations using
+[`VibrationEffect.Composition`](https://developer.android.com/reference/android/os/VibrationEffect.Composition). The composition [primitives](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#primitives), described
+earlier on this page, are implemented by the device manufacturer. They provide a
+crisp, short, and pleasant vibration that aligns with [haptics principles](https://developer.android.com/develop/ui/views/haptics/haptics-principles)
+for clear haptics. For more details about these capabilities and how they work,
+see [Vibration actuators primer](https://developer.android.com/develop/ui/views/haptics/actuators).
 
-The composition [primitives](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#primitives), described earlier on this page, are
-implemented by the device manufacturer. They provide a crisp, short, and
-pleasant vibration that aligns with [haptics principles](https://developer.android.com/develop/ui/views/haptics/haptics-principles) for clear haptics.
-For more details about these capabilities and how they work, see [Vibration
-actuators primer](https://developer.android.com/develop/ui/views/haptics/actuators).
-
-Android doesn't provide fallbacks for compositions with unsupported primitives.
-Therefore, perform the following steps:
+Unlike `VibrationEffect.Builder`, the `VibrationEffect.Composition` API
+doesn't have automatic fallbacks for unsupported primitives. Therefore:
 
 1. Before activating your advanced haptics, check that a given device supports
    all the primitives you're using.
@@ -233,10 +453,17 @@ Therefore, perform the following steps:
 2. Disable the consistent set of experiences that are unsupported, not just the
    effects that are missing a primitive.
 
-More information on how to check the device's support is shown in the following
-sections.
+> [!NOTE]
+> **Note:** On Android 16 (26Q4) and higher, you can enable automatic fallback for an existing `VibrationEffect.Composition` by converting it with `VibrationEffect.Builder`:
 
-### Create composed vibration effects
+- **Kotlin:** `val fallbackEffect = VibrationEffect.Builder(compositionEffect).build()` (or `.addEvents(0L, compositionEffect.events)`)
+- **Java:** `VibrationEffect fallbackEffect =` `new VibrationEffect.Builder(compositionEffect).build();` (or `.addEvents(0L, compositionEffect.getEvents())`)
+
+When constructed with `VibrationEffect.Builder`, the framework converts the
+composition primitives into presets and automatically provides runtime fallback
+if any primitive isn't supported on the user's device.
+
+### Composed vibration effects
 
 You can create composed vibration effects with
 [`VibrationEffect.Composition`](https://developer.android.com/reference/android/os/VibrationEffect.Composition). Here is an example of a slowly rising
@@ -980,7 +1207,7 @@ simulates a bouncing spring.
                     // "boing" effect.
                     .setInitialSharpness(0f)
 
-                    // Add a control point to reach the desired intensity and
+                    // Add a control point to reach the target intensity and
                     // sharpness very quickly.
                     .addControlPoint(intensity, sharpness, 20L)
 
@@ -1143,7 +1370,7 @@ simulates a rocket launch.
 
       vibrator.vibrate(
         VibrationEffect.WaveformEnvelopeBuilder()
-          // Quickly reach the desired output at the start frequency
+          // Quickly reach the target output at the start frequency
           .addControlPoint(0.1f, startFrequency, minDurationMs)
           .addControlPoint(0.1f, resonantFrequency, rampUpDurationMs)
           .addControlPoint(0.1f, startFrequency, rampDownDurationMs)
@@ -1153,3 +1380,104 @@ simulates a rocket launch.
           .build()
       )
     }
+
+### LavaBeats
+
+As in the [Rocket Launch](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#rocket-launch) example, the [`WaveformEnvelopeBuilder`](https://developer.android.com/reference/android/os/VibrationEffect.WaveformEnvelopeBuilder) API
+enables the design of many complex haptic effects by enabling the control of
+amplitude and frequency segments in a vibration. Another example of such a
+design is the emulation of more abstract physical sensations, such as
+"liveliness".
+
+This can be accomplished by representing biomarkers of a typical
+electrocardiogram (ECG) signal with vibration segments of certain amplitudes and
+frequencies. `LavaBeats` is an example where two characteristic segments of an
+ECG recording are represented as two pulses separated by a time delay. The
+first characteristic pulse is the QRS complex, which shows as a sharp peak of
+high amplitude and short duration. The second pulse is the T wave, which has
+lower amplitude, longer duration and a smoother shape (see Figure 7).
+
+Use the [`WaveformEnvelopeBuilder`](https://developer.android.com/reference/android/os/VibrationEffect.WaveformEnvelopeBuilder) to construct various repetitions of
+these two pulses separated by a fixed first-to-second pulse delay. The first
+pulse can be a chirp signal that starts at a low frequency and ends at a higher
+frequency over a short duration. The second pulse can be represented as a single
+period of a low frequency sinusoid. We can compose the two pulses into a beat,
+and repeat the composition several times with delay in-between, following a
+typical beats-per-minute (bpm) rate. The result is a haptic effect that
+resembles a beating heart.
+
+You can try `LavaBeats` in our [haptics sample app](https://github.com/android/platform-samples/tree/main/samples/user-interface/haptics) on GitHub and feel the
+effect accompanied by a lava-lamp visualization that beats at the same rhythm as
+the haptic effect. You can also change the settings of the effect to create
+different beating sensations by modifying the amplitudes, frequencies, durations
+and delays of the two pulses.
+![](https://developer.android.com/static/develop/ui/views/haptics/images/demo-portrait.svg) ![Lava lamp animation that beats with a haptic heartbeat pattern.](https://developer.android.com/static/develop/ui/views/haptics/images/lavabeats-demo.gif) ![Plot of an ECG segment and its characteristic waveforms](https://developer.android.com/static/develop/ui/views/haptics/images/lavabeats-design.png)
+
+**Figure 7.** A segment of an ECG recording
+with the QRS complex and the T wave
+
+    @RequiresApi(Build.VERSION_CODES.BAKLAVA)
+    private fun createEnvelopeEffect(
+    beatParameters: List<BeatParameter>
+    ):VibrationEffect =
+        VibrationEffect.WaveformEnvelopeBuilder()
+            .apply {
+                repeat(beatParameters.getNumBeats()) {
+                    // First pulse chirp
+                    addControlPoint(
+                        beatParameters.getFirstPulseAmplitude(),
+                        beatParameters.getFirstPulseStartFreq(),
+                        ENVELOPE_RAMP_DURATION_MILLIS,
+                    )
+                    addControlPoint(
+                        beatParameters.getFirstPulseAmplitude(),
+                        beatParameters.getFirstPulseEndFreq(),
+                        beatParameters.getFirstPulseDurationMillis().toLong(),
+                    )
+                    addControlPoint(
+                        0f,
+                        beatParameters.getFirstPulseEndFreq(),
+                        ENVELOPE_RAMP_DURATION_MILLIS,
+                    )
+
+                    // Delay between first and second pulse
+                    addControlPoint(
+                        0f,
+                        beatParameters.getFirstPulseEndFreq(),
+                        beatParameters.getFirstToSecondPulseDelayMillis().toLong(),
+                    )
+
+                    // Second pulse
+                    addControlPoint(
+                        beatParameters.getSecondPulseAmplitude(),
+                        beatParameters.getSecondPulseFreq(),
+                        ENVELOPE_RAMP_DURATION_MILLIS,
+                    )
+                    addControlPoint(
+                        beatParameters.getSecondPulseAmplitude(),
+                        beatParameters.getSecondPulseFreq(),
+                        (1_000 / (2f * beatParameters.getSecondPulseFreq())).toLong(),
+                    )
+                    addControlPoint(
+                        0f,
+                        beatParameters.getSecondPulseFreq(),
+                        ENVELOPE_RAMP_DURATION_MILLIS,
+                    )
+                    addControlPoint(
+                        0f,
+                        beatParameters.getSecondPulseFreq(),
+                        beatParameters.getBeatDelayMillis().toLong(),
+                    )
+                }
+            }
+            .build()
+
+    /** A parameter of a haptic beat effect that represents an ECG signal parameter */
+    @Stable
+    data class BeatParameter(
+        val description: String = "",
+        val value: Float = 0f,
+        val range: ClosedFloatingPointRange<Float> = 0f..1f,
+        val steps: Int = 0,
+        val isFrequencyType: Boolean = false,
+    )

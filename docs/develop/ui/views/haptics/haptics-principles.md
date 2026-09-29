@@ -4,6 +4,13 @@ url: https://developer.android.com/develop/ui/views/haptics/haptics-principles
 source: md.txt
 ---
 
+This document explains the principles of haptic feedback on Android devices,
+covering use cases, classifications of haptic effects (clear, rich, and
+buzzy), and essential design guidelines for app developers.
+keywords_public: \>
+haptics, vibration, feedback, Android, UI, UX, design, principles, guidelines,
+HapticFeedbackConstants
+
 When it comes to haptic feedback on mobile devices, less is more. Too much
 vibration can be annoying and even numbing to the hands, as the device is
 usually in-hand with the user's full attention. It can also be distracting from
@@ -138,7 +145,7 @@ Also be consistent with the Android system by using the same
 [`HapticFeedbackConstants`](https://developer.android.com/reference/android/view/HapticFeedbackConstants) for well defined interactions, like time pickers or
 virtual keyboards.
 
-### Design visual and audio experience together with haptics
+### Design visual and audio experiences with haptics
 
 Consider haptics as part of the total user experience.
 

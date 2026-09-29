@@ -26,7 +26,7 @@ attached to a
 the `Snackbar` gains additional features:
 
 - The user can dismiss the `Snackbar` by swiping it away.
-- The layout moves other UI elements when the `Snackbar` appears. For example, if the layout has a `https://developer.android.com/reference/com/google/android/material/floatingactionbutton/FloatingActionButton`, the layout moves the button up when it shows a `Snackbar`, instead of drawing the `Snackbar` on top of the button. You can see how this looks in figure 1.
+- The layout moves other UI elements when the `Snackbar` appears. For example, if the layout has a `https://developer.android.com/reference/com/google/android/material/floatingactionbutton/FloatingActionButton`, the layout moves the button up when it shows a `Snackbar`, instead of drawing the `Snackbar` on top of the button. You can see how this looks in Figure 1.
 
 The `CoordinatorLayout` class provides a superset of the
 functionality of
@@ -38,10 +38,9 @@ elements in a `CoordinatorLayout`, as shown in the following
 example:
 
 ```xml
-<android.support.design.widget.CoordinatorLayout
-    android:id="@+id/myCoordinatorLayout"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/myCoordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -56,7 +55,7 @@ example:
 
     </LinearLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 ```
 
 Set an `android:id` tag for your `CoordinatorLayout`.
@@ -81,16 +80,8 @@ Create a `Snackbar` object by calling the static
 method. When you create the `Snackbar`, specify the message it
 displays and the length of time to show the message:
 
-### Kotlin
-
 ```kotlin
 val mySnackbar = Snackbar.make(view, stringId, duration)
-```
-
-### Java
-
-```java
-Snackbar mySnackbar = Snackbar.make(view, stringId, duration);
 ```
 
 
@@ -112,7 +103,7 @@ stringId
 duration
 :
     The length of time to show the message. This can be
-    `https://developer.android.com/reference/com/google/android/material/snackbar/BaseTransientBottomBar#LENGTH_SHORT)`
+    `https://developer.android.com/reference/com/google/android/material/snackbar/BaseTransientBottomBar#LENGTH_SHORT`
     or
     `https://developer.android.com/reference/com/google/android/material/snackbar/BaseTransientBottomBar#LENGTH_LONG`.
 
@@ -121,16 +112,8 @@ duration
 After you create the `Snackbar`, call its `show()`
 method to display the `Snackbar` to the user:
 
-### Kotlin
-
 ```kotlin
 mySnackbar.show()
-```
-
-### Java
-
-```java
-mySnackbar.show();
 ```
 
 The system doesn't show multiple `Snackbar` objects at the same
@@ -144,20 +127,10 @@ reference to the `Snackbar` after you call `show()`. For
 this reason, it's common to use method chaining to create and show a
 `Snackbar` in one statement:
 
-### Kotlin
-
 ```kotlin
 Snackbar.make(
-        findViewById(R.id.myCoordinatorLayout),
-        R.string.email_sent,
-        Snackbar.LENGTH_SHORT
+    findViewById(R.id.myCoordinatorLayout),
+    R.string.email_sent,
+    Snackbar.LENGTH_SHORT
 ).show()
-```
-
-### Java
-
-```java
-Snackbar.make(findViewById(R.id.myCoordinatorLayout), R.string.email_sent,
-                        Snackbar.LENGTH_SHORT)
-        .show();
 ```

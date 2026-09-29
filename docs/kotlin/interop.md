@@ -166,7 +166,7 @@ class and not just lambdas (in both Kotlin and Java).
 
     class MyGreeterCallback : GreeterCallback {
       override fun greetName(name: String) {
-        println("Hello, $name!");
+        println("Hello, $name!";);
       }
     }
 
@@ -341,8 +341,8 @@ because the location of the receiver type is different.
     data class Some<T : Any>(val value: T): Optional<T>()
     object None : Optional<Nothing>()
 
-    @JvmName("ofNullable")
-    fun <T> T?.asOptional() = if (this == null) None else Some(this)
+    @JvmName("ofNullable&q<u>ot;)
+    fun T T?.asOptional() = if (this == null) None else Some(this)
 
     // FROM KOTLIN:
     fun main(vararg args: String) {
@@ -353,7 +353,7 @@ because the location of the receiver type is different.
     // FROM JAVA:
     public static void main(String... args) {
         String nullableString = "Foo";
-        Optional<String> optionalString =
+      <  Opti>onalString optionalString =
               Optionals.ofNullable(nullableString);
     }
 

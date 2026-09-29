@@ -96,7 +96,7 @@ Android Studio integrates natively with Google Cloud Enterprise controls, offeri
 
 By logging in with your enterprise Google Cloud credentials, your organization inherits Google Cloud's industry-standard data privacy protections, ensuring your proprietary source code and prompt data are never used for model training. ![](http://developer.android.com/static/images/picto-icons/monetize.svg)
 
-### Flexibile
+### Flexible
 
 Gemini Enterprise provides flexible per seat costs with admin management for quota and overages, and still gives your team the flexibility to use other models as needed for your workflow.
 

@@ -35,11 +35,6 @@ For more information, see [Media projection](https://developer.android.com/media
 
 ## Capture video
 
-See the
-[ScreenCapture sample app](https://github.com/android/media-samples/tree/main/ScreenCapture)
-to learn how to learn how to use Media Projection API to capture a device's
-screen in real time and show it on a SurfaceView.
-
 You can use the [`DevicePolicyManager`](https://developer.android.com/reference/android/app/admin/DevicePolicyManager)
 to prevent screen recording. For enterprise accounts (Android for Work), the
 administrator can disable the collection of assistant data for the work profile
@@ -89,10 +84,10 @@ kinds of app can record its own playback.
 An app can limit which audio it can capture by using these
 methods:
 
-- Pass an `AUDIO_USAGE` to [AudioPlaybackCaptureConfiguration.addMatchingUsage()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.addMatchingUsage(int)) to permit capturing a specific usage. Call the method multiple times to specify more than one usage.
-- Pass an `AUDIO_USAGE` to [AudioPlaybackCaptureConfiguration.excludeUsage()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.excludeUsage(int)) to forbid capturing that usage. Call the method multiple times to specify more than one usage.
-- Pass a UID to [AudioPlaybackCaptureConfiguration.addMatchingUid()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.addMatchingUid(int)) to only capture apps with a specific UID. Call the method multiple times to specify more than one UID.
-- Pass a UID to [AudioPlaybackCaptureConfiguration.excludeUid()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.excludeUid(int)) to forbid capturing that UID. Call the method multiple times to specify more than one UID.
+- Pass an `AUDIO_USAGE` to [AudioPlaybackCaptureConfiguration.Builder.addMatchingUsage()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.Builder#addMatchingUsage(int)) to permit capturing a specific usage. Call the method multiple times to specify more than one usage.
+- Pass an `AUDIO_USAGE` to [AudioPlaybackCaptureConfiguration.excludeUsage()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.Builder#excludeUsage(int)) to forbid capturing that usage. Call the method multiple times to specify more than one usage.
+- Pass a UID to [AudioPlaybackCaptureConfiguration.addMatchingUid()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.Builder#addMatchingUid(int)) to only capture apps with a specific UID. Call the method multiple times to specify more than one UID.
+- Pass a UID to [AudioPlaybackCaptureConfiguration.excludeUid()](https://developer.android.com/reference/android/media/AudioPlaybackCaptureConfiguration.Builder#excludeUid(int)) to forbid capturing that UID. Call the method multiple times to specify more than one UID.
 
 Note that you cannot use the `addMatchingUsage()` and `excludeUsage()` methods
 together. You must choose one or the other. Likewise, you cannot use `addMatchingUid()` and `excludeUid()`
@@ -118,7 +113,7 @@ which allows other apps to capture playback. This can be done in a number of way
 
 - To enable capture on all players, include `android:allowAudioPlaybackCapture="true"` in the app's `manifest.xml` file.
 - You can also enable capture on all players by calling [`AudioManager.setAllowedCapturePolicy(AudioAttributes.ALLOW_CAPTURE_BY_ALL)`](https://developer.android.com/reference/android/media/AudioManager#setAllowedCapturePolicy(int)).
-- You can set the policy on an individual player when you build it using [`AudioAttributes.Builder.setAllowedCapturePolicy(AudioAttributes.ALLOW_CAPTURE_BY_ALL)`](https://developer.android.com/reference/android/media/AudioAttributes.Builder#setAllowedCapturePolicy(int)). (If you are using [`AAudio`](https://developer.android.com/ndk/guides/audio/aaudio/aaudio) call [`AAudioStreamBuilder_setAllowedCapturePolicy(AAUDIO_ALLOW_CAPTURE_BY_ALL)`](https://developer.android.com/ndk/reference/group/audio#aaudiostreambuilder_setAllowedCapturePolicy).)
+- You can set the policy on an individual player when you build it using [`AudioAttributes.Builder.setAllowedCapturePolicy(AudioAttributes.ALLOW_CAPTURE_BY_ALL)`](https://developer.android.com/reference/android/media/AudioAttributes.Builder#setAllowedCapturePolicy(int)). (If you are using [`AAudio`](https://developer.android.com/ndk/guides/audio/aaudio/aaudio) call [`AAudioStreamBuilder_setAllowedCapturePolicy(AAUDIO_ALLOW_CAPTURE_BY_ALL)`](https://developer.android.com/ndk/reference/group/audio#aaudiostreambuilder_setallowedcapturepolicy).)
 
 If these prerequisites are met, any audio produced by the player can be captured.
 

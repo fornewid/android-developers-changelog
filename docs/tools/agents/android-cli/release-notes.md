@@ -12,6 +12,13 @@ This page lists the new features in every Android CLI release. To download
 Android CLI, go to the [download page](https://developer.android.com/tools/agents). To learn more,
 see the [Android CLI overview](https://developer.android.com/tools/agents/android-cli).
 
+## Version 1.0.16457483 (September 2026)
+
+- **Sign in to Google services** : With `android auth login` sign Android CLI in to your Google account so that it can call the Google services that require authentication.
+- **Remote device catalog** : Find the Google Cloud projects you can stream devices from with `android device remote projects`, and browse the available physical devices with `android device remote models`.
+- **Remote device reservations** : Reserve a remote physical device with `android device remote create`, then manage your reservations with `list`, `extend --duration <minutes>`, and `remove`.
+- **Connect to remote devices** : Use `android device remote connect` to attach a reserved device to `adb` through a background connection, so it works with `android run`, `android install`, and other device commands like a local device. Use `android device remote disconnect` to detach it.
+
 ## Version 1.0.16406183 (September 2026)
 
 - **Faster startup**: Android CLI starts about twice as fast because the native downloader library is loaded only when it is used and is no longer unpacked to a temporary directory on every invocation.

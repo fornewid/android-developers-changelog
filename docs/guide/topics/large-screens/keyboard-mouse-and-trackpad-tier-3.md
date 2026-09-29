@@ -9,7 +9,7 @@ source: md.txt
 TIER 3 --- Adaptive ready
 
 > [!NOTE]
-> **Objective:** Make your app [adaptive ready](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3) by meeting the [Keyboard_Input](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3#Keyboard_Input) and [Mouse_Trackpad_Basic](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3#Mouse_Trackpad_Basic) requirements of the [Adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/includes/adaptive-app-quality).
+> **Objective:** Make your app [adaptive ready](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3) by meeting the [Keyboard_Input](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3#Keyboard_Input) and [Mouse_Trackpad_Basic](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality/tier-3#Mouse_Trackpad_Basic) requirements of the [Adaptive app quality guidelines](https://developer.android.com/docs/quality-guidelines/adaptive-app-quality).
 
 Large screen devices often include a keyboard, mouse, or trackpad for enhanced
 user input and interactivity.

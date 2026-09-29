@@ -117,7 +117,7 @@ activity layout for TV that you use for phones and tablets. For guidelines on de
 ### Declare TV device support
 
 
-Declare that your app is for built for Android TV by declaring the
+Declare that your app is built for Android TV by declaring the
 `android.software.leanback` feature.
 
 

@@ -20,20 +20,25 @@ To implement a basic scrollable list, use the standard lazy components. These
 components automatically handle D-pad navigation and bring the focused item into
 view.
 
-    import androidx.compose.foundation.lazy.LazyRow
-    import androidx.compose.foundation.lazy.items
 
-    @Composable
-    fun MovieCatalog(movies: List<Movie>) {
-        LazyRow {
-            items(movies) { movie ->
-                MovieCard(
-                    movie = movie,
-                    onClick = { /* Handle click */ }
-                )
-            }
+```kotlin
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
+
+@Composable
+fun MovieCatalog(movies: List<Movie>) {
+    LazyRow {
+        items(movies) { movie ->
+            MovieCard(
+                movie = movie,
+                onClick = { /* Handle click */ }
+            )
         }
     }
+}
+```
+
+<br />
 
 ## Customize scroll behavior with `BringIntoViewSpec`
 
@@ -50,81 +55,96 @@ child fractions. The `parentFraction` determines where in the container the item
 should land, and the `childFraction` determines which part of the item aligns
 with that point.
 
-    @OptIn(ExperimentalFoundationApi::class)
-    @Composable
-    fun PositionFocusedItemInLazyLayout(
-        parentFraction: Float = 0.3f,
-        childFraction: Float = 0f,
-        content: @Composable () -> Unit,
-    ) {
-        val bringIntoViewSpec = remember(parentFraction, childFraction) {
-            object : BringIntoViewSpec {
-                override fun calculateScrollDistance(
-                    offset: Float,       // Item's initial position
-                    size: Float,         // Item's size
-                    containerSize: Float // Container's size
-                ): Float {
-                    // Calculate the offset position of the item's leading edge.
-                    val initialTargetForLeadingEdge =
-                        parentFraction * containerSize - (childFraction * size)
-                    // If the item fits in the container, and scrolling would cause
-                    // its trailing edge to be clipped, adjust targetForLeadingEdge
-                    // to prevent over-scrolling near the end of list.
-                    val targetForLeadingEdge = if (size <= containerSize &&
-                        (containerSize - initialTargetForLeadingEdge) < size) {
-                        // If clipped, align the item's trailing edge with the
-                        // container's trailing edge.
-                        containerSize - size
-                    } else {
-                        initialTargetForLeadingEdge
-                    }
-                    // Return scroll distance relative to initial item position.
-                    return offset - targetForLeadingEdge
+
+```kotlin
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun PositionFocusedItemInLazyLayout(
+    parentFraction: Float = 0.3f,
+    childFraction: Float = 0f,
+    content: @Composable () -> Unit,
+) {
+    val bringIntoViewSpec = remember(parentFraction, childFraction) {
+        object : BringIntoViewSpec {
+            override fun calculateScrollDistance(
+                offset: Float,       // Item's initial position
+                size: Float,         // Item's size
+                containerSize: Float // Container's size
+            ): Float {
+                // Calculate the offset position of the item's leading edge.
+                val initialTargetForLeadingEdge =
+                    parentFraction * containerSize - (childFraction * size)
+                // If the item fits in the container, and scrolling would cause
+                // its trailing edge to be clipped, adjust targetForLeadingEdge
+                // to prevent over-scrolling near the end of list.
+                val targetForLeadingEdge = if (size <= containerSize &&
+                    (containerSize - initialTargetForLeadingEdge) < size) {
+                    // If clipped, align the item's trailing edge with the
+                    // container's trailing edge.
+                    containerSize - size
+                } else {
+                    initialTargetForLeadingEdge
                 }
+                // Return scroll distance relative to initial item position.
+                return offset - targetForLeadingEdge
             }
         }
-
-        // Apply the spec to all scrollables in the hierarchy
-        CompositionLocalProvider(
-            LocalBringIntoViewSpec provides bringIntoViewSpec,
-            content = content,
-        )
     }
+
+    // Apply the spec to all scrollables in the hierarchy
+    CompositionLocalProvider(
+        LocalBringIntoViewSpec provides bringIntoViewSpec,
+        content = content,
+    )
+}
+```
+
+<br />
 
 ### 2. Apply the custom spec
 
 Wrap your layouts with the helper to apply the positioning. This is useful for
 creating a "consistent focus line" across different rows of your catalog.
 
-    PositionFocusedItemInLazyLayout(
-        parentFraction = 0.3f, // Pivot 30% from the edge
-        childFraction = 0.5f   // Center of the item aligns with the pivot
-    ) {
-        LazyColumn {
-            items(sectionList) { section ->
-                // This row and its items will respect the 30% pivot
-                LazyRow { ... }
-            }
+
+```kotlin
+PositionFocusedItemInLazyLayout(
+    parentFraction = 0.3f, // Pivot 30% from the edge
+    childFraction = 0.5f   // Center of the item aligns with the pivot
+) {
+    LazyColumn {
+        items(sectionList) { section ->
+            // This row and its items will respect the 30% pivot
+            LazyRow { /* ... */ }
         }
     }
+}
+```
+
+<br />
 
 ### 3. Opt-out for specific nested layouts
 
 If you have a specific nested layout that should use standard scrolling behavior
 instead of your custom pivot, provide the `DefaultBringIntoViewSpec`:
 
-    private val DefaultBringIntoViewSpec = object : BringIntoViewSpec {}
 
-    PositionFocusedItemInLazyLayout {
-        LazyColumn {
-            item {
-                // This row will ignore the custom pivot and use default behavior
-                CompositionLocalProvider(LocalBringIntoViewSpec provides DefaultBringIntoViewSpec) {
-                    LazyRow { ... }
-                }
+```kotlin
+private val DefaultBringIntoViewSpec = object : BringIntoViewSpec {}
+
+PositionFocusedItemInLazyLayout {
+    LazyColumn {
+        item {
+            // This row will ignore the custom pivot and use default behavior
+            CompositionLocalProvider(LocalBringIntoViewSpec provides DefaultBringIntoViewSpec) {
+                LazyRow { /* ... */ }
             }
         }
     }
+}
+```
+
+<br />
 
 In effect, by passing an empty `BringIntoViewSpec` enables the framework's
 default behavior to take over.

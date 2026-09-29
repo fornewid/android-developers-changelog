@@ -895,7 +895,7 @@ Here are the system requirements for Linux:
 | CPU | Virtualization support Required (Intel VT-x or AMD-V, enabled in BIOS). CPU microarchitecture after 2017 [Intel 8th Gen Core](https://www.intel.com/content/www/us/en/processors/processor-numbers.html) i5 / AMD Zen Ryzen (e.g., Intel i5-8xxx, Ryzen 1xxx). | Virtualization support Required (Intel VT-x or AMD-V, enabled in BIOS). Latest CPU microarchitecture Look for CPUs from the Intel Core i5, i7, or i9 series and or the suffixes H/HK/HX for laptop or suffixes S/F/K for desktop, or the AMD Ryzen 5, 6, 7, or 9 series. Please be aware that Intel Core N-Series and U-Series processors are not recommended due to insufficient performance. |
 | Disk space | **Studio:** 8 GB of free space. **Studio \& Emulator:** 16GB of free space. | Solid state drive with 32 GB or more |
 | Screen resolution | 1280 x 800 | 1920 x 1080 |
-| GPU | **Studio:** None **Studio \& Emulator:** GPU with 4GB VRAM such as Nvidia Geforce 10 series or newer, or AMD Radeon RX 5000 or newer with the latest drivers | GPU with 8GB VRAM uch as Nvidia Geforce 20 series or newer, or AMD Radeon RX 6600 or newer with the latest drivers |
+| GPU | **Studio:** None **Studio \& Emulator:** GPU with 4GB VRAM such as Nvidia Geforce 10 series or newer, or AMD Radeon RX 5000 or newer with the latest drivers | GPU with 8GB VRAM such as Nvidia Geforce 20 series or newer, or AMD Radeon RX 6600 or newer with the latest drivers |
 
 To install Android Studio on Linux, follow these steps:
 

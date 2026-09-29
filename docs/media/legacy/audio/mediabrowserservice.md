@@ -185,7 +185,7 @@ allows specific connections, see the [PackageValidator](https://github.com/andro
 You should consider providing different content hierarchies depending on
 what type of client is making the query. In particular, Android Auto limits how
 users interact with audio apps. For more information, see [Playing Audio for
-Auto](https://developer.android.com/training/auto/audio/index.html#build_hierarchy). You
+Auto](https://developer.android.com/training/cars/media/create-media-browser/content-hierarchy). You
 can look at the `clientPackageName` at connection time to determine the client
 type, and return a different `BrowserRoot` depending on the client (or `rootHints`
 if any).

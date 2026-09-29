@@ -12,7 +12,7 @@ and PCs have the following baseline quality requirements:
 | x86-64 | Not required | Not required | Recommended | Recommended | Required |
 | Support resizability, different window sizes, and aspect ratios | Resizability support recommended | Required | [Portrait and landscape support required](https://developer.android.com/docs/quality-guidelines/car-app-quality?category=game#DO-1) | Resizability support recommended | Support any or all of the following aspect ratios: 16:9, 16:10, 3:2, 21:9 or a portrait aspect ratio of 9:16 |
 | Maintain game state without restarting on configuration change (for example, resize, rotate, or fold or unfold) | Required Support for foldable postures recommended | Required | Required | Required: resize, rotate, keyboard change | N/A |
-| Remove unsupported features and permissions | [Recommended](https://android-developers.googleblog.com/2023/12/increase-your-apps-availability-across-device-types.html) In particular, for maximum tablet device reach, do not require: - `android.hardware.camera.autofocus` - `android.hardware.camera.flash` - `android.hardware.location.gps` | N/A | [Required](https://developer.android.com/training/cars/parked/automotive-os#config-manifest) | [Required](https://developer.android.com/topic/arc/manifest?unsupported-hardware-features#unsupported-hardware-features) | [Required](https://developer.android.com/games/playgames/pc-compatibility#unsupported-android-features) |
+| Remove unsupported features and permissions | [Recommended](https://android-developers.googleblog.com/2023/12/increase-your-apps-availability-across-device-types.html) In particular, for maximum tablet device reach, don't require: - `android.hardware.camera.autofocus` - `android.hardware.camera.flash` - `android.hardware.location.gps` | N/A | [Required](https://developer.android.com/training/cars/parked/automotive-os#config-manifest) | [Required](https://developer.android.com/topic/arc/manifest?unsupported-hardware-features#unsupported-hardware-features) | [Required](https://developer.android.com/games/playgames/pc-compatibility#unsupported-android-features) |
 | Game controls, visuals, and performance don't detract from playability (for example, not blurry or unreadable, all UI usable) | Required | Required | Required | Required | Required |
 | Mouse and keyboard support | Recommended | Optional | Optional | Required if the game cannot be played with single-touch input | Required if the game cannot be played with single-touch input |
 | Game controller support | Recommended | [Recommended](https://developer.android.com/training/cars/parked/games#game-controllers) | [Recommended](https://developer.android.com/training/cars/parked/games#game-controllers) | Recommended | Recommended |
@@ -22,7 +22,7 @@ and PCs have the following baseline quality requirements:
 
 ## Include x86-64 ABI architecture
 
-Add x86-64 ABI compatible versions to all the libraries included in your game to ensure the best performance and stability on form factors such as Android Automotive OS cars, ChromeOS devices, and [Google Play Games on PC](https://developer.android.com/games/playgames/pc-compatibility#x86-requirement).
+Add x86-64-compatible ABI versions to all the libraries included in your game to ensure the best performance and stability on form factors such as Android Automotive OS cars, ChromeOS devices, and [Google Play Games on PC](https://developer.android.com/games/playgames/pc-compatibility#x86-requirement).
 
 Google has worked with game engine and 3rd-party library providers to ensure device support. You should be able to implement an x86_64 version of your game with minimal work.
 
@@ -50,9 +50,11 @@ For more information about manifest compatibility, see the following:
 - ChromeOS: [App manifest compatibility for Chromebooks](https://developer.android.com/topic/arc/manifest)
 - Google Play Games on PC: [PC compatibility and optimization for Google Play Games on PC](https://developer.android.com/games/playgames/pc-compatibility#unsupported-android-features)
 
-A common challenge is that many games request `android.hardware.wifi` just to check whether a player is on a metered network but could instead use the `ConnectivityManager` API without requesting any extra permissions (see [Monitor connectivity status and connection metering](https://developer.android.com/training/monitoring-device-state/connectivity-status-type)).
+A common challenge is that many games request `android.hardware.wifi` only to check whether a player is on a metered network but could instead use the `ConnectivityManager` API without requesting any extra permissions (see [Monitor connectivity status and connection metering](https://developer.android.com/training/monitoring-device-state/connectivity-status-type)).
 
 ## Use Google Play Developer Console to help distribution
+
+You can use Google Play Console to filter metrics by form factor, check device compatibility in the device catalog, and manage form factor release tracks.
 
 ### Form factor filter
 
@@ -67,7 +69,7 @@ For example, you can filter "Chromebook" in Android vitals to find out your cras
 
 ### Device catalog
 
-[Device catalog](https://play.google.com/console/about/devicecatalog/) is a useful tool for finding out compatible devices and unsupported devices for your game. Use the form factor filter to find out what devices are unsupported and why. After going to the device detail page, click **Show more** to check the exact reasons why your games are not supported on certain devices, for example:
+[Device catalog](https://play.google.com/console/about/devicecatalog/) is a useful tool for finding out compatible devices and unsupported devices for your game. Use the form factor filter to find out what devices are unsupported and why. After going to this device detail page, click **Show more** to check the exact reasons why your games aren't supported on certain devices, for example:
 
 - Unsupported ABI
 - Unsupported features and permissions
@@ -83,12 +85,21 @@ You can choose to create a [dedicated release track](https://support.google.com/
 
 ## Use Android App Bundles to manage different features
 
-[An Android App Bundle](https://developer.android.com/guide/app-bundle)is a publishing format that includes all your app's compiled code and resources and defers APK generation and signing to Google Play.
+[An Android App Bundle](https://developer.android.com/guide/app-bundle) is a publishing format that includes all your app's compiled code and resources and defers APK generation and signing to Google Play.
 
-Supporting different form factors often requires specific ABIs, assets, libraries, or code paths for different form factors. You can take advantage of [Play Feature Delivery](https://developer.android.com/guide/playcore/feature-delivery), which allows you to add *feature modules* to your project. The modules contain features and resources that are only included with your app based on conditions that you specify or are available later at runtime for download using the [Play Core libraries](https://developer.android.com/guide/playcore).
+Supporting different form factors often requires specific ABIs, assets, libraries, or code paths for different form factors. You can take advantage of [Play Feature Delivery](https://developer.android.com/guide/playcore/feature-delivery), which lets you add *feature modules* to your project. The modules contain features and resources that are only included with your app based on conditions that you specify or are available later at runtime for download using the [Play Core libraries](https://developer.android.com/guide/playcore).
 
 You can also use [Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery), Google Play's solution for delivering large amounts of game assets with flexible delivery methods and high performance.
 
 > [!NOTE]
 > **Note:** For apps that target Android 16 (API level 36), the system ignores screen orientation, aspect ratio, and app resizablility restrictions to improve the layout of apps on form factors with smallest width \>= 600dp. See [App
 > orientation, aspect ratio, and resizability](https://developer.android.com/develop/ui/compose/layouts/adaptive/app-orientation-aspect-ratio-resizability).
+
+## Explore games by form factor
+
+- [Android Auto](https://play.google.com/store/apps/streamchild/promotion_apps_beto__games_on_android_auto__collection)
+- [Android Automotive OS](https://play.google.com/store/apps/streamchild/promotion_apps_beto_games_on_android_automotive_os_collection)
+- [TV](https://play.google.com/store/apps/collection/promotion_3000e24_androidtv_games_all)
+- [XR](https://play.google.com/store/games?device=xr)
+- [Google Play Games on PC](https://play.google.com/store/games?device=windows)
+- [Tablets](https://play.google.com/store/games?device=tablet)

@@ -4,12 +4,18 @@ url: https://developer.android.com/develop/ui/compose/touch-input/focus/react-to
 source: md.txt
 ---
 
-## Provide visual cues for easier focus visualization
+Every time focus changes across the composition tree, Compose fires a focus
+event that parent and child modifiers can observe. You can use the
+[`onFocusChanged`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary#(androidx.compose.ui.Modifier).onFocusChanged(kotlin.Function1)) modifier to listen for focus state transitions, query current
+focus properties, and trigger state-driven UI updates.
 
-While all the focusable elements from Material Theme already have a focus style
-that matches the theme, you might need to add some visual elements to make the
-focused element easier to spot. A good solution would be to change the border of
-your element with a color that has a good contrast with the background:
+## Observe focus state with onFocusChanged
+
+The [`onFocusChanged`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/package-summary#(androidx.compose.ui.Modifier).onFocusChanged(kotlin.Function1)) modifier provides a [`FocusState`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusState) object whenever an
+element gains or loses focus.
+
+For example, you can observe focus changes to update custom component state
+(such as changing an element's border color or triggering an animation):
 
 
 ```kotlin
@@ -25,102 +31,31 @@ Card(
 
 <br />
 
-In this example, `remember` is used to store the color of the border across
-recompositions, and the outline of the element is updated every time the element
-gains or loses focus.
+In this example, `remember` stores the border color across recompositions, and
+the border color updates whenever the element's focus state transitions.
 
-### Implement advanced visual cues
+> [!NOTE]
+> **Note:** For standard Material 3 focus indications (such as ripples or focus rings), see [Indicate focus state](https://developer.android.com/develop/ui/compose/touch-input/focus/focused-state).
 
-With Jetpack Compose, you can also create more sophisticated and advanced visual
-cues that match better with your UI.
+## FocusState properties
 
-1. First, create an `IndicationInstance` that visually draws the cue you want in your UI:
+The [`FocusState`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusState) object passed to `onFocusChanged` provides three key
+properties:
 
-   ```kotlin
-   private class MyHighlightIndicationNode(private val interactionSource: InteractionSource) :
-       Modifier.Node(), DrawModifierNode {
-       private var isFocused = false
+- **[`isFocused`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusState#isFocused())** : Returns `true` if the specific composable to which this modifier is attached currently holds active input focus.
+- **[`hasFocus`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusState#hasFocus())** : Returns `true` if this composable or any of its child composables currently has focus. This is useful for parent containers (like cards or toolbars) that need to know when any child within them is active.
+- **[`isCaptured`](https://developer.android.com/reference/kotlin/androidx/compose/ui/focus/FocusState#isCaptured())** : Returns `true` if focus is currently locked to the element (for example, during modal sub-interactions using `captureFocus()`). While captured, attempting to move focus to other elements don't clear focus.
 
-       override fun onAttach() {
-           coroutineScope.launch {
-               var focusCount = 0
-               interactionSource.interactions.collect { interaction ->
-                   when (interaction) {
-                       is FocusInteraction.Focus -> focusCount++
-                       is FocusInteraction.Unfocus -> focusCount--
-                   }
-                   val focused = focusCount > 0
-                   if (isFocused != focused) {
-                       isFocused = focused
-                       invalidateDraw()
-                   }
-               }
-           }
-       }
-
-       override fun ContentDrawScope.draw() {
-           drawContent()
-           if (isFocused) {
-               drawRect(size = size, color = Color.White, alpha = 0.2f)
-           }
-       }
-   }
-   ```
-2. Next, create an `Indication` and remember the focused state:
-
-   ```kotlin
-   object MyHighlightIndication : IndicationNodeFactory {
-       override fun create(interactionSource: InteractionSource): DelegatableNode {
-           return MyHighlightIndicationNode(interactionSource)
-       }
-
-       override fun hashCode(): Int = -1
-
-       override fun equals(other: Any?) = other === this
-   }
-   ```
-3. Add both the `Indication` and an `InteractionSource` to the UI, via the `indication()` modifier:
-
-   ```kotlin
-   var interactionSource = remember { MutableInteractionSource() }
-
-   Card(
-       modifier = Modifier
-           .clickable(
-               interactionSource = interactionSource,
-               indication = MyHighlightIndication,
-               enabled = true,
-               onClick = { }
-           )
-   ) {
-       Text("hello")
-   }
-   ```
-
-## Understand the state of the focus
-
-Generally, every time a state of the focus changes, a `FocusEvent` is fired up
-the tree, and the parents of a `focusable()` modifier can listen to it using the
-`onFocusChanged()` modifier.
-
-If you need to know the state of the focus,you can use these APIs in conjunction
-with the `onFocusChanged` modifier:
-
-- `isFocused` returns `true` if the composable to which the modifier is attached is focused
-- `hasFocus` works similarly to `isFocused`, but with a substantial difference: rather than checking only the current, it checks if the element or one of its children is focused
-- `isCaptured` returns `true` whenever the focus is held. This happens, for instance, when a `TextField` contains incorrect data, so that trying to focus other elements will not clear the focus.
-
-These fields are shown below:
-
-    Modifier.onFocusChanged {
-        val isFocused = it.isFocused
-        val hasFocus = it.hasFocus
-        val isCaptured= it.isCaptured
+    Modifier.onFocusChanged { focusState ->
+        val isFocused = focusState.isFocused
+        val hasFocus = focusState.hasFocus
+        val isCaptured = focusState.isCaptured
     }
 
 ## Recommended for you
 
 - Note: link text is displayed when JavaScript is off
-- [Change focus behavior](https://developer.android.com/develop/ui/compose/touch-input/focus/change-focus-behavior)
-- [Material Design 2 in Compose](https://developer.android.com/develop/ui/compose/designsystems/material)
-- [Handle user input](https://developer.android.com/develop/ui/compose/text/user-input)
+- [Focus targets](https://developer.android.com/develop/ui/compose/touch-input/focus/focus-target)
+- [Indicate focus state](https://developer.android.com/develop/ui/compose/touch-input/focus/focused-state)
+- [Programmatically request focus](https://developer.android.com/develop/ui/compose/touch-input/focus/request-focus)
+- [Capture and release focus](https://developer.android.com/develop/ui/compose/touch-input/focus/capture-and-release-focus)

@@ -13,7 +13,7 @@ to let the user respond to your message. When you do this, the
 trigger your action by tapping the button. For example, an email app might put
 an *undo* button on its "email archived" message. If the user taps the
 *undo* button, the app takes the email back out of the archive.
-![An image showing a snackbar with an UNDO action button](https://developer.android.com/static/images/ui/notifications/action_snackbar_undo.png) **Figure 1.** A `Snackbar` with an undo action button that restores a removed item.
+![Snackbar notification with an UNDO action button](https://developer.android.com/static/images/ui/notifications/action_snackbar_undo.png) **Figure 1.** A `Snackbar` with an undo action button that restores a removed item.
 
 To add an action to a `Snackbar` message, define a listener object
 that implements the
@@ -23,25 +23,10 @@ interface. The system calls your listener's
 method if the user taps the message action. For example, this snippet shows a
 listener for an undo action:
 
-### Kotlin
-
 ```kotlin
 class MyUndoListener : View.OnClickListener {
 
-  fun onClick(v: View) {
-    // Code to undo the user's last action.
-  }
-}
-```
-
-### Java
-
-```java
-public class MyUndoListener implements View.OnClickListener {
-
-    @Override
-    public void onClick(View v) {
-
+    override fun onClick(v: View) {
         // Code to undo the user's last action.
     }
 }
@@ -54,62 +39,51 @@ listener before you call
 `https://developer.android.com/reference/com/google/android/material/snackbar/BaseTransientBottomBar#show()`,
 as shown in this code sample:
 
-### Kotlin
-
 ```kotlin
-val mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout),
-                               R.string.email_archived, Snackbar.LENGTH_SHORT)
+val mySnackbar = Snackbar.make(
+    findViewById(R.id.myCoordinatorLayout),
+    R.string.email_archived,
+    Snackbar.LENGTH_SHORT
+)
 mySnackbar.setAction(R.string.undo_string, MyUndoListener())
 mySnackbar.show()
 ```
-
-### Java
-
-```java
-Snackbar mySnackbar = Snackbar.make(findViewById(R.id.myCoordinatorLayout),
-        R.string.email_archived, Snackbar.LENGTH_SHORT);
-mySnackbar.setAction(R.string.undo_string, new MyUndoListener());
-mySnackbar.show();
-```
-If you are using [Jetpack Compose](https://developer.android.com/jetpack/compose), you can show a `https://developer.android.com/reference/kotlin/androidx/compose/material/SnackbarHost.composable#SnackbarHost(androidx.compose.material.SnackbarHostState,androidx.compose.ui.Modifier,kotlin.Function1)`, as shown in the following example:
-
-### Kotlin
+If you are using [Jetpack Compose](https://developer.android.com/jetpack/compose), you can show a `https://developer.android.com/reference/kotlin/androidx/compose/material3/SnackbarHost.composable#SnackbarHost(androidx.compose.material3.SnackbarHostState,androidx.compose.ui.Modifier,kotlin.Function1)`, as shown in the following example:
 
 ```kotlin
-    override fun onCreate(savedInstanceState: Bundle?) {
+override fun onCreate(savedInstanceState: Bundle?) {
 
-      super.onCreate(savedInstanceState)
+    super.onCreate(savedInstanceState)
 
-      setContent {
-          DACPlaygroundTheme {
-              val snackbarHostState = remember { SnackbarHostState() }
-              val scope = rememberCoroutineScope()
-              Scaffold(
-                  snackbarHost = { SnackbarHost(snackbarHostState) },
-                  content = { padding ->
-                      Button(
-                          modifier = Modifier.padding(padding),
-                          onClick = {
-                              scope.launch {
-                                  snackbarHostState.showSnackbar(
-                                      message = "1 item removed",
-                                      actionLabel = "UNDO",
-                                      duration = SnackbarDuration.Short
-                                  ).run {
-                                      when (this) {
-                                          Dismissed -> Log.d("SNACKBAR", "Dismissed")
-                                          ActionPerformed -> Log.d("SNACKBAR", "UNDO CLICKED")
-                                      }
-                                  }
-                              }
-                          }
-                      ) { Text("Show snackbar") }
-                  }
-              )
-          }
-      }
-  }
-  
+    setContent {
+        DACPlaygroundTheme {
+            val snackbarHostState = remember { SnackbarHostState() }
+            val scope = rememberCoroutineScope()
+            Scaffold(
+                snackbarHost = { SnackbarHost(snackbarHostState) },
+                content = { padding ->
+                    Button(
+                        modifier = Modifier.padding(padding),
+                        onClick = {
+                            scope.launch {
+                                snackbarHostState.showSnackbar(
+                                    message = "1 item removed",
+                                    actionLabel = "UNDO",
+                                    duration = SnackbarDuration.Short
+                                ).run {
+                                    when (this) {
+                                        Dismissed -> Log.d("SNACKBAR", "Dismissed")
+                                        ActionPerformed -> Log.d("SNACKBAR", "UNDO CLICKED")
+                                    }
+                                }
+                            }
+                        }
+                    ) { Text("Show snackbar") }
+                }
+            )
+        }
+    }
+}
 ```
 
 > [!NOTE]

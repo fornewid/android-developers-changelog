@@ -6,9 +6,7 @@ source: md.txt
 
 # Wear Watchface
 
-[User Guide](https://developer.android.com/training/wearables) [Code Sample](https://github.com/android/wear-os-samples) API Reference  
-[androidx.wear.watchface](https://developer.android.com/reference/kotlin/androidx/wear/watchface/package-summary)  
-Create applications for Wear OS by Google smartwatches. **Note:**As of January 2026, the Watch Face Format is required for
+[User Guide](https://developer.android.com/training/wearables) [Code Sample](https://github.com/android/wear-os-samples) Create applications for Wear OS by Google smartwatches. **Note:**As of January 2026, the Watch Face Format is required for
 installing watch faces on all Wear OS devices.
 
 Learn more about the user-facing changes in this

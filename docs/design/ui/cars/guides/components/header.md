@@ -14,7 +14,7 @@ button.
 - Icon or image (optional), such as app icon
 - Text (limited to one line -- longer text is truncated), typically the title of the screen
 - Refresh button (only on [Place List templates](https://developer.android.com/design/ui/cars/guides/templates/place-list-map-template))
-- Back [button](https://developer.android.com/cars/design/create-apps/apps-for-drivers/components/button) (optional)
+- Back [button](https://developer.android.com/design/ui/cars/guides/components/button) (optional)
 
 This example shows different types of headers you can create.
 ![4 examples of headers](https://developer.android.com/static/images/design/ui/cars/components/headers.png) This example shows different types of headers you can create.

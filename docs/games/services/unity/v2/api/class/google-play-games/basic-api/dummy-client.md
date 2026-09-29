@@ -68,9 +68,7 @@ Requests the load friends resolution UI.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | Callback to handle the UI status. | |
+Details Parameters `callback` Callback to handle the UI status.
 
 ### Authenticate
 
@@ -83,9 +81,7 @@ Authenticates the user.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | Callback to handle the sign-in status. | |
+Details Parameters `callback` Callback to handle the sign-in status.
 
 ### GetEventsClient
 
@@ -125,9 +121,7 @@ Retrieves the visibility status of the friends list.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `forceReload` | Flag to force reload the friends list visibility. | | `callback` | Callback to handle the friends list visibility status. | |
+Details Parameters `forceReload` Flag to force reload the friends list visibility. `callback` Callback to handle the friends list visibility status.
 
 ### GetLastLoadFriendsStatus
 
@@ -153,9 +147,7 @@ Retrieves the player statistics.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | Callback to handle the player stats response. | |
+Details Parameters `callback` Callback to handle the player stats response.
 
 ### GetSavedGameClient
 
@@ -222,9 +214,7 @@ Increments the specified achievement by a number of steps.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `achId` | The achievement ID to increment. | | `steps` | The number of steps to increment the achievement. | | `callback` | Callback to handle the increment result. | |
+Details Parameters `achId` The achievement ID to increment. `steps` The number of steps to increment the achievement. `callback` Callback to handle the increment result.
 
 ### IsAuthenticated
 
@@ -263,9 +253,7 @@ Loads achievements for the current user.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | Callback to handle the achievement response. | |
+Details Parameters `callback` Callback to handle the achievement response.
 
 ### LoadFriends
 
@@ -280,9 +268,7 @@ Loads friends with paging options.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `pageSize` | The number of friends to load per page. | | `forceReload` | Flag to force reload of the friends list. | | `callback` | Callback to handle the load friends status. | |
+Details Parameters `pageSize` The number of friends to load per page. `forceReload` Flag to force reload of the friends list. `callback` Callback to handle the load friends status.
 
 ### LoadFriends
 
@@ -295,9 +281,7 @@ Loads friends with a simple boolean flag indicating success or failure.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | Callback to handle the load result. | |
+Details Parameters `callback` Callback to handle the load result.
 
 ### LoadMoreFriends
 
@@ -311,9 +295,7 @@ Loads additional friends if available.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `pageSize` | The number of additional friends to load. | | `callback` | Callback to handle the load friends status. | |
+Details Parameters `pageSize` The number of additional friends to load. `callback` Callback to handle the load friends status.
 
 ### LoadMoreScores
 
@@ -328,9 +310,7 @@ Loads more leaderboard scores based on the provided pagination token.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `token` | The token used for pagination. | | `rowCount` | The number of scores to load. | | `callback` | Callback to handle the leaderboard score data. | |
+Details Parameters `token` The token used for pagination. `rowCount` The number of scores to load. `callback` Callback to handle the leaderboard score data.
 
 ### LoadScores
 
@@ -348,9 +328,7 @@ Loads the leaderboard scores based on the specified parameters.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `leaderboardId` | The ID of the leaderboard to load scores from. | | `start` | The start position for loading scores. | | `rowCount` | The number of scores to load. | | `collection` | The collection type (e.g., public or social). | | `timeSpan` | The time span for the leaderboard scores. | | `callback` | Callback to handle the leaderboard score data. | |
+Details Parameters `leaderboardId` The ID of the leaderboard to load scores from. `start` The start position for loading scores. `rowCount` The number of scores to load. `collection` The collection type (e.g., public or social). `timeSpan` The time span for the leaderboard scores. `callback` Callback to handle the leaderboard score data.
 
 ### LoadUsers
 
@@ -364,9 +342,7 @@ Loads user profiles for the given user IDs.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `userIds` | List of user IDs. | | `callback` | Callback to handle the user profile response. | |
+Details Parameters `userIds` List of user IDs. `callback` Callback to handle the user profile response.
 
 ### ManuallyAuthenticate
 
@@ -379,9 +355,7 @@ Manually authenticates the user.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | Callback to handle the sign-in status. | |
+Details Parameters `callback` Callback to handle the sign-in status.
 
 ### RecordEvent
 
@@ -394,9 +368,7 @@ Records a single player game event.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `playerGameEvent` | The event to record. | |
+Details Parameters `playerGameEvent` The event to record.
 
 ### RecordEvents
 
@@ -409,9 +381,7 @@ Records a list of player game events.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `events` | The list of events to record. | |
+Details Parameters `events` The list of events to record.
 
 ### RequestEventsUpload
 
@@ -431,9 +401,7 @@ Requests recall of the access token.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | Callback to handle the recall response. | |
+Details Parameters `callback` Callback to handle the recall response.
 
 ### RequestServerSideAccess
 
@@ -447,9 +415,7 @@ Requests server-side access with a refresh token.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `forceRefreshToken` | Flag to force refresh the token. | | `callback` | Callback to handle the response. | |
+Details Parameters `forceRefreshToken` Flag to force refresh the token. `callback` Callback to handle the response.
 
 ### RequestServerSideAccess
 
@@ -464,9 +430,7 @@ Requests server-side access with specific scopes.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `forceRefreshToken` | Flag to force refresh the token. | | `scopes` | List of requested authorization scopes. | | `callback` | Callback to handle the response. | |
+Details Parameters `forceRefreshToken` Flag to force refresh the token. `scopes` List of requested authorization scopes. `callback` Callback to handle the response.
 
 ### RevealAchievement
 
@@ -480,9 +444,7 @@ Reveals the specified achievement.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `achId` | The achievement ID to reveal. | | `callback` | Callback to handle the reveal result. | |
+Details Parameters `achId` The achievement ID to reveal. `callback` Callback to handle the reveal result.
 
 ### SetStepsAtLeast
 
@@ -497,9 +459,7 @@ Sets the steps of the specified achievement to at least a certain number.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `achId` | The achievement ID to update. | | `steps` | The number of steps to set. | | `callback` | Callback to handle the result of setting the steps. | |
+Details Parameters `achId` The achievement ID to update. `steps` The number of steps to set. `callback` Callback to handle the result of setting the steps.
 
 ### ShowAchievementsUI
 
@@ -512,9 +472,7 @@ Displays the achievements UI.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | Callback to handle the UI status. | |
+Details Parameters `callback` Callback to handle the UI status.
 
 ### ShowCompareProfileWithAlternativeNameHintsUI
 
@@ -530,9 +488,7 @@ Displays the compare profile UI for a player.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `userId` | The user ID of the player to compare. | | `otherPlayerInGameName` | The in-game name of the other player. | | `currentPlayerInGameName` | The in-game name of the current player. | | `callback` | Callback to handle the UI status. | |
+Details Parameters `userId` The user ID of the player to compare. `otherPlayerInGameName` The in-game name of the other player. `currentPlayerInGameName` The in-game name of the current player. `callback` Callback to handle the UI status.
 
 ### ShowLeaderboardUI
 
@@ -547,9 +503,7 @@ Displays the leaderboard UI for a specific leaderboard.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `leaderboardId` | The ID of the leaderboard. | | `span` | The time span for the leaderboard. | | `callback` | Callback to handle the UI status. | |
+Details Parameters `leaderboardId` The ID of the leaderboard. `span` The time span for the leaderboard. `callback` Callback to handle the UI status.
 
 ### SubmitScore
 
@@ -564,9 +518,7 @@ Submits a score to a specific leaderboard.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `leaderboardId` | The ID of the leaderboard. | | `score` | The score to submit. | | `callback` | Callback to handle the score submission result. | |
+Details Parameters `leaderboardId` The ID of the leaderboard. `score` The score to submit. `callback` Callback to handle the score submission result.
 
 ### SubmitScore
 
@@ -582,9 +534,7 @@ Submits a score with additional metadata to a specific leaderboard.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `leaderboardId` | The ID of the leaderboard. | | `score` | The score to submit. | | `metadata` | Additional metadata to submit with the score. | | `callback` | Callback to handle the score submission result. | |
+Details Parameters `leaderboardId` The ID of the leaderboard. `score` The score to submit. `metadata` Additional metadata to submit with the score. `callback` Callback to handle the score submission result.
 
 ### UnlockAchievement
 
@@ -598,6 +548,4 @@ Unlocks the specified achievement.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `achId` | The achievement ID to unlock. | | `callback` | Callback to handle the unlock result. | |
+Details Parameters `achId` The achievement ID to unlock. `callback` Callback to handle the unlock result.

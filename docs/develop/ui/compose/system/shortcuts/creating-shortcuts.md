@@ -60,26 +60,31 @@ To create a static shortcut, do the following:
    information about a static shortcut including its icon, description labels,
    and the intents it launches within the app:
 
-       <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
-         <shortcut
-           android:shortcutId="compose"
-           android:enabled="true"
-           android:icon="@drawable/compose_icon"
-           android:shortcutShortLabel="@string/compose_shortcut_short_label1"
-           android:shortcutLongLabel="@string/compose_shortcut_long_label1"
-           android:shortcutDisabledMessage="@string/compose_disabled_message1">
-           <intent
-             android:action="android.intent.action.VIEW"
-             android:targetPackage="com.example.myapplication"
-             android:targetClass="com.example.myapplication.Main" />
-           <!-- If your shortcut is associated with multiple intents, include them
-                here. The last intent in the list determines what the user sees when
-                they launch this shortcut. -->
-           <categories android:name="android.shortcut.conversation" />
-           <capability-binding android:key="actions.intent.CREATE_MESSAGE" />
-         </shortcut>
-         <!-- Specify more shortcuts here. -->
-       </shortcuts>
+
+   ```xml
+   <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+     <shortcut
+       android:shortcutId="compose"
+       android:enabled="true"
+       android:icon="@drawable/compose_icon"
+       android:shortcutShortLabel="@string/compose_shortcut_short_label1"
+       android:shortcutLongLabel="@string/compose_shortcut_long_label1"
+       android:shortcutDisabledMessage="@string/compose_disabled_message1">
+       <intent
+         android:action="android.intent.action.VIEW"
+         android:targetPackage="com.example.myapplication"
+         android:targetClass="com.example.myapplication.Main" />
+       <!-- If your shortcut is associated with multiple intents, include them
+            here. The last intent in the list determines what the user sees when
+            they launch this shortcut. -->
+       <categories android:name="android.shortcut.conversation" />
+       <capability-binding android:key="actions.intent.CREATE_MESSAGE" />
+     </shortcut>
+     <!-- Specify more shortcuts here. -->
+   </shortcuts>
+   ```
+
+   <br />
 
 ### Customize attribute values
 
@@ -209,15 +214,24 @@ shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/man
 Here's an example of creating a dynamic shortcut and associating it with your
 app:
 
-    val shortcut = ShortcutInfoCompat.Builder(context, "id1")
-            .setShortLabel("Website")
-            .setLongLabel("Open the website")
-            .setIcon(IconCompat.createWithResource(context, R.drawable.icon_website))
-            .setIntent(Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://www.mysite.example.com/")))
-            .build()
 
-    ShortcutManagerCompat.pushDynamicShortcut(context, shortcut)
+```kotlin
+val shortcut = ShortcutInfoCompat.Builder(context, "id1")
+    .setShortLabel("Website")
+    .setLongLabel("Open the website")
+    .setIcon(IconCompat.createWithResource(context, R.drawable.icon_website))
+    .setIntent(
+        Intent(
+            Intent.ACTION_VIEW,
+            Uri.parse("https://www.mysite.example.com/")
+        )
+    )
+    .build()
+
+ShortcutManagerCompat.pushDynamicShortcut(context, shortcut)
+```
+
+<br />
 
 ### Add the Google Shortcuts Integration Library
 
@@ -241,22 +255,27 @@ The Google Shortcuts Integration Library doesn't offer any addressable
 functionality itself. Adding this library to your app lets Google surfaces take
 in the shortcuts your app pushes using `ShortcutManagerCompat`.
 
-To use this library in your app, follow these steps:
+To use this library in your app, add dependencies for the Google Shortcuts
+Integration Library and `ShortcutManagerCompat` to your `app/build.gradle` or
+`app/build.gradle.kts` file:
 
-1. Update your `gradle.properties` file to support [AndroidX libraries](https://developer.android.com/jetpack/androidx#using_androidx_libraries_in_your_project):
+> [!NOTE]
+> **Note:** For the latest versions of these libraries, see the [AndroidX Core
+> releases](https://developer.android.com/jetpack/androidx/releases/core) page.
 
-       android.useAndroidX=true
-       # Automatically convert third-party libraries to use AndroidX
-       android.enableJetifier=true
+### Kotlin
 
-2. In `app/build.gradle`, add dependencies for the Google Shortcuts Integration
-   Library and `ShortcutManagerCompat`:
+    dependencies {
+        implementation("androidx.core:core:1.6.0")
+        implementation("androidx.core:core-google-shortcuts:1.0.0")
+    }
 
-       dependencies {
-         implementation "androidx.core:core:1.6.0"
-         implementation 'androidx.core:core-google-shortcuts:1.0.0'
-         ...
-       }
+### Groovy
+
+    dependencies {
+        implementation "androidx.core:core:1.6.0"
+        implementation 'androidx.core:core-google-shortcuts:1.0.0'
+    }
 
 With the library dependencies added to your Android project, your app can use
 the `pushDynamicShortcut()` method from `ShortcutManagerCompat` to push dynamic
@@ -279,18 +298,20 @@ types of shortcuts.
 To pin a shortcut to a supported launcher using your app, complete the following
 steps:
 
-1. Use [`isRequestPinShortcutSupported()`](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutManager#isRequestPinShortcutSupported()) to verify that the device's default launcher supports in-app pinning of shortcuts.
-2. Create a `ShortcutInfo` object in one of two ways, depending on whether the
-   shortcut exists:
+1. Use [`isRequestPinShortcutSupported()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#isRequestPinShortcutSupported(android.content.Context)) to verify that the device's default launcher supports in-app pinning of shortcuts.
+2. Create a [`ShortcutInfoCompat`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutInfoCompat) object that contains an ID, an intent,
+   and a short label for the shortcut. If the shortcut exists, use the ID of
+   the existing shortcut. The system finds and pins all other information
+   related to the shortcut automatically.
 
-   1. If the shortcut exists, create a `ShortcutInfo` object that contains only the existing shortcut's ID. The system finds and pins all other information related to the shortcut automatically.
-   2. If you're pinning a new shortcut, create a `ShortcutInfo` object that contains an ID, an intent, and a short label for the new shortcut.
+   > [!NOTE]
+   > **Note:** `ShortcutInfoCompat.Builder` requires a short label and an intent, also when you use the ID of an existing shortcut. If you don't set them, `build()` throws an `IllegalArgumentException`.
 
    > [!NOTE]
    > **Note:** Because the system performs [backup and restore](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts#backup-restore) on pinned shortcuts automatically, these shortcuts' IDs must contain stable, constant strings or server-side identifiers, rather than identifiers generated locally that might not make sense on other devices.
 
 3. Pin the shortcut to the device's launcher by calling
-   [`requestPinShortcut()`](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutManager#requestPinShortcut(android.content.pm.ShortcutInfo,%20android.content.IntentSender)). During this process, you can pass in a
+   [`requestPinShortcut()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#requestPinShortcut(android.content.Context,androidx.core.content.pm.ShortcutInfoCompat,android.content.IntentSender)). During this process, you can pass in a
    [`PendingIntent`](https://developer.android.com/reference/kotlin/android/app/PendingIntent) object, which notifies your app only when the shortcut
    pins successfully.
 
@@ -298,37 +319,51 @@ steps:
    > **Note:** If the user doesn't let the shortcut be pinned to the launcher, your app doesn't receive a callback.
 
    After a shortcut is pinned, your app can update its contents using the
-   [`updateShortcuts()`](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutManager#updateShortcuts(java.util.List%3Candroid.content.pm.ShortcutInfo%3E)) method. For more information, read [Update
+   [`updateShortcuts()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#updateShortcuts(android.content.Context,java.util.List)) method. For more information, read [Update
    shortcuts](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts#update-shortcuts).
 
-The following code snippet demonstrates how to create a pinned shortcut.
+The following code snippet demonstrates how to create a pinned shortcut:
+
+
+```kotlin
+if (ShortcutManagerCompat.isRequestPinShortcutSupported(context)) {
+    // Enable the existing shortcut with the ID "my-shortcut".
+    val pinShortcutInfo = ShortcutInfoCompat.Builder(context, "my-shortcut")
+        .setShortLabel("Website")
+        .setIntent(
+            Intent(
+                Intent.ACTION_VIEW,
+                Uri.parse("https://www.mysite.example.com/")
+            )
+        )
+        .build()
+
+    // Create the PendingIntent object only if your app needs to be notified
+    // that the user let the shortcut be pinned. If the pinning operation fails,
+    // your app isn't notified. Assume here that the app implements a method
+    // called createShortcutResultIntent() that returns a broadcast intent.
+    val pinnedShortcutCallbackIntent =
+        ShortcutManagerCompat.createShortcutResultIntent(context, pinShortcutInfo)
+
+    // Configure the intent so that your app's broadcast receiver gets the
+    // callback successfully. For details, see PendingIntent.getBroadcast().
+    val successCallback = PendingIntent.getBroadcast(
+        context, /* request code */ 0,
+        pinnedShortcutCallbackIntent, /* flags */ PendingIntent.FLAG_IMMUTABLE
+    )
+
+    ShortcutManagerCompat.requestPinShortcut(
+        context,
+        pinShortcutInfo,
+        successCallback.intentSender
+    )
+}
+```
+
+<br />
 
 > [!NOTE]
-> **Note:** Obtain instances of the `ShortcutManager` class by calling [`getSystemService()`](https://developer.android.com/reference/kotlin/android/content/Context#getSystemService(java.lang.Class)) with the `ShortcutManager` class.
-
-    val shortcutManager = getSystemService<ShortcutManager>()
-
-    if (shortcutManager!!.isRequestPinShortcutSupported) {
-        // Enable the existing shortcut with the ID "my-shortcut".
-        val pinShortcutInfo = ShortcutInfo.Builder(context, "my-shortcut").build()
-
-        // Create the PendingIntent object only if your app needs to be notified
-        // that the user let the shortcut be pinned. If the pinning operation fails,
-        // your app isn't notified. Assume here that the app implements a method
-        // called createShortcutResultIntent() that returns a broadcast intent.
-        val pinnedShortcutCallbackIntent = shortcutManager.createShortcutResultIntent(pinShortcutInfo)
-
-        // Configure the intent so that your app's broadcast receiver gets the
-        // callback successfully. For details, see PendingIntent.getBroadcast().
-        val successCallback = PendingIntent.getBroadcast(context, /* request code */ 0,
-                pinnedShortcutCallbackIntent, /* flags */ 0)
-
-        shortcutManager.requestPinShortcut(pinShortcutInfo,
-                successCallback.intentSender)
-    }
-
-> [!NOTE]
-> **Note:** See also the Support Library APIs [`isRequestPinShortcutSupported()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#isRequestPinShortcutSupported(android.content.Context)) and [`requestPinShortcut()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#requestPinShortcut(android.content.Context,androidx.core.content.pm.ShortcutInfoCompat,android.content.IntentSender)), which work on Android 7.1 (API level 25) and lower. The Support Library falls back to the deprecated [`EXTRA_SHORTCUT_INTENT`](https://developer.android.com/reference/kotlin/android/content/Intent#EXTRA_SHORTCUT_INTENT) extra to attempt the pinning process.
+> **Note:** On Android 7.1 (API level 25) and lower, [`ShortcutManagerCompat`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat) falls back to the deprecated [`EXTRA_SHORTCUT_INTENT`](https://developer.android.com/reference/kotlin/android/content/Intent#EXTRA_SHORTCUT_INTENT) extra to attempt the pinning process.
 
 ### Create a custom shortcut activity
 
@@ -345,7 +380,7 @@ behavior when the user attempts to create a shortcut:
 1. The system starts your app's specialized activity.
 2. The user sets options for the shortcut.
 3. The user selects the confirmation button.
-4. Your app creates the shortcut using the [`createShortcutResultIntent()`](https://developer.android.com/reference/kotlin/android/content/pm/ShortcutManager#createShortcutResultIntent(android.content.pm.ShortcutInfo)) method. This method returns an [`Intent`](https://developer.android.com/reference/kotlin/android/content/Intent), which your app relays back to the previously executing activity using [`setResult()`](https://developer.android.com/reference/kotlin/android/app/Activity#setResult(int)).
+4. Your app creates the shortcut using the [`createShortcutResultIntent()`](https://developer.android.com/reference/kotlin/androidx/core/content/pm/ShortcutManagerCompat#createShortcutResultIntent(android.content.Context,androidx.core.content.pm.ShortcutInfoCompat)) method. This method returns an [`Intent`](https://developer.android.com/reference/kotlin/android/content/Intent), which your app relays back to the previously executing activity using [`setResult()`](https://developer.android.com/reference/kotlin/android/app/Activity#setResult(int)).
 5. Your app calls [`finish()`](https://developer.android.com/reference/kotlin/android/app/Activity#finish()) on the activity used to create the customized shortcut.
 
 Similarly, your app can prompt users to add pinned shortcuts to the home screen

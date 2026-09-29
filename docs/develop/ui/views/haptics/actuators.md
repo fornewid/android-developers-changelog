@@ -4,6 +4,15 @@ url: https://developer.android.com/develop/ui/views/haptics/actuators
 source: md.txt
 ---
 
+This document explains Linear Resonant Actuators (LRAs) as the common
+vibration actuators on Android devices, detailing their characteristics, how
+they generate haptic feedback, and how to create effective haptic patterns
+using Android APIs.
+keywords_public: \>
+Android haptics, haptic actuators, Linear Resonant Actuators, LRAs, vibration,
+haptic feedback, VibratorFrequencyProfile, VibrationEffect, Android UI
+
+
 The most common vibration actuators on Android devices are [linear resonant
 actuators (LRAs)](https://medium.com/@SomaticLabs/what-is-a-linear-resonant-actuator-81cc25f85779). LRAs simulate the feeling of a button click
 on what is otherwise an unresponsive glass surface. A clear and crisp click
@@ -163,7 +172,7 @@ revised version:
         38, 77, 79, 84, 92, 99, 121, 143, 180, 217, 255, 170, 85,
         0, 85, 170, 255, 170, 85, 0
     )
-    val repeatIndex = -1 // Do not repeat.
+    val repeatIndex = -1 // Don't repeat.
 
     vibrator.vibrate(VibrationEffect.createWaveform(timings, amplitudes, repeatIndex))
 
@@ -177,7 +186,7 @@ revised version:
             38, 77, 79, 84, 92, 99, 121, 143, 180, 217, 255, 170, 85,
             0, 85, 170, 255, 170, 85, 0
         };
-    int repeatIndex = -1; // Do not repeat.
+    int repeatIndex = -1; // Don't repeat.
 
     vibrator.vibrate(VibrationEffect.createWaveform(timings, amplitudes, repeatIndex));
 

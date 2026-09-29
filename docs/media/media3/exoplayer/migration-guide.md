@@ -411,7 +411,7 @@ ListenableFuture<MediaBrowser> browserFuture =
 <br />
 
 Take a look into
-[*Control playback in the media session*](https://developer.android.com/media/media3/exoplayer/playing-in-background#controlling-playback)
+[*Control playback in the media session*](https://developer.android.com/media/media3/session/connect-to-media-app)
 to learn how to create a `MediaController` for controlling playback in the
 background.
 

@@ -80,14 +80,12 @@ Access Google's most capable cloud-based generative models using Firebase AI Log
 
 ## Generate images with Imagen 3
 
-<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button> Article
+<button class="toggle gc-analytics-event" data-category="devsite-playlist: toggle button"> *keyboard_arrow_down* *keyboard_arrow_up* </button>
 
 
 Imagen 3 is an image generation model. It can be used to generate custom avatars for user profiles or to integrate personalized visual assets into existing screen flows to increase user engagement.
 
 <br />
-
-[Read article](https://developer.android.com/ai/imagen)
 
 ## Codelab: Add Gemini capabilities to your Android app
 

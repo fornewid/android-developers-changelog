@@ -8,7 +8,7 @@ The billing choice program lets you integrate your own billing system or guide
 users to your website for purchases using external web links. Regardless of
 which option you implement, users should be given a choice between Google Play
 Billing and either alternative billing within the app or external web links. You
-should review the [program requirements](https://support.google.com/googleplay/android-developer/answer/17161464) and enroll in the external offers
+should review the [program requirements](https://support.google.com/googleplay/android-developer/answer/17161464) and enroll in the billing choice
 program before using these APIs.
 
 ## User experience
