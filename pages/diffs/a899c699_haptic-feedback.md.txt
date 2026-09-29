@@ -1,0 +1,89 @@
+diff --git a/docs/develop/ui/views/haptics/haptic-feedback.md b/docs/develop/ui/views/haptics/haptic-feedback.md
+index 6ce06c28..832a7082 100644
+--- a/docs/develop/ui/views/haptics/haptic-feedback.md
++++ b/docs/develop/ui/views/haptics/haptic-feedback.md
+@@ -4,6 +4,13 @@ url: https://developer.android.com/develop/ui/views/haptics/haptic-feedback
+ source: md.txt
+ ---
+ 
++Implement haptic feedback in Android apps using View components, predefined
++VibrationEffect APIs, and timeline anchored compositions with
++VibrationEffect.Builder.
++keywords_public: \>
++Android development, haptics, haptic feedback, UI, views, VibrationEffect,
++View.performHapticFeedback, Vibrator, haptic constants
++
+ One of the most basic use cases for haptics is to provide feedback to user
+ interactions. Time pickers, the key press on a virtual keyboard, and text
+ selection are common examples of good use cases for haptic feedback. For more
+@@ -14,7 +21,8 @@ This page describes three ways to provide haptic feedback.
+ 
+ - [Use a `View`](https://developer.android.com/develop/ui/views/haptics/haptic-feedback#view) **(recommended)** . This approach is action-oriented, has the widest support, and doesn't require the `VIBRATE` permission.
+ - [Use a predefined `VibrationEffect`](https://developer.android.com/develop/ui/views/haptics/haptic-feedback#predefined_vibrationeffect). This approach has more flexibility, but with some trade-offs.
+-- [Use advanced compositions with primitives](https://developer.android.com/develop/ui/views/haptics/haptic-feedback#advanced_composition). This method is newer and even more flexible, but requires specific device support.
++- [Use timeline anchored compositions with
++  `VibrationEffect.Builder`](https://developer.android.com/develop/ui/views/haptics/haptic-feedback#advanced_composition). This approach is the most flexible, letting you sequence presets, envelopes, and other vibration elements along a timeline with built-in automatic fallback support.
+ 
+ These methods use primitives defined at the device level to provide high quality
+ feedback tailored to the device in hand.
+@@ -40,7 +48,7 @@ to different haptic sensations over time.
+ ### Prerequisites: Enable haptic feedback
+ 
+ As long as the [`View`](https://developer.android.com/reference/android/view/View) is visible, haptic feedback can be used for its events.
+-Some events, such as long press, have default haptics that are triggered if a
++Some events, such as touch \& hold, have default haptics that are triggered if a
+ listener on the view handles the event (returns `true`).
+ 
+ An Android `View` can disable haptic feedback by setting the
+@@ -141,9 +149,9 @@ submitButton.setOnClickListener(view -> {
+ 
+ ## Use a predefined `VibrationEffect` to generate haptic feedback
+ 
+-Using the [`View`-based](https://developer.android.com/develop/ui/views/haptics/haptic-feedback#view) approach focuses on the user interaction. It is
+-preferred for consistency across the system. However, specific predefined
+-[`VibrationEffect`](https://developer.android.com/reference/android/os/VibrationEffect) APIs can also be invoked for customized haptic feedback
++Using the [`View`-based](https://developer.android.com/develop/ui/views/haptics/haptic-feedback#view) approach focuses on the user interaction,
++so prefer it for consistency across the system. However, you can also invoke
++specific predefined [`VibrationEffect`](https://developer.android.com/reference/android/os/VibrationEffect) APIs for customized haptic feedback
+ effects.
+ 
+ Predefined effects are available as [`VibrationEffect`
+@@ -184,10 +192,9 @@ import android.os.Vibrator;
+ Vibrator vibrator = context.getSystemService(Vibrator.class);
+ ```
+ 
+-The app needs to have the
+-[`VIBRATE`](https://developer.android.com/reference/android/Manifest.permission#VIBRATE) permission in order
+-to vibrate the device using this service. The permission can be added to the
+-application manifest file:
++Your app must have the [`VIBRATE`](https://developer.android.com/reference/android/Manifest.permission#VIBRATE) permission to vibrate
++the device using this service. You can add this permission to the application
++manifest file:
+ 
+     <uses-permission android:name="android.permission.VIBRATE"/>
+ 
+@@ -219,12 +226,15 @@ Vibrator vibrator = context.getSystemService(Vibrator.class);
+ vibrator.vibrate(VibrationEffect.createPredefined(VibrationEffect.EFFECT_CLICK));
+ ```
+ 
+-## Use advanced compositions with primitives
++## Use `VibrationEffect.Builder` to create compositions
+ 
+-The [`VibrationEffect.Composition`](https://developer.android.com/reference/android/os/VibrationEffect.Composition) API offers additional possibilities for
+-haptic feedback. However, unlike effects, these primitives don't have
+-system-level fallbacks, which means that careful attention needs to be paid to
+-the primitives and other capabilities supported by the device.
++Starting in Android 16 (26Q4), the
++[`VibrationEffect.Builder`](https://developer.android.com/reference/android/os/VibrationEffect.Builder) API offers the most
++flexible and expressive way to create custom haptic feedback by sequencing
++discrete presets, envelopes, and other vibration elements along a timeline.
++Furthermore, compositions created with `VibrationEffect.Builder` have
++built-in automatic fallback support across their supported elements.
+ 
+-Using these APIs is discussed in more detail in
+-[*Creating Custom Haptic Effects*](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#vibration_compositions).
+\ No newline at end of file
++Composing haptic effects with `VibrationEffect.Builder` (and the
++`VibrationEffect.Composition` API) is discussed in more detail in
++[*Creating Custom Haptic Effects*](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#composition-builder).
+\ No newline at end of file

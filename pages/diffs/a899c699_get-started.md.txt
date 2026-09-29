@@ -1,0 +1,76 @@
+diff --git a/docs/games/agdk/game-activity/get-started.md b/docs/games/agdk/game-activity/get-started.md
+index 34114a02..5add7000 100644
+--- a/docs/games/agdk/game-activity/get-started.md
++++ b/docs/games/agdk/game-activity/get-started.md
+@@ -31,7 +31,7 @@ On Android, an [`Activity`](https://developer.android.com/reference/android/app/
+ point for your game, and also provides the
+ [`Window`](https://developer.android.com/reference/android/view/Window) to draw within. Many games extend
+ this `Activity` with their own Java or Kotlin class to defeat limitations in
+-`NativeActivity` while using [`JNI`](https://developer.android.com/training/articles/perf-jni) code to bridge
++`NativeActivity` while using [`JNI`](https://developer.android.com/ndk/guides/jni-tips) code to bridge
+ to their C or C++ game code.
+ 
+ `GameActivity` offers the following capabilities:
+@@ -39,7 +39,7 @@ to their C or C++ game code.
+ - Inherits from
+   [`AppCompatActivity`](https://developer.android.com/reference/androidx/appcompat/app/AppCompatActivity),
+   allowing you to use [Android Jetpack Architecture
+-  Components](https://developer.android.com/topic/libraries/architecture).
++  Components](https://developer.android.com/topic/architecture).
+ 
+ - Renders into a
+   [`SurfaceView`](https://developer.android.com/reference/android/view/SurfaceView) that allows you to
+@@ -67,7 +67,7 @@ the static library instead of the source code.
+ 
+ Include these source files or the static library as part of your
+ build process through
+-[`Prefab`](https://developer.android.com/studio/build/dependencies?agpversion=4.1#native-dependencies-aars),
++[`Prefab`](https://developer.android.com/build/native-dependencies?agpversion=4.1#native-dependencies-aars),
+ which exposes native libraries and source code to your
+ [CMake project](https://developer.android.com/ndk/guides/cmake) or [NDK build](https://developer.android.com/ndk/guides).
+ 
+@@ -76,7 +76,7 @@ which exposes native libraries and source code to your
+    `GameActivity` library dependency to your game's `build.gradle` file.
+ 
+ 2. Enable prefab by doing the following with
+-   [Android Plugin Version (AGP) 4.1+](https://developer.android.com/studio/releases/gradle-plugin):
++   [Android Plugin Version (AGP) 4.1+](https://developer.android.com/build/releases/gradle-plugin):
+ 
+    - Add the following to the `android` block of your module's `build.gradle` file:
+ 
+@@ -89,7 +89,7 @@ which exposes native libraries and source code to your
+        android.prefabVersion=2.0.0
+ 
+    If you use earlier AGP versions, follow
+-   [the prefab documentation](https://developer.android.com/studio/build/dependencies?agpversion=4.0#native-dependencies-aars)
++   [the prefab documentation](https://developer.android.com/build/native-dependencies?agpversion=4.0#native-dependencies-aars)
+    for the corresponding configuration instructions.
+ 3. Import either the C/C++ static library or the C/++ source code into your
+    project as follows.
+@@ -133,7 +133,7 @@ the root of the project source set. The manifest file describes essential
+ information about your app to the Android build tools, the Android operating
+ system, and Google Play. This includes:
+ 
+-- [Package name and app ID](https://developer.android.com/studio/configure-app-module#set-namespace)
++- [Package name and app ID](https://developer.android.com/build/configure-app-module#set-namespace)
+   to uniquely identify your game on Google Play.
+ 
+ - [App Components](https://developer.android.com/guide/topics/manifest/manifest-intro#components) such as
+@@ -145,7 +145,7 @@ system, and Google Play. This includes:
+ - [Device compatibility](https://developer.android.com/guide/topics/manifest/manifest-intro#compatibility)
+   to specify hardware and software requirements for your game.
+ 
+-- Native library name for `GameActivity` and `NativeActivity`([default is libmain.so](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/refs/heads/master/GameActivity/src/main/java/com/google/androidgamesdk/GameActivity.java#236)).
++- Native library name for `GameActivity` and `NativeActivity`([default is libmain.so](https://android.googlesource.com/platform/frameworks/opt/gamesdk/+/refs/heads/main/game-activity/src/main/java/com/google/androidgamesdk/GameActivity.java#63)).
+ 
+ ## Implement GameActivity in your game
+ 
+@@ -344,7 +344,7 @@ polled. The number of events contained is stored in `motionEventsCount`, and
+ 
+ To learn more about `GameActivity`, see the following:
+ 
+-- [GameActivity and AGDK release notes](https://developer.android.com/games/agdk/release-notes).
++- [GameActivity and AGDK release notes](https://developer.android.com/jetpack/androidx/releases/games).
+ - [Use the GameTextInput in GameActivity](https://developer.android.com/games/agdk/game-activity/use-text-input).
+ - [NativeActivity migration guide](https://developer.android.com/games/agdk/game-activity/migrate-native-activity).
+ - [GameActivity reference documentation](https://developer.android.com/reference/games/game-activity/group/game-activity).

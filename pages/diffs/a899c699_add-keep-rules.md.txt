@@ -1,0 +1,13 @@
+diff --git a/docs/topic/performance/app-optimization/add-keep-rules.md b/docs/topic/performance/app-optimization/add-keep-rules.md
+index 88a4908e..92726818 100644
+--- a/docs/topic/performance/app-optimization/add-keep-rules.md
++++ b/docs/topic/performance/app-optimization/add-keep-rules.md
+@@ -527,7 +527,7 @@ following:
+ 
+ ### Negate member name patterns
+ 
+-Starting with Android Gradle Plugin (AGP) 9.2-alpha02, you can negate member
++Starting with Android Gradle Plugin (AGP) 9.2.0, you can negate member
+ name patterns within your keep rules. This lets you specify members to keep or
+ exclude based on patterns. To negate a pattern, prefix the member name pattern
+ with an exclamation mark (`!`).

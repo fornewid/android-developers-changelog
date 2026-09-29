@@ -1,0 +1,74 @@
+diff --git a/docs/topic/performance/memory/app-memory-budgets.md b/docs/topic/performance/memory/app-memory-budgets.md
+index ddb380d4..7c92c61b 100644
+--- a/docs/topic/performance/memory/app-memory-budgets.md
++++ b/docs/topic/performance/memory/app-memory-budgets.md
+@@ -73,7 +73,7 @@ system trims inactive memory pages using eviction and swap.
+ An app requires different amounts of memory depending on its user visibility:
+ 
+ - **Foreground**: The process is hosting a visible Activity interacting with the user. This state typically has the largest footprint due to active UI and graphics.
+-- **Perceptible**: The process is perceptible to the user but doesn't host a visible window (for example, hosting a media playback foreground service, turn-by-turn navigation, or an active input method).
++- **Perceptible**: The process is perceptible to the user but doesn't host a visible window (for example, hosting a media playback foreground service, an active background download, turn-by-turn navigation, or an active input method).
+ - **Background**: The process is running background jobs, receivers, or data syncs. It is expected to maintain a minimal footprint.
+ 
+ You can declare multiple `<memory-budget>` clauses to match these states:
+@@ -107,6 +107,60 @@ remain unconstrained by an app budget. When included, a clause without
+ foreground), which subsequent more restrictive clauses override when the app
+ transitions into `perceptible` or `background` states.
+ 
++#### How budget states map to process states
++
++The platform maps manifest budget states to runtime process states based on
++[`RunningAppProcessInfo.importance`](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo):
++
++- **`foreground`**: Active, visible user interactions, such as hosting a resumed Activity or maintaining the top app state when the screen turns off.
++- **`perceptible`** : Workloads that are perceptible to the user without a visible window, such as active media playback, turn-by-turn navigation, camera or microphone capture, active background downloads, or data sync foreground services. While internal platform metrics might label some of these workloads `PROCESS_STATE_IMPORTANT_FOREGROUND`, that internal constant doesn't signify a visible window and is governed by the `perceptible` budget.
++- **`background`**: Work that is not immediately perceptible to the user, such as background jobs, alarms, broadcast receivers, or cached processes.
++
++The following table shows how runtime importance levels map to manifest states:
++
++| Manifest `android:state` | Runtime importance (`RunningAppProcessInfo`) | Typical components |
++|---|---|---|
++| `foreground` | `IMPORTANCE_FOREGROUND` `IMPORTANCE_TOP_SLEEPING` | Resumed visible Activity, top app with screen locked |
++| `perceptible` | `IMPORTANCE_FOREGROUND_SERVICE` `IMPORTANCE_VISIBLE` | Active media playback, navigation, downloads, or sync foreground services |
++| `background` | `IMPORTANCE_PERCEPTIBLE` `IMPORTANCE_CANT_SAVE_STATE` `IMPORTANCE_SERVICE` `IMPORTANCE_CACHED` | Background jobs, receivers, background sync, cached processes |
++
++#### Inspect your app's process state and budget
++
++One way to inspect your app's active process state and importance during
++development is by querying Activity Manager using ADB:
++
++    adb shell dumpsys activity processes <package-name>
++
++The following abbreviated example shows the process record and OOM control
++entries for an app running a foreground service:
++
++    ACTIVITY MANAGER RUNNING PROCESSES (dumpsys activity processes)
++      All known processes:
++      *APP* UID 10123 ProcessRecord{edf056c 3919:com.example.app/u0a123}
++        pid=3919
++        oom adj: max=1001 curRaw=200 setRaw=200 cur=200 set=200
++        curProcState=4 mRepProcState=4 setProcState=4 lastStateTime=-42s360ms
++        hasStartedServices=true
++        mHasForegroundServices=true forcingToImportant=null
++    ...
++      Process OOM control (48 total):
++        Proc #22: prcp  F/S/FGS  ---NFU-TI  t: 0 3919:com.example.app/u0a123 (fg-service)
++            oom: max=1001 curRaw=200 setRaw=200 cur=200 set=200
++            state: cur=FGS  set=FGS  lastRss=0.00 lastCachedRss=0.00
++
++In this output:
++
++- `curProcState=4` and `state: cur=FGS` reflect that the process is in the foreground service state. If your app is hosting an active visible activity, this appears as `TOP`. If it is running an important foreground component (such as a download or sync), it appears as `IMPF`.
++- In the Process OOM control table, `prcp` indicates that the process is evaluated under the perceptible priority tier, which corresponds to the `perceptible` budget.
++
++To inspect the currently enforced memory budget and resident memory usage:
++
++    adb shell dumpsys meminfo <package-name>
++
++Starting in Android 17 QPR2, this output includes a **Memory Budget** section
++that displays the active limit ceiling, the limit source (such as
++`AndroidManifest` or `MemoryBudgetManager`), and current resident memory.
++
+ ### Multi-process apps
+ 
+ If your application divides its work across multiple processes, configure

@@ -1,0 +1,57 @@
+diff --git a/docs/develop/ui/views/haptics.md b/docs/develop/ui/views/haptics.md
+index 3743256a..04c909b1 100644
+--- a/docs/develop/ui/views/haptics.md
++++ b/docs/develop/ui/views/haptics.md
+@@ -4,6 +4,13 @@ url: https://developer.android.com/develop/ui/views/haptics
+ source: md.txt
+ ---
+ 
++This documentation covers the use of haptic feedback in Android devices,
++detailing how modern vibration actuators can provide rich, subtle user
++experiences through touch.
++keywords_public: \>
++Haptics, Android, Vibration, UI, User Interface, Feedback, Actuators,
++Design, APIs, Samples
++
+ Haptics is everything you feel through the sense of touch. Modern Android
+ devices often incorporate a vibration actuator to allow devices to stimulate the
+ user's sense of touch. These motors have advanced significantly from the
+@@ -28,15 +35,16 @@ to increasingly more complex vibration waveforms and effect compositions.
+ 
+ [Create custom haptic effects](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects)
+ :   This page provides several examples of using different haptics APIs to
+-    create custom effects in an Android application.
++    create custom effects in an Android application, including timeline anchored
++    compositions using [`VibrationEffect.Builder`](https://developer.android.com/reference/android/os/VibrationEffect.Builder) and
++    envelope waveforms.
+ 
+ [Add haptics APIs](https://developer.android.com/develop/ui/views/haptics/haptics-apis)
+ :   The page is a reference for various haptics APIs available on Android, and
+-    also covers when and how to check for any device support necessary to ensure
+-    your Haptic effects play as intended.
++    also covers which APIs provide automatic fallback and when to check for
++    device support.
+ 
+-Also, be sure to read the
+-[best practices for accessibility](https://developer.android.com/guide/topics/ui/accessibility).
++Also, read the [best practices for accessibility](https://developer.android.com/guide/topics/ui/accessibility).
+ 
+ ## Samples
+ 
+@@ -48,10 +56,14 @@ GitHub. You can also find documentation for each here.
+ - [Wobble (with spins)](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#wobble)
+ - [Bounce (with thuds)](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#bounce)
+ 
+-This documentation also includes code examples for the following custom vibration patterns:
++This documentation also includes code examples for the following custom
++vibration patterns:
+ 
+ - [Ramp-up pattern](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#ramp_up_pattern)
+ - [Repeating pattern](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#repeating_pattern)
+ - [Pattern with fallback](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#pattern_with_fallback)
++- [Timeline anchored compositions with
++  `VibrationEffect.Builder`](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#composition-builder)
++- [Vibration waveforms with envelopes](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#vibration-waveform-with-envelopes)
+ 
+ ## Video
+\ No newline at end of file

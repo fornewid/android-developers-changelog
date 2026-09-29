@@ -1,0 +1,223 @@
+diff --git a/docs/develop/ui/views/haptics/haptics-apis.md b/docs/develop/ui/views/haptics/haptics-apis.md
+index 1139ac21..2d276084 100644
+--- a/docs/develop/ui/views/haptics/haptics-apis.md
++++ b/docs/develop/ui/views/haptics/haptics-apis.md
+@@ -4,6 +4,13 @@ url: https://developer.android.com/develop/ui/views/haptics/haptics-apis
+ source: md.txt
+ ---
+ 
++This document introduces the various haptics APIs available in Android,
++explaining how to create different haptic effects and how to check for
++necessary device support.
++keywords_public: \>
++Android, haptics, APIs, vibration, HapticFeedbackConstants, VibrationEffect,
++envelope haptics, haptic feedback, notification, amplitude control
++
+ This section gives an introduction to the various haptics APIs
+ available in Android. It also covers when and how to check for any device
+ support necessary to ensure your haptic effects play as you intend.
+@@ -21,17 +28,19 @@ approach:
+ |---|---|---|---|
+ | [HapticFeedbackConstants](https://developer.android.com/develop/ui/views/haptics/haptics-apis#haptic_feedback_constants) | Android 1.5+ (per constant) |   |   |
+ | [Predefined VibrationEffect](https://developer.android.com/develop/ui/views/haptics/haptics-apis#predefined_vibration_effect) | Android 10+ |   |   |
+-| [VibrationEffect Composition](https://developer.android.com/develop/ui/views/haptics/haptics-apis#vibration_effect_composition) | Android 11+ (per constant) |   |   |
++| [`VibrationEffect` composition](https://developer.android.com/develop/ui/views/haptics/haptics-apis#vibration_effect_builder) (Preferred) | Android 16+ (26Q4) |   |   |
++| [`VibrationEffect` primitives composition](https://developer.android.com/develop/ui/views/haptics/haptics-apis#vibration_effect_composition) | Android 11+ (per constant) |   |   |
+ | [On/off, one-shot and waveform vibrations](https://developer.android.com/develop/ui/views/haptics/haptics-apis#on_off_vibrations) | Android 1 |   |   |
+ 
+-Additionally, [notification APIs](https://developer.android.com/develop/ui/views/haptics/haptics-apis#notification_apis), described on this page,
+-allows you to customize the haptic effects that play for incoming notifications.
++Additionally, [notification APIs](https://developer.android.com/develop/ui/views/haptics/haptics-apis#notification_apis), described on
++this page, lets you customize the haptic effects that play for incoming
++notifications.
+ 
+ Also described on this page are additional concepts that span the API surfaces:
+ 
+ - [Does the device have a vibrator?](https://developer.android.com/develop/ui/views/haptics/haptics-apis#has_vibrator)
+-- [Amplitude control](https://developer.android.com/develop/ui/views/haptics/haptics-apis#amplitude_control) allows smoother, richer haptic effects, but is not supported by all devices.
+-- [`VibrationAttributes()`](https://developer.android.com/develop/ui/views/haptics/haptics-apis#vibration_attributes) helps you classify vibration based on its usage, ensuring the appropriate user settings will be applied to it and thus avoiding surprises to the user.
++- [Amplitude control](https://developer.android.com/develop/ui/views/haptics/haptics-apis#amplitude_control) allows smoother, richer haptic effects, but isn't supported by all devices.
++- [`VibrationAttributes()`](https://developer.android.com/develop/ui/views/haptics/haptics-apis#vibration_attributes) helps you classify vibrations based on usage, ensuring the appropriate user settings are applied to avoid surprising the user.
+ 
+ ## `HapticFeedbackConstants`
+ 
+@@ -41,8 +50,8 @@ rather than each app having different effects for common actions.
+ 
+ ### Compatibility and requirements
+ 
+-Using the [`View.performHapticFeedback`](https://developer.android.com/reference/android/view/View#performHapticFeedback(int)) method with these constants does not
+-require any special permissions for the app. It is subject to the
++Using the [`View.performHapticFeedback`](https://developer.android.com/reference/android/view/View#performHapticFeedback(int)) method with these constants
++doesn't require any special permissions for the app. It is subject to the
+ [`View.hapticFeedbackEnabled`](https://developer.android.com/reference/android/view/View#attr_android:hapticFeedbackEnabled) property, which if set to `false` will disable
+ all haptic feedback calls on the view, including default ones.The primary
+ related setting the [`View.hapticFeedbackEnabled`](https://developer.android.com/reference/android/view/View#attr_android:hapticFeedbackEnabled) property, which if set to
+@@ -86,7 +95,7 @@ consideration whether the effect is optimized for the device or not.
+ The effect-checking methods can return one of three values:
+ 
+ - [`VIBRATION_EFFECT_SUPPORT_YES`](https://developer.android.com/reference/android/os/Vibrator#VIBRATION_EFFECT_SUPPORT_YES) indicates that the device has optimized support for this effect.
+-- [`VIBRATION_EFFECT_SUPPORT_NO`](https://developer.android.com/reference/android/os/Vibrator#VIBRATION_EFFECT_SUPPORT_NO) indicates that the device does not have optimized support, but still uses the platform fallback.
++- [`VIBRATION_EFFECT_SUPPORT_NO`](https://developer.android.com/reference/android/os/Vibrator#VIBRATION_EFFECT_SUPPORT_NO) indicates that the device doesn't have optimized support, but still uses the platform fallback.
+ - [`VIBRATION_EFFECT_SUPPORT_UNKNOWN`](https://developer.android.com/reference/android/os/Vibrator#VIBRATION_EFFECT_SUPPORT_UNKNOWN) indicates the system doesn't know if the implementation is optimized or not.
+ 
+ As the `UNKNOWN` value indicates the checking API is unavailable, it's typically
+@@ -94,7 +103,9 @@ returned for all effects or none of them. These devices fall back dynamically.
+ 
+ ### Usage of predefined `VibrationEffect`
+ 
+-For details on using a predefined `VibrationEffect`, see [Use a predefined `VibrationEffect` to generate haptic feedback](https://developer.android.com/develop/ui/views/haptics/haptic-feedback#using_a_predefined_vibrationeffect).
++For details on using a predefined `VibrationEffect`, see
++[Use a predefined `VibrationEffect` to generate haptic
++feedback](https://developer.android.com/develop/ui/views/haptics/haptic-feedback#using_a_predefined_vibrationeffect).
+ 
+ ## Envelope VibrationEffect
+ 
+@@ -116,7 +127,7 @@ To check for envelope effects support, call
+ 
+ To create a smooth and seamless haptic experience, envelope effects must start
+ and end with an intensity of \\( 0.0 \\). The API enforces this by fixing the
+-start intensity at zero and throws an exception if the end intensity is not
++start intensity at zero and throws an exception if the end intensity isn't
+ zero. This constraint prevents undesirable dynamic effects in the vibrations due
+ to discontinuities in the amplitude that can negatively impact the user's haptic
+ perception.
+@@ -168,25 +179,72 @@ For details on creating envelope waveform effects, see
+ 
+ ## `VibrationEffect` composition
+ 
+-A [`VibrationEffect`](https://developer.android.com/reference/android/os/VibrationEffect) composition is a vibration effect created using the
+-[`VibrationEffect.startComposition`](https://developer.android.com/reference/android/os/VibrationEffect#startComposition()) API. This API allows expressive
+-[rich haptics](https://developer.android.com/develop/ui/views/haptics/haptics-principles#rich_haptics) by creating a sequence of primitives with
+-customized delays and intensities. However, take special care to ensure that the
+-device supports the features being combined to avoid an inconsistent overall
+-experience.
++Starting in Android 16 (26Q4), [`VibrationEffect.Builder`](https://developer.android.com/reference/android/os/VibrationEffect.Builder) is the preferred
++API for composing rich, expressive haptic effects by sequencing multiple haptic
++elements along a designed timeline. It supersedes
++[`VibrationEffect.Composition`](https://developer.android.com/develop/ui/views/haptics/haptics-apis#vibration_effect_composition) by
++offering timeline anchored scheduling, atomic encapsulation, mixed event support
++(combining presets and envelopes), and built-in automatic fallback.
++
++### Building blocks
++
++The builder lets you sequence the following haptic elements:
++
++- [`VibrationEffect.Preset`](https://developer.android.com/reference/android/os/VibrationEffect.Preset): Predefined haptic sensations representing common short pulses, such as `PRESET_CLICK`, `PRESET_TICK`, and `PRESET_LOW_TICK`. Presets supersede the short primitives from the `VibrationEffect.Composition` API. For longer, continuous, or ramping effects (previously handled by rise, fall and other primitives), use [envelopes](https://developer.android.com/reference/android/os/VibrationEffect.Envelope) (PWLE) instead. Presets can be scaled from `0.0f` to `1.0f` using `Preset.create(presetId, scale)`.
++- [`VibrationEffect.Envelope`](https://developer.android.com/reference/android/os/VibrationEffect.Envelope): Piecewise linear envelopes (PWLEs) created using either [`BasicEnvelopeBuilder`](https://developer.android.com/reference/android/os/VibrationEffect.BasicEnvelopeBuilder) (with intensity and sharpness) or [`WaveformEnvelopeBuilder`](https://developer.android.com/reference/android/os/VibrationEffect.WaveformEnvelopeBuilder) (with frequency and amplitude). Envelopes are constructed using `Envelope.create(builder)`.
++- [`VibrationEffect.Event`](https://developer.android.com/reference/android/os/VibrationEffect.Event): Timeline events retrieved from an existing `VibrationEffect` using `getEvents()`. These can be added with a timeline offset using `addEvents(startTimeShiftMillis, events)`.
++
++### Timeline scheduling and validation
++
++Each element is added to the builder with a `startTimeMillis` representing the
++time offset (in milliseconds) from the start of the composition:
++
++- **Build-time validation:** Elements must be added in strictly increasing order of their start times. The builder performs best-effort validation at build time by checking against the minimum duration (such as 1 ms for presets or known durations for envelopes). If an overlap is detected at build time, an `IllegalArgumentException` is thrown.
++- **Playback timing alignment:** The framework provides best-effort timing support during playback. If a previous event is still executing when the next scheduled event's start time arrives, the framework automatically shifts the subsequent event to the next earliest available slot. This prevents events from overlapping in physical playback while guaranteeing that no haptic events are dropped.
++
++### Repeating effects
++
++A repeating effect can be added to the composition using
++`setRepeatingEffect(startTimeMillis, repeatingEffect, durationMillis)`. Once a
++repeating effect is configured, no additional elements may be added to the
++builder.
++
++### Fallback support
++
++Framework-level **automatic fallback support** is default enabled for vibration
++created by `VibrationEffect.Builder`:
++
++- **Transparent platform fallback:** If a device doesn't support a requested `Preset` or basic `Envelope`, the framework automatically substitutes the unsupported element with an appropriate supported vibration at runtime with best effort. Your app doesn't need to manually check device capabilities (such as `isPresetSupported`) before playing compositions built with `VibrationEffect.Builder`.
++- **Exception for `WaveformEnvelopeBuilder`:** Envelope effects created by [`WaveformEnvelopeBuilder`](https://developer.android.com/reference/android/os/VibrationEffect.WaveformEnvelopeBuilder) (which specify absolute physical frequencies in Hertz and amplitudes in Gs) don't have automatic fallback support. Because advanced PWLEs rely on specific hardware frequency curves ([FOAM](https://developer.android.com/develop/ui/views/haptics/actuators#vibrator-output-acceleration)), substituting them automatically would compromise design intent. If the device doesn't support PWLE effects or the requested frequencies, such vibrations won't play. For universal compatibility, prefer [`BasicEnvelopeBuilder`](https://developer.android.com/reference/android/os/VibrationEffect.BasicEnvelopeBuilder).
++
++### Usage of `VibrationEffect.Builder`
++
++For code examples on composing effects with `VibrationEffect.Builder`, see
++[Create timeline anchored compositions with
++`VibrationEffect.Builder`](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#composition-builder).
++
++## `VibrationEffect` primitives composition
++
++> [!NOTE]
++> **Note:** On Android 16 (26Q4) and higher, [`VibrationEffect.Builder`](https://developer.android.com/develop/ui/views/haptics/haptics-apis#vibration_effect_builder) is the preferred API for composing vibration effects. `VibrationEffect.Composition` was introduced in Android 11 and remains available for compatibility on earlier Android versions.
++
++A [`VibrationEffect`](https://developer.android.com/reference/android/os/VibrationEffect) primitives composition is a vibration effect created
++using the [`VibrationEffect.startComposition`](https://developer.android.com/reference/android/os/VibrationEffect#startComposition()) API. This API lets you create
++a sequence of primitives.
+ 
+ ### Compatibility and requirements
+ 
+ Playing any `VibrationEffect` requires the `VIBRATE` permission in the app
+ manifest.
+ 
+-Not all devices support all features of the composition API, and it is important
+-to ensure that the *primitives* are available.
+-
+-#### Check for vibration primitive support
++#### Check primitive support
+ 
+ > [!CAUTION]
+-> **Caution:** If a composition contains primitives that aren't supported by the device, the entire `VibrationEffect.Composition` won't play any vibration. Therefore, to ensure a predictable experience, the set of primitives used in your app should be checked for support when considering which haptic experiences to enable.
++> **Caution:** Unlike `VibrationEffect.Builder`, the `VibrationEffect.Composition` API **doesn't** have automatic platform fallbacks. If a composition contains even a single primitive that isn't supported by the device, the entire `VibrationEffect.Composition` will fail to play any vibration.
++
++Therefore, when using the `VibrationEffect.Composition` API, you must check
++per-primitive support using [`Vibrator.arePrimitivesSupported`](https://developer.android.com/reference/android/os/Vibrator#arePrimitivesSupported(int...)) or
++[`Vibrator.areAllPrimitivesSupported`](https://developer.android.com/reference/android/os/Vibrator#areAllPrimitivesSupported(int...)) before playing.
+ 
+ Per-primitive support can be retrieved using the
+ [`Vibrator.arePrimitivesSupported`](https://developer.android.com/reference/android/os/Vibrator#arePrimitivesSupported(int...)) method. Alternatively, a set of primitives
+@@ -196,9 +254,10 @@ method - this is equivalent to `AND`-ing the per-primitive support.
+ > [!NOTE]
+ > **Note:** The support for checking individual primitives is fully available starting in Android 12 (SDK 31). In Android 11, the check relies only in the ability to compose primitives, returning `TRUE` for all requested primitive IDs.
+ 
+-### Usage of `VibrationEffect` Compositions
++### Usage of `VibrationEffect` primitives compositions
+ 
+-For details on using `VibrationEffect` compositions, see [Create vibration compositions](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#vibration_compositions).
++For details on using `VibrationEffect` primitives compositions, see
++[Create vibration primitives compositions](https://developer.android.com/develop/ui/views/haptics/custom-haptic-effects#vibration_compositions).
+ 
+ ## On-off, one-shot, and waveform vibrations
+ 
+@@ -221,8 +280,8 @@ There are two types of *waveform* patterns:
+ ### Compatibility and requirements
+ 
+ As on-off vibrations are the oldest form of vibrations, these are supported on
+-virtually all devices [with a vibrator](https://developer.android.com/develop/ui/views/haptics/haptics-apis#has_vibrator), as described later on
+-this page.
++virtually all devices [with a vibrator](https://developer.android.com/develop/ui/views/haptics/haptics-apis#has_vibrator), as described
++later on this page.
+ 
+ Playing any `VibrationEffect` or the older style `vibrate` calls, requires the
+ `VIBRATE` permission in the app manifest.
+@@ -245,7 +304,7 @@ be better.
+ 
+ In newer SDK levels, all vibration modes were consolidated into a single
+ expressive [`VibrationEffect`](https://developer.android.com/reference/android/os/VibrationEffect) class, where these simple vibrations are created
+-using [`VibrationEffect.createOneshot`](https://developer.android.com/reference/android/os/VibrationEffect#createOneShot(long,%20int)) or [`VibrationEffect.createWaveform`](https://developer.android.com/reference/android/os/VibrationEffect#createWaveform(long%5B%5D,%20int)).
++using [`VibrationEffect.createOneShot`](https://developer.android.com/reference/android/os/VibrationEffect#createOneShot(long,%20int)) or [`VibrationEffect.createWaveform`](https://developer.android.com/reference/android/os/VibrationEffect#createWaveform(long%5B%5D,%20int)).
+ 
+ ## Notification APIs
+ 
+@@ -259,7 +318,8 @@ to associate a pattern with each notification channel:
+   - [`NotificationChannel.setVibrationPattern`](https://developer.android.com/reference/android/app/NotificationChannel#setVibrationPattern(long%5B%5D))
+   - (deprecated) [`NotificationBuilder.setVibrate`](https://developer.android.com/reference/android/app/Notification.Builder#setVibrate(long%5B%5D))
+ 
+-All of these forms take a basic [on-off waveform pattern](https://developer.android.com/develop/ui/views/haptics/haptics-apis#on_off_vibrations),
++All of these forms take a basic
++[on-off waveform pattern](https://developer.android.com/develop/ui/views/haptics/haptics-apis#on_off_vibrations),
+ as described earlier, where the first entry is the delay before turning the
+ vibrator on.
+ 
+@@ -307,9 +367,9 @@ intensities. This is an important capability for producing
+ default haptic intensities.
+ 
+ Amplitude control support can be checked by calling
+-[`Vibrator.hasAmplitudeControl`](https://developer.android.com/reference/android/os/Vibrator#hasAmplitudeControl()). If a vibrator does not have amplitude support,
+-*all amplitude values will map to off/on based on whether they are
+-zero/non-zero*. Consequently, applications using rich haptics with varying
++[`Vibrator.hasAmplitudeControl`](https://developer.android.com/reference/android/os/Vibrator#hasAmplitudeControl()). If a vibrator doesn't have amplitude
++support, *all amplitude values will map to off or on based on whether they are
++zero or non-zero*. Consequently, applications using rich haptics with varying
+ amplitudes should consider disabling them if the device lacks amplitude control.
+ 
+ ### Envelope effects support

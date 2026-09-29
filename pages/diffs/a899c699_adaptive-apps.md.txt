@@ -1,0 +1,39 @@
+diff --git a/docs/develop/adaptive-apps.md b/docs/develop/adaptive-apps.md
+index fd575d02..32ed22e4 100644
+--- a/docs/develop/adaptive-apps.md
++++ b/docs/develop/adaptive-apps.md
+@@ -101,6 +101,30 @@ Organize content into primary and secondary display areas to make tools, options
+ 
+ Define your app's UI flow with scenes. Create customized layouts, adapt your UI to different screen sizes, manage complex multi-pane experiences. [Learn about navigation scenes](http://developer.android.com/guide/navigation/navigation-3/scenes) ![](http://developer.android.com/static/develop/adaptive-apps/images/adaptive-design.svg)
+ 
+-## Adaptive design
++## Get started with Android adaptive design
+ 
+-Create layouts for multiple form factors with Material Design and Jetpack Compose components. [Get started](http://developer.android.com/design/ui/large-screens)
+\ No newline at end of file
++Create layouts for multiple form factors with Material Design and Jetpack Compose components. [![](http://developer.android.com/static/develop/adaptive-apps/images/cover_ios-to-android.webp)](http://developer.android.com/design/ui/mobile/guides/foundations/translate-designs)
++
++### [10 steps to Android](http://developer.android.com/design/ui/mobile/guides/foundations/translate-designs)
++
++Translate your iOS designs to Android. [![](http://developer.android.com/static/develop/adaptive-apps/images/cover_adapt-layout.webp)](http://developer.android.com/design/ui/mobile/guides/layout-and-content/adapt-layout)
++
++### [Adapt your layout](http://developer.android.com/design/ui/mobile/guides/layout-and-content/adapt-layout)
++
++Learn about adaptive design mental models and anti-patterns for Android. [![](http://developer.android.com/static/develop/adaptive-apps/images/cover_postures-all.webp)](http://developer.android.com/design/ui/mobile/guides/layout-and-content/postures-and-orientation)
++
++### [Postures and design](http://developer.android.com/design/ui/mobile/guides/layout-and-content/postures-and-orientation)
++
++Get your designs ready to fold and rotate. Unique design considerations for foldables and device rotation. [![](http://developer.android.com/static/develop/adaptive-apps/images/cover_android-kit.webp)](https://www.figma.com/community/file/1478523627015571873/android-ui-kit)
++
++### [Android UI Kit](https://www.figma.com/community/file/1478523627015571873/android-ui-kit)
++
++Get started designing for Android faster and easier with an introductory guide, styles, components, and system templates. [![](http://developer.android.com/static/develop/adaptive-apps/images/cover_adaptive-design-lab.webp)](https://www.figma.com/community/file/1504631597454929506/design-an-adaptive-android-layout)
++
++### [Design lab](https://www.figma.com/community/file/1504631597454929506/design-an-adaptive-android-layout)
++
++From compact to extra large, this Figma lab helps you get those layouts flexing. [![](http://developer.android.com/static/develop/adaptive-apps/images/cover_adaptive-templates.webp)](https://www.figma.com/community/file/1539759053650269019/android-adaptive-ui-samples)
++
++### [Adaptive templates](https://www.figma.com/community/file/1539759053650269019/android-adaptive-ui-samples)
++
++Need somewhere to start? The Android templates Figma provides a range of vertical examples.
+\ No newline at end of file
