@@ -101,8 +101,9 @@ size class of your app changes.
 
 Evaluate your app window size based on window size classes.
 
-To determine the window size class, use the [`currentWindowAdaptiveInfo()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/package-summary#currentWindowAdaptiveInfo())
-top‑level function of the Compose Material 3 Adaptive library. For more
+To determine the window size class, use the [`currentWindowAdaptiveInfoV2()`](https://developer.android.com/reference/kotlin/androidx/compose/material3/adaptive/currentWindowAdaptiveInfoV2.composable#currentWindowAdaptiveInfoV2())
+top‑level function of the Compose Material 3 Adaptive library (which
+replaces the deprecated `currentWindowAdaptiveInfo()` function). For more
 information, see [Build adaptive apps](https://developer.android.com/develop/ui/compose/build-adaptive-apps).
 ✗ Don't
 

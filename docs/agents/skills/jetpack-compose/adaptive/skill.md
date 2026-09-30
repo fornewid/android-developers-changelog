@@ -26,7 +26,7 @@ task.
 
 Ensure that screenshot tests exist to verify the current UI on different form
 factors. If they don't exist, add the [Compose Preview Screenshot Testing
-tool](https://developer.android.com/develop/ui/compose/tooling/debug#compose_ui_check). Use the following annotation to create previews for all the major form
+tool](https://developer.android.com/studio/preview/compose-screenshot-testing-with-testsuites). Use the following annotation to create previews for all the major form
 factors. For example:
 
 

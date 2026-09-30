@@ -10,9 +10,11 @@ The `android` command-line tool provides commands for scaffolding projects, runn
 
 | Command | Description |
 |---|---|
+| [`auth`](https://developer.android.com/tools/agents/android-cli/commands/auth) | Authentication commands. Log in/out of Google services for Android CLI. |
 | [`completion`](https://developer.android.com/tools/agents/android-cli/commands/completion) | Installs shell autocomplete configuration for Android CLI in the current user profile. |
 | [`create`](https://developer.android.com/tools/agents/android-cli/commands/create) | Creates a new Android project from available templates. You can specify the project name, output directory, `minSdk` value, and dry-run execution. |
 | [`describe`](https://developer.android.com/tools/agents/android-cli/commands/describe) | Analyzes an Android project to generate descriptive metadata. This command identifies and outputs the paths to JSON files that detail the project's structure, including build targets and their corresponding output artifact locations (such as APKs). This information enables other tools and commands to locate build artifacts efficiently. |
+| [`device`](https://developer.android.com/tools/agents/android-cli/commands/device) | Manage physical Android devices. Create remote physical device reservations. |
 | [`docs`](https://developer.android.com/tools/agents/android-cli/commands/docs) | Searches and fetches developer documentation from the official Android Knowledge Base. |
 | [`emulator`](https://developer.android.com/tools/agents/android-cli/commands/emulator) | Manages Android Virtual Devices (AVDs). Includes commands to start, stop, list, and view details about emulators. |
 | [`help`](https://developer.android.com/tools/agents/android-cli/commands/help) | Shows the help information for a specified command. |

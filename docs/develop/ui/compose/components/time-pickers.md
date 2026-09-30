@@ -8,9 +8,6 @@ source: md.txt
 use the [`TimePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimePicker.composable#TimePicker(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors,androidx.compose.material3.TimePickerLayoutType)) and [`TimeInput`](https://developer.android.com/reference/kotlin/androidx/compose/material3/TimeInput.composable#TimeInput(androidx.compose.material3.TimePickerState,androidx.compose.ui.Modifier,androidx.compose.material3.TimePickerColors)) composables to implement a time
 picker in your app.
 
-> [!NOTE]
-> **Note:** `TimePicker` and `TimeInput` are experimental. File any issues on the [issue tracker](https://issuetracker.google.com/issues/new?component=856989&template=1425922).
-
 ## Types
 
 There are two types of time picker:

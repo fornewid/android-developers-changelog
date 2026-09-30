@@ -45,7 +45,9 @@ Direct Known Subclasses:[GooglePlayGames.BasicApi.DummyClient](https://developer
 | `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1a6f50cb8475832cb948f414506b0f90a8(string[] userIds, Action< IUserProfile[]> callback)` | `void` Loads the users specified. |
 | `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1a5e866a2292900a7a27c293edbbb55cdd(Action< https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a7ac5abd21359fbbe3ea826b40143e5c6 > callback)` | `void` Manually requests that your game performs sign in with Play Games Services. |
 | `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1aa7b05f5fbbebf458aaad50187f754992(https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event#class_google_play_games_1_1_basic_api_1_1_player_game_event playerGameEvent)` | `void` Records a single player game event. |
+| `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1a3909c522bc13b150e02c318eabbaae86(https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event#class_google_play_games_1_1_basic_api_1_1_player_game_event playerGameEvent, Action< bool > callback)` | `void` Records a single player game event immediately. |
 | `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1a92cd8b520f702f7943f63cfa4c4adc5b(List< https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event#class_google_play_games_1_1_basic_api_1_1_player_game_event > events)` | `void` Records a list of player game events. |
+| `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1a1d238b208d4a61054eb9e7589dbe183b(List< https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event#class_google_play_games_1_1_basic_api_1_1_player_game_event > events, Action< bool > callback)` | `void` Records a list of player game events immediately. |
 | `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1a3647ad8e9df40e5830b6af8b180d26d5()` | `void` Requests an immediate upload of any pending player game events. |
 | `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1ab8b1780c4d07319a6fa40ba312499c81(Action< https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/recall-access#class_google_play_games_1_1_basic_api_1_1_recall_access > callback)` | `void` Requests Recall Access to [Player](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player#class_google_play_games_1_1_basic_api_1_1_player) Games Services for the currently signed in account |
 | `https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/i-play-games-client#interface_google_play_games_1_1_basic_api_1_1_i_play_games_client_1ad528750025ee1125247f1cbea5e67efb(bool forceRefreshToken, Action< string > callback)` | `void` Requests server-side access to [Player](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player#class_google_play_games_1_1_basic_api_1_1_player) Games Services for the currently signed in player. |
@@ -72,9 +74,7 @@ Shows the appropriate platform-specific friends sharing UI.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | The callback to invoke when complete. If null, no callback is called. | |
+Details Parameters `callback` The callback to invoke when complete. If null, no callback is called.
 
 ### Authenticate
 
@@ -89,9 +89,7 @@ This returns the result
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | Callback | |
+Details Parameters `callback` Callback
 
 ### GetEventsClient
 
@@ -124,9 +122,7 @@ Returns if the user has allowed permission for the game to access the friends li
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `forceReload` | If true, this call will clear any locally cached data and attempt to fetch the latest data from the server. Normally, this should be set to `false` to gain advantages of data caching. | | `callback` | Callback invoked upon completion. | |
+Details Parameters `forceReload` If true, this call will clear any locally cached data and attempt to fetch the latest data from the server. Normally, this should be set to `false` to gain advantages of data caching. `callback` Callback invoked upon completion.
 
 ### GetLastLoadFriendsStatus
 
@@ -146,9 +142,7 @@ Gets the player stats.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | Callback for response. | |
+Details Parameters `callback` Callback for response.
 
 ### GetSavedGameClient
 
@@ -219,9 +213,7 @@ If the operation succeeds, the callback will be invoked on the game thread with 
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `achievementId` | The ID of the achievement to increment. | | `steps` | The number of steps to increment by. | | `successOrFailureCalllback` | Callback used to indicate whether the operation succeeded or failed. | |
+Details Parameters `achievementId` The ID of the achievement to increment. `steps` The number of steps to increment by. `successOrFailureCalllback` Callback used to indicate whether the operation succeeded or failed.
 
 ### IsAuthenticated
 
@@ -271,9 +263,7 @@ This loads the entire list of friends.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | Callback invoked when complete. bool argument indicates success. | |
+Details Parameters `callback` Callback invoked when complete. bool argument indicates success.
 
 ### LoadFriends
 
@@ -288,9 +278,7 @@ Loads the first page of the user's friends
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `pageSize` | The number of entries to request for this initial page. Note that if cached data already exists, the returned buffer may contain more than this size, but it is guaranteed to contain at least this many if the collection contains enough records. | | `forceReload` | If true, this call will clear any locally cached data and attempt to fetch the latest data from the server. This would commonly be used for something like a user-initiated refresh. Normally, this should be set to `false` to gain advantages of data caching. | | `callback` | Callback invoked upon completion. | |
+Details Parameters `pageSize` The number of entries to request for this initial page. Note that if cached data already exists, the returned buffer may contain more than this size, but it is guaranteed to contain at least this many if the collection contains enough records. `forceReload` If true, this call will clear any locally cached data and attempt to fetch the latest data from the server. This would commonly be used for something like a user-initiated refresh. Normally, this should be set to `false` to gain advantages of data caching. `callback` Callback invoked upon completion.
 
 ### LoadMoreFriends
 
@@ -304,9 +292,7 @@ Loads the friends list page
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `pageSize` | The number of entries to request for this page. Note that if cached data already exists, the returned buffer may contain more than this size, but it is guaranteed to contain at least this many if the collection contains enough records. | | `callback` |   | |
+Details Parameters `pageSize` The number of entries to request for this page. Note that if cached data already exists, the returned buffer may contain more than this size, but it is guaranteed to contain at least this many if the collection contains enough records. `callback`
 
 ### LoadMoreScores
 
@@ -323,9 +309,7 @@ The token is accessed by calling [LoadScores()](https://developer.android.com/ga
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `token` | Token for tracking the score loading. | | `rowCount` | max number of scores to return. This can be limited by the SDK. | | `callback` | Callback. | |
+Details Parameters `token` Token for tracking the score loading. `rowCount` max number of scores to return. This can be limited by the SDK. `callback` Callback.
 
 ### LoadScores
 
@@ -343,9 +327,7 @@ Loads the score data for the given leaderboard.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `leaderboardId` | Leaderboard identifier. | | `start` | Start indicating the top scores or player centric | | `rowCount` | max number of scores to return. non-positive indicates no rows should be returned. This causes only the summary info to be loaded. This can be limited by the SDK. | | `collection` | leaderboard collection: public or social | | `timeSpan` | leaderboard timespan | | `callback` | callback with the scores, and a page token. The token can be used to load next/prev pages. | |
+Details Parameters `leaderboardId` Leaderboard identifier. `start` Start indicating the top scores or player centric `rowCount` max number of scores to return. non-positive indicates no rows should be returned. This causes only the summary info to be loaded. This can be limited by the SDK. `collection` leaderboard collection: public or social `timeSpan` leaderboard timespan `callback` callback with the scores, and a page token. The token can be used to load next/prev pages.
 
 ### LoadUsers
 
@@ -361,9 +343,7 @@ This is mainly used by the leaderboard APIs to get the information of a high sco
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `userIds` | User identifiers. | | `callback` | Callback. | |
+Details Parameters `userIds` User identifiers. `callback` Callback.
 
 ### ManuallyAuthenticate
 
@@ -378,9 +358,7 @@ Note that a sign-in attempt will be made automatically when your game's applicat
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` |   | |
+Details Parameters `callback`
 
 ### RecordEvent
 
@@ -393,9 +371,23 @@ Records a single player game event.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `playerGameEvent` | The event to record. | |
+Details Parameters `playerGameEvent` The event to record.
+
+### RecordEventImmediate
+
+```c#
+void RecordEventImmediate(
+  PlayerGameEvent playerGameEvent,
+  Action< bool > callback
+)
+```
+Records a single player game event immediately.
+
+If the operation succeeds, the callback will be invoked on the game thread with true. If the operation fails, the callback will be invoked with false. This operation will immediately fail if the user is not authenticated (i.e. the callback will immediately be invoked with false).
+
+<br />
+
+Details Parameters `playerGameEvent` The event to record. `callback` Callback used to indicate whether the operation succeeded or failed.
 
 ### RecordEvents
 
@@ -408,9 +400,23 @@ Records a list of player game events.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `events` | The list of events to record. | |
+Details Parameters `events` The list of events to record.
+
+### RecordEventsImmediate
+
+```c#
+void RecordEventsImmediate(
+  List< PlayerGameEvent > events,
+  Action< bool > callback
+)
+```
+Records a list of player game events immediately.
+
+If the operation succeeds, the callback will be invoked on the game thread with true. If the operation fails, the callback will be invoked with false. This operation will immediately fail if the user is not authenticated (i.e. the callback will immediately be invoked with false).
+
+<br />
+
+Details Parameters `events` The list of events to record. `callback` Callback used to indicate whether the operation succeeded or failed.
 
 ### RequestEventsUpload
 
@@ -432,9 +438,7 @@ When requested a session id is returned that can be used by your game-server to 
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` |   | |
+Details Parameters `callback`
 
 ### RequestServerSideAccess
 
@@ -449,10 +453,7 @@ Requests server-side access to [Player](https://developer.android.com/games/serv
 When requested an authorization code is returned that can be used by your game-server to exchange for an access token and conditionally a refresh token (when `forceRefreshToken` is true). The access token may then be used by your game-server to access the Play Games Services web APIs. This is commonly used to complete a sign-in flow by verifying the Play Games Services player id.
 
 If `forceRefreshToken` is true, when exchanging the authorization code a refresh token will be returned in addition to the access token. The refresh token allows the game-server to request additional access tokens, allowing your game-server to continue accesses Play Games Services while the user is not actively playing your app.
-
-| Details ||
-|---|---|
-| Parameters | |---|---| | `forceRefreshToken` | If `true` when the returned authorization code is exchanged a refresh token will be included in addition to an access token. | | `callback` |   | |
+Details Parameters `forceRefreshToken` If `true` when the returned authorization code is exchanged a refresh token will be included in addition to an access token. `callback`
 
 ### RequestServerSideAccess
 
@@ -471,17 +472,11 @@ When `forceRefreshToken` is `true` during authorization code exchange, a refresh
 
 Scopes represent the [AuthScope](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1ab5415b6b4ad0724108f447b203380e44) values requested such as `AuthScope.EMAIL`, `AuthScope.PROFILE`, `AuthScope.OPEN_ID`. For new permissions, users will see a consent screen upon the first request. Granting consent (or if permissions were already granted) results in the [AuthResponse](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/auth-response#class_google_play_games_1_1_basic_api_1_1_auth_response) listing the effectively granted [AuthScope](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1ab5415b6b4ad0724108f447b203380e44). Declining permission results in an empty list of granted [AuthScope](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1ab5415b6b4ad0724108f447b203380e44) in the [AuthResponse](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/auth-response#class_google_play_games_1_1_basic_api_1_1_auth_response) . Regardless of granted permissions, a successful request will always return the authorization code.
 param name="scopes"\>A list of [AuthScope](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1ab5415b6b4ad0724108f447b203380e44) values representing the OAuth 2.0 permissions being requested, such as `AuthScope.EMAIL`, `AuthScope.PROFILE` and `AuthScope.OPEN_ID`.
-
-| Details ||
-|---|---|
-| Parameters | |---|---| | `forceRefreshToken` | If `true` when the returned authorization code is exchanged a refresh token will be included in addition to an access token. | |
+Details Parameters `forceRefreshToken` If `true` when the returned authorization code is exchanged a refresh token will be included in addition to an access token.
 
 
 A [Task](https://developer.android.com/games/services/unity/v2/api/other/) that completes with an [AuthResponse](https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/auth-response#class_google_play_games_1_1_basic_api_1_1_auth_response) containing the OAuth 2.0 authorization code as a string and a list of the [AuthScope](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1ab5415b6b4ad0724108f447b203380e44)s that were effectively granted by the user (see description for details on consent). This authorization code can be exchanged by your server for an access token (and conditionally a refresh token) that can be used to access the Play Games Services web APIs and other Google Identity APIs.
-
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` |   | |
+Details Parameters `callback`
 
 ### RevealAchievement
 
@@ -497,9 +492,7 @@ If the operation succeeds, the callback will be invoked on the game thread with 
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `achievementId` | The ID of the achievement to reveal. | | `successOrFailureCalllback` | Callback used to indicate whether the operation succeeded or failed. | |
+Details Parameters `achievementId` The ID of the achievement to reveal. `successOrFailureCalllback` Callback used to indicate whether the operation succeeded or failed.
 
 ### SetStepsAtLeast
 
@@ -516,9 +509,7 @@ Calling this method while the achievement already has more steps than the provid
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `achId` | Ach identifier. | | `steps` | Steps. | | `callback` | Callback. | |
+Details Parameters `achId` Ach identifier. `steps` Steps. `callback` Callback.
 
 ### ShowAchievementsUI
 
@@ -531,9 +522,7 @@ Shows the appropriate platform-specific achievements UI.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `callback` | The callback to invoke when complete. If null, no callback is called. | |
+Details Parameters `callback` The callback to invoke when complete. If null, no callback is called.
 
 ### ShowCompareProfileWithAlternativeNameHintsUI
 
@@ -549,9 +538,7 @@ Shows the Play Games [Player](https://developer.android.com/games/services/unity
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `otherUserId` | User Identifier. | | `otherPlayerInGameName` | The game's own display name of the player referred to by userId. | | `currentPlayerInGameName` | The game's own display name of the current player. | | `callback` | Callback invoked upon completion. | |
+Details Parameters `otherUserId` User Identifier. `otherPlayerInGameName` The game's own display name of the player referred to by userId. `currentPlayerInGameName` The game's own display name of the current player. `callback` Callback invoked upon completion.
 
 ### ShowLeaderboardUI
 
@@ -568,9 +555,7 @@ If the passed ID is null, all leaderboards are displayed.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `leaderboardId` | The leaderboard to display. null to display all. | | `span` | Timespan to display for the leaderboard | | `callback` | If non-null, the callback to invoke when the leaderboard is dismissed. | |
+Details Parameters `leaderboardId` The leaderboard to display. null to display all. `span` Timespan to display for the leaderboard `callback` If non-null, the callback to invoke when the leaderboard is dismissed.
 
 ### SubmitScore
 
@@ -587,9 +572,7 @@ This operation will immediately fail if the user is not authenticated (i.e. the 
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `leaderboardId` | Leaderboard identifier. | | `score` | Score. | | `successOrFailureCalllback` | Callback used to indicate whether the operation succeeded or failed. | |
+Details Parameters `leaderboardId` Leaderboard identifier. `score` Score. `successOrFailureCalllback` Callback used to indicate whether the operation succeeded or failed.
 
 ### SubmitScore
 
@@ -605,9 +588,7 @@ Submits the score for the currently signed-in player.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `score` | Score. | | `leaderboardId` | leaderboard id. | | `metadata` | metadata about the score. | | `successOrFailureCalllback` | Callback upon completion. | |
+Details Parameters `score` Score. `leaderboardId` leaderboard id. `metadata` metadata about the score. `successOrFailureCalllback` Callback upon completion.
 
 ### UnlockAchievement
 
@@ -623,6 +604,4 @@ If the operation succeeds, the callback will be invoked on the game thread with 
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `achievementId` | The ID of the achievement to unlock. | | `successOrFailureCalllback` | Callback used to indicate whether the operation succeeded or failed. | |
+Details Parameters `achievementId` The ID of the achievement to unlock. `successOrFailureCalllback` Callback used to indicate whether the operation succeeded or failed.

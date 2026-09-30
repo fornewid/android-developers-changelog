@@ -10,7 +10,9 @@ and compile-time checked argument passing between the screens in your app.
 
 This document serves as a general-purpose guide to migrate an existing app to
 use the Navigation component.
-| **Note:** This documentation uses fragments as examples, as they allow for integration with other [Jetpack lifecycle-aware components](https://developer.android.com/jetpack#android-jetpack-components). In addition to fragments, the Navigation component also supports [custom destinations](https://developer.android.com/topic/libraries/architecture/navigation/navigation-add-new).
+
+> [!NOTE]
+> **Note:** This documentation uses fragments as examples, as they allow for integration with other [Jetpack lifecycle-aware components](https://developer.android.com/jetpack#android-jetpack-components). In addition to fragments, the Navigation component also supports [custom destinations](https://developer.android.com/topic/libraries/architecture/navigation/navigation-add-new).
 
 At a high level, migration involves these steps:
 
@@ -29,7 +31,8 @@ At a high level, migration involves these steps:
 4. [Combine activities](https://developer.android.com/guide/navigation/migrate#combine) - Combine navigation graphs in cases where
    multiple activities share a common layout.
 
-| **Important:** To ensure success, approach migration as an iterative process, thoroughly testing your app with each step. While a single-activity architecture allows you to take full advantage of the Navigation component, you do not need to fully migrate your app to benefit from Navigation.
+> [!IMPORTANT]
+> **Important:** To ensure success, approach migration as an iterative process, thoroughly testing your app with each step. While a single-activity architecture allows you to take full advantage of the Navigation component, you do not need to fully migrate your app to benefit from Navigation.
 
 ## Prerequisites
 
@@ -40,7 +43,8 @@ continuing.
 
 ## Move screen-specific UI logic out of activities
 
-| **Note:** This section contains guidance on introducing fragments to an activity-based app. If your app is already using fragments, you can skip ahead to the [Integrate the Navigation component](https://developer.android.com/guide/navigation/migrate#integrate) section.
+> [!NOTE]
+> **Note:** This section contains guidance on introducing fragments to an activity-based app. If your app is already using fragments, you can skip ahead to the [Integrate the Navigation component](https://developer.android.com/guide/navigation/migrate#integrate) section.
 
 Activities are system-level components that facilitate a graphical interaction
 between your app and Android. Activities are registered in your app's manifest
@@ -74,7 +78,9 @@ user to a details screen to learn more about the product.
 ![](https://developer.android.com/static/images/topic/libraries/architecture/navigation-migrate-product-details.png)
 
 In this example, the list and details screens are currently separate activities.
-| **Note:** As you migrate to a fragment-based architecture, it's important to focus on one screen at a time. You may find it helpful to start from your app's launch screen and work your way through your app. This example focuses on migrating only the list screen.
+
+> [!NOTE]
+> **Note:** As you migrate to a fragment-based architecture, it's important to focus on one screen at a time. You may find it helpful to start from your app's launch screen and work your way through your app. This example focuses on migrating only the list screen.
 
 ### Create a New Layout to Host the UI
 
@@ -82,14 +88,14 @@ To introduce a fragment, start by creating a new layout file for the activity to
 host the fragment. This replaces the activity's current content view layout.
 
 For a simple view, you can use a `FrameLayout`, as shown in the following
-example `product_list_host`:  
+example `product_list_host`:
 
     <FrameLayout
        xmlns:app="http://schemas.android.com/apk/res-auto"
        xmlns:android="http://schemas.android.com/apk/res/android"
        android:id="@+id/main_content"
        android:layout_height="match_parent"
-       android:layout_width="match_parent" />
+    >   android:layout_width="match_parent" /
 
 The `id` attribute refers to the content section where we later add the
 fragment.
@@ -137,7 +143,7 @@ for the fragment you are about to create.
 
 Create a new fragment to manage the UI for your screen. It's a good practice to
 be consistent with your activity host name. The snippet below uses
-`ProductListFragment`, for example:  
+`ProductListFragment`, for example:
 
 ### Kotlin
 
@@ -162,7 +168,7 @@ this screen from the activity into this new fragment. If you are coming from an
 activity-based architecture, you likely have a lot of view creation logic
 happening in your activity's `onCreate()` function.
 
-Here's an example activity-based screen with UI logic that we need to move:  
+Here's an example activity-based screen with UI logic that we need to move:
 
 ### Kotlin
 
@@ -249,7 +255,7 @@ public class ProductListActivity extends AppCompatActivity {
 ```
 
 Your activity might also be controlling when and how the user navigates to the
-next screen, as shown in the following example:  
+next screen, as shown in the following example:
 
 ### Kotlin
 
@@ -283,7 +289,7 @@ Inside your fragment, you distribute this work between
 [`onCreateView()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#onCreateView(android.view.LayoutInflater,%20android.view.ViewGroup,%20android.os.Bundle))
 and
 [`onViewCreated()`](https://developer.android.com/reference/androidx/fragment/app/Fragment#onViewCreated(android.view.View,%20android.os.Bundle)),
-with only the navigation logic remaining in the activity:  
+with only the navigation logic remaining in the activity:
 
 ### Kotlin
 
@@ -402,12 +408,14 @@ needs to change to the layout itself.
 If you have any UI logic residing in your activity's `onStart()`, `onResume()`,
 `onPause()` or `onStop()` functions that are not related to navigation, you can
 move those to corresponding functions of the same name on the fragment.
-| **Note:** A fragment's lifecycle is managed by its host activity and has additional lifecycle callbacks other than the ones used in this example. Your app might have a reason to override other lifecycle functions, as well. For a complete list of fragment lifecycle functions and when to use them, see the [guide to fragments](https://developer.android.com/guide/components/fragments#Creating).
+
+> [!NOTE]
+> **Note:** A fragment's lifecycle is managed by its host activity and has additional lifecycle callbacks other than the ones used in this example. Your app might have a reason to override other lifecycle functions, as well. For a complete list of fragment lifecycle functions and when to use them, see the [guide to fragments](https://developer.android.com/guide/components/fragments#Creating).
 
 ### Initialize the fragment in the host activity
 
 Once you have moved all of the UI logic down to the fragment, only navigation
-logic should remain in the activity.  
+logic should remain in the activity.
 
 ### Kotlin
 
@@ -447,7 +455,7 @@ public class ProductListActivity extends AppCompatActivity {
 ```
 
 The last step is to create an instance of the fragment in `onCreate()`, just
-after setting the content view:  
+after setting the content view:
 
 ### Kotlin
 
@@ -494,7 +502,7 @@ If your activity receives `Extras` through an intent, you can pass these to the
 fragment directly as arguments.
 
 In this example, the `ProductDetailsFragment` receives its arguments directly
-from the activity's intent extras:  
+from the activity's intent extras:
 
 ### Kotlin
 
@@ -569,18 +577,20 @@ need to configure a `NavHost` inside of the activity that is going to host this
 graph. Since we're using fragments, we can use the Navigation component's
 default `NavHost` implementation,
 [`NavHostFragment`](https://developer.android.com/reference/kotlin/androidx/navigation/fragment/NavHostFragment).
-| **Note:** If your app uses multiple activities, each activity uses a separate navigation graph. To take full advantage of the Navigation component, your app should use multiple fragments in a single activity. However, activities can still benefit from the Navigation component. Note, however, that your app's UI must be visually broken up across several navigation graphs.
+
+> [!NOTE]
+> **Note:** If your app uses multiple activities, each activity uses a separate navigation graph. To take full advantage of the Navigation component, your app should use multiple fragments in a single activity. However, activities can still benefit from the Navigation component. Note, however, that your app's UI must be visually broken up across several navigation graphs.
 
 A `NavHostFragment` is configured via a [`FragmentContainerView`](https://developer.android.com/reference/androidx/fragment/app/FragmentContainerView)
-placed inside of a host activity, as shown in the following example:  
+placed inside of a host activity, as shown in the following example:
 
     <androidx.fragment.app.FragmentContainerView
        android:name="androidx.navigation.fragment.NavHostFragment"
        app:navGraph="@navigation/product_list_graph"
        app:defaultNavHost="true"
        android:id="@+id/main_content"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent" />
+       android:layout_width="match_pare>nt"
+       android:layout_height="match_parent" /
 
 The `app:NavGraph` attribute points to the navigation graph associated with this
 navigation host. Setting this property inflates the nav graph and sets the graph
@@ -594,23 +604,23 @@ replaces your main content view element. See
 for examples.
 
 For a simple layout, you can include this [`FragmentContainerView`](https://developer.android.com/reference/androidx/fragment/app/FragmentContainerView)
-element as a child of the root `ViewGroup`:  
+element as a child of the root `ViewGroup`:
 
     <FrameLayout
        xmlns:app="http://schemas.android.com/apk/res-auto"
        xmlns:android="http://schemas.android.com/apk/res/android"
        android:layout_height="match_parent"
-       android:layout_width="match_parent">
+       andro>id<:layout_width="match_parent"
 
-    <androidx.fragment.app.FragmentContainerView
+    androidx.fragment.app.FragmentContainerView
        android:id="@+id/main_content"
        android:name="androidx.navigation.fragment.NavHostFragment"
        app:navGraph="@navigation/product_list_graph"
        app:defaultNavHost="true"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent" />
+    >  < andr>oid:layout_width="match_parent"
+       android:layout_height="match_parent" /
 
-    </FrameLayout>
+    /FrameLayout
 
 If you click on the **Design** tab at the bottom, you should see a graph similar
 to the one shown below. In the upper left hand side of the graph, under
@@ -654,7 +664,7 @@ migration for each scenario.
 #### Single activity managing multiple fragments
 
 If you have a single activity that manages multiple fragments, your activity
-code might look like this:  
+code might look like this:
 
 ### Kotlin
 
@@ -730,7 +740,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 Inside of the source destination, you might be invoking a navigation function in
-response to some event, as shown below:  
+response to some event, as shown below:
 
 ### Kotlin
 
@@ -775,35 +785,35 @@ public class ProductListFragment extends Fragment  {
 
 This can be replaced by updating your navigation graph to set
 the start destination and actions to link your destinations and define
-arguments where required:  
+arguments where required:
 
     <navigation xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/product_list_graph"
-        app:startDestination="@id/product_list">
+       > app:s<tartDestination="@id/product_list"
 
-        <fragment
+        fragment
             android:id="@+id/product_list"
             android:name="com.example.android.persistence.ui.ProductListFragment"
-            android:label="Product List"
-            tools:layout="@layout/product_list">
-            <action
-                android:id="@+id/navigate_to_product_detail"
-                app:destination="@id/product_detail" />
-        </fragment>
-        <fragment
+            an>droid:lab<el="Product List"
+            tools:layout="@layout/product_list"
+            action
+                andro>id:id<="@+>id/na<vigate_to_product_detail"
+                app:destination="@id/product_detail" /
+        /fragment
+        fragment
             android:id="@+id/product_detail"
-            android:name="com.example.android.persistence.ui.ProductDetailFragment"
-            android:label="Product Detail"
-            tools:layout="@layout/product_detail">
-            <argument
+            android:name="com.example.andro>id.persis<tence.ui.ProductDetailFragment"
+            android:label="Product Detail&qu>ot;
+     <       too<ls:layout=&>quot;@layout/product_detail"
+            argument
                 android:name="product_id"
-                app:argType="integer" />
-        </fragment>
-    </navigation>
+                app:argType="integer" /
+        /fragment
+    /navigation
 
-Then, you can update your activity:  
+Then, you can update your activity:
 
 ### Kotlin
 
@@ -854,7 +864,7 @@ require those parameters.
 
 Inside the fragment, use `NavController` and the generated `Directions` class to
 provide type-safe arguments to the target destination, as shown in the following
-example:  
+example:
 
 ### Kotlin
 
@@ -905,7 +915,7 @@ If your app uses a `DrawerLayout`, you might have a lot of configuration logic
 in your activity that manages opening and closing the drawer and navigating to
 other destinations.
 
-Your resulting activity might look something like this:  
+Your resulting activity might look something like this:
 
 ### Kotlin
 
@@ -1065,65 +1075,65 @@ After you have added the Navigation component to your project and created a
 navigation graph, add each of the content destinations from your graph (such as
 *Home* , *Gallery* , *SlideShow* , and *Tools* from the example above). Be sure
 that your menu item `id` values match their associated destination `id` values,
-as shown below:  
+as shown below:
 
     <!-- activity_main_drawer.xml -->
     <menu xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:showIn="navigation_view">
+        tools:show>In=&qu<ot;navigation_view"
 
-        <group android:checkableBehavior="single">
-            <item
+        group andr>oid:check<ableBehavior="single"
+            item
                 android:id="@+id/home"
-                android:icon="@drawable/ic_menu_camera"
-                android:title="@string/menu_home" />
-            <item
+                android:icon="@drawable/ic_menu_>camera&qu<ot;
+                android:title="@string/menu_home" /
+            item
                 android:id="@+id/gallery"
-                android:icon="@drawable/ic_menu_gallery"
-                android:title="@string/menu_gallery" />
-            <item
-                android:id="@+id/slide_show"
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_slideshow" />
-            <item
-                android:id="@+id/tools"
+                android:ico>n="@<drawable/ic_menu_gallery"
+                android:title="@string/menu_gallery" /
+            item
+                android:id="@+id/slide_show&quo>t;
+          <      android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_slideshow" /
+            item
+          >     < androi&l>t;d:id=&quot;@+id/tools"
                 android:icon="@drawable/ic_menu_manage"
-                android:title="@string/menu_tools" />
-        </group>
-    </menu>
+                android:title="@string/menu_tools" /
+        /group
+    /menu
 
     <!-- activity_main_graph.xml -->
     <navigation xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/main_graph"
-        app:startDestination="@id/home">
+        android:id="@+id/main_graph&q>uot;
+     <   app:startDestination="@id/home"
 
-        <fragment
+        fragment
             android:id="@+id/home"
-            android:name="com.example.HomeFragment"
-            android:label="Home"
-            tools:layout="@layout/home" />
+            android:name="com.example.HomeFragment&qu>ot;
+      <      android:label="Home"
+            tools:layout="@layout/home" /
 
-        <fragment
+        fragment
             android:id="@+id/gallery"
-            android:name="com.example.GalleryFragment"
+            android:name=&q>uot;co<m.example.GalleryFragment"
             android:label="Gallery"
-            tools:layout="@layout/gallery" />
+            tools:layout="@layout/gallery" /
 
-        <fragment
-            android:id="@+id/slide_show"
+        fragment
+            android:id="@+id/slide_sh>ow&quo<t;
             android:name="com.example.SlideShowFragment"
             android:label="Slide Show"
-            tools:layout="@layout/slide_show" />
+            tools:layout="@layout/slide_show&q>uo<t; /
 
-        <fragment
+        f>ragment
             android:id="@+id/tools"
             android:name="com.example.ToolsFragment"
             android:label="Tools"
-            tools:layout="@layout/tools" />
+            tools:layout="@layout/tools" /
 
-    </navigation>
+    /navigation
 
 If you match the `id` values from your menu and graph, then you can wire up the
 `NavController` for this activity to handle navigation automatically based on
@@ -1133,7 +1143,7 @@ the menu item. The `NavController` also handles opening and closing the
 Your `MainActivity` can then be updated to wire up the `NavController` to the
 `Toolbar` and `NavigationView`.
 
-See the following snippet for an example:  
+See the following snippet for an example:
 
 ### Kotlin
 
@@ -1231,7 +1241,7 @@ and are using `startActivity` to transition between them.
 This example contains two graphs (A and B) and a `startActivity()` call to
 transition from A to B.
 
-![](https://developer.android.com/static/images/topic/libraries/architecture/navigation-migrate-two-graphs.png)  
+![](https://developer.android.com/static/images/topic/libraries/architecture/navigation-migrate-two-graphs.png)
 
 ### Kotlin
 
@@ -1262,59 +1272,59 @@ In the following example, Graph A defines an activity destination which takes a
 
 ![](https://developer.android.com/static/images/topic/libraries/architecture/navigation-migrate-two-graphs-2.png)
 
-The XML representation of Graphs A and B might look like this:  
+The XML representation of Graphs A and B might look like this:
 
     <!-- Graph A -->
     <navigation xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/product_list_graph"
-        app:startDestination="@id/product_list">
+       > app:s<tartDestination="@id/product_list"
 
-        <fragment
+        fragment
             android:id="@+id/product_list"
             android:name="com.example.android.persistence.ui.ProductListFragment"
-            android:label="Product List"
-            tools:layout="@layout/product_list_fragment">
-            <action
-                android:id="@+id/navigate_to_product_detail"
-                app:destination="@id/product_details_activity" />
-        </fragment>
+            android:lab>el="<Product List"
+            tools:layout="@layout/product_list_fragment"
+            action
+                android:id=&quo>t;@+i<d/navigat>e_to_p<roduct_detail"
+                app:destination="@id/product_details_activity" /
+        /fragment
 
-        <activity
+        activity
             android:id="@+id/product_details_activity"
-            android:name="com.example.android.persistence.ui.ProductDetailsActivity"
+            android:name="com.example.android.persi>stence.ui.<ProductDetailsActivity"
             android:label="Product Details"
-            tools:layout="@layout/product_details_host">
+       >     t<oo>ls:layout<="@lay>out/product_details_host"
 
-            <argument
+            argument
                 android:name="product_id"
-                app:argType="integer" />
+                app:argType="integer" /
 
-        </activity>
+        /activity
 
-    </navigation>
+    /navigation
 
     <!-- Graph B -->
     <navigation xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        app:startDestination="@id/product_details">
+        app:startDes>tinati<on="@id/product_details"
 
-        <fragment
+        fragment
             android:id="@+id/product_details"
             android:name="com.example.android.persistence.ui.ProductDetailsFragment"
-            android:label="Product Details"
-            tools:layout="@layout/product_details_fragment">
-            <argument
-                android:name="product_id"
-                app:argType="integer" />
-        </fragment>
+            android:label="Product> Details&<quot;
+            tools:layout="@layout/product_details_fragment"
+            ar>gumen<t
+           >  <   a>ndroid:name="product_id"
+                app:argType="integer" /
+        /fragment
 
-    </navigation>
+    /navigation
 
 You can navigate to the host activity of Graph B using the same mechanisms you
-use to navigate to fragment destinations:  
+use to navigate to fragment destinations:
 
 ### Kotlin
 
@@ -1340,7 +1350,7 @@ If the destination activity receives extras, as with the previous example, you
 can pass these to the start destination directly as arguments, but you need to
 manually set your host's navigation graph inside the host activity's
 `onCreate()` method so that you can pass the intent extras as arguments to the
-fragment, as shown below:  
+fragment, as shown below:
 
 ### Kotlin
 
@@ -1378,10 +1388,12 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
 }
 ```
-| **Note:** In this case, you should avoid setting the `app:NavGraph` attribute in the `NavHostFragment` definition, because doing so results in inflating and setting the navigation graph twice.
+
+> [!NOTE]
+> **Note:** In this case, you should avoid setting the `app:NavGraph` attribute in the `NavHostFragment` definition, because doing so results in inflating and setting the navigation graph twice.
 
 The data can be pulled out of the fragment arguments `Bundle` using the
-generated args class, as shown in the following example:  
+generated args class, as shown in the following example:
 
 ### Kotlin
 
@@ -1429,89 +1441,89 @@ destinations.
 
 The following example combines Graphs A and B from the previous section:
 
-**Before combining:**  
+**Before combining:**
 
     <!-- Graph A -->
     <navigation xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/product_list_graph"
-        app:startDestination="@id/product_list">
+       > app:s<tartDestination="@id/product_list"
 
-        <fragment
+        fragment
             android:id="@+id/product_list"
             android:name="com.example.android.persistence.ui.ProductListFragment"
-            android:label="Product List Fragment"
-            tools:layout="@layout/product_list">
-            <action
-                android:id="@+id/navigate_to_product_detail"
-                app:destination="@id/product_details_activity" />
-        </fragment>
-        <activity
+            android:lab>el="<Product List Fragment"
+            tools:layout="@layout/product_list"
+            action
+                android:id=&quo>t;@+i<d/navigat>e_to_<product_detail"
+                app:destination="@id/product_details_activity" /
+        /fragment
+        activity
             android:id="@+id/product_details_activity"
-            android:name="com.example.android.persistence.ui.ProductDetailsActivity"
-            android:label="Product Details Host"
-            tools:layout="@layout/product_details_host">
-            <argument android:name="product_id"
-                app:argType="integer" />
-        </activity>
+            android:name="com.example.android.persistenc>e.ui.Prod<uctDetailsActivity"
+            android:label="Product Details H>ost&q<uot;
+        >  <  to>ols:layout="@layout/product_details_host"
+            argument android:name="product_id"
+                app:argType="integer" /
+        /activity
 
-    </navigation>
+    /navigation
 
     <!-- Graph B -->
     <navigation xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/product_detail_graph"
-        app:startDestination="@id/product_details">
+        ap>p:star<tDestination="@id/product_details"
 
-        <fragment
+        fragment
             android:id="@+id/product_details"
             android:name="com.example.android.persistence.ui.ProductDetailsFragment"
-            android:label="Product Details"
-            tools:layout="@layout/product_details">
-            <argument
-                android:name="product_id"
-                app:argType="integer" />
-        </fragment>
-    </navigation>
+            android:>label=&qu<ot;Product Details"
+            tools:layout="@layout/product_details"
+    >     <   argumen<t
+             >   android:name="product_id"
+                app:argType="integer" /
+        /fragment
+    /navigation
 
-**After combining:**  
+**After combining:**
 
     <!-- Combined Graph A and B -->
     <navigation xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/product_list_graph"
-        app:startDestination="@id/product_list">
+       > app:s<tartDestination="@id/product_list"
 
-        <fragment
+        fragment
             android:id="@+id/product_list"
             android:name="com.example.android.persistence.ui.ProductListFragment"
-            android:label="Product List Fragment"
-            tools:layout="@layout/product_list">
-            <action
-                android:id="@+id/navigate_to_product_detail"
-                app:destination="@id/product_details" />
-        </fragment>
+            android:lab>el="<Product List Fragment"
+            tools:layout="@layout/product_list"
+            action
+                androi>d:id=<"@+i>d/navi<gate_to_product_detail"
+                app:destination="@id/product_details" /
+        /fragment
 
-        <fragment
+        fragment
             android:id="@+id/product_details"
-            android:name="com.example.android.persistence.ui.ProductDetailsFragment"
-            android:label="Product Details"
-            tools:layout="@layout/product_details">
-            <argument
+            android:name="com.example.android.>persisten<ce.ui.ProductDetailsFragment"
+            android:label="Product Details&quo>t;
+      <      tools<:layout=&qu>ot;@layout/product_details"
+            argument
                 android:name="product_id"
-                app:argType="integer" />
-        </fragment>
+                app:argType="integer" /
+        /fragment
 
-    </navigation>
+    /navigation
 
 Keeping your action names the same while merging can make this a seamless
 process, requiring no changes to your existing code base. For example,
 `navigateToProductDetail` remains the same here. The only difference is that
 this action now represents navigation to a fragment destination within the same
-`NavHost` instead of an activity destination:  
+`NavHost` instead of an activity destination:
 
 ### Kotlin
 

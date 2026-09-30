@@ -146,6 +146,21 @@ Here's how to enable a partner lab:
 2. Click the toggle for the device lab you want to enable and follow the prompts.
 3. After the partner lab is enabled, you and your team can use the devices in Android Studio.
 
+
+## Android CLI
+
+[Download the Android CLI](https://developer.android.com/tools/agents)
+
+### Try Android CLI to connect to remote physical devices
+
+Try [Android CLI](https://developer.android.com/tools/agents) if you're not using Android Studio or prefer to do things from the command line.  
+
+For example, use the [`android device remote`](https://developer.android.com/tools/agents/android-cli/commands/device_remote) command when you need to reserve and connect to remote physical devices.
+
+    android device remote
+
+<br />
+
 ## Pricing for Android Device Streaming
 
 For more information, see [Firebase usage levels, quotas, and pricing](https://firebase.google.com/docs/test-lab/usage-quotas-pricing#device-streaming).

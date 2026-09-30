@@ -34,17 +34,16 @@ If successful, this method returns a response body with the following structure:
 
 ```
 {
-  "kind": "gamesManagement#playerScoreResetAllResponse",
+  "kind": "gamesManagement#playerScoreResetAllResponse",{
   "results": [
-    {
+    
       "kind": "gamesManagement#playerScoreResetResponse",
-      "definitionId": string,
-      "resetScoreTimeSpans": [
+      "definitionId&quot;: string},
+   }   "resetScoreTimeSpans": [
         string
       ]
-    }
+    
   ]
-}
 ```
 
 | Property name | Value | Description | Notes |

@@ -22,9 +22,6 @@ composables:
 - [`DatePickerDialog`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DatePickerDialog.composable#DatePickerDialog(kotlin.Function0,kotlin.Function0,androidx.compose.ui.Modifier,kotlin.Function0,androidx.compose.ui.graphics.Shape,androidx.compose.ui.unit.Dp,androidx.compose.material3.DatePickerColors,androidx.compose.ui.window.DialogProperties,kotlin.Function1)): The container for both modal and modal input date pickers.
 - [`DateRangePicker`](https://developer.android.com/reference/kotlin/androidx/compose/material3/DateRangePicker.composable): For any date picker where the user can select a range with a start and end date.
 
-> [!NOTE]
-> **Note:** `DatePicker`, `DatePickerDialog`, and `DateRangePicker` are experimental. File any issues on the [issue tracker](https://issuetracker.google.com/issues/new?component=742043&template=1590761&pli=1).
-
 ## State
 
 The key parameter that the different date picker composables share in common is

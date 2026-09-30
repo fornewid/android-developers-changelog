@@ -677,8 +677,9 @@ initial:
 
 ![Video of a phone scrolling up and down through a contacts list](https://developer.android.com/static/develop/ui/compose/images/lists-scrolling.gif)
 
-To achieve a sticky header with `LazyColumn`, you can use the experimental
-[`stickyHeader()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyListScope#stickyHeader(kotlin.Any,kotlin.Any,kotlin.Function1))
+To achieve a sticky header with `LazyColumn`, you can use the
+[`stickyHeader()`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/lazy/LazyColumn.composable#LazyColumn(androidx.compose.ui.Modifier,androidx.compose.foundation.lazy.LazyListState,androidx.compose.foundation.layout.PaddingValues,kotlin.Boolean,androidx.compose.foundation.layout.Arrangement.Vertical,androidx.compose.ui.Alignment.Horizontal,androidx.compose.foundation.gestures.FlingBehavior,kotlin.Boolean,androidx.compose.foundation.OverscrollEffect,kotlin.Function1))
+
 function, providing the header content:
 
 

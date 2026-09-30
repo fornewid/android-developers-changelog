@@ -83,7 +83,7 @@ Landroid/view/IRemoteAnimationRunner;->onAnimationStart(I[Landroid/view/RemoteAn
 Landroid/view/textservice/TextServicesManager;->getCurrentSpellChecker()Landroid/view/textservice/SpellCheckerInfo; # Use getCurrentSpellCheckerInfo() instead.
 Landroid/view/ViewRootImpl;->detachFunctor(J)V   # Use https://developer.android.com/reference/android/webkit/WebView instead.
 Landroid/view/ViewRootImpl;->invokeFunctor(JZ)V   # Use https://developer.android.com/reference/android/webkit/WebView instead.
-Lcom/android/internal/os/IDropBoxManagerService;->getNextEntry(Ljava/lang/String;JLjava/lang/String;)Landroid/os/DropBoxManager$Entry;   # Use https://developer.android.com/reference/android/os/DropBoxManager#getNextEntry(java.lang.String,%20long) instead.
+Lcom/android/internal/os/IDropBoxManagerService;->getNextEntry(Ljava/lang/String;JLjava/lang/String;)Landroid/os/DropBoxManager$Entry;   # Use https://developer.android.com/reference/android/os/DropBoxManager#getNextEntry(java.lang.String,%2520long) instead.
 Lcom/android/internal/telephony/BaseCommands;->mAllowedNetworkTypesBitmask:I
 Lcom/android/internal/telephony/PhoneFactory;->calculatePreferredNetworkType(I)I
 Lcom/android/internal/telephony/ServiceStateTracker;->mAllowedNetworkTypes:I

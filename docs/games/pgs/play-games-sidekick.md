@@ -7,7 +7,7 @@ source: md.txt
 Play Games Sidekick is an overlay that helps players stay in your game by
 delivering relevant content and offers directly to players.
 
-- **User retention** with Gemini Live and tips, so players don't need to leave the game for help or advice.
+- **Keep players in your game** with official and creator videos, so players can find guides, walkthroughs, and live streams without switching apps.
 - **Increased monetization** with in-the-moment Points exchange, Play-funded offers, and Pass coupons.
 - **Rewarded gameplay** with integrated streaks, quests, and profile interactions.
 - **Deeper engagement** with content and videos.
