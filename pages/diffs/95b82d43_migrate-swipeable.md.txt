@@ -1,0 +1,26 @@
+diff --git a/docs/develop/ui/compose/touch-input/pointer-input/migrate-swipeable.md b/docs/develop/ui/compose/touch-input/pointer-input/migrate-swipeable.md
+index 6400c0fe..854d6887 100644
+--- a/docs/develop/ui/compose/touch-input/pointer-input/migrate-swipeable.md
++++ b/docs/develop/ui/compose/touch-input/pointer-input/migrate-swipeable.md
+@@ -19,9 +19,6 @@ Material's `Swipeable` APIs have been deprecated in favor of Foundation's
+ `AnchoredDraggable` and will be removed in a future release. This guide
+ describes how to migrate from `Swipeable` APIs to `AnchoredDraggable`.
+ 
+-> [!NOTE]
+-> **Note:** `AnchoredDraggable` is an experimental API. Experimental APIs may change in future.
+-
+ ## Migrate `SwipeableState` to `AnchoredDraggableState`
+ 
+ Start by identifying changes to your state holder. `AnchoredDraggableState`
+@@ -47,7 +44,10 @@ inheriting from it:
+ 
+ Since your state holder does not inherit from `SwipeableState` anymore, you
+ might have to expose APIs yourself. The most common APIs you can use are
+-[`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/AnchoredDraggableState#offset()), [`progress`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/AnchoredDraggableState#progress()), [`currentValue`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/AnchoredDraggableState#currentValue()) and [`targetValue`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/AnchoredDraggableState#targetValue()).
++[`offset`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/AnchoredDraggableState#offset()), [`progress`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/AnchoredDraggableState#progress(kotlin.Any,kotlin.Any)), [`currentValue`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/AnchoredDraggableState#currentValue()) and [`targetValue`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/AnchoredDraggableState#targetValue()).
++
++> [!NOTE]
++> **Note:** The `AnchoredDraggableState.progress` property is deprecated. Use the [`AnchoredDraggableState.progress(from, to)`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/gestures/AnchoredDraggableState#progress(kotlin.Any,kotlin.Any)) function instead to query the progress between two anchors.
+ 
+ ### Access the offset
+ 

@@ -1,0 +1,22 @@
+diff --git a/docs/develop/ui/compose/touch-input/user-interactions/migrate-indication-ripple.md b/docs/develop/ui/compose/touch-input/user-interactions/migrate-indication-ripple.md
+index f715d43f..7cedfac0 100644
+--- a/docs/develop/ui/compose/touch-input/user-interactions/migrate-indication-ripple.md
++++ b/docs/develop/ui/compose/touch-input/user-interactions/migrate-indication-ripple.md
+@@ -103,7 +103,7 @@ from`RippleTheme`](https://developer.android.com/develop/ui/compose/touch-input/
+ The `material` and `material3` libraries expose `RippleConfiguration` and
+ `LocalRippleConfiguration`, which allow you to configure the appearance of
+ ripples within a subtree. Note that `RippleConfiguration` and
+-`LocalRippleConfiguration` are experimental, and only intended for per-component
++`LocalRippleConfiguration` are only intended for per-component
+ customization. Global/theme-wide customization is not supported with these
+ APIs; see [Using `RippleTheme` to globally change all ripples in an
+ application](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/migrate-indication-ripple#globally-change-ripples) for more information on that use case.
+@@ -147,7 +147,7 @@ CompositionLocalProvider(LocalRippleConfiguration provides null) {
+ ### Using `RippleTheme` to change the color/alpha of a ripple for a given component
+ 
+ As described in the previous section, `RippleConfiguration` and
+-`LocalRippleConfiguration` are experimental APIs and are only intended for
++`LocalRippleConfiguration` are only intended for
+ per-component customization.
+ 
+ For example, the following snippet uses the deprecated APIs:

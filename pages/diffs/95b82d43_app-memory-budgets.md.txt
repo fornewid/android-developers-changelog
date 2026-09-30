@@ -1,0 +1,52 @@
+diff --git a/docs/topic/performance/memory/app-memory-budgets.md b/docs/topic/performance/memory/app-memory-budgets.md
+index 7c92c61b..f620f8ec 100644
+--- a/docs/topic/performance/memory/app-memory-budgets.md
++++ b/docs/topic/performance/memory/app-memory-budgets.md
+@@ -8,11 +8,12 @@ App memory budgets let apps declare a memory budget for themselves, which tells
+ the system to trim their memory use when the app uses more than its set
+ budget. This is especially useful for system and bundled apps or for apps
+ targeting memory-constrained devices, where the developer knows their expected
+-memory working set and wants to ensure their app doesn't use too much of the
++memory working set (the memory the app actively needs for what the user is
++currently doing) and wants to ensure their app doesn't use too much of the
+ system's shared RAM resources.
+ 
+ The budget is kept balanced by using [memory eviction and swap](https://developer.android.com/topic/performance/memory/guide/reclaim) to
+-remove memory pages that were not recently used, focusing the app's memory
++remove memory pages that weren't recently used, focusing the app's memory
+ footprint on its current working set. When an app exceeds its declared budget,
+ the operating system targets reclaim specifically at that app:
+ 
+@@ -20,7 +21,7 @@ the operating system targets reclaim specifically at that app:
+ 2. **Dirty file-backed pages** are written back to storage and evicted.
+ 3. **Anonymous memory pages** (such as heap allocations) are compressed and swapped to zRAM.
+ 
+-As long as the budget doesn't exceed the working set, the app will work well
++As long as the working set doesn't exceed the budget, the app will work well
+ while using no more memory than is in its set budget. The operating system
+ evicts unused memory and compresses inactive heap pages to swap so that memory
+ allocations remain bounded without terminating the process.
+@@ -31,6 +32,23 @@ allocations remain bounded without terminating the process.
+ > [!NOTE]
+ > **Note:** Apply `<memory-budget>` declarations only to release (optimized) builds. Unoptimized debug builds carry additional code instrumentation, logging, and debugger allocations that use significantly more memory, which can lead to frequent swap churn and test failures.
+ 
++## What happens when an app exceeds its budget
++
++Exceeding a memory budget doesn't cause the system to terminate or crash your
++app. Instead, when an app uses more memory than its budget allows, the OS finds
++memory that the app hasn't used in some time and safely puts it away until it's
++needed again. This makes way for new app memory allocations and keeps the
++overall app's memory use within budget.
++
++As long as there is headroom between what the app needs at any given time (its
++working set) and the set budget, the app continues to run normally. If an app
++sets a budget that is smaller than its working set, the app's performance at
++runtime can slow down as a result.
++
++To learn how the OS manages memory, see the
++[memory architecture guide](https://developer.android.com/topic/performance/memory/guide), specifically the section about
++[memory reclaim and swap](https://developer.android.com/topic/performance/memory/guide/reclaim).
++
+ ## Declare budgets in the Android manifest
+ 
+ Declaring your memory budgets in your `AndroidManifest.xml` is the primary and

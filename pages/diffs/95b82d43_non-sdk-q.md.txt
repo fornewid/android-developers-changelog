@@ -1,0 +1,13 @@
+diff --git a/docs/about/versions/10/non-sdk-q.md b/docs/about/versions/10/non-sdk-q.md
+index ee2a9388..97b5aa07 100644
+--- a/docs/about/versions/10/non-sdk-q.md
++++ b/docs/about/versions/10/non-sdk-q.md
+@@ -96,7 +96,7 @@ values:
+ - 0: Disable all detection of non-SDK interfaces. Using this setting disables all log messages for non-SDK interface usage and prevents you from testing your app [using the `StrictMode` API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-strictmode-api). This setting is not recommended.
+ - 1: Enable access to all non-SDK interfaces, but print log messages with warnings for any non-SDK interface usage. Using this setting also allows you to test your app [using the `StrictMode` API](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces#test-strictmode-api).
+ - 2: Disallow usage of non-SDK interfaces that belong to either the blocklist or are conditionally blocked for your [target API
+-  level](https://developer.android.com/distribute/best-practices/develop/target-sdk).
++  level](https://developer.android.com/google/play/requirements/target-sdk).
+ 
+ ## List changes for Android 10
+ 

@@ -1,0 +1,28 @@
+diff --git a/docs/tools/agents/android-cli/commands/create.md b/docs/tools/agents/android-cli/commands/create.md
+index 5efb7573..43a2e575 100644
+--- a/docs/tools/agents/android-cli/commands/create.md
++++ b/docs/tools/agents/android-cli/commands/create.md
+@@ -8,11 +8,12 @@ Creates a new Android project from available templates. You can specify the proj
+ 
+ ## Usage
+ 
+-    android create [-h] [--application-id=PARAM] [--list] [--min-sdk=PARAM] [--name=PARAM] [--namespace=PARAM] [--output=PARAM] [<template-name>]
++    android create [-h] [--application-id=PARAM] [--force] [--list] [--min-sdk=PARAM] [--name=PARAM] [--namespace=PARAM] [--output=PARAM] [<template-name>]
+ 
+ ## Options
+ 
+ - `--application-id=PARAM` - The app ID for the app, for example `com.example.myapp`.
++- `--force` - Allow creating the project in a non-empty directory, overwriting existing files.
+ - `-h,--help` - Shows the help message for the specified command.
+ - `--list` - List all available templates.
+ - `--min-sdk=PARAM` - The `minSdk` value supported by the app (the default value is defined in the template).
+@@ -39,7 +40,8 @@ By default, if `<template-name>` is omitted, the default empty Compose activity
+ ### Configure project options
+ 
+ - `--name`: Required when creating a project. Sets the display name of the app (for example, `"My Application"`).
+-- `-o, --output`: Sets the destination directory where the project files are written. Defaults to the current directory (`.`).
++- `-o, --output`: Sets the destination directory where the project files are written. Defaults to the current directory (`.`). The directory must either not exist or be empty, unless `--force` is specified.
++- `--force`: Allows creating the project in a non-empty directory. Existing files with the same path as a project file are overwritten.
+ - `--application-id`: Sets the unique app ID used for builds and Google Play publishing (for example, `com.example.myapp`).
+ - `--namespace`: Sets the namespace for generated Android resources (`R` class) and the default Kotlin package name.
+ - `--min-sdk`: Overrides the template's default minimum API level (`minSdk`).

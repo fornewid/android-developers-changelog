@@ -1,0 +1,34 @@
+diff --git a/docs/develop/ui/compose/designsystems/material.md b/docs/develop/ui/compose/designsystems/material.md
+index 8700193f..27e50718 100644
+--- a/docs/develop/ui/compose/designsystems/material.md
++++ b/docs/develop/ui/compose/designsystems/material.md
+@@ -548,13 +548,16 @@ you're using `MaterialTheme` in your hierarchy, a `Ripple` is used as the
+ default [`Indication`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/Indication) inside modifiers such as [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/clickable.modifier#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,androidx.compose.foundation.interaction.MutableInteractionSource,kotlin.Function0)) and
+ [`indication`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/indication.modifier#(androidx.compose.ui.Modifier).indication(androidx.compose.foundation.interaction.InteractionSource,androidx.compose.foundation.Indication)).
+ 
++> [!CAUTION]
++> **Caution:** `RippleTheme` and `LocalRippleTheme` are deprecated. Use [`RippleConfiguration`](https://developer.android.com/reference/kotlin/androidx/compose/material/RippleConfiguration) and [`LocalRippleConfiguration`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalRippleConfiguration()) instead. For migration instructions, see [Migrate from `RippleTheme`](https://developer.android.com/develop/ui/compose/touch-input/user-interactions/migrate-indication-ripple#migrate-ripple-theme).
++
+ In most cases you can rely on the default `Ripple`. If you need to
+-configure their appearance, you can use [`RippleTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/RippleTheme) to change properties
++configure their appearance, you can use [`RippleTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/RippleConfiguration) to change properties
+ like color and alpha.
+ 
+-You can extend `RippleTheme` and make use of the [`defaultRippleColor`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/RippleTheme#defaultRippleColor(androidx.compose.ui.graphics.Color,kotlin.Boolean)) and
+-[`defaultRippleAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/RippleTheme#defaultRippleAlpha(androidx.compose.ui.graphics.Color,kotlin.Boolean)) utility functions. You can then provide your custom
+-ripple theme in your hierarchy using [`LocalRippleTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/ripple/package-summary#LocalRippleTheme()):
++You can extend `RippleTheme` and make use of the [`defaultRippleColor`](https://developer.android.com/reference/kotlin/androidx/compose/material/RippleDefaults#rippleColor(androidx.compose.ui.graphics.Color,kotlin.Boolean)) and
++[`defaultRippleAlpha`](https://developer.android.com/reference/kotlin/androidx/compose/material/RippleDefaults#rippleAlpha(androidx.compose.ui.graphics.Color,kotlin.Boolean)) utility functions. You can then provide your custom
++ripple theme in your hierarchy using [`LocalRippleTheme`](https://developer.android.com/reference/kotlin/androidx/compose/material/package-summary#LocalRippleConfiguration()):
+ 
+ 
+ ```kotlin
+@@ -587,7 +590,7 @@ private object SecondaryRippleTheme : RippleTheme {
+ 
+ <br />
+ 
+-![Animated GIF showing buttons with different ripple effects when tapped](https://developer.android.com/static/develop/ui/compose/images/themes-material-ripples.gif) **Figure 14.** Buttons with different ripple values provided using `RippleTheme`.
++![Animated GIF showing buttons with different ripple effects when tapped](https://developer.android.com/static/develop/ui/compose/images/themes-material-ripples.gif) **Figure 14.** Buttons with different ripple values provided using `RippleConfiguration`.
+ 
+ ## Learn more
+ 

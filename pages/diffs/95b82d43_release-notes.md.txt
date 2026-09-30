@@ -1,0 +1,40 @@
+diff --git a/docs/about/versions/17/qpr2/release-notes.md b/docs/about/versions/17/qpr2/release-notes.md
+index 526fc4cd..c2c3be91 100644
+--- a/docs/about/versions/17/qpr2/release-notes.md
++++ b/docs/about/versions/17/qpr2/release-notes.md
+@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr2/release-notes
+ source: md.txt
+ ---
+ 
++### Beta 6.1
++
++|---|---|
++| **Release date** | September 29, 2026 |
++| **Builds** | CP41.260831.007.A3 CP41.260831.011 |
++| **Emulator support** | x86 (64-bit), ARM (v8-A) |
++| **Security patch level** | 2026-08-05 |
++| **Google Play services** | 26.28.33 |
++
+ ### Beta 6
+ 
+ |---|---|
+@@ -58,7 +67,7 @@ source: md.txt
+ | **Security patch level** | 2026-07-05 |
+ | **Google Play services** | 26.23.34 |
+ 
+-### Android 17 QPR 2 Beta 6 (September 2026)
++### Android 17 QPR 2 Beta 6.1 (September 2026)
+ 
+ Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
+ update the platform with fixes and improvements that are then rolled out to
+@@ -76,6 +85,10 @@ planned behavior changes, minimizing the need for compatibility testing.
+ You can the current SDK changes in the
+ [API diff report](https://developer.android.com/sdk/api_diff/37.2/changes).
+ 
++#### Known issue in Beta 6.1
++
++Pixel 11 Pro Fold users may have to re-enroll Face Unlock.
++
+ #### Hardening against call forwarding fraud
+ 
+ Android 17 QPR2 introduces new security restrictions on programmatic call

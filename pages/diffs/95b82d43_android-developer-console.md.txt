@@ -1,0 +1,17 @@
+diff --git a/docs/developer-verification/guides/android-developer-console.md b/docs/developer-verification/guides/android-developer-console.md
+index 6b3071fa..11c2fea4 100644
+--- a/docs/developer-verification/guides/android-developer-console.md
++++ b/docs/developer-verification/guides/android-developer-console.md
+@@ -46,9 +46,9 @@ You can automate developer verification and package registration using our APIs:
+ - **Android Developer ID Status API**: Lets you check if a package name has already been registered and verify eligibility.
+ - **Android Developer Console API**: Lets you register and manage package names and keys directly within your development environment or CI/CD pipeline.
+ 
+-Both APIs support **OAuth delegation**, allowing third-party platforms (such as
+-alternative Android app stores) to perform these operations securely on your
+-behalf.
++The Android Developer Console API supports **OAuth delegation**, allowing
++third-party platforms (such as alternative Android app stores) to perform
++operations securely on your behalf.
+ 
+ ## Handle duplicate package names
+ 

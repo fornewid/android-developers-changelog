@@ -1,0 +1,28 @@
+diff --git a/docs/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder.md b/docs/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder.md
+index ab431c30..ef0a9320 100644
+--- a/docs/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder.md
++++ b/docs/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder.md
+@@ -21,6 +21,7 @@ source: md.txt
+ | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder#class_google_play_games_1_1_basic_api_1_1_player_game_event_1_1_builder_1af451583b41f884b7cec767079dd4842f(string key, double value)` | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder#class_google_play_games_1_1_basic_api_1_1_player_game_event_1_1_builder` |
+ | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder#class_google_play_games_1_1_basic_api_1_1_player_game_event_1_1_builder_1a0a018f2520a48b2db88cb42225a132b7(string key, string value)` | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder#class_google_play_games_1_1_basic_api_1_1_player_game_event_1_1_builder` |
+ | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder#class_google_play_games_1_1_basic_api_1_1_player_game_event_1_1_builder_1abdaf7b1281b19b1b567f1710a4994b1c(string key, bool value)` | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder#class_google_play_games_1_1_basic_api_1_1_player_game_event_1_1_builder` |
++| `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder#class_google_play_games_1_1_basic_api_1_1_player_game_event_1_1_builder_1af9fe62242e705c45958bfc765e5fe480(string key, TimeSpan value)` | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder#class_google_play_games_1_1_basic_api_1_1_player_game_event_1_1_builder` |
+ | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event/builder#class_google_play_games_1_1_basic_api_1_1_player_game_event_1_1_builder_1a9eab752005dbef80b31eeb8c8e2bfb66()` | `https://developer.android.com/games/services/unity/v2/api/class/google-play-games/basic-api/player-game-event#class_google_play_games_1_1_basic_api_1_1_player_game_event` |
+ 
+ ## Public functions
+@@ -70,6 +71,15 @@ Builder AddProperty(
+ )
+ ```
+ 
++### AddProperty
++
++```c#
++Builder AddProperty(
++  string key,
++  TimeSpan value
++)
++```
++
+ ### Build
+ 
+ ```c#
