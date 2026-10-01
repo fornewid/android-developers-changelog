@@ -4,11 +4,21 @@ url: https://developer.android.com/blog/authors/jan-kleinert
 source: md.txt
 ---
 
-3 posts ![](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)
+4 posts ![](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)
 
 # Jan Kleinert
 
 Developer Relations Engineer
+- 21 Sep 2026 21 Sep 2026 ![](https://developer.android.com/static/blog/assets/Games_for_car_Strapi_1_c55588726e_Z2cIhWx.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Bring your Android game to the car screen today](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today)
+
+  [arrow_forward](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today) Today, the games category for Android Auto and cars powered by Android Automotive OS with Google built-in is officially graduating from beta to general availability.
+  3 min read
+  - [#Android Automotive OS](https://developer.android.com/blog/topics/android-automotive-os)
+  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+  - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
+  - +1 ↩
 - 19 May 2026 19 May 2026 ![](https://developer.android.com/static/blog/assets/Google_For_Developers_Android_Text_Strapi_2000x1000_2d4221d884_2cdxMf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [What's new in Android for Cars: Unifying platforms and unlocking premium experiences](https://developer.android.com/blog/posts/whats-new-in-android-for-cars-unifying-platforms-and-unlocking-premium-experiences)

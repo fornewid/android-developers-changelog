@@ -89,19 +89,24 @@ Consider the case study: to fulfill the News app's requirements, the
 information required to fully render the UI can be encapsulated in a
 `NewsUiState` data class defined as follows:
 
-    data class NewsUiState(
-        val isSignedIn: Boolean = false,
-        val isPremium: Boolean = false,
-        val newsItems: List<NewsItemUiState> = listOf(),
-        val userMessages: List<Message> = listOf()
-    )
 
-    data class NewsItemUiState(
-        val title: String,
-        val body: String,
-        val bookmarked: Boolean = false,
-        ...
-    )
+```kotlin
+data class NewsUiState(
+    val isSignedIn: Boolean = false,
+    val isPremium: Boolean = false,
+    val newsItems: List<NewsItemUiState> = listOf(),
+    val userMessages: List<Message> = listOf()
+)
+
+data class NewsItemUiState(
+    val title: String,
+    val body: String,
+    val bookmarked: Boolean = false,
+    // ...
+)
+```
+
+<br />
 
 For more information on UI state,
 see [State and Jetpack Compose](https://developer.android.com/develop/ui/compose/state).
@@ -265,10 +270,17 @@ ViewModel. This also has the
 benefit of always having the latest version of the UI state cached, which is
 useful for quick state restoration after configuration changes.
 
-    class NewsViewModel(...) : ViewModel() {
 
-        val uiState: NewsUiState = ...
-    }
+```kotlin
+class NewsViewModel(
+    // ...
+) : ViewModel() {
+
+    val uiState: NewsUiState = /* ... */
+}
+```
+
+<br />
 
 For an introduction to Kotlin flows, see [Kotlin flows on Android](https://developer.android.com/kotlin/flow).
 To learn how to use `StateFlow` as an observable data holder,
@@ -290,13 +302,20 @@ A common way of creating a stream of `UiState` is by exposing a `mutableStateOf`
 property with a `private set`, keeping the state mutable inside the ViewModel
 but read-only for the UI.
 
-    class NewsViewModel(...) : ViewModel() {
 
-        var uiState by mutableStateOf(NewsUiState())
-            private set
+```kotlin
+class NewsViewModel(
+    // ...
+) : ViewModel() {
 
-        ...
-    }
+    var uiState by mutableStateOf(NewsUiState())
+        private set
+
+    // ...
+}
+```
+
+<br />
 
 The ViewModel can then expose methods that internally mutate the state,
 publishing updates for the UI to consume. Take, for example, the case where
@@ -304,30 +323,35 @@ you need to perform an asynchronous action.
 You can launch a coroutine using the [`viewModelScope`](https://developer.android.com/topic/libraries/architecture/coroutines#viewmodelscope),
 and then update the mutable state upon completion.
 
-    class NewsViewModel(
-        private val repository: NewsRepository,
-        ...
-    ) : ViewModel() {
 
-        var uiState by mutableStateOf(NewsUiState())
-            private set
+```kotlin
+class NewsViewModel(
+    private val repository: NewsRepository,
+    // ...
+) : ViewModel() {
 
-        private var fetchJob: Job? = null
+    var uiState by mutableStateOf(NewsUiState())
+        private set
 
-        fun fetchArticles(category: String) {
-            fetchJob?.cancel()
-            fetchJob = viewModelScope.launch {
-                try {
-                    val newsItems = repository.newsItemsForCategory(category)
-                    uiState = uiState.copy(newsItems = newsItems)
-                } catch (ioe: IOException) {
-                    // Handle the error and notify the UI when appropriate.
-                    val messages = getMessagesFromThrowable(ioe)
-                    uiState = uiState.copy(userMessages = messages)
-                }
+    private var fetchJob: Job? = null
+
+    fun fetchArticles(category: String) {
+        fetchJob?.cancel()
+        fetchJob = viewModelScope.launch {
+            try {
+                val newsItems = repository.newsItemsForCategory(category)
+                uiState = uiState.copy(newsItems = newsItems)
+            } catch (ioe: IOException) {
+                // Handle the error and notify the UI when appropriate.
+                val messages = getMessagesFromThrowable(ioe)
+                uiState = uiState.copy(userMessages = messages)
             }
         }
     }
+}
+```
+
+<br />
 
 In the preceding example, the `NewsViewModel` class attempts to fetch articles
 for a certain category and then reflects the result of the attempt---whether
@@ -355,13 +379,18 @@ state:
   user is signed in *and* that user is a subscriber to a premium news service.
   You can define a UI state class as follows:
 
-      data class NewsUiState(
-          val isSignedIn: Boolean = false,
-          val isPremium: Boolean = false,
-          val newsItems: List<NewsItemUiState> = listOf()
-      )
 
-      val NewsUiState.canBookmarkNews: Boolean get() = isSignedIn && isPremium
+  ```kotlin
+  data class NewsUiState(
+      val isSignedIn: Boolean = false,
+      val isPremium: Boolean = false,
+      val newsItems: List<NewsItemUiState> = listOf()
+  )
+
+  val NewsUiState.canBookmarkNews: Boolean get() = isSignedIn && isPremium
+  ```
+
+  <br />
 
   In this declaration, the visibility of the bookmark button is a derived
   property of two other properties. As business logic gets more complex, having
@@ -438,28 +467,38 @@ private fun ConversationScreen(
 A simple way to represent loading states in a `UiState` class is with a
 boolean field:
 
-    data class NewsUiState(
-        val isFetchingArticles: Boolean = false,
-        ...
-    )
+
+```kotlin
+data class NewsUiState(
+    val isFetchingArticles: Boolean = false,
+    // ...
+)
+```
+
+<br />
 
 This flag's value represents the presence or absence of a progress bar in the
 UI.
 
-    @Composable
-    fun LatestNewsScreen(
-        modifier: Modifier = Modifier,
-        viewModel: NewsViewModel = viewModel()
-    ) {
-        Box(modifier.fillMaxSize()) {
 
-            if (viewModel.uiState.isFetchingArticles) {
-                CircularProgressIndicator(Modifier.align(Alignment.Center))
-            }
+```kotlin
+@Composable
+fun LatestNewsScreen(
+    modifier: Modifier = Modifier,
+    viewModel: NewsViewModel = viewModel()
+) {
+    Box(modifier.fillMaxSize()) {
 
-            // Add other UI elements. For example, the list.
+        if (viewModel.uiState.isFetchingArticles) {
+            CircularProgressIndicator(Modifier.align(Alignment.Center))
         }
+
+        // Add other UI elements. For example, the list.
     }
+}
+```
+
+<br />
 
 ### Show errors on the screen
 
@@ -476,12 +515,17 @@ progress bar while fetching articles. If this operation results in an error, you
 might want to display one or more messages to the user detailing what went
 wrong.
 
-    data class Message(val id: Long, val message: String)
 
-    data class NewsUiState(
-        val userMessages: List<Message> = listOf(),
-        ...
-    )
+```kotlin
+data class Message(val id: Long, val message: String)
+
+data class NewsUiState(
+    val userMessages: List<Message> = listOf(),
+    // ...
+)
+```
+
+<br />
 
 You might then present the error messages to the user in the form of UI
 elements like [snackbars](https://developer.android.com/develop/ui/compose/components/snackbar).

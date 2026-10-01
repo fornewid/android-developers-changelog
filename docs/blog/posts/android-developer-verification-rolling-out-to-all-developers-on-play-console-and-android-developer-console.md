@@ -8,7 +8,15 @@ source: md.txt
 
 # Android developer verification: Rolling out to all developers on Play Console and Android Developer Console
 
-3 min read ![](https://developer.android.com/static/blog/assets/android_Verification2_40caaf2e67_Z10Vf7G.webp) 30 Mar 2026 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) Director, Product Management Android is for everyone. It's built on a commitment to an open and safe platform. Users should feel confident installing apps, no matter where they get them from. However, our recent analysis found over **90 times** more malware from sideloaded sources than on Google Play. So as an extra layer of security, we are rolling out Android developer verification to help prevent malicious actors from hiding behind anonymity to repeatedly spread harm. Over the past several months, we've worked closely with the community to improve the design so we account for the many ways people use Android to balance openness with safety.
+3 min read ![](https://developer.android.com/static/blog/assets/android_Verification2_40caaf2e67_Z10Vf7G.webp) 30 Mar 2026 [![View Matthew Forsythe's profile](https://developer.android.com/static/blog/assets/matthew_9c798f0c1d_1FlQLe.webp)](https://developer.android.com/blog/authors/matthew-forsythe) [Matthew Forsythe](https://developer.android.com/blog/authors/matthew-forsythe) Director, Product Management **Sep 29, 2026:**
+
+**To clarify, rollout details have been updated since this post was published. On September 30, 2026, developer verification protections will begin rolling out to** [**participating stores**](https://developer.android.com/developer-verification/guides)**in select regions on certified Android devices. In 2027, we'll expand this globally.**
+
+**Find the latest guidance and timeline at** [**developer.android.com/developer-verification**](https://developer.android.com/developer-verification)**.**
+
+*** ** * ** ***
+
+Android is for everyone. It's built on a commitment to an open and safe platform. Users should feel confident installing apps, no matter where they get them from. However, our recent analysis found over **90 times** more malware from sideloaded sources than on Google Play. So as an extra layer of security, we are rolling out Android developer verification to help prevent malicious actors from hiding behind anonymity to repeatedly spread harm. Over the past several months, we've worked closely with the community to improve the design so we account for the many ways people use Android to balance openness with safety.
 
 ## Start your verification today
 

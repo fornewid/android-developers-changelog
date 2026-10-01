@@ -56,7 +56,7 @@ You can also create a custom modifier using a composable function to pass values
 to an existing modifier. This is known as a composable modifier factory.
 
 > [!NOTE]
-> **Note:** In previous versions of Compose, we recommended against this approach and suggested using [`composed {}`](https://developer.android.com/reference/kotlin/androidx/compose/ui/Modifier#(androidx.compose.ui.Modifier).composed(kotlin.Function1,kotlin.Function1)) instead using a lint rule. Now that `composed {}` is not recommended, the lint rule has been removed.
+> **Note:** `composed {}` is no longer recommended due to performance concerns. See [Migrate from `Modifier.composed` to `Modifier.Node`](https://developer.android.com/develop/ui/compose/custom-modifiers-node) for details on how to migrate away from this modifier.
 
 Using a composable modifier factory to create a modifier also lets you use
 higher level compose APIs, such as [`animate*AsState`](https://developer.android.com/develop/ui/compose/animation/value-based#animate-as-state) and other [Compose

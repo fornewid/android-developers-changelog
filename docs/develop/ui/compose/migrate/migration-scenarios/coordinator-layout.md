@@ -24,35 +24,14 @@ To migrate `CoordinatorLayout` to `Scaffold`, follow these steps:
    out the `CoordinatorLayout` and its children from your UI hierarchy and add a
    `ComposeView` to replace it.
 
-       <!--  <androidx.coordinatorlayout.widget.CoordinatorLayout-->
-       <!--      android:id="@+id/coordinator_layout"-->
-       <!--      android:layout_width="match_parent"-->
-       <!--      android:layout_height="match_parent"-->
-       <!--      android:fitsSystemWindows="true">-->
 
-       <!--    <androidx.compose.ui.platform.ComposeView-->
-       <!--        android:id="@+id/compose_view"-->
-       <!--        android:layout_width="match_parent"-->
-       <!--        android:layout_height="match_parent"-->
-       <!--        app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
+   \`\`\`xml
 
-       <!--    <com.google.android.material.appbar.AppBarLayout-->
-       <!--        android:id="@+id/app_bar_layout"-->
-       <!--        android:layout_width="match_parent"-->
-       <!--        android:layout_height="wrap_content"-->
-       <!--        android:fitsSystemWindows="true"-->
-       <!--        android:theme="@style/Theme.Sunflower.AppBarOverlay">-->
 
-           <!-- AppBarLayout contents here -->
+       <!-- AppBarLayout contents here -->
 
-       <!--    </com.google.android.material.appbar.AppBarLayout>-->
 
-       <!--  </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
-
-       <androidx.compose.ui.platform.ComposeView
-           android:id="@+id/compose_view"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent" />
+   \`\`\`
 
    > [!NOTE]
    > **Note:** Since `CoordinatorLayout` is a `ViewGroup`, it's best to migrate all its child views to Compose at the same time or prior to this step, depending on your [migration strategy](https://developer.android.com/develop/ui/compose/migrate/strategy). However, if you are unable to do so, you can add an `AndroidView` to use Views within Compose. See [Using Views in Compose](https://developer.android.com/develop/ui/compose/migrate/interoperability-apis/views-in-compose) to learn more.

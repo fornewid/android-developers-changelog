@@ -4,11 +4,21 @@ url: https://developer.android.com/blog/authors/loryn-hairston
 source: md.txt
 ---
 
-2 posts ![](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)
+3 posts ![](https://developer.android.com/static/blog/assets/unnamed_13_777347786d_24gdiI.webp)
 
 # Loryn Hairston
 
 Product Marketing Manager
+- 22 Sep 2026 22 Sep 2026 ![](https://developer.android.com/static/blog/assets/Googlebook_Blog_Strapi_4a4a7d3291_Z1ReCnu.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Land your apps on Googlebook with adaptive development](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development)
+
+  [arrow_forward](https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development) Googlebook introduces a new category of laptops built on a shared Android foundation. High-performance hardware from partners such as HP, Dell, Lenovo, Acer, and Asus, combines mobile convenience with desktop power.
+  4 min read
+  - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
+  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+  - +1 ↩
 - 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)

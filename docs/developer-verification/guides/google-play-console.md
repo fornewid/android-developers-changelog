@@ -26,18 +26,10 @@ package names, which may include proving ownership of the private signing keys
 used for those packages.
 
 While 99% of apps on Play have been registered automatically using information
-you have already provided, you should check your [Play Console Home page](https://play.google.com/console/u/0/developers). By
-September 30, 2026, register any remaining apps you want to continue
-distributing to avoid global removal from Google Play and ensure a seamless user
-installation experience.
+you have already provided, you should check your [Play Console Home page](https://play.google.com/console/u/0/developers).
 
 For new apps, when you create an app in the Google Play Console, Google Play
 automatically registers the package name and links it to your account. If
 another developer is already using that name, the Play Console prompts you to
 choose a different name. If you have been using the name outside of Google Play,
 you can still use it on Google Play.
-
-### Review
-
-Check out the [Play Console PDF guide](https://developer.android.com/static/developer-verification/guides/pdf-guides/pdc-guide.pdf) for Android developer verification for
-a step-by-step walkthrough.

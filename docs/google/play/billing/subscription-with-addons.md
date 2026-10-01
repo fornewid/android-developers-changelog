@@ -31,7 +31,7 @@ This section describes how to integrate the subscription with add-ons
 feature with the Play Billing Library (PBL). It assumes that you are
 familiar with the initial PBL integration steps such as,
 [adding the PBL dependency to your app](https://developer.android.com/google/play/billing/integrate#dependency), initializing the [BillingClient](https://developer.android.com/google/play/billing/integrate#initialize),
-and [connecting to Google Play](https://developer.android.com/google/play/billing/integrate#connect_to_google_play). This section focuses on the PBL integration
+and [connecting to Google Play](https://developer.android.com/google/play/billing/integrate#connect-to-play). This section focuses on the PBL integration
 aspects that are specific to subscription with add-ons.
 
 ### Launch a purchase flow
@@ -46,8 +46,8 @@ following steps:
 
    The item represented by the [`ProductDetailsParams`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.ProductDetailsParams#newBuilder()) object, specifies
    both the [`ProductDetails`](https://developer.android.com/reference/com/android/billingclient/api/ProductDetails) indicating the subscription item, and an
-   [`offerToken`](https://developer.android.com/google/play/billing/subscriptions#offers) selecting a specific subscription [`base plan`](https://developer.android.com/google/play/billing/subscriptions#base-plans-and-offers) or
-   [`offer`](https://developer.android.com/google/play/billing/subscriptions#offers).
+   [`offerToken`](https://developer.android.com/google/play/billing/subscriptions) selecting a specific subscription [`base plan`](https://developer.android.com/google/play/billing/subscriptions) or
+   [`offer`](https://developer.android.com/google/play/billing/subscriptions).
 
    > [!NOTE]
    > **Note:** All items in the `ProductDetails` must be from the same app.
@@ -108,7 +108,7 @@ Play Billing Library, and then the `lineItems` list in
 
 Any changes to your subscription with add-ons, results in an upgrade or a
 downgrade. For more information, see
-[upgrade or downgrade subscriptions](https://developer.android.com/google/play/billing/subscriptions#upgrade-downgrade).
+[upgrade or downgrade subscriptions](https://developer.android.com/google/play/billing/subscriptions#allow-users-change).
 
 To change or restore an existing purchase of subscription with add-ons in your
 app, you must call the [`launchBillingFlow`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#launchBillingFlow(android.app.Activity,com.android.billingclient.api.BillingFlowParams)) API with additional
@@ -255,7 +255,7 @@ subscriptions:
   the user has made without revoking access to the subscription.
 
   > [!NOTE]
-  > **Note:** Don't call [`purchases.subscriptions.refund (deprecated)`](https://developer.android.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/refund) for a subscription with add-ons.
+  > **Note:** Don't call [`purchases.subscriptions.refund (deprecated)`](https://developers.google.com/android-publisher/deprecated-apis/purchases.subscriptions/refund) for a subscription with add-ons.
 
 - Call [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) to immediately revoke access
   to all subscription items. With this API, you can:
