@@ -1,0 +1,138 @@
+diff --git a/docs/games/pgs/integrate-gamestats.md b/docs/games/pgs/integrate-gamestats.md
+index b66bd09a..6b4fd838 100644
+--- a/docs/games/pgs/integrate-gamestats.md
++++ b/docs/games/pgs/integrate-gamestats.md
+@@ -8,24 +8,58 @@ This document explains how to integrate Game Stats into your game using the
+ Google Play Console. It covers the essential CSV and ZIP files formats, and
+ describes how to create, import, and manage them.
+ 
+-## Create events
++## Create or import events
+ 
+-To create an event for a new and unpublished game, complete these
+-steps:
++There are two ways to add events for the first time using the
++Google Play Console:
++
++- [Create an event](https://developer.android.com/games/pgs/integrate-gamestats#create-events): Add one event at a time.
++- [Import events](https://developer.android.com/games/pgs/integrate-gamestats#import-events): Import multiple events.
++
++### Create an event
++
++To create an event for a game, complete these steps:
++
++1. In the [Google Play Console](https://play.google.com/console), select a game.
++2. In the **Play Games Services - Game Stats** page (**Grow users \> Play Games Services \> Setup and management \> Game Stats** ), select **Add an event \> Create an event**.
++3. In the **Create an event** page, complete the form.
++4. Click **Save changes**.
++
++### Import events
++
++To add multiple events to your game at once, use the following steps:
+ 
+ 1. Create the events CSV file [PlayerGameEvent.csv](https://developer.android.com/games/pgs/integrate-gamestats#player-game-event-format).
+ 2. In the [Google Play Console](https://play.google.com/console), select a game.
+-3. In the **Play Games Services - Game Stats** page (**Grow users \> Play Games Services \> Setup and management \> Game Stats** ), select **Setup events**.
++3. In the **Play Games Services - Game Stats** page (**Grow users \> Play Games Services \> Setup and management \> Game Stats** ), select **Add an event \> Import via CSV**.
+ 4. In the **Events configuration** page, drop the CSV file to upload.
+ 5. After you create an event, [set up stats](https://developer.android.com/games/pgs/integrate-gamestats#set-up-stats).
+ 
+-## Set up stats
++## Create or import stats
++
++There are two ways to add stats for the first time using the
++Google Play Console:
++
++- [Create a stat](https://developer.android.com/games/pgs/integrate-gamestats#create-stats): Add one stat at a time.
++- [Import stats](https://developer.android.com/games/pgs/integrate-gamestats#import-stats): Import multiple stats.
+ 
+-After you create an event, you need to set up stats:
++### Create a stat
++
++To create a stat for a game, complete these steps:
++
++1. In the [Google Play Console](https://play.google.com/console), select a game.
++2. In the **Play Games Services - Game Stats** page (**Grow users \> Play Games Services \> Setup and management \> Game Stats** ), select **Add a stat \> Create a stat**.
++3. In the **Create a stat** page, complete the form.
++4. Click **Save changes**.
++5. After you create a stat, publish your game.
++
++### Import stats
++
++To import stats, follow these steps:
+ 
+ 1. Create the ZIP file containing stats, localizations, and icon files according to the [ZIP file guidelines for stats](https://developer.android.com/games/pgs/integrate-gamestats#zip-file-stats-config).
+ 2. In the [Google Play Console](https://play.google.com/console), select a game.
+-3. In the **Play Games Services - Game Stats** page (**Grow users \> Play Games Services \> Setup and management \> Game Stats** ), select **Set up stats**.
++3. In the **Play Games Services - Game Stats** page (**Grow users \> Play Games Services \> Setup and management \> Game Stats** ), select **Add a stat \> Import via ZIP**.
+ 4. In the **Game Stats configuration** page, drop the ZIP file to upload.
+ 5. After you upload all the stats, publish your game.
+ 
+@@ -113,10 +147,41 @@ To publish, follow these steps:
+ 3. In the **Play Games Services - Publishing** page (**Grow users \> Play Games Services \> Setup and management \> Publishing**), review the actions and fix the issues.
+ 4. Click **Publish**. All of your Game Stats are published.
+ 
++## Edit Game Stats
++
++If you already have existing Game Stats and want to edit:
++
++1. In the [Google Play Console](https://play.google.com/console), select a game.
++2. Go to **Play Games Services - Game Stats** page (**Grow users \> Play Games Services \> Setup and management \> Game Stats**).
++3. To edit an **Event** :
++   1. In the **Events configuration** section, select an event.
++   2. You can add or delete **Event properties** .
++      - You cannot edit the **Event Name**.
++   3. Click **Save changes**.
++4. To edit a **Stat** :
++   1. In the **Game Stats configuration** section, select a stat.
++   2. You can edit the **Stat name** , **Stat description** , and **Icon file
++      name** fields.
++      - You cannot edit the **Stat ID** , **Progression direction** . **Stat unit** , and **Associated event details**.
++   3. Click **Save changes**.
++5. In the **Play Games Services - Game Stats** page, the edited stat is in the **Available to testers** status.
++6. After you test the stat, click **Review and publish**. This republishes your game, along with all your updated stats.
++
+ ## Delete Game Stats
+ 
+ After the Game Stats has been published, it can't be deleted.
+ 
++You can delete an Event or Stat in the **Available to testers** status.
++
++1. In the [Google Play Console](https://play.google.com/console), select a game.
++2. Go to **Play Games Services - Game Stats** page (**Grow users \> Play Games Services \> Setup and management \> Game Stats**).
++3. To delete an **Event** :
++   1. In the **Events configuration** section, select an event.
++   2. Click **Delete event**.
++4. To delete a **Stat** :
++   1. In the **Game Stats configuration** , select the stat you want to delete.
++   2. Click **Delete game stat**.
++
+ ## CSV file guidelines for events
+ 
+ The first row of the CSV file is a header row. You must import events using the
+@@ -301,7 +366,8 @@ Icon validation rules are:
+ 
+ #### Icon guidelines
+ 
+-Icons should be created as 512 x 512 PNG, JPEG, or JPG files.
++Icons should be created as 512 x 512 PNG, JPEG, or JPG files with transparent
++backgrounds.
+ 
+ The same icon is used in all locales, so we recommend against including any
+ text or localized content in an icon.
+@@ -320,6 +386,14 @@ localized for players.
+ | **Distance/Length**: CENTIMETER, METER, KILOMETER, FOOT, INCH, MILE, YARD, MILLIMETER, NANOMETER | 15 (KILOMETER) |
+ | **Speed**: KILOMETER_PER_HOUR, METER_PER_SECOND, MILE_PER_HOUR | 60 (MILE_PER_HOUR) |
+ 
++### Duration stat properties (DURATION)
++
++|---|---|---|---|
++| **Format Category Value** | **Allowed Unit Values** | **Example Raw Value** | **Formatted Output Example** |
++| UNIT_BASED / DURATION | **Required**: SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, YEAR | 5400 seconds (HOUR) | 1.5 hours |
++| COMPONENT_NUMERIC / HH:MM:SS / CLOCK | Granularity (Optional, default WHOLE_SECONDS): WHOLE_MINUTES, WHOLE_SECONDS, MILLISECONDS_ONE_DIGIT, MILLISECONDS_TWO_DIGITS, MILLISECONDS_THREE_DIGITS | 3661 seconds | 01:01:01 |
++| COMPONENT_TEXT / TEXT | Smallest Unit (Optional, default SECONDS): SECONDS, MINUTES, HOURS, DAYS, MONTHS, YEARS | 90000 seconds | 1d 1h |
++
+ ### Non-Numeric Stat Properties (STRING, BOOL)
+ 
+ Unit columns must be left empty.
+\ No newline at end of file

@@ -1,0 +1,15 @@
+diff --git a/docs/tools/agents/android-cli/commands/device_remote.md b/docs/tools/agents/android-cli/commands/device_remote.md
+index c60ad3b9..6c30b77b 100644
+--- a/docs/tools/agents/android-cli/commands/device_remote.md
++++ b/docs/tools/agents/android-cli/commands/device_remote.md
+@@ -44,8 +44,8 @@ Here is the sequence of commands for a typical workflow:
+ 
+ 1. Run [`android device remote projects`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_projects) to find a Google Cloud project that is ready for device streaming.
+ 2. Run [`android device remote models`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_models) to find the `<codename>/<api>` of the device you want.
+-3. Run [`android device remote create <codename>/<api>`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_create) to reserve the device.
+-4. Run [`android device remote connect <reservation-id>`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_connect) to connect the device to `adb`.
++3. Run [`android device remote create <codename>/<api>`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_create) to reserve the device and connect it to `adb`.
++4. If you passed `--connect=false` to `create`, run [`android device remote connect <reservation-id>`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_connect) to connect the device to `adb`.
+ 5. Use the device with `android run`, `android install`, `adb`, and other device commands.
+ 6. Run [`android device remote disconnect <reservation-id>`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_disconnect) and [`android device remote remove <reservation-id>`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_remove) when you are done.
+ 

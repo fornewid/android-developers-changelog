@@ -1,0 +1,21 @@
+diff --git a/docs/blog/topics/android-auto.md b/docs/blog/topics/android-auto.md
+index 36b633c8..3584840e 100644
+--- a/docs/blog/topics/android-auto.md
++++ b/docs/blog/topics/android-auto.md
+@@ -6,6 +6,16 @@ source: md.txt
+ 
+ # #Android Auto
+ 
++- [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)](https://developer.android.com/blog/authors/jan-kleinert) 21 Sep 2026 21 Sep 2026 ![](https://developer.android.com/static/blog/assets/Games_for_car_Strapi_1_c55588726e_Z2cIhWx.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Bring your Android game to the car screen today](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today)
++
++  [arrow_forward](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today) Today, the games category for Android Auto and cars powered by Android Automotive OS with Google built-in is officially graduating from beta to general availability.
++  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert) • 3 min read
++  - [#Android Automotive OS](https://developer.android.com/blog/topics/android-automotive-os)
++  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
++  - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
++  - +1 ↩
+ - 3 Authors 24 Aug 2026 24 Aug 2026 ![](https://developer.android.com/static/blog/assets/Android_1_Strapi_6f49d09922_1I8TFC.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [AAOS SDV - Secure by Design](https://developer.android.com/blog/posts/aaos-sdv-secure-by-design)

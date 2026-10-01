@@ -1,0 +1,71 @@
+diff --git a/docs/developer-verification/guides/faq.md b/docs/developer-verification/guides/faq.md
+index d1aeca9d..f72048c9 100644
+--- a/docs/developer-verification/guides/faq.md
++++ b/docs/developer-verification/guides/faq.md
+@@ -29,17 +29,10 @@ verification.
+   with confidence and our research shows that users feel safer when they know
+   an app is connected to a verified person or organization. *Last updated May
+   11, 2026*
+-- **What happens if I don't comply?** If you do not verify your identity and
+-  register your apps by the September **deadline** , your apps will be blocked
+-  from being installed by users on [certified Android devices](https://www.android.com/certified/partners/) in applicable
+-  regions. *Last updated: Sept 3, 2025*
+-
+-- **I'm a hobbyist/student. What is "limited distribution"?** We understand
+-  that not everyone is a professional developer. We are introducing a free
+-  developer account type that will allow teachers, students, and hobbyists to
+-  distribute apps to 20 devices without needing to provide a government ID.
+-  [Learn more about limited distribution accounts](https://developer.android.com/developer-verification/guides/limited-distribution). *Last updated: March
+-  25, 2026*
++- **What happens if I don't comply?** If you don't verify your identity and
++  register your apps by September 30, 2026, your apps cannot be installed
++  from participating stores in select regions on certified Android devices.
++  *Last updated: Sept 30, 2025*
+ 
+ - **If I have a limited distribution account type, and want to convert my
+   account to a full distribution, how would I do this? Similarly, can I
+@@ -69,18 +62,20 @@ verification.
+   ready to be distributed to the wider consumer population. *Last updated:
+   Sept 11, 2025*
+ 
+-- **How does this program impact developers in sanctioned countries?**
+-  Developers in sanctioned countries will be excluded from Android developer
+-  verification checks. This allows any developer to continue distributing apps
+-  in these regions without verification, though users there won't benefit from
+-  the enhanced security benefits of the program. *Last updated: March 25,
+-  2026*
+-
+-- **What Android versions will the developer verification requirements be
+-  enforced on?** It will apply to all certified Android devices running
+-  Android 7 or higher. These updates are delivered through Google Play
+-  services to help maintain consistent security across the ecosystem. *Last
+-  updated: March 23, 2026*
++- **How does this program impact developers in sanctioned countries?** Because
++  Google is legally prohibited from doing business with individuals and
++  entities in sanctioned countries, developers located in these regions won't
++  be able to complete Android developer verification. However, the Android
++  developer verification checks won't run on certified Android devices
++  physically located in comprehensively sanctioned countries. Any app can be
++  installed by a user in a country where verification checks are not run.
++  *Last updated: Sept 30, 2026*
++
++- **What Android versions will the developer verification
++  requirements be enforced on?** It will apply to all certified Android
++  devices running Android 7 or higher. These updates are delivered through
++  Google Play services to help maintain consistent security across the
++  ecosystem. *Last updated: March 23, 2026*
+ 
+ - **Does this mean Android is becoming a closed system?** No. Android remains
+   an open ecosystem where you distribute through a variety of channels you
+@@ -237,6 +232,6 @@ verification.
+ 
+ ## I need additional support
+ 
+-**Where can I get help?** For
+-additional information on these requirements, visit the [Android Developer
+-Console Help Center](https://support.google.com/android-developer-console) and the [Play Console Help Center](https://support.google.com/googleplay/android-developer#topic=16689288).
+\ No newline at end of file
++**Where can I get help?** For additional information on these requirements,
++visit the [Android Developer Console Help Center](https://support.google.com/android-developer-console) and the [Play Console Help
++Center](https://support.google.com/googleplay/android-developer#topic=16689288).
+\ No newline at end of file

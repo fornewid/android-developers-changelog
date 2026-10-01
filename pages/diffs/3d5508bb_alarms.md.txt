@@ -1,0 +1,69 @@
+diff --git a/docs/develop/background-work/services/alarms.md b/docs/develop/background-work/services/alarms.md
+index 0fbfffb7..fcd764c6 100644
+--- a/docs/develop/background-work/services/alarms.md
++++ b/docs/develop/background-work/services/alarms.md
+@@ -14,7 +14,7 @@ Alarms have these characteristics:
+ 
+ - You can use them in conjunction with broadcast receivers to schedule
+   [jobs](https://developer.android.com/reference/android/app/job/JobScheduler) or
+-  [WorkRequests](https://developer.android.com/topic/libraries/architecture/workmanager) to perform other
++  [WorkRequests](https://developer.android.com/develop/background-work/background-tasks/persistent) to perform other
+   operations.
+ 
+ - They operate outside of your application, so you can use them to trigger
+@@ -101,7 +101,7 @@ Scheduling timing operations during the lifetime of your app
+ 
+ Scheduled background work, such as updating your app and uploading logs
+ :   `WorkManager` provides a way to [schedule timing-sensitive periodic
+-    work](https://developer.android.com/topic/libraries/architecture/workmanager/how-to/define-work#flexible_run_intervals).
++    work](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started/define-work#flexible_run_intervals).
+     You can provide a repeat interval and `flexInterval` (15 minutes minimum) to
+     define granular runtime for the work.
+ 
+@@ -157,7 +157,7 @@ in order to use resources more efficiently.
+ 
+ It's highly recommended that you create an [inexact alarm](https://developer.android.com/develop/background-work/services/alarms#inexact) whenever
+ possible. To perform longer work, schedule it using
+-[`WorkManager`](https://developer.android.com/topic/libraries/architecture/workmanager) or
++[`WorkManager`](https://developer.android.com/develop/background-work/background-tasks/persistent) or
+ [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler) from your alarm's
+ `BroadcastReceiver`. To perform work while
+ the device is in Doze, create an inexact alarm using
+@@ -247,7 +247,7 @@ When the `SCHEDULE_EXACT_ALARMS` permission is granted to your app, the
+ system sends it the
+ [`ACTION_SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED`](https://developer.android.com/reference/android/app/AlarmManager#ACTION_SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED)
+ broadcast. Your app should [implement a broadcast
+-receiver](https://developer.android.com/guide/components/broadcasts#receiving-broadcasts) that does the
++receiver](https://developer.android.com/develop/background-work/background-tasks/broadcasts#receiving-broadcasts) that does the
+ following:
+ 
+ 1. Confirms that your app still has the special app access. To do so, call [`canScheduleExactAlarms()`](https://developer.android.com/reference/android/app/AlarmManager#canScheduleExactAlarms()). This check protects your app from the case where the user grants your app the permission, then revokes it almost immediately afterward.
+@@ -285,8 +285,8 @@ A repeating alarm has the following characteristics:
+   second alarm that uses the same pending intent, it replaces the original alarm.
+ 
+ To cancel a `PendingIntent()`, pass
+-[`FLAG_NO_CREATE`](https://developer.android.com/reference/android/app/PendingIntent.getService()#FLAG_NO_CREATE)
+-to [`PendingIntent.getService()`](https://developer.android.com/reference/android/app/PendingIntent#getService(android.content.Context,%2520int,%2520android.content.Intent,%2520int))
++[`FLAG_NO_CREATE`](https://developer.android.com/reference/android/app/PendingIntent#FLAG_NO_CREATE)
++to [`PendingIntent.getService()`](https://developer.android.com/reference/android/app/PendingIntent#getService(android.content.Context,%20int,%20android.content.Intent,%20int))
+ to get an instance of the intent (if it exists), then pass that intent to
+ [`AlarmManager.cancel()`](https://developer.android.com/reference/android/app/AlarmManager#cancel(android.app.PendingIntent))
+ 
+@@ -551,7 +551,7 @@ for the complete list.
+ ## Cancel an alarm
+ 
+ Depending on your app, you may want to include the ability to cancel the alarm.
+-To cancel an alarm, call [`cancel()`](https://developer.android.com/develop/background-work/services/reference/android/app/AlarmManager#cancel(android.app.AlarmManager.OnAlarmListener))
++To cancel an alarm, call [`cancel()`](https://developer.android.com/reference/android/app/AlarmManager#cancel(android.app.PendingIntent))
+ on the Alarm Manager, passing in the
+ [`PendingIntent`](https://developer.android.com/reference/android/app/PendingIntent) you no longer want
+ to fire. For example:
+@@ -709,7 +709,7 @@ available:
+ - Use the WorkManager API, which is built to perform
+   background work. You can indicate that the system should expedite your work so
+   that the work finishes as soon as possible. For more information, see
+-  [Schedule tasks with WorkManager](https://developer.android.com/arch/work)
++  [Schedule tasks with WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent)
+ 
+ ## Best practices
+ 

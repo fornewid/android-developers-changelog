@@ -1,0 +1,26 @@
+diff --git a/docs/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md b/docs/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md
+index cb8db8d4..b2e68ce5 100644
+--- a/docs/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md
++++ b/docs/blog/posts/android-studio-i-o-edition-what-s-new-in-android-developer-tools.md
+@@ -173,16 +173,13 @@ Continue reading
+   [arrow_forward](https://developer.android.com/blog/posts/android-studio-supports-gemma-4-our-most-capable-local-model-for-agentic-coding) Every developer's AI workflow and needs are unique, and it's important to be able to choose how AI helps your development. In January, we introduced the ability to choose any local or remote AI model to power AI functionality in Android Studio
+   [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 2 min read
+   - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+-- 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++- [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 24 Sep 2026 24 Sep 2026 ![](https://developer.android.com/static/blog/assets/BYOA_Backup_Strapi_1_5c3f94f766_Z1WI1Mt.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+-  ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
++  ## [Build your way: Use any AI agent of your choice in Android Studio](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio)
+ 
+-  [arrow_forward](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0) Wireless debugging on Android is now faster, more reliable, and easier to set up than ever. With ADB Wi-Fi 2.0, we've introduced a new server stack and smarter network handling to directly address developer feedback around usability gaps.
+-  [Steven Jenkins](https://developer.android.com/blog/authors/steven-jenkins), [Sherif Eid](https://developer.android.com/blog/authors/sherif-eid), [Fabien Sanglard](https://developer.android.com/blog/authors/fabien-sanglard) • 1 min read
+-  - [#Wireless Debugging](https://developer.android.com/blog/topics/wireless-debugging)
+-  - [#ADB Wi-Fi 2.0](https://developer.android.com/blog/topics/adb-wi-fi-2-0)
+-  - [#Android Studio](https://developer.android.com/blog/topics/android-studio)
+-  - +1 ↩
++  [arrow_forward](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio) Last year, Android Studio opened up to any AI model. Today, we're taking the next step by introducing support for your choice of coding agents.
++  [Matthew Warner](https://developer.android.com/blog/authors/matthew-warner) • 3 min read
++  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ Stay in the loop
+ 
+ 

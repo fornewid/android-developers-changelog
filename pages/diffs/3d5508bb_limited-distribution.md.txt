@@ -1,0 +1,31 @@
+diff --git a/docs/developer-verification/guides/limited-distribution.md b/docs/developer-verification/guides/limited-distribution.md
+index 65abc6bd..ef5ed527 100644
+--- a/docs/developer-verification/guides/limited-distribution.md
++++ b/docs/developer-verification/guides/limited-distribution.md
+@@ -9,21 +9,14 @@ experiment, and build for fun. If you are a developer who doesn't distribute
+ apps widely, we recognize that your needs may be different from commercial
+ developers and have provided an account type for you.
+ 
++Android developer verification protections take effect in Brazil, Indonesia,
++Singapore and Thailand on September 30. Any package names not registered by this
++date will no longer be installable on certified Android devices in those
++regions.
++
+ > [!NOTE]
+ > **Note:** Limited distribution accounts available for everyone. Sign up and register your package names if you're a student or hobbyist who wants to distribute apps to a small number of users.
+ 
+-## Key dates for limited distribution accounts
+-
+-- August 2026: Limited distribution accounts available for everyone. Sign up
+-  and register your package names if you're a student or hobbyist who wants to
+-  distribute apps to a small number of users. Registering package names and
+-  authorizing devices can take some time, so make sure to give yourself plenty
+-  of time ahead of the September 30 deadline.
+-
+-- September 30, 2026: Android developer verification protections take effect.
+-  Any package names not registered by this date will no longer be installable
+-  on certified Android devices in Brazil, Indonesia, Singapore, and Thailand.
+-
+ ## What can a limited distribution account do?
+ 
+ 1. Register apps

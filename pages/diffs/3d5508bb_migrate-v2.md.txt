@@ -1,0 +1,14 @@
+diff --git a/docs/develop/ui/compose/testing/migrate-v2.md b/docs/develop/ui/compose/testing/migrate-v2.md
+index cdaff8b9..6c51ea61 100644
+--- a/docs/develop/ui/compose/testing/migrate-v2.md
++++ b/docs/develop/ui/compose/testing/migrate-v2.md
+@@ -4,9 +4,6 @@ url: https://developer.android.com/develop/ui/compose/testing/migrate-v2
+ source: md.txt
+ ---
+ 
+-> [!NOTE]
+-> **Note:** The v2 testing APIs are in alpha and are subject to change. We encourage you to try them and provide [feedback](https://issuetracker.google.com/issues/new?component=741505&template=1346785&title=%5BMigration%5D).
+-
+ v2 versions of the Compose testing APIs ([`createComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary#createComposeRule()),
+ [`createAndroidComposeRule`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/junit4/v2/package-summary#createAndroidComposeRule(java.lang.Class,androidx.compose.ui.test.ComposeUiTestConfig)), [`runComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary#runComposeUiTest(kotlin.coroutines.SuspendFunction1)),
+ [`runAndroidComposeUiTest`](https://developer.android.com/reference/kotlin/androidx/compose/ui/test/v2/package-summary#runAndroidComposeUiTest(java.lang.Class,androidx.compose.ui.test.ComposeUiTestConfig,kotlin.coroutines.SuspendFunction1)), etc) are now available to improve control over

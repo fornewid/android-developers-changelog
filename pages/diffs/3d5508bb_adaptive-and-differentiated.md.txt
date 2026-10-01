@@ -1,0 +1,21 @@
+diff --git a/docs/blog/topics/adaptive-and-differentiated.md b/docs/blog/topics/adaptive-and-differentiated.md
+index 50140b7b..65a9b293 100644
+--- a/docs/blog/topics/adaptive-and-differentiated.md
++++ b/docs/blog/topics/adaptive-and-differentiated.md
+@@ -6,6 +6,16 @@ source: md.txt
+ 
+ # #Adaptive \& Differentiated
+ 
++- [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)](https://developer.android.com/blog/authors/jan-kleinert) 21 Sep 2026 21 Sep 2026 ![](https://developer.android.com/static/blog/assets/Games_for_car_Strapi_1_c55588726e_Z2cIhWx.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Bring your Android game to the car screen today](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today)
++
++  [arrow_forward](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today) Today, the games category for Android Auto and cars powered by Android Automotive OS with Google built-in is officially graduating from beta to general availability.
++  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert) • 3 min read
++  - [#Android Automotive OS](https://developer.android.com/blog/topics/android-automotive-os)
++  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
++  - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
++  - +1 ↩
+ - 3 Authors 18 Aug 2026 18 Aug 2026 ![](https://developer.android.com/static/blog/assets/Copy_of_ANDDM_TINDER_Strapi_d8536aec8a_1WnFNT.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+ 
+   ## [Tinder cuts app cold starts by 47% with new R8 Configuration Analyzer](https://developer.android.com/blog/posts/tinder-cuts-app-cold-starts-by-47-with-new-r8-configuration-analyzer)
