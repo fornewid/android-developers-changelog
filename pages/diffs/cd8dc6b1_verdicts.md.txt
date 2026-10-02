@@ -1,0 +1,23 @@
+diff --git a/docs/google/play/integrity/verdicts.md b/docs/google/play/integrity/verdicts.md
+index c40953e1..258c26ad 100644
+--- a/docs/google/play/integrity/verdicts.md
++++ b/docs/google/play/integrity/verdicts.md
+@@ -402,6 +402,9 @@ labels](https://developer.android.com/google/play/integrity/setup#configure-api)
+ A single device will return multiple device labels in the device integrity
+ verdict if each of the label's criteria is met.
+ 
++> [!NOTE]
++> **Note:** On Android 13 and higher, the optional `MEETS_BASIC_INTEGRITY` and `MEETS_STRONG_INTEGRITY` device labels are returned only if the requesting app is licensed (installed or updated by Google Play). If the app isn't licensed, these optional labels are omitted from `deviceRecognitionVerdict`. Any other labels that the device meets, such as `MEETS_DEVICE_INTEGRITY`, are still returned. If no labels remain, `deviceRecognitionVerdict` is omitted.
++
+ #### Device attributes
+ 
+ You can also opt in to device attributes, which tells the Android SDK version of
+@@ -477,7 +480,7 @@ one of the following values:
+ | `LEVEL_2` | Between 11 and 25 | Between 6 and 10 |
+ | `LEVEL_3` | Between 26 and 50 | Between 11 and 15 |
+ | `LEVEL_4` (highest) | More than 50 | More than 15 |
+-| `UNEVALUATED` | Recent device activity was not evaluated. This could happen because: - The device is not trustworthy enough. - The version of your app installed on the device is unknown to Google Play. - Technical issues on the device. ||
++| `UNEVALUATED` | Recent device activity was not evaluated. This could happen because: - The device is not trustworthy enough. - The version of your app installed on the device is unknown to Google Play. - The requesting app is not licensed (on Android 13 and higher). - Technical issues on the device. ||
+ 
+ > [!NOTE]
+ > **Note:** Level definitions are approximate.

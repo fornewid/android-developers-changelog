@@ -1,0 +1,13 @@
+diff --git a/docs/about/versions/17/qpr2/download.md b/docs/about/versions/17/qpr2/download.md
+index 71c0d9fe..0cb51959 100644
+--- a/docs/about/versions/17/qpr2/download.md
++++ b/docs/about/versions/17/qpr2/download.md
+@@ -39,7 +39,7 @@ After you've flashed a beta build to your Pixel device, your device is automatic
+ 
+ Use the following links and instructions to update your supported device to the
+ latest build. See [Get
+-Android 17 QPR beta builds](https://developer.android.com/about/versions/17/get-qpr) for other ways to get
++Android 17 QPR beta builds](https://developer.android.com/about/versions/17/qpr2/get) for other ways to get
+ QPR1 for testing and development.
+ 
+ > [!WARNING]

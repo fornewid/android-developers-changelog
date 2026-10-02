@@ -1,0 +1,22 @@
+diff --git a/docs/blog/posts/jetpack-compose-ai-native-ui-instagram-direct.md b/docs/blog/posts/jetpack-compose-ai-native-ui-instagram-direct.md
+index a735a0d8..ecaabf55 100644
+--- a/docs/blog/posts/jetpack-compose-ai-native-ui-instagram-direct.md
++++ b/docs/blog/posts/jetpack-compose-ai-native-ui-instagram-direct.md
+@@ -27,7 +27,7 @@ When migrating a codebase of this size to Compose, it's tempting to take the eas
+ 
+ ## **Building an AI-native UI architecture**
+ 
+-At the scale of Instagram, a degree of architectural abstraction is unavoidable, and it is what keeps the app maintainable as it grows. Consider a common pattern, where every `RecyclerViewitem` item type is modeled as a descendant of a custom `RecyclerViewItem` base class that exposes usual lifecycle hooks such as `onBind`.
++At the scale of Instagram, a degree of architectural abstraction is unavoidable, and it is what keeps the app maintainable as it grows. Consider a common pattern, where every `RecyclerView` item type is modeled as a descendant of a custom `RecyclerViewItem` base class that exposes usual lifecycle hooks such as `onBind`.
+ 
+ **Example 1**
+ 
+@@ -115,7 +115,7 @@ class ChatItem(
+ ) : ComposeItem<ChatUiState>(
+ 
+  
+-    // Compose UI
++   // Compose UI
+    content = { uiState: ChatUiState ->
+     val isPinnedChatsEnabled = features.isEnabled("pinned_chats_feature")
+ 

@@ -1,0 +1,19 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2026.2.2.md b/docs/studio/releases/fixed-bugs/studio/2026.2.2.md
+index 316c9f72..a062a9c9 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2026.2.2.md
++++ b/docs/studio/releases/fixed-bugs/studio/2026.2.2.md
+@@ -4,6 +4,14 @@ url: https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.2
+ source: md.txt
+ ---
+ 
++### Android Studio Rabbit 2 \| 2026.2.2 Canary 3
++
++**Released together with:**
++
++- Android Gradle Plugin 9.5.0-alpha08
++
++Fixed Issues **Android Gradle Plugin** [Issue #553121473](https://issuetracker.google.com/issues/553121473) Warning in generateReleaseRFile task when using JDK 25 [Issue #555796808](https://issuetracker.google.com/issues/555796808) AGP 8.11+ / 9.0 blocks build due to ANDROID_PREFS_ROOT even after removal **Compose Preview Screenshot Testing** [Issue #479862361](https://issuetracker.google.com/issues/479862361) Element type "testsuite" must be followed by either attribute specifications, "\>" or "/\>" [Issue #562777844](https://issuetracker.google.com/issues/562777844) Feature Request \[Compose Screenshot Testing\]: Support custom filenames or use PreviewParameterProvider display names for reference images [Issue #559426949](https://issuetracker.google.com/issues/559426949) Compose screenshot HTML report fails to embed images when using Gradle --project-dir **Gradle Integration** [Issue #563732801](https://issuetracker.google.com/issues/563732801) AGP 9.4 breaks previously-correct JUnit XML: \`@Ignore\` tests become failures while the build succeeds **Running Devices** [Issue #501268557](https://issuetracker.google.com/issues/501268557) The physical device screen mirror is showing in very low resolution. I can't even read the text
++
+ ### Android Studio Rabbit 2 \| 2026.2.2 Canary 2
+ 
+ **Released together with:**

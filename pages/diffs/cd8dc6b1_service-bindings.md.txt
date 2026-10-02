@@ -1,0 +1,77 @@
+diff --git a/docs/topic/performance/memory/guide/service-bindings.md b/docs/topic/performance/memory/guide/service-bindings.md
+index fa0cfea8..bb6f11f1 100644
+--- a/docs/topic/performance/memory/guide/service-bindings.md
++++ b/docs/topic/performance/memory/guide/service-bindings.md
+@@ -286,6 +286,72 @@ cost to the system's memory health.
+ - **Reduced Flexibility** : Every bound process is a process the LMK **cannot** easily kill. This reduces the "cushion" of cached processes that the system can use to free up memory under pressure.
+ - **Aggravating the Performance Cliff**: If too many processes are bound, the system may find itself with almost no killable background processes. When memory pressure increases, the system will "fall off the performance cliff" much faster, as it is forced to kill more important processes or thrash the page cache.
+ 
++## Common service binding anti-patterns
++
++Because service bindings directly elevate `oom_score_adj`, subtle lifecycle
++mistakes in how you acquire or structure bindings can pin large amounts of
++memory in privileged states (`BTOP`, `BFGS`, or `PERC`) for hours. Watch out
++for these common anti-patterns when designing or auditing bound services.
++
++### Forgotten `unbindService()` in long-lived clients
++
++Binding to a service from an `Application` singleton, a background manager, or
++an `Activity` that calls `bindService()` in `onStart()` without a matching
++`unbindService()` in `onStop()` leaks the `ServiceConnection`.
++
++As long as that binding remains active, the target process inherits the
++client's elevated priority. If the client is a persistent system component or a
++foreground app, the bound service process stays pinned in `BFGS` or `BTOP`
++indefinitely (showing up near 100% in `procstats`), preventing the LMK from
++reclaiming its memory even when the service is completely idle.
++
++**Remedy** : Scope bindings strictly to the lifecycle of the component that
++needs them, or implement an idle timeout that calls `unbindService()` after a
++period of inactivity. Avoid unbinding and rebinding on every individual RPC
++call, which causes process thrashing and repeated Binder setup overhead;
++instead, coalesce bursts of work behind a short idle timer (for example, 5 to
++30 seconds).
++
++### Co-locating a bound service with a memory-intensive UI
++
++By default, all components in an APK run in the same process. If your app
++exposes a lightweight bound service (such as a `NotificationListenerService`, a
++widget provider, or a plugin service that the system or launcher binds to) in
++the same process as your main `Activity`, the entire process inherits the
++service's elevated state (`BFGS` or `PERC`, typically `oom_score_adj` of 200 or
++lower).
++
++When the user opens your app's UI, the process allocates large view
++hierarchies, decoded bitmaps, and graphics buffers. When the user navigates
++away, the process doesn't drop to `CACHED` (`oom_score_adj` of 900 or higher)
++because the active service binding keeps the process elevated. This causes two
++compounding problems:
++
++- **No background memory compaction** : The system's `CachedAppOptimizer` only compacts processes after they enter the `CACHED` state.
++- **No cached-LRU memory trim or LMK reclamation** : The system doesn't deliver background trim callbacks tied to the cached LRU list (`TRIM_MEMORY_BACKGROUND` and higher) while a service binding holds the process in an elevated state. If your app doesn't explicitly release UI resources on `TRIM_MEMORY_UI_HIDDEN` or `Activity.onStop()`, peak UI allocations stay pinned in RAM at a privileged OOM score where the LMK can't easily reclaim them.
++
++**Remedy** : Evict UI caches, decoded bitmaps, and view references explicitly
++when your UI stops being visible, using `Activity.onStop()`,
++`ComponentCallbacks2.onTrimMemory(TRIM_MEMORY_UI_HIDDEN)`,
++[`Application.ActivityLifecycleCallbacks`](https://developer.android.com/reference/android/app/Application.ActivityLifecycleCallbacks), or
++[`ProcessLifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/ProcessLifecycleOwner). Alternatively, move the
++always-bound service into a separate, lightweight process using the
++`android:process` manifest attribute so the system can move your main UI
++process into the `CACHED` state to compact or reclaim its memory independently.
++
++### Omitting priority-waiving flags
++
++Calling `bindService()` with `BIND_AUTO_CREATE` alone transfers the caller's
++full scheduling and memory priority to the target service. When a foreground
++app binds to a background analytics, logging, or prefetching service using only
++`BIND_AUTO_CREATE`, it unintentionally promotes that background worker to
++`BTOP`.
++
++**Remedy** : When binding to auxiliary or best-effort services that don't need
++the same protection level as the foreground UI, combine `BIND_AUTO_CREATE` with
++`BIND_WAIVE_PRIORITY`, `BIND_NOT_FOREGROUND`, or `BIND_NOT_PERCEPTIBLE` so the
++system can still manage the target process on the cached LRU list.
++
+ *** ** * ** ***
+ 
+ **[← Locality](https://developer.android.com/topic/performance/memory/guide/locality) \| [↑ Up](https://developer.android.com/topic/performance/memory/guide) \| [System-wide

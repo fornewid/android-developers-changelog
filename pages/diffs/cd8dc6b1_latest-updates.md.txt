@@ -1,0 +1,30 @@
+diff --git a/docs/latest-updates.md b/docs/latest-updates.md
+index e913205b..31d76344 100644
+--- a/docs/latest-updates.md
++++ b/docs/latest-updates.md
+@@ -130,19 +130,19 @@ The latest updated popular libraries. [See all Jetpack library updates](https://
+ 
+ ## ![](https://developer.android.com/static/images/logos/android-studio.svg) Android Studio
+ 
+-Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio) RC
++Recent updates to Android Studio and tools [See more about Android Studio](https://developer.android.com/studio) Canary
+ 
+-### [Rabbit 1 \| 2026.2.1 RC 2](https://developer.android.com/studio/preview)
++### [Rabbit 2 \| 2026.2.2 Canary 3](https://developer.android.com/studio/preview)
+ 
+-September 28, 2026 Stable
++October 1, 2026 Stable
+ 
+-### [Quail 4 \| 2026.1.4 Patch 1](https://developer.android.com/studio/releases)
++### [Rabbit 1 \| 2026.2.1](https://developer.android.com/studio/releases)
+ 
+-September 18, 2026 Stable
++October 1, 2026 Stable
+ 
+ ### [Android Gradle Plugin 9.4.0](https://developer.android.com/build/releases/gradle-plugin)
+ 
+-September 18, 2026
++October 1, 2026
+ 
+ ## ![](https://developer.android.com/static/images/picto-icons/platform.svg) Platform
+ 

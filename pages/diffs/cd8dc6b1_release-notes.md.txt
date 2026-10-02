@@ -1,0 +1,14 @@
+diff --git a/docs/google/play/billing/release-notes.md b/docs/google/play/billing/release-notes.md
+index e018fc1e..2e9d1dc8 100644
+--- a/docs/google/play/billing/release-notes.md
++++ b/docs/google/play/billing/release-notes.md
+@@ -91,6 +91,9 @@ Version 8.3.0 of the Google Play Billing Library and Kotlin extensions are now a
+     - [`DeveloperProvidedBillingListener`](https://developer.android.com/reference/com/android/billingclient/api/DeveloperProvidedBillingListener)
+   - Added [`enableBillingProgram(EnableBillingProgramParams)`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient.Builder#enableBillingProgram(com.android.billingclient.api.EnableBillingProgramParams)) to enable external payments.
+   - Added [`BillingFlowParams.Builder.enableDeveloperBillingOption`](https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#enableDeveloperBillingOption(com.android.billingclient.api.DeveloperBillingOptionParams)) to launch the external payments flow.
++- Improved error categorization for external payment flow drop-offs:
++
++  - If a user navigates away from the purchase flow to complete payment on an external app (such as an e-wallet) and abandons the transaction without returning, the response code returned to the client is now `BillingResponseCode.USER_CANCELED` (1) with debug message `BILLING_ACTIVITY_PAUSED` (previously defaulted to `BillingResponseCode.ERROR` (6)).
+ 
+ ## Google Play Billing Library 8.2.1 Release (2025-12-15)
+ 

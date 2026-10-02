@@ -1,0 +1,164 @@
+diff --git a/docs/identity/form-factors.md b/docs/identity/form-factors.md
+index 3e9eaa43..4f7184df 100644
+--- a/docs/identity/form-factors.md
++++ b/docs/identity/form-factors.md
+@@ -8,7 +8,7 @@ Credential Manager simplifies authentication across the entire Android
+ ecosystem. It provides a consistent experience for users and a unified API
+ surface for developers to use passkeys, passwords, and federated sign-in
+ mechanisms such as Sign in with Google. While the core programming interface
+-remains consistent across form-factors, each form factor has unique UI and UX
++remains consistent across form factors, each form factor has unique UI and UX
+ considerations. Successful implementation requires adapting your app's
+ authentication flows to the specific input methods, screen sizes, and user
+ contexts of each device.
+@@ -43,17 +43,17 @@ Data Layer Token Sharing, as a long-term solution.
+ 
+ Using Credential Manager for Wear OS has the following requirements:
+ 
+-- Minimum API level: minSdkVersion 33 or higher
++- Minimum API level: `minSdkVersion` 33 or higher
+   - Includes support for passwords, passkeys, and Sign in with Google
+ - GMS version: The same as required for mobile apps
+ 
+ The user interface on Wear OS devices is as follows:
+-![A users passkey as the preferred authentication solution on Wear OS](https://developer.android.com/static/wear/images/design/passkeys-sign-in.png) **Figure 1a:**Passkeys ![Passkeys, passwords, and Sign in With Google are all available for a user to authenticate with](https://developer.android.com/static/wear/images/design/passkey-password-gsi-options.png) **Figure 1b:**Passkeys, passwords, and Sign in with Google
++![Passkey sign-in screen shown as the preferred authentication method on Wear OS.](https://developer.android.com/static/wear/images/design/passkeys-sign-in.png) **Figure 1a.** Passkeys. ![Passkeys, passwords, and Sign in with Google options available for a user on Wear OS.](https://developer.android.com/static/wear/images/design/passkey-password-gsi-options.png) **Figure 1b.** Passkeys, passwords, and Sign in with Google.
+ 
+ For detailed implementation guidance and code samples, see the following
+ resources:
+ 
+-- [Authentication on wearables](https://developer.android.com/training/wearables/apps/auth-wear)
++- [Authentication on wearables: Credential Manager](https://developer.android.com/training/wearables/apps/auth-wear)
+ - [UI design recommendations for Wear OS](https://developer.android.com/design/ui/wear/guides/m2-5/behaviors-and-patterns/sign-in)
+ - [Wear Credential Manager sample](https://github.com/android/identity-samples/tree/main/Shrine/wear)
+ 
+@@ -62,15 +62,16 @@ resources:
+ Using Credential Manager on Wear OS has the following limitations:
+ 
+ - Does not support creating passkeys.
+-- Does not support [Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials).
++- Does not support [About Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials).
+ 
+ ## Android XR
+ 
+-With Android XR---which includes virtual and augmented reality---apps render in
++With Android XR (which includes virtual and augmented reality), apps render in
+ 3D space. User input is fundamentally different from those in other
+ form factors, relying on natural inputs like hand gestures.
+ 
+-Adapting Credential Manager for XR means rethinking the authentication UI---whether with passkeys, passwords, or federated sign-in methods---for a
++Adapting Credential Manager for XR means rethinking the authentication
++UI (whether with passkeys, passwords, or federated sign-in methods) for a
+ 3D space. For example, authentication prompts appear in floating panels, and
+ users make selections using hand gestures. You also need to consider any
+ specific hardware or software prerequisites for your target XR devices.
+@@ -88,15 +89,103 @@ Using Credential Manager for Android XR has the following requirements:
+   - Minimum emulator system image:
+     - macOS: Google Play XR ARM 64 v8a System Image Revision 7
+     - Windows: Google Play XR Intel x86_64 Atom System Image Revision 7
+-  - Emulator versions later than 35.6.11 Stable
++  - Emulator versions higher than 35.6.11 Stable
+ 
+ A sign-in experience on XR might look like the following:
+-![Credential Manager UI in XR](https://developer.android.com/static/identity/form-factors/images/credman-xr.png) **Figure 2:**Credential Manager UI in XR
++![Credential Manager sign-in prompt displayed in a floating 3D panel in Android XR.](https://developer.android.com/static/identity/form-factors/images/credman-xr.png) **Figure 2.** Credential Manager UI in XR.
+ 
+ ### Flows unsupported by XR
+ 
+ Credential Manager in Android XR does not support authentication flows that
+-require another device to scan a QR Code. This is observable during sign-in
++require another device to scan a QR code. This is observable during sign-in
+ processes on XR headsets and when testing with the emulator.
+ 
+-To learn more about XR, see [Android XR](https://developer.android.com/xr).
+\ No newline at end of file
++To learn more about XR, see [Android XR](https://developer.android.com/xr).
++
++## Android TV
++
++Android TV devices are typically communal, viewed from a distance, and navigated
++using D-pad remotes. Entering usernames and passwords in this environment can be
++difficult for users. Credential Manager simplifies authentication on Android TV
++by supporting Sign in with Google, saved passwords, and cross-device passkeys.
++![Credential Manager sign-in prompt on Android TV displaying saved accounts for Sign in with Google and passwords, along with an option to use a passkey.](https://developer.android.com/static/identity/form-factors/images/tv-credential-options.png) **Figure 3.** Credential Manager UI on Android TV showing Sign in with Google, saved passwords, and passkey options.
++
++Because TVs are communal devices and don't have a lock screen knowledge factor
++(LSKF), passkeys aren't created or stored directly on the TV. Instead, passkey
++authentication uses a cross-device hybrid flow: the TV displays a QR code that
++the user scans with their mobile device to complete biometric authentication.
++
++Using Credential Manager for Android TV has the following requirements:
++
++- **Minimum API level:** Android 14 (API level 34, `minSdkVersion` 34) or higher
++- **GMS version:** 2026W30 or higher
++- **Hardware for passkeys:** A secondary mobile device with a camera and Bluetooth is required to scan the QR code and complete the FIDO hybrid flow
++
++### Limitations
++
++Because Android TV is a communal device, using Credential Manager on this
++platform has the following intentional limitations to protect user privacy and
++security:
++
++- **No local passkey creation or storage:** Passkeys can't be created or stored directly on the TV. Because local credentials aren't supported, don't set `preferImmediatelyAvailableCredentials` to `true` in your requests; doing so filters out cross-device passkeys and fails to return credentials.
++- **No third-party credential providers:** Android TV doesn't support autofill, so third-party password managers are unavailable on the platform. Users must use Google Password Manager.
++- **No Restore Credentials:** Automatic sign-in to new devices using [About Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials) isn't supported on Android TV.
++
++To learn more about TV development, see [Android TV overview](https://developer.android.com/training/tv).
++
++## Android Automotive OS
++
++Android Automotive OS (AAOS) devices are communal systems integrated into
++vehicles. Adapting Credential Manager for AAOS requires supporting secure
++authentication (typically while the vehicle is parked) and accommodating
++multiple user profiles on a shared device.
++
++If you bring a large-screen or tablet-optimized app to cars, and your app
++already supports Credential Manager and passkeys on mobile devices or tablets,
++it works on Android Automotive OS without requiring changes to your
++authentication flows.
++
++Authentication on Android Automotive OS supports the following methods:
++
++- **Passkeys (cross-device hybrid flow):** Users can authenticate with existing passkeys through a cross-device flow. The system displays a QR code on the car screen that the user scans with their mobile device. Because biometric and screen-lock verification takes place on the user's phone, users don't need to configure a screen lock on the car display.
++- **Sign in with Google:** Displays the native Sign in with Google screen directly on the car display.
++- **Saved passwords:** Users can retrieve saved passwords from Google Password Manager to sign in without manually entering credentials on the vehicle screen.
++
++![Credential Manager passkey prompt displayed on an in-vehicle screen in Android Automotive OS.](https://developer.android.com/static/identity/form-factors/images/auto-passkey-prompt.png) **Figure 5.** Credential Manager passkey prompt on Android Automotive OS.
++
++Android Automotive OS manages sessions and credentials per profile, isolating
++user-specific session data between profiles (for example, Profile A, Profile B,
++or a guest profile).
++
++Using Credential Manager for Android Automotive OS has the following
++requirements:
++
++- **Minimum API level:** Android 9 (API level 28, `minSdkVersion` 28) or higher. Cross-device passkey retrieval requires Android 14 (API level 34) or higher.
++- **GMS version:** The same as required for mobile apps.
++
++### Testing limitations
++
++Testing passkeys requires a physical device running an Android Automotive OS
++build as the primary surface. For setup instructions, see [Test using Android
++Automotive OS on Pixel Tablet](https://developer.android.com/training/cars/testing/aaos-on-pixel). Emulators can't be used for passkey testing
++because they don't support Bluetooth Low Energy (BLE), which is required for the
++FIDO hybrid flow.
++
++### Limitations and unsupported flows
++
++Using Credential Manager on Android Automotive OS has the following limitations:
++
++- **No local passkey storage or retrieval:** Direct local passkey retrieval is unsupported because vehicles are communal devices. Syncing passkeys directly to the vehicle poses a security risk, so passkeys must be used through the cross-device hybrid flow.
++- **Immediately available credentials unsupported:** If your app requests a passkey and sets `preferImmediatelyAvailableCredentials` to `true`, the automotive UI terminates immediately and throws a `NoCredentialException`. Provide an appropriate fallback UX for this scenario.
++- **No third-party credential providers:** Third-party password managers aren't supported on Android Automotive OS. Users must use Google Password Manager or cross-device hybrid flows to authenticate.
++- **No stored password creation:** The API doesn't support creating and saving a new stored password directly from the car interface. Credential creation is restricted to new passkeys using the FIDO hybrid flow.
++
++To learn more about Automotive OS development, see [Android Automotive OS
++overview](https://developer.android.com/training/cars/platforms/automotive-os).
++
++## Additional resources
++
++- [About Credential Manager](https://developer.android.com/identity/credential-manager)
++- [About Restore Credentials](https://developer.android.com/identity/sign-in/restore-credentials)
++- [Android TV overview](https://developer.android.com/training/tv)
++- [Android Automotive OS overview](https://developer.android.com/training/cars/platforms/automotive-os)
+\ No newline at end of file

@@ -1,0 +1,12 @@
+diff --git a/docs/blog/latest/6.md b/docs/blog/latest/6.md
+index e9e0c4db..d8a2c471 100644
+--- a/docs/blog/latest/6.md
++++ b/docs/blog/latest/6.md
+@@ -212,6 +212,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
+ - [#Compose-first](https://developer.android.com/blog/topics/compose-first)
+ - [#Google Play subscriptions](https://developer.android.com/blog/topics/google-play-subscriptions)
++- [#Android Bench](https://developer.android.com/blog/topics/android-bench)
+ - [#authentication](https://developer.android.com/blog/topics/authentication)
+ - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
+ - [#Large Screens](https://developer.android.com/blog/topics/large-screens)
