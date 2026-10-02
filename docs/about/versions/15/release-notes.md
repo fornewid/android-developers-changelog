@@ -107,7 +107,7 @@ you are encountering your issue.
   You can subscribe and vote for an issue by clicking **star this issue**
   ![](https://developer.android.com/static/images/shared/star-issue.svg)
 
-  See [Where to report issues](https://developer.android.com/about/versions/15/feedback-qpr#templates) to find an issue template that best matches
+  See [Where to report issues](https://developer.android.com/about/versions/15/feedback#templates) to find an issue template that best matches
   the type of issue that you are encountering.
 - **Support for issues with other apps**: Contact the app developer directly.
 

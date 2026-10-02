@@ -24,6 +24,19 @@ Emulator, see the
 
 For known issues and troubleshooting, please see [Emulator Troubleshooting](https://developer.android.com/studio/run/emulator-troubleshooting).
 
+## 37.2.11 Stable (Sep 29, 2026)
+
+- \[Bug Fix\][Issue #537802959](https://issuetracker.google.com/537802959)
+  macOS (Apple Silicon): gRPC streamScreenshot with ImageTransport MMAP
+  crashes emulator engine / silently never writes frames
+
+- \[Bug Fix\][Issue #507078580](https://issuetracker.google.com/507078580) Emulator prevents macOS from sleeping
+
+- \[Bug Fix\][Issue #506475581](https://issuetracker.google.com/506475581)
+  Resolved remaining audio distortion and startup crackling on
+  macOS when using audio interface
+  with \>2 channels (loopback, multi-output)
+
 ## 37.1.11 Stable (Jul 30, 2026)
 
 - The Android Emulator hypervisor driver (AEHD) will sunset on

@@ -127,7 +127,7 @@ counters while running two different traversals of a 256MB matrix.
 2. **Column-major Traversal**: Jumps across memory to access elements by column. This frequently misses the cache and the TLB, forcing the CPU to stall.
 
 > [!NOTE]
-> **Note:** `simpleperf` requires your device be running a userdebug
+> **Note:** `simpleperf` requires your device to be running a `userdebug` or `eng` build.
 
 ### 1. Run with Simpleperf
 
@@ -174,6 +174,69 @@ The following results were measured on a Pixel 10 Pro Fold hardware device:
 operation on the same data, the column-major traversal was **over 80 times
 slower**. This massive difference is entirely due to how the access pattern
 interacts with the physical reality of the CPU's memory subsystem.
+
+## Pointer chasing in Java and Kotlin data structures
+
+While the 2D matrix benchmark demonstrates spatial locality in contiguous
+native arrays, most Android application and framework code is written in Java
+and Kotlin. In managed languages, object variables and collection elements
+don't store objects inline; they store references (pointers) to heap-allocated
+objects scattered across the ART heap.
+
+### The cost of nested reference graphs
+
+Consider a common pattern in Android apps and system services: traversing
+nested collections such as an `ArrayList` of state objects, each containing an
+`ArrayMap` or `ArraySet` of listeners or connections, each pointing to another
+state record.
+
+Even though `ArrayList`, `ArrayMap`, and `ArraySet` store their internal
+`Object[]` arrays contiguously, each element in that `Object[]` is still a heap
+reference. Dereferencing a chain such as
+`process.services.valueAt(i).connections.valueAt(j).client` requires five
+sequential dependent memory loads:
+
+1. Load the `Object[]` backing `services`.
+2. Load the `ServiceRecord` object header and fields.
+3. Load the `Object[]` backing `connections`.
+4. Load the `ConnectionRecord` object.
+5. Load the target `ProcessRecord` field.
+
+Because each load's memory address depends on the value returned by the
+previous load, the CPU's out-of-order execution engine and hardware prefetcher
+can't overlap them. If those objects were allocated at different times or moved
+to different regions during garbage collection, each hop risks an L1 or L2
+cache miss.
+
+Boxed primitives (`ArrayList<Integer>`, `HashMap<Long, Boolean>`) and generic
+lambdas compound this overhead: every element lookup requires an extra pointer
+dereference to unbox the value, and generic `Consumer<T>` callbacks insert
+runtime type-check (`CheckCast`) stubs that add instruction cache (`L1-icache`)
+pressure.
+
+### Diagnosing pointer chasing with `simpleperf`
+
+In real-world Java and Kotlin workloads (such as `system_server`'s
+`OomAdjuster` traversing process, service, and provider reference graphs),
+pointer chasing rarely drops IPC all the way to 0.16 like a synthetic 256 MB
+column-major scan, because part of the working set fits in L2 or L3 cache.
+Instead, look for this characteristic signature in `simpleperf`:
+
+- **Depressed IPC (around 0.6 to 0.9)**: Well below the CPU's superscalar retire width.
+- **High backend memory stalls (`raw-stall-backend-mem`)**: Often 35% to 45% of all CPU cycles are spent waiting on data cache fills.
+- **Elevated `L1-dcache-load-misses` and `L1-icache-load-misses`**: High data cache miss rates paired with instruction cache misses when hot traversal loops jump across virtual methods and generic lambda stubs.
+
+You can measure these counters on a running process using `simpleperf stat`:
+
+    adb shell simpleperf stat \
+      -e cpu-cycles:u,instructions:u,raw-stall-backend-mem:u,L1-dcache-load-misses:u,L1-icache-load-misses:u \
+      -p $(pidof system_server) --duration 10
+
+### Improving locality in managed code
+
+- **Replace boxed collections with primitive arrays or AndroidX collections** : Use `IntArray`, `LongArray`, `SparseIntArray`, or [`androidx.collection`](https://developer.android.com/jetpack/androidx/releases/collection) primitives (`IntList`, `LongLongMap`, `ScatterMap`) to eliminate wrapper objects and keep values contiguous inside a single array allocation.
+- **Flatten hot traversal paths**: If a hot loop repeatedly walks three or four hops across an object graph to read a single boolean or integer flag, hoist or cache that state into a flat array or bitmask indexed by a dense ID.
+- **Avoid capturing or generic lambdas in tight inner loops** : Use standard indexed `for` loops over `RandomAccess` lists instead of `forEach` or iterator chains to avoid iterator allocations, megamorphic dispatch, and runtime type-check overhead.
 
 *** ** * ** ***
 

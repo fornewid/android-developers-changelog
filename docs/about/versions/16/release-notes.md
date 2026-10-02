@@ -168,7 +168,7 @@ you are encountering your issue.
 
 - **Support for device-specific issues, system issues, and issues with Google
   apps** : Use the Issue Tracker to create new issues and to view and track issues that you and other developers have submitted. Before creating your own issue, check the known issues listed on this page and search the lists of [top
-  open issues](https://developer.android.com/about/versions/16/top-issues) and [recently created issues](https://developer.android.com/about/versions/16/recent-issues) to see if someone else has already reported it. You can subscribe and vote for an issue by clicking **star this issue** . See [Where to report issues](https://developer.android.com/about/versions/16/feedback#templates) to find an issue template that best matches the type of issue that you are encountering.
+  open issues](https://developer.android.com/about/versions/16/top-issues) and [recently created issues](https://developer.android.com/about/versions/16/recent-issues) to see if someone else has already reported it. You can subscribe and vote for an issue by clicking **star this issue** . See [Where to report issues](https://developer.android.com/about/versions/16/feedback-qpr#templates) to find an issue template that best matches the type of issue that you are encountering.
 - **Support for issues with other apps**: Contact the app developer directly.
 
 To discuss issues or ideas with other developers and users working with Android
@@ -337,7 +337,7 @@ support depends on where you are encountering your issue.
   subscribe and vote for an issue by clicking **star this issue**
   ![](https://developer.android.com/static/images/shared/star-issue.svg).
 
-  See [Where to report issues](https://developer.android.com/about/versions/16/feedback#templates) to find an issue template that best matches
+  See [Where to report issues](https://developer.android.com/about/versions/16/feedback-qpr#templates) to find an issue template that best matches
   the type of issue that you are encountering.
 - **Support for issues with other apps**: Contact the app developer directly.
 
@@ -510,7 +510,7 @@ with your apps:
 - [Fixed rate work scheduling optimization](https://developer.android.com/about/versions/16/behavior-changes-16#schedule-at-fixed-rate)
 - [Adaptive layouts](https://developer.android.com/about/versions/16/behavior-changes-16#adaptive-layouts)
 - [Health and fitness permissions](https://developer.android.com/about/versions/16/behavior-changes-16#health-fitness-permissions)
-- [Progress-centric notifications](https://developer.android.com/about/versions/16/features/live-updates)
+- [Progress-centric notifications](https://developer.android.com/about/versions/16/features/progress-centric-notifications)
 - [Supplemental descriptions](https://developer.android.com/about/versions/16/features#supplemental-descriptions)
 - [Required form fields](https://developer.android.com/about/versions/16/features#required-form-fields)
 - [Camera night mode scene detection](https://developer.android.com/about/versions/16/features#night-mode-scene-detection)

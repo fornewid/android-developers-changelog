@@ -67,7 +67,7 @@ Android 17 that can affect how your app functions or cause your
 app to crash.
 
 Also make sure to **review and test for uses of [restricted non-SDK
-interfaces](https://developer.android.com/about/versions/17/changes/non-sdk-17)** . You should replace any restricted interface your app uses with
+interfaces](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces)** . You should replace any restricted interface your app uses with
 a public SDK or NDK equivalent. Watch for logcat warnings that highlight these
 accesses, and use the `StrictMode` method [`detectNonSdkApiUsage()`](https://developer.android.com/reference/android/os/StrictMode.VmPolicy.Builder#detectNonSdkApiUsage()) to catch
 them programmatically.
@@ -145,7 +145,7 @@ functionality looking for issues. Focus your testing on the
 also a good time to check your app against the [core app quality guidelines](https://developer.android.com/docs/quality-guidelines/core-app-quality)
 and [best practices for testing](https://developer.android.com/training/testing).
 
-Make sure to review and **test for uses of [restricted non-SDK interfaces](https://developer.android.com/about/versions/17/changes/non-sdk-17)**
+Make sure to review and **test for uses of [restricted non-SDK interfaces](https://developer.android.com/guide/app-compatibility/restrictions-non-sdk-interfaces)**
 that may apply. Watch for logcat warnings that highlight these accesses and use
 the StrictMode method [`detectNonSdkApiUsage()`](https://developer.android.com/reference/android/os/StrictMode.VmPolicy.Builder#detectNonSdkApiUsage()) to catch them
 programmatically.
@@ -169,4 +169,4 @@ with targeted behavior changes. For a debuggable app, the toggles let you:
 
 As you prepare to change your app's targeting, or while you're in active
 development for Android 17 support, the toggles can help. For more information,
-see [Compatibility framework changes (Android 17)](https://developer.android.com/about/versions/17/reference/compat-framework-changes).
+see [Compatibility framework changes (Android 17)](https://developer.android.com/guide/app-compatibility/test-debug).

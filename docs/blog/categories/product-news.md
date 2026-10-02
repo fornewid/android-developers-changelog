@@ -56,6 +56,7 @@ Stay in the loop with the latest updates, feature releases, and behind-the-scene
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+  - [#Android Bench](https://developer.android.com/blog/topics/android-bench)
 <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
 
 #### Page 1

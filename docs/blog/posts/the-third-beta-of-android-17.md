@@ -225,6 +225,7 @@ Continue reading
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+  - [#Android Bench](https://developer.android.com/blog/topics/android-bench)
 - [![View Blair Harmon's profile](https://developer.android.com/static/blog/assets/unnamed_16_ca18834db7_27tpBh.webp)](https://developer.android.com/blog/authors/blair-harmon) 19 Aug 2026 19 Aug 2026 ![](https://developer.android.com/static/blog/assets/ABL_116_Preparing_your_app_for_expanded_memory_limits_strapi_0aac62fa12_1o8xIO.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Preparing your app for broader memory limits](https://developer.android.com/blog/posts/preparing-your-app-for-broader-memory-limits)

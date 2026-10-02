@@ -229,7 +229,7 @@ builds are available.
 
 - [Lenovo](https://dev.lenovo.com/home/puahAndroid13)
 - [OPPO](https://developers.oppomobile.com/wiki/doc/index#id=123)
-- [Xiaomi](https://www.mi.com/global/service/support/androidtbeta.html)
+- [Xiaomi](https://www.mi.com/global/support/)
 
 For updates and support, see the resources that each device-maker has linked on
 their Android 13 Beta site. Note that each partner will provide the Beta updates

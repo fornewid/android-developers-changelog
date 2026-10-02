@@ -234,6 +234,24 @@ source of allocations.
 
 ![AHAT Allocation Site](https://developer.android.com/static/topic/performance/memory/guide/images/java-memory/ahat-allocation-site.png)
 
+#### Hunting duplicate strings and hydration bloat
+
+Even when an app has no classic GC-root leaks, its live Java heap can be
+bloated by thousands of duplicate `java.lang.String` instances created during
+JSON, Protobuf, `Cursor`, or Room database deserialization. Repeated keys,
+status strings, category labels, or URLs are often allocated anew on every
+network response or database query. Across large feed, messaging, and content
+apps, duplicate strings routinely account for 30% to 60% of live `String`
+memory.
+
+To inspect duplicate strings in AHAT:
+
+1. Open the **Allocations** page and filter by `java.lang.String`.
+2. When comparing two heap dumps with `--baseline`, check whether `java.lang.String` instance counts and total bytes grow disproportionately after hydrating a feed or loading a local cache.
+3. Browse the `java.lang.String` instances table (sorted by size or value) to spot identical string values retained across multiple in-memory model objects.
+
+- **Remedy** : Avoid calling `String.intern()` indiscriminately on arbitrary user or network input, because the runtime intern table is global and can introduce lock contention or retain strings longer than needed. Instead, deduplicate high-frequency domain strings during deserialization using a bounded, scoped deduplication cache (such as an `LruCache<String, String>` inside your parser or adapter), or represent fixed sets of values as enums or integer constants.
+
 ## Analyzing Java memory dynamics (combined profile)
 
 To get a complete picture of an application's memory behavior, you can combine
@@ -274,18 +292,56 @@ broadcast` commands.
 
        adb shell perfetto -c - --txt -o /data/misc/perfetto-traces/java_memory.perfetto-trace <<EOF
        buffers: {
-           size_kb: 65536
+           size_kb: 131072
            fill_policy: RING_BUFFER
        }
        data_sources: {
            config {
-               name: "android.java_hprof"
-               java_hprof_config {
-                   process_cmdline: "com.example.myapp"
+               name: "linux.process_stats"
+               target_buffer: 0
+               process_stats_config {
+                   scan_all_processes_on_start: true
+                   proc_stats_poll_ms: 100
                }
            }
        }
-       duration_ms: 10000
+       data_sources: {
+           config {
+               name: "linux.ftrace"
+               target_buffer: 0
+               ftrace_config {
+                   ftrace_events: "sched/sched_switch"
+                   ftrace_events: "task/task_newtask"
+                   ftrace_events: "task/task_rename"
+                   ftrace_events: "ftrace/print"
+                   atrace_categories: "dalvik"
+                   atrace_categories: "am"
+                   atrace_categories: "res"
+                   atrace_categories: "memory"
+                   atrace_categories: "sched"
+                   atrace_apps: "com.android.memorylab"
+               }
+           }
+       }
+       data_sources: {
+           config {
+               name: "android.heapprofd"
+               target_buffer: 0
+               heapprofd_config {
+                   sampling_interval_bytes: 4096
+                   process_cmdline: "com.android.memorylab"
+                   heaps: "libc.malloc"
+                   heaps: "com.android.art"
+                   shmem_size_bytes: 8388608
+                   block_client: true
+                   continuous_dump_config {
+                       dump_phase_ms: 1000
+                       dump_interval_ms: 5000
+                   }
+               }
+           }
+       }
+       duration_ms: 40000
        EOF
 
 2. **Trigger the sequence** (run these commands in your host terminal while the

@@ -196,6 +196,7 @@ Android Studio.
 
 | Android Studio version | Required AGP version |
 |---|---|
+| Rabbit 1 \| 2026.2.1 | 7.1-9.4 |
 | Quail 4 \| 2026.1.4 | 7.1-9.4 |
 | Quail 3 \| 2026.1.3 | 7.1-9.3 |
 | Quail 2 \| 2026.1.2 | 7.1-9.3 |

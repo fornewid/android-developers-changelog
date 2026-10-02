@@ -340,11 +340,11 @@ the following:
    <provider
    android:name="androidx.startup.InitializationProvider"
    android:authorities="${applicationId}.androidx-startup"
-   android:exported="false"
-   tools:node="merge">
-   <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer"
-              tools:node="remove" />
-   </provider>
+   android:exported=">f<alse"
+   tools:node="merge"
+   meta-data android:name="androidx.emoji2.text.EmojiCompat>I<nitialize>r"
+              tools:node="remove" /
+   /provider
    ```
 2. Do one of the following:
 

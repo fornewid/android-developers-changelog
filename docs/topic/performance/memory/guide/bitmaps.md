@@ -91,6 +91,72 @@ memory** (DMABuf).
   - **Read-back is slow** : Accessing pixels from the CPU (e.g., `getPixel()`) is very expensive.
   - **Attribution**: Harder to track in standard tools like AHAT (see below).
 
+## Common bitmap memory pitfalls
+
+Even when you use modern bitmap configurations, several recurring patterns in
+how you decode and schedule bitmaps can cause large memory spikes.
+
+### Decoding overscaled bitmaps
+
+A full-resolution 4000 × 3000 pixel photo takes 48 MB in `ARGB_8888`. Decoding
+that full image only to render it inside a 200 × 150 pixel thumbnail wastes
+over 99% of the allocated pixel buffer.
+
+When you decode images directly with [`ImageDecoder`](https://developer.android.com/reference/android/graphics/ImageDecoder) or
+[`BitmapFactory`](https://developer.android.com/reference/android/graphics/BitmapFactory), downsample during the decode pass to match
+the target view dimensions using `ImageDecoder.setTargetSize()` or
+`BitmapFactory.Options.inSampleSize`. Image loading libraries like Glide and
+Coil perform this downsampling automatically when you provide a bounded target
+view size.
+
+For example, when decoding a bitmap with [`ImageDecoder`](https://developer.android.com/reference/android/graphics/ImageDecoder), pass
+an [`OnHeaderDecodedListener`](https://developer.android.com/reference/android/graphics/ImageDecoder.OnHeaderDecodedListener) that scales the
+output dimensions down to your target view size:
+
+    val source = ImageDecoder.createSource(resources, R.drawable.high_res_photo)
+    val bitmap = ImageDecoder.decodeBitmap(source) { decoder, info, _ ->
+        if (info.size.width > targetWidth || info.size.height > targetHeight) {
+            decoder.setTargetSize(targetWidth, targetHeight)
+        }
+    }
+
+### High concurrent retention from parallel decoding
+
+Even when individual bitmaps are properly sized and short-lived, decoding many
+images in parallel can cause severe memory spikes. For example, if an organizer
+or gallery screen dispatches 30 tasks on an unbounded thread pool to decode
+icons or thumbnails simultaneously, all 30 uncompressed pixel buffers and
+decoder scratch buffers occupy RAM at the same time.
+
+This **high concurrent retention** drives up peak native heap footprint and can
+trigger `lmkd` kills before the batch finishes. Bound your decode concurrency
+with a limited thread pool, semaphore, or coroutine dispatcher such as
+`Dispatchers.IO.limitedParallelism(2)` so only a few bitmaps decode in flight
+at once.
+
+### Unrecycled transient bitmaps in frame-processing loops
+
+In Android 8.0 and higher, the Java `Bitmap` wrapper object takes only about 56
+bytes on the Java heap, while its pixel buffer lives in the native heap and can
+take several megabytes. You can verify this split in the Android Studio Memory
+Profiler or [AHAT](https://developer.android.com/topic/performance/memory/guide/bitmaps#bitmaps-ahat), where each `Bitmap` instance shows a \~56-byte
+shallow Java size alongside its multi-megabyte native size, and in
+[`dumpsys meminfo`](https://developer.android.com/topic/performance/memory/guide/bitmaps#measuring-dumpsys-meminfo) under `Native Allocations`
+(`Bitmap (malloced)`).
+
+High-frequency pipelines such as camera frame analysis, OCR, or ML inference
+loops often allocate a new bitmap on every frame by calling
+`ImageProxy.toBitmap()` and `Bitmap.createBitmap()` for rotation or cropping.
+Dropping references to superseded frames without recycling them can balloon
+native memory. The tiny Java wrappers barely increase Java heap occupancy, so
+they don't trigger garbage collection quickly enough to prevent hundreds of
+megabytes of native pixel buffers from accumulating before
+`NativeAllocationRegistry` reclaims them.
+
+When you process frames in a tight loop, reuse pre-allocated buffers if
+possible, or call `bitmap.recycle()` explicitly on transient intermediate
+bitmaps as soon as each frame finishes processing.
+
 ## Hands-on exercise: bitmap exploration
 
 We will use the **BitmapLab** sample app to explore these concepts.

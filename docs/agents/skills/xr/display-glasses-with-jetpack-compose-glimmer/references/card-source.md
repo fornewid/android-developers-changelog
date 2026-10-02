@@ -64,7 +64,7 @@ import kotlin.math.roundToInt
  * [subtitle], which is placed on top of the [content]. A card fills the maximum width available by
  * default.
  *
- * This Card is focusable - see the other [Card] overload for a clickable Card.
+ * This Card is focusable by default - see the other [Card] overload for a clickable Card.
  *
  * See [ActionCard] for a card with a primary action, and [ImageCard] for a card with an image.
  *
@@ -82,7 +82,13 @@ import kotlin.math.roundToInt
  * A Card with a title, subtitle, and a leading icon:
  *
  * @sample androidx.xr.glimmer.samples.CardWithTitleAndSubtitleAndLeadingIconSample
+ *
+ * An example of usage when [focusable] is `false`, with focus handled by a [ButtonGroup] instead:
+ *
+ * @sample androidx.xr.glimmer.samples.NonFocusableCardWithButtonGroupSample
  * @param modifier the [Modifier] to be applied to this card
+ * @param focusable whether this card is focusable. When `false`, this card will not receive focus
+ *   or participate in focus navigation
  * @param title optional title to be placed above [subtitle] and [content]
  * @param subtitle optional subtitle to be placed above [content], below [title]
  * @param leadingIcon optional leading icon to be placed before [content]. This is typically an
@@ -106,6 +112,7 @@ import kotlin.math.roundToInt
 @Composable
 public fun Card(
     modifier: Modifier = Modifier,
+    focusable: Boolean = true,
     title: @Composable (() -> Unit)? = null,
     subtitle: @Composable (() -> Unit)? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
@@ -127,7 +134,7 @@ public fun Card(
                     contentColor = contentColor,
                     interactionSource = internalInteractionSource,
                 )
-                .focusable(interactionSource = internalInteractionSource),
+                .focusable(enabled = focusable, interactionSource = internalInteractionSource),
         title = title,
         subtitle = subtitle,
         image = null,
@@ -147,8 +154,8 @@ public fun Card(
  * [subtitle], which is placed on top of the [content]. A card fills the maximum width available by
  * default.
  *
- * This Card is focusable and clickable - see the other [Card] overload for a Card that is only
- * focusable.
+ * This Card is focusable and clickable - see the other [Card] overload for a non-clickable variant
+ * with optional focus.
  *
  * See [ActionCard] for a card with a primary action, and [ImageCard] for a card with an image.
  *
@@ -241,6 +248,12 @@ public fun Card(
  * For more documentation and samples of the other cards, see [Card].
  *
  * @sample androidx.xr.glimmer.samples.ActionCardWithTitleSample
+ *
+ * ActionCard contains a single embedded [action]. If you need to have more than one action at a
+ * time, consider combining an unfocusable [Card] with a [ButtonGroup] instead. Cards can be
+ * configured as unfocusable by setting `focusable` to `false`.
+ *
+ * @sample androidx.xr.glimmer.samples.NonFocusableCardWithButtonGroupSample
  * @param action the action for this card. This should be a [Button], and represents the action
  *   performed when a user interacts with this card. The action is placed inside the card along the
  *   bottom, and fills up the width of the [ActionCard].
@@ -299,7 +312,8 @@ public fun ActionCard(
  * specified, [title] is placed on top of the [subtitle], which is placed on top of the [content],
  * below [image]. An image card fills the maximum width available by default.
  *
- * This ImageCard is focusable - see the other [ImageCard] overload for a clickable ImageCard.
+ * This ImageCard is focusable by default - see the other [ImageCard] overload for a clickable
+ * ImageCard.
  *
  * For more documentation and samples of the other cards, see [Card].
  *
@@ -310,12 +324,18 @@ public fun ActionCard(
  * An ImageCard with a title, subtitle, and a leading icon:
  *
  * @sample androidx.xr.glimmer.samples.ImageCardWithTitleAndSubtitleAndLeadingIconSample
+ *
+ * An example of usage when [focusable] is `false`, with focus handled by a [ButtonGroup] instead:
+ *
+ * @sample androidx.xr.glimmer.samples.NonFocusableCardWithButtonGroupSample
  * @param image image to be placed at the top of the card. This image should typically fill the max
  *   width available, for example using [androidx.compose.ui.layout.ContentScale.FillWidth]. Images
  *   are constrained to a maximum aspect ratio (1.6) to avoid taking up too much vertical space, so
  *   using a modifier such as [androidx.compose.foundation.layout.fillMaxSize] will result in an
  *   image that fills the maximum aspect ratio.
  * @param modifier the [Modifier] to be applied to this card
+ * @param focusable whether this card is focusable. When `false`, this card will not receive focus
+ *   or participate in focus navigation
  * @param title optional title to be placed above [subtitle] and [content], below [image]
  * @param subtitle optional subtitle to be placed above [content], below [title]
  * @param leadingIcon optional leading icon to be placed before [content]. This is typically an
@@ -340,6 +360,7 @@ public fun ActionCard(
 public fun ImageCard(
     image: @Composable () -> Unit,
     modifier: Modifier = Modifier,
+    focusable: Boolean = true,
     title: @Composable (() -> Unit)? = null,
     subtitle: @Composable (() -> Unit)? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
@@ -361,7 +382,7 @@ public fun ImageCard(
                     contentColor = contentColor,
                     interactionSource = internalInteractionSource,
                 )
-                .focusable(interactionSource = internalInteractionSource),
+                .focusable(enabled = focusable, interactionSource = internalInteractionSource),
         title = title,
         subtitle = subtitle,
         image = image,
@@ -384,8 +405,8 @@ public fun ImageCard(
  * specified, [title] is placed on top of the [subtitle], which is placed on top of the [content],
  * below [image]. An image card fills the maximum width available by default.
  *
- * This ImageCard is focusable and clickable - see the other [ImageCard] overload for an ImageCard
- * that is only focusable.
+ * This ImageCard is focusable and clickable - see the other [ImageCard] overload for a
+ * non-clickable variant with optional focus.
  *
  * For more documentation and samples of the other cards, see [Card].
  *
@@ -468,12 +489,21 @@ public fun ImageCard(
  * which is placed on top of the [content]. A leading image card fills the maximum width available
  * by default.
  *
- * This LeadingImageCard is focusable - see the other [LeadingImageCard] overload for a clickable
- * LeadingImageCard.
+ * This LeadingImageCard is focusable by default - see the other [LeadingImageCard] overload for a
+ * clickable LeadingImageCard.
  *
+ * A LeadingImageCard with a title and subtitle:
+ *
+ * @sample androidx.xr.glimmer.samples.LeadingImageCardSample
+ *
+ * An example of usage when [focusable] is `false`, with focus handled by a [ButtonGroup] instead:
+ *
+ * @sample androidx.xr.glimmer.samples.NonFocusableCardWithButtonGroupSample
  * @param image the image to be placed before the text content. This image is allocated 30% of the
  *   card width.
  * @param modifier the [Modifier] to be applied to this card
+ * @param focusable whether this card is focusable. When `false`, this card will not receive focus
+ *   or participate in focus navigation
  * @param title optional title to be placed above [subtitle] and [content]
  * @param subtitle optional subtitle to be placed above [content], below [title]
  * @param shape the [Shape] used to clip this card, and also used to draw the background and border
@@ -493,6 +523,7 @@ public fun ImageCard(
 public fun LeadingImageCard(
     image: @Composable () -> Unit,
     modifier: Modifier = Modifier,
+    focusable: Boolean = true,
     title: @Composable (() -> Unit)? = null,
     subtitle: @Composable (() -> Unit)? = null,
     shape: Shape = LeadingImageCardDefaults.shape,
@@ -513,7 +544,7 @@ public fun LeadingImageCard(
                     contentColor = contentColor,
                     interactionSource = internalInteractionSource,
                 )
-                .focusable(interactionSource = internalInteractionSource),
+                .focusable(enabled = focusable, interactionSource = internalInteractionSource),
         image = image,
         title = title,
         subtitle = subtitle,
@@ -531,7 +562,7 @@ public fun LeadingImageCard(
  * by default.
  *
  * This LeadingImageCard is focusable and clickable - see the other [LeadingImageCard] overload for
- * a LeadingImageCard that is only focusable.
+ * a non-clickable variant with optional focus.
  *
  * @param onClick called when this card item is clicked
  * @param image the image to be placed before the text content. This image is allocated 30% of the
@@ -594,12 +625,21 @@ public fun LeadingImageCard(
  * [subtitle], which is placed on top of the [content]. A trailing image card fills the maximum
  * width available by default.
  *
- * This TrailingImageCard is focusable - see the other [TrailingImageCard] overload for a clickable
- * TrailingImageCard.
+ * This TrailingImageCard is focusable by default - see the other [TrailingImageCard] overload for a
+ * clickable TrailingImageCard.
  *
+ * A TrailingImageCard with a title and subtitle:
+ *
+ * @sample androidx.xr.glimmer.samples.TrailingImageCardSample
+ *
+ * An example of usage when [focusable] is `false`, with focus handled by a [ButtonGroup] instead:
+ *
+ * @sample androidx.xr.glimmer.samples.NonFocusableCardWithButtonGroupSample
  * @param image the image to be placed after the text content. This image is allocated 30% of the
  *   card width.
  * @param modifier the [Modifier] to be applied to this card
+ * @param focusable whether this card is focusable. When `false`, this card will not receive focus
+ *   or participate in focus navigation
  * @param title optional title to be placed above [subtitle] and [content]
  * @param subtitle optional subtitle to be placed above [content], below [title]
  * @param shape the [Shape] used to clip this card, and also used to draw the background and border
@@ -619,6 +659,7 @@ public fun LeadingImageCard(
 public fun TrailingImageCard(
     image: @Composable () -> Unit,
     modifier: Modifier = Modifier,
+    focusable: Boolean = true,
     title: @Composable (() -> Unit)? = null,
     subtitle: @Composable (() -> Unit)? = null,
     shape: Shape = TrailingImageCardDefaults.shape,
@@ -639,7 +680,7 @@ public fun TrailingImageCard(
                     contentColor = contentColor,
                     interactionSource = internalInteractionSource,
                 )
-                .focusable(interactionSource = internalInteractionSource),
+                .focusable(enabled = focusable, interactionSource = internalInteractionSource),
         image = image,
         title = title,
         subtitle = subtitle,
@@ -657,7 +698,7 @@ public fun TrailingImageCard(
  * width available by default.
  *
  * This TrailingImageCard is focusable and clickable - see the other [TrailingImageCard] overload
- * for a TrailingImageCard that is only focusable.
+ * for a non-clickable variant with optional focus.
  *
  * @param onClick called when this card item is clicked
  * @param image the image to be placed after the text content. This image is allocated 30% of the

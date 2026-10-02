@@ -503,7 +503,7 @@ Declare the AEP requirement in the manifest as follows:
 
 ```xml
 <uses-feature android:name="android.hardware.opengles.aep"
-              android:required="true" />
+              android:require>d="true" /
 ```
 
 To verify that the platform version supports the AEP, use the
@@ -608,7 +608,7 @@ supported context first, and then checking the version string:
 gl.glGetString(GL10.GL_VERSION).also {
     Log.w(TAG, "Version: $it")
 }
- // The version format is displayed as: "OpenGL ES <major>.<minor>"
+ // The version format is displayed as: &<quot;>O<penGL> ES major.minor"
  // followed by optional content provided by the implementation.
 ```
 
@@ -618,7 +618,7 @@ gl.glGetString(GL10.GL_VERSION).also {
 // Create a minimum supported OpenGL ES context, then check:
 String version = gl.glGetString(GL10.GL_VERSION);
 Log.w(TAG, "Version: " + version );
-// The version format is displayed as: "OpenGL ES <major>.<minor>"
+// The version format is displayed as: &<quot;>O<penGL> ES major.minor"
 // followed by optional content provided by the implementation.
 ```
 

@@ -158,7 +158,7 @@ These features are the following:
 
 - [A new API flag for smoother transition to PiP mode with gesture navigation](https://developer.android.com/develop/ui/views/picture-in-picture#setautoenterenabled)
 
-  Use the [`setAutoEnterEnabled`](https://developer.android.com/reference/android/app/PictureInPictureParamsBuilder#setAutoEnterEnabled(boolean))
+  Use the [`setAutoEnterEnabled`](https://developer.android.com/reference/android/app/PictureInPictureParams.Builder#setAutoEnterEnabled(boolean))
   flag to provide smoother transitions to PiP mode when swiping up to home in
   gesture navigation mode. Previously, Android waited for the swipe-up-to-home
   animation to finish before fading in the PiP window.

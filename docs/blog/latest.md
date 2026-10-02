@@ -49,12 +49,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
   - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
   - +1 ↩
-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
-
-  [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
-  [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
 - [![View Matthew McCullough's profile](https://developer.android.com/static/blog/assets/matthew_mccullough_dc22050a18_51Njy.webp)](https://developer.android.com/blog/authors/matthew-mccullough) 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Bench_2_0_Strapi_bench_8767d57564_ZmnAe.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Android Bench 2.0: Pushing the frontier with challenging long-horizon tasks](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks)
@@ -62,6 +56,13 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
   [arrow_forward](https://developer.android.com/blog/posts/android-bench-2-0-pushing-the-frontier-with-challenging-long-horizon-tasks) Today we're releasing the first set of long-horizon tasks (LHT), which are tasks of great complexity that take an engineer multiple days or even a week to complete. We are also introducing agentic evaluation, starting with agents from corresponding model providers.
   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+  - [#Android Bench](https://developer.android.com/blog/topics/android-bench)
+- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
+
+  [arrow_forward](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security) Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
+  [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
 - 3 Authors 09 Sep 2026 09 Sep 2026 ![](https://developer.android.com/static/blog/assets/Introducing_Fast_and_Reliable_Wireless_Debugging_Strapi_cf55ad145b_2vFLdh.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Introducing Fast and Reliable Wireless Debugging with Android Debug Bridge (ADB) Wi-Fi 2.0](https://developer.android.com/blog/posts/introducing-fast-and-reliable-wireless-debugging-with-android-debug-bridge-adb-wi-fi-2-0)
@@ -255,6 +256,7 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
 - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
 - [#Compose-first](https://developer.android.com/blog/topics/compose-first)
 - [#Google Play subscriptions](https://developer.android.com/blog/topics/google-play-subscriptions)
+- [#Android Bench](https://developer.android.com/blog/topics/android-bench)
 - [#authentication](https://developer.android.com/blog/topics/authentication)
 - [#CredentialManager](https://developer.android.com/blog/topics/credential-manager)
 - [#Large Screens](https://developer.android.com/blog/topics/large-screens)

@@ -55,7 +55,7 @@ different for different versions of R8.
     }
 
 If you want to keep or discard specific resources, create an XML *keep* file in
-your project resources, for example `res/raw/my.package.keep.xml`. The keep file
+your project resources, for example `res/raw/keep_my_package.xml`. The keep file
 has the following components:
 
 - `<resources>` tag --- Contains all child resource elements and keep/discard attributes.
@@ -85,7 +85,7 @@ variants.
 
 To remove resources in only some build variants, put all your resources into the
 common project directory, then create a different
-`my.package.build.variant.keep.xml` file for each build variant in the variant's
+`keep_my_package_build_variant.xml` file for each build variant in the variant's
 resource directory. In the keep file, manually specify resources to remove when
 a given resource appears to be used in code (and therefore not removed by the
 shrinker), but you know it actually won't be used for the given build variant.

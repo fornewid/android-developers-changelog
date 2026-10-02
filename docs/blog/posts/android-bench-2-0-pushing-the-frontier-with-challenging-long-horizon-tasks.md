@@ -56,6 +56,7 @@ Android Bench 2.0 delivers a robust environment for measuring AI for Android dev
 
 Check out the [updated leaderboard](http://d.android.com/bench) along with the [updated methodology](https://developer.android.com/bench/methodology/2). Your feedback directly influences how we evolve Android Bench, so please continue to share your feedback with us on [GitHub](https://github.com/android-bench/community-dataset), as well as our social channels like [X](https://x.com/AndroidDev) and [LinkedIn](https://www.linkedin.com/showcase/androiddev/).
 - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+- [#Android Bench](https://developer.android.com/blog/topics/android-bench)
 Written by:
 
 -

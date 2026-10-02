@@ -147,7 +147,7 @@ with Android 16 QPR1. The channel you should use to get support depends on where
 you are encountering your issue.
 
 - **Support for device-specific issues, system issues, and issues with Google
-  apps** : Use the Issue Tracker to create new issues and to view and track issues that you and other developers have submitted. Before creating your own issue, check the known issues listed on this page and search the lists of [top open issues](https://developer.android.com/about/versions/16/top-issues-qpr) and [recently created issues](https://developer.android.com/about/versions/16/recent-issues-qpr) to see if someone else has already reported it. You can subscribe and vote for an issue by clicking **star this issue** ![](https://developer.android.com/static/images/shared/star-issue.svg) See [Where to report issues](https://developer.android.com/about/versions/16/feedback-qpr1#templates) to find an issue template that best matches the type of issue that you are encountering.
+  apps** : Use the Issue Tracker to create new issues and to view and track issues that you and other developers have submitted. Before creating your own issue, check the known issues listed on this page and search the lists of [top open issues](https://developer.android.com/about/versions/16/top-issues-qpr) and [recently created issues](https://developer.android.com/about/versions/16/recent-issues-qpr) to see if someone else has already reported it. You can subscribe and vote for an issue by clicking **star this issue** ![](https://developer.android.com/static/images/shared/star-issue.svg) See [Where to report issues](https://developer.android.com/about/versions/16/feedback-qpr#templates) to find an issue template that best matches the type of issue that you are encountering.
 - **Support for issues with other apps** : Contact the app developer directly. To discuss issues or ideas with other developers working with the Android 16 QPR Beta, join the [android_beta community on Reddit](https://developer.android.com/about/versions/16/dev-community).
 
 ## Top resolved issues
@@ -213,7 +213,7 @@ This minor update to Android 16 QPR1 Beta 2 includes the following fixes:
 
 - The "Approve" button in the Device Admin settings is transparent and invisible ([Issue #419144521](https://issuetracker.google.com/issues/419144521))
 - The lockscreen sound toggle shows as off, but sounds still play ([Issue #423985494](https://issuetracker.google.com/issues/423985494))
-- The Android back button intermittently fails to function ([Issue #412691179](https://issuetracker.google.com/issues/412691179), [Issue #417434626](https://issuetracker.google.com/issues/4</li>17434626), [Issue #420283260](https://issuetracker.google.com/issues/420283260))
+- The Android back button intermittently fails to function ([Issue #412691179](https://issuetracker.google.com/issues/412691179), [Issue #417434626](https://issuetracker.google.com/issues/417434626), [Issue #420283260](https://issuetracker.google.com/issues/420283260))
 - Fix for a launcher crash when swiping up from the bottom
 
 All eligible devices enrolled in the
