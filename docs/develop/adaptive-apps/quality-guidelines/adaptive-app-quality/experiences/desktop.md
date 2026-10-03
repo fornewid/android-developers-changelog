@@ -4,7 +4,7 @@ url: https://developer.android.com/develop/adaptive-apps/quality-guidelines/adap
 source: md.txt
 ---
 
-The desktop experience---common on Chromebooks and connected
+The desktop experience---on Googlebook, Chromebooks, and connected
 displays---enables precise input and advanced multitasking. The desktop
 environment allows users to work across multiple windows and instances,
 utilizing keyboard shortcuts and mouse and trackpad interactions. Apps optimized

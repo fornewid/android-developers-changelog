@@ -14,14 +14,14 @@ takes most apps about a week of developer time. Learn more at our
 [business site](http://play.google.com/console/about/programs/EngageSDK).
 
 > [!NOTE]
-> **Note:** This program is in developer preview. [Express interest here](https://support.google.com/googleplay/contact/Engage_SDK) and read the [developer preview page](https://developer.android.com/guide/playcore/engage/preview) to learn more.
+> **Note:** **Get started:** Review the **[Eligibility, reach, and requirements](https://developer.android.com/guide/playcore/engage/eligibility)** guide and [submit the Engage SDK interest form](https://support.google.com/googleplay/contact/Engage_SDK).
 
-### Engage SDK Content Surfaces
+## Engage SDK content surfaces
 
 |---|---|---|
 | ![](https://developer.android.com/static/images/guide/playcore/engage/collections.png) | ![](https://developer.android.com/static/images/guide/playcore/engage/tablet_collections.png) | ![](https://developer.android.com/static/images/guide/playcore/engage/play_coming_soon.png) |
 | **Collections on Android phones** | **Entertainment Space on Android tablets** | **Play Store** |
-| Bring your content directly to your user's home screen. Our customizable widget expands into a full-screen immersive experience designed to meet users interests and guide them back into your apps. | Showcase Watch, Listen, and Read content within the Entertainment Space on select Android tablets, and capture user interest for continued enjoyment in your app. | Unlock additional content engagement opportunities, starting with the Play Store this summer - our premium space for content discovery with billions of active users visiting the Store each month. |
+| Bring your content directly to your user's home screen. Our customizable widget expands into a full-screen immersive experience designed to meet users interests and guide them back into your apps. | Showcase Watch, Listen, and Read content within the Entertainment Space on select Android tablets, and capture user interest for continued enjoyment in your app. | Unlock additional content engagement opportunities across Play Store surfaces, including the Apps tab, You tab, and Store Listing Pages---our premium space for content discovery with billions of active users. |
 
 Engage SDK supports content across several different verticals. For
 vertical-specific integration instructions, see the following guides:

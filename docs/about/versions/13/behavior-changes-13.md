@@ -152,7 +152,7 @@ using an example of a sample track showing how the buttons may appear](https://d
 Prior to Android 13, the system displayed up to five actions from the `MediaStyle`
 notification in the order in which they were [added](https://developer.android.com/reference/android/app/Notification.Builder#addAction(android.app.Notification.Action)).
 In compact mode---for example, in the collapsed quick settings---up to
-three actions specified with [`setShowActionsInCompactView()`](https://developer.android.com/reference/androidx/media/app/NotificationCompat.MediaStyle#setShowActionsInCompactView(int...))
+three actions specified with `setShowActionsInCompactView()`
 were shown.
 
 Starting with Android 13, the system displays up to five action buttons based
@@ -189,10 +189,10 @@ previous paragraph.
 | 1 | Pause | Current [state](https://developer.android.com/reference/android/media/session/PlaybackState#getState()) of the `PlaybackState` is none of the above. |
 | 2 | Previous | `PlaybackState` [actions](https://developer.android.com/reference/android/media/session/PlaybackState#getActions()) include `ACTION_SKIP_TO_PREVIOUS`. |
 | 2 | Custom | `PlaybackState` [actions](https://developer.android.com/reference/android/media/session/PlaybackState#getActions()) do not include `ACTION_SKIP_TO_PREVIOUS` and `PlaybackState` [custom actions](https://developer.android.com/reference/android/media/session/PlaybackState#getCustomActions()) include a custom action that hasn't been placed yet. |
-| 2 | Empty | `PlaybackState` [extras](https://developer.android.com/reference/android/media/session/PlaybackState#getExtras()) include a `true` boolean value for key [`SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_PREV`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_PREV). |
+| 2 | Empty | `PlaybackState` [extras](https://developer.android.com/reference/android/media/session/PlaybackState#getExtras()) include a `true` boolean value for key `SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_PREV`. |
 | 3 | Next | `PlaybackState` [actions](https://developer.android.com/reference/android/media/session/PlaybackState#getActions()) include `ACTION_SKIP_TO_NEXT`. |
 | 3 | Custom | `PlaybackState` [actions](https://developer.android.com/reference/android/media/session/PlaybackState#getActions()) do not include `ACTION_SKIP_TO_NEXT` and `PlaybackState` [custom actions](https://developer.android.com/reference/android/media/session/PlaybackState#getCustomActions()) include a custom action that hasn't been placed yet. |
-| 3 | Empty | `PlaybackState` [extras](https://developer.android.com/reference/android/media/session/PlaybackState#getExtras()) include a `true` boolean value for key [`SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_NEXT`](https://developer.android.com/reference/androidx/media/utils/MediaConstants#SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_NEXT). |
+| 3 | Empty | `PlaybackState` [extras](https://developer.android.com/reference/android/media/session/PlaybackState#getExtras()) include a `true` boolean value for key `SESSION_EXTRAS_KEY_SLOT_RESERVATION_SKIP_TO_NEXT`. |
 | 4 | Custom | `PlaybackState` [custom actions](https://developer.android.com/reference/android/media/session/PlaybackState#getCustomActions()) include a custom action that hasn't been placed yet. |
 | 5 | Custom | `PlaybackState` [custom actions](https://developer.android.com/reference/android/media/session/PlaybackState#getCustomActions()) include a custom action that hasn't been placed yet. |
 

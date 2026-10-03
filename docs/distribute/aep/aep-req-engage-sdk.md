@@ -45,7 +45,7 @@ The following exemptions apply to this guideline:
 
 | ID | Exemption |
 |---|---|
-| AEP-ES-EAA | Apps that don't meet the [Engage SDK](https://developer.android.com/guide/playcore/engage/preview#eligibility) eligibility criteria. |
+| AEP-ES-EAA | Apps that don't meet the [Engage SDK](https://developer.android.com/guide/playcore/engage/eligibility#eligibility) eligibility criteria. |
 | AEP-ES-EAB | Apps whose main content type can quickly become stale: live-streams, ephemeral recommendations (such as limited shopping inventory), and chat apps. |
 | AEP-ES-EAC | Apps that don't provide a signed-in experience. |
 | AEP-ES-EAD | Apps that don't provide native recommendations are exempt from publishing recommendations. |

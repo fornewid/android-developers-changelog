@@ -150,6 +150,8 @@ provides end-to-end visibility across task planning, code transformation, and
 compilation checks, producing a functional project that's ready for testing and
 verification.
 
+To learn more, see [Perform cross-platform app migrations](https://developer.android.com/tools/agents/workflows/app-migrations).
+
 ### Resize Running Devices tool window by double-clicking empty space
 
 You can eliminate unused space around your virtual or mirrored physical devices

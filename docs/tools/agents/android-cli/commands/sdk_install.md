@@ -8,7 +8,7 @@ Installs SDK packages.
 
 ## Usage
 
-    android sdk install [-h] [--beta] [--canary] [--force] <package>[@<version>]
+    android sdk install [-h] [--beta] [--canary] [--force] [--no-downgrade] <package>[@<version>]
 
 ## Options
 
@@ -16,6 +16,7 @@ Installs SDK packages.
 - `--canary` - Include canary packages.
 - `--force` - Force downgrading to an older version.
 - `-h,--help` - Shows the help message for the specified command.
+- `--no-downgrade` - Skip packages that would be downgraded.
 
 `sdk` options:
 

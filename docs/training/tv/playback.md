@@ -24,7 +24,7 @@ enable users to quickly browse options and get to the content they want.
 :   Use a `MediaSession` to display a Now Playing card on the home
     screen.
 
-**[Display video previews](https://developer.android.com/training/discovery/preview-videos)**
+**[Display video previews](https://developer.android.com/training/tv/discovery/preview-videos)**
 :   Render a preview video directly on a surface of the
     [home screen](https://developer.android.com/training/tv/discovery/recommendations-channel).
 

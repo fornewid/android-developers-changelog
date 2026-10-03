@@ -12,7 +12,7 @@ This page lists the new features in every Android CLI release. To download
 Android CLI, go to the [download page](https://developer.android.com/tools/agents). To learn more,
 see the [Android CLI overview](https://developer.android.com/tools/agents/android-cli).
 
-## Version 1.0.16486076 (October 2026)
+## Version 1.0.16500706 (October 2026)
 
 - **Connect on reservation** : `android device remote create` now connects the new reservation to `adb` automatically. Pass `--connect=false` to only create the reservation and connect later with `android device remote connect`.
 

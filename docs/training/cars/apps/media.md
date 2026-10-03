@@ -60,7 +60,7 @@ manifest file:
 ### Set the minimum car app API level
 
 Media apps using the `MediaPlaybackTemplate` are only supported in CAL API 8 and
-above, be sure your minimum [`Car App API level`](https://developer.android.com/training/cars/apps#api-level) is set to 8.
+higher, be sure your minimum [`Car App API level`](https://developer.android.com/training/cars/apps#api-level) is set to 8.
 
     <application ...>
       ...
@@ -102,8 +102,8 @@ distribute a single APK, it will support vehicles that are enabled for Android
 Automotive OS with the Car App Library host and fall back to a
 `MediaBrowserService` or `MediaLibraryService` application if not, even for
 older Android versions (Android 10 - Android 13). If you choose to distribute
-two separate APKs, you can more easily update the new additions to the Car App
-Library version without fear of impacting the `MediaBrowserService` or
+two separate APKs, you can update the new additions to the Car App Library
+version without fear of impacting the `MediaBrowserService` or
 `MediaLibraryService` version of your app.
 
 > [!NOTE]
@@ -121,7 +121,7 @@ Next, follow the [Car App Library guidelines for AAOS](https://developer.android
 introduce a launchable `CarAppActivity` (or trampoline activity). You must set
 the activity to android:enabled="false" in the manifest. Next, add a metadata
 tag to the `MediaBrowserService` declaration indicating the `CarAppActivity`
-component as the replacement. See the example manifest below:
+component as the replacement. See the following example manifest:
 
 > [!NOTE]
 > **Note:** The trampoline activity (LaunchableTrampoline) launches the `androidx.car.app.activity.CarAppActivity` and finishes. This allows the `MediaLibraryService` implementation to still use the Car App Library for Settings or Sign-in screens while not using Car App Library for the full media experience.
@@ -135,7 +135,7 @@ component as the replacement. See the example manifest below:
 
         <!-- Link to Car App Library Activity -->
         <meta-data
-            android:name="androidx.car.app.media.CalMediaActivityComponent" 
+            android:name="androidx.car.app.media.CalMediaActivityComponent"
             android:value="com.example.mediaapp.LaunchableTrampoline"/>
     </service>
 
@@ -176,8 +176,9 @@ Automotive OS builds certified with support for the Car App Library host.
     <uses-feature android:name="android.software.car.templates_host.media" android:required="true"/>
 
 Aside from using `android.software.car.templates_host.media` and setting it to
-`android:required=true` above, follow these steps to [enable Android Automotive OS](https://developer.android.com/training/cars/apps/automotive-os)
-for your launchable Car App Library activity.
+`android:required=true`, follow these steps to
+[enable Android Automotive OS](https://developer.android.com/training/cars/apps/automotive-os) for your launchable Car App Library
+activity.
 
 #### Play Distribution
 
@@ -307,7 +308,7 @@ One convenient way to categorize media within your app, is using the
 
     val template =
           SectionedItemTemplate.Builder()...build();
-    val tabTemplate = 
+    val tabTemplate =
           TabTemplate.Builder(tabCallback)
               .setTabContents(TabContents.Builder(template).build)
               .setHeaderAction(Action.APP_ICON)
@@ -323,7 +324,7 @@ components for unique browsing capabilities, such as [Chips](https://developer.a
 [Spotlight Sections](https://developer.android.com/reference/kotlin/androidx/car/app/model/SpotlightSection) and [Banners](https://developer.android.com/reference/kotlin/androidx/car/app/model/Banner).
 
 > [!NOTE]
-> **Note:** Car App Library API 1.9 is in alpha, reach out to express interest in joining our beta program [here](https://goo.gle/Media-Comms-EAP).
+> **Note:** Car App Library API 1.9 is in alpha, reach out to express interest in [joining our beta program](https://goo.gle/Media-Comms-EAP).
 
 ![A music app interface displays recently played songs and albums,
 including two vertical rows and three horizontal album art portraits.](https://developer.android.com/static/training/cars/images/HomePage.png)
@@ -348,7 +349,7 @@ For more details about how to design your media app's user interface using these
 templates, see [Media apps](https://developers.google.com/cars/design/create-apps/app-types/media).
 
 > [!NOTE]
-> **Note:** To test your application with the new Car App Library 1.9 features, you must enable the **Enable CAL Beta Features** flag. To access this setting, first [enable Android Auto developer mode](https://developer.android.com/training/cars/testing#developer-mode). Once developer mode is active, open the **Developer settings** from the overflow menu and scroll to the bottom to find the **Enable CAL Beta Features** toggle.
+> **Note:** To test your application with the new Car App Library 1.9 features, you must enable the **Enable CAL Beta Features** flag. To access this setting, first [enable Android Auto developer mode](https://developer.android.com/training/cars/testing#developer-mode). Once developer mode is active, open the **Developer settings** from the overflow menu and go to the bottom to find the **Enable CAL Beta Features** toggle.
 
 ## Navigating to the playback controls
 
@@ -362,8 +363,8 @@ action button that [navigates you](https://developer.android.com/training/cars/a
 standard Car App Library `Action.MEDIA_PLAYBACK` action. A media app will
 surface this action as a [Minimized control panel](https://developer.android.com/design/ui/cars/guides/components/fab),
 which is required to meet the [`MFT-1`](https://developer.android.com/docs/quality-guidelines/car-app-quality#car-optimized-tier) quality requirement if you are
-using Car App Library API 1.9 or higher. For other templates, a header action is another
-way to achieve this.
+using Car App Library API 1.9 or higher. For other templates, a header action is
+another way to achieve this.
 
 ### Handle system media playback intents
 
@@ -398,7 +399,7 @@ Ensure your activity uses a `launchMode` of `singleTask` or `singleTop` so that
 
 In your `Session` class, override `onNewIntent()` to parse the incoming intent.
 If the incoming intent action matches `SHOW_MEDIA_PLAYBACK`, navigate the user
-to your now playing screen.
+to your Now Playing screen.
 
     @Override
     public void onNewIntent(@NonNull Intent intent) {

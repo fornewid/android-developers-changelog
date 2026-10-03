@@ -7,11 +7,11 @@ source: md.txt
 ## Create seamless experiences for Googlebook
 
 Scale your experiences across the Android tech stack. Googlebook provides a high-performance, large-screen canvas for your apps, allowing users to transition seamlessly from quick mobile interactions to deep, focused sessions on a laptop.
-![Laptop](https://developer.android.com/static/googlebook/images/hero-lg.png) [![](http://developer.android.com/static/images/cluster-illustrations/android-architecture-components.svg)](http://developer.android.com/develop/ui/compose/build-adaptive-apps#how_to_get_started) Adaptive development
+![Laptop](https://developer.android.com/static/googlebook/images/hero-lg.png) [![](http://developer.android.com/static/images/cluster-illustrations/android-architecture-components.svg)](http://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps) Adaptive development
 
-### [Get started](http://developer.android.com/develop/ui/compose/build-adaptive-apps#how_to_get_started)
+### [Get started](http://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps)
 
-If you're already building Android apps, they will work on Googlebook. As the next step in the adaptive journey, Googlebook supports enhanced multitasking and input methods. Using familiar tools and flexible APIs in Jetpack Compose, you can easily adapt your existing layouts to thrive on a larger screen, giving users more room to explore, play, and achieve. [Build adaptive](http://developer.android.com/develop/ui/compose/build-adaptive-apps#how_to_get_started) ![](http://developer.android.com/static/images/picto-icons/tools-2.svg)
+If you're already building Android apps, they will work on Googlebook. As the next step in the adaptive journey, Googlebook supports enhanced multitasking and input methods. Using familiar tools and flexible APIs in Jetpack Compose, you can easily adapt your existing layouts to thrive on a larger screen, giving users more room to explore, play, and achieve. [Build adaptive](http://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps) ![](http://developer.android.com/static/images/picto-icons/tools-2.svg)
 
 ## Build essentials
 
@@ -33,7 +33,7 @@ Support file-level interactions and printing, ensuring your app handles document
 
 ## Differentiate on desktop
 
-Deliver a premium, desktop-grade experience by optimizing for professional workflows, ensuring your app meets the highest quality standards. [Review quality guidelines](http://developer.android.com/docs/quality-guidelines/adaptive-app-quality/experiences/desktop) [![](http://developer.android.com/static/googlebook/images/multi-instance.png)](http://developer.android.com/guide/topics/large-screens/multitasking-and-multi-instance)
+Deliver a premium, desktop-grade experience by optimizing for professional workflows, ensuring your app meets the highest quality standards. [Review quality guidelines](http://developer.android.com/develop/adaptive-apps/quality-guidelines/adaptive-app-quality/experiences/desktop) [![](http://developer.android.com/static/googlebook/images/multi-instance.png)](http://developer.android.com/guide/topics/large-screens/multitasking-and-multi-instance)
 
 ### [Multi-instance](http://developer.android.com/guide/topics/large-screens/multitasking-and-multi-instance)
 

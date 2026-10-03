@@ -54,8 +54,8 @@ by Gemini or Google Assistant:
 2. Click the **Microphone** icon and speak a query. For example "Nearby
    restaurants.". See [Extended controls, settings, and help](https://developer.android.com/studio/run/emulator-extended-controls#microphone) if the microphone
    does not work as expected.
-   The intent URI is sent by Gemini or Google Assistant to the navigation app to process
-   further.
+   The intent URI is sent by Gemini or Google Assistant to the navigation app to
+   process further.
 
    ![Output of Google Assistant generated Intent](https://developer.android.com/static/training/cars/testing/images/gas-intents-demo-uri.png) Figure 2. Output of Gemini or Google Assistant generated Intent.
 
@@ -64,9 +64,9 @@ by Gemini or Google Assistant:
 You can use the Android Debug Bridge (adb) to trigger intents from the console.
 To learn more, see [gas-intents-console-tests.txt](https://developer.android.com/static/training/cars/testing/gas-intents/gas-intents-console-tests.txt).
 
-To designate that an application can receive intents from
-Gemini or Google Assistant, include this code in the `AndroidManifest.xml` file of the
-navigation application:
+To designate that an application can receive intents from Gemini or Google
+Assistant, include this code in the `AndroidManifest.xml` file of the navigation
+application:
 
        <!-- Navigation Intent -->
         <intent-filter>

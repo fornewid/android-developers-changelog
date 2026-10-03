@@ -74,8 +74,6 @@ For more information on default handlers, including guidance on showing a
 default handler prompt to users, [see the guide on permissions used only in
 default handlers](https://developer.android.com/guide/topics/permissions/default-handlers).
 
-[](https://developer.android.com/training/permissions/know_the_libraries_you're_working_with)
-
 ## Know the libraries you're working with
 
 

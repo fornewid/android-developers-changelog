@@ -217,7 +217,7 @@ If a local network access request fails due to missing permission:
 
 ### Bugs
 
-[Submit bugs](https://developer.android.com/about/versions/16/feedback) and feedback for:
+[Submit bugs](https://developer.android.com/about/versions/17/feedback) and feedback for:
 
 - Discrepancies in LAN access (you don't think a certain access should be considered "local network" access)
 - Bugs where LAN access should be blocked but isn't

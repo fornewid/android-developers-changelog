@@ -78,6 +78,7 @@ combine the tests or integrate groups of tests together in your own test plans.
 
 For layout and UX purposes, test on at least the following device types:
 
+- Googlebook (160 ppi)
 - Foldable (841x701 dp)
 - 8-inch tablet (1024x640 dp)
 - 10.5-inch tablet (1280x800 dp)
@@ -85,9 +86,13 @@ For layout and UX purposes, test on at least the following device types:
 
 Use the following Android emulators to test adaptive device compatibility:
 
-- Foldable phone --- 7.6" Fold-in with outer display
-- Tablet --- Pixel C 9.94"
-- Dual-display foldable --- Microsoft Surface Duo
+- Foldable phone --- **Phone \> Pixel Fold**
+- Tablet --- **Tablet \> Medium Tablet**
+- Desktop --- **Desktop \> Desktop (Preview)**
+
+  > [!NOTE]
+  > **Note:** To use the Desktop (Preview) emulator, download the [Android Studio
+  > Canary build](https://developer.android.com/studio/preview). See also [Install a preview version of Android Studio](https://developer.android.com/studio/preview/install-preview).
 
 Use the Android [resizable emulator](https://developer.android.com/about/versions/12/12L/get#resizable-emulator) to test a variety of device
 configurations.
