@@ -1,0 +1,16 @@
+diff --git a/docs/privacy-and-security/risks/ai-risks/risks-mitigations.md b/docs/privacy-and-security/risks/ai-risks/risks-mitigations.md
+index a220f78f..a8cc1f7b 100644
+--- a/docs/privacy-and-security/risks/ai-risks/risks-mitigations.md
++++ b/docs/privacy-and-security/risks/ai-risks/risks-mitigations.md
+@@ -33,9 +33,9 @@ its application context. Leaks can occur when the model outputs this
+ confidential data to other users, when machine learning as a service (MLaaS)
+ providers insecurely store prompts, or when malicious actors exploit the system
+ to reveal internal logic. The consequences are severe, ranging from intellectual
+-property breaches and regulatory penalties (for example, [GDPR](https://gdpr-info.eu/), [CCPA](https://oag.ca.gov/privacy/ccpa)))
++property breaches and regulatory penalties (for example, [GDPR](https://gdpr-info.eu/), [CCPA](https://oag.ca.gov/privacy/ccpa))
+ to a complete loss of user trust and system compromise. Learn how to [mitigate
+-sensitive information disclosure](https://developer.android.com/privacy-and-security/risks/ai-risks/sensitive-data-disclosure) risk.
++sensitive information disclosure](https://developer.android.com/privacy-and-security/risks/ai-risks/sensitive-information-disclosure) risk.
+ 
+ ## Excessive agency
+ 

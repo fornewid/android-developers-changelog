@@ -1,0 +1,33 @@
+diff --git a/docs/tools/agents/android-cli/commands/sdk_update.md b/docs/tools/agents/android-cli/commands/sdk_update.md
+index cbb64a04..273048ec 100644
+--- a/docs/tools/agents/android-cli/commands/sdk_update.md
++++ b/docs/tools/agents/android-cli/commands/sdk_update.md
+@@ -8,7 +8,7 @@ Updates one or all packages to the latest version.
+ 
+ ## Usage
+ 
+-    android sdk update [-h] [--beta] [--canary] [--force] [<package>]
++    android sdk update [-h] [--beta] [--canary] [--force] [--no-downgrade] [<package>]
+ 
+ ## Options
+ 
+@@ -16,6 +16,7 @@ Updates one or all packages to the latest version.
+ - `--canary` - Include canary packages.
+ - `--force` - Force downgrading to an older version.
+ - `-h,--help` - Shows the help message for the specified command.
++- `--no-downgrade` - Skip packages that would be downgraded.
+ 
+ `sdk` options:
+ 
+@@ -49,9 +50,9 @@ By default, `update` checks for updates in the **Stable** channel.
+ - `--canary`: Checks Canary, Beta, and Stable channels for newer versions.
+ - `--beta`: Checks Beta and Stable channels for newer versions.
+ 
+-### Force downgrade packages (`--force`)
++### Handle downgrades (`--force` and `--no-downgrade`)
+ 
+-If a package was previously installed from a Canary channel, running `android sdk update` without `--canary` attempts to update to the latest Stable package. Because the Stable version may have a lower version number than the Canary package, this is considered a downgrade. In such cases, the update fails with a warning unless `--force` is supplied.
++If a package was previously installed from a Canary channel, running `android sdk update` without `--canary` attempts to update to the latest Stable package. Because the Stable version may have a lower version number than the Canary package, this is considered a downgrade. A package that isn't available in the selected channel is also considered a downgrade, because updating would remove it. In such cases, the update fails with a warning unless `--force` is supplied to allow downgrades, or `--no-downgrade` to keep affected packages at their installed version.
+ 
+ ### Examples
+ 

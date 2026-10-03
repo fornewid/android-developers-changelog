@@ -1,0 +1,16 @@
+diff --git a/docs/training/tv/discovery/watch-next-add-programs.md b/docs/training/tv/discovery/watch-next-add-programs.md
+index 46636d33..2ddddabb 100644
+--- a/docs/training/tv/discovery/watch-next-add-programs.md
++++ b/docs/training/tv/discovery/watch-next-add-programs.md
+@@ -23,11 +23,6 @@ Inserting programs into the Watch Next channel is similar to [inserting programs
+ into your own channel](https://developer.android.com/training/tv/discovery/recommendations-channel#add-programs). See the following sections for details specific to
+ Watch Next.
+ 
+-Publishing to the Watch Next channel on Google TV (displayed as "Continue
+-watching") requires prior approval by Google through a certification process and
+-uses server-side processing to sort programs based on their attributes. To start
+-the certification process, submit this [linked form](https://docs.google.com/forms/d/e/1FAIpQLSeaNhHjDNM8osXPgkXeUQMSl5CntaEw0EeGYHIAc5jxUhQuHg/viewform).
+-
+ When inserting content into the Watch Next channel, you must follow these
+ guidelines:
+ 
