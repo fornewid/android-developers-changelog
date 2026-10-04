@@ -1,0 +1,30 @@
+diff --git a/docs/topic/performance/memory/app-memory-budgets.md b/docs/topic/performance/memory/app-memory-budgets.md
+index f620f8ec..4940a1ae 100644
+--- a/docs/topic/performance/memory/app-memory-budgets.md
++++ b/docs/topic/performance/memory/app-memory-budgets.md
+@@ -367,6 +367,15 @@ tasks, or clear it when the task finishes:
+ > [!NOTE]
+ > **Note:** Declaring a budget in the manifest isn't required to use runtime budgets. However, if a manifest budget is declared, a runtime budget can only tighten (reduce) memory limits within that manifest ceiling. In all cases, a runtime budget can't exceed system memory limits. Attempting to set a budget higher than the active ceiling throws an `IllegalArgumentException`.
+ 
++#### Performance and idempotency
++
++When working with `MemoryBudgetManager` at runtime, keep the following
++characteristics in mind:
++
++- **Idempotency** : All budget mutation APIs are idempotent. Calling `clearProcessBudget()` or `clearPackageBudget()` repeatedly or when no dynamic budget is active is a safe no-op. Similarly, setting `processBudgetBytes` or `setPackageBudgetBytes()` to the same value consecutively does not trigger redundant system reconfigurations.
++- **Calling frequency**: Setting, updating, or clearing a budget makes a cross-process call to the system service to update the operating system memory controller for the process. While lightweight, it is not completely free. Call these APIs during discrete lifecycle transitions and task milestones (such as entering or leaving an activity, starting or completing background processing, or handling speech requests), and avoid calling them in tight loops, audio processing threads, or per-frame render routines.
++- **Query frequency** : The query properties `processCurrentUsageBytes` and `packageCurrentUsageBytes` fetch live memory usage from the system service. While fast, queries should be invoked on demand (such as during task transitions or inside `OnOverBudgetListener` callbacks) rather than polled in continuous loops.
++
+ #### Listen for over-budget pressure callbacks
+ 
+ Apps can register a listener to be notified when memory usage exceeds the
+@@ -431,6 +440,9 @@ Android 17 QPR2 (API level 37.2).
+     // Clear the dynamic budget to resume manifest limits (or unconstrained baseline)
+     AMemoryBudgetManager_clearProcessBudget();
+ 
++> [!NOTE]
++> **Note:** Like their SDK counterparts, native budget operations are idempotent and make a cross-process call to the system service. They are designed for discrete lifecycle milestones rather than high-frequency game engine render loops or audio thread callbacks.
++
+ #### Monitor memory pressure events
+ 
+ The NDK provides two ways to monitor memory events:

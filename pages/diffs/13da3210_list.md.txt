@@ -1,0 +1,18 @@
+diff --git a/docs/games/services/publishing/api/leaderboardConfigurations/list.md b/docs/games/services/publishing/api/leaderboardConfigurations/list.md
+index cc0a0db8..2e2cca1c 100644
+--- a/docs/games/services/publishing/api/leaderboardConfigurations/list.md
++++ b/docs/games/services/publishing/api/leaderboardConfigurations/list.md
+@@ -45,10 +45,11 @@ If successful, this method returns a response body with the following structure:
+ ```
+ {
+   "kind": "gamesConfiguration#leaderboardConfigurationListResponse",
+-  &quot;nextPageToken&quot;: string,
++  "nextPageToken": string,
+   "items": [
+-   } leaderboardConfigurations Resource
++    leaderboardConfigurations Resource
+   ]
++}
+ ```
+ 
+ | Property name | Value | Description | Notes |

@@ -1,0 +1,137 @@
+diff --git a/docs/develop/ui/compose/kotlin.md b/docs/develop/ui/compose/kotlin.md
+index 3973a19e..71092645 100644
+--- a/docs/develop/ui/compose/kotlin.md
++++ b/docs/develop/ui/compose/kotlin.md
+@@ -30,7 +30,7 @@ void drawSquare(int sideLength) { }
+ 
+ void drawSquare(int sideLength, int thickness) { }
+ 
+-void drawSquare(int sideLength, int thickness, Color edgeColor) { }
++void drawSquare(int sideLength, int thickness, Color edgeColor)java
+ ```
+ 
+ In Kotlin, you can write a single function and specify the default values for
+@@ -75,7 +75,7 @@ So, for example, you might create a simple text element like this:
+ 
+ 
+ ```kotlin
+-Text(text = "Hello, Android!")
++Text(text = "Hello, Andronippets.kt
+ ```
+ 
+ <br />
+@@ -90,8 +90,7 @@ Text(
+     color = Color.Unspecified,
+     fontSize = TextUnit.Unspecified,
+     letterSpacing = TextUnit.Unspecified,
+-    overflow = TextOverflow.Clip
+-)
++    overflow = TextOverfnippets.kt
+ ```
+ 
+ <br />
+@@ -165,9 +164,9 @@ Column(
+     content = {
+         Text("Some text")
+         Text("Some more text")
+-        Text("Last text")
++        Text(uot;)
+     }
+-)
++)KotlinSnippets.kt
+ ```
+ 
+ <br />
+@@ -181,8 +180,8 @@ parentheses:
+ Column(modifier = Modifier.padding(16.dp)) {
+     Text("Some text")
+     Text("Some more text")
+-    Text("Last text")
+-}
++   text")
++}KotlinSnippets.kt
+ ```
+ 
+ <br />
+@@ -201,8 +200,8 @@ this:
+ Column {
+     Text("Some text")
+     Text("Some more text")
+-    Text("Last text")
+-}
++   text")
++}KotlinSnippets.kt
+ ```
+ 
+ <br />
+@@ -232,9 +231,7 @@ Row {
+         // Alignment.CenterVertically but not to
+         // Alignment.CenterHorizontally, which would be available
+         // in a ColumnScope.
+-        modifier = Modifier.align(Alignment.CenterVertically)
+-    )
+-}
++        modifier = Modifier.align(Alignment.CenterVerticallnippets.kt
+ ```
+ 
+ <br />
+@@ -286,7 +283,7 @@ Other code can access the property with code like this:
+ 
+ ```kotlin
+ val myDC = DelegatingClass()
+-println("The name property is: " + myDC.name)
++println("The name property is: " + nippets.kt
+ ```
+ 
+ <br />
+@@ -332,7 +329,7 @@ val mary = Person(name = "Mary", age = 35)
+ 
+ // ...
+ 
+-val (name, age) = mary
++val (name, anippets.kt
+ ```
+ 
+ <br />
+@@ -389,11 +386,9 @@ fun MessageList(messages: List<Message>) {
+         }
+ 
+         // Add list of messages
+-        items(messages) { message ->
++        items(messages) {> message -
+             Message(message)
+-        }
+-    }
+-}
++       nippets.kt
+ ```
+ 
+ <br />
+@@ -461,7 +456,7 @@ Button(
+             viewModel.loadData()
+         }
+     }
+-) { /* ... */ }
++) { /* ... s.kt
+ ```
+ 
+ <br />
+@@ -492,7 +487,7 @@ Button( // ...
+             viewModel.loadData()
+         }
+     }
+-) { /* ... */ }
++) { /* ... s.kt
+ ```
+ 
+ <br />
+@@ -547,8 +542,7 @@ fun MoveBoxWhereTapped() {
+                 }
+                 .size(40.dp)
+                 .background(Color(0xff3c1361), CircleShape)
+-        )
+-    }
++     nippets.kt
+ ```
+ 
+ <br />
