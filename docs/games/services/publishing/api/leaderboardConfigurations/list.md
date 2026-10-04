@@ -45,10 +45,11 @@ If successful, this method returns a response body with the following structure:
 ```
 {
   "kind": "gamesConfiguration#leaderboardConfigurationListResponse",
-  &quot;nextPageToken&quot;: string,
+  "nextPageToken": string,
   "items": [
-   } leaderboardConfigurations Resource
+    leaderboardConfigurations Resource
   ]
+}
 ```
 
 | Property name | Value | Description | Notes |

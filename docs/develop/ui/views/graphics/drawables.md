@@ -142,7 +142,7 @@ The XML snippet below shows how to add a drawable resource to an `https://develo
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/my_image"
-        android:contentDescrip>tion="@string/my_image_desc" /
+        android:contentDescription="@string/my_image_desc" />
 ```
 
 For more information about using project resources, see [Resources and assets](https://developer.android.com/guide/topics/resources).
@@ -170,10 +170,10 @@ resource, which inherits from `Drawable`:
 
 ```xml
 <!-- res/drawable/expand_collapse.xml -->
-<transition xmlns:android="http://schemas.android.com/apk/res/and>roid&<quot;
-    item android:@drawable="drawable>/imag<e_expand"/
-    ite@m android:drawable=">d<rawable/ima>ge_collapse"/
-/transition
+<transition xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/image_expand"/>
+    <item android:drawable="@drawable/image_collapse"/>
+</transition>
 ```
 
 Then, retrieve and instantiate the object by calling

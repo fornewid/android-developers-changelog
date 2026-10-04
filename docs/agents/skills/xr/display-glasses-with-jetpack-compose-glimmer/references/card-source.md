@@ -50,9 +50,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.layout
-import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Density
-import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import kotlin.math.roundToInt
 
@@ -534,7 +532,6 @@ public fun LeadingImageCard(
     content: @Composable () -> Unit,
 ) {
     val internalInteractionSource = interactionSource ?: remember { MutableInteractionSource() }
-    val isLtr = LocalLayoutDirection.current == LayoutDirection.Ltr
     SmallImageCardImpl(
         modifier =
             modifier
@@ -549,7 +546,7 @@ public fun LeadingImageCard(
         title = title,
         subtitle = subtitle,
         contentPadding = contentPadding,
-        isLeading = isLtr,
+        isLeading = true,
         content = content,
     )
 }
@@ -598,7 +595,6 @@ public fun LeadingImageCard(
     content: @Composable () -> Unit,
 ) {
     val internalInteractionSource = interactionSource ?: remember { MutableInteractionSource() }
-    val isLtr = LocalLayoutDirection.current == LayoutDirection.Ltr
     SmallImageCardImpl(
         modifier =
             modifier
@@ -613,7 +609,7 @@ public fun LeadingImageCard(
         title = title,
         subtitle = subtitle,
         contentPadding = contentPadding,
-        isLeading = isLtr,
+        isLeading = true,
         content = content,
     )
 }
@@ -670,7 +666,6 @@ public fun TrailingImageCard(
     content: @Composable () -> Unit,
 ) {
     val internalInteractionSource = interactionSource ?: remember { MutableInteractionSource() }
-    val isLtr = LocalLayoutDirection.current == LayoutDirection.Ltr
     SmallImageCardImpl(
         modifier =
             modifier
@@ -685,7 +680,7 @@ public fun TrailingImageCard(
         title = title,
         subtitle = subtitle,
         contentPadding = contentPadding,
-        isLeading = !isLtr,
+        isLeading = false,
         content = content,
     )
 }
@@ -734,7 +729,6 @@ public fun TrailingImageCard(
     content: @Composable () -> Unit,
 ) {
     val internalInteractionSource = interactionSource ?: remember { MutableInteractionSource() }
-    val isLtr = LocalLayoutDirection.current == LayoutDirection.Ltr
     SmallImageCardImpl(
         modifier =
             modifier
@@ -749,7 +743,7 @@ public fun TrailingImageCard(
         title = title,
         subtitle = subtitle,
         contentPadding = contentPadding,
-        isLeading = !isLtr,
+        isLeading = false,
         content = content,
     )
 }

@@ -36,7 +36,7 @@ are in a list of allowed popular apps. Other apps upload blank package names.
 Apps can opt out of usage statistics collection by including the following in
 the `<application>` section of their manifest:
 
-    <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:valu>e="true" /
+    <meta-data android:name="android.webkit.WebView.MetricsOptOut" android:value="true" />
 
 This disables usage statistics collection for all users of the app, regardless
 of whether they have the corresponding setting enabled. It doesn't disable crash
@@ -57,9 +57,9 @@ following tag in the manifest's `<application>` element:
     <application>
     ...
     <meta-data android:name="android.webkit.WebView.MetricsOptOut"
-               android:valu>e=&qu<ot;true">;< /
-    /a>pplication
-/manifest
+               android:value="true" />
+    </application>
+</manifest>
 ```
 
 Data is only uploaded from an app if the user consents **and** the app doesn't
