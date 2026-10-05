@@ -122,9 +122,9 @@ Store app.](https://developer.android.com/static/images/games/pgs/playstoresidek
 ### Configure default Sidekick entry point
 
 By default, the Sidekick entry point is anchored to the logical
-End edge (the MIDDLE_RIGHT side of the screen) and is vertically centered (with
-a slight default offset) in both portrait and landscape orientations. In the
-case of 3-button navigation, the entry point moves to the side opposite to the
+End edge (the right side of the screen) and is vertically centered (with a
+slight default offset) in both portrait and landscape orientations. In the case
+of 3-button navigation, the entry point moves to the side opposite to the
 navigation bar.
 
 You can override the default entry point position by specifying a preferred
@@ -138,11 +138,11 @@ game, follow these steps:
 
    ```xml
    <manifest>
-    <application>
-     <meta-data
-     android:name="com.google.android.finsky.deku.OVERLAY_CONFIG"
-     android:resource="@xml/XML_RESOURCE_FILE"/>
-    </application>
+     <application>
+      <meta-data
+      android:name="com.google.android.finsky.deku.OVERLAY_CONFIG"
+      android:resource="@xml/XML_RESOURCE_FILE"/>
+     </application>
 
    </manifest>
    ```
@@ -153,30 +153,48 @@ game, follow these steps:
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
    <deku-config>
-     <!-- Entrypoint default position overrides -->
-     <default-entrypoint-position orientation="landscape" value="MIDDLE_LEFT" />
-     <default-entrypoint-position orientation="portrait" value="TOP_RIGHT" />
+      <!-- Entrypoint default position overrides -->
+      <!-- Anchored to RIGHT edge, 25% down from top -->
+      <default-entrypoint-position orientation="portrait" horizontal-position="RIGHT" vertical-position-percent="25" />
 
-     <!-- Extensible: Add new configuration fields here as needed -->
+      <!-- Anchored to LEFT edge, vertically centered at 50% -->
+      <default-entrypoint-position orientation="landscape" horizontal-position="LEFT" vertical-position-percent="50" />
+
+      <!-- Extensible: Add new configuration fields here as needed -->
    </deku-config>
    ```
 
-The supported values for entry point orientation:
+The `<default-entrypoint-position>` tag supports the following attributes.
+All three attributes (`orientation`, `horizontal-position`, and
+`vertical-position-percent`) are required for each
+`<default-entrypoint-position>` tag. If either `horizontal-position` or
+`vertical-position-percent` is omitted or invalid, the tag is ignored, and
+that orientation falls back to the system default position.
 
-- landscape
-- portrait
+- `orientation`: The screen orientation to configure. Supported values:
+  - `landscape`
+  - `portrait`
+- `horizontal-position`: The horizontal edge of the screen to anchor the entry point. Supported values:
+  - `LEFT`
+  - `RIGHT`
+- `vertical-position-percent`: A numeric value in the range `0` to `100` (for
+  example, `"25"` or `"50"`) that specifies the vertical placement as a
+  percentage of the available screen height from the top. For example, `"25"`
+  places the entry point 25% down from the top edge, and `"50"` centers it
+  vertically. Values not in the range 0--100 are set to the nearest limit.
 
-These values represent the physical positions on the screen. For example,
-MIDDLE_LEFT will always anchor the entry point to the left edge of the screen,
-even when the device is set to a Right-to-Left (RTL). The supported values for
-edge-aligned positions are as follows.
+  `vertical-position-percent` is applied to the full height of the game
+  window. The entry point always keeps a small margin from the top and bottom
+  screen edges, and it is automatically shifted to avoid overlapping a camera
+  cutout or display notch. As a result, `0` places the entry point near the
+  top edge and `100` places it near the bottom edge.
 
-- MIDDLE_LEFT
-- MIDDLE_RIGHT
-- TOP_LEFT
-- TOP_RIGHT
-- BOTTOM_LEFT
-- BOTTOM_RIGHT
+These values represent physical positions on the screen. For example, `LEFT`
+anchors the entry point to the left edge of the screen, even when the device
+is set to a Right-to-Left (RTL) layout.
+
+> [!NOTE]
+> **Note:** The earlier implementation that used the `value` attribute with edge-aligned positions (`MIDDLE_LEFT`, `MIDDLE_RIGHT`, `TOP_LEFT`, `TOP_RIGHT`, `BOTTOM_LEFT`, and `BOTTOM_RIGHT`) is no longer supported. Use `horizontal-position` and `vertical-position-percent` instead.
 
 If a player manually drags and repositions the entry point during gameplay,
 their chosen position persists across game sessions and takes precedence over
@@ -213,8 +231,8 @@ the snooze duration ends, the entry point appears.
    <?xml version="1.0" encoding="utf-8"?>
    <deku-config>
      <!-- Entrypoint default position overrides -->
-     <default-entrypoint-position orientation="landscape" value="MIDDLE_LEFT" />
-     <default-entrypoint-position orientation="portrait" value="TOP_RIGHT" />
+     <default-entrypoint-position orientation="portrait" horizontal-position="RIGHT" vertical-position-percent="25" />
+     <default-entrypoint-position orientation="landscape" horizontal-position="LEFT" vertical-position-percent="50" />
 
      <!-- Custom Snooze Period -->
      <snooze duration_seconds="300" />

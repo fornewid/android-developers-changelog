@@ -1280,8 +1280,8 @@
     },
     "topic/performance/app-optimization/global-options.md": {
       "original_url": "https://developer.android.com/topic/performance/app-optimization/global-options",
-      "hash": "789e1ac92e1448aa1680e2bd157920f4dcc4c5a02703630e0297865519fa0064",
-      "last_updated": "2026-04-08T15:29:00.284275",
+      "hash": "4bef92ed43d0621d9f26d32b6368f2cc303959d9369e4906505d8aac053155e4",
+      "last_updated": "2026-10-05T15:05:54.549250",
       "fetch_method": "md.txt"
     },
     "courses/quizzes/kotlin-fundamentals-five/kotlin-fundamentals-five.md": {
@@ -5738,8 +5738,8 @@
     },
     "topic/architecture/recommendations.md": {
       "original_url": "https://developer.android.com/topic/architecture/recommendations",
-      "hash": "8d78a0da3ae6866d55645badc4bced1d9ffc30b450bf1345b0ce20fc32f51db9",
-      "last_updated": "2026-04-26T15:15:25.189563",
+      "hash": "caf5196f09c0032f0dedf54e3a2f73b6d34db7c4612569eb8645d571d79f6ddd",
+      "last_updated": "2026-10-05T15:10:38.071546",
       "fetch_method": "md.txt"
     },
     "training/wearables/apps/location-detection.md": {
@@ -12224,8 +12224,8 @@
     },
     "topic/architecture.md": {
       "original_url": "https://developer.android.com/topic/architecture",
-      "hash": "adb7d97fba9aa7aa341afc3e0a1f5bfcdb1de7080e761cdd578b35a06890977d",
-      "last_updated": "2026-04-15T15:27:26.978836",
+      "hash": "22edd83d74e998d7c370034b5cfc83001c03f5632a6e54f942fccf472ab4f5af",
+      "last_updated": "2026-10-05T15:06:29.850988",
       "fetch_method": "md.txt"
     },
     "studio/run/emulator-comparison.md": {
@@ -13880,8 +13880,8 @@
     },
     "studio/nightly.md": {
       "original_url": "https://developer.android.com/studio/nightly",
-      "hash": "fb2b6e7b0aa4b8161ee8504df8b786ff1b43a9ba326b116f13cb218a70f8b4d4",
-      "last_updated": "2026-10-01T15:05:29.923465",
+      "hash": "24bc8ba56f0108e8bf0f180c64039f32dfb41ac407a171176c87bb274031071a",
+      "last_updated": "2026-10-05T15:06:36.194570",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/arcore/hands.md": {
@@ -14540,8 +14540,8 @@
     },
     "games/pgs/play-games-sidekick.md": {
       "original_url": "https://developer.android.com/games/pgs/play-games-sidekick",
-      "hash": "8dcb9851e8e98c486c403c29d09373ea1b1f22fc781f0d3d9fcdcdb9567caa45",
-      "last_updated": "2026-09-30T15:07:40.926780",
+      "hash": "3d86b6f1120c2fca7784b0d8c04e2e9f159b2f3ac79398b6ea8138213caf9339",
+      "last_updated": "2026-10-05T15:07:55.694603",
       "fetch_method": "md.txt"
     },
     "studio/profile/chart-glossary/top-bottom-charts.md": {
@@ -34225,5 +34225,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-10-04T16:11:57.448082"
+  "last_updated": "2026-10-05T15:10:45.441639"
 }

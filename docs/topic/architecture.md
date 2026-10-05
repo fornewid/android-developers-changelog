@@ -164,6 +164,7 @@ others):
 - UI layer with state holders to manage the complexity of the UI
 - Coroutines and flows
 - Dependency injection best practices
+- Performance optimization using R8 and Baseline Profiles, and measuring with Macrobenchmark
 
 For more information, see
 [Recommendations for Android architecture](https://developer.android.com/topic/architecture/recommendations).

@@ -10,6 +10,9 @@ app or affect every keep rule. These options are maintained in the
 configure additional optimization, while others turn off certain aspects of the
 optimization.
 
+R8 also accepts, but ignores, some legacy options carried over from ProGuard.
+For more information, see [Remove legacy ProGuard options](https://developer.android.com/topic/performance/app-optimization/global-options#legacy-options).
+
 > [!NOTE]
 > **Note:** For information about various keep rules , see [Add keep rules](https://developer.android.com/topic/performance/app-optimization/add-keep-rules), [Additional rule types](https://developer.android.com/topic/performance/app-optimization/additional-rule-types), and[Troubleshooting rules](https://developer.android.com/topic/performance/app-optimization/troubleshooting-rules).
 
@@ -120,3 +123,43 @@ these might still frequently be used while [optimizing libraries](https://develo
 | `RuntimeInvisibleAnnotations` | This attribute stores annotations that are not visible with reflection at runtime on a class, field, or method. App developers shouldn't keep this attribute. For library authors, this attribute is not relevant in consumer keep rules, but is often used when building libraries. For details about optimizing libraries, see [Optimization for library authors](https://developer.android.com/topic/performance/app-optimization/library-optimization). |
 | `RuntimeInvisibleParameterAnnotations` | This attribute stores annotations that are not visible with reflection at runtime on the parameters of a method. App developers shouldn't keep this attribute. For library authors, this attribute is not relevant in consumer keep rules, but is often used when building libraries. For details about optimizing libraries, see [Optimization for library authors](https://developer.android.com/topic/performance/app-optimization/library-optimization). |
 | `RuntimeInvisibleTypeAnnotations` | This attribute stores annotations that apply to type uses rather than just declarations. This attribute is not visible at runtime. App developers shouldn't keep this attribute. For library authors, this attribute is not relevant in consumer keep rules, but is often used when building libraries. For details about optimizing libraries, see [Optimization for library authors](https://developer.android.com/topic/performance/app-optimization/library-optimization). |
+
+## Remove legacy ProGuard options
+
+R8 accepts some options that only had an effect in ProGuard, but ignores them.
+These options often remain in configurations that were migrated from ProGuard
+or copied from older projects. Because they have no effect on R8 output, remove
+them from your `proguard-rules.pro` file to keep your configuration easier to
+understand and maintain.
+
+R8 ignores the following options without reporting a warning:
+
+- `-adaptkotlinmetadata`
+- `-android`
+- `-dontpreverify`
+- `-dontskipnonpubliclibraryclasses`
+- `-dontskipnonpubliclibraryclassmembers`
+- `-dontusemixedcaseclassnames`
+- `-forceprocessing`
+- `-mergeinterfacesaggressively`
+- `-optimizationpasses`
+- `-optimizations`
+- `-overloadaggressively`
+- `-target`
+- `-verbose`
+
+R8 ignores the following options and reports a warning during the build:
+
+- `-addconfigurationdebugging` (support was [removed in AGP 9.0](https://developer.android.com/build/releases/agp-9-0-0-release-notes#remove-support-for-addconfigurationdebugging))
+- `-assumenoescapingparameters`
+- `-assumenoexternalreturnvalues`
+- `-assumenoexternalsideeffects`
+- `-dump`
+- `-useuniqueclassmembernames`
+
+R8 doesn't support `-skipnonpubliclibraryclasses`, and reports an error if your
+configuration contains it.
+
+> [!WARNING]
+> **Warning:** If you are a library author, don't include any of these options in your consumer keep rules. R8's consumer keep rule validation reports ignored options as errors. For more details, see [Optimization for library
+> authors](https://developer.android.com/topic/performance/app-optimization/library-optimization#write-consumer-rules).
