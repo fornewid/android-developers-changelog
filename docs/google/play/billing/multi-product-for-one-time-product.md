@@ -10,7 +10,7 @@ multi-product feature of Play Billing Library (PBL).
 The multi-product for one-time product (OTP) feature lets you combine
 several one-time products into a single unit. These bundled products can then
 be purchased, billed, and managed collectively. You can also create
-[discount offers](https://developer.android.com/google/play/billing/one-time-product-multi-purchase-options-offers#discount-offers.) for these bundled OTPs to incentivize product purchases.
+[discount offers](https://developer.android.com/google/play/billing/one-time-product-multi-purchase-options-offers#discount-offers) for these bundled OTPs to incentivize product purchases.
 
 ## Considerations
 
@@ -26,7 +26,7 @@ When you create one-time product bundles, note the following considerations:
 This section assumes that you are
 familiar with the initial PBL integration steps such as,
 [adding the PBL dependency to your app](https://developer.android.com/google/play/billing/integrate#dependency), initializing the [BillingClient](https://developer.android.com/google/play/billing/integrate#initialize),
-and [connecting to Google Play](https://developer.android.com/google/play/billing/integrate#connect_to_google_play). This section focuses on the PBL integration
+and [connecting to Google Play](https://developer.android.com/google/play/billing/integrate#connect-to-play). This section focuses on the PBL integration
 aspects that are specific to the multi-product OTP purchases.
 
 ### Launch a purchase flow
@@ -127,7 +127,7 @@ is permitted. If you are cancelling a multi-product OTP purchase for a user,
 all the entitlements associated with the purchase are cancelled.
 
 > [!NOTE]
-> **Note:** Refunded multi-product OTP orders will be available in the [Voided Purchases API](https://developer.android.com/android-publisher/voided-purchases) and RTDN.
+> **Note:** Refunded multi-product OTP orders will be available in the [Voided Purchases API](https://developers.google.com/android-publisher/voided-purchases) and RTDN.
 
 ## Financial reporting and reconciliation
 

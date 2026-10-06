@@ -150,7 +150,7 @@ You can detect whether a given feature is available using
 accordingly.
 
 > [!TIP]
-> **Tip:** You can use the [Device catalog](https://play.google.com/console/about/devicecatalog/) in the Google Play Console to determine which vehicles support any given feature by using the *Form factor* filter with value *Car* combined with the *System feature* filter.
+> **Tip:** You can use the [Device catalog](https://google.play/business/devicecatalog/) in the Google Play Console to determine which vehicles support any given feature by using the *Form factor* filter with value *Car* combined with the *System feature* filter.
 
 ### Hardware features
 

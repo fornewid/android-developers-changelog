@@ -29,7 +29,7 @@ Once you have your default `strings.xml` file completed, you can add the
 translations yourself, or pay a professional service to do the translations.
 Either way, you should take advantage of the Android Studio features to help you
 [manage and test localizable text](https://developer.android.com/studio/write/translations-editor#localize). For information about
-professional translation services, see [Translation services](https://play.google.com/console/about/translationservices/).
+professional translation services, see [Translation services](https://google.play/business/translationservices/).
 
 ## Open the Translations Editor
 

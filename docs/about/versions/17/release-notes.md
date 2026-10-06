@@ -149,7 +149,7 @@ and enhancements introduced in Android 17 beta 3:
 #### User Experience and System UI
 
 - **Widget Support on External Displays:** Improved visual consistency for widgets across different pixel densities. `https://developer.android.com/reference/android/widget/RemoteViews#setViewPadding(int,%20float,%20float,%20float,%20float,%20int)` now accepts complex units (DP/SP), and widgets can retrieve specific `https://developer.android.com/reference/android/util/DisplayMetrics` via `https://developer.android.com/reference/android/appwidget/AppWidgetManager#OPTION_APPWIDGET_DISPLAY_ID`.
-- **Desktop Interactive Picture-in-Picture (iPiP):** Apps can request to be moved to a "pinned" windowing layer during desktop mode (default on external displays). These pinned windows remain interactive and always-on-top. Requires `https://developer.android.com/about/versions/17/android.Manifest.permission.USE_PINNED_WINDOWING_LAYER` and PiP permissions.
+- **Desktop Interactive Picture-in-Picture (iPiP):** Apps can request to be moved to a "pinned" windowing layer during desktop mode (default on external displays). These pinned windows remain interactive and always-on-top. Requires `https://developer.android.com/reference/android/Manifest.permission#USE_PINNED_WINDOWING_LAYER` and PiP permissions.
 - **Hidden Home Screen App Labels:** Users can now hide app labels on the home screen. Ensure your app icon is highly recognizable!
 - **Redesigned Screen Recording:** A new floating toolbar improves recording controls and capture settings for creators. The UI is automatically excluded from the final video.
 - **Bubbles:** The windowing mode feature introduced in Beta 2 is now fully enabled.
@@ -212,7 +212,7 @@ system and apps running on it **might not always work as expected**.
 - **Time Zone Broadcast:** A new intent, [`ACTION_TIMEZONE_OFFSET_CHANGED`](https://developer.android.com/reference/kotlin/android/content/Intent#action_timezone_offset_changed), triggers specifically on offset changes like DST transitions.
 - **NPU Management:** Apps targeting Android 17 must declare the [FEATURE_NEURAL_PROCESSING_UNIT](https://developer.android.com/reference/kotlin/android/content/pm/PackageManager#feature_neural_processing_unit) hardware feature to directly access the NPU.
 - **ICU 78:** Updated internationalization libraries support [Unicode 17](https://blog.unicode.org/2025/10/icu-78-released.html).
-- **SMS OTP Protection:** To prevent hijacking, Android 17 delays programmatic access to OTP messages by three hours for most apps. Developers should transition to [SMS Retriever](https://developer.android.com/identity/sms-retriever) or [SMS User Consent](https://developer.android.com/identity/sms-retriever/user-consent/overview) APIs.
+- **SMS OTP Protection:** To prevent hijacking, Android 17 delays programmatic access to OTP messages by three hours for most apps. Developers should transition to [SMS Retriever](https://developer.android.com/identity/sms-retriever) or [SMS User Consent](https://developers.google.com/identity/sms-retriever/user-consent/overview) APIs.
 
 ### Top Issues fixed in Beta 2
 

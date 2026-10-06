@@ -12,19 +12,19 @@ Get everything you need to develop and deliver games on Android: tools, download
 
 ## What's new
 
-[![](http://developer.android.com/static/images/spot-icons/Level_Up_Logo_Light_Mode.svg)](https://play.google.com/console/about/levelup/) Level Up
+[![](http://developer.android.com/static/images/spot-icons/Level_Up_Logo_Light_Mode.svg)](https://google.play/business/levelup/) Level Up
 
-### [Introducing the Revamped Google Play Games Level Up program](https://play.google.com/console/about/levelup/)
+### [Introducing the Revamped Google Play Games Level Up program](https://google.play/business/levelup/)
 
-Revamped Google Play Games Level Up, a new way we're elevating the player experience and unlocking greater success for your business. [Read More](https://play.google.com/console/about/levelup/) [![](http://developer.android.com/static/images/games/Garena_Case_Study.png)](https://play.google.com/console/about/leagues-freefire-casestudy) Case study
+Revamped Google Play Games Level Up, a new way we're elevating the player experience and unlocking greater success for your business. [Read More](https://google.play/business/levelup/) [![](http://developer.android.com/static/images/games/Garena_Case_Study.png)](https://google.play/business/case-studies/leagues-freefire/) Case study
 
-### [Garena reaches 640K new high-value players with Leagues](https://play.google.com/console/about/leagues-freefire-casestudy)
+### [Garena reaches 640K new high-value players with Leagues](https://google.play/business/case-studies/leagues-freefire/)
 
-This Level Up pilot demonstrates how Play's new engagement features can boost player activity by 33%. [Read More](https://play.google.com/console/about/leagues-freefire-casestudy) [![](http://developer.android.com/static/images/games/SYBO_Games_Case_Study.png)](https://play.google.com/console/about/subway-surfers-leagues-casestudy) Case study
+This Level Up pilot demonstrates how Play's new engagement features can boost player activity by 33%. [Read More](https://google.play/business/case-studies/leagues-freefire/) [![](http://developer.android.com/static/images/games/SYBO_Games_Case_Study.png)](https://google.play/business/case-studies/subway-surfers-leagues/) Case study
 
-### [SYBO Games boosts engagement by 45% with Leagues](https://play.google.com/console/about/subway-surfers-leagues-casestudy)
+### [SYBO Games boosts engagement by 45% with Leagues](https://google.play/business/case-studies/subway-surfers-leagues/)
 
-Learn how the latest Level Up feature drove a 3% lift in new installs for Subway Surfers. [Read More](https://play.google.com/console/about/subway-surfers-leagues-casestudy)
+Learn how the latest Level Up feature drove a 3% lift in new installs for Subway Surfers. [Read More](https://google.play/business/case-studies/subway-surfers-leagues/)
 
 ## 2026 GDC Highlights
 

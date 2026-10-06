@@ -87,7 +87,7 @@ key in order to be installable. The Android platform uses the key to ensure
 that any app updates match the installed app on a device so that, after an
 initial install happens, each app update comes from the same key holder.
 This reduces the risk of malicious app updates. Launched in 2017,
-[Play App Signing](https://play.google.com/console/about/keymanagement/) is
+[Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756) is
 Google Play's key management service that protects and manages Play
 developers' app signing keys for their Play-distributed apps. In addition,
 Play App Signing performs the signing operation on the APKs that Play
@@ -102,7 +102,7 @@ a key becoming compromised puts users at risk of malicious updates. It's
 common in software distribution for distribution channels to store and
 manage the keys for the software they distribute because it mitigates
 these risks.
-[Play App Signing](https://play.google.com/console/about/keymanagement/) was
+[Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756) was
 launched in 2017 to eliminate the risk of losing Play distribution keys,
 to make it possible to protect Play users following a key compromise,
 and to give developers' the benefit of Google's ongoing security investment.

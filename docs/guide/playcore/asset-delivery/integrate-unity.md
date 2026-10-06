@@ -87,7 +87,7 @@ installed you can install the OpenUPM registry with the following command:
 1. [Create AssetBundles in Unity](https://docs.unity3d.com/Manual/AssetBundles-Workflow.html).
 
    > [!NOTE]
-   > **Note:** You can use the [Unity AssetBundle Browser](https://docs.unity3d.com/Manual/AssetBundles-Browser.html) to create and manage AssetBundles in your Unity project.
+   > **Note:** You can use the [Unity AssetBundle Browser](https://docs.unity3d.com/Packages/com.unity.assetbundlebrowser@1.7/manual/index.html) to create and manage AssetBundles in your Unity project.
 
 ### Configure AssetBundles using the UI
 
@@ -153,7 +153,7 @@ For a guided tutorial, see the
 The
 [Play Asset Delivery Unity API](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetDelivery)
 provides the functionality for requesting asset packs, managing downloads, and
-accessing the assets. Make sure to [Add the Unity plugin](https://developer.android.com/guide/playcore#unity) into your project
+accessing the assets. Make sure to [Add the Unity plugin](https://developer.android.com/guide/playcore/asset-delivery/integrate-unity#prerequisites) into your project
 first.
 
 The functions you use in the API depend on how you created
@@ -307,7 +307,7 @@ if(request.Status == AssetDeliveryStatus.RequiresUserConfirmation
 
 If you need to cancel the request before the AssetBundles are loaded into
 memory, call the
-[`AttemptCancel()`](https://developer.android.com/reference/unity/play/class/Google/Play/AssetDelivery/PlayAssetBundleRequest#classGoogle_1_1Play_1_1AssetDelivery_1_1PlayAssetBundleRequest_1a352bfe7cdff7d41c9039b1b54f1f61ad)
+[`AttemptCancel()`](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetBundleRequest#classGoogle_1_1Play_1_1AssetDelivery_1_1PlayAssetBundleRequest_1a352bfe7cdff7d41c9039b1b54f1f61ad)
 method on the
 [`PlayAssetBundleRequest`](https://developer.android.com/reference/unity/class/Google/Play/AssetDelivery/PlayAssetBundleRequest)
 object:

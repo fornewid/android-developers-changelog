@@ -37,7 +37,7 @@ retention and cross-platform continuity.
 
 The Google Play Games platform provides an extensive array of compelling and
 rewarding and engaging mechanics, including leagues, quests, achievements, and
-streaks. These features are restricted to titles enrolled in the [Level Up](https://play.google.com/console/about/levelup)
+streaks. These features are restricted to titles enrolled in the [Level Up](https://google.play/business/levelup)
 program, a cornerstone of the Google Play Games ecosystem.
 
 Integrate your games with Play Games Services to get instant access to these

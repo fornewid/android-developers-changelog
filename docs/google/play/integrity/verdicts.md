@@ -19,15 +19,13 @@ developer-provided information.
 
 The general payload structure is as follows:
 
-```json
-{
-  "requestDetails": { ... },
-  "accountDetails": { ... },
-  "appIntegrity": { ... },
-  "deviceIntegrity": { ... },
-  "environmentDetails": { ... }
-}
-```
+    {
+      "requestDetails": { ... },
+      "accountDetails": { ... },
+      "appIntegrity": { ... },
+      "deviceIntegrity": { ... },
+      "environmentDetails": { ... }
+    }
 
 The order of the fields in the JSON payload is not guaranteed. You must first
 check that the values in the `requestDetails` field match those of the original
@@ -42,18 +40,16 @@ the `nonce` for classic requests.
 
 For **standard** API requests:
 
-```json
-"requestDetails": {
-  // Application package name this attestation was requested for.
-  // Note that this field might be spoofed in the middle of the request.
-  "requestPackageName": "com.package.name",
-  // Request hash provided by the developer.
-  "requestHash": "aGVsbG8gd29scmQgdGhlcmU",
-  // The timestamp in milliseconds when the integrity token
-  // was requested.
-  "timestampMillis": "1675655009345"
-}
-```
+    "requestDetails": {
+      // Application package name this attestation was requested for.
+      // Note that this field might be spoofed in the middle of the request.
+      "requestPackageName": "com.package.name",
+      // Request hash provided by the developer.
+      "requestHash": "aGVsbG8gd29scmQgdGhlcmU",
+      // The timestamp in milliseconds when the integrity token
+      // was requested.
+      "timestampMillis": "1675655009345"
+    }
 
 These values should match those of the original request. Therefore, verify the
 `requestDetails` part of the JSON payload by making sure that the
@@ -105,19 +101,17 @@ if (!requestPackageName.equals(expectedPackageName)
 
 For **classic** API requests:
 
-```json
-"requestDetails": {
-  // Application package name this attestation was requested for.
-  // Note that this field might be spoofed in the middle of the
-  // request.
-  "requestPackageName": "com.package.name",
-  // base64-encoded URL-safe no-wrap nonce provided by the developer.
-  "nonce": "aGVsbG8gd29scmQgdGhlcmU",
-  // The timestamp in milliseconds when the request was made
-  // (computed on the server).
-  "timestampMillis": "1617893780"
-}
-```
+    "requestDetails": {
+      // Application package name this attestation was requested for.
+      // Note that this field might be spoofed in the middle of the
+      // request.
+      "requestPackageName": "com.package.name",
+      // base64-encoded URL-safe no-wrap nonce provided by the developer.
+      "nonce": "aGVsbG8gd29scmQgdGhlcmU",
+      // The timestamp in milliseconds when the request was made
+      // (computed on the server).
+      "timestampMillis": "1617893780"
+    }
 
 These values should match those of the original request. Therefore, verify the
 `requestDetails` part of the JSON payload by making sure that the
@@ -174,12 +168,10 @@ represents the app's Google Play licensing status for the user account that's
 signed in on the device. If the user account has the Play license for the app,
 that means they downloaded it or bought it from Google Play.
 
-```json
-"accountDetails": {
-  // This field can be LICENSED, UNLICENSED, or UNEVALUATED.
-  "appLicensingVerdict": "LICENSED"
-}
-```
+    "accountDetails": {
+      // This field can be LICENSED, UNLICENSED, or UNEVALUATED.
+      "appLicensingVerdict": "LICENSED"
+    }
 
 `appLicensingVerdict` can have one of the following values:
 
@@ -236,21 +228,19 @@ if (appLicensingVerdict.equals("LICENSED")) {
 
 The `appIntegrity` field contains package-related information.
 
-```json
-"appIntegrity": {
-  // PLAY_RECOGNIZED, UNRECOGNIZED_VERSION, or UNEVALUATED.
-  "appRecognitionVerdict": "PLAY_RECOGNIZED",
-  // The package name of the app.
-  // This field is populated iff appRecognitionVerdict != UNEVALUATED.
-  "packageName": "com.package.name",
-  // The sha256 digest of app certificates (base64-encoded URL-safe).
-  // This field is populated iff appRecognitionVerdict != UNEVALUATED.
-  "certificateSha256Digest": ["6a6a1474b5cbbb2b1aa57e0bc3"],
-  // The version of the app.
-  // This field is populated iff appRecognitionVerdict != UNEVALUATED.
-  "versionCode": "42"
-}
-```
+    "appIntegrity": {
+      // PLAY_RECOGNIZED, UNRECOGNIZED_VERSION, or UNEVALUATED.
+      "appRecognitionVerdict": "PLAY_RECOGNIZED",
+      // The package name of the app.
+      // This field is populated iff appRecognitionVerdict != UNEVALUATED.
+      "packageName": "com.package.name",
+      // The sha256 digest of app certificates (base64-encoded URL-safe).
+      // This field is populated iff appRecognitionVerdict != UNEVALUATED.
+      "certificateSha256Digest": ["6a6a1474b5cbbb2b1aa57e0bc3"],
+      // The version of the app.
+      // This field is populated iff appRecognitionVerdict != UNEVALUATED.
+      "versionCode": "42"
+    }
 
 `appRecognitionVerdict` can have the following values:
 
@@ -304,12 +294,10 @@ The `deviceIntegrity` field can contain a single value,
 device can enforce app integrity. If a device does not meet the criteria of any
 labels, then the `deviceIntegrity` field omits `deviceRecognitionVerdict`.
 
-```json
-"deviceIntegrity": {
-  // "MEETS_DEVICE_INTEGRITY" is one of several possible values.
-  "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"]
-}
-```
+    "deviceIntegrity": {
+      // "MEETS_DEVICE_INTEGRITY" is one of several possible values.
+      "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"]
+    }
 
 By default, `deviceRecognitionVerdict` can contain the following:
 
@@ -415,38 +403,32 @@ running lower Android SDK versions as part of a
 with other device attributes.
 
 The SDK version value is the Android SDK version number defined in
-[`Build.VERSION_CODES`](https://developer.android.com/reference/android/os/Build.VERSION_CODES). The SDK
-version is not evaluated if a necessary requirement was missed. In this case,
-the `sdkVersion` field is unset; thus, the `deviceAttributes` field is empty.
+[`Build.VERSION_CODES`](https://developer.android.com/reference/android/os/Build.VERSION_CODES). The SDK version is not evaluated if a necessary
+requirement was missed. In this case, the `sdkVersion` field is unset; thus,
+the `deviceAttributes` field is empty.
 This could happen because:
 
 - The device is not trustworthy enough.
 - There were technical issues on the device.
 
-<br />
-
 If you opt in to receive `deviceAttributes`, the `deviceIntegrity` field
 will have the following extra field:
 
-```json
-"deviceIntegrity": {
-  "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
-  "deviceAttributes": {
-    // 33 is one possible value, which represents Android 13 (Tiramisu).
-    "sdkVersion": 33
-  }
-}
-```
+    "deviceIntegrity": {
+      "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
+      "deviceAttributes": {
+        // 33 is one possible value, which represents Android 13 (Tiramisu).
+        "sdkVersion": 33
+      }
+    }
 
 In case the SDK version is not evaluated, the `deviceAttributes` field will
 be set as the following:
 
-```json
-"deviceIntegrity": {
-  "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
-  "deviceAttributes": {}  // sdkVersion field is not set.
-}
-```
+    "deviceIntegrity": {
+      "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
+      "deviceAttributes": {}  // sdkVersion field is not set.
+    }
 
 #### Recent device activity
 
@@ -461,15 +443,13 @@ integrity token each hour.
 If you opt in to receive `recentDeviceActivity` the `deviceIntegrity` field
 will have two values:
 
-```json
-"deviceIntegrity": {
-  "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
-  "recentDeviceActivity": {
-    // "LEVEL_2" is one of several possible values.
-    "deviceActivityLevel": "LEVEL_2"
-  }
-}
-```
+    "deviceIntegrity": {
+      "deviceRecognitionVerdict": ["MEETS_DEVICE_INTEGRITY"],
+      "recentDeviceActivity": {
+        // "LEVEL_2" is one of several possible values.
+        "deviceActivityLevel": "LEVEL_2"
+      }
+    }
 
 The `deviceActivityLevel` definitions differ between modes and can have
 one of the following values:
@@ -487,13 +467,11 @@ one of the following values:
 
 #### Device recall (beta)
 
-You can also opt in to [device recall](https://developer.android.com/google/play/integrity/device-recall),
-which lets you store some custom, per-device data with specific devices that you
-can reliably retrieve when your app is installed again later on the same device.
-After requesting an integrity token, you make a separate server-to-server call
-to [modify device recall
-values](https://developer.android.com/google/play/integrity/device-recall#modify-recall) for a specific
-device.
+You can also opt in to [device recall](https://developer.android.com/google/play/integrity/device-recall), which lets you store some custom,
+per-device data with specific devices that you can reliably retrieve when your
+app is installed again later on the same device. After requesting an integrity
+token, you make a separate server-to-server call to [modify device recall
+values](https://developer.android.com/google/play/integrity/device-recall#modify-recall) for a specific device.
 
 If you opt in to `deviceRecall`, the `deviceIntegrity` field will contain the
 device recall information that you set for the specific device:
@@ -547,8 +525,7 @@ values, `appAccessRiskVerdict` and `playProtectVerdict`.
 #### App access risk verdict
 
 Once enabled, the `environmentDetails` field in the [Play Integrity API
-payload](https://developer.android.com/google/play/integrity/verdict#returned-payload-format) will contain
-the new app access risk verdict.
+payload](https://developer.android.com/google/play/integrity/verdict#returned-payload-format) will contain the new app access risk verdict.
 
     {
       "requestDetails": { ... },
@@ -572,8 +549,7 @@ following two groups depending on the install source of the detected apps:
 
 - **Play or system apps** : Apps that are installed by Google Play or preloaded
   by the device manufacturer on the device's system partition (identified with
-  [`FLAG_SYSTEM`](https://developer.android.com/reference/android/content/pm/ApplicationInfo#FLAG_SYSTEM)).
-  Responses for such apps are prefixed by `KNOWN_`.
+  [`FLAG_SYSTEM`](https://developer.android.com/reference/android/content/pm/ApplicationInfo#FLAG_SYSTEM)). Responses for such apps are prefixed by `KNOWN_`.
 
 - **Other apps** : Apps that are not installed by Google Play. This excludes
   apps preloaded on the system partition by the device manufacturer. Responses
@@ -646,35 +622,31 @@ apps running that could capture the screen or control your app:
 
 ### Kotlin
 
-```kotlin
-val environmentDetails =
-    JSONObject(payload).getJSONObject("environmentDetails")
-val appAccessRiskVerdict =
-    environmentDetails.getJSONObject("appAccessRiskVerdict")
+    val environmentDetails =
+        JSONObject(payload).getJSONObject("environmentDetails")
+    val appAccessRiskVerdict =
+        environmentDetails.getJSONObject("appAccessRiskVerdict")
 
-if (appAccessRiskVerdict.has("appsDetected")) {
-    val appsDetected = appAccessRiskVerdict.getJSONArray("appsDetected").toString()
-    if (!appsDetected.contains("CAPTURING") && !appsDetected.contains("CONTROLLING")) {
-        // Looks good!
+    if (appAccessRiskVerdict.has("appsDetected")) {
+        val appsDetected = appAccessRiskVerdict.getJSONArray("appsDetected").toString()
+        if (!appsDetected.contains("CAPTURING") && !appsDetected.contains("CONTROLLING")) {
+            // Looks good!
+        }
     }
-}
-```
 
 ### Java
 
-```java
-JSONObject environmentDetails =
-    new JSONObject(payload).getJSONObject("environmentDetails");
-JSONObject appAccessRiskVerdict =
-    environmentDetails.getJSONObject("appAccessRiskVerdict");
+    JSONObject environmentDetails =
+        new JSONObject(payload).getJSONObject("environmentDetails");
+    JSONObject appAccessRiskVerdict =
+        environmentDetails.getJSONObject("appAccessRiskVerdict");
 
-if (appAccessRiskVerdict.has("appsDetected")) {
-    String appsDetected = appAccessRiskVerdict.getJSONArray("appsDetected").toString()
-    if (!appsDetected.contains("CAPTURING") && !appsDetected.contains("CONTROLLING")) {
-        // Looks good!
+    if (appAccessRiskVerdict.has("appsDetected")) {
+        String appsDetected = appAccessRiskVerdict.getJSONArray("appsDetected").toString()
+        if (!appsDetected.contains("CAPTURING") && !appsDetected.contains("CONTROLLING")) {
+            // Looks good!
+        }
     }
-}
-```
 
 ##### Remediate app access risk verdicts
 
@@ -689,8 +661,7 @@ user to close all apps (known and unknown) causing the app access risk verdict.
 #### Play Protect verdict
 
 Once enabled, the `environmentDetails` field in the [Play Integrity API
-payload](https://developer.android.com/google/play/integrity/verdict#returned-payload-format) will contain
-the Play Protect verdict:
+payload](https://developer.android.com/google/play/integrity/verdict#returned-payload-format) will contain the Play Protect verdict:
 
     "environmentDetails": {
       "playProtectVerdict": "NO_ISSUES"

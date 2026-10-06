@@ -42,7 +42,7 @@ containing your watch log files:
 ## Use Android Studio or ADB
 
 If you don't have the watch paired with a phone, you can use
-[Android Studio's Device Explorer](https://developer.android.com/studio/device-explorer) to access the device.
+[Android Studio's Device Explorer](https://developer.android.com/studio/debug/device-file-explorer) to access the device.
 
 Within Android Studio Device Explorer, check out the path
 `/sdcard/Android/data/com.google.android.apps.location.gps.gnsslogger/files/gnss_log`

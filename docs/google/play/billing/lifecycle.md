@@ -100,7 +100,7 @@ need to build logic to confirm state transitions. All you need to do is define
 what happens when your backend receives each type of notification.
 
 > [!NOTE]
-> **Note:** For [pre-orders](https://developer.android.com/google/play/billing/multi-offer-one-time-product#pre-order), RTDN follows the same lifecycle as the one-time purchase.
+> **Note:** For [pre-orders](https://developer.android.com/google/play/billing/one-time-product-multi-purchase-options-offers#pre-order), RTDN follows the same lifecycle as the one-time purchase.
 
 See the following guides to learn more about these scenarios:
 

@@ -6,7 +6,7 @@ source: md.txt
 
 Google Play supports Android by providing cross-platform
 game services and distribution through the
-[Google Play Store](https://play.google.com/console/about/).
+[Google Play Store](https://google.play/business/).
 
 - [Google Play Games Services](https://developer.android.com/games/pgs/overview) is a set of gaming and
   distribution features that provide social engagement and multidevice support

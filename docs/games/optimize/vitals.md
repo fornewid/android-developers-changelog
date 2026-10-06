@@ -10,7 +10,7 @@ Android vitals helps Google improve the quality of Android apps on Google Play.
 When a user allows it, their Android-powered device tracks app quality metrics
 such as stability, performance, battery use, and permission issues. Google Play
 collects this data, which can be accessed through the [Android vitals
-dashboard](https://support.google.com/googleplay/android-developer/answer/9844486?visit_id=637804734146240317-4134883661&rd=1) in the [Play Console](https://play.google.com/console/about/), and through the [Google Play
+dashboard](https://support.google.com/googleplay/android-developer/answer/9844486?visit_id=637804734146240317-4134883661&rd=1) in the [Play Console](https://google.play/business/), and through the [Google Play
 Developer Reporting API](https://developers.google.com/play/developer/reporting).
 
 Developers should monitor Android vitals to improve the user experience,

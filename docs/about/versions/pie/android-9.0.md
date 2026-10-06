@@ -506,7 +506,7 @@ for the dialog, giving users more confidence that they're authenticating against
 a trusted biometric credential checker.
 
 If your app uses
-[`FingerprintManager`](https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager)
+`FingerprintManager`
 to display a fingerprint authentication dialog to users, switch to using
 [`BiometricPrompt`](https://developer.android.com/reference/android/hardware/biometrics/BiometricPrompt)
 instead. `BiometricPrompt` relies on the system to display the authentication

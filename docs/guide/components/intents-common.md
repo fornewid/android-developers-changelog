@@ -1420,14 +1420,14 @@ Google Voice Actions
 (Wear OS only)
 
 To call a taxi, use the
-[`ACTION_RESERVE_TAXI_RESERVATION`](https://developers.google.com/android/reference/com/google/android/gms/actions/ReserveIntents#ACTION_RESERVE_TAXI_RESERVATION)
+[`ACTION_RESERVE_TAXI_RESERVATION`](https://developers.google.com/android/reference/com/google/android/gms/actions/ReserveIntents#ACTION_RESERVE_TAXI_RESERVATION())
 action.
 
 **Note:** Apps must ask for confirmation from the user
 before completing this action.
 
 **Action**
-:   [`ACTION_RESERVE_TAXI_RESERVATION`](https://developer.android.com/android/reference/com/google/android/gms/actions/ReserveIntents#ACTION_RESERVE_TAXI_RESERVATION)
+:   [`ACTION_RESERVE_TAXI_RESERVATION`](https://developers.google.com/android/reference/com/google/android/gms/actions/ReserveIntents#ACTION_RESERVE_TAXI_RESERVATION())
 
 **Data URI**
 :   None
@@ -1923,13 +1923,13 @@ information in the following section.
 ### Create a note
 
 To create a new note, use the
-[`ACTION_CREATE_NOTE`](https://developers.google.com/android/reference/com/google/android/gms/actions/NoteIntents#ACTION_CREATE_NOTE) action and specify note details such as the subject and text using following extras.
+[`ACTION_CREATE_NOTE`](https://developers.google.com/android/reference/com/google/android/gms/actions/NoteIntents#ACTION_CREATE_NOTE()) action and specify note details such as the subject and text using following extras.
 
 **Note:** Apps must ask for confirmation from the user
 before completing this action.
 
 **Action**
-:   [`ACTION_CREATE_NOTE`](https://developers.google.com/android/reference/com/google/android/gms/actions/NoteIntents#ACTION_CREATE_NOTE)
+:   [`ACTION_CREATE_NOTE`](https://developers.google.com/android/reference/com/google/android/gms/actions/NoteIntents#ACTION_CREATE_NOTE())
 
 **Data URI Scheme**
 :   None
@@ -1941,8 +1941,8 @@ before completing this action.
 **Extras**
 :
 
-    [`EXTRA_NAME`](https://developers.google.com/android/reference/com/google/android/gms/actions/NoteIntents#EXTRA_NAME)
+    [`EXTRA_NAME`](https://developers.google.com/android/reference/com/google/android/gms/actions/NoteIntents#EXTRA_NAME())
     :   A string indicating the title or subject of the note.
 
-    [`EXTRA_TEXT`](https://developers.google.com/android/reference/com/google/android/gms/actions/NoteIntents#EXTRA_TEXT)
+    [`EXTRA_TEXT`](https://developers.google.com/android/reference/com/google/android/gms/actions/NoteIntents#EXTRA_TEXT())
     :   A string indicating the text of the note.

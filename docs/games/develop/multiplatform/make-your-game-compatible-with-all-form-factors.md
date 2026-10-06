@@ -69,7 +69,7 @@ For example, you can filter "Chromebook" in Android vitals to find out your cras
 
 ### Device catalog
 
-[Device catalog](https://play.google.com/console/about/devicecatalog/) is a useful tool for finding out compatible devices and unsupported devices for your game. Use the form factor filter to find out what devices are unsupported and why. After going to this device detail page, click **Show more** to check the exact reasons why your games aren't supported on certain devices, for example:
+[Device catalog](https://google.play/business/devicecatalog/) is a useful tool for finding out compatible devices and unsupported devices for your game. Use the form factor filter to find out what devices are unsupported and why. After going to this device detail page, click **Show more** to check the exact reasons why your games aren't supported on certain devices, for example:
 
 - Unsupported ABI
 - Unsupported features and permissions

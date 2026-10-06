@@ -44,4 +44,4 @@ passes this validation and receives program approval.
 ## FAQs
 
 For a comprehensive list of frequently asked questions, see the [Apps Experience
-Program marketing page](https://play.google.com/console/about/programs/appsexperience#faq).
+Program marketing page](https://google.play/business/programs/appsexperience#faq).

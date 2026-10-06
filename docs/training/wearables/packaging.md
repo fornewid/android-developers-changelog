@@ -146,7 +146,7 @@ Wear OS app using the [Play Console](https://play.google.com/console/). For more
 to the steps in [Prepare and stage a release](https://support.google.com/googleplay/android-developer/answer/9859348).
 
 If you are new to the Play Console, use the [Google Play Console overview](https://developer.android.com/distribute/console#manage) to
-get started, and use the Play Store [Launch Checklist](https://play.google.com/console/about/guides/releasewithconfidence/) to stay on track.
+get started, and use the Play Store [Launch Checklist](https://google.play/business/guides/releasewithconfidence/) to stay on track.
 
 ### Set up the Play Console for Wear OS
 

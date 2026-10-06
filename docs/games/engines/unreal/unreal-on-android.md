@@ -95,7 +95,7 @@ material complexity, optimizing texture resolution, boot time, and package size.
 ## Best practices
 
 We also have best practice articles around [art assets](https://developer.android.com/games/optimize/geometry), [identity](https://developer.android.com/games/distribute/pgs),
-[distribution](https://play.google.com/console/about/), and more that will help you as you navigate the
+[distribution](https://google.play/business/), and more that will help you as you navigate the
 Android ecosystem with Unreal Engine.
 
 ## 16 KB page support

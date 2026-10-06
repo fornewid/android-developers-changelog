@@ -23,11 +23,11 @@ Design and develop apps that provide an optimized user experience across all dev
 
 ### [Better together](http://developer.android.com/multidevice)
 
-Elevate your app experience to work better together across multiple devices. [Extend](http://developer.android.com/multidevice) [![](http://developer.android.com/static/images/picto-icons/play.svg)](https://play.google.com/console/about/guides/play-commerce/)
+Elevate your app experience to work better together across multiple devices. [Extend](http://developer.android.com/multidevice) [![](http://developer.android.com/static/images/picto-icons/play.svg)](https://google.play/business/guides/play-commerce/)
 
-### [Monetization](https://play.google.com/console/about/guides/play-commerce/)
+### [Monetization](https://google.play/business/guides/play-commerce/)
 
-Make money with subscriptions, financial transactions, and purchase flows with Google Play. [Earn](https://play.google.com/console/about/guides/play-commerce/) [![](http://developer.android.com/static/images/picto-icons/app-quality.svg)](http://developer.android.com/about/versions)
+Make money with subscriptions, financial transactions, and purchase flows with Google Play. [Earn](https://google.play/business/guides/play-commerce/) [![](http://developer.android.com/static/images/picto-icons/app-quality.svg)](http://developer.android.com/about/versions)
 
 ### [Android releases](http://developer.android.com/about/versions)
 
@@ -35,11 +35,11 @@ Explore the current Android release as well as legacy releases. [Update](http://
 
 ### [Support multiple devices](http://developer.android.com/multidevice-development)
 
-Android is built for everyone, everywhere, to give people more choice in device design, features, and overall value. Expand the user experience by supporting the widest range of devices and form factors. [Learn about multidevice development](http://developer.android.com/multidevice-development) [![](http://developer.android.com/static/images/cluster-illustrations/in-app-subscriptions.svg)](https://play.google.com/console/about/guides/monetize/)
+Android is built for everyone, everywhere, to give people more choice in device design, features, and overall value. Expand the user experience by supporting the widest range of devices and form factors. [Learn about multidevice development](http://developer.android.com/multidevice-development) [![](http://developer.android.com/static/images/cluster-illustrations/in-app-subscriptions.svg)](https://google.play/business/guides/play-commerce/)
 
-### [Monetize with Google Play](https://play.google.com/console/about/guides/monetize/)
+### [Monetize with Google Play](https://google.play/business/guides/play-commerce/)
 
-Integrate a billing system into your app using Google Play. Google play offers a variety of features and support to help you make money with your app in a global market. [Google Play Billing](https://play.google.com/console/about/guides/monetize/) [![](http://developer.android.com/static/images/hero-illustrations/android-ai-tools-hero.svg)](http://developer.android.com/ai)
+Integrate a billing system into your app using Google Play. Google play offers a variety of features and support to help you make money with your app in a global market. [Google Play Billing](https://google.play/business/guides/play-commerce/) [![](http://developer.android.com/static/images/hero-illustrations/android-ai-tools-hero.svg)](http://developer.android.com/ai)
 
 ### [AI on Android](http://developer.android.com/ai)
 

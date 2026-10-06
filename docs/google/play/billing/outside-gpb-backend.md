@@ -340,7 +340,7 @@ supported.
 ### Requirements for Play partner programs
 
 Developers participating in partner programs such as the [Play Media Experience
-Program](https://play.google.com/console/about/programs/mediaprogram/) must provide the
+Program](https://google.play/business/programs/mediaprogram/) must provide the
 [`transaction_program_code`](https://developers.google.com/android-publisher/api-ref/rest/v3/externaltransactions) when reporting external
 transactions. If you are an eligible developer, contact your Business
 Development Manager for more information on how to set this field.

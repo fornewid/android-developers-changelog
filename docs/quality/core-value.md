@@ -64,14 +64,14 @@ If you distribute on Google Play, follow these additional core-value guidelines.
 
 ### Tools to monitor and improve core value
 
-Use [Play Console](https://play.google.com/console/about/) to optimize and
+Use [Play Console](https://google.play/business/) to optimize and
 localize your
-[store assets](https://play.google.com/console/about/storelistings/),
-monitor your [user metrics](https://play.google.com/console/about/stats/),
+[store assets](https://google.play/business/storelistings/),
+monitor your [user metrics](https://google.play/business/stats/),
 and compare with
 [your peers](https://support.google.com/googleplay/android-developer/answer/10771707).
 
-Making improvements to your app that improve your [ratings and reviews](https://play.google.com/console/about/ratings/) is
+Making improvements to your app that improve your [ratings and reviews](https://google.play/business/ratings/) is
 a great way to improve core value and make your app more attractive to users.
 
 ### Discovery and featuring

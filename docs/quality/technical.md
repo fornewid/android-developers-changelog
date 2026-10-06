@@ -52,7 +52,7 @@ If you distribute on Google Play, follow these additional stability guidelines.
 
 **Tools to monitor and improve stability**
 Use Android vitals in [Play
-Console](https://play.google.com/console/about/vitals/) or the [reporting
+Console](https://google.play/business/vitals/) or the [reporting
 API](https://developers.google.com/play/developer/reporting) to monitor the
 stability metrics that matter most to users and Google Play. Android vitals
 reports user-perceived crash rate and user-perceived ANR rate daily for all apps
@@ -150,7 +150,7 @@ guidelines.
 
 **Tools to monitor and improve performance**
 Use Android vitals in [Play
-Console](https://play.google.com/console/about/vitals/) or the [reporting API](https://developers.google.com/play/developer/reporting) to monitor the
+Console](https://google.play/business/vitals/) or the [reporting API](https://developers.google.com/play/developer/reporting) to monitor the
 performance metrics that matter most to users and Google Play. Android vitals
 reports startup time, loading time and rendering metrics daily for all apps and
 games. It also helps you compare your metrics to your peers, and alerts you if
@@ -207,7 +207,7 @@ If you distribute on Google Play, follow these additional app size guidelines.
 
 **Tools to monitor and optimize app size**
 Use Android vitals in [Play
-Console](https://play.google.com/console/about/vitals/) to monitor your app
+Console](https://google.play/business/vitals/) to monitor your app
 size. Android vitals allows you to compare your app size to your peers, and
 helps you understand how many devices in your user base are running low on
 storage. Keep in mind that Google Play proactively helps users free up device
@@ -265,10 +265,10 @@ ensuring healthy releases.
 
 **Tools to monitor and improve release quality**
 Play Console provides many features to help you
-[release with confidence](https://play.google.com/console/about/guides/releasewithconfidence/),
+[release with confidence](https://google.play/business/guides/releasewithconfidence/),
 and Android vitals reports hourly metrics for apps and games if there's
 sufficient data, both in [Play
-Console](https://play.google.com/console/about/vitals/) and the [reporting
+Console](https://google.play/business/vitals/) and the [reporting
 API](https://developers.google.com/play/developer/reporting).
 
 **Discovery and featuring**

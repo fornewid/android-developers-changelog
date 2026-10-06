@@ -29,7 +29,7 @@ The following exemptions apply for this guideline:
 
 | ID | Guideline |
 |---|---|
-| AEP-PC-EAA | Apps that don't meet the Google Play [Premium growth tools](https://play.google.com/console/about/guides/premium-growth-tools/) eligibility criteria. |
+| AEP-PC-EAA | Apps that don't meet the Google Play [Premium growth tools](https://google.play/business/guides/premium-growth-tools/) eligibility criteria. |
 | AEP-PC-EAB | Apps that don't produce material in-app content, events, and promotions, such as tools, utilities, weather, or navigation. |
 | AEP-PC-EAC | Apps intended for messaging, communications, chat, or live streaming. |
 
@@ -39,6 +39,6 @@ The following resources provide implementation guidance and technical details on
 **Play Content**. These resources are for your reference only and don't contain
 additional program requirements.
 
-- [Google Play's Premium Growth Tools](https://play.google.com/console/about/guides/premium-growth-tools/)
+- [Google Play's Premium Growth Tools](https://google.play/business/guides/premium-growth-tools/)
 - [Showcase your app with YouTube videos on Google Play](https://support.google.com/googleplay/android-developer/answer/15501235)
 - [Promo Content Overview](https://support.google.com/googleplay/android-developer/topic/12932623)

@@ -273,7 +273,7 @@ of Sidekick at any time through the user settings in the
 Play Store app.
 
 Games that promote a release with Sidekick satisfy the [Level Up
-guidelines](https://play.google.com/console/about/levelup/#user-experience-guidelines).
+guidelines](https://google.play/business/levelup/#user-experience-guidelines).
 
 ## Give feedback
 

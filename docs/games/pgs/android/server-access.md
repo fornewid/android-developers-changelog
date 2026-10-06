@@ -42,7 +42,7 @@ If you want to use the
 [REST APIs for Google Play Games services](https://developer.android.com/games/services/web/api/rest)
 in your server-side app, follow these steps:
 
-1. In the [Google Play Console](https://play.google.com/console/about/), select a game.
+1. In the [Google Play Console](https://google.play/business/), select a game.
 2. Go to **Play Games Services \> Setup and management \> Configuration**.
 3. Select *Add credential* to be brought to the *Add credential page* . Select *Game server* as the credential type and continue onto the *Authorization* section.
    1. If your game server already has an OAuth client ID select it from the drop down menu. After saving your changes, move onto [the next section](https://developer.android.com/games/pgs/android/server-access#get_the_server_auth_code).

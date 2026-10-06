@@ -28,7 +28,7 @@ Before getting started, make a copy of your iOS app. iOS apps are broken down
 into three areas: Bars, Views, and Controls. You can use this structure to work
 through to translation, with styling last.
 
-Check out [parts of an Android app](https://developer.android.com/guides/layout-and-content/app-anatomy).
+Check out [parts of an Android app](https://developer.android.com/design/ui/mobile/guides/layout-and-content/app-anatomy).
 
 ### 1. Delete the iOS system UI
 
@@ -40,7 +40,7 @@ Delete the status bar and home indicator. It's simpler to do this now.
 
 You can use Android compact sizing, 412 dp. Although, consider a range of
 devices even within a window class size. For example, test at 360 dp, to
-accommodate smaller screens, and adapt across all [window classes sizes](https://developer.android.com/guides/layout-and-content/adapt-layout).
+accommodate smaller screens, and adapt across all [window classes sizes](https://developer.android.com/design/ui/mobile/guides/layout-and-content/adapt-layout).
 
 ![Frame resized](https://developer.android.com/static/images/design/ui/mobile/platform-translate_02.png)
 
@@ -51,7 +51,7 @@ showing a stock system UI can help give your designs more context. Place the
 notification bar at the top and either a gesture navigation or three button
 navigation bar at the bottom.
 
-For more information, see [Android system bars](https://developer.android.com/guides/foundations/system-bars).
+For more information, see [Android system bars](https://developer.android.com/design/ui/mobile/guides/foundations/system-bars).
 
 ![Frame resized](https://developer.android.com/static/images/design/ui/mobile/platform-translate_03.png)
 
@@ -142,7 +142,7 @@ Depending how you have constraints or resizing behavior setup, most of your
 content possibly resized already. But take this time to go through and set your
 margins. 16dp is a good standard on small screens.
 
-The baseline [grid](https://developer.android.com/guides/layout-and-content/grids-and-units) is based on an 8dp grid for components and 4dp for type
+The baseline [grid](https://developer.android.com/design/ui/mobile/guides/layout-and-content/grids-and-units) is based on an 8dp grid for components and 4dp for type
 and icons. An 8pt grid functions well on iOS, so possibly consider it as a
 starting point for both platforms.
 
@@ -163,7 +163,7 @@ with options like outline or filled, so pick which one fits your branding best.
 ### 9. Style
 
 **Color:** UI color consists of accent, semantic, and surface colors assembled
-in a [color scheme](https://developer.android.com/guides/styles/color#color-scheme). These colors are applied to UI by their roles.
+in a [color scheme](https://developer.android.com/design/ui/mobile/guides/styles/color#color-scheme). These colors are applied to UI by their roles.
 
 **Type:** If using a system font, replace San Francisco. Roboto is the default
 system font for Android. That said, we encourage you to express your brand's

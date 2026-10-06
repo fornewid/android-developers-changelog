@@ -28,7 +28,7 @@ screen sizes and form factors.
 For more information, see the guidance on
 [adapting your layout](https://developer.android.com/design/ui/mobile/guides/layout-and-content/adapt-layout)
 and
-[canonical layouts](https://developer.android.com/design/ui/mobile/guides/layout-and-content/canonical-layouts).
+[canonical layouts](https://developer.android.com/design/ui/mobile/guides/layout-and-content/common-layouts).
 ![](https://developer.android.com/static/images/design/ui/mobile/layout-basics-orientation.webp) **Device safe areas**
 
 

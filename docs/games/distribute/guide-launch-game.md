@@ -119,7 +119,7 @@ channels to offer feedback, such as in-app feedback forms or community forums.
 
 ### Comply with Google Play Store guidelines
 
-The [Google Play Store reviews](https://play.google.com/console/about/reviews/)
+The [Google Play Store reviews](https://google.play/business/reviews/)
 various policies during the app approval process. Violations can trigger app
 rejection or removal. Thoroughly follow store policies to prevent issues during
 the review process. Specifically, check the content policy for standards on

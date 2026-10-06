@@ -12,7 +12,7 @@ ending on November 24, 2025.
 For more robust and granular information to help you make better decisions
 about which specs to build for, where to launch, and what to test, we recommend
 using [Reach and
-devices](https://play.google.com/console/about/reachanddevices/) in the [Google Play
+devices](https://google.play/business/reachanddevices/) in the [Google Play
 Console](https://developer.android.com/static/distribute/console).
 
 With *Reach and devices*, all developers have access to the following:
@@ -22,7 +22,7 @@ With *Reach and devices*, all developers have access to the following:
 - Historical trends.
 - CSV exports.
 
-<iframe src="https://android.devsite.google/frame/about/dashboards/index_02e184687feaa6a89542c6d2c17eb4af5ffa30a5c35fd533be86b52c93031519.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+<iframe src="https://android.devsite.google/frame/about/dashboards/index_cd6b31236d9344a24d4aae13877c673e21af6b9e18fb0565f02e0a32f89a1c94.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
 
 ## Vulkan version
 
@@ -66,7 +66,7 @@ during a 28-day period ending on November 24, 2025.*
 
 For more robust and granular Vulkan distribution data, use
 [Reach and
-devices](https://play.google.com/console/about/reachanddevices/) in the Google Play Console.
+devices](https://google.play/business/reachanddevices/) in the Google Play Console.
 
 ## OpenGL ES version
 
@@ -101,7 +101,7 @@ For all devices:
 
 For more robust and granular OpenGL ES distribution data, use
 [Reach and
-devices](https://play.google.com/console/about/reachanddevices/) in the Google Play Console.
+devices](https://google.play/business/reachanddevices/) in the Google Play Console.
 
 ## Android Vulkan Profiles
 

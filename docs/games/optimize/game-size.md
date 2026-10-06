@@ -66,7 +66,7 @@ assets, perform the following steps:
 
 This section describes how to reduce the size of files in an APK. You can use
 the
-[App Bundle Explorer](https://play.google.com/console/about/app-bundle-explorer/)
+[App Bundle Explorer](https://google.play/business/app-bundle-explorer/)
 to download device-specific APKs.
 
 > [!NOTE]

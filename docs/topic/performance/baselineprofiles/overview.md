@@ -312,9 +312,9 @@ ongoing developments for workarounds:
   channels don't see the benefits until background dexopt runs---which is
   likely overnight.
 
-- [Play Store internal app sharing](https://play.google.com/console/about/internalappsharing/)
+- [Play Store internal app sharing](https://google.play/business/internalappsharing/)
   doesn't support Baseline Profiles; however, the
-  [internal testing track](https://play.google.com/console/about/internal-testing/)
+  [internal testing track](https://google.play/business/internal-testing/)
   does.
 
 - Battery optimizations on some devices, such as Huawei devices, can interfere

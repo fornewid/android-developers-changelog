@@ -30,7 +30,7 @@ void drawSquare(int sideLength) { }
 
 void drawSquare(int sideLength, int thickness) { }
 
-void drawSquare(int sideLength, int thickness, Color edgeColor)java
+void drawSquare(int sideLength, int thickness, Color edgeColor) { }
 ```
 
 In Kotlin, you can write a single function and specify the default values for
@@ -75,7 +75,7 @@ So, for example, you might create a simple text element like this:
 
 
 ```kotlin
-Text(text = "Hello, Andronippets.kt
+Text(text = "Hello, Android!")
 ```
 
 <br />
@@ -90,7 +90,8 @@ Text(
     color = Color.Unspecified,
     fontSize = TextUnit.Unspecified,
     letterSpacing = TextUnit.Unspecified,
-    overflow = TextOverfnippets.kt
+    overflow = TextOverflow.Clip
+)
 ```
 
 <br />
@@ -164,9 +165,9 @@ Column(
     content = {
         Text("Some text")
         Text("Some more text")
-        Text(uot;)
+        Text("Last text")
     }
-)KotlinSnippets.kt
+)
 ```
 
 <br />
@@ -180,8 +181,8 @@ parentheses:
 Column(modifier = Modifier.padding(16.dp)) {
     Text("Some text")
     Text("Some more text")
-   text")
-}KotlinSnippets.kt
+    Text("Last text")
+}
 ```
 
 <br />
@@ -200,8 +201,8 @@ this:
 Column {
     Text("Some text")
     Text("Some more text")
-   text")
-}KotlinSnippets.kt
+    Text("Last text")
+}
 ```
 
 <br />
@@ -231,7 +232,9 @@ Row {
         // Alignment.CenterVertically but not to
         // Alignment.CenterHorizontally, which would be available
         // in a ColumnScope.
-        modifier = Modifier.align(Alignment.CenterVerticallnippets.kt
+        modifier = Modifier.align(Alignment.CenterVertically)
+    )
+}
 ```
 
 <br />
@@ -283,7 +286,7 @@ Other code can access the property with code like this:
 
 ```kotlin
 val myDC = DelegatingClass()
-println("The name property is: " + nippets.kt
+println("The name property is: " + myDC.name)
 ```
 
 <br />
@@ -329,7 +332,7 @@ val mary = Person(name = "Mary", age = 35)
 
 // ...
 
-val (name, anippets.kt
+val (name, age) = mary
 ```
 
 <br />
@@ -386,9 +389,11 @@ fun MessageList(messages: List<Message>) {
         }
 
         // Add list of messages
-        items(messages) {> message -
+        items(messages) { message ->
             Message(message)
-       nippets.kt
+        }
+    }
+}
 ```
 
 <br />
@@ -456,7 +461,7 @@ Button(
             viewModel.loadData()
         }
     }
-) { /* ... s.kt
+) { /* ... */ }
 ```
 
 <br />
@@ -487,7 +492,7 @@ Button( // ...
             viewModel.loadData()
         }
     }
-) { /* ... s.kt
+) { /* ... */ }
 ```
 
 <br />
@@ -542,7 +547,8 @@ fun MoveBoxWhereTapped() {
                 }
                 .size(40.dp)
                 .background(Color(0xff3c1361), CircleShape)
-     nippets.kt
+        )
+    }
 ```
 
 <br />

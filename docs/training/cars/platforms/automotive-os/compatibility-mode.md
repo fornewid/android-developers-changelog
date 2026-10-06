@@ -95,4 +95,4 @@ images.
 Devices that support the Android Automotive OS compatibility mode must declare
 the `android.software.car.display_compatibility` system feature. To discover
 which devices support this feature, you can use the Play Console's
-[Device catalog](https://play.google.com/console/about/devicecatalog).
+[Device catalog](https://google.play/business/devicecatalog).

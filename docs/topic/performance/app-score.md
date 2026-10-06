@@ -133,7 +133,7 @@ score will still benefit your users.
 
 The App Performance Score is a quick, high-level way to assess app performance.
 To get more detailed performance insights, consider exploring other data sources
-such as [Android Vitals](https://play.google.com/console/about/vitals/),
+such as [Android Vitals](https://google.play/business/vitals/),
 [Firebase Performance Monitoring](https://firebase.google.com/docs/perf-mon),
 and [benchmarks](https://developer.android.com/topic/performance/benchmarking/benchmarking-overview).
 

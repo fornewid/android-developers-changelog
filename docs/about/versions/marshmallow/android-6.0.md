@@ -38,8 +38,8 @@ supported devices, Use these APIs in conjunction with
 the [Android Keystore system](https://developer.android.com/training/articles/keystore).
 
 To authenticate users via fingerprint scan, get an instance of the new
-`https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager` class and call the
-`https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager#authenticate(android.hardware.fingerprint.FingerprintManager.CryptoObject, android.os.CancellationSignal, int, android.hardware.fingerprint.FingerprintManager.AuthenticationCallback, android.os.Handler)`
+`FingerprintManager` class and call the
+`authenticate()`
 method. Your app must be running on a compatible
 device with a fingerprint sensor. You must implement the user interface for the fingerprint
 authentication flow on your app, and use the standard Android fingerprint icon in your UI.

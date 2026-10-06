@@ -52,7 +52,7 @@ from Unity, and the
 
 In the develop and test phase, you build your game and do testing and
 pre-launch preparation. You do some limited [internal
-testing](https://play.google.com/console/about/internal-testing/) on Google Play
+testing](https://google.play/business/internal-testing/) on Google Play
 to prepare you to meet launch requirements. You refine your
 deployment strategy and organize assets in Unity based on the
 [Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery)

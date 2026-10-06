@@ -69,9 +69,9 @@ Learn more: [Play Games Sidekick (beta)](https://developer.android.com/games/pgs
 
 Announcement Google Play Games Level Up is a program to recognize and reward great gaming experiences across Google Play, providing you with powerful tools and promotional opportunities to drive business growth for your game.
 
-Learn more: [Google Play Games \| Level Up](https://play.google.com/console/about/levelup/)
+Learn more: [Google Play Games \| Level Up](https://google.play/business/levelup/)
 
-Google Play Games Level Up+ is a program where you receive all the benefits outlined on the [Google Play Games Level Up](https://play.google.com/console/about/levelup/) page and in addition you get exclusive premium benefits.
+Google Play Games Level Up+ is a program where you receive all the benefits outlined on the [Google Play Games Level Up](https://google.play/business/levelup/) page and in addition you get exclusive premium benefits.
 
 Learn more: [Google Play Games \| Level Up+](https://support.google.com/googleplay/android-developer/answer/16501431)
 

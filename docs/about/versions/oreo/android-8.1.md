@@ -320,7 +320,7 @@ to retrieve the primary colors of a wallpaper.
 
 ## Fingerprint updates
 
-The `https://developer.android.com/reference/android/hardware/fingerprint/FingerprintManager` class has
+The `FingerprintManager` class has
 introduced the following error codes:
 
 - `FINGERPRINT_ERROR_LOCKOUT_PERMANENT` -- The user has tried too many times to unlock their device using the fingerprint reader.

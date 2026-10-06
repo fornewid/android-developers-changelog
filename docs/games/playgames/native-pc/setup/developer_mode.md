@@ -70,7 +70,7 @@ that has joined your game's internal testing group. Internal testers will have
 access to your game before release which is required for some SDK APIs to
 function. For example, completing a purchase with Play Billing. You may manage
 your app's internal testers inside of the
-[Play Console](https://play.google.com/console/about/internal-testing/).
+[Play Console](https://google.play/business/internal-testing/).
 
 ## Next steps
 

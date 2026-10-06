@@ -24,7 +24,7 @@ effect, ensuring you have sufficient time to implement required changes.
 
 This page describes the user experience guidelines. To know more about the
 Level Up program and benefits, visit the
-[Google Play Games \| Level Up program page](https://play.google.com/console/about/levelup).
+[Google Play Games \| Level Up program page](https://google.play/business/levelup).
 
 ## User experience guidelines
 

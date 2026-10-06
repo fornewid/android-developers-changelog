@@ -20,7 +20,7 @@ Social media (excluding live-streams, chat apps, avatar generators, and dating a
 The primary purpose is text-based communication between users who have manually shared contact information, rather than communicating to facilitate another app user journey (e.g. transactions, gaming, matching, business workflows).
 Yes No Question 4 Does the app meet the Play Premium growth tools eligibility criteria?
 
-[Read more about Play Premium growth tools eligibility criteria](https://play.google.com/console/about/guides/premium-growth-tools/)
+[Read more about Play Premium growth tools eligibility criteria](https://google.play/business/guides/premium-growth-tools/)
 Yes No Question 5 Does the app support a signed-in experience?
 
 Select Yes if the app supports an account sign-in. Select No if the app is entirely anonymous without accounts.

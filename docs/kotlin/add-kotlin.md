@@ -13,7 +13,7 @@ If you're starting a new project and want to use Kotlin, see
 [Create a project](https://developer.android.com/studio/projects/create-project).
 
 For samples, check out our
-[Kotlin code samples](https://developer.android.com/samples/index?language=kotlin).
+[Kotlin code samples](https://developer.android.com/samples?language=kotlin).
 
 ## Add Kotlin to an existing project
 
@@ -126,7 +126,7 @@ By default, new Kotlin files are saved in `src/main/java/`, which makes it easy
 to see both Kotlin and Java files in one location. If you'd prefer to separate
 your Kotlin files from your Java files, you can put Kotlin files under
 `src/main/kotlin/` instead. If you do this, then you also need to include this
-directory in your [`sourceSets`](https://developer.android.com/studio/build#sourcesets)
+directory in your [`sourceSets`](https://developer.android.com/build#sourcesets)
 configuration, as shown below:
 
 ### Groovy
@@ -250,7 +250,7 @@ follow up and adjust the converted code as needed.
 ## More information
 
 For more information about using both Kotlin and Java code in your project, see
-[Calling Java code from Kotlin](https://kotlinlang.org/docs/reference/java-interop.html).
+[Calling Java code from Kotlin](https://kotlinlang.org/docs/java-interop.html).
 
 For more information about using Kotlin in enterprise scenarios, see
 [Adopting Kotlin for large teams](https://developer.android.com/kotlin/adopt-for-large-teams).

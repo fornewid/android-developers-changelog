@@ -159,11 +159,11 @@ the submission would be rejected.
 
 | Track type | Form factor review |
 |---|---|
-| [Internal sharing](https://play.google.com/console/about/internalappsharing/) *(Android Auto only)* | None |
-| [Internal testing](https://play.google.com/console/about/internal-testing/) | None |
-| [Closed testing](https://play.google.com/console/about/closed-testing/) | Non-blocking |
-| [Open testing](https://play.google.com/console/about/opentesting/) | Blocking |
-| [Production](https://play.google.com/console/about/production/) | Blocking |
+| [Internal sharing](https://google.play/business/internalappsharing/) *(Android Auto only)* | None |
+| [Internal testing](https://google.play/business/internal-testing/) | None |
+| [Closed testing](https://google.play/business/closed-testing/) | Non-blocking |
+| [Open testing](https://google.play/business/opentesting/) | Blocking |
+| [Production](https://google.play/business/production/) | Blocking |
 
 When the review is complete, you receive an email sent to your developer account
 address that lets you know whether your app was approved or rejected. If your

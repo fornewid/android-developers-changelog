@@ -628,6 +628,71 @@ private fun DrawScope.drawSquares() {
     )
 }
 
+@Preview
+@Composable
+fun ModifierGraphicsLayerOutsets() {
+    Column(
+        modifier = Modifier
+            .background(Color(0xFF0A0E14))
+            .padding(48.dp),
+        verticalArrangement = Arrangement.spacedBy(48.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        val pillShape = RoundedCornerShape(percent = 50)
+
+        // Without outsets: alpha = 0.5f creates an offscreen buffer that clips the 24.dp glow
+        Box(
+            modifier = Modifier
+                .size(
+                    width = 140.dp,
+                    height = 56.dp
+                )
+                .graphicsLayer(
+                    alpha = 0.5f,
+                    clip = false
+                )
+                .dropShadow(
+                    shape = pillShape,
+                    shadow = Shadow(radius = 24.dp, color = Color.Cyan)
+                )
+                .background(color = Color(0xFF141824), shape = pillShape),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = "✨ Glow",
+                color = Color.White,
+                fontSize = 18.sp
+            )
+        }
+
+        Box(
+            modifier = Modifier
+                .size(
+                    width = 140.dp,
+                    height = 56.dp
+                )
+                .graphicsLayer(
+                    alpha = 0.5f,
+                    outsets = LayerOutsets(24.dp),
+                    clip = false
+                )
+                .dropShadow(
+                    shape = pillShape,
+                    shadow = Shadow(radius = 24.dp, color = Color.Cyan)
+                )
+                .background(color = Color(0xFF141824), shape = pillShape),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = "✨ Glow",
+                color = Color.White,
+                fontSize = 18.sp
+            )
+        }
+    }
+}
+
+
 val Purple = Color(0xFF7E57C2)
 val Yellow = Color(0xFFFFCA28)
 val Red = Color(0xFFEF5350)

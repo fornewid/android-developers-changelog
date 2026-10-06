@@ -371,7 +371,7 @@ you must add a query to the package "`com.android.vending`" in your
 
 You cannot install a game on the consumer client until it has been listed in the
 Play Games Services catalog. After your game has a single release, you
-can create an [internal test track](https://play.google.com/console/about/internal-testing/) validate future updates
+can create an [internal test track](https://google.play/business/internal-testing/) validate future updates
 before release.
 
 The player client doesn't support the developer focused features of the

@@ -46,7 +46,7 @@ For more information, see [Verify and maintain deep links](https://support.googl
 
 ### How to access the tool?
 
-Visit here: <https://play.google.com/console/about/deeplinks/>
+Visit here: <https://google.play/business/deeplinks/>
 
 ## Flutter Deep Link Validator
 

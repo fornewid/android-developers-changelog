@@ -1,0 +1,22 @@
+---
+title: Android Developers
+url: https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/drawable/sample_edit_icon.xml.rawcontent
+source: html-scrape
+---
+
+Stay organized with collections
+
+Save and categorize content based on your preferences.
+
+
+
+
+
+```
+<vector android:height="24dp" android:tint="#000000"
+    android:viewportHeight="24" android:viewportWidth="24"
+    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="@android:color/white" android:pathData="M3,17.25l0,3.75l3.75,0l11.06,-11.06l-3.75,-3.75z"/>
+    <path android:fillColor="@android:color/white" android:pathData="M20.71,5.63l-2.34,-2.34c-0.39,-0.39 -1.02,-0.39 -1.41,0l-1.83,1.83l3.75,3.75l1.83,-1.83C21.1,6.65 21.1,6.02 20.71,5.63z"/>
+</vector>
+```
