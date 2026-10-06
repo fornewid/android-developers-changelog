@@ -1,0 +1,22 @@
+diff --git a/docs/quality/user-experience.md b/docs/quality/user-experience.md
+index 8bf82a73..b14361df 100644
+--- a/docs/quality/user-experience.md
++++ b/docs/quality/user-experience.md
+@@ -43,7 +43,7 @@ experience such as [notifications](https://developer.android.com/develop/ui/view
+ With billions of potential users, your app or game may need to support a diverse
+ range of users and environments.
+ 
+-[Localize](https://play.google.com/console/about/translationservices/) your app or game for the markets you distribute in, providing
++[Localize](https://google.play/business/translationservices/) your app or game for the markets you distribute in, providing
+ high-quality translations, culturally and geographically relevant content, and
+ appropriate measurements, metrics, and currencies.
+ 
+@@ -102,7 +102,7 @@ guidelines.
+ ### Monetization
+ 
+ Google Play lets you generate revenue from users in a range of ways including
+-[subscriptions and in-app purchases](https://play.google.com/console/about/guides/play-commerce/).
++[subscriptions and in-app purchases](https://google.play/business/guides/play-commerce/).
+ 
+ ### Discovery and featuring
+ 

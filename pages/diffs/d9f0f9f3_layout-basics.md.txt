@@ -1,0 +1,13 @@
+diff --git a/docs/design/ui/mobile/guides/layout-and-content/layout-basics.md b/docs/design/ui/mobile/guides/layout-and-content/layout-basics.md
+index 37e0ce75..ada4620f 100644
+--- a/docs/design/ui/mobile/guides/layout-and-content/layout-basics.md
++++ b/docs/design/ui/mobile/guides/layout-and-content/layout-basics.md
+@@ -28,7 +28,7 @@ screen sizes and form factors.
+ For more information, see the guidance on
+ [adapting your layout](https://developer.android.com/design/ui/mobile/guides/layout-and-content/adapt-layout)
+ and
+-[canonical layouts](https://developer.android.com/design/ui/mobile/guides/layout-and-content/canonical-layouts).
++[canonical layouts](https://developer.android.com/design/ui/mobile/guides/layout-and-content/common-layouts).
+ ![](https://developer.android.com/static/images/design/ui/mobile/layout-basics-orientation.webp) **Device safe areas**
+ 
+ 

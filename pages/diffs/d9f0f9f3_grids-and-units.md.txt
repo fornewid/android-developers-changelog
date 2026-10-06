@@ -1,0 +1,31 @@
+diff --git a/docs/design/ui/mobile/guides/layout-and-content/grids-and-units.md b/docs/design/ui/mobile/guides/layout-and-content/grids-and-units.md
+index 2dcb9c85..7cce9c36 100644
+--- a/docs/design/ui/mobile/guides/layout-and-content/grids-and-units.md
++++ b/docs/design/ui/mobile/guides/layout-and-content/grids-and-units.md
+@@ -26,7 +26,7 @@ Android devices.
+ The primary difference between these units of measurement is that scalable
+ pixels preserve a user's font settings. Users who have larger text settings for
+ accessibility see font sizes match their text size preferences. See how to
+-[change font size](https://developer.android.com/jetpack/compose/text#changing-size) in Compose.
++[change font size](https://developer.android.com/develop/ui/compose/text/style-text#change-size) in Compose.
+ 
+ Android uses these units to help scale and translate across the range of
+ devices and resolutions.
+@@ -56,7 +56,7 @@ dp = (width in pixels \* 160) / screen density
+ Building with an underlying grid helps create consistent spacing and alignment
+ across your UI. Android UI utilizes an 8 dp grid for layout, components, and
+ spacing.
+-Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/images/XXXXX) and watch it with a video player. Showing an 8 dp grid highlighting 8 dp increments
++Alas, your browser doesn't support HTML5 video. That's OK! You can still [download the video](https://developer.android.com/static/images/design/ui/mobile/grids-and-units-plants.mp4) and watch it with a video player. Showing an 8 dp grid highlighting 8 dp increments
+ 
+ Smaller elements such as icons, type, and some elements within components are
+ best aligned to a 4 dp grid.
+@@ -111,7 +111,7 @@ scale.
+ Window size classes are a set of opinionated viewport breakpoints that help you
+ design, develop, and test responsive and adaptive application layouts. Android
+ breaks window size classes into 3: Compact, Medium, and Expanded. Read more on
+-[Window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes).
++[Window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes).
+ 
+ ### Aspect ratios
+ 

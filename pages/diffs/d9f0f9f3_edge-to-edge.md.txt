@@ -1,0 +1,39 @@
+diff --git a/docs/design/ui/mobile/guides/layout-and-content/edge-to-edge.md b/docs/design/ui/mobile/guides/layout-and-content/edge-to-edge.md
+index b12667ea..ce009e07 100644
+--- a/docs/design/ui/mobile/guides/layout-and-content/edge-to-edge.md
++++ b/docs/design/ui/mobile/guides/layout-and-content/edge-to-edge.md
+@@ -38,7 +38,7 @@ immersive experience.
+ An app can address overlaps in content by reacting to *insets* . Insets describe
+ how much the content of your app needs to be padded to avoid overlapping with
+ system bars or with physical device features such as [display cutouts](https://developer.android.com/develop/ui/views/layout/display-cutout). Read
+-about how to support edge-to-edge and handle insets in [Compose](https://developer.android.com/develop/ui/compose/layouts/insets) and
++about how to support edge-to-edge and handle insets in [Compose](https://developer.android.com/develop/ui/compose/system/insets) and
+ [Views](https://developer.android.com/develop/ui/views/layout/edge-to-edge).
+ 
+ Be aware of the following types of insets when designing edge-to-edge use cases:
+@@ -70,13 +70,13 @@ Add a matching background color gradient if the small top app bar is not sticky.
+ 
+ Status bars should be translucent when the UI scrolls underneath, so that the
+ status bar icons don't look cluttered. To accomplish this, first make a
+-scrollable UI edge-to-edge by implementing the steps in the [LazyColumn](https://developer.android.com/develop/ui/compose/layouts/insets#scaffold) or
++scrollable UI edge-to-edge by implementing the steps in the [LazyColumn](https://developer.android.com/develop/ui/compose/system/material-insets#scaffold) or
+ [RecyclerView](https://developer.android.com/develop/ui/views/layout/recyclerview#enable-edge-to-edge-display) documentation. Then, ensure the system bar is translucent by
+ doing one of the following:
+ 
+ - Rely on the Material 3 TopAppBar automatic protection when [scrolling](https://developer.android.com/develop/ui/compose/components/app-bars#scroll), if applicable.
+-- Create a custom gradient composable or use [GradientProtection](https://developer.android.com/reference/androidx/core/view/insetscontrast/GradientProtection) for Views. For more information on doing this in compose, see [System bar
+-  protection](https://developer.android.com/develop/ui/compose/layouts/system-bars).
++- Create a custom gradient composable. For more information, see [System bar
++  protection](https://developer.android.com/develop/ui/compose/system/system-bars).
+ 
+ ![](https://developer.android.com/static/images/design/ui/mobile/e2e-protection.png) **Figure 3.** An app with gesture insets highlighted green.
+ 
+@@ -139,7 +139,7 @@ in the following image.
+ Ensure horizontal carousels draw into the display cutout.
+ ![](https://developer.android.com/static/images/design/ui/mobile/e2e-horizontal-display.png) **Figure 6.** An edge-to-edge horizontal display, where the carousel scrolls through the display cutout.
+ 
+-Read about how to support display cutouts in [Compose](https://developer.android.com/develop/ui/compose/system/cutouts) and [Views](https://developer.android.com/develop/ui/views/layout/display-cutout).
++Read about how to support display cutouts in [Compose](https://developer.android.com/develop/ui/compose/system/cutouts).
+ 
+ ### Other guidance
+ 

@@ -1,0 +1,13 @@
+diff --git a/docs/training/app-links/tools.md b/docs/training/app-links/tools.md
+index 167c0df0..7f6ef7e6 100644
+--- a/docs/training/app-links/tools.md
++++ b/docs/training/app-links/tools.md
+@@ -46,7 +46,7 @@ For more information, see [Verify and maintain deep links](https://support.googl
+ 
+ ### How to access the tool?
+ 
+-Visit here: <https://play.google.com/console/about/deeplinks/>
++Visit here: <https://google.play/business/deeplinks/>
+ 
+ ## Flutter Deep Link Validator
+ 

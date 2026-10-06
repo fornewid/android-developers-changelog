@@ -1,0 +1,13 @@
+diff --git a/docs/about/versions/17/qpr2/download-ota.md b/docs/about/versions/17/qpr2/download-ota.md
+index 7106de96..0d839e6d 100644
+--- a/docs/about/versions/17/qpr2/download-ota.md
++++ b/docs/about/versions/17/qpr2/download-ota.md
+@@ -25,7 +25,7 @@ Applying an OTA image can help you recover a device that received an OTA update
+ for an Android 17 QPR beta build but wouldn't start up after the update was
+ installed. If you are trying to get Android 17 QPR1 on your device but
+ you aren't trying to recover from a failed OTA update, see [Get Android 17 QPR
+-beta builds](https://developer.android.com/about/versions/17/get-qpr) instead.
++beta builds](https://developer.android.com/about/versions/17/qpr2/get) instead.
+ 
+ 
+ OTA images are available for the following Pixel devices:

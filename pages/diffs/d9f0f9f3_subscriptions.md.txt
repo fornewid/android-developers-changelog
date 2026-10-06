@@ -1,0 +1,40 @@
+diff --git a/docs/google/play/billing/lifecycle/subscriptions.md b/docs/google/play/billing/lifecycle/subscriptions.md
+index a49136ca..4d9f2c18 100644
+--- a/docs/google/play/billing/lifecycle/subscriptions.md
++++ b/docs/google/play/billing/lifecycle/subscriptions.md
+@@ -25,7 +25,7 @@ expiration. After this date, the purchase token is no longer valid to use to
+ call the Google Play Developer API.
+ 
+ > [!NOTE]
+-> **Note:** The [`purchases.subscriptions.get`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptions/get) method is deprecated and present for backward compatibility reasons. This method shouldn't be used to obtain subscription states for new integrations. If you have an existing integration that uses this method, see [API deprecations](https://developer.android.com/google/play/billing/play-developer-apis-deprecations) for alternatives. Other methods in the `purchases.subscriptions` endpoint are still in use.
++> **Note:** The [`purchases.subscriptions.get`](https://developers.google.com/android-publisher/deprecated-apis/purchases.subscriptions/get) method is deprecated and present for backward compatibility reasons. This method shouldn't be used to obtain subscription states for new integrations. If you have an existing integration that uses this method, see [API deprecations](https://developer.android.com/google/play/billing/play-developer-apis-deprecations) for alternatives. Other methods in the `purchases.subscriptions` endpoint are still in use.
+ 
+ ### New auto-renewing subscription purchases
+ 
+@@ -33,7 +33,7 @@ When a user purchases a subscription, a `SubscriptionNotification` message with
+ type `SUBSCRIPTION_PURCHASED` is sent to your RTDN client. Whether you receive
+ this notification or you register a new purchase in-app through
+ [`PurchasesUpdatedListener`](https://developer.android.com/reference/com/android/billingclient/api/PurchasesUpdatedListener)
+-or [manually fetching purchases](https://developer.android.com/google/play/billing/integrate#fetch) in your
++or [manually fetching purchases](https://developer.android.com/google/play/billing/integrate#process) in your
+ app's `onResume()` method, you should process the new purchase in your secure
+ backend. To do this, follow these steps:
+ 
+@@ -604,7 +604,7 @@ Listen for RTDNs to be aware of when a user pauses their subscription. These
+ notifications also allow you to notify your users in your app that they have
+ paused their subscription and don't have access to it. You should also provide a
+ way for the user to manually resume their subscription at any time by using a
+-[deep link to Google Play](https://developer.android.com/google/play/billing/subscriptions#deep-link).
++[deep link to Google Play](https://developer.android.com/google/play/billing/subscriptions#use-deep).
+ 
+ A [`SubscriptionNotification`](https://developer.android.com/google/play/billing/rtdn-reference#sub) message
+ with type `SUBSCRIPTION_PAUSE_SCHEDULE_CHANGED` is sent when your user initiates
+@@ -782,7 +782,7 @@ When a user accepts your subscription price increase, you receive a
+ `SUBSCRIPTION_PRICE_CHANGE_UPDATED`.
+ 
+ > [!NOTE]
+-> **Note:** For subscriptions without addons `SUBSCRIPTION_PRICE_CHANGE_CONFIRMED` notifications will also be sent. However, this notification is deprecated. For more information, see [Deprecations](https://developer.android.com/google/play/billing/deprecations).
++> **Note:** For subscriptions without addons `SUBSCRIPTION_PRICE_CHANGE_CONFIRMED` notifications will also be sent. However, this notification is deprecated. For more information, see [Deprecations](https://developer.android.com/google/play/billing/play-developer-apis-deprecations#may21-api-deprecation).
+ 
+ #### Handle renewals after price change is applied
+ 

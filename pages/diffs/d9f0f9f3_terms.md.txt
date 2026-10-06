@@ -1,0 +1,13 @@
+diff --git a/docs/google/play/integrity/terms.md b/docs/google/play/integrity/terms.md
+index 8b5c1891..da7e8130 100644
+--- a/docs/google/play/integrity/terms.md
++++ b/docs/google/play/integrity/terms.md
+@@ -30,7 +30,7 @@ API through the following communication channels:
+ |---|---|
+ | Important announcements | Mandatory service announcements about the Play Integrity API will be communicated over email to user accounts with the following roles in the Play Console and the Cloud Console: - **Google Play Console**: Account owners and release managers of apps that have set up Play Integrity API. - **Google Cloud Console** : Project owners and [Essential Contacts](https://docs.cloud.google.com/resource-manager/docs/managing-notification-contacts) for technical and product updates of projects that have enabled Play Integrity API. |
+ | Service issues or disruptions | Service issues and disruptions will be posted to [status.play.google.com](https://status.play.google.com). You can subscribe to Atom feeds at the bottom of this page. |
+-| Marketing and other communications | Other communications relating to the Play Integrity API such as marketing messages about new features, invitations to give feedback, and recommendations will be communicated through standard Google Play developer communication channels including: - [Play Integrity API release notes](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/release-notes) - [Play Console release notes](https://play.google.com/console/about/whats-new/) - Play Console notifications to account owners and release managers - Play Console recommended actions - [Play developer newsletters](https://developer.android.com/newsletter) - [Android Developers Blog](https://android-developers.googleblog.com/) and social channels |
++| Marketing and other communications | Other communications relating to the Play Integrity API such as marketing messages about new features, invitations to give feedback, and recommendations will be communicated through standard Google Play developer communication channels including: - [Play Integrity API release notes](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/release-notes) - [Play Console release notes](https://google.play/business/whats-new/) - Play Console notifications to account owners and release managers - Play Console recommended actions - [Play developer newsletters](https://developer.android.com/newsletter) - [Android Developers Blog](https://android-developers.googleblog.com/) and social channels |
+ 
+ ## Data safety
+ 

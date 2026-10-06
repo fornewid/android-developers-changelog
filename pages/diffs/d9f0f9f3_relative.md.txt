@@ -1,0 +1,58 @@
+diff --git a/docs/develop/ui/views/layout/relative.md b/docs/develop/ui/views/layout/relative.md
+index 31ab77cf..ababa589 100644
+--- a/docs/develop/ui/views/layout/relative.md
++++ b/docs/develop/ui/views/layout/relative.md
+@@ -58,37 +58,37 @@ Each of the attributes that control the relative position of each view are empha
+ ![](https://developer.android.com/static/images/ui/sample-relativelayout.png)
+ 
+ ```xml
+-<?xml version="1.0" encoding=<"utf-8"?>
+-RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+-    android:padd<ingLeft="16dp"
++    android:paddingLeft="16dp"
+     android:paddingRight="16dp" >
+-    EditText
++    <EditText
+         android:id="@+id/name"
+-        android:layout_width="match_parent&qu<ot;
++        android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:hint="@string/reminder" />
+-    Spinner
+- android:id="@+id/dates"
++    <Spinner
++        android:id="@+id/dates"
+         android:layout_width="0dp"
+-        android:layout_height="wrap_con<tent"
++        android:layout_height="wrap_content"
+         android:layout_below="@id/name"
+         android:layout_alignParentLeft="true"
+-        android:layout_toLeftOf="@+id/times&quot; />
+-    Spinner
+-        android:id="<;@id/times"
++        android:layout_toLeftOf="@+id/times" />
++    <Spinner
++        android:id="@id/times"
+         android:layout_width="96dp"
+-        android:layout_height=&quot;wrap_content"
++        android:layout_height="wrap_content"
+         android:layout_below="@id/name"
+-        android:layout_alignParentRight="t<rue" />
+-    Button
++        android:layout_alignParentRight="true" />
++    <Button
+         android:layout_width="96dp"
+         android:layout_height="wrap_content"
+         android:layout_below="@id/times"
+         android:layout_alignParentRight="true"
+         android:text="@string/done" />
+-/RelativeLayout>
++</RelativeLayout>
+ ```
+ 
+ For details about all the layout attributes available to each child view of a `https://developer.android.com/reference/android/widget/RelativeLayout`, see `https://developer.android.com/reference/android/widget/RelativeLayout.LayoutParams`.
+\ No newline at end of file

@@ -1,0 +1,15 @@
+diff --git a/docs/training/cars/testing.md b/docs/training/cars/testing.md
+index a3a00cda..58529108 100644
+--- a/docs/training/cars/testing.md
++++ b/docs/training/cars/testing.md
+@@ -20,8 +20,8 @@ Auto and Android Automotive OS:
+ 
+ To test your app in real vehicles, you must install it from a trusted source
+ such as Google Play, with one exception detailed in
+-[Allow unknown sources](https://developer.android.com/training/cars/testing#unknown-sources). You can use [Internal App Sharing](https://play.google.com/console/about/internalappsharing/) or an
+-[Internal Test Track](https://play.google.com/console/about/internal-testing/) to distribute your app to devices without going through
++[Allow unknown sources](https://developer.android.com/training/cars/testing#unknown-sources). You can use [Internal App Sharing](https://google.play/business/internalappsharing/) or an
++[Internal Test Track](https://google.play/business/internal-testing/) to distribute your app to devices without going through
+ the Google Play review process.
+ 
+ ### Allow unknown sources
