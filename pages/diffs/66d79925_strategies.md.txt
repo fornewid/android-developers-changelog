@@ -1,0 +1,13 @@
+diff --git a/docs/training/testing/fundamentals/strategies.md b/docs/training/testing/fundamentals/strategies.md
+index 462674a4..084156c3 100644
+--- a/docs/training/testing/fundamentals/strategies.md
++++ b/docs/training/testing/fundamentals/strategies.md
+@@ -138,7 +138,7 @@ categories:
+ |---|---|---|---|
+ | Form validator logic | A class that validates the email address against a regular expression and checks that the password field was entered. It has no dependencies. | Unit tests | [Local JVM unit test](https://developer.android.com/training/testing/local-tests) |
+ | Sign-in form UI behavior | A form with a button that is only enabled when the form has been validated | Component tests | [UI behavior test](https://developer.android.com/training/testing/ui-tests/behavior) running on [Robolectric](https://developer.android.com/training/testing/local-tests/robolectric) |
+-| Sign-in form UI appearance | A form following a UX specification | Component tests | [Compose Preview Screenshot test](https://developer.android.com/studio/preview/compose-screenshot-testing) |
++| Sign-in form UI appearance | A form following a UX specification | Component tests | [Compose Preview Screenshot test](https://developer.android.com/studio/preview/compose-screenshot-testing-with-testsuites) |
+ | Integration with the auth manager | The UI that sends credentials to an auth manager and receives responses that can contain different errors. | Feature tests | [JVM test with fakes](https://developer.android.com/training/testing/fundamentals/test-doubles) |
+ | Sign-in dialog | A screen showing the sign-in form when the login button is pressed. | Application tests | [UI behavior test](https://developer.android.com/training/testing/ui-tests/behavior) running on [Robolectric](https://developer.android.com/training/testing/local-tests/robolectric) |
+ | Critical user journey: Signing in | A complete sign-in flow using a test account against a staging server | Release Candidate | End-to-end [Compose UI behavior test](https://developer.android.com/develop/ui/compose/testing) running on device |

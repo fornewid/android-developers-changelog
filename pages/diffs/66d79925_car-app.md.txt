@@ -1,0 +1,41 @@
+diff --git a/docs/jetpack/androidx/releases/car-app.md b/docs/jetpack/androidx/releases/car-app.md
+index 492627a0..a9470b8b 100644
+--- a/docs/jetpack/androidx/releases/car-app.md
++++ b/docs/jetpack/androidx/releases/car-app.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 09, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/car-app#1.7.0) | [1.8.0-rc01](https://developer.android.com/jetpack/androidx/releases/car-app#1.8.0-rc01) | - | [1.9.0-alpha02](https://developer.android.com/jetpack/androidx/releases/car-app#1.9.0-alpha02) |
++| October 07, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/car-app#1.7.0) | [1.8.0-rc01](https://developer.android.com/jetpack/androidx/releases/car-app#1.8.0-rc01) | - | [1.9.0-alpha03](https://developer.android.com/jetpack/androidx/releases/car-app#1.9.0-alpha03) |
+ 
+ ## Declaring dependencies
+ 
+@@ -70,6 +70,27 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## App
++
++### Version 1.9
++
++### Version 1.9.0-alpha03
++
++October 07, 2026
++
++`androidx.car.app:app-*:1.9.0-alpha03` is released. Version 1.9.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6ff76682a45583f1f17c9e3c945d4fb6704bb9f8..79a2dcb030436c38d006807afc5ada74c93890bf/car/app).
++
++**API Changes**
++
++- **Tab Global End Action** : Added support for a global end action to `TabTemplate` via `setEndAction` and `getEndAction`, along with `ActionsConstraints.ACTIONS_CONSTRAINTS_TAB_ACTIONS`. ([I5c203](https://android-review.googlesource.com/#/q/I5c2032880a2cafdbf792ab3193cabf326ece7f34))
++- **Section Header Enhancements** : Added `setHeadline` to `SectionHeader.Builder` (headline and subtitle are mutually exclusive), and relaxed icon constraints in `SectionHeader.Builder.setStartIcon()` and `setEndIcon()` to allow `TYPE_URI` (`content://`) icons. ([I55e08](https://android-review.googlesource.com/#/q/I55e08f512ae49c062fd3b5c440fab5bcf860ced4), [I97243](https://android-review.googlesource.com/#/q/I97243d547687726f0ca602f9b6d1239793a01d6a))
++- **Progress Bar Track Color** : Added `trackColor` to `CarProgressBarStyle` to customize the unfilled portion of a progress bar. ([I1c819](https://android-review.googlesource.com/#/q/I1c819bdb0336f76494bc213f49b9537014528d0d))
++- **Custom Tinted `CarIcon`** : Added `CarIcon.createTintedIcon(IconCompat, CarColor)` to create a tinted icon with a custom tint color. ([Icb804](https://android-review.googlesource.com/#/q/Icb80453dc595c2acebd6c11f72e07b0c3152d2c8))
++
++**Bug Fixes**
++
++- Clarified documentation on `CarProgressBar.Builder.setStyle()` and `CarIcon.Builder.setStyle()`, and updated `bouncycastle` dependency in `:car:app:app-testing`. ([I2cdb3](https://android-review.googlesource.com/#/q/I2cdb36b8e315c806bf53fb1865361e6a6dfbb0df), [Ie02d5](https://android-review.googlesource.com/#/q/Ie02d5f36493fd8f16350e3d2443f2e2924b94f44))
++
+ ## Version 1.9
+ 
+ ### Version 1.9.0-alpha02

@@ -1,0 +1,45 @@
+diff --git a/docs/guide/navigation/design/editor.md b/docs/guide/navigation/design/editor.md
+index 42abda41..0f390fd7 100644
+--- a/docs/guide/navigation/design/editor.md
++++ b/docs/guide/navigation/design/editor.md
+@@ -51,11 +51,11 @@ destination using the Navigation Editor, do the following:
+ Back in the Navigation Editor, notice that Android Studio has added this
+ destination to the graph.
+ 
+-Figure 2 shows an example of a destination and a [placeholder destination](https://developer.android.com/guide/navigation/navigation-create-destinations#placeholders).
++Figure 2 shows an example of a destination and a [placeholder destination](https://developer.android.com/guide/navigation/design/editor#placeholders).
+ ![](https://developer.android.com/static/images/topic/libraries/architecture/navigation-destination-and-placeholder_2x.png) **Figure 2.**A destination and a placeholder
+ 
+ For other ways to add destinations to your navigation graph, see [Additional
+-destinations](https://developer.android.com/guide/navigation/navigation-create-destinations).
++destinations](https://developer.android.com/guide/navigation/design#destination_types).
+ 
+ ### Create a destination from an existing fragment or activity
+ 
+@@ -78,7 +78,7 @@ To add a new destination type using the Navigation Editor, do the following:
+ Back in the Navigation Editor, notice that Android Studio has added this
+ destination to the graph.
+ 
+-Figure 3 shows an example of a destination and a [placeholder destination](https://developer.android.com/guide/navigation/navigation-nested-graphs).
++Figure 3 shows an example of a destination and a [placeholder destination](https://developer.android.com/guide/navigation/design/editor#placeholders).
+ ![](https://developer.android.com/static/images/topic/libraries/architecture/navigation-destination-and-placeholder_2x.png) **Figure 3.**A destination and a placeholder
+ 
+ ### Anatomy of a destination
+@@ -87,7 +87,7 @@ Click a destination to select it, and note the following attributes in the
+ **Attributes** panel:
+ 
+ - The **Type** field indicates whether the destination is implemented as a fragment, activity, or other custom class in your source code.
+-- The **Label** field contains the user-readable name of the destination. This might be surfaced to the UI---for example, if you connect the [`NavGraph`](https://developer.android.com/reference/androidx/navigation/NavGraph) to a `Toolbar` using [`setupWithNavController()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI#setupWithNavController(androidx.appcompat.widget.Toolbar,%20androidx.navigation.NavController)). For this reason, use resource strings for this value.
++- The **Label** field contains the user-readable name of the destination. This might be surfaced to the UI---for example, if you connect the [`NavGraph`](https://developer.android.com/reference/androidx/navigation/NavGraph) to a `Toolbar` using [`setupWithNavController()`](https://developer.android.com/reference/androidx/navigation/ui/NavigationUI#setupWithNavController(androidx.appcompat.widget.Toolbar,androidx.navigation.NavController,androidx.navigation.ui.AppBarConfiguration)). For this reason, use resource strings for this value.
+ - The **ID** field contains the destination ID, which is used to refer to the destination in code.
+ - The **Class** drop-down shows the name of the class that is associated with the destination. Click this drop-down to change the associated class to another destination type.
+ 
+@@ -111,7 +111,7 @@ destination, as in the following snippet:
+ 
+ ## NavHostFragment
+ 
+-You can also use the [Layout Editor](https://developer.android.com/studio/write/layout-editor) to add a `NavHostFragment` to an
++You can also use the [Layout Editor](https://developer.android.com/studio/views/layout-editor) to add a `NavHostFragment` to an
+ activity by doing the following:
+ 
+ 1. In your list of project files, double-click your activity's layout XML file to open it in the Layout Editor.

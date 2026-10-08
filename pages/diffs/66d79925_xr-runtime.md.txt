@@ -1,0 +1,34 @@
+diff --git a/docs/jetpack/androidx/releases/xr-runtime.md b/docs/jetpack/androidx/releases/xr-runtime.md
+index 60e8b2a2..a1a92fd1 100644
+--- a/docs/jetpack/androidx/releases/xr-runtime.md
++++ b/docs/jetpack/androidx/releases/xr-runtime.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 09, 2026 | - | [1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-rc01) | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.1.0-alpha01) |
++| October 07, 2026 | - | [1.0.0-rc02](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-rc02) | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.1.0-alpha01) |
+ 
+ ## Declaring dependencies
+ 
+@@ -58,6 +58,20 @@ clicking the star button.
+ See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
+ for more information.
+ 
++## Runtime
++
++### Version 1.0
++
++#### Version 1.0.0-rc02
++
++October 07, 2026
++
++`androidx.xr.runtime:runtime-*:1.0.0-rc02` is released. Version 1.0.0-rc02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/21bde260d4b764f18e58b263674fbc80cd325199..d0ab8d2685a61714ba54abe9471c8ba956a8ad3c/xr/runtime).
++
++**Bug Fixes**
++
++- Fixed various issues in `androidx.xr.runtime` and `androidx.xr.scenecore` to improve memory safety and resource lifecycle management. This includes updates to context handling and reference cleanup logic to prevent memory leaks. ([Id61f8](https://android-review.googlesource.com/q/Id61f8c0de67a109b8431251ae94d683d1b3adfec))
++
+ ## Version 1.1
+ 
+ #### Version 1.1.0-alpha01

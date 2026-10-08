@@ -1,0 +1,60 @@
+diff --git a/docs/jetpack/androidx/releases/xr-scenecore.md b/docs/jetpack/androidx/releases/xr-scenecore.md
+index 4a021a56..a8ca5558 100644
+--- a/docs/jetpack/androidx/releases/xr-scenecore.md
++++ b/docs/jetpack/androidx/releases/xr-scenecore.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 09, 2026 | - | [1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-rc01) | - | - |
++| October 07, 2026 | - | [1.0.0-rc02](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-rc02) | - | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,10 +25,10 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.scenecore:scenecore:1.0.0-rc01"
++    implementation "androidx.xr.scenecore:scenecore:1.0.0-rc02"
+ 
+     // Use to write unit tests
+-    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-rc01"
++    testImplementation "androidx.xr.scenecore:scenecore-testing:1.0.0-rc02"
+ }
+ ```
+ 
+@@ -36,10 +36,10 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.scenecore:scenecore:1.0.0-rc01")
++    implementation("androidx.xr.scenecore:scenecore:1.0.0-rc02")
+ 
+     // Use to write unit tests
+-    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-rc01")
++    testImplementation("androidx.xr.scenecore:scenecore-testing:1.0.0-rc02")
+ }
+ ```
+ 
+@@ -60,6 +60,20 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-rc02
++
++October 07, 2026
++
++`androidx.xr.scenecore:scenecore-*:1.0.0-rc02` is released. Version 1.0.0-rc02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/6fb59a3b2759476e6992ff0fc2fbb10c833eeeea..2e3660870c84fabc0f4ecdc2f7b87a6f853d7bf1/xr/scenecore).
++
++**Bug Fixes**
++
++- Fixed a potential memory leak by removing the `perceptionRuntimeCache` in `SessionExt` and refactored it to retrieve the `PerceptionRuntime` directly from the `Session` instance. ([Ie35b1](https://android-review.googlesource.com/q/Ie35b122d001f45198b5f9fed88b53fa6345b03c3))
++- Fixed a potential context leak by using `applicationContext` for `OpenXR` native handles to ensure the native runtime does not hold references to an `Activity` context. ([Ie35b1](https://android-review.googlesource.com/q/Ie35b122d001f45198b5f9fed88b53fa6345b03c3))
++- Fixed race conditions in `XrInstanceManager` by introducing proper synchronization and initialization locking. ([Ie35b1](https://android-review.googlesource.com/q/Ie35b122d001f45198b5f9fed88b53fa6345b03c3))
++- Fixed `ReferenceCleaner` to support de-registration of cleaning actions and ensured `Entity` cleanup actions are run explicitly during `dispose()`, preventing duplicate execution upon garbage collection. ([Ie35b1](https://android-review.googlesource.com/q/Ie35b122d001f45198b5f9fed88b53fa6345b03c3))
++- Fixed a memory leak in `Scene` by removing the `sceneCache` in `SessionExt` and refactoring `Scene` to fetch the instance directly from `sessionConnectors`. ([Ie35b1](https://android-review.googlesource.com/q/Ie35b122d001f45198b5f9fed88b53fa6345b03c3))
++
+ ### Version 1.0.0-rc01
+ 
+ September 09, 2026

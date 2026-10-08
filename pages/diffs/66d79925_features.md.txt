@@ -1,0 +1,13 @@
+diff --git a/docs/studio/preview/features.md b/docs/studio/preview/features.md
+index fb17d2e0..c8bac511 100644
+--- a/docs/studio/preview/features.md
++++ b/docs/studio/preview/features.md
+@@ -111,7 +111,7 @@ To get started with BYOA, follow these steps:
+ Use the Compose Preview Screenshot Testing tool to test your Compose UIs and
+ prevent regressions. The new tool helps you generate HTML reports that let you
+ visually detect any changes to your app's UI. Learn more at [Compose Preview
+-Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing).
++Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing-with-testsuites).
+ 
+ ### Model Assignment
+ 

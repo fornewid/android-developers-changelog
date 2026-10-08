@@ -1,0 +1,19 @@
+diff --git a/docs/develop/ui/compose/bom/bom-mapping.md b/docs/develop/ui/compose/bom/bom-mapping.md
+index d3641107..fb8547c1 100644
+--- a/docs/develop/ui/compose/bom/bom-mapping.md
++++ b/docs/develop/ui/compose/bom/bom-mapping.md
+@@ -2389,4 +2389,11 @@ Make a selection 2026.09.00 2026.08.00 2026.06.01 2026.06.00 2026.05.01 2026.05.
+ 
+ ## Compare BOM versions
+ 
+-<iframe src="https://android.devsite.google/frame/develop/ui/compose/bom/bom-mapping_3e904d880de6492c83073c356a2a10fa163c49bd074f0204b8796aeaf3e0efd7.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+\ No newline at end of file
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/bom/bom-mapping_9dc2e0310040c8a9aa9472ecd7c72fecbc2db94933b963838ef2ebbb93fe9f85.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
++
++## Compare BOM release notes
++
++
++Select two BOM versions to compare the Compose release notes---including new features, API changes, and bug fixes---between those versions across each Compose library group.
++
++<iframe src="https://android.devsite.google/frame/develop/ui/compose/bom/bom-mapping_6cf90155230be24f05ceb7b507dcbd83bb773173f19dadb5d20811861aa7d4ba.frame" class="framebox inherit-locale " allow="clipboard-write https://android.devsite.google" allowfullscreen is-upgraded></iframe>
+\ No newline at end of file

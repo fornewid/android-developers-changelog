@@ -1,0 +1,103 @@
+diff --git a/docs/develop/connectivity/telecom/voip-app/telecom.md b/docs/develop/connectivity/telecom/voip-app/telecom.md
+index 3dd6e18e..bbce6f6e 100644
+--- a/docs/develop/connectivity/telecom/voip-app/telecom.md
++++ b/docs/develop/connectivity/telecom/voip-app/telecom.md
+@@ -65,17 +65,16 @@ Here's an example of how to create an incoming call:
+         isVideoCall: Boolean): CallAttributesCompat {
+         val addressUri = Uri.parse("YourAppScheme:$callerNumber")
+ 
+-        // Define capabilities supported by your call.
+-        val callCapabilities = CallAttributesCompat.CallCapability(
+-            supportsSetInactive = CallAttributesCompat.SUPPORTS_SET_INACTIVE // Call can be made inactive (implies hold)
+-        )
+-
+         return CallAttributesCompat(
+             displayName = callerName,
+             address = addressUri,
+             direction = CallAttributesCompat.DIRECTION_INCOMING,
+-            callType = if (isVideoCall) CallAttributesCompat.CALL_TYPE_VIDEO_CALL else CallAttributesCompat.CALL_TYPE_AUDIO_CALL,
+-            callCapabilitiesCompat = callCapabilities
++            callType = if (isVideoCall) {
++                CallAttributesCompat.CALL_TYPE_VIDEO_CALL
++            } else {
++                CallAttributesCompat.CALL_TYPE_AUDIO_CALL
++            },
++            callCapabilities = CallAttributesCompat.SUPPORTS_SET_INACTIVE
+         )
+     }
+ 
+@@ -103,7 +102,7 @@ state and receive audio updates:
+     }
+ 
+ > [!NOTE]
+-> **Note:** Once you add a call and the `CallControlScope` block is run, this does not mean your call is active, but rather that the platform is able to add a call and your call is now either `DIALING` or `RINGING`.
++> **Note:** Once you add a call and the `CallControlScope` block is run, this doesn't mean your call is active, but rather that the platform is able to add a call and your call is now either `DIALING` or `RINGING`.
+ 
+ ### Answer a call
+ 
+@@ -172,22 +171,34 @@ Change the active audio device using `requestEndpointChange()`:
+ 
+ ## Foreground support
+ 
+-The library uses `ConnectionService` (Android 13 API level 33 and lower) or
+-[foregroundtypes](https://developer.android.com/about/versions/14/changes/fgs-types-required) (Android 14 API level 34 and higher) for foreground
+-support.
++The library uses `ConnectionService` on Android 13 (API level 33) and lower, or
++[foreground service types](https://developer.android.com/about/versions/14/changes/fgs-types-required) on Android 14 (API level 34) and higher, for
++foreground support.
++
++To keep calls active when your app is in the background, host `CallsManager`
++inside a foreground `Service` (such as `LifecycleService`) and declare the
++`phoneCall` foreground service type in your `AndroidManifest.xml`:
++
++    <service
++        android:name=".TelecomVoipService"
++        android:foregroundServiceType="phoneCall" />
+ 
+-As part of the foreground requirements, the application must post a notification
+-for users to know that the application is running in the foreground.
++As part of the foreground requirements, your app must post a
++[`NotificationCompat.CallStyle`](https://developer.android.com/reference/androidx/core/app/NotificationCompat.CallStyle) notification so users know that a call is
++active in the foreground. To ensure that your app gets foreground execution
++priority, promote your service to the foreground using `startForeground` once
++you add the call with the platform:
+ 
+-To ensure that your app gets foreground execution priority, create a
+-notification once you add the call with the platform. Foreground priority is
+-removed when your app terminates the call or your notification is no longer
+-valid.
++    startForeground(
++        notificationId,
++        notification,
++        ServiceInfo.FOREGROUND_SERVICE_TYPE_PHONE_CALL
++    )
+ 
+ > [!NOTE]
+-> **Note:** You are required to post a notification within 5 seconds of adding the call to the platform.
++> **Note:** You must post a call notification within 5 seconds of adding the call to the platform. If your app supports multiple simultaneous calls, re-post the notifications for any other active calls after calling `startForeground`.
+ 
+-[Learn more about foreground services](https://developer.android.com/guide/components/foreground-services).
++[Learn more about foreground services](https://developer.android.com/develop/background-work/services/fgs).
+ 
+ ## Remote Surface support
+ 
+@@ -211,7 +222,7 @@ Test thoroughly with various remote surfaces.
+ ### Call Extensions
+ 
+ > [!NOTE]
+-> **Note:** This feature is still experimental while we work on supporting new extensions. Use `@OptIn(ExperimentalAppActions::class)` to opt-in to supporting call extensions and use the [issue tracker](https://issuetracker.google.com/issues/new?component=1356313&template=1817517) to file bugs or request support for new call extensions.
++> **Note:** While core call extensions (`addParticipantExtension` and `addLocalCallSilenceExtension`) are stable, some extension features---such as participant actions (`addRaiseHandSupport` and `addKickParticipantSupport`) and call icons (`addCallIconExtension`)---are still experimental. Use `@OptIn(androidx.core.telecom.util.ExperimentalAppActions::class)` to opt in to experimental extensions, and use the [issue tracker](https://issuetracker.google.com/issues/new?component=1356313&template=1817517) to file bugs or request support for new call extensions.
+ 
+ In addition to managing the call state and audio route of your calls, the
+ library also supports call extensions, which are optional features that your app
+@@ -224,8 +235,8 @@ will be also be available on remote devices for users to interact with.
+ 
+ #### Create a Call with Extensions
+ 
+-When creating a call, instead of using `CallManager#addCall` to create the call,
+-you can instead use [CallManager#addCallWithExtensions](https://developer.android.com/reference/kotlin/androidx/core/telecom/extensions/CallsManagerExtensions#addCallWithExtensions(androidx.core.telecom.CallAttributesCompat,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction0,kotlin.coroutines.SuspendFunction0,kotlin.coroutines.SuspendFunction1)), which gives the
++When creating a call, instead of using `CallsManager.addCall` to create the
++call, you can use [`CallsManager.addCallWithExtensions`](https://developer.android.com/reference/kotlin/androidx/core/telecom/CallsManager#addCallWithExtensions(androidx.core.telecom.CallAttributesCompat,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction1,kotlin.coroutines.SuspendFunction0,kotlin.coroutines.SuspendFunction0,kotlin.coroutines.SuspendFunction1)), which gives the
+ app access to a different scope called `ExtensionInitializationScope`. This
+ scope allows the application to initialize the set of optional extensions that
+ it supports. Additionally, this scope provides an extra method, `onCall`,

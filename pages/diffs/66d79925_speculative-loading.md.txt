@@ -1,0 +1,50 @@
+diff --git a/docs/develop/ui/views/layout/webapps/speculative-loading.md b/docs/develop/ui/views/layout/webapps/speculative-loading.md
+index 6f39743f..30191dfe 100644
+--- a/docs/develop/ui/views/layout/webapps/speculative-loading.md
++++ b/docs/develop/ui/views/layout/webapps/speculative-loading.md
+@@ -25,9 +25,8 @@ and QUIC hints APIs are origin-based, which means they only require the target
+ domain. Prefetch and Prerender APIs are URL-based, which means that they require
+ the exact webpage path.
+ 
+-Because Preconnect and QUIC hints operate at the origin level, you can initiate
+-them much earlier in the app lifecycle, even before you know the specific
+-content or page the user will navigate to.
++Because Preconnect and QUIC hints operate at the origin level, you can call them
++before you know the specific content or page the user will navigate to.
+ 
+ The following table compares these three strategies to help you choose the right
+ one for your use case:
+@@ -49,14 +48,17 @@ Preconnecting speeds up future loads by preemptively performing DNS lookups and
+ TCP/TLS or QUIC handshakes for a specified origin.
+ 
+ Unlike Prefetch and Prerender, which require an exact destination URL,
+-Preconnect is strictly origin-based. This lets you make the Preconnect call much
+-earlier than Prefetch and Prerender.
++Preconnect is strictly origin-based. This lets you call Preconnect before you
++know the exact URL. For guidance on when to call it, see the tip in
++[Implementation](https://developer.android.com/develop/ui/views/layout/webapps/speculative-loading#preconnect-implementation).
+ 
+ This low-resource, Profile-level strategy reduces initial latency for any
+ WebView sharing that Profile, provided the origin hasn't already been visited.
+ The connection remains open for approximately 30 seconds, benefiting any
+ subsequent cross-origin HTTP requests, navigations, or subresources by
+-eliminating handshake overhead.
++eliminating handshake overhead. The DNS lookup result is cached for longer than
++the connection, so later requests to the origin can still skip the lookup after
++the connection closes.
+ 
+ ### Implementation
+ 
+@@ -83,10 +85,10 @@ can be connected to by calling this API multiple times.
+     if (WebViewFeature.isFeatureSupported(WebViewFeature.PRECONNECT)) {
+         profile.preconnect("https://www.example.com/index.html");
+         // This initiates a connection to the origin https://www.example.com
+-    }
++      }
+ 
+ > [!TIP]
+-> **Tip:** Use this API when the user is likely to need resources from the target origin. It is most effective when prioritized for the critical domains required for your next navigation.
++> **Tip:** For the biggest benefit, call `preconnect` about a second before your app needs to connect to the origin. Calling it earlier, such as at app startup, still helps. Even if the connection closes before it's used, the DNS lookup result stays cached for longer, so a later connection to that origin still starts faster.
+ 
+ ## Indicate QUIC protocol support with QUIC hints
+ 

@@ -1,0 +1,28 @@
+diff --git a/docs/jetpack/androidx/versions/alpha-channel.md b/docs/jetpack/androidx/versions/alpha-channel.md
+index 0ac0a8b3..84bfe990 100644
+--- a/docs/jetpack/androidx/versions/alpha-channel.md
++++ b/docs/jetpack/androidx/versions/alpha-channel.md
+@@ -16,6 +16,23 @@ to 2018.
+ To view the current versions for every component,
+ see the [versions page](https://developer.android.com/jetpack/androidx/versions).
+ 
++## October 07, 2026
++
++- [Appfunctions Version 1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha13)
++- [Backup Backup-host Version 1.0.0-alpha02](https://developer.android.com/jetpack/androidx/releases/test-backup#1.0.0-alpha02)
++- [Benchmark Version 1.6.0-alpha01](https://developer.android.com/jetpack/androidx/releases/benchmark#1.6.0-alpha01)
++- [Car App Version 1.9.0-alpha03](https://developer.android.com/jetpack/androidx/releases/car-app#1.9.0-alpha03)
++- [Compose Material3 Adaptive Version 1.4.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.4.0-alpha03)
++- [Compose Remote Version 1.0.0-alpha21](https://developer.android.com/jetpack/androidx/releases/compose-remote#1.0.0-alpha21)
++- [Foundation Version 1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/compose-remote-foundation#foundation-1.0.0-alpha04)
++- [Glance Wear Version 1.0.0-alpha20](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha20)
++- [Navigation3 Version 1.3.0-alpha02](https://developer.android.com/jetpack/androidx/releases/navigation3#1.3.0-alpha02)
++- [Uwb Uwb-rxjava3 Version 1.1.0-alpha03](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.1.0-alpha03)
++- [Wear Compose Remote Version 1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/wear-compose-remote#1.0.0-alpha13)
++- [Wear Compose Version 1.8.0-alpha01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.8.0-alpha01)
++- [Webgpu Version 1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/webgpu#1.0.0-alpha06)
++- [Xr Glimmer Version 1.0.0-alpha21](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha21)
++
+ ## September 23, 2026
+ 
+ - [A2UI-engine A2UI-model Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/a2ui#1.0.0-alpha01)

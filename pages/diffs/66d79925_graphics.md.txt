@@ -1,0 +1,66 @@
+diff --git a/docs/jetpack/androidx/releases/graphics.md b/docs/jetpack/androidx/releases/graphics.md
+index 6f0198d7..2b627995 100644
+--- a/docs/jetpack/androidx/releases/graphics.md
++++ b/docs/jetpack/androidx/releases/graphics.md
+@@ -13,11 +13,11 @@ This table lists all the artifacts in the `androidx.graphics` group.
+ 
+ | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| graphics-core | [1.0.4](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-core-1.0.4) | - | - | - |
++| graphics-core | [1.0.4](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-core-1.0.4) | - | [1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-core-1.1.0-beta01) | - |
+ | graphics-path | [1.1.0](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-path-1.1.0) | - | - | - |
+ | graphics-shapes | [1.1.0](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-shapes-1.1.0) | - | - | - |
+ 
+-This library was last updated on: May 06, 2026
++This library was last updated on: October 07, 2026
+ 
+ ## Declaring dependencies
+ 
+@@ -32,7 +32,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.graphics:graphics-core:1.0.4"
++    implementation "androidx.graphics:graphics-core:1.1.0-beta01"
+     implementation "androidx.graphics:graphics-path:1.1.0"
+     implementation "androidx.graphics:graphics-shapes:1.1.0"
+ }
+@@ -42,7 +42,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.graphics:graphics-core:1.0.4")
++    implementation("androidx.graphics:graphics-core:1.1.0-beta01")
+     implementation("androidx.graphics:graphics-path:1.1.0")
+     implementation("androidx.graphics:graphics-shapes:1.1.0")
+ }
+@@ -352,6 +352,29 @@ March 22, 2023
+ 
+ ## Graphics-Core
+ 
++### Version 1.1
++
++#### Version 1.1.0-beta01
++
++October 07, 2026
++
++`androidx.graphics:graphics-core:1.1.0-beta01` is released. Version 1.1.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/7620069dd1c615be201490afe981639f04cec40f..f151c2908819a969f6a44ba4940c65b661a721c9/graphics/graphics-core).
++
++**API Changes**
++
++- Added `CanvasFrontBufferRenderer#execute` API ([Ie82c8](https://android-review.googlesource.com/#/q/Ie82c8fe4b04f23d68a19ffde01fbad0c63d549e6))
++
++**Bug Fixes**
++
++- Fixed a race condition during `GLFrameBufferRenderer` teardown by releasing `SurfaceControl` on the GL thread.
++- Fixed inverted buffer transforms in `CanvasFrontBufferedRenderer` and `LowLatencyCanvasView`.
++- Added fallback display rotation resolution for API \< 32 devices.
++- Fixed visual artifacts on devices that do not preserve buffer contents.
++- Fixed redundant draws and render stalls when surfaces are recreated.
++- Fixed memory leaks by unparenting `SurfaceControl` instances and clearing references on `release()`.
++- Reduced allocations and redundant thread hops during draw loops.
++- Replaced unused `annotation-experimental` dependency with `annotation:1.8.0`.
++
+ ### Version 1.0
+ 
+ #### Version 1.0.4

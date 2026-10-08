@@ -1,0 +1,42 @@
+diff --git a/docs/blog/latest/6.md b/docs/blog/latest/6.md
+index d8a2c471..357fecc3 100644
+--- a/docs/blog/latest/6.md
++++ b/docs/blog/latest/6.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Francesco Romano's profile](https://developer.android.com/static/blog/assets/unnamed_fd9e15f738_Zn1KD7.webp)](https://developer.android.com/blog/authors/francesco-romano) 03 Mar 2026 03 Mar 2026 ![](https://developer.android.com/static/blog/assets/android_Connected_34a0ae66a4_Z1IGssd.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Android devices extend seamlessly to connected displays](https://developer.android.com/blog/posts/android-devices-extend-seamlessly-to-connected-displays)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-devices-extend-seamlessly-to-connected-displays) We are excited to announce a major milestone in bringing mobile and desktop computing closer together on Android: connected display support has reached general availability with the Android 16 QPR3 release!
++  [Francesco Romano](https://developer.android.com/blog/authors/francesco-romano) • 7 min read
+ - [![View Charles Munger's profile](https://developer.android.com/static/blog/assets/default-avatar.DvQ_6oi6_Z1SMg9h.svg)](https://developer.android.com/blog/authors/trevor-johns) 02 Mar 2026 02 Mar 2026 ![](https://developer.android.com/static/blog/assets/supercharge_99f4219536_1MIVmw.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Supercharge your Android development with 6 expert tips for Gemini in Android Studio](https://developer.android.com/blog/posts/supercharge-your-android-development-with-6-expert-tips-for-gemini-in-android-studio)
+@@ -126,12 +132,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ 
+   [arrow_forward](https://developer.android.com/blog/posts/brighten-your-real-time-camera-feeds-with-low-light-boost) Today, we're diving into Low Light Boost (LLB), a powerful feature designed to brighten real-time camera streams
+   [Donovan McMurray](https://developer.android.com/blog/authors/donovan-mcmurray) • 7 min read
+-- [![View Thomas Ezan's profile](https://developer.android.com/static/blog/assets/thomas_ezan_d29c7508d0_Z14J7zk.webp)](https://developer.android.com/blog/authors/thomas-ezan) 17 Dec 2025 17 Dec 2025 ![](https://developer.android.com/static/blog/assets/gemin3flash_d6f3bd27b1_2pRpOz.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Build smarter apps with Gemini 3 Flash](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/build-smarter-apps-with-gemini-3-flash) Today, we're expanding the Gemini 3 model family with the release of Gemini 3 Flash, frontier intelligence built for speed at a fraction of the cost.
+-  [Thomas Ezan](https://developer.android.com/blog/authors/thomas-ezan) • 2 min read
+ [arrow_back](https://developer.android.com/blog/latest/5)
+ 
+ #### Page 6
+@@ -153,10 +153,10 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
++- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ - [#R8](https://developer.android.com/blog/topics/r8)
+ - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+-- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+ - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)

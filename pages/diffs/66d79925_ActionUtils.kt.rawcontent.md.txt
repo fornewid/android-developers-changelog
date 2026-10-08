@@ -1,0 +1,73 @@
+diff --git a/docs/agents/skills/system/glance-canonical-layouts/references/utils/ActionUtils.kt.rawcontent.md b/docs/agents/skills/system/glance-canonical-layouts/references/utils/ActionUtils.kt.rawcontent.md
+index 22b4d144..583918b2 100644
+--- a/docs/agents/skills/system/glance-canonical-layouts/references/utils/ActionUtils.kt.rawcontent.md
++++ b/docs/agents/skills/system/glance-canonical-layouts/references/utils/ActionUtils.kt.rawcontent.md
+@@ -1,40 +1,30 @@
+ ---
+-title: Android Developers
++title: https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/utils/ActionUtils.kt.rawcontent
+ url: https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/utils/ActionUtils.kt.rawcontent
+-source: html-scrape
++source: md.txt
+ ---
+ 
+-Stay organized with collections
+-
+-Save and categorize content based on your preferences.
+-
+-
+-
+-
+-
+-```
+-package com.example.platform.ui.appwidgets.glance.layout.utils
+-
+-import androidx.compose.runtime.Composable
+-import androidx.glance.action.Action
+-import androidx.glance.action.actionParametersOf
+-import androidx.glance.action.actionStartActivity
+-import com.example.platform.ui.appwidgets.glance.layout.ActionDemonstrationActivity
+-import com.example.platform.ui.appwidgets.glance.layout.ActionSourceMessageKey
+-
+-/**
+- * Utility functions for creating [Action]s.
+- */
+-object ActionUtils {
+-  /**
+-   * [Action] for launching the [ActionDemonstrationActivity] with the given message.
+-   */
+-  @Composable
+-  fun actionStartDemoActivity(message: String) =
+-    actionStartActivity<ActionDemonstrationActivity>(
+-      actionParametersOf(
+-        ActionSourceMessageKey to message
+-      )
+-    )
+-}
+-```
+\ No newline at end of file
++    package com.example.platform.ui.appwidgets.glance.layout.utils
++
++    import androidx.compose.runtime.Composable
++    import androidx.glance.action.Action
++    import androidx.glance.action.actionParametersOf
++    import androidx.glance.action.actionStartActivity
++    import com.example.platform.ui.appwidgets.glance.layout.ActionDemonstrationActivity
++    import com.example.platform.ui.appwidgets.glance.layout.ActionSourceMessageKey
++
++    /**
++     * Utility functions for creating [Action]s.
++     */
++    object ActionUtils {
++      /**
++       * [Action] for launching the [ActionDemonstrationActivity] with the given message.
++       */
++      @Composable
++      fun actionStartDemoActivity(message: String) =
++        actionStartActivity<ActionDemonstrationActivity>(
++          actionParametersOf(
++            ActionSourceMessageKey to message
++          )
++        )
++    }
+\ No newline at end of file

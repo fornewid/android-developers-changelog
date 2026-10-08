@@ -1,0 +1,13 @@
+diff --git a/docs/games/services/management/api/achievements/resetMultipleForAllPlayers.md b/docs/games/services/management/api/achievements/resetMultipleForAllPlayers.md
+index ae774878..99e6362d 100644
+--- a/docs/games/services/management/api/achievements/resetMultipleForAllPlayers.md
++++ b/docs/games/services/management/api/achievements/resetMultipleForAllPlayers.md
+@@ -18,7 +18,7 @@ POST https://www.googleapis.com/games/v1management/achievements/resetMultipleFor
+ 
+ ### Authorization
+ 
+-This request requires authorization with the following scope ([read more about authentication and authorization](https://developer.android.com/accounts/docs/OAuth2)).
++This request requires authorization with the following scope ([read more about authentication and authorization](https://developers.google.com/identity/protocols/oauth2)).
+ 
+ | Scope |
+ |---|

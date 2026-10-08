@@ -1,0 +1,41 @@
+diff --git a/docs/jetpack/androidx/releases/compose-foundation.md b/docs/jetpack/androidx/releases/compose-foundation.md
+index a0d5894a..3fb9b02c 100644
+--- a/docs/jetpack/androidx/releases/compose-foundation.md
++++ b/docs/jetpack/androidx/releases/compose-foundation.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-alpha03) |
++| October 07, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.12.1) | - | [1.13.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-beta01) | - |
+ 
+ ## Structure
+ 
+@@ -100,6 +100,27 @@ for more information.
+ 
+ ## Version 1.13
+ 
++### Version 1.13.0-beta01
++
++October 07, 2026
++
++`androidx.compose.foundation:foundation-*:1.13.0-beta01` is released. Version 1.13.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/58589a3cd45bacbb3ad7bbdc52836f6e055340be..4c2d8a03f5933cc395e104d9abe368fb4fe3c555/compose/foundation).
++
++**API Changes**
++
++- Added `@FloatRange` and `@IntRange` annotations to `PolygonShape` and `PolygonShapeScope` factory parameters, and restricted `innerRadiusRatio` in `PolygonShape.star` and `PolygonShape.pillStar` to `(0f, 1f)`. ([I47ea3](https://android-review.googlesource.com/#/q/I47ea32a37c1a9652de48ed3a2e24e20b7d3c3cd0))
++- Updated `PolygonShape` APIs: moved `CornerRounding` to top-level with `dp()` and `fraction()` factories, replaced `transformed()` and `scaledToFit()` extensions with in-place mutable `PolygonShape.transform(PolygonShapeTransformScope.() -> Unit)` and `PolygonShape.copy()`. ([If5970](https://android-review.googlesource.com/#/q/If5970afe91c37146e7de4521ca916e59d31b924e))
++- Fixed a bug where requesting focus on a `BasicTextField` before the window was focused (e.g. in `onCreate`) caused the software keyboard to not appear. `BasicTextField` now waits for the window to gain focus before starting the text input session. If this causes problems for developers, you can revert to the previous behavior by setting `ComposeFoundationFlags.isTextFieldWaitWindowFocusForInputSessionEnabled` to false. ([I4206b](https://android-review.googlesource.com/#/q/I4206b22840b21eb2ede6a31d627dec9cb7afb5ca))
++- Libraries now target Kotlin 2.2 and require kotlinc 2.2 ([I82396](https://android-review.googlesource.com/#/q/I823967fe6b9524b448184ef366c562316bd6a323), [b/498369605](https://issuetracker.google.com/issues/498369605))
++- Added a `styleLayer()` method to `CommonStyle` that declares that all properties is in a layer will take precedence over properties set in a lower layer. The `state()` method (and state helpers like `pressed()`) now implicitly create a layer. ([I24473](https://android-review.googlesource.com/#/q/I244739d8798965375829602cc6113d163d1d64fa))
++
++**Bug Fixes**
++
++- Fixed an issue in `FlexBox` where setting `alignContent`(`FlexAlignContent.Stretch`) incorrectly forced child items to stretch with line. ([Ida156](https://android-review.googlesource.com/#/q/Ida156115c8c86274da06d77bbc75d047a838f498))
++- Fixed an issue in `FlexBox` where a single wrapped line (`FlexWrap.Wrap` or `FlexWrap.WrapReverse`) was forcibly expanded to the container's minimum cross-axis constraint, causing `alignContent` and `alignItems` to misalign items. ([I038b1](https://android-review.googlesource.com/#/q/I038b142846f2ea0ea1be848488c4a5e9813e44e6))
++- Fixed an `IllegalStateException` crash when updating `consumeWindowInsets`, `windowInsetsPadding`, or `onConsumedWindowInsetsChanged` on detached modifier nodes, such as during `movableContent` movement. ([I80ae5](https://android-review.googlesource.com/#/q/I80ae50e3ad4b40a1aefc46168f2de71ea7b492fc))
++- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
++
+ ### Version 1.13.0-alpha03
+ 
+ September 09, 2026

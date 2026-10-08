@@ -1,0 +1,31 @@
+diff --git a/docs/blog.md b/docs/blog.md
+index a9a31153..0f602f24 100644
+--- a/docs/blog.md
++++ b/docs/blog.md
+@@ -22,6 +22,13 @@ Tools and resources to help you build faster and easier.
+ 
+ ## The Latest
+ 
++- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic) 02 Oct 2026 02 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_135_Android_CLI_and_Android_skills_Strapi_d22702426a_ZIUXgH.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Device Streaming and Android skills - available in Android CLI](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills)
++
++  As Android developers, you have many choices when it comes to the agents, LLMs, tools, and command-line interfaces (CLI) you use for app development. Our goal is to help you build beautiful, high-quality Android apps, no matter how you choose to build.
++  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) • 4 min read
++  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [![View Pavlo Stavytskyi's profile](https://developer.android.com/static/blog/assets/pavlo_a4e2ec12e9_v4xs2.webp)](https://developer.android.com/blog/authors/pavlo-stavytskyi)[![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)](https://developer.android.com/blog/authors/rebecca-franks) 30 Sep 2026 30 Sep 2026 ![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+ 
+   ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct)
+@@ -65,12 +72,6 @@ Tools and resources to help you build faster and easier.
+   [Matthew McCullough](https://developer.android.com/blog/authors/matthew-mccullough) • 3 min read
+   - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+   - [#Android Bench](https://developer.android.com/blog/topics/android-bench)
+-- 3 Authors 17 Sep 2026 17 Sep 2026 ![](https://developer.android.com/static/blog/assets/Android_X_Security_State_Library_Strapi_d3ecf61180_YYwl5.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Introducing the AndroidX Security State Libraries: A Unified View of Device Security](https://developer.android.com/blog/posts/introducing-the-android-x-security-state-libraries-a-unified-view-of-device-security)
+-
+-  Today, we're thrilled to announce the stable release of the AndroidX Security State version 1.1.0 and Security State Provider version 1.0.0 libraries.
+-  [Maunik Shah](https://developer.android.com/blog/authors/maunik-shah), [Alec Garcia](https://developer.android.com/blog/authors/alec-garcia), [Joseph Yong](https://developer.android.com/blog/authors/joseph-yong) • 4 min read
+ [arrow_forward
+ See all latest posts](https://developer.android.com/blog/latest) ![](https://developer.android.com/static/blog/assets/product_news_droid_599a11ad69_d4ee764ece_1Ad42c.webp)
+ 

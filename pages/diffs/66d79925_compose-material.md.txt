@@ -1,0 +1,30 @@
+diff --git a/docs/jetpack/androidx/releases/compose-material.md b/docs/jetpack/androidx/releases/compose-material.md
+index b8644a9d..0439a0c7 100644
+--- a/docs/jetpack/androidx/releases/compose-material.md
++++ b/docs/jetpack/androidx/releases/compose-material.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-alpha03) |
++| October 07, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-material#1.12.1) | - | [1.13.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-beta01) | - |
+ 
+ ## Structure
+ 
+@@ -100,6 +100,16 @@ for more information.
+ 
+ ## Version 1.13
+ 
++### Version 1.13.0-beta01
++
++October 07, 2026
++
++`androidx.compose.material:material-*:1.13.0-beta01` is released. Version 1.13.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/58589a3cd45bacbb3ad7bbdc52836f6e055340be..55d45bc889e6e54d26f897e1299b3f5d6ca78acb/compose/material).
++
++**API Changes**
++
++- Libraries now target Kotlin 2.2 and require kotlinc 2.2 ([I82396](https://android-review.googlesource.com/#/q/I823967fe6b9524b448184ef366c562316bd6a323), [b/498369605](https://issuetracker.google.com/issues/498369605))
++
+ ### Version 1.13.0-alpha03
+ 
+ September 09, 2026

@@ -1,0 +1,63 @@
+diff --git a/docs/jetpack/androidx/releases/appfunctions.md b/docs/jetpack/androidx/releases/appfunctions.md
+index cb61ddce..b0e7feeb 100644
+--- a/docs/jetpack/androidx/releases/appfunctions.md
++++ b/docs/jetpack/androidx/releases/appfunctions.md
+@@ -10,7 +10,7 @@ Allows apps to share functionality and data with AI assistants, enabling them to
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 23, 2026 | - | - | - | [1.0.0-alpha12](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha12) |
++| October 07, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha13) |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,10 +25,10 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.appfunctions:appfunctions:1.0.0-alpha12"
++    implementation "androidx.appfunctions:appfunctions:1.0.0-alpha13"
+     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
+     // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
+-    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-alpha12"
++    ksp "androidx.appfunctions:appfunctions-compiler:1.0.0-alpha13"
+ }
+ ```
+ 
+@@ -36,10 +36,10 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.appfunctions:appfunctions:1.0.0-alpha12")
++    implementation("androidx.appfunctions:appfunctions:1.0.0-alpha13")
+     // Use Kotlin Symbol Processing (KSP) for the appfunctions compiler plugin.
+     // See https://kotlinlang.org/docs/ksp-quickstart.html to add KSP to your build
+-    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha12")
++    ksp("androidx.appfunctions:appfunctions-compiler:1.0.0-alpha13")
+ }
+ ```
+ 
+@@ -62,6 +62,23 @@ There are no release notes for this artifact.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha13
++
++October 07, 2026
++
++`androidx.appfunctions:appfunctions:1.0.0-alpha13`, `androidx.appfunctions:appfunctions-compiler:1.0.0-alpha13`, and `androidx.appfunctions:appfunctions-testing:1.0.0-alpha13` are released. Version 1.0.0-alpha13 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/f77468c7762fc61d6c4489eec93f95b8e27410fc..0990e6ecc6b2bb46ca9e51bdc845da764080ba4f/appfunctions).
++
++**API Changes**
++
++- Add @AppFunctionAccessLevel annotation to support access restriction setting. ([Id47e1](https://android-review.googlesource.com/#/q/Id47e134fc3aac0901ec0a026904d48222653d8fe))
++- Rename `AppFunction` annotation to `AppFunctionDeclaration` ([I4b15d](https://android-review.googlesource.com/#/q/I4b15d35e7889272811b725fb5eed0ba1a9e863da))
++- Rename `ObserveAppFunctionsEvent` to `AppFunctionsChangeEvent` ([Iec918](https://android-review.googlesource.com/#/q/Iec9182fb0e2583f4086281e1572d6ab3d028e00a))
++- Surface `AppFunctionMetadata` in `AppFunctionService`. ([If1117](https://android-review.googlesource.com/#/q/If11170bcc6498efc1c1bc09a67ef354ce2e2ca9d))
++
++**Bug Fixes**
++
++- Support all built-in proxy types (LocalDate, LocalTime, Instant, ZoneId) in AppFunctionData. ([I61c16](https://android-review.googlesource.com/#/q/I61c16ec04842353212bc1e2df3f7a00fecc1abf8))
++
+ ### Version 1.0.0-alpha12
+ 
+ September 23, 2026

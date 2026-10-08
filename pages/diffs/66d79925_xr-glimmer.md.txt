@@ -1,0 +1,48 @@
+diff --git a/docs/jetpack/androidx/releases/xr-glimmer.md b/docs/jetpack/androidx/releases/xr-glimmer.md
+index b9bfa835..5e1290e5 100644
+--- a/docs/jetpack/androidx/releases/xr-glimmer.md
++++ b/docs/jetpack/androidx/releases/xr-glimmer.md
+@@ -10,7 +10,7 @@ Design language and UI toolkit for building augmented Android XR experiences
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 23, 2026 | - | - | - | [1.0.0-alpha20](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha20) |
++| October 07, 2026 | - | - | - | [1.0.0-alpha21](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#1.0.0-alpha21) |
+ 
+ ## Declaring dependencies
+ 
+@@ -27,7 +27,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha20"
++    implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha21"
+ }
+ ```
+ 
+@@ -35,7 +35,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha20")
++    implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha21")
+ }
+ ```
+ 
+@@ -56,6 +56,16 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-alpha21
++
++October 07, 2026
++
++`androidx.xr.glimmer:glimmer:1.0.0-alpha21` and `androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha21` are released. Version 1.0.0-alpha21 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f..5410cea755abeebde8e61592323beeddcb51719b/xr/glimmer).
++
++**API Changes**
++
++- Add focused color customization to Button ([I6524a](https://android-review.googlesource.com/#/q/I6524a2423f360c2e5c5f4e4711bf2dc96981db80))
++
+ ### Version 1.0.0-alpha20
+ 
+ September 23, 2026

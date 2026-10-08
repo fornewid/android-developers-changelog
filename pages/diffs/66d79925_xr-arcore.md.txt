@@ -1,0 +1,49 @@
+diff --git a/docs/jetpack/androidx/releases/xr-arcore.md b/docs/jetpack/androidx/releases/xr-arcore.md
+index 025ea75e..f8af495f 100644
+--- a/docs/jetpack/androidx/releases/xr-arcore.md
++++ b/docs/jetpack/androidx/releases/xr-arcore.md
+@@ -10,7 +10,7 @@ source: md.txt
+ 
+ | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
+ |---|---|---|---|---|
+-| September 09, 2026 | - | [1.0.0-rc01](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-rc01) | - | - |
++| October 07, 2026 | - | [1.0.0-rc02](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-rc02) | - | - |
+ 
+ ## Declaring dependencies
+ 
+@@ -25,7 +25,7 @@ your app or module:
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.xr.arcore:arcore:1.0.0-rc01"
++    implementation "androidx.xr.arcore:arcore:1.0.0-rc02"
+ }
+ ```
+ 
+@@ -33,7 +33,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.xr.arcore:arcore:1.0.0-rc01")
++    implementation("androidx.xr.arcore:arcore:1.0.0-rc02")
+ }
+ ```
+ 
+@@ -54,6 +54,17 @@ for more information.
+ 
+ ## Version 1.0
+ 
++### Version 1.0.0-rc02
++
++October 07, 2026
++
++`androidx.xr.arcore:arcore-*:1.0.0-rc02` is released. Version 1.0.0-rc02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/9c825fbab75661b887e67410bc6d6565f80d3f2d..5836b45501e4170061dd2eeac772aa767031672f/xr/arcore).
++
++**Bug Fixes**
++
++- Fixed an issue where `OpenXrRuntime` failed to configure the session when augmented image tracking was unsupported. ([I8b9759](https://android-review.googlesource.com/q/I8b9759f1cf8fe828baa7b31138d76dc9038ad095))
++- Fixed multiple issues including: improved memory management in `XrInstanceManager` by using `applicationContext`, resolved potential lifecycle-related issues by simplifying `Session` and `Scene` caching mechanisms, and enhanced the `ReferenceCleaner` to ensure thread-safe cleanup registrations and explicit disposals. ([Id0b76c](https://android-review.googlesource.com/q/Id0b76c704c3928a06e47f411953431a1eb2b8d3a))
++
+ ### Version 1.0.0-rc01
+ 
+ September 09, 2026

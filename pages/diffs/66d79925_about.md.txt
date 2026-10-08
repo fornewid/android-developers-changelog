@@ -1,0 +1,21 @@
+diff --git a/docs/training/app-links/about.md b/docs/training/app-links/about.md
+index 6be96b4e..011941f8 100644
+--- a/docs/training/app-links/about.md
++++ b/docs/training/app-links/about.md
+@@ -129,6 +129,16 @@ rules for further refinement. With this ideal configuration, you will then be
+ able to add new App Links dynamically that fit within the broad scope set in the
+ manifest.
+ 
++### Reliability fix for dynamic rules
++
++In September 2026, we fixed an issue in Google Play services that
++intermittently prevented some devices running Android 15 (API level 35) and
++higher from applying the dynamic rules in your `assetlinks.json` file. When the
++issue occurred, affected devices used only the intent filters declared in your
++app manifest, so URLs excluded by your dynamic rules could open your app. You
++don't need to change your app or your `assetlinks.json` file. With the fix, we
++expect most devices to apply your dynamic rules as you declared them.
++
+ ## Plan your App Links implementation
+ 
+ Supporting App Links requires an implementation in your app, as well as

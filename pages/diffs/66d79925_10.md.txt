@@ -1,0 +1,29 @@
+diff --git a/docs/blog/latest/10.md b/docs/blog/latest/10.md
+index b1c7a283..287f8eea 100644
+--- a/docs/blog/latest/10.md
++++ b/docs/blog/latest/10.md
+@@ -7,6 +7,12 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)](https://developer.android.com/blog/authors/mayuri-khabya) 22 Sep 2025 22 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media2_20563cb635_5IIEj.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Elevating media playback: A deep dive into Media3's PreloadManager - Part 2](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2)
++
++  [arrow_forward](https://developer.android.com/blog/posts/elevating-media-playback-a-deep-dive-into-media3-s-preload-manager-part-2) Welcome to the second installment of our three-part series on media preloading with Media3. This series is designed to guide you through the process of building highly responsive, low-latency media experiences in your Android apps.
++  [Mayuri Khinvasara Khabya](https://developer.android.com/blog/authors/mayuri-khabya) • 9 min read
+ - [![View Mayuri Khinvasara Khabya's profile](https://developer.android.com/static/blog/assets/Mayuri_Khinvasara_Khabya_92848b1e1b_L1YXj.webp)](https://developer.android.com/blog/authors/mayuri-khabya) 05 Sep 2025 05 Sep 2025 ![](https://developer.android.com/static/blog/assets/elevating_Media_Playback_16bfc9b0d6_Z1RUWJn.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+ 
+   ## [Elevating media playback: Introducing preloading with Media3 - Part 1](https://developer.android.com/blog/posts/elevating-media-playback-introducing-preloading-with-media3-part-1)
+@@ -111,10 +117,10 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
++- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ - [#R8](https://developer.android.com/blog/topics/r8)
+ - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+-- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+ - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)

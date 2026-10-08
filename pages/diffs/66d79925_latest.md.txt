@@ -1,0 +1,51 @@
+diff --git a/docs/blog/latest.md b/docs/blog/latest.md
+index 0337506e..8024429b 100644
+--- a/docs/blog/latest.md
++++ b/docs/blog/latest.md
+@@ -7,6 +7,13 @@ source: md.txt
+ # The Latest
+ 
+ Stay up to date with the latest announcements, feature rollouts, and updates across Android tools, libraries, and platforms.
++- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic) 02 Oct 2026 02 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_135_Android_CLI_and_Android_skills_Strapi_d22702426a_ZIUXgH.webp) [Product News](https://developer.android.com/blog/categories/product-news)
++
++  ## [Device Streaming and Android skills - available in Android CLI](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills)
++
++  [arrow_forward](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills) As Android developers, you have many choices when it comes to the agents, LLMs, tools, and command-line interfaces (CLI) you use for app development. Our goal is to help you build beautiful, high-quality Android apps, no matter how you choose to build.
++  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) • 4 min read
++  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [![View Pavlo Stavytskyi's profile](https://developer.android.com/static/blog/assets/pavlo_a4e2ec12e9_v4xs2.webp)](https://developer.android.com/blog/authors/pavlo-stavytskyi)[![View Rebecca Franks's profile](https://developer.android.com/static/blog/assets/unnamed_12_b05cc1bf55_Z1XnKqa.webp)](https://developer.android.com/blog/authors/rebecca-franks) 30 Sep 2026 30 Sep 2026 ![](https://developer.android.com/static/blog/assets/Compose_Carousel_Strapi_3_ca1ff69fce_Z1u412n.webp) [Case Studies](https://developer.android.com/blog/categories/case-studies)
+ 
+   ## [How Instagram Direct engineers built AI-native UI architecture with Jetpack Compose and reduced token cost per agent session by 33%](https://developer.android.com/blog/posts/jetpack-compose-ai-native-ui-instagram-direct)
+@@ -162,20 +169,6 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+   - [#Jetpack](https://developer.android.com/blog/topics/jetpack)
+   - [#ExoPlayer](https://developer.android.com/blog/topics/exo-player)
+   - +1 ↩
+-- 3 Authors 11 Aug 2026 11 Aug 2026 ![](https://developer.android.com/static/blog/assets/Strapi_2ca09e764b_1JLHid.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+-
+-  ## [Enhance your app for the new Pixel lineup: Unveiled at Made by Google](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google)
+-
+-  [arrow_forward](https://developer.android.com/blog/posts/enhance-your-app-for-the-new-pixel-lineup-unveiled-at-made-by-google) With the introduction of the Pixel 11 Pro Fold, Pixel Watch 5, and the entire Pixel family, users are moving seamlessly across diverse screen sizes, unique postures, and intelligent experiences.
+-  [Fahd Imtiaz](https://developer.android.com/blog/authors/fahd-imtiaz), [Loryn Hairston](https://developer.android.com/blog/authors/loryn-hairston), [Tracy Agyemang](https://developer.android.com/blog/authors/tracy-agyemang) • 4 min read
+-  - [#Wear OS 7](https://developer.android.com/blog/topics/wear-os-7)
+-  - [#made by google](https://developer.android.com/blog/topics/made-by-google)
+-  - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
+-  - [#Gemini Nano 4](https://developer.android.com/blog/topics/gemini-nano-4)
+-  - [#ML Kit Prompt API](https://developer.android.com/blog/topics/ml-kit-prompt-api)
+-  - [#Foldables](https://developer.android.com/blog/topics/foldables)
+-  - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
+-  - +5 ↩
+ <button class="adb--button adb--standard adb--outlined adb--disabled adb--global-hover-button astro-vnzlvqnm" disabled=""> arrow_back </button>
+ 
+ #### Page 1
+@@ -197,10 +190,10 @@ Stay up to date with the latest announcements, feature rollouts, and updates acr
+ - [#Wear OS](https://developer.android.com/blog/topics/wear-os)
+ - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
+ - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
++- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [#Intelligent Apps](https://developer.android.com/blog/topics/intelligent-apps)
+ - [#R8](https://developer.android.com/blog/topics/r8)
+ - [#Adaptive apps](https://developer.android.com/blog/topics/adaptive-apps)
+-- [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+ - [#Mobile App Development](https://developer.android.com/blog/topics/mobile-app-development)
+ - [#Jetpack Navigation](https://developer.android.com/blog/topics/jetpack-navigation)
+ - [#Automotive OS](https://developer.android.com/blog/topics/automotive-os)

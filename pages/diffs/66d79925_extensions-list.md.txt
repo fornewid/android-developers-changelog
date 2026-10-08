@@ -1,0 +1,22 @@
+diff --git a/docs/kotlin/ktx/extensions-list.md b/docs/kotlin/ktx/extensions-list.md
+index 849e7c84..ca23a32a 100644
+--- a/docs/kotlin/ktx/extensions-list.md
++++ b/docs/kotlin/ktx/extensions-list.md
+@@ -97,7 +97,7 @@ dependencies {
+ 
+ ```groovy
+ dependencies {
+-    implementation "androidx.collection:collection-ktx:1.6.0"
++    implementation "androidx.collection:collection-ktx:1.7.0"
+ }
+ ```
+ 
+@@ -105,7 +105,7 @@ dependencies {
+ 
+ ```kotlin
+ dependencies {
+-    implementation("androidx.collection:collection-ktx:1.6.0")
++    implementation("androidx.collection:collection-ktx:1.7.0")
+ }
+ ```
+ 

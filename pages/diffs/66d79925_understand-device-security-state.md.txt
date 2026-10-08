@@ -1,0 +1,21 @@
+diff --git a/docs/privacy-and-security/understand-device-security-state.md b/docs/privacy-and-security/understand-device-security-state.md
+index 8a44b573..1aaea8f7 100644
+--- a/docs/privacy-and-security/understand-device-security-state.md
++++ b/docs/privacy-and-security/understand-device-security-state.md
+@@ -95,7 +95,7 @@ corresponding update provider must publish that information. To coordinate
+ across these different update sources, client applications use the
+ [AndroidX Security State](https://developer.android.com/reference/kotlin/androidx/security/state/package-summary) library to query security state, while on-device
+ update clients use the companion [AndroidX Security State Provider](https://developer.android.com/reference/kotlin/androidx/security/state/provider/package-summary)
+-library to publish their Available Security Patch Level (ASPL).
++library to [publish their Available Security Patch Level (ASPL)](https://developer.android.com/privacy-and-security/publish-device-security-state).
+ 
+ Google provides update information for Mainline modules to all GMS Android
+ devices, as well as system OTA information for devices using the Google OTA
+@@ -384,6 +384,7 @@ For more information about device security state, see the following resources:
+ 
+ ### Documentation
+ 
++- [Publish device security state](https://developer.android.com/privacy-and-security/publish-device-security-state)
+ - [Android Security Bulletins](https://source.android.com/docs/security/bulletin)
+ - [Modular system components](https://source.android.com/docs/core/ota/modular-system)
+ - [Generic Kernel Image (GKI)](https://source.android.com/docs/core/architecture/kernel/generic-kernel-image)

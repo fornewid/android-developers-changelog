@@ -1,0 +1,22 @@
+diff --git a/docs/guide/components/google-maps-intents.md b/docs/guide/components/google-maps-intents.md
+index 3929e5ab..afe0b47d 100644
+--- a/docs/guide/components/google-maps-intents.md
++++ b/docs/guide/components/google-maps-intents.md
+@@ -453,7 +453,7 @@ directions include narrow roads and trails unavailable to cars. The following
+ 
+ Use the `google.streetview` intent to launch Google Street View. Google Street
+ View provides panoramic views from designated locations throughout its [coverage
+-area](https://maps.google.com/maps/about/behind-the-scenes/streetview/#where). [User contributed Photospheres](https://www.google.com/maps/views/home), and [Street View special
++area](https://www.google.com/streetview/how-it-works/). [User contributed Photospheres](https://www.google.com/streetview/contribute/), and [Street View special
+ collections](https://www.google.com/maps/views/streetview) are also available.
+ 
+     google.streetview:cbll=latitude,longitude&cbp=0,bearing,0,zoom,tilt
+@@ -473,7 +473,7 @@ parameter:
+ 
+ - **`panoid`** is a specific panorama ID. Google Maps uses the panorama ID if
+   both a `panoid` and a `cbll` are specified. Panorama IDs are available to an
+-  Android app from the [`StreetViewPanoramaLocation`](https://developer.android.com/android/reference/com/google/android/gms/maps/model/StreetViewPanoramaLocation) object.
++  Android app from the [`StreetViewPanoramaLocation`](https://developers.google.com/android/reference/com/google/android/gms/maps/model/StreetViewPanoramaLocation) object.
+ 
+ - **`cbp`** is an optional parameter that adjusts the initial orientation of
+   the camera. The `cbp` parameter takes 5 comma-separated values, all of which
