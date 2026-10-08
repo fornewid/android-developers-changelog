@@ -12,7 +12,7 @@ Use the Material 3 adaptive library to create adaptive UIs that adapt automatica
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0) | - | - | [1.4.0-alpha02](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.4.0-alpha02) |
+| October 07, 2026 | [1.3.0](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.3.0) | - | - | [1.4.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-material3-adaptive#1.4.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -27,10 +27,10 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.compose.material3.adaptive:adaptive:1.4.0-alpha02"
-    implementation "androidx.compose.material3.adaptive:adaptive-layout:1.4.0-alpha02"
-    implementation "androidx.compose.material3.adaptive:adaptive-navigation:1.4.0-alpha02"
-    implementation "androidx.compose.material3.adaptive:adaptive-navigation3:1.4.0-alpha02"
+    implementation "androidx.compose.material3.adaptive:adaptive:1.4.0-alpha03"
+    implementation "androidx.compose.material3.adaptive:adaptive-layout:1.4.0-alpha03"
+    implementation "androidx.compose.material3.adaptive:adaptive-navigation:1.4.0-alpha03"
+    implementation "androidx.compose.material3.adaptive:adaptive-navigation3:1.4.0-alpha03"
 }
 ```
 
@@ -38,10 +38,10 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.compose.material3.adaptive:adaptive:1.4.0-alpha02")
-    implementation("androidx.compose.material3.adaptive:adaptive-layout:1.4.0-alpha02")
-    implementation("androidx.compose.material3.adaptive:adaptive-navigation:1.4.0-alpha02")
-    implementation("androidx.compose.material3.adaptive:adaptive-navigation3:1.4.0-alpha02")
+    implementation("androidx.compose.material3.adaptive:adaptive:1.4.0-alpha03")
+    implementation("androidx.compose.material3.adaptive:adaptive-layout:1.4.0-alpha03")
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation:1.4.0-alpha03")
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation3:1.4.0-alpha03")
 }
 ```
 
@@ -63,6 +63,16 @@ for more information.
 <br />
 
 ## Version 1.4
+
+### Version 1.4.0-alpha03
+
+October 07, 2026
+
+`androidx.compose.material3.adaptive:adaptive-*:1.4.0-alpha03` is released. Version 1.4.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..988ac9734e8223273eb7f186ee1639ee68deb025/compose/material3/adaptive).
+
+**Dependencies**
+
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
 
 ### Version 1.4.0-alpha02
 

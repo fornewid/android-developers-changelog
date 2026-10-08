@@ -4,9 +4,7 @@ url: https://developer.android.com/games/services/management/api/rooms/resetForA
 source: md.txt
 ---
 
-# Rooms: resetForAllPlayers
-
-**Requires[authorization](https://developer.android.com/games/services/management/api/rooms/resetForAllPlayers#auth)**
+**Requires [authorization](https://developer.android.com/games/services/management/api/rooms/resetForAllPlayers#auth)**
 
 Deletes rooms where the only room participants are from whitelisted tester accounts for your application. This method is only available to user accounts for your developer console.
 
@@ -20,10 +18,10 @@ POST https://www.googleapis.com/games/v1management/rooms/resetForAllPlayers
 
 ### Authorization
 
-This request requires authorization with the following scope ([read more about authentication and authorization](https://developer.android.com/accounts/docs/OAuth2)).
+This request requires authorization with the following scope ([read more about authentication and authorization](https://developers.google.com/identity/protocols/oauth2)).
 
-|                  Scope                  |
-|-----------------------------------------|
+| Scope |
+|---|
 | `https://www.googleapis.com/auth/games` |
 
 ### Request body

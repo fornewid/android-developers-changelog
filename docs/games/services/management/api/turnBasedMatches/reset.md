@@ -4,9 +4,7 @@ url: https://developer.android.com/games/services/management/api/turnBasedMatche
 source: md.txt
 ---
 
-# TurnBasedMatches: reset
-
-**Requires[authorization](https://developer.android.com/games/services/management/api/turnBasedMatches/reset#auth)**
+**Requires [authorization](https://developer.android.com/games/services/management/api/turnBasedMatches/reset#auth)**
 
 Reset all turn-based match data for a user. This method is only accessible to whitelisted tester accounts for your application.
 
@@ -20,10 +18,10 @@ POST https://www.googleapis.com/games/v1management/turnbasedmatches/reset
 
 ### Authorization
 
-This request requires authorization with the following scope ([read more about authentication and authorization](https://developer.android.com/accounts/docs/OAuth2)).
+This request requires authorization with the following scope ([read more about authentication and authorization](https://developers.google.com/identity/protocols/oauth2)).
 
-|                  Scope                  |
-|-----------------------------------------|
+| Scope |
+|---|
 | `https://www.googleapis.com/auth/games` |
 
 ### Request body

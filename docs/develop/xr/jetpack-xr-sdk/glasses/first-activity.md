@@ -100,21 +100,6 @@ class ProjectedMainActivity : ComponentActivity() {
     private var displayController: ProjectedDisplayController? = null
     private var isVisualUiSupported by mutableStateOf(false)
     private var areVisualsOn by mutableStateOf(true)
-    private var isPermissionDenied by mutableStateOf(false)
-
-    @Suppress("DEPRECATION")
-    // TODO: Remove suppression once Android Emulator supports ProjectedActivityCompat.requestPermissions()
-    // Register the permissions launcher using the ProjectedPermissionsResultContract.
-    private val requestPermissionLauncher: ActivityResultLauncher<List<ProjectedPermissionsRequestParams>> =
-        registerForActivityResult(ProjectedPermissionsResultContract()) { results ->
-            if (results[Manifest.permission.CAMERA] == true) {
-                isPermissionDenied = false
-                initializeGlassesFeatures()
-            } else {
-                // Handle permission denial.
-                isPermissionDenied = true
-            }
-        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -126,19 +111,13 @@ class ProjectedMainActivity : ComponentActivity() {
             }
         })
 
-        if (hasCameraPermission()) {
-            initializeGlassesFeatures()
-        } else {
-            requestHardwarePermissions()
-        }
+        initializeGlassesFeatures()
 
         setContent {
             GlimmerTheme {
                 HomeScreen(
                     areVisualsOn = areVisualsOn,
                     isVisualUiSupported = isVisualUiSupported,
-                    isPermissionDenied = isPermissionDenied,
-                    onRetryPermission = { requestHardwarePermissions() },
                     onClose = { finish() }
                 )
             }
@@ -160,19 +139,6 @@ class ProjectedMainActivity : ComponentActivity() {
             )
             lifecycle.addObserver(observer)
         }
-    }
-
-    private fun hasCameraPermission(): Boolean {
-        return ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) ==
-                PackageManager.PERMISSION_GRANTED
-    }
-
-    private fun requestHardwarePermissions() {
-        val params = ProjectedPermissionsRequestParams(
-            permissions = listOf(Manifest.permission.CAMERA),
-            rationale = "Camera access is required to overlay digital content on your physical environment."
-        )
-        requestPermissionLauncher.launch(listOf(params))
     }
 }
 ```
@@ -200,8 +166,6 @@ define a composable that can display some text on the glasses' display:
 fun HomeScreen(
     areVisualsOn: Boolean,
     isVisualUiSupported: Boolean,
-    isPermissionDenied: Boolean,
-    onRetryPermission: () -> Unit,
     onClose: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -212,15 +176,7 @@ fun HomeScreen(
             .fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        if (isPermissionDenied) {
-            ActionCard(
-                title = { Text("Permission Required") },
-                action = { Button(onClick = onClose) { Text("Exit") } }
-            ) {
-                Text("Camera access is needed to use display glasses features.")
-                Button(onClick = onRetryPermission) { Text("Retry") }
-            }
-        } else if (isVisualUiSupported) {
+        if (isVisualUiSupported) {
             ActionCard(
                 title = { Text("Android XR") },
                 action = {

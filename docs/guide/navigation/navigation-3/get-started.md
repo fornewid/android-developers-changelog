@@ -27,7 +27,7 @@ your `libs.versions.toml`:
     lifecycleViewmodelNav3 = "2.12.0-alpha04"
     kotlinSerialization = "2.2.21"
     kotlinxSerializationCore = "1.9.0"
-    material3AdaptiveNav3 = "1.4.0-alpha02"
+    material3AdaptiveNav3 = "1.4.0-alpha03"
 
     [libraries]
     # Core Navigation 3 libraries

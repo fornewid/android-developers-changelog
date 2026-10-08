@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | [1.17.1](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.1) | - | - | [1.18.0-alpha02](https://developer.android.com/jetpack/androidx/releases/webkit#1.18.0-alpha02) |
+| October 07, 2026 | [1.17.1](https://developer.android.com/jetpack/androidx/releases/webkit#1.17.1) | [1.18.0-rc01](https://developer.android.com/jetpack/androidx/releases/webkit#1.18.0-rc01) | - | - |
 
 ## Declaring dependencies
 
@@ -51,6 +51,20 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Webkit
+
+### Version 1.18
+
+### Version 1.18.0-rc01
+
+October 07, 2026
+
+`androidx.webkit:webkit:1.18.0-rc01` is released. Version 1.18.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f..69f085f69ab093b8540b58892cdbbefb88f20e94/webkit/webkit).
+
+**Bug Fixes**
+
+- Clarified in documentation that Profile custom request header changes take effect on document load. ([Id3b6f](https://android-review.googlesource.com/#/q/Id3b6fc1e7657e7e1248b2c6253c00526892221b3), [b/561650101](https://issuetracker.google.com/issues/561650101))
 
 ## Version 1.18
 

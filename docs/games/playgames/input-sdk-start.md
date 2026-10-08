@@ -99,7 +99,7 @@ of the following cases:
 > **Note:** Failure to avoid these exceptions may cause delays in your deployment process and result in the remapping feature being disabled for your game.
 
 > [!NOTE]
-> **Note:** If your game implements Input SDK v1.0.0-beta and has the remapping feature disabled, migrate to the [latest Input SDK version](https://developer.android.com/games/playgames/input-sdk-start#remapping-listener) and fix any error you find. If you are using the latest version and still find the remapping feature disabled for your game, contact your Google Play Games on PC advocate.
+> **Note:** If your game implements Input SDK v1.0.0-beta and has the remapping feature disabled, migrate to the [latest Input SDK version](https://developer.android.com/games/playgames/input-sdk-migration-guides) and fix any error you find. If you are using the latest version and still find the remapping feature disabled for your game, contact your Google Play Games on PC advocate.
 
 ### Limitations of remapping
 
@@ -176,7 +176,7 @@ for Unity games.
 ## Generate your key bindings
 
 > [!NOTE]
-> **Note:** you can [detect when your game is running on Google Play Games on PC](https://developer.android.com/games/playgames/pc-compatibility#detect-hpe), although the Input SDK is intelligent enough to detect when it's running on mobile. Alternatively you can define your own **PLAY_GAMES_PC** [preprocessor directive](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html) in Unity.
+> **Note:** you can [detect when your game is running on Google Play Games on PC](https://developer.android.com/games/playgames/pc-compatibility#detect-hpe), although the Input SDK is intelligent enough to detect when it's running on mobile. Alternatively you can define your own **PLAY_GAMES_PC** [preprocessor directive](https://docs.unity3d.com/Manual/platform-dependent-compilation.html) in Unity.
 
 Register your key bindings by building an `InputMap` and returning it with an
 `InputMappingProvider`. The following example outlines an

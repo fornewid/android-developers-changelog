@@ -10,7 +10,7 @@ Navigation 3 is a new navigation library designed to work with Compose.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0) | - | - | [1.3.0-alpha01](https://developer.android.com/jetpack/androidx/releases/navigation3#1.3.0-alpha01) |
+| October 07, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0) | - | - | [1.3.0-alpha02](https://developer.android.com/jetpack/androidx/releases/navigation3#1.3.0-alpha02) |
 
 ## Declaring dependencies
 
@@ -25,8 +25,8 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigation3:navigation3-runtime:1.3.0-alpha01"
-    implementation "androidx.navigation3:navigation3-ui:1.3.0-alpha01"
+    implementation "androidx.navigation3:navigation3-runtime:1.3.0-alpha02"
+    implementation "androidx.navigation3:navigation3-ui:1.3.0-alpha02"
 }
 ```
 
@@ -34,8 +34,8 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigation3:navigation3-runtime:1.3.0-alpha01")
-    implementation("androidx.navigation3:navigation3-ui:1.3.0-alpha01")
+    implementation("androidx.navigation3:navigation3-runtime:1.3.0-alpha02")
+    implementation("androidx.navigation3:navigation3-ui:1.3.0-alpha02")
 }
 ```
 
@@ -55,6 +55,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.3
+
+### Version 1.3.0-alpha02
+
+October 07, 2026
+
+`androidx.navigation3:navigation3-*:1.3.0-alpha02` is released. Version 1.3.0-alpha02 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f..988ac9734e8223273eb7f186ee1639ee68deb025/navigation3).
+
+**API Changes**
+
+- `SceneInfo` class has added `title` and `url` properties which are automatically populated from the Scene's last `NavEntry's` metadata. Use `TitleMetadataKey` and `UrlMetadataKey` to define destination titles and URLs in the entry's metadata.. ([I78a20](https://android-review.googlesource.com/#/q/I78a209a080a2dbe0748eb1e3bf82c7a981ab4052), [b/542693522](https://issuetracker.google.com/issues/542693522))
 
 ### Version 1.3.0-alpha01
 

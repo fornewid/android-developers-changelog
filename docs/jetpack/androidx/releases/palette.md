@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| July 01, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/palette#1.0.0) | - | - | [1.1.0-alpha01](https://developer.android.com/jetpack/androidx/releases/palette#1.1.0-alpha01) |
+| October 07, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/palette#1.0.0) | [1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/palette#1.1.0-rc01) | - | - |
 
 ## Feedback
 
@@ -26,6 +26,12 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.1
+
+### Version 1.1.0-rc01
+
+October 07, 2026
+
+`androidx.palette:palette:1.1.0-rc01` and `androidx.palette:palette-ktx:1.1.0-rc01` are released. Version 1.1.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/3392a424178238fa2c15db77b28bb528a3dbf0ea..4adaa52c2197a3dca948df70d86bb5f2580c6029/palette).
 
 ### Version 1.1.0-alpha01
 

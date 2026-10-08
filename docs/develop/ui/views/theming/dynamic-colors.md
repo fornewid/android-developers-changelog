@@ -94,9 +94,9 @@ Next, add the theme to your app.
 
     <style
         name="AppTheme"
-        parent="ThemeOverlay.Material3.DynamicColors.DayNight">
+        parent="ThemeOverlay.Material3.DynamicC>olors.Day<Night&>quot;
         ...
-    </style>
+    /style
 
 ### Create your theme with tokens
 
@@ -115,69 +115,69 @@ a corresponding color xml, after applying dynamic color tokens.
     Themes.xml
 
     <resources>
-      <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorPrimary">@color/md_theme_light_primary</item>
-        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
-        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
-        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
-        <item name="colorError">@color/md_theme_light_error</item>
-        <item name="colorOnError">@color/md_theme_light_onError</item>
-        <item name="colorErrorContainer">@color/md_theme_light_errorContainer</item>
-        <item name="colorOnErrorContainer">@color/md_theme_light_onErrorContainer</item>
-        <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
-        <item name="colorSurface">@color/md_theme_light_surface</item>
-        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
-        .....
-      </style>
-    </resources>
+      <style name="AppTheme" parent="Theme.Material3.Lig>ht.No<ActionBar"
+        item> name="colorPrimary"<;@col>or/md<_theme_light_primary/item
+    >    item name="colorOnPrim<ary&q>uot;@<color/md_theme_light_onPrimary/it>em
+        item name="colorPrimaryCon<taine>r&quo<t;@color/md_theme_light_primaryCont>ainer/item
+        item name="colorOnPr<imary>Conta<iner"@color/md_th>eme_light_onPrimaryContaine<r/ite>m
+       < item name="colorEr>ror"@color/md_theme_ligh<t_err>or/it<em
+        item name="colorOnE>rror"@color/md_theme_light_onEr<ror/i>tem
+     <   item name="colorErrorCont>ainer"@color/md_theme_light_error<Conta>iner/<item
+        item name="colo>rOnErrorContainer"@color/md_t<heme_>light<_onErrorContainer/item
+     >   item name="colorOnBac<kgrou>nd&qu<ot;@color/md_theme_light_o>nBackground/item
+        item name=<">;colorSurfa<ce&quo>t<;@color/md>_theme_light_surface/item
+        item name="colorOnSurface"@color/md_theme_light_onSurface/item
+        …..
+      /style
+    /resources
 
 **Dark theme**
 
     Themes.xml
 
     <resources>
-      <style name="AppTheme" parent="Theme.Material3.Dark.NoActionBar">
-        <item name="colorPrimary">@color/md_theme_dark_primary</item>
-        <item name="colorOnPrimary">@color/md_theme_dark_onPrimary</item>
-        <item name="colorPrimaryContainer">@color/md_theme_dark_primaryContainer</item>
-        <item name="colorOnPrimaryContainer">@color/md_theme_dark_onPrimaryContainer</item>
-        <item name="colorError">@color/md_theme_dark_error</item>
-        <item name="colorOnError">@color/md_theme_dark_onError</item>
-        <item name="colorErrorContainer">@color/md_theme_dark_errorContainer</item>
-        <item name="colorOnErrorContainer">@color/md_theme_dark_onErrorContainer</item>
-        <item name="colorOnBackground">@color/md_theme_dark_onBackground</item>
-        <item name="colorSurface">@color/md_theme_dark_surface</item>
-        <item name="colorOnSurface">@color/md_theme_dark_onSurface</item>
-        ......
-      </style>
-    </resources>
+      <style name="AppTheme" parent="Theme.Material3.Da>rk.No<ActionBar"
+        item> name="colorPrimary&quo<t;@co>lor/m<d_theme_dark_primary/item
+    >    item name="colorOnPri<mary&>quot;<@color/md_theme_dark_onPrimary/it>em
+        item name="colorPrimaryCo<ntain>er&qu<ot;@color/md_theme_dark_primaryCont>ainer/item
+        item name="colorOnP<rimar>yCont<ainer"@color/md_t>heme_dark_onPrimaryContain<er/it>em
+      <  item name="colorE>rror"@color/md_theme_da<rk_er>ror/i<tem
+        item name="colorOn>Error"@color/md_theme_dark_onE<rror/>item
+    <    item name="colorErrorCon>tainer"@color/md_theme_dark_erro<rCont>ainer</item
+        item name="col>orOnErrorContainer"@color/md<_them>e_dar<k_onErrorContainer/item
+    >    item name="colorOnB<ackgr>ound&<quot;@color/md_theme_dark_>onBackground/item
+        item nam<e=&qu>ot;colorSu<rface&>q<uot;@color>/md_theme_dark_surface/item
+        item name="colorOnSurface"@color/md_theme_dark_onSurface/item
+        ……
+      /style
+    /resources
 
 **Colors xml**
 
     Colors.xml
 
     <resources>
-      <color name="md_theme_light_primary">#6750A4</color>
-      <color name="md_theme_light_onPrimary">#FFFFFF</color>
-      <color name="md_theme_light_primaryContainer">#EADDFF</color>
-      <color name="md_theme_light_onPrimaryContainer">#21005D</color>
-      <color name="md_theme_light_error">#B3261E</color>
-      <color name="md_theme_light_onError">#FFFFFF</color>
-      <color name="md_theme_light_errorContainer">#F9DEDC</color>
-      <color name="md_theme_light_onErrorContainer">#410E0B</color>
-      <color name="md_theme_light_surface">#FFFBFE</color>
-      <color name="md_theme_light_onSurface">#1C1B1F</color>
-      <color name="md_theme_light_surfaceVariant">#E7E0EC</color>
-      <color name="md_theme_dark_primary">#D0BCFF</color>
-      <color name="md_theme_dark_onPrimary">#381E72</color>
-      <color name="md_theme_dark_primaryContainer">#4F378B</color>
-      <color name="md_theme_dark_onPrimaryContainer">#EADDFF</color>
-      <color name="md_theme_dark_secondary">#CCC2DC</color>
-      <color name="md_theme_dark_onSecondary">#332D41</color>
-      <color name="md_theme_dark_secondaryContainer">#4A4458</color>
-      <color name="md_theme_dark_onSurface">#E6E1E5</color>
-      <color name="md_theme_dark_surfaceVariant">#49454F</color>
-    </resources>
+      <color name="md_theme_light_pri>mary&qu<ot;#67>50A<4/color
+      color name="md_theme_l>ight_on<Primar>y&q<uot;#FFFFFF/color
+      color name="md_them>e_light<_prima>ryC<ontainer"#EADDFF/color
+      color name=">;md_the<me_lig>ht_<onPrimaryContainer"#21005D/c>olor
+      <color >nam<e="md_theme_light_error"#>B3261E/<color
+    >  c<olor name="md_theme_light_onError&quo>t;#FFFF<FF/col>or
+    <  color name="md_theme_light_errorConta>iner&qu<ot;#F9>DED<C/color
+      color name="md_theme>_light_<onErro>rCo<ntainer"#410E0B/color
+      color na>me=&quo<t;md_t>hem<e_light_surface"#FFFBFE/color
+      color> name=&<quot;m>d_t<heme_light_onSurface"#1C1B1F/>color
+     < color na<me="md_theme_light_surfaceVaria>nt"<;#E7E0>EC/<color
+      color name="md_theme_dark_prim>ary&quo<t;#D0B>CFF</color
+      color name="md_theme_dark_onPri>mary&qu<ot;#38>1E7<2/color
+      color name="md_theme_>dark_pr<imaryC>ont<ainer"#4F378B/color
+      color name=>"m<d_them>e_d<ark_onPrimaryContainer"#EADDFF/color
+      c>olor na<me=&qu>ot;<md_theme_dark_secondary"#CCC2DC>/color
+    <  colo>r n<ame="md_theme_dark_onSecondary">#332D41</color>
+    <  color na>me="md_theme_dark_secondaryContainer"#4A4458/color
+      color name="md_theme_dark_onSurface"#E6E1E5/color
+      color name="md_theme_dark_surfaceVariant"#49454F/color
+    /resources
 
 For more information:
 
@@ -201,17 +201,17 @@ scheme. For example:
     Themes.xml
 
     <resources>
-        <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
-            ...
-            <item name="home_lamp">@color/home_yellow</item>
-              ...
-        </style>
-    </resources>
+        <style name="AppTheme" parent="Theme.Material3.Lig>ht.NoActionBar"
+    <        ...
+            i>tem name="hom<e_lam>p"@color/home_<yellow>/<item
+         >     ...
+        /style
+    /resources
 
     Colors.xml
     <resources>
-       <color name="home_yellow">#E8D655</color>
-    </resources>
+       <color name="home_ye>llow&qu<ot;#E8>D<655/color
+    >/resources
 
 Alternatively, you can use the Material Theme Builder to import additional
 colors that extend your color scheme, thereby creating a unified color system.

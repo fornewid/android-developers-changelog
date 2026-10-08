@@ -189,7 +189,7 @@ In cases where the UI data to preserve is simple and lightweight, you might use
 saved state APIs alone to preserve your state data.
 
 > [!IMPORTANT]
-> **Key Point:** The API to use depends on where the state is held and the logic that it requires. For state that is used in [business logic](https://developer.android.com/architecture/ui-layer/stateholders#logic), hold it in a ViewModel and save it using `SavedStateHandle`. For state that is used in [UI
+> **Key Point:** The API to use depends on where the state is held and the logic that it requires. For state that is used in [business logic](https://developer.android.com/topic/architecture/ui-layer/stateholders#logic), hold it in a ViewModel and save it using `SavedStateHandle`. For state that is used in [UI
 > logic](https://developer.android.com/develop/ui/compose/state-saving#ui-logic), use `rememberSerializable` or `rememberSaveable`.
 
 ### Hook into saved state using SavedStateRegistry

@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-alpha03) |
+| October 07, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.12.1) | - | [1.13.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-beta01) | - |
 
 ## Structure
 
@@ -99,6 +99,32 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.13
+
+### Version 1.13.0-beta01
+
+October 07, 2026
+
+`androidx.compose.ui:ui-*:1.13.0-beta01` is released. Version 1.13.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/58589a3cd45bacbb3ad7bbdc52836f6e055340be..55d45bc889e6e54d26f897e1299b3f5d6ca78acb/compose/ui).
+
+**API Changes**
+
+- Reverted `Modifier.interactionBarrier()` from the public API surface for 1.13. ([I47974](https://android-review.googlesource.com/#/q/I47974742e47dac79d11c61477944288f61fd806e), [b/564575045](https://issuetracker.google.com/issues/564575045), [b/347038246](https://issuetracker.google.com/issues/347038246))
+- Updated `PolygonShape` APIs: moved `CornerRounding` to top-level with `dp()` and `fraction()` factories, replaced `transformed()` and `scaledToFit()` extensions with in-place mutable `PolygonShape.transform(PolygonShapeTransformScope.() -> Unit)` and `PolygonShape.copy()`. ([If5970](https://android-review.googlesource.com/#/q/If5970afe91c37146e7de4521ca916e59d31b924e))
+- `onValueChange` is now a required parameter on `Slider`, `VerticalSlider`, and `RangeSlider`. Removed previously hidden deprecated APIs across `Slider` and `RangeSlider` components, including the `DraggableState` implementation on `SliderState` and legacy `Saver` overloads. Removed `isVertical` from `SliderState`. Deprecated `SliderDefaults.Thumb` overload taking `SliderState` in favor of the `isVertical` overload. ([I3fdc1](https://android-review.googlesource.com/#/q/I3fdc1fdb72d5615f02ae192db1a0314b27af6984))
+- The `Posture` class in `MediaQuery` has been replaced with `WindowPosture`, which exposes physical `WindowFold`s (`FoldState` and `FoldOrientation`). Added `isTabletop` and `isFlat` convenience properties on `WindowPosture`, and removed the explicit Book posture. ([Id9e8e](https://android-review.googlesource.com/#/q/Id9e8e81014a03f227ad55b18f2785c39a82e47e3))
+- Libraries now target Kotlin 2.2 and require kotlinc 2.2 ([I82396](https://android-review.googlesource.com/#/q/I823967fe6b9524b448184ef366c562316bd6a323), [b/498369605](https://issuetracker.google.com/issues/498369605))
+- Added `@FloatRange` to `BlurStop.fraction`, changed the default `fallOffRadius` in `BlurRadiusSpec.radialGradient` to `Dp.Unspecified`, renamed `Modifier.blur`'s `radius` parameter to `blurRadiusSpec`, and renamed `BlurScope.radius` to `blurRadiusSpec`. ([I91dbc](https://android-review.googlesource.com/#/q/I91dbc0667b6de356e44b9210ee2c553eb164b28b), [b/556335791](https://issuetracker.google.com/issues/556335791))
+
+**Bug Fixes**
+
+- Fixed an IllegalArgumentException ('LayoutNode not found in RectList') when alignment lines are queried during measurement. ([Icec9e](https://android-review.googlesource.com/#/q/Icec9eff72dbc6e77ee168c26c36f37ca7b244bee), [b/549552303](https://issuetracker.google.com/issues/549552303))
+- `VectorPainter` will now share internal graphics resources (`ImageBitmap`) when rendering the same `ImageVector` across multiple composables. This reduces redundant texture uploads and memory usage, improving performance in scenarios like lists using repeated icons. This optimization can be disabled via `ComposeUiFlags.isVectorDrawCacheSharingEnabled`. ([I91b41](https://android-review.googlesource.com/#/q/I91b41eaa35f998078fc03549397efff00ae0d42c))
+- Fixed a bug where AndroidTextPaint.setTextMotion did not clear LINEAR_TEXT_FLAG when transitioning to FontHinting or None linearity. ([I8c19c](https://android-review.googlesource.com/#/q/I8c19ce270938812313e58494b161ec5a96af5e04))
+- Fixed an issue where TalkBack touch exploration focus could jump to an embedded AndroidView (such as a WebView) covered by Compose UI content. ([I11372](https://android-review.googlesource.com/#/q/I11372a68149ef9812845e284cad2966493960fa4), [b/561099702](https://issuetracker.google.com/issues/561099702))
+- Fixed an issue where calling `Color.toColorLong()` or setting a color composited over `Color.Unspecified` on a Paint could crash with an `IllegalArgumentException`. ([Ia365b](https://android-review.googlesource.com/#/q/Ia365b26ee72fdf07f7196c5cff1628cc669daf2d), [b/557521315](https://issuetracker.google.com/issues/557521315))
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
+- Fixed parameter extraction in tooling for composables with \>10 parameters. ([Ib167d](https://android-review.googlesource.com/#/q/Ib167d8da56b6d35d9c1265df389414f18fef1547))
+- Fixed an issue where deactivated layout nodes were not cleared from the layout queue, causing a crash during remeasure. ([Ie64a5](https://android-review.googlesource.com/#/q/Ie64a5213677927763a7105f27c0ac1113804b858))
 
 ### Version 1.13.0-alpha03
 

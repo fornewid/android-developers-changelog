@@ -4,13 +4,6 @@ url: https://developer.android.com/develop/ui/views/haptics
 source: md.txt
 ---
 
-This documentation covers the use of haptic feedback in Android devices,
-detailing how modern vibration actuators can provide rich, subtle user
-experiences through touch.
-keywords_public: \>
-Haptics, Android, Vibration, UI, User Interface, Feedback, Actuators,
-Design, APIs, Samples
-
 Haptics is everything you feel through the sense of touch. Modern Android
 devices often incorporate a vibration actuator to allow devices to stimulate the
 user's sense of touch. These motors have advanced significantly from the

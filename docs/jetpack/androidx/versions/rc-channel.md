@@ -16,6 +16,16 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## October 07, 2026
+
+- [Core-telecom Version 1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/core#core-telecom-1.1.0-rc01)
+- [Heifwriter Version 1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.2.0-rc01)
+- [Palette Version 1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/palette#1.1.0-rc01)
+- [Webkit Version 1.18.0-rc01](https://developer.android.com/jetpack/androidx/releases/webkit#webkit-1.18.0-rc01)
+- [Xr Arcore Version 1.0.0-rc02](https://developer.android.com/jetpack/androidx/releases/xr-arcore#1.0.0-rc02)
+- [Xr Runtime Version 1.0.0-rc02](https://developer.android.com/jetpack/androidx/releases/xr-runtime#1.0.0-rc02)
+- [Xr Scenecore Version 1.0.0-rc02](https://developer.android.com/jetpack/androidx/releases/xr-scenecore#1.0.0-rc02)
+
 ## September 23, 2026
 
 - [Collection Version 1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/collection#1.7.0-rc01)

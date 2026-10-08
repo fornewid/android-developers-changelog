@@ -1,40 +1,30 @@
 ---
-title: Android Developers
+title: https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/utils/ActionUtils.kt.rawcontent
 url: https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/utils/ActionUtils.kt.rawcontent
-source: html-scrape
+source: md.txt
 ---
 
-Stay organized with collections
+    package com.example.platform.ui.appwidgets.glance.layout.utils
 
-Save and categorize content based on your preferences.
+    import androidx.compose.runtime.Composable
+    import androidx.glance.action.Action
+    import androidx.glance.action.actionParametersOf
+    import androidx.glance.action.actionStartActivity
+    import com.example.platform.ui.appwidgets.glance.layout.ActionDemonstrationActivity
+    import com.example.platform.ui.appwidgets.glance.layout.ActionSourceMessageKey
 
-
-
-
-
-```
-package com.example.platform.ui.appwidgets.glance.layout.utils
-
-import androidx.compose.runtime.Composable
-import androidx.glance.action.Action
-import androidx.glance.action.actionParametersOf
-import androidx.glance.action.actionStartActivity
-import com.example.platform.ui.appwidgets.glance.layout.ActionDemonstrationActivity
-import com.example.platform.ui.appwidgets.glance.layout.ActionSourceMessageKey
-
-/**
- * Utility functions for creating [Action]s.
- */
-object ActionUtils {
-  /**
-   * [Action] for launching the [ActionDemonstrationActivity] with the given message.
-   */
-  @Composable
-  fun actionStartDemoActivity(message: String) =
-    actionStartActivity<ActionDemonstrationActivity>(
-      actionParametersOf(
-        ActionSourceMessageKey to message
-      )
-    )
-}
-```
+    /**
+     * Utility functions for creating [Action]s.
+     */
+    object ActionUtils {
+      /**
+       * [Action] for launching the [ActionDemonstrationActivity] with the given message.
+       */
+      @Composable
+      fun actionStartDemoActivity(message: String) =
+        actionStartActivity<ActionDemonstrationActivity>(
+          actionParametersOf(
+            ActionSourceMessageKey to message
+          )
+        )
+    }

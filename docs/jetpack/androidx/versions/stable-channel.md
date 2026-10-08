@@ -19,6 +19,13 @@ see the [versions page](https://developer.android.com/jetpack/androidx/versions)
 The first stable release of AndroidX 1.0.0 suitable for use in
 production was released on September 21, 2018.
 
+## October 07, 2026
+
+- [Collection Version 1.7.0](https://developer.android.com/jetpack/androidx/releases/collection#1.7.0)
+- [Navigationevent Version 1.2.0](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0)
+- [Paging Version 3.5.2](https://developer.android.com/jetpack/androidx/releases/paging#3.5.2)
+- [Wear Compose Version 1.7.1](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.1)
+
 ## September 23, 2026
 
 - [Annotation Version 1.11.0](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0)

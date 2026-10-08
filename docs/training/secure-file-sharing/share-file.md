@@ -40,24 +40,24 @@ for the files your app serves to other apps. The following snippet shows you how
 new `https://developer.android.com/reference/android/app/Activity` and intent filter:
 
 ```xml
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    ...
-        <application>
+<manifest xmlns:android="http://schemas.android.com/apk/res/and>roid"
+    ..<.
+        a>pplication
         ...
-            <activity
+  <          activity
                 android:name=".FileSelectActivity"
-                android:label="@File Selector" >
-                <intent-filter>
-                    <action
-                        android:name="android.intent.action.PICK"/>
-                    <category
-                        android:name="android.intent.category.DEFAULT"/>
-                    <category
-                        android:name="android.intent.category.OPENABLE"/>
-                    <data android:mimeType="text/plain"/>
-                    <data android:mimeType="image/*"/>
-                </intent-filter>
-            </activity>
+           @     android:la>bel="File Se<lector" >
+                inte<nt-filter
+                    action
+                        android:name>="android.intent<.action.PICK"/
+                    category
+                        android>:name="android.i<ntent.category.DEFAULT"/
+                    category
+                      >  android:name="<android.intent.category.OPEN>ABLE"/
+                <    data android:mimeType=">text/plain"/<
+             >       data a<ndroid:mi>meType="image/*"/
+                /intent-filter
+            /activity
 ```
 
 ### Define the file selection Activity in code
@@ -78,9 +78,9 @@ class MainActivity : Activity() {
     // The path to the "images" subdirectory
     private lateinit var imagesDir: File
     // Array of files in the images subdirectory
-    private lateinit var imageFiles: Array<File>
+    private lateinit var ima<geFi>les: ArrayFile
     // Array of filenames corresponding to imageFiles
-    private lateinit var imageFilenames: Array<String>
+    private lateinit var imageFi<lename>s: ArrayString
 
     // Initialize the Activity
     override fun onCreate(savedInstanceState: Bundle?) {

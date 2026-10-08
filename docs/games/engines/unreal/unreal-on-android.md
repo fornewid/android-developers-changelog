@@ -9,7 +9,7 @@ use Unreal Engine to target Android devices.
 
 ## Getting started
 
-The [Android Quick Start](https://docs.unrealengine.com/SharingAndReleasing/Mobile/Android/GettingStarted/)
+The [Android Quick Start](https://dev.epicgames.com/documentation/en-us/unreal-engine/android-quick-start)
 guide covers most of what you'll need to begin Android development, including:
 
 - Creating a mobile project
@@ -23,13 +23,13 @@ If you're using Windows as your development platform, Unreal integrates with the
 
 ## Packaging your project
 
-The [Packaging Android Projects](https://docs.unrealengine.com/SharingAndReleasing/Mobile/Android/PackagingAndroidProject/)
+The [Packaging Android Projects](https://dev.epicgames.com/documentation/en-us/unreal-engine/packaging-android-projects-in-unreal-engine)
 guide not only covers packaging your Android build into an APK file, it also
-covers getting your build ready for distribution using [Android App Bundle](https://developer.android.com/platform/technology/app-bundle).
+covers getting your build ready for distribution using [Android App Bundle](https://developer.android.com/guide/app-bundle).
 
 ## Play Asset Delivery
 
-The [Google Play Asset Delivery](https://docs.unrealengine.com/SharingAndReleasing/Mobile/Android/Distribution/GooglePlayAssetDeliveryReference/)
+The [Google Play Asset Delivery](https://dev.epicgames.com/documentation/en-us/unreal-engine/using-google-play-asset-delivery-in-unreal-engine)
 reference covers how to enable [Play Asset Delivery](https://developer.android.com/guide/playcore/asset-delivery) in your project, how to
 designate rules to create asset chunks that will become asset packs in the
 Android App Bundle, and how to take advantage of install-time, fast-follow, and
@@ -60,13 +60,13 @@ plugin.
 
 ## Google Play Billing
 
-The [In-app Purchases](https://docs.unrealengine.com/SharingAndReleasing/Mobile/Android/InAppPurchases/)
+The [In-app Purchases](https://dev.epicgames.com/documentation/en-us/unreal-engine/how-to-use-inapp-purchases-in-unreal-engine-projects-on-android)
 guide covers how to configure your game for [Google Play's billing system](https://developer.android.com/google/play/billing),
 how to read purchase information, and how to make purchases.
 
 ## Vulkan API
 
-[Vulkan](https://developer.android.com/games/develop/use-vulkan) is a cross-platform, high-performance 3D graphics API that has low
+[Vulkan](https://developer.android.com/games/develop/vulkan/overview) is a cross-platform, high-performance 3D graphics API that has low
 overhead compared with OpenGL ES.
 
 To enable the Vulkan graphics API, navigate to
@@ -79,14 +79,14 @@ support Vulkan, Unreal falls back to OpenGL ES 3.2.
 ## Frame pacing
 
 Unreal 4.25 and higher integrates the [Android Frame Pacing Library](https://developer.android.com/games/sdk/frame-pacing), which
-is part of the [Android Game Development Kit](https://developer.android.com/games/agdk). The [Mobile Frame
-Pacing](https://docs.unrealengine.com/SharingAndReleasing/Mobile/Rendering/MobileFramePacing/)
+is part of the [Android Game Development Kit](https://developer.android.com/games/agdk/overview). The [Mobile Frame
+Pacing](https://dev.epicgames.com/documentation/en-us/unreal-engine/frame-pacing-for-mobile-devices-in-unreal-engine)
 article explains how to enable the Android Frame Pacing Library, and how to
 control frame pacing from C++ code.
 
 ## Rendering optimization
 
-The [Rendering Optimization for Mobile](https://docs.unrealengine.com/SharingAndReleasing/Mobile/Performance/TipsAndTricks/)
+The [Rendering Optimization for Mobile](https://dev.epicgames.com/documentation/en-us/unreal-engine/optimization-and-development-best-practices-for-mobile-projects-in-unreal-engine)
 guide covers guidelines and best practices for optimizing mobile performance,
 including when to use normal maps versus high-vertex meshes. It covers the
 basics for reducing draw calls, mesh count and material ID count, as well as
@@ -107,4 +107,4 @@ and higher can run with 4 KB or 16 KB page sizes. Devices configured
 with 16 KB page sizes use slightly more memory on average but also gain
 various performance improvements.
 
-[Unreal 5.6](https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-5-6-release-notes#android-2) and higher support 16 KB page sizes.
+[Unreal 5.6](https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-5-6-release-notes?application_version=5.6#android-2) and higher support 16 KB page sizes.

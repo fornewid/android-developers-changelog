@@ -24,7 +24,7 @@ New:
 
 
       **Note:** [Instant
-      Run](https://developer.android.com/tools/building/building-studio#instant-run) does not currently work with Jack and will be disabled while
+      Run](https://developer.android.com/tools/building/building-studio#instant-run) does not work with Jack and will be disabled while
       using the new toolchain. You only need to use Jack if you are developing
       for the N Preview and want to use the supported Java 8 language features.
     - Added default support for incremental Java compilation to reduce compilation time during development. It does this by only recompiling portions of the source that have changed or need to be recompiled. To disable this feature, add the following code to your module-level `build.gradle` file:

@@ -77,7 +77,7 @@ Follow these steps:
    4. Click **Add key**.
 
 Note the folder name. You can use this name to
-[create a credential](https://developer.android.com/games/pgs/console/setup#create_a_credential) in
+[create a credential](https://developer.android.com/games/pgs/console/setup#create-credential) in
 Google Cloud.
 
 ## Copy the Android resources from Play Console
@@ -184,7 +184,7 @@ more social platforms:
 ## Verify the authentication service
 
 A connection to Play Games Services is automatically attempted using the
-[Platform authentication](https://developer.android.com/games/pgs/signin) when your game is opened. If the
+[Platform authentication](https://developer.android.com/games/pgs/platform-authentication) when your game is opened. If the
 connection succeeds, your game displays a sign-in prompt and is ready to use the
 Google Play Games Services plugin for Unity.
 
@@ -243,7 +243,7 @@ You can disable auto-triggered profile creation prompts
 through the manifest file. This allows users without a Play Games Services
 profile to continue to load the game without being prompted to create a
 Play Games Services profile.
-For more information, see [Profile creation options](https://developer.android.com/games/pgs/console/setup#create_a_credential).
+For more information, see [Profile creation options](https://developer.android.com/games/pgs/platform-authentication#automatic-sign-in).
 
 To use this feature, ensure the following conditions are met:
 
@@ -306,7 +306,7 @@ To use this feature, ensure the following conditions are met:
 
 Google manages and protects your app's signing key using Play App Signing.
 You can use Play App Signing to sign optimized, distribution of
-[Android APP Bundle](https://developer.android.com/guide/app-bundle)(AAB) files. Play App Signing stores your
+[Android APP Bundle](https://developer.android.com/guide/app-bundle) (AAB) files. Play App Signing stores your
 app signing key on Google's secure infrastructure.
 To use Play App Signing, you have to first create and download an AAB file from
 Unity Editor. You can then upload the AAB file to
@@ -376,7 +376,7 @@ To get the server side access code:
    2. In the **Configuration** page (**Grow users \> Play Games Services \> Setup and Management \>
       Configuration** ), click **Add credential**.
    3. In the **Add credential** page, select **Game server**.
-   4. [Generate an OAuth 2.0 client ID](https://developer.android.com/games/pgs/console/setup#generate_an_oauth_20_client_id).
+   4. [Generate an OAuth 2.0 client ID](https://developer.android.com/games/pgs/console/setup#oauth-client-id).
    5. Note the client ID value. You'll need to provide this value later.
 2. Add the web client ID to Unity hub.
 

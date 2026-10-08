@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-alpha03) |
+| October 07, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.12.1) | - | [1.13.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-beta01) | - |
 
 ## Structure
 
@@ -103,6 +103,29 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.13
+
+### Version 1.13.0-beta01
+
+October 07, 2026
+
+`androidx.compose.runtime:runtime-*:1.13.0-beta01` is released. Version 1.13.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/58589a3cd45bacbb3ad7bbdc52836f6e055340be..07342b02e4b525e8a5ba23d690d6f615cb87e0a2/compose/runtime).
+
+**API Changes**
+
+- Libraries now target Kotlin 2.2 and require kotlinc 2.2 ([I82396](https://android-review.googlesource.com/#/q/I823967fe6b9524b448184ef366c562316bd6a323), [b/498369605](https://issuetracker.google.com/issues/498369605))
+
+**Bug Fixes**
+
+- Fixed a bug where passing `Float.NaN` or `Double.NaN` into a `@Composable` function would prevent that function from ever skipping recomposition, even when all arguments are unchanged. This bug affected functions that received `Dp.Unspecified` because `Dp.Unspecified` is backed by `Float.NaN`. ([I7a643](https://android-review.googlesource.com/#/q/I7a6436fb35fd556746c2a5d8ca0c86db74762402), [b/564569402](https://issuetracker.google.com/issues/564569402))
+- The `CompositionObserver` is now resolved once per composition pass. Setting or replacing it with `setObserver` while a composition is in progress takes effect starting with the next pass. Movable content insertion now also reports `onBeginComposition` and `onEndComposition`. ([Iad280](https://android-review.googlesource.com/#/q/Iad28080d17ad95f27f995952c5f4b5f689a7ec5f))
+- The calculation block of `computedStateOf` is now enforced to be read-only. Writing to a state inside this block will throw an `IllegalStateException`. ([Id045f](https://android-review.googlesource.com/#/q/Id045fb9801e73714d93c6b25e5ab99893e092660), [b/456249371](https://issuetracker.google.com/issues/456249371))
+- Fixed a memory leak in `LinkComposer` where moving `movableContent` retained wrapper group slots across moves. ([I17af2](https://android-review.googlesource.com/#/q/I17af2ac9604fcbe891c670260b4fb4816c6a524e))
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
+- Support off-main thread usage of `ComposeTracer`. ([I139e4](https://android-review.googlesource.com/#/q/I139e456f3aec9a72e93c64268752c1772dbcc604))
+
+**External Contribution**
+
+- Fixed an issue in `computedStateOf` that could lead to unexpected invalidations when read with `SnapshotStateObserver`. ([Ie3f8b](https://android-review.googlesource.com/#/q/Ie3f8bec7045e6bc9d8cb72bc577218c0052beeac), [b/561372470](https://issuetracker.google.com/issues/561372470))
 
 ### Version 1.13.0-alpha03
 

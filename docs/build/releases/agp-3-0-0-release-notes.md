@@ -162,7 +162,7 @@ bug fixes and performance improvements.
                   // For ndk-build, instead use the ndkBuild block.
                   cmake {
                       ...
-                      // Specifies a relative path for outputs from external native
+                      // Specifies a relative path for outputs from external C/C++
                       // builds. You can specify any path that's not a subdirectory
                       // of your project's temporary build/ directory.
                       buildStagingDirectory "./outputs/cmake"
@@ -181,7 +181,7 @@ bug fixes and performance improvements.
                   // For ndk-build, instead use the ndkBuild block.
                   cmake {
                       ...
-                      // Specifies a relative path for outputs from external native
+                      // Specifies a relative path for outputs from external C/C++
                       // builds. You can specify any path that's not a subdirectory
                       // of your project's temporary build/ directory.
                       buildStagingDirectory = "./outputs/cmake"

@@ -4,15 +4,6 @@ url: https://developer.android.com/develop/ui/views/haptics/custom-haptic-effect
 source: md.txt
 ---
 
-Provide examples and guidance on how to create custom haptic effects in
-Android, including timeline anchored compositions with
-VibrationEffect.Builder, custom vibration patterns, and advanced waveform
-envelopes.
-keywords_public: \>
-Android, haptics, custom effects, vibration, haptic APIs, vibration patterns,
-VibrationEffect.Builder, compositions, haptic primitives, waveform envelopes,
-UI
-
 This page covers the examples of how to use different [haptics APIs](https://developer.android.com/develop/ui/views/haptics/haptics-apis) to
 create custom effects beyond the standard [vibration waveforms](https://developer.android.com/develop/ui/views/haptics/actuators) in an Android
 app.

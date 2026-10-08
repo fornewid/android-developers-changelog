@@ -4,15 +4,6 @@ url: https://developer.android.com/develop/ui/views/haptics/actuators
 source: md.txt
 ---
 
-This document explains Linear Resonant Actuators (LRAs) as the common
-vibration actuators on Android devices, detailing their characteristics, how
-they generate haptic feedback, and how to create effective haptic patterns
-using Android APIs.
-keywords_public: \>
-Android haptics, haptic actuators, Linear Resonant Actuators, LRAs, vibration,
-haptic feedback, VibratorFrequencyProfile, VibrationEffect, Android UI
-
-
 The most common vibration actuators on Android devices are [linear resonant
 actuators (LRAs)](https://medium.com/@SomaticLabs/what-is-a-linear-resonant-actuator-81cc25f85779). LRAs simulate the feeling of a button click
 on what is otherwise an unresponsive glass surface. A clear and crisp click

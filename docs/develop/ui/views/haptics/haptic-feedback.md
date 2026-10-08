@@ -4,13 +4,6 @@ url: https://developer.android.com/develop/ui/views/haptics/haptic-feedback
 source: md.txt
 ---
 
-Implement haptic feedback in Android apps using View components, predefined
-VibrationEffect APIs, and timeline anchored compositions with
-VibrationEffect.Builder.
-keywords_public: \>
-Android development, haptics, haptic feedback, UI, views, VibrationEffect,
-View.performHapticFeedback, Vibrator, haptic constants
-
 One of the most basic use cases for haptics is to provide feedback to user
 interactions. Time pickers, the key press on a virtual keyboard, and text
 selection are common examples of good use cases for haptic feedback. For more

@@ -55,7 +55,7 @@ with your project.
 ## Sign in to the Play Console
 
 To sign in, go to
-[Google Play Console](https://play.google.com/apps/publish/).
+[Google Play Console](https://play.google.com/console).
 If you haven't registered for the Play Console before, you will
 be prompted to do so.
 
@@ -156,7 +156,7 @@ Follow the instructions specific to your credential type.
 *Set up credential details*
 
 Ensure that the name in the *Name* field matches the name of your game.
-Choose whether to enable [Anti-Piracy](https://developer.android.com/games/services/android/antipiracy).
+Choose whether to enable [Anti-Piracy](https://developer.android.com/games/pgs/android/anti-piracy).
 
 *Set up authorization*
 
@@ -202,7 +202,7 @@ In **Google Cloud**, follow these steps:
 3. Click **Create**.
 
 For more information about OAuth 2.0 on Android, see [Authenticating to
-OAuth2 Services](https://developer.android.com/training/id-auth/authenticate).
+OAuth2 Services](https://developer.android.com/identity/authorization).
 
 > [!WARNING]
 > **Warning:** Make sure to record the package name and signing certificate that you configured in this step. Using a different certificate or package name in your application will cause authentication failures.
@@ -240,7 +240,7 @@ In the **Google Cloud**, follow these steps:
 
 For more information about OAuth 2.0 on Android, see [Authenticating to
 OAuth2
-Services](https://developer.android.com/training/id-auth/authenticate).
+Services](https://developer.android.com/identity/authorization).
 
 After you click **Done** in the dialog, the available Client IDs will
 refresh. Choose the credential you created from the drop-down menu and then
@@ -248,7 +248,7 @@ click **Save Changes** . This creates the credential as a draft, enabling you
 to authenticate to Play Games Services from your game server. For more
 information about using Play Games Services with your game server, see
 [Enabling Server-Side Access to Google Play Games
-Services](https://developers.google.com/games/services/android/offline-access).
+Services](https://developer.android.com/games/pgs/android/server-access).
 
 ## Enable testing
 
@@ -258,7 +258,7 @@ test your game services before publishing your game changes on Google Play.
 If your game is in an unpublished state, grant access to your testers by adding
 their user accounts to the allowlist. Otherwise, your testers will encounter
 OAuth and 404 errors when attempting to access Play Games Services endpoints,
-such as the [platform authentication](https://developer.android.com/games/pgs/signin) endpoint.
+such as the [platform authentication](https://developer.android.com/games/pgs/platform-authentication) endpoint.
 
 Users with authorized test accounts will have access to your unpublished Play
 Games Services game project and can test that your configured Play Games Services
@@ -338,7 +338,7 @@ when setting up your game to use Google Play Games Services.
     the release certificate fingerprint and another with the debug certificate
     fingerprint, and use the same package name for both. To learn more about how
     to specify the signing certificate in the Play Console, see
-    [Signing Your Applications](https://developer.android.com/tools/publishing/app-signing).
+    [Signing Your Applications](https://developer.android.com/studio/publish/app-signing).
 
 4. When developing for Android, include the Play Games SDK as a
 library project, not as a standalone JAR.
@@ -346,14 +346,14 @@ library project, not as a standalone JAR.
     your Android project, otherwise this could lead to errors when your app is
     unable to find Google Play services resources. To learn how to set up your Android
     project to use Google Play services, see
-    [Setting Up Google Play services](https://developer.android.com/google/play-services/setup).
+    [Setting Up Google Play services](https://developers.google.com/android/guides/setup).
 
 5. Sign in with a tester account during development
 :   If you have not published your game setting changes in the Play Console,
     you might encounter errors during testing if you are not signed in with a
     tester account. You should always enable your Play Console
     publisher account for testing. To learn how to manage tester accounts, see
-    [Enabling accounts for testing](https://developers.google.com/games/services/console/testpub#enabling_accounts_for_testing).
+    [Enabling accounts for testing](https://developer.android.com/games/pgs/console/publish#enable_accounts_for_testing).
 
 6. Publish the consent screen in Google Cloud
 :   Before publishing the app in the Play Console, publish the consent screen in
@@ -369,7 +369,7 @@ first before you publish your game
     releasing your game, remember to first publish your game settings by using
     the *Publish Game* option in the Play Console. To learn how
     to publish your changes, see
-    [Publishing your game changes](https://developers.google.com/games/services/console/testpub#publishing_your_game_changes).
+    [Publishing your game changes](https://developer.android.com/games/pgs/console/publish#publish_game_changes).
 
 For additional tips, see the
 [Android troubleshooting guide](https://developer.android.com/games/pgs/android/troubleshooting).

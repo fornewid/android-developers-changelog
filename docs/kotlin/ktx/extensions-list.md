@@ -97,7 +97,7 @@ dependencies {
 
 ```groovy
 dependencies {
-    implementation "androidx.collection:collection-ktx:1.6.0"
+    implementation "androidx.collection:collection-ktx:1.7.0"
 }
 ```
 
@@ -105,7 +105,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.collection:collection-ktx:1.6.0")
+    implementation("androidx.collection:collection-ktx:1.7.0")
 }
 ```
 

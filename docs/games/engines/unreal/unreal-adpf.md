@@ -30,7 +30,7 @@ from GitHub.
 ## Plugin console configuration
 
 The plugin has the following
-[Unreal Engine console variables](https://dev.epicgames.com/documentation/en-us/unreal-engine/console-varaibles-cplusplus-in-unreal-engine)
+[Unreal Engine console variables](https://dev.epicgames.com/documentation/en-us/unreal-engine/console-variables-cplusplus-in-unreal-engine)
 which enable you to change plugin options at runtime:
 
 | CVar | Valid Values | Default Value | Description |
@@ -48,7 +48,7 @@ quality is necessary (for example, if the game is thermally throttled or near
 the thermal throttling threshold) and adjusts the settings accordingly.
 
 The plugin also reports target and actual frame duration to the
-[performance hint session API](https://developer.android.com/games/optimize/adpf/performance-hint-api) and
+[performance hint session API](https://source.android.com/docs/core/perf/performance-hint-api) and
 boosts CPU frequency or adjusts CPU scheduling if needed.
 ![ADPF Unreal Engine plugin flowchart.](https://developer.android.com/static/images/games/engines/unreal/ureal-adpf-flowchart.png) **Figure 2.** ADPF Unreal Engine plugin flowchart.
 
@@ -98,7 +98,7 @@ every frame. The system adjusts CPU frequency and makes better scheduling
 choices when the actual duration is different from the target duration.
 
 For details, see
-[Performance Hint API](https://developer.android.com/games/optimize/adpf/performance-hint-api).
+[Performance Hint API](https://source.android.com/docs/core/perf/performance-hint-api).
 
 ## Best practices
 

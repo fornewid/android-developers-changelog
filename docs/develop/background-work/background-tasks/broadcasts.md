@@ -569,9 +569,9 @@ request the permission as follows:
 
 Broadcasts are designed as an interprocess communication (IPC) mechanism for
 sending messages across different apps or between the system and apps.
-Sending a broadcast from a process to a receiver running within the same
-process is very inefficient, creates unnecessary system overhead, and is
-strongly discouraged.
+Sending a *self-broadcast* , which is a broadcast for which *all* of the
+receivers run in the same process that sent the broadcast, is very inefficient,
+creates unnecessary system overhead, and is strongly discouraged.
 
 Two common scenarios where apps send broadcasts to themselves include:
 
@@ -591,10 +591,14 @@ Two common scenarios where apps send broadcasts to themselves include:
   [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent) worker), alarm handler, or system callback component, or
   delegate directly to your app's business logic classes.
 
-If the system detects a self-broadcast, it may try to optimize delivery by
-redirecting it within the process. However, this is still less efficient than
-the in-process communication alternatives described earlier, and you should
-use those alternatives instead.
+On devices running Android 17 QPR2 or higher, the system
+[delivers self-broadcasts more efficiently](https://developer.android.com/about/versions/17/qpr2/release-notes#self-broadcasts) by returning them to the
+sending process, which delivers them to its own receivers on the main thread.
+Sending a self-broadcast doesn't raise your process's importance and doesn't
+prevent a cached process from being frozen, so don't rely on self-broadcasts to
+keep your app running or to do work in the background. Even with this
+optimization, self-broadcasts are less efficient than in-process communication
+mechanisms, so use those alternatives instead.
 
 For more information on designing communication between app components, see
 the [Guide to app architecture](https://developer.android.com/topic/architecture).

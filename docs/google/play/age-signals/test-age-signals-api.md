@@ -211,3 +211,14 @@ version 0.0.4, see the following examples:
     manager.setNextAgeSignalsException(new AgeSignalsException(AgeSignalsErrorCode.NETWORK_ERROR));
     manager.checkAgeSignals(AgeSignalsRequest.builder().build())
         .addOnFailureListener(/* handle error */);
+
+## Testing with license testers
+
+Ordinarily, the Play Age Signals API is blocked and returns an `APP_NOT_OWNED`
+error for apps that aren't updated through Google Play. License testers can bypass
+this check, meaning you can sideload apps to test your live Age Signals API
+integration. This lets you use debug builds with debug signatures without
+uploading the new version of your app. Note that the application's package
+name must exactly match the app that is configured for Google Play, and the
+active Google Account on the testing device must be registered as a license
+tester for your Google Play Console account.

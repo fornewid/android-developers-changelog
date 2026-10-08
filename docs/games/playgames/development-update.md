@@ -27,7 +27,7 @@ scenarios:
   The link on Google Play Games on PC is the same as on mobile. A common
   mistake in this scenario is that developers use a different link for
   mobile when they detect the game is running in an emulator. You can
-  [detect Google Play Games on PC](https://developer.android.com/games/playgames/%22pc-compatibility#detect-hpe) and then use
+  [detect Google Play Games on PC](https://developer.android.com/games/playgames/pc-compatibility#detect-hpe) and then use
   the correct link.
 
 ## Pre-submit checklist

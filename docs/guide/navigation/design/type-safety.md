@@ -84,7 +84,7 @@ the route from the [`SavedStateHandle`](https://developer.android.com/topic/libr
 
 ### Navigate to type safe route
 
-Finally, you can navigate to your composable using the [`navigate()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavGraphBuilder#(androidx.navigation.NavGraphBuilder).composable(kotlin.collections.Map,kotlin.collections.List,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function1,kotlin.Function2))
+Finally, you can navigate to your composable using the [`navigate()`](https://developer.android.com/reference/kotlin/androidx/navigation/NavController#navigate(kotlin.Any,androidx.navigation.NavOptions,androidx.navigation.Navigator.Extras))
 function by passing in the instance of the route:
 
     navController.navigate(Profile(id = 123))
@@ -100,4 +100,4 @@ properties.
 ### Additional resources
 
 - [Design your navigation graph](https://developer.android.com/guide/navigation/design)
-- [Use your navigation graph](https://developer.android.com/guide/navigation/use-graph)
+- [Use your navigation graph](https://developer.android.com/guide/navigation/use-graph/navigate)

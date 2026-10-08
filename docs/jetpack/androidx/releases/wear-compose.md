@@ -12,7 +12,7 @@ Write Jetpack Compose applications for Wear OS devices by providing functionalit
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.0) | - | - | - |
+| October 07, 2026 | [1.7.1](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.7.1) | - | - | [1.8.0-alpha01](https://developer.android.com/jetpack/androidx/releases/wear-compose#1.8.0-alpha01) |
 
 > [!NOTE]
 > **Note:** The `androidx.wear.compose:compose-material` library is superseded by the [`androidx.wear.compose:compose-material3`](https://developer.android.com/jetpack/androidx/releases/wear-compose-m3) library. We recommend that developers use the Wear Compose Material 3 library to get the latest features, including [Material 3 Expressive design](https://android-developers.googleblog.com/2025/05/whats-new-in-wear-os-6.html).
@@ -30,16 +30,16 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.wear.compose:compose-foundation:1.7.0"
+    implementation "androidx.wear.compose:compose-foundation:1.7.1"
 
     // For Wear Material Design UX guidelines and specifications
-    implementation "androidx.wear.compose:compose-material:1.7.0"
+    implementation "androidx.wear.compose:compose-material:1.7.1"
 
     // For integration between Wear Compose and Androidx Navigation libraries
-    implementation "androidx.wear.compose:compose-navigation:1.7.0"
+    implementation "androidx.wear.compose:compose-navigation:1.7.1"
 
     // For Wear preview annotations
-    implementation("androidx.wear.compose:compose-ui-tooling:1.7.0")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.7.1")
     
     // NOTE: DO NOT INCLUDE a dependency on androidx.compose.material:material.
     // androidx.wear.compose:compose-material is designed as a replacement
@@ -53,16 +53,16 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.wear.compose:compose-foundation:1.7.0")
+    implementation("androidx.wear.compose:compose-foundation:1.7.1")
 
     // For Wear Material Design UX guidelines and specifications
-    implementation("androidx.wear.compose:compose-material:1.7.0")
+    implementation("androidx.wear.compose:compose-material:1.7.1")
 
     // For integration between Wear Compose and Androidx Navigation libraries
-    implementation("androidx.wear.compose:compose-navigation:1.7.0")
+    implementation("androidx.wear.compose:compose-navigation:1.7.1")
     
     // For Wear preview annotations
-    implementation("androidx.wear.compose:compose-ui-tooling:1.7.0")
+    implementation("androidx.wear.compose:compose-ui-tooling:1.7.1")
 
     // NOTE: DO NOT INCLUDE a dependency on androidx.compose.material:material.
     // androidx.wear.compose:compose-material is designed as a replacement
@@ -89,7 +89,59 @@ for more information.
 
 <br />
 
+## Version 1.8
+
+### Version 1.8.0-alpha01
+
+October 07, 2026
+
+`androidx.wear.compose:compose-*:1.8.0-alpha01` is released. Version 1.8.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/974f75a2305793f54e6bb6e29da386db7b44b202..988ac9734e8223273eb7f186ee1639ee68deb025/wear/compose).
+
+**API Changes**
+
+- Added new `AppScaffold` and `ScreenScaffold` overloads without the `timeText` parameter, establishing the recommended direction for Wear Compose 1.8 to migrate to the new System Status Bar. When running on older builds without System Status Bar, these new overloads fall back to default `TimeText`. The existing overloads now migrate to the System Status Bar by default unless an explicit custom `timeText` is provided. ([I40a5e](https://android-review.googlesource.com/#/q/I40a5e4c46bbd40df9a82b09ae7f2014c9eff1cc9))
+- Added `StatusBarSuppression` helper composable to suppress the System Status Bar within full-screen and overlay components. ([I387c3](https://android-review.googlesource.com/#/q/I387c3fe3d80e0f94214e678e302dd185b6f1af73))
+- Introduced Modifier.`curveToEdge`, which uses a shader to curve a component to the border of the parent container around the center, always treating the container as a circle. Known issues: clickable components will have incorrect clickable bounds and `TalkBack` does not highlight components correctly. ([I8bbaa](https://android-review.googlesource.com/#/q/I8bbaa6b3d06f9c202417d7855d492594c16d6665))
+- Added `PullToRefreshBox` and `PullToRefreshState` to Wear Compose Material 3, with drag distances and refresh thresholds tailored for Wear OS devices.([Iee9a5](https://android-review.googlesource.com/#/q/Iee9a5004ec97f4e59a26daf3806222d94e7f19f2))
+- Promoted `PullToRefreshBox`, `PullToRefreshDefaults`, and `PullToRefreshState` to stable public APIs in Wear Compose Material 3. ([I079b6](https://android-review.googlesource.com/#/q/I079b6dee5afb83600e6d85b7e1a0522ecc900cf5))
+- Adds an overload of `SwipeToReveal` with a transformation parameter to support container transformations in `TransformingLazyColumn`. ([I328ce](https://android-review.googlesource.com/#/q/I328ce29a8b4c353a3b98e580b1c8d4fa8ccfd024))
+- Libraries now target Kotlin 2.2 and require kotlinc 2.2 ([I82396](https://android-review.googlesource.com/#/q/I823967fe6b9524b448184ef366c562316bd6a323), [b/498369605](https://issuetracker.google.com/issues/498369605))
+- Removed experimental feature flag `WearComposeFoundationFlags.isTransformingLazyColumnClickableThresholdEnabled`. The clickable threshold in `TransformingLazyColumn` is now always enabled. ([Ib68c8](https://android-review.googlesource.com/#/q/Ib68c865a9e4885c2eb0ff2d81332f4db96ed5aac))
+- Removed experimental flag `WearComposeFoundationFlags.isTransformingLazyColumnPinnableContainerEnabled`. ([Ibad2e](https://android-review.googlesource.com/#/q/Ibad2e08448f6a121dc556f0a9ea0fa46762a9a6c))
+
+**Bug Fixes**
+
+- Fixed bug in Wear Compose Foundation `HorizontalPager`, where the gesture handling failed to prioritize correctly between paging and swiping to dismiss. ([I54caf](https://android-review.googlesource.com/#/q/I54caf4725b90e6ec9023ddc43e8692d7d0162381))
+- Added `Modifier.testTag("time_text")` to `TimeText` so that it can be detected in test cases where System Status Bar falls back to a default `TimeText` composable. ([Iacb09](https://android-review.googlesource.com/#/q/Iacb09641021e36cabeeeacf2f42e9d260642f679))
+- Fixed `IllegalStateException` in `OneHandedGestureModifier.updateCompositionLocals` caused by accessing nodes before attachment. ([I662271](https://android-review.googlesource.com/q/I662271d7143a6dd05f6990993b1ecf53940c681f))
+- Added `AlertDialog` gesture support, so that scrolling down and `Confirm` button clicks are available by default. ([I51f81](https://android-review.googlesource.com/q/I51f81cf6efd4683583f5cb7af25724c94063152a))
+- Fixed in-app `TimeText` flash when transitioning to inherited status bar by improving visibility suppression logic in `ScreenContent`. ([I12dd01](https://android-review.googlesource.com/q/I12dd01e197e9c24efc3891de358d38adc39f75eb))
+- Fixed an issue where components suppressing the System Status Bar (such as Stepper) fell back to rendering an in-app `TimeText`. ([I86830](https://android-review.googlesource.com/#/q/I86830c64904d17e693e30c59d670010fbcedb583))
+- Fixed `StatusBarSuppression()` to respect `LocalStatusBarEnabled` when the global status bar is disabled, preventing unnecessary layout passes in dialogs. ([I4f77f6](https://android-review.googlesource.com/q/I4f77f6ce80dec8c68d8a29d9fbdf95ccbd37c1cc))
+- Fixed an issue in Wear Material3 `Scaffold` where `currentScrollInfoProvider` did not inherit from underlying screens when the top screen provided null. ([I97874](https://android-review.googlesource.com/#/q/I97874ba53612174a22d6d078d70015e11b6d0244))
+- Added support for `Dialog` status bar suppression and nested `ScreenScaffold`s in Wear Material3 Scaffold. ([I01772](https://android-review.googlesource.com/#/q/I0177223cf42912eafe2b0070f990209fe2bbbf1b))
+- Fixed an issue in `AppScaffold` where the status bar overlay reappeared while scrolling when the top anchor item. ([I421b3](https://android-review.googlesource.com/#/q/I421b38d3310be91da5c23cdd2cc772391d9a972d))
+- Fixed an issue where `ScreenScaffold` top padding collapsed when opening screens with a disabled status bar mode. ([I7cf4f](https://android-review.googlesource.com/#/q/I7cf4f3b14fbc86ed133e7117ccc60d756522bdc0))
+- Added multi-window status bar orchestration support to Wear Compose Material3 scaffolds, allowing dialogs and separate windows to drive their own system status bar controllers. ([Ibf82c](https://android-review.googlesource.com/#/q/Ibf82c9b9ee2688c4be81a3e7d90feff446ad7857))
+- Made `TransformingLazyColumn` robust to negative item spacings ([I99ac7](https://android-review.googlesource.com/#/q/I99ac721e342926b1010c09250e0547fd30586802))
+- Optimized gesture indicators by replacing indicator pointer background in the resources with canvas functions using paths. ([Iee2b7](https://android-review.googlesource.com/#/q/Iee2b743f7bfa619343fddfd78bec8fd5a56a9d15))
+- Optimized gesture indicators by replacing primary and dismiss AVDs in the resources with draw functions using paths. ([Ib2d05](https://android-review.googlesource.com/#/q/Ib2d05567278d917ac406312e9af84843c5f96193))
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
+- Updated baseline profiles for Wear Compose Foundation, Material3, and Navigation3 libraries. ([I9b0a3](https://android-review.googlesource.com/#/q/I9b0a3340a892d8adce9df11fcc35c4591670e702))
+
 ## Version 1.7
+
+### Version 1.7.1
+
+October 07, 2026
+
+`androidx.wear.compose:compose-*:1.7.1` is released. Version 1.7.1 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/974f75a2305793f54e6bb6e29da386db7b44b202..1bb7f7817e31806882acfe7e83ce184fc89db859/wear/compose).
+
+**Bug Fixes**
+
+- Fix `OneHandedGestureHintScrollIndicator` animation flicker ([I650c6](https://android-review.googlesource.com/#/q/I650c6c7fb9d147294c2b446a8c8838b25c8ae15d))
+- Remove scroll lock from `OneHandedGestureScrollIndicator` and manage indicator visibility in `ScreenScaffold` with a composition local ([I13050](https://android-review.googlesource.com/#/q/I13050fd124d53861b6012a1beb236584e21513d3))
+- Fix `IllegalStateException` in `Modifier.oneHandedGesture` ([I35151](https://android-review.googlesource.com/#/q/I351518f5b72edca8d46b45f96f9c874865841fc7))
 
 ### Version 1.7.0
 

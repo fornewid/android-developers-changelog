@@ -45,9 +45,17 @@ working set) and the set budget, the app continues to run normally. If an app
 sets a budget that is smaller than its working set, the app's performance at
 runtime can slow down as a result.
 
-To learn how the OS manages memory, see the
-[memory architecture guide](https://developer.android.com/topic/performance/memory/guide), specifically the section about
-[memory reclaim and swap](https://developer.android.com/topic/performance/memory/guide/reclaim).
+To learn how the OS tracks and reclaims memory, see the
+[memory architecture guide](https://developer.android.com/topic/performance/memory/guide):
+
+- [Memory reclaim and swap](https://developer.android.com/topic/performance/memory/guide/reclaim): Explains how the OS charges private anonymous heap and file-backed pages to your app and reclaims cold pages when over budget.
+- [Fundamental concepts](https://developer.android.com/topic/performance/memory/guide/concepts): Explains why shared [Zygote
+  memory](https://developer.android.com/topic/performance/memory/guide/concepts#zygote-process-model) is excluded from your app's budget and how resident budgets relate to [anonymous RSS + swap](https://developer.android.com/topic/performance/memory/guide/concepts#rss-pss-uss) in field telemetry.
+- [Bitmaps and memory](https://developer.android.com/topic/performance/memory/guide/bitmaps): Explains how GPU-backed [hardware
+  bitmaps](https://developer.android.com/topic/performance/memory/guide/bitmaps#hardware-bitmaps) and [DMA-BUF allocations](https://developer.android.com/topic/performance/memory/guide/bitmaps#system-app-challenges) are accounted outside your app's heap and memory budget.
+
+> [!NOTE]
+> **Note:** App memory budgets are distinct from the platform's system-wide [app memory limits](https://developer.android.com/about/versions/17/behavior-changes-all#app-memory-limits) ([Memory Limiter](https://source.android.com/docs/core/perf/memory-limiter#standard-platform-limits)), which enforce much higher device-RAM ceilings (such as 2 GB in the foreground and 1 GB in the background on 4 GB devices) to terminate processes with runaway memory leaks.
 
 ## Declare budgets in the Android manifest
 
@@ -118,29 +126,50 @@ You can declare multiple `<memory-budget>` clauses to match these states:
         </application>
     </manifest>
 
-A base clause without `android:state` is not required; if you only specify
+A base clause without `android:state` isn't required; if you only specify
 state-specific clauses (for example, `android:state="background"`), other states
 remain unconstrained by an app budget. When included, a clause without
 `android:state` acts as the default fallback for unspecified states (such as
 foreground), which subsequent more restrictive clauses override when the app
 transitions into `perceptible` or `background` states.
 
+When sizing budgets for each state, target the active working set of that state
+rather than the peak resident memory (RSS high-water mark):
+
+- **Size `foreground` budgets for smooth frame rendering** : Give foreground UI enough headroom for its active working set so synchronous reclaim doesn't delay frame rendering. If your app includes a memory-intensive standalone workflow (such as a high-resolution image or video editor), consider moving that activity into a [dedicated process](https://developer.android.com/guide/components/processes-and-threads#Processes) (see [Multi-process apps](https://developer.android.com/topic/performance/memory/app-memory-budgets#multi-process-budgets)) so its allocations are budgeted independently and torn down when the user exits.
+- **Size `background` budgets tightly for headless work** : High background RSS in field telemetry often reflects UI allocations retained after leaving the foreground (see [Co-locating a bound service with a memory-intensive
+  UI](https://developer.android.com/topic/performance/memory/guide/service-bindings#colocated-service-ui) and [Release memory in response to
+  events](https://developer.android.com/topic/performance/memory/manage-app-memory#release)) or one-time file reads during background indexing and syncs. Because headless background work has no frame deadlines, evicting one-time file cache pages and swapping inactive heap pages to zRAM when a background sync briefly allocates beyond its budget causes no user-visible jank while preventing background spikes from evicting the user's foreground app.
+
 #### How budget states map to process states
 
 The platform maps manifest budget states to runtime process states based on
-[`RunningAppProcessInfo.importance`](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo):
+[`RunningAppProcessInfo.importance`](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo), which
+Activity Manager computes from both the process's own active components and any
+incoming [service bindings](https://developer.android.com/topic/performance/memory/guide/service-bindings#impact-service-bindings) or content provider
+queries from other apps:
 
-- **`foreground`**: Active, visible user interactions, such as hosting a resumed Activity or maintaining the top app state when the screen turns off.
-- **`perceptible`** : Workloads that are perceptible to the user without a visible window, such as active media playback, turn-by-turn navigation, camera or microphone capture, active background downloads, or data sync foreground services. While internal platform metrics might label some of these workloads `PROCESS_STATE_IMPORTANT_FOREGROUND`, that internal constant doesn't signify a visible window and is governed by the `perceptible` budget.
-- **`background`**: Work that is not immediately perceptible to the user, such as background jobs, alarms, broadcast receivers, or cached processes.
+- **`foreground`**: Active, visible user interactions, such as hosting a resumed Activity, maintaining the top app state when the screen turns off, or hosting a service or content provider actively bound or queried by the top foreground app.
+- **`perceptible`** : Workloads that are perceptible to the user without a visible window, such as active media playback, turn-by-turn navigation, camera or microphone capture, active background downloads, data sync foreground services, or services bound by a foreground client using flags such as [`BIND_NOT_FOREGROUND`](https://developer.android.com/reference/android/content/Context#BIND_NOT_FOREGROUND) (see [Controlling
+  inheritance with BIND flags](https://developer.android.com/topic/performance/memory/guide/service-bindings#controlling-inheritance-bind-flags)). While internal platform metrics might label some of these workloads `PROCESS_STATE_IMPORTANT_FOREGROUND`, that internal constant doesn't signify a visible window and is governed by the `perceptible` budget.
+- **`background`**: Work that isn't immediately perceptible to the user, such as background jobs, alarms, broadcast receivers, or the previous Activity after the user navigates away.
 
 The following table shows how runtime importance levels map to manifest states:
 
 | Manifest `android:state` | Runtime importance (`RunningAppProcessInfo`) | Typical components |
 |---|---|---|
-| `foreground` | `IMPORTANCE_FOREGROUND` `IMPORTANCE_TOP_SLEEPING` | Resumed visible Activity, top app with screen locked |
-| `perceptible` | `IMPORTANCE_FOREGROUND_SERVICE` `IMPORTANCE_VISIBLE` | Active media playback, navigation, downloads, or sync foreground services |
-| `background` | `IMPORTANCE_PERCEPTIBLE` `IMPORTANCE_CANT_SAVE_STATE` `IMPORTANCE_SERVICE` `IMPORTANCE_CACHED` | Background jobs, receivers, background sync, cached processes |
+| `foreground` | `IMPORTANCE_FOREGROUND` `IMPORTANCE_TOP_SLEEPING` | Resumed visible Activity, top app with screen locked, service or content provider bound by the top app |
+| `perceptible` | `IMPORTANCE_FOREGROUND_SERVICE` `IMPORTANCE_VISIBLE` | Active media playback, navigation, downloads, or sync foreground services; service bound with foreground-service or visible flags |
+| `background` | `IMPORTANCE_PERCEPTIBLE` `IMPORTANCE_CANT_SAVE_STATE` `IMPORTANCE_SERVICE` | Background jobs, receivers, background sync, previous Activity or home app in background |
+
+For details on how client bindings elevate a service or provider host process
+and how the process transitions back to `background` or `cached` after the
+client unbinds or moves off-screen, see [Service bindings and process
+states](https://developer.android.com/topic/performance/memory/guide/service-bindings).
+
+When a process enters a cached state (`IMPORTANCE_CACHED`) with no active
+components, the platform releases its active memory budget and manages its
+memory through standard cached-process reclamation.
 
 #### Inspect your app's process state and budget
 
@@ -299,14 +328,14 @@ as state-specific or hardware-specific clauses).
 
 ### XML attribute reference
 
-All memory size attributes are expressed in Megabytes (MB) and map to Linux
+All memory size attributes are expressed in megabytes (MB) and map to Linux
 cgroup `memory.current` charge (which excludes shared memory like the Zygote).
 
 | Attribute | Format | Default | Description |
 |---|---|---|---|
 | `android:maxMb` | Integer (\> 0) | **Required** | The baseline resident memory budget limit in MB. |
 | `android:state` | Enum | Any | The process state this budget applies to: `foreground`, `perceptible`, or `background`. If omitted, the clause acts as a fallback for any unspecified state. |
-| `android:additionalMbPerDensity` | Integer (≥ 0) | `0` | Additional Megabytes to add per unit of [display density ratio](https://developer.android.com/guide/practices/screens_support#density-independence) relative to `mdpi` (1.0x). |
+| `android:additionalMbPerDensity` | Integer (≥ 0) | `0` | Additional megabytes to add per unit of [display density ratio](https://developer.android.com/guide/practices/screens_support#density-independence) relative to `mdpi` (1.0x). |
 | `android:additionalBytesPerDisplayPixel` | Integer (≥ 0) | `0` | Additional bytes allocated per physical display pixel (Width × Height), useful for surface buffers and bitmaps. |
 | `android:feature` | String | Any | Restricts the clause to devices declaring specific hardware features: `watch`, `automotive`, or `leanback`. |
 
@@ -367,13 +396,22 @@ tasks, or clear it when the task finishes:
 > [!NOTE]
 > **Note:** Declaring a budget in the manifest isn't required to use runtime budgets. However, if a manifest budget is declared, a runtime budget can only tighten (reduce) memory limits within that manifest ceiling. In all cases, a runtime budget can't exceed system memory limits. Attempting to set a budget higher than the active ceiling throws an `IllegalArgumentException`.
 
+Unlike `<memory-budget>` manifest clauses, which automatically switch budgets
+whenever the process transitions between `foreground`, `perceptible`, and
+`background` states, a dynamic budget set through `MemoryBudgetManager` applies
+a single ceiling until your code updates or clears it. If you use the runtime
+API to run field experiments or manage state-specific limits, update or clear
+the dynamic budget across lifecycle transitions (for example, using
+[`ProcessLifecycleOwner`](https://developer.android.com/reference/androidx/lifecycle/ProcessLifecycleOwner) or activity lifecycle
+callbacks, as shown in the [Adaptive image editor example](https://developer.android.com/topic/performance/memory/app-memory-budgets#example-sdk)).
+
 #### Performance and idempotency
 
 When working with `MemoryBudgetManager` at runtime, keep the following
 characteristics in mind:
 
-- **Idempotency** : All budget mutation APIs are idempotent. Calling `clearProcessBudget()` or `clearPackageBudget()` repeatedly or when no dynamic budget is active is a safe no-op. Similarly, setting `processBudgetBytes` or `setPackageBudgetBytes()` to the same value consecutively does not trigger redundant system reconfigurations.
-- **Calling frequency**: Setting, updating, or clearing a budget makes a cross-process call to the system service to update the operating system memory controller for the process. While lightweight, it is not completely free. Call these APIs during discrete lifecycle transitions and task milestones (such as entering or leaving an activity, starting or completing background processing, or handling speech requests), and avoid calling them in tight loops, audio processing threads, or per-frame render routines.
+- **Idempotency** : All budget mutation APIs are idempotent. Calling `clearProcessBudget()` or `clearPackageBudget()` repeatedly or when no dynamic budget is active is a safe no-op. Similarly, setting `setProcessBudgetBytes()` or `setPackageBudgetBytes()` to the same value consecutively doesn't trigger redundant system reconfigurations.
+- **Calling frequency**: Setting, updating, or clearing a budget makes a cross-process call to the system service to update the operating system memory controller for the process. While lightweight, it isn't completely free. Call these APIs during discrete lifecycle transitions and task milestones (such as entering or leaving an activity, starting or completing background processing, or handling speech requests), and avoid calling them in tight loops, audio processing threads, or per-frame render routines.
 - **Query frequency** : The query properties `processCurrentUsageBytes` and `packageCurrentUsageBytes` fetch live memory usage from the system service. While fast, queries should be invoked on demand (such as during task transitions or inside `OnOverBudgetListener` callbacks) rather than polled in continuous loops.
 
 #### Listen for over-budget pressure callbacks
@@ -394,6 +432,9 @@ triggers direct reclaim latency:
 
     // When done (e.g., in onStop)
     budgetManager.unregisterProcessOverBudgetListener(listener)
+
+> [!NOTE]
+> **Note:** Over-budget callbacks only fire when an active budget is configured for the process or package (either declared using `<memory-budget>` in `AndroidManifest.xml` or set at runtime using `setProcessBudgetBytes()` or `setPackageBudgetBytes()`). If no manifest or runtime budget is active, `OnOverBudgetListener` won't be invoked.
 
 **Best practices for over-budget callbacks:**
 

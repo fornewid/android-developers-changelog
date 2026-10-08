@@ -10,7 +10,7 @@ The Navigation Event library provides a KMP-first API for handling system back a
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | [1.1.2](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.1.2) | [1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0-rc01) | - | - |
+| October 07, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.navigationevent:navigationevent:1.2.0-rc01"
+    implementation "androidx.navigationevent:navigationevent:1.2.0"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.navigationevent:navigationevent:1.2.0-rc01")
+    implementation("androidx.navigationevent:navigationevent:1.2.0")
 }
 ```
 
@@ -53,6 +53,28 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.2
+
+### Version 1.2.0
+
+October 07, 2026
+
+`androidx.navigationevent:navigationevent-*:1.2.0` is released. Version 1.2.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/97aec8dd133e0797a82bc84ea401f5d85ccb74f2..64e18c3822f0ccd7460956afd6ae6f9848877ea7/navigationevent).
+
+**Important changes since 1.1.0:**
+
+**New in `TestNavigationEventDispatcherOwner`**
+
+- Added `onForwardCompletedFallback` to enable tracking and testing of unhandled forward navigation events.
+- Added `navigationEventInput` to simplify simulating navigation events in tests
+
+**New in `NavigationEventInput`**
+
+- Added `hasEnabledHandlers`, `hasEnabledBackHandlers`, and `hasEnabledForwardHandlers` to allow developers to query the current handler state directly without relying on callbacks.
+
+**Other changes**
+
+- New `NavigationEventDispatcherOwner` factory to allow easy creation of a owner backed by the given `NavigationEventDispatcher`
+- `Title` and `url` properties added to `NavigationEventInfo` to allow customizing the destination title and location URL.
 
 ### Version 1.2.0-rc01
 

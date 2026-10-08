@@ -10,7 +10,7 @@ Reduce the memory impact of existing and new collections that are small.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | [1.6.0](https://developer.android.com/jetpack/androidx/releases/collection#1.6.0) | [1.7.0-rc01](https://developer.android.com/jetpack/androidx/releases/collection#1.7.0-rc01) | - | - |
+| October 07, 2026 | [1.7.0](https://developer.android.com/jetpack/androidx/releases/collection#1.7.0) | - | - | - |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    def collection_version = "1.6.0"
+    def collection_version = "1.7.0"
     implementation "androidx.collection:collection:$collection_version"
 }
 ```
@@ -34,7 +34,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    val collection_version = "1.6.0"
+    val collection_version = "1.7.0"
     implementation("androidx.collection:collection:$collection_version")
 }
 ```
@@ -53,6 +53,24 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Collection
+
+### Version 1.7
+
+### Version 1.7.0
+
+October 07, 2026
+
+`androidx.collection:collection-*:1.7.0` is released. Version 1.7.0 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/5e46f82d2e75f3f4e6a88da615d2a4aba4427d95..09f123f77374f7916696455015ba0ccc6a9034df/collection).
+
+**Important changes since 1.6.0:**
+
+- Added `.toOrderedScatterSet()` extension. This provides a read-only alternative to the mutable conversion function and returns an allocation-free singleton when the source collection is empty.
+- Implemented `toString()` for `ScatterMap.asMap` key, value, and entry views. This provides better debug visibility for developers using the `asMap()` wrapper.
+- Optimized `ScatterMap.getOrPut()` performance.
+- Added `sortWith`, `sortBy`, and `sortByDescending` functions to `MutableObjectList`, alongside `binarySearch` algorithms on `ObjectList` and primitive list classes (`FloatList`, `IntList`, `LongList`, `DoubleList`). Added `binarySearch` overloads using exact component types for `FloatList`, `LongList`, and `DoubleList` alongside existing `Int` methods.
+- Improved hashing in `ScatterMap` and primitive collections to reduce collisions for Float keys.
 
 ## Version 1.7
 

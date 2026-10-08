@@ -24,7 +24,7 @@ following dependencies to your module's `build.gradle.kts` file:
     dependencies {
         // Provides @WearPreview* multipreview annotations
         // (such as @WearPreviewDevices and @WearPreviewFontScales)
-        implementation("androidx.wear.compose:compose-ui-tooling:1.7.0")
+        implementation("androidx.wear.compose:compose-ui-tooling:1.8.0-alpha01")
 
         // Provides WearDevices constants
         // (such as WearDevices.SMALL_ROUND and WearDevices.LARGE_ROUND)

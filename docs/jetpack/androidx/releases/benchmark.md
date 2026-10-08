@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0) | - | - | - |
+| October 07, 2026 | [1.5.0](https://developer.android.com/jetpack/androidx/releases/benchmark#1.5.0) | - | - | [1.6.0-alpha01](https://developer.android.com/jetpack/androidx/releases/benchmark#1.6.0-alpha01) |
 
 ## Declaring dependencies
 
@@ -135,6 +135,31 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Version 1.6
+
+### Version 1.6.0-alpha01
+
+October 07, 2026
+
+`androidx.benchmark:benchmark-*:1.6.0-alpha01` is released. Version 1.6.0-alpha01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/186a547242af3a9298ad5af40f988293edf2d8ce..9df3dfef9a4fdc8de448a634fa58f49e1b63e1f9/benchmark).
+
+**New Features**
+
+- The benchmark `:lockClocks` task now uses fixed performance mode when available, over the previous root-only implementation. This means you can lock clocks on many more physical devices for stable results, especially for useful for stable microbenchmarks. Please report issues with thermal throttling with the new behavior if you see it. ([I0d032](https://android-review.googlesource.com/#/q/I0d03254a6356e26a3d73d4f0fe2b899ff8ba0870))
+
+**API Changes**
+
+- Added `MemoryProfilingConfig` to `ExperimentalConfig` to allow macrobenchmark runs to opt into Perfetto heap profiling. ([Ibc931](https://android-review.googlesource.com/#/q/Ibc931f825e64819ca1e771e8bb7201c109724912))
+
+**Bug Fixes**
+
+- Fixed a bug in microbenchmark where method trace capture was sometimes overcautiously skipped to avoid ANRs. ([Ifc307](https://android-review.googlesource.com/#/q/Ifc307821343e3fbe0a3d7db6d8eae68a99f332be))
+- Fix Baseline profile capture for processes not using a `:<suffix>` naming pattern. ([I512ab](https://android-review.googlesource.com/#/q/I512abca799b154efb9a6bba98eda3b288e28cd04))
+- Profiler trace links are now reported under a separate 'Profiling Traces' section in IDE summaries. ([Id639f](https://android-review.googlesource.com/#/q/Id639fd6bda041a358372de5fd80c53d53a302260))
+- Fix a bug in virtual file flushing which would result in `Unable to flush profiles for <packagename>`. ([I48ccc](https://android-review.git.corp.google.com/q/I48cccda394d386d1335025516788f7cdfa1aaa36))
+- Fix synchronization in method traces embedded in system trace. [Ifd2e33](https://android-review.googlesource.com/q/Ifd2e33b235092d731bddb31ad7a0e56c98dd7bfd) [b/537688349](https://buganizer.corp.google.com/issues/537688349)
+- Baseline Profile Gradle Plugin - Improved `CollectBaselineProfileTask` to support finding `test-result.pb` files in subdirectories, enabling compatibility with the new built-in test platform. [Id9c488](https://android-review.googlesource.com/q/Id9c488dd0388a206cd0ac98f49cee21c37c7878d) [b/543799367](https://buganizer.corp.google.com/issues/543799367)
 
 ## Version 1.5
 

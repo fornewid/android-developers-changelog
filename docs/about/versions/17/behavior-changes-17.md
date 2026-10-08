@@ -30,7 +30,8 @@ limit (1.5 \* screen width \* screen height \* 4) against the combined memory us
 of both Bitmaps and Icons present in the RemoteViews parcel. Exceeding these
 limits throws a fatal `IllegalArgumentException` and crashes the app's process.
 
-For more information, see [UpdateAppWidget](https://developer.android.com/reference/android/appwidget/AppWidgetManager#updateAppWidget(int%5B%5D,%20android.widget.RemoteViews)).
+For more information, see
+[UpdateAppWidget](https://developer.android.com/reference/android/appwidget/AppWidgetManager#updateAppWidget(int[],%20android.widget.RemoteViews)).
 
 ## Core functionality
 

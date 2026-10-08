@@ -9,7 +9,7 @@ tests can exist in Component, Feature and Application tests.
 
 You can use third-party tools to create both instrumented and local screenshot
 tests. If you use Compose, you can use the official [Compose Preview Screenshot
-testing tool](https://developer.android.com/studio/preview/compose-screenshot-testing).
+testing tool](https://developer.android.com/studio/preview/compose-screenshot-testing-with-testsuites).
 
 > [!IMPORTANT]
 > **Important:** Screenshot testing is the recommended way to verify visual attributes in Compose UIs.
@@ -152,4 +152,4 @@ libraries for screenshot testing:
   - Frameworks that integrate with RNG can use all the features from Robolectric, allowing for tests with a bigger scope.
 
 > [!NOTE]
-> **Note:** The experimental [Compose Preview Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing) tool is an integration with Compose Previews, which runs the tests on the host, using Layoutlib to render the screenshots.
+> **Note:** The experimental [Compose Preview Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing-with-testsuites) tool is an integration with Compose Previews, which runs the tests on the host, using Layoutlib to render the screenshots.

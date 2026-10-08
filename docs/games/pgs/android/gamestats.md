@@ -34,7 +34,7 @@ method and passing in the activity.
 
 ## Client side integration
 
-The client side integration for [`PlayerGameEvent`](https://developer.android.com/android/reference/com/google/android/gms/games/playergameevent/PlayerGameEvent) would involve you
+The client side integration for [`PlayerGameEvent`](https://developers.google.com/android/reference/com/google/android/gms/games/playergameevent/PlayerGameEvent) would involve you
 building the event object in Java SDK, at the trigger points and sending them
 using the upload functions provided by the SDK.
 

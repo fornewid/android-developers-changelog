@@ -4,9 +4,7 @@ url: https://developer.android.com/games/services/management/api/achievements/re
 source: md.txt
 ---
 
-# Achievements: resetForAllPlayers
-
-**Requires[authorization](https://developer.android.com/games/services/management/api/achievements/resetForAllPlayers#auth)**
+**Requires [authorization](https://developer.android.com/games/services/management/api/achievements/resetForAllPlayers#auth)**
 
 Resets the achievement with the given ID for all players. This method is only available to user accounts for your developer console. Only draft achievements can be reset.
 
@@ -20,17 +18,17 @@ POST https://www.googleapis.com/games/v1management/achievements/achievementId/re
 
 ### Parameters
 
-| Parameter name  |  Value   |                  Description                   |
-|-----------------|----------|------------------------------------------------|
-| **Path parameters**                                                       |||
+| Parameter name | Value | Description |
+|---|---|---|
+| **Path parameters** |||
 | `achievementId` | `string` | The ID of the achievement used by this method. |
 
 ### Authorization
 
-This request requires authorization with the following scope ([read more about authentication and authorization](https://developer.android.com/accounts/docs/OAuth2)).
+This request requires authorization with the following scope ([read more about authentication and authorization](https://developers.google.com/identity/protocols/oauth2)).
 
-|                  Scope                  |
-|-----------------------------------------|
+| Scope |
+|---|
 | `https://www.googleapis.com/auth/games` |
 
 ### Request body

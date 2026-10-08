@@ -13,10 +13,10 @@ This table lists all the artifacts in the `androidx.paging` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| paging-\* | [3.5.1](https://developer.android.com/jetpack/androidx/releases/paging#3.5.1) | - | - | - |
-| paging-compose | [3.5.1](https://developer.android.com/jetpack/androidx/releases/paging#3.5.1) | - | - | - |
+| paging-\* | [3.5.2](https://developer.android.com/jetpack/androidx/releases/paging#3.5.2) | - | - | - |
+| paging-compose | [3.5.2](https://developer.android.com/jetpack/androidx/releases/paging#3.5.2) | - | - | - |
 
-This library was last updated on: August 12, 2026
+This library was last updated on: October 07, 2026
 
 ## Declaring dependencies
 
@@ -31,7 +31,7 @@ your app or module:
 
 ```groovy
 dependencies {
-  def paging_version = "3.5.1"
+  def paging_version = "3.5.2"
 
   implementation "androidx.paging:paging-runtime:$paging_version"
 
@@ -48,7 +48,7 @@ dependencies {
   implementation "androidx.paging:paging-guava:$paging_version"
 
   // optional - Jetpack Compose integration
-  implementation "androidx.paging:paging-compose:3.5.1"
+  implementation "androidx.paging:paging-compose:3.5.2"
 }
 ```
 
@@ -56,7 +56,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-  val paging_version = "3.5.1"
+  val paging_version = "3.5.2"
 
   implementation("androidx.paging:paging-runtime:$paging_version")
 
@@ -73,7 +73,7 @@ dependencies {
   implementation("androidx.paging:paging-guava:$paging_version")
 
   // optional - Jetpack Compose integration
-  implementation("androidx.paging:paging-compose:3.5.1")
+  implementation("androidx.paging:paging-compose:3.5.2")
 }
 ```
 
@@ -96,6 +96,16 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 3.5
+
+### Version 3.5.2
+
+October 07, 2026
+
+`androidx.paging:paging-*:3.5.2` is released. Version 3.5.2 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a529819e192125f997c07106fe4c2878d7279bdb..a617b93b1fc9fc1d0ce47dc52dd1454ab99823de/paging).
+
+**Bug Fixes**
+
+- `Pager.append()` calls before initial refresh completes will no longer throw `NoSuchElementException`. The append call will be no-op. ([Ide387](https://android-review.googlesource.com/#/q/Ide38759c5173093b1b26bf3902454c60052e344c), [b/556780796](https://issuetracker.google.com/issues/556780796))
 
 ### Version 3.5.1
 

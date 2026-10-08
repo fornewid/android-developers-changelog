@@ -65,10 +65,9 @@ fun TraversalGroupDemo() {
         )
         CardBox(
             topSampleText2,
-            bottomSampleText2
-        )
+              )
     }
-}
+}AccessibilitySnippets.kt
 ```
 
 <br />
@@ -106,10 +105,9 @@ fun TraversalGroupDemo2() {
 //      2,
             topSampleText2,
             bottomSampleText2,
-            Modifier.semantics { isTraversalGroup = true }
-        )
+            Modifier.semantics { isT       )
     }
-}
+}AccessibilitySnippets.kt
 ```
 
 <br />

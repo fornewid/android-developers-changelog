@@ -71,8 +71,7 @@ ViewCompat.setOnApplyWindowInsetsListener(myWebView) { _, windowInsets ->
     // By returning the original windowInsets object, we override the default
     // behavior that zeroes out system insets (like system bars or display
     // cutouts) when they don't directly overlap the WebView's screen bounds.
-    windowInsets
-}
+    windownsets.kt
 ```
 
 <br />
@@ -85,8 +84,7 @@ ViewCompat.setOnApplyWindowInsetsListener(myWebView, (v, windowInsets) -> {
     // By returning the original windowInsets object, we override the default
     // behavior that zeroes out system insets (like system bars or display
     // cutouts) when they don't directly overlap the WebView's screen bounds.
-    return windowInsets;
-});
+    return windowInsava.java
 ```
 
 <br />

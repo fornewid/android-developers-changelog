@@ -91,6 +91,13 @@ Written by:
   [read_more
   View profile](https://developer.android.com/blog/authors/sheenam-mittal) ![View Sheenam Mittal's profile](https://developer.android.com/static/blog/assets/unnamed_24_1859332bf9_Z2nsiJr.webp) ![View Sheenam Mittal's profile](https://developer.android.com/static/blog/assets/unnamed_24_1859332bf9_Z2nsiJr.webp)
 Continue reading
+- [![View Simona Milanovic's profile](https://developer.android.com/static/blog/assets/Screenshot_2026_05_19_at_9_30_31_AM_4ebf3b750d_OxFbo.webp)](https://developer.android.com/blog/authors/simona-milanovic) 02 Oct 2026 02 Oct 2026 ![](https://developer.android.com/static/blog/assets/ABL_135_Android_CLI_and_Android_skills_Strapi_d22702426a_ZIUXgH.webp) [Product News](https://developer.android.com/blog/categories/product-news)
+
+  ## [Device Streaming and Android skills - available in Android CLI](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills)
+
+  [arrow_forward](https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills) As Android developers, you have many choices when it comes to the agents, LLMs, tools, and command-line interfaces (CLI) you use for app development. Our goal is to help you build beautiful, high-quality Android apps, no matter how you choose to build.
+  [Simona Milanovic](https://developer.android.com/blog/authors/simona-milanovic) • 4 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
 - [![View Matthew Warner's profile](https://developer.android.com/static/blog/assets/matthew_warner_67a99317e4_ZNF3fo.webp)](https://developer.android.com/blog/authors/matthew-warner) 24 Sep 2026 24 Sep 2026 ![](https://developer.android.com/static/blog/assets/BYOA_Backup_Strapi_1_5c3f94f766_Z1WI1Mt.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
   ## [Build your way: Use any AI agent of your choice in Android Studio](https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio)
@@ -107,16 +114,6 @@ Continue reading
   - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
   - [#Adaptive development](https://developer.android.com/blog/topics/adaptive-development)
   - [#Jetpack Compose](https://developer.android.com/blog/topics/jetpack-compose)
-  - +1 ↩
-- [![View Jan Kleinert's profile](https://developer.android.com/static/blog/assets/Jan_Kleinert_044ab3d483_va23A.webp)](https://developer.android.com/blog/authors/jan-kleinert) 21 Sep 2026 21 Sep 2026 ![](https://developer.android.com/static/blog/assets/Games_for_car_Strapi_1_c55588726e_Z2cIhWx.webp) [Product News](https://developer.android.com/blog/categories/product-news)
-
-  ## [Bring your Android game to the car screen today](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today)
-
-  [arrow_forward](https://developer.android.com/blog/posts/bring-your-android-game-to-the-car-screen-today) Today, the games category for Android Auto and cars powered by Android Automotive OS with Google built-in is officially graduating from beta to general availability.
-  [Jan Kleinert](https://developer.android.com/blog/authors/jan-kleinert) • 3 min read
-  - [#Android Automotive OS](https://developer.android.com/blog/topics/android-automotive-os)
-  - [#Adaptive \& Differentiated](https://developer.android.com/blog/topics/adaptive-and-differentiated)
-  - [#Android Auto](https://developer.android.com/blog/topics/android-auto)
   - +1 ↩
 Stay in the loop
 

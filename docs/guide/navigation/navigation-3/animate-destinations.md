@@ -150,7 +150,7 @@ In apps that [create custom layouts using scenes](https://developer.android.com/
 transition. Internally, `NavDisplay` verifies that every entry is displayed in
 at most one scene at any time, which can result in jumpy transitions when the
 scene rendering a `NavEntry` changes. To smoothly animate entries between
-scenes, you can wrap your `NavDisplay` in a [`SharedTransitionLayout`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionLayout) and
+scenes, you can wrap your `NavDisplay` in a [`SharedTransitionLayout`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionLayout.composable) and
 provide the [`SharedTransitionScope`](https://developer.android.com/reference/kotlin/androidx/compose/animation/SharedTransitionScope) to the `NavDisplay` as shown in the
 following example:
 

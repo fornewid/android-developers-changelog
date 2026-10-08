@@ -1,49 +1,39 @@
 ---
-title: Android Developers
+title: https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/xml/sample_action_list_widget_info.xml.rawcontent
 url: https://developer.android.com/agents/skills/system/glance-canonical-layouts/references/res/xml/sample_action_list_widget_info.xml.rawcontent
-source: html-scrape
+source: md.txt
 ---
 
-Stay organized with collections
+    <?xml version="1.0" encoding="utf-8"?><!--
+      Copyright 2023 The Android Open Source Project
 
-Save and categorize content based on your preferences.
+      Licensed under the Apache License, Version 2.0 (the "License");
+      you may not use this file except in compliance with the License.
+      You may obtain a copy of the License at
 
+           http://www.apache.org/licenses/LICENSE-2.0
 
-
-
-
-```
-<?xml version="1.0" encoding="utf-8"?><!--
-  Copyright 2023 The Android Open Source Project
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  -->
-<!--
-* uses minimum size such that text is readable while allowing flexibility
- for users to choose smaller widget displays
-* no max limits as we turn list to a grid to support larger screens
--->
-<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
-    android:initialLayout="@layout/glance_default_loading_layout"
-    android:previewImage="@drawable/sample_action_list_preview"
-    android:maxResizeHeight="@dimen/sample_action_list_widget_max_resize_height"
-    android:maxResizeWidth="@dimen/sample_action_list_widget_max_resize_width"
-    android:targetCellWidth="@integer/sample_action_list_target_cell_width"
-    android:targetCellHeight="@integer/sample_action_list_target_cell_height"
-    android:minHeight="@dimen/sample_action_list_widget_min_height"
-    android:minResizeHeight="@dimen/sample_action_list_widget_min_resize_height"
-    android:minResizeWidth="@dimen/sample_action_list_widget_min_resize_width"
-    android:minWidth="@dimen/sample_action_list_widget_min_width"
-    android:resizeMode="horizontal|vertical"
-    android:widgetCategory="home_screen|keyguard" />
-```
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+      -->
+    <!--
+    * uses minimum size such that text is readable while allowing flexibility
+     for users to choose smaller widget displays
+    * no max limits as we turn list to a grid to support larger screens
+    -->
+    <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+        android:initialLayout="@layout/glance_default_loading_layout"
+        android:previewImage="@drawable/sample_action_list_preview"
+        android:maxResizeHeight="@dimen/sample_action_list_widget_max_resize_height"
+        android:maxResizeWidth="@dimen/sample_action_list_widget_max_resize_width"
+        android:targetCellWidth="@integer/sample_action_list_target_cell_width"
+        android:targetCellHeight="@integer/sample_action_list_target_cell_height"
+        android:minHeight="@dimen/sample_action_list_widget_min_height"
+        android:minResizeHeight="@dimen/sample_action_list_widget_min_resize_height"
+        android:minResizeWidth="@dimen/sample_action_list_widget_min_resize_width"
+        android:minWidth="@dimen/sample_action_list_widget_min_width"
+        android:resizeMode="horizontal|vertical"
+        android:widgetCategory="home_screen|keyguard" />

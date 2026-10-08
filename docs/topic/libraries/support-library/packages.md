@@ -122,10 +122,10 @@ enabling applications to provide layouts that adjust between small and
 large-screen devices. This module has dependencies on [compat](https://developer.android.com/topic/libraries/support-library/packages#v4-compat), [core-utils](https://developer.android.com/topic/libraries/support-library/packages#v4-core-utils), [core-ui](https://developer.android.com/topic/libraries/support-library/packages#v4-core-ui), and [media-compat](https://developer.android.com/topic/libraries/support-library/packages#v4-media-compat).
 
 **Note:** The [v13 support library](https://developer.android.com/topic/libraries/support-library/packages#v13)
-provides a `https://developer.android.com/reference/androidx/legacy/app/FragmentCompat` class. The v4
+provides a `https://developer.android.com/reference/android/support/v13/app/FragmentCompat` class. The v4
 `https://developer.android.com/reference/androidx/fragment/app/Fragment` class is a standalone class that
 provides bugfixes which were added in later platform versions, whereas the
-v13 `https://developer.android.com/reference/androidx/legacy/app/FragmentCompat` class provides
+v13 `https://developer.android.com/reference/android/support/v13/app/FragmentCompat` class provides
 compatibility shims for the framework implementation of the
 `https://developer.android.com/reference/android/app/Fragment` class.
 
@@ -296,7 +296,7 @@ independently from other libraries.
 
 This library adds support for
 the [RenderScript](https://developer.android.com/guide/topics/renderscript/compute) computation
-framework. These APIs are included in the `https://developer.android.com/reference/android/support/v8/renderscript/package-summary` package. You
+framework. These APIs are included in the `https://developer.android.com/reference/android/renderscript/package-summary` package. You
 should be aware that the steps for including these APIs in your application is *very
 different* from other support library APIs. For more information about using these APIs
 in your application, see the
@@ -321,7 +321,7 @@ defaultConfig {
 
 This library adds support
 for the [Fragment](https://developer.android.com/guide/components/fragments) user interface pattern
-with the (`https://developer.android.com/reference/androidx/legacy/app/FragmentCompat`) class and additional fragment support
+with the (`https://developer.android.com/reference/android/support/v13/app/FragmentCompat`) class and additional fragment support
 classes. For more information about fragments, see the
 [Fragments](https://developer.android.com/guide/components/fragments) developer guide. For detailed
 information about the v13 Support Library APIs, see the `https://developer.android.com/reference/android/support/v13/app/package-summary` package in the API reference.
@@ -330,7 +330,7 @@ information about the v13 Support Library APIs, see the `https://developer.andro
 provides a `https://developer.android.com/reference/androidx/fragment/app/Fragment` class. The v4
 `https://developer.android.com/reference/androidx/fragment/app/Fragment` class is a standalone class that
 provides bugfixes which were added in later platform versions, whereas the
-v13 `https://developer.android.com/reference/androidx/legacy/app/FragmentCompat` class provides
+v13 `https://developer.android.com/reference/android/support/v13/app/FragmentCompat` class provides
 compatibility shims for the framework implementation of the
 `https://developer.android.com/reference/android/app/Fragment` class.
 
@@ -387,7 +387,7 @@ on TV devices. It provides a number of important widgets for TV apps. Some of th
 
 - `https://developer.android.com/reference/androidx/leanback/app/BrowseFragment` - A fragment for creating a primary layout for browsing categories and rows of media items.
 - `https://developer.android.com/reference/androidx/leanback/app/DetailsFragment` - A wrapper fragment for Leanback details screens.
-- `https://developer.android.com/reference/android/support/v17/leanback/app/PlaybackOverlayFragment` - A subclass of `https://developer.android.com/reference/androidx/leanback/app/DetailsFragment` for displaying playback controls and related content.
+- `https://developer.android.com/reference/android/support/v17/leanback/app/PlaybackFragment` - A subclass of `https://developer.android.com/reference/androidx/leanback/app/DetailsFragment` for displaying playback controls and related content.
 - `https://developer.android.com/reference/androidx/leanback/app/SearchFragment` - A fragment to handle searches. The fragment receives the user's search request and passes it to the application-provided `https://developer.android.com/reference/androidx/leanback/app/SearchFragment.SearchResultProvider`. The `https://developer.android.com/reference/androidx/leanback/app/SearchFragment.SearchResultProvider` returns the search results to the `https://developer.android.com/reference/androidx/leanback/app/SearchFragment`, which renders them into a `https://developer.android.com/reference/androidx/leanback/app/RowsFragment`.
 
 This package requires API level 17 or higher. The Gradle build script

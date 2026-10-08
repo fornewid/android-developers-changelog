@@ -13,7 +13,7 @@ required changes to [VoIP calling apps](https://developer.android.com/develop/co
 
 > [!NOTE]
 > **Note:** The features described on this page require [Jetpack Telecom library
-> version `1.1.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/core#core-telecom_version_11_2) or higher.
+> version `1.1.0-alpha01`](https://developer.android.com/jetpack/androidx/releases/core#core-telecom-1.1.0-alpha01) or higher.
 
 ## Changes for the calling app
 
@@ -102,7 +102,7 @@ The system call log maintains a finite number of entries and eventually
 purges old call records. Because the app stores a mapping of `UUID`s to call
 details for callback handling, it should periodically check which `UUID`s are
 still present in the system call log. If a `UUID` is no longer in the system
-log, the user cannot initiate a callback for that call, and the app can
+log, the user can't initiate a callback for that call, and the app can
 safely remove the mapping from its local storage. This practice helps
 optimize storage.
 
@@ -116,7 +116,7 @@ initiate callbacks to VoIP apps.
 
 ### Display VoIP call logs in the dialer app
 
-By default, VoIP apps call logs don't appear in the dialer app. To display
+By default, VoIP app call logs don't appear in the dialer app. To display
 the integrated call logs in the dialer app, do the following:
 
 - On Android 16.1 (API level 36.1), append the query parameter

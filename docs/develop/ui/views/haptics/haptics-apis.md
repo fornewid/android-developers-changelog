@@ -4,13 +4,6 @@ url: https://developer.android.com/develop/ui/views/haptics/haptics-apis
 source: md.txt
 ---
 
-This document introduces the various haptics APIs available in Android,
-explaining how to create different haptic effects and how to check for
-necessary device support.
-keywords_public: \>
-Android, haptics, APIs, vibration, HapticFeedbackConstants, VibrationEffect,
-envelope haptics, haptic feedback, notification, amplitude control
-
 This section gives an introduction to the various haptics APIs
 available in Android. It also covers when and how to check for any device
 support necessary to ensure your haptic effects play as you intend.

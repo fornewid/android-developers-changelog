@@ -45,10 +45,10 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
 ```groovy
 dependencies {
     implementation "androidx.xr.runtime:runtime:1.1.0-alpha01"
-    implementation "androidx.xr.scenecore:scenecore:1.0.0-rc01"
+    implementation "androidx.xr.scenecore:scenecore:1.0.0-rc02"
     implementation "androidx.xr.compose:compose:1.0.0-beta01"
     implementation "androidx.xr.compose.material3:material3:1.0.0-alpha17"
-    implementation "androidx.xr.arcore:arcore:1.0.0-rc01"
+    implementation "androidx.xr.arcore:arcore:1.0.0-rc02"
 }
 ```
 
@@ -57,10 +57,10 @@ dependencies {
 ```kotlin
 dependencies {
     implementation("androidx.xr.runtime:runtime:1.1.0-alpha01")
-    implementation("androidx.xr.scenecore:scenecore:1.0.0-rc01")
+    implementation("androidx.xr.scenecore:scenecore:1.0.0-rc02")
     implementation("androidx.xr.compose:compose:1.0.0-beta01")
     implementation("androidx.xr.compose.material3:material3:1.0.0-alpha17")
-    implementation("androidx.xr.arcore:arcore:1.0.0-rc01")
+    implementation("androidx.xr.arcore:arcore:1.0.0-rc02")
 }
 ```
 

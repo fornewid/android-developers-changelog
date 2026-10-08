@@ -101,6 +101,45 @@ restricts call-forwarding USSD codes (such as `*21#`) executed using the
 - **Non-Call Forwarding USSD:** Non-call forwarding enabling USSD requests (such as mobile money transfers and account checks) are unaffected by this change.
 - **Mitigation:** If your app is affected, verify that it handles the `USSD_ERROR_NOT_ALLOWED` failure callback gracefully. For apps requiring call-forwarding setup that don't qualify for an exempted role, migrate your flow to use the `ACTION_DIAL` intent to pre-fill the dialer, allowing the user to manually confirm the action.
 
+#### Optimized delivery of self-broadcasts
+
+On devices running Android 17 QPR2 or higher, Android delivers
+*self-broadcasts* more efficiently to improve system health. A self-broadcast
+is a [broadcast](https://developer.android.com/develop/background-work/background-tasks/broadcasts) (for example, one sent with
+[`sendBroadcast()`](https://developer.android.com/reference/android/content/Context#sendBroadcast(android.content.Intent))) for which *all* of the receivers,
+whether context-registered or declared in the manifest, run in the same process
+that sent the broadcast. If any receiver runs in a different process, the
+broadcast isn't a self-broadcast. The system hands self-broadcasts back to the
+sending process, which delivers them to its own receivers on the main thread.
+This prevents apps from keeping themselves running in the background by
+repeatedly sending broadcasts to themselves. This change applies to all apps,
+regardless of their `targetSdkVersion`.
+
+This change affects your app in the following ways:
+
+- Sending a self-broadcast doesn't raise your process's importance and
+  doesn't prevent a cached process from being frozen.
+
+- If your process is cached and frozen, self-broadcasts that it sent wait
+  until the process is unfrozen, for example, when the user returns to the
+  app or another component of the app starts.
+
+- Self-broadcasts that haven't been delivered yet are held in the process's
+  memory. If the system kills the process before they're delivered, they're
+  lost and aren't redelivered.
+
+Broadcasts that have a receiver in a different process (including another
+process of the same app), broadcasts sent on behalf of another app (such as
+through a `PendingIntent`), and broadcasts sent to a different user profile
+aren't affected.
+
+Make sure your app doesn't rely on self-broadcasts to do work in the
+background. Don't use self-broadcasts as a timer or keep-alive mechanism. To
+schedule background work, use [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent), or use
+[AlarmManager](https://developer.android.com/develop/background-work/services/alarms) for work that must happen at a specific time.
+For communication within a process, use direct calls such as callbacks or
+Kotlin flows instead of broadcasts.
+
 ### Top Issues fixed in Beta 6 (September 2026)
 
 - *A visual regression causing letterboxed content to leak through the status bar during activity transitions. ([**Issue #493438057**](https://issuetracker.google.com/issues/493438057))*

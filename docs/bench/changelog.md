@@ -8,7 +8,17 @@ source: md.txt
 
 ## Changelog
 
-Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. **September 17th, 2026**
+Track the latest AI model benchmarks, newly introduced agent architectures, and continuous performance evaluations on the platform. **October 6th, 2026**
+
+- New agent results • Oct 6th   
+  **claude-code results now available** ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Opus 5.5
+- New agent results • Oct 6th   
+  **codex results now available** ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 6 Luna, GPT 6 Sol
+- Archived models • Oct 6th   
+  **claude-code results archived** ![](https://developer.android.com/static/images/bench/icons/anthropic.png) Claude Opus 5
+- Archived models • Oct 6th   
+  **codex results archived** ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 5.6 Luna, GPT 5.6 Sol, GPT 5.6 Terra
+**September 17th, 2026**
 
 - [New updates • Sep 17th ![](https://developer.android.com/static/images/bench/icons/news.png) Launched long-horizon tasks](https://developer.android.com/bench/methodology/2#benchmark-design)
 - [New updates • Sep 17th ![](https://developer.android.com/static/images/bench/icons/robot.png) Now benchmarking models using specialized agents](https://developer.android.com/bench/methodology/2#expanding_beyond_mini-swe-agent)
@@ -42,7 +52,7 @@ Track the latest AI model benchmarks, newly introduced agent architectures, and 
 - Archived models • Jul 8th ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT OSS 120B, GPT OSS 20B
 - Archived models • Jul 8th ![](https://developer.android.com/static/images/bench/icons/qwen.png) Qwen 3.5 9B, Qwen 3.6 Max Preview
 - [New updates • Jul 8th ![](https://developer.android.com/static/images/bench/icons/move_group.png) We have migrated our benchmark framework to Harbor](http://android-developers.googleblog.com/2026/07/android-bench-llm-measurement.html)
-- [New updates • Jul 8th ![](https://developer.android.com/static/images/bench/icons/news.png) We've updated Android Bench](https://developer.android.com/bench/methodology)
+- [New updates • Jul 8th ![](https://developer.android.com/static/images/bench/icons/news.png) We've updated Android Bench](https://developer.android.com/bench/methodology/1)
 **June 9th, 2026**
 
 - New models • Jun 9th :gemini: Gemini 3.5 Flash
@@ -52,8 +62,8 @@ Track the latest AI model benchmarks, newly introduced agent architectures, and 
 - [New updates • Jun 9th ![](https://developer.android.com/static/images/bench/icons/news.png) See our new Archive page](https://developer.android.com/bench/archive)
 **May 18th, 2026**
 
-- [New updates • May 18th ![](https://developer.android.com/static/images/bench/icons/news.png) New leaderboard dimensions: latency, tokens, and cost](https://developer.android.com/bench/methodology#new-leaderboard-dimensions)
-- [New updates • May 18th ![](https://developer.android.com/static/images/bench/icons/news.png) We added benchmarks for open-weight models](https://developer.android.com/bench/methodology#benchmarking-open-weight-models)
+- [New updates • May 18th ![](https://developer.android.com/static/images/bench/icons/news.png) New leaderboard dimensions: latency, tokens, and cost](https://developer.android.com/bench/methodology/1#new-leaderboard-dimensions)
+- [New updates • May 18th ![](https://developer.android.com/static/images/bench/icons/news.png) We added benchmarks for open-weight models](https://developer.android.com/bench/methodology/1#benchmarking-open-weight-models)
 **May 5th, 2026**
 
 - New models • May 5th ![](https://developer.android.com/static/images/bench/icons/openai.png) GPT 5.5

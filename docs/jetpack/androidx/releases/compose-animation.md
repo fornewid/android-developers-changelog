@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.1) | - | - | [1.13.0-alpha03](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-alpha03) |
+| October 07, 2026 | [1.12.1](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.12.1) | - | [1.13.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-beta01) | - |
 
 ## Structure
 
@@ -99,6 +99,20 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.13
+
+### Version 1.13.0-beta01
+
+October 07, 2026
+
+`androidx.compose.animation:animation-*:1.13.0-beta01` is released. Version 1.13.0-beta01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/58589a3cd45bacbb3ad7bbdc52836f6e055340be..b79d16d2c5ffde1186c4416db222196b0e7a8951/compose/animation).
+
+**API Changes**
+
+- Libraries now target Kotlin 2.2 and require kotlinc 2.2 ([I82396](https://android-review.googlesource.com/#/q/I823967fe6b9524b448184ef366c562316bd6a323), [b/498369605](https://issuetracker.google.com/issues/498369605))
+
+**Bug Fixes**
+
+- Fixed a crash in SeekableTransitionState where rounding NaN values threw an IllegalArgumentException during zero-duration or interrupted transitions. ([I8f3a9](https://android-review.googlesource.com/#/q/I8f3a9d2e1b4c5a6f7e8d9c0b1a2f3e4d5c6b7a89), [b/555294641](https://issuetracker.google.com/issues/555294641))
 
 ### Version 1.13.0-alpha03
 

@@ -16,6 +16,16 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## October 07, 2026
+
+- [Compose Animation Version 1.13.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-animation#1.13.0-beta01)
+- [Compose Foundation Version 1.13.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-foundation#1.13.0-beta01)
+- [Compose Material 3 Version 1.5.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-material3#1.5.0-beta01)
+- [Compose Material Version 1.13.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-material#1.13.0-beta01)
+- [Compose Runtime Version 1.13.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-runtime#1.13.0-beta01)
+- [Compose UI Version 1.13.0-beta01](https://developer.android.com/jetpack/androidx/releases/compose-ui#1.13.0-beta01)
+- [Graphics-core Version 1.1.0-beta01](https://developer.android.com/jetpack/androidx/releases/graphics#graphics-core-1.1.0-beta01)
+
 ## September 23, 2026
 
 - [Heifwriter Version 1.2.0-beta01](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.2.0-beta01)

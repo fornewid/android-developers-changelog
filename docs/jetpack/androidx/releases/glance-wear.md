@@ -10,7 +10,7 @@ Glance Wear is a library for building Widgets for Wear OS
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 23, 2026 | - | - | - | [1.0.0-alpha19](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha19) |
+| October 07, 2026 | - | - | - | [1.0.0-alpha20](https://developer.android.com/jetpack/androidx/releases/glance-wear#1.0.0-alpha20) |
 
 ## Declaring dependencies
 
@@ -25,9 +25,9 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.glance.wear:wear:1.0.0-alpha19"
+    implementation "androidx.glance.wear:wear:1.0.0-alpha20"
 
-    implementation "androidx.glance.wear:wear-core:1.0.0-alpha19"
+    implementation "androidx.glance.wear:wear-core:1.0.0-alpha20"
 }
 ```
 
@@ -35,9 +35,9 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.glance.wear:wear:1.0.0-alpha19")
+    implementation("androidx.glance.wear:wear:1.0.0-alpha20")
 
-    implementation("androidx.glance.wear:wear-core:1.0.0-alpha19")
+    implementation("androidx.glance.wear:wear-core:1.0.0-alpha20")
 }
 ```
 
@@ -57,6 +57,22 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Glance Wear Version 1.0
+
+### Version 1.0.0-alpha20
+
+October 07, 2026
+
+`androidx.glance.wear:wear:1.0.0-alpha20`, `androidx.glance.wear:wear-core:1.0.0-alpha20`, and `androidx.glance.wear:wear-tooling-preview:1.0.0-alpha20` are released. Version 1.0.0-alpha20 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/b2b5ae7b0fe1bb4eece7018878fe5f18c5967a2f..988ac9734e8223273eb7f186ee1639ee68deb025/glance/wear).
+
+**API Changes**
+
+- Added `CATEGORY_PROVIDER_CONFIG`, `EXTRA_CONFIG_WIDGET_ID`, and `EXTRA_CONFIG_PROVIDER_COMPONENT` constants to `GlanceWearWidget` for handling widget provider configuration intents. ([I32fa4](https://android-review.googlesource.com/#/q/I32fa43745cf396b44a4ea3c9a9a433ec45e7ec0f))
+- Renamed `useSafeFallbackRendererVersion` parameter in the `WearWidgetPreview` to `useBaselineHostVersion`. ([I07bca](https://android-review.googlesource.com/#/q/I07bca2454493419942790f3ddecef72d4ea1f453))
+
+**Bug Fixes**
+
+- Fixed widget updates in the Widget Tray Emulator when calling `triggerUpdateAll` on debuggable builds. ([I22d3f](https://android-review.googlesource.com/#/q/I22d3f0648dec97e25ee2443bc14c96455a08c8c1))
+- Changed the default value of `useSafeFallbackRendererVersion` in `WearWidgetPreview` from `true` to `false` so previews render with the latest renderer version by default. ([Ied6b9](https://android-review.googlesource.com/#/q/Ied6b9490e4ebdc068dd84027cac798dbcf47543e))
 
 ### Version 1.0.0-alpha19
 

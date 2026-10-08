@@ -10,7 +10,7 @@ A modern GPU API for graphics and compute from Kotlin.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| April 22, 2026 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/webgpu#1.0.0-alpha05) |
+| October 07, 2026 | - | - | - | [1.0.0-alpha06](https://developer.android.com/jetpack/androidx/releases/webgpu#1.0.0-alpha06) |
 
 ## Declaring dependencies
 
@@ -25,7 +25,7 @@ your app or module:
 
 ```groovy
 dependencies {
-    implementation "androidx.webgpu:webgpu:1.0.0-alpha05"
+    implementation "androidx.webgpu:webgpu:1.0.0-alpha06"
 }
 ```
 
@@ -33,7 +33,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("androidx.webgpu:webgpu:1.0.0-alpha05")
+    implementation("androidx.webgpu:webgpu:1.0.0-alpha06")
 }
 ```
 
@@ -55,6 +55,41 @@ for more information.
 There are no release notes for this artifact.
 
 ## Webgpu Version 1.0
+
+### Version 1.0.0-alpha06
+
+October 07, 2026
+
+`androidx.webgpu:webgpu:1.0.0-alpha06` is released. Version 1.0.0-alpha06 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/2467c116633e2840f7de4e33e000a6a28e0098b0..a4d2df01ba0ba977635de4b0f397fa1ce2288f95/webgpu/webgpu).
+
+**New Features**
+
+- **Hardware Buffer Integration:** Added `GPUAndroidHardwareBufferUtil` to zero-copy import `HardwareBuffer` memory into Dawn. Includes `createTexture()` for RGB buffers and `createExternalTexture()` for multi-planar `YCbCr` buffers (requires `SharedTextureMemoryAHardwareBuffer` and `YCbCrVulkanSamplers` features).
+- **Fence Synchronization:** Added `GPUSyncFence` as an `AutoCloseable` wrapper around a `ParcelFileDescriptor` holding a kernel sync file. Added `await(timeoutMillis)` which blocks natively until fence signals. Added `fromSyncFence` which adopts descriptors out of a platform `android.hardware.SyncFence` on API 33+. Added `Extensions.toSyncFence` to convert back to a platform `SyncFence`.
+- **Dawn Toggles Descriptor:** Added `GPUDawnTogglesDescriptor` and its corresponding `Builder` to pass Dawn implementation toggles as `enabledToggles` and `disabledToggles` string arrays. Toggles can be scoped to instances, adapter selections, or single devices because this object integrates as an optional `dawnTogglesDescriptor` property within `GPUInstanceDescriptor`, `GPURequestAdapterOptions`, and `GPUDeviceDescriptor`.
+- **Color Space and HDR Support:** Added `GPUColorSpaceDawn` and its corresponding `Builder` to specify color space parameters including primaries, transfer characteristics, matrix, full or narrow range, and HDR reference white luminance. Added supporting color space constants like `ColorSpacePrimariesDawn`, `ColorSpaceTransferDawn`, `ColorSpaceYCbCrMatrixDawn`, and `ColorSpaceYCbCrRangeDawn`.
+
+**API Changes**
+
+- **Minimum SDK Update:** Minimum supported SDK for `androidx.webgpu` has been increased from API 24 to API 26.
+- **Builder Pattern Migration:** Descriptors and configuration structures across libraries now provide a dedicated nested `Builder` class. Java callers must use new builders because `@JvmOverloads` annotations have been removed from Kotlin constructors to improve Java interoperability. Affected structures include `GPUBufferDescriptor`, `GPUTextureBindingLayout`, `GPUPipelineLayoutDescriptor`, `GPUComputePipelineDescriptor`, `GPUVertexState`, and `GPUSurfaceDescriptor`.
+- **Thread Safety Enforcement:** Updated `WebGpu` helper classes for strict single-threaded execution. Added `adapter`, `dispatcher`, and `isClosed` properties, alongside `execute()` and `processEventsLoop()` suspend functions. `createWebGpu()` now accepts a custom `CoroutineDispatcher`.
+- **Experimental API Annotation:** Introduced `@ExperimentalWebGpuApi` to mark incubating and Dawn specific experimental APIs across libraries. This includes `GPUSyncFence`, `GPUDawnTogglesDescriptor`, `GPUExternalTextureDescriptor`, and `GPUHardwareBufferWrapper`.
+- **Hardware Buffer Extras:** Added `GPUHardwareBufferWrapper` as a common base for hardware buffer imports. Added `GPUExternalTextureDescriptor` and its corresponding `Builder`, `GPUExtent2D`, and `GPUOrigin2D` so crop rects, color spaces, and rotation can fold into sampling operations.
+- **Color Conversion Extension:** Removed the `@RequiresApi(26)` restriction on `Extensions.toGPUColor(long)` as it is now redundant with the library's overall minimum SDK bump to API 26.
+- **Immediate Executions:** Added `setImmediates` method to `GPUComputePassEncoder`, `GPURenderBundleEncoder`, and `GPURenderPassEncoder`.
+- **Device Methods:** Added `createErrorExternalTexture` and `createExternalTexture` methods to `GPUDevice`.
+- **Texture Methods:** Added `destroy` method to `GPUExternalTexture`.
+- **New Constants and Supported Features:**
+  - `VertexFormat`: Added `Snorm10_10_10_2`.
+  - `SType`: Added `DawnTogglesDescriptor`.
+  - `WGSLLanguageFeatureName`: Added `BufferView`, `FragmentDepth`, `ImmediateAddressSpace`, `LinearIndexing`, and `SwizzleAssignment`.
+  - `FeatureName`: Added `SubgroupSizeControl`.
+  - Added experimental features like `OpaqueYCbCrAndroidForExternalTexture`, `SharedFenceSyncFD`, `SharedTextureMemoryAHardwareBuffer`, and `YCbCrVulkanSamplers`.
+  - `PredefinedColorSpace`: Added `DisplayP3Linear`, `Rec2020Linear`, and `SRGBLinear`.
+  - `ExternalTextureRotation`: Added `Rotate0Degrees`, `Rotate90Degrees`, `Rotate180Degrees`, and `Rotate270Degrees`.
+
+**Important Note:** Documentation provided in this library release has been generated utilizing Google Gemini and may contain errors.
 
 ### Version 1.0.0-alpha05
 

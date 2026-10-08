@@ -18,7 +18,7 @@ POST https://www.googleapis.com/games/v1management/achievements/resetMultipleFor
 
 ### Authorization
 
-This request requires authorization with the following scope ([read more about authentication and authorization](https://developer.android.com/accounts/docs/OAuth2)).
+This request requires authorization with the following scope ([read more about authentication and authorization](https://developers.google.com/identity/protocols/oauth2)).
 
 | Scope |
 |---|

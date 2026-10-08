@@ -693,6 +693,11 @@ subscription resource looks similar to the following example:
 > [!NOTE]
 > **Note:** A restored subscription uses the same purchase token from when the subscription was canceled. All cancellation fields are cleared from the subscription resource.
 
+Restoring a subscription doesn't generate a new order. If you see a $0.00 order
+for a subscription that the user previously canceled, the user likely signed up
+again from your app before the subscription expired. For more information, see
+[Upgrades, downgrades, and resubscribe](https://developer.android.com/google/play/billing/lifecycle/subscriptions#upgrades-downgrades).
+
 #### Resubscribe after expiration
 
 If an auto-renewing base plan is configured using the Google Play Console or API
@@ -733,6 +738,14 @@ field that indicates the old purchase from which the user upgraded, downgraded,
 or resubscribed. You can use the purchase token in that field to look up the old
 subscription and identify the existing user account so that you can associate
 the new purchase with the same account.
+
+When a user signs up again from your app for the same base plan before their
+subscription expires, Google Play generates an order for $0.00 for the new
+purchase. The user isn't charged at sign-up, because they've already paid for
+the current billing period. Regular billing resumes on the original renewal
+date. The $0.00 order appears in **Order management** in Play Console and in
+your financial reports. It doesn't mean that the user received a free trial or
+a promotional discount.
 
 Before offering upgrade, downgrade, or resubscribe options to a user in your app,
 you must acknowledge the existing subscription. Any plan change or resubscribe

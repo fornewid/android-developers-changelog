@@ -13,7 +13,7 @@ Play.
 If your game is in an unpublished state, you must allowlist the user accounts
 that you want to grant access for testing. Otherwise, your testers will
 encounter OAuth and 404 errors when attempting to access the Play Games Services
-endpoints such as [platform authentication](https://developer.android.com/games/pgs/signin).
+endpoints such as [platform authentication](https://developer.android.com/games/pgs/platform-authentication).
 
 > [!WARNING]
 > **Warning:** Remember to add **yourself** as a tester, or the Play Games SDK won't work for your user account.
@@ -25,7 +25,7 @@ There are two ways to enable testers to use PGS APIs for your game:
 
 To add individual testers to your game project:
 
-1. In the [Google Play Console](https://play.google.com/apps/publish/), select a game.
+1. In the [Google Play Console](https://play.google.com/console/developers), select a game.
 2. Open the **Testers** tab for your game in the Google Play Console (**Grow users \>
    Play Games Services \> Setup and
    management \> Testers**).
@@ -44,7 +44,7 @@ You can grant access to test your game to all users who have access to test APKs
 on a given release track. This works the same as if you had added them to the
 tester list individually. To do this, follow these steps:
 
-1. In the [Google Play Console](https://play.google.com/apps/publish/), select a game.
+1. In the [Google Play Console](https://play.google.com/console/developers), select a game.
 2. Open the **PGS Testers** section (**Grow users \> Play Games Services \>
    Setup and management \> Testers** ) and select the **Release tracks** tab. On this page, you can also see the list of tracks that are already enabled for PGS testing.
 3. Click **Add tracks**.
@@ -78,7 +78,7 @@ However, it does not make your game available or visible on the Play Store.
 
 To publish your Play Games Services changes:
 
-1. In the [Google Play Console](https://play.google.com/apps/publish/), select a game.
+1. In the [Google Play Console](https://play.google.com/console/developers), select a game.
 2. Open the **Publishing** section for your game in the Play Console (**Grow users \> Play Games
    Services \> Setup and
    management \> Publishing**), then follow the instructions on that screen to publish your game.
@@ -86,7 +86,7 @@ To publish your Play Games Services changes:
 
 The data for listed testers for the game is not automatically deleted when you
 publish the game changes. To delete data for testers, use the
-[Play Games Services Management APIs](https://developer.android.com/games/pgs/management).
+[Play Games Services Management APIs](https://developer.android.com/games/pgs/management/management).
 
 > [!NOTE]
 > **Note:** If you are using leaderboards and achievements in your game, these game features may not be immediately reflected under your game's listing in the Google Play Store until your users start earning achievements and posting scores.

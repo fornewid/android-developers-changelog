@@ -10,7 +10,7 @@ Implement UWB (ultra-wideband) on supported devices.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.0.0) | - | - | [1.1.0-alpha02](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.1.0-alpha02) |
+| October 07, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.0.0) | - | - | [1.1.0-alpha03](https://developer.android.com/jetpack/androidx/releases/core-uwb#1.1.0-alpha03) |
 
 ## Declaring dependencies
 
@@ -26,7 +26,7 @@ your app or module:
 ```groovy
 dependencies {
     // Use to implement UWB (ultra-wideband) on supported devices
-    implementation "androidx.core.uwb:uwb:1.1.0-alpha02"
+    implementation "androidx.core.uwb:uwb:1.1.0-alpha03"
 }
 ```
 
@@ -35,7 +35,7 @@ dependencies {
 ```kotlin
 dependencies {
     // Use to implement UWB (ultra-wideband) on supported devices
-    implementation("androidx.core.uwb:uwb:1.1.0-alpha02")
+    implementation("androidx.core.uwb:uwb:1.1.0-alpha03")
 }
 ```
 
@@ -53,6 +53,20 @@ clicking the star button.
 
 See the [Issue Tracker documentation](https://developers.google.com/issue-tracker)
 for more information.
+
+## Uwb
+
+### Version 1.1
+
+#### Version 1.1.0-alpha03
+
+October 07, 2026
+
+`androidx.core.uwb:uwb:1.1.0-alpha03` and `androidx.core.uwb:uwb-rxjava3:1.1.0-alpha03` are released. Version 1.1.0-alpha03 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..3e9fb5a49e8a40447d68a986b97455f4c36ee7c5/core/uwb).
+
+**Bug Fixes**
+
+- Bug fixes for the sensor fusion feature and minor documentation improvements. ([Ic3ce5](https://android-review.googlesource.com/#/q/Ic3ce56f1549592b855a3e8413e5b04572c8197d9), [b/563444625](https://issuetracker.google.com/issues/563444625))
 
 ## Version 1.1
 

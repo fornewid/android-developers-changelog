@@ -813,7 +813,7 @@ method:
 
 Preferences DataStore files (`*.preferences_pb`) and Proto DataStore files are
 stored in the app's `files/datastore/` directory. By default, these files are
-included in Android [Auto Backup](https://developer.android.com/topic/data-management/backup/auto-backup) and device-to-device (D2D) transfers.
+included in Android [Auto Backup](https://developer.android.com/identity/data/autobackup) and device-to-device (D2D) transfers.
 
 ### Configure backup rules for DataStore
 
