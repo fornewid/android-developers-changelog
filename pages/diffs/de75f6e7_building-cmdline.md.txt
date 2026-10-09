@@ -1,0 +1,22 @@
+diff --git a/docs/build/building-cmdline.md b/docs/build/building-cmdline.md
+index 23950d7f..c673d065 100644
+--- a/docs/build/building-cmdline.md
++++ b/docs/build/building-cmdline.md
+@@ -372,7 +372,7 @@ feature APKs):
+       "optimizations": {
+         "splitsConfig": {
+           "splitDimension": [{
+-            "value": "LANGUAGE&quot;,
++            "value": "LANGUAGE",
+             "negate": true
+           }]
+         }
+@@ -385,7 +385,7 @@ uncompressed when packaging APKs using
+ 
+     {
+       "compression": {
+-        "uncompressedGlob": ["res/raw/**", &quot;assets/**.uncompressed"]
++        "uncompressedGlob": ["res/raw/**", "assets/**.uncompressed"]
+       }
+     }
+ 

@@ -1,0 +1,125 @@
+diff --git a/docs/ai/gemini.md b/docs/ai/gemini.md
+index 67ef8169..30b24506 100644
+--- a/docs/ai/gemini.md
++++ b/docs/ai/gemini.md
+@@ -16,7 +16,7 @@ audio, video, and text inputs in Android apps.
+ 
+ ## Firebase AI Logic
+ 
+-Firebase AI Logic enables developers to securely and directly add Google's
++[Firebase AI Logic](https://firebase.google.com/docs/ai-logic) enables developers to securely and directly add Google's
+ generative AI into their apps simplifying development, and offers tools and
+ product integrations for successful production readiness. It provides client
+ Android SDKs to directly integrate and call the Gemini API from client code,
+@@ -95,37 +95,84 @@ Futures.addCallback(response, new FutureCallback<GenerateContentResponse>() {
+ 
+ <br />
+ 
+-See the full [list of available generative AI models](https://firebase.google.com/docs/ai-logic/models) supported
+-by Firebase AI Logic client SDKs.
++## Access models on-device, in the cloud, or hybrid
+ 
+-## Firebase services
++In addition to the cloud-hosted Gemini models described in the previous section,
++the Firebase AI Logic SDK also lets you access on-device models to build your
++app's AI features. If you configure the SDK for [hybrid inference](https://developer.android.com/ai/hybrid), your
++app can use an on-device model when it's available, but fall back seamlessly to
++a cloud-hosted model when needed (and vice-versa).
+ 
+-In addition to access to the Gemini API, Firebase AI Logic offers a set of
+-services to simplify the deployment of AI-enabled features to your app and get
+-ready for production:
++The key benefits of a hybrid approach include:
+ 
+-### App Check
++- **Smart routing:** Simple tasks are handled on your device, while complex
++  questions are automatically sent to the cloud for deeper analysis.
+ 
+-[Firebase App Check](https://firebase.google.com/docs/ai-logic/app-check) safeguards app backends from abuse by
+-ensuring only authorized clients access resources. It integrates with Google
+-services (including Firebase and Google Cloud) and custom backends. App Check
+-uses [Play Integrity](https://developer.android.com/google/play/integrity) to verify that requests originate from the authentic
+-app and an untampered device.
++- **Offline availability**: Your apps keep working without internet by running
++  models directly on your device. When you're back online, the cloud-hosted
++  models can be accessed.
+ 
+-Starting early July 2026, Firebase automatically enforces App Check for
+-Firebase AI Logic during the guided setup workflow in the Firebase console.
++- **Lower costs**: Running everyday tasks on device instead of in the cloud
++  reduces inference expenses.
+ 
+-### Remote Config
++## Security for your AI features
+ 
+-Instead of hardcoding the model name in your app, we recommend using a
+-server-controlled variable using [Firebase Remote Config](https://firebase.google.com/docs/ai-logic/solutions/remote-config). This
+-lets you dynamically update the model your app uses without having to deploy a
+-new version of your app or require your users to pick up a new version. You can
+-also use Remote Config to [A/B test](https://firebase.google.com/docs/ab-testing/abtest-config) models and prompts.
++Firebase AI Logic supports several features that let you securely build AI
++features in your app:
+ 
+-### AI monitoring
++- **Verify app authenticity** : When you call the Gemini API directly
++  from your Android app, the API is vulnerable to abuse by unauthorized
++  clients. You need to help protect it from abuse by using Firebase AI Logic
++  and enforcing [Firebase App Check](https://firebase.google.com/docs/ai-logic/app-check). When you enforce App Check, it
++  will only allow incoming requests that are verified to be from your actual
++  app or an untampered device. App Check supports both [Play Integrity](https://firebase.google.com/docs/app-check/android/play-integrity-provider)
++  and [reCAPTCHA Enterprise](https://firebase.google.com/docs/app-check/android/recaptcha-enterprise-provider) as production attestation providers.
+ 
+-To understand how your AI-enabled features are performing you can use the
+-[AI monitoring dashboard](https://firebase.google.com/docs/ai-logic/monitoring) within the Firebase console. You'll
+-get valuable insights into usage patterns, performance metrics, and debugging
+-information for your Gemini API calls.
+\ No newline at end of file
++- **Store prompts server-side**: For your requests to the Gemini API
++  using Firebase AI Logic, you can store your prompt, schema, and
++  configurations in server-side prompt templates. Your app only passes the
++  key (the template ID) from the client to the server. Using server prompt
++  templates helps protect against exposing your prompt client-side.
++
++- **Access on-device models**: You can use Firebase AI Logic to route
++  your requests to an on-device model when it's available. The request,
++  including the prompt, never leaves the device.
++
++## Build for production
++
++Firebase AI Logic helps you build robust AI features in your app and ensure that
++they work in production. For details, check out the
++[Firebase AI Logic production checklist](https://firebase.google.com/docs/ai-logic/production-checklist).
++
++### Access and security
++
++- Enforce [Firebase App Check](https://firebase.google.com/docs/ai-logic/app-check) to help protect the Gemini API from abuse
++  when it's called directly from your app. When App Check is enforced, it
++  verifies that incoming requests originate from your authentic app or an
++  untampered device.
++
++- Enforce [authenticated-users mode](https://firebase.google.com/docs/ai-logic/auth-mode) so that all requests from Firebase AI
++  Logic must include valid credentials from [Firebase Authentication](https://firebase.google.com/docs/auth).
++
++### Monitoring, limits, and billing
++
++- Set up [AI monitoring in the Firebase console](https://firebase.google.com/docs/ai-logic/monitoring#ai-monitoring-in-console) to gain visibility into
++  key performance metrics, like request counts, latency, token usage, and
++  error rates.
++
++- Set [rate limits per user](https://firebase.google.com/docs/ai-logic/quotas#per-user-rate-limits) (default is 100 RPM) to prevent individual
++  client instances from consuming excessive quota.
++
++- Avoid surprise bills with [budget alerts](https://firebase.google.com/docs/projects/billing/budget-alerts) and [spend caps](https://firebase.google.com/docs/projects/billing/spend-caps).
++
++### Management of configurations
++
++- Make on-demand changes to the model name used for your AI feature as
++  new models are released or others are shut down. See details for using
++  [Remote Config](https://firebase.google.com/docs/ai-logic/change-model-name-remotely) or [server prompt templates](https://firebase.google.com/docs/ai-logic/server-prompt-templates/get-started).
++
++- Use Remote Config to [set a minimum version for your app](https://firebase.google.com/docs/remote-config/use-cases/minimum-version) so that you
++  can either show an upgrade notification to users or force users to upgrade.
++
++- Test models and prompts with small groups of users using Remote Config and
++  [Firebase A/B Testing](https://firebase.google.com/docs/ab-testing/abtest-config).
+\ No newline at end of file

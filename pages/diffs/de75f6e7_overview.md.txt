@@ -1,0 +1,30 @@
+diff --git a/docs/games/develop/custom/overview.md b/docs/games/develop/custom/overview.md
+index 2d9fcd53..ae71de4f 100644
+--- a/docs/games/develop/custom/overview.md
++++ b/docs/games/develop/custom/overview.md
+@@ -83,7 +83,7 @@ immersive gaming experience, learn to support different Android input sources:
+ - [Software keyboard](https://developer.android.com/games/agdk/add-support-for-text-input)
+ - [Game controllers](https://developer.android.com/games/sdk/game-controller)
+ - [Mouse](https://developer.android.com/games/sdk/game-controller/mouse)
+-- [Sensors](https://developer.android.com/guide/topics/sensors/sensors_overview)
++- [Sensors](https://developer.android.com/develop/sensors-and-location/sensors/sensors_overview)
+ 
+ ## Output audio
+ 
+@@ -98,14 +98,14 @@ select the best available native library (such as AAudio or OpenSL ES).
+ 
+ On Android devices, the system tries to use as much system memory (RAM) as
+ possible and performs various memory optimizations to free up space when needed.
+-Learn to [manage memory usage](https://developer.android.com/games/optimize/memory-allocation) to avoid
++Learn to [manage memory usage](https://developer.android.com/games/optimize/memory-overview) to avoid
+ slowing down or exiting your game.
+ 
+ ## Test and polish
+ 
+ An Android app crashes whenever there's an unexpected exit caused by an
+ unhandled exception or signal. Learn about how to
+-[detect and diagnose crashes](https://developer.android.com/games/optimize/crash), read stack traces,
++[detect and diagnose crashes](https://developer.android.com/games/optimize/vitals/crash), read stack traces,
+ memory and networking exceptions, how to use logcat, and how to understand
+ Java and Kotlin-specific errors.
+ 

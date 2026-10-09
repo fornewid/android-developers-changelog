@@ -1,0 +1,113 @@
+diff --git a/docs/agents/skills/jetpack-compose/jetpack-compose-performance/references/layouts.md b/docs/agents/skills/jetpack-compose/jetpack-compose-performance/references/layouts.md
+index df70efed..db9e6abf 100644
+--- a/docs/agents/skills/jetpack-compose/jetpack-compose-performance/references/layouts.md
++++ b/docs/agents/skills/jetpack-compose/jetpack-compose-performance/references/layouts.md
+@@ -20,8 +20,11 @@ Use **`Modifier.onVisibilityChanged`** (with `minFractionVisible` and optional
+ - **Impression Logging**: Ensures analytics fire only when an item actually enters the viewport and stays visible for a minimum duration (preventing premature logging on pre-fetched lazy items).
+ - **Deferring Lookahead Shared Transitions** : Attaches `Modifier.sharedBounds` or `Modifier.sharedElement` only when an item enters the viewport, eliminating Lookahead passes on offscreen items.
+ 
+-    // Optimized: Viewport entry with dwell threshold
+-    Modifier.onVisibilityChanged(
++
++```kotlin
++// Optimized: Viewport entry with dwell threshold
++Box(
++    modifier = Modifier.onVisibilityChanged(
+         minFractionVisible = 0.5f,
+         minDurationMs = 500L,
+     ) { isVisible ->
+@@ -29,6 +32,10 @@ Use **`Modifier.onVisibilityChanged`** (with `minFractionVisible` and optional
+             analytics.logImpression(itemId)
+         }
+     }
++)
++```
++
++<br />
+ 
+ ### 2. Local bounds and placement: prefer `onPlaced` or `onLayoutRectChanged`
+ 
+@@ -52,17 +59,26 @@ writes.
+ - **Query inside Event Handlers** : In custom modifier nodes (such as `PointerInputModifierNode` or `DrawModifierNode`), call `requireLayoutCoordinates()` directly inside gesture, touch, or draw callbacks at the moment the event occurs.
+ - **Eliminates continuous listeners** : You do not need to implement `LayoutAwareModifierNode` or listen to `onGloballyPositioned` continuously just to have coordinates available when an interaction happens.
+ 
+-    // In a custom PointerInputModifierNode:
+-    class InteractiveTooltipNode : Modifier.Node(), PointerInputModifierNode {
+-        override fun onPointerEvent(...) {
+-            // Query coordinates on-demand at the exact moment of the interaction
+-            if (isAttached) {
+-                val coordinates = requireLayoutCoordinates()
+-                val bounds = coordinates.boundsInRoot()
+-                showTooltip(bounds)
+-            }
++
++```kotlin
++// In a custom PointerInputModifierNode:
++class InteractiveTooltipNode : Modifier.Node(), PointerInputModifierNode {
++    override fun onPointerEvent(
++        pointerEvent: PointerEvent,
++        pass: PointerEventPass,
++        bounds: IntSize,
++    ) {
++        // Query coordinates on-demand at the exact moment of the interaction
++        if (isAttached) {
++            val coordinates = requireLayoutCoordinates()
++            val bounds = coordinates.boundsInRoot()
++            showTooltip(bounds)
+         }
+     }
++}
++```
++
++<br />
+ 
+ #### B. In high-level composable code (versus `Modifier.clickable`)
+ 
+@@ -73,12 +89,19 @@ coordinates to its `onClick: () -> Unit` lambda:
+ - **Standard clicks (`Modifier.clickable`)** : If your click handler does not require exact screen coordinates, use `Modifier.clickable` directly without attaching any coordinate listeners.
+ - **Position-aware gestures (`Modifier.pointerInput`)** : If you need the exact tap position in composable code (for example, to anchor a drop-down menu at the touch point), use `Modifier.pointerInput` with `detectTapGestures` to receive the tap `Offset` directly on the event, rather than storing `onGloballyPositioned` bounds in `MutableState`:
+ 
+-    // Optimized: Captures touch offset on event without onGloballyPositioned
+-    Modifier.pointerInput(Unit) {
++
++```kotlin
++// Optimized: Captures touch offset on event without onGloballyPositioned
++Box(
++    modifier = Modifier.pointerInput(Unit) {
+         detectTapGestures { offset ->
+             showMenuAt(offset)
+         }
+     }
++)
++```
++
++<br />
+ 
+ ### 4. Prohibit layout feedback loops (back-writing during Layout)
+ 
+@@ -113,12 +136,22 @@ phase entirely on state changes:
+ 
+ - **Bad (Recomposes on every offset change)**:
+ 
+-      val offset = scrollState.value
+-      Modifier.offset(x = offset.dp, y = 0.dp)
++
++  ```kotlin
++  val offset = scrollState.value
++  Box(modifier = Modifier.offset(x = offset.dp, y = 0.dp))
++  ```
++
++  <br />
+ 
+ - **Optimized (Skips Composition, evaluates in Layout phase)**:
+ 
+-      Modifier.offset { IntOffset(scrollState.value, 0) }
++
++  ```kotlin
++  Box(modifier = Modifier.offset { IntOffset(scrollState.value, 0) })
++  ```
++
++  <br />
+ 
+ ## 3. Minimizing layout tree depth and wrapper nodes
+ 

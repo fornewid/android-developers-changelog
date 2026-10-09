@@ -1,0 +1,79 @@
+diff --git a/docs/kotlin/flow.md b/docs/kotlin/flow.md
+index 8577257d..238bfed5 100644
+--- a/docs/kotlin/flow.md
++++ b/docs/kotlin/flow.md
+@@ -35,12 +35,11 @@ intermediaries, and producer](https://developer.android.com/static/images/kotlin
+ 
+ <br />
+ 
+-In Android, a *[repository](https://developer.android.com/jetpack/guide/data-layer#architecture)* is
+-typically a producer of UI data that has the user interface (UI) as the consumer
+-that ultimately displays the data. Other times, the UI layer is a producer of
+-user input events and other layers of the hierarchy consume them. Layers in
+-between the producer and consumer usually act as intermediaries that modify the
+-stream of data to adjust it to the requirements of the following layer.
++In Android, a *[repository](https://developer.android.com/jetpack/guide/data-layer#architecture)* typically streams UI data from
++local databases (Room) or cloud backends (like [Firebase](https://firebase.google.com/products-build#store-and-sync-app-data-at-global-scale-without-managing-servers)) with the UI
++acting as the consumer of the data. Conversely, the UI can produce user input
++events for other layers to consume. Intermediate layers (such as instances of
++`ViewModel`) transform the stream to meet each layer's requirements.
+ 
+ ## Creating a flow
+ 
+@@ -306,11 +305,11 @@ class NewsRemoteDataSource(
+ 
+ <br />
+ 
+-## Flows in Jetpack libraries
++## Flows in Jetpack libraries and data sources
+ 
+-Flow is integrated into many Jetpack libraries, and it's popular among
+-Android third party libraries. Flow is a great fit for live data updates
+-and endless streams of data.
++Flow is integrated into many Jetpack libraries, and it's popular across
++Android third-party libraries and cloud SDKs. Flow is a great fit for live
++data updates and endless streams of data.
+ 
+ You can use
+ [Flow with Room](https://medium.com/androiddevelopers/room-flow-273acffe5b57)
+@@ -332,18 +331,34 @@ abstract class ExampleDao {
+ Every time there's a change in the `Example` table, a new list is emitted
+ with the new items in the database.
+ 
++Similarly, real-time cloud data sources such as [Cloud Firestore](https://firebase.google.com/docs/firestore) provide
++`Flow` extensions that stream live data updates directly to your repository
++layer:
++
++    class RemoteMessagesDataSource(
++        private val firestore: FirebaseFirestore
++    ) {
++        // Returns a Flow emitting updated message lists when collection changes
++        val messages: Flow<List<Message>> =
++            firestore.collection("messages").dataObjects()
++    }
++
++This pairs naturally with local storage: your repository can combine flows
++from both Room (local cache) and Firebase (remote cloud data) to provide an
++offline-first, real-time user experience.
++
+ ## Convert callback-based APIs to flows
+ 
+ [`callbackFlow`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/callback-flow.html)
+-is a flow builder that lets you convert callback-based APIs into flows.
+-As an example, the [Firebase Firestore](https://firebase.google.com/docs/firestore/quickstart#kotlin+ktx)
+-Android APIs use callbacks.
++is a flow builder that lets you convert callback-based APIs into flows. This is
++especially useful when working with multi-event listeners in SDKs such as
++[Cloud Firestore](https://firebase.google.com/docs/firestore) or [Firebase Remote Config](https://firebase.google.com/docs/remote-config).
+ 
+ > [!NOTE]
+-> **Note:** Starting in [version 24.3.0](https://firebase.google.com/support/release-notes/android#firestore-ktx_v24-3-0), firestore-ktx includes [`snapshots()`](https://firebase.google.com/docs/reference/kotlin/com/google/firebase/firestore/ktx/package-summary#snapshots) extensions that return a `Flow`, so you don't need to perform this conversion yourself for this specific API.
++> **Note:** Firebase Android SDKs include built-in `Flow` extensions for common listeners---such as `snapshots` in Firestore. However, `callbackFlow` remains the standard pattern whenever you need to convert custom listeners, multi-event callbacks, or APIs without built-in Flow support.
+ 
+-To convert these APIs to flows and listen for Firestore database updates, you
+-can use the following code:
++To convert a callback-based listener API to a flow---such as listening for
++Firestore database updates---use the following code:
+ 
+     class FirestoreUserEventsDataSource(
+         private val firestore: FirebaseFirestore

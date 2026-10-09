@@ -1,0 +1,19 @@
+diff --git a/docs/studio/releases/fixed-bugs/studio/2026.2.2.md b/docs/studio/releases/fixed-bugs/studio/2026.2.2.md
+index a062a9c9..5e05f1d3 100644
+--- a/docs/studio/releases/fixed-bugs/studio/2026.2.2.md
++++ b/docs/studio/releases/fixed-bugs/studio/2026.2.2.md
+@@ -4,6 +4,14 @@ url: https://developer.android.com/studio/releases/fixed-bugs/studio/2026.2.2
+ source: md.txt
+ ---
+ 
++### Android Studio Rabbit 2 \| 2026.2.2 Canary 4
++
++**Released together with:**
++
++- Android Gradle Plugin 9.5.0-alpha09
++
++Fixed Issues **ACP** [Issue #566049728](https://issuetracker.google.com/issues/566049728) ACP agent fails to start when the npm registry mirror hasn't synced the version pinned by the ACP registry (ETARGET) **Android Gradle Plugin** [Issue #565740572](https://issuetracker.google.com/issues/565740572) Gradle 9.8.0 reports Configuration.setVisible() deprecations with AGP 9.4.1 **Compose Preview** [Issue #481945555](https://issuetracker.google.com/issues/481945555) Compose Interactive Preview Mode should support focused and hovered states **Gemini** [Issue #554768219](https://issuetracker.google.com/issues/554768219) NPE from PathTracker **Import/Sync** [Issue #570392085](https://issuetracker.google.com/issues/570392085) TomlDslNameConverter exception: com.intellij.openapi.diagnostic.RuntimeExceptionWithAttachments at com.intellij.util.concurrency.ThreadingAssertions.createThreadAccessException **Multiplatform** [Issue #567129335](https://issuetracker.google.com/issues/567129335) KMP Android library: resource dirs from sources.res.addStaticSourceDirectory not recognized by IDE **Preview** [Issue #566451352](https://issuetracker.google.com/issues/566451352) Compose Preview: StudioModuleClassLoader instances are never released, Metaspace fills until OutOfMemoryError **Running Devices** [Issue #501268557](https://issuetracker.google.com/issues/501268557) The physical device screen mirror is showing in very low resolution. I can't even read the text [Issue #356907813](https://issuetracker.google.com/issues/356907813) Feature request: integrate DPAD (aka Extended Controls) near TV emulator UI **Wear Tooling** [Issue #562509432](https://issuetracker.google.com/issues/562509432) Pixel Watch companion crashing after emulator pairing
++
+ ### Android Studio Rabbit 2 \| 2026.2.2 Canary 3
+ 
+ **Released together with:**

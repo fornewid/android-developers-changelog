@@ -1,0 +1,24 @@
+diff --git a/docs/develop/ui/views/layout/webapps/understand-window-insets.md b/docs/develop/ui/views/layout/webapps/understand-window-insets.md
+index 4d37f1b9..4de447ee 100644
+--- a/docs/develop/ui/views/layout/webapps/understand-window-insets.md
++++ b/docs/develop/ui/views/layout/webapps/understand-window-insets.md
+@@ -71,7 +71,8 @@ ViewCompat.setOnApplyWindowInsetsListener(myWebView) { _, windowInsets ->
+     // By returning the original windowInsets object, we override the default
+     // behavior that zeroes out system insets (like system bars or display
+     // cutouts) when they don't directly overlap the WebView's screen bounds.
+-    windownsets.kt
++    windowInsets
++}
+ ```
+ 
+ <br />
+@@ -84,7 +85,8 @@ ViewCompat.setOnApplyWindowInsetsListener(myWebView, (v, windowInsets) -> {
+     // By returning the original windowInsets object, we override the default
+     // behavior that zeroes out system insets (like system bars or display
+     // cutouts) when they don't directly overlap the WebView's screen bounds.
+-    return windowInsava.java
++    return windowInsets;
++});
+ ```
+ 
+ <br />

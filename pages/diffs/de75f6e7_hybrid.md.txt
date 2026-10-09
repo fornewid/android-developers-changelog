@@ -1,0 +1,81 @@
+diff --git a/docs/ai/hybrid.md b/docs/ai/hybrid.md
+index c2d0cfba..abfd2867 100644
+--- a/docs/ai/hybrid.md
++++ b/docs/ai/hybrid.md
+@@ -25,27 +25,34 @@ Here are the benefits of on-device inference and cloud inference, respectively:
+ 
+ You can implement hybrid inference using the following approaches:
+ 
++- [Firebase AI Logic Hybrid API](https://developer.android.com/ai/hybrid#firebase-hybrid)
++- [Custom routing](https://developer.android.com/ai/hybrid#custom-routing)
++
+ ### Firebase AI Logic Hybrid API
+ 
+-The [Firebase AI Logic Hybrid API](https://firebase.google.com/docs/ai-logic/hybrid/android/get-started?api=dev) provides a single, unified interface for
+-splitting inference between cloud and on-device environments.
++The [Firebase AI Logic Hybrid API](https://firebase.google.com/docs/ai-logic/hybrid/android/get-started) provides a single, unified interface for
++routing inference between cloud and on-device models.
++
++- **Automatic switching**: You can configure your app to run AI tasks on-device whenever possible. This means your app's feature works offline, has enhanced privacy, and incurs no cloud inference cost. If the on-device model isn't available, the SDK can automatically route the request to the cloud-hosted Gemini model.
++- **Protection against abuse** : Directly calling cloud APIs from a mobile app can risk exposing credentials and leading to unwanted charges. However, when you use Firebase AI Logic, you also enforce [Firebase App Check](https://firebase.google.com/docs/ai-logic/app-check) which can help prevent abuse by verifying that only your genuine, untampered app can access the cloud Gemini API.
++- **Spending limits** : When routing requests to cloud-hosted models, you can configure [spend caps](https://firebase.google.com/docs/projects/billing/spend-caps) to help you protect your cloud budget and avoid unexpected charges.
+ 
+-It includes an `onDeviceConfig` parameter providing controls to define the
+-[inference mode](https://firebase.google.com/docs/ai-logic/hybrid/android/configuration-options?api=dev#inference-modes) and manage the routing:
++In your app, you define the `onDeviceConfig` parameter to control the
++[inference mode](https://firebase.google.com/docs/ai-logic/hybrid/android/configuration-options#inference-modes) and manage the routing:
+ 
+-- `PREFER_ON_DEVICE`: attempts to use the on-device model, automatically falling
++- `PREFER_ON_DEVICE`: Attempts to use the on-device model; automatically falls
+   back to the cloud-hosted model if the on-device model is unavailable or
+   unsupported for the request.
+ 
+-- `PREFER_IN_CLOUD`: attempts to use the cloud-hosted model when the device is
+-  online and the model is available, falling back to the on-device model only if
++- `PREFER_IN_CLOUD`: Attempts to use the cloud-hosted model when the device is
++  online and the model is available; falls back to the on-device model only if
+   the device is offline.
+ 
+-- `ONLY_ON_DEVICE`: attempts to use the on-device model, but throws an exception
+-  if it is unavailable or unsupported for the request.
++- `ONLY_ON_DEVICE`: Attempts to use the on-device model; throws an exception if
++  the on-device model is unavailable or unsupported for the request.
+ 
+-- `ONLY_IN_CLOUD`: attempts to use the cloud-hosted model when the device is
+-  online and the model is available, throwing an exception in all other cases.
++- `ONLY_IN_CLOUD`: Attempts to use the cloud-hosted model when the device is
++  online and the model is available; throws an exception in all other cases.
+ 
+ 
+ ```kotlin
+@@ -61,9 +68,15 @@ print(response.text)
+ 
+ <br />
+ 
+-For implementation details, review the [Firebase documentation](https://firebase.google.com/docs/ai-logic/hybrid/android/get-started?api=dev) and explore
++For implementation details, review the [Firebase documentation](https://firebase.google.com/docs/ai-logic/hybrid/android/get-started) and explore
+ the [Hybrid AI sample in the AI catalog](https://github.com/android/ai-samples/tree/main/samples/gemini-hybrid).
+ 
++Transitioning workloads to the cloud can expose cloud API endpoints. When you
++use Firebase AI Logic, you can securely access cloud-based Gemini models
++directly from your client-side apps by enforcing [Firebase App Check](https://firebase.google.com/docs/ai-logic/app-check), which
++helps protect cloud-based inference from unauthorized access and billing abuse.
++This helps keep your hybrid fallback mechanism both available and secure.
++
+ ### Custom routing
+ 
+ If your app has specific business or UX requirements, you can also implement
+@@ -77,11 +90,11 @@ based on real-time factors, such as:
+ This custom hybrid inference approach is used by leading apps that implemented
+ their own custom routing to deliver reliable AI experiences, including:
+ 
+-- [**GBoard**](https://blog.google/products-and-platforms/platforms/android/new-android-features-september-2025/):
++- [GBoard](https://blog.google/products-and-platforms/platforms/android/new-android-features-september-2025/):
+   Gboard uses custom hybrid inference to power the writing tools such as
+   proofread and rewrite.
+ 
+-- [**Kakao Mobility**](https://developer.android.com/blog/posts/kakao-mobility-uses-gemini-nano-on-device-to-reduce-costs-and-boost-call-conversion-by-45):
++- [Kakao Mobility](https://developer.android.com/blog/posts/kakao-mobility-uses-gemini-nano-on-device-to-reduce-costs-and-boost-call-conversion-by-45):
+   Kakao Mobility built an Entity Extraction tool using custom hybrid inference
+   for their parcel delivery service that automatically extracts recipient names,
+   addresses, and phone numbers from natural language messages to streamline
