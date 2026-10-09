@@ -233,7 +233,7 @@ Use the following HTTP headers with the initial request:
   initial request. Not required if you are using
   [chunked transfer encoding](https://datatracker.ietf.org/doc/html/rfc7230#section-4.1).
 
-See Publishing API [reference](https://developers.google.com/games/services/publishing/upload#resumable)
+See Publishing API [reference](https://developers.google.com/games/services/publishing/api)
 for each method's list of accepted media MIME types and size limits for uploaded
 files.
 
@@ -314,7 +314,7 @@ resource.
 If the upload request is interrupted or if you receive an
 `HTTP 503 Service Unavailable` or any other `5xx` response from the server,
 follow the procedure outlined in
-[resume an interrupted upload](https://developers.google.com/games/services/publishing/upload#resume-upload).
+[resume an interrupted upload](https://developer.android.com/games/pgs/publishing/upload-images#resume-upload).
 
 ##### Upload the file in chunks
 
@@ -465,7 +465,7 @@ to error handling.
   - `503 Service Unavailable`
   - `504 Gateway Timeout`
 - Use an
-  [exponential backoff](https://developers.google.com/games/services/publishing/upload#exp-backoff)
+  [exponential backoff](https://developer.android.com/games/pgs/publishing/upload-images#exp-backoff)
   strategy if any `5xx` server error is returned when resuming or retrying upload
   requests. These errors can occur if a server is getting overloaded. Exponential
   backoff can help alleviate these kinds of problems during periods of high volume

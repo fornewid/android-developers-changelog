@@ -20,41 +20,61 @@ or
 
 - **Bad (Recomposes on every animation frame)**:
 
-      val alpha by animateFloatAsState(targetValue = targetAlpha, label = "Alpha")
-      // Reading alpha here registers a composition dependency on every frame
-      Box(modifier = Modifier.alpha(alpha))
+
+  ```kotlin
+  val alpha by animateFloatAsState(targetValue = targetAlpha, label = "Alpha")
+  // Reading alpha here registers a composition dependency on every frame
+  Box(modifier = Modifier.alpha(alpha))
+  ```
+
+  <br />
 
 - **Optimized (Bypasses Composition and Layout, evaluates in Draw phase)**:
 
-      val alpha by animateFloatAsState(targetValue = targetAlpha, label = "Alpha")
-      // graphicsLayer with lambda skips composition and runs in the draw phase
-      Box(
-          modifier = Modifier.graphicsLayer {
-              this.alpha = alpha
-          }
-      )
+
+  ```kotlin
+  val alpha by animateFloatAsState(targetValue = targetAlpha, label = "Alpha")
+  // graphicsLayer with lambda skips composition and runs in the draw phase
+  Box(
+      modifier = Modifier.graphicsLayer {
+          this.alpha = alpha
+      }
+  )
+  ```
+
+  <br />
 
 ### B. Animated offsets: defer to Layout with `Modifier.offset`
 
 - **Bad (Recomposes on every pixel shift)**:
 
-      val animatedOffset by animateDpAsState(
-          targetValue = targetOffset,
-          label = "Offset",
-      )
-      Box(modifier = Modifier.offset(x = animatedOffset, y = 0.dp))
+
+  ```kotlin
+  val animatedOffset by animateDpAsState(
+      targetValue = targetOffset,
+      label = "Offset",
+  )
+  Box(modifier = Modifier.offset(x = animatedOffset, y = 0.dp))
+  ```
+
+  <br />
 
 - **Optimized (Skips Composition, goes straight to Layout phase)**:
 
-      val animatedOffset by animateIntAsState(
-          targetValue = targetOffsetPx,
-          label = "Offset",
-      )
-      Box(
-          modifier = Modifier.offset {
-              IntOffset(x = animatedOffset, y = 0)
-          }
-      )
+
+  ```kotlin
+  val animatedOffset by animateIntAsState(
+      targetValue = targetOffsetPx,
+      label = "Offset",
+  )
+  Box(
+      modifier = Modifier.offset {
+          IntOffset(x = animatedOffset, y = 0)
+      }
+  )
+  ```
+
+  <br />
 
 ### C. Animated size: defer to Layout with `Modifier.layout` or `animateBounds`
 
@@ -66,39 +86,54 @@ Use layout-phase constraint animation or Lookahead bounds animation instead:
 
 - **Bad (Recomposes entire subtree on every animation frame)**:
 
-      val animatedSize by animateDpAsState(
-          targetValue = targetSize,
-          label = "Size",
-      )
-      Box(modifier = Modifier.size(animatedSize))
+
+  ```kotlin
+  val animatedSize by animateDpAsState(
+      targetValue = targetSize,
+      label = "Size",
+  )
+  Box(modifier = Modifier.size(animatedSize))
+  ```
+
+  <br />
 
 - **Optimized (Phase Deferral with `Modifier.layout`)**: Animate constraints
   in the layout pass without re-triggering composition:
 
-      val animatedWidth by animateIntAsState(
-          targetValue = targetWidthPx,
-          label = "Width",
-      )
-      Box(
-          modifier = Modifier.layout { measurable, constraints ->
-              val placeable = measurable.measure(
-                  constraints.copy(
-                      minWidth = animatedWidth,
-                      maxWidth = animatedWidth
-                  )
+
+  ```kotlin
+  val animatedWidth by animateIntAsState(
+      targetValue = targetWidthPx,
+      label = "Width",
+  )
+  Box(
+      modifier = Modifier.layout { measurable, constraints ->
+          val placeable = measurable.measure(
+              constraints.copy(
+                  minWidth = animatedWidth,
+                  maxWidth = animatedWidth
               )
-              layout(placeable.width, placeable.height) {
-                  placeable.placeRelative(0, 0)
-              }
+          )
+          layout(placeable.width, placeable.height) {
+              placeable.placeRelative(0, 0)
           }
-      )
+      }
+  )
+  ```
+
+  <br />
 
 - **Optimized (Lookahead Scope with `animateBounds`)** : Inside a
   `LookaheadScope`, animate size changes smoothly using `animateBounds`:
 
-      with(lookaheadScope) {
-          Box(modifier = Modifier.animateBounds(Modifier.size(finalSize)))
-      }
+
+  ```kotlin
+  with(lookaheadScope) {
+      Box(modifier = Modifier.animateBounds(this, Modifier.size(finalSize)))
+  }
+  ```
+
+  <br />
 
 ### D. Custom composable parameters (lambda providers)
 
@@ -110,18 +145,28 @@ reading the state in Composition and allows the child to defer the read to
 
 - **Bad (Caller must read state in Composition to pass Float)**:
 
-      @Composable
-      fun AnimatedCard(alpha: Float) {
-          Box(modifier = Modifier.graphicsLayer { this.alpha = alpha })
-      }
+
+  ```kotlin
+  @Composable
+  fun AnimatedCard(alpha: Float) {
+      Box(modifier = Modifier.graphicsLayer { this.alpha = alpha })
+  }
+  ```
+
+  <br />
 
 - **Optimized (Caller passes lambda; read is deferred until child's Draw
   phase)**:
 
-      @Composable
-      fun AnimatedCard(alphaProvider: () -> Float) {
-          Box(modifier = Modifier.graphicsLayer { this.alpha = alphaProvider() })
-      }
+
+  ```kotlin
+  @Composable
+  fun AnimatedCard(alphaProvider: () -> Float) {
+      Box(modifier = Modifier.graphicsLayer { this.alpha = alphaProvider() })
+  }
+  ```
+
+  <br />
 
 ## 2. Shared transitions and shared elements (`SharedTransitionScope`)
 
@@ -149,57 +194,67 @@ visible avoids this instantiation cost for offscreen items.
 - **Before (Instantiation runs on all pre-fetched items even if never
   displayed)**:
 
-      @Composable
-      fun FeedItemRow(
-          item: FeedItem,
-          sharedTransitionScope: SharedTransitionScope,
-          animatedVisibilityScope: AnimatedVisibilityScope,
-      ) {
-          with(sharedTransitionScope) {
-              ItemContent(
-                  modifier = Modifier
-                      .fillMaxWidth()
-                      .sharedBounds(
-                          rememberSharedContentState(key = item.id),
-                          animatedVisibilityScope = animatedVisibilityScope,
-                      )
-              )
-          }
+
+  ```kotlin
+  @Composable
+  fun FeedItemRow(
+      item: FeedItem,
+      sharedTransitionScope: SharedTransitionScope,
+      animatedVisibilityScope: AnimatedVisibilityScope,
+  ) {
+      with(sharedTransitionScope) {
+          ItemContent(
+              modifier = Modifier
+                  .fillMaxWidth()
+                  .sharedBounds(
+                      rememberSharedContentState(key = item.id),
+                      animatedVisibilityScope = animatedVisibilityScope,
+                  )
+          )
       }
+  }
+  ```
+
+  <br />
 
 - **Optimized (Shared transition modifier deferred until item enters
   viewport)**:
 
-      @Composable
-      fun FeedItemRow(
-          item: FeedItem,
-          sharedTransitionScope: SharedTransitionScope,
-          animatedVisibilityScope: AnimatedVisibilityScope,
-      ) {
-          var isVisibleInWindow by remember { mutableStateOf(false) }
 
-          with(sharedTransitionScope) {
-              val sharedBoundsModifier = if (isVisibleInWindow) {
-                  Modifier.sharedBounds(
-                      rememberSharedContentState(key = item.id),
-                      animatedVisibilityScope = animatedVisibilityScope,
-                  )
-              } else {
-                  Modifier
-              }
+  ```kotlin
+  @Composable
+  fun FeedItemRow(
+      item: FeedItem,
+      sharedTransitionScope: SharedTransitionScope,
+      animatedVisibilityScope: AnimatedVisibilityScope,
+  ) {
+      var isVisibleInWindow by remember { mutableStateOf(false) }
 
-              ItemContent(
-                  modifier = Modifier
-                      .fillMaxWidth()
-                      .onVisibilityChanged(
-                          minFractionVisible = 0.001f,
-                      ) { visible ->
-                          isVisibleInWindow = visible
-                      }
-                      .then(sharedBoundsModifier)
+      with(sharedTransitionScope) {
+          val sharedBoundsModifier = if (isVisibleInWindow) {
+              Modifier.sharedBounds(
+                  rememberSharedContentState(key = item.id),
+                  animatedVisibilityScope = animatedVisibilityScope,
               )
+          } else {
+              Modifier
           }
+
+          ItemContent(
+              modifier = Modifier
+                  .fillMaxWidth()
+                  .onVisibilityChanged(
+                      minFractionVisible = 0.001f,
+                  ) { visible ->
+                      isVisibleInWindow = visible
+                  }
+                  .then(sharedBoundsModifier)
+          )
       }
+  }
+  ```
+
+  <br />
 
 ## 3. Persistent `Animatable` in custom modifiers (`Modifier.Node`)
 
@@ -209,28 +264,33 @@ When building custom animated modifiers, do not use `composed { ... }` with
 Store `Animatable` directly as a member property on the `Modifier.Node` and
 launch the animation in `onAttach()` using the node's built-in `coroutineScope`:
 
-    private class FadeRevealNode(
-        var targetAlpha: Float,
-        var durationMillis: Int
-    ) : Modifier.Node(), DrawModifierNode {
-        // Persistent node property (avoids remember overhead)
-        private val alpha = Animatable(0f)
 
-        override fun onAttach() {
-            // Launches animation tied directly to node lifecycle
-            coroutineScope.launch {
-                alpha.animateTo(targetAlpha, tween(durationMillis))
-            }
-        }
+```kotlin
+private class FadeRevealNode(
+    var targetAlpha: Float,
+    var durationMillis: Int
+) : Modifier.Node(), DrawModifierNode {
+    // Persistent node property (avoids remember overhead)
+    private val alpha = Animatable(0f)
 
-        override fun ContentDrawScope.draw() {
-            drawContext.canvas.saveLayer(
-                bounds = size.toRect(),
-                paint = Paint().apply {
-                    this.alpha = this@FadeRevealNode.alpha.value
-                }
-            )
-            drawContent()
-            drawContext.canvas.restore()
+    override fun onAttach() {
+        // Launches animation tied directly to node lifecycle
+        coroutineScope.launch {
+            alpha.animateTo(targetAlpha, tween(durationMillis))
         }
     }
+
+    override fun ContentDrawScope.draw() {
+        drawContext.canvas.saveLayer(
+            bounds = size.toRect(),
+            paint = Paint().apply {
+                this.alpha = this@FadeRevealNode.alpha.value
+            }
+        )
+        drawContent()
+        drawContext.canvas.restore()
+    }
+}
+```
+
+<br />

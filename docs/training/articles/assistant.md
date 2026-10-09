@@ -121,9 +121,9 @@ override fun onProvideAssistContent(assistContent: AssistContent) {
     super.onProvideAssistContent(assistContent)
 
     val structuredJson: String = JSONObject()
-            .put("@type", "MusicRecording";)
+            .put("@type", "MusicRecording")
             .put("@id", "https://example.com/music/recording")
-            .put("name&quot;, "Album Title")
+            .put("name", "Album Title")
             .toString()
 
     assistContent.structuredData = structuredJson
@@ -138,9 +138,9 @@ public void onProvideAssistContent(AssistContent assistContent) {
   super.onProvideAssistContent(assistContent);
 
   String structuredJson = new JSONObject()
-       .put("@type", "MusicRecording";)
-       .put("@id", "https://example.com/music/recording&quot;)
-       .put("name", &quot;Album Title")
+       .put("@type", "MusicRecording")
+       .put("@id", "https://example.com/music/recording")
+       .put("name", "Album Title")
        .toString();
 
   assistContent.setStructuredData(structuredJson);

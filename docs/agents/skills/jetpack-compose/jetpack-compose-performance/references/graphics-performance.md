@@ -13,33 +13,43 @@ source: md.txt
 
 - **Bad (Allocates a new Path on every single draw frame or animation tick)**:
 
-      Box(
-          modifier = Modifier
-              .fillMaxSize()
-              .drawBehind {
-                  val path = Path().apply {
-                      moveTo(0f, 0f)
-                      lineTo(size.width, size.height)
-                  }
-                  drawPath(path, Color.Red)
+
+  ```kotlin
+  Box(
+      modifier = Modifier
+          .fillMaxSize()
+          .drawBehind {
+              val path = Path().apply {
+                  moveTo(0f, 0f)
+                  lineTo(size.width, size.height)
               }
-      )
+              drawPath(path, Color.Red)
+          }
+  )
+  ```
+
+  <br />
 
 - **Optimized (Caches the Path, only recreates it if the Box size changes)**:
 
-      Box(
-          modifier = Modifier
-              .fillMaxSize()
-              .drawWithCache {
-                  val path = Path().apply {
-                      moveTo(0f, 0f)
-                      lineTo(size.width, size.height)
-                  }
-                  onDrawBehind {
-                      drawPath(path, Color.Red)
-                  }
+
+  ```kotlin
+  Box(
+      modifier = Modifier
+          .fillMaxSize()
+          .drawWithCache {
+              val path = Path().apply {
+                  moveTo(0f, 0f)
+                  lineTo(size.width, size.height)
               }
-      )
+              onDrawBehind {
+                  drawPath(path, Color.Red)
+              }
+          }
+  )
+  ```
+
+  <br />
 
 ## 2. Scope fast-changing uniforms inside `drawWithCache`
 
@@ -48,24 +58,29 @@ source: md.txt
 - **Update layout- and size-dependent uniforms** (like viewport size or resolution using `size.width, size.height`) in the `drawWithCache` initialization block, as size changes only during layout passes.
 - **Move dynamic, per-frame uniform updates** (such as updating time using `shader.setFloatUniform(...)`) inside the `onDrawBehind` or `onDrawWithContent` block without reallocating the shader or brush:
 
-    // RuntimeShader parsed once and cached in Composable scope
-    val shader = remember { RuntimeShader(SHADER_SRC) }
-    val brush = remember(shader) { ShaderBrush(shader) }
 
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-            .drawWithCache {
-                // Layout/size-dependent uniforms updated in cache block (on resize)
-                shader.setFloatUniform("u_resolution", size.width, size.height)
+```kotlin
+// RuntimeShader parsed once and cached in Composable scope
+val shader = remember { RuntimeShader(SHADER_SRC) }
+val brush = remember(shader) { ShaderBrush(shader) }
 
-                onDrawBehind {
-                    // Per-frame uniforms updated in draw block without reallocating
-                    shader.setFloatUniform("u_time", timeState.value)
-                    drawRect(brush)
-                }
+Box(
+    modifier = modifier
+        .fillMaxSize()
+        .drawWithCache {
+            // Layout/size-dependent uniforms updated in cache block (on resize)
+            shader.setFloatUniform("u_resolution", size.width, size.height)
+
+            onDrawBehind {
+                // Per-frame uniforms updated in draw block without reallocating
+                shader.setFloatUniform("u_time", timeState.value)
+                drawRect(brush)
             }
-    )
+        }
+)
+```
+
+<br />
 
 ## 3. Graphics `Path` performance and object reuse
 
@@ -92,54 +107,74 @@ callbacks, measure blocks, or draw methods.
 - **Bad (Allocates Pair, boxed Ints, iterator, and HashMap.Node per
   element)**:
 
-      val occupied = HashSet<Pair<Int, Int>>()
-      for (item in items) {
-          occupied.add(Pair(item.row, item.col))
-      }
+
+  ```kotlin
+  val occupied = HashSet<Pair<Int, Int>>()
+  for (item in items) {
+      occupied.add(Pair(item.row, item.col))
+  }
+  ```
+
+  <br />
 
 - **Optimized (0 heap allocations using MutableLongSet, packInts, and
   fastForEach)**:
 
-      import androidx.collection.MutableLongSet
-      import androidx.compose.ui.util.fastForEach
-      import androidx.compose.ui.util.packInts
 
-      val occupied = MutableLongSet()
-      items.fastForEach { item ->
-          occupied.add(packInts(item.row, item.col))
-      }
+  ```kotlin
+  // import androidx.collection.MutableLongSet
+  // import androidx.compose.ui.util.fastForEach
+  // import androidx.compose.ui.util.packInts
+
+  val occupied = MutableLongSet()
+  items.fastForEach { item ->
+      occupied.add(packInts(item.row, item.col))
+  }
+  ```
+
+  <br />
 
 ### B. Value class for coordinates
 
 - **Bad (Creates heap Point objects on every iteration)**:
 
-      class Point(val x: Float, val y: Float)
-      var acc = Point(0f, 0f)
-      for (i in 0 until 1000) {
-          acc = Point(acc.x + i, acc.y - i)
-      }
+
+  ```kotlin
+  class Point(val x: Float, val y: Float)
+  var acc = Point(0f, 0f)
+  for (i in 0 until 1000) {
+      acc = Point(acc.x + i, acc.y - i)
+  }
+  ```
+
+  <br />
 
 - **Optimized (0 heap allocations, packs 2 floats into a Long primitive value
   class)**:
 
-      import androidx.compose.ui.util.packFloats
-      import androidx.compose.ui.util.unpackFloat1
-      import androidx.compose.ui.util.unpackFloat2
 
-      @JvmInline
-      value class Point private constructor(val packedValue: Long) {
-          constructor(x: Float, y: Float) : this(packFloats(x, y))
+  ```kotlin
+  // import androidx.compose.ui.util.packFloats
+  // import androidx.compose.ui.util.unpackFloat1
+  // import androidx.compose.ui.util.unpackFloat2
 
-          val x: Float get() = unpackFloat1(packedValue)
-          val y: Float get() = unpackFloat2(packedValue)
-      }
+  @JvmInline
+  value class Point private constructor(val packedValue: Long) {
+      constructor(x: Float, y: Float) : this(packFloats(x, y))
 
-      var acc = Point(0f, 0f)
-      for (i in 0 until 1000) {
-          acc = Point(acc.x + i, acc.y - i)
-      }
-      // Alternatively, use Compose's built-in Offset class, which implements
-      // this exact @JvmInline Long packing pattern under the hood.
+      val x: Float get() = unpackFloat1(packedValue)
+      val y: Float get() = unpackFloat2(packedValue)
+  }
+
+  var acc = Point(0f, 0f)
+  for (i in 0 until 1000) {
+      acc = Point(acc.x + i, acc.y - i)
+  }
+  // Alternatively, use Compose's built-in Offset class, which implements
+  // this exact @JvmInline Long packing pattern under the hood.
+  ```
+
+  <br />
 
 ## 5. Image loading and decoding (`AsyncImage` versus `painterResource`)
 
@@ -161,22 +196,32 @@ small UI icons.
 - **Bad (Synchronously decodes full `2760x1840` bitmap on the main thread and
   uploads the full texture to the GPU for a `160.dp` box)**:
 
-      Image(
-          painter = painterResource(id = R.drawable.donut_photo),
-          contentScale = ContentScale.Fit,
-          modifier = Modifier.size(160.dp),
-          contentDescription = stringResource(id = R.string.attached_image),
-      )
+
+  ```kotlin
+  Image(
+      painter = painterResource(id = R.drawable.donut),
+      contentScale = ContentScale.Fit,
+      modifier = Modifier.size(160.dp),
+      contentDescription = stringResource(id = R.string.attached_image),
+  )
+  ```
+
+  <br />
 
 - **Optimized (Decodes off the main thread, automatically downsamples to the
   `160.dp` target dimensions via `ImageDecoder.setTargetSize`, and caches the
   result)**:
 
-      import coil3.compose.AsyncImage
 
-      AsyncImage(
-          model = R.drawable.donut_photo,
-          contentScale = ContentScale.Fit,
-          modifier = Modifier.size(160.dp),
-          contentDescription = stringResource(id = R.string.attached_image),
-      )
+  ```kotlin
+  // import coil3.compose.AsyncImage
+
+  AsyncImage(
+      model = R.drawable.donut,
+      contentScale = ContentScale.Fit,
+      modifier = Modifier.size(160.dp),
+      contentDescription = stringResource(id = R.string.attached_image),
+  )
+  ```
+
+  <br />

@@ -76,7 +76,7 @@ internal storage.
             val md = MessageDigest.getInstance("SHA-256") // You can choose other algorithms as needed
             val buffer = ByteArray(8192)
             var bytesRead: Int
-            BufferedInputStream(FileInputStream(filePath)).u>se { fis -
+            BufferedInputStream(FileInputStream(filePath)).use { fis ->
                 while (fis.read(buffer).also { bytesRead = it } != -1) {
                     md.update(buffer, 0, bytesRead)
                 }
@@ -99,13 +99,13 @@ internal storage.
 
         @Throws(Exception::class)
         @JvmStatic
-        <fun ma>in(args: ArrayString) {
+        fun main(args: Array<String>) {
             val filePath = "/path/to/your/file"
             val expectedHash = "your_expected_hash_value"
             if (verifyIntegrity(filePath, expectedHash)) {
                 println("File integrity is valid!")
             } else {
-                println(&quot;File integrity is compromised!")
+                println("File integrity is compromised!")
             }
         }
     }
@@ -157,7 +157,7 @@ internal storage.
             if (verifyIntegrity(filePath, expectedHash)) {
                 System.out.println("File integrity is valid!");
             } else {
-                System.out.println(&quot;File integrity is compromised!");
+                System.out.println("File integrity is compromised!");
             }
         }
     }

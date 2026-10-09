@@ -87,7 +87,7 @@ For details on handling mouse input, see the
 ## Handling mouse movement
 
 To detect mouse movement, listen to the [`ACTION_HOVER_ENTER`](https://developer.android.com/reference/android/view/MotionEvent#ACTION_HOVER_ENTER), [`ACTION_HOVER_EXIT`](https://developer.android.com/reference/android/view/MotionEvent#ACTION_HOVER_EXIT), and
-[`ACTION_HOVER_MOVE`](https://developer.android.com/reference/android/view/MotionEvent#ACTION_HOVER_MOEV)
+[`ACTION_HOVER_MOVE`](https://developer.android.com/reference/android/view/MotionEvent#ACTION_HOVER_MOVE)
 events.
 
 This is best used to detect the user hovering over buttons or objects in a

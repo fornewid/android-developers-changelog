@@ -17,26 +17,36 @@ on a collection, wrap the calculation in `remember`:
 
 - **Bad (Recalculated on every recomposition pass)**:
 
-      @Composable
-      fun FilteredFeed(rawList: List<Post>, query: String) {
-          // Avoid: Heavy filtering and sorting on every recomposition
-          val filteredList = rawList
-              .filter { it.title.contains(query) }
-              .sortedBy { it.timestamp }
-          PostList(posts = filteredList)
-      }
+
+  ```kotlin
+  @Composable
+  fun FilteredFeed(rawList: List<Post>, query: String) {
+      // Avoid: Heavy filtering and sorting on every recomposition
+      val filteredList = rawList
+          .filter { it.title.contains(query) }
+          .sortedBy { it.timestamp }
+      PostList(posts = filteredList)
+  }
+  ```
+
+  <br />
 
 - **Optimized (Cached calculation using remember)**:
 
-      @Composable
-      fun FilteredFeed(rawList: List<Post>, query: String) {
-          val filteredList = remember(rawList, query) {
-              rawList
-                  .filter { it.title.contains(query) }
-                  .sortedBy { it.timestamp }
-          }
-          PostList(posts = filteredList)
+
+  ```kotlin
+  @Composable
+  fun FilteredFeed(rawList: List<Post>, query: String) {
+      val filteredList = remember(rawList, query) {
+          rawList
+              .filter { it.title.contains(query) }
+              .sortedBy { it.timestamp }
       }
+      PostList(posts = filteredList)
+  }
+  ```
+
+  <br />
 
 For collections with very few elements (3 to 5 items), wrapping calculations in
 `remember` introduces allocation overhead without measurable benefit. Benchmark
@@ -50,25 +60,35 @@ in `remember { ... }` or hoist them out of the Composable.
 
 - **Bad (New date formatter allocated on every frame/recomposition)**:
 
-      @Composable
-      fun DateBadge(timestamp: Long) {
-          val formatter = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
-          Text(text = formatter.format(Date(timestamp)))
-      }
+
+  ```kotlin
+  @Composable
+  fun DateBadge(timestamp: Long) {
+      val formatter = SimpleDateFormat("MMM dd, yyyy", LocalLocale.current.platformLocale)
+      Text(text = formatter.format(Date(timestamp)))
+  }
+  ```
+
+  <br />
 
 - **Optimized (Formatter allocated once and reused across timestamp
   updates)**:
 
-      // Reusable formatter allocated once at top-level or remembered
-      private val dateFormatter =
-          SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
 
-      @Composable
-      fun DateBadge(timestamp: Long) {
-          val formattedDate = dateFormatter.format(Date(timestamp))
+  ```kotlin
+  // Reusable formatter allocated once at top-level or remembered
+  private val dateFormatter =
+      SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
 
-          Text(text = formattedDate)
-      }
+  @Composable
+  fun DateBadge(timestamp: Long) {
+      val formattedDate = dateFormatter.format(Date(timestamp))
+
+      Text(text = formattedDate)
+  }
+  ```
+
+  <br />
 
 Conversion functions like `.toShape()` or `painterResource()` are `@Composable`
 themselves and internally handle caching.
@@ -81,23 +101,33 @@ them to `Dispatchers.IO` using `produceState`:
 
 - **Bad (Blocking I/O on main UI thread)**:
 
-      @Composable
-      fun ProfileScreen(fileUri: Uri) {
-          var state by remember { mutableStateOf<Data?>(null) }
-          LaunchedEffect(fileUri) {
-              val data = parseJsonFromDisk(fileUri) // Blocks main dispatcher!
-              state = data
-          }
+
+  ```kotlin
+  @Composable
+  fun ProfileScreen(fileUri: Uri) {
+      var state by remember { mutableStateOf<Data?>(null) }
+      LaunchedEffect(fileUri) {
+          val data = parseJsonFromDisk(fileUri) // Blocks main dispatcher!
+          state = data
       }
+  }
+  ```
+
+  <br />
 
 - **Optimized (Offloaded to IO dispatcher via `produceState`)**:
 
-      @Composable
-      fun ProfileScreen(fileUri: Uri) {
-          val state by produceState<Data?>(initialValue = null, fileUri) {
-              value = withContext(Dispatchers.IO) { parseJsonFromDisk(fileUri) }
-          }
+
+  ```kotlin
+  @Composable
+  fun ProfileScreen(fileUri: Uri) {
+      val state by produceState<Data?>(initialValue = null, fileUri) {
+          value = withContext(Dispatchers.IO) { parseJsonFromDisk(fileUri) }
       }
+  }
+  ```
+
+  <br />
 
 ## 2. Side effect execution and lifecycle rules
 
@@ -114,23 +144,33 @@ effects placed directly in composition run on every recomposition attempt
 
 - **Bad (Side-effect runs directly in composition pass)**:
 
-      @Composable
-      fun UserProfile(userId: String, viewModel: ProfileViewModel) {
-          // Avoid: Runs on every recomposition and speculative pass
-          viewModel.trackProfileImpression(userId)
-          Text(text = "User: $userId")
-      }
+
+  ```kotlin
+  @Composable
+  fun UserProfile(userId: String, viewModel: ProfileViewModel) {
+      // Avoid: Runs on every recomposition and speculative pass
+      viewModel.trackProfileImpression(userId)
+      Text(text = "User: $userId")
+  }
+  ```
+
+  <br />
 
 - **Optimized (Wrapped in SideEffect or user event handler)**:
 
-      @Composable
-      fun UserProfile(userId: String, viewModel: ProfileViewModel) {
-          // Compose 1.12+: keyed SideEffect
-          SideEffect(userId) {
-              viewModel.trackProfileImpression(userId)
-          }
-          Text(text = "User: $userId")
+
+  ```kotlin
+  @Composable
+  fun UserProfile(userId: String, viewModel: ProfileViewModel) {
+      // Compose 1.12+: keyed SideEffect
+      SideEffect(userId) {
+          viewModel.trackProfileImpression(userId)
       }
+      Text(text = "User: $userId")
+  }
+  ```
+
+  <br />
 
 ### 2. Prohibit `LaunchedEffect` for non-suspend operations
 
@@ -140,17 +180,27 @@ machinery, and dispatches to a thread even when no suspension occurs.
 
 - **Bad (Unnecessary coroutine allocation for synchronous call)**:
 
-      LaunchedEffect(itemId) {
-          analyticsTracker.trackScreenView(itemId) // Non-suspend function!
-      }
+
+  ```kotlin
+  LaunchedEffect(itemId) {
+      analyticsTracker.trackScreenView(itemId) // Non-suspend function!
+  }
+  ```
+
+  <br />
 
 - **Optimized (Use `SideEffect` for synchronous execution on successful
   composition)**:
 
-      // Compose 1.12+ (supports keys directly):
-      SideEffect(itemId) {
-          analyticsTracker.trackScreenView(itemId)
-      }
+
+  ```kotlin
+  // Compose 1.12+ (supports keys directly):
+  SideEffect(itemId) {
+      analyticsTracker.trackScreenView(itemId)
+  }
+  ```
+
+  <br />
 
 - **Warning** : Never use `DisposableEffect(keys) { ... onDispose {} }` with an
   empty `onDispose` block to trigger a keyed synchronous effect. Check the
@@ -178,22 +228,32 @@ resource leaks, and unnecessary UI updates when the app or screen is stopped.
 - **Bad (Continues collecting in background on Android, leaking resources and
   CPU cycles)**:
 
-      @Composable
-      fun HomeFeed(viewModel: FeedViewModel) {
-          // Avoid on Android: Flow stays active when activity is stopped
-          val uiState by viewModel.feedState.collectAsState()
-          FeedContent(uiState = uiState)
-      }
+
+  ```kotlin
+  @Composable
+  fun HomeFeed(viewModel: FeedViewModel) {
+      // Avoid on Android: Flow stays active when activity is stopped
+      val uiState by viewModel.feedState.collectAsState()
+      FeedContent(uiState = uiState)
+  }
+  ```
+
+  <br />
 
 - **Optimized (Lifecycle-aware: pauses collection when backgrounded)**:
 
-      import androidx.lifecycle.compose.collectAsStateWithLifecycle
 
-      @Composable
-      fun HomeFeed(viewModel: FeedViewModel) {
-          val uiState by viewModel.feedState.collectAsStateWithLifecycle()
-          FeedContent(uiState = uiState)
-      }
+  ```kotlin
+  // import androidx.lifecycle.compose.collectAsStateWithLifecycle
+
+  @Composable
+  fun HomeFeed(viewModel: FeedViewModel) {
+      val uiState by viewModel.feedState.collectAsStateWithLifecycle()
+      FeedContent(uiState = uiState)
+  }
+  ```
+
+  <br />
 
 ### 4. Hoist `BroadcastReceiver`s and listeners to prevent per-item registration
 
@@ -209,52 +269,64 @@ Register a single receiver in a parent or screen-level Composable using
 - **Bad (Registers a separate BroadcastReceiver for every visible item in
   LazyColumn)**:
 
-      @Composable
-      fun TimeZoneListItem(timeZoneId: String) {
-          val context = LocalContext.current
-          DisposableEffect(Unit) {
-              // Avoid: Multiplied BroadcastReceivers per visible item!
-              val receiver = object : BroadcastReceiver() { ... }
-              context.registerReceiver(
-                  receiver,
-                  IntentFilter(Intent.ACTION_TIMEZONE_CHANGED),
-              )
-              onDispose { context.unregisterReceiver(receiver) }
+
+  ```kotlin
+  @Composable
+  fun TimeZoneListItem(timeZoneId: String) {
+      val context = LocalContext.current
+      DisposableEffect(Unit) {
+          // Avoid: Multiplied BroadcastReceivers per visible item!
+          val receiver = object : BroadcastReceiver() {
+              // ...
           }
-          ItemRow(timeZoneId)
+          context.registerReceiver(
+              receiver,
+              IntentFilter(Intent.ACTION_TIMEZONE_CHANGED),
+          )
+          onDispose { context.unregisterReceiver(receiver) }
       }
+      ItemRow(timeZoneId)
+  }
+  ```
+
+  <br />
 
 - **Optimized (Single BroadcastReceiver hoisted to parent container)**:
 
-      @Composable
-      fun TimeZoneList(timeZoneIds: List<String>) {
-          val context = LocalContext.current
-          var currentTimeZone by remember {
-              mutableStateOf(TimeZone.getDefault())
-          }
 
-          DisposableEffect(context) {
-              val receiver = object : BroadcastReceiver() {
-                  override fun onReceive(c: Context?, intent: Intent?) {
-                      currentTimeZone = TimeZone.getDefault()
-                  }
+  ```kotlin
+  @Composable
+  fun TimeZoneList(timeZoneIds: List<String>) {
+      val context = LocalContext.current
+      var currentTimeZone by remember {
+          mutableStateOf(TimeZone.getDefault())
+      }
+
+      DisposableEffect(context) {
+          val receiver = object : BroadcastReceiver() {
+              override fun onReceive(c: Context?, intent: Intent?) {
+                  currentTimeZone = TimeZone.getDefault()
               }
-              context.registerReceiver(
-                  receiver,
-                  IntentFilter(Intent.ACTION_TIMEZONE_CHANGED),
+          }
+          context.registerReceiver(
+              receiver,
+              IntentFilter(Intent.ACTION_TIMEZONE_CHANGED),
+          )
+          onDispose { context.unregisterReceiver(receiver) }
+      }
+
+      LazyColumn {
+          items(timeZoneIds, key = { it }) { id ->
+              TimeZoneListItem(
+                  timeZoneId = id,
+                  currentTimeZone = currentTimeZone,
               )
-              onDispose { context.unregisterReceiver(receiver) }
-          }
-
-          LazyColumn {
-              items(timeZoneIds, key = { it }) { id ->
-                  TimeZoneListItem(
-                      timeZoneId = id,
-                      currentTimeZone = currentTimeZone,
-                  )
-              }
           }
       }
+  }
+  ```
+
+  <br />
 
 ### 5. Guard optional effects and match effect type to work
 
@@ -271,18 +343,28 @@ type:
 - **Bad (Spawns empty coroutine and effect nodes when callback is null or
   synchronous)**:
 
-      // Avoid: Launches coroutine for synchronous work, runs even if null
-      LaunchedEffect(onInit) {
-          onInit?.invoke()
-      }
+
+  ```kotlin
+  // Avoid: Launches coroutine for synchronous work, runs even if null
+  LaunchedEffect(onInit) {
+      onInit?.invoke()
+  }
+  ```
+
+  <br />
 
 - **Optimized (Synchronous work uses SideEffect; guarded if optional)**:
 
-      if (onInit != null) {
-          SideEffect(onInit) {
-              onInit()
-          }
+
+  ```kotlin
+  if (onInit != null) {
+      SideEffect(onInit) {
+          onInit()
       }
+  }
+  ```
+
+  <br />
 
 ### 6. Prevent stale captures with `rememberUpdatedState`
 
@@ -292,29 +374,39 @@ ensure it always uses the latest value without restarting the effect:
 
 - **Bad (Stale capture if onTick parameter changes during loop lifetime)**:
 
-      @Composable
-      fun PeriodicTicker(intervalMs: Long, onTick: () -> Unit) {
-          LaunchedEffect(intervalMs) {
-              while (isActive) {
-                  delay(intervalMs)
-                  onTick() // Stale reference if onTick callback instance changes!
-              }
+
+  ```kotlin
+  @Composable
+  fun PeriodicTicker(intervalMs: Long, onTick: () -> Unit) {
+      LaunchedEffect(intervalMs) {
+          while (isActive) {
+              delay(intervalMs)
+              onTick() // Stale reference if onTick callback instance changes!
           }
       }
+  }
+  ```
+
+  <br />
 
 - **Optimized (rememberUpdatedState provides latest callback without
   cancelling timer loop)**:
 
-      @Composable
-      fun PeriodicTicker(intervalMs: Long, onTick: () -> Unit) {
-          val currentOnTick by rememberUpdatedState(onTick)
-          LaunchedEffect(intervalMs) {
-              while (isActive) {
-                  delay(intervalMs)
-                  currentOnTick()
-              }
+
+  ```kotlin
+  @Composable
+  fun PeriodicTicker(intervalMs: Long, onTick: () -> Unit) {
+      val currentOnTick by rememberUpdatedState(onTick)
+      LaunchedEffect(intervalMs) {
+          while (isActive) {
+              delay(intervalMs)
+              currentOnTick()
           }
       }
+  }
+  ```
+
+  <br />
 
 ### 7. Replace legacy timers with coroutine delays
 
@@ -325,19 +417,29 @@ composition.
 
 - **Bad (Legacy Handler risks memory leak and out-of-lifecycle execution)**:
 
-      DisposableEffect(Unit) {
-          val handler = Handler(Looper.getMainLooper())
-          val runnable = Runnable { showBanner = false }
-          handler.postDelayed(runnable, 3000L)
-          onDispose { handler.removeCallbacks(runnable) }
-      }
+
+  ```kotlin
+  DisposableEffect(Unit) {
+      val handler = Handler(Looper.getMainLooper())
+      val runnable = Runnable { showBanner = false }
+      handler.postDelayed(runnable, 3000L)
+      onDispose { handler.removeCallbacks(runnable) }
+  }
+  ```
+
+  <br />
 
 - **Optimized (Clean, lifecycle-aware coroutine delay)**:
 
-      LaunchedEffect(Unit) {
-          delay(3000L)
-          showBanner = false
-      }
+
+  ```kotlin
+  LaunchedEffect(Unit) {
+      delay(3000L)
+      showBanner = false
+  }
+  ```
+
+  <br />
 
 ### 8. Combine related `LaunchedEffect`s (reduce number of effects)
 
@@ -352,30 +454,40 @@ nested `launch { ... }` calls instead of declaring multiple standalone
 
 - **Bad (Multiple separate LaunchedEffects incur redundant effect overhead)**:
 
-      @Composable
-      fun ShoppingCartScreen(viewModel: CartViewModel) {
-          // Avoid: 3 LaunchedEffects allocate 3 effect nodes and launchers
-          LaunchedEffect(Unit) { viewModel.loadCart() }
-          LaunchedEffect(Unit) { viewModel.loadPaymentMethods() }
-          LaunchedEffect(Unit) { viewModel.loadDeliveryAddresses() }
 
-          CartContent(...)
-      }
+  ```kotlin
+  @Composable
+  fun ShoppingCartScreen(viewModel: CartViewModel) {
+      // Avoid: 3 LaunchedEffects allocate 3 effect nodes and launchers
+      LaunchedEffect(Unit) { viewModel.loadCart() }
+      LaunchedEffect(Unit) { viewModel.loadPaymentMethods() }
+      LaunchedEffect(Unit) { viewModel.loadDeliveryAddresses() }
+
+      CartContent()
+  }
+  ```
+
+  <br />
 
 - **Optimized (Single LaunchedEffect manages multiple concurrent
   coroutines)**:
 
-      @Composable
-      fun ShoppingCartScreen(viewModel: CartViewModel) {
-          // Optimized: 1 LaunchedEffect node launches concurrent jobs
-          LaunchedEffect(Unit) {
-              launch { viewModel.loadCart() }
-              launch { viewModel.loadPaymentMethods() }
-              launch { viewModel.loadDeliveryAddresses() }
-          }
 
-          CartContent(...)
+  ```kotlin
+  @Composable
+  fun ShoppingCartScreen(viewModel: CartViewModel) {
+      // Optimized: 1 LaunchedEffect node launches concurrent jobs
+      LaunchedEffect(Unit) {
+          launch { viewModel.loadCart() }
+          launch { viewModel.loadPaymentMethods() }
+          launch { viewModel.loadDeliveryAddresses() }
       }
+
+      CartContent()
+  }
+  ```
+
+  <br />
 
 ### 9. Effect execution ordering and teardown costs
 

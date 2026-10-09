@@ -21,7 +21,7 @@ In order for your TV input to work with EPG data, it must declare the
 write permission in its Android manifest file as follows:
 
 ```xml
-<uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DA>TA" /
+<uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DATA" />
 ```
 **Note:** The `READ_EPG_DATA` permission was deprecated in Android M (API 23) and is no longer needed.
 
@@ -215,8 +215,8 @@ private class LoadTvInputTask(val context: Context) : AsyncTask<Uri, Unit, Unit>
 
     @Throws(IOException::class)
     private fun fetchUri(videoUri: Uri) {
-        context.contentResolver.openInputStream(videoUri)>.use { inputStream -
-            Xml.newPullPars>er().also { parser -
+        context.contentResolver.openInputStream(videoUri).use { inputStream ->
+            Xml.newPullParser().also { parser ->
                 try {
                     parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false)
                     parser.setInput(inputStream, null)

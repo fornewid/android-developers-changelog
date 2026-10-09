@@ -29,7 +29,7 @@ attention to two aspects:
 
 Whether you customize UIs for different window sizes or not, you should verify
 that the UIs are displayed correctly. Take into account widths and heights that
-are compact, medium, and extended. See [Window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/window-size-classes) for the
+are compact, medium, and extended. See [Window size classes](https://developer.android.com/develop/ui/compose/layouts/adaptive/use-window-size-classes) for the
 recommended breakpoints.
 ![](https://developer.android.com/static/images/training/testing/different-screens/nia_sizes.png) **Figure 1.** The "For you" screen in Now In Android in different window sizes
 
@@ -69,7 +69,7 @@ that recreate the activity have similar repercussions. However, some
 configuration changes might trigger different state restoration mechanisms on
 specific devices.
 
-For example, when a user is viewing a [list-detail UI](https://m3.material.io/foundations/layout/canonical-layouts/list-detail) on an open foldable
+For example, when a user is viewing a [list-detail UI](https://m3.material.io/foundations/layout/canonical-examples/list-detail) on an open foldable
 and they fold the device to switch to the front display, the UI typically
 switches to the detail page. An automated test should cover this restoration of
 the UI state, including the navigation state.
@@ -92,7 +92,7 @@ correctly across different form factors:
   of an activity. The tests verify that certain elements exist or have
   specific attributes . The tests might optionally perform simulated user
   actions. For views, use [Espresso](https://developer.android.com/training/testing/espresso). Jetpack Compose has its own [testing
-  APIs](https://developer.android.com/jetpack/compose/testing). UI behavior tests can be [instrumented](https://developer.android.com/training/testing/instrumented-tests) or [local](https://developer.android.com/training/testing/local-tests).
+  APIs](https://developer.android.com/develop/ui/compose/testing). UI behavior tests can be [instrumented](https://developer.android.com/training/testing/instrumented-tests) or [local](https://developer.android.com/training/testing/local-tests).
   Instrumented tests run on devices or emulators, while local UI tests run on
   [Robolectric](https://robolectric.org/) on the JVM.
 
@@ -105,7 +105,7 @@ correctly across different form factors:
   protect against regressions, as a single screenshot can cover a large number
   of elements and its visual properties. You can run screenshot tests on the
   JVM or on devices. There are multiple screenshot test frameworks available.
-  For more information, see [screenshot tests](https://developer.android.com/training/testing/screenshot).
+  For more information, see [screenshot tests](https://developer.android.com/training/testing/ui-tests/screenshot).
 
 Finally, you might need unit tests to test the functionality of units of logic
 that behave differently depending on the type of device or window size, but unit

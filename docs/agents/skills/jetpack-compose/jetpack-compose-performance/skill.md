@@ -8,13 +8,10 @@ source: md.txt
 
 Before micro-optimizing composables, ensure standard production flags are in
 place:
-1. **Release Build** : Never profile or benchmark debuggable builds; ART runtime
-verification severely degrades performance.
-2. **R8 Minification** : Keep R8 enabled to optimize bytecode and coroutine
-dispatch.
-3. **Baseline Profiles**: Generate baseline profiles for critical user journeys
-(cold start, key scrolling feeds) so the ART VM pre-compiles and preloads
-classes ahead of time.
+
+1. **Release Build**: Never profile or benchmark debuggable builds; ART runtime verification severely degrades performance.
+2. **R8 Minification**: Keep R8 enabled to optimize bytecode and coroutine dispatch.
+3. **Baseline Profiles**: Generate baseline profiles for critical user journeys (cold start, key scrolling feeds) so the ART VM pre-compiles and preloads classes ahead of time.
 
 ## Optimization audit workflow
 
@@ -133,28 +130,33 @@ classes ahead of time.
   `currentValueOf(...)`) to eliminate per-node subcomposition overhead and
   enable node reuse (see [Create custom modifiers with Modifier.Node](https://developer.android.com/develop/ui/compose/custom-modifiers)):
 
-      // Modifier factory
-      fun Modifier.circle(color: Color) = this then CircleElement(color)
 
-      // ModifierNodeElement
-      private data class CircleElement(
-          val color: Color
-      ) : ModifierNodeElement<CircleNode>() {
-          override fun create() = CircleNode(color)
+  ```kotlin
+  // Modifier factory
+  fun Modifier.circle(color: Color) = this then CircleElement(color)
 
-          override fun update(node: CircleNode) {
-              node.color = color
-          }
+  // ModifierNodeElement
+  private data class CircleElement(
+      val color: Color
+  ) : ModifierNodeElement<CircleNode>() {
+      override fun create() = CircleNode(color)
+
+      override fun update(node: CircleNode) {
+          node.color = color
       }
+  }
 
-      // Modifier.Node
-      private class CircleNode(
-          var color: Color
-      ) : DrawModifierNode, Modifier.Node() {
-          override fun ContentDrawScope.draw() {
-              drawCircle(color)
-          }
+  // Modifier.Node
+  private class CircleNode(
+      var color: Color
+  ) : DrawModifierNode, Modifier.Node() {
+      override fun ContentDrawScope.draw() {
+          drawCircle(color)
       }
+  }
+  ```
+
+  <br />
 
 - **On-Demand Coordinates** : Query `requireLayoutCoordinates()` on demand
   inside pointer or draw handlers in `Modifier.Node` rather than implementing

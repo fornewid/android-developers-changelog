@@ -149,7 +149,7 @@ item, and another for everything else (for instance, "meter" and "meters"). In
 Polish, on the other hand, you would need to provide a version for one unit, a
 few units, many units, and everything else. To learn more about plural rules,
 see [Quantity
-Strings(Plurals)](http://developer.android.com/guide/topics/resources/string-resource.html#Plurals).
+Strings(Plurals)](https://developer.android.com/guide/topics/resources/string-resource#Plurals).
 
 For **Time** leaderboards, the time format is displayed according to the
 player's language and locale. This will mainly be noticeable if you are using

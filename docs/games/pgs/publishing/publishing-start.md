@@ -23,7 +23,7 @@ The following instructions explain how to:
 Before you can access the Publishing API, you must link Google Play Console
 to an API project. In most cases, you are encouraged to create a new API
 project, though current
-[Google Play Developer Publishing API](https://developer.android.com/distribute/googleplay/developer-console.html#account-details)
+[Google Play Developer Publishing API](https://developer.android.com/distribute/googleplay/developer-console#account-details)
 users can link to an existing API project. Keep in mind that each API project
 can only be linked to a single Google Play Console account.
 
@@ -65,7 +65,7 @@ own credentials using an
 [OAuth](https://developers.google.com/accounts/docs/OAuth2) client.
 
 > [!NOTE]
-> **Note:** Your Oauth client must share the same project as your [service account](https://developer.android.com/games/pgs/publishing/publishing-start#using_a_service_account).
+> **Note:** Your Oauth client must share the same project as your [service account](https://developer.android.com/games/pgs/publishing/publishing-start#use_a_service_account).
 
 A user's actions are limited to those permitted via the
 [User Accounts \& Rights](https://play.google.com/apps/publish/#AdminPlace)

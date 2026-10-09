@@ -259,7 +259,7 @@ Host-side screenshot tests are a fast and scalable way of verifying the visual
 appearance of your app layouts. Use host-side screenshots to test your UI for a
 variety of display sizes.
 
-For more information, see [Compose Preview Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing).
+For more information, see [Compose Preview Screenshot Testing](https://developer.android.com/studio/preview/compose-screenshot-testing-with-testsuites).
 
 ### Compose previews
 

@@ -24,7 +24,7 @@ Emulator, see the
 
 For known issues and troubleshooting, please see [Emulator Troubleshooting](https://developer.android.com/studio/run/emulator-troubleshooting).
 
-## 37.2.12 Stable (Sep 29, 2026)
+## 37.2.12 Stable (Oct 1, 2026)
 
 - \[Bug Fix\][Issue #537802959](https://issuetracker.google.com/537802959)
   macOS (Apple Silicon): gRPC streamScreenshot with ImageTransport MMAP

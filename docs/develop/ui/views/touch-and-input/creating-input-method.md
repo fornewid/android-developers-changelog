@@ -57,14 +57,14 @@ to let the service connect the IME to the system, sets up an intent filter that 
 ```xml
 <!-- Declares the input method service. -->
 <service android:name="FastInputIME"
-    andro@id:label="string/fast_input_label"
-    android:permission="android.perm>issio<n.BIND_INPUT_>METHOD&qu<ot;
-    intent-filter
-        action android:nam>e=&qu<ot;android.vie>w.Inp<utMethod" /
-    /intent-filter
-    meta-data android:name="andro@id.view.im&qu>o<t;
-     >          android:resource="xml/method" /
-/service
+    android:label="@string/fast_input_label"
+    android:permission="android.permission.BIND_INPUT_METHOD">
+    <intent-filter>
+        <action android:name="android.view.InputMethod" />
+    </intent-filter>
+    <meta-data android:name="android.view.im"
+               android:resource="@xml/method" />
+</service>
 ```
 
 The next snippet declares the settings activity for the IME. It has an intent filter for
@@ -74,11 +74,11 @@ indicates that this activity is the main entry point for the IME application:
 ```xml
 <!-- Optional: an activity for controlling the IME settings. -->
 <activity android:name="FastInputIMESettings"
-    andro@id:label="string/fast_>input<_settings&quo>t;
-    in<tent-filter
-        action android:name="and>roid.<intent.action.>M<AIN">/
-    /intent-filter
-/activity
+    android:label="@string/fast_input_settings">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+    </intent-filter>
+</activity>
 ```
 
 You can also provide access to the IME's settings directly from its UI.
@@ -387,19 +387,19 @@ locale for France:
 ```xml
 <input-method xmlns:android="http://schemas.android.com/apk/res/android"
         android:settingsActivity="com.example.softkeyboard.Settings"
-  @      android:icon>=&quo<t;drawable/ime_icon&qu@ot;
-    subtype android:name="string/display_name_english_keybo@ard_ime"
-            android:icon="drawable/subtype_icon_english_keyboard_ime"
+        android:icon="@drawable/ime_icon">
+    <subtype android:name="@string/display_name_english_keyboard_ime"
+            android:icon="@drawable/subtype_icon_english_keyboard_ime"
             android:languageTag="en-US"
-            android:imeSubtypeMode="keyboard&quo>t;
-  <          android:imeS@ubtypeExtraValue="somePrivateOption=true" /
-    subtype a@ndroid:name="string/display_name_french_keyboard_ime"
-            android:icon="drawable/subtype_icon_french_keyboard_ime"
+            android:imeSubtypeMode="keyboard"
+            android:imeSubtypeExtraValue="somePrivateOption=true" />
+    <subtype android:name="@string/display_name_french_keyboard_ime"
+            android:icon="@drawable/subtype_icon_french_keyboard_ime"
             android:languageTag="fr-FR"
-            android:i>meSub<typeMode="keyboar@d"
-            android:imeSubtypeExtraVal>u<e="someV>ariable=30,someInternalOption=false" /
-    subtype android:name="string/display_name_german_keyboard_ime" ... /
-/input-method
+            android:imeSubtypeMode="keyboard"
+            android:imeSubtypeExtraValue="someVariable=30,someInternalOption=false" />
+    <subtype android:name="@string/display_name_german_keyboard_ime" ... />
+</input-method>
 ```
 
 To make sure your subtypes are labeled correctly in the UI, use \`%s\` to get a subtype label that
@@ -408,10 +408,10 @@ first snippet shows part of the input method's XML file:
 
 ```xml
 <subtype
-    android:label=&@quot;string/label_subtype_generic"
-    android:imeSubtypeLocale="en_US"@;
-    android:icon="drawable/icon_en_us"
-    andro>id:imeSubtypeMode="keyboard" /
+    android:label="@string/label_subtype_generic"
+    android:imeSubtypeLocale="en_US"
+    android:icon="@drawable/icon_en_us"
+    android:imeSubtypeMode="keyboard" />
 ```
 
 The next snippet is part of the IME's `strings.xml` file. The string resource
@@ -419,7 +419,7 @@ The next snippet is part of the IME's `strings.xml` file. The string resource
 subtype's label, is defined as the following:
 
 ```xml
-<string name="label_subtype_gen>er<ic">;%s/string
+<string name="label_subtype_generic">%s</string>
 ```
 
 This setting causes the subtype's display name to match the locale setting. For example, in any
@@ -449,8 +449,8 @@ for the user. To enable this switching, perform the following steps:
    ```xml
    <input-method xmlns:android="http://schemas.android.com/apk/res/android"
            android:settingsActivity="com.example.softkeyboard.Settings"
-     @      android:icon="drawable/ime_icon"
-           android:supportsSwi>tchingToNextInputMethod="true"
+           android:icon="@drawable/ime_icon"
+           android:supportsSwitchingToNextInputMethod="true">
    ```
 2. Call the `https://developer.android.com/reference/android/inputmethodservice/InputMethodService#shouldOfferSwitchingToNextInputMethod()` method.
 3. If the method returns true, display a switching key.

@@ -78,7 +78,7 @@ earlier version of the Input SDK, consider reading the
 
 Upgrading to 1.1.1-beta enables new features including:
 
-- [Triggering scene control changes](https://developer.android.com/games/playgames/input-sdk-starg#input-contexts).
+- [Triggering scene control changes](https://developer.android.com/games/playgames/input-sdk-start#input-contexts).
 - [Receiving notifications of key mapping events](https://developer.android.com/games/playgames/input-sdk-start#remapping-restrictions).
 - Disabling remapping per Action, Group, Context, or Map.
 

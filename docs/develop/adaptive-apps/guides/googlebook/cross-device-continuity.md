@@ -11,7 +11,7 @@ multi-window workspace.
 
 The [Continue On](https://developer.android.com/develop/better-together/continue-on) feature in Android 17 (API level 37) and higher enables the
 Googlebook taskbar to display an app icon (called a *suggestion*) for the
-activity a user was running on their nearby phone. With a single click, users
+activity a user is running on their nearby phone. With a single click, users
 can continue their activity on their Googlebook.
 
 Implementation of cross-device handoff lets your app transfer activity context

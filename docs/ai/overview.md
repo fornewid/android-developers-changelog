@@ -61,14 +61,6 @@ to your specific use case. Run your model directly on the user's device with
 LiteRT, which provides pre-designed model architectures for optimized
 performance.
 
-You can also consider building a hybrid solution by leveraging both on-device
-and cloud models.
-
-Mobile apps commonly utilize local models for small text data, such as chat
-conversations or blog articles. However, for larger data sources (like PDFs) or
-when additional knowledge is required, a cloud-based solution with more powerful
-Gemini models may be necessary.
-
 ## Integrate advanced Gemini models
 
 Android developers can integrate Google's advanced generative AI capabilities,
@@ -84,6 +76,23 @@ variety of inputs including image, audio, video, and text. Gemini Pro excels at
 reasoning over complex problems and analyzing extensive data, while the Gemini
 Flash series offers superior speed and a context window large enough for most
 tasks.
+
+## Hybrid inference
+
+You can also consider building a hybrid solution by leveraging both on-device
+and cloud models.
+
+Mobile apps commonly utilize local models for small text data, such as chat
+conversations or blog articles. However, for larger data sources (like PDFs) or
+when additional knowledge is required, a cloud-based solution with more powerful
+Gemini models may be necessary.
+
+You can use the Firebase AI Logic SDK as a unified interface for seamless
+fallbacks between on-device and cloud-based inference. Or if you want to
+dynamically determine the inference path based on real-time factors, you can
+implement custom routing logic.
+
+For more information about hybrid solutions, see [Hybrid inference](https://developer.android.com/ai/hybrid).
 
 ## When to use traditional machine learning
 

@@ -24,15 +24,20 @@ Always provide a stable `key` and a `contentType` for all items.
 - **`key`**: Enables Compose to maintain item state across reorderings and list updates without recreating item compositions from scratch.
 - **`contentType`**: Enables Compose to reuse item compositions and node slots when recycling items of the same visual type, significantly reducing layout inflation overhead during fast scrolling.
 
-    LazyColumn {
-        items(
-            items = itemList,
-            key = { item -> item.id },
-            contentType = { item -> item.type }
-        ) { item ->
-            ItemRow(item = item)
-        }
+
+```kotlin
+LazyColumn {
+    items(
+        items = itemList,
+        key = { item -> item.id },
+        contentType = { item -> item.type }
+    ) { item ->
+        ItemRow(item = item)
     }
+}
+```
+
+<br />
 
 - **Ensure Keys are Bundle-Saveable** : Keys must be saveable in an Android `Bundle` because `LazyColumn` uses `rememberSaveable` internally to persist scroll states and item state across configuration changes and process death.
   - **Do NOT** use custom data classes as keys unless they implement `Parcelable` or `Serializable`.
@@ -53,24 +58,34 @@ queries inside item layout blocks or outer list item scopes:
 
   - **Bad (`O(N²)` linear scan per item)**:
 
-        LazyColumn {
-            items(items = itemList, key = { it.id }) { item ->
-                // O(N) lookup inside each item!
-                val index = itemList.indexOf(item)
-                ItemRow(index = index, item = item)
-            }
+
+    ```kotlin
+    LazyColumn {
+        items(items = itemList, key = { it.id }) { item ->
+            // O(N) lookup inside each item!
+            val index = itemList.indexOf(item)
+            ItemRow(index = index, item = item)
         }
+    }
+    ```
+
+    <br />
 
   - **Optimized (Direct index passing with `itemsIndexed`)**:
 
-        LazyColumn {
-            itemsIndexed(
-                items = itemList,
-                key = { _, item -> item.id },
-            ) { index, item ->
-                ItemRow(index = index, item = item)
-            }
+
+    ```kotlin
+    LazyColumn {
+        itemsIndexed(
+            items = itemList,
+            key = { _, item -> item.id },
+        ) { index, item ->
+            ItemRow(index = index, item = item)
         }
+    }
+    ```
+
+    <br />
 
 - **Observable Selection \& State Queries** : Never use `mutableStateListOf`
   (`SnapshotStateList`) for tracking selected IDs where `.contains()` and
@@ -87,87 +102,97 @@ queries inside item layout blocks or outer list item scopes:
   - **Bad (`mutableStateListOf` `O(N)` lookups and reading state in outer
     `items` scope triggers full list or grid recomposition on toggle)**:
 
-        @Composable
-        fun TopicGrid(sections: List<TopicSection>) {
-            val selectedTopicIds = remember { mutableStateListOf<String>() }
-            LazyColumn {
-                items(sections, key = { it.id }) { section ->
-                    Column {
-                        Text(text = section.title)
-                        section.topics.forEach { topic ->
-                            // Avoid: O(N) List.contains() read in items() scope
-                            // invalidates the whole section!
-                            val isSelected = selectedTopicIds.contains(topic.id)
-                            TopicChip(
-                                topic = topic,
-                                isSelected = isSelected,
-                                onToggle = {
-                                    if (isSelected) {
-                                        selectedTopicIds.remove(topic.id)
-                                    } else {
-                                        selectedTopicIds.add(topic.id)
-                                    }
+
+    ```kotlin
+    @Composable
+    fun TopicGrid(sections: List<TopicSection>) {
+        val selectedTopicIds = remember { mutableStateListOf<String>() }
+        LazyColumn {
+            items(sections, key = { it.id }) { section ->
+                Column {
+                    Text(text = section.title)
+                    section.topics.forEach { topic ->
+                        // Avoid: O(N) List.contains() read in items() scope
+                        // invalidates the whole section!
+                        val isSelected = selectedTopicIds.contains(topic.id)
+                        TopicChip(
+                            topic = topic,
+                            isSelected = isSelected,
+                            onToggle = {
+                                if (isSelected) {
+                                    selectedTopicIds.remove(topic.id)
+                                } else {
+                                    selectedTopicIds.add(topic.id)
                                 }
-                            )
-                        }
+                            }
+                        )
                     }
                 }
             }
         }
+    }
+    ```
+
+    <br />
 
   - **Optimized (Use `Set<String>` (`mutableStateOf(emptySet())` or
     `mutableStateSetOf()`) for `O(1)` lookup and pass lambda to leaf
     composable to isolate recomposition to the clicked item)**:
 
-        @Composable
-        fun TopicGrid(sections: List<TopicSection>) {
-            var selectedTopicIds by remember {
-                mutableStateOf(emptySet<String>())
-            }
-            LazyColumn {
-                items(
-                    items = sections,
-                    key = { it.id },
-                    contentType = { "section" },
-                ) { section ->
-                    Column {
-                        Text(text = section.title)
-                        section.topics.forEach { topic ->
-                            TopicChip(
-                                topic = topic,
-                                // O(1) Set read deferred to TopicChip's scope
-                                isSelectedProvider = {
+
+    ```kotlin
+    @Composable
+    fun TopicGrid(sections: List<TopicSection>) {
+        var selectedTopicIds by remember {
+            mutableStateOf(emptySet<String>())
+        }
+        LazyColumn {
+            items(
+                items = sections,
+                key = { it.id },
+                contentType = { "section" },
+            ) { section ->
+                Column {
+                    Text(text = section.title)
+                    section.topics.forEach { topic ->
+                        TopicChip(
+                            topic = topic,
+                            // O(1) Set read deferred to TopicChip's scope
+                            isSelectedProvider = {
+                                selectedTopicIds.contains(topic.id)
+                            },
+                            onToggle = {
+                                val selected =
                                     selectedTopicIds.contains(topic.id)
-                                },
-                                onToggle = {
-                                    val selected =
-                                        selectedTopicIds.contains(topic.id)
-                                    selectedTopicIds = if (selected) {
-                                        selectedTopicIds - topic.id
-                                    } else {
-                                        selectedTopicIds + topic.id
-                                    }
+                                selectedTopicIds = if (selected) {
+                                    selectedTopicIds - topic.id
+                                } else {
+                                    selectedTopicIds + topic.id
                                 }
-                            )
-                        }
+                            }
+                        )
                     }
                 }
             }
         }
+    }
 
-        @Composable
-        fun TopicChip(
-            topic: Topic,
-            isSelectedProvider: () -> Boolean,
-            onToggle: () -> Unit
-        ) {
-            // Read occurs inside leaf scope
-            val isSelected = isSelectedProvider()
-            val status = if (isSelected) "Selected" else "Unselected"
-            Box(modifier = Modifier.clickable { onToggle() }) {
-                Text(text = "${topic.title} ($status)")
-            }
+    @Composable
+    fun TopicChip(
+        topic: Topic,
+        isSelectedProvider: () -> Boolean,
+        onToggle: () -> Unit
+    ) {
+        // Read occurs inside leaf scope
+        val isSelected = isSelectedProvider()
+        val status = if (isSelected) "Selected" else "Unselected"
+        Box(modifier = Modifier.clickable { onToggle() }) {
+            Text(text = "${topic.title} ($status)")
         }
+    }
+    ```
+
+    <br />
 
 ### 3. Avoid `derivedStateOf` for direct collection sizes and counts
 
@@ -189,19 +214,29 @@ Benchmark this change before applying broad changes to code.
 
 - **Bad (Lazy virtualization overhead for tiny static list)**:
 
-      LazyRow {
-          items(items = listOf("Work", "Personal", "Family")) { tag ->
-              FilterChip(tag = tag)
-          }
+
+  ```kotlin
+  LazyRow {
+      items(items = listOf("Work", "Personal", "Family")) { tag ->
+          FilterChip(tag = tag)
       }
+  }
+  ```
+
+  <br />
 
 - **Optimized (Standard Row with forEach)**:
 
-      Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-          listOf("Work", "Personal", "Family").forEach { tag ->
-              FilterChip(tag = tag)
-          }
+
+  ```kotlin
+  Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+      listOf("Work", "Personal", "Family").forEach { tag ->
+          FilterChip(tag = tag)
       }
+  }
+  ```
+
+  <br />
 
 ### 5. Hoist shared `Flow` and state collections out of lazy items
 
@@ -222,47 +257,57 @@ down to the individual item composables.
 - **Bad (Each visible item creates an independent subscription to the shared
   timer)**:
 
-      @Composable
-      fun FeedItem(item: Post) {
-          // Avoid: Multiplied subscriptions across all visible items!
-          val secondsSinceLastScroll by MainFeedIdleTracker
-              .secondsSinceLastScrollFlow
-              .collectAsState(0L)
-          val isDwellTriggered = secondsSinceLastScroll >= 5L
-          PostActions(isDwellTriggered = isDwellTriggered)
-      }
 
-      @Composable
-      fun FeedList(posts: List<Post>) {
-          LazyColumn {
-              items(posts, key = { it.id }) { post ->
-                  FeedItem(post)
-              }
+  ```kotlin
+  @Composable
+  fun FeedItem(item: Post) {
+      // Avoid: Multiplied subscriptions across all visible items!
+      val secondsSinceLastScroll by MainFeedIdleTracker
+          .secondsSinceLastScrollFlow
+          .collectAsState(0L)
+      val isDwellTriggered = secondsSinceLastScroll >= 5L
+      PostActions(isDwellTriggered = isDwellTriggered)
+  }
+
+  @Composable
+  fun FeedList(posts: List<Post>) {
+      LazyColumn {
+          items(posts, key = { it.id }) { post ->
+              FeedItem(post)
           }
       }
+  }
+  ```
+
+  <br />
 
 - **Optimized (Hoist subscription once above LazyColumn, pass stable value
   down)**:
 
-      @Composable
-      fun FeedList(posts: List<Post>) {
-          // Hoist once: Parent owns the single subscription
-          val secondsSinceLastScroll by MainFeedIdleTracker
-              .secondsSinceLastScrollFlow
-              .collectAsStateWithLifecycle(0L)
-          val isDwellTriggered = secondsSinceLastScroll >= 5L
 
-          LazyColumn {
-              items(posts, key = { it.id }) { post ->
-                  FeedItem(post = post, isDwellTriggered = isDwellTriggered)
-              }
+  ```kotlin
+  @Composable
+  fun FeedList(posts: List<Post>) {
+      // Hoist once: Parent owns the single subscription
+      val secondsSinceLastScroll by MainFeedIdleTracker
+          .secondsSinceLastScrollFlow
+          .collectAsStateWithLifecycle(0L)
+      val isDwellTriggered = secondsSinceLastScroll >= 5L
+
+      LazyColumn {
+          items(posts, key = { it.id }) { post ->
+              FeedItem(post = post, isDwellTriggered = isDwellTriggered)
           }
       }
+  }
 
-      @Composable
-      fun FeedItem(post: Post, isDwellTriggered: Boolean) {
-          PostActions(isDwellTriggered = isDwellTriggered)
-      }
+  @Composable
+  fun FeedItem(post: Post, isDwellTriggered: Boolean) {
+      PostActions(isDwellTriggered = isDwellTriggered)
+  }
+  ```
+
+  <br />
 
 ### 6. Propagate `CompositionLocal`s down instead of reading in lazy items
 
@@ -277,32 +322,42 @@ parameters.
 
 - **Bad (Querying scopes and context per item)**:
 
-      @Composable
-      fun SnackItem(snack: Snack) {
-          val sharedScope = LocalSharedTransitionScope.current
-              ?: error("No scope")
-          val context = LocalContext.current
-          // ...
-      }
+
+  ```kotlin
+  @Composable
+  fun SnackItem(snack: Snack) {
+      val sharedScope = LocalSharedTransitionScope.current
+          ?: error("No scope")
+      val context = LocalContext.current
+      // ...
+  }
+  ```
+
+  <br />
 
 - **Optimized (Pass resolved dependencies down as parameters)**:
 
-      @Composable
-      fun SnackList(
-          snacks: List<Snack>,
-          sharedScope: SharedTransitionScope,
-      ) {
-          val context = LocalContext.current
-          LazyColumn {
-              items(snacks, key = { it.id }, contentType = { "snack" }) { snack ->
-                  SnackItem(
-                      snack = snack,
-                      sharedScope = sharedScope,
-                      context = context,
-                  )
-              }
+
+  ```kotlin
+  @Composable
+  fun SnackList(
+      snacks: List<Snack>,
+      sharedScope: SharedTransitionScope,
+  ) {
+      val context = LocalContext.current
+      LazyColumn {
+          items(snacks, key = { it.id }, contentType = { "snack" }) { snack ->
+              SnackItem(
+                  snack = snack,
+                  sharedScope = sharedScope,
+                  context = context,
+              )
           }
       }
+  }
+  ```
+
+  <br />
 
 ### 7. Defer shared transitions behind visibility indicators
 

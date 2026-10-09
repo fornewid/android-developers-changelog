@@ -14,24 +14,44 @@ expensive Composition phase entirely and avoids unnecessary recompositions.
 
 - **Bad (Recomposes on every pixel change)**:
 
-      val offset = scrollState.value
-      Modifier.offset(x = offset.dp, y = 0.dp)
+
+  ```kotlin
+  val offset = scrollState.value
+  Box(modifier = Modifier.offset(x = offset.dp, y = 0.dp))
+  ```
+
+  <br />
 
 - **Optimized (Skips Composition, goes straight to Layout)**:
 
-      Modifier.offset { IntOffset(scrollState.value, 0) }
+
+  ```kotlin
+  Box(modifier = Modifier.offset { IntOffset(scrollState.value, 0) })
+  ```
+
+  <br />
 
 ### B. Alpha and rotation animations
 
 - **Bad (Recomposes on every animation frame)**:
 
-      val alpha by animateFloatAsState(targetValue)
-      Modifier.alpha(alpha)
+
+  ```kotlin
+  val alpha by animateFloatAsState(targetValue)
+  Box(modifier = Modifier.alpha(alpha))
+  ```
+
+  <br />
 
 - **Optimized (Skips Composition and Layout, goes straight to Draw)**:
 
-      val alpha by animateFloatAsState(targetValue)
-      Modifier.graphicsLayer { this.alpha = alpha }
+
+  ```kotlin
+  val alpha by animateFloatAsState(targetValue)
+  Box(modifier = Modifier.graphicsLayer { this.alpha = alpha })
+  ```
+
+  <br />
 
 ### C. Custom composable parameters
 
@@ -41,17 +61,27 @@ directly to avoid lambda allocation overhead.
 
 - **Read in Composition (Pass value directly)**:
 
-      @Composable
-      fun TitleText(text: String) {
-          Text(text = text)
-      }
+
+  ```kotlin
+  @Composable
+  fun TitleText(text: String) {
+      Text(text = text)
+  }
+  ```
+
+  <br />
 
 - **Read in Layout or Draw (Pass lambda provider)**:
 
-      @Composable
-      fun FadingBox(alphaProvider: () -> Float) {
-          Box(Modifier.graphicsLayer { alpha = alphaProvider() })
-      }
+
+  ```kotlin
+  @Composable
+  fun FadingBox(alphaProvider: () -> Float) {
+      Box(Modifier.graphicsLayer { alpha = alphaProvider() })
+  }
+  ```
+
+  <br />
 
 ## 2. Preventing backwards writes across frame phases
 
@@ -89,79 +119,99 @@ unoptimized recomposition loop.
 - **Bad (`Read -> Write`: Mutating state after reading it triggers immediate
   recomposition loop)**:
 
-      @Composable
-      fun BadCounter() {
-          var count by remember { mutableIntStateOf(0) }
-          Text("Count: $count") // 1. State read in Composition
-          Button(onClick = {}) {
-              // 2. State write in Composition AFTER read (Backwards write!)
-              count++
-          }
+
+  ```kotlin
+  @Composable
+  fun BadCounter() {
+      var count by remember { mutableIntStateOf(0) }
+      Text("Count: $count") // 1. State read in Composition
+      Button(onClick = {}) {
+          // 2. State write in Composition AFTER read (Backwards write!)
+          count++
       }
+  }
+  ```
+
+  <br />
 
 - **Not a Backwards Write, but Redundant/Fragile (`Write -> Read` in
   Composition)**:
 
-      // NOT a backwards write because the write happens BEFORE any read in
-      // Composition (and before Canvas reads it in the Draw phase).
-      // However, wrapping a synchronous value in mutableStateOf is redundant
-      // and error-prone if a read is later added before the write.
-      @Composable
-      fun RedundantStateWrapper(viewModel: MyViewModel) {
-          var path by remember { mutableStateOf(Path()) }
-          // 1. Write occurs first (no prior read in scope)
-          path = viewModel.getPath()
-          Canvas(Modifier.fillMaxSize()) {
-              // 2. Read occurs later in Draw phase (Forward flow)
-              drawPath(path, Color.Red)
-          }
-      }
 
-      // Optimized: Remove redundant mutableStateOf wrapper and read in Draw
-      @Composable
-      fun OptimizedWrapper(viewModel: MyViewModel) {
-          Canvas(Modifier.fillMaxSize()) {
-              val path = viewModel.getPath()
-              drawPath(path, Color.Red)
-          }
+  ```kotlin
+  // NOT a backwards write because the write happens BEFORE any read in
+  // Composition (and before Canvas reads it in the Draw phase).
+  // However, wrapping a synchronous value in mutableStateOf is redundant
+  // and error-prone if a read is later added before the write.
+  @Composable
+  fun RedundantStateWrapper(viewModel: MyViewModel) {
+      var path by remember { mutableStateOf(Path()) }
+      // 1. Write occurs first (no prior read in scope)
+      path = viewModel.getPath()
+      Canvas(Modifier.fillMaxSize()) {
+          // 2. Read occurs later in Draw phase (Forward flow)
+          drawPath(path, Color.Red)
       }
+  }
+
+  // Optimized: Remove redundant mutableStateOf wrapper and read in Draw
+  @Composable
+  fun OptimizedWrapper(viewModel: MyViewModel) {
+      Canvas(Modifier.fillMaxSize()) {
+          val path = viewModel.getPath()
+          drawPath(path, Color.Red)
+      }
+  }
+  ```
+
+  <br />
 
 #### B. Reading in Composition, writing in Layout (phase backwards write)
 
 - **Bad (Layout writes to state read in Composition, causing first-frame
   popping)**:
 
-      @Composable
-      fun BadLayout() {
-          var componentHeight by remember { mutableStateOf(0.dp) }
 
-          // Composition reads state before Layout measures it
-          if (componentHeight > 100.dp) {
-              Banner()
-          }
+  ```kotlin
+  @Composable
+  fun BadLayout() {
+      var componentHeight by remember { mutableStateOf(0.dp) }
 
-          Box(
-              modifier = Modifier.onSizeChanged { size ->
-                  // Backwards write: Layout -> Composition
-                  componentHeight = size.height.dp
-              }
-          )
+      // Composition reads state before Layout measures it
+      if (componentHeight > 100.dp) {
+          Banner()
       }
+
+      Box(
+          modifier = Modifier.onSizeChanged { size ->
+              // Backwards write: Layout -> Composition
+              componentHeight = size.height.dp
+          }
+      )
+  }
+  ```
+
+  <br />
 
 - **Optimized (Defer sizing to Layout phase or hoist to Window level)**:
 
-      @Composable
-      fun OptimizedLayout(modifier: Modifier = Modifier) {
-          // Measurement and placement handled in Layout without recomposition
-          Box(
-              modifier = modifier.layout { measurable, constraints ->
-                  val placeable = measurable.measure(constraints)
-                  layout(placeable.width, placeable.height) {
-                      placeable.placeRelative(0, 0)
-                  }
+
+  ```kotlin
+  @Composable
+  fun OptimizedLayout(modifier: Modifier = Modifier) {
+      // Measurement and placement handled in Layout without recomposition
+      Box(
+          modifier = modifier.layout { measurable, constraints ->
+              val placeable = measurable.measure(constraints)
+              layout(placeable.width, placeable.height) {
+                  placeable.placeRelative(0, 0)
               }
-          )
-      }
+          }
+      )
+  }
+  ```
+
+  <br />
 
 For more information, see the [Backwards Write documentation](https://developer.android.com/develop/ui/compose/performance/backwards-write).
 
@@ -175,15 +225,20 @@ collection with a standard `MutableList` wrapped in `mutableStateOf(list,
 neverEqualPolicy())` and trigger recomposition using a load-bearing assignment
 (`state.value = list`).
 
-    class ActiveQueueManager {
-        private val list = mutableListOf<Item>()
-        val items = mutableStateOf(list, neverEqualPolicy())
 
-        fun enqueue(item: Item) {
-            list.add(item)
-            items.value = list // Load-bearing assignment triggers recomposition
-        }
+```kotlin
+class ActiveQueueManager {
+    private val list = mutableListOf<Item>()
+    val items = mutableStateOf(list, neverEqualPolicy())
+
+    fun enqueue(item: Item) {
+        list.add(item)
+        items.value = list // Load-bearing assignment triggers recomposition
     }
+}
+```
+
+<br />
 
 ### B. Use `SnapshotStateList.toList()` for repeated queries and iterations
 
@@ -199,36 +254,46 @@ of the scope and perform operations on that read-only snapshot:
 - **Bad (Repeated contains queries inside loop register fine-grained
   dependencies on every element)**:
 
-      @Composable
-      fun ItemSelector(
-          items: List<Item>,
-          selectedIds: SnapshotStateList<String>,
-      ) {
-          Column {
-              items.forEach { item ->
-                  // Avoid: Repeatedly querying the snapshot list inside the loop
-                  val isSelected = selectedIds.contains(item.id)
-                  ItemRow(item = item, isSelected = isSelected)
-              }
+
+  ```kotlin
+  @Composable
+  fun ItemSelector(
+      items: List<Item>,
+      selectedIds: SnapshotStateList<String>,
+  ) {
+      Column {
+          items.forEach { item ->
+              // Avoid: Repeatedly querying the snapshot list inside the loop
+              val isSelected = selectedIds.contains(item.id)
+              ItemRow(item = item, isSelected = isSelected)
           }
       }
+  }
+  ```
+
+  <br />
 
 - **Optimized (Take a read-only snapshot Set once for `O(1)` queries)**:
 
-      @Composable
-      fun ItemSelector(
-          items: List<Item>,
-          selectedIds: SnapshotStateList<String>,
-      ) {
-          // Convert to a local Set once per recomposition for fast O(1) lookups
-          val selectedSet = selectedIds.toSet()
-          Column {
-              items.forEach { item ->
-                  val isSelected = selectedSet.contains(item.id)
-                  ItemRow(item = item, isSelected = isSelected)
-              }
+
+  ```kotlin
+  @Composable
+  fun ItemSelector(
+      items: List<Item>,
+      selectedIds: SnapshotStateList<String>,
+  ) {
+      // Convert to a local Set once per recomposition for fast O(1) lookups
+      val selectedSet = selectedIds.toSet()
+      Column {
+          items.forEach { item ->
+              val isSelected = selectedSet.contains(item.id)
+              ItemRow(item = item, isSelected = isSelected)
           }
       }
+  }
+  ```
+
+  <br />
 
 ### C. Extract repeated state reads into local variables
 
@@ -239,20 +304,30 @@ top of the block.
 
 - **Bad (Repeated snapshot state reads)**:
 
-      val label = when (transition.currentState) {
-          State.Idle -> "Idle"
-          State.Running -> "Running: ${transition.currentState}"
-          State.Finished -> "Finished: ${transition.currentState}"
-      }
+
+  ```kotlin
+  val label = when (transition.currentState) {
+      State.Idle -> "Idle"
+      State.Running -> "Running: ${transition.currentState}"
+      State.Finished -> "Finished: ${transition.currentState}"
+  }
+  ```
+
+  <br />
 
 - **Optimized (Single read cached in local variable)**:
 
-      val currentState = transition.currentState
-      val label = when (currentState) {
-          State.Idle -> "Idle"
-          State.Running -> "Running: $currentState"
-          State.Finished -> "Finished: $currentState"
-      }
+
+  ```kotlin
+  val currentState = transition.currentState
+  val label = when (currentState) {
+      State.Idle -> "Idle"
+      State.Running -> "Running: $currentState"
+      State.Finished -> "Finished: $currentState"
+  }
+  ```
+
+  <br />
 
 ### D. Use `computedStateOf` versus `derivedStateOf` (Compose 1.13+)
 
@@ -279,19 +354,24 @@ In Compose 1.13+, **`computedStateOf`** is introduced alongside
    `build.gradle(.kts)` for the project's Compose version before using
    `computedStateOf`:
 
-       @Composable
-       fun ScrollToTopButton(scrollState: ScrollState) {
-           // Compose 1.13+: Invalidates composition only when > 0 changes,
-           // with minimal invalidation overhead compared to derivedStateOf.
-           // On Compose < 1.13, use remember { derivedStateOf { ... } }.
-           val showButton by computedStateOf { scrollState.value > 0 }
 
-           if (showButton) {
-               FloatingActionButton(onClick = { ... }) {
-                   Icon(Icons.Default.ArrowUpward, "Scroll to Top")
-               }
+   ```kotlin
+   @Composable
+   fun ScrollToTopButton(scrollState: ScrollState) {
+       // Compose 1.13+: Invalidates composition only when > 0 changes,
+       // with minimal invalidation overhead compared to derivedStateOf.
+       // On Compose < 1.13, use remember { derivedStateOf { ... } }.
+       val showButton by remember { computedStateOf { scrollState.value > 0 } }
+
+       if (showButton) {
+           FloatingActionButton(onClick = { /* ... */ }) {
+               Icon(Icons.Default.ArrowUpward, "Scroll to Top")
            }
        }
+   }
+   ```
+
+   <br />
 
 2. **Use `derivedStateOf`** when the calculation itself is computationally
    heavy and is read multiple times across the composition pass, so that the
@@ -301,8 +381,13 @@ In Compose 1.13+, **`computedStateOf`** is introduced alongside
 3. **Prefer plain Kotlin getters (`get()`)** for trivial property lookups or
    inverted booleans where invalidation dampening is not needed:
 
-       var isLocked by mutableStateOf(false)
-       val isReady: Boolean get() = !isLocked
+
+   ```kotlin
+   var isLocked by mutableStateOf(false)
+   val isReady: Boolean get() = !isLocked
+   ```
+
+   <br />
 
 4. **Avoid `produceState` + `snapshotFlow`** for synchronous derivations:
    Wrapping `snapshotFlow` in `produceState` adds unnecessary coroutine
@@ -311,21 +396,31 @@ In Compose 1.13+, **`computedStateOf`** is introduced alongside
 
    - **Bad (Unnecessary coroutine and flow dispatch)**:
 
-         val isScrolledToTop by produceState(initialValue = true, scrollState) {
-             snapshotFlow { scrollState.firstVisibleItemIndex == 0 }
-                 .collect { value = it }
-         }
+
+     ```kotlin
+     val isScrolledToTop by produceState(initialValue = true, scrollState) {
+         snapshotFlow { scrollState.firstVisibleItemIndex == 0 }
+             .collect { value = it }
+     }
+     ```
+
+     <br />
 
    - **Optimized (Synchronous snapshot derivation)**:
 
-         // Compose 1.13+:
-         val isScrolledToTop by computedStateOf {
-             scrollState.firstVisibleItemIndex == 0
-         }
-         // Compose < 1.13:
-         val isScrolledToTop by remember {
-             derivedStateOf { scrollState.firstVisibleItemIndex == 0 }
-         }
+
+     ```kotlin
+     // Compose 1.13+:
+     val isScrolledToTop by remember {
+         computedStateOf { scrollState.firstVisibleItemIndex == 0 }
+     }
+     // Compose < 1.13:
+     val isScrolledToTop by remember {
+         derivedStateOf { scrollState.firstVisibleItemIndex == 0 }
+     }
+     ```
+
+     <br />
 
 ## 4. Strong skipping mode and stability
 
@@ -418,28 +513,33 @@ However, when a parent `@Composable` receives a `data class` containing a large
 `ImmutableList` and passes the unwrapped `ImmutableList` to a child
 `@Composable`, **Compose runs `O(N)` structural equality twice**:
 
-    // Bad: Both HomeScreen (via data class .equals()) and HomeContent evaluate
-    // O(N) structural equality on the same ImmutableList in a single frame
-    data class HomeScreenModel(
-        val header: String,
-        val items: ImmutableList<ItemModel>
-    )
 
-    @Composable
-    private fun HomeScreen(model: HomeScreenModel) {
-        TopAppBar(title = { Text(model.header) })
-        // Unwrapping model.items to pass to a child @Composable
-        HomeContent(model.items)
-    }
+```kotlin
+// Bad: Both HomeScreen (via data class .equals()) and HomeContent evaluate
+// O(N) structural equality on the same ImmutableList in a single frame
+data class HomeScreenModel(
+    val header: String,
+    val items: ImmutableList<ItemModel>
+)
 
-    // Because contentList is an ImmutableList, HomeContent must re-evaluate O(N)
-    // .equals() on the list itself, even though HomeScreen already compared model
-    @Composable
-    private fun HomeContent(contentList: ImmutableList<ItemModel>) {
-        LazyColumn {
-            items(contentList) { /* ... */ }
-        }
+@Composable
+private fun HomeScreen(model: HomeScreenModel) {
+    TopAppBar(title = { Text(model.header) })
+    // Unwrapping model.items to pass to a child @Composable
+    HomeContent(model.items)
+}
+
+// Because contentList is an ImmutableList, HomeContent must re-evaluate O(N)
+// .equals() on the list itself, even though HomeScreen already compared model
+@Composable
+private fun HomeContent(contentList: ImmutableList<ItemModel>) {
+    LazyColumn {
+        items(contentList) { /* ... */ }
     }
+}
+```
+
+<br />
 
 In the preceding example, because `items` is an `ImmutableList` (which the
 compiler treats as stable and compares with `.equals()`) inside a `data class`:
@@ -481,19 +581,24 @@ occurs.
 - **Optimized (Remove `@Immutable` on large lazy-layout models to rely on fast
   `===` instance equality, and pass lightweight primitives)**:
 
-      // Unstable model skips using === pointer check when instance is unchanged
-      data class FeedState(
-          val feedId: String,
-          val items: List<FeedItem>
-      )
 
-      @Composable
-      fun FeedScreen(state: FeedState) {
-          // Pass only the primitive ID needed by the header
-          FeedHeader(feedId = state.feedId)
-          // Pass the state or items directly
-          FeedList(items = state.items)
-      }
+  ```kotlin
+  // Unstable model skips using === pointer check when instance is unchanged
+  data class FeedState(
+      val feedId: String,
+      val items: List<FeedItem>
+  )
+
+  @Composable
+  fun FeedScreen(state: FeedState) {
+      // Pass only the primitive ID needed by the header
+      FeedHeader(feedId = state.feedId)
+      // Pass the state or items directly
+      FeedList(items = state.items)
+  }
+  ```
+
+  <br />
 
 For more information, see the [Strong Skipping Mode documentation](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping).
 
@@ -519,15 +624,20 @@ variable or parameter referenced inside the `remember` block as a key.
   **not** pass the snapshot state properties read inside the calculation
   lambda as `remember` keys:
 
-      // Bad: passing snapshot state property as a key breaks derivedStateOf
-      val showButton by remember(scrollState.firstVisibleItemIndex) {
-          derivedStateOf { scrollState.firstVisibleItemIndex > 0 }
-      }
 
-      // Optimized: derivedStateOf tracks firstVisibleItemIndex internally
-      val showButton by remember {
-          derivedStateOf { scrollState.firstVisibleItemIndex > 0 }
-      }
+  ```kotlin
+  // Bad: passing snapshot state property as a key breaks derivedStateOf
+  val showButton by remember(scrollState.firstVisibleItemIndex) {
+      derivedStateOf { scrollState.firstVisibleItemIndex > 0 }
+  }
+
+  // Optimized: derivedStateOf tracks firstVisibleItemIndex internally
+  val showButton by remember {
+      derivedStateOf { scrollState.firstVisibleItemIndex > 0 }
+  }
+  ```
+
+  <br />
 
   `derivedStateOf` dynamically tracks snapshot state reads internally and
   invalidates only when the derived result actually changes. Passing state
@@ -538,20 +648,30 @@ variable or parameter referenced inside the `remember` block as a key.
 - **Bad (Omitting keys for standard calculation returns stale value upon
   parameter change)**:
 
-      @Composable
-      fun FormattedDateLabel(timestamp: Long, locale: Locale) {
-          val formattedDate = remember {
-              SimpleDateFormat("yyyy-MM-dd", locale).format(Date(timestamp))
-          }
-          Text(text = formattedDate)
+
+  ```kotlin
+  @Composable
+  fun FormattedDateLabel(timestamp: Long, locale: Locale) {
+      val formattedDate = remember {
+          SimpleDateFormat("yyyy-MM-dd", locale).format(Date(timestamp))
       }
+      Text(text = formattedDate)
+  }
+  ```
+
+  <br />
 
 - **Optimized (Pass referenced calculation parameters as keys)**:
 
-      @Composable
-      fun FormattedDateLabel(timestamp: Long, locale: Locale) {
-          val formattedDate = remember(timestamp, locale) {
-              SimpleDateFormat("yyyy-MM-dd", locale).format(Date(timestamp))
-          }
-          Text(text = formattedDate)
+
+  ```kotlin
+  @Composable
+  fun FormattedDateLabel(timestamp: Long, locale: Locale) {
+      val formattedDate = remember(timestamp, locale) {
+          SimpleDateFormat("yyyy-MM-dd", locale).format(Date(timestamp))
       }
+      Text(text = formattedDate)
+  }
+  ```
+
+  <br />

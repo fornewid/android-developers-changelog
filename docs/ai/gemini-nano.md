@@ -6,7 +6,7 @@ source: md.txt
 
 Gemini Nano lets you deliver rich generative AI experiences without needing
 a network connection or sending data to the cloud. On-device AI is a great
-solution for use-cases where low cost, and privacy safeguards are your primary
+solution for use-cases where low cost and privacy safeguards are your primary
 concerns.
 
 For on-device use-cases, you can take advantage of Google's Gemini Nano
@@ -91,3 +91,18 @@ principally due to the following:
 
 - **Ease of deployment**: AICore manages the distribution of Gemini Nano and handles future updates. You don't need to worry about downloading or updating large models over the network, nor impact on your app's disk and runtime memory budget.
 - **Accelerated inference**: AICore leverages on-device hardware to accelerate inference. Your app gets the best performance on each device, and you don't need to worry about the underlying hardware interfaces.
+
+## When to use hybrid inference
+
+Although Gemini Nano is ideal for offline and privacy-sensitive tasks, it has
+on-device constraints such as token limits, device hardware limitations, and
+model capability boundaries. In these scenarios, you can use
+[hybrid inference](https://developer.android.com/ai/hybrid) to balance AI workloads between the local device and the
+cloud.
+
+To ensure a consistent user experience across all devices and handle complex
+queries, you can use the [Firebase AI Logic Hybrid API](https://firebase.google.com/docs/ai-logic/hybrid/android/get-started). This lets your app
+do the following:
+
+- **Fall back gracefully**: Automatically route requests to Gemini Flash or Gemini Pro models in the cloud when Gemini Nano is unavailable or unsupported on the user's device.
+- **Enforce security** : Protect cloud inference with [Firebase App Check](https://firebase.google.com/docs/ai-logic/app-check) (and its supported attestation providers, like Play Integrity) and keep sensitive system prompts server-side.

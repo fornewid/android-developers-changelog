@@ -121,7 +121,7 @@ artifact.
 > [!NOTE]
 > **Note:** It's important to ensure these testing dependencies point to the correct source set. Usually AndroidX Test is needed in instrumentation tests only, so you would use `androidTestImplementation()`. However, in cases such as with `espresso-idling-resource`, the APIs are used from production code, requiring you to use the implementation function.
 
-Refer to the [Package Index](https://developer.android.com/reference/androidx/test/packages) or [Class Index](https://developer.android.com/reference/androidx/test/classes) for specific reference
+Refer to the [Package Index](https://developer.android.com/reference/androidx/packages) or [Class Index](https://developer.android.com/reference/androidx/classes) for specific reference
 documentation on these libraries.
 
 ## Projects using deprecated classes
@@ -130,7 +130,7 @@ documentation on these libraries.
 > **Warning:** If you build instrumentation tests using Gradle, you receive additional support. When auto-generating the test manifest, the Android Gradle Plugin adds the following libraries and manifest elements to your project automatically so you don't need to take these steps.
 
 If your app uses tests that rely on deprecated JUnit3-based `android.test`
-classes , such as [`InstrumentationTestCase`](https://developer.android.com/reference/android/test/InstrumentationTestCase) and [`TestSuiteLoader`](https://developer.android.com/reference/junit/runner/TestSuiteLoader), add
+classes , such as [`InstrumentationTestCase`](https://developer.android.com/reference/android/test/InstrumentationTestCase) and `TestSuiteLoader`, add
 the following lines in the `android` section of the file:
 
     android {

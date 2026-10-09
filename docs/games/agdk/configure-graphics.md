@@ -4,25 +4,39 @@ url: https://developer.android.com/games/agdk/configure-graphics
 source: md.txt
 ---
 
-# Configure graphics with OpenGL ES
+To draw objects and sprites in your game, you will need to configure the
+display, surface and context variables, set up rendering in your game loop, and
+draw each scene and object.
 
-To draw objects and sprites in your game, you will need to configure the display, surface and context variables, set up rendering in your game loop, and draw each scene and object.
+There are two ways to draw images to the screen for a C or C++ game, namely with
+[OpenGL ES](https://developer.android.com/develop/ui/views/graphics/opengl/about-opengl), or
+[Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started).
 
-There are two ways to draw images to the screen for a C or C++ game, namely with[OpenGL ES](https://developer.android.com/develop/ui/views/graphics/opengl/about-opengl), or[Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started).
+- [OpenGL ES](https://developer.android.com/develop/ui/views/graphics/opengl/about-opengl) is part of the [Open Graphics
+  Library (OpenGL®)](https://www.khronos.org/opengles/) specification
+  intended for mobile devices such as Android. Learn how to configure OpenGL ES
+  for your game in this topic.
 
-- [OpenGL ES](https://developer.android.com/develop/ui/views/graphics/opengl/about-opengl)is part of the[Open Graphics Library (OpenGL®)](https://www.khronos.org/opengles/)specification intended for mobile devices such as Android. Learn how to configure OpenGL ES for your game in this topic.
+- If you use Vulkan for your game, read the
+  [Getting started with Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started)
+  guide.
 
-- If you use Vulkan for your game, read the[Getting started with Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started)guide.
-
-| **Note:** The code in this topic is based on the[Endless Tunnel](https://github.com/android/ndk-samples/tree/master/endless-tunnel)sample, where details may differ for your game. Understand and adapt these concepts for your specific use case.
+> [!NOTE]
+> **Note:** The code in this topic is based on the [Endless Tunnel](https://github.com/android/ndk-samples/tree/master/endless-tunnel) sample, where details may differ for your game. Understand and adapt these concepts for your specific use case.
 
 ## Before you get started
 
-If you haven't already done so,[set up a GameActivity object](https://developer.android.com/games/agdk/game-activity)in your Android project.
+If you haven't already done so,
+[set up a GameActivity object](https://developer.android.com/games/agdk/game-activity) in your
+Android project.
 
 ## Set up OpenGL ES variables
 
-1. You will need a[display](https://developer.android.com/reference/android/opengl/EGLDisplay),[surface](https://developer.android.com/reference/android/opengl/EGLSurface),[context](https://developer.android.com/reference/android/opengl/EGLContext), and[config](https://developer.android.com/reference/android/opengl/EGLConfig)to render your game. Add the following OpenGL ES variables to your game engine's header file:
+1. You will need a [display](https://developer.android.com/reference/android/opengl/EGLDisplay),
+   [surface](https://developer.android.com/reference/android/opengl/EGLSurface),
+   [context](https://developer.android.com/reference/android/opengl/EGLContext), and
+   [config](https://developer.android.com/reference/android/opengl/EGLConfig) to render your game. Add the
+   following OpenGL ES variables to your game engine's header file:
 
        class NativeEngine {
         //...
@@ -39,7 +53,8 @@ If you haven't already done so,[set up a GameActivity object](https://developer.
          int mSurfWidth, mSurfHeight;
        }
 
-2. In the constructor for your game engine, initialize the default values for the variables.
+2. In the constructor for your game engine, initialize the default values for
+   the variables.
 
        NativeEngine::NativeEngine(struct android_app *app) {
          //...
@@ -70,7 +85,8 @@ If you haven't already done so,[set up a GameActivity object](https://developer.
          return true;
        }
 
-4. The surface can be an off-screen buffer (pbuffer) allocated by EGL, or a window allocated by the Android OS. Initialize this surface:
+4. The surface can be an off-screen buffer (pbuffer) allocated by EGL, or a
+   window allocated by the Android OS. Initialize this surface:
 
        bool NativeEngine::InitSurface() {
          ASSERT(mEglDisplay != EGL_NO_DISPLAY);
@@ -100,7 +116,8 @@ If you haven't already done so,[set up a GameActivity object](https://developer.
          return true;
        }
 
-5. Initialize the rendering context. This example creates an[OpenGL ES 2.0](https://developer.android.com/reference/android/opengl/GLES20)context:
+5. Initialize the rendering context. This example creates an
+   [OpenGL ES 2.0](https://developer.android.com/reference/android/opengl/GLES20) context:
 
        bool NativeEngine::InitContext() {
          ASSERT(mEglDisplay != EGL_NO_DISPLAY);
@@ -118,7 +135,9 @@ If you haven't already done so,[set up a GameActivity object](https://developer.
          return true;
        }
 
-6. Configure your OpenGL ES settings before drawing. This example is executed at the beginning of every frame. It enables depth testing, sets the clear color to black, and clears the color and depth buffers.
+6. Configure your OpenGL ES settings before drawing. This example is executed at
+   the beginning of every frame. It enables depth testing, sets the clear color to
+   black, and clears the color and depth buffers.
 
        void NativeEngine::ConfigureOpenGL() {
          glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -128,15 +147,18 @@ If you haven't already done so,[set up a GameActivity object](https://developer.
 
 ## Render with the game loop
 
-1. The game loop renders a frame and repeats indefinitely until the user quits. Between frames, your game may:
+1. The game loop renders a frame and repeats indefinitely until the user quits.
+   Between frames, your game may:
 
-   - [Process events](https://developer.android.com/games/agdk/game-activity/get-started#handle-events)such as input,[audio output](https://developer.android.com/games/sdk/oboe), and networking events.
+   - [Process events](https://developer.android.com/games/agdk/game-activity/get-started#handle-events) such as
+     input, [audio output](https://developer.android.com/games/sdk/oboe), and networking events.
 
    - Update the game logic and user interface.
 
    - Render a frame to the display.
 
-   To render a frame to the display, the`DoFrame`method is called indefinitely in the game loop:  
+   To render a frame to the display, the `DoFrame` method is called
+   indefinitely in the game loop:
 
        void NativeEngine::GameLoop() {
          // Loop indefinitely.
@@ -158,7 +180,8 @@ If you haven't already done so,[set up a GameActivity object](https://developer.
          }
        }
 
-2. In the`DoFrame`method, query the current surface dimensions, request`SceneManager`to render a frame, and swap the display buffers.
+2. In the `DoFrame` method, query the current surface dimensions, request
+   `SceneManager` to render a frame, and swap the display buffers.
 
        void NativeEngine::DoFrame() {
          ...
@@ -187,7 +210,10 @@ If you haven't already done so,[set up a GameActivity object](https://developer.
 
 ## Render scenes and objects
 
-1. The game loop processes a hierarchy of visible scenes and objects to render. In the Endless Tunnel example, a`SceneManager`keeps track of multiple scenes, with only one scene active at a time. In this example, the current scene is rendered:
+1. The game loop processes a hierarchy of visible scenes and objects to render.
+   In the Endless Tunnel example, a `SceneManager` keeps track of multiple scenes,
+   with only one scene active at a time. In this example, the current scene is
+   rendered:
 
        void SceneManager::DoFrame() {
          if (mSceneToInstall) {
@@ -200,7 +226,9 @@ If you haven't already done so,[set up a GameActivity object](https://developer.
          }
        }
 
-2. Depending on your game, a scene may contain background, text, sprites and game objects. Render them in the order suitable for your game. This example renders the background, text, and widgets:
+2. Depending on your game, a scene may contain background, text, sprites and
+   game objects. Render them in the order suitable for your game. This example
+   renders the background, text, and widgets:
 
        void UiScene::DoFrame() {
          // clear screen
@@ -234,12 +262,15 @@ If you haven't already done so,[set up a GameActivity object](https://developer.
 
 Read the following for more information about OpenGL ES and Vulkan:
 
-- [OpenGL ES](https://developer.android.com/develop/ui/views/graphics/opengl/about-opengl)- Images and graphics in Android.
+- [OpenGL ES](https://developer.android.com/develop/ui/views/graphics/opengl/about-opengl) - Images and graphics in Android.
 
-- [OpenGL ES](https://source.android.com/devices/graphics/arch-egl-opengl)- Overview in Android Source.
+- [OpenGL ES](https://source.android.com/devices/graphics/arch-egl-opengl) -
+  Overview in Android Source.
 
-- [Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started)- Getting started in NDK.
+- [Vulkan](https://developer.android.com/ndk/guides/graphics/getting-started) - Getting started in NDK.
 
-- [Vulkan](https://source.android.com/devices/graphics/arch-vulkan)- Overview in Android Source.
+- [Vulkan](https://source.android.com/devices/graphics/arch-vulkan) - Overview
+  in Android Source.
 
-- [Understand Android game loops](https://developer.android.com/games/develop/gameloops)- learn to pace frames, queue buffers, handle VSYNC callbacks, and manage threads.
+- [Understand Android game loops](https://developer.android.com/games/develop/gameloops) - learn to pace
+  frames, queue buffers, handle VSYNC callbacks, and manage threads.

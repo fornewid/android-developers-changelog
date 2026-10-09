@@ -1,16 +1,10 @@
 ---
-title: Android DevRel Skills Directory Guidelines  |  Android Developers
+title: https://developer.android.com/agents/skills/AGENTS
 url: https://developer.android.com/agents/skills/AGENTS
-source: html-scrape
+source: md.txt
 ---
 
-# Android DevRel Skills Directory Guidelines Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-
-> [!IMPORTANT] **Mandatory Skill Activation:** Whenever you are asked to create,
+> \[!IMPORTANT\] **Mandatory Skill Activation:** Whenever you are asked to create,
 > update, audit, package, or convert Android agent skills in
 > `third_party/devsite/android/en/agents/skills/` (or any of its
 > subdirectories), you **MUST** consult and follow the instructions in the
