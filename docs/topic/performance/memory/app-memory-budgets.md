@@ -232,8 +232,11 @@ For example, consider a streaming music app (`com.example.radio`):
                 android:maxMb="64"
                 android:state="perceptible" />
 
-            <!-- Dedicated background sync process -->
             <processes>
+                <!-- Default application process (uses the package baseline budgets above) -->
+                <process />
+
+                <!-- Dedicated background sync process -->
                 <process android:process=":sync">
                     <memory-budget android:maxMb="32" />
                 </process>
@@ -251,6 +254,10 @@ For example, consider a streaming music app (`com.example.radio`):
 
         </application>
     </manifest>
+
+When you declare a `<processes>` block in your manifest, include a `<process>`
+entry for every process used by components in your merged manifest, including
+`<process />` for the default application process.
 
 Memory use in any subprocess counts against both its process budget and the
 enclosing package budget. A process experiences memory pressure at runtime if it

@@ -4,6 +4,15 @@ url: https://developer.android.com/about/versions/17/qpr2/release-notes
 source: md.txt
 ---
 
+### Beta 7
+
+|---|---|
+| **Release date** | October 9, 2026 |
+| **Builds** | CP41.260831.016 |
+| **Emulator support** | x86 (64-bit), ARM (v8-A) |
+| **Security patch level** | 2026-10-05 |
+| **Google Play services** | 26.28.33 |
+
 ### Beta 6.1
 
 |---|---|
@@ -67,7 +76,7 @@ source: md.txt
 | **Security patch level** | 2026-07-05 |
 | **Google Play services** | 26.23.34 |
 
-### Android 17 QPR 2 Beta 6.1 (September 2026)
+### Android 17 QPR 2 Beta 7 (October 2026)
 
 Building on the [initial release of Android 17](https://developer.android.com/about/versions/17), we continue to
 update the platform with fixes and improvements that are then rolled out to
@@ -84,10 +93,6 @@ Android 17 QPR2 includes a minor SDK release. This incremental update has no
 planned behavior changes, minimizing the need for compatibility testing.
 You can the current SDK changes in the
 [API diff report](https://developer.android.com/sdk/api_diff/37.2/changes).
-
-#### Known issue in Beta 6.1
-
-Pixel 11 Pro Fold users may have to re-enroll Face Unlock.
 
 #### Hardening against call forwarding fraud
 
@@ -139,6 +144,16 @@ schedule background work, use [WorkManager](https://developer.android.com/develo
 [AlarmManager](https://developer.android.com/develop/background-work/services/alarms) for work that must happen at a specific time.
 For communication within a process, use direct calls such as callbacks or
 Kotlin flows instead of broadcasts.
+
+#### Known issue in Beta 7
+
+Pixel 11 Pro Fold users may have to re-enroll Face Unlock for it to function
+properly.
+
+### Top Issues fixed in Beta 7 (October 2026)
+
+- *Excessive battery drain during idle states when Flip to Shh prevents the device from entering deep sleep. ([**Issue #560036427**](https://issuetracker.google.com/issues/560036427), [**Issue #569079944**](https://issuetracker.google.com/issues/569079944))*
+- *HTTPS downloads fail immediately when initiated through the system DownloadManager. ([**Issue #562833711**](https://issuetracker.google.com/issues/562833711))*
 
 ### Top Issues fixed in Beta 6 (September 2026)
 

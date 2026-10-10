@@ -218,7 +218,7 @@ injection or code tampering.
 
 ### Restrict PII fields in CP2 data view
 
-For apps targeting Android 17 (API level Android 17 (API level 37)) and
+For apps targeting Android 17 (API level 37) and
 higher, Contacts Provider 2 (CP2) restricts certain columns containing
 Personally Identifiable Information (PII) from the data view. When this change
 is enabled, these columns are removed from the data view to enhance user
@@ -235,7 +235,7 @@ instead, by joining with [`RAW_CONTACT_ID`](https://developer.android.com/refere
 
 ### Enforce strict SQL checks in CP2
 
-For apps targeting Android 17 (API level Android 17 (API level 37)) and
+For apps targeting Android 17 (API level 37) and
 higher, Contacts Provider 2 (CP2) enforces strict SQL query validation when
 the [`ContactsContract.Data`](https://developer.android.com/reference/android/provider/ContactsContract.Data) table is accessed without
 [`READ_CONTACTS`](https://developer.android.com/reference/android/Manifest.permission#READ_CONTACTS) permission.
@@ -315,10 +315,10 @@ hardening](https://developer.android.com/about/versions/17/changes/bg-audio).
 Android 17 includes the following changes to improve user
 experience across a range of device sizes and form factors.
 
-### Platform API changes to ignore orientation, resizability and aspect ratio constraints on large screens (sw\>=600dp)
+### Platform API changes to ignore orientation, resizability, and aspect ratio constraints on large screens (sw\>=600dp)
 
 We introduced Platform API changes in Android 16 to [ignore orientation,
-aspect ratio, and resizability restrictions on large screens (sw \>=
+resizability, and aspect ratio restrictions on large screens (sw \>=
 600dp)](https://developer.android.com/about/versions/16/behavior-changes-16#ignore-orientation) for apps targeting API level
 36 or higher. Developers have the option to opt out of these
 changes with SDK 36, but this opt-out will no longer be

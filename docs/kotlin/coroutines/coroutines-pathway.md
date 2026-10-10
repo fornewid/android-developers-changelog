@@ -11,8 +11,8 @@ source: md.txt
 Kotlin coroutines allow you to simplify asynchronous programming in your
 Android app. Instead of having many callbacks in your code, you can write
 your code in a more sequential way.
-[Check out the pathway](https://developer.android.com/courses/pathways/android-coroutines) to learn more
+[Check out the pathway](https://developer.android.com/courses/pathways/android-basics-compose-unit-5-pathway-1) to learn more
 about the benefits of coroutines. You will also get hands-on practice with
 integrating coroutines into sample apps for common use cases.
 
-[Start pathway](https://developer.android.com/courses/pathways/android-coroutines)
+[Start pathway](https://developer.android.com/courses/pathways/android-basics-compose-unit-5-pathway-1)

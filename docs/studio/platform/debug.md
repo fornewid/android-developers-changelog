@@ -4,149 +4,75 @@ url: https://developer.android.com/studio/platform/debug
 source: md.txt
 ---
 
-Android Studio for Platform (ASfP) provides a powerful debugger that lets you:
+Android Studio for Platform (ASfP) integrates multi-language platform debugging
+around the **Attach** tab in the **Debug** tool window:
 
-- Select a device to debug on.
-- Set breakpoints in your Java, Kotlin, C/C++, and Rust code.
-- Examine variables and evaluate expressions at runtime.
+- Select **Run \> Attach to Android Process** (**Control+Alt+A** ) to attach the **Java debugger** , **Native debugger** (bundled LLDB), or both to any running app or system process on a physical device or Cuttlefish virtual device.
+- Inspect every loaded shared library (`.so`) and its eight-character ELF **Build ID** in the **Libraries** panel before attaching---with checkmark icons verifying matching local debug symbols under `out/target/product/<device>/symbols`.
+- Manage device prerequisites from the toolbar: filter with **Show system
+  processes** , click **Root Device** to run `adb root` (displaying **Device is
+  rooted** when active), and click **Enable JDWP** to enable JDWP on `userdebug` builds.
+- Set conditional and exception breakpoints, view inline variable values in the editor, use **Drop Frame** and smart **Step Into**, and inspect structured C++ and Rust types at runtime.
 
-Before you use the debugger, you must flash your build to a device or emulator.
+Before using the debugger, build your `lunch` target so the local
+`out/target/product/<device>/symbols/.build-id` symbol index exists, and flash
+or launch a matching device image.
 
-## App process (Java/Kotlin) debugging
+## Java and dual Java and native debugging
 
-To debug a Java or Kotlin application process:
+To debug a Java or Kotlin application, system app (such as
+`com.android.messaging`, Settings, or SystemUI), or a process calling into JNI
+and C++ or Rust code, complete the following steps:
 
-1. Set breakpoints in your Java or Kotlin code within ASfP.
+1. Set breakpoints in your Java, Kotlin, C, C++, or Rust source files.
+2. Select **Run \> Attach to Android Process** (**Control+Alt+A** ). ASfP opens a pinned **Attach** tab inside the **Debug** tool window.
+3. Select your target device from the device drop-down menu. If JDWP isn't enabled on a `userdebug` build, click **Enable JDWP** ---ASfP sets `persist.debug.dalvik.vm.jdwp.enabled=1` and reboots the device. When active, the button displays **JDWP enabled** with a right-click **Disable
+   JDWP** action.
+4. Select the target process from the table (Java and ART processes display a coffee-cup icon).
+5. At the bottom of the **Attach** tab, select **Java debugger** , **Native
+   debugger** , or both. Selecting both opens two linked tabs in the **Debug** tool window: `<process> (<pid>)` for built-in LLDB and `<process>
+   (<pid>)-jdwp` for Java. Their lifecycles are tied together, so stopping either session stops both.
+6. Click **Attach** and interact with the app on your device to hit your breakpoints.
 
-2. Select **Run \> Attach Debugger to Android Process** from the menu.
+![Dual Java and native debugging tabs linked alongside the Attach tab](https://developer.android.com/static/studio/platform/images/asfp-attach-hybrid.png)
 
-3. In the **Choose Process** dialog, make sure the **Debug type** is set to
-   **Java Only**.
+## System process (C and C++) debugging and symbol verification
 
-4. Select your device from the list.
+To debug system daemons, HALs, or system services (such as
+`android.hardware.bluetooth-service.cuttlefish`, `surfaceflinger`, or
+`audioserver`), complete the following steps:
 
-5. Choose the specific application process you want to debug.
+1. Open **Run \> Attach to Android Process** (**Control+Alt+A** ). If the toolbar shows **Root Device** , click it so ASfP runs `adb root` and displays **Device is rooted**.
+2. Select **Show system processes** in the top toolbar and filter for your target process.
+3. **Verify local debug symbols in the Libraries panel** : Selecting a process populates the **Libraries** table with every ELF shared library (`.so`) loaded in the process and the first eight hexadecimal characters of its ELF **Build ID** . ASfP matches each Build ID against `out/target/product/<device>/symbols` (`symbols/.build-id` is required to resolve libraries inside APEXes):
+   - Verified libraries display a checkmark icon. Point to any resolved row to preview its full local `.debug` symbol path.
+   - Unresolved libraries without matching local symbols display a warning icon.
+4. **Non-Java process detection** : When you select a C++ or Rust process (marked with a hexagon `C` icon), ASfP hides **Java debugger** and displays **Java debugging unavailable, not a Java process.** while keeping **Native
+   debugger** checked.
+5. Set breakpoints in your C, C++, or Rust source files, click **Attach**, and trigger the code path on the device.
 
-6. Click **OK**.
+![Attach tab showing the Libraries table, ELF Build IDs, and local symbol checkmarks](https://developer.android.com/static/studio/platform/images/asfp-attach-libraries.png)
 
-7. Interact with the application on your device to hit the breakpoints.
+## Debug Rust code
 
-## System process (C/C++) debugging
+ASfP debugs Rust platform code with the same built-in LLDB debugger used for C
+and C++. No external adapter or manual server setup is required: ASfP uses
+`lldb-dap` from its bundled toolchain and automatically loads the Rust
+pretty-printers from your AOSP prebuilts so standard types like `String`, `Vec`,
+`HashMap`, and `Option` display structured values in the **Variables** pane.
 
-To debug a system process written in C or C++:
+### Attach to a running Rust process on a device
 
-1. Verify that you have only one device or emulator running.
+Follow the steps in [System process (C and C++) debugging](https://developer.android.com/studio/platform/debug#system-process):
+open **Run \> Attach to Android Process** , verify **Device is rooted** and local
+symbols show a checkmark in the **Libraries** panel, keep **Native debugger**
+checked, and click **Attach**. Rust and C or C++ stack frames appear together in
+the same debug session.
 
-2. Open a terminal and run `adb root` from your AOSP checkout root: `bash
-   adb root`
+### Debug a `rust_test` or `rust_test_host` module
 
-<!-- -->
+1. Open the `Android.bp` file declaring a `rust_test` or `rust_test_host` target and click the **Run** icon in the gutter next to the module type.
+2. Select **Debug '\<ModuleName\>'**. ASfP builds the target, launches the test binary under LLDB on your host machine or connected device, and pauses at your Rust breakpoints.
+3. To debug a single test function or customize LLDB startup commands, open **Run \> Edit Configurations** , select the generated **Soong Test** configuration, and set **Method** or expand the **Debugger** options. For more information about **Soong Test** configuration options, see [Test platform code with atest](https://developer.android.com/studio/platform/test#debug-native-test).
 
-1. Set breakpoints in your C/C++ code within ASfP.
-
-2. Select **Run \> Attach Debugger to Android Process** from the menu.
-
-3. In the **Choose Process** dialog, change the **Debug type** to **Native
-   Only** or **Dual (Java + Native)**.
-
-4. Check the **Show all processes** box to see system processes.
-
-5. Select your device from the list.
-
-6. Choose the specific system process you want to debug (such as
-   `surfaceflinger` or `system_server`).
-
-7. Click **OK**.
-
-8. Interact with the device to hit your breakpoints.
-
-## Rust debugging
-
-ASfP supports Rust debugging using the Debug Adapter Protocol (DAP) with LLDB.
-This section outlines how to set up CodeLLDB as a Debug Adapter Server and debug
-Rust code on the host and on an Android device.
-
-### Set up CodeLLDB as a Debug Adapter Server
-
-1. Create a new **Debug Adapter Protocol** Run/Debug configuration:
-
-   1. Select **Run \> Edit Configurations** from the menu.
-   2. Click the **+** button.
-   3. Select **Debug Adapter Protocol**.
-2. In the server tab, click **create a new server**.
-
-3. In the newly opened dialog, click **Choose template** and select
-   **CodeLLDB** from the list.
-
-4. After selecting the CodeLLDB template, the new server is added with a
-   predefined configuration.
-
-   1. Enable verbose tracing by selecting **Verbose** in the **Trace** dropdown.
-   2. Add an environment variable that specifies the path to the `lldb-server` in your Android source prebuilts:
-
-           LLDB_DEBUGSERVER_PATH=REPO_ROOT/prebuilts/clang/host/linux-x86/CLANG_VERSION/runtimes_ndk_cxx/x86_64/lldb-server
-           ```
-
-       Replace `REPO_ROOT` with the absolute path to your Android source checkout.
-       To find `CLANG_VERSION`, run the `get_clang_version.py` script from the root of
-       your Android source tree:
-
-       ```bash
-           ./build/soong/scripts/get_clang_version.py
-
-   1. **Do not** alter the `<<insert base directory>>` section.
-
-### Debug Rust binaries on the host
-
-1. Open the **Configuration** tab in your Debug Adapter Protocol Run/Debug configuration.
-2. Select **Launch** as the **Debug Mode**.
-3. Update the **Working directory** and select the **Binary file** you want to debug.
-4. Click **OK** to save the configuration.
-5. Start the debugging session by clicking the **Debug** icon next to the configuration.
-
-The first time you run this, CodeLLDB downloads. You should see DAP
-traces in the console. Breakpoints set in your Rust code should be hit as
-expected.
-
-### Debug Rust binaries on an Android device (Attach mode)
-
-1. **Find the PID:** Identify the Process ID (PID) of the application you want
-   to debug on the Android device.
-
-2. **Start lldb-server on the device:** From the root of your Android source
-   tree checkout, run the `lldbclient.py` script, replacing `<PID>` with the
-   process ID:
-
-       lldbclient.py --setup-forwarding vscode-lldb -p <PID>
-
-   This script pushes the correct `lldb-server` to the device, starts it, sets
-   up port forwarding (host port 5039 to device), and outputs the DAP JSON
-   configuration needed for the next steps. Keep this terminal open.
-3. **Start the CodeLLDB Debug Adapter on the host:**
-
-   - Navigate to the CodeLLDB extension directory (default: `~/.lsp4ij/dap/codelldb/extension/adapter`).
-   - Set the required environment variables and start the adapter server, replacing `REPO_ROOT` and `CLANG_VERSION` as determined in the server setup:
-
-           # Sets PYTHONHOME env variable
-           export PYTHONHOME=REPO_ROOT/prebuilts/clang/host/linux-x86/CLANG_VERSION/python3
-
-           # Tell the dynamic linker where to find python libs
-           export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:REPO_ROOT/prebuilts/clang/host/linux-x86/CLANG_VERSION/python3/lib
-
-           # Starts the CodeLLDB Debugger Adapter server on port 1234
-           ./codelldb --liblldb REPO_ROOT/prebuilts/clang/host/linux-x86/CLANG_VERSION/lib/liblldb.so --port 1234
-
-4. **Configure the ASfP DAP Client:**
-
-   1. Go back to your Debug Adapter Protocol Run/Debug configuration in ASfP.
-   2. Select the **Configuration** tab.
-   3. Set **Debug Mode** to **Attach**.
-   4. Set **Address** to `localhost`.
-   5. Set **Port** to `1234`.
-   6. Paste the JSON output from the `lldbclient.py` command (Step 2) into the **DAP parameters (JSON)** field.
-5. Click **Debug** to start the debugging session.
-
-### Troubleshooting
-
-- If you see the error `error: Connection shut down by remote side while
-  waiting for reply to initial handshake packet`, terminate the current debug session, and restart the `lldb-server` on the device and the CodeLLDB adapter on the host.
+![Debugging Rust platform code with structured variable visualizers in ASfP](https://developer.android.com/static/studio/platform/images/asfp-rust-debug.png)
