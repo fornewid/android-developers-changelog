@@ -1,0 +1,98 @@
+diff --git a/docs/studio/platform/projects/create-project.md b/docs/studio/platform/projects/create-project.md
+index 5de989a1..90d17b5a 100644
+--- a/docs/studio/platform/projects/create-project.md
++++ b/docs/studio/platform/projects/create-project.md
+@@ -5,49 +5,57 @@ source: md.txt
+ ---
+ 
+ Android Studio for Platform (ASfP) helps you set up your development environment
+-for the [Android Open Source Project (AOSP)](https://source.android.com/). This page explains how to
+-start a new project or import an existing one.
++for the [Android Open Source Project (AOSP)](https://source.android.com/). Built on the IntelliJ
++Workspace Model, ASfP supports both manual configuration and shareable team
++templates.
+ 
+-## Create a new project
++## Launch the project setup wizard
+ 
+-1. If you don't have a project open, click **New Project** on the Welcome
+-   screen. ![ASfP Welcome Screen showing New Project
+-   option](https://developer.android.com/studio/platform/images/welcome_screen.png)
++You can launch the project setup wizard in two ways:
+ 
+-2. If you already have a project open, select **ASfP \> Project \> New Project**
+-   from the menu.
++- **From the Welcome screen** : Click **New Project** or **Import ASfP
++  Project**.
++- **From an open project** : In the main menu, select **ASfP \> Project \>
++  New Project** or **Import ASfP Project**.
+ 
+-3. Fill in the project configuration details in the wizard: ![ASfP New Project
+-   configuration wizard screen](https://developer.android.com/studio/platform/images/finish_project_import_screen.png)
++## Import from a template
+ 
+-   - **Module paths:** Specify the absolute path to the root of your AOSP source code checkout (for example, `/path/to/aosp`).
+-   - **Lunch target:** Enter the lunch target you use for building (for example, `aosp_arm64-eng`).
+-   - **Project name:** Give your project a descriptive name.
+-   - **Directories / modules:** List the initial directories or modules you want to include in your project, separated by commas. These should be relative paths from the repository root (for example, `frameworks/base,
+-     packages/apps/Settings`). You can add more or refine this selection later.
+-4. Click **Finish** . ASfP creates the project structure and the `.asfp-project`
+-   configuration file.
++If your team shares a standard `.asfp-project` configuration file, you can
++initialize your workspace directly from that template:
+ 
+-## Configure and customize your project
++1. In the project setup wizard, select **Import from template**.
++2. Browse to and select the shared `.asfp-project` or `.asfp-template` YAML file.
++3. After the wizard populates the project settings from the template, verify your local **Repo checkout** path, and then click **Finish**.
+ 
+-After the initial project setup, you can further customize your project by
+-editing the `.asfp-project` file located in the project root. This file lets
+-you:
++## Configure manually
+ 
+-- Add or remove directories and modules.
+-- Enable support for other languages like Rust or C++.
+-- Configure build flags and environment variables.
+-- Specify test sources.
++To create a new project configuration from scratch, do the following:
+ 
+-For detailed information on all configuration options, see the [Projects
+-overview](https://developer.android.com/studio/platform/projects). After editing `.asfp-project`, you'll need to sync the project for
+-the changes to take effect.
++1. In the project setup wizard, choose to configure the project manually and
++   fill in the project details:
+ 
+-## Import an existing project
++   - **Repo checkout (Module paths)** : Specify the absolute path to the root of your local AOSP source checkout (for example, `/path/to/aosp`).
++   - **Lunch target** : Enter the lunch target you use for building (for example, `aosp_cf_x86_64_phone-aosp_current-userdebug`).
++   - **Project name**: Give your project a descriptive name.
++   - **Directories and modules** : List the initial directories or Soong modules to include in your project (relative to the repository root, such as `frameworks/base` or `packages/apps/Settings`).
++   - **Languages** : If your workflow includes C, C++, or Rust platform code, select **C or C++** or **Rust** . Java, Kotlin, and `Android.bp` are included by default.
++   - **Environment variables and build options** : In the wizard's **Environment variables** field, add any custom environment variables like `SOONG_ALLOW_MISSING_DEPENDENCIES=true`, and optionally select the **Soong Partial Compile** (`SOONG_PARTIAL_COMPILE`) checkbox for faster incremental builds.
++2. Click **Finish** . ASfP creates the project structure, generates the
++   `.asfp-project` configuration file in your project root, and runs the
++   initial sync.
+ 
+-ASfP doesn't have a separate "import" action. To open an existing ASfP project
+-configuration:
++## Share or customize your project configuration
+ 
+-1. Select **ASfP \> Project \> New Project**.
+-2. In the **Project Name** field, navigate to and select the directory containing the existing `.asfp-project` file you want to open. The fields in the wizard will populate based on the selected `.asfp-project` file.
+-3. Click **Finish**. ASfP opens and indexes the project.
+\ No newline at end of file
++After initial setup, you can customize your project at any time by editing the
++`.asfp-project` file (**ASfP \> Project \> Open Config**):
++
++- Add or exclude directories and Soong modules.
++- Enable additional languages (`cpp`, `rust`).
++- Configure custom Soong flags and environment variables.
++
++To export your configuration for teammates, right-click the `.asfp-project` tab
++and select **Export to Template**.
++
++For more information about `.asfp-project` parameters, sync modes, and
++in-editor `Android.bp` actions, see
++[Projects overview and Soong workflows](https://developer.android.com/studio/platform/projects).
+\ No newline at end of file

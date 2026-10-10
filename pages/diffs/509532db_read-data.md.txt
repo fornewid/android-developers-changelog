@@ -1,0 +1,139 @@
+diff --git a/docs/health-and-fitness/health-connect/read-data.md b/docs/health-and-fitness/health-connect/read-data.md
+index a172a229..af2f185b 100644
+--- a/docs/health-and-fitness/health-connect/read-data.md
++++ b/docs/health-and-fitness/health-connect/read-data.md
+@@ -119,23 +119,57 @@ user privacy:
+ #### Query for on-device steps
+ 
+ Because SPNs are scoped and device-specific, you **must not** hardcode SPN
+-values. Instead, use the `getCurrentDeviceDataSource()` API to retrieve the
+-SPN for the current device.
++values. Instead, use the
++[`getCurrentDeviceDataSource`](https://developer.android.com/reference/android/health/connect/HealthConnectManager#getCurrentDeviceDataSource(java.util.concurrent.Executor,%20android.os.OutcomeReceiver%3Candroid.health.connect.DeviceDataSource,android.health.connect.HealthConnectException%3E)) API to retrieve
++the SPN for the current device.
+ 
+ While on-device step counting requires SDK extension version 20 or higher,
+-the `getCurrentDeviceDataSource()` API is available on Android 14 (API level
+-34) with SDK extension version 11 or higher.
++the `getCurrentDeviceDataSource()` API is available on Android 14 (API level 34)
++with SDK extension version 22 or higher. To use this API, set
++`compileSdkExtension` to `22` or higher in your module-level `build.gradle.kts`
++or `build.gradle` file:
+ 
+-The `getCurrentDeviceDataSource()` API is not yet available in the Health
+-Connect Jetpack library. The following examples use the Android framework API
+-instead:
++### Kotlin
++
++```kotlin
++android {
++    compileSdk = 35
++    compileSdkExtension = 22
++}
++```
++
++### Groovy
++
++```groovy
++android {
++    compileSdk 35
++    compileSdkExtension 22
++}
++```
++
++The `getCurrentDeviceDataSource()` API isn't yet available in the Health
++Connect Jetpack library. The following examples use the Android framework API,
++which requires an `Executor` and an `OutcomeReceiver` callback:
+ 
+     import android.content.Context
++    import android.health.connect.DeviceDataSource
++    import android.health.connect.HealthConnectException
+     import android.health.connect.HealthConnectManager
++    import android.os.OutcomeReceiver
+ 
+     val healthConnectManager = context.getSystemService(HealthConnectManager::class.java)
+-    val deviceDataSource = healthConnectManager?.getCurrentDeviceDataSource()
+-    val currentDeviceSpn = deviceDataSource?.deviceDataOrigin?.packageName
++    healthConnectManager?.getCurrentDeviceDataSource(
++        context.mainExecutor,
++        object : OutcomeReceiver<DeviceDataSource, HealthConnectException> {
++            override fun onResult(result: DeviceDataSource) {
++                val currentDeviceSpn = result.deviceDataOrigin.packageName
++            }
++
++            override fun onError(error: HealthConnectException) {
++                // Handle error
++            }
++        }
++    )
+ 
+ If your app needs to read on-device steps, or if it displays step data
+ broken down by source application or device, you must query for records
+@@ -150,8 +184,11 @@ The following example shows how to read aggregated on-device step count data
+ by filtering for both `android` and the current device SPN:
+ 
+     import android.content.Context
++    import android.health.connect.DeviceDataSource
++    import android.health.connect.HealthConnectException
+     import android.health.connect.HealthConnectManager
+     import android.os.Build
++    import android.os.OutcomeReceiver
+     import android.os.ext.SdkExtensions
+     import androidx.health.connect.client.HealthConnectClient
+     import androidx.health.connect.client.records.StepsRecord
+@@ -159,6 +196,9 @@ by filtering for both `android` and the current device SPN:
+     import androidx.health.connect.client.request.AggregateRequest
+     import androidx.health.connect.client.time.TimeRangeFilter
+     import java.time.Instant
++    import kotlin.coroutines.resume
++    import kotlin.coroutines.resumeWithException
++    import kotlinx.coroutines.suspendCancellableCoroutine
+ 
+     suspend fun readDeviceStepsByTimeRange(
+         healthConnectClient: HealthConnectClient,
+@@ -166,16 +206,30 @@ by filtering for both `android` and the current device SPN:
+         startTime: Instant,
+         endTime: Instant
+     ) {
+-        // 1. Check if SDK Extension 11+ is available for getCurrentDeviceDataSource()
+-        val isDataSourceApiAvailable = Build.VERSION.SDK_INT >= Build.VERSION_CODES.U &&
+-                SdkExtensions.getExtensionVersion(Build.VERSION_CODES.U) >= 11
++        // 1. Check if SDK Extension 22+ is available for getCurrentDeviceDataSource()
++        val isDataSourceApiAvailable =
++            Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE &&
++                SdkExtensions.getExtensionVersion(Build.VERSION_CODES.UPSIDE_DOWN_CAKE) >= 22
+ 
+         try {
+             val healthConnectManager = context.getSystemService(HealthConnectManager::class.java)
+ 
+-            // 2. Safely fetch the package name only if API is available and data exists
+-            val currentDeviceSpn = if (isDataSourceApiAvailable) {
+-                healthConnectManager?.getCurrentDeviceDataSource()?.deviceDataOrigin?.packageName
++            // 2. Safely fetch the package name only if the API is available
++            val currentDeviceSpn = if (isDataSourceApiAvailable && healthConnectManager != null) {
++                suspendCancellableCoroutine { continuation ->
++                    healthConnectManager.getCurrentDeviceDataSource(
++                        context.mainExecutor,
++                        object : OutcomeReceiver<DeviceDataSource, HealthConnectException> {
++                            override fun onResult(result: DeviceDataSource) {
++                                continuation.resume(result.deviceDataOrigin.packageName)
++                            }
++
++                            override fun onError(error: HealthConnectException) {
++                                continuation.resumeWithException(error)
++                            }
++                        }
++                    )
++                }
+             } else {
+                 null
+             }
+@@ -198,7 +252,7 @@ by filtering for both `android` and the current device SPN:
+             val stepCount = response[StepsRecord.COUNT_TOTAL]
+ 
+         } catch (e: Exception) {
+-            // Now this catch block only handles actual runtime exceptions, 
++            // Now this catch block only handles actual runtime exceptions,
+             // rather than Errors from missing methods.
+         }
+     }

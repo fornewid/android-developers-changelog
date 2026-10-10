@@ -1,0 +1,75 @@
+diff --git a/docs/kotlin/adopt-for-large-teams.md b/docs/kotlin/adopt-for-large-teams.md
+index 672a2a7f..118cfd93 100644
+--- a/docs/kotlin/adopt-for-large-teams.md
++++ b/docs/kotlin/adopt-for-large-teams.md
+@@ -18,7 +18,7 @@ team's learning.
+ #### Form study groups
+ 
+ Study groups are an effective way to facilitate learning and retention.
+-[Studies suggest](https://source.wustl.edu/2006/07/discovering-why-study-groups-are-more-effective/)
++[Studies suggest](https://source.washu.edu/2006/07/discovering-why-study-groups-are-more-effective/)
+ that reciting what you've learned in a group setting helps to
+ reinforce the material. Get a
+ [Kotlin book](https://kotlinlang.org/docs/books.html) or other
+@@ -129,7 +129,7 @@ language before writing code that you plan to ship with your app.
+ 
+ Any static utility classes (`StringUtils`, `IntegerUtils`, `DateUtils`,
+ `YourCustomTypeUtils`, and so on) can be represented as
+-[Kotlin extension functions](https://kotlinlang.org/docs/reference/extensions.html)
++[Kotlin extension functions](https://kotlinlang.org/docs/extensions.html)
+ and used by your existing Java codebase.
+ 
+ For example, consider you have a `StringUtils` class with a few methods:
+@@ -290,13 +290,13 @@ carefully.
+ #### Adopt New Features
+ 
+ Kotlin provides a lot of
+-[new libraries](https://kotlinlang.org/api/latest/jvm/stdlib/index.html)
++[new libraries](https://kotlinlang.org/api/core/kotlin-stdlib/)
+ and syntactic sugar to reduce boilerplate, which helps to increase development
+ speed. That said, be cautious and methodical when using Kotlin's standard
+ library functions, such as
+-[collection functions](https://kotlinlang.org/docs/reference/scope-functions.html#function-selection),
+-[coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html),
+-and [lambdas](https://kotlinlang.org/docs/reference/lambdas.html).
++[collection functions](https://kotlinlang.org/docs/scope-functions.html#function-selection),
++[coroutines](https://kotlinlang.org/docs/coroutines-overview.html),
++and [lambdas](https://kotlinlang.org/docs/lambdas.html).
+ 
+ Here's a very common trap that newer Kotlin developers encounter. Assume the
+ following Kotlin code:
+@@ -318,7 +318,7 @@ nullableFoo?.let { foo ->
+ The intent in this example is to execute `foo.baz()` and `foo.zap()` if
+ `nullableFoo` is not null, thus avoiding a `NullPointerException`. While this
+ code works as expected, it's less intuitive to read than a simple null check and
+-[smart cast](https://kotlinlang.org/docs/reference/typecasts.html#smart-casts),
++[smart cast](https://kotlinlang.org/docs/typecasts.html#smart-casts),
+ as shown in the following example:
+ 
+ 
+@@ -341,7 +341,7 @@ Classes and their functions are closed for extension by default in Kotlin. You
+ must explicitly open the classes and functions that you want to subclass. This
+ behavior is a language design decision that was chosen to promote composition
+ over inheritance. Kotlin has built-in support to implement behavior through
+-[delegation](https://kotlinlang.org/docs/reference/delegation.html)
++[delegation](https://kotlinlang.org/docs/delegation.html)
+ to help simplify composition.
+ 
+ This behavior poses a problem for mocking frameworks, such as Mockito, that
+@@ -350,7 +350,7 @@ testing. For unit tests, you can enable the use of the
+ [Mock Maker Inline](https://github.com/mockito/mockito/wiki/What%27s-new-in-Mockito-2#mock-the-unmockable-opt-in-mocking-of-final-classesmethods)
+ feature of Mockito, which allows you to mock final classes and methods.
+ Alternatively, you can use the
+-[All-Open compiler plugin](https://kotlinlang.org/docs/reference/compiler-plugins.html#all-open-compiler-plugin)
++[All-Open compiler plugin](https://kotlinlang.org/docs/all-open-plugin.html)
+ to open any Kotlin class and its members that you want to test as part of the
+ compilation process. The primary advantage to using this plugin is that it works
+ with both unit and instrumented tests.
+@@ -362,4 +362,4 @@ For more information on using Kotlin, check out the following links:
+ - [Android's Kotlin-first approach](https://developer.android.com/kotlin/first)
+ - [Resources for getting started with Kotlin](https://developer.android.com/kotlin/getting-started-resources)
+ - [Resources for Java users learning Kotlin](https://developer.android.com/kotlin/kotlin-java-resources)
+-- [Java to Kotlin learning pathway](https://developer.android.com/courses/pathways/kotlin-for-java), a collection of resources that help Java programmers learn and write idiomatic Kotlin.
+\ No newline at end of file
++- [Java to Kotlin learning pathway](https://developer.android.com/kotlin/campaign/learn), a collection of resources that help Java programmers learn and write idiomatic Kotlin.
+\ No newline at end of file

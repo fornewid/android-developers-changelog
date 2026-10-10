@@ -1,0 +1,22 @@
+diff --git a/docs/develop/xr/jetpack-xr-sdk/set-up-sdk.md b/docs/develop/xr/jetpack-xr-sdk/set-up-sdk.md
+index 604e041e..eaece627 100644
+--- a/docs/develop/xr/jetpack-xr-sdk/set-up-sdk.md
++++ b/docs/develop/xr/jetpack-xr-sdk/set-up-sdk.md
+@@ -112,7 +112,7 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
+         implementation "androidx.xr.runtime:runtime:1.1.0-alpha01"
+         implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha18"
+         implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha18"
+-        implementation "androidx.xr.projected:projected:1.0.0-alpha09"
++        implementation "androidx.xr.projected:projected:1.0.0-alpha13"
+         implementation "androidx.xr.arcore:arcore:1.0.0-beta02"
+     }
+ 
+@@ -122,7 +122,7 @@ Then, add the necessary dependencies to your app's `build.gradle.kts` file:
+         implementation("androidx.xr.runtime:runtime:1.1.0-alpha01")
+         implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha18")
+         implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha18")
+-        implementation("androidx.xr.projected:projected:1.0.0-alpha09")
++        implementation("androidx.xr.projected:projected:1.0.0-alpha13")
+         implementation("androidx.xr.arcore:arcore:1.0.0-beta02")
+     }
+ 

@@ -1,0 +1,13 @@
+diff --git a/docs/games/optimize/vitals.md b/docs/games/optimize/vitals.md
+index 0633da4d..4999e785 100644
+--- a/docs/games/optimize/vitals.md
++++ b/docs/games/optimize/vitals.md
+@@ -206,7 +206,7 @@ issues and rates may differ from other sources for several reasons:
+   - For example, Crashlytics counts the number of issues per app session. If a user played a game three times in one day and experienced one crash, Android vitals would show a 100% crash rate while Crashlytics would show a 33% crash rate.
+ 
+ For more information on how data is collected, see the [Play Console Help
+-Center](https://support.google.com/googleplay/android-developer/answer/7385505).
++Center](https://support.google.com/googleplay/android-developer/answer/9844486).
+ 
+ #### Can I see my ANR and crashes insights in the IDE?
+ 

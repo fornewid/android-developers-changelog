@@ -1,0 +1,114 @@
+diff --git a/docs/studio/platform/intro.md b/docs/studio/platform/intro.md
+index 10a0d818..5d8bcbdf 100644
+--- a/docs/studio/platform/intro.md
++++ b/docs/studio/platform/intro.md
+@@ -4,51 +4,75 @@ url: https://developer.android.com/studio/platform/intro
+ source: md.txt
+ ---
+ 
+-Android Studio for Platform (ASfP) is the official Integrated Development
+-Environment (IDE) designed specifically for Android platform development. Built
+-on the powerful foundation of IntelliJ IDEA, ASfP is tailored to enhance
+-productivity and streamline workflows for engineers working within the Android
+-Open Source Project (AOSP).
++Android Studio for Platform (ASfP) is the official integrated development
++environment (IDE) for Android platform development. Built on IntelliJ IDEA
++2026.2, ASfP streamlines code navigation, building, debugging, and testing for
++engineers working in the Android Open Source Project (AOSP).
+ 
+ ## Why use ASfP?
+ 
+-ASfP provides a comprehensive suite of tools optimized for the unique challenges
+-of platform development, going beyond standard Android app development. It
+-integrates deeply with the AOSP codebase and build systems, offering features
+-that accelerate your development process.
++ASfP addresses the specific scale and build requirements of platform development
++beyond standard Android app projects. It integrates directly with large AOSP
++source trees and the Soong build system to support multi-language platform
++workflows.
+ 
+ ## Key features
+ 
+-- **Seamless AOSP integration:** Works directly with the AOSP source tree and
+-  the Soong build system (`Android.bp` files). Effortlessly sync and manage
+-  complex platform projects.
++- **AOSP and Soong (`Android.bp`) integration** : Build Soong targets and run
++  or debug `android_test`, `cc_test`, and `rust_test` modules from gutter
++  icons inside `Android.bp` files, jump from any source file to its
++  `Android.bp` module declaration (**Open Corresponding Android.bp File** ),
++  and manage syncs with **Partial Sync** , **No-Build Sync** , and **Sync and
++  Full Build** modes.
+ 
+-- **Intelligent code editing:** Benefit from advanced code completion,
+-  refactoring, and analysis for Kotlin, Java, C/C++, and Rust, helping you
+-  write high-quality code faster.
++- **Project setup and shareable templates** : Scope your workspace using the
++  `.asfp-project` YAML file, restore cached project model snapshots on startup
++  with the IntelliJ Workspace Model, and share configurations across your
++  team with **Import from template** and **Export to template** . For more
++  information, see [Projects overview and Soong workflows](https://developer.android.com/studio/platform/projects).
+ 
+-- **Powerful debugging:** Debug platform code, including C/C++ and Java, with
+-  features like breakpoints, variable inspection, and expression evaluation.
+-  Learn more about [debugging](https://developer.android.com/studio/platform/debug).
++- **Cuttlefish virtual device management and multi-screen mirroring** : Create
++  and manage multidevice Cuttlefish virtual device setups in **Device
++  Manager** using your local AOSP checkout, and use multi-screen display
++  mirroring in the dedicated **Cuttlefish** tool window for Android Automotive
++  OS (AAOS) and Software-Defined Vehicle (SDV) development.
+ 
+-- **Integrated testing:** Run `atest` commands directly from the IDE to
+-  execute platform tests and view results. See [Test your platform
+-  code](https://developer.android.com/studio/platform/test).
++- **AI in Android Studio and Built-in Agent with platform tools** : Use the
++  **Built-in Agent** in [AI in Android Studio](https://developer.android.com/ai-in-android) to plan
++  multi-step edits, build Soong targets, and run `atest` platform tests inside
++  the IDE. It supports built-in Gemini models, Gemini Code Assist, Gemini
++  Enterprise, and Bring Your Own Model (BYOM) endpoints.
+ 
+-- **Customizable project setup:** Fine-tune your project scope and build
+-  configurations using the flexible `.asfp-project` YAML file. Learn more
+-  about [project management](https://developer.android.com/studio/platform/projects).
++- **Multi-language code editing** : Get code completion, cross-module
++  navigation, refactoring, and real-time analysis for Kotlin, Java, C, C++,
++  Rust, and `Android.bp` files.
+ 
+-- **Rust language support:** Core feature support for Rust development in
+-  AOSP. More details at [Rust Support in ASfP](https://developer.android.com/studio/platform/projects/rust).
++- **Platform debugging (Attach tab and LLDB)** : Select **Run** \> **Attach to
++  Android Process** to open the **Attach** tab in the **Debug** tool window.
++  Inspect loaded shared libraries (`.so`), ELF **Build IDs** , and checkmark
++  icons verifying local symbols under
++  `out/target/product/<device>/symbols`, and then attach the **Java
++  debugger** , **Native debugger** , or both. For more information, see
++  [Debug platform code](https://developer.android.com/studio/platform/debug).
+ 
+-- **AI-powered assistance:** Use [Gemini in Android
+-  Studio](https://developer.android.com/ai-in-android) for code
+-  generation, code updates, and to get answers to your development questions,
+-  all within the editor.
++- **Integrated testing (`atest` and LLDB)** : Run and debug tests from source
++  files or `Android.bp` test modules (`android_test`, `cc_test`,
++  `cc_test_host`, `rust_test`, and `rust_test_host`). ASfP determines
++  **Device** versus **Host** targets (including dual-target
++  `host_supported: true` modules), runs Tradefed target preparation, and
++  launches targets under the Java or built-in LLDB debugger. For more
++  information, see [Test platform code with atest](https://developer.android.com/studio/platform/test).
++
++- **Built-in Rust language support** : Develop Rust code in AOSP with automatic
++  `rust-analyzer` integration and built-in LLDB debugging with Rust type
++  visualizers. For more information, see [Rust support in ASfP](https://developer.android.com/studio/platform/projects/rust).
++
++- **Automatic in-IDE updates** : Receive update notifications inside the IDE
++  with direct `.deb` downloads and terminal installation commands whenever
++  Stable or Canary releases are published.
+ 
+ ## Get started
+ 
+ - [Install Android Studio for Platform](https://developer.android.com/studio/platform/install)
+-- [Create a project](https://developer.android.com/studio/platform/projects/create-project)
+-- See the latest updates in the [Release Notes](https://developer.android.com/studio/platform/releases).
+\ No newline at end of file
++- [Create or import a project](https://developer.android.com/studio/platform/projects/create-project)
++- [Read the release notes](https://developer.android.com/studio/platform/releases)
+\ No newline at end of file
