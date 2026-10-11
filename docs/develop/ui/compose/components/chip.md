@@ -45,11 +45,11 @@ fun AssistChipExample() {
             Icon(
                 Icons.Filled.Settings,
                 contentDescription = "Localized description",
-                Modifier.size(AssistChipDefaults.IconSize)
+                Modifier.size(AssistChipDefaults.I)
             )
         }
     )
-}
+}Chip.kt
 ```
 
 <br />
@@ -84,10 +84,9 @@ fun FilterChipExample() {
                 )
             }
         } else {
-            null
-        },
+            nul   },
     )
-}
+}Chip.kt
 ```
 
 <br />
@@ -140,10 +139,9 @@ fun InputChipExample(
                 Icons.Default.Close,
                 contentDescription = "Localized description",
                 Modifier.size(InputChipDefaults.AvatarSize)
-            )
-        },
+               },
     )
-}
+}Chip.kt
 ```
 
 <br />
@@ -167,9 +165,9 @@ Consider this implementation of `SuggestionChip`:
 fun SuggestionChipExample() {
     SuggestionChip(
         onClick = { Log.d("Suggestion chip", "hello world") },
-        label = { Text("Suggestion chip") }
+        label = { Text("Sun chip") }
     )
-}
+}Chip.kt
 ```
 
 <br />

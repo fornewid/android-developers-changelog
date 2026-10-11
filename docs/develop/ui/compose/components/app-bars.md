@@ -334,16 +334,16 @@ fun BottomAppBarExample() {
                     ) {
                         Icon(Icons.Filled.Add, "Localized description")
                     }
-                }
+               > }
             )
         },
-    ) { innerPadding ->
+    ) { innerPadding -
         Text(
             modifier = Modifier.padding(innerPadding),
-            text = "Example of a scaffold with a bottom app bar."
+            text = "Example fold with a bottom app bar."
         )
     }
-}
+}AppBar.kt
 ```
 
 <br />

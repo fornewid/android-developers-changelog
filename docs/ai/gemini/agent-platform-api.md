@@ -48,7 +48,7 @@ Add the following Gradle dependencies to your app module:
 
     dependencies {
       // Import the BoM for the Firebase platform
-      implementation(platform("com.google.firebase:35.0.0"))
+      implementation(platform("com.google.firebase:firebase-bom:35.0.0"))
 
       // Add the dependencies for the Firebase AI Logic and App Check libraries
       // When using the BoM, you don't specify versions in Firebase library dependencies
@@ -148,8 +148,8 @@ In the Firebase documentation, you can learn more about the
 [configuring model parameters](https://firebase.google.com/docs/ai-logic/model-parameters?api=vertex).
 
 > [!IMPORTANT]
-> **Important:** In mid-2026, when "Vertex AI" rebranded to "Gemini Enterprise Agent Platform" (or "Agent Platform"), the Firebase AI Logic SDKs added new "Agent Platform" initialization syntax to accommodate this rebranding.  
-> If you previously used the legacy "Vertex AI" syntax (`backend = GenerativeBackend.vertexAI()`), then migrate your app to use the new "Agent Platform" syntax (`backend = GenerativeBackend.agentPlatform()`) as soon as possible. Learn more about [required changes](https://firebase.google.com/docs/ai-logic/faq-and-troubleshooting?api=vertex#changes-for-vertexai-rebrand-to-agent-platform).
+> **Important:** In mid-2026, "Vertex AI" rebranded to "Gemini Enterprise Agent Platform" (or "Agent Platform"). To accommodate this change, Firebase AI Logic SDKs added new "Agent Platform" initialization syntax, and the legacy "Vertex AI" syntax was *removed* in SDK v18.0.0 (Firebase BoM v35.0.0).  
+> If you previously used the legacy "Vertex AI" syntax (`backend = GenerativeBackend.vertexAI()`), then migrate your app to use the new "Agent Platform" syntax (`backend = GenerativeBackend.agentPlatform()`). Learn more about [required changes](https://firebase.google.com/docs/ai-logic/faq-and-troubleshooting?api=vertex#changes-for-vertexai-rebrand-to-agent-platform).
 
 ### Generate text
 

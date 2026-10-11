@@ -20,7 +20,7 @@ routed to the Gemini Developer API,
 which can leverage both Gemini Pro and Flash models.](https://developer.android.com/static/ai/assets/images/firebase-ai-logic-gemini-dev.svg) **Figure 1.** Firebase AI Logic integration architecture to access the Gemini Developer API.
 
 > [!NOTE]
-> **Note:** If you have strict [data location](https://firebase.google.com/docs/ai-logic/locations?api=vertex) requirements or you're already embedded in the Google Cloud ecosystem, you can consider using the Agent Platform Gemini API (formerly Vertex AI) as your API provider for the [Firebase AI Logic SDK](https://developer.android.com/ai/vertex-ai-firebase).
+> **Note:** If you have strict [data location](https://firebase.google.com/docs/ai-logic/locations?api=vertex) requirements or you're already embedded in the Google Cloud ecosystem, you can consider using the [Agent Platform Gemini API](https://developer.android.com/ai/gemini/agent-platform-api) (formerly Vertex AI) as your API provider for the Firebase AI Logic SDK.
 
 ### Getting started
 
@@ -70,7 +70,7 @@ Add the following Gradle dependencies to your app module:
 
     dependencies {
       // Import the BoM for the Firebase platform
-      implementation(platform("com.google.firebase:35.0.0"))
+      implementation(platform("com.google.firebase:firebase-bom:35.0.0"))
 
       // Add the dependencies for the Firebase AI Logic and App Check libraries
       // When using the BoM, you don't specify versions in Firebase library dependencies
