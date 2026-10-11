@@ -1,5 +1,75 @@
 [
   {
+    "date": "2026-10-11T15:09:19Z",
+    "commit_hash": "7f3b6bb6",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini/agent-platform-api\" target=\"_blank\">Agent Platform Gemini API</a>",
+        "path": "ai/gemini/agent-platform-api.md",
+        "summary": "Updated the Firebase BoM dependency artifact ID in the code snippet to correct it to 'com.google.firebase:firebase-bom:35.0.0'. Additionally, clarified the migration notice regarding the Vertex AI to Agent Platform rebranding, noting that the legacy Vertex AI initialization syntax was officially removed in SDK v18.0.0 (Firebase BoM v35.0.0).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7f3b6bb6_agent-platform-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/ai/gemini/developer-api\" target=\"_blank\">Gemini Developer API</a>",
+        "path": "ai/gemini/developer-api.md",
+        "summary": "Updated the Firebase Bill of Materials (BoM) dependency declaration in the Gradle snippet to use the correct artifact name ('firebase-bom') and added a hyperlink to the Agent Platform Gemini API documentation to improve developer navigation and accuracy.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7f3b6bb6_developer-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/extend-agp\" target=\"_blank\">Write Gradle plugins</a>",
+        "path": "build/extend-agp.md",
+        "summary": "The changes in this documentation introduce syntax errors in the Kotlin code snippets (such as broken lambda declarations and malformed task registration methods). These appear to be accidental artifacts or corruptions in the Markdown file and do not reflect valid Android Gradle Plugin APIs.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7f3b6bb6_extend-agp.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/components/app-bars\" target=\"_blank\">App bars</a>",
+        "path": "develop/ui/compose/components/app-bars.md",
+        "summary": "The documentation updates contain syntax errors and typos introduced into the Compose BottomAppBar code example, such as mismatched bracket/parenthesis placement and modified text strings. These changes do not reflect meaningful API updates and appear to be artifactual or erroneous edits.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7f3b6bb6_app-bars.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/xr/jetpack-xr-sdk/request-hardware-permissions\" target=\"_blank\">Request hardware permissions for audio glasses and display glasses</a>",
+        "path": "develop/xr/jetpack-xr-sdk/request-hardware-permissions.md",
+        "summary": "Updated the Jetpack XR SDK hardware permissions documentation to reflect API changes, shifting away from `ActivityResultLauncher` and `ProjectedPermissionsResultContract` toward using `ProjectedActivityCompat.requestPermissions` and the `deviceId`-aware `onRequestPermissionsResult` callback for handling permissions on audio and display glasses.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7f3b6bb6_request-hardware-permissions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/bottomsheet\" target=\"_blank\">Bottom Sheet Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/bottomsheet.md",
+        "summary": "Updated the BottomSheetScene implementation in the Navigation 3 recipe to manage ModalBottomSheet state directly via SheetState and rememberModalBottomSheetState. Additionally, it introduces an onRemove suspend function to properly execute hide animations when the bottom sheet is popped from the back stack, removing the previous lifecycle owner composition local workaround.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7f3b6bb6_bottomsheet.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/multiple-backstacks\" target=\"_blank\">Multiple back stacks recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/multiple-backstacks.md",
+        "summary": "Added `rememberViewModelStoreNavEntryDecorator` to the multiple backstacks navigation recipe. This change matters because it properly integrates ViewModel scoping and persistence with Navigation 3 backstacks, ensuring ViewModels survive configuration changes and stack switching.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7f3b6bb6_multiple-backstacks.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/media/media3/ui/compose-customization\" target=\"_blank\">Core Compose</a>",
+        "path": "media/media3/ui/compose-customization.md",
+        "summary": "Updated the `CustomPlayerSlots` code example in the Compose customization documentation to accept a `showControls` boolean parameter. This change reflects API updates in the Player composable where control visibility and slot lambdas have been simplified, removing redundant parameters like `player` and `visible` from the slot lambdas.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/7f3b6bb6_compose-customization.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-10T15:10:27Z",
     "commit_hash": "509532db",
     "entries": [
