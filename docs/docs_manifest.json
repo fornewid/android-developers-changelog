@@ -13880,8 +13880,8 @@
     },
     "studio/nightly.md": {
       "original_url": "https://developer.android.com/studio/nightly",
-      "hash": "984f8a0f13a0019c0a44bcccc8bd34367beb62064508c0192743ef040d95bd11",
-      "last_updated": "2026-10-09T15:06:13.157717",
+      "hash": "996a39ffeab783638370877c253d21a33d0ac63617290b260f63bc869234630a",
+      "last_updated": "2026-10-12T15:09:32.891692",
       "fetch_method": "md.txt"
     },
     "develop/xr/jetpack-xr-sdk/arcore/hands.md": {
@@ -35011,5 +35011,5 @@
       "fetch_method": "md.txt"
     }
   },
-  "last_updated": "2026-10-11T15:09:18.541770"
+  "last_updated": "2026-10-12T15:14:35.185561"
 }
