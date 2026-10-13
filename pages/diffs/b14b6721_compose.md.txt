@@ -1,0 +1,44 @@
+diff --git a/docs/jetpack/androidx/releases/compose.md b/docs/jetpack/androidx/releases/compose.md
+index a72fc785..08e79123 100644
+--- a/docs/jetpack/androidx/releases/compose.md
++++ b/docs/jetpack/androidx/releases/compose.md
+@@ -50,15 +50,15 @@ your app or module:
+ ### Groovy
+ 
+ ```groovy
++plugins {
++    id 'org.jetbrains.kotlin.plugin.compose'
++}
++
+ android {
+     buildFeatures {
+         compose true
+     }
+ 
+-    composeOptions {
+-        kotlinCompilerExtensionVersion = "1.5.15"
+-    }
+-
+     kotlinOptions {
+         jvmTarget = "1.8"
+     }
+@@ -68,15 +68,15 @@ android {
+ ### Kotlin
+ 
+ ```kotlin
++plugins {
++    kotlin("plugin.compose")
++}
++
+ android {
+     buildFeatures {
+         compose = true
+     }
+ 
+-    composeOptions {
+-        kotlinCompilerExtensionVersion = "1.5.15"
+-    }
+-
+     kotlinOptions {
+         jvmTarget = "1.8"
+     }

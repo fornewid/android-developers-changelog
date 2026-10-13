@@ -1,0 +1,48 @@
+diff --git a/docs/jetpack/androidx/releases/compose-material.md b/docs/jetpack/androidx/releases/compose-material.md
+index 0439a0c7..9ef1b9ff 100644
+--- a/docs/jetpack/androidx/releases/compose-material.md
++++ b/docs/jetpack/androidx/releases/compose-material.md
+@@ -42,6 +42,10 @@ your app or module:
+ ### Groovy
+ 
+ ```groovy
++plugins {
++    id 'org.jetbrains.kotlin.plugin.compose'
++}
++
+ dependencies {
+     implementation "androidx.compose.material:material:1.12.1"
+ }
+@@ -51,10 +55,6 @@ android {
+         compose true
+     }
+ 
+-    composeOptions {
+-        kotlinCompilerExtensionVersion = "1.5.15"
+-    }
+-
+     kotlinOptions {
+         jvmTarget = "1.8"
+     }
+@@ -64,6 +64,10 @@ android {
+ ### Kotlin
+ 
+ ```kotlin
++plugins {
++    kotlin("plugin.compose")
++}
++
+ dependencies {
+     implementation("androidx.compose.material:material:1.12.1")
+ }
+@@ -73,10 +77,6 @@ android {
+         compose = true
+     }
+ 
+-    composeOptions {
+-        kotlinCompilerExtensionVersion = "1.5.15"
+-    }
+-
+     kotlinOptions {
+         jvmTarget = "1.8"
+     }

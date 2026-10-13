@@ -1,0 +1,48 @@
+diff --git a/docs/jetpack/androidx/releases/compose-runtime.md b/docs/jetpack/androidx/releases/compose-runtime.md
+index 290ca0f7..0cdabec4 100644
+--- a/docs/jetpack/androidx/releases/compose-runtime.md
++++ b/docs/jetpack/androidx/releases/compose-runtime.md
+@@ -42,6 +42,10 @@ your app or module:
+ ### Groovy
+ 
+ ```groovy
++plugins {
++    id 'org.jetbrains.kotlin.plugin.compose'
++}
++
+ dependencies {
+     implementation "androidx.compose.runtime:runtime:1.12.1"
+     implementation "androidx.compose.runtime:runtime-livedata:1.12.1"
+@@ -53,10 +57,6 @@ android {
+         compose true
+     }
+ 
+-    composeOptions {
+-        kotlinCompilerExtensionVersion = "1.5.15"
+-    }
+-
+     kotlinOptions {
+         jvmTarget = "1.8"
+     }
+@@ -66,6 +66,10 @@ android {
+ ### Kotlin
+ 
+ ```kotlin
++plugins {
++    kotlin("plugin.compose")
++}
++
+ dependencies {
+     implementation("androidx.compose.runtime:runtime:1.12.1")
+     implementation("androidx.compose.runtime:runtime-livedata:1.12.1")
+@@ -77,10 +81,6 @@ android {
+         compose = true
+     }
+ 
+-    composeOptions {
+-        kotlinCompilerExtensionVersion = "1.5.15"
+-    }
+-
+     kotlinOptions {
+         jvmTarget = "1.8"
+     }

@@ -1,5 +1,371 @@
 [
   {
+    "date": "2026-10-13T15:12:18Z",
+    "commit_hash": "b14b6721",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/references/verify\" target=\"_blank\">Verify the model on the device  |  Android Developers</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/references/verify.md",
+        "summary": "Added a new reference documentation page outlining procedures for verifying LiteRT models on Android devices, including steps for comparing CPU and GPU outputs against reference dumps, handling diagnostic indicators, and troubleshooting device-only execution failures.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/agents/skills/device-ai/litert/litert-runtime/skill\" target=\"_blank\">Build an Android app with the LiteRT CompiledModel API  |  Android Developers</a>",
+        "path": "agents/skills/device-ai/litert/litert-runtime/skill.md",
+        "summary": "Added a new documentation page providing step-by-step guidance for building an Android app that executes .tflite models using the LiteRT CompiledModel API on the CPU or GPU.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/android-performance-analyzer\" target=\"_blank\">Android Performance Analyzer (APA)</a>",
+        "path": "android-performance-analyzer.md",
+        "summary": "Updated the Android Performance Analyzer documentation to reference version 0.10.0-canary4 for Windows, Mac, and Linux builds, including new file hashes, URLs, and file sizes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_android-performance-analyzer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/build/releases/agp-9-5-0-release-notes\" target=\"_blank\">Android Gradle plugin 9.5.0</a>",
+        "path": "build/releases/agp-9-5-0-release-notes.md",
+        "summary": "This new documentation page outlines the release notes for Android Gradle Plugin (AGP) 9.5, detailing compatibility requirements and new experimental features like automated backup and restore testing.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/graphics/draw/brush\" target=\"_blank\">Brush: gradients and shaders</a>",
+        "path": "develop/ui/compose/graphics/draw/brush.md",
+        "summary": "Added a documentation note recommending the use of mesh gradients for complex, multi-directional 2D color transitions instead of stacking multiple gradient brushes. This matters because it guides developers toward more efficient and modern APIs for creating organic or fluid backgrounds in Jetpack Compose.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_brush.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/graphics/draw/mesh-gradient\" target=\"_blank\">Mesh gradients</a>",
+        "path": "develop/ui/compose/graphics/draw/mesh-gradient.md",
+        "summary": "Updated the mesh gradient documentation to provide clearer guidance on when to use mesh gradients instead of stacking multiple linear or radial gradients, helping developers create complex multi-point backgrounds more efficiently.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_mesh-gradient.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/graphics/draw/modifiers\" target=\"_blank\">Graphics modifiers</a>",
+        "path": "develop/ui/compose/graphics/draw/modifiers.md",
+        "summary": "Added documentation for LayerOutsets in Jetpack Compose 1.12.0-alpha01+. This feature allows developers to expand the visual bounds of an offscreen drawing layer (such as for drop shadows or outer glows) without altering the layout measurement of adjacent UI elements or affecting layout bounds.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_modifiers.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/sharing/receive\" target=\"_blank\">Receive data from other apps</a>",
+        "path": "develop/ui/compose/sharing/receive.md",
+        "summary": "Updated the documentation to emphasize using Compose Navigation deep links (`navDeepLink`) for receiving shared content from other apps. It now outlines a clear three-step process (manifest intent filters, navigation graph deep links, and payload extraction) and includes code examples for configuring `navDeepLink` with Jetpack Compose, retrieving intents safely via `LocalActivity.current`, and processing data asynchronously using coroutines.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_receive.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/sharing/send\" target=\"_blank\">Send data to other apps</a>",
+        "path": "develop/ui/compose/sharing/send.md",
+        "summary": "Updated the content sharing and intent documentation to include guidance on Jetpack Compose context retrieval, dynamic MIME type resolution at runtime, recommended alternatives to deprecated ChooserTargets (like the Photo Picker and ShortcutManagerCompat), and cleaned up phrasing around custom targets.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_send.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/pointer-input\" target=\"_blank\">Pointer input in Compose</a>",
+        "path": "develop/ui/compose/touch-input/pointer-input.md",
+        "summary": "The documentation link and description for dragging have been updated from 'Drag, swipe, and fling' to 'Drag composables', now specifically highlighting modifiers like `draggable`, `draggable2D`, and `anchoredDraggable` for moving UI elements. This matters because it provides developers with clearer and more accurate guidance on modern drag-and-drop and movement APIs in Compose.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_pointer-input.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-composables\" target=\"_blank\">Drag composables</a>",
+        "path": "develop/ui/compose/touch-input/pointer-input/drag-composables.md",
+        "summary": "This new documentation page provides a comprehensive guide on using Jetpack Compose dragging APIs to handle touch input and implement custom drag behaviors like single-axis dragging and anchored components.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/scroll/two-dimensional-scrolling\" target=\"_blank\">Two-dimensional scrolling: scrollable2D, draggable2D</a>",
+        "path": "develop/ui/compose/touch-input/scroll/two-dimensional-scrolling.md",
+        "summary": "Removed the detailed implementation examples for `Modifier.draggable2D` directly from the two-dimensional scrolling documentation and replaced them with a cross-reference link pointing to the dedicated pointer input documentation on drag composables. This streamlines the scrolling guide and centralizes draggable UI element tutorials.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_two-dimensional-scrolling.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/guide/navigation/navigation-3/recipes/dialog\" target=\"_blank\">Dialog Recipe</a>",
+        "path": "guide/navigation/navigation-3/recipes/dialog.md",
+        "summary": "Updated the Navigation 3 dialog recipe documentation to fix syntax errors in the code snippet, specifically correcting the DialogSceneStrategy initialization, entry definitions, and lambda parameters to reflect the latest stable API usage.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_dialog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/identity/form-factors\" target=\"_blank\">Authenticate across form factors</a>",
+        "path": "identity/form-factors.md",
+        "summary": "The Android TV identity documentation has been updated to provide deeper details on Credential Manager integration. It now explains how Credential Manager handles multi-user shared TV environments by displaying all available device credentials, introduces configuration details for the click-free auto-select flow (`isAutoSelectAllowed`), and clarifies when Digital Asset Links are required based on shared package names and signing keys between mobile and TV apps.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_form-factors.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack\" target=\"_blank\">Android Jetpack Dev Resources - Android Developers</a>",
+        "path": "jetpack.md",
+        "summary": "Added a new entry for the Jetpack `annotation.keep` library to the documentation, referencing its release page and including a placeholder description for tracking retention rules.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_jetpack.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/explorer\" target=\"_blank\">Explore the Jetpack libraries by type</a>",
+        "path": "jetpack/androidx/explorer.md",
+        "summary": "Added the 'annotation.keep' library entry to the AndroidX explorer documentation, ensuring developers can easily find and reference the latest keep annotation release artifacts and metadata.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_explorer.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/annotation-keep\" target=\"_blank\">Annotation Keep</a>",
+        "path": "jetpack/androidx/releases/annotation-keep.md",
+        "summary": "Added documentation for the new annotation-keep library starting with version 1.0.0-alpha01, providing multiplatform dependency declarations and release tracking.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-animation\" target=\"_blank\">Compose Animation</a>",
+        "path": "jetpack/androidx/releases/compose-animation.md",
+        "summary": "Updated the Jetpack Compose Animation setup documentation for both Groovy and Kotlin DSLs to replace the deprecated `kotlinCompilerExtensionVersion` inside `composeOptions` with the new Jetbrains Compose compiler Gradle plugin (`org.jetbrains.kotlin.plugin.compose`). This is important as it reflects the modern Compose compiler setup tied directly to the Kotlin compiler version.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_compose-animation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-foundation\" target=\"_blank\">Compose Foundation</a>",
+        "path": "jetpack/androidx/releases/compose-foundation.md",
+        "summary": "Updated the Compose Foundation setup documentation for both Groovy and Kotlin DSLs by replacing the deprecated `composeOptions { kotlinCompilerExtensionVersion = ... }` block with the new Jetpack Compose compiler Gradle plugin (`org.jetbrains.kotlin.plugin.compose`). This change reflects the modern Compose compilation setup required for newer versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_compose-foundation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-material\" target=\"_blank\">Compose Material</a>",
+        "path": "jetpack/androidx/releases/compose-material.md",
+        "summary": "The Compose Material integration documentation has been updated to remove the legacy `composeOptions` block containing the `kotlinCompilerExtensionVersion` and replaced it with the modern Jetpack Compose compiler Gradle plugin (`org.jetbrains.kotlin.plugin.compose`). This change matters because it aligns the setup instructions with the current recommended Jetpack Compose compilation approach, which decouples the compiler version from the Jetpack Compose runtime version.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_compose-material.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-material3\" target=\"_blank\">Compose Material 3</a>",
+        "path": "jetpack/androidx/releases/compose-material3.md",
+        "summary": "Updated the Compose Material3 documentation to reflect modern configuration practices by removing the deprecated `composeOptions` block with `kotlinCompilerExtensionVersion` and replacing it with the new JetBrains Compose compiler Gradle plugin (`org.jetbrains.kotlin.plugin.compose`). This is important because modern Jetpack Compose versions require the official Kotlin Compose compiler plugin instead of the legacy extension version.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_compose-material3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-runtime\" target=\"_blank\">Compose Runtime</a>",
+        "path": "jetpack/androidx/releases/compose-runtime.md",
+        "summary": "The documentation was updated to remove the legacy `composeOptions` block with `kotlinCompilerExtensionVersion` and replace it with the modern Jetpack Compose compiler Gradle plugin (`org.jetbrains.kotlin.plugin.compose`) for both Groovy and Kotlin DSL configurations. This change matters because Jetpack Compose has transitioned to using the official Kotlin compiler plugin, aligning with current best practices and newer Compose versions.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_compose-runtime.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose-ui\" target=\"_blank\">Compose UI</a>",
+        "path": "jetpack/androidx/releases/compose-ui.md",
+        "summary": "Updated the Compose UI setup documentation for both Groovy and Kotlin DSLs to replace the deprecated `composeOptions { kotlinCompilerExtensionVersion = ... }` block with the new Jetpack Compose compiler plugin (`org.jetbrains.kotlin.plugin.compose`). This is important because the Compose compiler is now part of the Kotlin repository and managed via the Kotlin plugin, aligning with modern Compose setup practices.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_compose-ui.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/compose\" target=\"_blank\">Compose</a>",
+        "path": "jetpack/androidx/releases/compose.md",
+        "summary": "The Compose documentation was updated to remove the deprecated `composeOptions` block containing `kotlinCompilerExtensionVersion` and instead introduce the new Jetpack Compose compiler Gradle plugin (`org.jetbrains.kotlin.plugin.compose`) in both Groovy and Kotlin build configuration examples. This matters because Jetpack Compose compiler management has shifted to the official Kotlin compiler plugin starting with Kotlin 2.0, deprecating the old `composeOptions` approach.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_compose.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/datastore\" target=\"_blank\">DataStore</a>",
+        "path": "jetpack/androidx/releases/datastore.md",
+        "summary": "The Jetpack DataStore documentation has been updated to announce the release of version 1.3.0-rc01. This release candidate transitions the library to use WindowCompat#enableEdgeToEdge(Window) instead of EdgeToEdge#enable(), and bumps the androidx.lifecycle:lifecycle-runtime dependency to 2.10.0 to support bundled lifecycle runtime lint checks with AGP 9.5.0-alpha04 or later.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_datastore.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/glance\" target=\"_blank\">Glance</a>",
+        "path": "jetpack/androidx/releases/glance.md",
+        "summary": "The Jetpack Glance documentation was updated to reflect the deprecation and removal of the `composeOptions { kotlinCompilerExtensionVersion }` block in favor of the new Jetpack Compose compiler Gradle plugin (`org.jetbrains.kotlin.plugin.compose`), aligning setup instructions with modern Android development standards.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_glance.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/paging\" target=\"_blank\">Paging</a>",
+        "path": "jetpack/androidx/releases/paging.md",
+        "summary": "Paging library version 3.5.3 has been released, updating stable versions across all artifacts and Paging Compose to 3.5.3. This release introduces critical bug fixes, including resolving an IllegalArgumentException in ItemSnapshotListFlow when using RemoteMediator with terminal separators and preventing pages from excessively dropping below two pages when exceeding PagingConfig.maxSize.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_paging.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/releases/tracing\" target=\"_blank\">Tracing</a>",
+        "path": "jetpack/androidx/releases/tracing.md",
+        "summary": "Androidx tracing library version 2.0.4 has been released, introducing a crucial bug fix that resolves a race condition when flushing trace packets. This update ensures more reliable system trace data collection.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_tracing.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions\" target=\"_blank\">AndroidX releases</a>",
+        "path": "jetpack/androidx/versions.md",
+        "summary": "Updated Android Jetpack library versions for October 12, 2026. Key updates include the addition of annotation.keep (1.0.0-alpha01), DataStore advancing to 1.3.0-rc01, Paging stabilizing to 3.5.3, and Tracing updating to 2.0.4, ensuring developers have access to the latest bug fixes and pre-release features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_versions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/all-channel\" target=\"_blank\">Recent Release Notes</a>",
+        "path": "jetpack/androidx/versions/all-channel.md",
+        "summary": "Added release notes for October 12, 2026, which include updates for Annotation Keep (1.0.0-alpha01), Datastore (1.3.0-rc01), Paging (3.5.3), and Tracing (2.0.4). This matters as it keeps developers informed about the latest stable and pre-release Jetpack library updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_all-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/alpha-channel\" target=\"_blank\">Alpha Releases</a>",
+        "path": "jetpack/androidx/versions/alpha-channel.md",
+        "summary": "Added release notes for Annotation Keep Version 1.0.0-alpha01 under the October 12, 2026 entry, tracking the latest Jetpack library updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_alpha-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/rc-channel\" target=\"_blank\">RC Releases</a>",
+        "path": "jetpack/androidx/versions/rc-channel.md",
+        "summary": "Added release candidate documentation for Datastore Version 1.3.0-rc01, published on October 12, 2026. This matters for developers tracking the latest stable progression of Jetpack data storage libraries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_rc-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/jetpack/androidx/versions/stable-channel\" target=\"_blank\">Stable Releases</a>",
+        "path": "jetpack/androidx/versions/stable-channel.md",
+        "summary": "Added release entries for Paging Version 3.5.3 and Tracing Version 2.0.4 under a new October 12, 2026 section. This documentation update informs developers about the latest stable library versions and their availability for production use.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_stable-channel.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/backup-restore-testing-release-notes\" target=\"_blank\">Backup and restore testing release notes</a>",
+        "path": "studio/preview/backup-restore-testing-release-notes.md",
+        "summary": "This new documentation page introduces the release notes for the experimental automated backup and restore testing libraries in Android Studio. It outlines version updates, bug fixes, and improvements to help developers test app data backup functionality effectively.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/preview/backup-restore-testing\" target=\"_blank\">Automated backup and restore testing</a>",
+        "path": "studio/preview/backup-restore-testing.md",
+        "summary": "This new documentation details how to set up and run automated backup and restore tests using JUnit 5 and AGP test suites to catch data loss issues before release.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/releases/fixed-bugs/emulator/37\" target=\"_blank\">Android Emulator 37 Closed Issues</a>",
+        "path": "studio/releases/fixed-bugs/emulator/37.md",
+        "summary": "Added release notes for Android Emulator 37.3.4 Canary, documenting a fix for a fatal snapshot version error (Issue #568423542).",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_37.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/add-keep-rules\" target=\"_blank\">Add keep rules</a>",
+        "path": "topic/performance/app-optimization/add-keep-rules.md",
+        "summary": "Added documentation for Jetpack Keep annotations, explaining how developers can use annotations in their own code alongside a Gradle plugin to automatically generate keep rules for reflection instead of writing them manually. This matters because it simplifies code shrinking configurations and makes them more robust.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_add-keep-rules.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/adopt-optimizations-incrementally\" target=\"_blank\">Adopt optimizations incrementally</a>",
+        "path": "topic/performance/app-optimization/adopt-optimizations-incrementally.md",
+        "summary": "The documentation was updated to include guidance on using Jetpack Keep annotations and lint checks to replace broad package-wide keep rules with more targeted, conditional R8 rules for reflective calls, improving app optimization.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_adopt-optimizations-incrementally.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations\" target=\"_blank\">Generate keep rules from annotations</a>",
+        "path": "topic/performance/app-optimization/jetpack-keep-annotations.md",
+        "summary": "Introduces Jetpack Keep, an alpha library and Gradle plugin that allows developers to declare reflection and JNI usage directly in Kotlin or Java source code via annotations, automatically generating conditional R8 keep rules.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/keep-rule-examples\" target=\"_blank\">Keep rule use cases and examples</a>",
+        "path": "topic/performance/app-optimization/keep-rule-examples.md",
+        "summary": "The keep-rule-examples.md documentation has been updated to introduce Jetpack Keep annotations as a modern alternative to writing manual keep rules. The additions explain how to use annotations like `@UnconditionallyKeep` for reflection and native code integration in apps and libraries, which simplifies configuration by automatically generating the necessary rules via a Gradle plugin.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_keep-rule-examples.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/keep-rules-best-practices\" target=\"_blank\">Follow the best practices</a>",
+        "path": "topic/performance/app-optimization/keep-rules-best-practices.md",
+        "summary": "The keep-rules best practices documentation has been updated to include a recommendation for using Jetpack Keep annotations when dealing with reflection in your own code. This approach makes keep rules easier to maintain by placing annotations directly on the code performing the reflection, prevents the preservation of obsolete rules, and enables Lint checks for unannotated reflective calls.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_keep-rules-best-practices.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/keep-rules-overview\" target=\"_blank\">About keep rules</a>",
+        "path": "topic/performance/app-optimization/keep-rules-overview.md",
+        "summary": "Added documentation for Jetpack Keep annotations as a modern alternative to writing manual keep rules for code using reflection or JNI. This matters because it highlights how developers can use annotations processed by a Gradle plugin to automatically generate keep rules at build time, streamlining the process while reinforcing best practices to limit reflection and JNI usage.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_keep-rules-overview.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/library-optimization\" target=\"_blank\">Optimization for library authors</a>",
+        "path": "topic/performance/app-optimization/library-optimization.md",
+        "summary": "Added documentation explaining how the Jetpack Keep Gradle plugin can automatically package generated rules as consumer keep rules for libraries, simplifying the process of preserving reflection and JNI usage when R8 is enabled.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_library-optimization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/app-optimization/troubleshoot-the-optimization\" target=\"_blank\">Fix optimization problems</a>",
+        "path": "topic/performance/app-optimization/troubleshoot-the-optimization.md",
+        "summary": "Added documentation for using Jetpack Keep annotations as an alternative to traditional keep rules when code performs reflection. This matters because it provides developers with a more modern annotation-based approach and includes lint checks to help prevent similar reflection crashes.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_troubleshoot-the-optimization.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/topic/performance/tracing/profiling-manager/how-to-capture\" target=\"_blank\">App-driven profiling</a>",
+        "path": "topic/performance/tracing/profiling-manager/how-to-capture.md",
+        "summary": "Updated the Jetpack tracing library dependency version from 2.0.3 to 2.0.4 in the build configuration examples. This ensures developers use the latest stable release with bug fixes and improvements when setting up profiling.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_how-to-capture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/training/tv/games\" target=\"_blank\">Build TV games</a>",
+        "path": "training/tv/games.md",
+        "summary": "Updated the documentation regarding gamepad manifest requirements for Android TV games. It now clarifies that setting `android:required=\"false\"` is recommended if the game supports a standard TV remote, and explains that setting it to `\"true\"` displays a warning badge on Google Play rather than entirely blocking installation on devices without a gamepad.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/b14b6721_games.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-12T15:14:35Z",
     "commit_hash": "4ccef519",
     "entries": [
