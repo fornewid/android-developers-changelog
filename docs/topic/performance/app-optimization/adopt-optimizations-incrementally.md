@@ -113,3 +113,9 @@ target classes or methods which either extend certain abstract classes,
 implement certain interfaces, or into classes with a specific runtime
 annotation. Each of these are supported ways to define keep rules so that you
 don't need package-wide keep rules in your final, fully optimized app.
+
+If reflection is present in your own codebase, you can replace package-wide
+keep rules with [Jetpack Keep](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations). The generated rules are conditional: R8
+keeps the target of a reflective call only if it also keeps the code that makes
+the call. To migrate a package, use the [Jetpack Keep lint checks](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations#lint) to
+find and annotate its reflective calls, and then remove the package-wide rule.

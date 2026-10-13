@@ -28,6 +28,10 @@ follows:
 This is not an exhaustive list of scenarios that require keep rules, but these
 scenarios cover most of the cases where you might need keep rules.
 
+If your own code uses reflection or is called from JNI, you can annotate that
+code with [Jetpack Keep](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations) annotations instead of writing keep rules manually.
+Its Gradle plugin generates the keep rules from the annotations at build time.
+
 > [!NOTE]
 > **Note:** In modern Android development, you should limit the use of reflection and avoid calls from native code into your Java or Kotlin code where possible because these code patterns can impact performance. When selecting dependencies for your app, choose libraries that are compatible with R8 optimization. To learn more, see [Choose libraries wisely](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely).
 

@@ -31,6 +31,13 @@ To get the latest product updates delivered to you in an RSS feed, add the URL o
 
 These Jetpack libraries have been recently updated.
 
+## October 12, 2026
+
+- [Annotation Keep Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/annotation-keep#1.0.0-alpha01)
+- [Datastore Version 1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-rc01)
+- [Paging Version 3.5.3](https://developer.android.com/jetpack/androidx/releases/paging#3.5.3)
+- [Tracing Version 2.0.4](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.4)
+
 ## October 07, 2026
 
 - [Appfunctions Version 1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha13)

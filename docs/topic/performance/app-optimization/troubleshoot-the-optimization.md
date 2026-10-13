@@ -28,6 +28,11 @@ reflection. To identify broken reflection, use the following guidelines:
 
 **Solution** : Add a [keep rule](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview).
 
+If your own code performs the reflection, you can annotate that code with
+[Jetpack Keep](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations) annotations instead of adding a keep rule. The Jetpack Keep
+lint checks also flag other reflective calls that aren't annotated, which helps
+you prevent similar crashes.
+
 ## Unclear or insufficient optimization
 
 Because rules are applied from your app as well as from included libraries, you

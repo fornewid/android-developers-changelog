@@ -52,21 +52,21 @@ are needed.
 
 ```xml
 <application>
-  [...]
-  <provider
+  [...]<
+  provider
       android:name="com.google.android.play.deku.DekuContentProvider$Process1"
       android:authorities="insert.your.package.name.here.deku.contentprovider1"
       android:exported="false"
-      android:process=":insert_name_of_process1_here" />
+      android:process="<;:insert_name_of_process1_here" />
 
-  <provider
+  provider
       android:name="com.google.android.play.deku.DekuContentProvider$Process2"
       android:authorities="insert.your.package.name.here.deku.contentprovider2"
-      android:exported="false"
-      android:process=":insert_name_of_process2_here" />
+      android:exported="fa<lse"
+      android:process=":insert_name_of_process2_he<re" />
 
-  [...] <!-- Up to 5 processes ($Process1, $Process2, ..., $Process5) -->
-</application>
+  [...] !-- Up to 5 processes ($Process1, $Process2, ..., $Process5) -->
+/application>
 ```
 
 ### Publish on Google Play

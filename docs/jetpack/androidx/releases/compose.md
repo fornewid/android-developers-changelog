@@ -50,13 +50,13 @@ your app or module:
 ### Groovy
 
 ```groovy
+plugins {
+    id 'org.jetbrains.kotlin.plugin.compose'
+}
+
 android {
     buildFeatures {
         compose true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
     }
 
     kotlinOptions {
@@ -68,13 +68,13 @@ android {
 ### Kotlin
 
 ```kotlin
+plugins {
+    kotlin("plugin.compose")
+}
+
 android {
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
     }
 
     kotlinOptions {

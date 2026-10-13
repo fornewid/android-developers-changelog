@@ -270,6 +270,10 @@ an explicit link between your code and your keep rules and often leads to more
 robust configurations. The `androidx.annotation` annotation library, for
 example, uses this mechanism.
 
+For reflection in your own code, you can also use [Jetpack Keep](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations).
+Instead of writing keep rules that target annotations, you annotate your code,
+and a Gradle plugin generates the keep rules for you.
+
 > [!NOTE]
 > **Note:** You can also use [wildcards](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#wildcards) and [access specifiers](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#access-modifier) while specifying members in keep rules.
 

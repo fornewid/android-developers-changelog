@@ -16,6 +16,10 @@ prior to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## October 12, 2026
+
+- [Datastore Version 1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-rc01)
+
 ## October 07, 2026
 
 - [Core-telecom Version 1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/core#core-telecom-1.1.0-rc01)

@@ -105,15 +105,36 @@ To learn more about XR, see [Android XR](https://developer.android.com/xr).
 ## Android TV
 
 Android TV devices are typically communal, viewed from a distance, and navigated
-using D-pad remotes. Entering usernames and passwords in this environment can be
-difficult for users. Credential Manager simplifies authentication on Android TV
-by supporting Sign in with Google, saved passwords, and cross-device passkeys.
+using D-pad remotes. Entering usernames and passwords in this environment can
+be difficult for users. Credential Manager simplifies authentication on Android
+TV by supporting Sign in with Google, saved passwords, and cross-device
+passkeys. Because multiple Google profiles often exist on a shared
+TV, Credential Manager adapts to this communal setting by fetching and
+displaying all credentials available on the device, rather than restricting
+choices to just the currently active account.
 ![Credential Manager sign-in prompt on Android TV displaying saved accounts for Sign in with Google and passwords, along with an option to use a passkey.](https://developer.android.com/static/identity/form-factors/images/tv-credential-options.png) **Figure 3.** Credential Manager UI on Android TV showing Sign in with Google, saved passwords, and passkey options.
 
-Because TVs are communal devices and don't have a lock screen knowledge factor
-(LSKF), passkeys aren't created or stored directly on the TV. Instead, passkey
-authentication uses a cross-device hybrid flow: the TV displays a QR code that
-the user scans with their mobile device to complete biometric authentication.
+This communal nature also dictates how passkeys are handled. Because televisions
+lack a personal Lock Screen Knowledge Factor (LSKF), passkeys are not stored or
+created directly on the TV. Instead, passkey authentication leverages a
+cross-device hybrid flow where a QR code is presented on the TV, and the user
+scans it with their mobile device to complete the biometric authentication.
+
+A click-free flow is possible on Google TV if you set
+`isAutoSelectAllowed = true`, but only if there is exactly one matching
+credential available. The native TV bottom sheet will still appear, showing
+the user's account confirmation. If the user does not cancel, the credential
+is automatically returned without requiring a remote click. If there are
+multiple matching credentials, it won't auto-select, and the user will
+instead be prompted to choose.
+
+If your mobile and TV apps share the exact same Android package name and
+signing key, Google Password Manager recognizes them as the same app identity.
+Because of this, a password saved on a mobile device can be offered directly
+on the TV without requiring Digital Asset Links (`asset_statements`)
+configuration. Digital Asset Links are only required when sharing credentials
+across boundaries, such as between an app and a website, or across apps with
+different package names.
 
 Using Credential Manager for Android TV has the following requirements:
 

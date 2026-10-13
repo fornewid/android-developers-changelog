@@ -13,10 +13,10 @@ This table lists all the artifacts in the `androidx.paging` group.
 
 | Artifact | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| paging-\* | [3.5.2](https://developer.android.com/jetpack/androidx/releases/paging#3.5.2) | - | - | - |
-| paging-compose | [3.5.2](https://developer.android.com/jetpack/androidx/releases/paging#3.5.2) | - | - | - |
+| paging-\* | [3.5.3](https://developer.android.com/jetpack/androidx/releases/paging#3.5.3) | - | - | - |
+| paging-compose | [3.5.3](https://developer.android.com/jetpack/androidx/releases/paging#3.5.3) | - | - | - |
 
-This library was last updated on: October 07, 2026
+This library was last updated on: October 12, 2026
 
 ## Declaring dependencies
 
@@ -31,7 +31,7 @@ your app or module:
 
 ```groovy
 dependencies {
-  def paging_version = "3.5.2"
+  def paging_version = "3.5.3"
 
   implementation "androidx.paging:paging-runtime:$paging_version"
 
@@ -48,7 +48,7 @@ dependencies {
   implementation "androidx.paging:paging-guava:$paging_version"
 
   // optional - Jetpack Compose integration
-  implementation "androidx.paging:paging-compose:3.5.2"
+  implementation "androidx.paging:paging-compose:3.5.3"
 }
 ```
 
@@ -56,7 +56,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-  val paging_version = "3.5.2"
+  val paging_version = "3.5.3"
 
   implementation("androidx.paging:paging-runtime:$paging_version")
 
@@ -73,7 +73,7 @@ dependencies {
   implementation("androidx.paging:paging-guava:$paging_version")
 
   // optional - Jetpack Compose integration
-  implementation("androidx.paging:paging-compose:3.5.2")
+  implementation("androidx.paging:paging-compose:3.5.3")
 }
 ```
 
@@ -96,6 +96,21 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 3.5
+
+### Version 3.5.3
+
+October 12, 2026
+
+`androidx.paging:paging-*:3.5.3` is released. Version 3.5.3 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/a617b93b1fc9fc1d0ce47dc52dd1454ab99823de..0989c329f4dba2ac30bba57247e28fe6d99e1244/paging).
+
+**Bug Fixes**
+
+- `ItemSnapshotListFlow` will no longer throw `IllegalArgumentException` when a `RemoteMediator` has reached the end of pagination in either direction and a Header or Footer is converted to a terminal separator. ([I821c7](https://android-review.googlesource.com/#/q/I821c7ecd7be663f9851d3804bab5795547ef4a4c), [b/566336825](https://issuetracker.google.com/issues/566336825))
+- When loaded page exceed `PagingConfig.maxSize`, loaded pages will not drop to under two pages to ensure the viewport is properly populated with data. ([I037a0](https://android-review.googlesource.com/#/q/I037a0b6b5d203badc7fa5ecb279a67290fe7575e), [b/565835910](https://issuetracker.google.com/issues/565835910))
+
+**External Contribution**
+
+Thank you [Igor](https://github.com/Igorpetinik) for submitting the bug fix [b/565835910](https://issuetracker.google.com/issues/565835910)
 
 ### Version 3.5.2
 

@@ -6,8 +6,9 @@ source: md.txt
 
 Mesh gradients create complex, multi-directional color transitions using a 2D
 grid of patches. Unlike linear or radial gradients, mesh gradients smoothly
-interpolate colors across a grid. Use mesh gradients to create fluid and organic
-aesthetic elements in your user interface.
+interpolate colors across a 2D grid. Use mesh gradients instead of stacking
+multiple `radialGradient` or `linearGradient` brushes when creating fluid,
+organic, or multi-point backgrounds in your user interface.
 ![A mesh gradient example with a display of its current mesh gradient points.](https://developer.android.com/static/develop/ui/compose/images/graphics/mesh-gradient/mesh_gradient_example.png) **Figure 1**. A mesh gradient example with a display of its current mesh gradient points.
 
 ## Key concepts

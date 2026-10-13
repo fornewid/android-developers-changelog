@@ -137,9 +137,14 @@ your app manifest:
 ```
 
 
-**Note:** When specifying `android:hardware:gamepad` support, don't set the
-`android:required` attribute to `"true"`. If you do this, users won't be able to
-install your app on TV devices.
+**Note:** When specifying `android.hardware.gamepad`
+support, set the `android:required` attribute to
+`"false"` if your game can also be played with a standard TV
+remote (D-pad). Only set `android:required` to
+`"true"` if a game controller is required to play your game.
+Setting `android:required="true"` displays a "Gamepad required"
+badge and a pre-install warning on Google Play for Android TV, rather than
+blocking installation on TV devices.
 
 For more information about manifest entries, see
 [App manifest](https://developer.android.com/guide/topics/manifest/manifest-intro).

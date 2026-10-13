@@ -16,6 +16,10 @@ to 2018.
 To view the current versions for every component,
 see the [versions page](https://developer.android.com/jetpack/androidx/versions).
 
+## October 12, 2026
+
+- [Annotation Keep Version 1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/annotation-keep#1.0.0-alpha01)
+
 ## October 07, 2026
 
 - [Appfunctions Version 1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha13)

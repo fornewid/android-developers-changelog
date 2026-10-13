@@ -49,6 +49,9 @@ A list of available gradient brushes and their corresponding output:
 | [`Brush.sweepGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush#sweepGradient(kotlin.Array,androidx.compose.ui.geometry.Offset)) Note: To get a smooth transition between colors - set the last color to the start color. | ![Sweep Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/sweep_gradient.png) |
 | [`Brush.radialGradient(colorList)`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Brush#radialGradient(kotlin.Array,androidx.compose.ui.geometry.Offset,kotlin.Float,androidx.compose.ui.graphics.TileMode)) | ![Radial Gradient](https://developer.android.com/static/develop/ui/compose/images/graphics/brush/radial_gradient.png) |
 
+> [!NOTE]
+> **Note:** When creating complex, multi-directional 2D color transitions (such as fluid aurora or multi-point organic backgrounds), use [mesh gradients](https://developer.android.com/develop/ui/compose/graphics/draw/mesh-gradient) instead of stacking multiple `radialGradient` or `linearGradient` brushes.
+
 ### Change distribution of colors with `colorStops`
 
 To customize how the colors appear in the gradient, you can tweak the

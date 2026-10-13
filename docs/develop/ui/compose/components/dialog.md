@@ -231,10 +231,10 @@ fun DialogWithImage(
                         Text("Confirm")
                     }
                 }
-   }
+            }
         }
     }
-}Dialog.kt
+}
 ```
 
 <br />

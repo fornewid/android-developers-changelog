@@ -77,38 +77,37 @@ class DialogActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val backStack = rememberNavBackStack(RouteA)
-            val dialogStrategy = remember {< Dialo>gSceneStrategyNavKey() }
+            val dialogStrategy = remember { DialogSceneStrategy<NavKey>() }
 
             NavDisplay(
                 backStack = backStack,
                 onBack = { backStack.removeLastOrNull() },
                 sceneStrategies = listOf(dialogStrategy),
                 entryProvider = entryProvider {
-     <      >         entryRouteA {
+                    entry<RouteA> {
                         ContentGreen("Welcome to Nav3") {
                             Button(onClick = dropUnlessResumed {
                                 backStack.add(RouteB("123"))
                             }) {
                                 Text("Click to open dialog")
                             }
-                       < }
-   >                 }
-                    entryRouteB(
+                        }
+                    }
+                    entry<RouteB>(
                         metadata = DialogSceneStrategy.dialog(
-                            DialogProperties(windowTitle = "Route B dialog&qu>ot;)
+                            DialogProperties(windowTitle = "Route B dialog")
                         )
-                    ) { key -
+                    ) { key ->
                         ContentBlue(
                             title = "Route id: ${key.id}",
                             modifier = Modifier.clip(
                                 shape = RoundedCornerShape(16.dp)
                             )
                         )
-   }
+                    }
                 }
             )
         }
     }
 }
-DialogActivity.kt
 ```

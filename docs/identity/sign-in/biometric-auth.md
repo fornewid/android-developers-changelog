@@ -53,27 +53,23 @@ either a Class 3 biometric or a screen lock credential.
 
 ### Kotlin
 
-```kotlin
-// Lets the user authenticate using either a Class 3 biometric or
-// their lock screen credential (PIN, pattern, or password).
-promptInfo = BiometricPrompt.PromptInfo.Builder()
-        .setTitle("Biometric login for my app")
-        .setSubtitle("Log in using your biometric credential")
-        .setAllowedAuthenticators(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
-        .build()
-```
+    // Lets the user authenticate using either a Class 3 biometric or
+    // their lock screen credential (PIN, pattern, or password).
+    promptInfo = BiometricPrompt.PromptInfo.Builder()
+            .setTitle("Biometric login for my app")
+            .setSubtitle("Log in using your biometric credential")
+            .setAllowedAuthenticators(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
+            .build()
 
 ### Java
 
-```java
-// Lets user authenticate using either a Class 3 biometric or
-// their lock screen credential (PIN, pattern, or password).
-promptInfo = new BiometricPrompt.PromptInfo.Builder()
-        .setTitle("Biometric login for my app")
-        .setSubtitle("Log in using your biometric credential")
-        .setAllowedAuthenticators(BIOMETRIC_STRONG | DEVICE_CREDENTIAL)
-        .build();
-```
+    // Lets user authenticate using either a Class 3 biometric or
+    // their lock screen credential (PIN, pattern, or password).
+    promptInfo = new BiometricPrompt.PromptInfo.Builder()
+            .setTitle("Biometric login for my app")
+            .setSubtitle("Log in using your biometric credential")
+            .setAllowedAuthenticators(BIOMETRIC_STRONG \| DEVICE_CREDENTIAL)
+            .build();
 
 > [!NOTE]
 > **Note:** You can't call `setNegativeButtonText()` and `setAllowedAuthenticators(... or DEVICE_CREDENTIAL)` at the same time on a `BiometricPrompt.PromptInfo.Builder` instance.
@@ -100,49 +96,45 @@ authenticator that your app accepts.
 
 ### Kotlin
 
-```kotlin
-val biometricManager = BiometricManager.from(this)
-when (biometricManager.canAuthenticate(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)) {
-    BiometricManager.BIOMETRIC_SUCCESS ->
-        Log.d("MY_APP_TAG", "App can authenticate using biometrics.")
-    BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE ->
-        Log.e("MY_APP_TAG", "No biometric features available on this device.")
-    BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE ->
-        Log.e("MY_APP_TAG", "Biometric features are currently unavailable.")
-    BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
-        // Prompts the user to create credentials that your app accepts.
-        val enrollIntent = Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
-            putExtra(Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
-                BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
+    val biometricManager = BiometricManager.from(this)
+    when (biometricManager.canAuthenticate(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)) {
+        BiometricManager.BIOMETRIC_SUCCESS ->
+            Log.d("MY_APP_TAG", "App can authenticate using biometrics.")
+        BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE ->
+            Log.e("MY_APP_TAG", "No biometric features available on this device.")
+        BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE ->
+            Log.e("MY_APP_TAG", "Biometric features are currently unavailable.")
+        BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
+            // Prompts the user to create credentials that your app accepts.
+            val enrollIntent = Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
+                putExtra(Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
+                    BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
+            }
+            startActivityForResult(enrollIntent, REQUEST_CODE)
         }
-        startActivityForResult(enrollIntent, REQUEST_CODE)
     }
-}
-```
 
 ### Java
 
-```java
-BiometricManager biometricManager = BiometricManager.from(this);
-switch (biometricManager.canAuthenticate(BIOMETRIC_STRONG | DEVICE_CREDENTIAL)) {
-    case BiometricManager.BIOMETRIC_SUCCESS:
-        Log.d("MY_APP_TAG", "App can authenticate using biometrics.");
-        break;
-    case BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE:
-        Log.e("MY_APP_TAG", "No biometric features available on this device.");
-        break;
-    case BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE:
-        Log.e("MY_APP_TAG", "Biometric features are currently unavailable.");
-        break;
-    case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:
-        // Prompts the user to create credentials that your app accepts.
-        final Intent enrollIntent = new Intent(Settings.ACTION_BIOMETRIC_ENROLL);
-        enrollIntent.putExtra(Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
-                BIOMETRIC_STRONG | DEVICE_CREDENTIAL);
-        startActivityForResult(enrollIntent, REQUEST_CODE);
-        break;
-}
-```
+    BiometricManager biometricManager = BiometricManager.from(this);
+    switch (biometricManager.canAuthenticate(BIOMETRIC_STRONG | DEVICE_CREDENTIAL)) {
+        case BiometricManager.BIOMETRIC_SUCCESS:
+            Log.d("MY_APP_TAG", "App can authenticate using biometrics.");
+            break;
+        case BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE:
+            Log.e("MY_APP_TAG", "No biometric features available on this device.");
+            break;
+        case BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE:
+            Log.e("MY_APP_TAG", "Biometric features are currently unavailable.");
+            break;
+        case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:
+            // Prompts the user to create credentials that your app accepts.
+            final Intent enrollIntent = new Intent(Settings.ACTION_BIOMETRIC_ENROLL);
+            enrollIntent.putExtra(Settings.EXTRA_BIOMETRIC_AUTHENTICATORS_ALLOWED,
+                    BIOMETRIC_STRONG | DEVICE_CREDENTIAL);
+            startActivityForResult(enrollIntent, REQUEST_CODE);
+            break;
+    }
 
 ## Determine how the user authenticated
 
@@ -171,113 +163,109 @@ complete the following steps:
 
    ### Kotlin
 
-   ```kotlin
-   private lateinit var executor: Executor
-   private lateinit var biometricPrompt: BiometricPrompt
-   private lateinit var promptInfo: BiometricPrompt.PromptInfo
+       private lateinit var executor: Executor
+       private lateinit var biometricPrompt: BiometricPrompt
+       private lateinit var promptInfo: BiometricPrompt.PromptInfo
 
-   override fun onCreate(savedInstanceState: Bundle?) {
-       super.onCreate(savedInstanceState)
-       setContentView(R.layout.activity_login)
-       executor = ContextCompat.getMainExecutor(this)
-       biometricPrompt = BiometricPrompt(this, executor,
-               object : BiometricPrompt.AuthenticationCallback() {
-           override fun onAuthenticationError(errorCode: Int,
-                   errString: CharSequence) {
-               super.onAuthenticationError(errorCode, errString)
-               Toast.makeText(applicationContext,
-                   "Authentication error: $errString", Toast.LENGTH_SHORT)
-                   .show()
+       override fun onCreate(savedInstanceState: Bundle?) {
+           super.onCreate(savedInstanceState)
+           setContentView(R.layout.activity_login)
+           executor = ContextCompat.getMainExecutor(this)
+           biometricPrompt = BiometricPrompt(this, executor,
+                   object : BiometricPrompt.AuthenticationCallback() {
+               override fun onAuthenticationError(errorCode: Int,
+                       errString: CharSequence) {
+                   super.onAuthenticationError(errorCode, errString)
+                   Toast.makeText(applicationContext,
+                       "Authentication error: $errString", Toast.LENGTH_SHORT)
+                       .show()
+               }
+
+               override fun onAuthenticationSucceeded(
+                       result: BiometricPrompt.AuthenticationResult) {
+                   super.onAuthenticationSucceeded(result)
+                   Toast.makeText(applicationContext,
+                       "Authentication succeeded!", Toast.LENGTH_SHORT)
+                       .show()
+               }
+
+               override fun onAuthenticationFailed() {
+                   super.onAuthenticationFailed()
+                   Toast.makeText(applicationContext, "Authentication failed",
+                       Toast.LENGTH_SHORT)
+                       .show()
+               }
+           })
+
+           promptInfo = BiometricPrompt.PromptInfo.Builder()
+                   .setTitle("Biometric login for my app")
+                   .setSubtitle("Log in using your biometric credential")
+                   .setNegativeButtonText("Use account password")
+                   .build()
+
+           // Prompt appears when user clicks "Log in".
+           // Consider integrating with the keystore to unlock cryptographic operations,
+           // if needed by your app.
+           val biometricLoginButton =
+                   findViewById<Button>(R.id.biometric_login)
+           biometricLoginButton.setOnClickListener {
+               biometricPrompt.authenticate(promptInfo)
            }
-
-           override fun onAuthenticationSucceeded(
-                   result: BiometricPrompt.AuthenticationResult) {
-               super.onAuthenticationSucceeded(result)
-               Toast.makeText(applicationContext,
-                   "Authentication succeeded!", Toast.LENGTH_SHORT)
-                   .show()
-           }
-
-           override fun onAuthenticationFailed() {
-               super.onAuthenticationFailed()
-               Toast.makeText(applicationContext, "Authentication failed",
-                   Toast.LENGTH_SHORT)
-                   .show()
-           }
-       })
-
-       promptInfo = BiometricPrompt.PromptInfo.Builder()
-               .setTitle("Biometric login for my app")
-               .setSubtitle("Log in using your biometric credential")
-               .setNegativeButtonText("Use account password")
-               .build()
-
-       // Prompt appears when user clicks "Log in".
-       // Consider integrating with the keystore to unlock https://developer.android.com/identity/sign-in/biometric-auth#crypto,
-       // if needed by your app.
-       val biometricLoginButton =
-               findViewById<Button>(R.id.biometric_login)
-       biometricLoginButton.setOnClickListener {
-           biometricPrompt.authenticate(promptInfo)
        }
-   }
-   ```
 
    ### Java
 
-   ```java
-   private Executor executor;
-   private BiometricPrompt biometricPrompt;
-   private BiometricPrompt.PromptInfo promptInfo;
+       private Executor executor;
+       private BiometricPrompt biometricPrompt;
+       private BiometricPrompt.PromptInfo promptInfo;
 
-   @Override
-   protected void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
-       setContentView(R.layout.activity_login);
-       executor = ContextCompat.getMainExecutor(this);
-       biometricPrompt = new BiometricPrompt(MainActivity.this,
-               executor, new BiometricPrompt.AuthenticationCallback() {
-           @Override
-           public void onAuthenticationError(int errorCode,
-                   @NonNull CharSequence errString) {
-               super.onAuthenticationError(errorCode, errString);
-               Toast.makeText(getApplicationContext(),
-                   "Authentication error: " + errString, Toast.LENGTH_SHORT)
-                   .show();
-           }
+       @Override
+       protected void onCreate(Bundle savedInstanceState) {
+           super.onCreate(savedInstanceState);
+           setContentView(R.layout.activity_login);
+           executor = ContextCompat.getMainExecutor(this);
+           biometricPrompt = new BiometricPrompt(MainActivity.this,
+                   executor, new BiometricPrompt.AuthenticationCallback() {
+               @Override
+               public void onAuthenticationError(int errorCode,
+                       @NonNull CharSequence errString) {
+                   super.onAuthenticationError(errorCode, errString);
+                   Toast.makeText(getApplicationContext(),
+                       "Authentication error: " + errString, Toast.LENGTH_SHORT)
+                       .show();
+               }
 
-           @Override
-           public void onAuthenticationSucceeded(
-                   @NonNull BiometricPrompt.AuthenticationResult result) {
-               super.onAuthenticationSucceeded(result);
-               Toast.makeText(getApplicationContext(),
-                   "Authentication succeeded!", Toast.LENGTH_SHORT).show();
-           }
+               @Override
+               public void onAuthenticationSucceeded(
+                       @NonNull BiometricPrompt.AuthenticationResult result) {
+                   super.onAuthenticationSucceeded(result);
+                   Toast.makeText(getApplicationContext(),
+                       "Authentication succeeded!", Toast.LENGTH_SHORT).show();
+               }
 
-           @Override
-           public void onAuthenticationFailed() {
-               super.onAuthenticationFailed();
-               Toast.makeText(getApplicationContext(), "Authentication failed",
-                   Toast.LENGTH_SHORT)
-                   .show();
-           }
-       });
+               @Override
+               public void onAuthenticationFailed() {
+                   super.onAuthenticationFailed();
+                   Toast.makeText(getApplicationContext(), "Authentication failed",
+                       Toast.LENGTH_SHORT)
+                       .show();
+               }
+           });
 
-       promptInfo = new BiometricPrompt.PromptInfo.Builder()
-               .setTitle("Biometric login for my app")
-               .setSubtitle("Log in using your biometric credential")
-               .setNegativeButtonText("Use account password")
-               .build();
+           promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                   .setTitle("Biometric login for my app")
+                   .setSubtitle("Log in using your biometric credential")
+                   .setNegativeButtonText("Use account password")
+                   .build();
 
-       // Prompt appears when user clicks "Log in".
-       // Consider integrating with the keystore to unlock https://developer.android.com/identity/sign-in/biometric-auth#crypto,
-       // if needed by your app.
-       Button biometricLoginButton = findViewById(R.id.biometric_login);
-       biometricLoginButton.setOnClickListener(view -> {
-               biometricPrompt.authenticate(promptInfo);
-       });
-   }
-   ```
+           // Prompt appears when user clicks "Log in".
+           // Consider integrating with the keystore to unlock cryptographic operations,
+           // if needed by your app.
+           Button biometricLoginButton = findViewById(R.id.biometric_login);
+           biometricLoginButton.setOnClickListener(view -> {
+                   biometricPrompt.authenticate(promptInfo);
+           });
+       }
 
 ## Use a cryptographic solution that depends on authentication
 
@@ -301,53 +289,49 @@ methods:
 
 ### Kotlin
 
-```kotlin
-private fun generateSecretKey(keyGenParameterSpec: KeyGenParameterSpec) {
-    val keyGenerator = KeyGenerator.getInstance(
-            KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore")
-    keyGenerator.init(keyGenParameterSpec)
-    keyGenerator.generateKey()
-}
+    private fun generateSecretKey(keyGenParameterSpec: KeyGenParameterSpec) {
+        val keyGenerator = KeyGenerator.getInstance(
+                KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore")
+        keyGenerator.init(keyGenParameterSpec)
+        keyGenerator.generateKey()
+    }
 
-private fun getSecretKey(): SecretKey {
-    val keyStore = KeyStore.getInstance("AndroidKeyStore")
+    private fun getSecretKey(): SecretKey {
+        val keyStore = KeyStore.getInstance("AndroidKeyStore")
 
-    // Before the keystore can be accessed, it must be loaded.
-    keyStore.load(null)
-    return keyStore.getKey(KEY_NAME, null) as SecretKey
-}
+        // Before the keystore can be accessed, it must be loaded.
+        keyStore.load(null)
+        return keyStore.getKey(KEY_NAME, null) as SecretKey
+    }
 
-private fun getCipher(): Cipher {
-    return Cipher.getInstance(KeyProperties.KEY_ALGORITHM_AES + "/"
-            + KeyProperties.BLOCK_MODE_CBC + "/"
-            + KeyProperties.ENCRYPTION_PADDING_PKCS7)
-}
-```
+    private fun getCipher(): Cipher {
+        return Cipher.getInstance(KeyProperties.KEY_ALGORITHM_AES + "/"
+                + KeyProperties.BLOCK_MODE_CBC + "/"
+                + KeyProperties.ENCRYPTION_PADDING_PKCS7)
+    }
 
 ### Java
 
-```java
-private void generateSecretKey(KeyGenParameterSpec keyGenParameterSpec) {
-    KeyGenerator keyGenerator = KeyGenerator.getInstance(
-            KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore");
-    keyGenerator.init(keyGenParameterSpec);
-    keyGenerator.generateKey();
-}
+    private void generateSecretKey(KeyGenParameterSpec keyGenParameterSpec) {
+        KeyGenerator keyGenerator = KeyGenerator.getInstance(
+                KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore");
+        keyGenerator.init(keyGenParameterSpec);
+        keyGenerator.generateKey();
+    }
 
-private SecretKey getSecretKey() {
-    KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
+    private SecretKey getSecretKey() {
+        KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
 
-    // Before the keystore can be accessed, it must be loaded.
-    keyStore.load(null);
-    return ((SecretKey)keyStore.getKey(KEY_NAME, null));
-}
+        // Before the keystore can be accessed, it must be loaded.
+        keyStore.load(null);
+        return ((SecretKey)keyStore.getKey(KEY_NAME, null));
+    }
 
-private Cipher getCipher() {
-    return Cipher.getInstance(KeyProperties.KEY_ALGORITHM_AES + "/"
-            + KeyProperties.BLOCK_MODE_CBC + "/"
-            + KeyProperties.ENCRYPTION_PADDING_PKCS7);
-}
-```
+    private Cipher getCipher() {
+        return Cipher.getInstance(KeyProperties.KEY_ALGORITHM_AES + "/"
+                + KeyProperties.BLOCK_MODE_CBC + "/"
+                + KeyProperties.ENCRYPTION_PADDING_PKCS7);
+    }
 
 ### Authenticate using only biometric credentials
 
@@ -364,99 +348,89 @@ biometric credentials, complete the following steps:
 
    ### Kotlin
 
-   ```kotlin
-   generateSecretKey(KeyGenParameterSpec.Builder(
-           KEY_NAME,
-           KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT)
-           .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
-           .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
-           .setUserAuthenticationRequired(true)
-           // Invalidate the keys if the user has registered a new biometric
-           // credential, such as a new fingerprint. Can call this method only
-           // on Android 7.0 (API level 24) or higher. The variable
-           // "invalidatedByBiometricEnrollment" is true by default.
-           .setInvalidatedByBiometricEnrollment(true)
-           .build())
-   ```
+       generateSecretKey(KeyGenParameterSpec.Builder(
+               KEY_NAME,
+               KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT)
+               .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
+               .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
+               .setUserAuthenticationRequired(true)
+               // Invalidate the keys if the user has registered a new biometric
+               // credential, such as a new fingerprint. Can call this method only
+               // on Android 7.0 (API level 24) or higher. The variable
+               // "invalidatedByBiometricEnrollment" is true by default.
+               .setInvalidatedByBiometricEnrollment(true)
+               .build())
 
    ### Java
 
-   ```java
-   generateSecretKey(new KeyGenParameterSpec.Builder(
-           KEY_NAME,
-           KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT)
-           .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
-           .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
-           .setUserAuthenticationRequired(true)
-           // Invalidate the keys if the user has registered a new biometric
-           // credential, such as a new fingerprint. Can call this method only
-           // on Android 7.0 (API level 24) or higher. The variable
-           // "invalidatedByBiometricEnrollment" is true by default.
-           .setInvalidatedByBiometricEnrollment(true)
-           .build());
-   ```
+       generateSecretKey(new KeyGenParameterSpec.Builder(
+               KEY_NAME,
+               KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT)
+               .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
+               .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
+               .setUserAuthenticationRequired(true)
+               // Invalidate the keys if the user has registered a new biometric
+               // credential, such as a new fingerprint. Can call this method only
+               // on Android 7.0 (API level 24) or higher. The variable
+               // "invalidatedByBiometricEnrollment" is true by default.
+               .setInvalidatedByBiometricEnrollment(true)
+               .build());
+
 2. Start a biometric authentication workflow that incorporates a cipher:
 
    ### Kotlin
 
-   ```kotlin
-   biometricLoginButton.setOnClickListener {
-       // Exceptions are unhandled within this snippet.
-       val cipher = getCipher()
-       val secretKey = getSecretKey()
-       cipher.init(Cipher.ENCRYPT_MODE, secretKey)
-       biometricPrompt.authenticate(promptInfo,
-               BiometricPrompt.CryptoObject(cipher))
-   }
-   ```
+       biometricLoginButton.setOnClickListener {
+           // Exceptions are unhandled within this snippet.
+           val cipher = getCipher()
+           val secretKey = getSecretKey()
+           cipher.init(Cipher.ENCRYPT_MODE, secretKey)
+           biometricPrompt.authenticate(promptInfo,
+                   BiometricPrompt.CryptoObject(cipher))
+       }
 
    ### Java
 
-   ```java
-   biometricLoginButton.setOnClickListener(view -> {
-       // Exceptions are unhandled within this snippet.
-       Cipher cipher = getCipher();
-       SecretKey secretKey = getSecretKey();
-       cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-       biometricPrompt.authenticate(promptInfo,
-               new BiometricPrompt.CryptoObject(cipher));
-   });
-   ```
+       biometricLoginButton.setOnClickListener(view -> {
+           // Exceptions are unhandled within this snippet.
+           Cipher cipher = getCipher();
+           SecretKey secretKey = getSecretKey();
+           cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+           biometricPrompt.authenticate(promptInfo,
+                   new BiometricPrompt.CryptoObject(cipher));
+       });
+
 3. Within your biometric authentication callbacks, use the secret key to encrypt
    the sensitive information:
 
    ### Kotlin
 
-   ```kotlin
-   override fun onAuthenticationSucceeded(
-           result: BiometricPrompt.AuthenticationResult) {
-       val encryptedInfo: ByteArray = result.cryptoObject.cipher?.doFinal(
-           // plaintext-string text is whatever data the developer would like
-           // to encrypt. It happens to be plain-text in this example, but it
-           // can be anything
-               plaintext-string.toByteArray(Charset.defaultCharset())
-       )
-       Log.d("MY_APP_TAG", "Encrypted information: " +
-               Arrays.toString(encryptedInfo))
-   }
-   ```
+       override fun onAuthenticationSucceeded(
+               result: BiometricPrompt.AuthenticationResult) {
+           val encryptedInfo: ByteArray = result.cryptoObject.cipher?.doFinal(
+               // plaintext-string text is whatever data the developer would like
+               // to encrypt. It happens to be plain-text in this example, but it
+               // can be anything
+                   plaintext-string.toByteArray(Charset.defaultCharset())
+           )
+           Log.d("MY_APP_TAG", "Encrypted information: " +
+                   Arrays.toString(encryptedInfo))
+       }
 
    ### Java
 
-   ```java
-   @Override
-   public void onAuthenticationSucceeded(
-           @NonNull BiometricPrompt.AuthenticationResult result) {
-       // NullPointerException is unhandled; use Objects.requireNonNull().
-       byte[] encryptedInfo = result.getCryptoObject().getCipher().doFinal(
-           // plaintext-string text is whatever data the developer would like
-           // to encrypt. It happens to be plain-text in this example, but it
-           // can be anything
-               plaintext-string.getBytes(Charset.defaultCharset()));
-       Log.d("MY_APP_TAG", "Encrypted information: " +
-               Arrays.toString(encryptedInfo));
-   }
-   ```
+       @Override
+       public void onAuthenticationSucceeded(
+               @NonNull BiometricPrompt.AuthenticationResult result) {
+           // NullPointerException is unhandled; use Objects.requireNonNull().
+           byte[] encryptedInfo = result.getCryptoObject().getCipher().doFinal(
+               // plaintext-string text is whatever data the developer would like
+               // to encrypt. It happens to be plain-text in this example, but it
+               // can be anything
+                   plaintext-string.getBytes(Charset.defaultCharset()));
+           Log.d("MY_APP_TAG", "Encrypted information: " +
+                   Arrays.toString(encryptedInfo));
+       }
 
 ### Authenticate using either biometric or lock screen credentials
 
@@ -479,81 +453,74 @@ lock screen credentials, complete the following steps:
 
    ### Kotlin
 
-   ```kotlin
-   generateSecretKey(KeyGenParameterSpec.Builder(
-       KEY_NAME,
-       KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT)
-       .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
-       .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
-       .setUserAuthenticationRequired(true)
-       .setUserAuthenticationParameters(VALIDITY_DURATION_SECONDS,
-               ALLOWED_AUTHENTICATORS)
-       .build())
-   ```
+       generateSecretKey(KeyGenParameterSpec.Builder(
+               KEY_NAME,
+               KeyProperties.PURPOSE_ENCRYPT or KeyProperties.PURPOSE_DECRYPT)
+               .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
+               .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
+               .setUserAuthenticationRequired(true)
+               .setUserAuthenticationParameters(VALIDITY_DURATION_SECONDS,
+                       ALLOWED_AUTHENTICATORS)
+               .build())
 
    ### Java
 
-   ```java
-   generateSecretKey(new KeyGenParameterSpec.Builder(
-       KEY_NAME,
-       KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT)
-       .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
-       .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
-       .setUserAuthenticationRequired(true)
-       .setUserAuthenticationParameters(VALIDITY_DURATION_SECONDS,
-               ALLOWED_AUTHENTICATORS)
-       .build());
-   ```
+       generateSecretKey(new KeyGenParameterSpec.Builder(
+               KEY_NAME,
+               KeyProperties.PURPOSE_ENCRYPT | KeyProperties.PURPOSE_DECRYPT)
+               .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
+               .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_PKCS7)
+               .setUserAuthenticationRequired(true)
+               .setUserAuthenticationParameters(VALIDITY_DURATION_SECONDS,
+                       ALLOWED_AUTHENTICATORS)
+               .build());
+
 2. Within a time period of `VALIDITY_DURATION_SECONDS` after the user
    authenticates, encrypt the sensitive information:
 
    ### Kotlin
 
-   ```kotlin
-   private fun encryptSecretInformation() {
-       // Exceptions are unhandled for getCipher() and getSecretKey().
-       val cipher = getCipher()
-       val secretKey = getSecretKey()
-       try {
-           cipher.init(Cipher.ENCRYPT_MODE, secretKey)
-           val encryptedInfo: ByteArray = cipher.doFinal(
-               // plaintext-string text is whatever data the developer would
-               // like to encrypt. It happens to be plain-text in this example,
-               // but it can be anything
-                   plaintext-string.toByteArray(Charset.defaultCharset()))
-           Log.d("MY_APP_TAG", "Encrypted information: " +
-                   Arrays.toString(encryptedInfo))
-       } catch (e: InvalidKeyException) {
-           Log.e("MY_APP_TAG", "Key is invalid.")
-       } catch (e: UserNotAuthenticatedException) {
-           Log.d("MY_APP_TAG", "The key's validity timed out.")
-           biometricPrompt.authenticate(promptInfo)
-       }
-   ```
+       private fun encryptSecretInformation() {
+           // Exceptions are unhandled for getCipher() and getSecretKey().
+           val cipher = getCipher()
+           val secretKey = getSecretKey()
+           try {
+               cipher.init(Cipher.ENCRYPT_MODE, secretKey)
+               val encryptedInfo: ByteArray = cipher.doFinal(
+                   // plaintext-string text is whatever data the developer would
+                   // like to encrypt. It happens to be plain-text in this example,
+                   // but it can be anything
+                       plaintext-string.toByteArray(Charset.defaultCharset()))
+               Log.d("MY_APP_TAG", "Encrypted information: " +
+                       Arrays.toString(encryptedInfo))
+           } catch (e: InvalidKeyException) {
+               Log.e("MY_APP_TAG", "Key is invalid.")
+           } catch (e: UserNotAuthenticatedException) {
+               Log.d("MY_APP_TAG", "The key's validity timed out.")
+               biometricPrompt.authenticate(promptInfo)
+           }
 
    ### Java
 
-   ```java
-   private void encryptSecretInformation() {
-       // Exceptions are unhandled for getCipher() and getSecretKey().
-       Cipher cipher = getCipher();
-       SecretKey secretKey = getSecretKey();
-       try {
-           // NullPointerException is unhandled; use Objects.requireNonNull().
-           ciper.init(Cipher.ENCRYPT_MODE, secretKey);
-           byte[] encryptedInfo = cipher.doFinal(
-               // plaintext-string text is whatever data the developer would
-               // like to encrypt. It happens to be plain-text in this example,
-               // but it can be anything
-                   plaintext-string.getBytes(Charset.defaultCharset()));
-       } catch (InvalidKeyException e) {
-           Log.e("MY_APP_TAG", "Key is invalid.");
-       } catch (UserNotAuthenticatedException e) {
-           Log.d("MY_APP_TAG", "The key's validity timed out.");
-           biometricPrompt.authenticate(promptInfo);
+       private void encryptSecretInformation() {
+           // Exceptions are unhandled for getCipher() and getSecretKey().
+           Cipher cipher = getCipher();
+           SecretKey secretKey = getSecretKey();
+           try {
+               // NullPointerException is unhandled; use Objects.requireNonNull().
+               ciper.init(Cipher.ENCRYPT_MODE, secretKey);
+               byte[] encryptedInfo = cipher.doFinal(
+                   // plaintext-string text is whatever data the developer would
+                   // like to encrypt. It happens to be plain-text in this example,
+                   // but it can be anything
+                       plaintext-string.getBytes(Charset.defaultCharset()));
+           } catch (InvalidKeyException e) {
+               Log.e("MY_APP_TAG", "Key is invalid.");
+           } catch (UserNotAuthenticatedException e) {
+               Log.d("MY_APP_TAG", "The key's validity timed out.");
+               biometricPrompt.authenticate(promptInfo);
+           }
        }
-   }
-   ```
 
 ### Authenticate using auth-per-use keys
 
@@ -569,31 +536,27 @@ similar to the following:
 
 ### Kotlin
 
-```kotlin
-val authPerOpKeyGenParameterSpec =
-        KeyGenParameterSpec.Builder("myKeystoreAlias", key-purpose)
-    // Accept either a biometric credential or a device credential.
-    // To accept only one type of credential, include only that type as the
-    // second argument.
-    .setUserAuthenticationParameters(0 /* duration */,
-            KeyProperties.AUTH_BIOMETRIC_STRONG or
-            KeyProperties.AUTH_DEVICE_CREDENTIAL)
-    .build()
-```
+    val authPerOpKeyGenParameterSpec =
+            KeyGenParameterSpec.Builder("myKeystoreAlias", key-purpose)
+        // Accept either a biometric credential or a device credential.
+        // To accept only one type of credential, include only that type as the
+        // second argument.
+        .setUserAuthenticationParameters(0 /* duration */,
+                KeyProperties.AUTH_BIOMETRIC_STRONG or
+                KeyProperties.AUTH_DEVICE_CREDENTIAL)
+        .build()
 
 ### Java
 
-```java
-KeyGenParameterSpec authPerOpKeyGenParameterSpec =
-        new KeyGenParameterSpec.Builder("myKeystoreAlias", key-purpose)
-    // Accept either a biometric credential or a device credential.
-    // To accept only one type of credential, include only that type as the
-    // second argument.
-    .setUserAuthenticationParameters(0 /* duration */,
-            KeyProperties.AUTH_BIOMETRIC_STRONG |
-            KeyProperties.AUTH_DEVICE_CREDENTIAL)
-    .build();
-```
+    KeyGenParameterSpec authPerOpKeyGenParameterSpec =
+            new KeyGenParameterSpec.Builder("myKeystoreAlias", key-purpose)
+        // Accept either a biometric credential or a device credential.
+        // To accept only one type of credential, include only that type as the
+        // second argument.
+        .setUserAuthenticationParameters(0 /* duration */,
+                KeyProperties.AUTH_BIOMETRIC_STRONG |
+                KeyProperties.AUTH_DEVICE_CREDENTIAL)
+        .build();
 
 ## Authenticate without explicit user action
 
@@ -622,29 +585,25 @@ require an explicit user action to complete the authentication process:
 
 ### Kotlin
 
-```kotlin
-// Lets the user authenticate without performing an action, such as pressing a
-// button, after their biometric credential is accepted.
-promptInfo = BiometricPrompt.PromptInfo.Builder()
-        .setTitle("Biometric login for my app")
-        .setSubtitle("Log in using your biometric credential")
-        .setNegativeButtonText("Use account password")
-        .setConfirmationRequired(false)
-        .build()
-```
+    // Lets the user authenticate without performing an action, such as pressing a
+    // button, after their biometric credential is accepted.
+    promptInfo = BiometricPrompt.PromptInfo.Builder()
+            .setTitle("Biometric login for my app")
+            .setSubtitle("Log in using your biometric credential")
+            .setNegativeButtonText("Use account password")
+            .setConfirmationRequired(false)
+            .build()
 
 ### Java
 
-```java
-// Lets the user authenticate without performing an action, such as pressing a
-// button, after their biometric credential is accepted.
-promptInfo = new BiometricPrompt.PromptInfo.Builder()
-        .setTitle("Biometric login for my app")
-        .setSubtitle("Log in using your biometric credential")
-        .setNegativeButtonText("Use account password")
-        .setConfirmationRequired(false)
-        .build();
-```
+    // Lets the user authenticate without performing an action, such as pressing a
+    // button, after their biometric credential is accepted.
+    promptInfo = new BiometricPrompt.PromptInfo.Builder()
+            .setTitle("Biometric login for my app")
+            .setSubtitle("Log in using your biometric credential")
+            .setNegativeButtonText("Use account password")
+            .setConfirmationRequired(false)
+            .build();
 
 ## Allow for fallback to non-biometric credentials
 
@@ -669,5 +628,4 @@ resources.
 
 ### Blog posts
 
-- [Migrating from FingerprintManager to
-  BiometricPrompt](https://medium.com/@isaidamier/migrating-from-fingerprintmanager-to-biometricprompt-4bc5f570dccd)
+- [Migrating from FingerprintManager to BiometricPrompt](https://medium.com/@isaidamier/migrating-from-fingerprintmanager-to-biometricprompt-4bc5f570dccd)

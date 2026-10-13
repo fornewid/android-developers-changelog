@@ -85,6 +85,7 @@ release notes to view the version updates for all of the artifacts.
 | [A2UI protocol](https://developer.android.com/jetpack/androidx/releases/a2ui_compose), enabling AI agents to generate rich, interactive user interfaces that render native Compose components---without executing arbitrary code."\>a2ui.compose | September 23, 2026 | - | - | - | [1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/a2ui_compose#1.0.0-alpha01) |
 | [activity](https://developer.android.com/jetpack/androidx/releases/activity) | September 23, 2026 | [1.13.0](https://developer.android.com/jetpack/androidx/releases/activity#1.13.0) | - | - | [1.14.0-alpha03](https://developer.android.com/jetpack/androidx/releases/activity#1.14.0-alpha03) |
 | [ads](https://developer.android.com/jetpack/androidx/releases/ads) | March 8, 2023 | - | - | - | [1.0.0-alpha05](https://developer.android.com/jetpack/androidx/releases/ads#1.0.0-alpha05) |
+| [annotation.keep](https://developer.android.com/jetpack/androidx/releases/annotation-keep) | October 12, 2026 | - | - | - | [1.0.0-alpha01](https://developer.android.com/jetpack/androidx/releases/annotation-keep#1.0.0-alpha01) |
 | [annotation (\*)](https://developer.android.com/jetpack/androidx/releases/annotation) | September 23, 2026 | [1.11.0](https://developer.android.com/jetpack/androidx/releases/annotation#1.11.0) | - | - | - |
 | [appcompat](https://developer.android.com/jetpack/androidx/releases/appcompat) | August 12, 2026 | [1.8.0](https://developer.android.com/jetpack/androidx/releases/appcompat#1.8.0) | - | - | - |
 | [appfunctions](https://developer.android.com/jetpack/androidx/releases/appfunctions) | October 07, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/appfunctions#1.0.0-alpha13) |
@@ -127,7 +128,7 @@ release notes to view the version updates for all of the artifacts.
 | [cursoradapter](https://developer.android.com/jetpack/androidx/releases/cursoradapter) | September 21, 2018 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/cursoradapter#1.0.0) | - | - | - |
 | [customview (\*)](https://developer.android.com/jetpack/androidx/releases/customview) | April 23, 2025 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/customview#customview-1.2.0) | - | - | - |
 | [databinding](https://developer.android.com/jetpack/androidx/releases/databinding) | September 5, 2019 | [3.5.0](https://developer.android.com/jetpack/androidx/releases/databinding#3.5.0) | - | - | [3.6.0-alpha10](https://developer.android.com/jetpack/androidx/releases/databinding#3.6.0-alpha10) |
-| [datastore](https://developer.android.com/jetpack/androidx/releases/datastore) | September 09, 2026 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/datastore#1.2.1) | - | - | [1.3.0-alpha11](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-alpha11) |
+| [datastore](https://developer.android.com/jetpack/androidx/releases/datastore) | October 12, 2026 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/datastore#1.2.1) | [1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-rc01) | - | - |
 | [documentfile](https://developer.android.com/jetpack/androidx/releases/documentfile) | May 7, 2025 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/documentfile#1.1.0) | - | - | - |
 | [draganddrop](https://developer.android.com/jetpack/androidx/releases/draganddrop) | May 11, 2022 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/draganddrop#1.0.0) | - | - | - |
 | [drawerlayout](https://developer.android.com/jetpack/androidx/releases/drawerlayout) | March 22, 2023 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/drawerlayout#1.2.0) | - | - | - |
@@ -166,7 +167,7 @@ release notes to view the version updates for all of the artifacts.
 | [navigation](https://developer.android.com/jetpack/androidx/releases/navigation) | September 23, 2026 | [2.10.2](https://developer.android.com/jetpack/androidx/releases/navigation#2.10.2) | - | - | - |
 | [navigation3](https://developer.android.com/jetpack/androidx/releases/navigation3) | October 07, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/navigation3#1.2.0) | - | - | [1.3.0-alpha02](https://developer.android.com/jetpack/androidx/releases/navigation3#1.3.0-alpha02) |
 | [navigationevent](https://developer.android.com/jetpack/androidx/releases/navigationevent) | October 07, 2026 | [1.2.0](https://developer.android.com/jetpack/androidx/releases/navigationevent#1.2.0) | - | - | - |
-| [paging (\*)](https://developer.android.com/jetpack/androidx/releases/paging) | October 07, 2026 | [3.5.2](https://developer.android.com/jetpack/androidx/releases/paging#3.5.2) | - | - | - |
+| [paging (\*)](https://developer.android.com/jetpack/androidx/releases/paging) | October 12, 2026 | [3.5.3](https://developer.android.com/jetpack/androidx/releases/paging#3.5.3) | - | - | - |
 | [palette](https://developer.android.com/jetpack/androidx/releases/palette) | October 07, 2026 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/palette#1.0.0) | [1.1.0-rc01](https://developer.android.com/jetpack/androidx/releases/palette#1.1.0-rc01) | - | - |
 | [pdf](https://developer.android.com/jetpack/androidx/releases/pdf) | August 26, 2026 | - | - | [1.0.0-beta01](https://developer.android.com/jetpack/androidx/releases/pdf#1.0.0-beta01) | - |
 | [percentlayout](https://developer.android.com/jetpack/androidx/releases/percentlayout) | September 21, 2018 | [1.0.0](https://developer.android.com/jetpack/androidx/releases/percentlayout#1.0.0) | - | - | - |
@@ -201,7 +202,7 @@ release notes to view the version updates for all of the artifacts.
 | [test.uiautomator](https://developer.android.com/jetpack/androidx/releases/test-uiautomator) | July 01, 2026 | [2.4.0](https://developer.android.com/jetpack/androidx/releases/test-uiautomator#2.4.0) | - | - | - |
 | [text-vertical](https://developer.android.com/jetpack/androidx/releases/text-vertical) | September 23, 2026 | - | - | [1.0.0-beta02](https://developer.android.com/jetpack/androidx/releases/text-vertical#1.0.0-beta02) | - |
 | [textclassifier](https://developer.android.com/jetpack/androidx/releases/textclassifier) | March 23, 2022 | - | - | - | [1.0.0-alpha04](https://developer.android.com/jetpack/androidx/releases/textclassifier#1.0.0-alpha04) |
-| [tracing](https://developer.android.com/jetpack/androidx/releases/tracing) | September 23, 2026 | [2.0.3](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.3) | - | - | - |
+| [tracing](https://developer.android.com/jetpack/androidx/releases/tracing) | October 12, 2026 | [2.0.4](https://developer.android.com/jetpack/androidx/releases/tracing#2.0.4) | - | - | - |
 | [transition](https://developer.android.com/jetpack/androidx/releases/transition) | September 23, 2026 | [1.7.2](https://developer.android.com/jetpack/androidx/releases/transition#1.7.2) | - | - | - |
 | [tv (\*)](https://developer.android.com/jetpack/androidx/releases/tv) | May 06, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/tv#1.1.0) | - | - | - |
 | [tvprovider](https://developer.android.com/jetpack/androidx/releases/tvprovider) | May 7, 2025 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/tvprovider#1.1.0) | - | - | - |
@@ -234,4 +235,4 @@ release notes to view the version updates for all of the artifacts.
 
 (\*) This library has multiple artifacts. See its release notes for more information.  
 
-Last updated: October 07, 2026
+Last updated: October 12, 2026

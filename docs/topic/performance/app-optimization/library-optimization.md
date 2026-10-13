@@ -181,6 +181,10 @@ with R8 enabled.
 To ensure your consumer keep rules are applied correctly, you must package them
 appropriately depending on your library format.
 
+If you use [Jetpack Keep](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations#verify) to declare your library's reflection and JNI
+usage, its Gradle plugin can package the generated rules as consumer keep rules
+for you.
+
 ### AAR libraries
 
 To add consumer rules for an AAR library, use the `consumerProguardFiles` option

@@ -45,6 +45,10 @@ your app or module:
 ### Groovy
 
 ```groovy
+plugins {
+    id 'org.jetbrains.kotlin.plugin.compose'
+}
+
 dependencies {
     implementation "androidx.compose.material3:material3:1.4.0"
     implementation "androidx.compose.material3:material3-window-size-class:1.4.0"
@@ -56,10 +60,6 @@ android {
         compose true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.1.1"
-    }
-
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -69,6 +69,10 @@ android {
 ### Kotlin
 
 ```kotlin
+plugins {
+    kotlin("plugin.compose")
+}
+
 dependencies {
     implementation("androidx.compose.material3:material3:1.4.0")
     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
@@ -78,10 +82,6 @@ dependencies {
 android {
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.1.1"
     }
 
     kotlinOptions {

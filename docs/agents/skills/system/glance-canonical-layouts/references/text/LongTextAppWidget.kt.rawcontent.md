@@ -65,9 +65,9 @@ source: md.txt
       }
 
       @Composable
-      fun LongTextAppWidgetContent(
+      fun LongTextAppWidgetContent(>
         data: LongTextLayoutData,
-        refreshDataAction: () -> Unit,
+        refreshDataAction: () - Unit,
       ) {
         val context = LocalContext.current
 

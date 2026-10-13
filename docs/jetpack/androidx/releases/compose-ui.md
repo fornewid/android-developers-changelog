@@ -42,6 +42,10 @@ your app or module:
 ### Groovy
 
 ```groovy
+plugins {
+    id 'org.jetbrains.kotlin.plugin.compose'
+}
+
 dependencies {
     implementation "androidx.compose.ui:ui:1.12.1"
 }
@@ -49,10 +53,6 @@ dependencies {
 android {
     buildFeatures {
         compose true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
     }
 
     kotlinOptions {
@@ -64,6 +64,10 @@ android {
 ### Kotlin
 
 ```kotlin
+plugins {
+    kotlin("plugin.compose")
+}
+
 dependencies {
     implementation("androidx.compose.ui:ui:1.12.1")
 }
@@ -71,10 +75,6 @@ dependencies {
 android {
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
     }
 
     kotlinOptions {

@@ -4,27 +4,16 @@ url: https://developer.android.com/develop/ui/compose/sharing/send
 source: md.txt
 ---
 
-Android uses intents and their associated extras to let users share information quickly
-using their favorite apps.
-
 Android provides two ways for users to share data between apps:
 
-- The Android Sharesheet is primarily designed for sending content outside your app and/or directly to another user. For example, sharing a URL with a friend.
+- The Android Sharesheet is primarily designed for sending content outside your app or directly to another user. For example, sharing a URL with a friend.
 - The Android intent resolver is best suited for passing data to the next stage of a well-defined task. For example, opening a PDF from your app and letting users pick their preferred viewer.
-
-When you construct an intent, you specify the action you want the intent to perform.
-Android uses the action `https://developer.android.com/reference/android/content/Intent#ACTION_SEND`
-to send data from one activity to another,
-even across process boundaries. You need to specify
-the data and its type. The system automatically identifies the compatible activities
-that can receive the data and displays them to the user. In the case of the intent resolver,
-if only one activity can handle the intent, that activity immediately starts.
 
 ## Why use the Android Sharesheet
 
 ![](https://developer.android.com/static/images/training/sharing/sharesheet.png) **Figure 1.** The Android Sharesheet.
 
-We strongly recommend using the Android Sharesheet to create consistency for your users across
+Use the Android Sharesheet to create consistency for your users across
 apps. Don't display your app's own list of share targets or create your own
 Sharesheet variations.
 
@@ -38,7 +27,7 @@ The Android Sharesheet also has many handy features for developers. For example,
 do the following:
 
 - [Find out when your users complete a share and to where](https://developer.android.com/develop/ui/compose/sharing/send#share-interaction-data)
-- [Add a custom `ChooserTarget` and app targets](https://developer.android.com/develop/ui/compose/sharing/send#adding-custom-targets)
+- [Add custom targets and app targets](https://developer.android.com/develop/ui/compose/sharing/send#adding-custom-targets)
 - [Provide rich text content previews, starting in Android 10 (API level 29)](https://developer.android.com/develop/ui/compose/sharing/send#adding-rich-content-previews)
 - [Exclude targets matching specific component names](https://developer.android.com/develop/ui/compose/sharing/send#excluding-specific-targets-by-component)
 
@@ -56,7 +45,9 @@ It returns a version of your intent that always displays the Android Sharesheet.
 The most straightforward and common use of the Android Sharesheet is to send text content from
 one activity to another. For example, most browsers can share the URL of the currently displayed
 page as text with another app. This is useful for sharing an article or website with friends through
-email or social networking. Here's an example of how to do this:
+email or social networking. In Jetpack Compose, retrieve the current context using
+`LocalContext.current` and call `context.startActivity()`.
+Here's an example of how to do this:
 
 ```kotlin
 fun shareText(context: Context) {
@@ -75,8 +66,8 @@ Optionally, you can add extras to include more information, such as email recipi
 (`https://developer.android.com/reference/android/content/Intent#EXTRA_EMAIL`,
 `https://developer.android.com/reference/android/content/Intent#EXTRA_CC`,
 `https://developer.android.com/reference/android/content/Intent#EXTRA_BCC`),
-the email subject
-(`https://developer.android.com/reference/android/content/Intent#EXTRA_SUBJECT`), etc.
+or the email subject
+(`https://developer.android.com/reference/android/content/Intent#EXTRA_SUBJECT`).
 
 **Note:** Some email apps, such as Gmail, expect a
 `https://developer.android.com/reference/java/lang/String` for extras like
@@ -91,6 +82,9 @@ Set the appropriate MIME type and place a URI to the data in the extra
 `https://developer.android.com/reference/android/content/Intent#EXTRA_STREAM`, as
 shown in the following example.
 This is commonly used to share an image but can be used to share any type of binary content.
+
+> [!NOTE]
+> **Note:** If your goal is to let users select or import photos or videos from their media library into your app, use the [Photo Picker](https://developer.android.com/training/data-storage/shared/photo-picker) instead of `ACTION_SEND`.
 
 ```kotlin
 fun shareBinaryContent(context: Context) {
@@ -121,12 +115,20 @@ common MIME types when sending data in Android:
 | Receivers register for | Senders send |
 |---|---|
 | `text/*` | - `text/plain` - `text/rtf` - `text/html` - `text/json` |
-| `` `image/*` `` | - `image/jpg` - `image/png` - `image/gif` |
+| `image/*` | - `image/jpg` - `image/png` - `image/gif` |
 | `video/*` | - `video/mp4` - `video/3gp` |
 | Supported file extensions | `application/pdf` |
 
 > [!CAUTION]
-> **Caution:** Although you can use a MIME type of `*/*`, we strongly discourage doing so because most receiving apps aren't able to receive any kind of content. Ideally, your app must match activities that can handle generic data streams.
+> **Caution:** Although you can use a MIME type of `*/*`, avoid doing so because most receiving apps aren't able to receive any kind of content. Ideally, your app must match activities that can handle generic data streams.
+
+To determine the MIME type dynamically at runtime instead of hardcoding it, use the following methods:
+
+- For `content://` URIs (such as those provided by `FileProvider` or `MediaStore`), call `https://developer.android.com/reference/android/content/ContentResolver#getType(android.net.Uri)`.
+- For file extensions, call `https://developer.android.com/reference/android/webkit/MimeTypeMap#getMimeTypeFromExtension(java.lang.String)`.
+- If you use the Storage Access Framework, you can also query `https://developer.android.com/reference/androidx/documentfile/provider/DocumentFile#getType()`.
+
+If you can't determine a specific MIME type, use `application/octet-stream` for generic binary data, or `*/*` as a last resort.
 
 For more information about MIME types, see the
 [IANA](https://www.iana.org/assignments/media-types/media-types.xhtml)
@@ -141,8 +143,8 @@ To share multiple pieces of content, use the `https://developer.android.com/refe
 action together with a list of URIs pointing to the content. The MIME type varies according to the
 mix of content you're sharing. For example, if you share three JPEG images, you use the type
 `"image/jpg"`. For a mixture of image types, use `"image/*"` to match an
-activity that handles any type of image. While it's possible to share a mix of types, we highly
-discourage this, because it's
+activity that handles any type of image. While it's possible to share a mix of types, avoid
+doing this, because it's
 unclear to the receiver what is intended to be sent. If it's necessary to send multiple types, use
 `"*/*"`. It's up to the receiving application to parse
 and process your data. Here's an example:
@@ -173,7 +175,7 @@ shared. In some cases, text that's being shared can be hard to understand. Consi
 complicated URL like `https://www.google.com/search?ei=2rRVXcLkJajM0PEPoLy7oA4`. A richer
 preview can reassure your users what is being shared.
 
-If you are previewing text, you can set a title, a thumbnail image, or both. Add a description to
+If you're previewing text, you can set a title, a thumbnail image, or both. Add a description to
 `Intent.EXTRA_TITLE` before calling `Intent.createChooser()`, and add a
 relevant thumbnail using `ClipData`.
 
@@ -213,16 +215,13 @@ The preview looks something like this:
 
 ![](https://developer.android.com/static/images/training/sharing/sharesheet_custom_actions.png) **Figure 3.** Custom actions on the Android Sharesheet.
 
-On Android 14 (API Level 34) and later, apps can add custom actions to the Android Sharesheet.
+On Android 14 (API level 34) and higher, apps can add custom actions to the Android Sharesheet.
 The custom actions are shown as small action icons at the top of the Android Sharesheet, and apps
 can specify any `Intent` as the action invoked when the icon is clicked.
 
 To add custom actions on the Android Sharesheet, first create a
-`https://developer.android.com/reference/android/service/chooser/ChooserAction`
-with
-`https://developer.android.com/reference/android/service/chooser/ChooserAction.Builder`.
-You can specify a `PendingIntent` as the action invoked when the icon is clicked. Create
-an array containing all of your custom actions and specify it as
+`https://developer.android.com/reference/android/service/chooser/ChooserAction` with `https://developer.android.com/reference/android/service/chooser/ChooserAction.Builder`.
+You can specify a `PendingIntent` as the action invoked when the icon is clicked. Create an array containing all of your custom actions and specify it as
 `https://developer.android.com/reference/android/content/Intent#EXTRA_CHOOSER_CUSTOM_ACTIONS`
 of the share `Intent`.
 
@@ -251,13 +250,17 @@ fun sharesheetCustomActions(context: Context, previewText: String) {
 
 ### Add custom targets
 
-The Android Sharesheet lets you specify up to two `https://developer.android.com/reference/android/service/chooser/ChooserTarget` objects that
-are shown before the sharing shortcuts and chooser targets loaded from `ChooserTargetServices`. You can also
-specify up to two intents pointing to activities that are listed
-before the app suggestions:
+> [!CAUTION]
+> **Deprecated:** `https://developer.android.com/reference/android/service/chooser/ChooserTarget` and `https://developer.android.com/reference/android/service/chooser/ChooserTargetService` are deprecated starting in Android 11 (API level 30). For Direct Share targets, use `https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat` (or `https://developer.android.com/reference/android/content/pm/ShortcutManager`) with the Sharing Shortcuts API instead. For more information, see [Provide Direct Share targets](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets). To provide custom actions on Android 14 (API level 34) and higher, use [custom actions](https://developer.android.com/develop/ui/compose/sharing/send#custom-actions) instead.
+
+The Android Sharesheet lets you specify up to two custom activity intents
+that are listed before the app suggestions using `https://developer.android.com/reference/android/content/Intent#EXTRA_INITIAL_INTENTS`.
+For Direct Share targets (such as conversations or contacts), publish dynamic shortcuts using
+`https://developer.android.com/reference/androidx/core/content/pm/ShortcutManagerCompat` instead
+(see [Provide Direct Share targets](https://developer.android.com/develop/ui/compose/sharing/direct-share-targets)):
 ![](https://developer.android.com/static/images/training/sharing/customshare.png) **Figure 4.** Custom targets on the Android Sharesheet.
 
-Add `Intent.EXTRA_CHOOSER_TARGETS` and `Intent.EXTRA_INITIAL_INTENTS` to
+Add `Intent.EXTRA_INITIAL_INTENTS` to
 your share Intent *after* calling
 `https://developer.android.com/reference/android/content/Intent#createChooser(android.content.Intent,%20java.lang.CharSequence)`:
 
@@ -281,12 +284,11 @@ context.startActivity(shareIntent)
 ```
 
 Use this feature with care. Every custom `Intent`
-and `ChooserTarget` that you add reduces the number the system suggests. We generally
-discourage adding custom targets. A common appropriate example of adding
+that you add reduces the number the system suggests. In general, avoid
+adding custom targets. A common appropriate example of adding
 `Intent.EXTRA_INITIAL_INTENTS` is to provide additional actions users can take on shared
 content. For example, a user shares images and `Intent.EXTRA_INITIAL_INTENTS` is used to
-let them send a link instead. A common appropriate example of adding `Intent.EXTRA_CHOOSER_TARGETS`
-is to expose relevant people or devices that your app provides.
+let them send a link instead.
 
 ### Exclude specific targets by component
 
@@ -351,7 +353,7 @@ override fun onReceive(context: Context?, intent: Intent) {
 }
 ```
 
-See the [platform share sample](https://github.com/android/platform-samples/tree/main/samples/user-interface/share) for more information.
+For more information, see the [platform share sample](https://github.com/android/platform-samples/tree/main/samples/user-interface/share).
 
 ## Use the Android intent resolver
 
@@ -369,7 +371,7 @@ and the MIME type, the system displays a disambiguation dialog called the *inten
 that lets the user choose a target to share to. If a single application
 matches, it runs.
 
-Here is an example of how to use the Android intent resolver to send text:
+Here's an example of how to use the Android intent resolver to send text:
 
 ```kotlin
 fun intentResolver(context: Context) {
@@ -385,4 +387,4 @@ fun intentResolver(context: Context) {
 ## Learn more
 
 For more information about sending data, see
-[Intents and Intent Filters.](https://developer.android.com/guide/components/intents-filters)
+[Intents and Intent Filters](https://developer.android.com/guide/components/intents-filters).

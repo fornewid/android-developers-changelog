@@ -702,6 +702,59 @@ val Red = Color(0xFFEF5350)
 
 ![ModulateAlpha applies the alpha set to each individual draw command](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/modulate_alpha.png) **Figure 16**: ModulateAlpha applies the alpha set to each individual draw command
 
+#### Layer outsets
+
+> [!NOTE]
+> **Note:** `LayerOutsets` is available from Compose 1.12.0-alpha01+.
+
+When a composable is drawn into an offscreen buffer (for example, when `alpha`
+is less than `1.0f`, a `RenderEffect` is set, or `CompositingStrategy.Offscreen`
+is used), the offscreen texture defaults to the composable's measured layout
+bounds. Any drawing or shadow inside the layer that extends outside the
+composable's layout bounds (such as an outer glow drawn with
+`Modifier.dropShadow`) is implicitly clipped at the boundary of the offscreen
+buffer.
+
+Instead of adding `Modifier.padding()` (which shifts the layout measurement of
+adjacent UI elements), pass [`LayerOutsets`](https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/LayerOutsets) to the `outsets` parameter of
+`Modifier.graphicsLayer`. This expands the offscreen buffer's visual bounds on
+each side without altering the composable's measured layout size. Note that
+`LayerOutsets` does not expand the layer's clip shape or shadow bounds, which
+remain based on the composable's original measured size (so keep `clip = false`
+on the `graphicsLayer` to avoid clipping to the original bounds):
+
+
+```kotlin
+Box(
+    modifier = Modifier
+        .size(
+            width = 140.dp,
+            height = 56.dp
+        )
+        .graphicsLayer(
+            alpha = 0.5f,
+            outsets = LayerOutsets(24.dp),
+            clip = false
+        )
+        .dropShadow(
+            shape = pillShape,
+            shadow = Shadow(radius = 24.dp, color = Color.Cyan)
+        )
+        .background(color = Color(0xFF141824), shape = pillShape),
+    contentAlignment = Alignment.Center
+) {
+    Text(
+        text = "✨ Glow",
+        color = Color.White,
+        fontSize = 18.sp
+    )
+}
+```
+
+<br />
+
+![Comparison of an offscreen layer outer glow without LayerOutsets (top, clipped to the rectangular layout bounds) versus with LayerOutsets(24.dp) (bottom, unclipped)](https://developer.android.com/static/develop/ui/compose/images/graphics/modifiers/layer_outsets_comparison.png) **Figure 17** : Offscreen layer outer glow without `LayerOutsets` (top, clipped at the composable's rectangular layout bounds) versus with `LayerOutsets(24.dp)` (bottom, unclipped)
+
 ## Write contents of a composable to a bitmap
 
 > [!NOTE]

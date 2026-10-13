@@ -24,6 +24,10 @@ your app or module:
 ### Groovy
 
 ```groovy
+plugins {
+    id 'org.jetbrains.kotlin.plugin.compose'
+}
+
 dependencies {
     // For Glance support
     implementation "androidx.glance:glance:1.3.0-alpha02"
@@ -45,10 +49,6 @@ android {
         compose true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
-    }
-
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -58,6 +58,10 @@ android {
 ### Kotlin
 
 ```kotlin
+plugins {
+    kotlin("plugin.compose")
+}
+
 dependencies {
     // For Glance support
     implementation("androidx.glance:glance:1.3.0-alpha02")
@@ -78,10 +82,6 @@ dependencies {
 android {
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
     }
 
     kotlinOptions {

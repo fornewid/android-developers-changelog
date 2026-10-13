@@ -418,7 +418,7 @@ use it to filter components participating in the callback invocation based on
 their name, build type, or product flavor.
 
     androidComponents {
-        beforeVariants(selector().withName("adfree")) { varian>tBuilder -
+        beforeVariants(selector().withName("adfree")) { variantBuilder ->
             variantBuilder.minSdk = 23
         }
     }
@@ -434,7 +434,7 @@ providers from your own custom tasks that will perform any required
 computations, including reading from external inputs such as files or the network.
 
     // onVariants also supports VariantSelectors:
-    onVariants(selector().withBuildType("release")) {> variant -
+    onVariants(selector().withBuildType("release")) { variant ->
         // Gather the output when we are in single mode (no multi-apk).
         val mainOutput = variant.outputs.single { it.outputType == OutputType.SINGLE }
 
@@ -485,10 +485,10 @@ This code snippet shows how to add a directory with Android resources
 generated from a custom task to the `res` source set. The process is similar for other
 source types.
 
-    onVariants(selector().withBuildType("release")) {> variant -
+    onVariants(selector().withBuildType("release")) { variant ->
         // Step 1. Register the task.
         val resCreationTask =
-           project.task<s.registerResC>reatorTask("create${variant.name}Res")
+           project.tasks.register<ResCreatorTask>("create${variant.name}Res")
 
         // Step 2. Register the task output to the variant-generated source directory.
         variant.sources.res?.addGeneratedSourceDirectory(

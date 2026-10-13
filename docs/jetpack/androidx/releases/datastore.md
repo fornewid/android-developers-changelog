@@ -10,7 +10,7 @@ source: md.txt
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
 |---|---|---|---|---|
-| September 09, 2026 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/datastore#1.2.1) | - | - | [1.3.0-alpha11](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-alpha11) |
+| October 12, 2026 | [1.2.1](https://developer.android.com/jetpack/androidx/releases/datastore#1.2.1) | [1.3.0-rc01](https://developer.android.com/jetpack/androidx/releases/datastore#1.3.0-rc01) | - | - |
 
 ## Declare dependencies
 
@@ -248,6 +248,20 @@ See the [Issue Tracker documentation](https://developers.google.com/issue-tracke
 for more information.
 
 ## Version 1.3
+
+### Version 1.3.0-rc01
+
+October 12, 2026
+
+`androidx.datastore:datastore-*:1.3.0-rc01` is released. Version 1.3.0-rc01 contains [these commits](https://android.googlesource.com/platform/frameworks/support/+log/e4bd62f853853bf3522ed15681c58ef28b09ed44..4d0747264862afd42f459a30bb19220f1935894a/datastore).
+
+**API Changes**
+
+- Use `WindowCompat#enableEdgeToEdge(Window)` instead of `EdgeToEdge#enable()` ([Ibff3e](https://android-review.googlesource.com/#/q/Ibff3ee1970f18642d5be7177c7ee74ea7b0df73e))
+
+**Bug Fixes**
+
+- `androidx.lifecycle:lifecycle-runtime` dependency was updated to 2.10.0. This version is required for bundled lifecycle runtime lint checks to run with AGP version 9.5.0-alpha04 or later. ([I99bfd](https://android-review.googlesource.com/#/q/I99bfdb355ffd7f1083dbdac4167b1f5577740116), [b/556807521](https://issuetracker.google.com/issues/556807521))
 
 ### Version 1.3.0-alpha11
 

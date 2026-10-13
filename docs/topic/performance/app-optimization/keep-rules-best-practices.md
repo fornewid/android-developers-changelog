@@ -69,6 +69,12 @@ patterns:
   is crucial because future code changes could lead R8 to no longer retain
   these items.
 
+  For reflection in your own code, you can use [Jetpack Keep](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations) to
+  generate keep rules that are easier to maintain. Each annotation is on the
+  code that performs the reflection, so when you change that code, you update
+  or remove its annotation in the same place. That way, the rules don't
+  preserve code that your app no longer reflects on. Lint also flags
+  reflective calls that aren't annotated.
 - Where possible, use `-assumenosideeffects` or `-convertchecknotnull` to
   optimize null checks because this can significantly reduce the size of your
   app's DEX. For more information, see [Additional rule types](https://developer.android.com/topic/performance/app-optimization/additional-rule-types).

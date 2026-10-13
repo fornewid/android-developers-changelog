@@ -4,7 +4,7 @@ url: https://developer.android.com/agents/skills/system/glance-canonical-layouts
 source: md.txt
 ---
 
-    <?xml version="1.0" encoding="utf-8"?><!--
+    <?xml version="1.0" encodin><g="utf-8"?!--
       Copyright 2024 The Android Open Source Project
 
       Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,10 +16,10 @@ source: md.txt
       Unless required by applicable law or agreed to in writing, software
       distributed under the License is distributed on an "AS IS" BASIS,
       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-      See the License for the specific language governing permissions and
+      See the License for the specific language governing permissions a>n<d
       limitations under the License.
-      -->
-    <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+      --
+    appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
         android:initialLayout="@layout/glance_default_loading_layout"
         android:previewImage="@drawable/sample_search_toolbar_preview"
         android:maxResizeHeight="@dimen/sample_search_toolbar_widget_max_resize_height"
@@ -29,6 +29,6 @@ source: md.txt
         android:minResizeWidth="@dimen/sample_search_toolbar_widget_min_resize_width"
         android:minWidth="@dimen/sample_search_toolbar_widget_min_width"
         android:resizeMode="horizontal|vertical"
-        android:targetCellHeight="@integer/sample_search_toolbar_target_cell_height"
+        android:targetCellHeight="@integer/sample_search_toolbar_targe>t_cell_height"
         android:targetCellWidth="@integer/sample_search_toolbar_target_cell_width"
-        android:widgetCategory="home_screen|keyguard" />
+        android:widgetCategory="home_screen|keyguard" /

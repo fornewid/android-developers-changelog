@@ -25,7 +25,7 @@ Learn more about pointer input on the following pages:
 - [Understand gestures](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures) gives an explanation of the core concepts playing a role when handling pointer input.
 - [Tap and press](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/tap-and-press) expands on single pointer, single position events.
 - [Scroll](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/scroll) explains how to implement scrolling containers, and handles interoperability concerns.
-- [Drag, swipe, and fling](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-swipe-fling) shows different types of dragging of a single pointer.
+- [Drag composables](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/drag-composables) explains how to move UI elements along a single axis, across two dimensions, or between predefined anchor points using modifiers like `draggable`, `draggable2D`, and `anchoredDraggable`.
 - [Multi-touch](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/multi-touch) dives into situations where more than one pointer is used.
 
 ## Recommended for you

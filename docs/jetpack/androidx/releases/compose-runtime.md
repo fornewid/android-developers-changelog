@@ -42,6 +42,10 @@ your app or module:
 ### Groovy
 
 ```groovy
+plugins {
+    id 'org.jetbrains.kotlin.plugin.compose'
+}
+
 dependencies {
     implementation "androidx.compose.runtime:runtime:1.12.1"
     implementation "androidx.compose.runtime:runtime-livedata:1.12.1"
@@ -53,10 +57,6 @@ android {
         compose true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
-    }
-
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -66,6 +66,10 @@ android {
 ### Kotlin
 
 ```kotlin
+plugins {
+    kotlin("plugin.compose")
+}
+
 dependencies {
     implementation("androidx.compose.runtime:runtime:1.12.1")
     implementation("androidx.compose.runtime:runtime-livedata:1.12.1")
@@ -75,10 +79,6 @@ dependencies {
 android {
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
     }
 
     kotlinOptions {

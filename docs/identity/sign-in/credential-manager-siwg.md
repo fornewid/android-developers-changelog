@@ -100,7 +100,8 @@ To implement Sign in with Google, complete the following setup:
 - **Complete brand verification** : Your brand must be verified for your app
   name to be visible to users on the Sign in with Google consent screen. For
   more information about brand verification, see [OAuth App Verification Help
-  Center](https://support.google.com/cloud/answer/13463073) and [Submit app for brand verification](https://developers.google.com/identity/protocols/oauth2/production-readiness/brand-verification)
+  Center](https://support.google.com/cloud/answer/13463073) and [Submit app for brand
+  verification](https://developers.google.com/identity/protocols/oauth2/production-readiness/brand-verification).
 
 ## See also
 

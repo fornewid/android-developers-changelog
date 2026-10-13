@@ -16,6 +16,11 @@ provide guidance for keep rules in common scenarios that use reflection.
 > [!IMPORTANT]
 > **Important:** All reflection, whether in apps or libraries, necessitates corresponding keep rules. Apps place these rules in their own configuration, but libraries must include them in their [consumer keep rules file](https://developer.android.com/topic/performance/app-optimization/library-optimization#library-keep-rule-types).
 
+If the reflection is in your own app or library code, you can use [keep
+annotations](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations) instead of writing keep rules manually. A Gradle plugin
+generates the keep rules from annotations in your source code, including
+consumer keep rules for libraries.
+
 ### Reflection with classes loaded by name
 
 Libraries often load classes dynamically by using the class name as a `String`.
@@ -473,6 +478,11 @@ and---critically---its parameter type.
 
 > [!WARNING]
 > **Warning:** If you forget this rule, your app crashes with an `UnsatisfiedLinkError` or `NoSuchMethodError` when the native code tries to call the missing method. These crashes can be hard to debug because the error originates outside the Dalvik/ART virtual machine.
+
+You can also annotate methods that native code calls with the
+[`@UnconditionallyKeep`](https://developer.android.com/topic/performance/app-optimization/jetpack-keep-annotations#unconditionally-keep) annotation from Jetpack Keep instead of writing keep
+rules for them. The annotation doesn't keep classes in the method's signature,
+such as `NativeData`, so you still need to keep those classes separately.
 
 ## Indirect platform calls
 
