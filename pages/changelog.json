@@ -1,5 +1,708 @@
 [
   {
+    "date": "2026-10-14T15:11:05Z",
+    "commit_hash": "d04ff474",
+    "entries": [
+      {
+        "title": "<a href=\"https://developer.android.com/blog\" target=\"_blank\">The Android Developers' Blog</a>",
+        "path": "blog.md",
+        "summary": "Updated the blog index to include recent announcements regarding Gemini on Android, Google Play business growth and discovery updates, and the Googlebook Linux Terminal Preview, while removing older posts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_blog.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/10\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/10.md",
+        "summary": "The authors documentation was updated to add profiles for Meghan Mehta and Michael Stillwell while removing entries for Noam Gefen and Paris Hsu. These changes keep the Android developer blog author directory current and accurate.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/11\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/11.md",
+        "summary": "Updated the Android blog authors documentation on page 11 by adding new authors (Noam Gefen and Paris Hsu), removing others (Raghavendra Hareesh Pottamsetty and Ran Mor), and updating the post count for Paul Feng.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/12\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/12.md",
+        "summary": "The authors documentation was updated to add new contributors (Raghavendra Hareesh Pottamsetty and Ran Mor) and remove others (Sa-ryong Kang and Sam Bright) on page 12, keeping the Android blog author directory up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_12.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/14\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/14.md",
+        "summary": "The authors documentation was updated to add profiles for Sheenam Mittal and Sherif Eid, while removing profiles for Thomas Ezan and Thomas Weathers from page 14.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_14.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/15\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/15.md",
+        "summary": "The authors documentation page 15 has been updated to include profiles for Thomas Ezan and Thomas Weathers, while removing the entries for Vinny DaSilva and Vladimír Marko. These changes keep the Android developer blog author directory accurate and up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_15.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/16\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/16.md",
+        "summary": "Added author profiles for Vinny DaSilva (Developer Relations Engineer) and Vladimír Marko (Software Engineer) to the blog authors documentation, expanding the directory of contributors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_16.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/4\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/4.md",
+        "summary": "The author directory documentation was updated to add a profile for Cyrus Stoller (Group Product Manager) and remove the profile for Dimitris Kosmidis. These changes keep the Android developer blog's author roster and metadata up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/5\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/5.md",
+        "summary": "The authors list in the blog documentation was updated to include a new author, Dimitris Kosmidis (Product Manager), while removing Fabien Sanglard (Staff Software Engineer). This update keeps the contributor directory current and accurately reflects the active authors on the Android developer blog.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/6\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/6.md",
+        "summary": "The authors list on page 6 of the Android developer blog has been updated to include Fabien Sanglard as a Staff Software Engineer and remove Jan Kleinert, reflecting changes in the blog contributor directory.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/7\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/7.md",
+        "summary": "Updated the Android blog authors documentation on page 7 by adding author profiles for Jan Kleinert and Jason Buchel, and removing profiles for Joseph Lewis and Joseph Yong. This ensures the author directory remains accurate and up-to-date with current contributors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/8\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/8.md",
+        "summary": "The authors documentation page was updated to add author profiles for Joseph Lewis and Joseph Yong, while removing profiles for Markus Vill and Maru Ahues Bouza. This keeps the Android developer blog's author directory accurate and up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/9\" target=\"_blank\">Authors</a>",
+        "path": "blog/authors/9.md",
+        "summary": "Updated the Android blog authors documentation on page 9 by adding new author profiles (Markus Vill and Maru Ahues Bouza) and removing others (Meghan Mehta and Michael Stillwell), keeping the author directory accurate and up to date.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/cyrus-stoller\" target=\"_blank\">Cyrus Stoller</a>",
+        "path": "blog/authors/cyrus-stoller.md",
+        "summary": "Added a new author profile page for Cyrus Stoller, Group Product Manager for Laptops & Tablets, detailing his blog posts and contributions.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/authors/jason-buchel\" target=\"_blank\">Jason Buchel</a>",
+        "path": "blog/authors/jason-buchel.md",
+        "summary": "Added a new author profile documentation page for Jason Buchel, highlighting his role as a Creative Technologist in Platform & Devices and listing his posts on agentic Android development.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news.md",
+        "summary": "The product news documentation was updated to include recent blog posts covering Gemini frontier models for agentic Android development, Google Play engagement updates, and the Googlebook Linux Terminal Preview, while older posts were removed to keep the feed current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_product-news.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/10\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/10.md",
+        "summary": "Updated the Product News blog category index (page 10) by adding recent posts on Google Play policy updates, multi-device emulator testing, and Android Studio Panda 3, while removing older entries on Wear OS 64-bit requirements, developer verification, and Media3 1.10.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/11\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/11.md",
+        "summary": "Updated the Product News blog category page (Page 11) to include recent announcements such as Wear OS 64-bit app requirements, Android developer verification rollouts, and the release of Media3 1.10, while removing older articles to maintain current listings.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_11.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/12\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/12.md",
+        "summary": "The product news blog index was updated to include recent articles covering Android Automotive OS for software-defined vehicles, Android developer verification updates, and new desktop experience design guidance, while removing older March 2026 posts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_12.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/13\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/13.md",
+        "summary": "Updated the Product News blog category page (page 13) by adding new entries for March 2026—covering Android ecosystem updates, connected display support in Android 16 QPR3, and Android Studio Panda 2—while removing older February 2026 entries related to early Android 17 announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_13.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/14\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/14.md",
+        "summary": "Updated the Product News blog category page to include new posts regarding Android 17 (such as the first beta release, app resizability and orientation changes, and the lock-free MessageQueue implementation) while removing older entries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_14.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/15\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/15.md",
+        "summary": "Updated the Product News category page to include recent blog posts covering Trade-in mode on Android 16, Google Play Console's new 'Save for later' feature, and the stable release of the Android Studio Otter 3 Feature Drop, while removing older entries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_15.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/16\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/16.md",
+        "summary": "Updated the Product News blog category page (page 16) to include recent articles covering Gemini 3 Flash, Low Light Boost for camera feeds, and Google Play's 2025 developer tools review, while removing older entries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_16.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/17\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/17.md",
+        "summary": "Updated the Product News blog category page (page 17) by adding recent announcements for Android XR SDK Developer Preview 3, Android Studio Otter 2 stable release, and the Jetpack Compose December '25 release, while removing older entries to keep the feed current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/18\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/18.md",
+        "summary": "Updated the Product News category page to include recent announcements regarding Gemini 3 in Android Studio, R8 keep rules configuration, and CameraX 1.5, while removing older blog posts.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_18.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/19\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/19.md",
+        "summary": "Updated the Product News blog category page (19.md) to include recent announcements such as ML Kit's Prompt API for on-device Gemini Nano, the stable release of Material 3 Adaptive 1.2.0, and Android XR performance optimization guides with Unity, while removing older entries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_19.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/2\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/2.md",
+        "summary": "Updated the product news blog listing to include recent articles covering Googlebook adaptive development, the general availability of games on Android Auto and Android Automotive OS, and the release of AndroidX Security State libraries, while removing older entries.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/20\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/20.md",
+        "summary": "Updated the Product News blog category page (page 20) by adding recent articles on AI Image Generation, Jetpack WindowManager 1.5 stable release, and Android Studio Narwhal 4 Feature Drop, while removing older entries from mid-2025.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_20.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/21\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/21.md",
+        "summary": "Added multiple new product news blog post entries focusing on adaptive Android app development, Compose Adaptive Layouts 1.2 beta, cross-device guides for product managers, and Google I/O 2025 highlights. These additions help developers stay informed about modern UI adaptation for foldables, tablets, and diverse form factors.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_21.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/3\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/3.md",
+        "summary": "Updated the Product News blog category index (page 3) by adding recent articles on app quality, generative AI safety on Google Play, and AAOS SDV security, while removing older posts to keep the content stream current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/4\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/4.md",
+        "summary": "Updated the Product News blog category page (page 4) by adding recent articles on enhancing apps for the new Pixel lineup, bringing one-handed gestures to Wear OS apps, and delivering safer age-appropriate experiences on Google Play, while removing older entries to maintain chronological order and pagination consistency.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/5\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/5.md",
+        "summary": "Updated the Product News blog category page (5.md) by adding recent articles on Android Bench updates, Eclipsa Video HDR, and Google Play billing choices, while removing older entries to keep the content stream current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/6\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/6.md",
+        "summary": "Updated the Product News blog category page (page 6) to include recent articles covering Android XR tooling, developer productivity updates, and premium Android experiences from Google I/O '26, while removing older entries to keep the feed current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/7\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/7.md",
+        "summary": "Updated the Product News blog category page (Page 7) to reflect the latest Google I/O 2026 announcements. This includes adding new posts on adaptive development standards for Android 17, Google TV discovery tools, and Google Play updates, while removing older entries to keep the feed current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/8\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/8.md",
+        "summary": "Updated the Product News blog category index (page 8) by adding recent posts regarding Android XR SDK Developer Preview 4, Wear OS 7, and the shift to Compose-first UI development, while removing older entries to keep the feed current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/categories/product-news/9\" target=\"_blank\">Product News</a>",
+        "path": "blog/categories/product-news/9.md",
+        "summary": "Updated the Product News blog category page by adding recent articles on Android's intelligence system transition, app publishing safety updates, and Jetpack Compose 1.11, while removing older entries to keep the content stream current.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest.md",
+        "summary": "Added recent blog posts to the latest documentation covering frontier AI models for Android developers, Google Play discovery and engagement updates, and the Googlebook Linux Terminal Preview, while removing older August 2026 posts and updating topic tag ordering.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_latest.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/10\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/10.md",
+        "summary": "Added three new recent blog posts to the Android updates feed covering the #WeArePlay profile on Geocaching, optimizing app battery using Android vitals wake lock metrics, and an overview of Android developer verification security features. Additionally, topic tags were reorganized.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_10.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/2\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/2.md",
+        "summary": "Updated the latest Android blog posts page to include recent announcements regarding the Jetpack XR SDK beta release, Jetpack Compose August '26 release, and Media3 1.11, while removing older entries and reordering topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/3\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/3.md",
+        "summary": "Updated the blog index page by adding recent announcements regarding Android developer verification, mixed-reality tour guides using Android XR and Gemini, and the release of Android 17, while removing older May 2026 posts and reorganizing topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_3.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/4\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/4.md",
+        "summary": "Updated the latest blog listings to include recent posts on Wear OS 7, Compose-first UI development, and building native Android apps in Google AI Studio, while removing older entries and adjusting topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_4.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/5\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/5.md",
+        "summary": "Updated the latest blog listings to include new announcements regarding Gemma 4 in the AICore Developer Preview, local agentic intelligence on Android, and Wear OS 64-bit app requirements, while removing older entries and adjusting topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_5.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/6\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/6.md",
+        "summary": "Updated the latest Android blog posts feed to include recent articles covering battery technical quality enforcement, openness and choice in the Android ecosystem, and the stable release of Android Studio Panda 2.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_6.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/7\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/7.md",
+        "summary": "Updated the latest blog listings page to include new developer articles covering adaptive apps, Androidify for Wear OS, and Low Light Boost for camera feeds, while removing older outdated posts and adjusting topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_7.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/8\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/8.md",
+        "summary": "Updated the latest Android blog pagination feed with new posts covering performance optimization, the Play Integrity API, and Jetpack Navigation 3 stability, while removing older entries and adjusting topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_8.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/latest/9\" target=\"_blank\">The Latest</a>",
+        "path": "blog/latest/9.md",
+        "summary": "Updated the latest Android developer blog posts by adding recent articles on ML Kit's Prompt API, the Cahier large-screen sample, and CameraX 1.5 high-speed capture, while removing older entries and adjusting topic tags.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_9.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/a-new-era-for-choice-and-openness\" target=\"_blank\">A new era for choice and openness</a>",
+        "path": "blog/posts/a-new-era-for-choice-and-openness.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to feature newer related articles covering frontier AI models for Android agentic engineering, Google Play discovery and growth updates, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_a-new-era-for-choice-and-openness.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/aaos-sdv-secure-by-design\" target=\"_blank\">AAOS SDV - Secure by Design</a>",
+        "path": "blog/posts/aaos-sdv-secure-by-design.md",
+        "summary": "The 'Continue reading' section at the end of the AAOS secure-by-design blog post was updated to feature newer related articles (such as posts on Gemini models and Google Play growth) instead of older posts about Android CLI and subscriptions. This ensures readers are directed to the most current Android developer resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_aaos-sdv-secure-by-design.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations\" target=\"_blank\">Accelerating your insights with faster, smarter monetization data and recommendations</a>",
+        "path": "blog/posts/accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to feature newer related articles, replacing previous entries with recent posts covering topics such as Gemini frontier models for Android developers, Google Play discovery and engagement updates, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_accelerating-your-insights-with-faster-smarter-monetization-data-and-recommendations.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-cli-device-streaming-and-skills\" target=\"_blank\">Device Streaming and Android skills - available in Android CLI</a>",
+        "path": "blog/posts/android-cli-device-streaming-and-skills.md",
+        "summary": "The blog post's related reading section was updated to replace a reference on Android Bench with a new post highlighting the integration of the latest frontier model for agentic Android engineering and AI development.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_android-cli-device-streaming-and-skills.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/android-devices-extend-seamlessly-to-connected-displays\" target=\"_blank\">Android devices extend seamlessly to connected displays</a>",
+        "path": "blog/posts/android-devices-extend-seamlessly-to-connected-displays.md",
+        "summary": "Updated the \"Continue reading\" section at the end of the blog post to replace older recommended articles with newer posts regarding Gemini models on Android and Google Play updates. This ensures readers are directed to the most current Android development content and product news.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_android-devices-extend-seamlessly-to-connected-displays.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/boost-user-engagement-with-ai-image-generation\" target=\"_blank\">Boost user engagement with AI Image Generation</a>",
+        "path": "blog/posts/boost-user-engagement-with-ai-image-generation.md",
+        "summary": "Updated the 'Continue reading' section at the bottom of the blog post to feature a newer related article about bringing frontier models to Android developers, replacing the previous reference to Android CLI device streaming.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_boost-user-engagement-with-ai-image-generation.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli\" target=\"_blank\">Bringing our latest frontier model to Android Developers</a>",
+        "path": "blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli.md",
+        "summary": "Introduces Gemini 4 Argon for Android agentic engineering across Google Antigravity, Android Studio Canary, and Google AI Studio. This release enhances autonomous execution, self-healing build loops, and production-ready Jetpack Compose shader generation.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-native-android-apps-in-google-ai-studio\" target=\"_blank\">Build native Android apps in Google AI Studio</a>",
+        "path": "blog/posts/build-native-android-apps-in-google-ai-studio.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the bottom of the blog post to feature newer developer blog articles, replacing older links regarding Android CLI and subscriptions with recent posts on frontier models, Google Play growth, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_build-native-android-apps-in-google-ai-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio\" target=\"_blank\">Build your way: Use any AI agent of your choice in Android Studio</a>",
+        "path": "blog/posts/build-your-way-use-any-ai-agent-of-your-choice-in-android-studio.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to feature a new article about bringing frontier models to Android developers, while removing an older post entry about Android Bench evaluation.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_build-your-way-use-any-ai-agent-of-your-choice-in-android-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini\" target=\"_blank\">Building a Mixed-Reality Tour Guide with Android XR, the Geospatial API, and Gemini</a>",
+        "path": "blog/posts/building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the end of the mixed reality tour guide blog post to feature newer Android developer articles regarding frontier models, Google Play updates, and Linux terminal previews.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_building-a-mixed-reality-tour-guide-with-android-xr-the-geospatial-api-and-gemini.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions\" target=\"_blank\">Driving growth on Google Play: The next era of subscriptions</a>",
+        "path": "blog/posts/driving-growth-on-google-play-the-next-era-of-subscriptions.md",
+        "summary": "Updated the 'Continue reading' and recommended blog posts section at the bottom of the article to reference newer developer blog posts regarding Gemini frontier models, Google Play growth features, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_driving-growth-on-google-play-the-next-era-of-subscriptions.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration\" target=\"_blank\">Elevating app quality: Reducing memory usage and improving device migration</a>",
+        "path": "blog/posts/elevating-app-quality-reducing-memory-usage-and-improving-device-migration.md",
+        "summary": "Updated the 'Continue reading' recommended blog post sections at the bottom of the article to feature newer posts related to Gemini frontier models, Google Play discovery and engagement updates, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_elevating-app-quality-reducing-memory-usage-and-improving-device-migration.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content\" target=\"_blank\">Ensuring Safety in the Generative AI Ecosystem: Protecting Users from Non-Consensual Intimate Content</a>",
+        "path": "blog/posts/ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content.md",
+        "summary": "Updated the \"Continue reading\" related blog post recommendations at the end of the post, replacing older articles on device streaming and subscriptions with recent announcements regarding frontier models, agentic engineering, and Google Play discovery features.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_ensuring-safety-in-the-generative-ai-ecosystem-protecting-users-from-non-consensual-intimate-content.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench\" target=\"_blank\">Evolving how LLMs are measured for Android: the next era of Android Bench</a>",
+        "path": "blog/posts/evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench.md",
+        "summary": "The blog post's 'Continue reading' section was updated to replace an older related post about Android Bench 2.0 with a newer post regarding frontier models for Android agentic engineering. This keeps the recommended reading list current with recent product news and agentic development topics.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_evolving-how-ll-ms-are-measured-for-android-the-next-era-of-android-bench.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/faster-compiles\" target=\"_blank\">18% Faster Compiles, 0% Compromises</a>",
+        "path": "blog/posts/faster-compiles.md",
+        "summary": "Updated the 'Related Posts' or footer recommendations section in the faster-compiles documentation to feature newer blog posts regarding agentic development, Google Play updates, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_faster-compiles.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio\" target=\"_blank\">Gemini 3 is now available for AI assistance in Android Studio</a>",
+        "path": "blog/posts/gemini-3-is-now-available-for-ai-assistance-in-android-studio.md",
+        "summary": "Updated the recommended and related blog post widgets at the bottom of the Gemini-3 Android Studio article to feature newer content, including articles on Gemini 4, Google Play discovery features, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_gemini-3-is-now-available-for-ai-assistance-in-android-studio.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/get-inspired-and-take-your-apps-to-desktop\" target=\"_blank\">Get inspired and take your apps to desktop</a>",
+        "path": "blog/posts/get-inspired-and-take-your-apps-to-desktop.md",
+        "summary": "Updated the 'Continue reading' blog recommendations section to feature recent posts regarding Gemini models for Android development, Google Play discovery and engagement updates, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_get-inspired-and-take-your-apps-to-desktop.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2\" target=\"_blank\">Go from prompt to working prototype with Android Studio Panda 2</a>",
+        "path": "blog/posts/go-from-prompt-to-working-prototype-with-android-studio-panda-2.md",
+        "summary": "Updated the 'Continue reading' and related blog post recommendations at the end of the document to replace an older post reference about Android CLI and Device Streaming with a newer post regarding frontier models and agentic engineering for Android.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_go-from-prompt-to-working-prototype-with-android-studio-panda-2.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/google-play-discovery-engagement-growth\" target=\"_blank\">New ways to drive smarter discovery, deeper engagement, and business growth on Google Play</a>",
+        "path": "blog/posts/google-play-discovery-engagement-growth.md",
+        "summary": "This new documentation details Google Play updates focused on smarter app discovery features (like Ask Play comparisons and Play in Gemini), enhanced player engagement tools (such as Sidekick Playbacks and Sprints), and business growth programs that reward high-quality experiences with lower service fees.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm\" target=\"_blank\">Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development</a>",
+        "path": "blog/posts/googlebook-linux-terminal-preview-vm.md",
+        "summary": "Introduces the Googlebook Linux Terminal Preview, a sandboxed VM environment tailored for AI agents, development, and rapid prototyping on Googlebook OS.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/health-connect-jetpack-v1-1-0-is-now-available\" target=\"_blank\">Health Connect Jetpack v1.1.0 is now available!</a>",
+        "path": "blog/posts/health-connect-jetpack-v1-1-0-is-now-available.md",
+        "summary": "Updated the 'Continue reading' and recommended blog post links at the bottom of the Health Connect Jetpack v1.1.0 release post. The changes replace older recommended articles with newer developer blog posts regarding Gemini models, Google Play growth updates, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_health-connect-jetpack-v1-1-0-is-now-available.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api\" target=\"_blank\">How Automated Prompt Optimization Unlocks Quality Gains for ML Kit's GenAI Prompt API</a>",
+        "path": "blog/posts/how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to feature a new related article about bringing the latest frontier model to Android developers, replacing the previous reference to Android CLI and device streaming.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_how-automated-prompt-optimization-unlocks-quality-gains-for-ml-kit-s-gen-ai-prompt-api.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/introducing-android-performance-analyzer-the-next-evolution-in-profiling-for-android\" target=\"_blank\">Introducing Android Performance Analyzer - The Next Evolution in Profiling for Android</a>",
+        "path": "blog/posts/introducing-android-performance-analyzer-the-next-evolution-in-profiling-for-android.md",
+        "summary": "Updated the 'Continue reading' blog recommendations section at the end of the post to display more recent and relevant articles regarding Gemini models, Google Play growth, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_introducing-android-performance-analyzer-the-next-evolution-in-profiling-for-android.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture\" target=\"_blank\">Introducing CameraX 1.5: Powerful Video Recording and Pro-level Image Capture</a>",
+        "path": "blog/posts/introducing-camera-x-powerful-video-recording-and-pro-level-image-capture.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the bottom of the CameraX blog post to feature newer developer blog articles regarding agentic Android development, Google Play updates, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_introducing-camera-x-powerful-video-recording-and-pro-level-image-capture.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/land-your-apps-on-googlebook-with-adaptive-development\" target=\"_blank\">Land your apps on Googlebook with adaptive development</a>",
+        "path": "blog/posts/land-your-apps-on-googlebook-with-adaptive-development.md",
+        "summary": "Updated the \"Continue reading\" related articles section at the end of the post to replace a reference to the Jetpack Compose August '26 release with a new article about the Googlebook Linux Terminal Preview. This change keeps the recommended reading list current with recent product announcements.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_land-your-apps-on-googlebook-with-adaptive-development.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop\" target=\"_blank\">LLM flexibility, Agent Mode improvements, and new agentic experiences in Android Studio Otter 3 Feature Drop</a>",
+        "path": "blog/posts/llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop.md",
+        "summary": "Updated the \"Continue reading\" section of the blog post to feature a different related article authored by Jason Buchel regarding frontier models and agentic engineering, replacing the previous reference to the Android CLI post by Simona Milanovic.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_llm-flexibility-agent-mode-improvements-and-new-agentic-experiences-in-android-studio-otter-3-feature-drop.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences\" target=\"_blank\">ML Kit's Prompt API: Unlock Custom On-Device Gemini Nano Experiences</a>",
+        "path": "blog/posts/ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to replace a recommended article on Android CLI and device streaming by Simona Milanovic with a new post by Jason Buchel regarding the latest frontier model for Android developers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_ml-kit-s-prompt-api-unlock-custom-on-device-gemini-nano-experiences.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/modernizing-the-room\" target=\"_blank\">Room 3.0 - Modernizing the Room</a>",
+        "path": "blog/posts/modernizing-the-room.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to feature newer recommended articles and product announcements related to AI frontier models, Google Play growth, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_modernizing-the-room.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025\" target=\"_blank\">Notes from Google Play: A look back at the tools that powered your growth in 2025</a>",
+        "path": "blog/posts/notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md",
+        "summary": "Updated the 'Continue reading' section recommendations to feature recent blog posts covering frontier AI models for Android developers, new Google Play discovery and engagement updates, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_notes-from-google-play-a-look-back-at-the-tools-that-powered-your-growth-in-2025.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17\" target=\"_blank\">Prepare your app for the resizability and orientation changes in Android 17</a>",
+        "path": "blog/posts/prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17.md",
+        "summary": "Updated the \"Continue reading\" recommended blog posts section at the end of the document to replace an older post about Android CLI with a newer post regarding Gemini 4 Argon and agentic Android development authored by Jason Buchel.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_prepare-your-app-for-the-resizability-and-orientation-changes-in-android-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta\" target=\"_blank\">Raising the bar on battery performance: excessive partial wake locks metric is now out of beta</a>",
+        "path": "blog/posts/raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta.md",
+        "summary": "Updated the 'Continue reading' section at the end of the blog post to feature newer developer blog posts, replacing older entries with recent articles covering topics like AI frontier models, Google Play discovery updates, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_raising-the-bar-on-battery-performance-excessive-partial-wake-locks-metric-is-now-out-of-beta.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/test-multi-device-interactions-with-the-android-emulator\" target=\"_blank\">Test Multi-Device Interactions with the Android Emulator</a>",
+        "path": "blog/posts/test-multi-device-interactions-with-the-android-emulator.md",
+        "summary": "Updated the 'Continue reading' section at the end of the blog post to feature newer developer blog posts, replacing older references with recent articles on Gemini models and Google Play updates.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_test-multi-device-interactions-with-the-android-emulator.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/the-fourth-beta-of-android-17\" target=\"_blank\">The Fourth Beta of Android 17</a>",
+        "path": "blog/posts/the-fourth-beta-of-android-17.md",
+        "summary": "Updated the 'Continue reading' recommendation section at the bottom of the Android 17 Beta 4 post to feature newer blog posts. Replaced older entries about Android CLI, subscriptions, and AI agents with fresh articles covering Gemini 4 Argon, Google Play discovery updates, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_the-fourth-beta-of-android-17.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/top-3-updates-for-android-developer-productivity\" target=\"_blank\">Top 3 updates for Android developer productivity</a>",
+        "path": "blog/posts/top-3-updates-for-android-developer-productivity.md",
+        "summary": "Updated the 'Continue reading' section of the blog post to replace a related article about Google Play subscriptions with a new post highlighting the integration of the latest frontier model for agentic Android development and AI tooling. This keeps the recommended reading list aligned with the latest developer productivity and AI trends.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_top-3-updates-for-android-developer-productivity.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/posts/try-using-play-consoles-new-save-for-later-feature\" target=\"_blank\">Ready to review some changes but not others? Try using Play Console's new Save for later feature</a>",
+        "path": "blog/posts/try-using-play-consoles-new-save-for-later-feature.md",
+        "summary": "Updated the 'Continue reading' footer section of the blog post to feature newer developer blog articles, replacing previous links regarding device streaming, subscriptions, and AI agents with recent posts on Gemini models, Google Play discovery, and the Googlebook Linux Terminal Preview.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_try-using-play-consoles-new-save-for-later-feature.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/agentic-android-development\" target=\"_blank\">#Agentic Android development</a>",
+        "path": "blog/topics/agentic-android-development.md",
+        "summary": "Added a new blog post entry by Jason Buchel regarding Gemini 4 Argon and agentic engineering for Android to the Agentic Android development topic documentation. This addition highlights the shift toward end-to-end agent execution and expands the curated list of relevant developer resources.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_agentic-android-development.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/blog/topics/googlebook\" target=\"_blank\">#Googlebook</a>",
+        "path": "blog/topics/googlebook.md",
+        "summary": "Added a new blog post entry for the Googlebook topic detailing the introduction of the Googlebook Linux Terminal Preview, a VM-backed environment for AI and development by author Cyrus Stoller. This update matters as it highlights new developer tooling and product news available for the Googlebook ecosystem.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_googlebook.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper\" target=\"_blank\">Keyboard Shortcuts Helper</a>",
+        "path": "develop/ui/compose/touch-input/keyboard-input/keyboard-shortcuts-helper.md",
+        "summary": "The documentation updates fix code snippet formatting by wrapping code blocks in proper Markdown syntax and adding null safety checks for the activity reference when calling requestShowKeyboardShortcuts(). These changes improve readability and prevent potential runtime issues.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_keyboard-shortcuts-helper.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/distribute/age-appropriate-experiences\" target=\"_blank\">Build age-appropriate experiences on Google Play  |  Android Developers</a>",
+        "path": "distribute/age-appropriate-experiences.md",
+        "summary": "This new documentation page outlines tools and best practices for building age-appropriate experiences on Google Play, detailing content restrictions, minor access controls, and the Play Age Signals API.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/distribute/age-appropriate-experiences/regional-protections\" target=\"_blank\">Regional age-related protections on Play  |  Google Play  |  Android Developers</a>",
+        "path": "distribute/age-appropriate-experiences/regional-protections.md",
+        "summary": "This new documentation outlines regional age-related protections and tools provided by Google Play, helping developers ensure their apps comply with local regulations and policies across different jurisdictions.",
+        "tag_text": "NEW",
+        "tag_class": "new"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/nightly\" target=\"_blank\">Android Studio Nightly</a>",
+        "path": "studio/nightly.md",
+        "summary": "Updated the Android Studio nightly build documentation to reference the latest version (Rabbit 2 | 2026.2.2 Nightly 2026-10-14, build version 2026.2.2.5). This update ensures that developers downloading the nightly packages for Windows, macOS (Apple and Intel chips), and Linux receive the correct, up-to-date links and build identifiers.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_nightly.md.txt"
+      },
+      {
+        "title": "<a href=\"https://developer.android.com/studio/run/emulator-extended-controls\" target=\"_blank\">Extended controls, settings, and help</a>",
+        "path": "studio/run/emulator-extended-controls.md",
+        "summary": "Updated the documentation for the emulator's Microphone extended controls to reflect UI and behavior changes. Specifically, options were renamed (e.g., 'Virtual microphone uses host audio input' to 'Enable Host Microphone Access' and 'Virtual headset plug inserted' to 'Simulate Insert Headset'), and details were added regarding API level and AVD restrictions for the Voice Assist feature.",
+        "tag_text": "UPDATE",
+        "tag_class": "update",
+        "diff_file": "pages/diffs/d04ff474_emulator-extended-controls.md.txt"
+      }
+    ]
+  },
+  {
     "date": "2026-10-13T15:12:18Z",
     "commit_hash": "b14b6721",
     "entries": [
