@@ -23,15 +23,18 @@ Keyboard Shortcuts Helper by overriding the
 The following snippet demonstrates an implementation of
 `onProvideKeyboardShortcuts()` to add a group of four shortcuts:
 
-    class MainActivity : ComponentActivity() {
-        // Activity codes such as overridden onStart method.
 
-        override fun onProvideKeyboardShortcuts(
-            data: MutableList<KeyboardShortcutGroup>?,
-            menu: Menu?,
-            deviceId: Int
-        ) {
-            val shortcutGroup = KeyboardShortcutGroup(
+```kotlin
+class MainActivity : ComponentActivity() {
+    // Activity codes such as overridden onStart method.
+
+    override fun onProvideKeyboardShortcuts(
+        data: MutableList<KeyboardShortcutGroup>?,
+        menu: Menu?,
+        deviceId: Int
+    ) {
+        val shortcutGroup =
+            KeyboardShortcutGroup(
                 "Cursor movement",
                 listOf(
                     KeyboardShortcutInfo("Up", KeyEvent.KEYCODE_P, KeyEvent.META_CTRL_ON),
@@ -40,9 +43,12 @@ The following snippet demonstrates an implementation of
                     KeyboardShortcutInfo("Backward", KeyEvent.KEYCODE_B, KeyEvent.META_CTRL_ON),
                 )
             )
-            data?.add(shortcutGroup)
-        }
+        data?.add(shortcutGroup)
     }
+}
+```
+
+<br />
 
 [`KeyboardShortcutInfo`](https://developer.android.com/reference/kotlin/android/view/KeyboardShortcutInfo) describes a keyboard shortcut.
 The list of keyboard shortcuts are wrapped as a
@@ -66,32 +72,41 @@ mutable list passed to the `onProvideKeyboardShortcuts()` method.
 The objects are displayed as categories in Keyboard Shortcuts Helper as
 [figure 2](https://developer.android.com/static/images/develop/ui/touch-input/keyboard-input/keyboard_shortcut_group.png) shows.
 
-    override fun onProvideKeyboardShortcuts(
-        data: MutableList<KeyboardShortcutGroup>?,
-        menu: Menu?,
-        deviceId: Int
-    ) {
-        val cursorMovement = KeyboardShortcutGroup(
-            "Cursor movement",
-            listOf(
-                KeyboardShortcutInfo("Up", KeyEvent.KEYCODE_P, KeyEvent.META_CTRL_ON),
-                KeyboardShortcutInfo("Down", KeyEvent.KEYCODE_N, KeyEvent.META_CTRL_ON),
-                KeyboardShortcutInfo("Forward", KeyEvent.KEYCODE_F, KeyEvent.META_CTRL_ON),
-                KeyboardShortcutInfo("Backward", KeyEvent.KEYCODE_B, KeyEvent.META_CTRL_ON),
+
+```kotlin
+override fun onProvideKeyboardShortcuts(
+    data: MutableList<KeyboardShortcutGroup>?,
+    menu: Menu?,
+    deviceId: Int
+) {
+    val cursorMovement = KeyboardShortcutGroup(
+        "Cursor movement",
+        listOf(
+            KeyboardShortcutInfo("Up", KeyEvent.KEYCODE_P, KeyEvent.META_CTRL_ON),
+            KeyboardShortcutInfo("Down", KeyEvent.KEYCODE_N, KeyEvent.META_CTRL_ON),
+            KeyboardShortcutInfo("Forward", KeyEvent.KEYCODE_F, KeyEvent.META_CTRL_ON),
+            KeyboardShortcutInfo("Backward", KeyEvent.KEYCODE_B, KeyEvent.META_CTRL_ON),
+        )
+    )
+
+    val messageEdit = KeyboardShortcutGroup(
+        "Message editing",
+        listOf(
+            KeyboardShortcutInfo("Select All", KeyEvent.KEYCODE_A, KeyEvent.META_CTRL_ON),
+            KeyboardShortcutInfo(
+                "Send a message",
+                KeyEvent.KEYCODE_ENTER,
+                KeyEvent.META_SHIFT_ON
             )
         )
+    )
 
-        val messageEdit = KeyboardShortcutGroup(
-            "Message editing",
-            listOf(
-                KeyboardShortcutInfo("Select All", KeyEvent.KEYCODE_A, KeyEvent.META_CTRL_ON),
-                KeyboardShortcutInfo("Send a message", KeyEvent.KEYCODE_ENTER, KeyEvent.META_SHIFT_ON)
-            )
-        )
+    data?.add(cursorMovement)
+    data?.add(messageEdit)
+}
+```
 
-        data?.add(cursorMovement)
-        data?.add(messageEdit)
-    }
+<br />
 
 ## Open Keyboard Shortcuts Helper from code
 
@@ -100,8 +115,17 @@ calling the [`requestShowKeyboardShortcuts()`](https://developer.android.com/ref
 method. In the following snippet, Keyboard Shortcuts Helper opens when users tap
 or click the button or press the <kbd>Enter</kbd> key.
 
-    val activity = LocalActivity.current
 
-    Button(onClick = { activity.requestShowKeyboardShortcuts() }) {
-        Text(text = "Show keyboard shortcuts")
+```kotlin
+val activity = LocalActivity.current
+
+Button(
+    onClick = {
+        activity?.requestShowKeyboardShortcuts()
     }
+) {
+    Text(text = "Show keyboard shortcuts")
+}
+```
+
+<br />
