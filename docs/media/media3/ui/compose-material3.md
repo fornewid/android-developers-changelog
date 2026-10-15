@@ -1,28 +1,37 @@
 ---
-title: https://developer.android.com/media/media3/ui/compose-material3
+title: Material3 Compose  |  Android media  |  Android Developers
 url: https://developer.android.com/media/media3/ui/compose-material3
-source: md.txt
+source: html-scrape
 ---
 
-The `media3-ui-compose-material3` library provides a [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) Composable that
+* [Android Developers](https://developer.android.com/)
+* [Essentials](https://developer.android.com/get-started)
+* [Camera & media dev center](https://developer.android.com/media)
+* [Guides](https://developer.android.com/media/guides)
+
+# Material3 Compose Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+
+The `media3-ui-compose-material3` library provides a [`Player`](/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) Composable that
 shows player controls, progress bar and current media content. It handles both
 the state management and the Material3 styling internally. For more information
-on which library to use, see the [Media3 Compose overview](https://developer.android.com/media/media3/ui/compose).
+on which library to use, see the [Media3 Compose overview](/media/media3/ui/compose).
 
-
-```kotlin
+```
 // The library provides styled UI components
 Row {
   SeekBackButton(player)
   PlayPauseButton(player)
   SeekForwardButton(player)
 }
+
+ComposeMaterial3.kt
 ```
 
-<br />
-
-
-```kotlin
+```
 // You can rearrange the composables into a layout that suits your needs
 @Composable
 fun PlayerProgressControlsLeftAligned(player: Player) {
@@ -40,9 +49,9 @@ fun PlayerProgressControlsCenterAligned(player: Player) {
     DurationText(player)
   }
 }
-```
 
-<br />
+ComposeMaterial3.kt
+```
 
 ### Customize the Material3 Components
 
@@ -50,11 +59,10 @@ While `media3-ui-compose-material3` provides components that follow Material3
 Design, you still have full control over theming. You can customize colors,
 typography, and shapes by wrapping your player UI in a `MaterialTheme`.
 
-For example, to change the color of the [`PlayPauseButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/PlayPauseButton.composable#PlayPauseButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)), you can provide a
+For example, to change the color of the [`PlayPauseButton`](/reference/kotlin/androidx/media3/ui/compose/material3/buttons/PlayPauseButton.composable#PlayPauseButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)), you can provide a
 custom `colorScheme`:
 
-
-```kotlin
+```
 MaterialTheme(
   colorScheme =
     lightColorScheme(
@@ -65,9 +73,9 @@ MaterialTheme(
   // The PlayPauseButton will now use the custom colors
   PlayPauseButton(player)
 }
-```
 
-<br />
+ComposeMaterial3.kt
+```
 
 ### Available Material3 Components
 
@@ -76,21 +84,21 @@ for common player controls. Here are some of the components you can use directly
 in your app:
 
 | Component | Description |
-|---|---|
-| [`Player`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) | A player with controls, progress bar and content frame. |
-| [`PlayPauseButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/PlayPauseButton.composable#PlayPauseButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button that toggles between play and pause. |
-| [`SeekBackButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/SeekBackButton.composable#SeekBackButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button to seek backward by a defined increment. |
-| [`SeekForwardButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/SeekForwardButton.composable#SeekForwardButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button to seek forward by a defined increment. |
-| [`NextButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/NextButton.composable#NextButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button to seek to the next media item. |
-| [`PreviousButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/PreviousButton.composable#PreviousButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button to seek to the previous media item. |
-| [`RepeatButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/RepeatButton.composable#RepeatButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.collections.List,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button to cycle through repeat modes. |
-| [`ShuffleButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/ShuffleButton.composable#ShuffleButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button to toggle shuffle mode. |
-| [`MuteButton`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/buttons/MuteButton.composable#MuteButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button to mute and unmute the player. |
-| [`PositionAndDurationText`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/indicator/PositionAndDurationText.composable#PositionAndDurationText(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.String,androidx.compose.ui.graphics.Color,kotlinx.coroutines.CoroutineScope)) | A text composable that displays the current position and total duration. |
-| [`PositionText`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/indicator/PositionText.composable#PositionText(androidx.media3.common.Player,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,kotlinx.coroutines.CoroutineScope)) | A text composable that displays the current position. |
-| [`DurationText`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/indicator/DurationText.composable#DurationText(androidx.media3.common.Player,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,kotlinx.coroutines.CoroutineScope)) | A text composable that displays the total duration. |
-| [`RemainingDurationText`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/indicator/RemainingDurationText.composable#RemainingDurationText(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlinx.coroutines.CoroutineScope)) | A text composable that displays the remaining duration. |
-| [`ProgressSlider`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/material3/indicator/ProgressSlider.composable#ProgressSlider(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function0,kotlinx.coroutines.CoroutineScope,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource)) | A slider that shows playback progress and allows the user to seek. |
+| --- | --- |
+| [`Player`](/reference/kotlin/androidx/media3/ui/compose/material3/Player.composable) | A player with controls, progress bar and content frame. |
+| [`PlayPauseButton`](/reference/kotlin/androidx/media3/ui/compose/material3/buttons/PlayPauseButton.composable#PlayPauseButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button that toggles between play and pause. |
+| [`SeekBackButton`](/reference/kotlin/androidx/media3/ui/compose/material3/buttons/SeekBackButton.composable#SeekBackButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button to seek backward by a defined increment. |
+| [`SeekForwardButton`](/reference/kotlin/androidx/media3/ui/compose/material3/buttons/SeekForwardButton.composable#SeekForwardButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button to seek forward by a defined increment. |
+| [`NextButton`](/reference/kotlin/androidx/media3/ui/compose/material3/buttons/NextButton.composable#NextButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button to seek to the next media item. |
+| [`PreviousButton`](/reference/kotlin/androidx/media3/ui/compose/material3/buttons/PreviousButton.composable#PreviousButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button to seek to the previous media item. |
+| [`RepeatButton`](/reference/kotlin/androidx/media3/ui/compose/material3/buttons/RepeatButton.composable#RepeatButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.collections.List,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button to cycle through repeat modes. |
+| [`ShuffleButton`](/reference/kotlin/androidx/media3/ui/compose/material3/buttons/ShuffleButton.composable#ShuffleButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button to toggle shuffle mode. |
+| [`MuteButton`](/reference/kotlin/androidx/media3/ui/compose/material3/buttons/MuteButton.composable#MuteButton(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function1,androidx.compose.material3.IconButtonColors,androidx.compose.ui.graphics.Color,kotlin.Function1)) | A button to mute and unmute the player. |
+| [`PositionAndDurationText`](/reference/kotlin/androidx/media3/ui/compose/material3/indicator/PositionAndDurationText.composable#PositionAndDurationText(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.String,androidx.compose.ui.graphics.Color,kotlinx.coroutines.CoroutineScope)) | A text composable that displays the current position and total duration. |
+| [`PositionText`](/reference/kotlin/androidx/media3/ui/compose/material3/indicator/PositionText.composable#PositionText(androidx.media3.common.Player,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,kotlinx.coroutines.CoroutineScope)) | A text composable that displays the current position. |
+| [`DurationText`](/reference/kotlin/androidx/media3/ui/compose/material3/indicator/DurationText.composable#DurationText(androidx.media3.common.Player,androidx.compose.ui.Modifier,androidx.compose.ui.graphics.Color,kotlinx.coroutines.CoroutineScope)) | A text composable that displays the total duration. |
+| [`RemainingDurationText`](/reference/kotlin/androidx/media3/ui/compose/material3/indicator/RemainingDurationText.composable#RemainingDurationText(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Boolean,androidx.compose.ui.graphics.Color,kotlinx.coroutines.CoroutineScope)) | A text composable that displays the remaining duration. |
+| [`ProgressSlider`](/reference/kotlin/androidx/media3/ui/compose/material3/indicator/ProgressSlider.composable#ProgressSlider(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Function1,kotlin.Function0,kotlinx.coroutines.CoroutineScope,androidx.compose.material3.SliderColors,androidx.compose.foundation.interaction.MutableInteractionSource)) | A slider that shows playback progress and allows the user to seek. |
 
 *This is not an exhaustive list. Refer to the library's API reference for all
 available components.*
@@ -100,6 +108,6 @@ management and they live in the `media3-ui-compose` module because they don't
 possess Material theming.
 
 | Component | Description |
-|---|---|
-| [`ContentFrame`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) | A surface for displaying media content that handles aspect ratio management, resizing, and a shutter |
-| [`PlayerSurface`](https://developer.android.com/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) | Raw surface which wraps `SurfaceView` and `TextureView` in `AndroidView` |
+| --- | --- |
+| [`ContentFrame`](/reference/kotlin/androidx/media3/ui/compose/ContentFrame.composable#ContentFrame(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int,androidx.compose.ui.layout.ContentScale,kotlin.Boolean,kotlin.Function0)) | A surface for displaying media content that handles aspect ratio management, resizing, and a shutter |
+| [`PlayerSurface`](/reference/kotlin/androidx/media3/ui/compose/PlayerSurface.composable#PlayerSurface(androidx.media3.common.Player,androidx.compose.ui.Modifier,kotlin.Int)) | Raw surface which wraps `SurfaceView` and `TextureView` in `AndroidView` |

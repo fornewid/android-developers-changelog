@@ -1,8 +1,19 @@
 ---
-title: https://developer.android.com/training/tv/playback/compose/layouts
+title: Build TV layouts  |  Android TV  |  Android Developers
 url: https://developer.android.com/training/tv/playback/compose/layouts
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Devices](https://developer.android.com/develop/devices)
+* [Android TV](https://developer.android.com/training/tv)
+
+# Build TV layouts Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 
 A TV screen is typically viewed from about 10 feet away, and while it is much
 larger than most other Android-powered device displays, a TV screen does not
@@ -16,10 +27,14 @@ Layouts for TV devices must follow some basic guidelines to help ensure that
 they are usable and effective on large screens. Follow these tips to build
 layouts optimized for TV screens:
 
-- Build layouts with a landscape orientation. TV screens always display in landscape mode.
-- Put on-screen navigation controls on the left or right side of the screen and save the vertical space for content.
-- Use responsive and relative sizing (such as `dp` and `sp` units) so that user interfaces scale cleanly across different display resolutions.
-- Add sufficient margins and padding between layout controls to avoid a cluttered UI.
+* Build layouts with a landscape orientation. TV screens always display in
+  landscape mode.
+* Put on-screen navigation controls on the left or right side of the screen
+  and save the vertical space for content.
+* Use responsive and relative sizing (such as `dp` and `sp` units) so that
+  user interfaces scale cleanly across different display resolutions.
+* Add sufficient margins and padding between layout controls to avoid a
+  cluttered UI.
 
 ## Overscan
 
@@ -42,19 +57,23 @@ ensure that background screen elements look correct on all screens.
 Follow these tips to make the text and controls in your TV app easier to see
 from a distance:
 
-- Break text into small chunks that users can quickly scan.
-- Use light text on a dark background. This style is easier to read on a TV.
-- Avoid lightweight fonts or fonts that have both very narrow and very broad strokes. Use sans-serif fonts and anti-aliasing to increase readability.
-- Make all your view widgets large enough to be clearly visible to someone sitting 10 feet away from the screen. Use density-independent pixel (`dp`) units instead of absolute pixel units, and scalable pixel (`sp`) units for typography.
+* Break text into small chunks that users can quickly scan.
+* Use light text on a dark background. This style is easier to read on a TV.
+* Avoid lightweight fonts or fonts that have both very narrow and very broad
+  strokes. Use sans-serif fonts and anti-aliasing to increase readability.
+* Make all your view widgets large enough to be clearly visible to someone
+  sitting 10 feet away from the screen. Use density-independent pixel (`dp`)
+  units instead of absolute pixel units, and scalable pixel (`sp`) units for
+  typography.
 
 For more information about density-independent pixels and building layouts to
-handle larger screen sizes, see [Screen compatibility overview](https://developer.android.com/guide/practices/screens_support).
+handle larger screen sizes, see [Screen compatibility overview](/guide/practices/screens_support).
 
 ## Manage layout resources for TV
 
 Like all other Android devices, TVs have different screen sizes and support
 different resolutions, including 720p, 1080p, and 4K. Make sure your app
-[supports different screen sizes](https://developer.android.com/training/multiscreen/screensizes).
+[supports different screen sizes](/training/multiscreen/screensizes).
 
 Different screen sizes and resolutions have different pixel densities. To
 preserve the appearance of your UI across screen sizes, resolutions, and pixel
@@ -63,13 +82,13 @@ screen pixel density for different TV panel resolutions is outlined in the
 following table:
 
 | Panel resolution | Screen pixel density |
-|---|---|
+| --- | --- |
 | 720p | `tvdpi` |
 | 1080p | `xhdpi` |
 | 4K | `xxxhdpi` |
 
-See [Support different pixel densities](https://developer.android.com/training/multiscreen/screendensities) and the
-[Screen compatibility overview](https://developer.android.com/training/multiscreen) for more information.
+See [Support different pixel densities](/training/multiscreen/screendensities) and the
+[Screen compatibility overview](/training/multiscreen) for more information.
 
 ## Layout patterns to avoid
 
@@ -77,12 +96,19 @@ There are a few approaches to building layouts that don't work well on TV
 devices. Avoid the following user interface patterns when developing a layout
 for TV:
 
-- **Re-using phone or tablet layouts**: Don't reuse layouts from a phone or tablet app without modification. Layouts built for other Android-powered device form factors are not well suited for TV devices and must be simplified for operation on a TV.
-- **Using phone action bars or menus**: Top action bars and pull-down menus are not appropriate for a TV interface due to the difficulty in navigating such menus with a remote control.
-- **Using swipe-only navigation**: Sliding or swiping between screens can work great on a phone or tablet, but don't try swipe-only gestures on a TV where users rely on a D-pad remote.
+* **Re-using phone or tablet layouts**: Don't reuse layouts from a phone or
+  tablet app without modification. Layouts built for other Android-powered
+  device form factors are not well suited for TV devices and must be
+  simplified for operation on a TV.
+* **Using phone action bars or menus**: Top action bars and pull-down menus
+  are not appropriate for a TV interface due to the difficulty in navigating
+  such menus with a remote control.
+* **Using swipe-only navigation**: Sliding or swiping between screens can work
+  great on a phone or tablet, but don't try swipe-only gestures on a TV where
+  users rely on a D-pad remote.
 
 For more information about designing layouts that are appropriate to TV, see
-[Designing for TV](https://developer.android.com/design/ui/tv).
+[Designing for TV](/design/ui/tv).
 
 ## Handle large bitmaps
 
@@ -92,7 +118,7 @@ Use efficient image loading and decoding libraries (such as [Coil](https://coil-
 [Glide](https://github.com/bumptech/glide)) to fetch, decode, and display bitmaps in your app.
 
 For more information about getting the best performance when working with
-bitmaps, refer to [Android graphics best practices](https://developer.android.com/topic/performance/graphics).
+bitmaps, refer to [Android graphics best practices](/topic/performance/graphics).
 
 ## Provide effective advertising
 
@@ -105,5 +131,17 @@ Android TV does not provide a web browser. Your ads must not attempt to launch a
 web browser or redirect to Google Play Store content that is not approved for
 Android TV devices.
 
-> [!NOTE]
-> **Note:** You can use the [`WebView`](https://developer.android.com/reference/android/webkit/WebView) class for logins to social media services.
+**Note:** You can use the [`WebView`](/reference/android/webkit/WebView) class for logins to social media
+services.
+
+[Previous
+
+arrow\_back
+
+In this guide](/training/tv/playback/compose)
+
+[Next
+
+Create a catalog browser
+
+arrow\_forward](/training/tv/playback/compose/browse)

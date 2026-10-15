@@ -1,25 +1,57 @@
 ---
-title: https://developer.android.com/develop/ui/compose/agentic
+title: Agent-to-UI renderer for Jetpack Compose (A2UI)  |  Android Developers
 url: https://developer.android.com/develop/ui/compose/agentic
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Core areas](https://developer.android.com/develop/core-areas)
+* [UI](https://developer.android.com/develop/ui)
+* [Docs](https://developer.android.com/develop/ui/compose/documentation)
+
+# Agent-to-UI renderer for Jetpack Compose (A2UI) Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 
 The Jetpack Compose agent-to-UI (A2UI) renderer provides an implementation of
 the [A2UI protocol](https://a2ui.org/), enabling AI agents to generate rich, interactive
-user interfaces that render native Compose components---without executing
+user interfaces that render native Compose components—without executing
 arbitrary code. This library maps the A2UI JSON protocol to Compose
-primitives while adhering to [idiomatic state management](https://developer.android.com/develop/ui/compose/state) and providing
+primitives while adhering to [idiomatic state management](/develop/ui/compose/state) and providing
 fine-grained reactivity based on the Compose Snapshot state system.
 
 The Compose A2UI renderer library offers the following capabilities:
 
-- **High-performance reactivity** ([`androidx.a2ui.compose:compose-runtime`](https://developer.android.com/jetpack/androidx/releases/a2ui-compose)): Delivers fine-grained UI updates by leveraging the Compose Snapshot state system, ensuring that only the specific components affected by streaming agent updates or user interactions are recomposed.
-- **Flexible component APIs and customization** ([`androidx.a2ui.compose:compose-ui`](https://developer.android.com/jetpack/androidx/releases/a2ui-compose)): Provides a structured pattern for defining catalogs of component implementations that map JSON protocol schemas to your native Compose UI. This lets you build components that support progressive rendering, custom loading states of subcomponents, animated transitions, and two-way data bindings that can send data back to the agent.
-- **Design-system agnostic core** : Keeps the runtime and UI rendering layers independent of any specific design system, enabling you to build custom catalogs for your app's design system or adopt the provided [Basic Catalog](https://a2ui.org/specification/v0.9.1-basic-catalog-implementation-guide/).
-- **Graceful handling of AI hallucinations** ([`androidx.a2ui:a2ui-model`](https://developer.android.com/jetpack/androidx/releases/a2ui) and [`androidx.a2ui:a2ui-engine`](https://developer.android.com/jetpack/androidx/releases/a2ui)): Provides schema validation to intercept malformed payloads before they reach the state models, graceful error handling through component error states, and automatic error reporting to an agent for self-correction.
-- **Built-in Basic Catalog** ([`androidx.compose.material3:material3-a2ui`](https://developer.android.com/jetpack/androidx/releases/compose-material3#compose_material3_a2ui_version_10_2)): Provides a ready-to-use Basic Catalog implementation using Material 3 components, supporting progressive rendering and Material theming on top of the Compose renderer.
+* **High-performance reactivity**
+  ([`androidx.a2ui.compose:compose-runtime`](/jetpack/androidx/releases/a2ui-compose)): Delivers fine-grained UI
+  updates by leveraging the Compose Snapshot state system, ensuring that only
+  the specific components affected by streaming agent updates or user
+  interactions are recomposed.
+* **Flexible component APIs and customization**
+  ([`androidx.a2ui.compose:compose-ui`](/jetpack/androidx/releases/a2ui-compose)): Provides a structured pattern for
+  defining catalogs of component implementations that map JSON protocol
+  schemas to your native Compose UI. This lets you build components that
+  support progressive rendering, custom loading states of subcomponents,
+  animated transitions, and two-way data bindings that can send data back to
+  the agent.
+* **Design-system agnostic core**: Keeps the runtime and UI rendering layers
+  independent of any specific design system, enabling you to build custom
+  catalogs for your app's design system or adopt the provided
+  [Basic Catalog](https://a2ui.org/specification/v0.9.1-basic-catalog-implementation-guide/).
+* **Graceful handling of AI hallucinations** ([`androidx.a2ui:a2ui-model`](/jetpack/androidx/releases/a2ui)
+  and [`androidx.a2ui:a2ui-engine`](/jetpack/androidx/releases/a2ui)): Provides schema validation to
+  intercept malformed payloads before they reach the state models, graceful
+  error handling through component error states, and automatic error reporting
+  to an agent for self-correction.
+* **Built-in Basic Catalog**
+  ([`androidx.compose.material3:material3-a2ui`](/jetpack/androidx/releases/compose-material3#compose_material3_a2ui_version_10_2)): Provides a ready-to-use
+  Basic Catalog implementation using Material 3 components, supporting
+  progressive rendering and Material theming on top of the Compose renderer.
 
-<br />
+[](/static/images/develop/ui/compose/agentic/compose-agentic-flow.mp4)
 
 ## High-level architecture
 
@@ -32,7 +64,7 @@ agent uses them to construct user interfaces.
 To support this model, the Compose A2UI renderer separates the core,
 design-system-agnostic rendering engine from concrete catalog implementations
 across the Jetpack artifacts described earlier, and provides dedicated testing
-APIs in [`androidx.a2ui.compose:compose-ui-testing`](https://developer.android.com/jetpack/androidx/releases/a2ui-compose).
+APIs in [`androidx.a2ui.compose:compose-ui-testing`](/jetpack/androidx/releases/a2ui-compose).
 
 ## Protocol evolution and API compatibility
 
@@ -56,8 +88,14 @@ evolution.
 As the A2UI protocol evolves or adds new capabilities, the renderer APIs support
 those changes through the following approaches:
 
-- **Non-breaking API additions** : When a new capability is introduced, it becomes part of a core public interface (such as `A2uiComponent` or `A2uiCatalog`) with a default implementation. This lets your app's components continue to compile and function without modification.
-- **Breaking changes cause older interfaces to become deprecated** : If a future protocol update introduces an incompatible change, old incompatible interfaces (such as `A2uiComponent`) are deprecated, and new interfaces, such as `A2uiComponentV2`, are introduced and supported alongside them.
+* **Non-breaking API additions**: When a new capability is introduced, it
+  becomes part of a core public interface (such as `A2uiComponent` or
+  `A2uiCatalog`) with a default implementation. This lets your app's
+  components continue to compile and function without modification.
+* **Breaking changes cause older interfaces to become deprecated**: If a
+  future protocol update introduces an incompatible change, old incompatible
+  interfaces (such as `A2uiComponent`) are deprecated, and new interfaces,
+  such as `A2uiComponentV2`, are introduced and supported alongside them.
 
 ### Version catalog and component schemas
 
@@ -67,5 +105,11 @@ advances its version. Component implementations for this "next" version can use
 the updated renderer APIs.
 
 To help enable seamless migrations, your client can [declare multiple supported
-catalog versions](https://developer.android.com/develop/ui/compose/agentic/manage-catalogs#declare-supported-versions), which the agent gets during the capability negotiation
+catalog versions](/develop/ui/compose/agentic/manage-catalogs#declare-supported-versions), which the agent gets during the capability negotiation
 phase.
+
+[Next
+
+Create and customize catalogs
+
+arrow\_forward](/develop/ui/compose/agentic/manage-catalogs)

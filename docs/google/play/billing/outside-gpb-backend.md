@@ -31,11 +31,9 @@ transactions happening outside Google Play's billing system in supported
 countries, including $0 transactions* resulting from free trial purchases and
 app installs. You should only start and report transactions on billing and link
 programs for eligible user countries as permitted under the
-[alternative billing](https://support.google.com/googleplay/android-developer/answer/13821247), [external offers](https://support.google.com/googleplay/android-developer/answer/14372887), or
-[external payments](https://support.google.com/googleplay/android-developer/answer/16787536) guidelines; otherwise, the API call is
-rejected. This applies to all
-transactions, including new purchases, renewals, top-ups, upgrades, downgrades,
-and app downloads.
+[alternative billing](https://support.google.com/googleplay/android-developer/topic/16471708) and [external content](https://support.google.com/googleplay/android-developer/topic/16470499) programs; otherwise, the API
+call is rejected. This applies to all transactions, including new purchases,
+renewals, top-ups, upgrades, downgrades, and app downloads.
 
 ### External transaction reporting
 

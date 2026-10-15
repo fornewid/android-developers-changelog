@@ -91,11 +91,12 @@ app does one of the following:
 - Plays media in the background.
 - Uses [`WorkManager`](https://developer.android.com/develop/background-work/background-tasks/persistent/getting-started) or [`JobScheduler`](https://developer.android.com/reference/android/app/job/JobScheduler). (The system holds a wakelock on your behalf when running the job in the background.)
 
-[Battery Historian](https://developer.android.com/topic/performance/power/setup-battery-historian) lets you can see individual occurrences of long
-wakelocks, as well as summaries of the total number and duration of wakelocks
-being held. Inspect the number and duration of the wakelocks that your app
-holds, and compare this information to the interactive usage patterns of your
-app:
+To [debug wake locks locally](https://developer.android.com/develop/background-work/background-tasks/awake/wakelock/debug-locally), use Android Studio's [Background Task
+Inspector](https://developer.android.com/studio/inspect/task), [system tracing](https://developer.android.com/topic/performance/tracing), or `adb shell dumpsys batterystats` to
+inspect individual occurrences of long wakelocks, as well as summaries of the
+total number and duration of wakelocks being held. Compare the number and
+duration of the wakelocks that your app holds to the interactive usage patterns
+of your app:
 
 - Check for unexpected wakelocks.
 - If the duration is longer than expected, consider whether the work is blocked on some dependency, such as availability of the network.
@@ -133,22 +134,27 @@ playlists, downloading a specific media item, starting playback, and stopping
 playback. By defining these events, you can see them in Perfetto and compare
 their timing with your app's CPU and power usage.
 
+You can also use the [Android CLI](https://developer.android.com/tools/agents/android-cli) to install the [`android-profiler`
+skill](https://developer.android.com/tools/agents/android-skills/browse#android-profiler) (`android skills add android-profiler`), which lets AI agents record
+Perfetto system traces from the command line and analyze power rails, wake
+locks, and device suspend states.
+
 ## Analyze your app's scheduled jobs
 
 Scheduled jobs, using [WorkManager](https://developer.android.com/guide/background/persistent/getting-started), let you perform background work in your
 app. Although some background work must be periodic, don't run jobs too
 frequently or for a long duration, because this can drain the device's battery.
 
-Use [Battery Historian](https://developer.android.com/topic/performance/power/setup-battery-historian) to inspect the execution of Scheduled Jobs, both
-overall (**System stats \> Jobscheduler stats** ) and by app (**App stats \>
-Scheduled job**). Check the total count and the total duration:
+Use Android Studio's [Background Task Inspector](https://developer.android.com/studio/inspect/task) (**View \> Tool Windows \>
+App Inspection** ) or run `adb shell dumpsys jobscheduler` and `adb shell dumpsys
+batterystats` to inspect the execution of scheduled jobs and workers. Check the
+execution frequency and total duration:
 
 - If a job runs very frequently, consider reducing this frequency.
 - Check that the total execution time matches what you expect, and isn't significantly longer.
 
-Also, inspect the Battery Historian graph, looking at each **JobScheduler**
-entry. When you hold the pointer over a particular entry, Battery Historian
-shows the owner of the executing job. Consider the following:
+You can also record a [system trace](https://developer.android.com/topic/performance/tracing) to correlate job execution with your
+app's activity over a timeline. Consider the following:
 
 - For your app, the duration of execution should make sense.
 - Consider whether the jobs happen while your app is running, or whether the jobs represent periodic background work.
@@ -195,6 +201,8 @@ Some additional best practices for using the Data Layer API include the
 following:
 
 - Wait until your app is active before you set up a listener using [`WearableListenerService`](https://developer.android.com/training/wearables/data/data-layer#wearablelistenerservice).
+- Don't use the Data Layer API to periodically ping the watch to check whether a companion device or app is available. By repeatedly sending messages, your app wakes up the radio and the remote app process, which drains the device battery more than necessary. Instead, use [`CapabilityClient`](https://developers.google.com/android/reference/com/google/android/gms/wearable/CapabilityClient) to [detect device availability and
+  capabilities](https://developer.android.com/training/wearables/data/discover-devices#capability-client), or only send messages when state changes.
 - Transmit state changes instead of configuring rapid updates. These state
   changes let the Wear OS device perform local data calculations, such as when
   a workout session started.
@@ -219,7 +227,8 @@ The results of this command include the following:
 If you maintain a health and fitness app, use [Health Services](https://developer.android.com/health-and-fitness/guides/health-services) to optimize
 your app's use of sensors.
 
-- For `ExerciseClient`, use [Battery Historian](https://developer.android.com/topic/performance/power/setup-battery-historian) to verify correct behavior in ambient mode. Check that your app doesn't wake up more frequently than every minute or two to receive `ExerciseUpdate` data.
+- For `ExerciseClient`, use a [system trace](https://developer.android.com/topic/performance/tracing), [Perfetto](https://ui.perfetto.dev/), or `adb
+  shell dumpsys batterystats` to verify correct behavior in ambient mode. Check that your app doesn't wake up more frequently than every minute or two to receive `ExerciseUpdate` data.
 - For all-day general health monitoring, use the `PassiveMonitoringClient`, as described in the guide on how to [monitor health and fitness data in the
   background](https://developer.android.com/health-and-fitness/guides/health-services/monitor-background).
 

@@ -1,27 +1,44 @@
 ---
-title: https://developer.android.com/guide/navigation/navigation-3/naventrydecorators
+title: Apply logic or wrappers to destinations  |  App architecture  |  Android Developers
 url: https://developer.android.com/guide/navigation/navigation-3/naventrydecorators
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+# Apply logic or wrappers to destinations Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+
 You can provide extra information or apply the same logic to
-destinations using the [`NavEntryDecorator`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavEntryDecorator) class. This class wraps each
-[`NavEntry`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavEntry) in a back stack with a composable function. Put another way,
+destinations using the [`NavEntryDecorator`](/reference/kotlin/androidx/navigation3/runtime/NavEntryDecorator) class. This class wraps each
+[`NavEntry`](/reference/kotlin/androidx/navigation3/runtime/NavEntry) in a back stack with a composable function. Put another way,
 it *decorates* the entry's content.
 
 ## Create a custom decorator
 
-To create a decorator, extend the [`NavEntryDecorator`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavEntryDecorator) class and override
+To create a decorator, extend the [`NavEntryDecorator`](/reference/kotlin/androidx/navigation3/runtime/NavEntryDecorator) class and override
 the following methods:
 
-- `decorate` - A composable lambda that is called for each `NavEntry` in your back stack. It receives the `NavEntry` as a parameter. This lets you create state objects that are keyed to the entry's `contentKey`. You can use `CompositionLocalProvider` to provide dependencies to the entry's content. You can also surround the content with a composable function, or trigger side-effects. You should always call `entry.Content()` inside this method.
-- `onPop` - A callback that is invoked when a `NavEntry` has been removed from the back stack and has left the composition. It receives the `contentKey` of the removed entry. Use the `contentKey` to identify and clean up any state associated with that entry.
+* `decorate` - A composable lambda that is called for each `NavEntry` in your
+  back stack. It receives the `NavEntry` as a parameter. This lets you
+  create state objects that are keyed to the entry's `contentKey`. You can
+  use `CompositionLocalProvider` to provide dependencies to the entry's content.
+  You can also surround the content with a composable function, or trigger
+  side-effects. You should always call `entry.Content()` inside this method.
+* `onPop` - A callback that is invoked when a `NavEntry` has been removed from
+  the back stack and has left the composition. It receives the `contentKey` of
+  the removed entry. Use the `contentKey` to identify and clean up any
+  state associated with that entry.
 
 The following example extends the `NavEntryDecorator` class to create a custom
 decorator.
 
-
-```kotlin
+```
 // import androidx.navigation3.runtime.NavEntryDecorator
 class CustomNavEntryDecorator<T : Any> : NavEntryDecorator<T>(
     decorate = { entry ->
@@ -30,14 +47,14 @@ class CustomNavEntryDecorator<T : Any> : NavEntryDecorator<T>(
     },
     onPop = { contentKey -> Log.d("CustomNavEntryDecorator", "entry with $contentKey was popped") }
 )
-```
 
-<br />
+DecoratorSnippets.kt
+```
 
 If your decorator needs access to state, create a composable function that
 creates that state then use it to construct the decorator. For an example
 implementation, see the source code for
-[`rememberSaveableStateHolderNavEntryDecorator`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:navigation3/navigation3-runtime/src/commonMain/kotlin/androidx/navigation3/runtime/SaveableStateHolderNavEntryDecorator.kt;l=33?q=rememberSaveableStateHolderNavEntryDecorator&ss=androidx/platform/frameworks/support:navigation3/navigation3-runtime/src/). This creates
+[`rememberSaveableStateHolderNavEntryDecorator`](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:navigation3/navigation3-runtime/src/commonMain/kotlin/androidx/navigation3/runtime/SaveableStateHolderNavEntryDecorator.kt;l=33?q=rememberSaveableStateHolderNavEntryDecorator&ss=androidx%2Fplatform%2Fframeworks%2Fsupport:navigation3%2Fnavigation3-runtime%2Fsrc%2F). This creates
 the state - a `SaveableStateHolder` - and uses it to construct the decorator.
 
 ## Decorate a back stack
@@ -45,8 +62,13 @@ the state - a `SaveableStateHolder` - and uses it to construct the decorator.
 Once you've created your `NavEntryDecorator`, decorate the entries in your
 back stack in one of two ways:
 
-- Use [`rememberDecoratedNavEntries`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/rememberDecoratedNavEntries.composable). This function is useful when you have multiple back stacks, each with its own set of decorators (see [this code recipe](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/multiplestacks) for more details). The function returns a decorated list of `NavEntry`s that you can use with [`NavDisplay`](https://developer.android.com/reference/kotlin/androidx/navigation3/ui/NavDisplay.composable).
-- Supply your decorator directly to `NavDisplay` using the `entryDecorators` parameter. `NavDisplay` calls `rememberDecoratedNavEntries` under the hood and displays the decorated entries.
+* Use [`rememberDecoratedNavEntries`](/reference/kotlin/androidx/navigation3/runtime/rememberDecoratedNavEntries.composable). This function is useful when you
+  have multiple back stacks, each with its own set of decorators (see
+  [this code recipe](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/multiplestacks) for more details). The function returns
+  a decorated list of `NavEntry`s that you can use with [`NavDisplay`](/reference/kotlin/androidx/navigation3/ui/NavDisplay.composable).
+* Supply your decorator directly to `NavDisplay` using the `entryDecorators`
+  parameter. `NavDisplay` calls `rememberDecoratedNavEntries` under the hood
+  and displays the decorated entries.
 
 ### Include the default decorator
 
@@ -63,8 +85,7 @@ list of supplied decorators. It is created using
 
 For example:
 
-
-```kotlin
+```
 // import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 NavDisplay(
     entryDecorators = listOf(
@@ -73,27 +94,26 @@ NavDisplay(
     ),
     // ...
 )
-```
 
-<br />
+DecoratorSnippets.kt
+```
 
 ### Pass results using `ResultEventBusNavEntryDecorator`
 
-Starting in Navigation 3 [1.2.0](https://developer.android.com/jetpack/androidx/releases/navigation3#navigation3_version_12_2), you can use
-[`ResultEventBusNavEntryDecorator`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBusNavEntryDecorator) to provide a
-[`ResultEventBus`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBus) to each `NavEntry` using the
-[`LocalResultEventBus`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/LocalResultEventBus) composition local.
+Starting in Navigation 3 [1.2.0](/jetpack/androidx/releases/navigation3#navigation3_version_12_2), you can use
+[`ResultEventBusNavEntryDecorator`](/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBusNavEntryDecorator) to provide a
+[`ResultEventBus`](/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBus) to each `NavEntry` using the
+[`LocalResultEventBus`](/reference/kotlin/androidx/navigation3/runtime/result/LocalResultEventBus) composition local.
 
 By default, `rememberResultEventBusNavEntryDecorator` creates and remembers its
 own `ResultEventBus` instance internally using
-[`rememberResultEventBus`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/rememberResultEventBus.composable). If you need to access
+[`rememberResultEventBus`](/reference/kotlin/androidx/navigation3/runtime/result/rememberResultEventBus.composable). If you need to access
 the event bus outside of the decorator hierarchy (such as at the top-level app
 scaffolding), you can hoist the `ResultEventBus` by calling
 `rememberResultEventBus` and passing it to
 `rememberResultEventBusNavEntryDecorator(resultEventBus)`:
 
-
-```kotlin
+```
 val resultEventBus = rememberResultEventBus()
 
 NavDisplay(
@@ -103,30 +123,38 @@ NavDisplay(
         rememberResultEventBusNavEntryDecorator(resultEventBus = resultEventBus)
     )
 )
+
+DecoratorSnippets.kt
 ```
 
-<br />
-
 For more details on sending and observing results, see
-[Return results](https://developer.android.com/guide/navigation/navigation-3/return-results).
+[Return results](/guide/navigation/navigation-3/return-results).
 
 ## When to use a decorator
 
 Use a decorator to:
 
-- Create a dependency for every `NavEntry` in a back stack. For example, the [`ViewModelStoreNavEntryDecorator`](https://developer.android.com/guide/navigation/navigation-3/save-state#scoping-viewmodels) creates a `ViewModelStore` for every `NavEntry`.
-- Pass results and communicate between destinations. For example, the [`ResultEventBusNavEntryDecorator`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBusNavEntryDecorator) provides a `ResultEventBus` to destinations in the back stack.
-- Scope an object to multiple `NavEntry`s. For example, to share a `ViewModel` between multiple entries.
-- Perform the same action for multiple `NavEntry`s. For example, to perform logging, debugging or tracing operations for each entry.
-- Wrap `NavEntry`s with the same composable function.
-- Clean up state associated with `NavEntry`s. For example, when an entry is removed from the back stack the [`ViewModelStoreNavEntryDecorator`](https://developer.android.com/guide/navigation/navigation-3/save-state#scoping-viewmodels) clears its associated `ViewModelStore`.
+* Create a dependency for every `NavEntry` in a back stack. For example, the
+  [`ViewModelStoreNavEntryDecorator`](/guide/navigation/navigation-3/save-state#scoping-viewmodels) creates a `ViewModelStore` for every
+  `NavEntry`.
+* Pass results and communicate between destinations. For example, the
+  [`ResultEventBusNavEntryDecorator`](/reference/kotlin/androidx/navigation3/runtime/result/ResultEventBusNavEntryDecorator) provides a
+  `ResultEventBus` to destinations in the back stack.
+* Scope an object to multiple `NavEntry`s. For example, to share a `ViewModel`
+  between multiple entries.
+* Perform the same action for multiple `NavEntry`s. For example, to perform
+  logging, debugging or tracing operations for each entry.
+* Wrap `NavEntry`s with the same composable function.
+* Clean up state associated with `NavEntry`s. For example, when an entry is
+  removed from the back stack the
+  [`ViewModelStoreNavEntryDecorator`](/guide/navigation/navigation-3/save-state#scoping-viewmodels) clears its associated `ViewModelStore`.
 
 Don't use a decorator to:
 
-- Pass a dependency to a single `NavEntry`.
-- Provide dependencies whose scope is broader than the back stack.
+* Pass a dependency to a single `NavEntry`.
+* Provide dependencies whose scope is broader than the back stack.
 
 In both these cases, pass the dependency directly when creating the `NavEntry`
 instead.
 
-For more code examples, see [`NavEntryDecorator`](https://developer.android.com/reference/kotlin/androidx/navigation3/runtime/NavEntryDecorator).
+For more code examples, see [`NavEntryDecorator`](/reference/kotlin/androidx/navigation3/runtime/NavEntryDecorator).

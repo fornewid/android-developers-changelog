@@ -20,7 +20,13 @@ The characteristics of these options are summarized in the following table:
 | [Media](https://developer.android.com/training/data-storage/shared/media) | Shareable media files (images, audio files, videos) | `MediaStore` API | `READ_EXTERNAL_STORAGE` when accessing other apps' files on Android 11 (API level 30) or higher `READ_EXTERNAL_STORAGE` or `WRITE_EXTERNAL_STORAGE` when accessing other apps' files on Android 10 (API level 29) Permissions are required for **all** files on Android 9 (API level 28) or lower | Yes, though the other app needs the `READ_EXTERNAL_STORAGE` permission | No |
 | [Documents and other files](https://developer.android.com/training/data-storage/shared/documents-files) | Other types of shareable content, including downloaded files | Storage Access Framework | None | Yes, through the system file picker | No |
 | [App preferences](https://developer.android.com/training/data-storage/shared-preferences) | Key-value pairs | [Jetpack Preferences](https://developer.android.com/guide/topics/ui/settings/use-saved-values) library | None | No | Yes |
-| Database | Structured data | [Room](https://developer.android.com/training/data-storage/room) persistence library | None | No | Yes |
+| Local Database | Structured relational data on-device | [Room](https://developer.android.com/training/data-storage/room) persistence library ^[1](https://developer.android.com/training/data-storage#cloud-storage-note)^ | None | No | Yes |
+| Cloud-hosted databases | Multidevice synced data, real-time collaboration | [Cloud Firestore](https://firebase.google.com/docs/firestore), [Firebase SQL Connect](https://firebase.google.com/docs/sql-connect) | `INTERNET` | Only using the cloud backend | SDK cache is deleted, but cloud data persists |
+| Cloud-hosted object storage | Unstructured data (such as media, large files, or backups) | [Cloud Storage for Firebase](https://firebase.google.com/docs/storage) | `INTERNET` | Only using the cloud backend | SDK cache is deleted, but cloud data persists |
+
+^1^ To synchronize local Room databases
+across devices, pair Room with a cloud backend or consider managed sync
+solutions like Firebase.
 
 The solution you choose depends on your specific needs:
 

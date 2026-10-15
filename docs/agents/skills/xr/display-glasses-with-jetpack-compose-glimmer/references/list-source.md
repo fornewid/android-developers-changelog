@@ -1,14 +1,19 @@
 ---
-title: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/list-source
+title: API source code for Glimmer List component  |  Android Developers
 url: https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/list-source
-source: md.txt
+source: html-scrape
 ---
+
+# API source code for Glimmer List component Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 
 When creating a Glimmer List component, refer to the following source code in
 `GlimmerLazyColumnSamples.kt`:
 
-
-```kotlin
+```
 @Composable
 fun GlimmerLazyColumnSample() {
     GlimmerLazyColumn {
@@ -17,9 +22,11 @@ fun GlimmerLazyColumnSample() {
         item { ListItem { Text("Footer") } }
     }
 }
+
+GlimmerLazyColumnSamples.kt
 ```
 
-```kotlin
+```
 @Composable
 fun GlimmerLazyColumnWithTitleChipSample() {
     val ingredientItems =
@@ -28,6 +35,6 @@ fun GlimmerLazyColumnWithTitleChipSample() {
         items(ingredientItems) { text -> ListItem { Text(text) } }
     }
 }
-```
 
-<br />
+GlimmerLazyColumnSamples.kt
+```

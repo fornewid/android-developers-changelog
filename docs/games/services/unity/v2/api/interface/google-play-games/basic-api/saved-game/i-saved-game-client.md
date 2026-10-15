@@ -49,7 +49,7 @@ void CommitUpdate(
   ISavedGameMetadata metadata,
   SavedGameMetadataUpdate updateForMetadata,
   byte[] updatedBinaryData,
-  Action< SavedGameRequestStatus, ISavedGameMetadata > callback
+  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1a4bbde44ee3348f73449c1432a85637ab SavedGameRequestStatus, ISavedGameMetadata > callback
 )
 ```
 Durably commits an update to the passed saved game.
@@ -58,9 +58,7 @@ When this method returns successfully, the data is durably persisted to disk and
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `metadata` | The metadata for the saved game to update. This metadata must be Open (i.e. [ISavedGameMetadata.IsOpen](https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/saved-game/i-saved-game-metadata#interface_google_play_games_1_1_basic_api_1_1_saved_game_1_1_i_saved_game_metadata_1ae203925fc56f0eb392727b47ea8d26f5) returns true)."/\> If it is not open, the method will immediately fail with status All updates that should be applied to the saved game metadata. | | `updatedBinaryData` | The new binary content of the saved game | | `callback` | The callback that is invoked when this operation finishes. The returned metadata will only be non-null if the commit succeeded. If an error is encountered during conflict resolution, that error will be reflected here. This callback will always execute on the game thread and the returned metadata (if any) will NOT be "Open" (i.e. commiting an update closes the metadata). | |
+Details Parameters `metadata` The metadata for the saved game to update. This metadata must be Open (i.e. [ISavedGameMetadata.IsOpen](https://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/saved-game/i-saved-game-metadata#interface_google_play_games_1_1_basic_api_1_1_saved_game_1_1_i_saved_game_metadata_1ae203925fc56f0eb392727b47ea8d26f5) returns true)."/\> If it is not open, the method will immediately fail with status All updates that should be applied to the saved game metadata. `updatedBinaryData` The new binary content of the saved game `callback` The callback that is invoked when this operation finishes. The returned metadata will only be non-null if the commit succeeded. If an error is encountered during conflict resolution, that error will be reflected here. This callback will always execute on the game thread and the returned metadata (if any) will NOT be "Open" (i.e. commiting an update closes the metadata).
 
 ### Delete
 
@@ -75,16 +73,14 @@ This will delete the data of the snapshot locally and on the server.
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `metadata` | the saved game metadata identifying the data to delete. | |
+Details Parameters `metadata` the saved game metadata identifying the data to delete.
 
 ### FetchAllSavedGames
 
 ```c#
 void FetchAllSavedGames(
   DataSource source,
-  Action< SavedGameRequestStatus, List< ISavedGameMetadata >> callback
+  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1a4bbde44ee3348f73449c1432a85637ab SavedGameRequestStatus, Lishttps://developer.android.com/games/services/unity/v2/api/interface/google-play-games/basic-api/saved-game/i-saved-game-metadata#interface_google_play_games_1_1_basic_api_1_1_saved_game_1_1_i_saved_game_metadata< ISavedGameMetadata >> callback
 )
 ```
 Returns the metadata for all known saved games for this game.
@@ -93,9 +89,7 @@ All returned saved games are not open, and must be opened before they can be use
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `source` | The data source to use. [DataSource](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a7b061047c3edf97247d4d1ccd52e2aec) for a description of the available options here. | | `callback` | The callback that is invoked when this operation finishes. The returned metadata will only be non-empty if the commit succeeded. If an error is encountered during the fetch, that error will be reflected here. This callback will always execute on the game thread and the returned metadata (if any) will NOT be "Open". | |
+Details Parameters `source` The data source to use. [DataSource](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a7b061047c3edf97247d4d1ccd52e2aec) for a description of the available options here. `callback` The callback that is invoked when this operation finishes. The returned metadata will only be non-empty if the commit succeeded. If an error is encountered during the fetch, that error will be reflected here. This callback will always execute on the game thread and the returned metadata (if any) will NOT be "Open".
 
 ### OpenWithAutomaticConflictResolution
 
@@ -104,7 +98,7 @@ void OpenWithAutomaticConflictResolution(
   string filename,
   DataSource source,
   ConflictResolutionStrategy resolutionStrategy,
-  Action< SavedGameRequestStatus, ISavedGameMetadata > callback
+  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1a4bbde44ee3348f73449c1432a85637ab SavedGameRequestStatus, ISavedGameMetadata > callback
 )
 ```
 Opens the file with the indicated name and data source.
@@ -113,9 +107,7 @@ If the file has an outstanding conflict, it will be resolved using the specified
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `filename` | The name of the file to open. Filenames must consist of only non-URL reserved characters (i.e. a-z, A-Z, 0-9, or the symbols "-", ".", "_", or "\~") be between 1 and 100 characters in length (inclusive). | | `source` | The data source to use. [DataSource](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a7b061047c3edf97247d4d1ccd52e2aec) for a description of the available options here. | | `resolutionStrategy` | The conflict resolution that should be used if any conflicts are encountered while opening the file. [ConflictResolutionStrategy](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1aaa9aaacffc574c503e5c6ed30b9da6e4) for a description of these strategies. | | `callback` | The callback that is invoked when this operation finishes. The returned metadata will only be non-null if the open succeeded. This callback will always execute on the game thread and the returned metadata (if any) will be "Open". | |
+Details Parameters `filename` The name of the file to open. Filenames must consist of only non-URL reserved characters (i.e. a-z, A-Z, 0-9, or the symbols "-", ".", "_", or "\~") be between 1 and 100 characters in length (inclusive). `source` The data source to use. [DataSource](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a7b061047c3edf97247d4d1ccd52e2aec) for a description of the available options here. `resolutionStrategy` The conflict resolution that should be used if any conflicts are encountered while opening the file. [ConflictResolutionStrategy](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1aaa9aaacffc574c503e5c6ed30b9da6e4) for a description of these strategies. `callback` The callback that is invoked when this operation finishes. The returned metadata will only be non-null if the open succeeded. This callback will always execute on the game thread and the returned metadata (if any) will be "Open".
 
 ### OpenWithManualConflictResolution
 
@@ -125,7 +117,7 @@ void OpenWithManualConflictResolution(
   DataSource source,
   bool prefetchDataOnConflict,
   ConflictCallback conflictCallback,
-  Action< SavedGameRequestStatus, ISavedGameMetadata > completedCallback
+  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1a4bbde44ee3348f73449c1432a85637ab SavedGameRequestStatus, ISavedGameMetadata > completedCallback
 )
 ```
 Opens the file with the indicated name and data source.
@@ -134,16 +126,14 @@ If there is a conflict that requires resolution, it will be resolved manually us
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `filename` | The name of the file to open. Filenames must consist of only non-URL reserved characters (i.e. a-z, A-Z, 0-9, or the symbols "-", ".", "_", or "\~") be between 1 and 100 characters in length (inclusive). | | `source` | The data source to use. [DataSource](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a7b061047c3edf97247d4d1ccd52e2aec) for a description of the available options here. | | `prefetchDataOnConflict` | If set to `true`, the data for the two conflicting files will be automatically retrieved and passed as parameters in *conflictCallback* . If set to `false`, `null` binary data will be passed into *conflictCallback* and the caller will have to fetch it themselves. | | `conflictCallback` | The callback that will be invoked if one or more conflict is encountered while executing this method. Note that more than one conflict may be present and that this callback might be executed more than once to resolve multiple conflicts. This callback is always executed on the game thread. | | `completedCallback` | The callback that is invoked when this operation finishes. The returned metadata will only be non-null if the open succeeded. If an error is encountered during conflict resolution, that error will be reflected here. This callback will always execute on the game thread and the returned metadata (if any) will be "Open". | |
+Details Parameters `filename` The name of the file to open. Filenames must consist of only non-URL reserved characters (i.e. a-z, A-Z, 0-9, or the symbols "-", ".", "_", or "\~") be between 1 and 100 characters in length (inclusive). `source` The data source to use. [DataSource](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api#namespace_google_play_games_1_1_basic_api_1a7b061047c3edf97247d4d1ccd52e2aec) for a description of the available options here. `prefetchDataOnConflict` If set to `true`, the data for the two conflicting files will be automatically retrieved and passed as parameters in *conflictCallback* . If set to `false`, `null` binary data will be passed into *conflictCallback* and the caller will have to fetch it themselves. `conflictCallback` The callback that will be invoked if one or more conflict is encountered while executing this method. Note that more than one conflict may be present and that this callback might be executed more than once to resolve multiple conflicts. This callback is always executed on the game thread. `completedCallback` The callback that is invoked when this operation finishes. The returned metadata will only be non-null if the open succeeded. If an error is encountered during conflict resolution, that error will be reflected here. This callback will always execute on the game thread and the returned metadata (if any) will be "Open".
 
 ### ReadBinaryData
 
 ```c#
 void ReadBinaryData(
   ISavedGameMetadata metadata,
-  Action< SavedGameRequestStatus, byte[]> completedCallback
+  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1a4bbde44ee3348f73449c1432a85637ab SavedGameRequestStatus, byte[]> completedCallback
 )
 ```
 Reads the binary data of the passed saved game.
@@ -152,9 +142,7 @@ The passed metadata must be opened (i.e. [ISavedGameMetadata.IsOpen](https://dev
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `metadata` | The metadata for the saved game whose binary data we want to read. This metadata must be open. If it is not open, the method will immediately fail with status SelectUIStatus.BadInputError. | | `completedCallback` | The callback that is invoked when the read finishes. If the read completed without error, the passed status will be SavedGameRequestStatus.Success and the passed bytes will correspond to the binary data for the file. In the case of | |
+Details Parameters `metadata` The metadata for the saved game whose binary data we want to read. This metadata must be open. If it is not open, the method will immediately fail with status SelectUIStatus.BadInputError. `completedCallback` The callback that is invoked when the read finishes. If the read completed without error, the passed status will be SavedGameRequestStatus.Success and the passed bytes will correspond to the binary data for the file. In the case of
 
 ### ShowSelectSavedGameUI
 
@@ -164,7 +152,7 @@ void ShowSelectSavedGameUI(
   uint maxDisplayedSavedGames,
   bool showCreateSaveUI,
   bool showDeleteSaveUI,
-  Action< SelectUIStatus, ISavedGameMetadata > callback
+  Action&lhttps://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1a4e46a22deed238dbb8ad23eb71d5194f SelectUIStatus, ISavedGameMetadata > callback
 )
 ```
 Shows the select saved game UI with the indicated configuration.
@@ -173,6 +161,4 @@ If the user selects a saved game in that UI, it will be returned in the passed c
 
 <br />
 
-| Details ||
-|---|---|
-| Parameters | |---|---| | `uiTitle` | The user-visible title of the displayed selection UI. | | `maxDisplayedSavedGames` | The maximum number of saved games the UI may display. This value must be greater than 0. | | `showCreateSaveUI` | If set to `true`, show UI that will allow the user to create a new saved game. | | `showDeleteSaveUI` | If set to `true` show UI that will allow the user to delete a saved game. | | `callback` | The callback that is invoked when an error occurs or if the user finishes interacting with the UI. If the user selected a saved game, this will be passed into the callback along with the SelectUIStatus.SavedGameSelected status. This saved game will not be Open, and must be opened before it can be written to or its binary data can be read. If the user backs out of the UI without selecting a saved game, this callback will receive [UserClosedUI](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1a4e46a22deed238dbb8ad23eb71d5194fa554bc5ba1345a0471e5a986494e87467) and a null saved game. This callback will always execute on the game thread. | |
+Details Parameters `uiTitle` The user-visible title of the displayed selection UI. `maxDisplayedSavedGames` The maximum number of saved games the UI may display. This value must be greater than 0. `showCreateSaveUI` If set to `true`, show UI that will allow the user to create a new saved game. `showDeleteSaveUI` If set to `true` show UI that will allow the user to delete a saved game. `callback` The callback that is invoked when an error occurs or if the user finishes interacting with the UI. If the user selected a saved game, this will be passed into the callback along with the SelectUIStatus.SavedGameSelected status. This saved game will not be Open, and must be opened before it can be written to or its binary data can be read. If the user backs out of the UI without selecting a saved game, this callback will receive [UserClosedUI](https://developer.android.com/games/services/unity/v2/api/namespace/google-play-games/basic-api/saved-game#namespace_google_play_games_1_1_basic_api_1_1_saved_game_1a4e46a22deed238dbb8ad23eb71d5194fa554bc5ba1345a0471e5a986494e87467) and a null saved game. This callback will always execute on the game thread.

@@ -147,9 +147,9 @@ Android Auto:
     <application>
         ...
         <meta-data android:name="com.google.android.gms.car.application"
-            android:resource="@xml/automotive_app_desc"/>
-        ...
-    </application>
+            android:resource="@xml/automo>tive_app_<desc"/
+    >    ...
+    /application
 
 This manifest entry refers to an XML file that declares what automotive
 capabilities your app supports. To indicate that you have a media app, add an
@@ -157,8 +157,8 @@ XML file named `automotive_app_desc.xml` to the `res/xml/` directory in your
 project. This file should include the following content:
 
     <automotiveApp>
-        <uses name="media"/>
-    </automotiveApp>
+        <uses name="me>d<ia"/
+    /aut>omotiveApp
 
 ### Declare support for Android Automotive OS
 
@@ -187,21 +187,21 @@ After creating your module in Android Studio, open the `AndroidManifest.xml` in
 your new automotive module:
 
     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.example.media">
+        package="com>.examp<le.media"
 
-        <application
+        application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme" />
+            android:>suppor<tsRtl="true"
+            android:theme="@style/AppTheme" /
 
-        <uses-feature
-            android:name="android.hardware.type.automotive"
-            android:required="true" />
+        uses-feature
+            a>nd<roid:name>="android.hardware.type.automotive"
+            android:required="true" /
 
-    </manifest>
+    /manifest
 
 The [`application`](https://developer.android.com/guide/topics/manifest/application-element) element has some standard app information as well as a
 [`uses-feature`](https://developer.android.com/guide/topics/manifest/uses-feature-element) element that declares support for Android Automotive OS.
@@ -217,32 +217,30 @@ setting the `android:appCategory="audio"` attribute in the `application` element
 and adding the following `uses-feature` elements:
 
     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.example.media">
+        package="com>.examp<le.media"
 
-        <application
-            android:allowBackup="true"
-            android:appCategory="audio"
+        application
+            android:allowBackup="true"   android:appCategory="audio"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme" />
+          >  andr<oid:supportsRtl="true"
+            android:theme="@style/AppTheme" /
 
-        <uses-feature
-            android:name="android.hardware.type.automotive"
-            android:required="true" />
-
-        \<uses-feature
+        uses-feature>
+         \<android:name="android.hardware.type.automotive"
+    android:required="\>true\&\<quot; /
+    uses-feature
     android:name="android.hardware.wifi"
-    android:required="false" /\>
-    \<uses-feature
+    android:requir\>ed=\&q\<uot;false" /
+    uses-feature
     android:name="android.hardware.screen.portrait"
-    android:required="false" /\>
-    \<uses-feature
-    android:name="android.hardware.screen.landscape"
-    android:required="false" /\>
+    \>  <   android:required="false" /
+        uses-feature
+            android:name="android.hardware.screen.landscape"
+            android:required="false" /
 
-    </manifest>
+    /manifest
 
 Explicitly setting these features to `required="false"` ensures that
 your app doesn't conflict with available hardware features in Automotive OS
@@ -254,9 +252,9 @@ Automotive OS:
     <application>
         ...
         <meta-data android:name="com.android.automotive"
-            android:resource="@xml/automotive_app_desc"/>
-        ...
-    </application>
+            android:resource="@xml/automo>tive_app_<desc"/
+    >    ...
+    /application
 
 This manifest entry refers to an XML file that declares the automotive
 capabilities that your app supports.
@@ -266,8 +264,8 @@ To indicate that you have a media app, add an XML file named
 the following content in this file:
 
     <automotiveApp>
-        <uses name="media"/>
-    </automotiveApp>
+        <uses name="me>d<ia"/
+    /aut>omotiveApp
 
 > [!NOTE]
 > **Note:** Don't include any references to the `com.google.android.gms.car.application` attribute that is required for Android Auto in your Android Automotive OS app.
@@ -284,18 +282,18 @@ Activities like the one in the following example usually target a phone or some
 other mobile device. Declare these activities in the module that builds the
 phone app, not in the module that builds your Android Automotive OS app.
 
-    <activity android:name=".MyActivity">
-    <intent-filter>
-    <!-- You can't use either of these intents for Android Automotive OS -->
-    <action android:name="android.intent.action.MAIN" />
-    <category android:name="android.intent.category.LAUNCHER" />
-    <!--
+    <activity android:name=".MyActi>v<ity"
+    int>e<nt-filter
+    !-- You can't use either of these intents for Android Au>t<omotive OS --
+    action android:name="android.in>t<ent.action.MAIN" /
+    category android:name="androi>d<.intent.category.LAUNCHER" /
+    !--
     In their place, you can include other intent filters for any activities
-    that your app needs for Android Automotive OS, such as settings or
-    sign-in activities.
-    -->
-    </intent-filter>
-    </activity>
+    that your app needs for Android Automotive OS, such as >s<ettings or
+    sig>n<-in activ>ities.
+    --
+    /intent-filter
+    /activity
 
 ### Further steps
 
@@ -331,10 +329,10 @@ element of your manifest.
         ...
         <application
           ...
-          android:appCategory="video">
-            ...
-        </application>
-    </manifest>
+          android:appCategory="v>ideo"
+          <  ...
+        /ap<plication>
+    /manifest
 
 ### Declare the Android Automotive OS hardware feature
 
@@ -347,6 +345,6 @@ for guidance on whether to set the `android:required` attribute to `"false"` or
 
     <manifest ...>
       ...
-      <uses-feature android:name="android.hardware.type.automotive" ...>
-      ...
-    </manifest>
+      <uses-feature android:name="android.hardware.type.automotive>" <...
+      ...>
+    /manifest

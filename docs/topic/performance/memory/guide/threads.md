@@ -1,8 +1,19 @@
 ---
-title: https://developer.android.com/topic/performance/memory/guide/threads
+title: Threads and memory  |  App quality  |  Android Developers
 url: https://developer.android.com/topic/performance/memory/guide/threads
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App quality](https://developer.android.com/quality)
+* [Technical quality](https://developer.android.com/quality/technical)
+
+# Threads and memory Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 
 Every time your application creates a new thread, the operating system must
 allocate memory to support it. While threads are generally considered
@@ -13,8 +24,12 @@ threads is a very common way to leak memory on Android.
 
 When a thread is created on Android, two main components consume memory:
 
-1. **The Native Stack** : The `pthread` library allocates a stack for the thread to store local variables and call frames. On Android, this is typically 1MB by default.
-2. **Internal JVM/Kernel Structures** : ART and the Linux kernel must allocate data structures (like `pthread_internal_t` and `java.lang.Thread` objects) to track and manage the thread.
+1. **The Native Stack**: The `pthread` library allocates a stack for the thread
+   to store local variables and call frames. On Android, this is typically 1MB
+   by default.
+2. **Internal JVM/Kernel Structures**: ART and the Linux kernel
+   must allocate data structures (like `pthread_internal_t` and
+   `java.lang.Thread` objects) to track and manage the thread.
 
 ### Stack memory and `mmap`
 
@@ -36,8 +51,10 @@ an application creates hundreds of idle threads.
 
 Launch the app and take a baseline memory reading:
 
-    adb shell am start -W -n com.android.memorylab/.MainActivity
-    adb shell dumpsys meminfo -s com.android.memorylab
+```
+adb shell am start -W -n com.android.memorylab/.MainActivity
+adb shell dumpsys meminfo -s com.android.memorylab
+```
 
 Look at the `Stack` and `Native Heap` rows in the output. They will likely be
 small.
@@ -51,15 +68,19 @@ on its stack before it begins waiting.
 
 Run the meminfo command again while the threads are alive:
 
-    adb shell dumpsys meminfo -s com.android.memorylab
+```
+adb shell dumpsys meminfo -s com.android.memorylab
+```
 
 **The Results:**
 
 Compare the new output to your baseline. You will notice significant increases
 while the threads are alive:
 
-- **`Stack`**: Increased by a megabyte or more. This represents the physical pages allocated for the 100 thread stacks (each touching at least 10KB).
-- **`Native Heap` / `Private Other`** : Increased due to the internal `pthread` structures allocated by the system for each thread.
+* **`Stack`**: Increased by a megabyte or more. This represents the physical
+  pages allocated for the 100 thread stacks (each touching at least 10KB).
+* **`Native Heap` / `Private Other`**: Increased due to the internal `pthread`
+  structures allocated by the system for each thread.
 
 To clean up, tap the **Destroy All Threads** button.
 
@@ -69,20 +90,22 @@ Perfetto is excellent for tracking thread lifecycles and counts over time.
 
 ![A screenshot of the Perfetto UI showing a counter track with the number of
 active threads, and threads starting and exiting in the memorylab
-app](https://developer.android.com/static/topic/performance/memory/guide/images/threads/perfetto-threads.png)
+app](/static/topic/performance/memory/guide/images/threads/perfetto-threads.png)
 
 #### PerfettoSQL for thread analysis
 
 You can query the trace to count exactly how many threads were spawned by the
 application:
 
-    SELECT p.name AS process_name, COUNT(t.id) as thread_count
-    FROM thread t JOIN process p USING (upid)
-    WHERE p.name = 'com.android.memorylab' AND t.name LIKE 'LeakedThread-%';
+```
+SELECT p.name AS process_name, COUNT(t.id) as thread_count
+FROM thread t JOIN process p USING (upid)
+WHERE p.name = 'com.android.memorylab' AND t.name LIKE 'LeakedThread-%';
+```
 
 A query like this can be used to generate a debug track with a counter as shown
 in the screenshot.
 
-*** ** * ** ***
+---
 
-**[← App code](https://developer.android.com/topic/performance/memory/guide/app-code) \| [↑ Up](https://developer.android.com/topic/performance/memory/guide) \| [Locality →](https://developer.android.com/topic/performance/memory/guide/locality)**
+**[← App code](/topic/performance/memory/guide/app-code) | [↑ Up](/topic/performance/memory/guide) | [Locality →](/topic/performance/memory/guide/locality)**

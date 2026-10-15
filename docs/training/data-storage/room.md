@@ -27,6 +27,9 @@ Room provides the following benefits:
 
 We recommend using Room instead of [using the SQLite APIs directly](https://developer.android.com/training/data-storage/sqlite).
 
+> [!NOTE]
+> **Note:** Room is designed for on-device data persistence. If your app needs to synchronize data across multiple devices, support real-time collaboration, or connect to a cloud backend with offline support, you can pair Room with [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent) and a custom backend, or use managed cloud solutions such as [Cloud Firestore](https://firebase.google.com/docs/firestore) or [Firebase SQL Connect](https://firebase.google.com/docs/sql-connect). For more information, see [Custom versus managed synchronization](https://developer.android.com/topic/architecture/data-layer/offline-first#custom-vs-managed).
+
 ## Setup
 
 To use Room in your app, add the following dependencies to your module's

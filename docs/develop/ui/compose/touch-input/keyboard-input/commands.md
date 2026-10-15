@@ -8,7 +8,9 @@ When the user gives focus to an editable text component, such as a `TextField`,
 and the device has a hardware keyboard attached,
 all input is handled by the system.
 You can provide keyboard shortcuts by handling key events.
-| **Note:** Key events can be handled by implementing the [`KeyEvent.Callback`](https://developer.android.com/reference/android/view/KeyEvent.Callback) interface on an `Activity` class. Refer to [Handle keyboard actions](https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/commands) in views for details.
+
+> [!NOTE]
+> **Note:** Key events can be handled by implementing the [`KeyEvent.Callback`](https://developer.android.com/reference/android/view/KeyEvent.Callback) interface on an `Activity` class. Refer to [Handle keyboard actions](https://developer.android.com/develop/ui/views/touch-and-input/keyboard-input/commands) in views for details.
 
 ## Default keyboard shortcuts
 
@@ -25,7 +27,8 @@ The following keyboard shortcuts are available out of the box.
 | <kbd>Ctrl</kbd>+<kbd>Z</kbd>/<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Z</kbd> | Undo/redo | `BasicTextField`, `TextField` |
 | <kbd>PageDown</kbd>/<kbd>PageUp</kbd> | Scroll | `LazyColumn`, the `verticalScroll` modifier, the `scrollable` modifier |
 
-| **Note:** The Meta key is not present on all keyboards. On macOS keyboards, the Meta key is the Command key; on Windows keyboards, the Windows key; and on ChromeOS keyboards, the Search key.
+> [!NOTE]
+> **Note:** The Meta key is not present on all keyboards. On macOS keyboards, the Meta key is the Command key; on Windows keyboards, the Windows key; and on ChromeOS keyboards, the Search key.
 
 ## Key events
 
@@ -49,11 +52,14 @@ Return `true` if your app handles the key event,
 which stops propagation of the event.
 
 The following snippet shows how to call a `doSomething()` function
-when the user releases the <kbd>S</kbd> key on the `Box` component:  
+when the user releases the <kbd>S</kbd> key on the `Box` component:
 
-    Box(
-        modifier = Modifier.focusable().onKeyEvent {
-            if(
+
+```kotlin
+Box(
+    modifier = Modifier
+        .onKeyEvent {
+            if (
                 it.type == KeyEventType.KeyUp &&
                 it.key == Key.S
             ) {
@@ -63,9 +69,13 @@ when the user releases the <kbd>S</kbd> key on the `Box` component:
                 false
             }
         }
-    )  {
-        Text("Press S key")
-    }
+        .focusable()
+) {
+    Text("Press S key")
+}
+```
+
+<br />
 
 ### Modifier keys
 
@@ -75,44 +85,54 @@ whether modifier keys are pressed or not:
 - [`isAltPressed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent#(androidx.compose.ui.input.key.KeyEvent).isAltPressed())
 - [`isCtrlPressed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent#(androidx.compose.ui.input.key.KeyEvent).isCtrlPressed())
 - [`isMetaPressed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent#(androidx.compose.ui.input.key.KeyEvent).isMetaPressed())
-- [`isShiftPressed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent#(androidx.compose.ui.input.key.KeyEvent).isShiftPressed()))
+- [`isShiftPressed`](https://developer.android.com/reference/kotlin/androidx/compose/ui/input/key/KeyEvent#(androidx.compose.ui.input.key.KeyEvent).isShiftPressed())
 
 Be specific in describing the key events your app handles.
 The following snippet calls a `doSomething()` function
 only if the user releases just the <kbd>S</kbd> key.
 If the user presses any modifier key,
-such as the <kbd>Shift</kbd> key, the app does not call the function.  
+such as the <kbd>Shift</kbd> key, the app does not call the function.
 
-    Box(
-      modifier = Modifier.focusable().onKeyEvent{
-         if(
-           it.type == KeyEventType.KeyUp &&
-           it.key == Key.S &&
-           !it.isAltPressed &&
-           !it.isCtrlPressed &&
-           !it.isMetaPressed &&
-           !it.isShiftPressed
-         ) {
-           doSomething()
-           true
-         } else {
-           false
-         }
-      }
-    )  {
-        Text("Press S key with a modifier key")
-    }
+
+```kotlin
+Box(
+    modifier = Modifier
+        .focusable()
+        .onKeyEvent {
+            if (
+                it.type == KeyEventType.KeyUp &&
+                it.key == Key.S &&
+                !it.isAltPressed &&
+                !it.isCtrlPressed &&
+                !it.isMetaPressed &&
+                !it.isShiftPressed
+            ) {
+                doSomething()
+                true
+            } else {
+                false
+            }
+        }
+) {
+    Text("Press S key with a modifier key")
+}
+```
+
+<br />
 
 ### Spacebar and Enter key click events
 
 The <kbd>Spacebar</kbd> and <kbd>Enter</kbd> key trigger click events as well.
 For example, users can toggle (play or pause) media playback
 with the <kbd>Spacebar</kbd> or the <kbd>Enter</kbd> key
-by handling click events as follows:  
+by handling click events as follows:
 
-    MoviePlayer(
-       modifier = Modifier.clickable { togglePausePlay() }
-    )
+
+```kotlin
+MediaPlayer(modifier = Modifier.clickable { togglePausePlay() })
+```
+
+<br />
 
 The [`clickable`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/package-summary#(androidx.compose.ui.Modifier).clickable(kotlin.Boolean,kotlin.String,androidx.compose.ui.semantics.Role,kotlin.Function0)) modifier intercepts key events
 and calls the `onClick()` callback when the <kbd>Spacebar</kbd> or
@@ -133,34 +153,41 @@ That's why the `actionB()` function is never called.
 Other key events on `InnerComponent`, such as releasing the <kbd>D</kbd> key,
 can be handled by the `OuterComponent`.
 The `actionC()` function is called because the key event for
-releasing the <kbd>D</kbd> key is propagated to the `OuterComponent`.  
+releasing the <kbd>D</kbd> key is propagated to the `OuterComponent`.
 
-    OuterComponent(
+
+```kotlin
+OuterComponent(
+    modifier = Modifier.onKeyEvent {
+        when {
+            it.type == KeyEventType.KeyUp && it.key == Key.S -> {
+                actionB() // This function is never called.
+                true
+            }
+
+            it.type == KeyEventType.KeyUp && it.key == Key.D -> {
+                actionC()
+                true
+            }
+
+            else -> false
+        }
+    }
+) {
+    InnerComponent(
         modifier = Modifier.onKeyEvent {
-            when {
-               it.type == KeyEventType.KeyUp && it.key == Key.S -> {
-                   actionB() // This function is never called.
-                   true
-               }
-               it.type == KeyEventType.KeyUp && it.key == Key.D -> {
-                   actionC()
-                   true
-               }
-               else -> false
+            if (it.type == KeyEventType.KeyUp && it.key == Key.S) {
+                actionA()
+                true
+            } else {
+                false
             }
         }
-    ) {
-        InnerComponent(
-            modifier = Modifier.onKeyEvent {
-                if(it.type == KeyEventType.KeyUp && it.key == Key.S) {
-                    actionA()
-                    true
-                } else {
-                    false
-                }
-            }
-        )
-    }
+    )
+}
+```
+
+<br />
 
 ## `onKeyPreviewEvent` modifier
 
@@ -168,25 +195,30 @@ In some use cases, you want to intercept a key event
 before it triggers the default action.
 Adding custom shortcuts to a `TextField` is a typical one.
 The following snippet enables users to move to the next focusable component by
-pressing the <kbd>tab</kbd> key.  
+pressing the <kbd>tab</kbd> key.
 
-    val focusManager = LocalFocusManager.current
-    var textFieldValue by remember { mutableStateOf(TextFieldValue()) }
 
-    TextField(
-        textFieldValue,
-        onValueChange = {
-            textFieldValue = it
-        },
-        modifier = Modifier.onPreviewKeyEvent {
-            if (it.type == KeyEventType.KeyUp && it.key == Key.Tab) {
-                focusManager.moveFocus(FocusDirection.Next)
-                true
-            } else {
-                false
-            }
+```kotlin
+val focusManager = LocalFocusManager.current
+var textFieldValue by remember { mutableStateOf(TextFieldValue()) }
+
+TextField(
+    textFieldValue,
+    onValueChange = {
+        textFieldValue = it
+    },
+    modifier = Modifier.onPreviewKeyEvent {
+        if (it.type == KeyEventType.KeyUp && it.key == Key.Tab) {
+            focusManager.moveFocus(FocusDirection.Next)
+            true
+        } else {
+            false
         }
-    )
+    }
+)
+```
+
+<br />
 
 By default, the `TextField` component adds a tab character
 every time users press the <kbd>Tab</kbd> key,
@@ -200,19 +232,21 @@ by returning `true`.
 The parent component can intercept the key event happening on its children.
 In the following snippet, the `previewSKey()` function is called
 when users press the <kbd>S</kbd> key,
-instead of calling the `actionForPreview()` function.  
+instead of calling the `actionForPreview()` function.
 
-    Column(
-      modifier = Modifier.onPreviewKeyEvent{
-        if(it.key == Key.S){
-          previewSKey()
-          true
-        }else{
-          false
+
+```kotlin
+Column(
+    modifier = Modifier.onPreviewKeyEvent {
+        if (it.key == Key.S) {
+            previewSKey()
+            true
+        } else {
+            false
         }
-      }
-    ) {
-      Box(
+    }
+) {
+    Box(
         modifier = Modifier
             .focusable()
             .onPreviewKeyEvent {
@@ -223,10 +257,13 @@ instead of calling the `actionForPreview()` function.
                 actionForKeyEvent(it)
                 true
             }
-      ) {
+    ) {
         Text("Press any key")
-      }
     }
+}
+```
+
+<br />
 
 The `onPreviewKeyEvent()` lambda for the `Box` component is not triggered
 when users press the <kbd>Tab</kbd> key either.

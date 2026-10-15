@@ -128,7 +128,7 @@ To make your game appear in the list of games, set the
 ### Declare support for game controllers
 
 
-Games controllers may not be available or active for users of a TV device. In order to properly
+Game controllers may not be available or active for users of a TV device. In order to properly
 inform users that your game supports a game controller, you must include the following entry in
 your app manifest:
 

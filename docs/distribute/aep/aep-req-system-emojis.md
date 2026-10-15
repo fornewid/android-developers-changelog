@@ -1,8 +1,20 @@
 ---
-title: https://developer.android.com/distribute/aep/aep-req-system-emojis
+title: AEP guideline: System-consistent and high-quality emoji  |  Apps Experience Program  |  Android Developers
 url: https://developer.android.com/distribute/aep/aep-req-system-emojis
-source: md.txt
+source: html-scrape
 ---
+
+You are currently viewing the Apps Experience Program (AEP) documentation.
+
+* [Android Developers](https://developer.android.com/)
+* [Google Play](https://developer.android.com/distribute)
+* [Apps Experience Program](https://developer.android.com/distribute/aep)
+
+# AEP guideline: System-consistent and high-quality emoji Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 
 Implement the system-provided emoji font to ensure that emoji rendered within
 your app visually match those shown in the default keyboard and other system
@@ -15,7 +27,7 @@ creation experience compared to other platforms.
 To qualify for AEP, your app must adhere to the following requirements:
 
 | ID | Guideline |
-|---|---|
+| --- | --- |
 | AEP-SE-GAA | Emoji rendered in any input fields, such as text boxes or floating text elements, match those shown in the default keyboard of the device or in other system surfaces, such as notifications. |
 | AEP-SE-GAB | If the emoji is expandable by way of enlarging the text view, the app uses the highest-available emoji font size for the appropriate surface (e.g. rendering up to 192 pixels by 192 pixels). This ensures crisp UI and parity with other platforms. |
 
@@ -23,13 +35,16 @@ To qualify for AEP, your app must adhere to the following requirements:
 
 This guideline applies:
 
-- To apps that provide a comparable emoji implementation on a non-Android platform.
-- To apps that render emoji, including. the following use cases:
-  - Apps that send or store text from users for messaging, comments, reviews and more.
-  - Apps that send images with text that include emoji.
-  - Apps that allow for reacting to content with emoji.
-  - Apps that render emoji in an aesthetic display (for example, a wallpaper provider).
-- To all form factors on which the app is available.
+* To apps that provide a comparable emoji implementation on a non-Android
+  platform.
+* To apps that render emoji, including. the following use cases:
+  + Apps that send or store text from users for messaging, comments, reviews
+    and more.
+  + Apps that send images with text that include emoji.
+  + Apps that allow for reacting to content with emoji.
+  + Apps that render emoji in an aesthetic display (for example, a wallpaper
+    provider).
+* To all form factors on which the app is available.
 
 ## Exemptions
 
@@ -41,5 +56,5 @@ The following resources provide implementation guidance and technical details on
 the **System Emoji** feature. These resources are for your reference only and
 don't contain additional program requirements.
 
-- [Support modern emoji](https://developer.android.com/develop/ui/views/text-and-emoji/emoji2)
-- [Use the Emoji2 library](https://developer.android.com/jetpack/androidx/releases/emoji2)
+* [Support modern emoji](/develop/ui/views/text-and-emoji/emoji2)
+* [Use the Emoji2 library](/jetpack/androidx/releases/emoji2)

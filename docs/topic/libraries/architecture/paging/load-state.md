@@ -1,17 +1,27 @@
 ---
-title: https://developer.android.com/topic/libraries/architecture/paging/load-state
+title: Manage and present loading states  |  App architecture  |  Android Developers
 url: https://developer.android.com/topic/libraries/architecture/paging/load-state
-source: md.txt
+source: html-scrape
 ---
 
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [App architecture](https://developer.android.com/topic/architecture/intro)
+
+# Manage and present loading states Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
+
 The Paging library tracks the state of load requests for paged data and exposes
-it through the [`LoadState`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState) class.
+it through the [`LoadState`](/reference/kotlin/androidx/paging/LoadState) class.
 
 A separate `LoadState` signal is provided for each
-[`LoadType`](https://developer.android.com/reference/kotlin/androidx/paging/LoadType) and data source type
-(either [`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource) or
-[`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator)). The
-[`CombinedLoadStates`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates)
+[`LoadType`](/reference/kotlin/androidx/paging/LoadType) and data source type
+(either [`PagingSource`](/reference/kotlin/androidx/paging/PagingSource) or
+[`RemoteMediator`](/reference/kotlin/androidx/paging/RemoteMediator)). The
+[`CombinedLoadStates`](/reference/kotlin/androidx/paging/CombinedLoadStates)
 object provided by the listener provides information about the loading state
 from all of these signals. You can use this detailed information to display the
 appropriate loading indicators to your users.
@@ -22,26 +32,33 @@ The Paging library exposes the loading state for use in the UI through the
 `LoadState` object. `LoadState` objects take one of three forms depending on the
 current loading state:
 
-- If there is no active load operation and no error, then `LoadState` is a [`LoadState.NotLoading`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState.NotLoading) object. This subclass also includes the [`endOfPaginationReached`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState#endOfPaginationReached()) property, which indicates whether the end of pagination has been reached.
-- If there is an active load operation, then `LoadState` is a [`LoadState.Loading`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState.Loading) object.
-- If there is an error, then `LoadState` is a [`LoadState.Error`](https://developer.android.com/reference/kotlin/androidx/paging/LoadState.Error) object.
+* If there is no active load operation and no error, then `LoadState` is a
+  [`LoadState.NotLoading`](/reference/kotlin/androidx/paging/LoadState.NotLoading)
+  object. This subclass also includes the
+  [`endOfPaginationReached`](/reference/kotlin/androidx/paging/LoadState#endOfPaginationReached())
+  property, which indicates whether the end of pagination has been reached.
+* If there is an active load operation, then `LoadState` is a
+  [`LoadState.Loading`](/reference/kotlin/androidx/paging/LoadState.Loading)
+  object.
+* If there is an error, then `LoadState` is a
+  [`LoadState.Error`](/reference/kotlin/androidx/paging/LoadState.Error) object.
 
-Access these states through the [`loadState`](https://developer.android.com/reference/kotlin/androidx/paging/compose/LazyPagingItems#loadState()) property of your
-[`LazyPagingItems`](https://developer.android.com/reference/kotlin/androidx/paging/compose/LazyPagingItems) wrapper. You can use this state in two ways: handling
+Access these states through the [`loadState`](/reference/kotlin/androidx/paging/compose/LazyPagingItems#loadState()) property of your
+[`LazyPagingItems`](/reference/kotlin/androidx/paging/compose/LazyPagingItems) wrapper. You can use this state in two ways: handling
 the main content visibility (like a full-screen refresh spinner) or inserting
 loading items directly into your `LazyColumn` stream (like a footer spinner).
 
 ## Access the loading state with a listener
 
-To monitor the loading state in your UI, use the [`loadState`](https://developer.android.com/reference/kotlin/androidx/paging/compose/LazyPagingItems#loadState()) property
-provided by the [`LazyPagingItems`](https://developer.android.com/reference/kotlin/androidx/paging/compose/LazyPagingItems) wrapper. This returns a
-[`CombinedLoadStates`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates) object that lets you react to loading behavior for
+To monitor the loading state in your UI, use the [`loadState`](/reference/kotlin/androidx/paging/compose/LazyPagingItems#loadState()) property
+provided by the [`LazyPagingItems`](/reference/kotlin/androidx/paging/compose/LazyPagingItems) wrapper. This returns a
+[`CombinedLoadStates`](/reference/kotlin/androidx/paging/CombinedLoadStates) object that lets you react to loading behavior for
 refresh, append, or prepend events.
 
 In the following example, the UI displays a loading spinner or an error message
 depending on the current state of the refresh (initial) load:
 
-```kotlin
+```
 @Composable
 fun UserListScreen(viewModel: UserViewModel) {
   val pagingItems = viewModel.flow.collectAsLazyPagingItems()
@@ -72,7 +89,7 @@ fun UserListScreen(viewModel: UserViewModel) {
 }
 ```
 
-For more information on `LazyPagingItems`, see [Large data-sets (paging)](https://developer.android.com/develop/ui/compose/lists#large-datasets).
+For more information on `LazyPagingItems`, see [Large data-sets (paging)](/develop/ui/compose/lists#large-datasets).
 
 ## Add loading headers and footers
 
@@ -81,15 +98,15 @@ headers or footers), add dedicated item blocks specifically for those states
 within your `LazyColumn` scope.
 
 You can monitor the prepend state for the header and the append state for the
-footer using the [`CombinedLoadStates`](https://developer.android.com/reference/kotlin/androidx/paging/CombinedLoadStates) object.
+footer using the [`CombinedLoadStates`](/reference/kotlin/androidx/paging/CombinedLoadStates) object.
 
 In the following example, the list displays a progress bar or a retry button at
 the bottom of the list when more data is being fetched:
 
-> [!NOTE]
-> **Note:** The following example only works if placeholders are disabled. Otherwise, the load state items will be displayed at the end of placeholders.
+**Note:** The following example only works if placeholders are disabled. Otherwise,
+the load state items will be displayed at the end of placeholders.
 
-```kotlin
+```
 @Composable
 fun UserList(viewModel: UserViewModel) {
   val pagingItems = viewModel.pager.flow.collectAsLazyPagingItems()
@@ -153,8 +170,8 @@ fun ErrorItem(message: String, onClick: () -> Unit) {
 
 As shown in the earlier examples, calling `pagingItems.loadState.refresh` is
 convenient. However, it obscures the difference between loading from your local
-database ([`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource)) and
-your network ([`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator)).
+database ([`PagingSource`](/reference/kotlin/androidx/paging/PagingSource)) and
+your network ([`RemoteMediator`](/reference/kotlin/androidx/paging/RemoteMediator)).
 This can cause the UI to briefly show a loading spinner even when cached data
 is immediately available.
 
@@ -162,7 +179,7 @@ For precise control, like showing a loading spinner only when the local database
 is empty and a network sync is active, access the `source` and `mediator`
 properties directly within your composable.
 
-```kotlin
+```
 val loadState = pagingItems.loadState
 
 val isSyncing = loadState.mediator?.refresh is LoadState.Loading
@@ -191,7 +208,7 @@ Use `snapshotFlow` inside a `LaunchedEffect` to observe state changes as a
 stream. This lets you apply standard `Flow` operators like [`filter`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/filter.html)
 and [`distinctUntilChanged`](https://kotlinlang.org/api/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/distinct-until-changed.html) to isolate specific events.
 
-```kotlin
+```
 val listState = rememberLazyListState()
 
 LaunchedEffect(pagingItems) {
@@ -214,14 +231,14 @@ the following resources.
 
 ### Documentation
 
-- [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data)
-- [Page from network and database](https://developer.android.com/topic/libraries/architecture/paging/v3-network-db)
+* [Load and display paged data](/topic/libraries/architecture/paging/v3-paged-data)
+* [Page from network and database](/topic/libraries/architecture/paging/v3-network-db)
 
 ### Views content
 
-- [Manage and present loading states (Views)](https://developer.android.com/topic/libraries/architecture/views/paging/load-state-views)
+* [Manage and present loading states (Views)](/topic/libraries/architecture/views/paging/load-state-views)
 
 ## Recommended for you
 
-- Note: link text is displayed when JavaScript is off
-- [Paging library overview](https://developer.android.com/topic/libraries/architecture/paging/v3-overview)
+* Note: link text is displayed when JavaScript is off
+* [Paging library overview](/topic/libraries/architecture/paging/v3-overview)

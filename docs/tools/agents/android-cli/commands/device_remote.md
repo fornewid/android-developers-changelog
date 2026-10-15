@@ -1,36 +1,49 @@
 ---
-title: https://developer.android.com/tools/agents/android-cli/commands/device_remote
+title: android device remote  |  Android Studio  |  Android Developers
 url: https://developer.android.com/tools/agents/android-cli/commands/device_remote
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Develop](https://developer.android.com/develop)
+* [Android Studio](https://developer.android.com/studio)
+* [Agent tools and resources](https://developer.android.com/tools/agents)
+
+# android device remote Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 
 Manage remote physical devices. Includes commands to list, reserve, connect to, and manage remote device reservations.
 
 ## Usage
 
-    android device remote [-h] [--project=PARAM]
+```
+android device remote [-h] [--project=PARAM]
+```
 
 ## Options
 
-- `-h,--help` - Shows the help message for the specified command.
-- `--project=PARAM` - The Google Cloud project ID.
+* `-h,--help` - Shows the help message for the specified command.
+* `--project=PARAM` - The Google Cloud project ID.
 
 `android` options:
 
-- `--sdk=PARAM` - Path to the Android SDK.
-- `-v,--verbose` - Enable verbose output for troubleshooting.
-- `-V,--version` - Print version information and exit.
+* `--sdk=PARAM` - Path to the Android SDK.
+* `-v,--verbose` - Enable verbose output for troubleshooting.
+* `-V,--version` - Print version information and exit.
 
 ## Subcommands
 
-- **[`connect`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_connect)** - Connects to a reserved remote device.
-- **[`create`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_create)** - Creates a reservation for a remote device.
-- **[`disconnect`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_disconnect)** - Disconnects a remote device.
-- **[`extend`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_extend)** - Extends a remote device reservation.
-- **[`list`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_list)** - Lists remote device reservations.
-- **[`models`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_models)** - Lists available remote device models.
-- **[`projects`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_projects)** - Lists Google Cloud projects available for device streaming.
-- **[`remove`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_remove)** - Removes a remote device reservation.
+* **[`connect`](/tools/agents/android-cli/commands/device_remote_connect)** - Connects to a reserved remote device.
+* **[`create`](/tools/agents/android-cli/commands/device_remote_create)** - Creates a reservation for a remote device.
+* **[`disconnect`](/tools/agents/android-cli/commands/device_remote_disconnect)** - Disconnects a remote device.
+* **[`extend`](/tools/agents/android-cli/commands/device_remote_extend)** - Extends a remote device reservation.
+* **[`list`](/tools/agents/android-cli/commands/device_remote_list)** - Lists remote device reservations.
+* **[`models`](/tools/agents/android-cli/commands/device_remote_models)** - Lists available remote device models.
+* **[`projects`](/tools/agents/android-cli/commands/device_remote_projects)** - Lists Google Cloud projects available for device streaming.
+* **[`remove`](/tools/agents/android-cli/commands/device_remote_remove)** - Removes a remote device reservation.
 
 ## Description
 
@@ -42,12 +55,12 @@ Remote devices are billed to a Google Cloud project. Before you start, run `andr
 
 Here is the sequence of commands for a typical workflow:
 
-1. Run [`android device remote projects`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_projects) to find a Google Cloud project that is ready for device streaming.
-2. Run [`android device remote models`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_models) to find the `<codename>/<api>` of the device you want.
-3. Run [`android device remote create <codename>/<api>`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_create) to reserve the device and connect it to `adb`.
-4. If you passed `--connect=false` to `create`, run [`android device remote connect <reservation-id>`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_connect) to connect the device to `adb`.
+1. Run [`android device remote projects`](/tools/agents/android-cli/commands/device_remote_projects) to find a Google Cloud project that is ready for device streaming.
+2. Run [`android device remote models`](/tools/agents/android-cli/commands/device_remote_models) to find the `<codename>/<api>` of the device you want.
+3. Run [`android device remote create <codename>/<api>`](/tools/agents/android-cli/commands/device_remote_create) to reserve the device and connect it to `adb`.
+4. If you passed `--connect=false` to `create`, run [`android device remote connect <reservation-id>`](/tools/agents/android-cli/commands/device_remote_connect) to connect the device to `adb`.
 5. Use the device with `android run`, `android install`, `adb`, and other device commands.
-6. Run [`android device remote disconnect <reservation-id>`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_disconnect) and [`android device remote remove <reservation-id>`](https://developer.android.com/tools/agents/android-cli/commands/device_remote_remove) when you are done.
+6. Run [`android device remote disconnect <reservation-id>`](/tools/agents/android-cli/commands/device_remote_disconnect) and [`android device remote remove <reservation-id>`](/tools/agents/android-cli/commands/device_remote_remove) when you are done.
 
 ### Select a project (`--project`)
 
@@ -55,4 +68,6 @@ Pass `--project=<project-id>` to choose the Google Cloud project to use. It's re
 
 To avoid passing `--project` every time, add a default to your `~/.androidrc` file. It's picked up by all `android device remote` commands:
 
-    device remote --project my-project
+```
+device remote --project my-project
+```

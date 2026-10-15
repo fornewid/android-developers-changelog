@@ -129,17 +129,6 @@ to assign a model to each feature category. You can also change the model direct
 from the model selector dropdown in the Agent Mode panel---the Model Assignment
 settings for **Thinking** features will automatically update to reflect your selection.
 
-### Parallel sync execution improvements
-
-Starting from Android Studio Rabbit 1 Canary 4, we've made further improvements
-to parallel sync execution.
-In [Android Studio Quail 1 \| 2026.1.2 Patch 1](https://developer.android.com/studio/releases/past-releases/as-quail-1-release-notes#android_studio_quail_1_parallel_gradle_sync_execution_change),
-IDEA parallel model fetching was disabled by default when adding
-`org.gradle.tooling.parallel=true` to your `gradle.properties` file.
-Starting with this release,
-IDEA parallel model fetching is enabled by default when using Gradle version
-9.4 or higher, provided that `org.gradle.tooling.parallel` is set to `true`.
-
 ### Migrate iOS, Flutter, and React Native apps to Android
 
 You can now migrate existing iOS, Flutter, and React Native projects to native
@@ -152,6 +141,32 @@ verification.
 
 To learn more, see [Perform cross-platform app migrations](https://developer.android.com/tools/agents/workflows/app-migrations).
 
+### Publish to Google Play for testing
+
+Android Studio now gives you the ability to upload new releases of your app
+directly to Google Play Console test tracks. You can do this by selecting
+a new option to continue to 'Publish for Testing' at the end of the Generate
+Signed App Bundle flow. This integration supports uploading an initial
+release of a brand-new app to a Play Console internal test track. You can
+also use this feature to upload releases of existing apps to other types of
+test tracks. You need to be registered on Google Play Console to take
+advantage of this functionality.
+
+### Agentic fixes with LeakCanary
+
+Starting in Rabbit 2, Android Studio directly integrates LeakCanary with the AI
+agent to help you diagnose and resolve memory leaks without leaving the IDE.
+This integration lets LeakCanary provide more meaningful narrative explanations
+of the underlying causes of memory leaks and suggest specific code changes to
+correct them. Try this feature out in the **LeakCanary** task in **Profiler**.
+
+### Discover, install, and manage Android skills in Android Studio
+
+In Android Studio Rabbit 2, it's easier to discover, install, and manage Android
+[skills](https://developer.android.com/studio/gemini/skills) directly in the
+IDE, giving you granular control over the specialized workflows and procedural
+guidance available to the agent.
+
 ### Resize Running Devices tool window by double-clicking empty space
 
 You can eliminate unused space around your virtual or mirrored physical devices
@@ -163,14 +178,3 @@ fit the device display.
 - **Docked tool windows:** Adjusts the tool window's width (when docked to the left or right) or height (when docked to the top or bottom) to remove excess margin around the device.
 - **Floating and windowed modes:** Resizes both width and height of the window to wrap tightly around the device display.
 - **Split views:** Automatically adjusts internal splitters when viewing multiple displays or devices side by side.
-
-### Publish to Google Play for testing
-
-Android Studio now gives you the ability to upload new releases of your app
-directly to Google Play Console test tracks. You can do this by selecting
-a new option to continue to 'Publish for Testing' at the end of the Generate
-Signed App Bundle flow. This integration supports uploading an initial
-release of a brand-new app to a Play Console internal test track. You can
-also use this feature to upload releases of existing apps to other types of
-test tracks. You need to be registered on Google Play Console to take
-advantage of this functionality.

@@ -38,16 +38,21 @@ in the following snippet and paste the copied text to the `TextField`.
 You display the menu to paste the text by a
 touch \& hold on the `TextField`, or by tapping the cursor handle.
 
-    val textFieldState = rememberTextFieldState()
 
-    Column {
-        Card {
-            SelectionContainer {
-                Text("You can copy this text")
-            }
+```kotlin
+val textFieldState = rememberTextFieldState()
+
+Column {
+    Card {
+        SelectionContainer {
+            Text("You can copy this text")
         }
-        BasicTextField(state = textFieldState)
     }
+    BasicTextField(state = textFieldState)
+}
+```
+
+<br />
 
 You can paste the text with the following keyboard shortcut:
 <kbd>Ctrl</kbd>+<kbd>V</kbd> .
@@ -58,21 +63,26 @@ Refer to [Handle keyboard actions](https://developer.android.com/develop/ui/comp
 
 You can copy texts to the clipboard with [`ClipboardManager`](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipboardManager).
 Its [setText()](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipboardManager#setText(androidx.compose.ui.text.AnnotatedString)) method copies
-the passed String object to the clipboard.
+the passed `AnnotatedString` object to the clipboard.
 The following snippet copies "Hello, clipboard"
 to the clipboard when the user clicks the button.
 
-    // Retrieve a ClipboardManager object
-    val clipboardManager = LocalClipboardManager.current
 
-    Button(
-        onClick = {
-            // Copy "Hello, clipboard" to the clipboard
-            clipboardManager.setText("Hello, clipboard")
-        }
-    ) {
-       Text("Click to copy a text")
+```kotlin
+// Retrieve a ClipboardManager object
+val clipboardManager = LocalClipboardManager.current
+
+Button(
+    onClick = {
+        // Copy "Hello, clipboard" to the clipboard
+        clipboardManager.setText(AnnotatedString("Hello, clipboard"))
     }
+) {
+    Text("Click to copy a text")
+}
+```
+
+<br />
 
 The following snippet does the same thing, but gives you more granular control.
 A common use case is [copying sensitive content](https://developer.android.com/develop/ui/compose/touch-input/copy-and-paste#sensitive_content),
@@ -84,18 +94,23 @@ You can set the created `ClipEntry` object to clipboard
 by calling the [setClip()](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ClipboardManager#setClip(androidx.compose.ui.platform.ClipEntry)) method
 over the `ClipboardManager` object.
 
-    // Retrieve a ClipboardManager object
-    val clipboardManager = LocalClipboardManager.current
 
-    Button(
-        onClick = {
-            val clipData = ClipData.newPlainText("plain text", "Hello, clipboard")
-            val clipEntry = ClipEntry(clipData)
-            clipboardManager.setClip(clipEntry)
-        }
-    ) {
-       Text("Click to copy a text")
+```kotlin
+// Retrieve a ClipboardManager object
+val clipboardManager = LocalClipboardManager.current
+
+Button(
+    onClick = {
+        val clipData = ClipData.newPlainText("plain text", "Hello, clipboard")
+        val clipEntry = ClipEntry(clipData)
+        clipboardManager.setClip(clipEntry)
     }
+) {
+    Text("Click to copy a text")
+}
+```
+
+<br />
 
 > [!NOTE]
 > **Note:** The clipboard can have only one `ClipEntry`.
@@ -110,26 +125,31 @@ when a text is copied in the clipboard.
 The following snippet appends text in the clipboard
 to the text in the `TextField`.
 
-    var textFieldState = rememberTextFieldState()
 
-    Column {
-        TextField(state = textFieldState)
+```kotlin
+val textFieldState = rememberTextFieldState()
 
-        Button(
-            onClick = {
-                // The getText method returns an AnnotatedString object or null
-                val annotatedString = clipboardManager.getText()
-                if(annotatedString != null) {
-                    // The pasted text is placed on the tail of the TextField
-                    textFieldState.edit {
-                        append(text.toString())
-                    }
+Column {
+    TextField(state = textFieldState)
+
+    Button(
+        onClick = {
+            // The getText method returns an AnnotatedString object or null
+            val annotatedString = clipboardManager.getText()
+            if (annotatedString != null) {
+                // The pasted text is placed on the tail of the TextField
+                textFieldState.edit {
+                    append(annotatedString.text)
                 }
             }
-        ) {
-            Text("Click to paste the text in the clipboard")
         }
+    ) {
+        Text("Click to paste the text in the clipboard")
     }
+}
+```
+
+<br />
 
 ## Work with rich content
 
@@ -146,24 +166,29 @@ and provides access to the content with a [`ContentProvider`](https://developer.
 The following code snippet shows how to copy a JPEG image to clipboard.
 Refer to [Copy data streams](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#Streams) for details.
 
-    // Get a reference to the context
-    val context = LocalContext.current
 
-    Button(
-        onClick = {
-            // URI of the copied JPEG data
-            val uri = Uri.parse("content://your.app.authority/0.jpg")
-            // Create a ClipData object from the URI value
-            // A ContentResolver finds a proper ContentProvider so that ClipData.newUri can set appropriate MIME type to the given URI
-            val clipData = ClipData.newUri(context.contentResolver, "Copied", uri)
-            // Create a ClipEntry object from the clipData value
-            val clipEntry = ClipEntry(clipData)
-            // Copy the JPEG data to the clipboard
-            clipboardManager.setClip(clipEntry)
-        }
-    ) {
-        Text("Copy a JPEG data")
+```kotlin
+// Get a reference to the context
+val context = LocalContext.current
+
+Button(
+    onClick = {
+        // URI of the copied JPEG data
+        val uri = Uri.parse("content://your.app.authority/0.jpg")
+        // Create a ClipData object from the URI value
+        // A ContentResolver finds a proper ContentProvider so that ClipData.newUri can set appropriate MIME type to the given URI
+        val clipData = ClipData.newUri(context.contentResolver, "Copied", uri)
+        // Create a ClipEntry object from the clipData value
+        val clipEntry = ClipEntry(clipData)
+        // Copy the JPEG data to the clipboard
+        clipboardManager.setClip(clipEntry)
     }
+) {
+    Text("Copy a JPEG data")
+}
+```
+
+<br />
 
 ## Paste a rich content
 
@@ -172,42 +197,47 @@ to [`BasicTextField`](https://developer.android.com/reference/kotlin/androidx/co
 The following code snippet adds the pasted URI of an image data
 to a list of [`Uri`](https://developer.android.com/reference/android/net/Uri) objects.
 
-    // A URI list of images
-    val imageList by remember{ mutableListOf<Uri>() }
 
-    // Remember the ReceiveContentListener object as it is created inside a Composable scope
-    val receiveContentListener = remember {
-        ReceiveContentListener { transferableContent ->
-            // Handle the pasted data if it is image data
-            when {
-                // Check if the pasted data is an image or not
-                transferableContent.hasMediaType(MediaType.Image)) -> {
-                    // Handle for each ClipData.Item object
-                    // The consume() method returns a new TransferableContent object containging ignored ClipData.Item objects
-                    transferableContent.consume { item ->
-                        val uri = item.uri
-                        if (uri != null) {
-                            imageList.add(uri)
-                        }
-                       // Mark the ClipData.Item object consumed when the retrieved URI is not null
-                        uri != null
+```kotlin
+// A URI list of images
+val imageList = remember { mutableStateListOf<Uri>() }
+
+// Remember the ReceiveContentListener object as it is created inside a Composable scope
+val receiveContentListener = remember {
+    ReceiveContentListener { transferableContent ->
+        // Handle the pasted data if it is image data
+        when {
+            // Check if the pasted data is an image or not
+            transferableContent.hasMediaType(MediaType.Image) -> {
+                // Handle for each ClipData.Item object
+                // The consume() method returns a new TransferableContent object containging ignored ClipData.Item objects
+                transferableContent.consume { item ->
+                    val uri = item.uri
+                    if (uri != null) {
+                        imageList.add(uri)
                     }
+                    // Mark the ClipData.Item object consumed when the retrieved URI is not null
+                    uri != null
                 }
-                // Return the given transferableContent when the pasted data is not an image
-                else -> transferableContent
             }
+            // Return the given transferableContent when the pasted data is not an image
+            else -> transferableContent
         }
     }
+}
 
-    val textFieldState = rememberTextFieldState()
+val textFieldState = rememberTextFieldState()
 
-    BasicTextField(
-        state = textFieldState,
-        modifier = Modifier
-            .contentReceiver(receiveContentListener)
-            .fillMaxWidth()
-            .height(48.dp)
-    )
+BasicTextField(
+    state = textFieldState,
+    modifier = Modifier
+        .contentReceiver(receiveContentListener)
+        .fillMaxWidth()
+        .height(48.dp)
+)
+```
+
+<br />
 
 The `contentReceiver` modifier takes a [`ReceiveContentListener`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/content/ReceiveContentListener) object
 as its argument and calls [`onReceive`](https://developer.android.com/reference/kotlin/androidx/compose/foundation/content/ReceiveContentListener#onReceive(androidx.compose.foundation.content.TransferableContent))
@@ -233,7 +263,12 @@ with the media type.
 For example, the following method call returns `true`
 if the `TransferableContent` object can provide an image.
 
-    transferableContent.hasMediaType(MediaType.Image)
+
+```kotlin
+transferableContent.hasMediaType(MediaType.Image)
+```
+
+<br />
 
 ## Work with complex data
 
@@ -253,7 +288,7 @@ Users expect feedback when they copy content to the clipboard,
 so in addition to the framework that powers copy and paste,
 Android shows a default UI to users when they copy in Android 13 (API level 33)
 and higher. Due to this feature, there is a risk of duplicate notification.
-You can learn more about this edge case in [Avoid duplicate notifications](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#duplicate-notifications)).
+You can learn more about this edge case in [Avoid duplicate notifications](https://developer.android.com/develop/ui/views/touch-and-input/copy-paste#duplicate-notifications).
 ![An animation showing Android 13 clipboard notification](https://developer.android.com/static/images/about/versions/13/new-copy-paste-UI.gif) **Figure 1.** UI shown when content enters the clipboard in Android 13 and up.
 
 Manually provide feedback to users
@@ -271,16 +306,21 @@ in the UI (figure 2).
 You must add a flag to [`ClipDescription`](https://developer.android.com/reference/android/content/ClipDescription) in `ClipData`
 before calling `setClip()` method over the `ClipboardManager` object:
 
-    // If your app is compiled with the API level 33 SDK or higher.
-    clipData.apply {
-        description.extras = PersistableBundle().apply {
-            putBoolean(ClipDescription.EXTRA_IS_SENSITIVE, true)
-        }
-    }
 
-    // If your app is compiled with a lower SDK.
-    clipData.apply {
-        description.extras = PersistableBundle().apply {
-            putBoolean("android.content.extra.IS_SENSITIVE", true)
-        }
+```kotlin
+// If your app is compiled with the API level 33 SDK or higher.
+clipData.apply {
+    description.extras = PersistableBundle().apply {
+        putBoolean(ClipDescription.EXTRA_IS_SENSITIVE, true)
     }
+}
+
+// If your app is compiled with a lower SDK.
+clipData.apply {
+    description.extras = PersistableBundle().apply {
+        putBoolean("android.content.extra.IS_SENSITIVE", true)
+    }
+}
+```
+
+<br />

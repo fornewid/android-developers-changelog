@@ -1,8 +1,19 @@
 ---
-title: https://developer.android.com/privacy-and-security/safetynet/safebrowsing
+title: SafetyNet Safe Browsing API  |  Security  |  Android Developers
 url: https://developer.android.com/privacy-and-security/safetynet/safebrowsing
-source: md.txt
+source: html-scrape
 ---
+
+* [Android Developers](https://developer.android.com/)
+* [Design & Plan](https://developer.android.com/design)
+* [Security](https://developer.android.com/security)
+* [Guides](https://developer.android.com/privacy-and-security/security-tips)
+
+# SafetyNet Safe Browsing API Stay organized with collections Save and categorize content based on your preferences.
+
+
+
+
 
 The SafetyNet Safe Browsing API, a library powered by
 [Google Play services](https://developers.google.com/android),
@@ -43,7 +54,7 @@ In v5, you provide this API key when creating the `SafeBrowsingClient` instance.
 Before using the Safe Browsing API, add the SafetyNet API to your
 project. If you are using Android Studio, add this dependency
 to your app-level Gradle file. For more information, see
-[Protect against security threats with SafetyNet](https://developer.android.com/training/safetynet#before-you-begin).
+[Protect against security threats with SafetyNet](/training/safetynet#before-you-begin).
 
 ## Initialize the API
 
@@ -53,24 +64,31 @@ and waiting for it to complete. The following code snippet provides an example:
 
 ### Kotlin
 
-    Tasks.await(SafetyNet.getClient(this).initSafeBrowsing)
+```
+Tasks.await(SafetyNet.getClient(this).initSafeBrowsing)
+```
 
 ### Java
 
-    Tasks.await(SafetyNet.getClient(this).initSafeBrowsing);
+```
+Tasks.await(SafetyNet.getClient(this).initSafeBrowsing);
+```
 
-> [!NOTE]
-> **Note:** To minimize the impact of your app's initialization, call `initSafeBrowsing` as early as possible in your activity's [`onResume`](https://developer.android.com/reference/android/app/Activity#onResume()) method.
+**Note:** To minimize the impact of your app's initialization, call
+`initSafeBrowsing` as early as possible in your activity's
+[`onResume`](/reference/android/app/Activity#onResume()) method.
 
 In v5, GmsCore offers the Safe Browsing client. You must obtain a
 `SafeBrowsingClient` instance. We streamlined the API surface to increase
 efficiency and reduce bloat.
 
-    // Draft interface for the new client
-    public interface SafeBrowsingClient extends HasApiKey<SafeBrowsingApiOptions> {
-      Task<SafeBrowsingResponse> lookupUri(String uri, @ThreatType List<Integer> threatTypes, @Protocol int protocol);
-      Task<SupportedThreatTypesResponse> getSupportedThreatTypes();
-    }
+```
+// Draft interface for the new client
+public interface SafeBrowsingClient extends HasApiKey<SafeBrowsingApiOptions> {
+  Task<SafeBrowsingResponse> lookupUri(String uri, @ThreatType List<Integer> threatTypes, @Protocol int protocol);
+  Task<SupportedThreatTypesResponse> getSupportedThreatTypes();
+}
+```
 
 ## Request a URL check
 
@@ -85,22 +103,29 @@ the URL with or without a scheme. For example, both
 
 ### Kotlin
 
-    var url = "https://www.google.com"
+```
+var url = "https://www.google.com"
+```
 
 ### Java
 
-    String url = "https://www.google.com";
+```
+String url = "https://www.google.com";
+```
 
 and
 
 ### Kotlin
 
-    var url = "www.google.com"
+```
+var url = "www.google.com"
+```
 
 ### Java
 
-    String url = "www.google.com";
-
+```
+String url = "www.google.com";
+```
 
 are valid.
 
@@ -108,94 +133,100 @@ The following code demonstrates how to send a URL check request:
 
 ### Kotlin
 
-    SafetyNet.getClient(this).lookupUri(
-           url,
-           SAFE_BROWSING_API_KEY,
-           SafeBrowsingThreat.TYPE_POTENTIALLY_HARMFUL_APPLICATION,
-           SafeBrowsingThreat.TYPE_SOCIAL_ENGINEERING
-    )
-           .addOnSuccessListener(this) { sbResponse ->
+```
+SafetyNet.getClient(this).lookupUri(
+       url,
+       SAFE_BROWSING_API_KEY,
+       SafeBrowsingThreat.TYPE_POTENTIALLY_HARMFUL_APPLICATION,
+       SafeBrowsingThreat.TYPE_SOCIAL_ENGINEERING
+)
+       .addOnSuccessListener(this) { sbResponse ->
+           // Indicates communication with the service was successful.
+           // Identify any detected threats.
+           if (sbResponse.detectedThreats.isEmpty()) {
+               // No threats found.
+           } else {
+               // Threats found!
+           }
+       }
+       .addOnFailureListener(this) { e: Exception ->
+           if (e is ApiException) {
+               // An error with the Google Play services API contains some
+               // additional details.
+               Log.d(TAG, "Error: ${CommonStatusCodes.getStatusCodeString(e.statusCode)}")
+
+               // Note: If the status code, s.statusCode,
+               // is SafetyNetStatusCode.SAFE_BROWSING_API_NOT_INITIALIZED,
+               // you need to call initSafeBrowsing(). It means either you
+               // haven't called initSafeBrowsing() before or that it needs
+               // to be called again due to an internal error.
+           } else {
+               // A different, unknown type of error occurred.
+               Log.d(TAG, "Error: ${e.message}")
+           }
+       }
+```
+
+### Java
+
+```
+SafetyNet.getClient(this).lookupUri(url,
+         SAFE_BROWSING_API_KEY,
+         SafeBrowsingThreat.TYPE_POTENTIALLY_HARMFUL_APPLICATION,
+         SafeBrowsingThreat.TYPE_SOCIAL_ENGINEERING)
+   .addOnSuccessListener(this,
+       new OnSuccessListener<SafetyNetApi.SafeBrowsingResponse>() {
+           @Override
+           public void onSuccess(SafetyNetApi.SafeBrowsingResponse sbResponse) {
                // Indicates communication with the service was successful.
                // Identify any detected threats.
-               if (sbResponse.detectedThreats.isEmpty()) {
+               if (sbResponse.getDetectedThreats().isEmpty()) {
                    // No threats found.
                } else {
                    // Threats found!
                }
-           }
-           .addOnFailureListener(this) { e: Exception ->
-               if (e is ApiException) {
+        }
+   })
+   .addOnFailureListener(this, new OnFailureListener() {
+           @Override
+           public void onFailure(@NonNull Exception e) {
+               // An error occurred while communicating with the service.
+               if (e instanceof ApiException) {
                    // An error with the Google Play services API contains some
                    // additional details.
-                   Log.d(TAG, "Error: ${CommonStatusCodes.getStatusCodeString(e.statusCode)}")
+                   ApiException apiException = (ApiException) e;
+                   Log.d(TAG, "Error: " + CommonStatusCodes
+                       .getStatusCodeString(apiException.getStatusCode()));
 
-                   // Note: If the status code, s.statusCode,
+                   // Note: If the status code, apiException.getStatusCode(),
                    // is SafetyNetStatusCode.SAFE_BROWSING_API_NOT_INITIALIZED,
                    // you need to call initSafeBrowsing(). It means either you
                    // haven't called initSafeBrowsing() before or that it needs
                    // to be called again due to an internal error.
                } else {
                    // A different, unknown type of error occurred.
-                   Log.d(TAG, "Error: ${e.message}")
+                   Log.d(TAG, "Error: " + e.getMessage());
                }
            }
-
-### Java
-
-    SafetyNet.getClient(this).lookupUri(url,
-             SAFE_BROWSING_API_KEY,
-             SafeBrowsingThreat.TYPE_POTENTIALLY_HARMFUL_APPLICATION,
-             SafeBrowsingThreat.TYPE_SOCIAL_ENGINEERING)
-       .addOnSuccessListener(this,
-           new OnSuccessListener<SafetyNetApi.SafeBrowsingResponse>() {
-               @Override
-               public void onSuccess(SafetyNetApi.SafeBrowsingResponse sbResponse) {
-                   // Indicates communication with the service was successful.
-                   // Identify any detected threats.
-                   if (sbResponse.getDetectedThreats().isEmpty()) {
-                       // No threats found.
-                   } else {
-                       // Threats found!
-                   }
-            }
-       })
-       .addOnFailureListener(this, new OnFailureListener() {
-               @Override
-               public void onFailure(@NonNull Exception e) {
-                   // An error occurred while communicating with the service.
-                   if (e instanceof ApiException) {
-                       // An error with the Google Play services API contains some
-                       // additional details.
-                       ApiException apiException = (ApiException) e;
-                       Log.d(TAG, "Error: " + CommonStatusCodes
-                           .getStatusCodeString(apiException.getStatusCode()));
-
-                       // Note: If the status code, apiException.getStatusCode(),
-                       // is SafetyNetStatusCode.SAFE_BROWSING_API_NOT_INITIALIZED,
-                       // you need to call initSafeBrowsing(). It means either you
-                       // haven't called initSafeBrowsing() before or that it needs
-                       // to be called again due to an internal error.
-                   } else {
-                       // A different, unknown type of error occurred.
-                       Log.d(TAG, "Error: " + e.getMessage());
-                   }
-               }
-       });
+   });
+```
 
 The updated lookupUri signature takes the URI, a list of threat types,
 and the protocol.
 
-    val threatTypes = listOf(ThreatType.TYPE_SOCIAL_ENGINEERING, ThreatType.TYPE_MALWARE)
-    val protocol = Protocol.REAL_TIME // or Protocol.LOCAL_BLOCK_LIST
+```
+val threatTypes = listOf(ThreatType.TYPE_SOCIAL_ENGINEERING, ThreatType.TYPE_MALWARE)
+val protocol = Protocol.REAL_TIME // or Protocol.LOCAL_BLOCK_LIST
 
-    safeBrowsingClient.lookupUri(url, threatTypes, protocol)
-        .addOnSuccessListener { response ->
-            if (response.detectedThreats.isEmpty()) {
-                // No threats found
-            } else {
-                // Threats detected!
-            }
+safeBrowsingClient.lookupUri(url, threatTypes, protocol)
+    .addOnSuccessListener { response ->
+        if (response.detectedThreats.isEmpty()) {
+            // No threats found
+        } else {
+            // Threats detected!
         }
+    }
+```
 
 ### Read the URL check response
 
@@ -219,7 +250,7 @@ The constants in the `SafeBrowsingThreat` class contain the
 currently supported threat types:
 
 | Threat type | Definition |
-|---|---|
+| --- | --- |
 | `TYPE_POTENTIALLY_HARMFUL_APPLICATION` | This threat type identifies URLs of pages that are flagged as containing potentially harmful applications. |
 | `TYPE_SOCIAL_ENGINEERING` | This threat type identifies URLs of pages that are flagged as containing social engineering threats. |
 
@@ -237,14 +268,18 @@ method:
 
 ### Kotlin
 
-    SafetyNet.getClient(this).shutdownSafeBrowsing()
+```
+SafetyNet.getClient(this).shutdownSafeBrowsing()
+```
 
 ### Java
 
-    SafetyNet.getClient(this).shutdownSafeBrowsing();
+```
+SafetyNet.getClient(this).shutdownSafeBrowsing();
+```
 
 We recommend that you call `shutdownSafeBrowsing` in your
-activity's [`onPause`](https://developer.android.com/reference/android/app/Activity#onPause()) method
+activity's [`onPause`](/reference/android/app/Activity#onPause()) method
 and that you call
 [`initSafeBrowsing`](https://developers.google.com/android/reference/com/google/android/gms/safetynet/SafetyNetClient.html#initSafeBrowsing())
 in your activity's `onResume` method. However,
@@ -264,8 +299,8 @@ In real-time mode, clients maintain a local database and a **Global Cache of
 likely-benign sites** to provide near-real-time protection with the freshest
 threat data.
 
-> [!NOTE]
-> **Note:** The client periodically syncs a global cache to reduce network latency for common sites.
+**Note:** The client periodically syncs a global cache to reduce network latency
+for common sites.
 
 ## Supported threat types
 
@@ -273,17 +308,17 @@ The API lets you choose which threat types are important for your needs.
 The v5 API supports a wider range of threat types:
 
 | Threat Type Constant | Description |
-|---|---|
-| NO_THREAT | No threat. |
-| TYPE_MALWARE | General malware threats. |
-| TYPE_UNWANTED_SOFTWARE | Unwanted software or applications. |
-| TYPE_POTENTIALLY_HARMFUL_APPLICATION | Apps that may harm the device or user. |
-| TYPE_SOCIAL_ENGINEERING | Phishing and other deceptive sites. |
-| TYPE_TRICK_TO_BILL | Pages that trick users into billing actions. |
-| TYPE_BETTER_ADS_VIOLATION | Sites violating better ads standards. |
-| TYPE_MALWARE_OFFLINE | Offline malware. |
-| TYPE_ABUSIVE_EXPERIENCE_VIOLATION | Violations that result in a bad experience for the user. |
-| TYPE_HIGH_CONFIDENCE_ALLOW_LIST | High confidence allow list |
+| --- | --- |
+| NO\_THREAT | No threat. |
+| TYPE\_MALWARE | General malware threats. |
+| TYPE\_UNWANTED\_SOFTWARE | Unwanted software or applications. |
+| TYPE\_POTENTIALLY\_HARMFUL\_APPLICATION | Apps that may harm the device or user. |
+| TYPE\_SOCIAL\_ENGINEERING | Phishing and other deceptive sites. |
+| TYPE\_TRICK\_TO\_BILL | Pages that trick users into billing actions. |
+| TYPE\_BETTER\_ADS\_VIOLATION | Sites violating better ads standards. |
+| TYPE\_MALWARE\_OFFLINE | Offline malware. |
+| TYPE\_ABUSIVE\_EXPERIENCE\_VIOLATION | Violations that result in a bad experience for the user. |
+| TYPE\_HIGH\_CONFIDENCE\_ALLOW\_LIST | High confidence allow list |
 
 ## Data collected by the SafetyNet Safe Browsing API
 
@@ -291,15 +326,15 @@ The SafetyNet Safe Browsing API collects the following data automatically when
 it communicates with the Safe Browsing service on Android:
 
 | Data | Description |
-|---|---|
+| --- | --- |
 | App Activity | Collects hash prefix of URLs after a local hash prefix match for purposes of detecting malicious URLs. |
 
 The SafetyNet Safe Browsing API collects the hash prefix of URLs for detecting
 malicious URLs. Version 5 implements **Oblivious HTTP** to further protect
 user data during these lookups.
 
-> [!NOTE]
-> **Note:** Safe Browsing v5 is designed to migrate from v4 without requiring a reset of the local database.
+**Note:** Safe Browsing v5 is designed to migrate from v4 without
+requiring a reset of the local database.
 
 While we aim to be as transparent as possible, you are solely responsible for
 deciding how to respond to

@@ -4,10 +4,9 @@ url: https://developer.android.com/kotlin/adopt-for-large-teams
 source: md.txt
 ---
 
-Moving to any new language can be a daunting task. The recipe for success is to
-start slow, move in chunks, and test frequently to align your team for success.
-Kotlin makes migrating easy, as it compiles down to JVM bytecode and
-is fully interoperable with Java.
+Moving to a new language can be challenging. To set your team up for success,
+start slow, migrate in small chunks, and test frequently. Kotlin compiles to JVM
+bytecode and it's fully interoperable with Java, which makes migration easier.
 
 ### Building the team
 
@@ -55,9 +54,9 @@ each situation is different, but here are a few common places to start.
 #### Data model
 
 Your data model likely consists of a lot of state information along with a few
-methods. The data model might also have common methods such as `toString()`,
-`equals()` and `hashcode()`. These methods can usually be transitioned and unit
-tested easily in isolation.
+methods. The data model might also have common methods such as `toString`,
+`equals`, and `hashCode`. You can usually migrate these methods and unit test
+them in isolation.
 
 For example, assume the following snippet of Java:
 
@@ -106,7 +105,8 @@ For example, assume the following snippet of Java:
        }
     }
 
-You can replace the Java class with a single line of Kotlin, as shown here:
+You can replace the Java class with a single line of Kotlin, as shown in the
+following example:
 
 
 ```kotlin
@@ -115,22 +115,22 @@ data class Person(var firstName: String?, var lastName: String?)
 
 <br />
 
-This code can then be unit tested against your current test suite. The idea here
-is to start small with one model at a time and transition classes that are
-mostly state and not behavior. Be sure to test often along the way.
+You can then unit test this code against your current test suite. Start small
+with one model at a time, and migrate classes that are mostly state rather than
+behavior. Test often along the way.
 
 #### Migrate tests
 
-Another starting path to consider is to convert existing tests and start writing
-new tests in Kotlin. This can give your team time to feel comfortable with the
-language before writing code that you plan to ship with your app.
+Another place to start is your tests: convert existing tests and write new
+tests in Kotlin. This gives your team time to get comfortable with the language
+before you write code that ships with your app.
 
 #### Move utility methods to extension functions
 
-Any static utility classes (`StringUtils`, `IntegerUtils`, `DateUtils`,
-`YourCustomTypeUtils`, and so on) can be represented as
+You can represent static utility classes, such as `StringUtils`,
+`IntegerUtils`, `DateUtils`, or `YourCustomTypeUtils`, as
 [Kotlin extension functions](https://kotlinlang.org/docs/extensions.html)
-and used by your existing Java codebase.
+and use them from your existing Java codebase.
 
 For example, consider you have a `StringUtils` class with a few methods:
 
@@ -159,8 +159,8 @@ following example:
     ...
 
 Using Kotlin extension functions, you can provide the same `Utils` interface to
-Java callers while at the same time offering a more succinct API for your
-growing Kotlin code base.
+Java callers while also offering a more succinct API for your growing Kotlin
+codebase.
 
 To do this, you could start by converting this `Utils` class to Kotlin using the
 automatic conversion provided by the IDE. Example output might look similar to
@@ -240,19 +240,19 @@ String fooString = StringUtils.foo(myString);
 
 #### Complete the migration
 
-Once your team is comfortable with Kotlin and you have migrated smaller areas,
-you can move on to tackling larger components such as fragments, activities,
-`ViewModel` objects, and other class that are related to business logic.
+After your team is comfortable with Kotlin and you've migrated smaller areas,
+you can move on to larger components such as fragments, activities, `ViewModel`
+objects, and other classes related to business logic.
 
 ## Considerations
 
-Much like Java has a specific style, Kotlin has its own idiomatic style that
-contributes to its succinctness. However, you might find initially that the
-Kotlin code your team produces looks more like the Java code it's replacing.
-This changes over time as your team's Kotlin experience grows. Remember, gradual
-change is the key to success.
+Just as Java has a specific style, Kotlin has its own idiomatic style that
+contributes to its succinctness. At first, though, you might find that the
+Kotlin code your team writes looks more like the Java code it's replacing. This
+changes as your team gains Kotlin experience. Gradual change is the key to
+success.
 
-Here are a few things you can do to attain consistency as your Kotlin code base
+Here are a few things you can do to keep your Kotlin codebase consistent as it
 grows:
 
 ### Common coding standards
@@ -265,7 +265,7 @@ process. You can diverge from the Android
 
 Enforce the coding standards set for your team by using
 [Android lint](https://developer.android.com/studio/write/lint) and other static analysis tools.
-[klint](https://github.com/pinterest/ktlint), a third-party Kotlin
+[ktlint](https://github.com/ktlint/ktlint), a third-party Kotlin
 linter, also provides additional rules for Kotlin.
 
 ### Continuous integration
@@ -276,18 +276,18 @@ can help to ensure consistency and adherence to these standards.
 
 ### Interoperability
 
-Kotlin interoperates with Java seamlessly for the most part, but note the
-following.
+Kotlin interoperates with Java seamlessly for the most part, but keep the
+following points in mind.
 
 #### Nullability
 
 Kotlin relies on nullability annotations in compiled code to infer nullability
-on the Kotlin side. If annotations are not provided, Kotlin defaults to a
-platform type which can be treated as the nullable or non-nullable type. This
-can lead to runtime `NullPointerException` issues, however, if not treated
-carefully.
+on the Kotlin side. If annotations aren't provided, Kotlin defaults to a
+platform type that can be treated as either nullable or non-nullable. If you
+don't handle platform types carefully, this can lead to runtime
+`NullPointerException` issues.
 
-#### Adopt New Features
+#### Adopt new features
 
 Kotlin provides a lot of
 [new libraries](https://kotlinlang.org/api/core/kotlin-stdlib/)
@@ -298,7 +298,7 @@ library functions, such as
 [coroutines](https://kotlinlang.org/docs/coroutines-overview.html),
 and [lambdas](https://kotlinlang.org/docs/lambdas.html).
 
-Here's a very common trap that newer Kotlin developers encounter. Assume the
+Here's a common trap that developers new to Kotlin run into. Consider the
 following Kotlin code:
 
 
@@ -315,9 +315,9 @@ nullableFoo?.let { foo ->
 
 <br />
 
-The intent in this example is to execute `foo.baz()` and `foo.zap()` if
-`nullableFoo` is not null, thus avoiding a `NullPointerException`. While this
-code works as expected, it's less intuitive to read than a simple null check and
+The intent in this example is to execute `foo.baz` and `foo.zap` if
+`nullableFoo` isn't null, thus avoiding a `NullPointerException`. While this
+code works as expected, it's less intuitive to read than a null check and
 [smart cast](https://kotlinlang.org/docs/typecasts.html#smart-casts),
 as shown in the following example:
 
@@ -333,22 +333,21 @@ if (nullableFoo != null) {
 <br />
 
 > [!NOTE]
-> **Note:** Smart casting works only for read-only class properties (like those declared as a `val`) and local function variables, as the Kotlin compiler can't otherwise guarantee the variable reference wasn't set back to `null` between the `if` guard and the variable's usage.
+> **Note:** Smart casting works only for read-only class properties (such as those declared as `val`) and local variables. Otherwise, the Kotlin compiler can't guarantee that the variable wasn't set back to `null` between the `if` check and where it's used.
 
 #### Testing
 
-Classes and their functions are closed for extension by default in Kotlin. You
-must explicitly open the classes and functions that you want to subclass. This
-behavior is a language design decision that was chosen to promote composition
-over inheritance. Kotlin has built-in support to implement behavior through
-[delegation](https://kotlinlang.org/docs/delegation.html)
-to help simplify composition.
+In Kotlin, classes and their functions are closed for extension by default.
+You must explicitly open the classes and functions that you want to subclass.
+Kotlin makes this choice to promote composition over inheritance. To help
+simplify composition, Kotlin has built-in support for implementing behavior
+through [delegation](https://kotlinlang.org/docs/delegation.html).
 
 This behavior poses a problem for mocking frameworks, such as Mockito, that
 rely on interface implementation or inheritance to override behaviors during
 testing. For unit tests, you can enable the use of the
 [Mock Maker Inline](https://github.com/mockito/mockito/wiki/What%27s-new-in-Mockito-2#mock-the-unmockable-opt-in-mocking-of-final-classesmethods)
-feature of Mockito, which allows you to mock final classes and methods.
+feature of Mockito, which lets you mock final classes and methods.
 Alternatively, you can use the
 [All-Open compiler plugin](https://kotlinlang.org/docs/all-open-plugin.html)
 to open any Kotlin class and its members that you want to test as part of the
@@ -357,7 +356,7 @@ with both unit and instrumented tests.
 
 ## More information
 
-For more information on using Kotlin, check out the following links:
+For more information about using Kotlin, see the following links:
 
 - [Android's Kotlin-first approach](https://developer.android.com/kotlin/first)
 - [Resources for getting started with Kotlin](https://developer.android.com/kotlin/getting-started-resources)

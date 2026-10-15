@@ -83,6 +83,13 @@ returns. The domain and UI layers of the app must never communicate directly
 with the network layer. It is the responsibility of the hosting `repository` to
 communicate with it, and use it to update the local data source.
 
+### Custom versus managed synchronization
+
+Building an offline-first data layer can be approached in two primary ways:
+
+- **Custom synchronization stack** : You maintain local databases with [Room](https://developer.android.com/training/data-storage/room) or files in local storage, build custom network clients, and schedule reconciliation workers with [WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent). This approach provides maximum control over schemas and custom conflict resolution algorithms.
+- **Managed cloud services** : Solutions like [Cloud Firestore](https://firebase.google.com/docs/firestore) can provide an all-in-one local cache and real-time cloud stream. The SDK handles disk caching, offline write queuing, and bidirectional sync automatically, delivering real-time data streams directly to your repository. For relational PostgreSQL backends, [Firebase SQL Connect](https://firebase.google.com/docs/sql-connect) generates type-safe Kotlin client SDKs that integrate seamlessly with your repositories. For unstructured data (such as media, large files, or backups), [Cloud Storage for Firebase](https://firebase.google.com/docs/storage) provides cloud-hosted object storage with upload and download operations that automatically pause and resume across network interruptions.
+
 ### Exposing resources
 
 The local and network data sources can differ fundamentally in how your app can
@@ -371,7 +378,7 @@ can employ in these scenarios:
 When you have an object you want to write, insert it into a queue. When the app
 gets back online, drain the queue with exponential backoff. On
 Android, draining an offline queue is persistent work that is often delegated to
-[`WorkManager`](https://developer.android.com/topic/libraries/architecture/workmanager).
+[WorkManager](https://developer.android.com/develop/background-work/background-tasks/persistent).
 ![Write queues with retries](https://developer.android.com/static/images/topic/architecture/data-layer/write-backoff.png) **Figure 5**: Write queues with retries.
 
 This approach is a good choice in the following scenarios:
