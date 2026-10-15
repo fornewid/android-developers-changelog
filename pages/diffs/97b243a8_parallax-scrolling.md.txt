@@ -1,0 +1,15 @@
+diff --git a/docs/develop/ui/compose/quick-guides/content/parallax-scrolling.md b/docs/develop/ui/compose/quick-guides/content/parallax-scrolling.md
+index ac2a45ef..bc752091 100644
+--- a/docs/develop/ui/compose/quick-guides/content/parallax-scrolling.md
++++ b/docs/develop/ui/compose/quick-guides/content/parallax-scrolling.md
+@@ -68,9 +68,7 @@ fun ParallaxEffect() {
+                 .background(Color.White)
+                 .padding(horizontal = 8.dp),
+ 
+-        )
+-    }
+-}
++       xEffect.kt
+ ```
+ 
+ <br />

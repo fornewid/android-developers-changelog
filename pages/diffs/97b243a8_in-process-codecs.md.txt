@@ -1,0 +1,219 @@
+diff --git a/docs/media/platform/in-process-codecs.md b/docs/media/platform/in-process-codecs.md
+index f54e86ef..56b4ff9c 100644
+--- a/docs/media/platform/in-process-codecs.md
++++ b/docs/media/platform/in-process-codecs.md
+@@ -1,9 +1,20 @@
+ ---
+-title: https://developer.android.com/media/platform/in-process-codecs
++title: Optimize audio performance using in-process decoders  |  Android media  |  Android Developers
+ url: https://developer.android.com/media/platform/in-process-codecs
+-source: md.txt
++source: html-scrape
+ ---
+ 
++* [Android Developers](https://developer.android.com/)
++* [Essentials](https://developer.android.com/get-started)
++* [Camera & media dev center](https://developer.android.com/media)
++* [Guides](https://developer.android.com/media/guides)
++
++# Optimize audio performance using in-process decoders Stay organized with collections Save and categorize content based on your preferences.
++
++
++
++
++
+ Starting in Android 17 (API level 37) and updated through Google Play System
+ Updates (Mainline APEX modules), Android introduces **in-process software
+ audio decoders** for compressed audio formats, including **Opus** and **AAC**.
+@@ -20,16 +31,26 @@ dedicated, sandboxed system daemon (`mediaswcodec`) to protect apps and the
+ OS from malformed media bitstreams. However, out-of-process sandboxing
+ introduces measurable performance overhead:
+ 
+-- **Inter-process communication (IPC) latency:** Every audio input frame queued to the decoder and every decoded PCM audio buffer returned requires cross-process Binder IPC serialization and context switching.
+-- **Shared memory overhead:** Inter-process buffer handoffs require shared-memory (`C2Buffer`) synchronization and cache management.
+-- **Scheduling contention:** Under heavy CPU load, thread scheduling contention between the app process and `mediaswcodec` can cause buffer starvation and audio stuttering in low-latency audio pipelines (such as DAWs, VoIP communication, and interactive games).
++* **Inter-process communication (IPC) latency:** Every audio input frame
++  queued to the decoder and every decoded PCM audio buffer returned requires
++  cross-process Binder IPC serialization and context switching.
++* **Shared memory overhead:** Inter-process buffer handoffs require
++  shared-memory (`C2Buffer`) synchronization and cache management.
++* **Scheduling contention:** Under heavy CPU load, thread scheduling
++  contention between the app process and `mediaswcodec` can cause buffer
++  starvation and audio stuttering in low-latency audio pipelines (such as
++  DAWs, VoIP communication, and interactive games).
+ 
+ Running media decoders in-process directly resolves these performance
+ bottlenecks:
+ 
+-- **Eliminates IPC latency:** Bypasses Binder IPC transactions and context switches, reducing end-to-end decoding latency by approximately 40%.
+-- **Minimizes buffer overhead:** Passes audio buffers directly within the local app memory space without requiring cross-process shared memory mappings.
+-- **Prevents scheduling jitter:** Executes decoding on the app's own priority threads (such as realtime AAudio or Oboe threads), preventing audio dropouts and buffer underruns under heavy system load.
++* **Eliminates IPC latency:** Bypasses Binder IPC transactions and context
++  switches, reducing end-to-end decoding latency by approximately 40%.
++* **Minimizes buffer overhead:** Passes audio buffers directly within the local
++  app memory space without requiring cross-process shared memory mappings.
++* **Prevents scheduling jitter:** Executes decoding on the app's own priority
++  threads (such as realtime AAudio or Oboe threads), preventing audio dropouts
++  and buffer underruns under heavy system load.
+ 
+ ## Memory safety with Rust
+ 
+@@ -49,58 +70,87 @@ harnesses.
+ 
+ Rust is deemed secure for in-process decoding for the following reasons:
+ 
+-- **Compile-time memory safety:** Rust's strict ownership, borrowing, and lifetime checking ensure that memory can't be accessed after it is freed or mutated while shared.
+-- **Elimination of common vulnerabilities:** Rust completely prevents heap buffer overflows, stack smashes, out-of-bounds array reads and writes, use-after-free errors, and double-free vulnerabilities at compile time.
+-- **Zero runtime sandboxing tax:** Because memory safety is mathematically proven at compile time and verified through bounds checking, Rust decoders execute at native speed inside the app process without requiring page table transitions or hardware sandbox contexts.
++* **Compile-time memory safety:** Rust's strict ownership, borrowing, and
++  lifetime checking ensure that memory can't be accessed after it is freed or
++  mutated while shared.
++* **Elimination of common vulnerabilities:** Rust completely prevents heap
++  buffer overflows, stack smashes, out-of-bounds array reads and writes,
++  use-after-free errors, and double-free vulnerabilities at compile time.
++* **Zero runtime sandboxing tax:** Because memory safety is mathematically
++  proven at compile time and verified through bounds checking, Rust decoders
++  execute at native speed inside the app process without requiring page table
++  transitions or hardware sandbox contexts.
+ 
+ ## Memory safety with Lightweight Fault Isolation (LFI)
+ 
+ For complex legacy C/C++ audio decoders that have not yet been rewritten in
+-Rust---specifically the **Opus** decoder (`c2.android.inproc.opus.decoder`
+-powered by `libopus`)---Android provides in-process safety using
++Rust—specifically the **Opus** decoder (`c2.android.inproc.opus.decoder`
++powered by `libopus`)—Android provides in-process safety using
+ [Lightweight Fault Isolation (LFI)](https://llvm.org/docs/LFI.html).
+ 
+ LFI is considered secure for C/C++ decoders for the following reasons:
+ 
+-- **Hardware-guarded linear memory sandboxing:** LFI compiles the C/C++ codec library into WebAssembly-derived linear machine code confined to a hardware-guarded 4 GB linear memory slot.
+-- **Linux Memory Protection Keys (`pku`):** LFI uses Linux Memory Protection Keys (`pku` / `pkey_mprotect`) to partition address space permissions. The isolated library can't read or write memory outside its assigned 4 GB sandbox slot.
+-- **System call interception:** Zero host OS system calls (such as file I/O, network access, or process control) are permitted inside the sandbox. Any unsupported library call is routed to minimal dummy stubs (`lfi_stubs.c`).
+-- **Safe fault recovery:** If a malformed or adversarial Opus bitstream attempts an out-of-bounds read or write inside the linear sandbox, the LFI runtime traps the fault safely in userspace and returns a clean `C2_CORRUPTED` decoding error without crashing the host app.
++* **Hardware-guarded linear memory sandboxing:** LFI compiles the C/C++ codec
++  library into WebAssembly-derived linear machine code confined to a
++  hardware-guarded 4 GB linear memory slot.
++* **Linux Memory Protection Keys (`pku`):** LFI uses Linux Memory Protection
++  Keys (`pku` / `pkey_mprotect`) to partition address space permissions. The
++  isolated library can't read or write memory outside its assigned 4 GB
++  sandbox slot.
++* **System call interception:** Zero host OS system calls (such as file I/O,
++  network access, or process control) are permitted inside the sandbox. Any
++  unsupported library call is routed to minimal dummy stubs (`lfi_stubs.c`).
++* **Safe fault recovery:** If a malformed or adversarial Opus bitstream
++  attempts an out-of-bounds read or write inside the linear sandbox, the LFI
++  runtime traps the fault safely in userspace and returns a clean
++  `C2_CORRUPTED` decoding error without crashing the host app.
+ 
+ ### Supported architectures and devices for LFI
+ 
+ LFI requires no custom CPU hardware instructions and is supported on
+-**ARM64 (`aarch64`)** and **x86_64** processor architectures:
++**ARM64 (`aarch64`)** and **x86\_64** processor architectures:
+ 
+-- **ARM64 (`aarch64`) devices:** Most consumer mobile devices---including mobile phones (such as Pixel devices with Google Tensor SoCs, Qualcomm Snapdragon, and MediaTek SoCs), foldables, tablets, and automotive infotainment units---run on ARM64 processors and support LFI in-process decoders.
+-- **x86_64 devices:** Android emulators running on developer workstations with Intel or AMD CPUs, as well as ChromeOS Chromebooks running Android apps using ARC (Android Runtime for ChromeOS), execute on x86_64 architectures and support LFI sandboxing.
++* **ARM64 (`aarch64`) devices:** Most consumer mobile devices—including mobile
++  phones (such as Pixel devices with Google Tensor SoCs, Qualcomm Snapdragon,
++  and MediaTek SoCs), foldables, tablets, and automotive infotainment units—run
++  on ARM64 processors and support LFI in-process decoders.
++* **x86\_64 devices:** Android emulators running on developer workstations
++  with Intel or AMD CPUs, as well as ChromeOS Chromebooks running Android
++  apps using ARC (Android Runtime for ChromeOS), execute on x86\_64
++  architectures and support LFI sandboxing.
+ 
+-> [!NOTE]
+-> **Note:** All in-process audio decoders (both Rust and LFI) report [`SECURITY_MODEL_MEMORY_SAFE`](https://developer.android.com/reference/android/media/MediaCodecInfo#SECURITY_MODEL_MEMORY_SAFE) when queried using [`MediaCodecInfo.getSecurityModel()`](https://developer.android.com/reference/android/media/MediaCodecInfo#getSecurityModel()).
++**Note:** All in-process audio decoders (both Rust and LFI) report
++[`SECURITY_MODEL_MEMORY_SAFE`](/reference/android/media/MediaCodecInfo#SECURITY_MODEL_MEMORY_SAFE) when queried using
++[`MediaCodecInfo.getSecurityModel()`](/reference/android/media/MediaCodecInfo#getSecurityModel()).
+ 
+ ## Available in-process audio decoders
+ 
+ | Audio format | MIME type | In-process component name | Implementation |
+-|---|---|---|---|
++| --- | --- | --- | --- |
+ | **Opus** | `audio/opus` | `c2.android.inproc.opus.decoder` | C/C++ `libopus` with LFI |
+ | **AAC** | `audio/mp4a-latm` | `c2.android.inproc.aac.decoder` | Memory-safe Rust (`C2ApexAacDec`) |
+ 
+-> [!NOTE]
+-> **Note:** By default, all in-process audio decoders output 16-bit PCM (`PCM_16`). Individual decoders, such as AAC, may be configured to output other data types, for example `PCM_FLOAT`. Format-specific stream handling includes:
++**Note:** By default, all in-process audio decoders output 16-bit PCM (`PCM_16`).
++Individual decoders, such as AAC, may be configured to output other data types,
++for example `PCM_FLOAT`. Format-specific stream handling includes:
+ 
+-- **AAC (`c2.android.inproc.aac.decoder`):** Handles ADTS streams (with dynamic ADTS header parsing) and raw Access Units (AUs) with accurate presentation timestamp tracking (only single-frame AU processing in case of `AAC_PACKAGING_RAW`).
+-- **Opus (`c2.android.inproc.opus.decoder`):** Decodes standard Ogg Opus or Matroska container packets with internal resampling to 48 kHz PCM.
++* **AAC (`c2.android.inproc.aac.decoder`):** Handles ADTS streams (with dynamic
++  ADTS header parsing) and raw Access Units (AUs) with accurate presentation
++  timestamp tracking (only single-frame AU processing in case of
++  `AAC_PACKAGING_RAW`).
++* **Opus (`c2.android.inproc.opus.decoder`):** Decodes standard Ogg Opus or
++  Matroska container packets with internal resampling to 48 kHz PCM.
+ 
+ ## Opt in to in-process decoders
+ 
+ Currently, in-process decoders aren't the system default when calling
+-[`MediaCodec.createDecoderByType()`](https://developer.android.com/reference/android/media/MediaCodec#createDecoderByType(java.lang.String)).
++[`MediaCodec.createDecoderByType()`](/reference/android/media/MediaCodec#createDecoderByType(java.lang.String)).
+ The platform retains higher Codec 2.0 selection priority for legacy
+ out-of-process decoders during ecosystem verification.
+ 
+ To opt in to an in-process decoder today for low-latency playback or testing,
+ instantiate the codec explicitly by component name using
+-[`MediaCodec.createByCodecName()`](https://developer.android.com/reference/android/media/MediaCodec#createByCodecName(java.lang.String)).
++[`MediaCodec.createByCodecName()`](/reference/android/media/MediaCodec#createByCodecName(java.lang.String)).
+ 
+ ### Instantiate by component name
+ 
+@@ -110,7 +160,7 @@ component is unavailable on the device:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ val INPROC_AAC_CODEC = "c2.android.inproc.aac.decoder"
+ 
+ fun createAudioDecoder(): MediaCodec {
+@@ -126,7 +176,7 @@ fun createAudioDecoder(): MediaCodec {
+ 
+ ### Java
+ 
+-```java
++```
+ private static final String INPROC_AAC_CODEC = "c2.android.inproc.aac.decoder";
+ 
+ public MediaCodec createAudioDecoder() throws IOException {
+@@ -148,7 +198,7 @@ on the device:
+ 
+ ### Kotlin
+ 
+-```kotlin
++```
+ class InprocPreferredMediaCodecSelector : MediaCodecSelector {
+     override fun getDecoderInfos(
+         mimeType: String,
+@@ -172,7 +222,7 @@ class InprocPreferredMediaCodecSelector : MediaCodecSelector {
+ 
+ ### Java
+ 
+-```java
++```
+ public class InprocPreferredMediaCodecSelector implements MediaCodecSelector {
+     private static final Set<String> INPROC_NAMES = new HashSet<>(Arrays.asList(
+         "c2.android.inproc.opus.decoder",
+@@ -211,5 +261,9 @@ automatically route through the in-process implementation, providing
+ approximately 40% lower decoding latency without requiring any app code
+ changes.
+ 
+-> [!NOTE]
+-> **Note:** If your app currently bundles custom third-party audio decoding libraries inside its APK (such as FDK-AAC or `libopus` JNI libraries) solely to avoid out-of-process IPC latency, you can test opting in to `c2.android.inproc.*` decoders today and prepare to remove your custom bundled libraries to reduce APK size and benefit from automatic Mainline security updates.
+\ No newline at end of file
++**Note:** If your app currently bundles custom third-party audio decoding
++libraries inside its APK (such as FDK-AAC or `libopus` JNI libraries) solely
++to avoid out-of-process IPC latency, you can test opting in to
++`c2.android.inproc.*` decoders today and prepare to remove your custom
++bundled libraries to reduce APK size and benefit from automatic Mainline
++security updates.
+\ No newline at end of file
