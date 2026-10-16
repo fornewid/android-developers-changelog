@@ -35,15 +35,24 @@ Outputs the device screen to a PNG.
 
 ## Description
 
-`android screen capture` captures a PNG screenshot of the connected Android device or emulator.
+`android screen capture` captures a PNG screenshot of the connected Android
+device or emulator.
 
-If `-o, --output` is omitted, the raw PNG image bytes are written to standard output.
+If `-o, --output` is omitted, the raw PNG image bytes are written to standard
+output.
 
 ### Annotate UI elements (`-a, --annotate`)
 
-Pass `-a, --annotate` to detect UI elements on the screen and overlay numbered bounding boxes (`#1`, `#2`, and so on) around each detected element. The output PNG also embeds bounding-box metadata so [`android screen resolve`](https://developer.android.com/tools/agents/android-cli/commands/screen_resolve) can translate `#N` labels into screen `(x, y)` coordinates.
+Pass `-a, --annotate` to detect UI elements on the screen and overlay numbered
+bounding boxes (`#1`, `#2`, and so on) around each detected element. The output
+PNG also embeds bounding-box metadata so
+[`android screen resolve`](https://developer.android.com/tools/agents/android-cli/commands/screen_resolve) can translate `#N` labels into screen
+`(x, y)` coordinates.
 
-You can fine-tune detection sensitivity using options such as `--edge-thresh-weak`, `--edge-thresh-strong`, `--min-area`, `--min-rect`, `--min-round`, `--min-nested-area`, `--distance`, `--features`, and `--threshold`.
+You can fine-tune detection sensitivity using options such as
+`--edge-thresh-weak`, `--edge-thresh-strong`, `--min-area`, `--min-rect`,
+`--min-round`, `--min-nested-area`, `--distance`, `--features`, and
+`--threshold`.
 
 ### Examples
 
@@ -51,6 +60,7 @@ Save a screenshot of the connected device to `ui.png`:
 
     android screen capture --output=ui.png
 
-Capture an annotated screenshot with labeled UI bounding boxes for visual targeting:
+Capture an annotated screenshot with labeled UI bounding boxes for visual
+targeting:
 
     android screen capture --annotate --output=ui_annotated.png

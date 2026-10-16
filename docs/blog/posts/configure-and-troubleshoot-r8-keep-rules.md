@@ -1,57 +1,34 @@
 ---
-title: Configure and troubleshoot R8 Keep Rules  |  Android Developers' Blog
+title: https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules
 url: https://developer.android.com/blog/posts/configure-and-troubleshoot-r8-keep-rules
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-[Product News](/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Configure and troubleshoot R8 Keep Rules
 
-7 min read
-
-![](/static/blog/assets/performance_Week7_0b86aba329_Z1h1s1q.webp)
-
-18
-
-Nov
-2025
-
-[![View Ajesh Pai's profile](/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)](/blog/authors/ajesh-pai)[![View Ben Weiss's profile](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](/blog/authors/ben-weiss)
-
-[Ajesh Pai](/blog/authors/ajesh-pai)
-&
-[Ben Weiss](/blog/authors/ben-weiss)
-
-In modern Android development, shipping a small, fast, and secure application is a fundamental user expectation. The Android build system's primary tool for achieving this is the **R8**optimizer, the compiler that handles dead code and resource removal for shrinking, code renaming or minification, and app optimization.
+7 min read ![](https://developer.android.com/static/blog/assets/performance_Week7_0b86aba329_Z1h1s1q.webp) 18 Nov 2025 [![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)](https://developer.android.com/blog/authors/ajesh-pai)[![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)](https://developer.android.com/blog/authors/ben-weiss) [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai) \& [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss) In modern Android development, shipping a small, fast, and secure application is a fundamental user expectation. The Android build system's primary tool for achieving this is the **R8**optimizer, the compiler that handles dead code and resource removal for shrinking, code renaming or minification, and app optimization.
 
 Enabling R8 is a critical step in preparing an app for release, but it requires developers to provide guidance in the form of "Keep Rules."
 
 After reading this article, check out the Performance Spotlight Week video on enabling, debugging and troubleshooting the R8 optimizer on YouTube.
 
+[Video](https://www.youtube.com/watch?v=A0I6pNSM14o)
+
 ## **Why Keep Rules are needed**
 
 The need to write Keep Rules stems from a core conflict: R8 is a static analysis tool, but Android apps often rely on dynamic execution patterns like reflection or calls in and out of native code using the JNI (Java Native Interface).
 
-R8 builds a graph of *used* code by analyzing direct calls. When code is accessed in a dynamic way, R8's static analysis cannot predict that and it will identify that code as *unused* and remove it, leading to runtime crashes.
+R8 builds a graph of *used* code by analyzing direct calls. When code is accessed in a dynamic way, R8's static analysis cannot predict that and it will identify that code as *unused* and remove it, leading to runtime crashes.
 
-A **keep rule** is an explicit instruction to the R8 compiler, stating: "This specific class, method, or field is an entry point that will be accessed dynamically at runtime. You must keep it, even if you cannot find a direct reference to it."
+A **keep rule** is an explicit instruction to the R8 compiler, stating: "This specific class, method, or field is an entry point that will be accessed dynamically at runtime. You must keep it, even if you cannot find a direct reference to it."
 
-See the official guide for more details on [Keep Rules](/topic/performance/app-optimization/keep-rules-overview).
+See the official guide for more details on [Keep Rules](https://developer.android.com/topic/performance/app-optimization/keep-rules-overview).
 
 ## **Where to write Keep Rules**
 
-Custom Keep Rules for an application are written in text file. By convention, this file is named `proguard-rules.pro` and is located in the root of the app or library module. This file is then specified in your module's `build.gradle.kts` file's `release` build type.
+Custom Keep Rules for an application are written in text file. By convention, this file is named `proguard-rules.pro` and is located in the root of the app or library module. This file is then specified in your module's `build.gradle.kts` file's `release` build type.
 
 ```
 release {
@@ -73,21 +50,20 @@ release {
 
 ### **Use the correct default file**
 
-The `getDefaultProguardFile` method imports a default set of rules provided by the Android SDK. When using the wrong file your app might not be optimized. Make sure to use `proguard-android-optimize.txt`. This file provides the default Keep Rules for standard Android components *and* **enables R8's code optimizations**. The outdated `proguard-android.txt` only provides the Keep Rules but does *not* enable R8's optimizations.
+The `getDefaultProguardFile` method imports a default set of rules provided by the Android SDK. When using the wrong file your app might not be optimized. Make sure to use `proguard-android-optimize.txt`. This file provides the default Keep Rules for standard Android components *and* **enables R8's code optimizations** . The outdated `proguard-android.txt` only provides the Keep Rules but does *not* enable R8's optimizations.
+![progaurd.png](https://developer.android.com/static/blog/assets/progaurd_8bed193ea7_pKgyL.webp)
 
-![progaurd.png](/static/blog/assets/progaurd_8bed193ea7_pKgyL.webp)
-
-Since this is a serious performance problem, we are starting to warn developers about using the wrong file, starting in Android Studio Narwhal 3 Feature Drop. **And starting with the Android Gradle Plugin Version 9.0 we're no longer supporting the outdated**`proguard-android.txt` **file. So make sure you upgrade to the optimized version.**
+Since this is a serious performance problem, we are starting to warn developers about using the wrong file, starting in Android Studio Narwhal 3 Feature Drop. **And starting with the Android Gradle Plugin Version 9.0 we're no longer supporting the outdated** `proguard-android.txt`**file. So make sure you upgrade to the optimized version.**
 
 ## **How to write Keep Rules**
 
 A keep rule consists of three main parts:
 
-1. **An option**like `-keep` or `-keepclassmembers`
-2. **Optional modifiers** like `allowshrinking`
+1. **An option** like `-keep` or `-keepclassmembers`
+2. **Optional modifiers** like `allowshrinking`
 3. **A class specification** that defines the code to match
 
-For the complete syntax and examples, refer to the guidance to [add Keep Rules](/topic/performance/app-optimization/add-keep-rules).
+For the complete syntax and examples, refer to the guidance to [add Keep Rules](https://developer.android.com/topic/performance/app-optimization/add-keep-rules).
 
 ## **Keep Rule anti-patterns**
 
@@ -95,17 +71,17 @@ It's important to know about best practices, but also about anti-patterns. These
 
 ## Global options
 
-These flags are global toggles that should **never** be used in a release build. They are only for temporary debugging to isolate a problem.
+These flags are global toggles that should **never** be used in a release build. They are only for temporary debugging to isolate a problem.
 
-Using `-dontotptimize` effectively disables R8's performance optimizations leading to a slower app.
+Using `-dontotptimize` effectively disables R8's performance optimizations leading to a slower app.
 
-When using `-dontobfuscate` you disable all renaming and using `-dontshrink` turns off dead code removal. Both of these global rules increase app size.
+When using `-dontobfuscate` you disable all renaming and using `-dontshrink` turns off dead code removal. Both of these global rules increase app size.
 
 Avoid using these global flags in a production environment wherever possible for a more performant app user experience.
 
 ## Overly broad keep rules
 
-The easiest way to nullify R8's benefits is to **write overly-broad Keep Rules**. Keep rules like the one below instruct the R8 optimizer to not shrink, not obfuscate, and not optimize *any* class in this package or *any* of its sub-packages. This completely removes R8's benefits for that entire package. Try to write narrow and specific Keep Rules instead.
+The easiest way to nullify R8's benefits is to **write overly-broad Keep Rules** . Keep rules like the one below instruct the R8 optimizer to not shrink, not obfuscate, and not optimize *any* class in this package or *any* of its sub-packages. This completely removes R8's benefits for that entire package. Try to write narrow and specific Keep Rules instead.  
 
 ```
 -keep class com.example.package.** { *;} // WIDE KEEP RULES CAUSE PROBLEMS
@@ -119,11 +95,11 @@ The inversion operator (!) seems like a powerful way to exclude a package from a
 -keep class !com.example.my_package.** { *; } // USE WITH CAUTION
 ```
 
-You might think that this rule means "*do not keep classes in* `com.example.package`." But it actually means "*keep every class, method and propertyin the entire application that is not in*`com.example.package`." If that came as a surprise to you, best check for any negations in your R8 configuration.
+You might think that this rule means "*do not keep classes in* `com.example.package`." But it actually means "*keep every class, method and propertyin the entire application that is not in *`com.example.package`." If that came as a surprise to you, best check for any negations in your R8 configuration.
 
 ## Redundant rules for Android components
 
-Another common mistake is to manually add Keep Rules for your app's `Activities`, `Services`, or `BroadcastReceivers`. This is **unnecessary**. The default `proguard-android-optimize.txt` file already includes the relevant rules for these standard Android components to work out of the box.
+Another common mistake is to manually add Keep Rules for your app's `Activities`, `Services`, or `BroadcastReceivers`. This is **unnecessary** . The default `proguard-android-optimize.txt` file already includes the relevant rules for these standard Android components to work out of the box.
 
 Also many libraries bring their own Keep Rules. So you should not have to write your own rules for these. In case there is a problem with Keep Rules from a library you're using, it is best to reach out to the library author to see what the problem is.
 
@@ -133,13 +109,13 @@ Now that you know what not to do, let's talk about best practices.
 
 ## **Write narrow Keep Rules**
 
-Good Keep Rules should be as **narrow and specific as possible**. They should preserve only what is necessary, allowing R8 to optimize everything else.
+Good Keep Rules should be as **narrow and specific as possible** . They should preserve only what is necessary, allowing R8 to optimize everything else.  
 
 | **Rule** | **Quality** |
-| --- | --- |
-| `-keep class com.example.** { ; }` | **Low:** Keeps an entire package and its subpackages |
-| `-keep class com.example.MyClass { ; }` | **Low:** Keeps an entire class which is likely still too wide |
-| ``` -keepclassmembers class com.example.MyClass {      private java.lang.String secretMessage;      public void onNativeEvent(java.lang.String);  } ``` | **High:** Only relevant methods and properties from a specific class are kept |
+|---|---|
+| `-keep class com.example.** { ; }` | **Low:** Keeps an entire package and its subpackages |
+| `-keep class com.example.MyClass { ; }` | **Low:** Keeps an entire class which is likely still too wide |
+| ``` -keepclassmembers class com.example.MyClass { private java.lang.String secretMessage; public void onNativeEvent(java.lang.String); } ``` | **High:** Only relevant methods and properties from a specific class are kept |
 
 ## Use common ancestors
 
@@ -157,7 +133,7 @@ Instead of writing separate Keep Rules for multiple different data models, write
 
 ## Use Annotations to target multiple classes
 
-Create a custom annotation (e.g., `@Serialize`) and use it to "tag" classes that need their fields preserved. This is another clean, declarative, and highly scalable pattern. You can create Keep Rules for already existing annotations from frameworks you're using as well.
+Create a custom annotation (e.g., `@Serialize`) and use it to "tag" classes that need their fields preserved. This is another clean, declarative, and highly scalable pattern. You can create Keep Rules for already existing annotations from frameworks you're using as well.
 
 ```
 # Keep all fields of any class annotated with @Serialize
@@ -173,18 +149,17 @@ Create a custom annotation (e.g., `@Serialize`) and use it to "tag" classes tha
 
 The Keep Option is the most critical part of the rule. Choosing the wrong one can needlessly disable optimization.
 
-|  |  |
-| --- | --- |
+|---|---|
 | **Keep Option** | **What It Does** |
-| `-keep` | Prevents the class *and members mentioned in the declaration*from being removed or renamed. |
-| `-keepclassmembers` | Prevents the *specified members* from being removed or renamed, but allows the class itself to be removed but only on classes which are not otherwise removed. |
-| `-keepclasseswithmembers` | A combination: Keeps the class *and* its members, *only if* all the specified members are present. |
+| `-keep` | Prevents the class *and members mentioned in the declaration *from being removed or renamed. |
+| `-keepclassmembers` | Prevents the *specified members* from being removed or renamed, but allows the class itself to be removed but only on classes which are not otherwise removed. |
+| `-keepclasseswithmembers` | A combination: Keeps the class *and* its members, *only if* all the specified members are present. |
 
-You can find more about the keep option in our [documentation for Keep Options.](/topic/performance/app-optimization/add-keep-rules#choose-keep)
+You can find more about the keep option in our [documentation for Keep Options.](https://developer.android.com/topic/performance/app-optimization/add-keep-rules#choose-keep)
 
 ## Allow optimization with Modifiers
 
-Modifiers like `allowshrinking` and `allowobfuscation` relax a broad `-keep` rule, giving optimization power back to R8. For example, if a legacy library forces you to use `-keep` on an entire class, you might be able to reclaim some optimization by allowing shrinking and obfuscation:
+Modifiers like `allowshrinking` and `allowobfuscation` relax a broad `-keep` rule, giving optimization power back to R8. For example, if a legacy library forces you to use `-keep` on an entire class, you might be able to reclaim some optimization by allowing shrinking and obfuscation:
 
 ```
 # Keep this class, but allow R8 to remove it if it's unused and allow R8 to rename it.
@@ -198,9 +173,9 @@ Beyond Keep Rules, you can add global flags to your R8 configuration file to enc
 
 `-repackageclasses` is a powerful option that instructs R8 to move all obfuscated classes into a single package. This saves significant space in the DEX file by removing redundant package name strings.
 
-`-allowaccessmodification` allows R8 to widen access (e.g., `private` to `public`) to enable more aggressive inlining. This is now enabled by default when using `proguard-android-optimize.txt`.  
-  
-**Warning:** Library authors must **never** add these global optimization flags to their consumer rules, as they would be forcibly applied to the entire app.
+`-allowaccessmodification` allows R8 to widen access (e.g., `private` to `public`) to enable more aggressive inlining. This is now enabled by default when using `proguard-android-optimize.txt`.  
+
+**Warning:** Library authors must **never** add these global optimization flags to their consumer rules, as they would be forcibly applied to the entire app.
 
 And to make it even more clear, in version 9.0 of the Android Gradle Plugin we're going to start ignoring global optimization flags from libraries altogether.
 
@@ -210,7 +185,7 @@ Every Android app relies on libraries one way or another. So let's talk about be
 
 ## For library developers
 
-If your library uses reflection or JNI, you have the responsibility to provide the necessary Keep Rules to its consumers. These rules are placed in a `consumer-rules.pro` file, which is then automatically bundled inside the library's AAR file.
+If your library uses reflection or JNI, you have the responsibility to provide the necessary Keep Rules to its consumers. These rules are placed in a `consumer-rules.pro` file, which is then automatically bundled inside the library's AAR file.
 
 ```
 android {
@@ -230,7 +205,7 @@ android {
 
 ### **Filter out problematic Keep Rules**
 
-If you must use a library that includes problematic Keep Rules, you can filter them out in your `build.gradle.kts` file starting with AGP 9.0 This tells R8 to ignore the rules coming from a specific dependency.
+If you must use a library that includes problematic Keep Rules, you can filter them out in your `build.gradle.kts` file starting with AGP 9.0 This tells R8 to ignore the rules coming from a specific dependency.
 
 ```
 release {
@@ -248,9 +223,9 @@ release {
 
 ### The best Keep Rule is no Keep Rule
 
-The ultimate R8 configuration strategy is to **remove the need to write Keep Rules** altogether. For many apps can be achieved by choosing modern libraries that favor **code generation** over reflection. With code generation, the optimizer can more easily determine what code is actually used at runtime and what code can be removed. Also not using any dynamic reflection means no "hidden" entry points, and therefore, **no Keep Rules are needed.**When choosing a new library, always prefer a solution that uses code generation over reflection.
+The ultimate R8 configuration strategy is to **remove the need to write Keep Rules** altogether. For many apps can be achieved by choosing modern libraries that favor **code generation** over reflection. With code generation, the optimizer can more easily determine what code is actually used at runtime and what code can be removed. Also not using any dynamic reflection means no "hidden" entry points, and therefore, **no Keep Rules are needed.**When choosing a new library, always prefer a solution that uses code generation over reflection.
 
-For more information about how to choose libraries, check [choose library wisely](/topic/performance/app-optimization/choose-libraries-wisely#tips).
+For more information about how to choose libraries, check [choose library wisely](https://developer.android.com/topic/performance/app-optimization/choose-libraries-wisely#tips).
 
 ## **Debugging and troubleshooting your R8 configuration**
 
@@ -258,7 +233,7 @@ When R8 removes code it should have kept, or your APK is larger than expected, u
 
 ## Find duplicate and global Keep Rules
 
-Because R8 merges rules from dozens of sources, it can be hard to know what the "final" ruleset is. Adding this flag to your `proguard-rules.pro` file generates a complete report:
+Because R8 merges rules from dozens of sources, it can be hard to know what the "final" ruleset is. Adding this flag to your `proguard-rules.pro` file generates a complete report:
 
 ```
 # Outputs the final, merged set of rules to the specified file
@@ -266,7 +241,7 @@ Because R8 merges rules from dozens of sources, it can be hard to know what the 
 -printconfiguration build/outputs/logs/configuration.txt
 ```
 
-You can search this file to find redundant rules or trace a problematic rule (like `-dontoptimize`) back to the specific library that included it.
+You can search this file to find redundant rules or trace a problematic rule (like `-dontoptimize`) back to the specific library that included it.
 
 ## Ask R8: Why are you keeping this?
 
@@ -277,12 +252,12 @@ If a class you expected to be removed is still in your app, R8 can tell you why.
 
 class com.example.MyUnusedClass
 
--whyareyoukeeping
+-whyareyoukeeping 
 ```
 
 During the build, R8 will print the exact chain of references that caused it to keep that class, allowing you to trace the reference and adjust your rules.
 
-For a full guide, check out the [troubleshoot R8](/topic/performance/app-optimization/test-and-troubleshoot-the-optimization) section.
+For a full guide, check out the [troubleshoot R8](https://developer.android.com/topic/performance/app-optimization/test-and-troubleshoot-the-optimization) section.
 
 ## **Next steps**
 
@@ -294,127 +269,60 @@ As you're following along Performance Spotlight Week, make sure to check out tod
 
 It's time to see the benefits for yourself.
 
-We challenge you to enable R8 full mode for your app *today*.
+We challenge you to enable R8 full mode for your app *today*.
 
-1. Follow our developer guides to get started: [Enable app optimization](/topic/performance/app-optimization/enable-app-optimization).
-2. Check if you still use `proguard-android.txt` and replace it with `proguard-android-optimize.txt`.
-3. Then, **measure the impact**. Don't just *feel* the difference, *verify* it. Measure your performance gains by adapting the code from our[**Macrobenchmark sample app on GitHub**](https://github.com/android/performance-samples/blob/main/MacrobenchmarkSample/macrobenchmark/src/main/kotlin/com/example/macrobenchmark/benchmark/startup/FullyDrawnStartupBenchmark.kt) to measure your startup times before and after.
+1. Follow our developer guides to get started: [Enable app optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization).
+2. Check if you still use `proguard-android.txt` and replace it with `proguard-android-optimize.txt`.
+3. Then, **measure the impact** . Don't just *feel* the difference, *verify* it. Measure your performance gains by adapting the code from our[**Macrobenchmark sample app on GitHub**](https://github.com/android/performance-samples/blob/main/MacrobenchmarkSample/macrobenchmark/src/main/kotlin/com/example/macrobenchmark/benchmark/startup/FullyDrawnStartupBenchmark.kt) to measure your startup times before and after.
 
 We're confident you'll see a meaningful improvement in your app's performance.
 
 While you're at it, use the social tag #AskAndroid to bring your questions. Throughout the week our experts are monitoring and answering your questions.
 
 Stay tuned for tomorrow, where we'll talk about Profile Guided Optimization with Baseline and Startup Profiles, share how Compose rendering performance improved over the past releases and share performance considerations for background work.
-
 Written by:
 
-* ## [Ajesh Pai](/blog/authors/ajesh-pai)
+-
+
+  ## [Ajesh Pai](https://developer.android.com/blog/authors/ajesh-pai)
 
   ###### Developer Relations Engineer
 
-  [read\_more
-  View profile](/blog/authors/ajesh-pai)
+  [read_more
+  View profile](https://developer.android.com/blog/authors/ajesh-pai) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp) ![View Ajesh Pai's profile](https://developer.android.com/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)
+-
 
-  ![View Ajesh Pai's profile](/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)
-
-  ![View Ajesh Pai's profile](/static/blog/assets/Ajesh_R_Pai_fc75c62777_1XcV4X.webp)
-* ## [Ben Weiss](/blog/authors/ben-weiss)
+  ## [Ben Weiss](https://developer.android.com/blog/authors/ben-weiss)
 
   ###### Developer Relations Engineer
 
-  [read\_more
-  View profile](/blog/authors/ben-weiss)
-
-  ![View Ben Weiss's profile](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)
-
-  ![View Ben Weiss's profile](/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)
-
+  [read_more
+  View profile](https://developer.android.com/blog/authors/ben-weiss) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp) ![View Ben Weiss's profile](https://developer.android.com/static/blog/assets/1_1_U4_K_Lr4r_A_Kx_Pq0_Crp_L3vr_Q_a4d1920594_2fRTbq.webp)
 Continue reading
+- [![View Jason Buchel's profile](https://developer.android.com/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](https://developer.android.com/blog/authors/jason-buchel) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-* [![View Jason Buchel's profile](/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](/blog/authors/jason-buchel)
+  ## [Bringing our latest frontier model to Android Developers](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
 
-  13
+  [arrow_forward](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli) As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
+  [Jason Buchel](https://developer.android.com/blog/authors/jason-buchel) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Oct
-  2026
+  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth)
 
-  13
+  [arrow_forward](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth) Today, we shared how we're taking our "more than a store" vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+- [![View Cyrus Stoller's profile](https://developer.android.com/static/blog/assets/unnamed_26_f996d1f7cf_2bofD0.webp)](https://developer.android.com/blog/authors/cyrus-stoller) 12 Oct 2026 12 Oct 2026 ![](https://developer.android.com/static/blog/assets/1006_ABL_141_Strapi_1_540d64279e_Z1veewf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Oct
-  2026
+  ## [Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development](https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm)
 
-  ![](/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [Bringing our latest frontier model to Android Developers](/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
-
-  [arrow\_forward](/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
-
-  As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
-
-  [Jason Buchel](/blog/authors/jason-buchel)
-  •
-  3 min read
-  + [#Agentic Android development](/blog/topics/agentic-android-development)
-* [![View Paul Feng's profile](/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](/blog/authors/paul-feng)
-
-  13
-
-  Oct
-  2026
-
-  13
-
-  Oct
-  2026
-
-  ![](/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](/blog/posts/google-play-discovery-engagement-growth)
-
-  [arrow\_forward](/blog/posts/google-play-discovery-engagement-growth)
-
-  Today, we shared how we’re taking our “more than a store” vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
-
-  [Paul Feng](/blog/authors/paul-feng)
-  •
-  3 min read
-* [![View Cyrus Stoller's profile](/static/blog/assets/unnamed_26_f996d1f7cf_2bofD0.webp)](/blog/authors/cyrus-stoller)
-
-  12
-
-  Oct
-  2026
-
-  12
-
-  Oct
-  2026
-
-  ![](/static/blog/assets/1006_ABL_141_Strapi_1_540d64279e_Z1veewf.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development](/blog/posts/googlebook-linux-terminal-preview-vm)
-
-  [arrow\_forward](/blog/posts/googlebook-linux-terminal-preview-vm)
-
-  With Googlebook, we’re excited to help users express themselves and gain access to these tools.
-
-  [Cyrus Stoller](/blog/authors/cyrus-stoller)
-  •
-  2 min read
-  + [#Googlebook](/blog/topics/googlebook)
-
+  [arrow_forward](https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm) With Googlebook, we're excited to help users express themselves and gain access to these tools.
+  [Cyrus Stoller](https://developer.android.com/blog/authors/cyrus-stoller) • 2 min read
+  - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
 Stay in the loop
+
 
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

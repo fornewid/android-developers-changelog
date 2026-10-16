@@ -26,9 +26,12 @@ Searches Android documentation. Enclose keywords in quotes.
 
 ## Description
 
-`android docs search` queries the official [Android Knowledge Base](https://developer.android.com/studio/gemini/access-helpful-resources) and returns a ranked list of matching documentation articles along with their `kb://` URLs.
+`android docs search` queries the official [Android Knowledge Base](https://developer.android.com/studio/gemini/access-helpful-resources)
+and returns a ranked list of matching documentation articles along with their
+`kb://` URLs.
 
-Pass any `kb://` URL from the search results to [`android docs fetch`](https://developer.android.com/tools/agents/android-cli/commands/docs_fetch) to read the full article in your terminal.
+Pass any `kb://` URL from the search results to
+[`android docs fetch`](https://developer.android.com/tools/agents/android-cli/commands/docs_fetch) to read the full article in your terminal.
 
 ### Examples
 

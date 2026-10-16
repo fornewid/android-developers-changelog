@@ -23,7 +23,8 @@ Updates Android CLI to the latest version.
 
 ## Description
 
-`android update` checks for a newer release of Android CLI and updates the binary in place.
+`android update` checks for a newer release of Android CLI and updates the
+binary in place.
 
 ### Examples
 

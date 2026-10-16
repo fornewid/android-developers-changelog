@@ -31,9 +31,13 @@ Creates a reservation for a remote device.
 
 ## Description
 
-`android device remote create` reserves a physical device and prints the ID of the new reservation and when it ends. Specify the device as `<codename>/<api>`, as shown by `android device remote models`. If the device is not valid or not available, the command prints the list of available devices.
+`android device remote create` reserves a physical device and prints the ID of
+the new reservation and when it ends. Specify the device as `<codename>/<api>`,
+as shown by `android device remote models`. If the device is not valid or not
+available, the command prints the list of available devices.
 
-By default, the command then waits for the reservation to be ready and connects the device to `adb`, as `android device remote connect` does.
+By default, the command then waits for the reservation to be ready and connects
+the device to `adb`, as `android device remote connect` does.
 
 ### Configure creation options
 
@@ -41,7 +45,8 @@ By default, the command then waits for the reservation to be ready and connects 
 
 ### Examples
 
-Reserve a `tokay` device running API level 34 in the `my-project` project and connect to it:
+Reserve a `tokay` device running API level 34 in the `my-project` project and
+connect to it:
 
     android device remote create tokay/34 --project=my-project
 

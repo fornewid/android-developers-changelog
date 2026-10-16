@@ -4,7 +4,8 @@ url: https://developer.android.com/tools/agents/android-cli/commands/emulator_st
 source: md.txt
 ---
 
-Launches the specified virtual device. This command returns when the emulator is fully started and ready to use.
+Launches the specified virtual device. This command returns when the emulator is
+fully started and ready to use.
 
 ## Usage
 
@@ -28,7 +29,9 @@ Launches the specified virtual device. This command returns when the emulator is
 
 ## Description
 
-`android emulator start` boots the specified Android Virtual Device (AVD) and blocks until the device has finished booting and is ready to accept `adb` and CLI commands.
+`android emulator start` boots the specified Android Virtual Device (AVD) and
+blocks until the device has finished booting and is ready to accept `adb` and
+CLI commands.
 
 ### Configure boot options
 

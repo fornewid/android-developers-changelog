@@ -27,9 +27,11 @@ Deletes a virtual device.
 
 ## Description
 
-`android emulator remove` deletes an Android Virtual Device (AVD) and removes its configuration and disk images from your machine.
+`android emulator remove` deletes an Android Virtual Device (AVD) and removes
+its configuration and disk images from your machine.
 
-Pass `--force` to remove an orphaned `.ini` configuration file even if the corresponding `.avd` directory no longer exists.
+Pass `--force` to remove an orphaned `.ini` configuration file even if the
+corresponding `.avd` directory no longer exists.
 
 ### Examples
 

@@ -1,37 +1,21 @@
 ---
-title: XR Projected  |  Jetpack  |  Android Developers
+title: https://developer.android.com/jetpack/androidx/releases/xr-projected
 url: https://developer.android.com/jetpack/androidx/releases/xr-projected
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Get started](https://developer.android.com/get-started/overview)
-* [Jetpack](https://developer.android.com/jetpack)
-* [Libraries](https://developer.android.com/jetpack/androidx/explorer)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-
-
 # XR Projected
-
-API Reference  
-[androidx.xr.projected](/reference/kotlin/androidx/xr/projected/package-summary)
 
 Build experiences that leverage the unique capabilities of connected XR devices.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
-| --- | --- | --- | --- | --- |
-| September 23, 2026 | - | - | - | [1.0.0-alpha13](/jetpack/androidx/releases/xr-projected#1.0.0-alpha13) |
+|---|---|---|---|---|
+| September 23, 2026 | - | - | - | [1.0.0-alpha13](https://developer.android.com/jetpack/androidx/releases/xr-projected#1.0.0-alpha13) |
 
 ## Declaring dependencies
 
 To add a dependency on xr projected, you must add the Google Maven repository to your
-project. Read [Google's Maven repository](/studio/build/dependencies#google-maven)
+project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
@@ -39,7 +23,7 @@ your app or module:
 
 ### Groovy
 
-```
+```groovy
 dependencies {
     // Use to implement xr projecteds
     implementation "androidx.xr.projected:projected:1.0.0-alpha13"
@@ -48,7 +32,7 @@ dependencies {
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
     // Use to implement xr projecteds
     implementation("androidx.xr.projected:projected:1.0.0-alpha13")
@@ -68,13 +52,13 @@ dependencies {
 }
 ```
 
-For more information about dependencies, see [Add build dependencies](/studio/build/dependencies).
+For more information about dependencies, see [Add build dependencies](https://developer.android.com/studio/build/dependencies).
 
 ## Feedback
 
 Your feedback helps make Jetpack better. Let us know if you discover new issues or have
 ideas for improving this library. Please take a look at the
-[existing issues](https://issuetracker.google.com/issues?q=componentid:1689664%20status:open)
+[existing issues](https://issuetracker.google.com/issues?q=componentid:1689664+status:open)
 in this library before you create a new one. You can add your vote to an existing issue by
 clicking the star button.
 
@@ -93,7 +77,7 @@ September 23, 2026
 
 **API Changes**
 
-* Added `ProjectedActivityCompat.setActivityAsInputReceiver` and `clearActivityAsInputReceiver` to allow apps to specify exactly which component should be relaunched and receive input focus when system-initiated focus shifts occur on displayless devices. ([Id21e5](https://android-review.googlesource.com/#/q/Id21e5399f86bc19058af5c33b6e674cb0bb4bfd3))
+- Added `ProjectedActivityCompat.setActivityAsInputReceiver` and `clearActivityAsInputReceiver` to allow apps to specify exactly which component should be relaunched and receive input focus when system-initiated focus shifts occur on displayless devices. ([Id21e5](https://android-review.googlesource.com/#/q/Id21e5399f86bc19058af5c33b6e674cb0bb4bfd3))
 
 ### Version 1.0.0-alpha12
 
@@ -103,7 +87,7 @@ September 09, 2026
 
 **Bug fixes**
 
-* Addressed an issue with `ProjectedTestRule` that prevented it from processing calls to `ProjectedActivity.requestPermissions` ([I3923f](https://android-review.googlesource.com/#/q/I3923f3c9b702e3a1cb96fd2d2e8d22afe01af42d), [I25f36](https://android-review.googlesource.com/#/q/I25f36cc731243e523ac9a7ea566ad194734d2208))
+- Addressed an issue with `ProjectedTestRule` that prevented it from processing calls to `ProjectedActivity.requestPermissions` ([I3923f](https://android-review.googlesource.com/#/q/I3923f3c9b702e3a1cb96fd2d2e8d22afe01af42d), [I25f36](https://android-review.googlesource.com/#/q/I25f36cc731243e523ac9a7ea566ad194734d2208))
 
 ### Version 1.0.0-alpha11
 
@@ -113,11 +97,11 @@ August 12, 2026
 
 **API Changes**
 
-* Removed deprecated `androidx.xr.projected.permissions.*` APIs ([I77f8b](https://android-review.googlesource.com/#/q/I77f8b86a1fe71ad2b40dc99bcc0b26283f718422))
+- Removed deprecated `androidx.xr.projected.permissions.*` APIs ([I77f8b](https://android-review.googlesource.com/#/q/I77f8b86a1fe71ad2b40dc99bcc0b26283f718422))
 
 **Bug Fixes**
 
-* Fixed ANRs and service unbind crashes when resuming applications after sleep or standby mode. ([Idac0c](https://android-review.googlesource.com/#/q/Idac0c45bc0f6765d4a0f20966fbda024c11fb220))
+- Fixed ANRs and service unbind crashes when resuming applications after sleep or standby mode. ([Idac0c](https://android-review.googlesource.com/#/q/Idac0c45bc0f6765d4a0f20966fbda024c11fb220))
 
 ### Version 1.0.0-alpha10
 
@@ -127,8 +111,8 @@ July 15, 2026
 
 **API Changes**
 
-* Deprecated the `ProjectedPermissionsResultContract`. Use `ProjectedActivityCompat.requestPermissions()` instead. ([I141d5](https://android-review.googlesource.com/#/q/I141d5713b3a0c26606f85815111fa7af88f63269), [b/515699436](https://issuetracker.google.com/issues/515699436))
-* Added the `requestPermissions()` API to the `ProjectedActivityCompat` ([I2edb5](https://android-review.googlesource.com/#/q/I2edb5fa7b1a1d00764b0faa8be587178698eb1f7), [b/433523713](https://issuetracker.google.com/issues/433523713), [b/508189550](https://issuetracker.google.com/issues/508189550))
+- Deprecated the `ProjectedPermissionsResultContract`. Use `ProjectedActivityCompat.requestPermissions()` instead. ([I141d5](https://android-review.googlesource.com/#/q/I141d5713b3a0c26606f85815111fa7af88f63269), [b/515699436](https://issuetracker.google.com/issues/515699436))
+- Added the `requestPermissions()` API to the `ProjectedActivityCompat` ([I2edb5](https://android-review.googlesource.com/#/q/I2edb5fa7b1a1d00764b0faa8be587178698eb1f7), [b/433523713](https://issuetracker.google.com/issues/433523713), [b/508189550](https://issuetracker.google.com/issues/508189550))
 
 ### Version 1.0.0-alpha09
 
@@ -138,10 +122,10 @@ June 17, 2026
 
 **API Changes**
 
-* Added support for battery state to `ProjectedTestRule` ([I6b28e](https://android-review.googlesource.com/#/q/I6b28efb2f85e3fa7e7e57adc07cbf676ead9398a))
-* Added listening to battery state changes to the `ProjectedDeviceController` ([If8966](https://android-review.googlesource.com/#/q/If89664837057f6fbca0f32c1d9c130644b3c4c35))
-* Added support for audio devices to `ProjectedTestRule` ([I5d1c9](https://android-review.googlesource.com/#/q/I5d1c916e167672ce7f4ac895b35e9082d1a36a04))
-* Added support for audio devices to the `ProjectedDeviceController` ([I7681d](https://android-review.googlesource.com/#/q/I7681d1db5ed8a7fdc2213ff91cd6445735411b78))
+- Added support for battery state to `ProjectedTestRule` ([I6b28e](https://android-review.googlesource.com/#/q/I6b28efb2f85e3fa7e7e57adc07cbf676ead9398a))
+- Added listening to battery state changes to the `ProjectedDeviceController` ([If8966](https://android-review.googlesource.com/#/q/If89664837057f6fbca0f32c1d9c130644b3c4c35))
+- Added support for audio devices to `ProjectedTestRule` ([I5d1c9](https://android-review.googlesource.com/#/q/I5d1c916e167672ce7f4ac895b35e9082d1a36a04))
+- Added support for audio devices to the `ProjectedDeviceController` ([I7681d](https://android-review.googlesource.com/#/q/I7681d1db5ed8a7fdc2213ff91cd6445735411b78))
 
 ### Version 1.0.0-alpha08
 
@@ -151,11 +135,11 @@ May 19, 2026
 
 **API Changes**
 
-* Added `ProjectedTestRule` to support unit testing. ([I69db5](https://android-review.googlesource.com/#/q/I69db588cc6c62d97f7b59118ef40ff0bb2c52d04))
+- Added `ProjectedTestRule` to support unit testing. ([I69db5](https://android-review.googlesource.com/#/q/I69db588cc6c62d97f7b59118ef40ff0bb2c52d04))
 
 **Known Issues**
 
-* Erroneously bumped `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required for this release. It will be reduced to 36 in the next release. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492))
+- Erroneously bumped `compileSdk` to API 37. This means that a minimum AGP version of 9.2.0 is required for this release. It will be reduced to 36 in the next release. ([Id45cd](https://android-review.googlesource.com/#/q/Id45cdca34ef948e06259b2dd9adc901b7c930492))
 
 ### Version 1.0.0-alpha07
 
@@ -171,7 +155,7 @@ March 25, 2026
 
 **API Changes**
 
-* Added a new `create(activity: Activity)` method to the `ProjectedActivityCompat` ([If4773](https://android-review.googlesource.com/#/q/If4773d4a30b80572b08a10ee622f4be3dd751e0c), [b/479214966](https://issuetracker.google.com/issues/479214966))
+- Added a new `create(activity: Activity)` method to the `ProjectedActivityCompat` ([If4773](https://android-review.googlesource.com/#/q/If4773d4a30b80572b08a10ee622f4be3dd751e0c), [b/479214966](https://issuetracker.google.com/issues/479214966))
 
 ### Version 1.0.0-alpha05
 
@@ -193,9 +177,9 @@ December 03, 2025
 
 **API Changes**
 
-* Added the experimental API for getting the `PresentationMode` ([I2dc0b](https://android-review.googlesource.com/#/q/I2dc0b6ae70e60d2768c03c7ba70920a146609760))
-* Added the experimental API for collecting `ProjectedInputEvent`s ([I78ef8](https://android-review.googlesource.com/#/q/I78ef8007c242f6d78844a75f424de437a37d4486))
-* Added `ProjectedDeviceController` and capabilities API ([If7d2d](https://android-review.googlesource.com/#/q/If7d2ddff2404eb4ef28e19c5358aaa8f7cf1e690))
+- Added the experimental API for getting the `PresentationMode` ([I2dc0b](https://android-review.googlesource.com/#/q/I2dc0b6ae70e60d2768c03c7ba70920a146609760))
+- Added the experimental API for collecting `ProjectedInputEvent`s ([I78ef8](https://android-review.googlesource.com/#/q/I78ef8007c242f6d78844a75f424de437a37d4486))
+- Added `ProjectedDeviceController` and capabilities API ([If7d2d](https://android-review.googlesource.com/#/q/If7d2ddff2404eb4ef28e19c5358aaa8f7cf1e690))
 
 ### Version 1.0.0-alpha02
 
@@ -205,7 +189,7 @@ November 19, 2025
 
 **New Features**
 
-* Initial alpha release of the Projected library.
+- Initial alpha release of the Projected library.
 
 ### Version 1.0.0-alpha01
 
@@ -215,4 +199,4 @@ October 22, 2025
 
 **New Features**
 
-* Adds Projected XR library ([Ieedea7](https://android-review.googlesource.com/#/q/Ieedea759434c0dd59976d5e56f1d3e47f597d402))
+- Adds Projected XR library ([Ieedea7](https://android-review.googlesource.com/#/q/Ieedea759434c0dd59976d5e56f1d3e47f597d402))

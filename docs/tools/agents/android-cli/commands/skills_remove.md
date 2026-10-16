@@ -28,9 +28,11 @@ Removes an installed skill by its ID.
 
 ## Description
 
-`android skills remove` uninstalls one or more skills from your AI agent skill directories.
+`android skills remove` uninstalls one or more skills from your AI agent skill
+directories.
 
-If `--agent` is omitted, the specified skill is removed from all detected agents.
+If `--agent` is omitted, the specified skill is removed from all detected
+agents.
 
 ### Examples
 

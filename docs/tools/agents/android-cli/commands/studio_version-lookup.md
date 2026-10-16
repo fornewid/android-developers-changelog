@@ -4,7 +4,8 @@ url: https://developer.android.com/tools/agents/android-cli/commands/studio_vers
 source: md.txt
 ---
 
-Looks up the latest available versions of Maven artifacts, Android versions, and SDK tools.
+Looks up the latest available versions of Maven artifacts, Android versions, and
+SDK tools.
 
 ## Usage
 
@@ -27,6 +28,7 @@ Looks up the latest available versions of Maven artifacts, Android versions, and
 - `<artifacts...>` - A space-separated list of identifiers, one for each library or tool to look up. The reply is a formatted list detailing the current stable and preview versions for each identifier.
 
 The identifiers can be one of the following:
+
 - `groupId:artifactId` for Maven libraries, such as `androidx.window:window`
 - `pluginId` for Gradle plugins, such as `com.android.application`
 - `gradle`, for the Gradle build tool
@@ -45,7 +47,9 @@ The identifiers can be one of the following:
 
 ## Description
 
-`android studio version-lookup` queries repositories such as Google Maven to look up the latest stable and preview versions of Maven libraries, Gradle plugins, Android platforms, and SDK tools.
+`android studio version-lookup` queries repositories such as Google Maven to
+look up the latest stable and preview versions of Maven libraries, Gradle
+plugins, Android platforms, and SDK tools.
 
 Requires Android Studio Quail 2 or higher.
 
@@ -72,7 +76,8 @@ You can query multiple space-separated identifiers in a single command:
 
 ### Examples
 
-Look up the latest versions of Compose UI, the Android app plugin, AGP, and Kotlin:
+Look up the latest versions of Compose UI, the Android app plugin, AGP, and
+Kotlin:
 
     android studio version-lookup \
       androidx.compose.ui:ui \

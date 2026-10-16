@@ -31,7 +31,9 @@ Renders a Compose preview in Android Studio.
 
 ## Description
 
-`android studio render-compose-preview` renders a Jetpack Compose `@Preview` function using Android Studio's layout rendering engine and optionally prints its accessibility semantics tree.
+`android studio render-compose-preview` renders a Jetpack Compose `@Preview`
+function using Android Studio's layout rendering engine and optionally prints
+its accessibility semantics tree.
 
 Requires Android Studio Quail 2 or higher.
 
@@ -42,7 +44,8 @@ Requires Android Studio Quail 2 or higher.
 
 ### Examples
 
-Render `HotelDetailScreenPreview` to `preview_hotel.png` and print its semantics tree:
+Render `HotelDetailScreenPreview` to `preview_hotel.png` and print its semantics
+tree:
 
     android studio render-compose-preview \
       --output-image-file=preview_hotel.png \

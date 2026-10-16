@@ -29,9 +29,12 @@ Returns the layout tree of an app.
 
 ## Description
 
-`android layout` captures the live UI hierarchy of the active screen on a connected Android device or emulator and outputs it in JSON format.
+`android layout` captures the live UI hierarchy of the active screen on a
+connected Android device or emulator and outputs it in JSON format.
 
-AI agents and test scripts can use `android layout` to inspect visible text, resource IDs, accessibility descriptions, interaction states, and element bounds without relying solely on visual screenshots.
+AI agents and test scripts can use `android layout` to inspect visible text,
+resource IDs, accessibility descriptions, interaction states, and element bounds
+without relying solely on visual screenshots.
 
 ### Format and filter layout output
 

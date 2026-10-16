@@ -4,7 +4,9 @@ url: https://developer.android.com/tools/agents/android-cli/commands/screen_reso
 source: md.txt
 ---
 
-Targets UI elements visually. Substitutes bounding box coordinates from an annotated screenshot into a string, replacing all instances of `#N` with the center coordinates of the bounding box labeled `N`.
+Targets UI elements visually. Substitutes bounding box coordinates from an
+annotated screenshot into a string, replacing all instances of `#N` with the
+center coordinates of the bounding box labeled `N`.
 
 ## Usage
 
@@ -24,9 +26,14 @@ Targets UI elements visually. Substitutes bounding box coordinates from an annot
 
 ## Description
 
-`android screen resolve` translates visual label placeholders (`#N`) from an annotated screenshot (captured with [`android screen capture --annotate`](https://developer.android.com/tools/agents/android-cli/commands/screen_capture)) into their corresponding screen center coordinates (`x y`).
+`android screen resolve` translates visual label placeholders (`#N`) from an
+annotated screenshot (captured with
+[`android screen capture --annotate`](https://developer.android.com/tools/agents/android-cli/commands/screen_capture)) into their corresponding
+screen center coordinates (`x y`).
 
-This enables AI agents and automation scripts to generate `adb shell input` commands (such as taps and swipes) by referencing numbered labels from the annotated image instead of manually calculating pixel coordinates.
+This enables AI agents and automation scripts to generate `adb shell input`
+commands (such as taps and swipes) by referencing numbered labels from the
+annotated image instead of manually calculating pixel coordinates.
 
 ### Examples
 

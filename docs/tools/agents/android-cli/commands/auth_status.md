@@ -22,7 +22,10 @@ Prints the currently signed-in account.
 
 ## Description
 
-`android auth status` prints the name and email address of the signed-in Google account. If no account is signed in, it prints a hint to run `android auth login` and exits with a non-zero exit code, which makes it useful for checking authentication in scripts.
+`android auth status` prints the name and email address of the signed-in Google
+account. If no account is signed in, it prints a hint to run
+`android auth login` and exits with a non-zero exit code, which makes it useful
+for checking authentication in scripts.
 
 ### Examples
 

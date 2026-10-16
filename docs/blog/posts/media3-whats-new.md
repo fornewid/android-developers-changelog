@@ -1,62 +1,39 @@
 ---
-title: Media3 1.9.0 - What’s new  |  Android Developers' Blog
+title: https://developer.android.com/blog/posts/media3-whats-new
 url: https://developer.android.com/blog/posts/media3-whats-new
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
-Stay organized with collections
+# Media3 1.9.0 - What's new
 
-Save and categorize content based on your preferences.
+6 min read ![](https://developer.android.com/static/blog/assets/Android_Evergreen_Hero_Banner_AI_Weband_App_Option_B_627622b909_Z20tTTu.webp) 19 Dec 2025 [![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_Z2eUs8o.webp)](https://developer.android.com/blog/authors/kristina-simakova) [Kristina Simakova](https://developer.android.com/blog/authors/kristina-simakova) Engineering Manager Media3 1.9.0 is out! Besides the usual bug fixes and performance improvements, the latest release also contains **four** new or largely rewritten modules:
 
+- `media3-inspector` - Extract metadata and frames outside of playback
+- `media3-ui-compose-material3` - Build a basic Material3 Compose Media UI in just a few steps
+- `media3-cast` - Automatically handle transitions between Cast and local playbacks
+- `media3-decoder-av1` - Consistent AV1 playback with the rewritten extension decoder based on the dav1d library
 
+We also added caching and memory management improvements to `PreloadManager`, and provided several new `ExoPlayer`, `Transformer` and `MediaSession` simplifications.
 
-[Product News](/blog/categories/product-news)
+This release also gives you the first experimental access to `CompositionPlayer` to preview media edits.
 
-# Media3 1.9.0 - What’s new
+<br />
 
-6 min read
-
-![](/static/blog/assets/Android_Evergreen_Hero_Banner_AI_Weband_App_Option_B_627622b909_Z20tTTu.webp)
-
-19
-
-Dec
-2025
-
-[![View Kristina Simakova's profile](/static/blog/assets/Kristina_Simakova_0a7a20024f_Z2eUs8o.webp)](/blog/authors/kristina-simakova)
-
-[Kristina Simakova](/blog/authors/kristina-simakova)
-
-Engineering Manager
-
-Media3 1.9.0 is out! Besides the usual bug fixes and performance improvements, the latest release also contains **four** new or largely rewritten modules:
-
-* `media3-inspector` - Extract metadata and frames outside of playback
-* `media3-ui-compose-material3` - Build a basic Material3 Compose Media UI in just a few steps
-* `media3-cast` - Automatically handle transitions between Cast and local playbacks
-* `media3-decoder-av1` - Consistent AV1 playback with the rewritten extension decoder based on the dav1d library
-
-We also added caching and memory management improvements to `PreloadManager`, and provided several new `ExoPlayer`, `Transformer` and `MediaSession` simplifications.
-
-This release also gives you the first experimental access to `CompositionPlayer` to preview media edits.
-
-Read on to find out more, and as always please check out the full [release notes](https://github.com/androidx/media/releases/tag/1.9.0) for a comprehensive overview of changes in this release.
+Read on to find out more, and as always please check out the full [release notes](https://github.com/androidx/media/releases/tag/1.9.0) for a comprehensive overview of changes in this release.
 
 ## Extract metadata and frames outside of playback
 
 There are many cases where you want to inspect media without starting a playback. For example, you might want to detect which formats it contains or what its duration is, or to retrieve thumbnails.
 
-The new `media3-inspector` module combines all utilities to inspect media without playback in one place:
+The new `media3-inspector` module combines all utilities to inspect media without playback in one place:
 
-* `MetadataRetriever` to read duration, format and static metadata from a `MediaItem`.
-* `FrameExtractor` to get frames or thumbnails from an item.
-* `MediaExtractorCompat` as a direct replacement for the Android platform MediaExtractor class, to get detailed information about samples in the file.
+- `MetadataRetriever` to read duration, format and static metadata from a `MediaItem`.
+- `FrameExtractor` to get frames or thumbnails from an item.
+- `MediaExtractorCompat` as a direct replacement for the Android platform MediaExtractor class, to get detailed information about samples in the file.
 
-`MetadataRetriever` and `FrameExtractor` follow a simple `AutoCloseable` pattern. Have a look at our [new guide pages](/media/media3/inspector) for more details.
+`MetadataRetriever` and `FrameExtractor` follow a simple `AutoCloseable` pattern. Have a look at our [new guide pages](https://developer.android.com/media/media3/inspector) for more details.
 
 ```
 suspend fun extractThumbnail(mediaItem: MediaItem) {
@@ -72,9 +49,9 @@ suspend fun extractThumbnail(mediaItem: MediaItem) {
 
 ## Build a basic Material3 Compose Media UI in just a few steps
 
-In previous releases we started providing connector code between Compose UI elements and your Player instance. With Media3 1.9.0, we added a new module media3-ui-compose-material3 with fully-styled Material3 buttons and content elements. They allow you to build a media UI in just a few steps, while providing all the flexibility to customize style. If you prefer to build your own UI style, you can use the building blocks that take care of all the update and connection logic, so you only need to concentrate on designing the UI element. Please check out our [extended guide pages](/media/media3/ui/compose) for the Compose UI modules.
+In previous releases we started providing connector code between Compose UI elements and your Player instance. With Media3 1.9.0, we added a new module media3-ui-compose-material3 with fully-styled Material3 buttons and content elements. They allow you to build a media UI in just a few steps, while providing all the flexibility to customize style. If you prefer to build your own UI style, you can use the building blocks that take care of all the update and connection logic, so you only need to concentrate on designing the UI element. Please check out our [extended guide pages](https://developer.android.com/media/media3/ui/compose) for the Compose UI modules.
 
-We are also still working on even more Compose components, like a prebuilt seek bar, a complete out-of-the-box replacement for `PlayerView`, as well as subtitle and ad integration.
+We are also still working on even more Compose components, like a prebuilt seek bar, a complete out-of-the-box replacement for `PlayerView`, as well as subtitle and ad integration.
 
 ```
 @Composable
@@ -90,15 +67,15 @@ fun SimplePlayerUI(player: Player, modifier: Modifier = Modifier) {
 }
 ```
 
-![image.png](/static/blog/assets/image_c643ce55c4_Z2bcz6c.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_c643ce55c4_Z2bcz6c.webp)
 
 *Simple Compose player UI with out-of-the-box elements*
 
 ## Automatically handle transitions between Cast and local playbacks
 
-The [CastPlayer](/media/media3/cast/create-castplayer) in the `media3-cast` module has been rewritten to automatically handle transitions between local playback (for example with `ExoPlayer`) and remote Cast playback.
+The [CastPlayer](https://developer.android.com/media/media3/cast/create-castplayer) in the `media3-cast` module has been rewritten to automatically handle transitions between local playback (for example with `ExoPlayer`) and remote Cast playback.
 
-When you set up your `MediaSession`, simply build a `CastPlayer` around your `ExoPlayer` and add a `MediaRouteButton` to your UI and you're done!
+When you set up your `MediaSession`, simply build a `CastPlayer` around your `ExoPlayer` and add a `MediaRouteButton` to your UI and you're done!
 
 ```
 // MediaSession setup with CastPlayer 
@@ -117,38 +94,37 @@ val session = MediaSession.Builder(context, castPlayer).build()
 
 }
 ```
-
-![image.png](/static/blog/assets/image_da153aa491_Z1szO5M.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_da153aa491_Z1szO5M.webp)
 
 *New CastPlayer integration in Media3 session demo app*
 
 ## Consistent AV1 playback with the rewritten extension based on dav1d
 
-The 1.9.0 release contains a completely rewritten AV1 extension module based on the popular [dav1d](https://github.com/videolan/dav1d) library.
+The 1.9.0 release contains a completely rewritten AV1 extension module based on the popular [dav1d](https://github.com/videolan/dav1d) library.
 
-As with all extension decoder modules, please note that it requires [building from source](https://github.com/androidx/media/tree/release/libraries/decoder_av1#readme)to bundle the relevant native code correctly. Bundling a decoder provides consistency and format support across all devices, but because it runs the decoding in your process, it's best suited for content you can trust.
+As with all extension decoder modules, please note that it requires [building from source](https://github.com/androidx/media/tree/release/libraries/decoder_av1#readme)to bundle the relevant native code correctly. Bundling a decoder provides consistency and format support across all devices, but because it runs the decoding in your process, it's best suited for content you can trust.
 
 ## Integrate caching and memory management into PreloadManager
 
-We made our `PreloadManager` even better as well. It already enabled you to preload media into memory outside of playback and then seamlessly hand it over to a player when needed. Although pretty performant, you still had to be careful to not exceed memory limits by accidentally preloading too much. So with Media3 1.9.0, we added two features that makes this a lot easier and more stable:
+We made our `PreloadManager` even better as well. It already enabled you to preload media into memory outside of playback and then seamlessly hand it over to a player when needed. Although pretty performant, you still had to be careful to not exceed memory limits by accidentally preloading too much. So with Media3 1.9.0, we added two features that makes this a lot easier and more stable:
 
-1. **Caching support** – When defining how far to preload, you can now choose `PreloadStatus.specifiedRangeCached(0, 5000)` as a target state for preloaded items. This will add the specified range to your cache on disk instead of loading the data to memory. With this, you can provide a much larger range of items for preloading as the ones further away from the current item no longer need to occupy memory. Note that this requires setting a `Cache` in `DefaultPreloadManager.Builder`.
-2. **Automatic memory management** – We also updated our `LoadControl` interface to better handle the preload case so you are now able to set an explicit upper memory limit for all preloaded items in memory. It's 144 MB by default, and you can configure the limit in `DefaultLoadControl.Builder`. The `DefaultPreloadManager` will automatically stop preloading once the limit is reached, and automatically releases memory of lower priority items if required.
+1. **Caching support** -- When defining how far to preload, you can now choose `PreloadStatus.specifiedRangeCached(0, 5000)` as a target state for preloaded items. This will add the specified range to your cache on disk instead of loading the data to memory. With this, you can provide a much larger range of items for preloading as the ones further away from the current item no longer need to occupy memory. Note that this requires setting a `Cache` in `DefaultPreloadManager.Builder`.
+2. **Automatic memory management** -- We also updated our `LoadControl` interface to better handle the preload case so you are now able to set an explicit upper memory limit for all preloaded items in memory. It's 144 MB by default, and you can configure the limit in `DefaultLoadControl.Builder`. The `DefaultPreloadManager` will automatically stop preloading once the limit is reached, and automatically releases memory of lower priority items if required.
 
 ## Rely on new simplified default behaviors in ExoPlayer
 
 As always, we added lots of incremental improvements to ExoPlayer as well. To name just a few:
 
-* **Mute and unmute** – We already had a `setVolume` method, but have now added the convenience `mute` and `unmute` methods to easily restore the previous volume without keeping track of it yourself.
-* **Stuck player detection** – In some rare cases the player can get stuck in a buffering or playing state without making any progress, for example, due to codec issues or misconfigurations. Your users will be annoyed, but you never see these issues in your analytics! To make this more obvious, the player now reports a `StuckPlayerException` when it detects a stuck state.
-* **Wakelock by default** – The wake lock management was previously opt-in, resulting in hard to find edge cases where playback progress can be delayed a lot when running in the background. Now this feature is opt-out, so you don't have to worry about it and can also remove all manual wake lock handling around playback.
-* **Simplified setting for CC button logic** – Changing `TrackSelectionParameters` to say "turn subtitles on/off" was surprisingly hard to get right, so we added a simple boolean `selectTextByDefault` option for this use case.
+- **Mute and unmute** -- We already had a `setVolume` method, but have now added the convenience `mute` and `unmute` methods to easily restore the previous volume without keeping track of it yourself.
+- **Stuck player detection** -- In some rare cases the player can get stuck in a buffering or playing state without making any progress, for example, due to codec issues or misconfigurations. Your users will be annoyed, but you never see these issues in your analytics! To make this more obvious, the player now reports a `StuckPlayerException` when it detects a stuck state.
+- **Wakelock by default** -- The wake lock management was previously opt-in, resulting in hard to find edge cases where playback progress can be delayed a lot when running in the background. Now this feature is opt-out, so you don't have to worry about it and can also remove all manual wake lock handling around playback.
+- **Simplified setting for CC button logic** -- Changing `TrackSelectionParameters` to say "turn subtitles on/off" was surprisingly hard to get right, so we added a simple boolean `selectTextByDefault` option for this use case.
 
 ## Simplify your media button preferences in MediaSession
 
 Until now, defining your preferences for which buttons should show up in the media notification drawer on Android Auto or WearOS required defining custom commands and buttons, even if you simply wanted to trigger a standard player method.
 
-Media3 1.9.0 has new functionality to make this a lot simpler – you can now [define your media button preferences](/media/media3/session/control-playback#commands) with a standard player command, requiring no custom command handling at all.
+Media3 1.9.0 has new functionality to make this a lot simpler -- you can now [define your media button preferences](https://developer.android.com/media/media3/session/control-playback#commands) with a standard player command, requiring no custom command handling at all.
 
 ```
 session.setMediaButtonPreferences(listOf(
@@ -158,28 +134,27 @@ session.setMediaButtonPreferences(listOf(
       .build()
 ))
 ```
-
-![image.png](/static/blog/assets/image_9f184d8c74_Z2nzhi4.webp)
+![image.png](https://developer.android.com/static/blog/assets/image_9f184d8c74_Z2nzhi4.webp)
 
 *Media button preferences with fast forward button*
 
 ## CompositionPlayer for real-time preview
 
-The 1.9.0 release introduces CompositionPlayer under a new `@ExperimentalApi` annotation. The annotation indicates that it is available for experimentation, but is still under development.
+The 1.9.0 release introduces CompositionPlayer under a new `@ExperimentalApi` annotation. The annotation indicates that it is available for experimentation, but is still under development.
 
-`CompositionPlayer` is a new component in the Media3 editing APIs designed for real-time preview of media edits. Built upon the familiar Media3 `Player` interface, `CompositionPlayer` allows users to see their changes in action before committing to the export process. It uses the same `Composition` object that you would pass to `Transformer` for exporting, streamlining the editing workflow by unifying the data model for preview and export.
+`CompositionPlayer` is a new component in the Media3 editing APIs designed for real-time preview of media edits. Built upon the familiar Media3 `Player` interface, `CompositionPlayer` allows users to see their changes in action before committing to the export process. It uses the same `Composition` object that you would pass to `Transformer` for exporting, streamlining the editing workflow by unifying the data model for preview and export.
 
-We encourage you to start using [CompositionPlayer](/reference/androidx/media3/transformer/CompositionPlayer) and share [your feedback](https://github.com/androidx/media/issues), and keep an eye out for forthcoming posts and updates to the documentation for more details.
+We encourage you to start using [CompositionPlayer](https://developer.android.com/reference/androidx/media3/transformer/CompositionPlayer) and share [your feedback](https://github.com/androidx/media/issues), and keep an eye out for forthcoming posts and updates to the documentation for more details.
 
 ## InAppMuxer as a default muxer in Transformer
 
-Transformer now uses [`InAppMp4Muxer`](/reference/androidx/media3/transformer/InAppMp4Muxer) as the default muxer for writing media container files. Internally, `InAppMp4Muxer` depends on the Media3 [Muxer](/reference/androidx/media3/muxer/package-summary) module, providing consistent behaviour across all API versions.
+Transformer now uses [`InAppMp4Muxer`](https://developer.android.com/reference/androidx/media3/transformer/InAppMp4Muxer) as the default muxer for writing media container files. Internally, `InAppMp4Muxer` depends on the Media3 [Muxer](https://developer.android.com/reference/androidx/media3/muxer/package-summary) module, providing consistent behaviour across all API versions.
 
-Note that while Transformer no longer uses the Android platform's [MediaMuxer](/reference/android/media/MediaMuxer) by default, you can still provide `FrameworkMuxer.Factory` via [setMuxerFactory](/reference/androidx/media3/transformer/Transformer.Builder#setMuxerFactory(androidx.media3.muxer.Muxer.Factory)) if your use case requires it.
+Note that while Transformer no longer uses the Android platform's [MediaMuxer](https://developer.android.com/reference/android/media/MediaMuxer) by default, you can still provide `FrameworkMuxer.Factory` via [setMuxerFactory](https://developer.android.com/reference/androidx/media3/transformer/Transformer.Builder#setMuxerFactory(androidx.media3.muxer.Muxer.Factory)) if your use case requires it.
 
 ## New speed adjustment APIs
 
-The 1.9.0 release simplifies speed adjustments APIs for media editing. We've introduced new methods directly on `EditedMediaItem.Builder` to control speed, making the API more intuitive. You can now change the speed of a clip by calling `setSpeed(SpeedProvider provider)` on the `EditedMediaItem.Builder`:
+The 1.9.0 release simplifies speed adjustments APIs for media editing. We've introduced new methods directly on `EditedMediaItem.Builder` to control speed, making the API more intuitive. You can now change the speed of a clip by calling `setSpeed(SpeedProvider provider)` on the `EditedMediaItem.Builder`:
 
 ```
 val speedProvider = object : SpeedProvider {
@@ -197,19 +172,19 @@ EditedMediaItem speedEffectItem = EditedMediaItem.Builder(mediaItem)
     .build()
 ```
 
-This new approach replaces the previous method of using `Effects#createExperimentalSpeedChangingEffects()`, which we've deprecated and will remove in a future release.
+This new approach replaces the previous method of using `Effects#createExperimentalSpeedChangingEffects()`, which we've deprecated and will remove in a future release.
 
 ## Introducing track types for EditedMediaItemSequence
 
-In the 1.9.0 release, `EditedMediaItemSequence` requires specifying desired output track types during sequence creation. This change ensures track handling is more explicit and robust across the entire Composition.
+In the 1.9.0 release, `EditedMediaItemSequence` requires specifying desired output track types during sequence creation. This change ensures track handling is more explicit and robust across the entire Composition.
 
-This is done via a new `EditedMediaItemSequence.Builder` constructor that accepts a set of track types (e.g., `C.TRACK_TYPE_AUDIO, C.TRACK_TYPE_VIDEO`).
+This is done via a new `EditedMediaItemSequence.Builder` constructor that accepts a set of track types (e.g., `C.TRACK_TYPE_AUDIO, C.TRACK_TYPE_VIDEO`).
 
 To simplify creation, we've added new static convenience methods:
 
-* EditedMediaItemSequence.withAudioFrom(List<EditedMediaItem>)
-* EditedMediaItemSequence.withVideoFrom(List<EditedMediaItem>)
-* EditedMediaItemSequence.withAudioAndVideoFrom(List<EditedMediaItem>)
+- EditedMediaItemSequence.withAudioFrom(List\<EditedMediaItem\>)
+- EditedMediaItemSequence.withVideoFrom(List\<EditedMediaItem\>)
+- EditedMediaItemSequence.withAudioAndVideoFrom(List\<EditedMediaItem\>)
 
 We encourage you to migrate to the new constructor or the convenience methods for clearer and more reliable sequence definitions.
 
@@ -222,107 +197,42 @@ EditedMediaItemSequence videoOnlySequence =
         .build()
 ```
 
-Please get in touch via the [Media3 issue Tracker](https://github.com/androidx/media/issues) if you run into any bugs, or if you have questions or feature requests. We look forward to hearing from you!
-
+Please get in touch via the [Media3 issue Tracker](https://github.com/androidx/media/issues) if you run into any bugs, or if you have questions or feature requests. We look forward to hearing from you!
 Written by:
 
-* ## [Kristina Simakova](/blog/authors/kristina-simakova)
+-
+
+  ## [Kristina Simakova](https://developer.android.com/blog/authors/kristina-simakova)
 
   ###### Engineering Manager
 
-  [read\_more
-  View profile](/blog/authors/kristina-simakova)
-
-  ![View Kristina Simakova's profile](/static/blog/assets/Kristina_Simakova_0a7a20024f_Z2eUs8o.webp)
-
-  ![View Kristina Simakova's profile](/static/blog/assets/Kristina_Simakova_0a7a20024f_Z2eUs8o.webp)
-
+  [read_more
+  View profile](https://developer.android.com/blog/authors/kristina-simakova) ![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_Z2eUs8o.webp) ![View Kristina Simakova's profile](https://developer.android.com/static/blog/assets/Kristina_Simakova_0a7a20024f_Z2eUs8o.webp)
 Continue reading
+- [![View Jason Buchel's profile](https://developer.android.com/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](https://developer.android.com/blog/authors/jason-buchel) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-* [![View Jason Buchel's profile](/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](/blog/authors/jason-buchel)
+  ## [Bringing our latest frontier model to Android Developers](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
 
-  13
+  [arrow_forward](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli) As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
+  [Jason Buchel](https://developer.android.com/blog/authors/jason-buchel) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Oct
-  2026
+  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth)
 
-  13
+  [arrow_forward](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth) Today, we shared how we're taking our "more than a store" vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+- [![View Cyrus Stoller's profile](https://developer.android.com/static/blog/assets/unnamed_26_f996d1f7cf_2bofD0.webp)](https://developer.android.com/blog/authors/cyrus-stoller) 12 Oct 2026 12 Oct 2026 ![](https://developer.android.com/static/blog/assets/1006_ABL_141_Strapi_1_540d64279e_Z1veewf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Oct
-  2026
+  ## [Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development](https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm)
 
-  ![](/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [Bringing our latest frontier model to Android Developers](/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
-
-  [arrow\_forward](/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
-
-  As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
-
-  [Jason Buchel](/blog/authors/jason-buchel)
-  •
-  3 min read
-  + [#Agentic Android development](/blog/topics/agentic-android-development)
-* [![View Paul Feng's profile](/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](/blog/authors/paul-feng)
-
-  13
-
-  Oct
-  2026
-
-  13
-
-  Oct
-  2026
-
-  ![](/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](/blog/posts/google-play-discovery-engagement-growth)
-
-  [arrow\_forward](/blog/posts/google-play-discovery-engagement-growth)
-
-  Today, we shared how we’re taking our “more than a store” vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
-
-  [Paul Feng](/blog/authors/paul-feng)
-  •
-  3 min read
-* [![View Cyrus Stoller's profile](/static/blog/assets/unnamed_26_f996d1f7cf_2bofD0.webp)](/blog/authors/cyrus-stoller)
-
-  12
-
-  Oct
-  2026
-
-  12
-
-  Oct
-  2026
-
-  ![](/static/blog/assets/1006_ABL_141_Strapi_1_540d64279e_Z1veewf.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development](/blog/posts/googlebook-linux-terminal-preview-vm)
-
-  [arrow\_forward](/blog/posts/googlebook-linux-terminal-preview-vm)
-
-  With Googlebook, we’re excited to help users express themselves and gain access to these tools.
-
-  [Cyrus Stoller](/blog/authors/cyrus-stoller)
-  •
-  2 min read
-  + [#Googlebook](/blog/topics/googlebook)
-
+  [arrow_forward](https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm) With Googlebook, we're excited to help users express themselves and gain access to these tools.
+  [Cyrus Stoller](https://developer.android.com/blog/authors/cyrus-stoller) • 2 min read
+  - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
 Stay in the loop
+
 
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

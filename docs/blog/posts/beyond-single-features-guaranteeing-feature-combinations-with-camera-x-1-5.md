@@ -1,82 +1,48 @@
 ---
-title: Beyond Single Features: Guaranteeing Feature Combinations With CameraX 1.5  |  Android Developers' Blog
+title: https://developer.android.com/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5
 url: https://developer.android.com/blog/posts/beyond-single-features-guaranteeing-feature-combinations-with-camera-x-1-5
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Android Developers' Blog](https://developer.android.com/)
-* [Blog](https://developer.android.com/blog)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-[Product News](/blog/categories/product-news)
+[Product News](https://developer.android.com/blog/categories/product-news)
 
 # Beyond Single Features: Guaranteeing Feature Combinations With CameraX 1.5
 
-6 min read
+6 min read ![](https://developer.android.com/static/blog/assets/25_Android_Camera_X_Feature_blog_1_856fb165e3_1ivmP1.webp) 15 Oct 2025 [![View Tahsin Masrur's profile](https://developer.android.com/static/blog/assets/Tahsin_a6df1d8c3c_Z1XuFni.webp)](https://developer.android.com/blog/authors/tahsin-masrur) [Tahsin Masrur](https://developer.android.com/blog/authors/tahsin-masrur) Software Engineer Modern camera apps are defined by powerful, overlapping features. Users expect to record video with stunning HDR, capture fluid motion at 60 FPS, and get buttery-smooth footage with Preview Stabilization---often all at the same time.
 
-![](/static/blog/assets/25_Android_Camera_X_Feature_blog_1_856fb165e3_1ivmP1.webp)
-
-15
-
-Oct
-2025
-
-[![View Tahsin Masrur's profile](/static/blog/assets/Tahsin_a6df1d8c3c_Z1XuFni.webp)](/blog/authors/tahsin-masrur)
-
-[Tahsin Masrur](/blog/authors/tahsin-masrur)
-
-Software Engineer
-
-Modern camera apps are defined by powerful, overlapping features. Users expect to record video with stunning HDR, capture fluid motion at 60 FPS, and get buttery-smooth footage with Preview Stabilization—often all at the same time.
-
-As developers, we know the reality is more complicated. How can you guarantee that a specific device actually supports a given combination? Until now, enabling multiple features was often a gamble. You could check for individual feature support, but combining them could lead to undefined behavior or, worse, a failed camera session.  This uncertainty forces developers to be conservative, which prevents users on capable devices from accessing the best possible experience.
+As developers, we know the reality is more complicated. How can you guarantee that a specific device actually supports a given combination? Until now, enabling multiple features was often a gamble. You could check for individual feature support, but combining them could lead to undefined behavior or, worse, a failed camera session. This uncertainty forces developers to be conservative, which prevents users on capable devices from accessing the best possible experience.
 
 For instance, very few premium devices reliably support HDR and 60 FPS video simultaneously. Consequently, most apps avoid enabling both at once to prevent a poor user experience on the majority of phones.
 
-To address this, we're introducing **Feature Group in CameraX** - a new API designed to eliminate this guesswork. You can now query whether a specific combination of features is supported *before* configuring the camera, or simply tell CameraX your priorities and let it enable the best-supported combination for you.
+To address this, we're introducing **Feature Group in CameraX** - a new API designed to eliminate this guesswork. You can now query whether a specific combination of features is supported *before* configuring the camera, or simply tell CameraX your priorities and let it enable the best-supported combination for you.
 
 ## For Those New to CameraX
 
-Before we dive into the new Feature Group API, let's quickly recap what CameraX is. CameraX is a Jetpack support library, built to help you make camera app development easier. It provides a consistent and easy-to-use API surface that works across most Android devices, with backward-compatibility to Android 6.0 (API level 23). If you are new to CameraX, we recommend checking out the [official documentation](/media/camera/camerax) and trying the [codelab](/codelabs/camerax-getting-started#0) to get started.
+Before we dive into the new Feature Group API, let's quickly recap what CameraX is. CameraX is a Jetpack support library, built to help you make camera app development easier. It provides a consistent and easy-to-use API surface that works across most Android devices, with backward-compatibility to Android 6.0 (API level 23). If you are new to CameraX, we recommend checking out the [official documentation](https://developer.android.com/media/camera/camerax) and trying the [codelab](https://developer.android.com/codelabs/camerax-getting-started#0) to get started.
 
 ## What You Can Build with the Feature Group API
 
-You no longer need to gamble on feature combinations and can confidently deliver the best possible camera experiences – like simultaneous HDR and 60 FPS video on capable hardware (e.g. a Pixel 10 Pro) – while gracefully avoiding errors on devices that can't support the combination.
-
-![unnamed.png](/static/blog/assets/unnamed_36b4e63acd_1C7Cp5.webp)
-
-
-Pixel 10 Pro enabling both HDR and 60 FPS simultaneously
-
-![unnamed (1).png](/static/blog/assets/unnamed_1_f0d1910035_1gNQNI.webp)
-
-
-On an older device where HDR and 60 FPS can't run simultaneously, only HDR is enabled while the 60 FPS option is disabled.
+You no longer need to gamble on feature combinations and can confidently deliver the best possible camera experiences -- like simultaneous HDR and 60 FPS video on capable hardware (e.g. a Pixel 10 Pro) -- while gracefully avoiding errors on devices that can't support the combination.
+![unnamed.png](https://developer.android.com/static/blog/assets/unnamed_36b4e63acd_1C7Cp5.webp) Pixel 10 Pro enabling both HDR and 60 FPS simultaneously ![unnamed (1).png](https://developer.android.com/static/blog/assets/unnamed_1_f0d1910035_1gNQNI.webp) On an older device where HDR and 60 FPS can't run simultaneously, only HDR is enabled while the 60 FPS option is disabled.
 
 With the Feature Group API, you can:
 
-* **Build smarter, dynamic UIs:** Intelligently enable or disable settings in your UI based on real-time hardware support. For example, if a user enables HDR, you can instantly gray out and disable the 60 FPS option if the combination isn't supported on that device.
+- **Build smarter, dynamic UIs:** Intelligently enable or disable settings in your UI based on real-time hardware support. For example, if a user enables HDR, you can instantly gray out and disable the 60 FPS option if the combination isn't supported on that device.
 
-![hdr.gif](/static/blog/assets/hdr_be99ad603a_N5hgT.webp)
+![hdr.gif](https://developer.android.com/static/blog/assets/hdr_be99ad603a_N5hgT.webp)
 
-* **Deliver a reliable "High-Quality" mode:**Configure the camera with a prioritized list of desired features. CameraX automatically finds and enables the best-supported combination for any given device, ensuring a great result without complex, device-specific logic.
-* **Prevent camera session failures:** By verifying support beforehand, you prevent the camera from attempting to configure an unsupported combination, eliminating a common source of crashes and offering a smooth user experience.
+- **Deliver a reliable "High-Quality" mode:**Configure the camera with a prioritized list of desired features. CameraX automatically finds and enables the best-supported combination for any given device, ensuring a great result without complex, device-specific logic.
+- **Prevent camera session failures:** By verifying support beforehand, you prevent the camera from attempting to configure an unsupported combination, eliminating a common source of crashes and offering a smooth user experience.
 
 ## How It Works: The Core Components
 
-The new API is centered around key additions to [SessionConfig](/reference/androidx/camera/core/SessionConfig) and [CameraInfo](/reference/androidx/camera/core/CameraInfo).
+The new API is centered around key additions to [SessionConfig](https://developer.android.com/reference/androidx/camera/core/SessionConfig) and [CameraInfo](https://developer.android.com/reference/androidx/camera/core/CameraInfo).
 
-1. [**GroupableFeature**](/reference/androidx/camera/core/featuregroup/GroupableFeature): This API introduces a set of predefined groupable features, such as [HDR\_HLG10](/reference/androidx/camera/core/featuregroup/GroupableFeature#HDR_HLG10()), [FPS\_60](/reference/androidx/camera/core/featuregroup/GroupableFeature#FPS_60()), [PREVIEW\_STABILIZATION](/reference/androidx/camera/core/featuregroup/GroupableFeature#PREVIEW_STABILIZATION()), and [IMAGE\_ULTRA\_HDR](/reference/androidx/camera/core/featuregroup/GroupableFeature#IMAGE_ULTRA_HDR()). Due to computational limitations, only a specific set of features can be grouped with the high degree of reliability this API provides. We are actively working to expand this list and will introduce support for more features in future releases.
-2. **New**[**SessionConfig**](/reference/androidx/camera/core/SessionConfig) **Parameters:** This class, used for starting a camera session, now accepts two new parameters:
-   * `requiredFeatureGroup`: Use this for features that **must** be supported for the configuration to succeed - ideal for features that a user explicitly enables, such as toggling an 'HDR' switch. To ensure a deterministic and consistent experience, the `bindToLifecycle` call will throw an `IllegalArgumentException` if the requested combination is not supported, rather than silently ignoring a feature request. The `CameraInfo#isFeatureGroupSupported` API (details below) should be used to query this result beforehand.
-   * `preferredFeatureGroup`: Use this for features that are desirable but optional, for example when you want to implement a default "High-Quality" mode. You provide a list of your desired features **ordered according to your priorities**, and CameraX automatically enables the highest-priority combination that the device supports.
-3. [**CameraInfo#isFeatureGroupSupported()**](/reference/androidx/camera/core/CameraInfo#isFeatureGroupSupported(androidx.camera.core.SessionConfig)): This is the core query method for explicitly checking if a feature group is supported, well-suited for providing only supported feature options to users in your app UI. You pass it a `SessionConfig`, and it returns a boolean indicating whether the combination is supported. If you intend to bind a `SessionConfig` with required features, you should use this API first to ensure it is supported.
+1. [**GroupableFeature**](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature): This API introduces a set of predefined groupable features, such as [HDR_HLG10](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature#HDR_HLG10()), [FPS_60](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature#FPS_60()), [PREVIEW_STABILIZATION](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature#PREVIEW_STABILIZATION()), and [IMAGE_ULTRA_HDR](https://developer.android.com/reference/androidx/camera/core/featuregroup/GroupableFeature#IMAGE_ULTRA_HDR()). Due to computational limitations, only a specific set of features can be grouped with the high degree of reliability this API provides. We are actively working to expand this list and will introduce support for more features in future releases.  
+2. **New** [**SessionConfig**](https://developer.android.com/reference/androidx/camera/core/SessionConfig)**Parameters:** This class, used for starting a camera session, now accepts two new parameters:
+   - `requiredFeatureGroup`: Use this for features that **must** be supported for the configuration to succeed - ideal for features that a user explicitly enables, such as toggling an 'HDR' switch. To ensure a deterministic and consistent experience, the `bindToLifecycle` call will throw an `IllegalArgumentException` if the requested combination is not supported, rather than silently ignoring a feature request. The `CameraInfo#isFeatureGroupSupported` API (details below) should be used to query this result beforehand.
+   - `preferredFeatureGroup`: Use this for features that are desirable but optional, for example when you want to implement a default "High-Quality" mode. You provide a list of your desired features **ordered according to your priorities**, and CameraX automatically enables the highest-priority combination that the device supports.
+3. [**CameraInfo#isFeatureGroupSupported()**](https://developer.android.com/reference/androidx/camera/core/CameraInfo#isFeatureGroupSupported(androidx.camera.core.SessionConfig)): This is the core query method for explicitly checking if a feature group is supported, well-suited for providing only supported feature options to users in your app UI. You pass it a `SessionConfig`, and it returns a boolean indicating whether the combination is supported. If you intend to bind a `SessionConfig` with required features, you should use this API first to ensure it is supported.
 
 ## Implementation in Practice
 
@@ -84,7 +50,7 @@ Let's look at how to use these components to build a better camera experience.
 
 ### Scenario 1: "Best Effort" High-Quality Mode
 
-If you want to enable the best possible features by default, you can provide a prioritized list to `preferredFeatureGroup`. In this example, we tell CameraX to prioritize HDR, then 60 FPS, and finally Preview Stabilization. CameraX handles the complexity of checking all possible combinations and choosing the best one that the device supports.
+If you want to enable the best possible features by default, you can provide a prioritized list to `preferredFeatureGroup`. In this example, we tell CameraX to prioritize HDR, then 60 FPS, and finally Preview Stabilization. CameraX handles the complexity of checking all possible combinations and choosing the best one that the device supports.
 
 For instance, if a device can handle HDR and 60 FPS together but not with Preview Stabilization, CameraX will enable the first two and discard the third. This way, you get the best possible experience without writing complex, device-specific checks.
 
@@ -139,7 +105,7 @@ For this code snippet, CameraX will attempt to enable feature combinations in th
 
 ### Scenario 2: Building a Reactive UI
 
-To create a UI that responds to user selections and prevents users from selecting an unsupported feature combination, you can query for support directly. The function below checks which features are incompatible with the user's *current* selections, allowing you to disable the corresponding UI elements.
+To create a UI that responds to user selections and prevents users from selecting an unsupported feature combination, you can query for support directly. The function below checks which features are incompatible with the user's *current* selections, allowing you to disable the corresponding UI elements.
 
 ```
 /**
@@ -201,7 +167,7 @@ fun getUnsupportedFeatures(
 }
 ```
 
-You can then wire this logic into your ViewModel or UI controller to react to user input and re-bind the camera with a guaranteed-to-work configuration.
+You can then wire this logic into your ViewModel or UI controller to react to user input and re-bind the camera with a guaranteed-to-work configuration.
 
 ```
 // Invoked when user turns some feature on/off.
@@ -247,7 +213,7 @@ fun onFeatureChange(currentFeatures: Set<GroupableFeature>) {
 }
 ```
 
-To see these concepts in a working application, you can explore [our internal test app](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:camera/integration-tests/featurecombotestapp/src/main/java/androidx/camera/integration/featurecombo/;drc=16d6cbf8fb302abd57e45ce528ff0ae4903e6dcb). It provides a complete implementation of both the "best effort" and "reactive UI" scenarios discussed above.
+To see these concepts in a working application, you can explore [our internal test app](https://cs.android.com/androidx/platform/frameworks/support/+/androidx-main:camera/integration-tests/featurecombotestapp/src/main/java/androidx/camera/integration/featurecombo/;drc=16d6cbf8fb302abd57e45ce528ff0ae4903e6dcb). It provides a complete implementation of both the "best effort" and "reactive UI" scenarios discussed above.
 
 Please note: This is a test application and not an officially supported sample. While it's a great reference for the Feature Group API, it has not been polished for production use.
 
@@ -257,110 +223,45 @@ The Feature Group API removes the ambiguity of working with advanced camera capa
 
 The API is available as experimental in CameraX 1.5 and is scheduled to become fully stable in the 1.6 release, with more support and improvements on the way.
 
-To learn more, check out the official documentation. We can’t wait to see what you create, and we look forward to your feedback. Please share your thoughts and report any issues through the following channels:
+To learn more, check out the official documentation. We can't wait to see what you create, and we look forward to your feedback. Please share your thoughts and report any issues through the following channels:
 
-* [CameraX developers discussion group](https://groups.google.com/a/android.com/g/camerax-developers)
-* [File a bug here](https://issuetracker.google.com/issues/new?component=618491)
-
+- [CameraX developers discussion group](https://groups.google.com/a/android.com/g/camerax-developers)
+- [File a bug here](https://issuetracker.google.com/issues/new?component=618491)
 Written by:
 
-* ## [Tahsin Masrur](/blog/authors/tahsin-masrur)
+-
+
+  ## [Tahsin Masrur](https://developer.android.com/blog/authors/tahsin-masrur)
 
   ###### Software Engineer
 
-  [read\_more
-  View profile](/blog/authors/tahsin-masrur)
-
-  ![View Tahsin Masrur's profile](/static/blog/assets/Tahsin_a6df1d8c3c_Z1XuFni.webp)
-
-  ![View Tahsin Masrur's profile](/static/blog/assets/Tahsin_a6df1d8c3c_Z1XuFni.webp)
-
+  [read_more
+  View profile](https://developer.android.com/blog/authors/tahsin-masrur) ![View Tahsin Masrur's profile](https://developer.android.com/static/blog/assets/Tahsin_a6df1d8c3c_Z1XuFni.webp) ![View Tahsin Masrur's profile](https://developer.android.com/static/blog/assets/Tahsin_a6df1d8c3c_Z1XuFni.webp)
 Continue reading
+- [![View Jason Buchel's profile](https://developer.android.com/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](https://developer.android.com/blog/authors/jason-buchel) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-* [![View Jason Buchel's profile](/static/blog/assets/unnamed_25_28af9250eb_I4mHO.webp)](/blog/authors/jason-buchel)
+  ## [Bringing our latest frontier model to Android Developers](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
 
-  13
+  [arrow_forward](https://developer.android.com/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli) As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
+  [Jason Buchel](https://developer.android.com/blog/authors/jason-buchel) • 3 min read
+  - [#Agentic Android development](https://developer.android.com/blog/topics/agentic-android-development)
+- [![View Paul Feng's profile](https://developer.android.com/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](https://developer.android.com/blog/authors/paul-feng) 13 Oct 2026 13 Oct 2026 ![](https://developer.android.com/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Oct
-  2026
+  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth)
 
-  13
+  [arrow_forward](https://developer.android.com/blog/posts/google-play-discovery-engagement-growth) Today, we shared how we're taking our "more than a store" vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
+  [Paul Feng](https://developer.android.com/blog/authors/paul-feng) • 3 min read
+- [![View Cyrus Stoller's profile](https://developer.android.com/static/blog/assets/unnamed_26_f996d1f7cf_2bofD0.webp)](https://developer.android.com/blog/authors/cyrus-stoller) 12 Oct 2026 12 Oct 2026 ![](https://developer.android.com/static/blog/assets/1006_ABL_141_Strapi_1_540d64279e_Z1veewf.webp) [Product News](https://developer.android.com/blog/categories/product-news)
 
-  Oct
-  2026
+  ## [Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development](https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm)
 
-  ![](/static/blog/assets/Blog_0140_strapi_8d85f71a6e_ZvGJv2.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [Bringing our latest frontier model to Android Developers](/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
-
-  [arrow\_forward](/blog/posts/bringing-gemini-4-argon-to-android-agentic-engineering-antigravity-cli)
-
-  As agentic development accelerates, Android engineering is reaching an exciting new frontier: moving from assistive code completion to agents executing end-to-end under your direction. You have total choice and flexibility in the models and agents you use.
-
-  [Jason Buchel](/blog/authors/jason-buchel)
-  •
-  3 min read
-  + [#Agentic Android development](/blog/topics/agentic-android-development)
-* [![View Paul Feng's profile](/static/blog/assets/paul_feng_759ac95845_ZnD5Di.webp)](/blog/authors/paul-feng)
-
-  13
-
-  Oct
-  2026
-
-  13
-
-  Oct
-  2026
-
-  ![](/static/blog/assets/Developer_Strapi_Banner_2000x1000_c21932c96a_1wEPmN.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [New ways to drive smarter discovery, deeper engagement, and business growth on Google Play](/blog/posts/google-play-discovery-engagement-growth)
-
-  [arrow\_forward](/blog/posts/google-play-discovery-engagement-growth)
-
-  Today, we shared how we’re taking our “more than a store” vision into its next chapter. From You tab, now the personal home base for over 250M monthly active users, to our unified gaming platform connecting over 700M gamer profiles, Google Play is meeting users wherever they are.
-
-  [Paul Feng](/blog/authors/paul-feng)
-  •
-  3 min read
-* [![View Cyrus Stoller's profile](/static/blog/assets/unnamed_26_f996d1f7cf_2bofD0.webp)](/blog/authors/cyrus-stoller)
-
-  12
-
-  Oct
-  2026
-
-  12
-
-  Oct
-  2026
-
-  ![](/static/blog/assets/1006_ABL_141_Strapi_1_540d64279e_Z1veewf.webp)
-
-  [Product News](/blog/categories/product-news)
-
-  ## [Introducing the Googlebook Linux Terminal Preview: A VM-Backed Environment for AI and Development](/blog/posts/googlebook-linux-terminal-preview-vm)
-
-  [arrow\_forward](/blog/posts/googlebook-linux-terminal-preview-vm)
-
-  With Googlebook, we’re excited to help users express themselves and gain access to these tools.
-
-  [Cyrus Stoller](/blog/authors/cyrus-stoller)
-  •
-  2 min read
-  + [#Googlebook](/blog/topics/googlebook)
-
+  [arrow_forward](https://developer.android.com/blog/posts/googlebook-linux-terminal-preview-vm) With Googlebook, we're excited to help users express themselves and gain access to these tools.
+  [Cyrus Stoller](https://developer.android.com/blog/authors/cyrus-stoller) • 2 min read
+  - [#Googlebook](https://developer.android.com/blog/topics/googlebook)
 Stay in the loop
+
 
 Get the latest Android development insights delivered to your inbox
 weekly.
-
 [mail
-Subscribe](/subscribe)
-
-![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)
+Subscribe](https://developer.android.com/subscribe) ![A 3D illustration of the Android mascot, wearing a jetpack that's emitting a large cloud of bubbles](https://developer.android.com/static/blog/assets/rocket-android.CVJQZOf1_1zVtXW.webp)

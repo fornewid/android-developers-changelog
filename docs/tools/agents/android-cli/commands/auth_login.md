@@ -23,9 +23,16 @@ Log in to Google services for Android CLI.
 
 ## Description
 
-`android auth login` signs you in to your Google account. It opens the Google sign-in page in your default browser and waits up to 5 minutes for you to authorize Android CLI. If the browser can't be opened automatically, the command prints the URL so that you can open it manually.
+`android auth login` signs you in to your Google account. It opens the Google
+sign-in page in your default browser and waits up to 5 minutes for you to
+authorize Android CLI. If the browser can't be opened automatically, the command
+prints the URL so that you can open it manually.
 
-After you sign in, Android CLI stores a refresh token so that later commands can authenticate without prompting you again. The token is stored in the system keyring when one is available. Otherwise, it's stored in a plaintext file readable only by you, and the command prints a warning. On Linux, install `libsecret-tools` and log in again to use the keyring.
+After you sign in, Android CLI stores a refresh token so that later commands can
+authenticate without prompting you again. The token is stored in the system
+keyring when one is available. Otherwise, it's stored in a plain-text file
+readable only by you, and the command prints a warning. On Linux, install
+`libsecret-tools` and log in again to use the keyring.
 
 ### Configure login options
 

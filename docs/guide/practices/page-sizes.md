@@ -249,6 +249,35 @@ Here is a an example of an `.so` file without a RELRO segment:
 This is a trivially 16 KB compliant `.so` file without having any RELRO
 segment.
 
+Here is an example of an aligned `.so` file where `GNU_RELRO` is in its own
+`LOAD` segment:
+
+    Type           Offset   VirtAddr           PhysAddr           FileSiz  MemSiz   Flg Align
+    LOAD           0x000000 0x0000000000000000 0x0000000000000000 0x000680 0x000680 R E 0x4000
+    LOAD           0x000680 0x0000000000004680 0x0000000000004680 0x0001d8 0x000980 RW  0x4000
+    GNU_RELRO      0x000680 0x0000000000004680 0x0000000000004680 0x0001d8 0x000980 R   0x1
+
+**Formula**: (VirtAddr + MemSiz) % 0x4000 == 0
+
+**Result**: (0x4680 + 0x0980) % 0x4000 = 0x5000 % 0x4000 == 0x1000
+
+Although 0x1000 isn't zero, this `.so` file is still 16 KB compliant.
+
+The modulo formula applies when `GNU_RELRO` shares a `LOAD` segment with
+subsequent writable data (such as `.data` or `.bss`).
+
+To check whether `GNU_RELRO` is in its own `LOAD` segment, inspect the
+program headers by running `llvm-readelf -Wl` and filtering with
+`grep 'LOAD\|RELRO\|Type'`. Compare the `VirtAddr` and `MemSiz` of
+`GNU_RELRO` against the containing `LOAD` segment. In this example,
+both have `VirtAddr` `0x4680` and `MemSiz` `0x0980`.
+
+Because the entire `LOAD` segment contains only RELRO data, there's no
+writable data in the sub-range from 0x5000 to 0x8000. Additionally, any
+subsequent writable `LOAD` segment begins on a separate 16 KB page
+boundary (at 0x8000 or beyond). The linker's read-only protection won't
+overlap with any writable data, so no segmentation fault occurs.
+
 ## Build your app with support for 16 KB devices
 
 If your app uses native code, then complete the steps that are outlined in the

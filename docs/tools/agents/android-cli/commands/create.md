@@ -4,7 +4,8 @@ url: https://developer.android.com/tools/agents/android-cli/commands/create
 source: md.txt
 ---
 
-Creates a new Android project from available templates. You can specify the project name, output directory, `minSdk` value, and dry-run execution.
+Creates a new Android project from available templates. You can specify the
+project name, output directory, `minSdk` value, and dry-run execution.
 
 ## Usage
 
@@ -33,9 +34,12 @@ Creates a new Android project from available templates. You can specify the proj
 
 ## Description
 
-`android create` scaffolds a new Android project from an official project template.
+`android create` scaffolds a new Android project from an official project
+template.
 
-By default, if `<template-name>` is omitted, the default empty Compose activity template is used. Pass `--list` to inspect all available project templates before creating a project.
+By default, if `<template-name>` is omitted, the default empty Compose activity
+template is used. Pass `--list` to inspect all available project templates
+before creating a project.
 
 ### Configure project options
 
@@ -48,7 +52,8 @@ By default, if `<template-name>` is omitted, the default empty Compose activity 
 
 ### List templates (`--list`)
 
-Run `android create --list` to print all available templates and their descriptions without creating a project.
+Run `android create --list` to print all available templates and their
+descriptions without creating a project.
 
 ### Examples
 

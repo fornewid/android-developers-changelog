@@ -151,11 +151,12 @@ API, you can issue full refunds for any order within three years of purchase.
 The `orders.refund` method receives a revoke parameter indicating whether or not
 access should be revoked in addition to providing the refund.
 
-If you issue a revocation with the refund call for subscription purchase, the
-subscription is immediately terminated and it triggers a`SUBSCRIPTION_REVOKED`
-Real Time Developer Notification. Read the subscription lifecycle management
-guide [Revocations section](https://developer.android.com/google/play/billing/lifecycle/subscriptions#revoke)
-to learn how to handle these events.
+If you issue a revocation with the refund call for a subscription purchase, the
+subscription is immediately terminated and it triggers both a
+`SUBSCRIPTION_REVOKED` Real Time Developer Notification and a
+`VoidedPurchaseNotification` (recorded in the [Voided Purchases API](https://developers.google.com/android-publisher/voided-purchases)). Read
+the subscription lifecycle management guide [Revocations section](https://developer.android.com/google/play/billing/lifecycle/subscriptions#revoke) to learn
+how to handle these events.
 
 Example:
 
@@ -178,8 +179,9 @@ refunds and prorated refunds through the [`subscriptionsv2.revoke`](https://deve
 API. With this endpoint, you can specify [`revocationContext`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke#revocationcontext)
 to determine how the refund is calculated.
 
-Taking this action triggers a `SUBSCRIPTION_REVOKED` Real Time Developer
-Notification. Your app should handle these cancellations as described in
+Taking this action triggers both a `SUBSCRIPTION_REVOKED` Real Time Developer
+Notification and a `VoidedPurchaseNotification`, and is recorded in the [Voided
+Purchases API](https://developers.google.com/android-publisher/voided-purchases). Your app should handle these cancellations as described in
 [Revocations](https://developer.android.com/google/play/billing/lifecycle/subscriptions#revoke).
 
 Example:

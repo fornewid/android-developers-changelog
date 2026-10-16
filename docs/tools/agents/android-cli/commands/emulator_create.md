@@ -27,11 +27,14 @@ Creates a virtual device.
 
 ## Description
 
-`android emulator create` creates a new Android Virtual Device (AVD) configured for the specified device profile. If `<profile>` is omitted, the default `medium_phone` profile is created.
+`android emulator create` creates a new Android Virtual Device (AVD) configured
+for the specified device profile. If `<profile>` is omitted, the default
+`medium_phone` profile is created.
 
 ### List device profiles (`--list-profiles`)
 
-Pass `--list-profiles` to display all supported hardware profiles (such as phones, tablets, and desktops) without creating an AVD.
+Pass `--list-profiles` to display all supported hardware profiles (such as
+phones, tablets, and desktops) without creating an AVD.
 
 ### Examples
 

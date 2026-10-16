@@ -1,19 +1,8 @@
 ---
-title: App architecture  |  Android Developers
+title: https://developer.android.com/guide/navigation/navigation-3/recipes/results-serializable
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/results-serializable
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-
 
 # Returning a Result (Serializable State-Based)
 
@@ -23,11 +12,11 @@ This recipe demonstrates how to return a result from one screen to a previous sc
 
 This example builds on top of `ResultEventBus` and introduces a custom extension function `conflateAsSerializableState`.
 
-1. **ResultEventBusNavEntryDecorator**: A `NavEntryDecorator` that provides a `ResultEventBus` via `LocalResultEventBus`.
-2. **`ResultEventBus`**: A `ResultEventBus` is created and made available to the composables via `LocalResultEventBus`. This EventBus sends and receives the results.
-3. **`conflateAsSerializableState`**: A custom extension function on `ResultEventBus` that uses `rememberSerializable` to create a state container, and `ResultEffect` to listen for new results and persist them.
-4. **Sending the result**: The screen that produces the result calls `resultBus.sendResult(person)` to send the data back.
-5. **Observing the result**: The screen that needs the result calls `LocalResultEventBus.current.conflateAsSerializableState<Person?>(null)` to get a `State` object. The UI observes this state and recomposes whenever the result changes.
+1. **ResultEventBusNavEntryDecorator** : A `NavEntryDecorator` that provides a `ResultEventBus` via `LocalResultEventBus`.
+2. **`ResultEventBus`** : A `ResultEventBus` is created and made available to the composables via `LocalResultEventBus`. This EventBus sends and receives the results.
+3. **`conflateAsSerializableState`** : A custom extension function on `ResultEventBus` that uses `rememberSerializable` to create a state container, and `ResultEffect` to listen for new results and persist them.
+4. **Sending the result** : The screen that produces the result calls `resultBus.sendResult(person)` to send the data back.
+5. **Observing the result** : The screen that needs the result calls `LocalResultEventBus.current.conflateAsSerializableState<Person?>(null)` to get a `State` object. The UI observes this state and recomposes whenever the result changes.
 
 This approach is suitable when the result needs to survive configuration changes and process death, whereas the standard `conflateAsState` does not.
 
@@ -37,38 +26,26 @@ The standard `rememberSerializable` function has a generic upper-bound constrain
 
 To support nullable types (such as `Person?`), `conflateAsSerializableState` circumvents this restriction by internally wrapping the value in a generic `@Serializable` class, `NullableWrapper`:
 
-```
-@Serializable
-private data class NullableWrapper<T>(val value: T)
-```
+    @Serializable
+    private data class NullableWrapper<T>(val value: T)
 
 ### Serialization of Custom Types
 
 Because this approach uses `rememberSerializable` from the `androidx.compose.runtime.saveable` package, any custom class used as a result (like `Person`) must be marked with Kotlin Serialization's `@Serializable` annotation:
 
-```
-@Serializable
-data class Person(val name: String, val favoriteColor: String)
-```
+    @Serializable
+    data class Person(val name: String, val favoriteColor: String)
 
 The `conflateAsSerializableState` extension function automatically retrieves the appropriate `KSerializer` via the `serializer<T>()` helper when using the reified version:
 
-```
-@Composable
-inline fun <reified T> ResultEventBus.conflateAsSerializableState(
-    defaultValue: T,
-    vararg inputs: Any?,
-    configuration: SavedStateConfiguration = SavedStateConfiguration.DEFAULT,
-): State<T>
-```
+    @Composable
+    inline fun <reified T> ResultEventBus.conflateAsSerializableState(
+        defaultValue: T,
+        vararg inputs: Any?,
+        configuration: SavedStateConfiguration = SavedStateConfiguration.DEFAULT,
+    ): State<T>
 
-[![](/static/images/picto-icons/code.svg)
-
-Explore
-
-View the full recipe on GitHub.
-
-arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/results/serializable)
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/results/serializable)
 
 ```
 /*
@@ -97,8 +74,6 @@ import androidx.lifecycle.ViewModel
 class HomeViewModel : ViewModel() {
     var person by mutableStateOf<Person?>(null)
 }
-
-HomeViewModel.kt
 ```
 
 ```
@@ -128,10 +103,6 @@ data object Home : NavKey
 
 @Serializable
 class PersonDetailsForm : NavKey
-
-NavKeys
-
-.kt
 ```
 
 ```
@@ -157,8 +128,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Person(val name: String, val favoriteColor: String)
-
-Person.kt
 ```
 
 ```
@@ -244,8 +213,6 @@ fun PersonDetailsScreen(
         }
     }
 }
-
-ScreenContent.kt
 ```
 
 ```
@@ -354,8 +321,6 @@ inline fun <reified T> ResultEventBus.conflateAsSerializableState(
     stateSerializer = serializer<T>(),
     configuration = configuration,
 )
-
-Extensions.kt
 ```
 
 ```
@@ -439,6 +404,4 @@ class ResultSerializableActivity : ComponentActivity() {
         }
     }
 }
-
-ResultSerializableActivity.kt
 ```

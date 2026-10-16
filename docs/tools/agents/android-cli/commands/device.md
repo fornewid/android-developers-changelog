@@ -28,4 +28,6 @@ Manage physical Android devices. Create remote physical device reservations.
 
 The `android device` command set manages remote physical Android devices.
 
-Use the [`android device remote`](https://developer.android.com/tools/agents/android-cli/commands/device_remote) commands to reserve physical devices hosted in Google data centers and connect to them through `adb` as if they were attached to your machine.
+Use the [`android device remote`](https://developer.android.com/tools/agents/android-cli/commands/device_remote) commands to reserve physical
+devices hosted in Google data centers and connect to them through `adb` as if
+they were attached to your machine.

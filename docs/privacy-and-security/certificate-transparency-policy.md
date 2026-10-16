@@ -1,19 +1,8 @@
 ---
-title: Android Certificate Transparency Policy  |  Security  |  Android Developers
+title: https://developer.android.com/privacy-and-security/certificate-transparency-policy
 url: https://developer.android.com/privacy-and-security/certificate-transparency-policy
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Guides](https://developer.android.com/privacy-and-security/security-tips)
-
-# Android Certificate Transparency Policy Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 *Please direct any questions about this Policy to the CT Policy forum:
 [ct-policy@chromium.org](https://groups.google.com/a/chromium.org/forum/#!forum/ct-policy)*
@@ -34,12 +23,12 @@ CT Compliance in Android is determined by evaluating SCTs from CT logs and
 ensuring that these logs are in the correct state(s) at time of check.
 The set of possible states a CT log can be in is:
 
-* `Pending`
-* `Qualified`
-* `Usable`
-* `ReadOnly`
-* `Retired`
-* `Rejected`
+- `Pending`
+- `Qualified`
+- `Usable`
+- `ReadOnly`
+- `Retired`
+- `Rejected`
 
 In order to assist with understanding the requirements for CT compliance in
 Android, the definition of these states, the requirements of Logs in each state,
@@ -71,9 +60,9 @@ achieved by meeting one of the following criteria:
 3. Among the SCTs satisfying requirement 2, at least two SCTs must be issued from distinct CT Log Operators as recognized by Android; and
 
 | Certificate Lifetime | Number of SCTs from distinct CT Logs |
-| --- | --- |
-| <= 180 days | 2 |
-| > 180 days | 3 |
+|---|---|
+| \<= 180 days | 2 |
+| \> 180 days | 3 |
 
 **SCTs delivered via OCSP or TLS:**
 
@@ -82,7 +71,7 @@ achieved by meeting one of the following criteria:
 
 For both embedded SCTs and those delivered using OCSP or TLS, Log Operator
 uniqueness is defined as having separate entries within the operators section
-of the [log list](#log-list).
+of the [log list](https://developer.android.com/privacy-and-security/certificate-transparency-policy#log-list).
 
 In the rare situation that a CT Log changes operators during its lifetime,
 CT logs optionally contain an list of `previous_operators`, accompanied by the
@@ -130,7 +119,7 @@ becoming `Qualified`.
 
 ## Android log list
 
-The Android log list is published in [log\_list.json](https://www.gstatic.com/android/certificate_transparency/v3/log_list.json), which is updated daily.
+The Android log list is published in [log_list.json](https://www.gstatic.com/android/certificate_transparency/v3/log_list.json), which is updated daily.
 This log list is offered without a stable API, SLA or availability
 guarantees.
 
@@ -139,14 +128,13 @@ submitters (such as certification authorities) and CT monitors and auditors
 wishing to remain compatible with, or investigate the contents of, the CT and
 WebPKI ecosystems.
 
-**Caution:** The Android CT log list may not be used to facilitate CT enforcement in
-TLS clients other than the Android platform itself without explicit written
-permission from the Android CT team.
+> [!CAUTION]
+> **Caution:** The Android CT log list may not be used to facilitate CT enforcement in TLS clients other than the Android platform itself without explicit written permission from the Android CT team.
 
 Unauthorized reliance on the Android CT log list endangers not just your users,
 but Android users and the CT ecosystem as a whole. If you are exploring adding
 CT enforcement into your app, use a [mechanism supported by the Android
-platform](/privacy-and-security/security-config#CertificateTransparencySummary).
+platform](https://developer.android.com/privacy-and-security/security-config#CertificateTransparencySummary).
 
 Using the Android CT log list out of line with this policy is done at your own
 risk, and may result in breakage of your application or library. Android must be

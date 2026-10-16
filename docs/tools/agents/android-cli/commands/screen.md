@@ -27,7 +27,9 @@ Captures and inspects the screen of a connected Android device or emulator.
 
 ## Description
 
-The `android screen` command set captures screenshots from a connected Android device or emulator and provides computer-vision annotations so AI agents and scripts can visually target UI elements.
+The `android screen` command set captures screenshots from a connected Android
+device or emulator and provides computer-vision annotations so AI agents and
+scripts can visually target UI elements.
 
 ### Target UI elements visually
 

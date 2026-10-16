@@ -4,7 +4,8 @@ url: https://developer.android.com/tools/agents/android-cli/commands/docs
 source: md.txt
 ---
 
-Searches and fetches developer documentation from the official Android Knowledge Base.
+Searches and fetches developer documentation from the official Android Knowledge
+Base.
 
 ## Usage
 
@@ -27,7 +28,8 @@ Searches and fetches developer documentation from the official Android Knowledge
 
 ## Description
 
-The `android docs` command set provides two-step access to the official [Android Knowledge Base](https://developer.android.com/studio/gemini/access-helpful-resources) directly from your terminal:
+The `android docs` command set provides two-step access to the official [Android
+Knowledge Base](https://developer.android.com/studio/gemini/access-helpful-resources) directly from your terminal:
 
 1. Run [`android docs search`](https://developer.android.com/tools/agents/android-cli/commands/docs_search) with a natural-language query or keywords to find matching documentation articles and their `kb://` URLs.
 2. Run [`android docs fetch`](https://developer.android.com/tools/agents/android-cli/commands/docs_fetch) with a `kb://` URL returned by `search` to output the full Markdown content of the article to standard output.

@@ -4,7 +4,8 @@ url: https://developer.android.com/tools/agents/android-cli/commands/sdk
 source: md.txt
 ---
 
-Manages the Android SDK installation. Includes commands to install, update, remove, and list available and installed SDK packages.
+Manages the Android SDK installation. Includes commands to install, update,
+remove, and list available and installed SDK packages.
 
 ## Usage
 
@@ -31,11 +32,16 @@ Manages the Android SDK installation. Includes commands to install, update, remo
 
 ## Description
 
-The `android sdk` command set provides tools to inspect and manage installed and available Android SDK packages.
+The `android sdk` command set provides tools to inspect and manage installed and
+available Android SDK packages.
 
 ### Format package paths
 
-Package paths are designated using slashes (`/`) as the standard nomenclature (for example, `platforms/android-34`, `build-tools/34.0.0`, `cmdline-tools/latest`). Semicolon-delimited paths (for example, `platforms;android-34`) are also supported for backward compatibility with legacy SDK tools.
+Package paths are designated using slashes (`/`) as the standard nomenclature
+(for example, `platforms/android-34`, `build-tools/34.0.0`,
+`cmdline-tools/latest`). Semicolon-delimited paths (for example,
+`platforms;android-34`) are also supported for backward compatibility with
+legacy SDK tools.
 
 ### Select a release channel
 
@@ -45,4 +51,5 @@ Packages are published across different stability channels:
 - **Beta**: Feature-complete previews.
 - **Canary**: Bleeding-edge experimental builds.
 
-Use the `--canary` or `--beta` options with `list`, `install`, or `update` to access packages from preview channels.
+Use the `--canary` or `--beta` options with `list`, `install`, or `update` to
+access packages from preview channels.

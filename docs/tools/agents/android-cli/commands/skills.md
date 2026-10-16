@@ -4,7 +4,8 @@ url: https://developer.android.com/tools/agents/android-cli/commands/skills
 source: md.txt
 ---
 
-Manages Android CLI skills. Includes commands to install, remove, list, and search for skills by keyword.
+Manages Android CLI skills. Includes commands to install, remove, list, and
+search for skills by keyword.
 
 ## Usage
 
@@ -30,7 +31,9 @@ Manages Android CLI skills. Includes commands to install, remove, list, and sear
 
 ## Description
 
-The `android skills` command set manages [Android skills](https://developer.android.com/tools/agents/android-skills)---curated instruction packages that teach AI coding agents how to follow official Android architecture, UI, and tooling best practices.
+The `android skills` command set manages [Android
+skills](https://developer.android.com/tools/agents/android-skills)---curated instruction packages that teach AI coding agents
+how to follow official Android architecture, UI, and tooling best practices.
 
 ### Scope skills by agent or project
 

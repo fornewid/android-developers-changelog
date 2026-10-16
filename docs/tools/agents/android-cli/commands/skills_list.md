@@ -25,7 +25,8 @@ Lists installed and available skills.
 
 ## Description
 
-`android skills list` displays the available official Android skills and indicates which agents each skill is currently installed for.
+`android skills list` displays the available official Android skills and
+indicates which agents each skill is currently installed for.
 
 Pass `--agent` to list all skills currently installed for the specified agents.
 

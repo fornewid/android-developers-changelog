@@ -1,32 +1,22 @@
 ---
-title: Activity state changes  |  App architecture  |  Android Developers
+title: https://developer.android.com/guide/components/activities/state-changes
 url: https://developer.android.com/guide/components/activities/state-changes
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-# Activity state changes Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-
 Different events, some user-triggered and some system-triggered, can cause an
-[`Activity`](/reference/kotlin/android/app/Activity) to transition from one state to another. This document describes
+[`Activity`](https://developer.android.com/reference/kotlin/android/app/Activity) to transition from one state to another. This document describes
 some common cases in which such transitions happen and how to handle those
 transitions.
 
-For more information about activity states, see [The activity lifecycle](/guide/components/activities/activity-lifecycle). To
-learn about how the [`ViewModel`](/reference/kotlin/androidx/lifecycle/ViewModel) class can help you manage the activity
-lifecycle, see the [ViewModel overview](/topic/libraries/architecture/viewmodel).
+For more information about activity states, see [The activity lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle). To
+learn about how the [`ViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel) class can help you manage the activity
+lifecycle, see the [ViewModel overview](https://developer.android.com/topic/libraries/architecture/viewmodel).
 
 For most activity changes, you don't need to respond directly to callbacks in
 the activity lifecycle. Since Compose rebuilds UIs from state, you can take
 advantage of automatic recomposition by ensuring that state is stored in an
-appropriate place, such as [`rememberSaveable`](/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable) or `ViewModel`.
+appropriate place, such as [`rememberSaveable`](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/rememberSaveable.composable) or `ViewModel`.
 
 ## Configuration change occurs
 
@@ -38,16 +28,16 @@ to language settings or input device.
 When a configuration change occurs, the activity is destroyed and recreated.
 This triggers the following callbacks in the original activity instance:
 
-1. [`onPause`](/reference/kotlin/android/app/Activity#onpause)
-2. [`onStop`](/reference/kotlin/android/app/Activity#onstop)
-3. [`onDestroy`](/reference/kotlin/android/app/Activity#onDestroy())
+1. [`onPause`](https://developer.android.com/reference/kotlin/android/app/Activity#onpause)
+2. [`onStop`](https://developer.android.com/reference/kotlin/android/app/Activity#onstop)
+3. [`onDestroy`](https://developer.android.com/reference/kotlin/android/app/Activity#onDestroy())
 
 A new instance of the activity is created, and the following callbacks are
 triggered:
 
-1. [`onCreate`](/reference/kotlin/android/app/Activity#oncreate_1)
-2. [`onStart`](/reference/kotlin/android/app/Activity#onstart)
-3. [`onResume`](/reference/kotlin/android/app/Activity#onresume)
+1. [`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity#oncreate_1)
+2. [`onStart`](https://developer.android.com/reference/kotlin/android/app/Activity#onstart)
+3. [`onResume`](https://developer.android.com/reference/kotlin/android/app/Activity#onresume)
 
 In Compose, it's not typical to interact with these callbacks directly. Instead,
 use the Lifecycle API to observe state changes. In Compose, you can use
@@ -61,14 +51,14 @@ use cases for your app, and consideration of the speed of retrieval versus
 memory usage. For most use cases, you should hoist state into a `ViewModel` and
 use `rememberSaveable` to ensure state persists through both configuration
 changes and system-initiated process death. For more information about saving
-your activity UI state, see [Save UI states](/topic/libraries/architecture/saving-states).
+your activity UI state, see [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states).
 
 When an activity is recreated due to a configuration change, the initial
 composition is disposed of. Using `ViewModel` or `rememberSaveable` ensures your
 UI state is restored in the new composition.
 
-For more information, see [Lifecycle in Jetpack Compose](/topic/libraries/architecture/lifecycle) and [State and
-Jetpack Compose](/develop/ui/compose/state).
+For more information, see [Lifecycle in Jetpack Compose](https://developer.android.com/topic/libraries/architecture/lifecycle) and [State and
+Jetpack Compose](https://developer.android.com/develop/ui/compose/state).
 
 ### Handle multi-window cases
 
@@ -81,59 +71,58 @@ Your activity can handle the configuration change itself, or it can allow the
 system to destroy the activity and recreate it with the new dimensions.
 
 For more information about the multi-window lifecycle, see the explanation of
-the [multi-window lifecycle](/guide/topics/ui/multi-window#lifecycle) in [Support multi-window mode](/guide/topics/ui/multi-window).
+the [multi-window lifecycle](https://developer.android.com/guide/topics/ui/multi-window#lifecycle) in [Support multi-window mode](https://developer.android.com/guide/topics/ui/multi-window).
 
 In multi-window mode, although there are two apps that are visible to the user,
 only the one the user is interacting with is in the foreground and has focus.
 That activity is in the Resumed state, while the app in the other window is in
 the Paused state.
 
-When the user switches from app A to app B, the system calls [`onPause`](/reference/kotlin/android/app/Activity#onpause) on
-app A and [`onResume`](/reference/kotlin/android/app/Activity#onresume) on app B. It switches between these two methods
+When the user switches from app A to app B, the system calls [`onPause`](https://developer.android.com/reference/kotlin/android/app/Activity#onpause) on
+app A and [`onResume`](https://developer.android.com/reference/kotlin/android/app/Activity#onresume) on app B. It switches between these two methods
 each time the user toggles between apps.
 
 For more details about multi-window mode, refer to
-[Support multi-window mode](/guide/topics/ui/multi-window).
+[Support multi-window mode](https://developer.android.com/guide/topics/ui/multi-window).
 
 ## Activity or dialog appears in foreground
 
 If a new activity or dialog appears in the foreground, taking focus and
 partially covering the activity in progress, the covered activity loses focus
-and enters the Paused state. Then, the system calls [`onPause`](/reference/kotlin/android/app/Activity#onpause) on it.
+and enters the Paused state. Then, the system calls [`onPause`](https://developer.android.com/reference/kotlin/android/app/Activity#onpause) on it.
 
 When the covered activity returns to the foreground and regains focus, the
-system calls [`onResume`](/reference/kotlin/android/app/Activity#onresume).
+system calls [`onResume`](https://developer.android.com/reference/kotlin/android/app/Activity#onresume).
 
 If a new activity or dialog appears in the foreground, taking focus and
 completely covering the activity in progress, the covered activity loses focus
 and enters the Stopped state. The system then, in rapid succession, calls
-`onPause` and [`onStop`](/reference/kotlin/android/app/Activity#onstop).
+`onPause` and [`onStop`](https://developer.android.com/reference/kotlin/android/app/Activity#onstop).
 
 When the same instance of the covered activity returns to the foreground, the
-system calls [`onRestart`](/reference/kotlin/android/app/Activity#onrestart), [`onStart`](/reference/kotlin/android/app/Activity#onstart), and `onResume` on the
+system calls [`onRestart`](https://developer.android.com/reference/kotlin/android/app/Activity#onrestart), [`onStart`](https://developer.android.com/reference/kotlin/android/app/Activity#onstart), and `onResume` on the
 activity. If it is a new instance of the covered activity that comes to the
 background, the system does not call `onRestart`, only `onStart` and
 `onResume`.
 
-**Note:** When the user taps the Overview or Home button, the system behaves as if
-the current activity has been completely covered.
+> [!NOTE]
+> **Note:** When the user taps the Overview or Home button, the system behaves as if the current activity has been completely covered.
 
 Recomposition is not affected by dialogs appearing in the foreground. However,
 side effects tied to lifecycle, such as flows and animations, should use
-lifecycle-aware APIs (such as [`collectAsStateWithLifecycle`](/reference/kotlin/androidx/lifecycle/compose/collectAsStateWithLifecycle.composable)) to
+lifecycle-aware APIs (such as [`collectAsStateWithLifecycle`](https://developer.android.com/reference/kotlin/androidx/lifecycle/compose/collectAsStateWithLifecycle.composable)) to
 automatically pause and resume work as needed. For more information, see [State
-and Jetpack Compose](/develop/ui/compose/state).
+and Jetpack Compose](https://developer.android.com/develop/ui/compose/state).
 
 ## User taps or gestures Back
 
 If an activity is in the foreground and the user taps or gestures Back, the
-activity transitions through the [`onPause`](/reference/kotlin/android/app/Activity#onpause), [`onStop`](/reference/kotlin/android/app/Activity#onstop), and
-[`onDestroy`](/reference/kotlin/android/app/Activity#onDestroy()) callbacks. The activity is destroyed and removed from the
+activity transitions through the [`onPause`](https://developer.android.com/reference/kotlin/android/app/Activity#onpause), [`onStop`](https://developer.android.com/reference/kotlin/android/app/Activity#onstop), and
+[`onDestroy`](https://developer.android.com/reference/kotlin/android/app/Activity#onDestroy()) callbacks. The activity is destroyed and removed from the
 back stack.
 
-**Note:** If the activity is a root launcher activity, the system handles the event
-differently depending on the version of Android that the device is running. For
-more information, see [Back tap behavior for root launcher activities](/guide/components/activities/tasks-and-back-stack#back-press-behavior).
+> [!NOTE]
+> **Note:** If the activity is a root launcher activity, the system handles the event differently depending on the version of Android that the device is running. For more information, see [Back tap behavior for root launcher activities](https://developer.android.com/guide/components/activities/tasks-and-back-stack#back-press-behavior).
 
 In a single-activity app, like most Compose apps, `rememberSaveable` won't
 maintain state if the composable is removed from the navigation backstack. This
@@ -144,9 +133,8 @@ To implement custom Back behavior, such as displaying a dialog that asks the
 user to confirm that they want to exit your app, use the
 `NavigationEventHandler` API.
 
-**Note:** In Compose apps, back navigation is typically managed by the built-in
-navigation framework. For more information about custom navigation event
-handling, see [Navigation Events](/guide/navigation/navigation-event).
+> [!NOTE]
+> **Note:** In Compose apps, back navigation is typically managed by the built-in navigation framework. For more information about custom navigation event handling, see [Navigation Events](https://developer.android.com/guide/navigation/navigation-event).
 
 ## System kills app process
 
@@ -155,8 +143,8 @@ foreground app, the system can kill the background app. When the system kills an
 app, there is no guarantee that `onDestroy` is called in the app.
 
 To learn more about how the system decides which processes to destroy, read
-[Activity state and ejection from memory](/guide/components/activities/activity-lifecycle#asem) and [Processes and app
-lifecycle](/guide/components/activities/process-lifecycle).
+[Activity state and ejection from memory](https://developer.android.com/guide/components/activities/activity-lifecycle#asem) and [Processes and app
+lifecycle](https://developer.android.com/guide/components/activities/process-lifecycle).
 
 To learn how to save your activity UI state when the system kills your app
-process, see [Saving and restoring transient UI state](/guide/components/activities/activity-lifecycle#saras).
+process, see [Saving and restoring transient UI state](https://developer.android.com/guide/components/activities/activity-lifecycle#saras).

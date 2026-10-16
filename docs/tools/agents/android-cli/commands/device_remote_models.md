@@ -26,9 +26,13 @@ Lists available remote device models.
 
 ## Description
 
-`android device remote models` lists the physical devices that you can reserve, grouped by manufacturer and model. Each model shows the builds that are available as `<codename>/<api>`, which is the value that you pass to `android device remote create`.
+`android device remote models` lists the physical devices that you can reserve,
+grouped by manufacturer and model. Each model shows the builds that are
+available as `<codename>/<api>`, which is the value that you pass to
+`android device remote create`.
 
-`--project` is optional. When it's set, the list shows the devices available to that project.
+`--project` is optional. When it's set, the list shows the devices available to
+that project.
 
 ### Examples
 

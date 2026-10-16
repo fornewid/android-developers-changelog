@@ -22,13 +22,16 @@ Checks the status of running Android Studio instances.
 
 ## Description
 
-`android studio check` verifies the connection between Android CLI and any running Android Studio instances, listing each instance's process ID (`pid`), IDE version, and open projects.
+`android studio check` verifies the connection between Android CLI and any
+running Android Studio instances, listing each instance's process ID (`pid`),
+IDE version, and open projects.
 
 Requires Android Studio Quail 2 or higher.
 
 ### Understand the output
 
-When connected to a running instance, `android studio check` outputs the process ID, IDE version, and project readiness status:
+When connected to a running instance, `android studio check` outputs the process
+ID, IDE version, and project readiness status:
 
     pid: 32942
     version: Android Studio Quail

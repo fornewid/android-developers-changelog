@@ -1,21 +1,8 @@
 ---
-title: Migration overview  |  Android game development  |  Android Developers
+title: https://developer.android.com/games/pgs/migration_overview
 url: https://developer.android.com/games/pgs/migration_overview
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Games dev center](https://developer.android.com/games)
-* [Guides](https://developer.android.com/games/guides)
-
-Send feedback
-
-# Migration overview Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 Google Play Games Services, games v1 SDK relies on Google Sign-In for Android which is
 deprecated and will be removed from the [Google Play services Auth
@@ -55,68 +42,45 @@ interacting with a separate third-party system.
 ### games v2 (Current)
 
 [![Interaction between a Games Application on
-    Android, GMS Core, Play Games Services,
-    and a third-party (3P) games server.](/static/images/games/pgs/gamesv2.png)](/static/images/games/pgs/gamesv2.png)
-
-
-Interaction between a Games Application on
 Android, GMS Core, Play Games Services,
-and a third-party (3P) game server. (click to enlarge).
+and a third-party (3P) games server.](https://developer.android.com/static/images/games/pgs/gamesv2.png)](https://developer.android.com/static/images/games/pgs/gamesv2.png) Interaction between a Games Application on Android, GMS Core, Play Games Services, and a third-party (3P) game server. (click to enlarge).
 
 ### games v1 (Legacy)
 
 [![Interaction between a Games Application on
-    Android, GMS Core, Play Games Services,
-    and a third-party (3P) games server.](/static/images/games/pgs/gamesv1.png)](/static/images/games/pgs/gamesv1.png)
-
-
-Interaction between a Games Application on
 Android, GMS Core, Play Games Services,
-and a third-party (3P) games server. (click to enlarge).
+and a third-party (3P) games server.](https://developer.android.com/static/images/games/pgs/gamesv1.png)](https://developer.android.com/static/images/games/pgs/gamesv1.png) Interaction between a Games Application on Android, GMS Core, Play Games Services, and a third-party (3P) games server. (click to enlarge).
 
 The following is a brief overview of the components and SDKs:
 
-* **Games Application.**
-  + This represents the user's game application running on an Android-powered
-    device.
-  + It contains two primary components:
-    - **games v1 or games v2 SDK.** The client-side
-      SDK responsible for interacting with Play Games Services.
-    - **Auth SDK.** Google Play services Auth SDK is responsible for handling
-      user authentication and authorization flows in games v1.
-  + Both SDKs communicate using AIDL (Android Interface Definition Language),
-    indicating a communication pattern between different processes or services.
-* **GMS Core also called as Google Play Services.**
-  + This is the Google-proprietary layer on Android.
-  + The games application uses two GMS Core modules:
-    - **Games Module.** provides game-specific
-      features, such as leaderboards, achievements, and game state management.
-    - **Auth Module.** Handles user authentication and
-      authorization operations.
-  + The Games and Auth SDKs in the games application communicate with the
-    corresponding modules using
-    [AIDL](/develop/background-work/services/aidl)
-    interfaces, indicating inter-process communication (IPC).
+- **Games Application.**
+  - This represents the user's game application running on an Android-powered device.
+  - It contains two primary components:
+    - **games v1 or games v2 SDK.** The client-side SDK responsible for interacting with Play Games Services.
+    - **Auth SDK.** Google Play services Auth SDK is responsible for handling user authentication and authorization flows in games v1.
+  - Both SDKs communicate using AIDL (Android Interface Definition Language), indicating a communication pattern between different processes or services.
+- **GMS Core also called as Google Play Services.**
+  - This is the Google-proprietary layer on Android.
+  - The games application uses two GMS Core modules:
+    - **Games Module.** provides game-specific features, such as leaderboards, achievements, and game state management.
+    - **Auth Module.** Handles user authentication and authorization operations.
+  - The Games and Auth SDKs in the games application communicate with the corresponding modules using [AIDL](https://developer.android.com/develop/background-work/services/aidl) interfaces, indicating inter-process communication (IPC).
 
-  * **Play Games Services gateway.**
-    + A logical gateway that mediates communication between the GMS Core and
-      the Play Games Services server.
-    + Handles API requests, data transformation, and authentication for the server
-      communication.
-  * **Play Games Services server.**
-    + Represents Play Games Services backend services responsible for storing game data,
-      managing user accounts, and facilitating multiplayer features.
-  * **Third-party games gateway.**
-    + If your games application qualifies as a third-party (3P) application,
-      the client library communicates with the Play Games Services servers through the
-      third-party games servers.
-    + Implies that the application can also authenticate with a different service
-      provider.
-  * **Third-party games server.**
-    + Represents an optional external server the games application can
-      interact with, likely for custom features or data management.
-    + Communication with the application occurs through the third-party games
-      gateway.
+  <br />
+
+- **Play Games Services gateway.**
+  - A logical gateway that mediates communication between the GMS Core and the Play Games Services server.
+  - Handles API requests, data transformation, and authentication for the server communication.
+- **Play Games Services server.**
+  - Represents Play Games Services backend services responsible for storing game data, managing user accounts, and facilitating multiplayer features.
+- **Third-party games gateway.**
+  - If your games application qualifies as a third-party (3P) application, the client library communicates with the Play Games Services servers through the third-party games servers.
+  - Implies that the application can also authenticate with a different service provider.
+- **Third-party games server.**
+  - Represents an optional external server the games application can interact with, likely for custom features or data management.
+  - Communication with the application occurs through the third-party games gateway.
+
+<br />
 
 ## Why migrate your title to Play Games Services v2
 
@@ -142,8 +106,8 @@ deprecation timeline.
 In Play Games Services v2, the concept of "logging in" is decoupled into two
 distinct layers:
 
-* **Platform identity.** SDK handles platform authentication.
-* **In-game identity.**
+- **Platform identity.** SDK handles platform authentication.
+- **In-game identity.**
 
 ### Platform authentication
 
@@ -152,17 +116,9 @@ the player's relationship with the Google Play Games ecosystem (Achievements,
 Leaderboards, and Events) rather than with authenticating into a specific game
 account or inventory.
 
-* **Silent & Automatic:** Authentication happens automatically in the
-  background when the game launches. There is no manual "Sign in" button
-  required for Play Games Services itself.
-* **The Player ID:** Upon successful platform authentication,
-  Play Games Services provides a stable **Player ID**. This ID is consistent
-  across devices for the same game but should be used primarily to track
-  platform stats (like Achievement progress).
-* **Decoupled:** Play Games Services v2 must **not** be used as your game's
-  primary identity system for managing player's in-game account with their
-  game progress or inventory. Play Games Services v2 acts strictly as a
-  secondary, persistent platform identifier.
+- **Silent \& Automatic:** Authentication happens automatically in the background when the game launches. There is no manual "Sign in" button required for Play Games Services itself.
+- **The Player ID:** Upon successful platform authentication, Play Games Services provides a stable **Player ID**. This ID is consistent across devices for the same game but should be used primarily to track platform stats (like Achievement progress).
+- **Decoupled:** Play Games Services v2 must **not** be used as your game's primary identity system for managing player's in-game account with their game progress or inventory. Play Games Services v2 acts strictly as a secondary, persistent platform identifier.
 
 ### In-game authentication
 
@@ -170,20 +126,9 @@ Developers are responsible for managing the "In-Game Account" (IGA). This is the
 identity system that binds a player's progress, inventory, and currency within
 your game.
 
-* **Primary Identity:** You may use your own backend, Sign in with Google
-  (SiWG), or other providers as the primary login method.
-* **Independence:** A player can be signed into Play Games Services (Platform
-  Identity) to earn achievements while being logged into any specific In-Game
-  Account. For example, a guest account, or a specific SiWG account.
-* **Management of Multiple In-Game Accounts:** Play Games Services is
-  responsible for only the platform authentication with your game managing the
-  primary authentication of players into their in-game accounts (IGAs). This
-  means that there would be no change to your game's existing flows about how
-  players switch between their in-game accounts. While the players do so, they
-  would still remain authenticated to the Play Games platform using
-  Play Games Services and you would continue sending their data related to
-  achievements and other Play Games Services features against the persistent
-  Player ID.
+- **Primary Identity:** You may use your own backend, Sign in with Google (SiWG), or other providers as the primary login method.
+- **Independence:** A player can be signed into Play Games Services (Platform Identity) to earn achievements while being logged into any specific In-Game Account. For example, a guest account, or a specific SiWG account.
+- **Management of Multiple In-Game Accounts:** Play Games Services is responsible for only the platform authentication with your game managing the primary authentication of players into their in-game accounts (IGAs). This means that there would be no change to your game's existing flows about how players switch between their in-game accounts. While the players do so, they would still remain authenticated to the Play Games platform using Play Games Services and you would continue sending their data related to achievements and other Play Games Services features against the persistent Player ID.
 
 ## Migration requirement: Bind in-game accounts with Google Open ID instead of Play Games Services Player ID
 
@@ -215,11 +160,8 @@ within your system.
 However, the IGA could *still* be linked to the `Player ID` as a secondary
 binding. This secondary link serves two critical functions:
 
-1. It allows the game to continue tracking and updating progress for Play Games
-   features (achievements, etc.) associated with that specific player.
-2. It enables the "Seamless Restore" functionality, allowing the game to
-   automatically log a player into their most recently used IGA only on a new
-   device or after a reinstall.
+1. It allows the game to continue tracking and updating progress for Play Games features (achievements, etc.) associated with that specific player.
+2. It enables the "Seamless Restore" functionality, allowing the game to automatically log a player into their most recently used IGA only on a new device or after a reinstall.
 
 Understanding this decoupled identity model is the key to unlocking the correct
 technical migration path for your game.
@@ -230,19 +172,12 @@ This table gives you a feature comparison between the games v1 and games v2
 SDKs:
 
 | **Feature** | **games v1 SDK** | **games v2 SDK** |
-| --- | --- | --- |
+|---|---|---|
 | Authentication | Integration with `play-services-auth` required. | Simplified and streamlined; no `play-services-auth` required. |
 | Authorization | Additional code for success, failures, and retries. | Managed by the SDK |
-| Server Access Token | Can request additional [OAuth 2.0 scopes](https://developers.google.com/identity/protocols/oauth2/scopes#oauth2) with `GoogleSigninClient`.    Additional code for error handling during authentication. | Can request three basic OAuth 2.0 identity scopes with `GamesSignInClient` when requesting server-side access to Play Games Services web APIs. For more information, see [Server-side access to Play Games Services](/games/pgs/android/server-access) and [Retrieve server authentication codes](/games/pgs/unity/unity-start#retrieve-auth-codes). |
-| Sign-in process | Uses `GoogleSigninClient`.    Additional code for handling of boilerplate code for automatic authentication and error handling. | Uses `GamesSignInClient`.    SDK handles boilerplate code, automatic authentication, and error handling. The "signing in" is separated into two distinct layers:  * Platform authentication: handled by the Play Games Services v2 SDK. * In-game authentication: handled by the game. |
-| Welcome Popup | Additional code required.  Developers can control its placement and timing. | No Additional code required. Consistent user interface across all games configured with games v2 SDK. |
+| Server Access Token | Can request additional [OAuth 2.0 scopes](https://developers.google.com/identity/protocols/oauth2/scopes#oauth2) with `GoogleSigninClient`. <br /> Additional code for error handling during authentication. | Can request three basic OAuth 2.0 identity scopes with `GamesSignInClient` when requesting server-side access to Play Games Services web APIs. For more information, see [Server-side access to Play Games Services](https://developer.android.com/games/pgs/android/server-access) and [Retrieve server authentication codes](https://developer.android.com/games/pgs/unity/unity-start#retrieve-auth-codes). |
+| Sign-in process | Uses `GoogleSigninClient`. <br /> Additional code for handling of boilerplate code for automatic authentication and error handling. | Uses `GamesSignInClient`. <br /> SDK handles boilerplate code, automatic authentication, and error handling. The "signing in" is separated into two distinct layers: - Platform authentication: handled by the Play Games Services v2 SDK. - In-game authentication: handled by the game. |
+| Welcome Popup | Additional code required. Developers can control its placement and timing. | No Additional code required. Consistent user interface across all games configured with games v2 SDK. |
 | Dependencies | Requires `play-services-auth`. | The Games module takes care of authorization and authentication. You need not add any additional dependencies. |
 | Sign-out | Uses `GoogleSignInClient.signOut`. | Sign-out API is not required because Play Games Services v2 is a persistent platform identity. |
 | Multiple Play Games Services accounts and per-game settings | Account management is possible within your game. | Users can change the Play Games Services profile in the mobile device settings. For more information, see [how to switch Play Games profiles on mobile](https://support.google.com/googleplay/answer/14754238). |
-
-
-
-
-
-
-Send feedback

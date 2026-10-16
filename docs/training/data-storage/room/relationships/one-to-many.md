@@ -1,19 +1,8 @@
 ---
-title: Define and query one-to-many relationships  |  App data and files  |  Android Developers
+title: https://developer.android.com/training/data-storage/room/relationships/one-to-many
 url: https://developer.android.com/training/data-storage/room/relationships/one-to-many
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Core areas](https://developer.android.com/develop/core-areas)
-* [App data and files](https://developer.android.com/training/data-storage)
-
-# Define and query one-to-many relationships Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 A *one-to-many relationship* between two entities is a relationship where each
 instance of the parent entity corresponds to zero or more instances of the child
@@ -28,10 +17,8 @@ relationship between the `User` entity and the `Playlist` entity.
 Follow these steps to define and query one-to-many relationships in your
 database:
 
-1. **[Define the relationship](#define)**: Create classes for both entities,
-   with the child entity referencing the parent's primary key.
-2. **[Query the entities](#query)**: Model the relationship in a new data class
-   and implement a function to retrieve the related data.
+1. **[Define the relationship](https://developer.android.com/training/data-storage/room/relationships/one-to-many#define)**: Create classes for both entities, with the child entity referencing the parent's primary key.
+2. **[Query the entities](https://developer.android.com/training/data-storage/room/relationships/one-to-many#query)**: Model the relationship in a new data class and implement a function to retrieve the related data.
 
 ## Define the relationship
 
@@ -39,7 +26,8 @@ To define a one-to-many relationship, first create a class for each
 entity. As in a one-to-one relationship, the child entity must include a
 variable that references the primary key of the parent entity.
 
-```
+
+```kotlin
 @Entity
 data class User(
     @PrimaryKey val userId: Long,
@@ -53,9 +41,9 @@ data class Playlist(
     val userCreatorId: Long,
     val playlistName: String
 )
-
-OneToManySimpleSnippets.kt
 ```
+
+<br />
 
 ## Query the entities
 
@@ -65,12 +53,13 @@ one-to-many relationship between the two entities.
 To model the relationship, create a new data class. Each instance of this
 class holds an instance of the parent entity and a list of all corresponding
 child entity instances.
-Add the [`@Relation`](/reference/kotlin/androidx/room3/Relation) annotation to the property that represents the list
-of child entities. Set [`parentColumns`](/reference/kotlin/androidx/room3/Relation#parentColumns()) to the name of the parent entity's
-primary key column, and set [`entityColumns`](/reference/kotlin/androidx/room3/Relation#entityColumns()) to the name of the child
+Add the [`@Relation`](https://developer.android.com/reference/kotlin/androidx/room3/Relation) annotation to the property that represents the list
+of child entities. Set [`parentColumns`](https://developer.android.com/reference/kotlin/androidx/room3/Relation#parentColumns()) to the name of the parent entity's
+primary key column, and set [`entityColumns`](https://developer.android.com/reference/kotlin/androidx/room3/Relation#entityColumns()) to the name of the child
 entity's column that references the parent entity's primary key.
 
-```
+
+```kotlin
 data class UserWithPlaylists(
     @Embedded val user: User,
     @Relation(
@@ -79,25 +68,24 @@ data class UserWithPlaylists(
     )
     val playlists: List<Playlist>
 )
-
-OneToManySimpleSnippets.kt
 ```
+
+<br />
 
 Finally, add a function to the data access object (DAO) class that returns all
 instances of the data class pairing the parent entity and the child entity.
-Add the [`@Transaction`](/reference/kotlin/androidx/room3/Transaction) annotation so Room performs the entire operation
+Add the [`@Transaction`](https://developer.android.com/reference/kotlin/androidx/room3/Transaction) annotation so Room performs the entire operation
 atomically. This annotation is necessary because the function requires Room
 to run two queries.
 
-```
+
+```kotlin
 @Transaction
 @Query("SELECT * FROM User")
 suspend fun getUsersWithPlaylists(): List<UserWithPlaylists>
-
-OneToManySimpleSnippets
-
-.kt
 ```
+
+<br />
 
 ### Composite keys
 
@@ -105,7 +93,8 @@ If you define the relationship using composite keys, specify multiple columns in
 `parentColumns` and `entityColumns`. The order of columns in `parentColumns`
 must match the order of columns in `entityColumns`.
 
-```
+
+```kotlin
 @Entity(primaryKeys = ["firstName", "lastName"])
 data class User(
     val firstName: String,
@@ -129,6 +118,6 @@ data class UserWithPlaylists(
     )
     val playlists: List<Playlist>
 )
-
-OneToManyCompositeSnippets.kt
 ```
+
+<br />

@@ -4,7 +4,7 @@ url: https://developer.android.com/tools/agents/android-cli/commands/run
 source: md.txt
 ---
 
-Builds, deploys, and launches an Android app on a connected device or emulator.
+Deploys and launches an Android app on a connected device or emulator.
 
 ## Usage
 
@@ -29,14 +29,16 @@ Builds, deploys, and launches an Android app on a connected device or emulator.
 
 ## Description
 
-`android run` deploys one or more APK files to a connected Android device or emulator and immediately launches the target app component.
+`android run` deploys one or more APK files to a connected Android device or
+emulator and immediately launches the target app component.
 
 > [!NOTE]
 > **Note:** `android run` does not compile source code; you must pass the paths to pre-built APK files using `--apks`. To locate APK output paths in an Android project, run [`android describe`](https://developer.android.com/tools/agents/android-cli/commands/describe).
 
 ### Specify what to run (`--type` and `--activity`)
 
-By default, `android run` launches the default main activity declared in the app manifest. You can override what gets started using the following options:
+By default, `android run` launches the default main activity declared in the app
+manifest. You can override what gets started using the following options:
 
 - `--activity`: Specifies the activity or component class name to launch (required if the APK declares multiple launchable activities).
 - `--type`: Specifies the [component type](https://developer.android.com/guide/topics/manifest/manifest-intro#components) to start instead of a standard UI activity. Supported values include `ACTIVITY`, `WATCH_FACE`, `TILE`, `COMPLICATION`, `DECLARATIVE_WATCH_FACE`, and `WEAR_WIDGET`.
@@ -44,7 +46,8 @@ By default, `android run` launches the default main activity declared in the app
 
 ### Examples
 
-Deploy a single debug APK and launch its main activity on the default connected device:
+Deploy a single debug APK and launch its main activity on the default connected
+device:
 
     android run --apks=app/build/outputs/apk/debug/app-debug.apk
 

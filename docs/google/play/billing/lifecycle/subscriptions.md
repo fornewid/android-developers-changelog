@@ -48,7 +48,8 @@ about the current phase of the subscription, such as free trial or introductory
 price.
 
 > [!NOTE]
-> **Note:** If you don't acknowledge a new subscription purchase within three days, the user automatically receives a refund, and Google Play revokes the purchase.
+> **Note:** If you don't acknowledge a new subscription purchase within three days, the user automatically receives a refund, and Google Play revokes the purchase. If a purchase fails your verification or fraud checks and you choose not to grant entitlement, don't wait for the acknowledgment window to expire; withhold acknowledgment and immediately revoke and refund the subscription using [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) with `"fullRefund": {}` (see [Handle
+> rejected or unfulfilled purchases](https://developer.android.com/google/play/billing/integrate#rejected-purchases)).
 
 The Play Billing Library also includes a method to acknowledge a subscription,
 [`acknowledgePurchase()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#acknowledgepurchase),

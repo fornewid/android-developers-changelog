@@ -1,19 +1,8 @@
 ---
-title: App architecture  |  Android Developers
+title: https://developer.android.com/guide/navigation/navigation-3/recipes/lifecycle-owner
 url: https://developer.android.com/guide/navigation/navigation-3/recipes/lifecycle-owner
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-
 
 # LocalLifecycleOwner Recipe
 
@@ -27,22 +16,16 @@ In Navigation 3, by default each `NavEntry` is provided its own `LifecycleOwner`
 
 1. **RouteA (Screen)**:
 
-   * Uses `LifecycleResumeEffect(Unit)` scoped to the `NavEntry`'s `LocalLifecycleOwner.current` to advance the`LinearProgressIndicator` while in the `RESUMED` state.
-   * Automatically resets `progressValue` back to `0f` whenever it hits `1f`.
+   - Uses `LifecycleResumeEffect(Unit)` scoped to the `NavEntry`'s `LocalLifecycleOwner.current` to advance the`LinearProgressIndicator` while in the `RESUMED` state.
+   - Automatically resets `progressValue` back to `0f` whenever it hits `1f`.
 2. **RouteB (Dialog)**:
 
-   * Configured as a dialog using `DialogSceneStrategy.dialog()`.
-   * When the user opens the RouteB dialog, RouteA remains visible behind the dialog in the `STARTED` state (leaving `RESUMED`).
-   * `LifecycleResumeEffect` calls `onPauseOrDispose`, pausing the progress indicator.
-   * When the dialog is dismissed, RouteA returns to `RESUMED`, and `LifecycleResumeEffect` resumes the progress indicator automatically.
+   - Configured as a dialog using `DialogSceneStrategy.dialog()`.
+   - When the user opens the RouteB dialog, RouteA remains visible behind the dialog in the `STARTED` state (leaving `RESUMED`).
+   - `LifecycleResumeEffect` calls `onPauseOrDispose`, pausing the progress indicator.
+   - When the dialog is dismissed, RouteA returns to `RESUMED`, and `LifecycleResumeEffect` resumes the progress indicator automatically.
 
-[![](/static/images/picto-icons/code.svg)
-
-Explore
-
-View the full recipe on GitHub.
-
-arrow\_forward](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/lifecycleowner)
+[![](https://developer.android.com/static/images/picto-icons/code.svg) Explore View the full recipe on GitHub.](https://github.com/android/nav3-recipes/tree/main/app/src/main/java/com/example/nav3recipes/lifecycleowner)
 
 ```
 /*
@@ -205,6 +188,4 @@ private fun LogLifecycleEffect(screenName: String) {
     }
     // Note that ON_DESTROY event is not observable from composables.
 }
-
-LifecycleOwnerActivity.kt
 ```

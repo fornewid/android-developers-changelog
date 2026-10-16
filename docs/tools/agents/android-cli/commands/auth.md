@@ -4,7 +4,7 @@ url: https://developer.android.com/tools/agents/android-cli/commands/auth
 source: md.txt
 ---
 
-Authentication commands. Log in/out of Google services for Android CLI.
+Authentication commands. Log in to and out of Google services for Android CLI.
 
 ## Usage
 
@@ -28,7 +28,9 @@ Authentication commands. Log in/out of Google services for Android CLI.
 
 ## Description
 
-The `android auth` command set signs Android CLI in to your Google account so that it can call the Google services that require authentication, such as [remote devices](https://developer.android.com/tools/agents/android-cli/commands/device_remote).
+The `android auth` command set signs Android CLI in to your Google account so
+that it can call the Google services that require authentication, such as
+[remote devices](https://developer.android.com/tools/agents/android-cli/commands/device_remote).
 
 ### Typical workflow
 

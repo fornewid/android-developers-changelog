@@ -28,7 +28,8 @@ Opens a file in Android Studio.
 
 ## Description
 
-`android studio open-file` opens the specified source or resource file directly in the active editor window of a running Android Studio instance.
+`android studio open-file` opens the specified source or resource file directly
+in the active editor window of a running Android Studio instance.
 
 Requires Android Studio Quail 2 or higher.
 

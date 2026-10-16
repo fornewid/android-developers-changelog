@@ -26,9 +26,13 @@ Shows the help information for a specified command.
 
 ## Description
 
-`android help` displays usage syntax, available options, and subcommands for Android CLI or for a specific top-level command.
+`android help` displays usage syntax, available options, and subcommands for
+Android CLI or for a specific top-level command.
 
-If `COMMAND` is omitted, `android help` prints the top-level CLI summary followed by the help summary of every available command. You can also pass `-h` or `--help` to any command or subcommand (for example, `android sdk install --help`).
+If `COMMAND` is omitted, `android help` prints the top-level CLI summary
+followed by the help summary of every available command. You can also pass `-h`
+or `--help` to any command or subcommand (for example,
+`android sdk install --help`).
 
 ### Examples
 

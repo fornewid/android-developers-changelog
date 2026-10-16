@@ -1,37 +1,23 @@
 ---
-title: Implement Restore Credentials with Credential Manager  |  Identity  |  Android Developers
+title: https://developer.android.com/identity/sign-in/restore-credentials-implementation
 url: https://developer.android.com/identity/sign-in/restore-credentials-implementation
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [Security](https://developer.android.com/security)
-* [Identity](https://developer.android.com/identity)
-* [Guides](https://developer.android.com/identity/credential-manager)
-
-# Implement Restore Credentials with Credential Manager Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 This page describes how to create, sign in with, and delete a restore key.
 
+
 ## Android skills
 
-[View on GitHub
-open\_in\_new](https://github.com/android/skills/tree/main/identity/restore-credentials)
+[View on GitHub](https://github.com/android/skills/tree/main/identity/restore-credentials)
 
 ### Restore Credentials
 
-Use an [Android skill](/tools/agents/android-skills) to implement Restore Credentials backup and restore flows using Credential Manager.
+Use an [Android skill](https://developer.android.com/tools/agents/android-skills) to implement Restore Credentials backup and restore flows using Credential Manager. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
 
-To install the skill from the [Android CLI](/tools/agents/android-cli), run:
+    android skills add restore-credentials
 
-```
-android skills add restore-credentials
-```
+<br />
 
 ## Version compatibility
 
@@ -41,15 +27,12 @@ higher, and version 1.5.0 or higher of the `androidx.credentials` library.
 
 ## Prerequisites
 
-Set up a [relying party server](/identity/credential-manager#authentication-terminology) similar to the server for [passkeys](/identity/passkeys). If
+Set up a [relying party server](https://developer.android.com/identity/credential-manager#authentication-terminology) similar to the server for [passkeys](https://developer.android.com/identity/passkeys). If
 you already have a [server](https://developers.google.com/identity/passkeys/developer-guides/server-introduction) set up to handle authentication with passkeys,
 use the same server-side implementation for restore keys.
 
-**Note:** While the server-side implementation is the same for passkeys and restore
-keys, your client-side app can support restore keys without supporting passkeys.
-Because restore keys work independently of the authentication method in your app
-(for example, passwords or Sign in with Google), you don't need to make any
-additional changes to the existing authentication methods in your app's code.
+> [!NOTE]
+> **Note:** While the server-side implementation is the same for passkeys and restore keys, your client-side app can support restore keys without supporting passkeys. Because restore keys work independently of the authentication method in your app (for example, passwords or Sign in with Google), you don't need to make any additional changes to the existing authentication methods in your app's code.
 
 ## Dependencies
 
@@ -57,7 +40,7 @@ Add the following dependencies to your app module's `build.gradle` file:
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
     implementation("androidx.credentials:credentials:1.7.0-alpha03")
     implementation("androidx.credentials:credentials-play-services-auth:1.7.0-alpha03")
@@ -66,7 +49,7 @@ dependencies {
 
 ### Groovy
 
-```
+```groovy
 dependencies {
     implementation "androidx.credentials:credentials:1.7.0-alpha03"
     implementation "androidx.credentials:credentials-play-services-auth:1.7.0-alpha03"
@@ -77,62 +60,45 @@ Restore Credentials is available from version 1.5.0 and higher of the
 androidx.credentials library. However, it's recommended to use the latest stable
 versions of the dependencies where possible.
 
-**Note:** The Restore Credentials feature works regardless of whether
-[`allowBackup`](/guide/topics/manifest/application-element#allowbackup) is set in the manifest.
+> [!NOTE]
+> **Note:** The Restore Credentials feature works regardless of whether [`allowBackup`](https://developer.android.com/guide/topics/manifest/application-element#allowbackup) is set in the manifest.
 
 ## Overview
 
-1. [**Create a restore key**](#create-restore-key): To create a restore key, complete the
-   following steps:
-   1. [**Instantiate Credential Manager**](#instantiate-credential): Create a `CredentialManager`
-      object.
-   2. [**Get credential creation options from the app server**](#get-credential): Send the
-      client app the details required to create the restore key from your app
-      server.
-   3. [**Create the restore key**](#create-restore): Create a restore key for the user's
-      account if the user is signed in to your app.
-   4. [**Handle the credential creation response**](#handle-credential): Send the credentials
-      from your client app to your app server for processing, and handle any
-      exceptions.
-2. [**Sign in with a restore key**](#sign-restore): To sign in with a restore key,
-   complete the following steps:
-   1. [**Get credential retrieval options from the app server**](#get-credential-retrieval): Send the
-      client app the details required to retrieve the restore key from your
-      app server.
-   2. [**Get the restore key**](#get-restore): Request the restore key from Credential
-      Manager when the user sets up a new device. This lets the user sign in
-      without additional input.
-   3. [**Handle the credential retrieval response**](#handle-sign-in): Send the restore key
-      from the client app to the app server to sign in the user.
-3. [**Delete a restore key**](#delete-restore).
+1. [**Create a restore key**](https://developer.android.com/identity/sign-in/restore-credentials-implementation#create-restore-key): To create a restore key, complete the following steps:
+   1. [**Instantiate Credential Manager**](https://developer.android.com/identity/sign-in/restore-credentials-implementation#instantiate-credential): Create a `CredentialManager` object.
+   2. [**Get credential creation options from the app server**](https://developer.android.com/identity/sign-in/restore-credentials-implementation#get-credential): Send the client app the details required to create the restore key from your app server.
+   3. [**Create the restore key**](https://developer.android.com/identity/sign-in/restore-credentials-implementation#create-restore): Create a restore key for the user's account if the user is signed in to your app.
+   4. [**Handle the credential creation response**](https://developer.android.com/identity/sign-in/restore-credentials-implementation#handle-credential): Send the credentials from your client app to your app server for processing, and handle any exceptions.
+2. [**Sign in with a restore key**](https://developer.android.com/identity/sign-in/restore-credentials-implementation#sign-restore): To sign in with a restore key, complete the following steps:
+   1. [**Get credential retrieval options from the app server**](https://developer.android.com/identity/sign-in/restore-credentials-implementation#get-credential-retrieval): Send the client app the details required to retrieve the restore key from your app server.
+   2. [**Get the restore key**](https://developer.android.com/identity/sign-in/restore-credentials-implementation#get-restore): Request the restore key from Credential Manager when the user sets up a new device. This lets the user sign in without additional input.
+   3. [**Handle the credential retrieval response**](https://developer.android.com/identity/sign-in/restore-credentials-implementation#handle-sign-in): Send the restore key from the client app to the app server to sign in the user.
+3. [**Delete a restore key**](https://developer.android.com/identity/sign-in/restore-credentials-implementation#delete-restore).
 
 ## Create a restore key
 
 Your app should cover all cases of a user signing in to ensure active users have
 a restore key created. Create the restore key in the following scenarios:
 
-* If the user is signed in and a restore key isn't already created (such as in
-  the `onCreate` method for the main `Activity`).
-* When the user is signing in or completing a new account registration flow.
+- If the user is signed in and a restore key isn't already created (such as in the `onCreate` method for the main `Activity`).
+- When the user is signing in or completing a new account registration flow.
 
 To optimize performance and avoid the overhead of creating or checking for a
 restore credential on every single login, set a `boolean` flag or a credential
 creation timestamp in local storage, such as `has_synced_restore_credential`, to
 track whether the key has already been created.
 
-**Note:** A restore key is tied to an application's unique package name. If your
-organization's main app and sub-apps have different package names, create a
-separate restore key for each app.
+> [!NOTE]
+> **Note:** A restore key is tied to an application's unique package name. If your organization's main app and sub-apps have different package names, create a separate restore key for each app.
 
 ### Instantiate Credential Manager
 
 Use your app's activity context to instantiate a `CredentialManager` object.
 
-```
-// Use your app or activity context to instantiate a client instance of
-// CredentialManager.
-private val credentialManager = CredentialManager.create(context)
-```
+    // Use your app or activity context to instantiate a client instance of
+    // CredentialManager.
+    private val credentialManager = CredentialManager.create(context)
 
 ### Get credential creation options from your app server
 
@@ -146,64 +112,45 @@ guidance](https://developers.google.com/identity/passkeys/developer-guides/serve
 
 After parsing the public key creation options sent by the server, create a
 restore key by wrapping these options in a
-[`CreateRestoreCredentialRequest`](/reference/androidx/credentials/CreateRestoreCredentialRequest) object and calling the
-[`createCredential()`](/reference/androidx/credentials/CredentialManager#createCredential(android.content.Context,androidx.credentials.CreateCredentialRequest)) method with the `CredentialManager` object.
+[`CreateRestoreCredentialRequest`](https://developer.android.com/reference/androidx/credentials/CreateRestoreCredentialRequest) object and calling the
+[`createCredential()`](https://developer.android.com/reference/androidx/credentials/CredentialManager#createCredential(android.content.Context,androidx.credentials.CreateCredentialRequest)) method with the `CredentialManager` object.
 
-```
-// createRestoreRequest contains the details sent by the server 
-val response = credentialManager.createCredential(context, createRestoreRequest)
-```
+    // createRestoreRequest contains the details sent by the server 
+    val response = credentialManager.createCredential(context, createRestoreRequest)
 
 #### Key points about the code
 
-* The `CreateRestoreCredentialRequest` object contains the following fields:
+- The `CreateRestoreCredentialRequest` object contains the following fields:
 
-  + `requestJson`: The credential creation options sent by the app server in
-    the [Web Authentication API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API) format for
-    [`PublicKeyCredentialCreationOptionsJSON`](https://w3c.github.io/webauthn/#dictdef-publickeycredentialcreationoptionsjson).
-  + `isCloudBackupEnabled`: `Boolean` field to determine if the restore key
+  - `requestJson`: The credential creation options sent by the app server in the [Web Authentication API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API) format for [`PublicKeyCredentialCreationOptionsJSON`](https://w3c.github.io/webauthn/#dictdef-publickeycredentialcreationoptionsjson).
+  - `isCloudBackupEnabled`: `Boolean` field to determine if the restore key
     should be backed up to the cloud. By default, this flag is `true`. This
     field has these values:
 
-    - `true`: (**Recommended**) This value enables the backup of restore
-      keys to the cloud if the user has Google Backup and end-to-end
-      encryption, such as a screen lock, enabled.
-    - `false`: This value saves the key locally and not in the cloud. The
-      key is not available on the new device if the user chooses to
-      restore from the cloud.**Caution:** It's recommended to set `isCloudBackupEnabled` to `true`. If cloud
-  backup is disabled and the user restores from a cloud backup, the
-  call to retrieve the restore key fails. Users who restore your app
-  with a cloud backup don't receive the restore key and aren't
-  automatically signed in.
+    - `true`: (**Recommended**) This value enables the backup of restore keys to the cloud if the user has Google Backup and end-to-end encryption, such as a screen lock, enabled.
+    - `false`: This value saves the key locally and not in the cloud. The key is not available on the new device if the user chooses to restore from the cloud.
+
+  > [!CAUTION]
+  > **Caution:** It's recommended to set `isCloudBackupEnabled` to `true`. If cloud backup is disabled and the user restores from a cloud backup, the call to retrieve the restore key fails. Users who restore your app with a cloud backup don't receive the restore key and aren't automatically signed in.
 
 ### Handle the credential creation response
 
 The Credential Manager API returns a response of type
-[`CreateRestoreCredentialResponse`](/reference/androidx/credentials/CreateRestoreCredentialResponse). This response holds the public key
+[`CreateRestoreCredentialResponse`](https://developer.android.com/reference/androidx/credentials/CreateRestoreCredentialResponse). This response holds the public key
 credential registration response in [JSON format](https://w3c.github.io/webauthn/#authenticatorattestationresponse).
 
 Send the public key from your app to the relying party server. This public key
 is similar to the public key generated when you create a passkey. The same code
 that handles passkey creation on the server can also handle restore key
 creation. For more information about the server-side implementation, see [the
-guidance for passkeys](/identity/passkeys/create-passkeys).
+guidance for passkeys](https://developer.android.com/identity/passkeys/create-passkeys).
 
 During the restore key creation process, handle these exceptions:
 
-* [`CreateRestoreCredentialDomException`](/reference/androidx/credentials/exceptions/restorecredential/CreateRestoreCredentialDomException): This exception occurs if
-  `requestJson` is invalid and does not follow the WebAuthn format for
-  [`PublicKeyCredentialCreationOptionsJSON`](https://w3c.github.io/webauthn/#dictdef-publickeycredentialcreationoptionsjson).
-* [`E2eeUnavailableException`](/reference/androidx/credentials/exceptions/restorecredential/E2eeUnavailableException): This exception occurs if
-  `isCloudBackupEnabled` is `true`, but the user's device doesn't have data
-  backup or end-to-end encryption, such as a screen lock.  
-  To ensure that Restore Credentials are created in all cases, you must handle
-  the `E2eeUnavailableException` explicitly by calling `createCredential` with
-  `isCloudBackupEnabled` set to `true`. If `E2eeUnavailableException` is
-  thrown, catch and call `createCredential` again with `isCloudBackupEnabled`
-  set to `false`.
-* `IllegalArgumentException`: This exception occurs if `createRestoreRequest`
-  is empty or not valid JSON, or if it doesn't have a valid `user.id` that
-  conforms to the WebAuthn [specifications](https://w3c.github.io/webauthn/#dictdef-publickeycredentialcreationoptionsjson).
+- [`CreateRestoreCredentialDomException`](https://developer.android.com/reference/androidx/credentials/exceptions/restorecredential/CreateRestoreCredentialDomException): This exception occurs if `requestJson` is invalid and does not follow the WebAuthn format for [`PublicKeyCredentialCreationOptionsJSON`](https://w3c.github.io/webauthn/#dictdef-publickeycredentialcreationoptionsjson).
+- [`E2eeUnavailableException`](https://developer.android.com/reference/androidx/credentials/exceptions/restorecredential/E2eeUnavailableException): This exception occurs if `isCloudBackupEnabled` is `true`, but the user's device doesn't have data backup or end-to-end encryption, such as a screen lock.  
+  To ensure that Restore Credentials are created in all cases, you must handle the `E2eeUnavailableException` explicitly by calling `createCredential` with `isCloudBackupEnabled` set to `true`. If `E2eeUnavailableException` is thrown, catch and call `createCredential` again with `isCloudBackupEnabled` set to `false`.
+- `IllegalArgumentException`: This exception occurs if `createRestoreRequest` is empty or not valid JSON, or if it doesn't have a valid `user.id` that conforms to the WebAuthn [specifications](https://w3c.github.io/webauthn/#dictdef-publickeycredentialcreationoptionsjson).
 
 ## Sign in with a restore key
 
@@ -213,7 +160,7 @@ process.
 ### Get credential retrieval options from the app server
 
 Send the client app the options required to get the restore key from the server.
-For similar passkey guidance for this step, see [Sign in with a passkey](/identity/passkeys/sign-in-with-passkeys#get-options).
+For similar passkey guidance for this step, see [Sign in with a passkey](https://developer.android.com/identity/passkeys/sign-in-with-passkeys#get-options).
 For more information about the server-side implementation, see the [server-side
 authentication guide](https://developers.google.com/identity/passkeys/developer-guides/server-authentication#create_credential_request_options).
 
@@ -224,47 +171,31 @@ the `CredentialManager` object.
 
 It's recommended to fetch the restore key in both of the following scenarios:
 
-* On the first launch of the app on the device. Credential restoration in this
-  scenario is independent of restoration of the app data.
-* If app data backup and restore is enabled, get the restore key immediately
-  after the app data is restored. Use [`BackupAgent`](/reference/android/app/backup/BackupAgent) to configure your
-  app's backup and ensure you complete the `getCredential` functionality
-  within the [`onRestoreFinished`](/reference/android/app/backup/BackupAgent#onRestoreFinished()) callback. Don't use the `onRestore`
-  method, as it is only called for key-value backups, whereas
-  `onRestoreFinished` is reliably called for any kind of backup restore.
-  This avoids potential delays when users open their new device for the first
-  time and lets users interact with the app without waiting for them to open
-  your app. For example, this lets your app send the user notifications before
-  they open the app for the first time on the new device, which is
-  particularly relevant for messaging or communications apps.
+- On the first launch of the app on the device. Credential restoration in this scenario is independent of restoration of the app data.
+- If app data backup and restore is enabled, get the restore key immediately after the app data is restored. Use [`BackupAgent`](https://developer.android.com/reference/android/app/backup/BackupAgent) to configure your app's backup and ensure you complete the `getCredential` functionality within the [`onRestoreFinished`](https://developer.android.com/reference/android/app/backup/BackupAgent#onRestoreFinished()) callback. Don't use the `onRestore` method, as it is only called for key-value backups, whereas `onRestoreFinished` is reliably called for any kind of backup restore. This avoids potential delays when users open their new device for the first time and lets users interact with the app without waiting for them to open your app. For example, this lets your app send the user notifications before they open the app for the first time on the new device, which is particularly relevant for messaging or communications apps.
 
 If you create a new `BackupAgent` and previously had backup enabled with
 `allowBackup="true"`, set the boolean value `android:fullBackupOnly="true"` in
 your app's manifest. This ensures that your app's backup and restore behavior is
 maintained.
 
-**Important:** Notifications aren't automatically
-restored after the restore credentials are retrieved. If you use Firebase to
-handle notifications, you must fetch and send the Firebase Cloud Messaging (FCM)
-token to the backend to successfully resume background messaging and
-notifications.
+> [!IMPORTANT]
+> **Important:** Notifications aren't automatically restored after the restore credentials are retrieved. If you use Firebase to handle notifications, you must fetch and send the Firebase Cloud Messaging (FCM) token to the backend to successfully resume background messaging and notifications.
 
-```
-// Fetch the options required to get the restore key
-val authenticationJson = fetchAuthenticationJson()
+    // Fetch the options required to get the restore key
+    val authenticationJson = fetchAuthenticationJson()
 
-// Create the GetRestoreCredentialRequest object
-val options = GetRestoreCredentialOption(authenticationJson)
-val getRequest = GetCredentialRequest(listOf(options))
+    // Create the GetRestoreCredentialRequest object
+    val options = GetRestoreCredentialOption(authenticationJson)
+    val getRequest = GetCredentialRequest(listOf(options))
 
-val response = credentialManager.getCredential(context, getRequest)
+    val response = credentialManager.getCredential(context, getRequest)
 
-// Type-check and extract the restore credential
-val credential = response.credential as RestoreCredential
-```
+    // Type-check and extract the restore credential
+    val credential = response.credential as RestoreCredential
 
 The credential manager APIs return a response of type
-[`GetCredentialResponse`](/reference/android/credentials/GetCredentialResponse). The credential contained in this response is
+[`GetCredentialResponse`](https://developer.android.com/reference/android/credentials/GetCredentialResponse). The credential contained in this response is
 explicitly of type `RestoreCredential`, which holds the public key.
 
 ### Handle the sign-in response
@@ -273,13 +204,10 @@ Send the public key from the app to the relying party server, which can then be
 used to sign in the user. On the server side, this action is similar to signing
 in using a passkey. The same code that handles sign-in with passkeys on the
 server can also handle sign-ins with restore keys. For more information about
-the server-side implementation for passkeys, see [Sign in with a passkey](/identity/passkeys/sign-in-with-passkeys).
+the server-side implementation for passkeys, see [Sign in with a passkey](https://developer.android.com/identity/passkeys/sign-in-with-passkeys).
 
-**Note:** Even though restore keys and passkeys use the same underlying server
-implementation, differentiate between them when saving them in your app server's
-database. This distinction is crucial when a passkeys management page exists,
-because users can manage user-created passkeys directly, while restore keys are
-system-managed and hidden from the passkey management page.
+> [!NOTE]
+> **Note:** Even though restore keys and passkeys use the same underlying server implementation, differentiate between them when saving them in your app server's database. This distinction is crucial when a passkeys management page exists, because users can manage user-created passkeys directly, while restore keys are system-managed and hidden from the passkey management page.
 
 ## Delete the restore key
 
@@ -289,29 +217,22 @@ automatically delete restore keys after use. To delete a restore key, call the
 signs out. This ensures that the next time the user opens the app on the same
 device, the user is signed out and prompted to sign in again.
 
-**Note:** A user sign-out can also happen remotely, for example when a user
-changes their password on the web or when they're signed out remotely by the
-server. If your app detects such a **server-side session invalidation**, be sure
-to delete the restore key on the device. (An example of this is your server
-returning an HTTP `401 Unauthorized` error)
+> [!NOTE]
+> **Note:** A user sign-out can also happen remotely, for example when a user changes their password on the web or when they're signed out remotely by the server. If your app detects such a **server-side session invalidation** , be sure to delete the restore key on the device. (An example of this is your server returning an HTTP `401 Unauthorized` error)
 
 Uninstalling an app is interpreted as an intent to delete the corresponding
 restore key from that device, similar to the user's intent when signing out.
 
 Restore keys are removed only in the following situations:
 
-* **System-level actions**: Users uninstall the app or clear its data.
-* **App-level calls**: Programmatically delete the key by calling
-  [`clearCredentialState()`](/reference/androidx/credentials/CredentialManager#clearCredentialState(androidx.credentials.ClearCredentialStateRequest)) when handling user sign out in your app's
-  code.
+- **System-level actions**: Users uninstall the app or clear its data.
+- **App-level calls** : Programmatically delete the key by calling [`clearCredentialState()`](https://developer.android.com/reference/androidx/credentials/CredentialManager#clearCredentialState(androidx.credentials.ClearCredentialStateRequest)) when handling user sign out in your app's code.
 
 When the user signs out of your app, call the `clearCredentialState()` method on
 the `CredentialManager` object.
 
-```
-// Create a ClearCredentialStateRequest object
-val clearRequest = ClearCredentialStateRequest(TYPE_CLEAR_RESTORE_CREDENTIAL)
+    // Create a ClearCredentialStateRequest object
+    val clearRequest = ClearCredentialStateRequest(TYPE_CLEAR_RESTORE_CREDENTIAL)
 
-// When the user logs out, delete the restore key
-val response = credentialManager.clearCredentialState(clearRequest)
-```
+    // When the user logs out, delete the restore key
+    val response = credentialManager.clearCredentialState(clearRequest)

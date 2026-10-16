@@ -28,7 +28,9 @@ Stops the specified virtual device.
 
 `android emulator stop` shuts down a running Android Virtual Device (AVD).
 
-If only a single emulator is currently running, `<device>` is optional. If multiple emulators are running, specify either the AVD name (for example, `medium_phone`) or its `adb` serial number (for example, `emulator-5554`).
+If only a single emulator is currently running, `<device>` is optional. If
+multiple emulators are running, specify either the AVD name (for example,
+`medium_phone`) or its `adb` serial number (for example, `emulator-5554`).
 
 ### Examples
 

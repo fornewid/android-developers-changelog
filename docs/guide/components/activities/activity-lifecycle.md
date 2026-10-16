@@ -1,20 +1,10 @@
 ---
-title: The activity lifecycle  |  App architecture  |  Android Developers
+title: https://developer.android.com/guide/components/activities/activity-lifecycle
 url: https://developer.android.com/guide/components/activities/activity-lifecycle
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-# The activity lifecycle Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-
-As a user navigates through, out of, and back to your app, the [`Activity`](/reference/kotlin/android/app/Activity)
+As a user navigates through, out of, and back to your app, the [`Activity`](https://developer.android.com/reference/kotlin/android/app/Activity)
 instances in your app transition through different states in their lifecycle.
 The `Activity` class provides a number of callbacks that let the activity know
 when a state changes or that the system is creating, stopping, or resuming an
@@ -31,13 +21,10 @@ change of state. Doing the right work at the right time and handling transitions
 properly make your app more robust and performant. For example, good
 implementation of the lifecycle callbacks can help your app avoid the following:
 
-* Crashing if the user receives a phone call or switches to another app while
-  using your app.
-* Consuming valuable system resources when the user is not actively using it.
-* Losing the user's progress if they leave your app and return to it at a
-  later time.
-* Crashing or losing the user's progress when the screen rotates between
-  landscape and portrait orientation.
+- Crashing if the user receives a phone call or switches to another app while using your app.
+- Consuming valuable system resources when the user is not actively using it.
+- Losing the user's progress if they leave your app and return to it at a later time.
+- Crashing or losing the user's progress when the screen rotates between landscape and portrait orientation.
 
 This document explains the activity lifecycle in detail. The document begins by
 describing the lifecycle paradigm. Next, it explains each of the callbacks: what
@@ -49,23 +36,19 @@ process's vulnerability to being killed by the system. Finally, it discusses
 several topics related to transitions between activity states.
 
 For information about handling lifecycles, including guidance about best
-practices, see [Lifecycle in Jetpack Compose](/topic/libraries/architecture/lifecycle) and [Save UI states](/topic/libraries/architecture/saving-states). To
+practices, see [Lifecycle in Jetpack Compose](https://developer.android.com/topic/libraries/architecture/lifecycle) and [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states). To
 learn how to architect a robust, production-quality app using activities in
-combination with architecture components, see [Guide to app architecture](/topic/libraries/architecture/guide).
+combination with architecture components, see [Guide to app architecture](https://developer.android.com/topic/libraries/architecture/guide).
 
 ## Activity-lifecycle concepts
 
 To navigate transitions between stages of the activity lifecycle, the `Activity`
-class provides a core set of six callbacks: [`onCreate`](/reference/kotlin/android/app/Activity#oncreate_1), [`onStart`](/reference/kotlin/android/app/Activity#onstart),
-[`onResume`](/reference/kotlin/android/app/Activity#onresume), [`onPause`](/reference/kotlin/android/app/Activity#onpause), [`onStop`](/reference/kotlin/android/app/Activity#onstop), and [`onDestroy`](/reference/kotlin/android/app/Activity#ondestroy). The
+class provides a core set of six callbacks: [`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity#oncreate_1), [`onStart`](https://developer.android.com/reference/kotlin/android/app/Activity#onstart),
+[`onResume`](https://developer.android.com/reference/kotlin/android/app/Activity#onresume), [`onPause`](https://developer.android.com/reference/kotlin/android/app/Activity#onpause), [`onStop`](https://developer.android.com/reference/kotlin/android/app/Activity#onstop), and [`onDestroy`](https://developer.android.com/reference/kotlin/android/app/Activity#ondestroy). The
 system invokes each of these callbacks as the activity enters a new state.
 
 Figure 1 presents a visual representation of this paradigm.
-
-![](https://developer.android.com/guide/components/images/activity_lifecycle.png)
-
-
-**Figure 1.** A simplified illustration of the activity lifecycle.
+![](https://developer.android.com/guide/components/images/activity_lifecycle.png) **Figure 1.** A simplified illustration of the activity lifecycle.
 
 As the user begins to leave the activity, the system calls methods to dismantle
 the activity. In some cases, the activity is only partially dismantled and still
@@ -74,12 +57,12 @@ cases, the activity can still come back to the foreground.
 
 If the user returns to the activity, it resumes from where the user left off.
 With a few exceptions, apps are [restricted from starting activities when
-running in the background](/guide/components/activities/background-starts).
+running in the background](https://developer.android.com/guide/components/activities/background-starts).
 
 The system's likelihood of killing a given process, along with the activities in
 it, depends on the state of the activity at the time. For more information on
 the relationship between state and vulnerability to ejection, see the section
-about [activity state and ejection from memory](#activity-state).
+about [activity state and ejection from memory](https://developer.android.com/guide/components/activities/activity-lifecycle#activity-state).
 
 Depending on the complexity of your activity, you probably don't need to
 implement all the lifecycle methods. However, it's important that you understand
@@ -89,21 +72,14 @@ each one and implement those that make your app behave the way users expect.
 
 In Compose, avoid placing business logic or manual observer setup directly
 within activity callbacks like `onStart` or `onResume`. Instead, use
-[Lifecycle](/jetpack/androidx/releases/lifecycle)-aware effects and state-aware observers that automatically align
+[Lifecycle](https://developer.android.com/jetpack/androidx/releases/lifecycle)-aware effects and state-aware observers that automatically align
 with the UI's presence on screen.
 
-* Lifecycle-aware collection: Use [`collectAsStateWithLifecycle`](/reference/kotlin/androidx/lifecycle/compose/package-summary#extension-functions) to
-  consume flows from your `ViewModel`. This API automatically starts
-  collecting when the UI enters the Started state and stops when it goes to
-  the background, preventing unnecessary resource consumption. After
-  collecting flow as state, you can use `LifecycleEffects` to run code when a
-  Lifecycle event occurs.
-* Flow of logic: By using these APIs, the UI reacts to the lifecycle state
-  naturally through the composition tree, ensuring that business logic only
-  executes when the user is actively interacting with the component.
+- Lifecycle-aware collection: Use [`collectAsStateWithLifecycle`](https://developer.android.com/reference/kotlin/androidx/lifecycle/compose/package-summary#extension-functions) to consume flows from your `ViewModel`. This API automatically starts collecting when the UI enters the Started state and stops when it goes to the background, preventing unnecessary resource consumption. After collecting flow as state, you can use `LifecycleEffects` to run code when a Lifecycle event occurs.
+- Flow of logic: By using these APIs, the UI reacts to the lifecycle state naturally through the composition tree, ensuring that business logic only executes when the user is actively interacting with the component.
 
 For more about Compose and the lifecycle, see [Lifecycle in Jetpack
-Compose](/topic/libraries/architecture/compose).
+Compose](https://developer.android.com/topic/libraries/architecture/compose).
 
 ## Lifecycle callbacks
 
@@ -114,31 +90,32 @@ Some actions belong in the activity lifecycle methods. However, place code that
 implements the actions of a dependent component in the component, rather than
 the activity lifecycle method. To achieve this, you need to make the dependent
 component lifecycle-aware. To learn how to make your dependent components
-lifecycle-aware, see [Lifecycle in Jetpack Compose](/topic/libraries/architecture/lifecycle).
+lifecycle-aware, see [Lifecycle in Jetpack Compose](https://developer.android.com/topic/libraries/architecture/lifecycle).
 
 ### onCreate
 
 You must implement this callback, which fires when the system first creates the
 activity. On activity creation, the activity enters the *Created* state. In the
-[`onCreate`](/reference/kotlin/android/app/Activity#oncreate_1) method, perform basic application startup logic that happens
+[`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity#oncreate_1) method, perform basic application startup logic that happens
 only once for the entire life of the activity.
 
 For example, your implementation of `onCreate` might bind data to lists,
-associate the activity with a [`ViewModel`](/reference/kotlin/androidx/lifecycle/ViewModel), and instantiate some
+associate the activity with a [`ViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel), and instantiate some
 class-scope variables. This method receives the parameter `savedInstanceState`,
-which is a [`Bundle`](/reference/kotlin/android/os/Bundle) object containing the activity's previously saved
+which is a [`Bundle`](https://developer.android.com/reference/kotlin/android/os/Bundle) object containing the activity's previously saved
 state. If the activity has never existed before, the value of the `Bundle`
 object is null.
 
 If you have a lifecycle-aware component that is hooked up to the lifecycle of
-your activity, it receives the [`ON_CREATE`](/reference/kotlin/androidx/lifecycle/Lifecycle.Event#ON_CREATE) event. The method annotated
+your activity, it receives the [`ON_CREATE`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.Event#ON_CREATE) event. The method annotated
 with `@OnLifecycleEvent` is called so your lifecycle-aware component can perform
 any setup code it needs for the created state.
 
 The following example shows how to integrate a `Text` composable in a bare
 minimum activity:
 
-```
+
+```kotlin
 class ExampleActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -155,45 +132,45 @@ class ExampleActivity : ComponentActivity() {
 fun Greeting(name: String) {
     Text(text = "Hello $name!")
 }
-
-InteroperabilityAPIsSnippets.kt
 ```
+
+<br />
 
 Your activity does not remain in the Created state. After the `onCreate` method
 finishes execution, the activity enters the *Started* state and the system calls
-the [`onStart`](/reference/kotlin/android/app/Activity#onstart) and [`onResume`](/reference/kotlin/android/app/Activity#onresume) methods in quick succession.
+the [`onStart`](https://developer.android.com/reference/kotlin/android/app/Activity#onstart) and [`onResume`](https://developer.android.com/reference/kotlin/android/app/Activity#onresume) methods in quick succession.
 
 ### onStart
 
-When the activity enters the Started state, the system invokes [`onStart`](/reference/kotlin/android/app/Activity#onstart).
+When the activity enters the Started state, the system invokes [`onStart`](https://developer.android.com/reference/kotlin/android/app/Activity#onstart).
 This call makes the activity visible to the user as the app prepares for the
 activity to enter the foreground and become interactive. For example, this
 method is where the code that maintains the UI is initialized.
 
 When the activity moves to the Started state, any lifecycle-aware component tied
-to the activity's lifecycle receives the [`ON_START`](/reference/kotlin/androidx/lifecycle/Lifecycle.Event#ON_START) event.
+to the activity's lifecycle receives the [`ON_START`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.Event#ON_START) event.
 
 The `onStart` method completes quickly and, as with the Created state, the
 activity does not remain in the Started state. Once this callback finishes, the
-activity enters the *Resumed* state and the system invokes the [`onResume`](/reference/kotlin/android/app/Activity#onresume)
+activity enters the *Resumed* state and the system invokes the [`onResume`](https://developer.android.com/reference/kotlin/android/app/Activity#onresume)
 method.
 
 ### onResume
 
 When the activity enters the Resumed state, it comes to the foreground, and the
-system invokes the [`onResume`](/reference/kotlin/android/app/Activity#onresume) callback. This is the state in which the app
+system invokes the [`onResume`](https://developer.android.com/reference/kotlin/android/app/Activity#onresume) callback. This is the state in which the app
 interacts with the user. The app stays in this state until something happens to
 take focus away from the app, such as the device receiving a phone call, the
 user navigating to another activity, or the device screen turning off.
 
 When the activity moves to the Resumed state, any lifecycle-aware component tied
-to the activity's lifecycle receives the [`ON_RESUME`](/reference/kotlin/androidx/lifecycle/Lifecycle.Event#ON_RESUME) event. This is where
+to the activity's lifecycle receives the [`ON_RESUME`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.Event#ON_RESUME) event. This is where
 the lifecycle components can enable any functionality that needs to run while
 the component is visible and in the foreground, such as starting a camera
 preview.
 
 When an interruptive event occurs, the activity enters the *Paused* state and
-the system invokes the [`onPause`](/reference/kotlin/android/app/Activity#onpause) callback.
+the system invokes the [`onPause`](https://developer.android.com/reference/kotlin/android/app/Activity#onpause) callback.
 
 If the activity returns to the Resumed state from the Paused state, the system
 once again calls the `onResume` method. For this reason, implement `onResume` to
@@ -203,20 +180,18 @@ initializations that must occur each time the activity enters the Resumed state.
 Here is an example of a lifecycle-aware component that accesses the camera when
 the component receives the `ON_RESUME` event:
 
-```
-class CameraComponent : LifecycleObserver {
-    ...
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun initializeCamera() {
-        if (camera == null) {
-            getCamera()
+    class CameraComponent : LifecycleObserver {
+        ...
+        @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+        fun initializeCamera() {
+            if (camera == null) {
+                getCamera()
+            }
         }
+        ...
     }
-    ...
-}
-```
 
-The preceding code initializes the camera once the [`LifecycleObserver`](/reference/kotlin/androidx/lifecycle/LifecycleObserver)
+The preceding code initializes the camera once the [`LifecycleObserver`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LifecycleObserver)
 receives the `ON_RESUME` event. In multi-window mode, however, your activity
 might be fully visible even when it is in the Paused state. For example, when
 the app is in multi-window mode and the user taps the window that does not
@@ -236,7 +211,7 @@ might actually degrade the overall user experience if you do.
 For this reason, think carefully about where in the lifecycle it is most
 appropriate to take control of shared system resources in the context of
 multi-window mode. To learn more about supporting multi-window mode, see
-[Support multi-window mode](/guide/topics/ui/multi-window).
+[Support multi-window mode](https://developer.android.com/guide/topics/ui/multi-window).
 
 Regardless of which build-up event you choose to perform an initialization
 operation in, make sure to use the corresponding lifecycle event to release the
@@ -250,7 +225,7 @@ activity lifecycle callbacks, such as `onStart` and `onStop`, but we don't
 recommend this. Adding this logic to an independent, lifecycle-aware component
 lets you reuse the component across multiple activities without having to
 duplicate code. To learn how to create a lifecycle-aware component, see
-[Lifecycle in Jetpack Compose](/topic/libraries/architecture/lifecycle).
+[Lifecycle in Jetpack Compose](https://developer.android.com/topic/libraries/architecture/lifecycle).
 
 ### onPause
 
@@ -260,21 +235,16 @@ It indicates that the activity is no longer in the foreground, but it is still
 visible if the user is in multi-window mode. There are several reasons why an
 activity might enter this state:
 
-* An event that interrupts app execution, as described in the section about
-  the [`onResume`](/reference/kotlin/android/app/Activity#onresume) callback, pauses the current activity. This is the most
-  common case.
-* In multi-window mode, only one app has focus at any time, and the system
-  pauses all the other apps.
-* The opening of a new, semi-transparent activity, such as a dialog, pauses
-  the activity it covers. As long as the activity is partially visible but not
-  in focus, it remains paused.
+- An event that interrupts app execution, as described in the section about the [`onResume`](https://developer.android.com/reference/kotlin/android/app/Activity#onresume) callback, pauses the current activity. This is the most common case.
+- In multi-window mode, only one app has focus at any time, and the system pauses all the other apps.
+- The opening of a new, semi-transparent activity, such as a dialog, pauses the activity it covers. As long as the activity is partially visible but not in focus, it remains paused.
 
 When an activity moves to the Paused state, any lifecycle-aware component tied
-to the activity's lifecycle receives the [`ON_PAUSE`](/reference/kotlin/androidx/lifecycle/Lifecycle.Event#ON_PAUSE) event. This is where
+to the activity's lifecycle receives the [`ON_PAUSE`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.Event#ON_PAUSE) event. This is where
 the lifecycle components can stop any functionality that does not need to run
 while the component is not in the foreground, such as stopping a camera preview.
 
-Use the [`onPause`](/reference/kotlin/android/app/Activity#onpause) method to pause or adjust operations that can't continue,
+Use the [`onPause`](https://developer.android.com/reference/kotlin/android/app/Activity#onpause) method to pause or adjust operations that can't continue,
 or might continue in moderation, while the `Activity` is in the Paused state,
 and that you expect to resume shortly.
 
@@ -287,21 +257,19 @@ still be fully visible if the app is in multi-window mode. Consider using
 `onStop` instead of `onPause` to fully release or adjust UI-related resources
 and operations to better support multi-window mode.
 
-The following example of a [`LifecycleObserver`](/reference/kotlin/androidx/lifecycle/LifecycleObserver) reacting to the `ON_PAUSE`
+The following example of a [`LifecycleObserver`](https://developer.android.com/reference/kotlin/androidx/lifecycle/LifecycleObserver) reacting to the `ON_PAUSE`
 event is the counterpart to the preceding `ON_RESUME` event example, releasing
 the camera that initializes after the `ON_RESUME` event is received:
 
-```
-class CameraComponent : LifecycleObserver {
-    ...
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun releaseCamera() {
-        camera?.release()
-        camera = null
+    class CameraComponent : LifecycleObserver {
+        ...
+        @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+        fun releaseCamera() {
+            camera?.release()
+            camera = null
+        }
+        ...
     }
-    ...
-}
-```
 
 This example places the camera release code after the `ON_PAUSE` event is
 received by the `LifecycleObserver`.
@@ -311,10 +279,10 @@ perform save operations. For this reason, **don't** use `onPause` to save
 application or user data, make network calls, or execute database transactions.
 Such work might not complete before the method completes.
 
-Instead, perform heavy-load shutdown operations during [`onStop`](/reference/kotlin/android/app/Activity#onstop). For more
+Instead, perform heavy-load shutdown operations during [`onStop`](https://developer.android.com/reference/kotlin/android/app/Activity#onstop). For more
 information about suitable operations to perform during `onStop`, see the next
 section. For more information about saving data, see the section about [saving
-and restoring state](#saving-and).
+and restoring state](https://developer.android.com/guide/components/activities/activity-lifecycle#saving-and).
 
 Completion of the `onPause` method does not mean that the activity leaves the
 Paused state. Rather, the activity remains in this state until either the
@@ -330,19 +298,19 @@ state. If the activity becomes completely invisible, the system calls `onStop`.
 ### onStop
 
 When your activity is no longer visible to the user, it enters the *Stopped*
-state, and the system invokes the [`onStop`](/reference/kotlin/android/app/Activity#onstop) callback. This can occur when a
+state, and the system invokes the [`onStop`](https://developer.android.com/reference/kotlin/android/app/Activity#onstop) callback. This can occur when a
 newly launched activity covers the entire screen. The system also calls `onStop`
 when the activity finishes running and is about to be terminated.
 
 When the activity moves to the Stopped state, any lifecycle-aware component tied
-to the activity's lifecycle receives the [`ON_STOP`](/reference/kotlin/androidx/lifecycle/Lifecycle.Event#ON_STOP) event. This is where
+to the activity's lifecycle receives the [`ON_STOP`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.Event#ON_STOP) event. This is where
 the lifecycle components can stop any functionality that does not need to run
 while the component is not visible on the screen.
 
 In the `onStop` method, release or adjust resources that are not needed while
 the app is not visible to the user. For example, your app might pause animations
 or switch from fine-grained to coarse-grained location updates. Using `onStop`
-instead of [`onPause`](/reference/kotlin/android/app/Activity#onpause) means that UI-related work continues, even when the
+instead of [`onPause`](https://developer.android.com/reference/kotlin/android/app/Activity#onpause) means that UI-related work continues, even when the
 user is viewing your activity in multi-window mode.
 
 Also, use `onStop` to perform relatively CPU-intensive shutdown operations. For
@@ -350,15 +318,13 @@ example, if you can't find a better time to save information to a database, you
 might do so during `onStop`. The following example shows an implementation of
 `onStop` that saves the contents of a draft note to persistent storage:
 
-```
-override fun onStop() {
-    super.onStop()
+    override fun onStop() {
+        super.onStop()
 
-    // Delegate the save operation to the ViewModel, which handles the
-    // background thread operations (e.g., using Kotlin Coroutines and Room).
-    noteViewModel.saveDraft()
-}
-```
+        // Delegate the save operation to the ViewModel, which handles the
+        // background thread operations (e.g., using Kotlin Coroutines and Room).
+        noteViewModel.saveDraft()
+    }
 
 When your activity enters the Stopped state, the `Activity` object is kept
 resident in memory: it maintains all state and member information, but is not
@@ -367,42 +333,40 @@ information.
 
 From the Stopped state, the activity either comes back to interact with the
 user, or the activity is finished running and goes away. If the activity comes
-back, the system invokes [`onRestart`](/reference/kotlin/android/app/Activity#onrestart). If the `Activity` is finished
-running, the system calls [`onDestroy`](/reference/kotlin/android/app/Activity#ondestroy).
+back, the system invokes [`onRestart`](https://developer.android.com/reference/kotlin/android/app/Activity#onrestart). If the `Activity` is finished
+running, the system calls [`onDestroy`](https://developer.android.com/reference/kotlin/android/app/Activity#ondestroy).
 
 ### onDestroy
 
-[`onDestroy`](/reference/kotlin/android/app/Activity#ondestroy) is called before the activity is destroyed. The system invokes
+[`onDestroy`](https://developer.android.com/reference/kotlin/android/app/Activity#ondestroy) is called before the activity is destroyed. The system invokes
 this callback for one of two reasons:
 
-1. The activity is finishing, due to the user completely dismissing the
-   activity or due to [`finish`](/reference/kotlin/android/app/Activity#finish) being called on the activity.
-2. The system is temporarily destroying the activity due to a configuration
-   change, such as device rotation or entering multi-window mode.
+1. The activity is finishing, due to the user completely dismissing the activity or due to [`finish`](https://developer.android.com/reference/kotlin/android/app/Activity#finish) being called on the activity.
+2. The system is temporarily destroying the activity due to a configuration change, such as device rotation or entering multi-window mode.
 
 When the activity moves to the destroyed state, any lifecycle-aware component
-tied to the activity's lifecycle receives the [`ON_DESTROY`](/reference/kotlin/androidx/lifecycle/Lifecycle.Event#ON_DESTROY) event. This is
+tied to the activity's lifecycle receives the [`ON_DESTROY`](https://developer.android.com/reference/kotlin/androidx/lifecycle/Lifecycle.Event#ON_DESTROY) event. This is
 where the lifecycle components can clean up anything they need to before the
 `Activity` is destroyed.
 
 Instead of putting logic in your `Activity` to determine why it is being
-destroyed, use a [`ViewModel`](/reference/kotlin/androidx/lifecycle/ViewModel) object to contain the relevant view data for
+destroyed, use a [`ViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel) object to contain the relevant view data for
 your `Activity`. If the `Activity` is recreated due to a configuration change,
 the `ViewModel` does not have to do anything, since it is preserved and given to
 the next `Activity` instance.
 
 If the `Activity` isn't recreated, then the `ViewModel` has the
-[`onCleared`](/reference/kotlin/androidx/lifecycle/ViewModel#onCleared()) method called, where it can clean up any data it needs to
+[`onCleared`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel#onCleared()) method called, where it can clean up any data it needs to
 before being destroyed. You can distinguish between these two scenarios with the
-[`isFinishing`](/reference/kotlin/android/app/Activity#isfinishing) method.
+[`isFinishing`](https://developer.android.com/reference/kotlin/android/app/Activity#isfinishing) method.
 
 If the activity is finishing, `onDestroy` is the final lifecycle callback the
 activity receives. If `onDestroy` is called as the result of a configuration
 change, the system immediately creates a new activity instance and then calls
-[`onCreate`](/reference/kotlin/android/app/Activity#oncreate_1) on that new instance in the new configuration.
+[`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity#oncreate_1) on that new instance in the new configuration.
 
 The `onDestroy` callback releases all resources not released by earlier
-callbacks, such as [`onStop`](/reference/kotlin/android/app/Activity#onstop).
+callbacks, such as [`onStop`](https://developer.android.com/reference/kotlin/android/app/Activity#onstop).
 
 ## Activity state and ejection from memory
 
@@ -413,8 +377,7 @@ process. Table 1 shows the correlations among process state, activity state, and
 the likelihood of the system killing the process. This table only applies if a
 process is not running other types of application components.
 
-|  |  |  |
-| --- | --- | --- |
+|---|---|---|
 | Likelihood of being killed | Process state | Final activity state |
 | Lowest | Foreground (having or about to get focus) | Resumed |
 | Low | Visible (no focus) | Started/Paused |
@@ -427,12 +390,12 @@ The system never kills an activity directly to free up memory. Instead, it kills
 the process the activity runs in, destroying not only the activity but
 everything else running in the process as well. To learn how to preserve and
 restore your activity's UI state when system-initiated process death occurs, see
-the section about [saving and restoring state](#saving-and).
+the section about [saving and restoring state](https://developer.android.com/guide/components/activities/activity-lifecycle#saving-and).
 
 The user can also kill a process by using the Application Manager, under
 Settings, to kill the corresponding app.
 
-For more information about processes, see [Processes and threads overview](/guide/components/processes-and-threads).
+For more information about processes, see [Processes and threads overview](https://developer.android.com/guide/components/processes-and-threads).
 
 ## Saving and restoring transient UI state
 
@@ -447,29 +410,28 @@ However, the system can destroy your application's process while the user is
 away and your activity is stopped.
 
 When system constraints destroy the activity, preserve the user's transient UI
-state using a combination of [`ViewModel`](/reference/kotlin/androidx/lifecycle/ViewModel) (for complex business logic and
-screen state), the Jetpack Compose [`rememberSaveable`](/develop/ui/compose/state#restore-ui-state) API (for lightweight
+state using a combination of [`ViewModel`](https://developer.android.com/reference/kotlin/androidx/lifecycle/ViewModel) (for complex business logic and
+screen state), the Jetpack Compose [`rememberSaveable`](https://developer.android.com/develop/ui/compose/state#restore-ui-state) API (for lightweight
 UI state), and/or local storage. To learn more about user expectations compared
 to system behavior and how to best preserve complex UI state data across
-system-initiated activity and process death, see [Save UI states](/topic/libraries/architecture/saving-states).
+system-initiated activity and process death, see [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states).
 
 `rememberSaveable` automatically survives both configuration changes and
 system-initiated process death by bundling the state under the hood, providing a
 seamless experience without the need for activity-level boilerplate.
 
-**Note:** To learn more about configuration changes, how to restrict Activity
-recreation if needed, and how to react to those configuration changes in Jetpack
-Compose, check out the [Handle configuration changes](/guide/topics/resources/runtime-changes) page.
+> [!NOTE]
+> **Note:** To learn more about configuration changes, how to restrict Activity recreation if needed, and how to react to those configuration changes in Jetpack Compose, check out the [Handle configuration changes](https://developer.android.com/guide/topics/resources/runtime-changes) page.
 
 ### Instance state
 
 There are a few scenarios in which your activity is destroyed due to normal app
 behavior, such as when the user presses the Back button or your activity signals
-its own destruction by calling the [`finish`](/reference/kotlin/android/app/Activity#finish) method.
+its own destruction by calling the [`finish`](https://developer.android.com/reference/kotlin/android/app/Activity#finish) method.
 
 When your activity is destroyed because the user presses Back or the activity
 finishes itself, both the system's and the user's concept of that
-[`Activity`](/reference/kotlin/android/app/Activity) instance is gone forever. In these scenarios, the user's
+[`Activity`](https://developer.android.com/reference/kotlin/android/app/Activity) instance is gone forever. In these scenarios, the user's
 expectation matches the system's behavior, and you don't have any extra work to
 do.
 
@@ -485,7 +447,7 @@ The saved data that the system uses to restore the previous state is called the
 default, the system uses the instance state to save basic information about your
 UI layout, such as user text input or scroll positions.
 
-You hook into this system behavior using [`rememberSaveable`](/develop/ui/compose/state#restore-ui-state). If your
+You hook into this system behavior using [`rememberSaveable`](https://developer.android.com/develop/ui/compose/state#restore-ui-state). If your
 activity instance is destroyed and recreated, any UI state wrapped in
 `rememberSaveable` is automatically restored, with no additional activity-level
 code required by you.
@@ -499,13 +461,13 @@ system-process memory.
 
 To preserve more than a very small amount of data, take a combined approach
 using persistent local storage, the `ViewModel` class, and Compose state
-hoisting, as outlined in [Save UI states](/topic/libraries/architecture/saving-states).
+hoisting, as outlined in [Save UI states](https://developer.android.com/topic/libraries/architecture/saving-states).
 
 ### Save simple, lightweight UI state using rememberSaveable
 
 As your activity begins to stop, the system prepares to save state information
 to an instance state bundle. To hook into this system behavior, you use
-[`rememberSaveable`](/develop/ui/compose/state#restore-ui-state) directly within your composable functions.
+[`rememberSaveable`](https://developer.android.com/develop/ui/compose/state#restore-ui-state) directly within your composable functions.
 `rememberSaveable` automatically saves and restores transient UI state, such as
 user text input or scroll positions, across activity recreation.
 
@@ -513,53 +475,54 @@ To save custom, lightweight state information (like a user's progress in a
 game), declare your state using `rememberSaveable`. The Compose framework
 handles the serialization to the instance state bundle under the hood:
 
-```
+
+```kotlin
 var userTypedQuery by rememberSaveable(typedQuery, stateSaver = TextFieldValue.Saver) {
     mutableStateOf(
         TextFieldValue(text = typedQuery, selection = TextRange(typedQuery.length))
     )
 }
-
-StateOverviewSnippets.kt
 ```
 
-**Note:** The system's instance state mechanism (and therefore `rememberSaveable`)
-is not triggered when the user explicitly closes the activity or in other cases
-when [`finish`](/reference/kotlin/android/app/Activity#finish) is called.
+<br />
+
+> [!NOTE]
+> **Note:** The system's instance state mechanism (and therefore `rememberSaveable`) is not triggered when the user explicitly closes the activity or in other cases when [`finish`](https://developer.android.com/reference/kotlin/android/app/Activity#finish) is called.
 
 To save persistent data, such as user preferences or data for a database, take
 appropriate opportunities when your activity is in the foreground. If no such
-opportunity arises, save persistent data during the [`onStop`](/reference/kotlin/android/app/Activity#onstop) method.
+opportunity arises, save persistent data during the [`onStop`](https://developer.android.com/reference/kotlin/android/app/Activity#onstop) method.
 
 ### Restore activity UI state using saved instance state
 
 When your activity is recreated after it was previously destroyed, state
-restoration is automatic. When you use [`rememberSaveable`](/develop/ui/compose/state#restore-ui-state), you don't need
+restoration is automatic. When you use [`rememberSaveable`](https://developer.android.com/develop/ui/compose/state#restore-ui-state), you don't need
 to write any explicit restoration logic, check for null bundles, or override
 activity callbacks. The code that initializes and saves your state also
 seamlessly restores it when the activity comes back:
 
-```
+
+```kotlin
 var userTypedQuery by rememberSaveable(typedQuery, stateSaver = TextFieldValue.Saver) {
     mutableStateOf(
         TextFieldValue(text = typedQuery, selection = TextRange(typedQuery.length))
     )
 }
-
-StateOverviewSnippets.kt
 ```
+
+<br />
 
 ## Activities and navigation
 
 An app is likely to transition between screens many times during its lifetime,
 such as when the user taps the device's Back button or selects a new
 destination. Modern Android apps typically use a single-activity architecture.
-Instead of starting a new [`Activity`](/reference/kotlin/android/app/Activity) for every screen, your app hosts a
-single `Activity` and uses the [`Navigation`](/jetpack/androidx/releases/navigation) component to swap out
+Instead of starting a new [`Activity`](https://developer.android.com/reference/kotlin/android/app/Activity) for every screen, your app hosts a
+single `Activity` and uses the [`Navigation`](https://developer.android.com/jetpack/androidx/releases/navigation) component to swap out
 composable screens within that activity.
 
 To learn how to implement modern, Compose-first navigation, see the guide to the
-Jetpack Compose [Navigation 3 library](/guide/navigation/navigation-3).
+Jetpack Compose [Navigation 3 library](https://developer.android.com/guide/navigation/navigation-3).
 
 ### Starting one activity from another
 
@@ -569,64 +532,59 @@ one.
 
 Depending on whether your activity wants a result back from the new activity
 it's about to start, you start the new activity using either the
-[`startActivity`](/reference/kotlin/android/app/Activity#startactivity) method or the [`startActivityForResult`](/training/basics/intents/result) method. In
-either case, you pass in an [`Intent`](/reference/kotlin/android/content/Intent) object.
+[`startActivity`](https://developer.android.com/reference/kotlin/android/app/Activity#startactivity) method or the [`startActivityForResult`](https://developer.android.com/training/basics/intents/result) method. In
+either case, you pass in an [`Intent`](https://developer.android.com/reference/kotlin/android/content/Intent) object.
 
 The `Intent` object specifies either the exact activity you want to start or
 describes the type of action you want to perform. The system selects the
 appropriate activity for you, which can even be from a different application. An
 `Intent` object can also carry small amounts of data to be used by the activity
 that is started. For more information about the `Intent` class, see [Intents and
-Intent Filters](/guide/components/intents-filters).
+Intent Filters](https://developer.android.com/guide/components/intents-filters).
 
-**Note:** In Compose, we recommend using a single-activity architecture throughout
-your application. If this cannot be accomplished, however, you may need to start
-one activity from another.
+> [!NOTE]
+> **Note:** In Compose, we recommend using a single-activity architecture throughout your application. If this cannot be accomplished, however, you may need to start one activity from another.
 
 #### startActivity
 
 If the newly started activity does not need to return a result, the current
-activity can start it by calling the [`startActivity`](/reference/kotlin/android/app/Activity#startactivity) method.
+activity can start it by calling the [`startActivity`](https://developer.android.com/reference/kotlin/android/app/Activity#startactivity) method.
 
 When working within your own application, you often need to simply launch a
 known activity. For example, the following code snippet shows how to launch an
 activity called `SignInActivity`.
 
-```
-val context = LocalContext.current
+    val context = LocalContext.current
 
-Button(onClick = {
-    val intent = Intent(context, SignInActivity::class.java)
-    context.startActivity(intent)
-}) {
-    Text("Sign In")
-}
-```
+    Button(onClick = {
+        val intent = Intent(context, SignInActivity::class.java)
+        context.startActivity(intent)
+    }) {
+        Text("Sign In")
+    }
 
 ### Starting external activities
 
-While internal app navigation is handled by [`Navigation`](/jetpack/androidx/releases/navigation), your
-[`Activity`](/reference/kotlin/android/app/Activity) will occasionally need to start other activities. This usually
+While internal app navigation is handled by [`Navigation`](https://developer.android.com/jetpack/androidx/releases/navigation), your
+[`Activity`](https://developer.android.com/reference/kotlin/android/app/Activity) will occasionally need to start other activities. This usually
 happens when you want to leverage an external app to perform a specific action,
 such as opening a web browser, sending an email, or taking a photo.
 
-To achieve this, you use an [`Intent`](/reference/kotlin/android/content/Intent) object to describe the type of action
+To achieve this, you use an [`Intent`](https://developer.android.com/reference/kotlin/android/content/Intent) object to describe the type of action
 you want to perform, and the system launches the appropriate activity from
 another application.
 
 For example, if you want to let the user send an email message, you can create
 the following intent:
 
-```
-val intent = Intent(Intent.ACTION_SEND).apply {
-    putExtra(Intent.EXTRA_EMAIL, recipientArray)
-}
-startActivity(intent)
-```
+    val intent = Intent(Intent.ACTION_SEND).apply {
+        putExtra(Intent.EXTRA_EMAIL, recipientArray)
+    }
+    startActivity(intent)
 
 If you need to launch an external activity and get a result back (such as asking
 the camera app to take a photo and return the image), use the modern
-[`Activity`](/training/basics/intents/result) [result APIs](/training/basics/intents/result) rather than the deprecated
+[`Activity`](https://developer.android.com/training/basics/intents/result) [result APIs](https://developer.android.com/training/basics/intents/result) rather than the deprecated
 `startActivityForResult` callback.
 
 ### Coordinating activities
@@ -639,15 +597,13 @@ completely stopped before the second one is created. Rather, the process of
 starting the second one overlaps with the process of stopping the first one.
 
 The order of lifecycle callbacks is well defined, particularly when the two
-activities are in the same process—in other words, the same app—and one is
+activities are in the same process---in other words, the same app---and one is
 starting the other. Here's the order of operations that occur when Activity A
 starts Activity B:
 
-1. Activity A's [`onPause`](/reference/kotlin/android/app/Activity#onpause) method executes.
-2. Activity B's [`onCreate`](/reference/kotlin/android/app/Activity#oncreate_1), [`onStart`](/reference/kotlin/android/app/Activity#onstart), and [`onResume`](/reference/kotlin/android/app/Activity#onresume) methods
-   execute in sequence. Activity B now has user focus.
-3. If Activity A is no longer visible on screen, its [`onStop`](/reference/kotlin/android/app/Activity#onstop) method
-   executes.
+1. Activity A's [`onPause`](https://developer.android.com/reference/kotlin/android/app/Activity#onpause) method executes.
+2. Activity B's [`onCreate`](https://developer.android.com/reference/kotlin/android/app/Activity#oncreate_1), [`onStart`](https://developer.android.com/reference/kotlin/android/app/Activity#onstart), and [`onResume`](https://developer.android.com/reference/kotlin/android/app/Activity#onresume) methods execute in sequence. Activity B now has user focus.
+3. If Activity A is no longer visible on screen, its [`onStop`](https://developer.android.com/reference/kotlin/android/app/Activity#onstop) method executes.
 
 This sequence of lifecycle callbacks lets you manage the transition of
 information from one activity to another.
@@ -659,4 +615,4 @@ resources:
 
 ### Views content
 
-* [The activity lifecycle (Views)](/topic/libraries/architecture/views/activity-lifecycle-views)
+- [The activity lifecycle (Views)](https://developer.android.com/topic/libraries/architecture/views/activity-lifecycle-views)

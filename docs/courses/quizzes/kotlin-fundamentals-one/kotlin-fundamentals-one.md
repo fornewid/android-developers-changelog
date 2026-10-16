@@ -1,62 +1,54 @@
 ---
-title: Kotlin Fundamentals: Build Your First App Quiz  |  Android Developers
+title: https://developer.android.com/courses/quizzes/kotlin-fundamentals-one/kotlin-fundamentals-one
 url: https://developer.android.com/courses/quizzes/kotlin-fundamentals-one/kotlin-fundamentals-one
-source: html-scrape
+source: md.txt
 ---
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
 
 # Kotlin Fundamentals: Build Your First App Quiz
 
-Return to pathway
+# Kotlin Fundamentals: Build Your First App Quiz
 
+<br />
 
+Return to pathway  
+1.
 
-1. ## Fill-in-the-blanks
+   ## Fill-in-the-blanks
 
-   Enter one or more words to complete the sentence.
+   Enter one or more words to complete the sentence.  
+   ___ ___ is an integrated development environment or IDE used for building Android apps.  
+2.
 
-   \_\_\_ \_\_\_ is an integrated development environment or IDE used for building Android apps.
-2. ## What is the name of the auto-generated layout file in the new project you created with Android Studio?
+   ## What is the name of the auto-generated layout file in the new project you created with Android Studio?
 
-   MainActivity.java
+   MainActivity.java  
+   AndroidManifest.xml  
+   activity_main.xml  
+   build.gradle  
+3.
 
-   AndroidManifest.xml
+   ## The AndroidManifest.xml file contains important information that the Android system needs to run your app. Choose two from the following list that should be defined in AndroidManifest.xml.
 
-   activity\_main.xml
+   Choose as many answers as you see fit.  
+   string resources  
+   activities in the app  
+   image resources  
+   permissions  
+4.
 
-   build.gradle
-3. ## The AndroidManifest.xml file contains important information that the Android system needs to run your app. Choose two from the following list that should be defined in AndroidManifest.xml.
+   ## In Android Studio, which tool do you use to create a new virtual device to run in the emulator?
 
-   Choose as many answers as you see fit.
+   Physical Android Device  
+   AVD Manager  
+   SDK Manager  
+   Theme Editor  
+5.
 
-   string resources
+   ## Fill-in-the-blanks
 
-   activities in the app
-
-   image resources
-
-   permissions
-4. ## In Android Studio, which tool do you use to create a new virtual device to run in the emulator?
-
-   Physical Android Device
-
-   AVD Manager
-
-   SDK Manager
-
-   Theme Editor
-5. ## Fill-in-the-blanks
-
-   Enter one or more words to complete the sentence.
-
-   \_\_\_ is a build automation system that uses a domain-specific language to describe the app's project structure, configuration, and dependencies.
+   Enter one or more words to complete the sentence.  
+   ___ is a build automation system that uses a domain-specific language to describe the app's project structure, configuration, and dependencies.  
 
 Submit answers
 
-*error\_outline*
-An error occurred when grading the quiz. Please try again.
+*error_outline*An error occurred when grading the quiz. Please try again.

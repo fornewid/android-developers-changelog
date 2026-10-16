@@ -30,7 +30,8 @@ Removes a remote device reservation.
 
 ## Description
 
-`android device remote remove` ends a reservation and releases the device. Remove reservations as soon as you are done to stop being billed for the device.
+`android device remote remove` ends a reservation and releases the device.
+Remove reservations as soon as you are done to stop being billed for the device.
 
 ### Examples
 

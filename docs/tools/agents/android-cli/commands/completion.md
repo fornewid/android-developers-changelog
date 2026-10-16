@@ -4,7 +4,8 @@ url: https://developer.android.com/tools/agents/android-cli/commands/completion
 source: md.txt
 ---
 
-Installs shell autocomplete configuration for Android CLI in the current user profile.
+Installs shell autocomplete configuration for Android CLI in the current user
+profile.
 
 ## Usage
 
@@ -26,9 +27,14 @@ Installs shell autocomplete configuration for Android CLI in the current user pr
 
 ## Description
 
-`android completion` configures tab-completion for `android` commands, subcommands, and options in your shell.
+`android completion` configures tab-completion for `android` commands,
+subcommands, and options in your shell.
 
-When run without arguments, `android completion` automatically detects your active shell and updates your user profile (such as the `~/.bashrc` or `~/.zshrc` files) to load the completion script on startup. When a `<shell>` argument (`bash` or `zsh`) is provided, the completion script is printed to standard output without modifying any files on disk.
+When run without arguments, `android completion` automatically detects your
+active shell and updates your user profile (such as the `~/.bashrc` or
+`~/.zshrc` files) to load the completion script on startup. When a `<shell>`
+argument (`bash` or `zsh`) is provided, the completion script is printed to
+standard output without modifying any files on disk.
 
 ### Supported shells
 
@@ -41,10 +47,12 @@ Automatically install autocomplete into your current user profile:
 
     android completion
 
-Print the Bash autocomplete script to standard output or load it in the current session:
+Print the Bash autocomplete script to standard output or load it in the current
+session:
 
     source <(android completion bash)
 
-Print the Zsh autocomplete script to standard output or load it in the current session:
+Print the Zsh autocomplete script to standard output or load it in the current
+session:
 
     source <(android completion zsh)

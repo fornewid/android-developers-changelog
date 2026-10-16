@@ -4,7 +4,9 @@ url: https://developer.android.com/tools/agents/android-cli/commands/install
 source: md.txt
 ---
 
-Installs an Android app (one or more APKs) on a connected device or emulator without activating any components, using incremental optimizations for faster deployment than `adb`.
+Installs an Android app (one or more APKs) on a connected device or emulator
+without activating any components, using incremental optimizations for faster
+deployment than `adb`.
 
 ## Usage
 
@@ -26,17 +28,27 @@ Installs an Android app (one or more APKs) on a connected device or emulator wit
 
 ## Description
 
-`android install` deploys one or more pre-built APK files to a connected Android device or emulator without launching any activities or services.
+`android install` deploys one or more pre-built APK files to a connected Android
+device or emulator without launching any activities or services.
 
-Unlike [`android run`](https://developer.android.com/tools/agents/android-cli/commands/run), `android install` only performs the package installation step. By default, it uses incremental delta installation to push only the bytes that changed since the previous deployment, making iterative updates faster than `adb install`.
+> [!NOTE]
+> **Note:** `android install` does not compile source code; you must pass the paths to pre-built APK files using `--apks`. To locate APK output paths in an Android project, run [`android describe`](https://developer.android.com/tools/agents/android-cli/commands/describe).
+
+Unlike [`android run`](https://developer.android.com/tools/agents/android-cli/commands/run), `android install` only performs the package
+installation step. By default, it uses incremental delta installation to push
+only the bytes that changed since the previous deployment, making iterative
+updates faster than `adb install`.
 
 ### Toggle delta installation (`--no-delta`)
 
-Delta installation is enabled by default. Pass `--no-delta` to disable incremental patching and perform a full APK installation instead.
+Delta installation is enabled by default. Pass `--no-delta` to disable
+incremental patching and perform a full APK installation instead.
 
 ### Specify a target device (`--device`)
 
-If multiple physical devices or emulators are connected, pass `--device=<serial-number>` (as reported by `adb devices`) to select the target device.
+If multiple physical devices or emulators are connected, pass
+`--device=<serial-number>` (as reported by `adb devices`) to select the target
+device.
 
 ### Examples
 

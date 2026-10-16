@@ -28,7 +28,9 @@ Analyzes a file in Android Studio.
 
 ## Description
 
-`android studio analyze-file` analyzes a Kotlin, Java, or XML file in Android Studio for compiler errors, warnings, and Android Lint inspections using the IDE's live inspection engine.
+`android studio analyze-file` analyzes a Kotlin, Java, or XML file in Android
+Studio for compiler errors, warnings, and Android Lint inspections using the
+IDE's live inspection engine.
 
 Requires Android Studio Quail 2 or higher.
 

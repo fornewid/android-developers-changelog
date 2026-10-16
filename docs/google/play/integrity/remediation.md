@@ -1,18 +1,8 @@
 ---
-title: Remediation dialogs  |  Play Integrity  |  Android Developers
+title: https://developer.android.com/google/play/integrity/remediation
 url: https://developer.android.com/google/play/integrity/remediation
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Google Play](https://developer.android.com/distribute)
-* [Play Integrity](https://developer.android.com/google/play/integrity)
-
-# Remediation dialogs Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 This page describes how to handle issues with integrity verdicts.
 
@@ -20,25 +10,24 @@ After an integrity token is requested, you have the option to display a Google
 Play dialog to the user. You may display the dialog when there is one or more
 issues with the integrity verdict or if an exception occurred during an
 Integrity API request. Once the dialog is closed, you can verify that the issue
-is fixed with another integrity token request. If you make [standard requests](/google/play/integrity/standard), you need to warm up the token provider again
+is fixed with another integrity token request. If you make [standard requests](https://developer.android.com/google/play/integrity/standard), you need to warm up the token provider again
 to obtain a fresh verdict.
 
-**Note:** All integrity dialog types can be shown to users, regardless of the
-contents of the integrity token. You should check the contents of the integrity
-token on your server to determine which dialog should be shown.
+> [!NOTE]
+> **Note:** All integrity dialog types can be shown to users, regardless of the contents of the integrity token. You should check the contents of the integrity token on your server to determine which dialog should be shown.
 
 ## Request an integrity dialog to fix a verdict issue
 
 When the client requests an integrity token, you can use the method offered in
-the [`StandardIntegrityToken`](/google/play/integrity/reference/com/google/android/play/core/integrity/StandardIntegrityManager.StandardIntegrityToken#showDialog(android.app.Activity,%20int)) (Standard API) and
-[`IntegrityTokenResponse`](/google/play/integrity/reference/com/google/android/play/core/integrity/IntegrityTokenResponse#showDialog(android.app.Activity,%20int)) (Classic API):
+the [`StandardIntegrityToken`](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/StandardIntegrityManager.StandardIntegrityToken#showDialog(android.app.Activity,%20int)) (Standard API) and
+[`IntegrityTokenResponse`](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/IntegrityTokenResponse#showDialog(android.app.Activity,%20int)) (Classic API):
 `showDialog(Activity activity, int integrityDialogTypeCode)`.
 
-**Note:** To use integrity dialogs, you must be using Integrity API Android library
-version 1.3.0 or higher.
+> [!NOTE]
+> **Note:** To use integrity dialogs, you must be using Integrity API Android library version 1.3.0 or higher.
 
 The following steps outline how you can use the Play Integrity API to show a
-remediation dialog using the [`GET_LICENSED`](#get-licensed-dialog) dialog code.
+remediation dialog using the [`GET_LICENSED`](https://developer.android.com/google/play/integrity/remediation#get-licensed-dialog) dialog code.
 Other dialog codes that your app can request are listed after this section.
 
 1. Request an integrity token from your app, and send the token to your server.
@@ -46,43 +35,43 @@ Other dialog codes that your app can request are listed after this section.
 
    ### Kotlin
 
-   ```
+   ```kotlin
    // Request an integrity token
    val tokenResponse: StandardIntegrityToken = requestIntegrityToken()
    // Send token to app server and get response on what to do next
-   val yourServerResponse: YourServerResponse = sendToServer(tokenResponse.token())
+   val yourServerResponse: YourServerResponse = sendToServer(tokenResponse.token())  
    ```
 
    ### Java
 
-   ```
+   ```java
    // Request an integrity token
    StandardIntegrityToken tokenResponse = requestIntegrityToken();
    // Send token to app server and get response on what to do next
-   YourServerResponse yourServerResponse = sendToServer(tokenResponse.token());
+   YourServerResponse yourServerResponse = sendToServer(tokenResponse.token());  
    ```
 
    ### Unity
 
-   ```
+   ```c#
    // Request an integrity token
    StandardIntegrityToken tokenResponse = RequestIntegrityToken();
    // Send token to app server and get response on what to do next
-   YourServerResponse yourServerResponse = sendToServer(tokenResponse.Token);
+   YourServerResponse yourServerResponse = sendToServer(tokenResponse.Token); 
    ```
 
    ### Unreal Engine
 
-   ```
+   ```c++
    // Request an integrity token
    StandardIntegrityToken* Response = RequestIntegrityToken();
    // Send token to app server and get response on what to do next
-   YourServerResponse YourServerResponse = SendToServer(Response->Token);
+   YourServerResponse YourServerResponse = SendToServer(Response->Token); 
    ```
 
    ### Native
 
-   ```
+   ```c++
    /// Request an integrity token
    StandardIntegrityToken* response = requestIntegrityToken();
    /// Send token to app server and get response on what to do next
@@ -91,7 +80,7 @@ Other dialog codes that your app can request are listed after this section.
 2. On your server, decrypt the integrity token and check the
    `appLicensingVerdict` field. It could look something like this:
 
-   ```
+   ```json
    // Licensing issue
    {
      ...
@@ -105,7 +94,7 @@ Other dialog codes that your app can request are listed after this section.
 
    ### Kotlin
 
-   ```
+   ```kotlin
    private fun getDialogTypeCode(integrityToken: String): Int{
      // Get licensing verdict from decrypted and verified integritytoken
      val licensingVerdict: String = getLicensingVerdictFromDecryptedToken(integrityToken)
@@ -118,7 +107,7 @@ Other dialog codes that your app can request are listed after this section.
 
    ### Java
 
-   ```
+   ```java
    private int getDialogTypeCode(String integrityToken) {
      // Get licensing verdict from decrypted and verified integrityToken
      String licensingVerdict = getLicensingVerdictFromDecryptedToken(integrityToken);
@@ -132,7 +121,7 @@ Other dialog codes that your app can request are listed after this section.
 
    ### Unity
 
-   ```
+   ```c#
    private int GetDialogTypeCode(string IntegrityToken) {
      // Get licensing verdict from decrypted and verified integrityToken
      string licensingVerdict = GetLicensingVerdictFromDecryptedToken(IntegrityToken);
@@ -141,12 +130,12 @@ Other dialog codes that your app can request are listed after this section.
        return 1; // GET_LICENSED
      }
      return 0;
-   }
+   } 
    ```
 
    ### Unreal Engine
 
-   ```
+   ```c++
    private int GetDialogTypeCode(FString IntegrityToken) {
      // Get licensing verdict from decrypted and verified integrityToken
      FString LicensingVerdict = GetLicensingVerdictFromDecryptedToken(IntegrityToken);
@@ -155,12 +144,12 @@ Other dialog codes that your app can request are listed after this section.
        return 1; // GET_LICENSED
      }
      return 0;
-   }
+   } 
    ```
 
    ### Native
 
-   ```
+   ```c++
    private int getDialogTypeCode(string integrity_token) {
      /// Get licensing verdict from decrypted and verified integrityToken
      string licensing_verdict = getLicensingVerdictFromDecryptedToken(integrity_token);
@@ -176,7 +165,7 @@ Other dialog codes that your app can request are listed after this section.
 
    ### Kotlin
 
-   ```
+   ```kotlin
    // Show dialog as indicated by the server
    val showDialogType: Int? = yourServerResponse.integrityDialogTypeCode()
    if (showDialogType == null) {
@@ -195,12 +184,12 @@ Other dialog codes that your app can request are listed after this section.
    val result: Task<Int> = standardIntegrityManager.showDialog(dialogRequest)
 
    // Handle response code, call the Integrity API again to confirm that the
-   // verdict issue has been resolved.
+   // verdict issue has been resolved. 
    ```
 
    ### Java
 
-   ```
+   ```java
    // Show dialog as indicated by the server
    @Nullable Integer showDialogType = yourServerResponse.integrityDialogTypeCode();
    if (showDialogType == null) {
@@ -225,7 +214,7 @@ Other dialog codes that your app can request are listed after this section.
 
    ### Unity
 
-   ```
+   ```c#
    // Initialize the V2 manager. Requires Play Integrity Unity Plugin v2.0.0 or
    // higher.
    var standardIntegrityManager = new StandardIntegrityManagerV2();
@@ -249,12 +238,12 @@ Other dialog codes that your app can request are listed after this section.
 
      // Handle response code, call the Integrity API again to confirm that the
      // verdict issue been resolved.
-   }
+   } 
    ```
 
    ### Unreal Engine
 
-   ```
+   ```c++
    // .h
    void MyClass::OnShowDialogCompleted(
      EStandardIntegrityErrorCode Error,
@@ -283,7 +272,7 @@ Other dialog codes that your app can request are listed after this section.
 
    ### Native
 
-   ```
+   ```c++
    // Show dialog as indicated by the server
    int show_dialog_type = yourServerResponse.integrityDialogTypeCode();
    if(show_dialog_type == 0){
@@ -323,32 +312,30 @@ Other dialog codes that your app can request are listed after this section.
    /// verdict issues have been resolved.
    ```
 5. The dialog is displayed on top of the provided activity. When the user has
-   closed the dialog, the Task completes with a [response code](/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityDialogResponseCode).
+   closed the dialog, the Task completes with a [response code](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityDialogResponseCode).
+
 6. (Optional) Request another token to display any further dialogs. If you make
-   [standard requests](/google/play/integrity/standard), you need to warm up
+   [standard requests](https://developer.android.com/google/play/integrity/standard), you need to warm up
    the token provider again to obtain a fresh verdict.
 
 ## Request an integrity dialog to fix a client side exception
 
-If an Integrity API request fails with a [`StandardIntegrityException`](/google/play/integrity/reference/com/google/android/play/core/integrity/StandardIntegrityException)
-(Standard API) or [`IntegrityServiceException`](/google/play/integrity/reference/com/google/android/play/core/integrity/IntegrityServiceException) (Classic API) and the
-exception is remediable, you can use either the [`GET_INTEGRITY`](#get-integrity-dialog) or
-[`GET_STRONG_INTEGRITY`](#get-strong-integrity-dialog) dialogs to fix the error.
+If an Integrity API request fails with a [`StandardIntegrityException`](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/StandardIntegrityException)
+(Standard API) or [`IntegrityServiceException`](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/IntegrityServiceException) (Classic API) and the
+exception is remediable, you can use either the [`GET_INTEGRITY`](https://developer.android.com/google/play/integrity/remediation#get-integrity-dialog) or
+[`GET_STRONG_INTEGRITY`](https://developer.android.com/google/play/integrity/remediation#get-strong-integrity-dialog) dialogs to fix the error.
 
-**Note:** Using the new `GET_INTEGRITY` or `GET_STRONG_INTEGRITY` dialogs
-requires the Integrity API Android library version 1.5.0 or higher. This
-update provides access to the new `showDialog` method in
-[`IntegrityManager`](/google/play/integrity/reference/com/google/android/play/core/integrity/IntegrityManager) (Classic API) or [`StandardIntegrityManager`](/google/play/integrity/reference/com/google/android/play/core/integrity/StandardIntegrityManager)
-(Standard API) for resolving client-side exceptions.
+> [!NOTE]
+> **Note:** Using the new `GET_INTEGRITY` or `GET_STRONG_INTEGRITY` dialogs requires the Integrity API Android library version 1.5.0 or higher. This update provides access to the new `showDialog` method in [`IntegrityManager`](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/IntegrityManager) (Classic API) or [`StandardIntegrityManager`](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/StandardIntegrityManager) (Standard API) for resolving client-side exceptions.
 
-The following steps outline how you can use the [`GET_INTEGRITY`](#get-integrity-dialog)
+The following steps outline how you can use the [`GET_INTEGRITY`](https://developer.android.com/google/play/integrity/remediation#get-integrity-dialog)
 dialog to fix a remediable client side error reported by Integrity API.
 
 1. Check that the exception returned from an Integrity API request is remediable.
 
    ### Kotlin
 
-   ```
+   ```kotlin
    private fun isExceptionRemediable(exception: ExecutionException): Boolean {
      val cause = exception.cause
      if (cause is StandardIntegrityException && cause.isRemediable) {
@@ -360,7 +347,7 @@ dialog to fix a remediable client side error reported by Integrity API.
 
    ### Java
 
-   ```
+   ```java
    private boolean isExceptionRemediable(ExecutionException exception) {
      Throwable cause = exception.getCause();
      if (cause instanceof StandardIntegrityException integrityException
@@ -373,7 +360,7 @@ dialog to fix a remediable client side error reported by Integrity API.
 
    ### Unity
 
-   ```
+   ```c#
    private bool IsExceptionRemediable(StandardIntegrityError error) {
      // Check if the operation resulted in a remediable error
      if (error != null && error.ErrorCode != StandardIntegrityErrorCode.NoError && error.IsRemediable) {
@@ -385,7 +372,7 @@ dialog to fix a remediable client side error reported by Integrity API.
 
    ### Native
 
-   ```
+   ```c++
    bool IsErrorRemediable(StandardIntegrityToken* token) {
      /// Check if the error associated with the token is remediable
      bool isRemediable = false;
@@ -397,12 +384,12 @@ dialog to fix a remediable client side error reported by Integrity API.
    ```
 2. If the exception is remediable, request the `GET_INTEGRITY` dialog using the
    returned exception. The dialog will be displayed over the provided activity and
-   the returned Task completes with a [response code](/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityDialogResponseCode) after the user closes the
+   the returned Task completes with a [response code](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityDialogResponseCode) after the user closes the
    dialog.
 
    ### Kotlin
 
-   ```
+   ```kotlin
    private fun showDialog(exception: StandardIntegrityException) {
      // Create a dialog request
      val standardIntegrityDialogRequest =
@@ -416,11 +403,12 @@ dialog to fix a remediable client side error reported by Integrity API.
      val responseCode: Task<Int> =
            standardIntegrityManager.showDialog(standardIntegrityDialogRequest)
    }
+    
    ```
 
    ### Java
 
-   ```
+   ```java
    private void showDialog(StandardIntegrityException exception) {
      // Create a dialog request
      StandardIntegrityDialogRequest standardIntegrityDialogRequest =
@@ -433,12 +421,12 @@ dialog to fix a remediable client side error reported by Integrity API.
      // Request dialog
      Task<Integer> responseCode =
            standardIntegrityManager.showDialog(standardIntegrityDialogRequest);
-   }
+   }  
    ```
 
    ### Unity
 
-   ```
+   ```c#
    // Initialize the V2 manager. Requires Play Integrity Unity Plugin v2.0.0 or
    // higher.
    var standardIntegrityManager = new StandardIntegrityManagerV2();
@@ -461,7 +449,7 @@ dialog to fix a remediable client side error reported by Integrity API.
 
    ### Native
 
-   ```
+   ```c++
    private void showDialogToFixError(StandardIntegrityToken* token) {
      /// If the token request failed, and the underlying error is not fixable
      /// then return early
@@ -509,43 +497,34 @@ dialog to fix a remediable client side error reported by Integrity API.
 
 ## Integrity dialog codes
 
-### [GET\_LICENSED](/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityDialogTypeCode#GET_LICENSED) (Type Code 1)
+### [GET_LICENSED](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityDialogTypeCode#GET_LICENSED) (Type Code 1)
 
 #### Verdict issue
 
 This dialog is appropriate for two issues:
 
-* **Unauthorized access**: `appLicensingVerdict: "UNLICENSED"`. This means the
-  user account does not have an entitlement for your app, which can happen if the
-  user sideloaded it or acquired it from a different app store than Google Play.
-* **Tampered app**: `appRecognitionVerdict: "UNRECOGNIZED_VERSION"`. This
-  means that your app's binary has been modified or is not a version recognized
-  by Google Play.
+- **Unauthorized access** : `appLicensingVerdict: "UNLICENSED"`. This means the user account does not have an entitlement for your app, which can happen if the user sideloaded it or acquired it from a different app store than Google Play.
+- **Tampered app** : `appRecognitionVerdict: "UNRECOGNIZED_VERSION"`. This means that your app's binary has been modified or is not a version recognized by Google Play.
 
-**Note:** The [`GET_INTEGRITY`](#get-integrity-dialog) dialog addresses the same issues as `GET_LICENSED`
-in addition to addressing device integrity issues and remediable error codes.
+> [!NOTE]
+> **Note:** The [`GET_INTEGRITY`](https://developer.android.com/google/play/integrity/remediation#get-integrity-dialog) dialog addresses the same issues as `GET_LICENSED` in addition to addressing device integrity issues and remediable error codes.
 
 #### Remediation
 
 You can show the `GET_LICENSED` dialog to prompt the user to acquire the
 genuine app from Google Play. This single dialog addresses both scenarios:
 
-* For an *unlicensed* user, it grants them a Play license. This enables
-  the user to receive app updates from Google Play.
-* For a user with a *tampered* app version, it guides them to installing
-  the unmodified app from Google Play.
+- For an *unlicensed* user, it grants them a Play license. This enables the user to receive app updates from Google Play.
+- For a user with a *tampered* app version, it guides them to installing the unmodified app from Google Play.
 
 When the user completes the dialog, subsequent integrity checks return
 `appLicensingVerdict: "LICENSED"` and `appRecognitionVerdict: "PLAY_RECOGNIZED"`.
 
 #### Example UX
 
-![](/static/images/google/play/integrity/get_licensing_ux.png)
+![](https://developer.android.com/static/images/google/play/integrity/get_licensing_ux.png) **Figure 1.** GET_LICENSED Play dialog.
 
-
-**Figure 1.** GET\_LICENSED Play dialog.
-
-### [CLOSE\_UNKNOWN\_ACCESS\_RISK](/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityDialogTypeCode#CLOSE_UNKNOWN_ACCESS_RISK) (Type Code 2)
+### [CLOSE_UNKNOWN_ACCESS_RISK](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityDialogTypeCode#CLOSE_UNKNOWN_ACCESS_RISK) (Type Code 2)
 
 #### Verdict issue
 
@@ -563,12 +542,9 @@ If the user taps the `Close all` button, all such apps are closed.
 
 #### Example UX
 
-![](/static/images/google/play/integrity/close_unknown_access_risk_ux.png)
+![](https://developer.android.com/static/images/google/play/integrity/close_unknown_access_risk_ux.png) **Figure 2.** Dialog for close unknown access risk.
 
-
-**Figure 2.** Dialog for close unknown access risk.
-
-### [CLOSE\_ALL\_ACCESS\_RISK](/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityDialogTypeCode#CLOSE_ALL_ACCESS_RISK) (Type Code 3)
+### [CLOSE_ALL_ACCESS_RISK](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityDialogTypeCode#CLOSE_ALL_ACCESS_RISK) (Type Code 3)
 
 #### Verdict issue
 
@@ -585,33 +561,33 @@ user taps the `Close all` button, all such apps are closed on the device.
 
 #### Example UX
 
-![](/static/images/google/play/integrity/close_unknown_access_risk_ux.png)
+![](https://developer.android.com/static/images/google/play/integrity/close_unknown_access_risk_ux.png) **Figure 3.** Dialog for close all access risk.
 
-
-**Figure 3.** Dialog for close all access risk.
-
-### [GET\_INTEGRITY](/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityDialogTypeCode#GET_INTEGRITY) (Type Code 4)
+### [GET_INTEGRITY](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityDialogTypeCode#GET_INTEGRITY) (Type Code 4)
 
 #### Verdict issue
 
 This dialog is appropriate for any of the following issues:
 
-* **Weak device integrity**: When the `deviceRecognitionVerdict` does
+- **Weak device integrity** : When the `deviceRecognitionVerdict` does
   not contain `MEETS_DEVICE_INTEGRITY`, the device might not be a genuine and
   certified Android device. This can happen, for example, if the
   device's bootloader is unlocked or its loaded Android OS is not a certified
   manufacturer image.
-* **Unauthorized access**: `appLicensingVerdict: "UNLICENSED"`. This means the
+
+- **Unauthorized access** : `appLicensingVerdict: "UNLICENSED"`. This means the
   user account does not have an entitlement for your app, which can happen if the
   user sideloaded it or acquired it from a different app store than Google Play.
-* **Tampered app**: `appRecognitionVerdict: "UNRECOGNIZED_VERSION"`. This
+
+- **Tampered app** : `appRecognitionVerdict: "UNRECOGNIZED_VERSION"`. This
   means that your app's binary has been modified or is not a version recognized by
   Google Play.
-* **Client side exceptions**: When a remediable exception occurs during an
+
+- **Client side exceptions** : When a remediable exception occurs during an
   Integrity API request. Remediable exceptions are Integrity API exceptions with
   error codes like
   `PLAY_SERVICES_VERSION_OUTDATED`, `NETWORK_ERROR`, `PLAY_SERVICES_NOT_FOUND`,
-  etc. You can use the [`exception.isRemediable()`](/google/play/integrity/reference/com/google/android/play/core/integrity/StandardIntegrityException#isRemediable()) method to check if an
+  etc. You can use the [`exception.isRemediable()`](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/StandardIntegrityException#isRemediable()) method to check if an
   exception is fixable by the dialog.
 
 #### Remediation
@@ -626,43 +602,30 @@ verdict issues are present and provides the appropriate remediation steps.
 This means a single dialog request can address multiple problems at once,
 including:
 
-* **Device integrity**: If a device integrity issue is detected, the dialog will
-  guide the user to improve the device's security status to meet the
-  requirements for a `MEETS_DEVICE_INTEGRITY` verdict.
-* **App integrity**: If issues like unauthorized access or app tampering are
-  detected, the dialog will direct users to acquire the app from the Play Store
-  to fix them.
+- **Device integrity** : If a device integrity issue is detected, the dialog will guide the user to improve the device's security status to meet the requirements for a `MEETS_DEVICE_INTEGRITY` verdict.
+- **App integrity**: If issues like unauthorized access or app tampering are detected, the dialog will direct users to acquire the app from the Play Store to fix them.
 
-**Note:** `GET_INTEGRITY` dialog automatically detects and tries to resolve multiple
-verdict issues when requested. To remediate only issues with account licensing
-or app integrity, we recommend using the [`GET_LICENSED`](/google/play/integrity/remediation#get-licensed-dialog)
-dialog.
+> [!NOTE]
+> **Note:** `GET_INTEGRITY` dialog automatically detects and tries to resolve multiple verdict issues when requested. To remediate only issues with account licensing or app integrity, we recommend using the [`GET_LICENSED`](https://developer.android.com/google/play/integrity/remediation#get-licensed-dialog) dialog.
 
-* **Client-side exceptions**: The dialog checks for and attempts to resolve any
-  underlying issues that caused an Integrity API exception. For example, it might
-  prompt the user to update an outdated version of Google Play services.
+- **Client-side exceptions**: The dialog checks for and attempts to resolve any underlying issues that caused an Integrity API exception. For example, it might prompt the user to update an outdated version of Google Play services.
 
 #### Example UX
 
-![](/static/images/google/play/integrity/get_integrity_network_error_ux.gif)
+![](https://developer.android.com/static/images/google/play/integrity/get_integrity_network_error_ux.gif) **Figure 4.** GET_INTEGRITY dialog network error remediation flow
 
-
-**Figure 4.** GET\_INTEGRITY dialog network error remediation flow
-
-### [GET\_STRONG\_INTEGRITY](/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityDialogTypeCode#GET_STRONG_INTEGRITY) (Type Code 5)
+### [GET_STRONG_INTEGRITY](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/model/IntegrityDialogTypeCode#GET_STRONG_INTEGRITY) (Type Code 5)
 
 #### Verdict issue
 
 This dialog is designed to fix all of the same issues that
-[GET\_INTEGRITY](/google/play/integrity/remediation#get-integrity-dialog)
+[GET_INTEGRITY](https://developer.android.com/google/play/integrity/remediation#get-integrity-dialog)
 addresses, with the added capability of fixing problems that prevent a device
 from receiving a `MEETS_STRONG_INTEGRITY` verdict and fixing Play Protect
 verdict issues.
 
-**Note:** [MEETS\_STRONG\_INTEGRITY](/google/play/integrity/verdicts#optional-device-labels)
-and [playProtectVerdict](/google/play/integrity/verdicts#environment-details-field)
-are optional verdicts and, you should only check for them if you've
-[opted in to receive additional labels](/google/play/integrity/setup#configure-api).
+> [!NOTE]
+> **Note:** [MEETS_STRONG_INTEGRITY](https://developer.android.com/google/play/integrity/verdicts#optional-device-labels) and [playProtectVerdict](https://developer.android.com/google/play/integrity/verdicts#environment-details-field) are optional verdicts and, you should only check for them if you've [opted in to receive additional labels](https://developer.android.com/google/play/integrity/setup#configure-api).
 
 #### Remediation
 
@@ -670,46 +633,26 @@ are optional verdicts and, you should only check for them if you've
 handling multiple remediation steps within a single, continuous flow. The dialog
 automatically checks for an address applicable integrity problems, including:
 
-* **Device integrity**: If a device integrity issue is detected, the dialog will
-  guide the user to improve the device's security status to meet the
-  requirements for a `MEETS_STRONG_INTEGRITY` verdict.
-* **Play protect status**: If the `playProtectVerdict` indicates an issue, the
+- **Device integrity** : If a device integrity issue is detected, the dialog will guide the user to improve the device's security status to meet the requirements for a `MEETS_STRONG_INTEGRITY` verdict.
+- **Play protect status** : If the `playProtectVerdict` indicates an issue, the
   dialog will guide the user to fix it:
 
-  + If Play Protect is disabled (`playProtectVerdict == POSSIBLE_RISK`), the
-    dialog will prompt the user to enable it and perform a scan of all apps
-    on the device.
-  + If harmful apps are detected (`playProtectVerdict == MEDIUM_RISK` or
-    `HIGH_RISK`), the dialog will direct the user to uninstall them using Google
-    Play Protect.
-* **App integrity**: If issues like unauthorized access or app tampering are
+  - If Play Protect is disabled (`playProtectVerdict == POSSIBLE_RISK`), the dialog will prompt the user to enable it and perform a scan of all apps on the device.
+  - If harmful apps are detected (`playProtectVerdict == MEDIUM_RISK` or `HIGH_RISK`), the dialog will direct the user to uninstall them using Google Play Protect.
+- **App integrity**: If issues like unauthorized access or app tampering are
   detected, the dialog will prompt the user to acquire the app from the Play Store
   to fix the problem.
-* **Client-side exceptions**: The dialog also attempts to resolve any underlying
+
+- **Client-side exceptions** : The dialog also attempts to resolve any underlying
   issues that caused an Integrity API exception. For example, it may prompt the
   user to enable Google Play services if it's found to be disabled. Remediable
   exceptions are Integrity API exceptions with error codes like
   `PLAY_SERVICES_VERSION_OUTDATED`,
   `NETWORK_ERROR`, or
   `PLAY_SERVICES_NOT_FOUND`.
-  You can use the [`exception.isRemediable()`](/google/play/integrity/reference/com/google/android/play/core/integrity/StandardIntegrityException#isRemediable()) method to check if an error is
+  You can use the [`exception.isRemediable()`](https://developer.android.com/google/play/integrity/reference/com/google/android/play/core/integrity/StandardIntegrityException#isRemediable()) method to check if an error is
   fixable by the dialog.
 
 #### Example UX
 
-![](/static/images/google/play/integrity/get_strong_integrity_update_play_services_ux.gif)
-
-
-**Figure 5.** GET\_STRONG\_INTEGRITY dialog updating Play services.
-
-[Previous
-
-arrow\_back
-
-Handle error codes](/google/play/integrity/error-codes)
-
-[Next
-
-Additional tools and support
-
-arrow\_forward](/google/play/integrity/additional-tools)
+![](https://developer.android.com/static/images/google/play/integrity/get_strong_integrity_update_play_services_ux.gif) **Figure 5.** GET_STRONG_INTEGRITY dialog updating Play services.

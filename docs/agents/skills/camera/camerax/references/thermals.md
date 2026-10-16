@@ -1,14 +1,8 @@
 ---
-title: Thermal-aware camera development  |  Android Developers
+title: https://developer.android.com/agents/skills/camera/camerax/references/thermals
 url: https://developer.android.com/agents/skills/camera/camerax/references/thermals
-source: html-scrape
+source: md.txt
 ---
-
-# Thermal-aware camera development Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 Camera operations are among the most power-intensive tasks on mobile devices.
 Without proactive management, the system throttle hardware, drop frames, or
@@ -17,12 +11,12 @@ force-close the camera app.
 ## The thermal management strategy
 
 | Priority | Strategy | Implementation |
-| --- | --- | --- |
+|---|---|---|
 | **1. Inform** | Use case hints | Provide `StreamUseCase` to allow the OS to optimize hardware. |
 | **2. Monitor** | Thermal state listener | Observe `PowerManager.addThermalStatusListener`. |
 | **3. Act** | Graceful degradation | Dynamically reduce FPS, resolution, or disable demanding effects such as HDR. |
 
----
+*** ** * ** ***
 
 ## Follow the implementation guide
 
@@ -31,7 +25,8 @@ force-close the camera app.
 Android 13 (API level 33) introduced `StreamUseCase`. This is the **single most
 effective** way to tell the hardware how to balance quality versus power.
 
-```
+
+```kotlin
 // In CameraX: Set the hint on your Use Case
 val preview = Preview.Builder()
     .setTargetName("Preview")
@@ -41,25 +36,24 @@ val preview = Preview.Builder()
         )
     }
     .build()
-
-CameraSkillSnippets.kt
 ```
+
+<br />
 
 Review the following key use cases for stream optimization:
 
-* `PREVIEW`: This option is the default and provides a balanced configuration.
-* `STILL_CAPTURE`: This option provides high-quality capture for short bursts.
-* `VIDEO_RECORD`: This option maintains sustained power and is optimized for
-  encoding.
-* `VIDEO_CALL`: This option minimizes power consumption for long-duration
-  sessions.
+- `PREVIEW`: This option is the default and provides a balanced configuration.
+- `STILL_CAPTURE`: This option provides high-quality capture for short bursts.
+- `VIDEO_RECORD`: This option maintains sustained power and is optimized for encoding.
+- `VIDEO_CALL`: This option minimizes power consumption for long-duration sessions.
 
 ### Monitor thermal status
 
 Don't wait for a crash. Monitor the `PowerManager` status and react before
 `THERMAL_STATUS_CRITICAL`.
 
-```
+
+```kotlin
 val powerManager = context.getSystemService(Context.POWER_SERVICE) as PowerManager
 powerManager.addThermalStatusListener { status ->
     when (status) {
@@ -75,28 +69,23 @@ powerManager.addThermalStatusListener { status ->
         }
     }
 }
-
-CameraSkillSnippets.kt
 ```
+
+<br />
 
 ### Graceful degradation tiers
 
 | Tier | Action | User impact |
-| --- | --- | --- |
+|---|---|---|
 | **Mild** | Stop background analysis using ML Kit | Minimal |
 | **Moderate** | Cap frame rate to 30 FPS | Noticeable but smooth |
 | **Severe** | Drop resolution from 1080p to 720p | Significant visual change |
 | **Critical** | Shut down the session | App unusable in safe mode |
 
----
+*** ** * ** ***
 
 ## Thermal pitfalls
 
-* **The "double work" bug**: Don't run two high-resolution streams—such as a
-  preview and a video capture stream—at different aspect ratios unless
-  necessary. This forces the image signal processor (ISP) to perform double
-  the scaling work, which generates excessive heat.
-* **Surface overload**: Don't use multi-step `SurfaceProcessor` or
-  `Media3Effect` chains during `THERMAL_STATUS_SEVERE`.
-* **Flash heat**: Flash or torch usage generates high thermal load.
-  Proactively disable the flash if thermal status is `SEVERE`.
+- **The "double work" bug**: Don't run two high-resolution streams---such as a preview and a video capture stream---at different aspect ratios unless necessary. This forces the image signal processor (ISP) to perform double the scaling work, which generates excessive heat.
+- **Surface overload** : Don't use multi-step `SurfaceProcessor` or `Media3Effect` chains during `THERMAL_STATUS_SEVERE`.
+- **Flash heat** : Flash or torch usage generates high thermal load. Proactively disable the flash if thermal status is `SEVERE`.

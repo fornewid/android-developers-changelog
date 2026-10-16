@@ -12,6 +12,19 @@ and grid-type widgets to streamline this process.
 > [!NOTE]
 > **Note:** View detailed layout specs in our [Figma Widget Canonical Builder](https://goo.gle/widget-canonical), and find the code samples using Jetpack Glance in the [Android Platform Samples GitHub repository](https://github.com/android/platform-samples/tree/main/samples/user-interface/appwidgets).
 
+
+## Android skills
+
+[View on GitHub](https://github.com/android/skills/tree/main/system/glance-canonical-layouts)
+
+### Glance canonical widget layouts
+
+Use the Glance canonical widget layouts [Android skill](https://developer.android.com/tools/agents/android-skills) to create home screen widgets using Jetpack Glance canonical layouts. To install the skill from the [Android CLI](https://developer.android.com/tools/agents/android-cli), run:
+
+    android skills add glance-canonical-layouts
+
+<br />
+
 ## Text
 
 Text layouts are ideal for displaying concise information. Enhance the visual

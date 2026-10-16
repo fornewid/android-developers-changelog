@@ -105,7 +105,7 @@ A `OneTimeProductNotification` contains the following fields:
 
 | Property Name | Value | Description |
 | version | string | The version of this notification. Initially, this will be "1.0". This version is distinct from other version fields. |
-| notificationType | int | The type of notification. It can have the following values: - (1) ONE_TIME_PRODUCT_PURCHASED - A one-time product was successfully purchased by a user. - (2) ONE_TIME_PRODUCT_CANCELED - A pending one-time product purchase has been canceled by the user. |
+| notificationType | int | The type of notification. It can have the following values: - (1) ONE_TIME_PRODUCT_PURCHASED - A one-time product was successfully purchased by a user. - (2) ONE_TIME_PRODUCT_CANCELED - A one-time product purchase has been canceled or revoked. |
 | purchaseToken | string | The token provided to the user's device when purchase was made. |
 | sku | string | The purchased one-time product ID (for example, "sword_001") |
 |---|---|---|

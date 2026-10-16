@@ -4,7 +4,8 @@ url: https://developer.android.com/tools/agents/android-cli/commands/info
 source: md.txt
 ---
 
-Prints environment information including SDK location, connected devices, and configuration variables.
+Prints environment information including SDK location, connected devices, and
+configuration variables.
 
 ## Usage
 
@@ -26,13 +27,18 @@ Prints environment information including SDK location, connected devices, and co
 
 ## Description
 
-`android info` displays environment and configuration details for your Android CLI installation, including the active Android SDK path (`sdk`) and CLI version (`version`).
+`android info` displays environment and configuration details for your Android
+CLI installation, including the active Android SDK path (`sdk`) and CLI version
+(`version`).
 
-To temporarily override the active Android SDK path for a single command, pass the global `--sdk=<path-to-sdk>` option, or add `--sdk=<path-to-sdk>` to your `~/.androidrc` configuration file.
+To temporarily override the active Android SDK path for a single command, pass
+the global `--sdk=<path-to-sdk>` option, or add `--sdk=<path-to-sdk>` to your
+`~/.androidrc` configuration file.
 
 ### Query a specific field
 
-Provide an optional `<field>` argument (such as `sdk` or `version`) to print only the raw value of that field---useful for shell scripts and automation.
+Provide an optional `<field>` argument (such as `sdk` or `version`) to print
+only the raw value of that field---useful for shell scripts and automation.
 
 ### Examples
 

@@ -1,22 +1,10 @@
 ---
-title: Increase app availability across device types  |  Adaptive Apps  |  Android Developers
+title: https://developer.android.com/develop/adaptive-apps/guides/increase-app-availability
 url: https://developer.android.com/develop/adaptive-apps/guides/increase-app-availability
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Adaptive Apps](https://developer.android.com/develop/adaptive-apps)
-* [Guides](https://developer.android.com/develop/adaptive-apps/guides/get-started-with-adaptive-apps)
-
-# Increase app availability across device types Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
-
-Android devices come in many form factors—phones, foldables, tablets,
+Android devices come in many form factors---phones, foldables, tablets,
 ChromeOS laptops, TVs, car displays, XR. Different devices offer different
 hardware capabilities. For example, some devices don't have telephony services,
 touchscreens, or cameras.
@@ -34,29 +22,25 @@ your app's manifest and dependencies.
 
 ### Explicit feature declarations
 
-The [`<uses-feature>`](/guide/topics/manifest/uses-feature-element) manifest element specifies hardware or software
+The [`<uses-feature>`](https://developer.android.com/guide/topics/manifest/uses-feature-element) manifest element specifies hardware or software
 dependencies. By default, `<uses-feature>` marks declared features as required
 (`android:required="true"`).
 
 For example, declaring a camera requirement prevents devices that don't have a
 back (world‑facing) camera from downloading the app:
 
-```
-<uses-feature android:name="android.hardware.camera" />
-```
+    <uses-feature android:name="android.hardware.camera" />
 
 To indicate that the feature is optional, you must explicitly set
 `android:required` to `false`:
 
-```
-<uses-feature
-    android:name="android.hardware.camera"
-    android:required="false" />
-```
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
 ### Implicit feature requirements from permissions
 
-Declaring [`<uses-permission>`](/guide/topics/manifest/uses-permission-element) elements can also implicitly require
+Declaring [`<uses-permission>`](https://developer.android.com/guide/topics/manifest/uses-permission-element) elements can also implicitly require
 corresponding hardware features. For example, declaring the `CAMERA` permission
 requires the `android.hardware.camera` feature unless explicitly overridden.
 
@@ -65,7 +49,7 @@ when they install the app; on devices running Android 6.0 (API level 23) and
 higher, at runtime.
 
 Expectations around permissions have evolved with the introduction of [runtime
-permissions](/guide/topics/permissions/overview#runtime), in which case a `<uses-permission>` declaration doesn't mean
+permissions](https://developer.android.com/guide/topics/permissions/overview#runtime), in which case a `<uses-permission>` declaration doesn't mean
 your app will be granted access. With runtime permissions, users can choose to
 deny access or prefer alternative workflows, such as manually searching for a
 location rather than granting location permissions. Because apps must continue
@@ -74,7 +58,7 @@ underlying hardware feature at install time and having Google Play filter on
 that requirement is unnecessary.
 
 For a complete list of permissions that trigger implicit feature requirements,
-see [Permissions that imply feature requirements](/guide/topics/manifest/uses-feature-element#permissions).
+see [Permissions that imply feature requirements](https://developer.android.com/guide/topics/manifest/uses-feature-element#permissions).
 
 ### Implicit feature requirements from activity orientation
 
@@ -86,7 +70,7 @@ displays such as cars or desktop environments.
 
 Apps should always support both landscape and portrait orientations, so
 declaring an orientation requirement is unnecessary and can reduce app
-availability. See [Screen hardware features](/guide/topics/manifest/uses-feature-element#screen-hw-features).
+availability. See [Screen hardware features](https://developer.android.com/guide/topics/manifest/uses-feature-element#screen-hw-features).
 
 ## Manage transitive dependencies and manifest merging
 
@@ -98,16 +82,14 @@ unexpected requirements, silently reducing device availability.
 ### Determine your app's required features
 
 Check the exact features required by your app after manifest merging using
-[`AAPT2`](/tools/aapt2) or Google Play Console.
+[`AAPT2`](https://developer.android.com/tools/aapt2) or Google Play Console.
 
 #### Use AAPT2 badging output
 
-Run the [`AAPT2`](/tools/aapt2) tool to dump badging metadata from your
+Run the [`AAPT2`](https://developer.android.com/tools/aapt2) tool to dump badging metadata from your
 universal APK:
 
-```
-aapt2 dump badging path/to/app.apk
-```
+    aapt2 dump badging path/to/app.apk
 
 The badging output lists all declared permissions and all explicitly and
 implicitly required features, which determines the filtering rules applied by
@@ -129,67 +111,49 @@ or software features unless your app can't function without them.
 Design alternative user interactions when hardware features or permissions are
 unavailable, for example:
 
-* **Camera:** Banking apps that support Remote Deposit Capture (RDC) of checks
-  shouldn't require an autofocus camera, a front or rear camera, or any camera
-  at all. Allow users to upload a picture of a check from another source.
-* **Touchscreen and input:** All apps should support keyboard navigation and
-  mouse input for accessibility and usability. Don't strictly require a
-  hardware touchscreen, ensuring compatibility with desktop windowing,
-  ChromeOS, and TV form factors.
-* **Orientation:** Adaptive apps support both landscape and portrait
-  orientations. Car displays are often in a fixed landscape orientation;
-  requiring portrait support would exclude those displays.
-* **Location and connectivity:** Not all devices have location hardware or
-  telephony services. Allow manual address entry or email options if location
-  hardware or telephony services are absent or permission is denied.
+- **Camera:** Banking apps that support Remote Deposit Capture (RDC) of checks shouldn't require an autofocus camera, a front or rear camera, or any camera at all. Allow users to upload a picture of a check from another source.
+- **Touchscreen and input:** All apps should support keyboard navigation and mouse input for accessibility and usability. Don't strictly require a hardware touchscreen, ensuring compatibility with desktop windowing, ChromeOS, and TV form factors.
+- **Orientation:** Adaptive apps support both landscape and portrait orientations. Car displays are often in a fixed landscape orientation; requiring portrait support would exclude those displays.
+- **Location and connectivity:** Not all devices have location hardware or telephony services. Allow manual address entry or email options if location hardware or telephony services are absent or permission is denied.
 
 ### Set android:required to false
 
 Add `android:required="false"` to all `<uses-feature>` declarations in
 `AndroidManifest.xml`:
 
-```
-<uses-feature
-    android:name="android.hardware.camera"
-    android:required="false" />
-<uses-feature
-    android:name="android.hardware.autofocus"
-    android:required="false" />
-```
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.autofocus"
+        android:required="false" />
 
 Or remove the `<uses-feature>` declaration entirely if the app no longer
 supports a specific feature.
 
-**Note:** The `android.permission.CAMERA` permission implicitly requires both
-`android.hardware.camera` and `android.hardware.camera.autofocus`. If you only
-set `android.hardware.camera` as `required="false"`, Google Play will still
-filter out devices that lack autofocus (Chromebooks, most tablets, external
-webcams, and any device that has only a user-facing front camera).
+> [!NOTE]
+> **Note:** The `android.permission.CAMERA` permission implicitly requires both `android.hardware.camera` and `android.hardware.camera.autofocus`. If you only set `android.hardware.camera` as `required="false"`, Google Play will still filter out devices that lack autofocus (Chromebooks, most tablets, external webcams, and any device that has only a user-facing front camera).
 
 ### Override implicit permission requirements
 
 When declaring permissions that imply hardware features, add a corresponding
 `<uses-feature>` tag with `android:required="false"`:
 
-```
-<uses-permission android:name="android.permission.CAMERA" />
-<uses-feature
-    android:name="android.hardware.camera"
-    android:required="false" />
-```
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
 ### Check feature availability at runtime
 
 Before calling hardware-specific APIs, check whether the device supports the
-feature using [`PackageManager.hasSystemFeature`](/reference/kotlin/android/content/pm/PackageManager#hasSystemFeature(kotlin.String)):
+feature using [`PackageManager.hasSystemFeature`](https://developer.android.com/reference/kotlin/android/content/pm/PackageManager#hasSystemFeature(kotlin.String)):
 
-```
-if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
-    // Access camera hardware.
-} else {
-    // Provide alternative workflow.
-}
-```
+    if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)) {
+        // Access camera hardware.
+    } else {
+        // Provide alternative workflow.
+    }
 
 ## Prevent regressions with CI and badging
 
@@ -206,12 +170,9 @@ universal APK.
 Define three Gradle tasks for each build variant, for example, the release
 variant:
 
-1. **`generateReleaseBadging`:** Invokes `AAPT2` to generate a badging text
-   file from the release APK.
-2. **`updateReleaseBadging`:** Copies the generated badging text file to your
-   project source tree as a version-controlled *golden* reference file.
-3. **`checkReleaseBadging`:** Compares newly generated badging files with the
-   checked-in golden file.
+1. **`generateReleaseBadging`:** Invokes `AAPT2` to generate a badging text file from the release APK.
+2. **`updateReleaseBadging`:** Copies the generated badging text file to your project source tree as a version-controlled *golden* reference file.
+3. **`checkReleaseBadging`:** Compares newly generated badging files with the checked-in golden file.
 
 ### Verify in continuous integration
 
@@ -222,19 +183,11 @@ to be required, which would reduce availability of the app.
 If a dependency change or manifest edit introduces a new permission or required
 feature, the badging check fails, preventing accidental availability
 regressions.
-
-![Screen grab of failing continuous integration build caused by adding a permission or required feature without updating the badging file.](/static/develop/ui/compose/images/layouts/adaptive/availability/ci-badging-failure.png)
-
-
-**Figure 1.** Failing CI due to adding a permission or required feature without updating the badging file.
+![Screen grab of failing continuous integration build caused by adding a permission or required feature without updating the badging file.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/availability/ci-badging-failure.png) **Figure 1.** Failing CI due to adding a permission or required feature without updating the badging file.
 
 When a requirement change is intentional, run `updateReleaseBadging` to update
 the golden badging file and commit the change for code review.
-
-![Screen capture showing updated golden badging file for code review with an added permission and implied required feature.](/static/develop/ui/compose/images/layouts/adaptive/availability/golden-badging-diff.png)
-
-
-**Figure 2.** Updated golden badging file for review with additional permission and implied required feature.
+![Screen capture showing updated golden badging file for code review with an added permission and implied required feature.](https://developer.android.com/static/develop/ui/compose/images/layouts/adaptive/availability/golden-badging-diff.png) **Figure 2.** Updated golden badging file for review with additional permission and implied required feature.
 
 For a complete working example of a CI system verifying the badging file, see
 the [Now in Android](https://github.com/android/nowinandroid) app.
@@ -247,4 +200,4 @@ devices and users.
 
 ## Additional resources
 
-* [Permissions on Android](/guide/topics/permissions/overview)
+- [Permissions on Android](https://developer.android.com/guide/topics/permissions/overview)

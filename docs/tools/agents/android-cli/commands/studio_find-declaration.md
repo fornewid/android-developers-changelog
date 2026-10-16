@@ -30,11 +30,16 @@ Finds the declaration of a symbol.
 
 ## Description
 
-`android studio find-declaration` locates the exact declaration site of a symbol (class, method, function, property, field, constant, or Android resource) across the open project using Android Studio's semantic index.
+`android studio find-declaration` locates the exact declaration site of a symbol
+(class, method, function, property, field, constant, or Android resource) across
+the open project using Android Studio's semantic index.
 
 Requires Android Studio Quail 2 or higher.
 
-If multiple symbols share the same name across modules or packages, pass `--context-file=<path>` pointing to a source file that references the symbol so Android Studio can resolve the symbol using that file's imports and scope. Pass `--short` to output only the matched file path and line number.
+If multiple symbols share the same name across modules or packages, pass
+`--context-file=<path>` pointing to a source file that references the symbol so
+Android Studio can resolve the symbol using that file's imports and scope. Pass
+`--short` to output only the matched file path and line number.
 
 ### Examples
 

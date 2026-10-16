@@ -87,7 +87,8 @@ Follow these steps to process a new one-time purchase:
    2. If the product is consumable, mark the item as consumed by calling the [`purchases.products.consume`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/consume) method so that the user can buy the item again after they have consumed it. This method also acknowledges the purchase.
 
 > [!NOTE]
-> **Note:** If you don't acknowledge a purchase within three days, the user automatically receives a refund, and Google Play revokes the purchase.
+> **Note:** If you don't acknowledge a purchase within three days, the user automatically receives a refund, and Google Play revokes the purchase. If a purchase fails your verification or fraud checks and you choose not to grant entitlement, don't wait for the acknowledgment window to expire; withhold acknowledgment and immediately refund and revoke the purchase using [`orders.refund`](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/refund) with `revoke` set to `true` (see [Handle
+> rejected or unfulfilled purchases](https://developer.android.com/google/play/billing/integrate#rejected-purchases)).
 
 There are also purchase acknowledgement and consume methods available in the
 Play Billing Library that allow you to process purchases from you app, but we

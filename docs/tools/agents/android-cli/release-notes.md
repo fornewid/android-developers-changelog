@@ -12,6 +12,10 @@ This page lists the new features in every Android CLI release. To download
 Android CLI, go to the [download page](https://developer.android.com/tools/agents). To learn more,
 see the [Android CLI overview](https://developer.android.com/tools/agents/android-cli).
 
+## Version 1.0.16625370 (October 2026)
+
+- **UI interaction** : Use the new `android input` command to tap, scroll, swipe, type text, and press keys on a connected device or emulator. Target UI elements with selectors such as `text=Submit` or `id=email,class=EditText`, and combine it with `android layout` to find the elements to interact with.
+
 ## Version 1.0.16500706 (October 2026)
 
 - **Connect on reservation** : `android device remote create` now connects the new reservation to `adb` automatically. Pass `--connect=false` to only create the reservation and connect later with `android device remote connect`.

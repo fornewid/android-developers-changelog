@@ -103,9 +103,9 @@ When adding text entry to a game, [TextInput in GameActivity](https://developer.
 
 ![An image of a typical gamepad. It has a directional pad, four face buttons labelled a, b, x, and y, two analog sticks, and four triggers. There are numbers on the image, but they are not referenced in this page.](https://developer.android.com/static/images/training/game-controller-profiles.png) **Figure 2.** Gamepad inputs.
 
-Gamepads are [formally supported across Android](https://developer.android.com/develop/ui/views/touch-and-input/game-controllers), including connect and disconnect events, [haptic support](https://developer.android.com/develop/ui/views/touch-and-input/game-controllers/controller-features#haptics), advanced input support including [gyroscopes](https://developer.android.com/develop/ui/views/touch-and-input/game-controllers/controller-features#motion_sensors), and output support like [light color](https://developer.android.com/develop/ui/views/touch-and-input/game-controllers/controller-features#lights) when available.
+Gamepads are [formally supported across Android](https://developer.android.com/games/sdk/game-controller/overview), including connect and disconnect events, [haptic support](https://developer.android.com/games/sdk/game-controller/controller-features#haptics), advanced input support including [gyroscopes](https://developer.android.com/games/sdk/game-controller/controller-features#motion-sensors), and output support like [light color](https://developer.android.com/games/sdk/game-controller/controller-features#lights) when available.
 
-App developers can listen for gamepad inputs through [`View` or `Activity` callbacks](https://developer.android.com/develop/ui/views/touch-and-input/game-controllers/controller-input), but game developers are encouraged to use the [Game Controller Library](https://developer.android.com/games/sdk/game-controller) which:
+App developers can listen for gamepad inputs through [`View` or `Activity` callbacks](https://developer.android.com/games/sdk/game-controller/controller-input), but game developers are encouraged to use the [Game Controller Library](https://developer.android.com/games/sdk/game-controller) which:
 
 - Is written in C++ to facilitate integration into your own game engine
 - Centralizes all gamepad features into one API

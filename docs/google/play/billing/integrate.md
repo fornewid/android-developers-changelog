@@ -636,7 +636,9 @@ Your app should always verify the legitimacy of purchases before granting
 benefits to a user. This can be done by following the guidelines described in
 [Verify purchases before granting entitlements](https://developer.android.com/google/play/billing/security#verify). Only after verifying the
 purchase should your app continue to process the purchase and grant entitlements
-to the user, which is discussed in the next section.
+to the user, which is discussed in the next section. If a purchase fails your
+verification, eligibility, or abuse checks, see [Handle rejected or unfulfilled
+purchases](https://developer.android.com/google/play/billing/integrate#rejected-purchases).
 
 ### Grant entitlement to the user
 
@@ -819,6 +821,30 @@ Google Play Billing Library after checking [`isAcknowledged()`](https://develope
 initial subscription purchases need to be acknowledged. Subscription renewals
 don't need to be acknowledged. For more information about when subscriptions
 need to be acknowledged, see the [Sell subscriptions](https://developer.android.com/google/play/billing/subs) topic.
+
+### Handle rejected or unfulfilled purchases
+
+If a purchase fails your backend verification, user eligibility checks, fraud
+and abuse checks, or if your system can't fulfill the entitlement, don't grant
+the entitlement and don't acknowledge or consume the purchase.
+
+While unacknowledged purchases are automatically refunded and revoked after the
+acknowledgment window expires as a consumer safety net, don't rely on this
+expiration window to reject purchases. Letting the acknowledgment window expire
+leaves the order in an unacknowledged state and is ambiguous to Google Play,
+which can't distinguish an intentional developer rejection from a backend
+processing timeout.
+
+Instead, immediately revoke and refund rejected purchases from your backend
+using the Google Play Developer API:
+
+- **Subscriptions** : Call [`purchases.subscriptionsv2.revoke`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke) with `"fullRefund": {}` in [`revocationContext`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/revoke#revocationcontext). This immediately terminates the subscription, revokes access, and initiates a full refund.
+- **One-time products** : Call [`orders.refund`](https://developers.google.com/android-publisher/api-ref/rest/v3/orders/refund) with the `revoke` parameter set to `true` to immediately refund an order and revoke its entitlement. When calling this method, you must pass the purchase's order ID, which can be retrieved via [`Purchase.getOrderId()`](https://developer.android.com/reference/com/android/billingclient/api/Purchase#getorderid) or [`purchases.productsv2.getproductpurchasev2`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.productsv2/getproductpurchasev2). Never call [`consumeAsync()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#consumeasync), [`acknowledgePurchase()`](https://developer.android.com/reference/com/android/billingclient/api/BillingClient#acknowledgepurchase), [`Purchases.products:consume`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/consume), or [`Purchases.products:acknowledge`](https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.products/acknowledge) on rejected purchases.
+- **RTDN and Voided Purchases behavior** : Developer-initiated revocations and refunds (`purchases.subscriptionsv2.revoke` and `orders.refund` with `revoke` set to `true`) trigger Real-time developer notifications and are recorded in the [Voided Purchases API](https://developers.google.com/android-publisher/voided-purchases) (`purchases.voidedpurchases.list` with the `voidedSource` response field set to `1` for developer):
+  - **Subscriptions** : Sends both a `SUBSCRIPTION_REVOKED` notification and a `VoidedPurchaseNotification`.
+  - **One-time products** : Sends a `VoidedPurchaseNotification` (and a `ONE_TIME_PRODUCT_CANCELED` notification if your app is configured in Play Console to receive all one-time product notifications).
+  - Calling `orders.refund` without `revoke` set to `true` refunds the order without revoking entitlement and doesn't trigger a revocation or voided purchase notification. For more details, see [Manage
+    subscriptions and one-time purchases](https://developer.android.com/google/play/billing/manage-purchases#issue_refunds_and_revocations).
 
 ### Recap
 

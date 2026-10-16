@@ -1,37 +1,21 @@
 ---
-title: Heifwriter  |  Jetpack  |  Android Developers
+title: https://developer.android.com/jetpack/androidx/releases/heifwriter
 url: https://developer.android.com/jetpack/androidx/releases/heifwriter
-source: html-scrape
+source: md.txt
 ---
 
-* [Android Developers](https://developer.android.com/)
-* [Get started](https://developer.android.com/get-started/overview)
-* [Jetpack](https://developer.android.com/jetpack)
-* [Libraries](https://developer.android.com/jetpack/androidx/explorer)
-
-Stay organized with collections
-
-Save and categorize content based on your preferences.
-
-
-
-
-
 # Heifwriter
-
-API Reference  
-[androidx.heifwriter](/reference/kotlin/androidx/heifwriter/package-summary)
 
 Encode an image or image collection in HEIF format using the available codecs on the Android device.
 
 | Latest Update | Stable Release | Release Candidate | Beta Release | Alpha Release |
-| --- | --- | --- | --- | --- |
-| October 07, 2026 | [1.1.0](/jetpack/androidx/releases/heifwriter#1.1.0) | [1.2.0-rc01](/jetpack/androidx/releases/heifwriter#1.2.0-rc01) | - | - |
+|---|---|---|---|---|
+| October 07, 2026 | [1.1.0](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.1.0) | [1.2.0-rc01](https://developer.android.com/jetpack/androidx/releases/heifwriter#1.2.0-rc01) | - | - |
 
 ## Declaring dependencies
 
 To add a dependency on HeifWriter, you must add the Google Maven repository to your
-project. Read [Google's Maven repository](/studio/build/dependencies#google-maven)
+project. Read [Google's Maven repository](https://developer.android.com/studio/build/dependencies#google-maven)
 for more information.
 
 Add the dependencies for the artifacts you need in the `build.gradle` file for
@@ -39,7 +23,7 @@ your app or module:
 
 ### Groovy
 
-```
+```groovy
 dependencies {
     implementation "androidx.heifwriter:heifwriter:1.2.0-rc01"
 }
@@ -47,7 +31,7 @@ dependencies {
 
 ### Kotlin
 
-```
+```kotlin
 dependencies {
     implementation("androidx.heifwriter:heifwriter:1.2.0-rc01")
 }
@@ -57,7 +41,7 @@ dependencies {
 
 Your feedback helps make Jetpack better. Let us know if you discover new issues or have
 ideas for improving this library. Please take a look at the
-[existing issues](https://issuetracker.google.com/issues?q=componentid:460473%20status:open)
+[existing issues](https://issuetracker.google.com/issues?q=componentid:460473+status:open)
 in this library before you create a new one. You can add your vote to an existing issue by
 clicking the star button.
 
@@ -88,10 +72,10 @@ September 09, 2026
 
 **Bug Fixes**
 
-* Color Aspects & HDR: Explicitly configured color range, standard, and transfer characteristics during encoding for 10-bit HDR and 8-bit SDR inputs.
-* AVIF Encoding: Fixed `EncoderBase` to use the correct MIME type for AVIF image encoding, and added a fallback to frame decoding when AVIF image metadata is missing.
-* Buffer & EXIF Handling: Fixed buffer sizing, EXIF bounds validation, and 10-bit YUV copy logic.
-* Compatibility & Tests: Resolved AV1 encoder configuration and 10-bit EGL test failures across supported devices.
+- Color Aspects \& HDR: Explicitly configured color range, standard, and transfer characteristics during encoding for 10-bit HDR and 8-bit SDR inputs.
+- AVIF Encoding: Fixed `EncoderBase` to use the correct MIME type for AVIF image encoding, and added a fallback to frame decoding when AVIF image metadata is missing.
+- Buffer \& EXIF Handling: Fixed buffer sizing, EXIF bounds validation, and 10-bit YUV copy logic.
+- Compatibility \& Tests: Resolved AV1 encoder configuration and 10-bit EGL test failures across supported devices.
 
 ### Version 1.2.0-alpha01
 
@@ -101,11 +85,11 @@ October 22, 2025
 
 **New Features**
 
-* A new `EncoderPreference` class has been implemented. This enhancement enables `HeifWriter` to consider encoder preferences, such as hardware or software encoding and enforcement of Constant Quantization (CQ), during the encoder selection process. If a suitable encoder cannot be found based on the specified preferences, an exception will be raised.
+- A new `EncoderPreference` class has been implemented. This enhancement enables `HeifWriter` to consider encoder preferences, such as hardware or software encoding and enforcement of Constant Quantization (CQ), during the encoder selection process. If a suitable encoder cannot be found based on the specified preferences, an exception will be raised.
 
 **API Changes**
 
-* Added `EncoderPreference` class. [I81efd](https://android.googlesource.com/platform/frameworks/support/+/1cd0fc33beddf6a2b0d8d0a34b0d5d9c9f39f50d%5E%21/)
+- Added `EncoderPreference` class. [I81efd](https://android.googlesource.com/platform/frameworks/support/+/1cd0fc33beddf6a2b0d8d0a34b0d5d9c9f39f50d%5E%21/)
 
 ## Version 1.1
 
@@ -147,8 +131,8 @@ January 15, 2025
 
 **Bug Fixes**
 
-* This library now uses [JSpecify nullness annotations](https://jspecify.dev/), which are type-use. Kotlin developers should use the following compiler argument to enforce correct usage: `-Xjspecify-annotations=strict` (this is the default starting with version 2.1.0 of the Kotlin compiler). ([Icdd6c](https://android-review.googlesource.com/#/q/Icdd6c7401ac3b05b2842859da3dfe0bc9a78365e), [b/326456246](https://issuetracker.google.com/issues/326456246))
-* Fixed [b/372391363](https://issuetracker.google.com/issues/372391363) releasing buffer queues in the correct order to fix CTS failure.
+- This library now uses [JSpecify nullness annotations](https://jspecify.dev/), which are type-use. Kotlin developers should use the following compiler argument to enforce correct usage: `-Xjspecify-annotations=strict` (this is the default starting with version 2.1.0 of the Kotlin compiler). ([Icdd6c](https://android-review.googlesource.com/#/q/Icdd6c7401ac3b05b2842859da3dfe0bc9a78365e), [b/326456246](https://issuetracker.google.com/issues/326456246))
+- Fixed [b/372391363](https://issuetracker.google.com/issues/372391363) releasing buffer queues in the correct order to fix CTS failure.
 
 ### Version 1.1.0-alpha03
 
@@ -158,7 +142,7 @@ October 2, 2024
 
 **Bug Fixes**
 
-* Fixes in documentation
+- Fixes in documentation
 
 ### Version 1.1.0-alpha02
 
@@ -168,14 +152,14 @@ July 26, 2023
 
 **New Features**
 
-* 10-bit encoding support
-* AVIF encoding support
+- 10-bit encoding support
+- AVIF encoding support
 
 **Bug Fixes**
 
-* Include experimental APIs in current.txt ([I1a07e](https://android-review.googlesource.com/#/q/I1a07e82e0e35b5fe361bfe02a3c42a2b2b85e2cb), [b/278769092](https://issuetracker.google.com/issues/278769092))
-* N/A, API file changes are just reordering methods ([I5fa95](https://android-review.googlesource.com/#/q/I5fa95ca42073461bed8e5020c91b4c0894b70753))
-* API lint check for `MissingGetterMatchingBuilder` is enabled for androidx ([I4bbea](https://android-review.googlesource.com/#/q/I4bbeacf9869d8338a3d7086acb40bc56ec68c3f9), [b/138602561](https://issuetracker.google.com/issues/138602561))
+- Include experimental APIs in current.txt ([I1a07e](https://android-review.googlesource.com/#/q/I1a07e82e0e35b5fe361bfe02a3c42a2b2b85e2cb), [b/278769092](https://issuetracker.google.com/issues/278769092))
+- N/A, API file changes are just reordering methods ([I5fa95](https://android-review.googlesource.com/#/q/I5fa95ca42073461bed8e5020c91b4c0894b70753))
+- API lint check for `MissingGetterMatchingBuilder` is enabled for androidx ([I4bbea](https://android-review.googlesource.com/#/q/I4bbeacf9869d8338a3d7086acb40bc56ec68c3f9), [b/138602561](https://issuetracker.google.com/issues/138602561))
 
 ### Version 1.1.0-alpha01
 
@@ -185,6 +169,6 @@ January 22, 2020
 
 **Bug fixes**
 
-* Fined tune logic to pick HEVC/HEIC encoder
-* Improved the exception handling during the shutdown sequence
-* Bug fixes for quality control mode
+- Fined tune logic to pick HEVC/HEIC encoder
+- Improved the exception handling during the shutdown sequence
+- Bug fixes for quality control mode

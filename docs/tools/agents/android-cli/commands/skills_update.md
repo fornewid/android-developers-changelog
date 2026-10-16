@@ -29,9 +29,11 @@ Updates installed skills.
 
 ## Description
 
-`android skills update` updates installed Android skills to their latest published versions.
+`android skills update` updates installed Android skills to their latest
+published versions.
 
-Specify one or more `<skill>` names to update specific skills, or pass `--all` to update all installed skills across your configured agents.
+Specify one or more `<skill>` names to update specific skills, or pass `--all`
+to update all installed skills across your configured agents.
 
 ### Examples
 

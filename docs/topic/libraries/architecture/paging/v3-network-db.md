@@ -1,18 +1,8 @@
 ---
-title: Page from network and database  |  App architecture  |  Android Developers
+title: https://developer.android.com/topic/libraries/architecture/paging/v3-network-db
 url: https://developer.android.com/topic/libraries/architecture/paging/v3-network-db
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Design & Plan](https://developer.android.com/design)
-* [App architecture](https://developer.android.com/topic/architecture/intro)
-
-# Page from network and database Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 Provide an improved user experience by making sure that your app can be used
 when network connections are unreliable or when the user is offline. One way to
@@ -21,28 +11,28 @@ This way, your app drives the UI from a local database cache and only makes
 requests to the network when there is no more data in the database.
 
 This guide assumes that you are familiar with the [Room persistence
-library](/topic/libraries/architecture/room) and with [basic usage of the Paging
-library](/topic/libraries/architecture/paging/v3-paged-data).
+library](https://developer.android.com/topic/libraries/architecture/room) and with [basic usage of the Paging
+library](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data).
 
 ## Coordinate data loads
 
 The Paging library provides the
-[`RemoteMediator`](/reference/kotlin/androidx/paging/RemoteMediator) component
+[`RemoteMediator`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator) component
 for this use case. `RemoteMediator` acts as a signal from the Paging library
 when the app has run out of cached data. You can use this signal to load
 additional data from the network and store it in the local database, where a
-[`PagingSource`](/reference/kotlin/androidx/paging/PagingSource) can load it and
+[`PagingSource`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource) can load it and
 provide it to the UI to display.
 
 When additional data is needed, the Paging library calls the
-[`load()`](/reference/kotlin/androidx/paging/RemoteMediator#load) method from
+[`load()`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator#load) method from
 the `RemoteMediator` implementation. This is a suspending function so it is safe
 to perform long-running work. This function typically fetches the new data from
 a network source and saves it to local storage.
 
 This process works with new data, but over time the data stored in the database
 requires invalidation, such as when the user manually triggers a refresh. This
-is represented by the [`LoadType`](/reference/kotlin/androidx/paging/LoadType)
+is represented by the [`LoadType`](https://developer.android.com/reference/kotlin/androidx/paging/LoadType)
 property passed to the `load()` method. The `LoadType` informs the
 `RemoteMediator` whether it needs to refresh the existing data or fetch
 additional data that needs to be appended or prepended to the existing list.
@@ -54,23 +44,18 @@ users want to see in the appropriate order.
 
 When paging directly from the network, the `PagingSource` loads the data and
 returns a
-[`LoadResult`](/reference/kotlin/androidx/paging/PagingSource.LoadResult)
+[`LoadResult`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource.LoadResult)
 object. The `PagingSource` implementation is passed to the
-[`Pager`](/reference/kotlin/androidx/paging/Pager) through the
+[`Pager`](https://developer.android.com/reference/kotlin/androidx/paging/Pager) through the
 `pagingSourceFactory` parameter.
 
 As new data is required by the UI, the `Pager` calls the
-[`load()`](/reference/kotlin/androidx/paging/PagingSource#load) method from the
+[`load()`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource#load) method from the
 `PagingSource` and returns a stream of
-[`PagingData`](/reference/kotlin/androidx/paging/PagingData) objects that
+[`PagingData`](https://developer.android.com/reference/kotlin/androidx/paging/PagingData) objects that
 encapsulate the new data. Each `PagingData` object is typically cached in the
 `ViewModel` before being sent to the UI to display.
-
-![](/static/topic/libraries/architecture/images/paging3-layered-lifecycle.png)
-
-
-**Figure 1.** Diagram of the lifecycle of Paging with PagingSource and
-RemoteMediator.
+![](https://developer.android.com/static/topic/libraries/architecture/images/paging3-layered-lifecycle.png) **Figure 1.** Diagram of the lifecycle of Paging with PagingSource and RemoteMediator.
 
 `RemoteMediator` changes this data flow. A `PagingSource` still loads the data;
 but when the paged data is exhausted, the Paging library triggers the
@@ -87,7 +72,7 @@ network data source into a local cache stored in a Room database.
 A `RemoteMediator` implementation helps load paged data from the network into
 the database, but doesn't load data directly into the UI. Instead, the app uses
 the database as the [source of
-truth](/jetpack/guide/data-layer#source-of-truth). In other words, the app only
+truth](https://developer.android.com/jetpack/guide/data-layer#source-of-truth). In other words, the app only
 displays data that has been cached in the database. A `PagingSource`
 implementation (for example, one generated by Room) handles loading cached data
 from the database into the UI.
@@ -95,34 +80,32 @@ from the database into the UI.
 ### Create Room entities
 
 The first step is to use the [Room persistence
-library](/topic/libraries/architecture/room) to define a database that holds a
+library](https://developer.android.com/topic/libraries/architecture/room) to define a database that holds a
 local cache of paged data from the network data source. Start with an
-implementation of [`RoomDatabase`](/reference/kotlin/androidx/room/RoomDatabase)
+implementation of [`RoomDatabase`](https://developer.android.com/reference/kotlin/androidx/room/RoomDatabase)
 as described in [Save data in a local database using
-Room](/training/data-storage/room).
+Room](https://developer.android.com/training/data-storage/room).
 
 Next, define a Room entity to represent a table of list items as described in
-[Defining data using Room entities](/training/data-storage/room/defining-data).
+[Defining data using Room entities](https://developer.android.com/training/data-storage/room/defining-data).
 Give it an `id` field as a primary key, as well as fields for any other
 information that your list items contain.
 
-```
+```kotlin
 @Entity(tableName = "users")
 data class User(val id: String, val label: String)
 ```
 
 You must also define a data access object (DAO) for this Room entity as
 described in [Accessing data using Room
-DAOs](/training/data-storage/room/accessing-data). The DAO for the list item
+DAOs](https://developer.android.com/training/data-storage/room/accessing-data). The DAO for the list item
 entity must include the following methods:
 
-* An `insertAll()` method that inserts a list of items into the table.
-* A method that takes the query string as a parameter and returns a
-  `PagingSource` object for the list of results. This way, a `Pager` object can
-  use this table as a source of paged data.
-* A `clearAll()` method that deletes all of the table's data.
+- An `insertAll()` method that inserts a list of items into the table.
+- A method that takes the query string as a parameter and returns a `PagingSource` object for the list of results. This way, a `Pager` object can use this table as a source of paged data.
+- A `clearAll()` method that deletes all of the table's data.
 
-```
+```kotlin
 @Dao
 interface UserDao {
   @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -145,18 +128,17 @@ behavior.
 
 A typical `RemoteMediator` implementation includes the following parameters:
 
-* `query`: A query string defining which data to retrieve from the backend
-  service.
-* `database`: The Room database that serves as a local cache.
-* `networkService`: An API instance for the backend service.
+- `query`: A query string defining which data to retrieve from the backend service.
+- `database`: The Room database that serves as a local cache.
+- `networkService`: An API instance for the backend service.
 
 Create a `RemoteMediator<Key, Value>` implementation. The `Key` type and the
 `Value` type should be the same as they would be if you were defining a
 `PagingSource` against the same network data source. For more information on
 selecting type parameters, see [Select key and value
-types](/topic/libraries/architecture/paging/v3-paged-data#key-value).
+types](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#key-value).
 
-```
+```kotlin
 @OptIn(ExperimentalPagingApi::class)
 class ExampleRemoteMediator(
   private val query: String,
@@ -181,43 +163,27 @@ implement.
 
 The `load()` method takes in two parameters:
 
-* [`PagingState`](/reference/kotlin/androidx/paging/PagingState), which contains
-  information about the pages loaded so far, the most recently accessed index,
-  and the [`PagingConfig`](/reference/kotlin/androidx/paging/PagingConfig)
-  object that you used to initialize the paging stream.
-* [`LoadType`](/reference/kotlin/androidx/paging/LoadType), which indicates the
-  type of the load:
-  [`REFRESH`](/reference/kotlin/androidx/paging/LoadType#REFRESH),
-  [`APPEND`](/reference/kotlin/androidx/paging/LoadType#APPEND), or
-  [`PREPEND`](/reference/kotlin/androidx/paging/LoadType#PREPEND).
+- [`PagingState`](https://developer.android.com/reference/kotlin/androidx/paging/PagingState), which contains information about the pages loaded so far, the most recently accessed index, and the [`PagingConfig`](https://developer.android.com/reference/kotlin/androidx/paging/PagingConfig) object that you used to initialize the paging stream.
+- [`LoadType`](https://developer.android.com/reference/kotlin/androidx/paging/LoadType), which indicates the type of the load: [`REFRESH`](https://developer.android.com/reference/kotlin/androidx/paging/LoadType#REFRESH), [`APPEND`](https://developer.android.com/reference/kotlin/androidx/paging/LoadType#APPEND), or [`PREPEND`](https://developer.android.com/reference/kotlin/androidx/paging/LoadType#PREPEND).
 
 The return value of the `load()` method is a
-[`MediatorResult`](/reference/kotlin/androidx/paging/RemoteMediator.MediatorResult)
+[`MediatorResult`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator.MediatorResult)
 object. `MediatorResult` can either be
-[`MediatorResult.Error`](/reference/kotlin/androidx/paging/RemoteMediator.MediatorResult.Error)
+[`MediatorResult.Error`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator.MediatorResult.Error)
 (which includes the error description) or
-[`MediatorResult.Success`](/reference/kotlin/androidx/paging/RemoteMediator.MediatorResult.Success)
+[`MediatorResult.Success`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator.MediatorResult.Success)
 (which includes a signal stating whether or not there is more data to load).
 
 The `load()` method must perform the following steps:
 
-1. Determine which page to load from the network depending on the load type and
-   the data that has been loaded so far.
+1. Determine which page to load from the network depending on the load type and the data that has been loaded so far.
 2. Trigger the network request.
 3. Perform actions depending on the outcome of the load operation:
-   * If the load is successful and the received list of items is not empty,
-     then store the list items in the database and return
-     `MediatorResult.Success(endOfPaginationReached = false)`. After the data
-     is stored, invalidate the data source to notify the Paging library of the
-     new data.
-   * If the load is successful and either the received list of items is empty
-     or it is the last page index, then return
-     `MediatorResult.Success(endOfPaginationReached = true)`. After the data is
-     stored, invalidate the data source to notify the Paging library of the new
-     data.
-   * If the request causes an error, then return `MediatorResult.Error`.
+   - If the load is successful and the received list of items is not empty, then store the list items in the database and return `MediatorResult.Success(endOfPaginationReached = false)`. After the data is stored, invalidate the data source to notify the Paging library of the new data.
+   - If the load is successful and either the received list of items is empty or it is the last page index, then return `MediatorResult.Success(endOfPaginationReached = true)`. After the data is stored, invalidate the data source to notify the Paging library of the new data.
+   - If the request causes an error, then return `MediatorResult.Error`.
 
-```
+```kotlin
 override suspend fun load(
   loadType: LoadType,
   state: PagingState<Int, User>
@@ -285,7 +251,7 @@ override suspend fun load(
 ### Define the initialize method
 
 `RemoteMediator` implementations can also override the
-[`initialize()`](/reference/kotlin/androidx/paging/RemoteMediator#initialize)
+[`initialize()`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator#initialize)
 method to check whether cached data is out of date and decide whether to trigger
 a remote refresh. This method runs before any loading is performed, so you can
 manipulate the database (for example, to clear old data) before triggering any
@@ -298,19 +264,10 @@ case is that the cached data is only valid for a certain period of time. The
 case the Paging library needs to fully refresh the data. Implementations of
 `initialize()` should return an `InitializeAction` as follows:
 
-* In cases where the local data needs to be fully refreshed, `initialize()`
-  should return
-  [`InitializeAction.LAUNCH_INITIAL_REFRESH`](/reference/kotlin/androidx/paging/RemoteMediator.InitializeAction#LAUNCH_INITIAL_REFRESH).
-  This causes the `RemoteMediator` to perform a remote refresh to fully reload
-  the data. Any remote `APPEND` or `PREPEND` loads wait for the `REFRESH` load
-  to succeed before proceeding.
-* In cases where the local data doesn't need to be refreshed, `initialize()`
-  should return
-  [`InitializeAction.SKIP_INITIAL_REFRESH`](/reference/kotlin/androidx/paging/RemoteMediator.InitializeAction#SKIP_INITIAL_REFRESH).
-  This causes the `RemoteMediator` to skip the remote refresh and load the
-  cached data.
+- In cases where the local data needs to be fully refreshed, `initialize()` should return [`InitializeAction.LAUNCH_INITIAL_REFRESH`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator.InitializeAction#LAUNCH_INITIAL_REFRESH). This causes the `RemoteMediator` to perform a remote refresh to fully reload the data. Any remote `APPEND` or `PREPEND` loads wait for the `REFRESH` load to succeed before proceeding.
+- In cases where the local data doesn't need to be refreshed, `initialize()` should return [`InitializeAction.SKIP_INITIAL_REFRESH`](https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator.InitializeAction#SKIP_INITIAL_REFRESH). This causes the `RemoteMediator` to skip the remote refresh and load the cached data.
 
-```
+```kotlin
 override suspend fun initialize(): InitializeAction {
   val cacheTimeout = TimeUnit.MILLISECONDS.convert(1, TimeUnit.HOURS)
   return if (System.currentTimeMillis() - db.lastUpdated() <= cacheTimeout)
@@ -333,12 +290,10 @@ Finally, you must create a `Pager` instance to set up the stream of paged data.
 This is similar to creating a `Pager` from a simple network data source, but
 there are two things you must do differently:
 
-* Instead of passing a `PagingSource` constructor directly, you must provide the
-  query method that returns a `PagingSource` object from the DAO.
-* You must provide an instance of your `RemoteMediator` implementation as the
-  `remoteMediator` parameter.
+- Instead of passing a `PagingSource` constructor directly, you must provide the query method that returns a `PagingSource` object from the DAO.
+- You must provide an instance of your `RemoteMediator` implementation as the `remoteMediator` parameter.
 
-```
+```kotlin
 val userDao = database.userDao()
 val pager = Pager(
   config = PagingConfig(pageSize = 50)
@@ -370,7 +325,7 @@ requests when new data is inserted into the database.
 Solving this data synchronization problem is essential to ensuring that users
 see the most relevant, up-to-date data. The best solution depends mostly on the
 way that the network data source pages the data. In any case, [remote
-keys](#remote-keys) allow you to save information about the most recent page
+keys](https://developer.android.com/topic/libraries/architecture/paging/v3-network-db#remote-keys) allow you to save information about the most recent page
 requested from the server. Your app can use this information to identify and
 request the correct page of data to load next.
 
@@ -405,7 +360,7 @@ item from the database and use its ID to load the next page of data. If there
 are no items in the database, then `endOfPaginationReached` is set to true,
 indicating that a data refresh is needed.
 
-```
+```kotlin
 @OptIn(ExperimentalPagingApi::class)
 class ExampleRemoteMediator(
   private val query: String,
@@ -495,14 +450,14 @@ When remote keys are not directly associated with list items, it is best to
 store them in a separate table in the local database. Define a Room entity that
 represents a table of remote keys:
 
-```
+```kotlin
 @Entity(tableName = "remote_keys")
 data class RemoteKey(val label: String, val nextKey: String?)
 ```
 
 You must also define a DAO for the `RemoteKey` entity:
 
-```
+```kotlin
 @Dao
 interface RemoteKeyDao {
   @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -519,17 +474,14 @@ interface RemoteKeyDao {
 #### Load with remote keys
 
 When your `load()` method needs to manage remote page keys, you must define it
-differently in the following ways as compared to [basic usage](#basic-usage) of
+differently in the following ways as compared to [basic usage](https://developer.android.com/topic/libraries/architecture/paging/v3-network-db#basic-usage) of
 `RemoteMediator`:
 
-* Include an additional property that holds a reference to the DAO for your
-  remote key table.
-* Determine which key to load next by querying the remote key table instead of
-  using `PagingState`.
-* Insert or store the returned remote key from the network data source in
-  addition to the paged data itself.
+- Include an additional property that holds a reference to the DAO for your remote key table.
+- Determine which key to load next by querying the remote key table instead of using `PagingState`.
+- Insert or store the returned remote key from the network data source in addition to the paged data itself.
 
-```
+```kotlin
 @OptIn(ExperimentalPagingApi::class)
 class ExampleRemoteMediator(
   private val query: String,
@@ -626,20 +578,15 @@ into the local database, then you must provide support for resuming pagination
 starting at the anchor, the user's scroll position. Room's `PagingSource`
 implementation handles this for you, but if you're not using Room you can do
 this by overriding
-[`PagingSource.getRefreshKey()`](/reference/kotlin/androidx/paging/PagingSource#getrefreshkey).
+[`PagingSource.getRefreshKey()`](https://developer.android.com/reference/kotlin/androidx/paging/PagingSource#getrefreshkey).
 For an example implementation of `getRefreshKey()`, see [Define the
-PagingSource](/topic/libraries/architecture/paging/v3-paged-data#pagingsource).
+PagingSource](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data#pagingsource).
 
 Figure 2 illustrates the process of loading data first from the local database,
 and then from the network once the database is out of data.
-
 ![The PagingSource loads from the database into the UI until the database
-    is out of data. Then the RemoteMediator loads from the network into the
-    database, and afterward the PagingSource continues loading.](/static/topic/libraries/architecture/images/paging3-layered-load.svg)
-
-
-**Figure 2.** Diagram showing how PagingSource and RemoteMediator work
-together to load data.
+is out of data. Then the RemoteMediator loads from the network into the
+database, and afterward the PagingSource continues loading.](https://developer.android.com/static/topic/libraries/architecture/images/paging3-layered-load.svg) **Figure 2.** Diagram showing how PagingSource and RemoteMediator work together to load data.
 
 ## Additional resources
 
@@ -647,11 +594,11 @@ To learn more about the Paging library, see the following additional resources:
 
 ### Views content
 
-* [Page from network and database (Views)](/topic/libraries/architecture/views/paging/v3-network-db-views)
+- [Page from network and database (Views)](https://developer.android.com/topic/libraries/architecture/views/paging/v3-network-db-views)
 
 ## Recommended for you
 
-* Note: link text is displayed when JavaScript is off
-* [Load and display paged data](/topic/libraries/architecture/paging/v3-paged-data)
-* [Test your Paging implementation](/topic/libraries/architecture/paging/test)
-* [Migrate to Paging 3](/topic/libraries/architecture/paging/v3-migration)
+- Note: link text is displayed when JavaScript is off
+- [Load and display paged data](https://developer.android.com/topic/libraries/architecture/paging/v3-paged-data)
+- [Test your Paging implementation](https://developer.android.com/topic/libraries/architecture/paging/test)
+- [Migrate to Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-migration)

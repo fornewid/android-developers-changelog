@@ -35,13 +35,17 @@ Updates one or all packages to the latest version.
 
 ## Description
 
-`android sdk update` updates installed packages to their latest available versions.
+`android sdk update` updates installed packages to their latest available
+versions.
 
-If no package name is supplied, all installed packages are evaluated for updates. Specify a package name to update only that specific package.
+If no package name is supplied, all installed packages are evaluated for
+updates. Specify a package name to update only that specific package.
 
 ### Format package paths
 
-The standard path separator is `/` (for example, `platforms/android-34`). Semicolon-delimited syntax (for example, `platforms;android-34`) is also accepted.
+The standard path separator is `/` (for example, `platforms/android-34`).
+Semicolon-delimited syntax (for example, `platforms;android-34`) is also
+accepted.
 
 ### Select a release channel (`--canary` and `--beta`)
 
@@ -52,7 +56,14 @@ By default, `update` checks for updates in the **Stable** channel.
 
 ### Handle downgrades (`--force` and `--no-downgrade`)
 
-If a package was previously installed from a Canary channel, running `android sdk update` without `--canary` attempts to update to the latest Stable package. Because the Stable version may have a lower version number than the Canary package, this is considered a downgrade. A package that isn't available in the selected channel is also considered a downgrade, because updating would remove it. In such cases, the update fails with a warning unless `--force` is supplied to allow downgrades, or `--no-downgrade` to keep affected packages at their installed version.
+If a package was previously installed from a Canary channel, running
+`android sdk update` without `--canary` attempts to update to the latest Stable
+package. Because the Stable version may have a lower version number than the
+Canary package, this is considered a downgrade. A package that isn't available
+in the selected channel is also considered a downgrade, because updating would
+remove it. In such cases, the update fails with a warning unless `--force` is
+supplied to allow downgrades, or `--no-downgrade` to keep affected packages at
+their installed version.
 
 ### Examples
 

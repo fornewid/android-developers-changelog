@@ -35,9 +35,13 @@ Installs SDK packages.
 
 ## Description
 
-`android sdk install` installs one or more SDK packages into your SDK directory. To browse available package paths before installing, run [`android sdk list --all`](https://developer.android.com/tools/agents/android-cli/commands/sdk_list).
+`android sdk install` installs one or more SDK packages into your SDK directory.
+To browse available package paths before installing, run
+[`android sdk list --all`](https://developer.android.com/tools/agents/android-cli/commands/sdk_list).
 
-Packages are specified as `<package>[@<version>]` where `<package>` is the SDK package path. If `@<version>` is omitted, the latest version available in the selected channel is installed.
+Packages are specified as `<package>[@<version>]` where `<package>` is the SDK
+package path. If `@<version>` is omitted, the latest version available in the
+selected channel is installed.
 
 ### Select a release channel (`--canary` and `--beta`)
 
@@ -48,7 +52,8 @@ By default, `install` only looks for packages in the **Stable** channel.
 
 ### Force downgrade a package (`--force`)
 
-If the requested package version is older than what is currently installed, pass `--force` to allow downgrading.
+If the requested package version is older than what is currently installed, pass
+`--force` to allow downgrading.
 
 ### Examples
 
@@ -56,7 +61,8 @@ Install the latest Android Emulator and Platform 34 from the stable channel:
 
     android sdk install emulator platforms/android-34
 
-Revert to version 1 of the Android SDK Platform 33 package from the stable channel:
+Revert to version 1 of the Android SDK Platform 33 package from the stable
+channel:
 
     android sdk install --force platforms/android-33@1
 

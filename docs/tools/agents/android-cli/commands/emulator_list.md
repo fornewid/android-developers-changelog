@@ -23,9 +23,11 @@ Lists available virtual devices.
 
 ## Description
 
-`android emulator list` lists all configured Android Virtual Devices (AVDs) on your machine.
+`android emulator list` lists all configured Android Virtual Devices (AVDs) on
+your machine.
 
-Pass `--long` to include detailed metadata (AVD ID, AVD Name, API Level, Status, and Serial) for each AVD.
+Pass `--long` to include detailed metadata (AVD ID, AVD Name, API Level, Status,
+and Serial) for each AVD.
 
 ### Examples
 

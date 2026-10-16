@@ -244,8 +244,8 @@ To test all test suites, run one of the following tasks:
 
 | Report scope | Command | Description | Report location |
 |---|---|---|---|
-| Current module | `./gradlew :module_name:testAllSuites` | Generates a unified test report for the current module, merging unit and instrumented test results. | `path_to_your_project/module_name/build/reports/tests/test-report/` |
-| Current module and dependencies | `./gradlew :module_name:testAllSuitesWithDependencies` | Generates a unified test report for the current module and its library dependencies, merging unit and instrumented test results. | `path_to_your_project/module_name/build/reports/tests/aggregated-test-report/` |
+| Current module | `./gradlew :module_name:testAllSuites --continue` | Generates a unified test report for the current module, merging unit and instrumented test results. | `path_to_your_project/module_name/build/reports/testAllSuites/test-report/` |
+| Current module and dependencies | `./gradlew :module_name:testAllSuitesWithDependencies --continue` | Generates a unified test report for the current module and its library dependencies, merging unit and instrumented test results. | `path_to_your_project/module_name/build/reports/testAllSuitesWithDependencies/test-report/` |
 
 > [!NOTE]
 > **Note:** If you've [enabled coverage support](https://developer.android.com/studio/test/coverage-report#enable-coverage) in any of your modules, the [unified code coverage report](https://developer.android.com/studio/test/coverage-report#unified) is also generated.

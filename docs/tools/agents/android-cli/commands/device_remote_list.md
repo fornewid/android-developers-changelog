@@ -32,9 +32,12 @@ Lists remote device reservations.
 
 ## Description
 
-`android device remote list` prints a table of your reservations with their state, end time, and device details. By default, only reservations that haven't ended are listed.
+`android device remote list` prints a table of your reservations with their
+state, end time, and device details. By default, only reservations that haven't
+ended are listed.
 
-Pass a `<reservation-id>` to print only that reservation, regardless of its state.
+Pass a `<reservation-id>` to print only that reservation, regardless of its
+state.
 
 ### Configure listing options
 

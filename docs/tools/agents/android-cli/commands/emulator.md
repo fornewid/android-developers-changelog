@@ -4,7 +4,8 @@ url: https://developer.android.com/tools/agents/android-cli/commands/emulator
 source: md.txt
 ---
 
-Manages Android Virtual Devices (AVDs). Includes commands to start, stop, list, and view details about emulators.
+Manages Android Virtual Devices (AVDs). Includes commands to start, stop, list,
+and view details about emulators.
 
 ## Usage
 
@@ -30,7 +31,8 @@ Manages Android Virtual Devices (AVDs). Includes commands to start, stop, list, 
 
 ## Description
 
-The `android emulator` command set creates, inspects, launches, stops, and deletes Android Virtual Devices (AVDs) from the command line.
+The `android emulator` command set creates, inspects, launches, stops, and
+deletes Android Virtual Devices (AVDs) from the command line.
 
 ### Typical workflow
 

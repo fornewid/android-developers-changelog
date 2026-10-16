@@ -30,11 +30,13 @@ Finds usages of a symbol.
 
 ## Description
 
-`android studio find-usages` finds all references and call sites of a symbol across the open project using Android Studio's semantic analysis engine.
+`android studio find-usages` finds all references and call sites of a symbol
+across the open project using Android Studio's semantic analysis engine.
 
 Requires Android Studio Quail 2 or higher.
 
-Pass `--context-file=<path>` to disambiguate overloaded or identically named symbols, and pass `--short` to output only the matched file locations.
+Pass `--context-file=<path>` to disambiguate overloaded or identically named
+symbols, and pass `--short` to output only the matched file locations.
 
 ### Examples
 

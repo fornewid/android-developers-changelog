@@ -596,7 +596,9 @@ On devices running Android 17 QPR2 or higher, the system
 sending process, which delivers them to its own receivers on the main thread.
 Sending a self-broadcast doesn't raise your process's importance and doesn't
 prevent a cached process from being frozen, so don't rely on self-broadcasts to
-keep your app running or to do work in the background. Even with this
+keep your app running or to do work in the background. Instead, choose the
+appropriate API for your task as described in the
+[Background tasks overview](https://developer.android.com/develop/background-work/background-tasks). Even with this
 optimization, self-broadcasts are less efficient than in-process communication
 mechanisms, so use those alternatives instead.
 

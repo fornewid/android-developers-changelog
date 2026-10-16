@@ -29,9 +29,13 @@ Installs a specific skill by its ID to your environment.
 
 ## Description
 
-`android skills add` downloads and installs one or more [Android skills](https://developer.android.com/tools/agents/android-skills) into the skill directories of your AI coding agents.
+`android skills add` downloads and installs one or more [Android
+skills](https://developer.android.com/tools/agents/android-skills) into the skill directories of your AI coding agents.
 
-If no existing agent directories are detected and `--agent` is omitted, skills are installed by default for Gemini and Antigravity at `~/.gemini/antigravity/skills`. If a skill is already installed, `android skills add` updates it to the latest version.
+If no existing agent directories are detected and `--agent` is omitted, skills
+are installed by default for Gemini and Antigravity at
+`~/.gemini/antigravity/skills`. If a skill is already installed,
+`android skills add` updates it to the latest version.
 
 > [!NOTE]
 > **Note:** If you customize an installed skill, rename its directory so that future runs of `android skills add` or `android skills update` do not overwrite your changes.

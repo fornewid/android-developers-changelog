@@ -26,9 +26,11 @@ Fetches an Android documentation article from a URL starting with `kb://`.
 
 ## Description
 
-`android docs fetch` downloads and prints the full content of an article from the [Android Knowledge Base](https://developer.android.com/studio/gemini/access-helpful-resources) using its `kb://` URL.
+`android docs fetch` downloads and prints the full content of an article from
+the [Android Knowledge Base](https://developer.android.com/studio/gemini/access-helpful-resources) using its `kb://` URL.
 
-To discover valid `kb://` URLs, run [`android docs search <query>`](https://developer.android.com/tools/agents/android-cli/commands/docs_search) first.
+To discover valid `kb://` URLs, run [`android docs search <query>`](https://developer.android.com/tools/agents/android-cli/commands/docs_search)
+first.
 
 ### Examples
 

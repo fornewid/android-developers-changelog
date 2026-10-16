@@ -4,7 +4,8 @@ url: https://developer.android.com/tools/agents/android-cli/commands/studio
 source: md.txt
 ---
 
-Connects Android CLI to a running Android Studio instance to analyze files, find declarations and usages, render Compose previews, and look up library versions.
+Connects Android CLI to a running Android Studio instance to analyze files, find
+declarations and usages, render Compose previews, and look up library versions.
 
 ## Usage
 
@@ -32,12 +33,20 @@ Connects Android CLI to a running Android Studio instance to analyze files, find
 
 ## Description
 
-The `android studio` command set connects Android CLI to a running instance of Android Studio. By delegating to the active IDE, you can run semantic code analysis, navigate symbol declarations and usages, open files in the editor, render Jetpack Compose `@Preview` functions, and query the latest library and tool versions.
+The `android studio` command set connects Android CLI to a running instance of
+Android Studio. By delegating to the active IDE, you can run semantic code
+analysis, navigate symbol declarations and usages, open files in the editor,
+render Jetpack Compose `@Preview` functions, and query the latest library and
+tool versions.
 
 ### Verify IDE requirements
 
-To use the `android studio` commands, you must have your project open in Android Studio Quail 2 or higher.
+To use the `android studio` commands, you must have your project open in Android
+Studio Quail 2 or higher.
 
 ### Select an instance and project (`--pid` and `--project`)
 
-Run [`android studio check`](https://developer.android.com/tools/agents/android-cli/commands/studio_check) first to verify connectivity and inspect open projects. If only one Android Studio instance is running or you invoke a command from inside an open project's directory, `--pid` and `--project` are automatically inferred.
+Run [`android studio check`](https://developer.android.com/tools/agents/android-cli/commands/studio_check) first to verify connectivity and
+inspect open projects. If only one Android Studio instance is running or you
+invoke a command from inside an open project's directory, `--pid` and
+`--project` are automatically inferred.

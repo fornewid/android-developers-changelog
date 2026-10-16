@@ -27,9 +27,12 @@ Lists Google Cloud projects available for device streaming.
 
 ## Description
 
-`android device remote projects` lists the Google Cloud projects that your account can use for device streaming. A project is ready when the required APIs are enabled, your account has the required permissions, and billing is enabled.
+`android device remote projects` lists the Google Cloud projects that your
+account can use for device streaming. A project is ready when the required APIs
+are enabled, your account has the required permissions, and billing is enabled.
 
-By default, only projects that are ready for streaming are listed. If you have more than 10 projects, their readiness isn't checked and all of them are listed.
+By default, only projects that are ready for streaming are listed. If you have
+more than 10 projects, their readiness isn't checked and all of them are listed.
 
 ### Configure listing options
 

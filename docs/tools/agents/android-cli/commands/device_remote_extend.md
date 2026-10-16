@@ -31,7 +31,8 @@ Extends a remote device reservation.
 
 ## Description
 
-`android device remote extend` adds time to a reservation that hasn't ended and prints its new end time.
+`android device remote extend` adds time to a reservation that hasn't ended and
+prints its new end time.
 
 ### Configure extension options
 

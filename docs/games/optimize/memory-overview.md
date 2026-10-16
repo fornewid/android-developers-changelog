@@ -39,7 +39,7 @@ four architectural areas:
 
 ### The total memory footprint metric
 
-The platform-level Android 17 Memory Limiter evaluate process consumption using
+The platform-level Android 17 Memory Limiter evaluates process consumption using
 Total Memory Footprint rather than total resident size (RSS) or virtual memory
 size.
 
@@ -107,13 +107,21 @@ from the foreground to a background Perceptible Service state.
 
 To minimize bytecode size and reduce basic Java process overhead, Google Play
 Console evaluates code optimization as part of its app quality guidelines. For
-more details on configuring your build pipeline, see the [Enable app
-optimization with R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization) guide.
+more information about the optimization requirements and limits that apply to
+games, see [DEX code optimization](https://developer.android.com/google/play/vitals/code-optimization) in the Android vitals documentation.
 
-To configure R8 in your project, follow the [Enable app optimization with R8](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization)
-guide. To enable advanced shrinking and optimization settings, see [Use R8 in
-full mode](https://developer.android.com/topic/performance/app-optimization/full-mode). To identify which rules are preventing R8 from obfuscating
-classes or removing dead code, use the [Use R8 Configuration Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer).
+To configure R8 in a standard Android project, follow the [Enable app
+optimization](https://developer.android.com/topic/performance/app-optimization/enable-app-optimization) guide. To enable advanced shrinking and optimization settings,
+see [Use R8 in full mode](https://developer.android.com/topic/performance/app-optimization/full-mode). To identify which rules are preventing R8 from
+obfuscating classes or removing dead code, use the [R8 Configuration
+Analyzer](https://developer.android.com/topic/performance/app-optimization/r8-configuration-analyzer).
+
+If you're building with a game engine, default R8 behavior varies by engine and
+version:
+
+- **Unity** : Code minification is disabled by default, so you must enable it in your project settings. For more information about version support and configuration steps, see [Shrink and optimize Unity code with R8](https://developer.android.com/games/engines/unity/unity-r8).
+- **Unreal Engine** : Starting in UE 4.25, R8 is enabled by default in Release builds, requiring you to manage keep rules for JNI bridges and plugins. For more information about version details and UPL configuration, see [Shrink
+  and optimize Unreal Engine code with R8](https://developer.android.com/games/engines/unreal/unreal-r8).
 
 #### Bitmap requirements
 
@@ -129,7 +137,7 @@ To effectively optimize your game's memory, you must first understand how the
 Android platform measures its footprint. Android 17 updates the memory
 metric to track the sum of Anonymous RSS (RssAnon) and uncompressed
 Swap (VmSwap), excluding file-backed or GPU-private memory. This guide details
-how to leverage system-level tools such as Perfetto and `meminfo`, implement
+how to use system-level tools such as Perfetto and `meminfo`, implement
 diagnostic APIs such as `ProfilingManager` and `onTrimMemory`, and extract
 precise memory allocations within Unity and Unreal Engine. Understand how to
 accurately profile your game and avoid the performance stutters associated with

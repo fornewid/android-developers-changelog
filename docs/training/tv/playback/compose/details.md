@@ -1,32 +1,22 @@
 ---
-title: Build a details screen  |  Android TV  |  Android Developers
+title: https://developer.android.com/training/tv/playback/compose/details
 url: https://developer.android.com/training/tv/playback/compose/details
-source: html-scrape
+source: md.txt
 ---
-
-* [Android Developers](https://developer.android.com/)
-* [Develop](https://developer.android.com/develop)
-* [Devices](https://developer.android.com/develop/devices)
-* [Android TV](https://developer.android.com/training/tv)
-
-# Build a details screen Stay organized with collections Save and categorize content based on your preferences.
-
-
-
-
 
 Many TV apps include content detail pages with relevant metadata for a given
 piece of content (i.e. a specific movie). Detail pages can be implemented as a
 composable function, taking metadata of the selected content as its argument.
 
 The following code is a typical implementation of the details screen. It
-[loads an image](/develop/ui/compose/graphics/images/loading#internet-loading)
+[loads an image](https://developer.android.com/develop/ui/compose/graphics/images/loading#internet-loading)
 of the given movie with its title and description. The user's able to make a
 screen transition to the player screen, which can be triggered by clicking a
 button to start movie playback. You can handle this action to make the screen
 transition by setting a callback function.
 
-```
+
+```kotlin
 @Composable
 fun DetailsScreen(
     movie: Movie,
@@ -52,21 +42,9 @@ fun DetailsScreen(
         }
     }
 }
-
-Details.kt
 ```
 
-**Note:** `AsyncImage` is a composable to load an image from the internet.
-See [Loading images](/develop/ui/compose/graphics/images/loading) for details.
+<br />
 
-[Previous
-
-arrow\_back
-
-Create a catalog browser](/training/tv/playback/compose/browse)
-
-[Next
-
-Create scrollable layouts
-
-arrow\_forward](/training/tv/playback/compose/lists)
+> [!NOTE]
+> **Note:** `AsyncImage` is a composable to load an image from the internet. See [Loading images](https://developer.android.com/develop/ui/compose/graphics/images/loading) for details.

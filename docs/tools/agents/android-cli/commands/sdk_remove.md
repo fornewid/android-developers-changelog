@@ -31,11 +31,14 @@ Removes packages from the SDK.
 
 ## Description
 
-`android sdk remove` uninstalls one or more packages from your SDK installation directory.
+`android sdk remove` uninstalls one or more packages from your SDK installation
+directory.
 
 ### Format package paths
 
-Package names use slashes (`/`) as the delimiter (for example, `platforms/android-33`, `build-tools/33.0.0`). Semicolon-delimited paths (`platforms;android-33`) are also supported.
+Package names use slashes (`/`) as the delimiter (for example,
+`platforms/android-33`, `build-tools/33.0.0`). Semicolon-delimited paths
+(`platforms;android-33`) are also supported.
 
 ### Examples
 

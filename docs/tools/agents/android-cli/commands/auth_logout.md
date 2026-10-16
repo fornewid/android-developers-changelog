@@ -22,7 +22,10 @@ Log out from Google services for Android CLI.
 
 ## Description
 
-`android auth logout` signs you out of your Google account. It revokes the refresh token on the server and deletes it from your machine. If the token can't be revoked on the server, it's still deleted locally, and the command prints a link where you can revoke access manually.
+`android auth logout` signs you out of your Google account. It revokes the
+refresh token on the server and deletes it from your machine. If the token can't
+be revoked on the server, it's still deleted locally, and the command prints a
+link where you can revoke access manually.
 
 ### Examples
 

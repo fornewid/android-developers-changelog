@@ -30,7 +30,9 @@ Disconnects a remote device.
 
 ## Description
 
-`android device remote disconnect` disconnects the device of a reservation from `adb` and stops the background connection. The reservation isn't removed, so you can connect to the device again with `android device remote connect`.
+`android device remote disconnect` disconnects the device of a reservation from
+`adb` and stops the background connection. The reservation isn't removed, so you
+can connect to the device again with `android device remote connect`.
 
 ### Examples
 
